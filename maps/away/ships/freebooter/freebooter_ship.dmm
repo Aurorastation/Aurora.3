@@ -679,6 +679,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
+"aZC" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "baj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
@@ -3019,6 +3026,12 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/dorms)
+"gPS" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "gSo" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4117,6 +4130,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/lockers)
+"jTM" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "jUk" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -4719,9 +4739,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "lfg" = (
@@ -5146,7 +5163,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
-/obj/machinery/firealarm/east,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "mbg" = (
@@ -5781,6 +5797,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
+"nuX" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "nwD" = (
 /obj/effect/floor_decal/corner{
 	dir = 8
@@ -7167,9 +7189,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "qiz" = (
@@ -7697,6 +7716,10 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
+"rmr" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "rnp" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -8521,7 +8544,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "tcV" = (
@@ -8565,7 +8587,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster2)
 "tld" = (
 /obj/structure/table/steel,
@@ -9367,6 +9389,10 @@
 "vdX" = (
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
+"vec" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "veq" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -39123,7 +39149,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+ewW
 ewW
 ewW
 ewW
@@ -39380,9 +39406,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 vkx
 aKs
+rmr
 tcI
 plx
 foU
@@ -39637,9 +39663,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 vkx
 ugG
+jTM
 lfb
 plx
 pfE
@@ -39894,9 +39920,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 hPM
 qwx
+rmr
 jGn
 plx
 wMd
@@ -40151,9 +40177,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 vkx
 xPD
+gPS
 kCv
 wRm
 jvN
@@ -40408,7 +40434,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+ewW
 ewW
 ewW
 ewW
@@ -45548,7 +45574,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+uZl
 uZl
 uZl
 uZl
@@ -45805,9 +45831,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 vFo
 nXu
+nuX
 tjz
 pvL
 vhv
@@ -46062,9 +46088,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 icO
 joM
+vec
 jlr
 rXk
 tYU
@@ -46319,9 +46345,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 vFo
 joM
+aZC
 qgY
 rXk
 lqh
@@ -46576,9 +46602,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
 vFo
 aKF
+vec
 lUK
 rXk
 ofb
@@ -46833,7 +46859,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+uZl
 uZl
 uZl
 uZl
