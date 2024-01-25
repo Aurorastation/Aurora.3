@@ -1314,7 +1314,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "cgU" = (
-/turf/simulated/wall/r_wall,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/reagent_containers/food/snacks/grown/banana,
+/obj/item/reagent_containers/food/snacks/grown/banana,
+/obj/item/reagent_containers/food/snacks/grown/mushroom,
+/obj/structure/closet/crate/miningcart,
+/obj/item/reagent_containers/food/snacks/tastybread,
+/obj/item/reagent_containers/food/snacks/tastybread,
+/obj/item/storage/box/produce{
+	layer = 2.99
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "ciM" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2548,8 +2564,8 @@
 /obj/machinery/button/remote/airlock{
 	dir = 4;
 	id = "freebooter_brig";
-	name = "Phoron Storage Bolt Control";
-	pixel_x = 21;
+	name = "Secure Storage Bolt Control";
+	pixel_x = 23;
 	pixel_y = 4;
 	specialfunctions = 4
 	},
@@ -3200,6 +3216,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
+"hqJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/ship/freebooter_ship/pod8)
 "htS" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/freebooter_ship/pod8)
@@ -3427,9 +3452,9 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "hZY" = (
-/obj/machinery/door/airlock/vault{
+/obj/machinery/door/airlock/highsecurity{
+	name = "Secure Storage Compartment";
 	dir = 4;
-	name = "Phoron Storage Compartment";
 	id = "freebooter_brig"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3544,15 +3569,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
-"iiy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/ship/freebooter_ship/pod8)
 "iiZ" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 1
@@ -3869,13 +3885,6 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
-"jfC" = (
-/obj/effect/floor_decal/corner{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/pod8)
 "jgM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -6255,25 +6264,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/thruster2)
-"osW" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/reagent_containers/food/snacks/grown/banana,
-/obj/item/reagent_containers/food/snacks/grown/banana,
-/obj/item/reagent_containers/food/snacks/grown/mushroom,
-/obj/structure/closet/crate/miningcart,
-/obj/item/reagent_containers/food/snacks/tastybread,
-/obj/item/reagent_containers/food/snacks/tastybread,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/pod8)
 "ovG" = (
 /obj/item/stack/tile/floor_dark,
 /obj/structure/barricade/wooden{
@@ -9715,6 +9705,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
+"vHR" = (
+/turf/simulated/wall/r_wall,
+/area/ship/freebooter_ship/pod8)
 "vMG" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -10506,6 +10499,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
+"xAd" = (
+/obj/effect/floor_decal/corner{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/pod8)
 "xBh" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
@@ -46109,11 +46109,11 @@ hhA
 vOL
 xRX
 uwT
-cgU
+vHR
 hhQ
-iiy
+hqJ
 hZY
-cgU
+vHR
 uwT
 xRX
 eiL
@@ -46366,7 +46366,7 @@ hhA
 vOL
 xRX
 uwT
-osW
+cgU
 onn
 uZC
 iok
@@ -46626,7 +46626,7 @@ uwT
 vMG
 hil
 uOr
-jfC
+xAd
 irq
 uwT
 vZW
