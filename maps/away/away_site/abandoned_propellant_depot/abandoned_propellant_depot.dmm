@@ -9302,20 +9302,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
-"Ey" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/aux{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/north,
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/hallways_south)
 "EA" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
@@ -12254,11 +12240,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -52604,7 +52585,7 @@ Ul
 KX
 Ki
 Ul
-Ey
+qr
 dy
 qV
 TD
