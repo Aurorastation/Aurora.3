@@ -3373,14 +3373,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod7)
-"hRt" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/ship/freebooter_ship/pod4)
 "hUF" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4002,9 +3994,6 @@
 /obj/structure/table/steel,
 /obj/item/melee/energy/sword/pirate/generic,
 /obj/item/laser_components/modifier/stock,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "jFM" = (
@@ -4232,9 +4221,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
 "kmP" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8
-	},
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
@@ -5948,14 +5934,6 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod1)
-"nVq" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/ship/freebooter_ship/pod4)
 "nWh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7076,12 +7054,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
-"pZx" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/ship/freebooter_ship/pod4)
 "pZI" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/bed/stool/chair/office/light{
@@ -7366,7 +7338,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "qAl" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
@@ -9981,9 +9952,6 @@
 /obj/structure/table/steel,
 /obj/item/gun/projectile/automatic/improvised,
 /obj/effect/floor_decal/corner/red/full,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "woF" = (
@@ -10289,9 +10257,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/item/material/twohanded/baseballbat/metal,
 /obj/item/material/twohanded/baseballbat/metal,
 /turf/simulated/floor/tiled/dark,
@@ -10581,9 +10546,6 @@
 /obj/item/receivergun,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
 	},
 /obj/item/material/kitchen/utensil/knife/boot,
 /turf/simulated/floor/tiled/dark,
@@ -38900,13 +38862,13 @@ eHQ
 eIb
 eIb
 xRX
-nVq
-pZx
+gwg
+gwg
 jEO
 xLr
 wnq
-pZx
-hRt
+gwg
+gwg
 xRX
 cLC
 cLC
