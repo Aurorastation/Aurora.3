@@ -1,41 +1,53 @@
 /datum/map_template/ruin/away_site/abandoned_propellant_depot
-	name = "Abandoned Industrial Station"//Not a visible thing ingame, but this should be unique for visibility purposes
-	description = "Abandoned Industrial Station."//Not visible ingame
-	unit_test_groups = list(1)
-
-	id = "abandoned_propellant_depot"//Arbitrary tag to make things work. This should be lowercase and unique
+	name = "Abandoned Propellant Depot"
+	description = "Abandoned Propellant Depot."
+	id = "abandoned_propellant_depot"
+	suffixes = list("away_site/abandoned_propellant_depot/abandoned_propellant_depot.dmm")
 	spawn_cost = 1
 	spawn_weight = 1
-	suffixes = list("away_site/abandoned_industrial/abandoned_propellant_depot.dmm")
-
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	unit_test_groups = list(1)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/abandoned_propellant_depot//Arbitrary duplicates of the above name/desc
-	map = "abandoned industrial station"
-	descriptor = "Abandoned Industrial Station."
+	map = "Abandoned Propellant Depot"
+	descriptor = "Abandoned Propellant Depot."
 
-/obj/effect/overmap/visitable/sector/abandoned_propellant_depot//This is the actual overmap object that spawns at roundstart
-	name = "Abandoned Industrial Station"//This and desc is visible ingame when the object is scanned by any scanner
-	desc = "Industrial station of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
+/obj/effect/overmap/visitable/sector/abandoned_propellant_depot
+	name = "Abandoned Propellant Depot"
+	desc = "Industrial propellant depot of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
 	icon_state = "outpost"
-
 	static_vessel = TRUE
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
-	icon_state = "outpost"
+	icon_state = "outpost2"
 	color = "#bbb186"
 	designer = "Unknown"
-	volume = "78 meters length, 133 meters beam/width, 24 meters vertical height"
+	volume = "92 meters length, 99 meters beam/width, 27 meters vertical height"
 	weapons = "Not apparent"
 	sizeclass = "Industrial Station"
 
 	initial_generic_waypoints = list(
-		"nav_abandoned_propellant_depot_north",
-		"nav_abandoned_propellant_depot_north_close",
-		"nav_abandoned_propellant_depot_east",
-		"nav_abandoned_propellant_depot_south",
-		"nav_abandoned_propellant_depot_south_close",
-		"nav_abandoned_propellant_depot_west",
-		"nav_abandoned_propellant_depot_hangar_other"
+		// docks
+		"nav_abandoned_propellant_depot_dock_north_east",
+		"nav_abandoned_propellant_depot_dock_north_west",
+		"nav_abandoned_propellant_depot_dock_west",
+		"nav_abandoned_propellant_depot_dock_east_north",
+		"nav_abandoned_propellant_depot_dock_east_south",
+		"nav_abandoned_propellant_depot_dock_south_east",
+		"nav_abandoned_propellant_depot_dock_south_mid",
+		"nav_abandoned_propellant_depot_dock_south_west",
+		// catwalks
+		"nav_abandoned_propellant_depot_catwalk_north",
+		"nav_abandoned_propellant_depot_catwalk_west",
+		"nav_abandoned_propellant_depot_catwalk_south_1",
+		"nav_abandoned_propellant_depot_catwalk_south_2",
+		"nav_abandoned_propellant_depot_catwalk_south_3",
+		"nav_abandoned_propellant_depot_catwalk_south_4",
+		// space
+		"nav_abandoned_propellant_depot_space_south_west",
+		"nav_abandoned_propellant_depot_space_south_east",
+		"nav_abandoned_propellant_depot_space_north_west",
+		"nav_abandoned_propellant_depot_space_north_east",
 	)
 
