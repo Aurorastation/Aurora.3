@@ -22,18 +22,18 @@
 		"6" = /turf/space
 	)
 
-	station_name = "SCCV Horizon"
-	station_short = "Horizon"
-	dock_name = "SCC Sector Liaison Post"
-	dock_short = "Sector Liaison Post"
-	boss_name = "Stellar Corporate Conglomerate"
-	boss_short = "SCC"
-	company_name = "Stellar Corporate Conglomerate"
-	company_short = "SCC"
-	station_type = "ship"
+	station_name = "SCCV Горизонт"
+	station_short = "Горизонт"
+	dock_name = "Корпоративный связной порт"
+	dock_short = "Связной порт"
+	boss_name = "Звёздный Корпоративный Конгломерат"
+	boss_short = "ЗКК"
+	company_name = "Звёздный Корпоративный Конгломерат"
+	company_short = "ЗКК"
+	station_type = "судно"
 
 	command_spawn_enabled = TRUE
-	command_spawn_message = "Welcome to the SCCV Horizon!"
+	command_spawn_message = "Добро пожаловать на SCCV Горизонт!"
 
 	use_overmap = TRUE
 	num_exoplanets = 2
@@ -64,39 +64,39 @@
 		NETWORK_NEWS
 	)
 
-	shuttle_docked_message = "Attention all hands: the shift change preparations are over. It will start in approximately %ETA%."
-	shuttle_leaving_dock = "Attention all hands: the shift change is underway, concluding in %ETA%."
-	shuttle_called_message = "Attention all hands: the shift change has been scheduled. The swap will begin in %ETA%."
-	shuttle_recall_message = "Attention all hands: the shift change has been cancelled, return to normal operating conditions."
-	bluespace_docked_message = "Attention all hands: Bluespace jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
-	bluespace_leaving_dock = "Attention all hands: Bluespace jump initiated, exiting bluespace in %ETA%."
-	bluespace_called_message = "Attention all hands: Bluespace jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
-	bluespace_recall_message = "Attention all hands: Bluespace jump sequence aborted, return to normal operating conditions."
-	emergency_shuttle_docked_message = "Attention all hands: the emergency evacuation has started. You have approximately %ETA% minutes to board the emergency pods."
-	emergency_shuttle_leaving_dock = "Attention all hands: the emergency evacuation has been completed."
-	emergency_shuttle_recall_message = "Attention all hands: the emergency evacuation has been canceled."
-	emergency_shuttle_called_message = "Attention all hands: an emergency evacuation has been called. It will start in approximately %ETA%."
+	shuttle_docked_message = "Внимание экипажу: закончены приготовления к ротации экипажа. Начало через %ETA% минуты."
+	shuttle_leaving_dock = "Внимание экипажу: начата процедура ротации персонала, конец через %ETA% минуты."
+	shuttle_called_message = "Внимание экипажу: запланирован конец смены. Ротация экипажа начнётся через %ETA% минут."
+	shuttle_recall_message = "Внимание экипажу: конец смены отменён, возвращайтесь к работе."
+	bluespace_docked_message = "Внимание экипажу: Закончены приготовления к блюспейс прыжку. Начался разгорев двигателя. До прыжка осталось примерно %ETA%."
+	bluespace_leaving_dock = "Внимание экипажу: Инициирован блюспейс прыжок. До выхода %ETA%."
+	bluespace_called_message = "Внимание экипажу: Начата процедура блюспейс прыжка. До завершения приготовлений %ETA%."
+	bluespace_recall_message = "Внимание экипажу: Блюспейс прыжок был отменён, возвращайтесь к работе."
+	emergency_shuttle_docked_message = "Внимание экипажу: спасательные капсулы взведены. У вас есть %ETA% минут чтобы сесть на спасательные капсулы."
+	emergency_shuttle_leaving_dock = "Внимание экипажу: эвакуация была завершена."
+	emergency_shuttle_recall_message = "Внимание экипажу: эвакуация была отменена."
+	emergency_shuttle_called_message = "Внимание экипажу: объявлена эвакуация. До взведения спасательных капсул %ETA%."
 
-	meteors_detected_message = "A meteor storm has been detected on collision course with the ship. Estimated three minutes until impact, please activate the shielding fields and seek shelter in the central areas."
-	meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact."
-	meteor_end_message = "The ship has cleared the meteor shower, please return to your stations."
+	meteors_detected_message = "Внимание экипажу: Крупное скопление метеоров находится на траектории столкновения с судном. У вас есть три минуты чтобы активировать щиты и укрываться в центральных отсеках корабля."
+	meteor_contact_message = "Внимание экипажу: Метеоры достигли судна. Приготовьтесь к столкновению."
+	meteor_end_message = "Внимание экипажу: Метеоры миновали судно, возвращайтесь на места."
 
-	ship_meteor_contact_message = "Debris from a nearby derelict are on collision course with the ship. Prepare for impact."
-	ship_detected_end_message = "Ship debris colliding now, all hands brace for impact."
-	ship_meteor_end_message = "The last of the ship debris has hit or passed by the ship, it is now safe to commence repairs."
+	ship_meteor_contact_message = "Внимание экипажу: Обломки от местных руин находятся на траектории столкновения с судном."
+	ship_detected_end_message = "Внимание экипажу: Обломки достигли судна. Приготовьтесь к столкновению."
+	ship_meteor_end_message = "Внимание экипажу: Обломки миновали судно. Разрешено приступать к ремонту."
 
-	dust_detected_message = "A belt of space dust is approaching the ship."
-	dust_contact_message = "The ship is now passing through a belt of space dust."
-	dust_end_message = "The ship has now passed through the belt of space dust."
+	dust_detected_message = "Внимание экипажу: Приближается космическая пыль."
+	dust_contact_message = "Внимание экипажу: Космическая пыль достигла судна."
+	dust_end_message = "Внимание экипажу: Космическая пыль миновала судно."
 
-	radiation_detected_message = "High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels."
-	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until the ship has passed through it and engineering has given the all-clear."
-	radiation_end_message = "The ship has passed the radiation belt. Please await an all-clear from engineering staff before exiting maintenance as there may be residual radiation. Immediately make your way to the medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
+	radiation_detected_message = "Внимание экипажу: Радиационный шторм вскоре накроет судно. Эвакуируйтесь в один из экранированных технических тоннелей."
+	radiation_contact_message = "Внимание экипажу: Судно вошло в радиационный шторм. Оставайтесь в безопасной зоне до тех пор, пока шторм не прошёл и машинный отсек не дал разрешение на выход."
+	radiation_end_message = "Внимание экипажу: Судно покинуло радиационный шторм. Оставайтесь в безопасной зоне до тех пор, пока не будет получено разрешение на выход от машинного отсека. Доступ в технические тоннели будет вскоре восстановлен."
 
-	rogue_drone_detected_messages = list("Combat drone swarms from a nearby facility have engaged the ship. If any are sighted in the area, approach with caution.",
-													"Malfunctioning combat drones have been detected close to the ship. If any are sighted in the area, approach with caution.")
-	rogue_drone_end_message = "The hostile drone swarm has left the ship's proximity."
-	rogue_drone_destroyed_message = "Sensors indicate the unidentified drone swarm has left the immediate proximity of the ship."
+	rogue_drone_detected_messages = list("Внимание экипажу: Неопознанные боевые дроны были замечены в непосредственной близости с судном. Соблюдайте осторожность.",
+													"Внимание экипажу: Сбойные боевые дроны были замечены вблизи судна. Соблюдайте осторожность.")
+	rogue_drone_end_message = "Внимание экипажу: Боевые дроны покинули судно."
+	rogue_drone_destroyed_message = "Внимание экипажу: Потерян визуальный контакт с дронами."
 
 
 	map_shuttles = list(
@@ -142,34 +142,34 @@
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 
-	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
-	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
-	welcome_text += "<hr>Current sector:<br /><b>[SSatlas.current_sector.name]</b><br /><br>"
+	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Горизонт</b> Данные считывания сенсоров сверх-дальнего действия:")]<br>"
+	welcome_text += "Отчёт сгенерирован [worlddate2text()] в [worldtime2text()]</center><br /><br />"
+	welcome_text += "<hr>Текущий сектор:<br /><b>[SSatlas.current_sector.name]</b><br /><br>"
 
 	if (horizon) //If the overmap is disabled, it's possible for there to be no Horizon.
 		var/list/space_things = list()
-		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
-		welcome_text += "Next system targeted for jump:<br /><b>[SSatlas.current_sector.generate_system_name()]</b><br /><br>"
+		welcome_text += "Текущие координаты:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
+		welcome_text += "Следующая система для прыжка:<br /><b>[SSatlas.current_sector.generate_system_name()]</b><br /><br>"
 		var/last_visit
-		var/current_day = time2text(world.realtime, "Day")
+		var/current_day = time2text(world.realtime, "День")
 		switch(current_day)
 			if("Monday")
-				last_visit = "1 day ago"
+				last_visit = "1 день назад"
 			if("Tuesday")
-				last_visit = "2 days ago"
+				last_visit = "2 дня назад"
 			if("Wednesday")
-				last_visit = "3 days ago"
+				last_visit = "3 дня назад"
 			if("Thursday")
-				last_visit = "4 days ago"
+				last_visit = "4 дня назад"
 			if("Friday")
-				last_visit = "5 days ago"
+				last_visit = "5 дней назад"
 			if("Saturday")
-				last_visit = "6 days ago"
+				last_visit = "6 дней назад"
 			if("Sunday")
-				last_visit = "1 week ago"
-		welcome_text += "Last port visit: <br><b>[last_visit]</b><br><br>"
-		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
-		welcome_text += "Scan results show the following points of interest:<br />"
+				last_visit = "Неделю назад"
+		welcome_text += "Последний визит в порт: <br><b>[last_visit]</b><br><br>"
+		welcome_text += "До ближайшего порта:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
+		welcome_text += "Сканирование системы выявило следующие точки интереса:<br />"
 
 		for(var/zlevel in GLOB.map_sectors)
 			var/obj/effect/overmap/visitable/O = GLOB.map_sectors[zlevel]
@@ -182,18 +182,18 @@
 			space_things |= O
 
 		for(var/obj/effect/overmap/visitable/O in space_things)
-			var/location_desc = " at present co-ordinates."
+			var/location_desc = " на следующих координатах."
 			if(O.loc != horizon.loc)
 				var/bearing = round(90 - Atan2(O.x - horizon.x, O.y - horizon.y),5) //fucking triangles how do they work
 				if(bearing < 0)
 					bearing += 360
-				location_desc = ", bearing [bearing]."
+				location_desc = ", азимут [bearing]."
 			welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
 
 		welcome_text += "<hr>"
 
-	post_comm_message("SCCV Horizon Sensor Readings", welcome_text)
-	priority_announcement.Announce(message = "Long-range sensor readings have been printed out at all communication consoles.")
+	post_comm_message("Данные считывания сенсоров SCCV Горизонт", welcome_text)
+	priority_announcement.Announce(message = "Данные со считывания сенсоров сверх-дальнего действия были распечатаны на все консоли командования.")
 
 /datum/map/sccv_horizon/load_holodeck_programs()
 	// loads only if at least two engineers are present

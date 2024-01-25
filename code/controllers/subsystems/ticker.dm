@@ -212,7 +212,7 @@ var/datum/controller/subsystem/ticker/SSticker
 					if(!delay_notified)
 						delay_notified = 1
 						message_admins("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
-						to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+						to_world("<span class='notice'><b>Администрация отложила конец раунда</b></span>")
 					sleep(15 SECONDS)
 				else if(delay_notified)
 					message_admins("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
@@ -231,7 +231,7 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
 
-	to_world("<br><br><br><H1>A round of [mode.name] has ended!</H1>")
+	to_world("<br><br><br><H1>Раунд с режимом [mode.name] подошёл к концу!!</H1>")
 	for(var/mob/Player in GLOB.player_list)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
@@ -239,22 +239,22 @@ var/datum/controller/subsystem/ticker/SSticker
 				var/area/playerArea = get_area(playerTurf)
 				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 					if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
-						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
+						to_chat(Player, SPAN_GOOD(SPAN_BOLD("Вам удалось пережить события на [station_name()] за [Player.real_name].")))
 					else
-						to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You managed to survive, but were marooned as [Player.real_name]...")))
+						to_chat(Player, SPAN_NOTICE(SPAN_BOLD("Вам удалось пережить смену, но вы были высажены с судна...")))
 				else if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
-					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You successfully underwent the crew transfer after the events on [station_name()] as [Player.real_name].")))
+					to_chat(Player, SPAN_GOOD(SPAN_BOLD("К концу подошла очередная смена на [station_name()].")))
 				else if(issilicon(Player))
-					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You remain operational after the events on [station_name()] as [Player.real_name].")))
+					to_chat(Player, SPAN_GOOD(SPAN_BOLD("Ваше функционирование на [station_name()] продолжается.")))
 				else
-					to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You missed the crew transfer after the events on [station_name()] as [Player.real_name].")))
+					to_chat(Player, SPAN_NOTICE(SPAN_BOLD("Вы пропустили конец смены на [station_name()] за [Player.real_name].")))
 			else
 				if(istype(Player,/mob/abstract/observer))
 					var/mob/abstract/observer/O = Player
 					if(!O.started_as_observer)
-						to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
+						to_chat(Player, SPAN_WARNING(SPAN_BOLD("Вы не пережили события на [station_name()]...")))
 				else
-					to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
+					to_chat(Player, SPAN_WARNING(SPAN_BOLD("Вы не пережили события на [station_name()]...")))
 	to_world("<br>")
 
 	for (var/mob/living/silicon/ai/aiPlayer in GLOB.mob_list)
@@ -265,9 +265,9 @@ var/datum/controller/subsystem/ticker/SSticker
 		aiPlayer.show_laws(1)
 
 		if (aiPlayer.connected_robots.len)
-			var/robolist = "<b>The AI's loyal minions were:</b> "
+			var/robolist = "<b>Миньонами ИИ были:</b> "
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
-				robolist += "[robo.name][robo.stat?" (Deactivated), ":", "]"
+				robolist += "[robo.name][robo.stat?" (Деактивирован), ":", "]"
 			to_world("[robolist]")
 
 	var/dronecount = 0
@@ -280,15 +280,15 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		if (!robo.connected_ai && !istype(robo,/mob/living/silicon/robot/shell))
 			if (robo.stat != 2)
-				to_world("<b>[robo.name] survived as an AI-less borg! Its laws were:</b>")
+				to_world("<b>[robo.name] пережил раунд без ИИ хозяина! Его законами были:</b>")
 			else
-				to_world("<b>[robo.name] was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
+				to_world("<b>[robo.name] не пережил отсутствие ИИ хозяина. Его законами были:</b>")
 
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-		to_world("<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance drone\s at the end of this round.</b>")
+		to_world("<b>В раунде [dronecount>1 ? "было" : "был"] [dronecount] [dronecount>1 ? "индустриальных дрона" : "индустриальный дрон"].</b>")
 
 	mode.declare_completion()//To declare normal completion.
 
@@ -308,7 +308,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				total_antagonists[temprole] += ": [Mind.name]"
 
 	//Now print them all into the log!
-	log_game("Antagonists at round end were...")
+	log_game("Антагонистами были...")
 	for(var/i in total_antagonists)
 		log_game("[i]s[total_antagonists[i]].")
 
@@ -406,7 +406,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		message = pick(tip_datum.messages)
 
 	if(message)
-		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
+		to_world(SPAN_VOTE(SPAN_BOLD("Совет раунда:") + " [html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
 	var/data = revdata.testmerge_overview()
@@ -438,8 +438,8 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		setup_player_ready_list()
 
-	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
-	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
+	to_world("<B><span class='notice'>Добро пожаловать в подготовительное лобби!</span></B>")
+	to_world("Настраивайте своих персонажей, игра начнётся через [pregame_timeleft] секунд.")
 
 	// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
 	var/list/available_ghostroles = list()
@@ -459,14 +459,14 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(length(available_ghostroles))
 		to_world("<br>" \
-			+ SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: ")) \
+			+ SPAN_BOLD(SPAN_NOTICE("Внекорабельные роли в этом раунде: ")) \
 			+ "[english_list(available_ghostroles)]. " \
 			+ SPAN_INFO("Actual availability may vary.") \
 			+ "<br>" \
 		)
 
 	var/datum/space_sector/current_sector = SSatlas.current_sector
-	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
+	var/html = SPAN_NOTICE("Текущий сектор: [current_sector].") + {"\
 		<span> \
 			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
 			to see every possible site/ship that can potentially spawn here.\
@@ -487,7 +487,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
-			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
+			to_world("<B>Не удалось выбрать игровой режим.</B> Возвращаемся в лобби.")
 			return SETUP_REVOTE
 		if(GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			src.mode = GLOB.config.pick_mode(GLOB.secret_force_mode)
@@ -531,13 +531,13 @@ var/datum/controller/subsystem/ticker/SSticker
 				voted_not_ready += player.ckey
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
-		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
+		fail_reasons += "Недостаточно игроков, требуется [mode.required_players]"
 
 	if(can_start & GAME_FAILURE_NO_ANTAGS)
-		fail_reasons += "Not enough antagonists, [mode.required_enemies] antagonist(s) needed"
+		fail_reasons += "Недостаточно антагонистов, требуется [mode.required_enemies]"
 
 	if(can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
-		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
+		fail_reasons +=  "Слишком много игроков, требуется не более [mode.max_players] человек"
 
 	if(can_start != GAME_FAILURE_NONE)
 		to_world("<B>Unable to start the game mode, due to lack of available antagonists.</B> [english_list(fail_reasons,"No reason specified",". ",". ")]")
@@ -546,23 +546,23 @@ var/datum/controller/subsystem/ticker/SSticker
 		mode = null
 		SSjobs.ResetOccupations()
 		if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
-			to_world("<B>Reselecting gamemode...</B>")
+			to_world("<B>Пытаемся выбрать другой режим...</B>")
 			return SETUP_REATTEMPT
 		else
-			to_world("<B>Reverting to pre-game lobby.</B>")
+			to_world("<B>Возвращаемся в лобби.</B>")
 			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
 
 	if(hide_mode)
-		to_world("<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
+		to_world("<B>Текущий игровой режим - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)
 				tmpmodes+=M.name
 			tmpmodes = sortList(tmpmodes)
 			if(tmpmodes.len)
-				to_world("<B>Possibilities:</B> [english_list(tmpmodes)]")
+				to_world("<B>Возможные режимы:</B> [english_list(tmpmodes)]")
 	else
 		src.mode.announce()
 
@@ -600,7 +600,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			continue
 		var/obj/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
 		JG.update_icon(NP)
-	to_world(SPAN_NOTICE("<b>Enjoy the round!</b>"))
+	to_world(SPAN_NOTICE("<b>Приятной игры!</b>"))
 	if(SSatlas.current_sector.sector_welcome_message)
 		sound_to(world, sound(SSatlas.current_sector.sector_welcome_message))
 	else
@@ -769,14 +769,14 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		var/datum/browser/sites_win = new(
 			usr,
-			"Sector: " + current_sector.name,
-			"Sector: " + current_sector.name,
+			"Сектор: " + current_sector.name,
+			"Сектор: " + current_sector.name,
 			500, 500,
 		)
-		var/html = "<h1>Ships and sites that spawn in this sector:</h1>"
-		html += "<h3>Ships:</h3>"
+		var/html = "<h1>Корабли и объекты, появляющиеся в этом секторе:</h1>"
+		html += "<h3>Корабли:</h3>"
 		html += english_list(ship_names)
-		html += "<h3>Sites:</h3>"
+		html += "<h3>Объекты:</h3>"
 		html += english_list(site_names)
 		sites_win.set_content(html)
 		sites_win.open()
