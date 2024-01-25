@@ -121,6 +121,11 @@
 	pixel_y = 6;
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "au" = (
@@ -138,11 +143,21 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "aw" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "aA" = (
@@ -176,6 +191,10 @@
 	pixel_x = -7
 	},
 /obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 12;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/engineering)
 "aF" = (
@@ -457,6 +476,11 @@
 /area/abandoned_propellant_depot/mess)
 "bD" = (
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "bF" = (
@@ -514,6 +538,10 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_1";
+	name = "airlock_abandoned_propellant_depot_1"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
 "bP" = (
@@ -550,6 +578,11 @@
 	pixel_x = -20;
 	dir = 4;
 	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
@@ -588,6 +621,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint)
+"cc" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_north_east)
 "cd" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline,
@@ -609,6 +651,11 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "ch" = (
@@ -937,6 +984,11 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "dn" = (
@@ -954,6 +1006,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/west,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "do" = (
@@ -1109,6 +1166,8 @@
 /area/abandoned_propellant_depot/kitchen)
 "dN" = (
 /obj/random/dirt_75,
+/obj/item/stack/liquidbags/half_full,
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/security)
 "dO" = (
@@ -1196,6 +1255,7 @@
 /obj/random/tool,
 /obj/item/device/flashlight/flare/glowstick/random,
 /obj/random/dirt_75,
+/obj/item/stack/cable_coil/random,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/engineering)
 "eb" = (
@@ -1255,11 +1315,9 @@
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint)
 "en" = (
-/obj/item/melee/telebaton{
-	pixel_x = -4;
-	pixel_y = -8
-	},
 /obj/random/dirt_75,
+/obj/item/stack/barbed_wire/half_full,
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/security)
 "eo" = (
@@ -1319,6 +1377,10 @@
 	pixel_x = -20;
 	dir = 4;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_5";
+	name = "airlock_abandoned_propellant_depot_5"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
@@ -1639,6 +1701,10 @@
 "fJ" = (
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
+/obj/item/clothing/shoes/jackboots/cavalry{
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/storage/toggle/highvis_alt,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/security)
 "fK" = (
@@ -1727,6 +1793,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "fZ" = (
@@ -1748,6 +1819,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "gd" = (
@@ -1756,6 +1832,10 @@
 	pixel_x = -20;
 	dir = 4;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_4";
+	name = "airlock_abandoned_propellant_depot_4"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
@@ -1817,8 +1897,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"gq" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_3";
+	name = "airlock_abandoned_propellant_depot_3"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_east)
 "gs" = (
 /obj/structure/table/steel,
+/obj/random/medical{
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
 "gt" = (
@@ -2010,6 +2101,11 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "he" = (
@@ -2106,6 +2202,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/south_west,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "hw" = (
@@ -2153,6 +2254,10 @@
 	icon_state = "2-8"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_5";
+	name = "airlock_abandoned_propellant_depot_5"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
 "hJ" = (
@@ -2226,6 +2331,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
+"hZ" = (
+/obj/structure/bed/padded,
+/obj/item/towel_flat{
+	pixel_x = -2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/crew_quarters)
 "ic" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 1
@@ -2275,6 +2388,11 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "ij" = (
@@ -2382,6 +2500,11 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "iA" = (
@@ -2955,6 +3078,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_propellant_depot/mess)
+"kv" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_east)
 "ky" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/purple,
 /obj/effect/floor_decal/industrial/warning{
@@ -2998,6 +3131,14 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint_storage)
+"kF" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_6";
+	name = "airlock_abandoned_propellant_depot_6"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "kI" = (
@@ -3280,6 +3421,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
+"lW" = (
+/obj/structure/bed/padded,
+/obj/random/dirt_75,
+/obj/item/bedsheet/random,
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/crew_quarters)
 "lX" = (
 /obj/structure/table/glass{
 	table_reinf = "glass"
@@ -3342,6 +3489,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_5";
+	name = "airlock_abandoned_propellant_depot_5"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
 "mm" = (
@@ -3404,6 +3555,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "mA" = (
@@ -3517,6 +3673,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/south_mid,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "nh" = (
@@ -3597,6 +3758,11 @@
 	pixel_x = -20;
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "nz" = (
@@ -3634,6 +3800,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/east_south,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "nH" = (
@@ -3686,6 +3857,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "nQ" = (
@@ -3794,6 +3970,11 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "oh" = (
@@ -3803,6 +3984,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "oj" = (
@@ -3817,6 +4003,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "ok" = (
@@ -3931,6 +4122,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/north_west,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "oL" = (
@@ -4009,6 +4205,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/melee/telebaton{
+	pixel_x = -4;
+	pixel_y = -8
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/security)
 "pb" = (
@@ -4451,6 +4651,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "qF" = (
@@ -4579,6 +4784,11 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "rj" = (
@@ -4862,6 +5072,10 @@
 	pixel_y = -6;
 	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_2";
+	name = "airlock_abandoned_propellant_depot_2"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
 "so" = (
@@ -4892,6 +5106,11 @@
 	pixel_y = 0;
 	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "ss" = (
@@ -4906,6 +5125,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/south_east,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "sv" = (
@@ -4929,6 +5153,10 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_4";
+	name = "airlock_abandoned_propellant_depot_4"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
 "sA" = (
@@ -5022,6 +5250,11 @@
 	dir = 2
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "sS" = (
@@ -5128,6 +5361,11 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "tl" = (
@@ -5273,6 +5511,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/maint_storage)
+"tJ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_north_east)
 "tL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -5417,6 +5667,10 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_3";
+	name = "airlock_abandoned_propellant_depot_3"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "um" = (
@@ -5440,6 +5694,11 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "uo" = (
@@ -5556,6 +5815,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "uS" = (
@@ -5634,11 +5898,12 @@
 /area/abandoned_propellant_depot/atmos_air_aux_fill)
 "vo" = (
 /obj/structure/closet/cabinet,
-/obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm{
 	pixel_x = 8
 	},
 /obj/item/melee/telebaton,
+/obj/item/melee/ceremonial_sword,
+/obj/item/gun/projectile/pistol/sol,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/chiefs_quarters)
 "vp" = (
@@ -5690,6 +5955,11 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "vv" = (
@@ -5803,6 +6073,10 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_6";
+	name = "airlock_abandoned_propellant_depot_6"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "vL" = (
@@ -5949,6 +6223,11 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "wh" = (
@@ -6059,6 +6338,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_2";
+	name = "airlock_abandoned_propellant_depot_2"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
 "wv" = (
@@ -6352,6 +6635,24 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/crew_quarters)
+"xr" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 17;
+	pixel_y = -5
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "xs" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/tiled,
@@ -6548,6 +6849,11 @@
 	pixel_y = -20;
 	pixel_x = -6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "yf" = (
@@ -6611,6 +6917,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/east_north,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "yv" = (
@@ -6717,6 +7028,10 @@
 	dir = 4;
 	pixel_y = -6;
 	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_5";
+	name = "airlock_abandoned_propellant_depot_5"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
@@ -6825,6 +7140,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tool,
+/obj/item/stack/cable_coil/random,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/engineering)
 "zv" = (
@@ -6846,6 +7162,15 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/hallways_east)
+"zy" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_west)
 "zz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 8
@@ -7029,6 +7354,11 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "Ae" = (
@@ -7066,6 +7396,10 @@
 	dir = 4;
 	pixel_y = -6;
 	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_4";
+	name = "airlock_abandoned_propellant_depot_4"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
@@ -7176,6 +7510,7 @@
 /area/abandoned_propellant_depot/propellant_tanks)
 "AC" = (
 /obj/random/dirt_75,
+/obj/structure/flora/pottedplant/dead2,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/chiefs_quarters)
 "AD" = (
@@ -7188,6 +7523,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_2";
+	name = "airlock_abandoned_propellant_depot_2"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
 "AE" = (
@@ -7432,6 +7771,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"BG" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_east)
 "BH" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/random/dirt_75,
@@ -7471,6 +7819,10 @@
 	pixel_y = 6;
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_6";
+	name = "airlock_abandoned_propellant_depot_6"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "BP" = (
@@ -7495,6 +7847,10 @@
 	pixel_x = -20;
 	dir = 4;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_3";
+	name = "airlock_abandoned_propellant_depot_3"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
@@ -7619,6 +7975,11 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "Cz" = (
@@ -7904,6 +8265,11 @@
 	pixel_y = 28;
 	pixel_x = -6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "Dp" = (
@@ -7996,9 +8362,9 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_scc_scout_dock_starboard";
-	master_tag = "airlock_scc_scout_dock_starboard";
-	landmark_tag = "nav_scc_scout_dock_starboard"
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
@@ -8129,6 +8495,14 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_south)
+"Ed" = (
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/full,
+/area/abandoned_propellant_depot/crew_quarters)
 "Ee" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -8235,6 +8609,11 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "Ex" = (
@@ -8315,6 +8694,11 @@
 	pixel_y = -20;
 	pixel_x = 6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "EK" = (
@@ -8331,6 +8715,11 @@
 	pixel_y = -6;
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "EN" = (
@@ -8342,6 +8731,11 @@
 	pixel_x = -20;
 	dir = 4;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
@@ -8357,6 +8751,11 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "ER" = (
@@ -8370,6 +8769,11 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "EU" = (
@@ -8533,6 +8937,10 @@
 	pixel_y = -6;
 	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_1";
+	name = "airlock_abandoned_propellant_depot_1"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
 "FG" = (
@@ -8566,6 +8974,11 @@
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/north_east,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "FN" = (
@@ -8946,6 +9359,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
+"Hr" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_west)
 "Ht" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -8963,10 +9394,20 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "Hx" = (
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "Hy" = (
@@ -9008,6 +9449,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
+"HG" = (
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "HI" = (
 /obj/structure/flora/pottedplant/dead2,
 /turf/simulated/floor/wood,
@@ -9059,6 +9508,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_6";
+	name = "airlock_abandoned_propellant_depot_6"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "HN" = (
@@ -9077,6 +9530,11 @@
 "HP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "HQ" = (
@@ -9368,6 +9826,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "IQ" = (
@@ -9478,12 +9941,16 @@
 /area/abandoned_propellant_depot/hallways_south)
 "Jk" = (
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "Jl" = (
-/obj/structure/flora/pottedplant/dead2,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/aquablue,
 /area/abandoned_propellant_depot/chiefs_quarters)
 "Jm" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -9777,6 +10244,19 @@
 "Kl" = (
 /turf/simulated/floor/tiled/full,
 /area/abandoned_propellant_depot/hallways_west)
+"Kq" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "Ks" = (
 /obj/structure/closet/cabinet,
 /obj/random/gloves,
@@ -9797,6 +10277,10 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_4";
+	name = "airlock_abandoned_propellant_depot_4"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
 "Ku" = (
@@ -9833,6 +10317,11 @@
 	pixel_y = -6;
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "Kz" = (
@@ -9866,6 +10355,10 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_5";
+	name = "airlock_abandoned_propellant_depot_5"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
 "KG" = (
@@ -9997,6 +10490,10 @@
 	dir = 4;
 	pixel_y = -6
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_6";
+	name = "airlock_abandoned_propellant_depot_6"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "KZ" = (
@@ -10062,6 +10559,11 @@
 	pixel_x = -20;
 	dir = 4;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
@@ -10142,14 +10644,13 @@
 /area/abandoned_propellant_depot/atmos_air)
 "LC" = (
 /obj/structure/closet,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/projectile/pistol{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/civgun,
+/obj/item/ammo_magazine/mc9mm{
+	pixel_x = 8
 	},
 /obj/item/melee/telebaton,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/security)
 "LE" = (
@@ -10162,6 +10663,11 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "LG" = (
@@ -10169,6 +10675,11 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "LI" = (
@@ -10269,6 +10780,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_propellant_depot/atmos_propellant)
+"Mb" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_north_east)
 "Mc" = (
 /obj/item/pen/crayon/purple{
 	pixel_x = -5;
@@ -10297,6 +10820,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/eva)
+"Mi" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_east)
 "Mj" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -10306,6 +10841,10 @@
 	pixel_x = 20;
 	dir = 8;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_1";
+	name = "airlock_abandoned_propellant_depot_1"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
@@ -10370,6 +10909,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "My" = (
@@ -10447,6 +10991,10 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_1";
+	name = "airlock_abandoned_propellant_depot_1"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
 "MR" = (
@@ -10465,6 +11013,10 @@
 	pixel_x = 20;
 	dir = 8;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_2";
+	name = "airlock_abandoned_propellant_depot_2"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
@@ -10518,6 +11070,11 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "Nf" = (
@@ -10554,6 +11111,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/gym)
+"Nn" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_north_west)
 "Np" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
@@ -10567,6 +11133,10 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_4";
+	name = "airlock_abandoned_propellant_depot_4"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
 "Ns" = (
@@ -11287,6 +11857,11 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "PW" = (
@@ -11305,6 +11880,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_propellant_depot/hallways_south)
+"PZ" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_east"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_east)
 "Qa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable{
@@ -11378,6 +11962,11 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_south";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_south";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_south"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "Qt" = (
@@ -11411,6 +12000,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_4";
+	name = "airlock_abandoned_propellant_depot_4"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
 "Qx" = (
@@ -11799,6 +12392,11 @@
 	dir = 8;
 	pixel_y = 6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "RN" = (
@@ -12042,6 +12640,11 @@
 	dir = 8;
 	pixel_y = -6;
 	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
@@ -12300,6 +12903,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "TL" = (
@@ -12569,6 +13177,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "Uz" = (
@@ -12798,6 +13411,11 @@
 	dir = 4;
 	pixel_y = -6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "Vt" = (
@@ -12854,6 +13472,11 @@
 "VD" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "VF" = (
@@ -13062,6 +13685,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "Wu" = (
@@ -13089,6 +13717,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 14;
+	pixel_y = -3
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/reactor)
 "Wz" = (
@@ -13117,6 +13749,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"WD" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_west)
 "WE" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -13153,12 +13797,12 @@
 	pixel_y = 32;
 	pixel_x = 16
 	},
+/obj/random/suit,
+/obj/item/clothing/under/rank/sol/dress/subofficer,
 /obj/item/clothing/ring/engagement{
 	pixel_y = -5;
 	pixel_x = 2
 	},
-/obj/random/suit,
-/obj/item/clothing/under/rank/sol/dress/subofficer,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/chiefs_quarters)
 "WO" = (
@@ -13214,6 +13858,11 @@
 "WU" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "WV" = (
@@ -13277,6 +13926,17 @@
 /obj/structure/flora/pottedplant/dead2,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
+"Xm" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_3";
+	name = "airlock_abandoned_propellant_depot_3"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/docks_south_east)
 "Xn" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -13324,6 +13984,11 @@
 	dir = 4;
 	pixel_y = 6;
 	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_north_east";
+	master_tag = "airlock_abandoned_propellant_depot_dock_north_east";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_north_east"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
@@ -13543,6 +14208,10 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_5";
+	name = "airlock_abandoned_propellant_depot_5"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
 "Ys" = (
@@ -13724,6 +14393,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_east_north";
+	master_tag = "airlock_abandoned_propellant_depot_dock_east_north";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_east_north"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
 "Zb" = (
@@ -13740,6 +14414,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "Zc" = (
@@ -13763,6 +14442,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_south_mid";
+	master_tag = "airlock_abandoned_propellant_depot_dock_south_mid";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_south_mid"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "Zf" = (
@@ -13782,6 +14466,11 @@
 	pixel_y = -5
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_abandoned_propellant_depot_dock_west";
+	master_tag = "airlock_abandoned_propellant_depot_dock_west";
+	landmark_tag = "nav_abandoned_propellant_depot_dock_west"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "Zh" = (
@@ -13809,8 +14498,8 @@
 /area/abandoned_propellant_depot/docks_north_west)
 "Zm" = (
 /obj/random/tech_supply{
-	pixel_x = 10;
-	pixel_y = 12
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -13835,6 +14524,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_3";
+	name = "airlock_abandoned_propellant_depot_3"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
 "Zr" = (
@@ -13859,6 +14552,10 @@
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
+	},
+/obj/item/spirit_board{
+	pixel_x = 2;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
@@ -14004,6 +14701,10 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_1";
+	name = "airlock_abandoned_propellant_depot_1"
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
 "ZV" = (
@@ -14033,6 +14734,10 @@
 	dir = 4;
 	pixel_y = -6;
 	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_abandoned_propellant_depot_3";
+	name = "airlock_abandoned_propellant_depot_3"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
@@ -33698,7 +34403,7 @@ Wu
 PO
 LE
 Ne
-LG
+WD
 hv
 Zi
 Zi
@@ -33954,7 +34659,7 @@ Wu
 Wu
 PO
 Dn
-LG
+WD
 nV
 nV
 Zi
@@ -35995,7 +36700,7 @@ ye
 PO
 KY
 BN
-Wu
+kF
 vJ
 ob
 ob
@@ -39101,7 +39806,7 @@ Zd
 nx
 dm
 LG
-un
+Hr
 Zi
 Zi
 Zi
@@ -39357,7 +40062,7 @@ gj
 oh
 sr
 Dz
-Hx
+zy
 nf
 Zi
 Zi
@@ -39838,7 +40543,7 @@ Zi
 Zi
 Zi
 qD
-Jk
+Nn
 SR
 RK
 Ws
@@ -44203,7 +44908,7 @@ Zi
 Zi
 Zi
 lQ
-Gb
+lQ
 QD
 Lg
 Gb
@@ -45509,7 +46214,7 @@ IG
 zM
 Ul
 gf
-Ki
+HG
 Uu
 Ul
 qr
@@ -48590,7 +49295,7 @@ xE
 uS
 ak
 fG
-Qb
+hZ
 uS
 ar
 Ki
@@ -49627,7 +50332,7 @@ In
 Ki
 tE
 cw
-xR
+xr
 Ki
 Ul
 qr
@@ -50902,7 +51607,7 @@ DK
 uS
 KJ
 KJ
-KJ
+Ed
 BI
 uS
 uS
@@ -51695,7 +52400,7 @@ Sx
 mB
 EL
 Li
-aC
+PZ
 Cv
 Zi
 Zi
@@ -52208,7 +52913,7 @@ kV
 Qm
 mB
 HP
-DX
+kv
 mB
 mB
 Zi
@@ -53222,7 +53927,7 @@ dH
 dH
 dH
 gZ
-gZ
+Kq
 gZ
 PI
 Je
@@ -53462,7 +54167,7 @@ fw
 fw
 fw
 uS
-Ph
+lW
 gs
 Qb
 Lv
@@ -56037,8 +56742,8 @@ Cz
 Jn
 my
 tk
-cg
-ha
+Mb
+tJ
 fw
 sQ
 WJ
@@ -56295,7 +57000,7 @@ fw
 fw
 fw
 tk
-bD
+cc
 fw
 TY
 us
@@ -56309,15 +57014,15 @@ ob
 ob
 ob
 Zq
-aC
-Qs
+gq
+Xm
 mB
 gT
 gT
 gT
 oj
 wg
-ri
+Mi
 mB
 Ls
 Ls
@@ -56574,7 +57279,7 @@ NC
 mB
 mB
 Qs
-aC
+BG
 mB
 Zi
 Zi
