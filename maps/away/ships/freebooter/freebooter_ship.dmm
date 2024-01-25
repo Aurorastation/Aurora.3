@@ -679,13 +679,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
-"aZC" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "baj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
@@ -1650,6 +1643,17 @@
 "dlZ" = (
 /turf/simulated/wall,
 /area/ship/freebooter_ship/gunneryentrance)
+"dmI" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
+"dnc" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "doC" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
@@ -3026,12 +3030,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/dorms)
-"gPS" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/firealarm/east,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
 "gSo" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3917,6 +3915,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod8)
+"jkR" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "jlr" = (
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
@@ -4077,6 +4080,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/medical)
+"jMa" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "jMu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -4130,13 +4139,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/lockers)
-"jTM" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
 "jUk" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -4513,6 +4515,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "kEe" = (
@@ -5503,6 +5506,13 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
+"mOd" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "mOF" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -5797,12 +5807,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
-"nuX" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/firealarm/west,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "nwD" = (
 /obj/effect/floor_decal/corner{
 	dir = 8
@@ -6623,6 +6627,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
+"pbd" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "peJ" = (
 /obj/machinery/seed_storage/garden,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -7344,9 +7352,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "qwx" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "qxl" = (
 /obj/effect/floor_decal/spline/plain{
@@ -7659,6 +7667,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
+"rfa" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "rfn" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/machinery/autolathe,
@@ -7716,10 +7731,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
-"rmr" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
 "rnp" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -9373,7 +9384,6 @@
 	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
 "vdz" = (
@@ -9389,10 +9399,6 @@
 "vdX" = (
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
-"vec" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "veq" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -39408,7 +39414,7 @@ xRX
 xRX
 vkx
 aKs
-rmr
+mOd
 tcI
 plx
 foU
@@ -39665,7 +39671,7 @@ xRX
 xRX
 vkx
 ugG
-jTM
+dmI
 lfb
 plx
 pfE
@@ -39921,8 +39927,8 @@ xRX
 xRX
 xRX
 hPM
+ugG
 qwx
-rmr
 jGn
 plx
 wMd
@@ -40179,7 +40185,7 @@ xRX
 xRX
 vkx
 xPD
-gPS
+jMa
 kCv
 wRm
 jvN
@@ -45833,7 +45839,7 @@ xRX
 xRX
 vFo
 nXu
-nuX
+dnc
 tjz
 pvL
 vhv
@@ -46090,7 +46096,7 @@ xRX
 xRX
 icO
 joM
-vec
+jkR
 jlr
 rXk
 tYU
@@ -46347,7 +46353,7 @@ xRX
 xRX
 vFo
 joM
-aZC
+pbd
 qgY
 rXk
 lqh
@@ -46604,7 +46610,7 @@ xRX
 xRX
 vFo
 aKF
-vec
+rfa
 lUK
 rXk
 ofb
