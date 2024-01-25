@@ -1913,6 +1913,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod4)
+"dZn" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "dZH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2135,19 +2142,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
-"esB" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/ship_engine.dmi';
-	icon_state = "nozzle";
-	name = "jurry rigged rocket nozzle";
-	desc = "Simple rocket nozzle, expelling gas at hypersonic velocities to propell the ship. This one no longer works.";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
 "etF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/west,
@@ -2864,6 +2858,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
+"gwc" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "gwg" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
@@ -3184,17 +3183,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
-"hjN" = (
-/obj/machinery/firealarm/west,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 6
-	},
-/obj/machinery/meter,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "hmk" = (
 /obj/item/material/shard,
 /obj/item/trash/broken_electronics,
@@ -6086,13 +6074,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
-"odZ" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "ofb" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -6611,6 +6592,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
+"pbw" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "peJ" = (
 /obj/machinery/seed_storage/garden,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -6747,6 +6735,17 @@
 /obj/effect/shuttle_landmark/freebooter_ship/transit,
 /turf/space,
 /area/space)
+"poS" = (
+/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 6
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "ppp" = (
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
@@ -6880,10 +6879,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
-"pBB" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "pCG" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	layer = 2.71;
@@ -7182,11 +7177,6 @@
 	layer = 2.71;
 	dir = 9
 	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
-"qhf" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "qiz" = (
@@ -8384,6 +8374,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
+"sIz" = (
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 10
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "sLq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9140,16 +9140,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
-"uEu" = (
-/obj/machinery/firealarm/east,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 10
-	},
-/obj/machinery/meter,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
 "uFc" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -9792,6 +9782,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/ammo)
+"vSe" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "vST" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -10108,21 +10102,13 @@
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/gunnery)
 "wHo" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/ship_engine.dmi';
-	icon_state = "nozzle";
-	name = "jurry rigged rocket nozzle";
-	desc = "Simple rocket nozzle, expelling gas at hypersonic velocities to propell the ship. This one no longer works.";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod four"
 	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/ship/freebooter_ship/pod4)
 "wIJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -10449,13 +10435,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
-"xuo" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
 "xuR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -38664,13 +38643,13 @@ wUi
 eIb
 vZW
 vZW
-esB
+vZW
 gwg
-esB
+gwg
 wHo
-esB
 gwg
-esB
+gwg
+vZW
 vZW
 vZW
 cLC
@@ -39414,7 +39393,7 @@ xRX
 xRX
 vkx
 aKs
-xuo
+pbw
 tcI
 plx
 foU
@@ -40185,7 +40164,7 @@ xRX
 xRX
 vkx
 xPD
-uEu
+sIz
 kCv
 wRm
 jvN
@@ -45839,7 +45818,7 @@ xRX
 xRX
 vFo
 nXu
-hjN
+poS
 tjz
 pvL
 vhv
@@ -46096,7 +46075,7 @@ xRX
 xRX
 icO
 joM
-qhf
+gwc
 jlr
 rXk
 tYU
@@ -46353,7 +46332,7 @@ xRX
 xRX
 vFo
 joM
-pBB
+vSe
 qgY
 rXk
 lqh
@@ -46610,7 +46589,7 @@ xRX
 xRX
 vFo
 aKF
-odZ
+dZn
 lUK
 rXk
 ofb
