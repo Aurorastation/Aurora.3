@@ -2141,20 +2141,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
-"esB" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/exterior)
 "etF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/west,
@@ -3359,6 +3345,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/handrail{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
@@ -7061,6 +7050,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
+"pZx" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freebooter_shuttle)
 "pZI" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/bed/stool/chair/office/light{
@@ -7648,14 +7646,19 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "rhN" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freebooter_shuttle)
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "rjL" = (
 /obj/machinery/ship_weapon/blaster{
 	pixel_y = -195;
@@ -45032,7 +45035,7 @@ vxO
 mbg
 bWt
 xHX
-rhN
+pZx
 amu
 amu
 elW
@@ -47091,7 +47094,7 @@ rfz
 rfz
 lCe
 rfz
-esB
+rhN
 vTv
 tOu
 xRX
