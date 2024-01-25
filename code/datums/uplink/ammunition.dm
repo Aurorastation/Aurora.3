@@ -139,10 +139,10 @@
 	desc = "A magazine for an assault rifle."
 
 /datum/uplink_item/item/ammo/sniper_ammo
-	name = "7.62 Sniper Magazine"
+	name = "7.62 Marksman Magazine"
 	telecrystal_cost = 4
 	path = /obj/item/ammo_magazine/d762
-	desc = "A magazine for a 7.62 sniper rifle."
+	desc = "A magazine for a 7.62 marksman rifle."
 
 /datum/uplink_item/item/ammo/bullpup_magazine
 	name = "5.56 Rifle Magazine"

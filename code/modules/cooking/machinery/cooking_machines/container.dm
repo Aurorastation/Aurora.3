@@ -122,7 +122,7 @@
 //Deletes contents of container.
 //Used when food is burned, before replacing it with a burned mess
 /obj/item/reagent_containers/cooking_container/proc/clear()
-	QDEL_NULL_LIST(contents)
+	QDEL_LIST(contents)
 	reagents.clear_reagents()
 
 /obj/item/reagent_containers/cooking_container/proc/label(var/number, var/CT = null)

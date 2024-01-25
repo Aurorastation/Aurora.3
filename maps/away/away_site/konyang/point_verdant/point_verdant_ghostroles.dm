@@ -164,6 +164,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/konyang/akira
 	back = /obj/item/storage/backpack/satchel
 	l_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
 
 /datum/outfit/admin/konyang_vendor/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
@@ -211,6 +212,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	back = /obj/item/storage/backpack/satchel/pharm
 	l_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
 
 /datum/outfit/admin/konyang_pharm/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
@@ -234,6 +236,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
+	id = /obj/item/card/id
 
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"
@@ -261,7 +264,7 @@
 
 /datum/ghostspawner/human/konyang_gwok
 	short_name = "konyang_gwok"
-	name = "Gwok Group Employee"
+	name = "UP! Burger Employee"
 	desc = "Sell fast food and other Gwok-brand merchandise! Explain why the soft-serve machine is broken again."
 	max_count = 1
 	tags = list("External")
@@ -269,13 +272,15 @@
 	outfit = /datum/outfit/admin/konyang_gwok
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Gwok Group Employee"
-	special_role = "Gwok Group Employee"
+	assigned_role = "UP! Burger Employee"
+	special_role = "UP! Burger Employee"
 
 /datum/outfit/admin/konyang_gwok
-	name = "Gwok Group Employee"
-	uniform = /obj/item/clothing/under/pants/jeans
+	name = "UP! Burger Employee"
+	uniform = /obj/item/clothing/under/rank/konyang/burger
 	suit = /obj/item/clothing/accessory/apron/chef
+	head = /obj/item/clothing/head/konyang/burger
+	id = /obj/item/card/id
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 

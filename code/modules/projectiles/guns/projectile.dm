@@ -51,7 +51,7 @@
 /obj/item/gun/projectile/Destroy()
 	chambered = null
 	QDEL_NULL(ammo_magazine)
-	QDEL_NULL_LIST(loaded)
+	QDEL_LIST(loaded)
 	. = ..()
 
 /obj/item/gun/projectile/update_icon()
@@ -237,12 +237,15 @@
 		if(!can_suppress)
 			balloon_alert(user, "\the [S.name] doesn't fit")
 			return
-		if(user.l_hand != suppressor && user.r_hand != suppressor)
-			balloon_alert(user, "not in hand")
-			return
+
 		if(suppressed)
 			balloon_alert(user, "already has a suppressor")
 			return
+
+		if(user.l_hand != S && user.r_hand != S)
+			balloon_alert(user, "not in hand")
+			return
+
 		user.drop_from_inventory(suppressor, src)
 		balloon_alert(user, "[S.name] attached")
 		install_suppressor(S)

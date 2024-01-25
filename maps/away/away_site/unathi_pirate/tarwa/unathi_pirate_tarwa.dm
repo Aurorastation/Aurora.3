@@ -30,7 +30,7 @@
 	designer = "Izweski Hegemony Naval Guilds, Hephaestus Industries"
 	volume = "65 meters length, 35 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Wingtip-mounted heavy ballistic, port obscured flight craft bay"
+	weapons = "Dual wingtip-mounted heavy ballistic, port obscured flight craft bay"
 	sizeclass = "Modified Azkrazal-class cargo freighter"
 	shiptype = "Unknown"
 	initial_restricted_waypoints = list(
@@ -59,19 +59,19 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tarwa_ship/nav1
-	name = "Tarwa Conglomerate Freighter - Fore"
+	name = "Fore"
 	landmark_tag = "nav_tarwa1"
 
 /obj/effect/shuttle_landmark/tarwa_ship/nav2
-	name = "Tarwa Conglomerate Freighter - Port"
+	name = "Port"
 	landmark_tag = "nav_tarwa2"
 
 /obj/effect/shuttle_landmark/tarwa_ship/nav3
-	name = "Tarwa Conglomerate Freighter - Starboard"
+	name = "Starboard"
 	landmark_tag = "nav_tarwa3"
 
 /obj/effect/shuttle_landmark/tarwa_ship/nav4
-	name = "Tarwa Conglomerate Freighter - Aft"
+	name = "Aft"
 	landmark_tag = "nav_tarwa4"
 
 //Shuttle stuff
@@ -101,7 +101,7 @@
 	shuttle_area = list(/area/shuttle/tarwa)
 	current_location = "nav_hangar_tarwa"
 	landmark_transition = "nav_transit_tarwa"
-	dock_target = "tarwa_shuttle"
+	dock_target = "airlock_tarwa_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tarwa"

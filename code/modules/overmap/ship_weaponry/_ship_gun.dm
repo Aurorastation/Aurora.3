@@ -49,6 +49,7 @@
 	destroy_dummies()
 	ammunition.Cut()
 	barrel = null
+	LAZYREMOVE(linked?.ship_weapons, src)
 	return ..()
 
 /obj/machinery/ship_weapon/ex_act(severity)

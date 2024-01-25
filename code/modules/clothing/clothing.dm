@@ -50,7 +50,7 @@
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	QDEL_NULL_LIST(accessories)
+	QDEL_LIST(accessories)
 	return ..()
 
 //Updates the icons of the mob wearing the clothing item, if any.

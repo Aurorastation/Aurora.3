@@ -20,6 +20,7 @@
 	if(on_open_network)
 		GLOB.cameranet.remove_source(src)
 	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/camera/proc/update_coverage(var/network_change = 0)
 	if(network_change)

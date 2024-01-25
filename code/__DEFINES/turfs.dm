@@ -1,5 +1,8 @@
 #define IS_OPAQUE_TURF(turf)	(turf.opacity || turf.has_opaque_atom)
 
+///Returns all turfs in a zlevel
+#define Z_TURFS(ZLEVEL) block(locate(1,1,ZLEVEL), locate(world.maxx, world.maxy, ZLEVEL))
+
 #define TURF_REMOVE_CROWBAR     BITFLAG(1)
 #define TURF_REMOVE_SCREWDRIVER BITFLAG(2)
 #define TURF_REMOVE_SHOVEL      BITFLAG(3)

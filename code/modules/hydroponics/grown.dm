@@ -376,6 +376,9 @@ var/list/fruit_icon_cache = list()
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "sencha"
 
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/update_desc()
+	return
+
 /obj/item/reagent_containers/food/snacks/grown/konyang_tea/afterattack(atom/target, mob/user, proximity, params)
 	if(proximity && target.is_open_container() && target.reagents)
 		if(!target.reagents.total_volume)

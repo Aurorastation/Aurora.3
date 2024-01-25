@@ -6,7 +6,7 @@
 
 	var/turf/T = pick_subarea_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
-		var/datum/seed/seed = SSplants.create_random_seed(1)
+		var/datum/seed/seed = SSplants.create_random_seed(TRUE, SEED_NOUN_PITS)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
 		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 70-100 potency will help guarantee a wide spread and powerful effects.
 		seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
@@ -100,7 +100,8 @@
 
 	name = seed.display_name
 	max_health = round(seed.get_trait(TRAIT_ENDURANCE)/2)
-	if(seed.get_trait(TRAIT_SPREAD)==GROWTH_VINES)
+	if(seed.get_trait(TRAIT_SPREAD) == 2)
+		mouse_opacity = 2
 		max_growth = VINE_GROWTH_STAGES
 		growth_threshold = max_health/VINE_GROWTH_STAGES
 		growth_type = seed.get_growth_type()
@@ -174,6 +175,9 @@
 			max_growth--
 		if(at_fringe >= (spread_distance-2))
 			max_growth--
+
+	var/our_icon = seed.get_icon(growth)
+	add_overlay(our_icon)
 
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5

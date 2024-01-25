@@ -2,16 +2,21 @@
 	var/list/steps
 	var/atom/holder
 	var/result
-	var/list/steps_desc
 	var/current_desc = null
 
 /datum/construction/New(atom)
 	..()
 	holder = atom
 	if(!holder) //don't want this without a holder
-		spawn
-			qdel(src)
+		qdel(src)
 	set_desc(steps.len)
+
+/datum/construction/Destroy(force)
+	holder = null
+
+	steps = null
+
+	. = ..()
 
 /datum/construction/proc/next_step()
 	steps.len--
@@ -60,8 +65,7 @@
 /datum/construction/proc/spawn_result()
 	if(result)
 		new result(get_turf(holder))
-		spawn()
-			qdel(holder)
+		QDEL_NULL(holder)
 
 /datum/construction/proc/set_desc(index as num)
 	var/list/step = steps[index]
