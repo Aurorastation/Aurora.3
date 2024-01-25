@@ -7671,7 +7671,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_corp_garage";
-	name = "Store Shutters";
+	name = "Garage Doors";
 	pixel_y = 12;
 	dir = 8;
 	pixel_x = -21
@@ -9459,6 +9459,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
+"zk" = (
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_bar";
+	identifier = "konyang_bar"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/bar)
 "zl" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/cafe)
@@ -17746,7 +17756,7 @@
 "Vm" = (
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_corp_garage";
-	name = "Store Shutters";
+	name = "Garage Doors";
 	pixel_y = 25;
 	dir = 1
 	},
@@ -44833,7 +44843,7 @@ OW
 LD
 eV
 xj
-eV
+zk
 LD
 Dw
 oV

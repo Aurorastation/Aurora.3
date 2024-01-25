@@ -2717,6 +2717,7 @@
 /obj/structure/table/rack,
 /obj/item/tank/air,
 /obj/random/dirt_75,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
 "it" = (
@@ -4110,6 +4111,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/konyang,
 /obj/structure/table/rack,
 /obj/item/tank/air,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
 "mn" = (
@@ -6544,13 +6546,6 @@
 /obj/item/ammo_magazine/c45/revolver,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
-"tT" = (
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_bar";
-	identifier = "konyang_bar"
-	},
-/turf/simulated/floor/lino/diamond,
-/area/point_verdant/interior/bar)
 "tV" = (
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/offices/kaf)
@@ -43975,7 +43970,7 @@ iw
 sZ
 mj
 eN
-tT
+eN
 eN
 oQ
 sZ
