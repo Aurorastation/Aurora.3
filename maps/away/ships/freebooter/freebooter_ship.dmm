@@ -1643,17 +1643,6 @@
 "dlZ" = (
 /turf/simulated/wall,
 /area/ship/freebooter_ship/gunneryentrance)
-"dmI" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
-"dnc" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/firealarm/west,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "doC" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
@@ -3195,6 +3184,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
+"hjN" = (
+/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 6
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "hmk" = (
 /obj/item/material/shard,
 /obj/item/trash/broken_electronics,
@@ -3915,17 +3915,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod8)
-"jkR" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "jlr" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 9
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "jnK" = (
@@ -4050,10 +4042,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "jGn" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 5
-	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "jJb" = (
@@ -4080,12 +4069,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/medical)
-"jMa" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/firealarm/east,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
 "jMu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -4737,11 +4720,12 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod5)
 "lfb" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "lfg" = (
@@ -5506,13 +5490,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
-"mOd" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster1)
 "mOF" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -6109,6 +6086,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
+"odZ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "ofb" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -6627,10 +6611,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
-"pbd" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "peJ" = (
 /obj/machinery/seed_storage/garden,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -6900,6 +6880,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
+"pBB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
 "pCG" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	layer = 2.71;
@@ -7193,9 +7177,15 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "qgY" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	layer = 2.71;
+	dir = 9
 	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster2)
+"qhf" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
@@ -7667,13 +7657,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
-"rfa" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
 "rfn" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/machinery/autolathe,
@@ -9157,6 +9140,16 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
+"uEu" = (
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 10
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "uFc" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -10456,6 +10449,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
+"xuo" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_ship/thruster1)
 "xuR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -39414,7 +39414,7 @@ xRX
 xRX
 vkx
 aKs
-mOd
+xuo
 tcI
 plx
 foU
@@ -39671,7 +39671,7 @@ xRX
 xRX
 vkx
 ugG
-dmI
+jGn
 lfb
 plx
 pfE
@@ -40185,7 +40185,7 @@ xRX
 xRX
 vkx
 xPD
-jMa
+uEu
 kCv
 wRm
 jvN
@@ -45839,7 +45839,7 @@ xRX
 xRX
 vFo
 nXu
-dnc
+hjN
 tjz
 pvL
 vhv
@@ -46096,7 +46096,7 @@ xRX
 xRX
 icO
 joM
-jkR
+qhf
 jlr
 rXk
 tYU
@@ -46353,7 +46353,7 @@ xRX
 xRX
 vFo
 joM
-pbd
+pBB
 qgY
 rXk
 lqh
@@ -46610,7 +46610,7 @@ xRX
 xRX
 vFo
 aKF
-rfa
+odZ
 lUK
 rXk
 ofb
