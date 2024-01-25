@@ -7,8 +7,8 @@
 	suffixes = list("away_site/planet_crystal_outpost/planet_crystal_outpost.dmm")
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM) //it's a whole planet, shouldn't have it in predefined sectors
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	unit_test_groups = list(1)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/planet_crystal_outpost
 	map = "planet_crystal_outpost"

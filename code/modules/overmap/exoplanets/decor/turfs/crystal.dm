@@ -9,4 +9,5 @@
 // with "sunlight"
 /turf/simulated/floor/exoplanet/crystal/sunlight
 	light_color = "#67aaad"
-	light_range = 3
+	light_range = 10
+	light_power = 1
