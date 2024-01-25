@@ -455,6 +455,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/eva)
 "bA" = (
@@ -586,24 +587,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
-"bT" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 17;
-	pixel_y = -5
-	},
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint)
 "bX" = (
 /obj/structure/tank_wall{
 	density = 0;
@@ -781,6 +764,7 @@
 	pixel_y = -2
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_south)
 "cz" = (
@@ -987,6 +971,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_propellant_depot/kitchen)
 "dl" = (
@@ -1048,6 +1033,9 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/greenglow{
+	pixel_x = 6
+	},
 /turf/simulated/floor/greengrid,
 /area/abandoned_propellant_depot/reactor)
 "dr" = (
@@ -1186,6 +1174,7 @@
 /obj/random/dirt_75,
 /obj/item/stack/liquidbags/half_full,
 /obj/structure/table/rack,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/security)
 "dO" = (
@@ -1879,6 +1868,7 @@
 	pixel_x = 6
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
 "gh" = (
@@ -2099,6 +2089,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
+"gV" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "gW" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/portable_atmospherics/canister/empty/nitrogen,
@@ -2208,14 +2211,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/abandoned_propellant_depot/mess)
-"ht" = (
-/obj/structure/bed/padded,
-/obj/item/towel_flat{
-	pixel_x = -2;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/abandoned_propellant_depot/crew_quarters)
 "hv" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2266,6 +2261,7 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "hG" = (
@@ -3837,6 +3833,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_east)
+"nK" = (
+/obj/machinery/atmospherics/valve,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/atmos_propellant)
 "nM" = (
 /obj/item/tank/emergency_oxygen{
 	pixel_x = -10
@@ -4753,6 +4756,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/abandoned_propellant_depot/mess)
+"qX" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "qZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4786,6 +4794,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/docks_south_east)
+"rg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/flour,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_propellant_depot/kitchen)
 "rh" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4978,6 +4992,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/greenglow{
+	pixel_x = -5;
+	pixel_y = 14
+	},
 /turf/simulated/floor/greengrid,
 /area/abandoned_propellant_depot/reactor)
 "rV" = (
@@ -6557,6 +6575,14 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/gym)
+"xd" = (
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "xf" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable{
@@ -6574,6 +6600,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "xi" = (
@@ -7484,6 +7511,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
+"Aw" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 17;
+	pixel_y = -5
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "Az" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -7615,6 +7660,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_propellant_depot/propellant_tanks)
+"AV" = (
+/obj/structure/bed/padded,
+/obj/random/dirt_75,
+/obj/item/bedsheet/random,
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/crew_quarters)
 "AW" = (
 /obj/machinery/power/portgen/basic,
 /obj/random/dirt_75,
@@ -7745,14 +7796,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
-"BC" = (
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/full,
-/area/abandoned_propellant_depot/crew_quarters)
 "BE" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -8794,6 +8837,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_propellant_depot/crew_quarters)
+"EZ" = (
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/full,
+/area/abandoned_propellant_depot/crew_quarters)
 "Fa" = (
 /obj/random/tech_supply{
 	pixel_y = -7
@@ -9302,6 +9353,7 @@
 /obj/structure/table/rack,
 /obj/machinery/alarm/north,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/eva)
 "Hk" = (
@@ -9550,6 +9602,7 @@
 	pixel_x = -9;
 	pixel_y = 15
 	},
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint)
 "HT" = (
@@ -10616,14 +10669,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
-"Lz" = (
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 8;
-	pixel_y = -8
-	},
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint)
 "LC" = (
 /obj/structure/closet,
 /obj/random/dirt_75,
@@ -10677,6 +10722,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/kitchen)
 "LK" = (
@@ -11130,12 +11176,6 @@
 	pixel_y = -5
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/abandoned_propellant_depot/crew_quarters)
-"Nt" = (
-/obj/structure/bed/padded,
-/obj/random/dirt_75,
-/obj/item/bedsheet/random,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
 "Nv" = (
@@ -11613,6 +11653,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_south)
+"Pg" = (
+/obj/structure/bed/padded,
+/obj/item/towel_flat{
+	pixel_x = -2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/crew_quarters)
 "Ph" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -11813,6 +11861,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/fruit_smudge,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/mess)
 "PO" = (
@@ -11821,6 +11870,7 @@
 "PP" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air_aux_fill)
 "PS" = (
@@ -12349,6 +12399,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/fruit_smudge,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_propellant_depot/kitchen)
 "RH" = (
@@ -12483,19 +12534,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_propellant_depot/propellant_tanks)
-"Sn" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 8;
-	pixel_y = -8
-	},
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint)
 "Sp" = (
 /obj/machinery/shower{
 	pixel_y = 15
@@ -12525,6 +12563,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air_aux_fill)
 "Sx" = (
@@ -12689,6 +12728,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "Te" = (
@@ -13237,6 +13277,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "UO" = (
@@ -13319,6 +13360,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/hallways_east)
+"Vb" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/engineering)
 "Vc" = (
 /obj/structure/table/standard,
 /obj/item/stack/material/tritium{
@@ -13746,6 +13792,7 @@
 "WC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
 "WD" = (
@@ -14075,6 +14122,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/eva)
 "XK" = (
@@ -14115,6 +14163,16 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
+"XT" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "XV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -14652,6 +14710,7 @@
 /obj/random/junk{
 	pixel_x = -13
 	},
+/obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/wood,
 /area/abandoned_propellant_depot/mess)
 "ZK" = (
@@ -41329,7 +41388,7 @@ Wm
 gZ
 Nw
 RA
-gZ
+XT
 dH
 dH
 jQ
@@ -43639,7 +43698,7 @@ LV
 Pr
 ji
 IA
-ip
+Vb
 ZR
 hw
 ip
@@ -45938,7 +45997,7 @@ jl
 rn
 ke
 qy
-fK
+rg
 df
 bm
 OW
@@ -46213,7 +46272,7 @@ IG
 zM
 Ul
 gf
-Lz
+xd
 Uu
 Ul
 qr
@@ -47000,7 +47059,7 @@ Fs
 jI
 Ds
 Ot
-lJ
+nK
 Cc
 GG
 bh
@@ -48012,7 +48071,7 @@ yo
 Rs
 Vx
 Wn
-Ki
+qX
 KX
 Ul
 qr
@@ -49294,7 +49353,7 @@ xE
 uS
 ak
 fG
-ht
+Pg
 uS
 ar
 Ki
@@ -50331,7 +50390,7 @@ In
 Ki
 tE
 cw
-bT
+Aw
 Ki
 Ul
 qr
@@ -51606,7 +51665,7 @@ DK
 uS
 KJ
 KJ
-BC
+EZ
 BI
 uS
 uS
@@ -53926,7 +53985,7 @@ dH
 dH
 dH
 gZ
-Sn
+gV
 gZ
 PI
 Je
@@ -54166,7 +54225,7 @@ fw
 fw
 fw
 uS
-Nt
+AV
 gs
 Qb
 Lv
