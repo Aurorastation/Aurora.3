@@ -20,7 +20,11 @@
 /obj/effect/overmap/visitable/ship/yacht_civ
 	name = "Civilian Yacht"
 	class = "ICV"
-	desc = "???"
+	desc = "\
+		Diamond-class Yacht, commonly seen in Sol and usually used for short-range flights between Solarian planets, moons, and other nearby sectors, \
+		shuttling the rich between work, home, and recreation. Certainly not a cheap platform, sparing no expenses in its internal systems, \
+		it is a quick and capable ship, being designed by Einstein Engines and produced by Hephaestus Industries.\
+		"
 	icon_state = "canary"
 	moving_state = "canary_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
@@ -62,7 +66,7 @@
 		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne",
 	)
 	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine ", "Orbiter of ", "Greetings from "))
-	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol"))
+	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol", " and Moons"))
 	designation = "[prefix][planetary_body][postfix]"
 	..()
 
@@ -71,7 +75,10 @@
 /obj/effect/overmap/visitable/ship/landable/yacht_civ_shuttle
 	name = "Civilian Yacht Shuttle"
 	class = "ICV"
-	desc = "???"
+	desc = "\
+		A small short-range shuttle, primarily designed to move people between smaller docks or moons, and bigger yachts, too big to actually dock. \
+		It has lots of automation and internal systems to help with piloting, so even if it appears unimpressive, it is quite an expensive platform. \
+		"
 	shuttle = "Civilian Yacht Shuttle"
 	icon_state = "pod"
 	moving_state = "pod_moving"
@@ -95,7 +102,7 @@
 		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne",
 	)
 	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine ", "Orbiter of ", "Greetings from "))
-	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol"))
+	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol", " and Moons"))
 	designation = "[prefix][planetary_body][postfix]"
 	..()
 

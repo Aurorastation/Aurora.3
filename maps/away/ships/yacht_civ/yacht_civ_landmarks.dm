@@ -8,7 +8,7 @@
 // --------------------- shuttle
 
 /obj/effect/shuttle_landmark/yacht_civ/shuttle_hangar
-	name = "Shuttle Dock"
+	name = "Shuttle Hangar"
 	landmark_tag = "nav_yacht_civ_shuttle_dock"
 	docking_controller = "airlock_yacht_civ_shuttle_dock"
 
