@@ -22,16 +22,6 @@
 "aev" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
-"afP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/orion_shuttle)
 "afW" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -227,6 +217,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
+"aVM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "aXC" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
@@ -317,17 +320,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "biw" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
-	},
-/obj/structure/closet/walllocker/emerglocker/east,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/item/storage/bag/inflatable/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "bjg" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
@@ -387,8 +381,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/meter,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "buO" = (
@@ -622,7 +617,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "ceU" = (
@@ -1169,6 +1164,16 @@
 "eXm" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/crew)
+"eXD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/orion_shuttle)
 "fau" = (
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle,
 /obj/item/device/radio/intercom/expedition/hailing/west,
@@ -1179,6 +1184,12 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
+"fdC" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle)
 "feE" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -1216,7 +1227,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/meter,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "fmY" = (
@@ -1246,24 +1257,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
-"frt" = (
-/obj/machinery/light{
-	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/structure/table/steel,
-/obj/item/clothing/head/helmet/pilot{
-	pixel_x = 8;
-	pixel_y = 8
-	},
-/obj/item/paper_bin{
-	pixel_x = -2
-	},
-/obj/item/pen{
-	pixel_x = -2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_shuttle)
 "frC" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 8
@@ -1294,13 +1287,9 @@
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "fBW" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 8
-	},
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "fJg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue,
@@ -1371,8 +1360,8 @@
 /area/ship/orion/forehall)
 "gjQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/alarm/east,
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "gkw" = (
@@ -1382,10 +1371,24 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "glh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
+/obj/machinery/light{
+	dir = 8;
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/structure/table/steel,
+/obj/item/clothing/head/helmet/pilot{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/paper_bin{
+	pixel_x = -2
+	},
+/obj/item/pen{
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
+"gnR" = (
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "goI" = (
@@ -1704,6 +1707,14 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
+"hld" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle)
 "hlg" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc{
@@ -1801,7 +1812,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
+/obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
@@ -1871,7 +1882,8 @@
 /obj/structure/sign/electricshock{
 	pixel_x = 32
 	},
-/obj/structure/cable{
+/obj/structure/cable/green{
+	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2004,24 +2016,15 @@
 /area/ship/orion/atmos)
 "ixH" = (
 /obj/effect/floor_decal/corner/dark_green{
-	dir = 6
+	dir = 9
 	},
-/obj/structure/closet/walllocker/firecloset{
-	pixel_x = -32
-	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_shuttle)
-"iBW" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/storage/bag/inflatable/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "iCR" = (
@@ -2308,6 +2311,28 @@
 	},
 /turf/simulated/floor/grass,
 /area/ship/orion/forehall)
+"jOD" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "jWz" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/chem_master/condimaster{
@@ -2403,12 +2428,13 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "kAZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "kDQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -2436,8 +2462,8 @@
 "kLL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/apc/west,
-/obj/structure/cable{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
@@ -2628,6 +2654,16 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion)
+"lTO" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "lXJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2673,7 +2709,11 @@
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "lZq" = (
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "maj" = (
 /obj/machinery/door/airlock/external{
@@ -2960,13 +3000,15 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "mVQ" = (
-/obj/machinery/door/airlock/command{
-	name = "Cockpit"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = null;
+	name = "Cockpit";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "mXd" = (
@@ -2998,12 +3040,6 @@
 /obj/item/clothing/accessory/bandanna/black,
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
-"mYs" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/north,
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_shuttle)
 "ncx" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -3082,20 +3118,8 @@
 "nAQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/west,
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor,
-/area/shuttle/orion_shuttle)
-"nCz" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "nDV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3294,10 +3318,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
-"oeF" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_shuttle)
 "ojl" = (
 /obj/structure/bookcase,
 /turf/simulated/floor,
@@ -3421,15 +3441,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor,
-/area/shuttle/orion_shuttle)
-"oYK" = (
-/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "oZS" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -3643,14 +3660,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/ship/orion/atmos)
-"pXh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
-/obj/structure/closet/crate,
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_shuttle)
 "pXU" = (
 /obj/machinery/shower,
 /obj/structure/curtain/open/shower,
@@ -3694,17 +3703,13 @@
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/orion)
 "qjk" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
 	},
-/obj/structure/fuel_port/phoron{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/corner/dark_green,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "qkP" = (
@@ -4041,11 +4046,10 @@
 /obj/structure/closet/secure_closet/package_courier{
 	req_access = list()
 	},
-/obj/structure/cable{
-	d1 = 4;
+/obj/structure/cable/green{
+	d1 = 1;
 	d2 = 8;
-	icon_state = "1-4";
-	dir = 4
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
@@ -4166,23 +4170,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
-"slp" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/wallmed1{
-	req_access = null;
-	pixel_y = 30;
-	pixel_x = -7
-	},
-/obj/machinery/button/remote/blast_door{
-	name = "Safety Shutters";
-	id = "orion_shuttle_shutters";
-	dir = 1;
-	pixel_y = 27;
-	pixel_x = 7
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_shuttle)
 "slH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -4275,11 +4262,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "ssp" = (
@@ -4691,6 +4678,20 @@
 /obj/item/tank/phoron/shuttle,
 /turf/simulated/floor,
 /area/ship/orion/cargo)
+"tRi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
+	},
+/obj/structure/fuel_port/phoron{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/dark_green,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "tRj" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -5171,6 +5172,18 @@
 "vOd" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/wallmed1{
+	req_access = null;
+	pixel_y = 30;
+	pixel_x = -7
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Safety Shutters";
+	id = "orion_shuttle_shutters";
+	dir = 1;
+	pixel_y = 27;
+	pixel_x = 7
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "vPd" = (
@@ -5183,6 +5196,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
+"vRr" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/light{
+	dir = 4;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle)
 "vRO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5299,25 +5320,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "wkO" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "wlw" = (
@@ -5333,16 +5335,6 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
-"wmb" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_shuttle)
 "wpk" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/grass,
@@ -5782,13 +5774,16 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "yaz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable{
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "yaV" = (
 /obj/machinery/door/airlock/command{
@@ -37551,17 +37546,17 @@ xRX
 xRX
 wFW
 fau
-frt
+glh
 kog
 qUy
 xTL
 ipM
-pXh
+hld
 kLL
-oeF
+biw
 sTK
+tRi
 qjk
-ixH
 nzE
 qUy
 soM
@@ -37817,7 +37812,7 @@ sTm
 hvo
 mcD
 oIF
-wkO
+jOD
 qUy
 qUy
 qUy
@@ -38065,16 +38060,16 @@ xRX
 xRX
 wFW
 jiH
-lZq
+wkO
 jKa
 qUy
 skU
 rdc
 iEl
-yaz
+iEl
 mzY
-oeF
-nCz
+biw
+aVM
 ihA
 oAK
 gXD
@@ -38321,14 +38316,14 @@ xRX
 xRX
 xRX
 qUy
-slp
+vOd
 vPd
 dte
 qUy
-glh
-glh
+lZq
+lZq
 iEl
-yaz
+iEl
 mzO
 rLo
 hlA
@@ -38578,17 +38573,17 @@ xRX
 xRX
 xRX
 qUy
-mYs
-oYK
+fdC
+gnR
 oey
 qUy
 iPr
 nGq
 qQV
-iBW
-afP
+yaz
+eXD
 gdY
-wmb
+lTO
 qUy
 qUy
 qUy
@@ -38835,8 +38830,8 @@ xRX
 xRX
 xRX
 qUy
-vOd
-kAZ
+fBW
+vRr
 kYI
 qUy
 pdw
@@ -38845,8 +38840,8 @@ hNk
 rDd
 uWQ
 iOe
-fBW
-biw
+kAZ
+ixH
 kcS
 qUy
 efO
