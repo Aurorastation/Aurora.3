@@ -307,13 +307,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "biw" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "bjg" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
@@ -374,6 +372,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "buO" = (
@@ -393,13 +392,18 @@
 	command = "cycle_interior";
 	master_tag = "orion_shuttle";
 	name = "interior access button";
-	pixel_x = 32;
+	pixel_x = 25;
 	pixel_y = 10;
 	dir = 1;
 	frequency = 1379
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 36;
+	pixel_y = 11;
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_shuttle)
@@ -738,6 +742,16 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
+"cLs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/orion_shuttle)
 "cLW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -886,10 +900,31 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 9
+	},
+/obj/item/device/radio/off{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/device/radio/off{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/device/radio/off{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/device/radio/off{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "dul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1018,7 +1053,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/shuttle/orion_shuttle)
 "egO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1054,6 +1089,14 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/atmos)
+"erq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle)
 "etL" = (
 /turf/space/transit/north,
 /area/space)
@@ -1127,7 +1170,8 @@
 /area/ship/orion/crew)
 "fau" = (
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle,
-/turf/simulated/floor/shuttle/tan,
+/obj/item/device/radio/intercom/expedition/hailing/west,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "fbf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1161,12 +1205,10 @@
 /obj/item/material/ashtray/glass{
 	pixel_x = 6
 	},
-/obj/structure/sign/flag/blank{
-	desc = "The logo of Orion Express on a flag.";
-	name = "Orion Express flag";
+/obj/structure/table/steel,
+/obj/structure/sign/flag/orion_express{
 	pixel_y = 32
 	},
-/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "fkX" = (
@@ -1233,12 +1275,14 @@
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "fBW" = (
-/obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/wallmed1{
+	req_access = null;
+	pixel_y = 30;
+	pixel_x = -6
 	},
-/turf/simulated/wall/shuttle/scc,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "fJg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue,
@@ -1273,7 +1317,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "gec" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1301,6 +1352,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "gjQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/alarm/east,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "gkw" = (
@@ -1310,10 +1364,11 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "glh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "goI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1491,13 +1546,17 @@
 	command = "cycle_exterior";
 	master_tag = "orion_shuttle";
 	name = "exterior access button";
-	pixel_x = -32
+	pixel_x = -27
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/green,
+/obj/machinery/airlock_sensor{
+	pixel_x = -40;
+	pixel_y = -1
+	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "gOp" = (
@@ -1528,6 +1587,11 @@
 	frequency = 1380
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/airlock_sensor{
+	pixel_x = -22;
+	dir = 4;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_shuttle)
 "gYr" = (
@@ -1648,13 +1712,22 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "hlA" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 2
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "hmX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1701,7 +1774,20 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "hwT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1766,7 +1852,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/smes/buildable/third_party_shuttle,
-/turf/simulated/floor/shuttle/black,
+/obj/structure/sign/electricshock{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "hPo" = (
 /obj/structure/toilet{
@@ -1872,11 +1961,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "ipM" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "itr" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -1888,15 +1978,30 @@
 	initial_gas = list()
 	},
 /area/ship/orion/thruster1)
+"iuC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "iuL" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor,
 /area/ship/orion/atmos)
 "ixH" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
-	icon_state = "tube_empty"
+	dir = 4;
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/wall/shuttle/scc,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "iCR" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -1912,12 +2017,13 @@
 /turf/simulated/floor/airless,
 /area/shuttle/orion_shuttle)
 "iEl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "iGD" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1951,7 +2057,11 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "iPn" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -1961,10 +2071,16 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
 "iPr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/alarm/north,
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	name = "Air to Distribution";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "iTn" = (
 /obj/effect/floor_decal/corner_wide/beige{
@@ -1996,7 +2112,7 @@
 /area/ship/orion/forehall)
 "jiH" = (
 /obj/machinery/computer/ship/sensors,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "jmg" = (
 /obj/effect/floor_decal/corner_wide/beige{
@@ -2025,6 +2141,16 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
+"jrA" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "jsa" = (
 /obj/structure/sign/poster{
 	icon_state = "bsposter32";
@@ -2150,7 +2276,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "jLO" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
@@ -2202,19 +2328,46 @@
 /turf/simulated/floor,
 /area/ship/orion/bridge)
 "kcS" = (
-/obj/structure/extinguisher_cabinet/south,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "kku" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
 	master_tag = "orion_traveler_n_port"
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "kog" = (
-/turf/simulated/floor/shuttle/tan,
+/obj/machinery/light{
+	dir = 8;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/structure/table/steel,
+/obj/machinery/button/remote/blast_door{
+	name = "Safety Shutters";
+	id = "orion_shuttle_shutters";
+	dir = 1;
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/obj/item/clothing/head/helmet/pilot{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/paper_bin{
+	pixel_x = 5
+	},
+/obj/item/pen{
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "krv" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -2256,7 +2409,7 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "kAZ" = (
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "kDQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -2282,11 +2435,12 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "kLL" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/shuttle/black,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/west,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "kOl" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -2329,10 +2483,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "kYI" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "laC" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
@@ -2358,6 +2513,16 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
+"lmf" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "lpC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/meter,
@@ -2377,8 +2542,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
-	pixel_x = -32;
-	req_access = list(201)
+	pixel_x = -25;
+	req_access = list(201);
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -2472,6 +2638,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion)
+"lTv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle)
 "lXJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2522,10 +2695,11 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "maj" = (
 /obj/machinery/door/airlock/external{
@@ -2545,6 +2719,9 @@
 	master_tag = "orion_traveler_n_port";
 	name = "interior access button";
 	pixel_x = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
@@ -2570,11 +2747,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "mcD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "mcN" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -2656,16 +2846,15 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "mzO" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "mzY" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "mBs" = (
 /obj/structure/cable/green{
@@ -2677,7 +2866,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "mBM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
@@ -2692,6 +2880,9 @@
 	master_tag = "orion_traveler_n_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "mGO" = (
@@ -2732,8 +2923,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
-	pixel_x = 32;
-	req_access = list(201)
+	pixel_x = 25;
+	req_access = list(201);
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2766,13 +2958,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "mSt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "mSy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2885,14 +3083,17 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "nzE" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/high/south,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "nAQ" = (
-/obj/structure/fuel_port/phoron{
-	pixel_x = -32
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/west,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "nDV" = (
@@ -2949,10 +3150,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "nGq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Scrubbers to Waste";
+	use_power = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "nHg" = (
 /obj/effect/step_trigger/teleporter,
@@ -3067,14 +3275,28 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
-"oey" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+"odD" = (
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+/obj/structure/bed/handrail{
+	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
+"oey" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/machinery/recharger{
+	pixel_x = 6
+	},
+/obj/item/device/binoculars{
+	pixel_y = 9;
+	pixel_x = -3
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "ojl" = (
 /obj/structure/bookcase,
@@ -3095,6 +3317,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
+	},
+/obj/structure/sign/vacuum{
+	pixel_x = -30
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_shuttle)
@@ -3122,7 +3347,20 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "oKe" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -3143,7 +3381,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "oNK" = (
 /obj/structure/window/reinforced,
@@ -3201,8 +3439,8 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "phP" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3426,15 +3664,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "qgf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
 	master_tag = "orion_traveler_n_port"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
@@ -3445,11 +3683,18 @@
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/orion)
 "qjk" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/structure/fuel_port/phoron{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/dark_green,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "qkP" = (
 /obj/machinery/shipsensors/weak,
@@ -3488,9 +3733,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "qrd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "qsf" = (
 /obj/effect/floor_decal/corner_wide/beige/full,
@@ -3549,12 +3806,12 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion)
 "qGl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
 	master_tag = "orion_traveler_n_port"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
@@ -3597,7 +3854,11 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "qRJ" = (
 /obj/effect/floor_decal/corner/dark_green,
@@ -3646,7 +3907,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "rgL" = (
 /obj/effect/floor_decal/corner_wide/beige{
@@ -3769,7 +4034,11 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/secure_closet/package_courier{
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "rDS" = (
 /obj/machinery/portable_atmospherics/canister/empty{
@@ -3780,7 +4049,10 @@
 	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "rKi" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -3791,13 +4063,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "rLo" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "rNJ" = (
 /obj/machinery/door/airlock/external{
@@ -3866,14 +4136,15 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "skU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 6;
+	pixel_y = 0
 	},
-/obj/machinery/alarm/north{
-	req_one_access = list(201);
-	req_access = list(201)
+/obj/structure/sign/flag/orion_express/large/north{
+	pixel_y = 32
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "sll" = (
 /obj/structure/sign/directions/cryo{
@@ -3955,7 +4226,7 @@
 	shuttle_tag = "Orion Express Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/shuttle/orion_shuttle)
 "spv" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -4114,6 +4385,19 @@
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
+"sNU" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/storage/bag/inflatable/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_shuttle)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -4129,15 +4413,43 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "sTK" = (
-/obj/structure/cable{
-	icon_state = "1-2";
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle)
+"sVL" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "sXW" = (
 /obj/structure/cable/green{
@@ -4279,6 +4591,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/crew)
+"tqy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/orion_shuttle)
 "trH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4335,7 +4652,8 @@
 "tFi" = (
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle,
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/shuttle/tan,
+/obj/effect/floor_decal/industrial/outline/custodial,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle)
 "tGB" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -4580,11 +4898,14 @@
 	landmark_tag = "nav_hangar_orion_express";
 	master_tag = "orion_traveler_n_port"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "uRC" = (
 /obj/machinery/computer/ship/helm,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "uVR" = (
 /obj/effect/landmark/entry_point/aft{
@@ -4596,7 +4917,8 @@
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "uWT" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -4853,11 +5175,12 @@
 /area/ship/orion/shop)
 "vOd" = (
 /obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "vPd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "vPn" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -4981,10 +5304,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "wkO" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/scc,
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "wlw" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -5107,9 +5430,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "wFW" = (
-/obj/structure/window/shuttle/scc,
-/obj/structure/grille,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "orion_shuttle_shutters";
+	name = "Safety Shutter"
+	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
 "wIx" = (
@@ -5403,7 +5730,8 @@
 /area/ship/orion/atmos)
 "xTL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/shuttle/black,
+/obj/structure/closet/crate,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle)
 "xVJ" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -5436,7 +5764,11 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle)
 "yaV" = (
 /obj/machinery/door/airlock/command{
@@ -5488,11 +5820,6 @@
 "yhG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = -6
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
@@ -36947,15 +37274,15 @@ xRX
 xRX
 qUy
 qUy
-fBW
 qUy
 qUy
 qUy
 qUy
-fBW
 qUy
 qUy
-fBW
+qUy
+qUy
+qUy
 qUy
 qUy
 uzX
@@ -37205,16 +37532,16 @@ xRX
 wFW
 fau
 kog
-kog
+tqy
 qUy
 xTL
 ipM
-xTL
+erq
 kLL
 sTK
-sTK
+lTv
 qjk
-qjk
+lmf
 nzE
 qUy
 soM
@@ -37470,9 +37797,9 @@ sTm
 hvo
 mcD
 oIF
-kAZ
+sVL
 qUy
-ixH
+qUy
 qUy
 rrQ
 haV
@@ -37718,16 +38045,16 @@ xRX
 xRX
 wFW
 jiH
-kog
+mzO
 jKa
 qUy
 skU
 rdc
-kAZ
-yaz
+iEl
+biw
 mzY
-kAZ
-kAZ
+sTK
+iuC
 ihA
 oAK
 gXD
@@ -37974,7 +38301,7 @@ xRX
 xRX
 xRX
 qUy
-vOd
+fBW
 vPd
 dte
 qUy
@@ -37982,7 +38309,7 @@ lZq
 glh
 iEl
 biw
-mzO
+mzY
 rLo
 hlA
 buO
@@ -38231,7 +38558,7 @@ xRX
 xRX
 xRX
 qUy
-vOd
+wkO
 kAZ
 oey
 qUy
@@ -38239,11 +38566,11 @@ iPr
 nGq
 qQV
 yaz
-kAZ
+cLs
 gdY
-kAZ
+jrA
 qUy
-ixH
+qUy
 qUy
 rrQ
 qBd
@@ -38489,7 +38816,7 @@ xRX
 xRX
 qUy
 vOd
-kAZ
+ixH
 kYI
 qUy
 pdw
@@ -38498,8 +38825,8 @@ hNk
 rDd
 uWQ
 iOe
-kAZ
-kAZ
+odD
+sNU
 kcS
 qUy
 efO
@@ -38746,16 +39073,16 @@ xRX
 xRX
 qUy
 qUy
-wkO
 qUy
 qUy
 qUy
 qUy
 qUy
-wkO
 qUy
 qUy
-wkO
+qUy
+qUy
+qUy
 qUy
 uzX
 qUy
