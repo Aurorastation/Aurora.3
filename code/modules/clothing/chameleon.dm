@@ -435,12 +435,14 @@
 	else
 		copy_projectile = null
 
-/obj/item/gun/energy/chameleon/verb/change(picked in gun_choices)
+/obj/item/gun/energy/chameleon/verb/change()
 	set name = "Change Gun Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(gun_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", gun_choices)
+
+	if(!picked)
 		return
 
 	disguise(gun_choices[picked])
