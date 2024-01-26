@@ -133,7 +133,7 @@
 	update_icon()
 
 /obj/item/ammo_magazine/Destroy()
-	QDEL_NULL_LIST(stored_ammo)
+	QDEL_LIST(stored_ammo)
 	. = ..()
 
 /obj/item/ammo_magazine/attackby(obj/item/W as obj, mob/user as mob)

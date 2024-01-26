@@ -19,6 +19,11 @@
 	pockets.max_w_class = storage_max_w_class
 	pockets.max_storage_space = storage_max_storage_space
 
+/obj/item/rig_module/storage/Destroy()
+	QDEL_NULL(pockets)
+
+	. = ..()
+
 
 /obj/item/rig/attack_hand(mob/user as mob)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules

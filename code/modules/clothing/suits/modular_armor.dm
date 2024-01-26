@@ -679,6 +679,13 @@
 	icon_state = "flagpatch_hegemony"
 	item_state = "flagpatch_hegemony"
 
+/obj/item/clothing/accessory/flagpatch/portantillia
+	name = "port antillia flagpatch"
+	desc = "A patch bearing the flag of the Union of Port Antillia. Often associated with veterans of the \
+	Antillian Provincial Naval Fleets, these patches are a mark of resilience through hard times on the planet."
+	icon_state = "flagpatch_portantillia"
+	item_state = "flagpatch_portantillia"
+
 // Wildlands
 
 /obj/item/clothing/accessory/flagpatch/fsf

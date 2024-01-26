@@ -196,11 +196,25 @@
 	brightness_power = 0.2
 
 // Guide to the combustion engine
-/obj/item/paper/fluff/scarab
-	name = "Technician's Notice"
-	info = "KEEP THIS NOTE ADJACENT TO THE ENGINE. This is our ship's combustion engine. We burn a fire in the chamber, let it fully burn out, and then run the superheated gas through a vent, into our thermoelectric generator, and back into the chamber. This produces a lot of power, and will be required to keep our SMES topped up in the long term. It will slowly cool down, and may occasionally need more burner mix to be injected to keep it hot enough for our needs. Repairing the inside of the chamber may occasionally become necessary, as a particularly hot burn will damage the walls and windows. GUIDE FOR USE: Step one: configure the mixer to output a 60% oxygen and 40% hydrogen mix. Inject a few hundred kPa of this mix into the chamber. Step 2: cut injection, and ignite the mix. Do not panic when the glass makes a noise, that is normal. Step 3: once the fire has fully burned out, enable combustion chamber injection and output, so the gas begins to circulate through the thermoelectric generator. Innovation upon this basic method is welcome! Do not leave injection on after ignition, and if you think the glass might break, immediately cut fuel injection and lower the blast doors!"
+/obj/item/paper/fluff/scarabengine
+	name = "Burrow-class Freighter Engine Field Guide"
+	desc = "A paper."
+	info = "This is the field guide for the combustion engine of a Burrow-class freight vessel.<BR><BR>A combustion engine works by burning a fire in a combustion chamber, letting it burn out to 100% CO2, and then running the superheated gas through a vent, into a thermoelectric generator, and back into the chamber. This produces a lot of power, and will be required to keep the ship SMES topped up in the long term, but slowly cools down while in use. <BR><BR>GUIDE FOR USE:<BR><BR>Step 1: pressurise the cold loop with at least 2 canisters of hydrogen. The cold loop is the one that runs out into an external radiator array.<BR><BR>Step 2: configure the mixer to output a 60% oxygen and 40% hydrogen mix, and inject as much gas into the chamber as is available to you. <BR><BR>Step 3: cut injection, and ignite the mix. Do not panic when the glass makes a noise, that is normal and should stop after a short period.<BR><BR>Step 3: once the fire has fully burned out, enable combustion chamber injection at 700L/s and output at 1000kPa, so the gas begins to circulate through the thermoelectric generator. Lowering the output pressure will cause it to produce less power while causing the chamber to cool down slower, and raising the output pressure will cause the inverse. Do not generally raise the output above roughly 2000kPa, as this will cause it to cool down very quickly while generating more power than the engine SMES can actually intake, wasting heat. When you do not need power from it, disable the output and input to preserve the heat inside.<BR><BR>WARNING: Do not leave injection on after ignition, and if you think the glass might break, immediately cut fuel injection and lower the blast doors!"
 
-/obj/item/paper/fluff/scarab/Initialize()
+/obj/item/paper/fluff/scarabengine/Initialize()
+	. = ..()
+	var/languagetext = "\[lang=3\]"
+	languagetext += "[info]\[/lang\]"
+	info = parsepencode(languagetext)
+	icon_state = "paper_words"
+
+// Guide to the gas harvester
+/obj/item/paper/fluff/scarabharvester
+	name = "Triton-class Gas Harvester Field Guide"
+	desc = "A paper."
+	info = "This is the field guide for the proper utilisation of a Triton-class gas harvesting shuttle.<BR><BR>The gas harvester works by landing on the surface of an exoplanet, and siphoning the atmosphere therein into a complex filtering system that splits the atmospheric composition into its base components, and ejects any that has not been filtered. These components are then pumped into canisters, allowing completely pure gas to be extracted from a planetary atmosphere.<BR><BR>GUIDE FOR USE:<BR><BR>Step 1: enable both the input and output fields on the harvesting vent control console, to begin siphoning gas. This is best done before landing on a planet, to ensure full vent functionality.<BR><BR>Step 2: configure filters in accordance to the gasses you will be filtering out. They are automatically configured to catch several common gasses, but it is possible to reprogram them to accept any more exotic gas you may encounter.<BR><BR>Step 3: once the shuttle has landed on the planet, canisters will begin filling! If the filtering line does not appear to be pressurising properly, you may resolve this by redocking the shuttle elsewhere to clear debris caught in the vents."
+
+/obj/item/paper/fluff/scarabharvester/Initialize()
 	. = ..()
 	var/languagetext = "\[lang=3\]"
 	languagetext += "[info]\[/lang\]"
@@ -228,4 +242,4 @@
 	color = "#554444"
 
 /obj/item/clothing/mask/offworlder/drab
-	color = "#424d72"
+	color = "#724e6f"

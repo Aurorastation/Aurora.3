@@ -267,7 +267,7 @@
 			return
 		else
 			stuffcache = mobs_in_view(9, src)
-			if((target in stuffcache) && isInSight(src, target))
+			if((target in stuffcache) && is_in_sight(src, target))
 				fire_at(target)
 				return
 			else
@@ -286,7 +286,7 @@
 			continue
 		if(iscultist(L))		 //Pylon wont shoot at cultists or constructs
 			continue
-		if(!isInSight(src, L))
+		if(!is_in_sight(src, L))
 			continue
 		if(ismech(L))
 			var/mob/living/heavy_vehicle/mech = L

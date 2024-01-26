@@ -386,7 +386,7 @@
 
 				var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", parts)
 
-				if(remove_system(to_remove, user))
+				if(remove_system_interact(to_remove, user))
 					return
 				to_chat(user, "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>")
 				return

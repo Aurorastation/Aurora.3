@@ -8,8 +8,7 @@
 	CRASH("auxtools not loaded")
 
 /world/Del()
-	if(byond_version < 515)
-		var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
-		if (debug_server)
-			call(debug_server, "auxtools_shutdown")()
+	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
+	if (debug_server)
+		call_ext(debug_server, "auxtools_shutdown")()
 	. = ..()

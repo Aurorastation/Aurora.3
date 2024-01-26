@@ -55,7 +55,7 @@
 	fuel_consumption = 6
 	shuttle_area = list(/area/shuttle/air_konyang, /area/shuttle/air_konyang/atmos, /area/shuttle/air_konyang/engineering, /area/shuttle/air_konyang/storage, /area/shuttle/air_konyang/starbwing, /area/shuttle/air_konyang/crew, /area/shuttle/air_konyang/mainroom, /area/shuttle/air_konyang/bridge)
 	current_location = "nav_air_konyang_start"
-	dock_target = "air_konyang"
+	dock_target = "airlock_air_konyang"
 	landmark_transition = "nav_air_konyang_transit"
 	logging_home_tag = "nav_air_konyang_start"
 	defer_initialisation = TRUE

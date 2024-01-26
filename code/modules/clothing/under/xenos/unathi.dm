@@ -1,11 +1,14 @@
 /obj/item/clothing/under/unathi
 	name = "sinta tunic"
-	desc = "A tunic common on both Moghes and Ouerea. It's simple and easily-manufactured design makes it \
+	desc = "A tunic common on both Moghes and Ouerea. Its simple and easily-manufactured design makes it \
 	universally favorable."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "tunic"
 	item_state = "tunic"
 	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "belt"
+	has_accents = TRUE
 
 /obj/item/clothing/under/unathi/jizixi
 	name = "jizixi dress"
@@ -90,3 +93,21 @@
 	build_from_parts = TRUE
 	worn_overlay = "belt"
 	has_accents = TRUE
+
+/obj/item/clothing/under/unathi/izweski
+	name = "izweski navy uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its insignia indicates it as belonging to a soldier of the Izweski Hegemony's Navy."
+	icon = 'icons/clothing/under/uniforms/izweski.dmi'
+	icon_state = "izweski"
+	item_state = "izweski"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/unathi/izweski/officer
+	name = "izweski navy officer's uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its golden ornamentation indicates it as belonging to an officer of the Izweski Hegemony's Navy."
+	icon_state = "izweski_officer"
+	item_state = "izweski_officer"

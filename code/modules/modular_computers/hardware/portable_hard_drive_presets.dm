@@ -2,6 +2,10 @@
 	. = ..()
 	add_programs()
 
+/obj/item/computer_hardware/hard_drive/portable/super/preset/all/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/computer_hardware/hard_drive/portable/super/preset/all/proc/add_programs()
 	for(var/F in typesof(/datum/computer_file/program))
 		var/datum/computer_file/program/prog = new F("Compless")
