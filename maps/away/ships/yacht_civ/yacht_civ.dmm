@@ -928,10 +928,10 @@
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "kv" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark,
-/area/ship/yacht_civ/hallway_aft)
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/yacht_civ_shuttle)
 "kw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2363,10 +2363,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
-"zx" = (
-/obj/effect/landmark/entry_point/starboard,
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/yacht_civ_shuttle)
 "zE" = (
 /obj/machinery/power/apc/west{
 	req_access = null
@@ -2915,10 +2911,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
 "EL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/fore,
-/turf/simulated/floor/plating,
-/area/shuttle/yacht_civ_shuttle)
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/yacht_civ/hallway_aft)
 "EM" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4075,10 +4071,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
-"PI" = (
-/obj/effect/landmark/entry_point/port,
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/yacht_civ_shuttle)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -4642,6 +4634,10 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/ship/yacht_civ/quarters)
+"Uu" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/yacht_civ_shuttle)
 "UD" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/yacht_civ/kitchen)
@@ -5020,6 +5016,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
+"Xw" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/yacht_civ_shuttle)
 "XI" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -35686,7 +35686,7 @@ Ys
 Ys
 Ys
 Lp
-zx
+Xw
 Ys
 Iv
 Oo
@@ -36192,7 +36192,7 @@ Mr
 CQ
 vj
 jw
-kv
+EL
 yU
 uU
 Ys
@@ -36461,7 +36461,7 @@ SU
 WV
 WV
 NO
-EL
+kv
 RI
 sY
 eD
@@ -37228,7 +37228,7 @@ Ys
 Ys
 Ys
 Ys
-PI
+Uu
 Ys
 sk
 FL
@@ -37474,7 +37474,7 @@ gv
 qo
 UP
 OR
-kv
+EL
 GZ
 mi
 HG
@@ -37725,7 +37725,7 @@ am
 SQ
 Pg
 cs
-kv
+EL
 ua
 MD
 vp
@@ -37994,7 +37994,7 @@ cs
 vW
 PB
 cs
-kv
+EL
 KZ
 yu
 Uh
