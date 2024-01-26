@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/yacht_civ
 	name = "Civilian Yacht"
-	description = "???"
+	description = "Civilian Yacht"
 	suffixes = list("ships/yacht_civ/yacht_civ.dmm")
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
@@ -13,7 +13,7 @@
 
 /singleton/submap_archetype/yacht_civ
 	map = "Civilian Yacht"
-	descriptor = "???"
+	descriptor = "Civilian Yacht"
 
 // ship
 
@@ -61,7 +61,7 @@
 		"Dione", "Quaoar", "Tethys", "Sedna", "Ceres", "Orcus", "Salacia", "Vesta",
 		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne",
 	)
-	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine "))
+	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine ", "Orbiter of ", "Greetings from "))
 	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol"))
 	designation = "[prefix][planetary_body][postfix]"
 	..()
@@ -94,7 +94,7 @@
 		"Dione", "Quaoar", "Tethys", "Sedna", "Ceres", "Orcus", "Salacia", "Vesta",
 		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne",
 	)
-	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine "))
+	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine ", "Orbiter of ", "Greetings from "))
 	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol"))
 	designation = "[prefix][planetary_body][postfix]"
 	..()

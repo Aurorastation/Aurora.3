@@ -99,6 +99,11 @@
 /obj/structure/bed/stool/chair/wood/wings,
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/kitchen)
+"bA" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/yacht_civ_shuttle)
 "bD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -4425,6 +4430,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
+"SS" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/yacht_civ_shuttle)
 "SU" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -4728,12 +4737,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
+"VE" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/yacht_civ_shuttle)
 "VG" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, dock"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/yacht_civ/hallway_aft)
+"VM" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/yacht_civ_shuttle)
 "VO" = (
 /obj/structure/closet,
 /obj/item/storage/box/fancy/cigpaper/fine{
@@ -35643,7 +35660,7 @@ Ys
 Ys
 Ys
 Lp
-Ys
+SS
 Ys
 Iv
 Oo
@@ -36418,7 +36435,7 @@ SU
 WV
 WV
 NO
-Lp
+bA
 RI
 sY
 eD
@@ -36666,7 +36683,7 @@ TQ
 uU
 uU
 uU
-Ys
+VE
 Lc
 Ys
 Tz
@@ -37185,7 +37202,7 @@ Ys
 Ys
 Ys
 Ys
-Ys
+VM
 Ys
 sk
 FL
