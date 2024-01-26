@@ -1452,6 +1452,10 @@
 	name = "lattice"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/trash/tastybread{
+	pixel_y = 3;
+	pixel_x = -5
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod8)
 "cJt" = (
@@ -2579,7 +2583,7 @@
 /obj/machinery/button/remote/airlock{
 	dir = 4;
 	id = "freebooter_brig";
-	name = "Secure Storage Bolt Control";
+	name = "Phoron Storage Bolt Control";
 	pixel_x = 23;
 	pixel_y = 4;
 	specialfunctions = 4
@@ -2712,9 +2716,6 @@
 	req_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/securearea{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod8)
 "fZq" = (
@@ -3465,7 +3466,7 @@
 /area/ship/freebooter_ship)
 "hZY" = (
 /obj/machinery/door/airlock/highsecurity{
-	name = "Secure Storage Compartment";
+	name = "Phoron Storage Compartment";
 	dir = 4;
 	id_tag = "freebooter_brig"
 	},
@@ -3655,7 +3656,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/bed/padded,
-/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "irX" = (
@@ -7003,9 +7003,6 @@
 	dir = 5
 	},
 /obj/structure/closet/crate/security,
-/obj/structure/sign/securearea{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "pOI" = (
@@ -8439,9 +8436,6 @@
 /obj/effect/floor_decal/corner{
 	dir = 5
 	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/phoron{
 	start_pressure = 332
@@ -8621,7 +8615,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "tld" = (
 /obj/structure/table/steel,
