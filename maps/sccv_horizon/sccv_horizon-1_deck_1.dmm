@@ -1853,7 +1853,7 @@
 	dir = 1;
 	name = "Fuel Access";
 	req_access = null;
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/alarm/west,
@@ -3062,8 +3062,12 @@
 /turf/simulated/floor/plating,
 /area/turbolift/research/deck_1)
 "clf" = (
+/obj/structure/stairs_railing{
+	dir = 4;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
-/area/operations/loading)
+/area/operations/storage)
 "clG" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -3215,6 +3219,20 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"cpC" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67)
+	},
+/obj/machinery/door/firedoor/multi_tile,
+/turf/simulated/floor/tiled/dark,
+/area/operations/loading)
 "cpF" = (
 /obj/structure/grille/diagonal,
 /turf/space/dynamic,
@@ -3666,6 +3684,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Warehouse Entrance";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "cDa" = (
@@ -7561,9 +7583,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "fja" = (
@@ -9771,9 +9790,6 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/device/cratescanner,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "gGE" = (
@@ -11364,8 +11380,23 @@
 	},
 /area/medical/morgue/lower)
 "hRn" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	dir = 2;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67)
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/operations/loading)
 "hRo" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -11775,7 +11806,7 @@
 /obj/machinery/door/window/brigdoor/northright{
 	name = "Fuel Access";
 	req_access = null;
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Hangar Fuel Bay";
@@ -14595,9 +14626,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/full{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -23256,6 +23284,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qfs" = (
+/obj/structure/stairs/north,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "qfH" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 5
@@ -24460,10 +24492,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/computer/shuttle_control/multi/lift/operations{
-	pixel_x = 8;
-	pixel_y = 2
-	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "qXZ" = (
@@ -24991,6 +25019,10 @@
 "rpj" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
+	pixel_x = -8;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
@@ -28401,12 +28433,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "tMa" = (
-/obj/structure/stairs/west,
-/obj/structure/stairs_lower/stairs_upper{
-	pixel_y = 32
+/obj/structure/stairs_railing{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/operations/loading)
+/area/operations/storage)
 "tMp" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -29120,13 +29151,12 @@
 	},
 /area/shuttle/canary)
 "ulE" = (
-/obj/structure/stairs/west,
-/obj/structure/stairs_lower{
-	dir = 1;
-	pixel_y = -23
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/operations/loading)
 "ulJ" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -29514,9 +29544,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Warehouse Entrance";
-	dir = 2
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
+	pixel_x = -30;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
@@ -30605,9 +30635,6 @@
 /obj/item/device/hand_labeler,
 /obj/item/device/destTagger,
 /obj/item/stack/packageWrap,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "vjA" = (
@@ -33106,9 +33133,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "wZi" = (
@@ -33608,7 +33632,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Fuel Bay";
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
@@ -35097,10 +35121,13 @@
 /area/hangar/auxiliary)
 "yhf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor{
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/operations/loading)
 "yib" = (
 /obj/machinery/light/small/red{
@@ -47089,8 +47116,8 @@ thO
 fvn
 jJp
 qdE
-yeo
-bDQ
+qfs
+tMa
 wYX
 nCV
 hLw
@@ -47292,8 +47319,8 @@ kOJ
 lNG
 uGI
 qdE
-crZ
-xqn
+qfs
+clf
 klR
 qWW
 abQ
@@ -48103,9 +48130,9 @@ tRQ
 xGe
 dAZ
 gvZ
-tMa
-ulE
-gvZ
+yeo
+bDQ
+cpC
 uzB
 qDJ
 wlh
@@ -48306,9 +48333,9 @@ pqh
 qkh
 fCT
 gvZ
-clf
-hRn
-gvZ
+crZ
+xqn
+ulE
 ehD
 qDJ
 eFe
@@ -48510,7 +48537,7 @@ qkh
 baV
 gvZ
 yhf
-yhf
+hRn
 gvZ
 fbc
 lNj

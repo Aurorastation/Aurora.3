@@ -272,5 +272,5 @@
 	item_state = "pmc_chemist"
 
 /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
-	icon_state = "pmc_chemist"
-	item_state = "pmc_chemist"
+	icon_state = "pmc_alt_chemist"
+	item_state = "pmc_alt_chemist"

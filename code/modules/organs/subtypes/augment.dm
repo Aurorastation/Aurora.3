@@ -496,8 +496,8 @@
 	cooldown = 8
 
 	var/taste_sensitivity = TASTE_NORMAL
-	var/action_verb = "licks"
-	var/self_action_verb = "lick"
+	var/action_verb = "samples"
+	var/self_action_verb = "sample"
 
 /obj/item/organ/internal/augment/gustatorial/attack_self(var/mob/user)
 	. = ..()

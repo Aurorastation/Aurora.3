@@ -38,6 +38,10 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	stacktype = /obj/item/stack/rods
 	icon_has_variants = TRUE
 
+/obj/item/stack/rods/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/stack/rods/full/Initialize()
 	. = ..()
 	amount = max_amount

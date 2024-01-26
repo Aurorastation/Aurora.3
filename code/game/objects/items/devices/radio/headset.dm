@@ -477,6 +477,28 @@
 	item_state = "wristset_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
+/obj/item/device/radio/headset/headset_xenoarch
+	name = "xenoarchaeology radio headset"
+	desc = "A sciency headset for Xenoarchaeologists."
+	icon_state = "sci_headset"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/headset_xenoarch/alt
+	name = "xenoarchaeology bowman headset"
+	icon_state = "sci_headset_alt"
+
+/obj/item/device/radio/headset/alt/double/xenoarch
+	name = "soundproof xenoarchaeology headset"
+	icon_state = "earset_sci"
+	item_state = "earset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/xenoarch
+	name = "wristbound xenoarchaeology radio"
+	icon_state = "wristset_sci"
+	item_state = "wristset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"
 	desc = "Made specifically for the roboticists who cannot decide between departments."
@@ -782,6 +804,10 @@
 	ks2type = /obj/item/device/encryptionkey/heads/ai_integrated
 	var/myAi = null    // Atlantis: Reference back to the AI which has this radio.
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
+
+/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/device/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
 	return ..(input_frequency, level, !disabledAi)

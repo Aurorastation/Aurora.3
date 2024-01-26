@@ -15,13 +15,13 @@
 
 /mob/living/silicon/ai
 	silicon_subsystems = list(
-		/mob/living/silicon/proc/silicon_mimic_accent
+		/mob/living/silicon/verb/silicon_mimic_accent
 	)
 
 /mob/living/silicon/robot/combat
 	register_alarms = 0
 	silicon_subsystems = list(
-		/mob/living/silicon/proc/silicon_mimic_accent
+		/mob/living/silicon/verb/silicon_mimic_accent
 	)
 
 /mob/living/silicon/proc/init_subsystems()
@@ -38,13 +38,13 @@
 /****************
 *	Computer	*
 *****************/
-/mob/living/silicon/proc/computer_interact()
+/mob/living/silicon/verb/computer_interact()
 	set name = "Open Computer Interface"
 	set category = "Subsystems"
 
 	computer.attack_self(src)
 
-/mob/living/silicon/pai/proc/personal_computer_interact()
+/mob/living/silicon/pai/verb/personal_computer_interact()
 	set name = "Access Local Computer"
 	set category = "Subsystems"
 

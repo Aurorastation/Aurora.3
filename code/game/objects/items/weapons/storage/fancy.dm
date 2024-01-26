@@ -317,51 +317,42 @@
 	if(opened)
 		icon_state = "[initial(icon_state)][contents.len]"
 
-/obj/item/storage/box/fancy/cigarettes/remove_from_storage(obj/item/W as obj, atom/new_location)
-		var/obj/item/clothing/mask/smokable/cigarette/C = W
-		if(!istype(C)) return // what
-		reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
-		..()
+/obj/item/storage/box/fancy/cigarettes/remove_from_storage(obj/item/removed_item, atom/new_location)
+	var/obj/item/clothing/mask/smokable/cigarette/C = removed_item
+	if(!istype(C))
+		return ..()
+	reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
+	return ..()
 
 /obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
 	if(!ismob(M))
 		return
 	if(!opened)
-		to_chat(user, SPAN_NOTICE("\The [src] is closed."))
+		to_chat(user, SPAN_WARNING("\The [src] is closed."))
 		return
 	if(target_zone == BP_MOUTH && contents.len > 0)
-		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(M)
-		if(!istype(W) || M.wear_mask)
-			to_chat(user, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
-			if(M != user)
-				to_chat(M, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
+		if(M.wear_mask)
+			to_chat(user, SPAN_WARNING("\The [M.wear_mask] is in the way."))
+			return
+		var/obj/item/clothing/mask/smokable/cigarette/cig = locate() in src
+		if(!istype(cig))
+			to_chat(user, SPAN_WARNING("There isn't a cigarette in \the [src]!"))
 			return
 		if(M != user)
-			if(use_check(M))
+			if(!use_check(M))
 				to_chat(user, SPAN_WARNING("[M.name] is in no condition to handle items!"))
 				return
-			var/response = ""
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
-			response = alert(M, "\The [user] offers you \a [W.name]. Do you accept?", "Smokable offer", "Accept", "Decline")
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [M]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [M]'s mouth, waiting for them to accept."))
+			var/response = alert(M, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
 			if(response != "Accept")
-				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
+				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src.name] away."))
 				return
 			if(!M.Adjacent(user))
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
 				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
 				return
-		//Checking contents of packet so lighters won't be cigarettes.
-		for (var/i = contents.len; i > 0; i--)
-			W = contents[i]
-			if (istype(W))
-				break
-			else
-				W = null
-		if (!W)
-			return
-		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
-		M.equip_to_slot_if_possible(W, slot_wear_mask)
-		reagents.maximum_volume = 15 * contents.len
+		remove_from_storage(cig, get_turf(M))
+		M.equip_to_slot_if_possible(cig, slot_wear_mask)
 		M.visible_message(SPAN_NOTICE("<b>[M]</b> casually pulls out a [icon_type] from \the [src] with [M.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
 		return
