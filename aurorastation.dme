@@ -201,6 +201,7 @@
 #include "code\__HELPERS\logging\subsystems\atlas.dm"
 #include "code\__HELPERS\logging\subsystems\cargo.dm"
 #include "code\__HELPERS\logging\subsystems\chemistry.dm"
+#include "code\__HELPERS\logging\subsystems\codex.dm"
 #include "code\__HELPERS\logging\subsystems\discord.dm"
 #include "code\__HELPERS\logging\subsystems\documents.dm"
 #include "code\__HELPERS\logging\subsystems\fail2topic.dm"

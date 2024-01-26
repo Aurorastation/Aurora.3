@@ -2,7 +2,7 @@
 SUBSYSTEM_DEF(codex)
 	name = "Codex"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_CODEX
+	init_order = INIT_ORDER_CODEX
 
 	/// List of cooking recipes, their result and ingredients.
 	var/list/cooking_codex_data = list()
@@ -14,8 +14,7 @@ SUBSYSTEM_DEF(codex)
 /datum/controller/subsystem/codex/Initialize()
 	generate_cooking_codex()
 	generate_chemistry_codex()
-
-	LOG_DEBUG("SScodex: [cooking_codex_data.len] cooking recipes; [chemistry_codex_data.len] chemistry recipes.")
+	log_subsystem_codex("SScodex: [cooking_codex_data.len] cooking recipes; [chemistry_codex_data.len] chemistry recipes.")
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/codex/proc/generate_cooking_codex()
