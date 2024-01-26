@@ -2298,11 +2298,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/oil,
-/obj/item/trash/broken_electronics{
-	pixel_y = 8;
-	pixel_x = 5
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "eYO" = (
@@ -2571,9 +2566,6 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "fJo" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2589,6 +2581,9 @@
 	specialfunctions = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "fNl" = (
@@ -2716,6 +2711,12 @@
 	req_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod8)
 "fZq" = (
@@ -3168,7 +3169,10 @@
 	dir = 10
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/ship/freebooter_ship/pod8)
 "hik" = (
 /obj/effect/floor_decal/corner/lime{
@@ -3470,6 +3474,9 @@
 	dir = 4;
 	id_tag = "freebooter_brig"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "iaK" = (
@@ -3650,9 +3657,6 @@
 "irq" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
-	},
-/obj/effect/floor_decal/corner{
-	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/bed/padded,
@@ -5069,18 +5073,14 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
 "lGK" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/miningcart,
 /obj/item/reagent_containers/food/snacks/tastybread,
 /obj/item/reagent_containers/food/snacks/tastybread,
 /obj/item/storage/box/produce{
 	layer = 2.99
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
@@ -5427,6 +5427,11 @@
 /area/ship/freebooter_ship/pod4)
 "mCb" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/trash/broken_electronics{
+	pixel_y = 8;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "mCl" = (
@@ -6030,7 +6035,7 @@
 /area/ship/freebooter_ship/pod3)
 "nYq" = (
 /obj/effect/floor_decal/corner/dark_blue{
-	dir = 1
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
@@ -6224,12 +6229,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
-"onn" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/pod8)
 "onx" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -6692,14 +6691,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod6)
 "pik" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner{
-	dir = 5
-	},
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "piw" = (
@@ -6999,10 +6993,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner{
-	dir = 5
-	},
 /obj/structure/closet/crate/security,
+/obj/effect/floor_decal/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "pOI" = (
@@ -8351,9 +8345,6 @@
 	},
 /area/shuttle/freebooter_shuttle)
 "sCd" = (
-/obj/effect/floor_decal/corner{
-	dir = 9
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
@@ -9249,9 +9240,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "uOr" = (
-/obj/effect/floor_decal/corner{
-	dir = 9
-	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9356,6 +9344,10 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "vbe" = (
@@ -9746,9 +9738,6 @@
 "vMG" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
-	},
-/obj/effect/floor_decal/corner{
-	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/light{
@@ -45879,9 +45868,9 @@ vOL
 xRX
 uwT
 fYr
-onn
+hil
 fJo
-nYq
+hil
 pMN
 uwT
 xRX
@@ -46395,7 +46384,7 @@ uwT
 lGK
 cFm
 uZC
-iok
+nYq
 pik
 uwT
 xRX
@@ -46650,7 +46639,7 @@ vOL
 vZW
 uwT
 vMG
-hil
+iok
 uOr
 sCd
 irq
