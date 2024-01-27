@@ -442,16 +442,6 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/storage)
-"bAL" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless,
-/area/ship/orion/thruster1)
 "bAQ" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
@@ -2109,10 +2099,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle/storage)
-"iGB" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor,
-/area/ship/orion/cargo)
 "iGD" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -3140,7 +3126,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/storage)
 "mXd" = (
@@ -3979,11 +3964,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "qBd" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless,
-/area/ship/orion/thruster1)
+/obj/structure/foamedmetal,
+/turf/simulated/floor,
+/area/ship/orion/cargo)
 "qGl" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
@@ -4240,6 +4223,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
+"rKH" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/ship/orion/thruster1)
 "rLo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6
@@ -4768,6 +4761,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
+"trX" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/ship/orion/thruster1)
 "tsn" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
@@ -41947,7 +41946,7 @@ icu
 jmN
 xiV
 icu
-iGB
+qBd
 xsE
 xsE
 xsE
@@ -42204,7 +42203,7 @@ icu
 kJM
 dul
 icu
-iGB
+qBd
 xsE
 fsY
 qhi
@@ -42716,7 +42715,7 @@ xRX
 xRX
 xRX
 vyi
-qBd
+trX
 uon
 xRX
 xRX
@@ -42973,7 +42972,7 @@ xRX
 xRX
 xRX
 xRX
-bAL
+rKH
 xRX
 xRX
 xRX
@@ -43230,7 +43229,7 @@ xRX
 xRX
 xRX
 xRX
-bAL
+rKH
 xRX
 xRX
 xRX
