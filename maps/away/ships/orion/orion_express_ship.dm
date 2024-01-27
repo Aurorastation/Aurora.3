@@ -7,10 +7,8 @@
 	ship_cost = 1
 	id = "orion_express_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
-
 
 /singleton/submap_archetype/orion_express_ship
 	map = "Orion Express Mobile Station"
