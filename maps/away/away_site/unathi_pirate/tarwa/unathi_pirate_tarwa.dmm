@@ -2091,12 +2091,22 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
+"DV" = (
+/obj/machinery/alarm/north{
+	req_one_access = list(210)
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/bridge)
 "Eb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm/north{
-	req_one_access = list(210)
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/north{
+	pixel_x = 0;
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
@@ -15790,7 +15800,7 @@ De
 MP
 Ql
 Uw
-aA
+DV
 aA
 YX
 aA
