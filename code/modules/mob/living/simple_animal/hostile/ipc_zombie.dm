@@ -61,7 +61,6 @@
 	if(corpse)
 		new corpse(get_turf(src))
 		qdel(src)
-		return
 
 /mob/living/simple_animal/hostile/ipc_zombie/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
