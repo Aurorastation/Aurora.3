@@ -7,6 +7,7 @@
 	ship_cost = 1
 	id = "orion_express_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
@@ -78,26 +79,21 @@
 // Shuttle
 /area/shuttle/orion_shuttle/
 	requires_power = TRUE
-	name = "Orion Courier Shuttle (parent, do not use)"
+	name = "Orion Courier Shuttle"
 	icon_state = "shuttle2"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/orion_shuttle/storage
 	name = "Storage Compartment"
-	icon_state = "storage"
 
 /area/shuttle/orion_shuttle/cockpit
 	name = "Cockpit"
-	icon_state = "bridge"
 
 /area/shuttle/orion_shuttle/portthrust
 	name = "Port Nacelle"
-	icon_state = "blue-red2"
 
 /area/shuttle/orion_shuttle/starboardthrust
 	name = "Starboard Nacelle"
-	icon_state = "blue-red2"
-
 
 //ship stuff
 
