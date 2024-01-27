@@ -37,8 +37,8 @@
 	fore_dir = SOUTH
 
 /obj/effect/overmap/visitable/ship/konyang_wreck/New()
+	. = ..()
 	designation = "[pick("Hauler", "Special Delivery", "50% Off Shipping", "Courier", "Telegram")]"
-	..()
 
 /obj/effect/shuttle_landmark/konyang_wreck
 	base_turf = /turf/space/dynamic
