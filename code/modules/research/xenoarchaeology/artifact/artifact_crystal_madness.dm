@@ -10,6 +10,8 @@
 	light_color = "#99eef3"
 	light_range = 5
 
+// /obj/structure/crystal_madness/laser_act()
+
 // /obj/structure/crystal/New()
 // 	..()
 // 	icon_state = "crystal[rand(1, 3)]"
