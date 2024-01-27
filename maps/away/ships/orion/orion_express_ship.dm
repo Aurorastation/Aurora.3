@@ -97,6 +97,7 @@
 /area/shuttle/orion_shuttle/storage
 	name = "Storage Compartment"
 	ambience = AMBIENCE_GENERIC
+
 /area/shuttle/orion_shuttle/cockpit
 	name = "Cockpit"
 	ambience = AMBIENCE_GENERIC
