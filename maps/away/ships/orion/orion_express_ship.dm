@@ -76,12 +76,23 @@
 	ambience = AMBIENCE_MAINTENANCE
 
 // Shuttle
-/area/shuttle/orion_shuttle
+/area/shuttle/orion_shuttle/
 	requires_power = TRUE
 	name = "Orion Courier Shuttle"
 	icon_state = "shuttle2"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
+/area/shuttle/orion_shuttle/storage
+	name = "Storage Compartment"
+
+/area/shuttle/orion_shuttle/cockpit
+	name = "Cockpit"
+
+/area/shuttle/orion_shuttle/portthrust
+	name = "Port Nacelle"
+
+/area/shuttle/orion_shuttle/starboardthrust
+	name = "Starboard Nacelle"
 
 //ship stuff
 
