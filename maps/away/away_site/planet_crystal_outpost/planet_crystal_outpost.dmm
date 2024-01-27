@@ -14,6 +14,9 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
+/obj/machinery/light/broken{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "aD" = (
@@ -58,12 +61,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bE" = (
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/space)
 "bN" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "bX" = (
@@ -148,6 +157,15 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/green,
 /area/space)
+"dw" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#67aaad";
+	light_power = 0.5
+	},
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0"
+	},
+/area/space)
 "dA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -190,13 +208,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"eo" = (
+/obj/structure/table/wood,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "et" = (
 /obj/structure/flora/pottedplant/bluefern,
+/obj/machinery/light/broken{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "ew" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/plating,
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "eF" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -222,17 +252,35 @@
 /obj/effect/floor_decal/corner_wide/pink{
 	dir = 1
 	},
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/pen/black{
+	pixel_x = 4;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "fg" = (
 /turf/simulated/floor/carpet/lightblue,
+/area/space)
+"fA" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/light/colored/dying{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "fJ" = (
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "fP" = (
@@ -281,6 +329,13 @@
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/space)
+"gV" = (
+/obj/structure/table/standard,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "hi" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -291,7 +346,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "il" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -321,12 +380,38 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled,
 /area/space)
+"jl" = (
+/obj/effect/floor_decal/crystal/random/dark,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#67aaad";
+	light_power = 0.5
+	},
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0"
+	},
+/area/space)
 "jo" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"jx" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"jy" = (
+/obj/effect/floor_decal/corner_wide/beige/diagonal,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "jG" = (
 /obj/machinery/air_sensor{
@@ -406,10 +491,40 @@
 	color = "#a9d8e0"
 	},
 /area/space)
+"lC" = (
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"lE" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"lK" = (
+/obj/machinery/light/broken{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "lU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
+/area/space)
+"lX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/broken{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "ms" = (
 /obj/machinery/light/small/emergency{
@@ -449,15 +564,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "mY" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/effect/floor_decal/crystal/random/dark,
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#67aaad";
+	light_power = 0.5
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/space)
 "nf" = (
 /obj/machinery/light/small/emergency{
@@ -478,7 +598,11 @@
 "no" = (
 /obj/structure/flora/rock/spire,
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -487,7 +611,10 @@
 "nv" = (
 /obj/effect/decal/road_marking,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "nA" = (
@@ -498,7 +625,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "nC" = (
@@ -543,6 +673,9 @@
 "nQ" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/flora/pottedplant/unusual,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "nW" = (
@@ -553,14 +686,21 @@
 /obj/effect/shuttle_landmark{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "on" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "oy" = (
@@ -584,11 +724,14 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"pq" = (
+/obj/structure/table/standard,
+/obj/machinery/light/broken,
+/turf/simulated/floor/tiled,
+/area/space)
 "pz" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/light/colored/dying,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "pW" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -603,11 +746,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"qA" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "qB" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
 	},
 /obj/structure/flora/pottedplant/unusual,
+/obj/machinery/light/broken{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "qG" = (
@@ -628,6 +780,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/space)
+"rt" = (
+/obj/effect/floor_decal/corner_wide/beige/diagonal,
+/obj/machinery/light/broken,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ru" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -640,7 +797,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "rS" = (
@@ -661,15 +821,36 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/space)
+"rY" = (
+/obj/effect/floor_decal/corner_wide/pink/diagonal,
+/obj/structure/table/standard,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/pen/red{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/pen/black,
+/turf/simulated/floor/tiled,
+/area/space)
 "sa" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "sg" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "sh" = (
@@ -691,12 +872,19 @@
 "sB" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/flora/pottedplant/bluefern,
+/obj/machinery/light/broken,
 /turf/simulated/floor/tiled,
 /area/space)
 "sG" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
+/area/space)
+"sI" = (
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "sR" = (
 /obj/structure/sink{
@@ -740,13 +928,21 @@
 /area/space)
 "tG" = (
 /obj/structure/flora/tree/crystal,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "tW" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "uc" = (
 /obj/structure/cable{
@@ -773,6 +969,19 @@
 "uH" = (
 /turf/unsimulated/mineral/asteroid,
 /area/space)
+"uN" = (
+/obj/effect/floor_decal/corner_wide/pink/diagonal,
+/obj/structure/table/standard,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/pen/black{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "vb" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -781,6 +990,9 @@
 "vz" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/appliance/cooker/stove,
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "vP" = (
@@ -824,6 +1036,12 @@
 "wQ" = (
 /turf/simulated/floor/plating,
 /area/space)
+"xb" = (
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "xt" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner_wide/grey{
@@ -838,6 +1056,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/plating,
+/area/space)
+"xB" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "xE" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
@@ -854,7 +1076,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "xQ" = (
@@ -868,7 +1093,11 @@
 /obj/effect/shuttle_landmark{
 	dir = 2
 	},
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "yl" = (
 /turf/simulated/mineral/crystal,
@@ -885,7 +1114,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "yQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -909,15 +1142,20 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/space)
 "zs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
+/obj/structure/bed/stool/chair{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "zx" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/light/broken{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "zz" = (
@@ -936,9 +1174,19 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/freezer,
 /area/space)
+"zP" = (
+/obj/effect/floor_decal/corner_wide/beige/diagonal,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "zT" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "zV" = (
@@ -950,10 +1198,15 @@
 /turf/simulated/floor/plating,
 /area/space)
 "zW" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 9
+/obj/machinery/light/broken{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Ad" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/flora/pottedplant/dead,
+/turf/simulated/floor/tiled,
 /area/space)
 "Af" = (
 /obj/effect/floor_decal/crystal/random/dark,
@@ -980,16 +1233,37 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"AF" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "AH" = (
 /obj/effect/shuttle_landmark{
 	dir = 8
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
+/area/space)
+"AK" = (
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "AM" = (
 /obj/structure/bed/stool/chair/plastic,
+/obj/machinery/light/broken{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "AQ" = (
@@ -1006,8 +1280,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "AV" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner_wide/beige/diagonal,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "AZ" = (
 /obj/machinery/door/airlock/multi_tile/glass,
@@ -1029,8 +1306,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Bq" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/structure/table/standard,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "By" = (
 /obj/structure/bed/stool/chair/plastic{
@@ -1041,6 +1321,9 @@
 "BE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
+	},
+/obj/machinery/light/broken{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -1056,7 +1339,10 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "CD" = (
@@ -1115,6 +1401,9 @@
 /area/space)
 "Dz" = (
 /obj/machinery/iv_drip,
+/obj/machinery/light/broken{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "DP" = (
@@ -1130,7 +1419,11 @@
 "DX" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "Eg" = (
 /obj/structure/cable{
@@ -1139,6 +1432,14 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/space)
+"Eh" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "Eo" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1146,7 +1447,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "EV" = (
@@ -1154,14 +1458,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Fa" = (
 /obj/effect/decal/road_marking,
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Ff" = (
@@ -1199,6 +1509,13 @@
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /turf/simulated/floor/tiled,
 /area/space)
+"Gl" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/bluefern,
+/turf/simulated/floor/tiled,
+/area/space)
 "GT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -1207,8 +1524,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
+/area/space)
+"GU" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "GW" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -1231,7 +1558,10 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Hm" = (
@@ -1271,6 +1601,9 @@
 	pixel_x = -1;
 	pixel_y = 4
 	},
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "HZ" = (
@@ -1281,7 +1614,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Id" = (
@@ -1290,6 +1626,14 @@
 	},
 /obj/structure/flora/pottedplant/bluefern,
 /turf/simulated/floor/tiled,
+/area/space)
+"Ik" = (
+/obj/structure/table/wood,
+/obj/item/paper_scanner{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "In" = (
 /obj/machinery/door/airlock/hatch,
@@ -1311,6 +1655,14 @@
 	color = "#a9d8e0"
 	},
 /area/space)
+"IH" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "IM" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -1331,7 +1683,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Jk" = (
@@ -1342,7 +1697,10 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/effect/decal/road_marking,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "JJ" = (
@@ -1370,7 +1728,11 @@
 /area/space)
 "KJ" = (
 /obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "KO" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -1387,7 +1749,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Ll" = (
@@ -1402,7 +1767,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "LD" = (
@@ -1432,6 +1800,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"Md" = (
+/obj/structure/table/standard,
+/obj/machinery/light/colored/dying,
+/turf/simulated/floor/tiled/white,
+/area/space)
 "Mf" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -1456,6 +1829,9 @@
 "Mv" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/flora/pottedplant/bluefern,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "Mx" = (
@@ -1479,10 +1855,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "MM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 5
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light/broken{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/space)
 "MN" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -1533,6 +1910,12 @@
 /obj/item/bedsheet/random,
 /turf/simulated/floor/wood,
 /area/space)
+"Ob" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "Oh" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1549,15 +1932,41 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"On" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/obj/structure/closet/cabinet,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Ou" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
+/area/space)
+"Ov" = (
+/obj/effect/floor_decal/corner_wide/pink/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "Ow" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "OO" = (
 /obj/machinery/power/terminal{
@@ -1577,7 +1986,10 @@
 "Pm" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Ps" = (
@@ -1586,8 +1998,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
+/area/space)
+"Pv" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "Pz" = (
 /obj/machinery/atmospherics/portables_connector/fuel,
@@ -1597,8 +2019,27 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
+/area/space)
+"PC" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"PH" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "PQ" = (
 /obj/machinery/power/emitter{
@@ -1626,6 +2067,15 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"Qg" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "Qu" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -1658,7 +2108,11 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "QD" = (
 /obj/structure/table/wood,
@@ -1672,7 +2126,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "QN" = (
@@ -1682,6 +2139,11 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"QO" = (
+/obj/effect/floor_decal/corner_wide/pink/diagonal,
+/obj/machinery/light/broken,
+/turf/simulated/floor/tiled,
 /area/space)
 "QS" = (
 /obj/machinery/power/portgen/basic,
@@ -1727,6 +2189,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/space)
+"RL" = (
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "RN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1750,6 +2218,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/space)
+"SJ" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 8
+	},
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "SQ" = (
 /obj/structure/crystal_madness,
 /turf/simulated/floor/exoplanet/basalt{
@@ -1760,6 +2237,12 @@
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
+/area/space)
+"ST" = (
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Tb" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -1781,9 +2264,23 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/freezer,
 /area/space)
+"Tp" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/machinery/light/broken,
+/turf/simulated/floor/plating,
+/area/space)
 "Tq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
+/area/space)
+"Ts" = (
+/obj/structure/table/wood,
+/obj/item/pen/fountain/black{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "TD" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -1820,20 +2317,43 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/space)
+"TW" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/tiled,
+/area/space)
 "Uc" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ud" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Ur" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
+/area/space)
+"Uy" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/dead,
+/turf/simulated/floor/tiled,
 /area/space)
 "UE" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "UH" = (
@@ -1853,6 +2373,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"Vo" = (
+/obj/structure/table/steel,
+/obj/item/crowbar/red{
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "VA" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1926,11 +2453,19 @@
 /turf/simulated/floor/plating,
 /area/space)
 "XY" = (
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "Yf" = (
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal/sunlight,
+/turf/simulated/floor/exoplanet/crystal{
+	light_color = "#67aaad";
+	light_range = 5;
+	light_power = 0.5
+	},
 /area/space)
 "Yw" = (
 /obj/structure/closet/cabinet,
@@ -1948,7 +2483,10 @@
 /area/space)
 "YS" = (
 /turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9"
+	color = "#95c2d9";
+	light_color = "#67aaad";
+	light_range = 3;
+	light_power = 0.5
 	},
 /area/space)
 "Zm" = (
@@ -20868,7 +21406,7 @@ dK
 yl
 xv
 qP
-qP
+qA
 ji
 xv
 yl
@@ -21382,10 +21920,10 @@ dK
 nW
 VO
 qP
-qP
+xb
 qP
 Re
-TG
+eo
 TG
 xv
 yl
@@ -21639,7 +22177,7 @@ dK
 nW
 Xp
 Xp
-QD
+Ik
 Xp
 qP
 tw
@@ -21896,7 +22434,7 @@ dK
 nW
 Xp
 ZK
-QD
+Ts
 Xp
 qP
 qP
@@ -22152,10 +22690,10 @@ lv
 dK
 nW
 Yw
-Xp
-QD
+Ob
+Eh
 Ss
-Tb
+PC
 qP
 Id
 xv
@@ -22403,7 +22941,7 @@ yl
 yl
 yl
 yl
-lv
+jl
 lv
 lv
 dK
@@ -23181,7 +23719,7 @@ dK
 nW
 Oa
 QD
-aR
+AF
 xv
 kG
 aR
@@ -23440,7 +23978,7 @@ xv
 xv
 xv
 xv
-kG
+Pv
 aR
 xv
 xv
@@ -23686,7 +24224,7 @@ yl
 lv
 lv
 lv
-dK
+dw
 dK
 lv
 dK
@@ -24468,7 +25006,7 @@ xv
 xv
 xv
 xv
-qP
+sI
 qP
 xv
 xv
@@ -24723,7 +25261,7 @@ dK
 nW
 QD
 Oa
-aR
+Gl
 xv
 qP
 kG
@@ -25231,18 +25769,18 @@ yl
 yl
 yl
 yl
-lv
+jl
 dK
 dK
 nW
 Yw
 Xp
-aR
+AF
 xv
 mz
 kG
 xv
-mz
+jx
 Oa
 QD
 xv
@@ -25496,7 +26034,7 @@ xv
 xv
 xv
 xv
-mz
+lE
 kG
 xv
 xv
@@ -26265,12 +26803,12 @@ lv
 nW
 Oa
 Xp
-aR
+AF
 xv
 qP
 kG
 xv
-aK
+On
 Xp
 Oa
 xv
@@ -26524,7 +27062,7 @@ xv
 xv
 xv
 xv
-qP
+ew
 qP
 xv
 xv
@@ -26533,7 +27071,7 @@ xv
 xv
 vz
 Rl
-Rl
+fA
 xv
 yl
 XY
@@ -26779,7 +27317,7 @@ dK
 nW
 Xp
 Yw
-aR
+Uy
 xv
 kG
 kG
@@ -27044,7 +27582,7 @@ et
 xv
 zT
 kG
-kG
+Ad
 PS
 Om
 PS
@@ -27552,7 +28090,7 @@ xv
 xv
 xv
 xv
-kG
+MM
 qP
 qP
 zz
@@ -27811,7 +28349,7 @@ FF
 Eg
 KO
 tz
-qP
+lK
 xv
 AM
 co
@@ -28074,7 +28612,7 @@ Na
 Ny
 Ny
 Ny
-Tb
+PC
 wo
 xv
 yl
@@ -28317,11 +28855,11 @@ sR
 xE
 In
 kG
+PH
 kG
 kG
 kG
-kG
-kG
+PH
 kG
 kG
 Qc
@@ -28827,7 +29365,7 @@ yl
 yl
 xv
 tu
-bE
+zW
 zM
 xv
 mD
@@ -28837,8 +29375,8 @@ fg
 fg
 zn
 xv
-qP
-Qc
+sI
+lX
 xv
 yl
 yl
@@ -29628,10 +30166,10 @@ XY
 XY
 XY
 xv
-bb
+Bq
 gC
 gC
-bb
+Md
 xv
 yl
 yl
@@ -30147,7 +30685,7 @@ Ll
 Ll
 xv
 gC
-gC
+ST
 gC
 xv
 yl
@@ -31144,11 +31682,11 @@ yl
 yl
 xv
 SS
-SS
+Ov
 SS
 HE
 Ge
-SS
+uN
 xv
 eO
 Yf
@@ -31175,7 +31713,7 @@ DP
 mK
 gC
 Dp
-Dp
+zs
 VO
 nW
 XY
@@ -31400,12 +31938,12 @@ yl
 yl
 yl
 xv
-TT
+gV
 qG
 VO
 qP
 wu
-TT
+pq
 xv
 WQ
 XY
@@ -31914,7 +32452,7 @@ yl
 yl
 yl
 xv
-TT
+gV
 Mn
 qP
 qP
@@ -31948,7 +32486,7 @@ ts
 CZ
 CZ
 Mv
-xv
+nW
 XY
 Yf
 Yf
@@ -32172,11 +32710,11 @@ yl
 xv
 xv
 SS
-SS
+rY
 Ge
 Ge
 RQ
-qP
+TW
 xv
 eO
 WQ
@@ -32198,7 +32736,7 @@ Yf
 Yf
 XY
 xv
-nW
+xv
 nW
 UV
 IM
@@ -32382,7 +32920,7 @@ yl
 yl
 xQ
 zz
-HL
+Vo
 zz
 zz
 jT
@@ -33713,14 +34251,14 @@ yl
 yl
 yl
 xv
-zz
+AK
 zz
 zz
 zz
 zz
 zz
 qP
-Ge
+QO
 xv
 Yf
 Yf
@@ -34486,10 +35024,10 @@ yl
 xv
 Tq
 tj
-zz
+Ud
 tj
 Iq
-zz
+Ud
 qP
 Ge
 xv
@@ -34985,11 +35523,11 @@ yl
 yl
 yl
 yl
-pz
-tA
-VM
-ew
-MM
+yl
+yl
+yl
+yl
+yl
 yl
 yl
 yl
@@ -34997,13 +35535,13 @@ xv
 Jk
 zx
 RD
-qP
+lC
 tj
 xv
 gt
-gt
+GU
 qP
-qP
+xb
 Jk
 xv
 XY
@@ -35242,11 +35780,11 @@ yl
 yl
 yl
 yl
-zW
-pz
-AV
-Bq
-zs
+yl
+yl
+yl
+yl
+yl
 yl
 yl
 yl
@@ -35499,11 +36037,11 @@ yl
 yl
 yl
 yl
-wQ
-mY
-mY
-zz
-zz
+yl
+yl
+yl
+yl
+yl
 yl
 yl
 yl
@@ -36023,7 +36561,7 @@ yl
 yl
 xv
 Jk
-Jk
+AV
 Jk
 qP
 Jk
@@ -36031,7 +36569,7 @@ xv
 Jk
 qP
 qP
-Jk
+AV
 Jk
 xv
 Yf
@@ -36533,20 +37071,20 @@ Bd
 Nj
 xv
 CG
-VM
+SJ
 Qu
-zz
+RL
 zz
 xv
 Jk
 qP
 Jk
+jy
 Jk
-Jk
 qP
 qP
 qP
-qP
+xb
 qP
 AZ
 eO
@@ -37297,7 +37835,7 @@ yl
 yl
 yl
 yl
-Bd
+mY
 Bd
 Nj
 gB
@@ -37561,26 +38099,26 @@ Bd
 Bd
 xv
 sG
-CD
+Qg
 CX
 zz
-zz
+xB
 xv
 yl
 yl
 yl
 yl
 xv
+AV
 Jk
 Jk
 Jk
-Jk
-Jk
+AV
 xv
 Yf
 Yf
 xv
-PX
+zP
 UV
 zz
 PX
@@ -37840,7 +38378,7 @@ xv
 Bp
 cJ
 zz
-PX
+rt
 xv
 XY
 Hc
@@ -38337,7 +38875,7 @@ xv
 Tq
 wQ
 wQ
-yQ
+Tp
 xv
 yl
 Yf
@@ -38611,7 +39149,7 @@ YG
 LJ
 Dh
 Ry
-zz
+pz
 xv
 XY
 Hc
@@ -38849,7 +39387,7 @@ yl
 yl
 xv
 cF
-yQ
+IH
 xz
 Tq
 xv

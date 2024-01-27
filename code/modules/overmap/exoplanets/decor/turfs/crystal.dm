@@ -5,9 +5,3 @@
 	icon_state = "crystal"
 	footstep_sound = /singleton/sound_category/glasscrack_sound
 	does_footprint = FALSE
-
-// with "sunlight"
-/turf/simulated/floor/exoplanet/crystal/sunlight
-	light_color = "#67aaad"
-	light_range = 10
-	light_power = 1
