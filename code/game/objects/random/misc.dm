@@ -297,8 +297,8 @@
 /obj/random/junk
 	name = "random trash"
 	desc = "This is toss."
-	icon = 'icons/obj/trash.dmi'
-	icon_state = "koisbar"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "junk"
 	spawn_nothing_percentage = 5
 	problist = list(
 		/obj/item/trash/koisbar = 0.5,

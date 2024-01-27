@@ -5,8 +5,10 @@
 	ic_name = "a biohazard"
 
 /datum/event/spacevine/start()
+	..()
+
 	spacevine_infestation()
 	spacevines_spawned = 1
 
 /datum/event/spacevine/announce()
-	level_seven_announcement()
+	level_seven_announcement(affecting_z)

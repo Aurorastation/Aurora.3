@@ -85,7 +85,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 2, 2)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 2, 2)
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
@@ -190,6 +190,12 @@
 	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
+
+/obj/item/gun/projectile/revolver/lemat/Destroy()
+	QDEL_LIST(secondary_loaded)
+	QDEL_LIST(tertiary_loaded)
+
+	. = ..()
 
 /obj/item/gun/projectile/revolver/lemat/unique_action(mob/living/user)
 	to_chat(user, "<span class='notice'>You change the firing mode on \the [src].</span>")

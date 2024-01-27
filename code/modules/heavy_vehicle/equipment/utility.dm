@@ -521,8 +521,8 @@
 	var/obj/machinery/autolathe/mounted/lathe
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
-	if(lathe?.build_item)
-		return lathe.build_item.name
+	if(lathe?.currently_printing)
+		return lathe.currently_printing.recipe.name
 	. = ..()
 
 /obj/item/mecha_equipment/autolathe/Initialize()

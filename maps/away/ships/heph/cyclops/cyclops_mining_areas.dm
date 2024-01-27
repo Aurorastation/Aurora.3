@@ -49,3 +49,4 @@
 /area/shuttle/cyclops_shuttle
 	name = "Wisp Shuttle"
 	icon_state = "shuttle2"
+	requires_power = TRUE

@@ -67,6 +67,15 @@
 
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
+/turf/simulated/floor/exoplanet/basalt/cave
+	name = "dense basalt"
+
+/turf/simulated/floor/exoplanet/basalt/cave/Initialize() // to make these tiles dark even on daytime exoplanets
+	. = ..()
+	set_light(0, 1, null)
+	footprint_color = null
+	update_icon(1)
+
 // Special asteroid variant that goes with lava better.
 /turf/unsimulated/floor/asteroid/basalt
 	name = "basalt"

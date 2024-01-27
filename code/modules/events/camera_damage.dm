@@ -1,4 +1,6 @@
 /datum/event/camera_damage/start()
+	..()
+
 	var/obj/machinery/camera/C = acquire_random_camera()
 	if(!C)
 		return
@@ -17,17 +19,17 @@
 			if(prob(2*severity))
 				cam.destroy()
 			else
-				cam.wires.UpdateCut(CAMERA_WIRE_POWER, 0)
+				cam.wires.cut(WIRE_POWER, src)
 				if(prob(5*severity))
-					cam.wires.UpdateCut(CAMERA_WIRE_ALARM, 0)
+					cam.wires.cut(WIRE_ALARM, src)
 
 /datum/event/camera_damage/proc/acquire_random_camera(var/remaining_attempts = 5)
-	if(!cameranet.cameras.len)
+	if(!GLOB.cameranet.cameras.len)
 		return
 	if(!remaining_attempts)
 		return
 
-	var/obj/machinery/camera/C = pick(cameranet.cameras)
+	var/obj/machinery/camera/C = pick(GLOB.cameranet.cameras)
 	if(is_valid_camera(C))
 		return C
 	return acquire_random_camera(remaining_attempts-1)

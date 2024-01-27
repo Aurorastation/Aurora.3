@@ -139,7 +139,7 @@
 	sanitize_faction()
 
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
-	if (SSjobs.init_state != SS_INITSTATE_DONE || SSrecords.init_state != SS_INITSTATE_DONE)
+	if (!SSjobs.initialized || !SSrecords.initialized)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
 	var/list/dat = list(
@@ -188,7 +188,7 @@
 			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		if(job.blacklisted_species) // check for restricted species
-			var/datum/species/S = all_species[pref.species]
+			var/datum/species/S = GLOB.all_species[pref.species]
 			if(S.name in job.blacklisted_species)
 				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 				continue
@@ -483,7 +483,7 @@
 	if (!job)
 		return
 	var/choices = list(job.title) + job.alt_titles
-	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
+	if((GLOB.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
 		return choices
 	for(var/t in choices)
 		if (src.age >= (job.get_alt_character_age(species, t) || job.get_minimum_character_age(species)))

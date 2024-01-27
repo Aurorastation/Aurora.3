@@ -74,7 +74,7 @@
 	add_verb(src, /mob/living/proc/ventcrawl)
 
 	add_language(LANGUAGE_TCB)
-	src.default_language = all_languages[LANGUAGE_TCB]
+	src.default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 	src.colour = colour
 	number = rand(1, 1000)
@@ -171,7 +171,7 @@
 	if(health <= 0) // if damaged, the slime moves twice as slow
 		tally *= 2
 
-	return tally + config.slime_delay
+	return tally + GLOB.config.slime_delay
 
 /mob/living/carbon/slime/proc/reset_atkcooldown()
 	Atkcool = FALSE

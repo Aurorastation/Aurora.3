@@ -974,10 +974,10 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/sol_visa = 6)
 
 /obj/item/storage/box/ceti_visa
-	name = "TCFL recruitment papers box"
-	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Foreign Legion."
+	name = "TCAF recruitment papers box"
+	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Armed Forces."
 	illustration = "paper"
-	starts_with = list(/obj/item/clothing/accessory/badge/tcfl_papers = 6)
+	starts_with = list(/obj/item/clothing/accessory/badge/tcaf_papers = 6)
 
 /obj/item/storage/box/hadii_card
 	name = "honorary party member card box"
@@ -1009,11 +1009,11 @@
 	illustration = "paper"
 	starts_with = list(/obj/item/book/manual/dominia_honor = 6)
 
-/obj/item/storage/box/tcfl_pamphlet
-	name = "tau ceti foreign legion pamphlets box"
-	desc = "A box full of tau ceti foreign legion pamphlets."
+/obj/item/storage/box/tcaf_pamphlet
+	name = "tau ceti armed forces pamphlets box"
+	desc = "A box full of tau ceti armed forces pamphlets."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/tcfl_pamphlet = 6)
+	starts_with = list(/obj/item/book/manual/tcaf_pamphlet = 6)
 
 /obj/item/storage/box/sharps
 	name = "sharps disposal box"
@@ -1239,7 +1239,7 @@
 	make_exact_fit()
 
 /obj/item/storage/box/cleaner_tablets
-	name = "\improper Idris cleaner tablets case"
+	name = "\improper Idris cleaner tablets box"
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
 	desc_extended = "A new generation of cleaning chemicals, according to Idris at least. The instructions on the box reads: \"Dissolve tablet fully in container of water\". A warning label mentions that you should not consume the tablets nor drink the mixture after dissolving them."
 	illustration = "soapbucket"
@@ -1273,4 +1273,40 @@
 		/obj/item/landmine/claymore = 5,
 		/obj/item/device/assembly/signaler = 6
 		)
+
+/obj/item/storage/box/tea
+	name = "sencha cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
+	desc_info = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
+				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "can"
+	item_state = "can"
+	drop_sound = 'sound/items/drop/metal_pot.ogg'
+	pickup_sound = 'sound/items/drop/metal_pot.ogg'
+	contained_sprite = TRUE
+	max_storage_space = 1
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea
+	)
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 7
+	)
+	foldable = null
+
+/obj/item/storage/box/tea/tieguanyin
+	name = "tieguanyin cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea."
+	icon_state = "can_tie"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 7
+	)
+
+/obj/item/storage/box/tea/jaekseol
+	name = "jaekseol cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea."
+	icon_state = "can_jaek"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
+	)
 

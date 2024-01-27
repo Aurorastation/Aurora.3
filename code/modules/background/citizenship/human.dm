@@ -54,7 +54,7 @@
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
-		/obj/item/storage/box/tcfl_pamphlet = 1,
+		/obj/item/storage/box/tcaf_pamphlet = 1,
 		/obj/item/device/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
 	)

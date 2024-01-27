@@ -53,9 +53,9 @@
 			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 /obj/effect/shuttle_landmark/forceMove()
-	var/obj/effect/overmap/visitable/map_origin = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
 	. = ..()
-	var/obj/effect/overmap/visitable/map_destination = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_destination = GLOB.map_sectors["[z]"]
 	if(map_origin != map_destination)
 		if(map_origin)
 			map_origin.remove_landmark(src, shuttle_restricted)
@@ -87,7 +87,7 @@
 			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
 
 /obj/effect/shuttle_landmark/proc/clear_landing_indicators()
-	QDEL_NULL_LIST(landing_indicators) // lazyclear but we delete the effects as well
+	QDEL_LIST(landing_indicators) // lazyclear but we delete the effects as well
 
 /obj/effect/shuttle_landmark/proc/cannot_depart(datum/shuttle/shuttle)
 	return FALSE

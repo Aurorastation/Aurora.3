@@ -1,4 +1,1 @@
-/****************
-* Debug Support *
-****************/
-var/list/all_observable_events = list()
+GLOBAL_LIST_EMPTY(all_observable_events)

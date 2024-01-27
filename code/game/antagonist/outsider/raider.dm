@@ -21,6 +21,8 @@ var/datum/antagonist/raider/raiders
 
 	id_type = /obj/item/card/id/syndicate
 
+	has_idris_account = FALSE
+
 /datum/antagonist/raider/New()
 	..()
 	raiders = src
@@ -67,7 +69,7 @@ var/datum/antagonist/raider/raiders
 	var/win_msg = ""
 
 	//No objectives, go straight to the feedback.
-	if(config.objectives_disabled || !global_objectives.len)
+	if(GLOB.config.objectives_disabled || !global_objectives.len)
 		return
 
 	var/success = global_objectives.len

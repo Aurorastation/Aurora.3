@@ -7,8 +7,8 @@
 	size = 8
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
-	required_access_run = list(access_janitor, access_first_responder)
-	required_access_download = access_hop
+	required_access_run = list(ACCESS_JANITOR, ACCESS_FIRST_RESPONDER)
+	required_access_download = ACCESS_HOP
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_TELESCREEN
 	tgui_id = "CrusherControl"

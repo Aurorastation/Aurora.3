@@ -26,7 +26,7 @@
 	harm_intent_damage = 4
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	armor_penetration = 10
+	armor_penetration = 5
 	attack_flags = DAMAGE_FLAG_EDGE
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -49,6 +49,8 @@
 
 	flying = TRUE
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	smart_melee = FALSE
 
 /mob/living/simple_animal/hostile/carp/update_icon()
 	..()
@@ -170,7 +172,7 @@
 
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	armor_penetration = 15
+	armor_penetration = 10
 	var/image/eye_overlay
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Initialize()

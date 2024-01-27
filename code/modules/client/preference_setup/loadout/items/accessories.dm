@@ -521,17 +521,17 @@
 	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
 	gear_tweaks += new /datum/gear_tweak/path(passport)
 
-/datum/gear/accessory/TCFLcard
-	display_name = "TCFL service cards"
-	description = "Identification cards given to reservists and former members of the Tau Ceti Foreign Legion."
-	path = /obj/item/clothing/accessory/badge/tcfl_papers
+/datum/gear/accessory/TCAFcard
+	display_name = "TCAF service cards"
+	description = "Identification cards given to reservists and former members of the Tau Ceti Armed Forces."
+	path = /obj/item/clothing/accessory/badge/tcaf_papers
 
-/datum/gear/accessory/TCFLcard/New()
+/datum/gear/accessory/TCAFcard/New()
 	..()
-	var/list/TCFLcard = list()
-	TCFLcard["reservist"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
-	TCFLcard["veteran"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
-	gear_tweaks += new /datum/gear_tweak/path(TCFLcard)
+	var/list/TCAFcard = list()
+	TCAFcard["reservist"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/reservist
+	TCAFcard["veteran"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
+	gear_tweaks += new /datum/gear_tweak/path(TCAFcard)
 
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
@@ -622,6 +622,7 @@
 	flagpatch_national["flagpatch, free council"] = /obj/item/clothing/accessory/flagpatch/freecouncil
 	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
+	flagpatch_national["flagpatch, port antillia"] = /obj/item/clothing/accessory/flagpatch/portantillia
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
 
 /datum/gear/accessory/aodai

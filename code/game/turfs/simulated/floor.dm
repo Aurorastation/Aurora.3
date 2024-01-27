@@ -97,6 +97,12 @@
 /turf/simulated/floor/is_floor()
 	return TRUE
 
+/turf/simulated/floor/reset_color()
+	if(flooring)
+		color = flooring.color
+	else
+		..()
+
 /turf/simulated/floor/shuttle_ceiling
 	name = "hull plating"
 	icon = 'icons/turf/flooring/tiles.dmi'

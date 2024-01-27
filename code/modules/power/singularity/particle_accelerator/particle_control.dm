@@ -37,7 +37,7 @@
 	if(construction_state >= 3)
 		interact(user)
 	else if(construction_state == 2) // Wires exposed
-		wires.Interact(user)
+		wires.interact(user)
 
 /obj/machinery/particle_accelerator/control_box/update_state()
 	if(construction_state < 3)
@@ -92,17 +92,17 @@
 		return
 
 	if(href_list["togglep"])
-		if(!wires.IsIndexCut(PARTICLE_TOGGLE_WIRE))
+		if(!wires.is_cut(WIRE_POWER))
 			src.toggle_power(usr)
 	else if(href_list["scan"])
 		src.part_scan()
 
 	else if(href_list["strengthup"])
-		if(!wires.IsIndexCut(PARTICLE_STRENGTH_WIRE))
+		if(!wires.is_cut(WIRE_STRENGTH))
 			add_strength()
 
 	else if(href_list["strengthdown"])
-		if(!wires.IsIndexCut(PARTICLE_STRENGTH_WIRE))
+		if(!wires.is_cut(WIRE_STRENGTH))
 			remove_strength()
 
 	src.updateDialog()

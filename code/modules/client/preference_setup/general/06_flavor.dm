@@ -15,7 +15,7 @@
 
 	//Flavour text for robots.
 	S["flavour_texts_robot_Default"] >> pref.flavour_texts_robot["Default"]
-	for(var/module in robot_module_types)
+	for(var/module in GLOB.robot_module_types)
 		S["flavour_texts_robot_[module]"] >> pref.flavour_texts_robot[module]
 
 	S["signature"] >> pref.signature
@@ -33,7 +33,7 @@
 	S["flavor_texts_feet"]    << pref.flavor_texts["feet"]
 
 	S["flavour_texts_robot_Default"] << pref.flavour_texts_robot["Default"]
-	for(var/module in robot_module_types)
+	for(var/module in GLOB.robot_module_types)
 		S["flavour_texts_robot_[module]"] << pref.flavour_texts_robot[module]
 
 	S["signature"] << pref.signature
@@ -55,7 +55,7 @@
 		"signature_font" = "signfont"
 	)
 
-	for (var/module in robot_module_types)
+	for (var/module in GLOB.robot_module_types)
 		var_list["robot_[lowertext(module)]"] = "flavour_texts_robot/[module]"
 
 	return list(
@@ -85,7 +85,7 @@
 		"char_id" = 1
 	)
 
-	for (var/module in robot_module_types)
+	for (var/module in GLOB.robot_module_types)
 		var_list += "robot_[lowertext(module)]"
 
 	return list("ss13_characters_flavour" = var_list)
@@ -107,7 +107,7 @@
 		"signature_font" = pref.signfont
 	)
 
-	for (var/module in robot_module_types)
+	for (var/module in GLOB.robot_module_types)
 		var_list["robot_[lowertext(module)]"] += pref.flavour_texts_robot[module]
 
 	return var_list
@@ -255,7 +255,7 @@
 	HTML += "<a href='?src=\ref[src];flavour_text_robot=Default'>Default:</a> "
 	HTML += TextPreview(pref.flavour_texts_robot["Default"])
 	HTML += "<hr />"
-	for(var/module in robot_module_types)
+	for(var/module in GLOB.robot_module_types)
 		HTML += "<a href='?src=\ref[src];flavour_text_robot=[module]'>[module]:</a> "
 		HTML += TextPreview(pref.flavour_texts_robot[module])
 		HTML += "<br>"

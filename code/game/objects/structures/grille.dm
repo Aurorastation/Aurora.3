@@ -261,7 +261,7 @@
 		if(electrocute_mob(user, C, src))
 			if(C.powernet)
 				C.powernet.trigger_warning()
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			if(user.stunned)
 				return 1
 		else

@@ -22,7 +22,7 @@
 	var/ticket = ""
 	var/destinationact = "Service"
 	var/ticket_number = 1
-	req_one_access = list(access_bar, access_kitchen) // Access to change the menu
+	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN) // Access to change the menu
 
 /obj/machinery/orderterminal/Initialize()
 	. = ..()

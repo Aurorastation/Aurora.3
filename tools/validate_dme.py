@@ -6,7 +6,7 @@ import sys
 reading = False
 
 FORBID_INCLUDE = [
-    'code/__defines/unit_testing.dm',
+    'code/__DEFINES/unit_testing.dm',
     'code/unit_tests/_template.dm',
     'code/modules/multiz/disabled.dm',
 

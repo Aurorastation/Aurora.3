@@ -81,6 +81,10 @@
 /obj/structure/largecrate/animal/dog/pug
 	held_type = /mob/living/simple_animal/hostile/commanded/dog/pug
 
+/obj/structure/largecrate/animal/dog/bullterrier
+	name = "bull terrier carrier"
+	held_type = /mob/living/simple_animal/hostile/commanded/dog/bullterrier
+
 /obj/structure/largecrate/animal/adhomai
 	name = "adhomian animal crate"
 	held_type = /mob/living/simple_animal/ice_tunneler

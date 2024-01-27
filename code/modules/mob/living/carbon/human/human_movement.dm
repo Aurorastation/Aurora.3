@@ -52,9 +52,13 @@
 
 	tally = max(-2, tally + move_delay_mod)
 
-	var/obj/item/I = get_active_hand()
-	if(istype(I))
-		tally += I.slowdown
+	var/obj/item/AH = get_active_hand()
+	if(istype(AH))
+		tally += AH.slowdown
+
+	var/obj/item/IH = get_inactive_hand()
+	if(istype(IH))
+		tally += IH.slowdown
 
 	if(isitem(pulling))
 		var/obj/item/P = pulling
@@ -71,7 +75,7 @@
 		if(!changeling)
 			tally += T.movement_cost
 
-	tally += config.human_delay
+	tally += GLOB.config.human_delay
 
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3

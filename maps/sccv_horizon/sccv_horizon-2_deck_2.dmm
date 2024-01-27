@@ -750,24 +750,10 @@
 /turf/simulated/floor/wood,
 /area/hallway/engineering)
 "arK" = (
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 0;
-	dir = 2;
-	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67)
-	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/open,
 /area/operations/office)
 "arV" = (
 /obj/structure/cable{
@@ -1343,17 +1329,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
-"aBq" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/effect/shuttle_landmark/lift/operations_second_deck,
-/obj/machinery/computer/shuttle_control/multi/lift/operations{
-	pixel_x = 11;
-	pixel_y = 18
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/operations_lift)
 "aBr" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -1551,6 +1526,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"aGz" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/operations/office)
 "aHj" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/cable/green{
@@ -1997,6 +1981,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/closet/secure_closet/freezer/kois,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/sign/biohazard{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2259,7 +2248,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "aWy" = (
-/obj/machinery/suit_cycler/science,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -2267,6 +2255,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
+/obj/machinery/suit_cycler/science/prepared,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
 "aWA" = (
@@ -4749,18 +4738,8 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "bZu" = (
-/obj/machinery/door/window/northright{
-	name = "Atmospherics Voidsuit Access";
-	req_access = list(24)
-	},
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/atmos,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "bZz" = (
@@ -4807,8 +4786,6 @@
 /turf/simulated/floor/bluegrid/server,
 /area/server)
 "caB" = (
-/obj/structure/table/standard,
-/obj/item/storage/bag/circuits/basic,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -5751,9 +5728,11 @@
 /area/hallway/primary/central_two)
 "cEk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/disposalpipe/junction{
-	dir = 8
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -6436,9 +6415,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/hologram/holopad,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "cVb" = (
@@ -6602,7 +6578,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 1;
 	name = "INDRA Reactor Office";
-	req_access = list(11)
+	req_access = list(10)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7512,9 +7488,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "dwy" = (
-/obj/item/device/binoculars{
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -9723,9 +9696,6 @@
 /obj/structure/closet/secure_closet/hos,
 /obj/item/device/multitool,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/clothing/suit/space/void/hos,
-/obj/item/clothing/head/helmet/space/void/hos,
-/obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
 /obj/machinery/alarm/north,
 /obj/item/device/radio,
@@ -9735,6 +9705,9 @@
 /obj/item/device/suit_cooling_unit,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
+	},
+/obj/item/device/binoculars{
+	pixel_y = 3
 	},
 /turf/simulated/floor/wood,
 /area/horizon/security/head_of_security)
@@ -10232,6 +10205,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
+/obj/item/storage/box/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "eQv" = (
@@ -10761,6 +10735,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "fdj" = (
@@ -11209,7 +11187,28 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker/teapot,
+/obj/item/storage/box/tea{
+	pixel_x = -9;
+	pixel_y = 17
+	},
+/obj/item/storage/box/tea{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/obj/item/storage/box/tea/jaekseol{
+	pixel_y = 17
+	},
+/obj/item/storage/box/tea/jaekseol{
+	pixel_y = 9
+	},
+/obj/item/storage/box/tea/tieguanyin{
+	pixel_x = 10;
+	pixel_y = 18
+	},
+/obj/item/storage/box/tea/tieguanyin{
+	pixel_x = 10;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "flS" = (
@@ -13123,6 +13122,9 @@
 /area/rnd/hallway)
 "gfj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "gfB" = (
@@ -13609,7 +13611,7 @@
 	name = "Viewing Blast Doors";
 	pixel_x = 7;
 	pixel_y = -23;
-	req_one_access = list(19,11)
+	req_one_access = list(19,11,24)
 	},
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
@@ -14150,21 +14152,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/northleft{
-	name = "Atmospherics Voidsuit Access";
-	req_access = list(24)
-	},
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/atmos,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "gAN" = (
@@ -16238,12 +16230,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
-"hzm" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/operations_lift)
 "hzC" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16858,6 +16844,9 @@
 	density = 0;
 	pixel_y = 24
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "hLP" = (
@@ -16991,11 +16980,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "hQE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/operations_lift)
+/turf/simulated/open,
+/area/operations/office)
 "hQI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -17169,12 +17158,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
-"hUP" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/operations/office)
 "hUW" = (
 /obj/machinery/door/airlock/glass_service{
 	dir = 4;
@@ -17203,8 +17186,12 @@
 /turf/template_noop,
 /area/template_noop)
 "hVu" = (
-/obj/machinery/suit_cycler/engineering,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/table/standard,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "hWn" = (
@@ -17340,23 +17327,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
-"ibx" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/storage_eva)
 "ibE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -17803,6 +17773,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67)
+	},
+/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "ikB" = (
@@ -17883,23 +17859,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
-"ilB" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/storage_eva)
 "ilT" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
@@ -18554,6 +18513,7 @@
 	dir = 5
 	},
 /obj/random/pottedplant,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iDt" = (
@@ -19175,10 +19135,7 @@
 /area/horizon/stairwell/central)
 "iRN" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
-/obj/item/clothing/suit/space/void/sci,
-/obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/platform{
 	dir = 4
 	},
@@ -19286,20 +19243,8 @@
 /area/crew_quarters/heads/hor)
 "iVO" = (
 /obj/machinery/alarm/south,
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/machinery/suit_cycler/engineering/prepared,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "iVQ" = (
@@ -20566,7 +20511,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/item/storage/box/fancy/crayons/chalkbox,
+/obj/item/storage/bag/circuits/basic,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "jzv" = (
@@ -21968,9 +21913,10 @@
 "kgH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "kgK" = (
@@ -22561,8 +22507,6 @@
 /turf/simulated/open,
 /area/horizon/stairwell/central)
 "kyV" = (
-/obj/structure/table/standard,
-/obj/item/device/hand_labeler,
 /obj/machinery/requests_console/north{
 	department = "Atmospherics";
 	departmentType = 4;
@@ -22571,6 +22515,20 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/crate{
+	layer = 2.79
+	},
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stack/cable_coil,
+/obj/item/circuitboard/unary_atmos/cooler,
+/obj/item/circuitboard/unary_atmos/heater,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "kyX" = (
@@ -24018,11 +23976,12 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
 "llp" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/operations_lift)
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "llB" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -24196,7 +24155,7 @@
 	name = "External Blast Doors";
 	pixel_x = 7;
 	pixel_y = -18;
-	req_one_access = list(19,11)
+	req_one_access = list(19,11,24)
 	},
 /obj/machinery/light/small,
 /obj/structure/window/reinforced{
@@ -25330,9 +25289,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "lSK" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/effect/shuttle_landmark/lift/operations_second_deck,
 /turf/simulated/open,
 /area/operations/office)
 "lST" = (
@@ -25900,7 +25857,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	pixel_x = -24;
 	pixel_y = 23
 	},
@@ -26046,6 +26003,9 @@
 /obj/item/material/hatchet/butch,
 /obj/item/material/hook,
 /obj/structure/table/standard,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -27130,6 +27090,9 @@
 	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Upper Warehouse Port";
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
@@ -28401,11 +28364,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/spline/plain/corner,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "njF" = (
@@ -29599,11 +29559,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "nOS" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/railing/mapped,
+/turf/simulated/open,
 /area/operations/office)
 "nPu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29727,11 +29687,20 @@
 /turf/simulated/floor/plating,
 /area/rnd/hallway)
 "nTB" = (
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/open,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
 /area/operations/office)
 "nTF" = (
 /obj/structure/disposalpipe/segment{
@@ -30727,7 +30696,8 @@
 	id = "engie_ringer";
 	pixel_x = -10;
 	pixel_y = 0;
-	req_access = list(11)
+	req_one_access = list(11,24);
+	req_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -31450,6 +31420,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "oKE" = (
@@ -31753,10 +31727,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/corner,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "oSG" = (
@@ -32303,23 +32274,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
-"pfp" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/storage_eva)
 "pfr" = (
 /obj/effect/landmark/start{
 	name = "Lab Assistant"
@@ -34170,21 +34124,7 @@
 /area/maintenance/wing/starboard)
 "qek" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northright{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
+/obj/machinery/suit_cycler/engineering/prepared,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "qen" = (
@@ -35924,10 +35864,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -37219,16 +37161,21 @@
 "ryq" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 0;
+	dir = 2;
 	name = "Warehouse Elevator";
 	req_one_access = list(26,29,31,48,67)
 	},
-/obj/machinery/door/firedoor/multi_tile,
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "ryu" = (
@@ -38195,6 +38142,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
+"rVw" = (
+/obj/machinery/camera/network/reactor{
+	c_tag = "Engineering - INDRA Reactor Office"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "rVE" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
@@ -39315,6 +39268,17 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"sBP" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/kitchen)
 "sCe" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -39375,20 +39339,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "Atmospherics Voidsuit Access";
-	req_access = list(24)
-	},
+/obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "sDQ" = (
@@ -39766,6 +39717,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 14;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
@@ -40918,6 +40873,13 @@
 /obj/effect/floor_decal/corner_wide/orange/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
+"tqN" = (
+/obj/structure/sign/drop{
+	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
+	name = "\improper DANGER: FALLING HAZARD sign"
+	},
+/turf/simulated/wall,
+/area/operations/office)
 "tre" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -40974,7 +40936,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "tun" = (
-/obj/machinery/suit_cycler/hos,
+/obj/machinery/suit_cycler/hos/prepared,
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain/full/black,
@@ -42463,11 +42425,23 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ubZ" = (
-/obj/structure/sign/drop{
-	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
-	name = "\improper DANGER: FALLING HAZARD sign"
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/wall,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/operations/office)
 "uci" = (
 /obj/structure/disposalpipe/segment{
@@ -42552,9 +42526,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "uej" = (
@@ -43498,6 +43469,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/reagent_containers/glass/beaker/teapot,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "uwP" = (
@@ -43919,7 +43891,16 @@
 "uHh" = (
 /obj/machinery/alarm/south,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/suit_cycler/engineering,
+/obj/structure/table/standard,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "uHq" = (
@@ -45042,7 +45023,9 @@
 /area/horizon/security/head_of_security)
 "vkw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "vlO" = (
@@ -46467,10 +46450,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -62769,7 +62752,7 @@ xnf
 xnf
 xnf
 iDj
-gdQ
+nTB
 rCR
 rCR
 rCR
@@ -63978,7 +63961,7 @@ hKh
 ecx
 kRZ
 kEY
-lSK
+arK
 giP
 kRZ
 mUW
@@ -64180,8 +64163,8 @@ hGE
 ciP
 kRZ
 kEY
-hUP
-nTB
+hQE
+nOS
 kRZ
 mGc
 rVg
@@ -64583,8 +64566,8 @@ tiD
 eDW
 ewb
 mKA
-nOS
-nOS
+llp
+llp
 rHw
 kOE
 tsA
@@ -64786,8 +64769,8 @@ rVg
 kXS
 rVg
 fRi
-arK
-ubZ
+ryq
+tqN
 kRZ
 rtF
 rVg
@@ -64987,11 +64970,11 @@ cAb
 cAb
 sUj
 rVg
-hzm
-hQE
-ryq
+lSK
+rSG
+iku
 kRZ
-rtF
+ubZ
 rVg
 gVs
 dum
@@ -65189,9 +65172,9 @@ aML
 gLL
 bgS
 rVg
-aBq
-llp
-iku
+rSG
+rSG
+aGz
 yig
 eUa
 rVg
@@ -67798,7 +67781,7 @@ ins
 oPC
 rns
 gsX
-pfp
+qek
 kxP
 lfF
 xhj
@@ -68202,7 +68185,7 @@ hVu
 mfE
 wTU
 qkF
-ibx
+qek
 kxP
 fsf
 mDQ
@@ -68404,7 +68387,7 @@ knH
 mfE
 wTU
 qkF
-ilB
+qek
 kxP
 hvm
 dIZ
@@ -73503,7 +73486,7 @@ dvw
 jUc
 qDU
 wDk
-tIB
+cEk
 udZ
 cDx
 nhR
@@ -73705,7 +73688,7 @@ mKD
 uPW
 vxK
 rGj
-tIB
+sBP
 kgH
 nmD
 dJV
@@ -74110,7 +74093,7 @@ mgg
 lQh
 muz
 vkw
-cEk
+oZN
 nZX
 dJV
 hYo
@@ -74435,7 +74418,7 @@ qgN
 qgN
 qgN
 nlQ
-peL
+rVw
 peL
 peL
 cIc

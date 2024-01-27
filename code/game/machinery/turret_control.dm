@@ -29,7 +29,7 @@
 	var/check_synth = 0		//if active, will shoot at anything not an AI or cyborg
 	var/target_borgs = FALSE//if active, will shoot at borgs
 	var/ailock = 0 	//Silicons cannot use this
-	req_access = list(access_ai_upload)
+	req_access = list(ACCESS_AI_UPLOAD)
 
 
 /obj/machinery/turretid/stun
@@ -53,7 +53,7 @@
 	if(!control_area)
 		control_area = get_area(src)
 	else if(istext(control_area))
-		for(var/area/A in all_areas)
+		for(var/area/A in GLOB.all_areas)
 			if(A.name && A.name==control_area)
 				control_area = A
 				break

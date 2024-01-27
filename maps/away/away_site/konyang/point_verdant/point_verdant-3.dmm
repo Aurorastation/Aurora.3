@@ -142,6 +142,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
+	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
 "bz" = (
@@ -274,6 +278,10 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
@@ -1081,6 +1089,15 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"lc" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_corporate";
+	name = "Building Lockdown";
+	req_access = list(225)
+	},
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior)
 "lm" = (
 /obj/structure/dressing_divider{
 	icon_state = "divider3"
@@ -1324,6 +1341,17 @@
 /obj/structure/ladder,
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"oF" = (
+/obj/machinery/door/urban/glass_sliding/double,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior)
 "oG" = (
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
@@ -1657,12 +1685,29 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"td" = (
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior)
 "tg" = (
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior)
 "th" = (
 /obj/machinery/door/urban/glass_sliding,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
+	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
 "tk" = (
@@ -1837,6 +1882,14 @@
 /obj/item/wrench,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
+"vm" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "vo" = (
 /obj/effect/decal/curb{
 	dir = 10
@@ -2901,6 +2954,10 @@
 "FV" = (
 /obj/structure/window/urban/full,
 /obj/structure/window_frame/urban/full,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "Ge" = (
@@ -3582,6 +3639,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"NW" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "NZ" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -14819,17 +14884,17 @@ bf
 bf
 bf
 bf
-jm
-jm
+vm
+vm
 bf
-jm
-jm
+vm
+vm
 bf
-jm
-jm
+vm
+vm
 bf
-jm
-jm
+vm
+vm
 bf
 IJ
 Xr
@@ -15328,7 +15393,7 @@ DD
 DD
 sh
 hw
-mp
+oF
 nX
 nX
 nX
@@ -15585,7 +15650,7 @@ DD
 DD
 sh
 hw
-Mf
+td
 lx
 lx
 lx
@@ -16366,7 +16431,7 @@ ZD
 Hx
 IH
 zU
-ES
+lc
 lp
 Tm
 tN
@@ -17641,7 +17706,7 @@ hw
 hw
 hw
 hw
-jm
+NW
 bM
 Zq
 eV
@@ -17898,7 +17963,7 @@ lW
 lW
 TE
 hw
-jm
+NW
 Vi
 Zq
 eV
@@ -18426,8 +18491,8 @@ kX
 lp
 lp
 bf
-jm
-jm
+vm
+vm
 bf
 wy
 HW
@@ -18669,7 +18734,7 @@ DD
 DD
 Ue
 hw
-jm
+NW
 WK
 Zq
 eV
@@ -18926,7 +18991,7 @@ DD
 DD
 Ue
 hw
-jm
+NW
 WK
 Zq
 Ag
@@ -18939,7 +19004,7 @@ Zq
 kX
 lp
 lp
-jm
+NW
 hw
 hw
 hw
@@ -19183,7 +19248,7 @@ DD
 DD
 Ue
 hw
-jm
+NW
 WK
 Wl
 wx
@@ -19196,7 +19261,7 @@ Zq
 kX
 lp
 lp
-jm
+NW
 hw
 hw
 mK
@@ -19440,7 +19505,7 @@ DD
 DD
 sh
 hw
-jm
+NW
 WK
 Oi
 KU
@@ -19453,7 +19518,7 @@ Zq
 Zq
 lp
 lp
-jm
+NW
 hw
 hw
 UV
@@ -19697,7 +19762,7 @@ DD
 DD
 sh
 hw
-jm
+NW
 UG
 aq
 aq
@@ -19955,18 +20020,18 @@ kv
 sY
 MX
 bf
-jm
-jm
-jm
-jm
-jm
+vm
+vm
+vm
+vm
+vm
 bf
 bf
-jm
-jm
+vm
+vm
 bf
-jm
-jm
+vm
+vm
 bf
 hw
 um

@@ -24,8 +24,12 @@
 	if(!current_map.use_overmap)
 		return ..()
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
 		if(V.comms_name)
 			name = "[V.comms_name] encryption key"
@@ -38,7 +42,6 @@
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/encryptionkey/ship/common
@@ -133,6 +136,11 @@
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE)
 
+/obj/item/device/encryptionkey/headset_xenoarch
+	name = "xenoarchaeology radio encryption key"
+	icon_state = "sci_cypherkey"
+	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_HAILING = TRUE)
+
 /obj/item/device/encryptionkey/headset_medsci
 	name = "medical research radio encryption key"
 	icon_state = "medsci_cypherkey"
@@ -182,7 +190,7 @@
 /obj/item/device/encryptionkey/headset_cargo
 	name = "operations radio encryption key"
 	icon_state = "cargo_cypherkey"
-	channels = list(CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/headset_operations_manager
 	name = "operations managaer radio encryption key"

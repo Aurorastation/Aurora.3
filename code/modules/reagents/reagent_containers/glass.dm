@@ -60,13 +60,13 @@
 
 	return additional_evidence
 
-/obj/item/reagent_containers/glass/attack_self()
+/obj/item/reagent_containers/glass/attack_self(mob/user)
 	..()
 	if(is_open_container())
-		to_chat(usr, "<span class = 'notice'>You put the lid on \the [src].</span>")
+		to_chat(user, "<span class = 'notice'>You put the lid on \the [src].</span>")
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	else
-		to_chat(usr, "<span class = 'notice'>You take the lid off \the [src].</span>")
+		to_chat(user, "<span class = 'notice'>You take the lid off \the [src].</span>")
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
@@ -213,15 +213,6 @@
 
 /obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/singleton/reagent/acid = 60)
 
-/obj/item/reagent_containers/glass/beaker/teapot
-	name = "teapot"
-	desc = "An elegant teapot. It simply oozes class."
-	icon_state = "teapot"
-	item_state = "teapot"
-	unacidable = TRUE
-	amount_per_transfer_from_this = 10
-	volume = 120
-
 /obj/item/reagent_containers/glass/beaker/pitcher
 	name = "pitcher"
 	desc = "Everyone's best friend in the morning."
@@ -294,8 +285,8 @@
 	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
 
 /obj/item/reagent_containers/glass/bucket/wood
-	desc = "An old wooden bucket."
 	name = "wooden bucket"
+	desc = "An old wooden bucket."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
@@ -309,5 +300,4 @@
 	if(isprox(D))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return
-
 	..()

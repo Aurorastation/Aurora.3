@@ -27,7 +27,7 @@
 	/**
 	 * Determines which slots an item can fit, eg. `SLOT_BACK`
 	 *
-	 * See `code\__defines\items_clothing.dm` for the list of defined slots
+	 * See `code\__DEFINES\items_clothing.dm` for the list of defined slots
 	 */
 	var/slot_flags = 0
 
@@ -40,14 +40,14 @@
 	/**
 	 * Flags which determine which body parts are protected from heat, eg. `HEAD` and `UPPER_TORSO`
 	 *
-	 * See `code\__defines\items_clothing.dm` for the list of defined parts
+	 * See `code\__DEFINES\items_clothing.dm` for the list of defined parts
 	 */
 	var/heat_protection = 0
 
 	/**
 	 * Flags which determine which body parts are protected from cold, eg. `HEAD` and `UPPER_TORSO`
 	 *
-	 * See `code\__defines\items_clothing.dm` for the list of defined parts
+	 * See `code\__DEFINES\items_clothing.dm` for the list of defined parts
 	 */
 	var/cold_protection = 0
 
@@ -99,7 +99,7 @@
 	 */
 	var/flags_inv = 0
 
-	///See `code\__defines\items_clothing.dm` for appropriate bit flags
+	///See `code\__DEFINES\items_clothing.dm` for appropriate bit flags
 	var/body_parts_covered = 0
 
 	///Miscellaneous flags pertaining to equippable objects.
@@ -340,14 +340,16 @@
 	//things outside its range ~Nanako
 
 	. = ..(user, distance, "", "It is a [size] item.")
-	if(length(armor))
+	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
+	if(armor_component)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
+		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 		var/list/armor_details = list()
-		for(var/armor_type in armor)
-			armor_details[armor_type] = armor[armor_type]
+		for(var/armor_type in armor_component.armor_values)
+			armor_details[armor_type] = armor_component.armor_values[armor_type]
 		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
 		AV.ui_interact(usr)
 	return ..()
@@ -502,7 +504,7 @@
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
 		return
-	if(QDELING(user))
+	if(QDELETED(user))
 		return
 	var/list/verbs_to_remove = list()
 	for(var/v in verbs)
@@ -568,7 +570,7 @@
 		remove_item_verbs(user)
 
 	//Ěent for observable
-	mob_equipped_event.raise_event(user, src, slot)
+	GLOB.mob_equipped_event.raise_event(user, src, slot)
 	item_equipped_event.raise_event(src, user, slot)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 

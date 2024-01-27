@@ -13,7 +13,7 @@
 
 		var/min_antag_count = 0
 		for(var/antag_type in GM.antag_tags)
-			var/datum/antagonist/A = all_antag_types[antag_type]
+			var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
 
 			if(GM.require_all_templates)
 				min_antag_count += A.initial_spawn_req

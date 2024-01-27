@@ -8,6 +8,8 @@
 	announceWhen = rand(0,80)
 
 /datum/event/supply_drop/start()
+	..()
+
 	var/rarity = 4
 	var/quantity = rand(10,25)
 
@@ -18,7 +20,7 @@
 	new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
 	log_and_message_admins("Unusual container spawned at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
 
-	spark(spawn_loc, 10, alldirs)
+	spark(spawn_loc, 10, GLOB.alldirs)
 
 /datum/event/supply_drop/announce()
 	if (prob(65))//Announce the location

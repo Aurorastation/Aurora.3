@@ -222,7 +222,7 @@ Pins Below.
 	name = "access-keyed firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user has the required access."
 	fail_message = "<span class='warning'>ACCESS CHECK FAILED.</span>"
-	req_access = list(access_weapons)
+	req_access = list(ACCESS_WEAPONS)
 
 /obj/item/device/firing_pin/access/pin_auth(mob/living/user)
 	return !allowed(user)

@@ -44,7 +44,7 @@
 
 	// Use this to look for cameras that have the same c_tag.
 	if(!isnull(src.c_tag))
-		for(var/obj/machinery/camera/C in cameranet.cameras)
+		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 			var/list/tempnetwork = C.network&src.network
 			if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
 				log_mapping_error("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
@@ -71,10 +71,11 @@
 
 	QDEL_NULL(wires)
 
-	cameranet.remove_source(src)
-	cameranet.cameras -= src
+	GLOB.cameranet.remove_source(src)
+	GLOB.cameranet.cameras -= src
 
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/camera/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? -13 : 13)
@@ -128,7 +129,7 @@
 
 /obj/machinery/camera/proc/setViewRange(var/num = 7)
 	src.view_range = num
-	cameranet.update_visibility(src, 0)
+	GLOB.cameranet.update_visibility(src, 0)
 
 /obj/machinery/camera/attack_hand(mob/living/carbon/human/user as mob)
 	if(!istype(user))
@@ -191,7 +192,7 @@
 			itemname = X.name
 			info = X.info
 		to_chat(U, "You hold \a [itemname] up to the camera ...")
-		for(var/mob/living/silicon/ai/O in living_mob_list)
+		for(var/mob/living/silicon/ai/O in GLOB.living_mob_list)
 			var/entry = O.addCameraRecord(itemname,info)
 			if(!O.client) continue
 			if(U.name == "Unknown")
@@ -199,7 +200,7 @@
 			else
 				to_chat(O, "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=[entry]'>view message</a>")
 
-		for(var/mob/O in player_list)
+		for(var/mob/O in GLOB.player_list)
 			if (istype(O.machine, /obj/machinery/computer/security))
 				var/obj/machinery/computer/security/S = O.machine
 				if (S.current_camera == src)
@@ -267,7 +268,7 @@
 //Used when someone breaks a camera
 /obj/machinery/camera/proc/destroy()
 	stat |= BROKEN
-	wires.RandomCutAll()
+	wires.cut_all()
 
 	kick_viewers()
 	triggerCameraAlarm()
@@ -297,7 +298,7 @@
 
 //This might be redundant, because of check_eye()
 /obj/machinery/camera/proc/kick_viewers()
-	for(var/mob/O in player_list)
+	for(var/mob/O in GLOB.player_list)
 		if (istype(O.machine, /obj/machinery/computer/security))
 			var/obj/machinery/computer/security/S = O.machine
 			if (S.current_camera == src)
@@ -318,7 +319,7 @@
 	camera_alarm.triggerAlarm(loc, src, duration)
 
 /obj/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
-	if(wires.IsIndexCut(CAMERA_WIRE_ALARM) && !force)
+	if(wires.is_cut(WIRE_ALARM) && !force)
 		return
 
 	alarm_on = 0
@@ -405,7 +406,7 @@
 		return
 
 	user.set_machine(src)
-	wires.Interact(user)
+	wires.interact(user)
 
 /obj/machinery/camera/proc/add_network(var/network_name)
 	add_networks(list(network_name))
@@ -468,7 +469,7 @@
 		return
 	if (stat & BROKEN) // Fix the camera
 		stat &= ~BROKEN
-	wires.CutAll()
-	wires.MendAll()
+	wires.cut_all(src)
+	wires.repair()
 	update_icon()
 	update_coverage()

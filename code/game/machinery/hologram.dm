@@ -140,7 +140,7 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/hologram/holopad/proc/has_command_auth(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(I && (access_heads in I.access))
+	if(I && (ACCESS_HEADS in I.access))
 		return TRUE
 	return FALSE
 
@@ -154,7 +154,7 @@ Possible to do for anyone motivated enough:
 			last_request = world.time
 			to_chat(usr, SPAN_NOTICE("You request an AI's presence."))
 			var/area/area = get_area(src)
-			for(var/mob/living/silicon/ai/AI in silicon_mob_list)
+			for(var/mob/living/silicon/ai/AI in GLOB.silicon_mob_list)
 				if(!AI.client)
 					continue
 				if(!AreConnectedZLevels(AI.z, z))
@@ -370,7 +370,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
 		set_can_hear_flags(CAN_HEAR_ACTIVE_HOLOCALLS)
-	if(!isInSight(H, src))
+	if(!is_in_sight(H, src))
 		qdel(H)
 		return
 	H.assume_form(M, long_range)
@@ -387,7 +387,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(connected_pad)
 			H.x = src.x - (connected_pad.x - M.x)
 			H.y = src.y - (connected_pad.y - M.y)
-		if(get_dist(H, src) > world.view || !isInSight(H, src))
+		if(get_dist(H, src) > world.view || !is_in_sight(H, src))
 			clear_holo(M)
 			return
 		H.assume_form(M, long_range)
@@ -457,7 +457,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			clear_holo(user)
 			return 0
 
-		if(get_dist(user.eyeobj, src) > holo_range || !isInSight(H, src))
+		if(get_dist(user.eyeobj, src) > holo_range || !is_in_sight(H, src))
 			user.holo = null
 			clear_holo(user)
 	return TRUE

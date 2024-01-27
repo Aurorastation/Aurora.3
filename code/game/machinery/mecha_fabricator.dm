@@ -7,7 +7,7 @@
 	anchored = TRUE
 	idle_power_usage = 20
 	active_power_usage = 5000
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 	var/speed = 1
 	var/mat_efficiency = 1
@@ -36,7 +36,7 @@
 	. = ..()
 
 	files = new /datum/research(src) //Setup the research data holder.
-	limb_manufacturer = basic_robolimb.company
+	limb_manufacturer = GLOB.basic_robolimb.company
 	update_categories()
 
 /obj/machinery/mecha_part_fabricator/process()
@@ -98,10 +98,10 @@
 	data["buildable"] = get_build_options()
 	data["category"] = category
 	data["categories"] = categories
-	if(fabricator_robolimbs)
+	if(GLOB.fabricator_robolimbs)
 		var/list/T = list()
-		for(var/A in fabricator_robolimbs)
-			var/datum/robolimb/R = fabricator_robolimbs[A]
+		for(var/A in GLOB.fabricator_robolimbs)
+			var/datum/robolimb/R = GLOB.fabricator_robolimbs[A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
 		data["manufacturer"] = limb_manufacturer
@@ -134,7 +134,7 @@
 			category = href_list["category"]
 
 	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in fabricator_robolimbs)
+		if(href_list["manufacturer"] in GLOB.fabricator_robolimbs)
 			limb_manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
@@ -203,7 +203,7 @@
 			if(protection && (protection.flags_inv & BLOCKHAIR))
 				return
 
-		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[target.h_style]
+		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[target.h_style]
 		if(hair_style.length < 4)
 			return
 

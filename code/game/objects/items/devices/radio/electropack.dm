@@ -70,9 +70,7 @@
 			if(!M.moved_recently && M.last_move)
 				M.moved_recently = 1
 				step(M, M.last_move)
-				sleep(50)
-				if(M)
-					M.moved_recently = 0
+				addtimer(CALLBACK(src, PROC_REF(update_move_recently)), 50 SECONDS)
 		to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
 		spark(M, 3)
 
@@ -81,6 +79,13 @@
 	if(master && wires & 1)
 		master.receive_signal()
 	return
+
+/obj/item/device/radio/electropack/proc/update_move_recently()
+	var/mob/M = loc
+
+	if(M)
+		M.moved_recently = 0
+
 
 /obj/item/device/radio/electropack/attack_self(mob/user as mob, flag1)
 

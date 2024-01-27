@@ -8,7 +8,7 @@
 	icon_state = "ce"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_access = list(access_ce)
+	req_access = list(ACCESS_CE)
 
 /obj/structure/closet/secure_closet/engineering_chief/fill()
 	new /obj/item/storage/backpack/satchel/locker_clothing/ce(src)
@@ -56,7 +56,7 @@
 // Engineer
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "engineer's locker"
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	icon_state = "eng_secure"
 
 /obj/structure/closet/secure_closet/engineering_personal/fill()
@@ -84,7 +84,7 @@
 // Atmospherics Technician
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "atmospheric technician's locker"
-	req_access = list(access_atmospherics)
+	req_access = list(ACCESS_ATMOSPHERICS)
 	icon_state = "atmos"
 
 /obj/structure/closet/secure_closet/atmos_personal/fill()
@@ -109,6 +109,7 @@
 	new /obj/item/crowbar/rescue_axe(src)
 	new /obj/item/device/flashlight/heavy(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
+	new /obj/item/device/debugger(src)
 
 	// Painters
 	new /obj/item/device/paint_sprayer(src)
@@ -117,7 +118,7 @@
 // Electrical Supplies
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies"
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	icon_state = "eng"
 	icon_door = "eng_elec"
 
@@ -146,7 +147,7 @@
 // Welding Supplies
 /obj/structure/closet/secure_closet/engineering_welding
 	name = "welding supplies"
-	req_access = list(access_construction)
+	req_access = list(ACCESS_CONSTRUCTION)
 	icon_state = "eng"
 	icon_door = "eng_weld"
 
