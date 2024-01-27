@@ -59,7 +59,7 @@
 /mob/living/simple_animal/hostile/ipc_zombie/death()
 	..()
 	if(corpse)
-		new corpse(src.loc)
+		new corpse(get_turf(src))
 		qdel(src)
 		return
 
