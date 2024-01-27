@@ -25,14 +25,17 @@
 /area/ship/orion/engie
 	name = "Engineering"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "engineering"
 
 /area/ship/orion/atmos
 	name = "Atmospherics"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "atmos"
 
 /area/ship/orion/cargo
 	name = "Cargo Bay"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "quartloading"
 
 /area/ship/orion/mainhall
 	name = "Main Hallway"
@@ -41,38 +44,47 @@
 /area/ship/orion/forehall
 	name = "Lobby"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "hallC"
 
 /area/ship/orion/crew
 	name = "Crew Quarters"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "crew_quarters"
 
 /area/ship/orion/captain
 	name = "Captain's Office"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "captain"
 
 /area/ship/orion/bridge
 	name = "Platform Command Center"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "bridge"
 
 /area/ship/orion/comms
 	name = "Telecommunications"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "tcomsatcham"
 
 /area/ship/orion/forehall
 	name = "Cafeteria"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "lounge"
 
 /area/ship/orion/shop
 	name = "Commissary"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "blue"
 
 /area/ship/orion/thruster1
 	name = "Thruster Pod 1"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "engine"
 
 /area/ship/orion/thruster2
 	name = "Thruster Pod 2"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "engine"
 
 // Shuttle
 /area/shuttle/orion_shuttle/
@@ -83,15 +95,18 @@
 
 /area/shuttle/orion_shuttle/storage
 	name = "Storage Compartment"
-
+	ambience = AMBIENCE_GENERIC
 /area/shuttle/orion_shuttle/cockpit
 	name = "Cockpit"
+	ambience = AMBIENCE_GENERIC
 
 /area/shuttle/orion_shuttle/portthrust
 	name = "Port Nacelle"
+	ambience = AMBIENCE_MAINTENANCE
 
 /area/shuttle/orion_shuttle/starboardthrust
 	name = "Starboard Nacelle"
+	ambience = AMBIENCE_MAINTENANCE
 
 //ship stuff
 
