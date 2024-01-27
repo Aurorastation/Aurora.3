@@ -74,15 +74,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/crew)
-"aoV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_shuttle/storage)
 "asD" = (
 /obj/effect/shuttle_landmark/orion_express_ship/transit,
 /turf/space/transit/north,
@@ -117,13 +108,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
-"aCK" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor,
-/area/shuttle/orion_shuttle/starboardthrust)
 "aDL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -635,19 +619,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
-"cbv" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/shuttle/orion_shuttle/portthrust)
 "ccK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor,
-/area/shuttle/orion_shuttle/portthrust)
+/area/shuttle/orion_shuttle/starboardthrust)
 "ceU" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "orion_traveler_port";
@@ -691,9 +669,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
-"clG" = (
-/turf/simulated/wall/shuttle/scc,
-/area/shuttle/orion_shuttle/starboardthrust)
 "cnJ" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/light{
@@ -1351,6 +1326,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
+"fNK" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
+/area/shuttle/orion_shuttle/starboardthrust)
 "fUj" = (
 /turf/simulated/floor,
 /area/ship/orion/forehall)
@@ -1392,6 +1376,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
+"gim" = (
+/turf/simulated/wall/shuttle/scc,
+/area/shuttle/orion_shuttle/starboardthrust)
 "gjQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/east{
@@ -2099,6 +2086,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle/storage)
 "iGD" = (
@@ -2161,11 +2153,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/storage)
-"iSX" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
-/area/shuttle/orion_shuttle/portthrust)
 "iTn" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -2278,15 +2265,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
-"jvB" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/shuttle/orion_shuttle/starboardthrust)
 "jvY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -2618,9 +2596,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
-"lgF" = (
-/turf/simulated/wall/shuttle/scc,
-/area/shuttle/orion_shuttle/cockpit)
 "lhJ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/light{
@@ -2705,9 +2680,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
-"lBE" = (
-/turf/simulated/wall/shuttle/scc,
-/area/shuttle/orion_shuttle/portthrust)
 "lCK" = (
 /obj/item/trash/can/adhomian_can,
 /turf/simulated/floor,
@@ -2906,6 +2878,15 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
+"mfX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle/storage)
 "mgg" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -3019,6 +3000,15 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
+"mGg" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_shuttle/storage)
 "mGO" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -3096,20 +3086,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
-"mRb" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_shuttle/storage)
 "mSt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -3766,6 +3742,12 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
+"pOG" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/orion_shuttle/starboardthrust)
 "pOK" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/captain)
@@ -4083,6 +4065,11 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion/thruster2)
+"rbj" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/shuttle/orion_shuttle/portthrust)
 "rdc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -4625,20 +4612,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
-"sZK" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/high/north{
-	req_access = list(201)
-	},
-/turf/simulated/floor,
-/area/shuttle/orion_shuttle/portthrust)
 "tcC" = (
 /obj/machinery/light{
 	dir = 8;
@@ -5155,6 +5128,9 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
+"vgU" = (
+/turf/simulated/wall/shuttle/scc,
+/area/shuttle/orion_shuttle/cockpit)
 "vhp" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5600,6 +5576,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
+"wzu" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = list(201)
+	},
+/turf/simulated/floor,
+/area/shuttle/orion_shuttle/portthrust)
 "wzK" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/door/window{
@@ -5639,6 +5629,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
+"wFa" = (
+/turf/simulated/wall/shuttle/scc,
+/area/shuttle/orion_shuttle/portthrust)
 "wFW" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid,
@@ -5827,6 +5820,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
+"xsv" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor,
+/area/shuttle/orion_shuttle/portthrust)
 "xsE" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor,
@@ -6011,7 +6011,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_shuttle/starboardthrust)
+/area/shuttle/orion_shuttle/portthrust)
 "yfU" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -36470,8 +36470,8 @@ xRX
 xRX
 xRX
 dwE
-lBE
-lBE
+wFa
+wFa
 xRX
 xRX
 riA
@@ -36724,11 +36724,11 @@ xRX
 xRX
 xRX
 xRX
-lBE
-lBE
-lBE
+wFa
+wFa
+wFa
 sqh
-cbv
+yfz
 xRX
 riA
 riA
@@ -36982,9 +36982,9 @@ xRX
 xRX
 xRX
 mNJ
-iSX
+rbj
 nAQ
-ccK
+xsv
 qMt
 xRX
 riA
@@ -37238,11 +37238,11 @@ xRX
 xRX
 xRX
 iCX
-lBE
-sZK
+wFa
+wzu
 mLK
 fkX
-cbv
+yfz
 riA
 riA
 xsE
@@ -37484,10 +37484,10 @@ xRX
 xRX
 xRX
 xRX
-lgF
-lgF
-lgF
-lgF
+vgU
+vgU
+vgU
+vgU
 qUy
 qUy
 qUy
@@ -38263,7 +38263,7 @@ qUy
 skU
 rdc
 biw
-iEl
+mfX
 mzY
 biw
 aVM
@@ -38512,15 +38512,15 @@ xRX
 xRX
 xRX
 xRX
-lgF
+vgU
 vOd
 vPd
 dte
 qUy
 lZq
 lZq
-aoV
-mRb
+mGg
+iEl
 mzO
 rLo
 hlA
@@ -38769,7 +38769,7 @@ xRX
 xRX
 xRX
 xRX
-lgF
+vgU
 fdC
 gnR
 oey
@@ -39026,7 +39026,7 @@ xRX
 xRX
 xRX
 xRX
-lgF
+vgU
 fBW
 vRr
 kYI
@@ -39283,10 +39283,10 @@ xRX
 xRX
 xRX
 xRX
-lgF
-lgF
-lgF
-lgF
+vgU
+vgU
+vgU
+vgU
 qUy
 qUy
 qUy
@@ -39551,11 +39551,11 @@ xRX
 xRX
 xRX
 qkP
-clG
+gim
 mcN
-jvB
+fNK
 boM
-yfz
+pOG
 xRX
 oQa
 iCR
@@ -39811,7 +39811,7 @@ xRX
 uVR
 aYD
 gjQ
-aCK
+ccK
 kOl
 xRX
 riA
@@ -40065,11 +40065,11 @@ xRX
 xRX
 xRX
 xRX
-clG
-clG
-clG
+gim
+gim
+gim
 oXn
-yfz
+pOG
 xRX
 xRX
 riA
@@ -40325,8 +40325,8 @@ xRX
 xRX
 xRX
 scs
-clG
-clG
+gim
+gim
 xRX
 xRX
 riA
