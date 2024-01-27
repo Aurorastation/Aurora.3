@@ -78,21 +78,26 @@
 // Shuttle
 /area/shuttle/orion_shuttle/
 	requires_power = TRUE
-	name = "Orion Courier Shuttle"
+	name = "Orion Courier Shuttle (parent, do not use)"
 	icon_state = "shuttle2"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/orion_shuttle/storage
 	name = "Storage Compartment"
+	icon_state = "storage"
 
 /area/shuttle/orion_shuttle/cockpit
 	name = "Cockpit"
+	icon_state = "bridge"
 
 /area/shuttle/orion_shuttle/portthrust
 	name = "Port Nacelle"
+	icon_state = "blue-red2"
 
 /area/shuttle/orion_shuttle/starboardthrust
 	name = "Starboard Nacelle"
+	icon_state = "blue-red2"
+
 
 //ship stuff
 
@@ -185,7 +190,7 @@
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/orion_shuttle)
+	shuttle_area = list(/area/shuttle/orion_shuttle/cockpit, /area/shuttle/orion_shuttle/portthrust, /area/shuttle/orion_shuttle/storage, /area/shuttle/orion_shuttle/starboardthrust)
 	current_location = "nav_hangar_orion_express"
 	landmark_transition = "nav_transit_orion_express"
 	range = 1
