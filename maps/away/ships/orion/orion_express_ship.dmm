@@ -289,7 +289,7 @@
 	},
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster2)
 "bgb" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/cable/green{
@@ -480,7 +480,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster2)
 "bGx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/hatch{
@@ -498,7 +498,7 @@
 	name = "aft, misc storage"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/comms)
 "bIQ" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -685,7 +685,7 @@
 	name = "starboard, lower commissary"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/shop)
 "crK" = (
 /obj/structure/sign/staff_only{
 	pixel_x = 32
@@ -1122,7 +1122,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster2)
 "eBK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1289,6 +1289,9 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/thruster1)
+"fsY" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/orion/shop)
 "fuh" = (
 /obj/item/clothing/head/beret/janitor,
 /obj/structure/table/steel,
@@ -1620,7 +1623,7 @@
 	name = "port, bathrooms"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/forehall)
 "gPs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1673,7 +1676,7 @@
 	name = "aft, port side"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/forehall)
 "hdZ" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
@@ -1966,7 +1969,7 @@
 	name = "starboard, cargo"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/cargo)
 "icu" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/cargo)
@@ -2737,7 +2740,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster1)
 "lTO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	layer = 2.71;
@@ -3081,7 +3084,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion/shop)
+/area/ship/orion/cargo)
 "mSt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -3172,6 +3175,10 @@
 /obj/structure/janitorialcart/full,
 /turf/simulated/floor,
 /area/ship/orion/forehall)
+"nlF" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor,
+/area/ship/orion/cargo)
 "nnl" = (
 /obj/item/device/assembly/mousetrap/armed,
 /obj/effect/decal/cleanable/dirt,
@@ -3578,7 +3585,7 @@
 	name = "starboard, upper cargo"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/cargo)
 "oXn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -3818,6 +3825,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
+"qcY" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/ship/orion/thruster1)
 "qeK" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
@@ -3843,7 +3860,7 @@
 	name = "starboard, commissary"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/shop)
 "qjk" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -3962,8 +3979,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "qBd" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/orion)
+/obj/structure/foamedmetal,
+/turf/simulated/floor,
+/area/ship/orion/engie)
 "qGl" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
@@ -4080,7 +4098,7 @@
 /area/ship/orion/bridge)
 "riA" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/engie)
 "rlw" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4106,7 +4124,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster2)
 "rrQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
@@ -4776,6 +4794,12 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/orion/atmos)
+"tzS" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/ship/orion/thruster1)
 "tAd" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
@@ -4939,7 +4963,7 @@
 	name = "port, gardens"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/forehall)
 "ufB" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/toothpaste,
@@ -4990,7 +5014,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster1)
 "uqu" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5238,7 +5262,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster1)
 "vyy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -5784,7 +5808,7 @@
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/ship/orion)
+/area/ship/orion/thruster2)
 "xnY" = (
 /obj/item/reagent_containers/food/drinks/cans/peach_soda{
 	pixel_x = -5
@@ -5856,7 +5880,7 @@
 "xsE" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/ship/orion)
+/area/ship/orion/shop)
 "xtN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -5945,7 +5969,7 @@
 	name = "aft, starboard side"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion)
+/area/ship/orion/engie)
 "xPl" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -34217,9 +34241,9 @@ rZA
 rZA
 rNJ
 rZA
-riA
-riA
-riA
+wrd
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -34476,9 +34500,9 @@ iVL
 rZA
 pXU
 sMD
-riA
+wrd
 gOp
-riA
+wrd
 xRX
 xRX
 xRX
@@ -34735,9 +34759,9 @@ iIr
 cwI
 vtO
 tOx
-riA
-riA
-riA
+wrd
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -34992,11 +35016,11 @@ qpX
 cwI
 qpX
 nIu
-qBd
-riA
-riA
+qpX
+wrd
+wrd
 udj
-riA
+wrd
 xRX
 xRX
 xRX
@@ -35253,8 +35277,8 @@ qpX
 lhJ
 ilT
 jMZ
-riA
-riA
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -35511,8 +35535,8 @@ oVV
 kFU
 wlw
 wpk
-riA
-riA
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -35769,8 +35793,8 @@ oVV
 kFU
 ilT
 cnJ
-riA
-riA
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -36026,8 +36050,8 @@ oVV
 oVV
 oVV
 wpk
-riA
-riA
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -36283,9 +36307,9 @@ deS
 deS
 oVV
 mGO
-riA
-riA
-riA
+wrd
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -36799,8 +36823,8 @@ qpX
 qpX
 oAP
 nkI
-riA
-riA
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -37057,7 +37081,7 @@ qpX
 fUj
 bld
 qXP
-riA
+wrd
 xRX
 xRX
 xRX
@@ -37314,8 +37338,8 @@ ieN
 fUj
 fUj
 fUj
-riA
-riA
+wrd
+wrd
 xRX
 xRX
 xRX
@@ -37572,7 +37596,7 @@ qpX
 qpX
 ddB
 oQn
-riA
+wrd
 xRX
 xRX
 xRX
@@ -38825,11 +38849,11 @@ qUy
 qUy
 qUy
 rrQ
-qBd
-qBd
-qBd
-qBd
-qBd
+iCR
+iCR
+iCR
+iCR
+iCR
 icu
 nDV
 wSv
@@ -39109,8 +39133,8 @@ gHc
 gHc
 inj
 hwT
-gHc
-gHc
+ssp
+ssp
 ssp
 tUl
 aiv
@@ -39339,11 +39363,11 @@ qUy
 tuM
 qUy
 qUy
-riA
+oQa
 oQa
 gMK
 mgg
-qBd
+iCR
 roN
 stm
 gec
@@ -39600,7 +39624,7 @@ xRX
 oQa
 iCR
 kRQ
-qBd
+iCR
 wlA
 iHS
 ntn
@@ -39854,10 +39878,10 @@ gjQ
 ccK
 kOl
 xRX
-riA
-riA
+oQa
+oQa
 nnl
-qBd
+iCR
 wlA
 stm
 tPq
@@ -40112,9 +40136,9 @@ oXn
 yfz
 xRX
 xRX
-riA
+oQa
 pPC
-qBd
+iCR
 hmX
 stm
 ajL
@@ -40369,9 +40393,9 @@ mVk
 mVk
 xRX
 xRX
-riA
-riA
-qBd
+oQa
+oQa
+iCR
 wlA
 stm
 slH
@@ -40627,8 +40651,8 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
+oQa
+oQa
 wlA
 aOi
 stm
@@ -40884,8 +40908,8 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
+oQa
+oQa
 pFY
 stm
 wtd
@@ -40906,9 +40930,9 @@ mpC
 gep
 gHc
 gHc
-qBd
-xsE
-xsE
+gHc
+riA
+riA
 riA
 riA
 xRX
@@ -41142,8 +41166,8 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
+oQa
+bjg
 gJZ
 tUu
 uHL
@@ -41156,15 +41180,15 @@ tcX
 tcX
 egO
 fqt
-gHc
+icu
 wrk
 krv
 gHc
+gHc
+gHc
+xsE
+xsE
 qBd
-qBd
-xsE
-xsE
-xsE
 riA
 riA
 xRX
@@ -41401,7 +41425,7 @@ xRX
 xRX
 xRX
 oXh
-riA
+bjg
 jub
 ntw
 eEj
@@ -41413,10 +41437,10 @@ jwX
 kYl
 lxT
 uwG
-qBd
-qBd
-qBd
-qBd
+icu
+gHc
+gHc
+gHc
 xsE
 xsE
 xsE
@@ -41658,9 +41682,9 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
-riA
+bjg
+bjg
+bjg
 maA
 thI
 yau
@@ -41670,13 +41694,13 @@ icu
 icu
 tlv
 icu
-qBd
+icu
 xsE
 xsE
 xsE
 xsE
 xsE
-riA
+fsY
 coK
 riA
 xRX
@@ -41917,9 +41941,9 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
-riA
+bjg
+bjg
+bjg
 pHQ
 sIh
 uyk
@@ -41927,13 +41951,13 @@ icu
 jmN
 xiV
 icu
+nlF
 xsE
 xsE
 xsE
-xsE
-riA
-riA
-riA
+fsY
+fsY
+fsY
 xRX
 xRX
 xRX
@@ -42176,19 +42200,19 @@ xRX
 xRX
 xRX
 xRX
-riA
+bjg
 ibp
-riA
-riA
+bjg
+bjg
 icu
 kJM
 dul
 icu
+nlF
 xsE
-xsE
-riA
+fsY
 qhi
-riA
+fsY
 xRX
 xRX
 xRX
@@ -42435,15 +42459,15 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
+bjg
+bjg
 icu
 icu
 kxo
 icu
-riA
-riA
-riA
+bjg
+fsY
+fsY
 xRX
 xRX
 xRX
@@ -42696,7 +42720,7 @@ xRX
 xRX
 xRX
 vyi
-rro
+tzS
 uon
 xRX
 xRX
@@ -42953,7 +42977,7 @@ xRX
 xRX
 xRX
 xRX
-exg
+qcY
 xRX
 xRX
 xRX
@@ -43210,7 +43234,7 @@ xRX
 xRX
 xRX
 xRX
-exg
+qcY
 xRX
 xRX
 xRX

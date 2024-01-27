@@ -15,7 +15,7 @@
 	descriptor = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
 //areas
 /area/ship/orion
-	name = "Orion Express Courier Ship"
+	name = "Orion Express Courier Ship (parent type, do not use!)"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
@@ -40,6 +40,7 @@
 /area/ship/orion/mainhall
 	name = "Main Hallway"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "hallC"
 
 /area/ship/orion/forehall
 	name = "Lobby"
