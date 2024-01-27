@@ -42,11 +42,6 @@
 	ambience = AMBIENCE_GENERIC
 	icon_state = "hallC"
 
-/area/ship/orion/forehall
-	name = "Lobby"
-	ambience = AMBIENCE_GENERIC
-	icon_state = "hallC"
-
 /area/ship/orion/crew
 	name = "Crew Quarters"
 	ambience = AMBIENCE_GENERIC
