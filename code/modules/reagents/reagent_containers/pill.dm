@@ -368,5 +368,5 @@
 	name = "dissolvable cleaner tablet"
 	desc = "An advanced formula dissolvable tablet laden with the cutting edge of Idris chemical science. Smells like dried bleach. It's probably just bleach."
 	icon_state = "cleanertablet"
-	reagents_to_add = list(singleton/reagent/spacecleaner = 15)
+	reagents_to_add = list(/singleton/reagent/spacecleaner = 15)
 
