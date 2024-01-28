@@ -79,7 +79,7 @@
 	C.use(1000)
 	user.visible_message("<b>[user]</b> blinks into nothingness!", SPAN_NOTICE("You jump into the nothing."))
 	user.forceMove(T)
-	spark(user, 3, alldirs)
+	spark(user, 3, GLOB.alldirs)
 	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
 	use()
 
