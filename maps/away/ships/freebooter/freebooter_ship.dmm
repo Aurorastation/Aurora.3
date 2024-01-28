@@ -777,11 +777,11 @@
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
@@ -1045,7 +1045,12 @@
 	master_tag = "freebooter_port_1"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "bzr" = (
@@ -2941,6 +2946,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "gzr" = (
@@ -3382,7 +3390,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -3487,6 +3495,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
+"ial" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/foyer)
 "iaK" = (
 /obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled/dark,
@@ -4012,8 +4030,8 @@
 	master_tag = "freebooter_port_1"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -4968,6 +4986,9 @@
 	pixel_y = -25
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "lvR" = (
@@ -5094,7 +5115,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "lHL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/generic,
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit,
@@ -5102,6 +5122,7 @@
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "lJH" = (
@@ -5327,6 +5348,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "moJ" = (
@@ -6107,6 +6129,9 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "odX" = (
@@ -7907,6 +7932,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "rDZ" = (
@@ -7989,8 +8017,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "rHI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
@@ -8331,6 +8359,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "szY" = (
@@ -8883,6 +8914,9 @@
 "tSG" = (
 /obj/effect/decal/cleanable/ash,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "tSV" = (
@@ -10425,10 +10459,10 @@
 	layer = 2.45;
 	name = "lattice"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "xhE" = (
@@ -10656,6 +10690,9 @@
 	pixel_y = -25
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "xRt" = (
@@ -43298,7 +43335,7 @@ oXj
 rnp
 bdI
 lHL
-rnp
+ial
 mvP
 ruW
 lwO
