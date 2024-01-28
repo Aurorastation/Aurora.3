@@ -200,14 +200,14 @@
 /obj/random/powercell,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "cy" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "cE" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/structure/closet/crate/tool,
@@ -225,7 +225,7 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "cG" = (
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/latex/nitrile{
@@ -252,7 +252,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "cV" = (
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/medbay)
@@ -295,6 +295,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/crystal_planet_outpost/medbay)
+"ds" = (
+/turf/simulated/wall,
+/area/crystal_planet_outpost/engineering)
 "dw" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#67aaad";
@@ -311,7 +314,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "dB" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/random/dirt_75,
@@ -404,7 +407,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "et" = (
 /obj/structure/flora/pottedplant/bluefern,
 /obj/machinery/light/broken{
@@ -613,7 +616,7 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "gu" = (
 /obj/effect/decal/road_marking,
 /obj/random/dirt_75,
@@ -639,7 +642,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "gC" = (
 /turf/simulated/floor/tiled/white,
 /area/crystal_planet_outpost/medbay)
@@ -667,7 +670,7 @@
 /area/crystal_planet_outpost/living)
 "gY" = (
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "hg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -682,7 +685,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "hj" = (
 /obj/effect/floor_decal/crystal/random/dark{
 	color = "#777777"
@@ -697,7 +700,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "hx" = (
 /obj/structure/chainlink_fence{
 	dir = 4
@@ -772,7 +775,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "iS" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -828,6 +831,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/surface)
+"ju" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/crystal_planet_outpost/engineering)
 "jG" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -840,7 +847,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "jL" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
@@ -933,7 +940,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "ku" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/spray/cleaner{
@@ -1046,7 +1053,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "lY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1132,16 +1139,16 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "nb" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/dispenser/oxygen,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "ne" = (
 /turf/simulated/mineral/crystal,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "nf" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1195,7 +1202,7 @@
 "np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "nu" = (
 /obj/structure/structural_support,
 /turf/simulated/floor/exoplanet/basalt{
@@ -1291,7 +1298,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "nQ" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/flora/pottedplant/unusual,
@@ -1330,7 +1337,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "oj" = (
 /obj/effect/floor_decal/crystal/random/dark{
 	color = "#BBBBBB"
@@ -1383,7 +1390,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "oA" = (
 /obj/effect/decal/road_marking,
 /turf/simulated/floor/plating/asteroid{
@@ -1405,7 +1412,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "oJ" = (
 /obj/structure/closet/cabinet,
 /obj/random/hoodie,
@@ -1506,7 +1513,7 @@
 /obj/machinery/light/broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "pW" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/sink/kitchen{
@@ -1596,7 +1603,7 @@
 	req_access = list(218)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "qL" = (
 /obj/random/dirt_75,
 /obj/structure/mopbucket,
@@ -1661,7 +1668,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "ru" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -1722,7 +1729,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "sa" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/exoplanet/crystal{
@@ -1765,12 +1772,12 @@
 /obj/random/tool,
 /obj/random/tool,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "sn" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "so" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1823,7 +1830,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "sM" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -1857,7 +1864,7 @@
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "tq" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -1882,7 +1889,7 @@
 "tw" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "tz" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -1897,7 +1904,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "tG" = (
 /obj/structure/flora/tree/crystal,
 /turf/simulated/floor/exoplanet/crystal{
@@ -1913,7 +1920,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "tK" = (
 /obj/machinery/light/broken{
 	dir = 1
@@ -1941,7 +1948,7 @@
 /obj/random/tech_supply,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "tW" = (
 /obj/structure/chainlink_fence{
 	dir = 4
@@ -1958,7 +1965,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "uc" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2032,7 +2039,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "vz" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/appliance/cooker/stove,
@@ -2096,13 +2103,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "wi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "wo" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
@@ -2131,7 +2138,7 @@
 "wQ" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "xm" = (
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0";
@@ -2165,7 +2172,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "xE" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/random/dirt_75,
@@ -2184,7 +2191,7 @@
 /obj/item/storage/belt/utility/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "xP" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -2228,7 +2235,7 @@
 "yb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "yl" = (
 /turf/simulated/mineral/crystal,
 /area/crystal_planet_outpost/surface)
@@ -2236,7 +2243,7 @@
 /obj/structure/table/steel,
 /obj/random/toolbox,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "yo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2310,7 +2317,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "yW" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -2327,7 +2334,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "zn" = (
 /obj/structure/flora/pottedplant/bluefern,
 /obj/random/dirt_75,
@@ -2346,7 +2353,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "zz" = (
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/cave_entrance)
@@ -2400,7 +2407,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "zT" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/reagent_dispensers/water_cooler,
@@ -2416,7 +2423,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "zW" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/excavation{
@@ -2436,7 +2443,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Ah" = (
 /obj/effect/decal/cleanable/fruit_smudge{
 	pixel_x = 7
@@ -2518,7 +2525,7 @@
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "AZ" = (
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/dark,
@@ -2531,7 +2538,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Bi" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -2625,7 +2632,7 @@
 /obj/machinery/light/broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Cw" = (
 /obj/effect/floor_decal/crystal/random/dark{
 	color = "#999999"
@@ -2642,7 +2649,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "CF" = (
 /obj/structure/bed/padded,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2654,7 +2661,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "CH" = (
 /obj/machinery/light/colored/dying,
 /obj/random/dirt_75,
@@ -2668,7 +2675,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "CN" = (
 /obj/structure/table/steel,
 /obj/item/tank/emergency_oxygen/engi{
@@ -2681,14 +2688,14 @@
 	pixel_y = -2
 	},
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "CX" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "CY" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -2761,14 +2768,14 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Dw" = (
 /obj/machinery/light/broken{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Dz" = (
 /obj/machinery/iv_drip,
 /obj/machinery/light/broken{
@@ -2921,7 +2928,7 @@
 /area/crystal_planet_outpost/living)
 "Fs" = (
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Ft" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -2970,7 +2977,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Ge" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /turf/simulated/floor/tiled,
@@ -3014,12 +3021,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "GD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "GT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -3092,7 +3099,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Hu" = (
 /obj/item/stack/material/tritium/full,
 /obj/structure/closet/crate,
@@ -3236,7 +3243,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "IL" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3275,14 +3282,14 @@
 "Jk" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Jp" = (
 /obj/item/pipewrench{
 	pixel_x = -11
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Jw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3356,7 +3363,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Kj" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3373,7 +3380,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Kz" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -3382,7 +3389,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "KA" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/beaker/teapot{
@@ -3400,7 +3407,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "KI" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -3485,7 +3492,7 @@
 "Lx" = (
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Lz" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
@@ -3591,7 +3598,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Ml" = (
 /obj/item/device/flashlight/lamp/green{
 	pixel_y = 6;
@@ -3652,7 +3659,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "MM" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
@@ -3719,7 +3726,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Nx" = (
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/cave_entrance)
@@ -3895,7 +3902,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Pj" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/table/standard,
@@ -4055,7 +4062,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Qv" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -4142,7 +4149,7 @@
 /obj/random/tool,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "QN" = (
 /obj/structure/table/steel,
 /obj/item/material/twohanded/fireaxe{
@@ -4228,7 +4235,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "RF" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -4252,7 +4259,7 @@
 	temperature = 250;
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "RQ" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
@@ -4356,7 +4363,7 @@
 /obj/random/dirt_75,
 /obj/random/loot,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Tj" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothbrush,
@@ -4505,13 +4512,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "UH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "UJ" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/machinery/light/broken,
@@ -4584,7 +4591,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Vu" = (
 /obj/structure/bed/stool/chair/plastic{
 	dir = 4
@@ -4628,7 +4635,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "VO" = (
 /obj/structure/flora/pottedplant/crystal,
 /turf/simulated/floor/tiled,
@@ -4648,7 +4655,7 @@
 /obj/random/powercell,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Wu" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/steel,
@@ -4695,7 +4702,7 @@
 /obj/random/tool,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "WQ" = (
 /turf/simulated/floor/sidewalk{
 	color = "#BDF3FC"
@@ -4730,17 +4737,17 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "XG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "XH" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "XK" = (
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/living)
@@ -4806,7 +4813,7 @@
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "Yj" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
@@ -4848,7 +4855,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "YQ" = (
 /obj/machinery/light/colored/dying{
 	dir = 1
@@ -4924,7 +4931,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crystal_planet_outpost/power)
+/area/crystal_planet_outpost/engineering)
 "ZT" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -37696,13 +37703,13 @@ pa
 pa
 pa
 pa
-xv
-xv
-xv
-xv
-xv
-xv
-xv
+ds
+ds
+ds
+ds
+ds
+ds
+ds
 oB
 oB
 oB
@@ -37953,19 +37960,19 @@ pa
 pa
 pa
 pa
-xv
+ds
 AV
 zx
 RD
 Kp
 nb
-xv
+ds
 XG
 cS
 tw
 tP
 Kc
-xv
+ds
 XY
 XY
 XY
@@ -38210,13 +38217,13 @@ pa
 pa
 pa
 pa
-xv
+ds
 AV
 tJ
 mY
 XH
 Ds
-xv
+ds
 xO
 XF
 tw
@@ -38467,13 +38474,13 @@ pa
 pa
 pa
 pa
-xv
+ds
 AV
 mY
 UH
 XH
 cy
-xv
+ds
 gt
 XF
 gY
@@ -38724,13 +38731,13 @@ pa
 pa
 pa
 pa
-xv
+ds
 AV
 tw
 tw
 tw
 tw
-xv
+ds
 tw
 tw
 tw
@@ -38981,19 +38988,19 @@ pa
 pa
 pa
 pa
-xv
+ds
 AV
 CK
 AV
 tw
 AV
-xv
+ds
 Yi
 tw
 tw
 cx
 sm
-xv
+ds
 Yf
 XY
 XY
@@ -39233,25 +39240,25 @@ ne
 ne
 ne
 ne
-xv
-xv
-xv
-xv
-xv
-xv
-xv
-xv
-xv
+ds
+ds
+ds
+ds
+ds
+ds
+ds
+ds
+ds
 Hs
-xv
-xv
-xv
+ds
+ds
+ds
 Fs
 qJ
-xv
-xv
-xv
-xv
+ds
+ds
+ds
+ds
 XY
 XY
 XY
@@ -39491,13 +39498,13 @@ ne
 Bd
 Bd
 Nj
-xv
+ds
 CG
 VM
 Qu
 Dw
-ih
-xv
+ju
+ds
 AV
 tw
 AV
@@ -40009,20 +40016,20 @@ yb
 MJ
 kt
 Jp
-ih
-ih
-xv
-xv
-xv
-xv
-xv
-xv
+ju
+ju
+ds
+ds
+ds
+ds
+ds
+ds
 AV
 Vs
 yn
 CN
 QL
-xv
+ds
 XY
 XY
 XY
@@ -40267,19 +40274,19 @@ Pd
 IJ
 Kz
 Gx
-ih
-xv
+ju
+ds
 pa
 pa
 pa
 pa
-xv
+ds
 nP
 oy
 Mk
 ZQ
 tw
-xv
+ds
 Yf
 XY
 xv
@@ -40519,24 +40526,24 @@ Bd
 Nj
 Bd
 Bd
-xv
+ds
 sG
 zS
 CX
 UF
 Cj
-xv
+ds
 pa
 pa
 pa
 pa
-xv
+ds
 WM
 AV
 AV
 AV
 CK
-xv
+ds
 Yf
 Yf
 xv
@@ -40775,25 +40782,25 @@ ne
 Bd
 Bd
 ne
-xv
-xv
-xv
-xv
-xv
-ih
-ih
-xv
-xv
-xv
+ds
+ds
+ds
+ds
+ds
+ju
+ju
+ds
+ds
+ds
 pa
 pa
-xv
-xv
+ds
+ds
 yb
 yb
 yb
-xv
-xv
+ds
+ds
 Yf
 Yf
 xv
@@ -41036,12 +41043,12 @@ pa
 pa
 pa
 pa
-xv
+ds
 yQ
 wQ
 hi
 KG
-xv
+ds
 pa
 pa
 Yf
@@ -41293,12 +41300,12 @@ pa
 pa
 pa
 pa
-xv
+ds
 tp
 wQ
 wQ
 pB
-xv
+ds
 pa
 Yf
 Yf
@@ -41550,12 +41557,12 @@ pa
 pa
 pa
 pa
-xv
+ds
 hi
 wQ
 wQ
 UH
-xv
+ds
 pa
 Yf
 XY
@@ -41807,12 +41814,12 @@ pa
 pa
 pa
 pa
-xv
+ds
 cF
 oG
 xz
 Ti
-xv
+ds
 pa
 Yf
 XY
@@ -42064,12 +42071,12 @@ pa
 pa
 pa
 pa
-xv
-xv
-xv
-xv
-xv
-xv
+ds
+ds
+ds
+ds
+ds
+ds
 pa
 pa
 XY
