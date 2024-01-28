@@ -959,6 +959,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/green,
 /area/space)
+"nO" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0"
+	},
+/area/space)
 "nP" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/machinery/power/apc/empty/north{
@@ -1111,6 +1119,12 @@
 /obj/effect/decal/cleanable/flour,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"pY" = (
+/obj/item/gun/energy/rifle/laser,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0"
+	},
 /area/space)
 "qk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -33290,7 +33304,7 @@ lv
 lv
 dK
 dK
-dK
+pY
 MP
 lv
 yl
@@ -33547,7 +33561,7 @@ yl
 lv
 PQ
 Ry
-dK
+nO
 dK
 lv
 yl

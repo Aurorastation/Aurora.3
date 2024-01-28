@@ -28,7 +28,7 @@
 
 	// get mobs
 	var/list/affected_mobs = list()
-	for(var/mob/living/carbon/human/mob_in_range in get_hearers_in_LOS(world.view))
+	for(var/mob/living/carbon/human/mob_in_range in get_hearers_in_LOS(world.view, src))
 		affected_mobs += mob_in_range
 
 	// set up timer for delayed effect
@@ -51,48 +51,46 @@
 		else if(stage < 6)
 			to_chat(mob,
 				pick(
-					SPAN_NOTICE("You feel very anxious for a short while."),
-					SPAN_NOTICE("For a short while, you feel very anxious and uncomfortable."),
-					SPAN_NOTICE("A very unsettling thought crosses your head."),
-					SPAN_NOTICE("Some dreadful concept enters your mind, and stays there for a short moment."),
-					SPAN_NOTICE("A very distressing thought intrudes into your mind."),
-					SPAN_NOTICE("A vaguely disturbing thought intrudes into your mind."),
-					SPAN_NOTICE("A thought crosses your head, making you fearful of what is coming."),
+					SPAN_WARNING("You feel very anxious for a short while."),
+					SPAN_WARNING("For a short while, you feel very anxious and uncomfortable."),
+					SPAN_WARNING("A very unsettling thought crosses your head."),
+					SPAN_WARNING("Some dreadful concept enters your mind, and stays there for a short moment."),
+					SPAN_WARNING("A very distressing thought intrudes into your mind."),
+					SPAN_WARNING("A vaguely disturbing thought intrudes into your mind."),
+					SPAN_WARNING("A thought crosses your head, making you fearful of what is coming."),
 				),
 			)
 		else if(stage < 9)
 			to_chat(mob,
 				pick(
-					SPAN_WARNING("You hear a voice intruding into your mind, suggesting violent thoughts, but it fades away quickly."),
-					SPAN_WARNING("Unknown voice enters your mind, encouraging violence, but it disappears after a few moments."),
-					SPAN_WARNING("A voice appears to invade your thoughts, telling you to commit acts of violence, but it soon disappears."),
-					SPAN_WARNING("For a brief moment, you cannot stop yourself thinking about hurting others."),
-					SPAN_WARNING("You find yourself thinking about violence and hurting other people, for a short while."),
-					SPAN_WARNING("You cannot stop yourself from wishing death upon others, for a short moment."),
-					SPAN_WARNING("For a few seconds, the only concept you can imagine or think about, is death."),
-					SPAN_WARNING("You are paralyzed with fear, unable to do anything, until a moment passes and you regain control over your body."),
-					SPAN_WARNING("For a short while, you feel as if you have lost control over your body, only able to imagine dreadful, fearful thoughts."),
+					SPAN_DANGER("You hear a voice intruding into your mind, suggesting violent thoughts, but it fades away quickly."),
+					SPAN_DANGER("Unknown voice enters your mind, encouraging violence, but it disappears after a few moments."),
+					SPAN_DANGER("A voice appears to invade your thoughts, telling you to commit acts of violence, but it soon disappears."),
+					SPAN_DANGER("For a brief moment, you cannot stop yourself thinking about hurting others."),
+					SPAN_DANGER("You find yourself thinking about violence and hurting other people, for a short while."),
+					SPAN_DANGER("You cannot stop yourself from wishing death upon others, for a short moment."),
+					SPAN_DANGER("For a few seconds, the only concept you can imagine or think about, is death."),
+					SPAN_DANGER("You are paralyzed with fear, unable to do anything, until a moment passes and you regain control over your body."),
+					SPAN_DANGER("For a short while, you feel as if you have lost control over your body, only able to imagine dreadful, fearful thoughts."),
 				),
 			)
+			shake_camera(mob, 5, 2)
 		else
 			to_chat(mob,
 				pick(
-					SPAN_DANGER("You hear a voice intruding into your mind, suggesting violence, and you can do nothing but obey."),
-					SPAN_DANGER("Some unknown entity enters your mind, encouraging violence, and you can only follow its command."),
-					SPAN_DANGER("An entity appears to invade your thoughts, telling you to kill and murder, and you feel it taking control over your body."),
-					SPAN_DANGER("Some voice invades into your mind, instructing you to kill and murder, and you feel as if your body moves on its own to follow this command."),
-					SPAN_DANGER("You find yourself thinking about violence and hurting other people, for a short while, before you decide to act on these thoughts."),
-					SPAN_DANGER("You feel powerless when an entity intrudes into your mind, and commands you to commit terrible, violent acts."),
-					SPAN_DANGER("All you can do is comply when a voice intrudes into your thoughts, commanding you to commit acts of violence."),
-					SPAN_DANGER("For a brief moment you see an entity, so strange you cannot even describe, before it invades your mind and orders you to rage and kill."),
-					SPAN_DANGER("For a short moment, you witness an otherworldly being that you cannot even begin to describe, before it infiltrates your thoughts and gives you the instruction to kill and become furious."),
-					SPAN_DANGER("You feel as if you have lost control over your own body, only watching from the backseat, as it goes on a rampage."),
+					SPAN_HIGHDANGER("You hear a voice intruding into your mind, suggesting violence, and you can do nothing but obey."),
+					SPAN_HIGHDANGER("Some unknown entity enters your mind, encouraging violence, and you can only follow its command."),
+					SPAN_HIGHDANGER("An entity appears to invade your thoughts, telling you to kill and murder, and you feel it taking control over your body."),
+					SPAN_HIGHDANGER("Some voice invades into your mind, instructing you to kill and murder, and you feel as if your body moves on its own to follow this command."),
+					SPAN_HIGHDANGER("You find yourself thinking about violence and hurting other people, for a short while, before you decide to act on these thoughts."),
+					SPAN_HIGHDANGER("You feel powerless when an entity intrudes into your mind, and commands you to commit terrible, violent acts."),
+					SPAN_HIGHDANGER("All you can do is comply when a voice intrudes into your thoughts, commanding you to commit acts of violence."),
+					SPAN_HIGHDANGER("For a brief moment you see an entity, so strange you cannot even describe, before it invades your mind and orders you to rage and kill."),
+					SPAN_HIGHDANGER("For a short moment, you witness an otherworldly being that you cannot even begin to describe, before it infiltrates your thoughts and gives you the instruction to kill and become furious."),
+					SPAN_HIGHDANGER("You feel as if you have lost control over your own body, only watching from the backseat, as it goes on a rampage."),
 				),
 			)
-			// addtimer(CALLBACK(mob, PROC_REF(berserk_start)), 10 SECONDS)
-			// addtimer(CALLBACK(mob, PROC_REF(berserk_stop)), 30 SECONDS)
-			// addtimer(TYPE_PROC_REF(mob/living/carbon/human, berserk_start), 10 SECONDS)
-			// addtimer(TYPE_PROC_REF(mob/living/carbon/human, berserk_stop), 30 SECONDS)
+			shake_camera(mob, 10, 5)
 			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_start)), 10 SECONDS)
 			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_stop)), 30 SECONDS)
 			stage = 3
@@ -127,15 +125,17 @@
 				),
 			)
 		else
-			if(world.time - last_stage_advancement < 30 SECONDS)
+			if(world.time - last_stage_advancement > 30 SECONDS)
 				last_stage_advancement = world.time
 				advance_stage()
 			src.visible_message(
 				pick(
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile] completely."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile], and vibrates slightly."),
+					SPAN_WARNING("\The [src] appears to absorb \the [projectile], and hums."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It glows stronger momentarily."),
+					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can hear it resonate."),
+					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can hear it vibrate."),
 				),
 			)
 
