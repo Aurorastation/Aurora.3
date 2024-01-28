@@ -4764,7 +4764,7 @@
 "rY" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/idris_cruiser_shuttle/engineering)
@@ -6187,6 +6187,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering/reactor)
+"xq" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/ship/idris_cruiser/engineering)
 "xs" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -8328,7 +8334,7 @@
 "Fx" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/idris_cruiser_shuttle/engineering)
@@ -11339,6 +11345,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/cargo_bay)
+"PV" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/ship/idris_cruiser/engineering)
 "PY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
@@ -13490,6 +13502,11 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	use_power = 1;
+	icon_state = "map_vent_out"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/idris_cruiser/engineering)
@@ -28223,13 +28240,13 @@ MX
 MX
 MX
 MX
-rY
+Fx
 Bz
 Qs
 TO
 TO
 yh
-Fx
+rY
 gR
 Ea
 Ft
@@ -32030,8 +32047,8 @@ gR
 Im
 UO
 Bx
-Mw
-Bx
+PV
+xq
 rp
 rp
 Bx
