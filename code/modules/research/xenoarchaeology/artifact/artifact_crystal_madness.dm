@@ -21,9 +21,11 @@
 	// immediate effects
 	if(prob(50))
 		stage += 1
-	light_color = pick("#a9d8e0", "#99eef3", "#99eef3", "#79cfd4", "#439a9f")
-	light_range = clamp(light_range+pick(-0.50,0.50,1.00), 2.0, 9.0)
-	light_power = clamp(light_power+pick(-0.25,0.25,0.50), 0.5, 7.0)
+	set_light(
+		clamp(light_range+pick(-0.50,0.50,1.00), 2.0, 9.0),
+		clamp(light_power+pick(-0.25,0.25,0.50), 0.5, 7.0),
+		pick("#a9d8e0", "#99eef3", "#99eef3", "#79cfd4", "#439a9f"),
+	)
 
 	// get mobs
 	var/list/affected_mobs = list()

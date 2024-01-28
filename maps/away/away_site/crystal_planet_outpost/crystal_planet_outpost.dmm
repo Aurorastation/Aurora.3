@@ -3892,6 +3892,13 @@
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
+"Pt" = (
+/obj/effect/overmap/visitable/sector/crystal_planet_outpost,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250
+	},
+/area/crystal_planet_outpost/caves)
 "Pu" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -36866,7 +36873,7 @@ pa
 pa
 pa
 pa
-pa
+xm
 pa
 pa
 pa
@@ -37123,8 +37130,8 @@ pa
 pa
 pa
 pa
-pa
-pa
+xm
+xm
 pa
 pa
 pa
@@ -37378,10 +37385,10 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
+xm
+xm
+xm
+xm
 pa
 pa
 pa
@@ -37635,9 +37642,9 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
+xm
+Pt
+xm
 pa
 pa
 pa
@@ -37892,9 +37899,9 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
+xm
+xm
+xm
 pa
 pa
 pa
@@ -38149,7 +38156,7 @@ pa
 pa
 pa
 pa
-pa
+xm
 pa
 pa
 pa

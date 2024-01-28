@@ -23,6 +23,7 @@
 		"
 	in_space = FALSE
 	icon_state = "globe2"
+	color = "#99eef3"
 	initial_generic_waypoints = list(
 		"nav_crystal_planet_outpost_landing_pad_1a",
 		"nav_crystal_planet_outpost_landing_pad_1b",
@@ -37,23 +38,3 @@
 /obj/effect/overmap/visitable/sector/crystal_planet_outpost/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [pick("crystal planetoid", "silicate planetoid", "mineral planetoid")]"
 	..()
-
-// /obj/effect/shuttle_landmark/nav_blueriv/nav1
-// 	name = "Arctic Planet Landing Point #1"
-// 	landmark_tag = "nav_blueriv_1"
-// 	base_area = /area/bluespaceriver/ground
-
-// /obj/effect/shuttle_landmark/nav_blueriv/nav2
-// 	name = "Arctic Planet Landing Point #2"
-// 	landmark_tag = "nav_blueriv_2"
-// 	base_area = /area/bluespaceriver/ground
-
-// /obj/effect/shuttle_landmark/nav_blueriv/nav3
-// 	name = "Arctic Planet Landing Point #3"
-// 	landmark_tag = "nav_blueriv_3"
-// 	base_area = /area/bluespaceriver/ground
-
-// /obj/effect/shuttle_landmark/nav_blueriv/nav4
-// 	name = "Arctic Planet Navpoint #4"
-// 	landmark_tag = "nav_blueriv_4"
-// 	base_area = /area/bluespaceriver/ground
