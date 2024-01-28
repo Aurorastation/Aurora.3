@@ -43,7 +43,8 @@
 /area/golden_deep/hangar)
 "aK" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
-	name = "canister to thrusters"
+	name = "canister to thrusters";
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -349,7 +350,8 @@
 /area/golden_deep/bridge)
 "dK" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
-	name = "canister to thrusters"
+	name = "canister to thrusters";
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
