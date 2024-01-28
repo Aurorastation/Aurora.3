@@ -2973,6 +2973,10 @@
 	dir = 10
 	},
 /obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 7;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
 "gFA" = (
