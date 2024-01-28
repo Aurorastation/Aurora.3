@@ -29,8 +29,7 @@ var/list/nato_phonetic_letters = list(
 /proc/generate_planet_name()
 	return pick(
 		"[capitalize(pick(last_names))]-[pick(greek_letters)]",
-		"[capitalize(pick(last_names))]-[pick(nato_phonetic_letters)]"
-	)
+		"[capitalize(pick(last_names))]-[pick(nato_phonetic_letters)]")
 
 /proc/generate_planet_type()
 	return pick("terrestial planet", "ice planet", "dwarf planet", "desert planet", "ocean planet", "lava planet", "gas giant", "forest planet")

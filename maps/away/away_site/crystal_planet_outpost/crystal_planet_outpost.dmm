@@ -4549,7 +4549,6 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
 "VA" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/structure/flora/pottedplant/crystal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
