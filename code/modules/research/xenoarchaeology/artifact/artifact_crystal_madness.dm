@@ -22,8 +22,8 @@
 	if(prob(50))
 		stage += 1
 	light_color = pick("#a9d8e0", "#99eef3", "#99eef3", "#79cfd4", "#439a9f")
-	light_range = clamp(light_range+pick(-0.50,0.50,0.50), 2.0, 9.0)
-	light_power = clamp(light_power+pick(-0.25,0.25,0.25), 0.5, 7.0)
+	light_range = clamp(light_range+pick(-0.50,0.50,1.00), 2.0, 9.0)
+	light_power = clamp(light_power+pick(-0.25,0.25,0.50), 0.5, 7.0)
 
 	// get mobs
 	var/list/affected_mobs = list()
@@ -84,8 +84,8 @@
 				),
 			)
 			shake_camera(mob, 6, 2)
-			mob.make_dizzy(150)
-			mob.make_adrenaline(10)
+			mob.make_dizzy(120)
+			mob.make_adrenaline(15)
 			desc = "\
 				A large crystal, seemingly floating in the air, and giving off a strong light blue glow. \
 				It appears to be vibrating or shaking, and lets out a constant, if quiet, hum.\
@@ -107,9 +107,9 @@
 			)
 			shake_camera(mob, 9, 4)
 			mob.make_dizzy(200)
-			mob.make_adrenaline(25)
+			mob.make_adrenaline(30)
 			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_start)), 10 SECONDS)
-			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_stop)), 30 SECONDS)
+			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_stop)), 60 SECONDS)
 			stage = 3
 			desc = "\
 				A large crystal, seemingly floating in the air, and giving off a light blue glow.\
@@ -169,7 +169,12 @@
 			)
 
 /obj/structure/crystal_madness/attack_hand(mob/user as mob)
-	if(stage < 3)
+	if(stage < 1)
+		user.visible_message(
+			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
+			SPAN_DANGER("You reach out and touch \the [src]. It is cold."),
+			)
+	else if(stage < 3)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			SPAN_DANGER("You reach out and touch \the [src]. It is somewhat warm."),
