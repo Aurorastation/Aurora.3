@@ -702,7 +702,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -782,7 +782,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -998,7 +998,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -1066,7 +1066,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -1180,7 +1180,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -1339,7 +1339,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -1578,7 +1578,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -1720,7 +1720,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -1895,7 +1895,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -1941,7 +1941,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -2199,7 +2199,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -2273,7 +2273,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -2791,7 +2791,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -3378,7 +3378,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -3699,7 +3699,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -3784,7 +3784,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -3793,7 +3793,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -4037,7 +4037,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -4404,7 +4404,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
@@ -4738,7 +4738,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -4747,7 +4747,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/surface)
@@ -4819,7 +4819,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.10;
+	light_power = 0.05;
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
