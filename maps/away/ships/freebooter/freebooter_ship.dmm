@@ -1318,7 +1318,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "cgU" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall,
 /area/ship/freebooter_ship/pod8)
 "ciM" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3069,7 +3069,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall,
 /area/ship/freebooter_ship/pod8)
 "gVa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -3165,13 +3165,10 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "hhQ" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod8)
 "hik" = (
@@ -3242,9 +3239,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
-"htS" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/freebooter_ship/pod8)
 "huE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -44838,13 +44832,13 @@ clU
 nKq
 rmm
 xRX
-htS
+uwT
 lfg
 jFY
 sGi
 naw
 omd
-htS
+uwT
 xRX
 eiL
 kfX
@@ -46894,13 +46888,13 @@ btW
 mYn
 tOu
 xRX
-htS
+uwT
 hXO
 uwA
 kkT
 ivW
 mNi
-htS
+uwT
 xRX
 eiL
 aJd
