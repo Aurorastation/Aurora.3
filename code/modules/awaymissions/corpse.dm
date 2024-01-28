@@ -187,17 +187,6 @@
 	corpseidjob = "Scientist"
 	corpseidaccess = "Scientist"
 
-/obj/effect/landmark/corpse/scientist/generic
-	name = "unidentified corpse"
-	corpseradio = null
-	corpseuniform = /obj/item/clothing/under/rank/scientist
-	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	corpseback = /obj/item/storage/backpack
-	corpseshoes = /obj/item/clothing/shoes/sneakers/medsci
-	corpseid = 1
-	corpseidjob = "Scientist"
-	corpseidaccess = "Scientist"
-
 /obj/effect/landmark/corpse/miner
 	corpseradio = /obj/item/device/radio/headset/headset_cargo
 	corpseuniform = /obj/item/clothing/under/rank/miner

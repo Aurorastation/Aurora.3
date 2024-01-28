@@ -503,7 +503,6 @@
 "gD" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
-/obj/effect/landmark/corpse/scientist/generic,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "gU" = (
@@ -958,7 +957,6 @@
 	pixel_y = 28
 	},
 /obj/random/dirt_75,
-/obj/effect/landmark/corpse/scientist/generic,
 /turf/simulated/floor/carpet/green,
 /area/space)
 "nP" = (
@@ -1180,12 +1178,6 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
-/area/space)
-"rl" = (
-/obj/effect/landmark/corpse/scientist/generic,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0"
-	},
 /area/space)
 "rq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -38473,7 +38465,7 @@ yl
 yl
 dK
 dK
-rl
+dK
 dK
 dK
 yl
