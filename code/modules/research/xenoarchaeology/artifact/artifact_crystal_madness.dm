@@ -18,10 +18,9 @@
 	var/last_stage_advancement = 0
 
 /obj/structure/crystal_madness/proc/advance_stage()
+	// immediate effects
 	if(prob(50))
 		stage += 1
-
-	// immediate effects
 	light_color = pick("#a9d8e0", "#99eef3", "#99eef3", "#79cfd4", "#439a9f")
 	light_range = clamp(light_range+pick(-0.50,0.50,0.50), 2.0, 9.0)
 	light_power = clamp(light_power+pick(-0.25,0.25,0.25), 0.5, 7.0)
@@ -29,9 +28,10 @@
 	// get mobs
 	var/list/affected_mobs = list()
 	for(var/mob/living/carbon/human/mob_in_range in get_hearers_in_LOS(world.view, src))
-		affected_mobs += mob_in_range
+		if((!mob_in_range.is_psi_blocked()) && (mob_in_range.has_psionics() || mob_in_range.has_psi_aug()))
+			affected_mobs += mob_in_range
 
-	// set up timer for delayed effect
+	// set up timer for delayed effects
 	addtimer(CALLBACK(src, PROC_REF(delayed_stage_effect), affected_mobs), 5 SECONDS)
 
 /obj/structure/crystal_madness/proc/delayed_stage_effect(var/list/affected_mobs)
@@ -48,6 +48,9 @@
 					SPAN_NOTICE("You feel strange and anxious for a short while, but that feeling fades away quickly."),
 				),
 			)
+			desc = "\
+				A large crystal, seemingly floating in the air, and giving off a light blue glow.\
+				"
 		else if(stage < 6)
 			to_chat(mob,
 				pick(
@@ -60,6 +63,11 @@
 					SPAN_WARNING("A thought crosses your head, making you fearful of what is coming."),
 				),
 			)
+			shake_camera(mob, 3, 1)
+			desc = "\
+				A large crystal, seemingly floating in the air, and giving off a strong light blue glow. \
+				It appears to be vibrating or shaking slightly.
+				"
 		else if(stage < 9)
 			to_chat(mob,
 				pick(
@@ -74,7 +82,11 @@
 					SPAN_DANGER("For a short while, you feel as if you have lost control over your body, only able to imagine dreadful, fearful thoughts."),
 				),
 			)
-			shake_camera(mob, 5, 2)
+			shake_camera(mob, 6, 2)
+			desc = "\
+				A large crystal, seemingly floating in the air, and giving off a strong light blue glow. \
+				It appears to be vibrating or shaking, and lets out a constant, if quiet, hum.
+				"
 		else
 			to_chat(mob,
 				pick(
@@ -90,10 +102,13 @@
 					SPAN_HIGHDANGER("You feel as if you have lost control over your own body, only watching from the backseat, as it goes on a rampage."),
 				),
 			)
-			shake_camera(mob, 10, 5)
+			shake_camera(mob, 9, 4)
 			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_start)), 10 SECONDS)
 			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_stop)), 30 SECONDS)
 			stage = 3
+			desc = "\
+				A large crystal, seemingly floating in the air, and giving off a light blue glow.\
+				"
 
 /obj/structure/crystal_madness/bullet_act(var/obj/item/projectile/projectile)
 	if(istype(projectile, /obj/item/projectile/bullet))
@@ -102,15 +117,20 @@
 				SPAN_WARNING("\The [src] appears to deflect \the [projectile], shattering it into dust."),
 				SPAN_WARNING("\The [src] appears to deflect \the [projectile], sending it up in the air."),
 				SPAN_WARNING("\The [src] appears to bounce off \the [projectile], sending it into the floor."),
+				SPAN_WARNING("\The [src] appears to deflect \the [projectile]."),
+				SPAN_WARNING("\The [src] appears to deflect \the [projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to bounce off \the [projectile]."),
+				SPAN_WARNING("\The [src] appears to bounce off \the [projectile]. It has little effect."),
 			),
 		)
 	if(istype(projectile, /obj/item/projectile/energy))
 		src.visible_message(
 			pick(
 				SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile] completely."),
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile], and vibrates slightly."),
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It glows stronger momentarily."),
+				SPAN_WARNING("\The [src] appears to consume \the [projectile]."),
+				SPAN_WARNING("\The [src] appears to absorb \the [projectile] entirely."),
+				SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to consume \the [projectile]. It has little effect."),
 			),
 		)
 	if(istype(projectile, /obj/item/projectile/beam))
@@ -118,10 +138,11 @@
 		if(damage < 20)
 			src.visible_message(
 				pick(
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile] completely."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile], and vibrates slightly."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It glows stronger momentarily."),
+				SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
+				SPAN_WARNING("\The [src] appears to consume \the [projectile]."),
+				SPAN_WARNING("\The [src] appears to absorb \the [projectile] entirely."),
+				SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to consume \the [projectile]. It has little effect."),
 				),
 			)
 		else
@@ -130,12 +151,15 @@
 				advance_stage()
 			src.visible_message(
 				pick(
+					SPAN_WARNING("\The [src] appears to absorb \the [projectile] entirely."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile] completely."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile], and vibrates slightly."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile], and hums."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It glows stronger momentarily."),
+					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It glows brighter for a few seconds."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can hear it resonate."),
 					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can hear it vibrate."),
+					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can see it glow stronger for a few seconds."),
 				),
 			)
 
