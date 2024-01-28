@@ -103,7 +103,7 @@
 	},
 /obj/structure/flora/pottedplant/unusual,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "bE" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -307,7 +307,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "dE" = (
 /obj/machinery/light/broken,
 /obj/random/dirt_75,
@@ -342,7 +342,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "ec" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -435,7 +435,7 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "fa" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/light/colored/dying{
@@ -508,7 +508,7 @@
 "fP" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "fS" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/table/steel,
@@ -541,12 +541,12 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "fZ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "gm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -608,7 +608,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "hl" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -732,12 +732,12 @@
 	},
 /obj/machinery/floodlight/randomcharge,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "jT" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "jU" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -835,7 +835,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "kG" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled,
@@ -873,7 +873,7 @@
 	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "lt" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/random/dirt_75,
@@ -917,12 +917,12 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "mt" = (
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "mz" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
@@ -938,7 +938,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "mD" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /obj/random/dirt_75,
@@ -985,7 +985,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "ng" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
@@ -1112,13 +1112,13 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "nU" = (
 /obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "nW" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
@@ -1137,7 +1137,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "ol" = (
 /obj/effect/shuttle_landmark{
 	dir = 4
@@ -1223,13 +1223,13 @@
 /area/space)
 "pa" = (
 /turf/simulated/mineral/crystal,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "pf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "pi" = (
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/excavation,
@@ -1244,7 +1244,7 @@
 /obj/structure/closet/crate/miningcart,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "pm" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
@@ -1296,7 +1296,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "qt" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/reagent_dispensers/extinguisher,
@@ -1358,7 +1358,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "qY" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain/black{
@@ -1452,7 +1452,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "sg" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/structure/chainlink_fence,
@@ -1551,7 +1551,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "sR" = (
 /obj/structure/sink{
 	dir = 4;
@@ -1703,7 +1703,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "uH" = (
 /turf/unsimulated/mineral/asteroid,
 /area/space)
@@ -1722,7 +1722,7 @@
 /area/space)
 "vi" = (
 /turf/simulated/wall,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "vr" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/random/dirt_75,
@@ -1770,7 +1770,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "vQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -1782,7 +1782,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "vZ" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/machinery/light/broken{
@@ -1827,14 +1827,14 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "xs" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "xt" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner_wide/grey{
@@ -1892,7 +1892,7 @@
 /obj/machinery/floodlight/randomcharge,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "xS" = (
 /obj/effect/shuttle_landmark{
 	dir = 2
@@ -1917,7 +1917,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/pink,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "yu" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/structure/reagent_dispensers/coolanttank,
@@ -1936,7 +1936,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "yE" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -1959,7 +1959,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/random/dirt_75,
@@ -2081,7 +2081,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Ap" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -2132,11 +2132,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "AS" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "AV" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/random/dirt_75,
@@ -2238,7 +2238,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "CD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
@@ -2310,7 +2310,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Dh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2379,7 +2379,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "DG" = (
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/excavation,
@@ -2506,7 +2506,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Fx" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/machinery/light/small/emergency{
@@ -2515,7 +2515,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "FD" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/bed/stool/chair{
@@ -2619,7 +2619,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "GY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -2671,7 +2671,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "HE" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/bed/stool/chair/office/light{
@@ -2690,7 +2690,7 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "HO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6;
@@ -2705,7 +2705,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "HW" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery{
@@ -2776,7 +2776,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "IJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
@@ -2798,7 +2798,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "IP" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -2827,7 +2827,7 @@
 	},
 /obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "JA" = (
 /obj/structure/closet/cabinet,
 /obj/random/suit,
@@ -3032,7 +3032,7 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "LJ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -3041,7 +3041,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "LQ" = (
 /obj/structure/table/standard,
 /obj/item/trash/plate/steak{
@@ -3072,7 +3072,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Mh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3082,7 +3082,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Mk" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -3178,7 +3178,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "MT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -3198,7 +3198,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Na" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
@@ -3246,7 +3246,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Oa" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -3340,7 +3340,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "OU" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/light/broken{
@@ -3430,7 +3430,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "PR" = (
 /obj/machinery/light/broken{
 	dir = 2
@@ -3496,7 +3496,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Qx" = (
 /obj/structure/table/standard,
 /obj/item/trash/plate{
@@ -3529,7 +3529,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "QD" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/tea/tieguanyin{
@@ -3580,7 +3580,7 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "QP" = (
 /obj/structure/table/wood,
 /obj/machinery/light/broken{
@@ -3598,7 +3598,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "QX" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
@@ -3607,7 +3607,7 @@
 "Rd" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Re" = (
 /obj/structure/flora/pottedplant/unusual,
 /turf/simulated/floor/tiled,
@@ -3634,7 +3634,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "RB" = (
 /obj/structure/flora/pottedplant/unusual,
 /obj/random/dirt_75,
@@ -3683,7 +3683,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "RU" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -3697,7 +3697,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Ss" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -3716,7 +3716,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "SR" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -3855,7 +3855,7 @@
 "Uc" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Ur" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/plating/asteroid{
@@ -3951,7 +3951,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/flora/pottedplant/crystal,
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "VD" = (
 /obj/item/stack/cable_coil{
 	pixel_x = 10;
@@ -3960,7 +3960,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "VM" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
@@ -3999,7 +3999,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "WF" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -4009,7 +4009,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "WL" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/light/colored/dying{
@@ -4046,14 +4046,14 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Xn" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Xp" = (
 /turf/simulated/floor/wood,
 /area/space)
@@ -4195,7 +4195,7 @@
 /area/space)
 "Zf" = (
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Zm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -4208,7 +4208,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "Zo" = (
 /obj/structure/closet/crate/freezer{
 	name = "Fridge"
@@ -4248,7 +4248,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 "ZX" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -4256,7 +4256,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/ship/planet_crystal_outpost/caves)
+/area/ship/crystal_planet_outpost/caves)
 
 (1,1,1) = {"
 uH

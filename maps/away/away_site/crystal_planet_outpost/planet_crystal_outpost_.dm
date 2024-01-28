@@ -1,20 +1,20 @@
-/datum/map_template/ruin/away_site/planet_crystal_outpost
+/datum/map_template/ruin/away_site/crystal_planet_outpost
 	name = "Crystal Planet Outpost"
-	id = "planet_crystal_outpost"
+	id = "crystal_planet_outpost"
 	spawn_cost = 1
 	spawn_weight = 1
 	description = "An arctic planet and an alien underground surface."
-	suffixes = list("away_site/planet_crystal_outpost/planet_crystal_outpost.dmm")
+	suffixes = list("away_site/crystal_planet_outpost/crystal_planet_outpost.dmm")
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM) //it's a whole planet, shouldn't have it in predefined sectors
 	unit_test_groups = list(1)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
-/singleton/submap_archetype/planet_crystal_outpost
-	map = "planet_crystal_outpost"
+/singleton/submap_archetype/crystal_planet_outpost
+	map = "crystal_planet_outpost"
 	descriptor = "An arctic planet and an alien underground surface."
 
-/obj/effect/overmap/visitable/sector/planet_crystal_outpost
+/obj/effect/overmap/visitable/sector/crystal_planet_outpost
 	name = "crystal planetoid"
 	desc = "\
 		Sensor array detects an arctic planet with a small vessel on the planet's surface. \
@@ -29,7 +29,7 @@
 		// "nav_blueriv_4"
 	)
 
-// /obj/effect/overmap/visitable/sector/planet_crystal_outpost/New(nloc, max_x, max_y)
+// /obj/effect/overmap/visitable/sector/crystal_planet_outpost/New(nloc, max_x, max_y)
 // 	name = "[generate_planet_name()], \a [name]"
 // 	..()
 
@@ -52,12 +52,3 @@
 // 	name = "Arctic Planet Navpoint #4"
 // 	landmark_tag = "nav_blueriv_4"
 // 	base_area = /area/bluespaceriver/ground
-
-/area/ship/planet_crystal_outpost
-	name = "Crystal Planet Outpost (abstract/base)"
-	requires_power = TRUE
-	has_gravity = TRUE
-
-/area/ship/planet_crystal_outpost/caves
-	name = "Crystal Planet Outpost Caves"
-	icon_state = "bridge"
