@@ -19,7 +19,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "ap" = (
@@ -103,7 +103,7 @@
 	},
 /obj/structure/flora/pottedplant/unusual,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "bE" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -120,7 +120,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "bX" = (
@@ -307,7 +307,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "dE" = (
 /obj/machinery/light/broken,
 /obj/random/dirt_75,
@@ -342,7 +342,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "ec" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -359,7 +359,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "es" = (
@@ -435,7 +435,7 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "fa" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/light/colored/dying{
@@ -461,6 +461,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/space)
+"fr" = (
+/obj/random/dirt_75,
+/obj/structure/closet/hazmat/research,
+/turf/simulated/floor/tiled,
+/area/space)
 "fy" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -483,7 +488,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "fO" = (
@@ -503,7 +508,7 @@
 "fP" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "fS" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/table/steel,
@@ -536,7 +541,12 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
+"fZ" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/closet/hazmat/research,
+/turf/simulated/floor/tiled/dark,
+/area/ship/planet_crystal_outpost/caves)
 "gm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -598,7 +608,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "hl" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -613,7 +623,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "hM" = (
@@ -625,7 +635,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "il" = (
@@ -722,12 +732,12 @@
 	},
 /obj/machinery/floodlight/randomcharge,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "jT" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "jU" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -825,7 +835,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "kG" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled,
@@ -863,7 +873,7 @@
 	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "lt" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/random/dirt_75,
@@ -907,7 +917,12 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
+"mt" = (
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0"
+	},
+/area/ship/planet_crystal_outpost/caves)
 "mz" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
@@ -923,7 +938,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "mD" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /obj/random/dirt_75,
@@ -949,7 +964,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "mY" = (
@@ -970,7 +985,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "ng" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
@@ -994,7 +1009,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "np" = (
@@ -1007,7 +1022,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "nA" = (
@@ -1021,7 +1036,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "nC" = (
@@ -1097,13 +1112,13 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "nU" = (
 /obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "nW" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
@@ -1122,7 +1137,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "ol" = (
 /obj/effect/shuttle_landmark{
 	dir = 4
@@ -1130,7 +1145,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "on" = (
@@ -1141,7 +1156,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "oq" = (
@@ -1206,12 +1221,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"pa" = (
+/turf/simulated/mineral/crystal,
+/area/ship/planet_crystal_outpost/caves)
 "pf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "pi" = (
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/excavation,
@@ -1226,7 +1244,7 @@
 /obj/structure/closet/crate/miningcart,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "pm" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
@@ -1278,7 +1296,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "qt" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/reagent_dispensers/extinguisher,
@@ -1340,7 +1358,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "qY" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain/black{
@@ -1386,6 +1404,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/space)
 "rG" = (
@@ -1396,7 +1415,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "rS" = (
@@ -1423,7 +1442,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "sf" = (
@@ -1433,7 +1452,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "sg" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/structure/chainlink_fence,
@@ -1441,7 +1460,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "sh" = (
@@ -1464,6 +1483,19 @@
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"so" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/space)
+"st" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/random,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
 /area/space)
 "su" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -1513,6 +1545,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/space)
+"sN" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/planet_crystal_outpost/caves)
 "sR" = (
 /obj/structure/sink{
 	dir = 4;
@@ -1576,7 +1615,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "tJ" = (
@@ -1621,7 +1660,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "tX" = (
@@ -1664,7 +1703,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "uH" = (
 /turf/unsimulated/mineral/asteroid,
 /area/space)
@@ -1681,6 +1720,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/space)
+"vi" = (
+/turf/simulated/wall,
+/area/ship/planet_crystal_outpost/caves)
 "vr" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/random/dirt_75,
@@ -1710,7 +1752,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "vN" = (
@@ -1720,7 +1762,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "vP" = (
@@ -1728,7 +1770,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "vQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -1740,7 +1782,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "vZ" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/machinery/light/broken{
@@ -1785,7 +1827,14 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
+"xs" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/planet_crystal_outpost/caves)
 "xt" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner_wide/grey{
@@ -1833,7 +1882,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "xQ" = (
@@ -1843,7 +1892,7 @@
 /obj/machinery/floodlight/randomcharge,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "xS" = (
 /obj/effect/shuttle_landmark{
 	dir = 2
@@ -1851,7 +1900,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "yl" = (
@@ -1868,7 +1917,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/pink,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "yu" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/structure/reagent_dispensers/coolanttank,
@@ -1881,6 +1930,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"yC" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/ship/planet_crystal_outpost/caves)
 "yE" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -1889,7 +1945,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "yQ" = (
@@ -1903,7 +1959,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/random/dirt_75,
@@ -1939,7 +1995,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "zH" = (
@@ -1950,7 +2006,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "zM" = (
@@ -2025,7 +2081,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Ap" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -2053,7 +2109,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "AM" = (
@@ -2076,11 +2132,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "AS" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "AV" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/random/dirt_75,
@@ -2167,7 +2223,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Cj" = (
@@ -2182,7 +2238,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "CD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
@@ -2254,7 +2310,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Dh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2323,7 +2379,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "DG" = (
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/excavation,
@@ -2363,7 +2419,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Eg" = (
@@ -2383,7 +2439,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Er" = (
@@ -2403,7 +2459,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Fa" = (
@@ -2413,7 +2469,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Ff" = (
@@ -2450,7 +2506,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Fx" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/machinery/light/small/emergency{
@@ -2459,7 +2515,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "FD" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/bed/stool/chair{
@@ -2548,7 +2604,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "GW" = (
@@ -2563,7 +2619,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "GY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -2571,7 +2627,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Hc" = (
@@ -2590,7 +2646,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Hm" = (
@@ -2615,7 +2671,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "HE" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/bed/stool/chair/office/light{
@@ -2634,7 +2690,7 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "HO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6;
@@ -2649,7 +2705,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "HW" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery{
@@ -2673,7 +2729,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Ib" = (
@@ -2720,7 +2776,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "IJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
@@ -2742,7 +2798,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "IP" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -2751,7 +2807,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Jk" = (
@@ -2765,6 +2821,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/space)
+"Jw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/closet/hazmat/research,
+/turf/simulated/floor/tiled/dark,
+/area/ship/planet_crystal_outpost/caves)
 "JA" = (
 /obj/structure/closet/cabinet,
 /obj/random/suit,
@@ -2791,7 +2854,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "JJ" = (
@@ -2882,7 +2945,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "KO" = (
@@ -2904,7 +2967,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Lb" = (
@@ -2957,7 +3020,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "LD" = (
@@ -2969,7 +3032,7 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "LJ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -2978,7 +3041,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "LQ" = (
 /obj/structure/table/standard,
 /obj/item/trash/plate/steak{
@@ -3009,7 +3072,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Mh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3019,7 +3082,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Mk" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -3115,7 +3178,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "MT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -3124,7 +3187,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "MV" = (
@@ -3135,7 +3198,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Na" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
@@ -3178,6 +3241,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"NV" = (
+/obj/effect/floor_decal/crystal/random/dark,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0"
+	},
+/area/ship/planet_crystal_outpost/caves)
 "Oa" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -3229,7 +3298,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Ow" = (
@@ -3237,7 +3306,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Ox" = (
@@ -3249,7 +3318,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "OO" = (
@@ -3271,7 +3340,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "OU" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/light/broken{
@@ -3305,7 +3374,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Ps" = (
@@ -3317,7 +3386,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Pv" = (
@@ -3339,7 +3408,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "PB" = (
@@ -3361,7 +3430,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "PR" = (
 /obj/machinery/light/broken{
 	dir = 2
@@ -3410,7 +3479,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Qu" = (
@@ -3427,7 +3496,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Qx" = (
 /obj/structure/table/standard,
 /obj/item/trash/plate{
@@ -3448,9 +3517,19 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
+"QC" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/ship/planet_crystal_outpost/caves)
 "QD" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/tea/tieguanyin{
@@ -3485,7 +3564,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "QL" = (
@@ -3501,7 +3580,7 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "QP" = (
 /obj/structure/table/wood,
 /obj/machinery/light/broken{
@@ -3519,12 +3598,16 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "QX" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/space)
+"Rd" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/ship/planet_crystal_outpost/caves)
 "Re" = (
 /obj/structure/flora/pottedplant/unusual,
 /turf/simulated/floor/tiled,
@@ -3551,7 +3634,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "RB" = (
 /obj/structure/flora/pottedplant/unusual,
 /obj/random/dirt_75,
@@ -3600,7 +3683,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "RU" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -3614,7 +3697,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Ss" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -3633,7 +3716,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "SR" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -3680,6 +3763,7 @@
 /area/space)
 "Tq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/hazmat/research,
 /turf/simulated/floor/plating,
 /area/space)
 "TD" = (
@@ -3771,14 +3855,14 @@
 "Uc" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Ur" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/plating/asteroid{
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "UE" = (
@@ -3787,7 +3871,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "UF" = (
@@ -3835,7 +3919,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Vk" = (
@@ -3853,7 +3937,7 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Vu" = (
@@ -3867,7 +3951,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/flora/pottedplant/crystal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "VD" = (
 /obj/item/stack/cable_coil{
 	pixel_x = 10;
@@ -3876,7 +3960,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "VM" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
@@ -3915,7 +3999,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "WF" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -3925,7 +4009,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "WL" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/light/colored/dying{
@@ -3962,7 +4046,14 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
+"Xn" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/ship/planet_crystal_outpost/caves)
 "Xp" = (
 /turf/simulated/floor/wood,
 /area/space)
@@ -4029,7 +4120,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Yf" = (
@@ -4037,7 +4128,7 @@
 /turf/simulated/floor/exoplanet/crystal{
 	light_color = "#67aaad";
 	light_range = 5;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
 "Yi" = (
@@ -4061,6 +4152,7 @@
 /obj/item/flame/lighter/zippo/himeo,
 /obj/item/clothing/head/softcap/himeo,
 /obj/item/clothing/suit/storage/toggle/himeo,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/space)
 "YG" = (
@@ -4098,9 +4190,12 @@
 	color = "#95c2d9";
 	light_color = "#67aaad";
 	light_range = 3;
-	light_power = 0.25
+	light_power = 0.10
 	},
 /area/space)
+"Zf" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/planet_crystal_outpost/caves)
 "Zm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -4113,13 +4208,19 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 "Zo" = (
 /obj/structure/closet/crate/freezer{
 	name = "Fridge"
 	},
 /obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Zw" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
+/obj/structure/closet/hazmat/research,
+/turf/simulated/floor/plating,
 /area/space)
 "ZB" = (
 /obj/structure/table/wood,
@@ -4141,6 +4242,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/space)
+"ZT" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ship/planet_crystal_outpost/caves)
 "ZX" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -4148,7 +4256,7 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
-/area/space)
+/area/ship/planet_crystal_outpost/caves)
 
 (1,1,1) = {"
 uH
@@ -26888,7 +26996,7 @@ dK
 dK
 nW
 rC
-Bq
+st
 ng
 xv
 tw
@@ -27144,7 +27252,7 @@ lv
 dK
 dK
 nW
-fX
+so
 fX
 tw
 In
@@ -29123,49 +29231,49 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -29380,49 +29488,49 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -29637,49 +29745,49 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -29894,49 +30002,49 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -30151,49 +30259,49 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -30408,49 +30516,49 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -30665,55 +30773,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -30922,55 +31030,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -31179,55 +31287,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -31436,55 +31544,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -31693,55 +31801,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 vP
-lv
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+NV
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -31950,55 +32058,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-lv
-lv
-lv
-yl
-yl
+pa
+pa
+pa
+pa
+NV
+NV
+NV
+pa
+pa
 oj
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
-dK
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
+mt
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -32207,55 +32315,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-dK
-lv
-yl
+pa
+pa
+pa
+pa
+pa
+mt
+NV
+pa
 oj
 SQ
 oj
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
-dK
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
+mt
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -32464,55 +32572,55 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
+pa
+pa
+pa
+pa
+pa
+pa
+mt
 hj
 Cw
-dK
+mt
 Cw
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-xv
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+vi
 QS
 Ft
 vP
-lv
-yl
-yl
-yl
-yl
+NV
+pa
+pa
+pa
+pa
 vP
-dK
-dK
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+mt
+mt
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -32721,74 +32829,74 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-dK
-dK
-dK
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+mt
+mt
+mt
 hj
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-xv
-xv
-FF
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+vi
+vi
+QC
 WF
-lv
-lv
-lv
-xv
-yl
-yl
-xv
-dK
-dK
+NV
+NV
+NV
+vi
+pa
+pa
+vi
+mt
+mt
 vP
-dK
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+mt
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -32978,74 +33086,74 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-dK
-dK
-dK
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+mt
+mt
+mt
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 vP
-lv
+NV
 Zm
 RX
 Mf
 Xj
 Db
-lv
+NV
 vP
-xv
-xv
-xv
-xv
-dK
-dK
-dK
-dK
-dK
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+vi
+vi
+vi
+vi
+mt
+mt
+mt
+mt
+mt
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -33235,74 +33343,74 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 MP
-dK
-dK
-dK
-dK
+mt
+mt
+mt
+mt
 vP
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
 qk
 fP
 LD
 Qv
 IN
-Hm
+ZT
 IN
-Hm
+ZT
 RR
-Hm
+ZT
 RR
-Hm
+ZT
 IN
-Hm
-il
-dK
-xv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-yl
-yl
-yl
-yl
-yl
-yl
+ZT
+Xn
+mt
+vi
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -33492,32 +33600,32 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
 dZ
-dK
-dK
+mt
+mt
 Ai
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-jo
-Hm
-eO
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+yC
+ZT
+Rd
 qk
 kD
 AR
@@ -33525,41 +33633,41 @@ AR
 AR
 yo
 RX
-dK
-lv
-dK
-lv
-lv
-dK
-dK
-Ve
-dK
+mt
+NV
+mt
+NV
+NV
+mt
+mt
+xs
+mt
 vP
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
-lv
-lv
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
+NV
+NV
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -33749,81 +33857,81 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-dK
-dK
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+mt
+mt
 xm
 MP
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
 ut
-dK
-dK
+mt
+mt
 qk
-zz
-zz
-zz
-zz
+Zf
+Zf
+Zf
+Zf
 Uc
-fP
-yl
-yl
-yl
-yl
-yl
-dK
-dK
+fZ
+pa
+pa
+pa
+pa
+pa
+mt
+mt
 ut
-dK
-dK
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-lv
-lv
-yl
-yl
-yl
+mt
+mt
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+NV
+NV
+pa
+pa
+pa
 yl
 yl
 yl
 yl
 yl
 xv
-tw
+fr
 qP
 qP
 qP
@@ -34006,74 +34114,74 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
 PQ
 Ry
 sf
-dK
-lv
-yl
-yl
-yl
-yl
-yl
-yl
+mt
+NV
+pa
+pa
+pa
+pa
+pa
+pa
 vP
-lv
-dK
-dK
-dK
-yl
+NV
+mt
+mt
+mt
+pa
 xQ
 AS
 QN
 HL
-zz
+Zf
 Uc
 VA
-yl
-yl
-yl
-yl
-lv
-dK
-dK
-Ve
-dK
-dK
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-dK
-lv
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+NV
+mt
+mt
+xs
+mt
+mt
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+mt
+NV
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -34263,79 +34371,79 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 vQ
 LJ
 fY
-dK
-lv
-yl
-yl
-yl
-yl
-yl
-lv
-dK
-lv
-dK
+mt
+NV
+pa
+pa
+pa
+pa
+pa
+NV
+mt
+NV
+mt
 VD
-yl
-yl
+pa
+pa
 Mh
 AS
 lq
 yW
-zz
+Zf
 Uc
 Wu
-yl
-yl
-yl
-yl
-lv
+pa
+pa
+pa
+pa
+NV
 IG
-dK
+mt
 ut
-dK
-dK
-dK
-lv
-xv
-yl
-yl
-xv
-yl
-yl
-xv
-lv
-lv
-xv
-yl
-yl
-xv
-yl
-yl
-xv
-dK
-dK
-xv
-yl
-yl
-xv
-yl
-yl
-xv
-yl
-yl
-xv
+mt
+mt
+mt
+NV
+vi
+pa
+pa
+vi
+pa
+pa
+vi
+NV
+NV
+vi
+pa
+pa
+vi
+pa
+pa
+vi
+mt
+mt
+vi
+pa
+pa
+vi
+pa
+pa
+vi
+pa
+pa
+vi
 xv
 SS
 TE
@@ -34520,79 +34628,79 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 mB
 VD
 IN
-Hm
-Hm
-Hm
-Hm
-Hm
+ZT
+ZT
+ZT
+ZT
+ZT
 IN
-dK
+mt
 IN
 IN
 ZX
-yl
-yl
+pa
+pa
 xQ
 pi
 nT
-zz
+Zf
 DD
 jT
 GX
-yl
-yl
-yl
-yl
-lv
+pa
+pa
+pa
+pa
+NV
 vP
-dK
-Ve
-dK
-dK
-dK
-dK
+mt
+xs
+mt
+mt
+mt
+mt
 ms
-dK
-dK
-dK
-dK
-dK
+mt
+mt
+mt
+mt
+mt
 vP
-dK
-dK
+mt
+mt
 vP
-dK
-dK
-dK
-dK
-dK
+mt
+mt
+mt
+mt
+mt
 ms
-dK
-dK
+mt
+mt
 vP
-lv
-lv
+NV
+NV
 vP
-dK
-dK
+mt
+mt
 ms
-dK
-dK
-dK
+mt
+mt
+mt
 df
 eF
 zz
@@ -34777,79 +34885,79 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
 dD
-dK
-dK
-dK
-dK
-dK
+mt
+mt
+mt
+mt
+mt
 nf
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
 jQ
 pf
 bx
 pf
-pf
+Jw
 eV
 HO
-yl
-yl
-yl
-yl
-lv
-lv
-lv
-cr
-Hm
+pa
+pa
+pa
+pa
+NV
+NV
+NV
+sN
+ZT
 IN
-Hm
+ZT
 IN
-Hm
-IN
-IN
-Hm
+ZT
 IN
 IN
-IN
-IN
-IN
-Hm
+ZT
 IN
 IN
 IN
 IN
 IN
-Hm
+ZT
 IN
 IN
 IN
 IN
 IN
-Hm
+ZT
 IN
 IN
 IN
 IN
 IN
-Hm
+ZT
+IN
+IN
+IN
+IN
+IN
+ZT
 XS
 jh
 Dk
@@ -35034,77 +35142,77 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-lv
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+NV
 OQ
-dK
-dK
-dK
-xv
-yl
-yl
-yl
-yl
-yl
-yl
+mt
+mt
+mt
+vi
+pa
+pa
+pa
+pa
+pa
+pa
 vP
-dK
+mt
 vP
-dK
+mt
 vP
-dK
+mt
 vP
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-dK
-dK
-dK
-dK
-dK
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+mt
+mt
+mt
+mt
+mt
 MV
-dK
-dK
+mt
+mt
 vP
-dK
-dK
-dK
-dK
+mt
+mt
+mt
+mt
 dD
-dK
-dK
-lv
+mt
+mt
+NV
 vP
-dK
-dK
+mt
+mt
 MV
-lv
-dK
-dK
-dK
-dK
+NV
+mt
+mt
+mt
+mt
 nf
-dK
-dK
+mt
+mt
 MV
-dK
+mt
 MP
 vP
 im
@@ -35291,79 +35399,79 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
 Fx
 dZ
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-lv
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+NV
 nU
 Hx
-dK
+mt
 qT
-xv
-yl
-yl
-xv
-lv
-dK
-xv
-yl
-yl
-xv
-yl
-yl
-xv
-yl
-yl
-xv
-yl
-yl
-xv
-yl
-yl
-xv
-dK
-lv
-xv
-yl
-yl
-xv
+vi
+pa
+pa
+vi
+NV
+mt
+vi
+pa
+pa
+vi
+pa
+pa
+vi
+pa
+pa
+vi
+pa
+pa
+vi
+pa
+pa
+vi
+mt
+NV
+vi
+pa
+pa
+vi
 xv
 pz
 zz
@@ -35548,60 +35656,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-xv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-xv
-lv
-lv
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+vi
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+vi
+NV
+NV
 qT
 vP
-lv
-yl
-yl
-yl
-yl
-dK
-lv
-yl
-yl
-yl
+NV
+pa
+pa
+pa
+pa
+mt
+NV
+pa
+pa
+pa
 yl
 yl
 yl
@@ -35805,60 +35913,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-xv
-yl
-yl
-yl
-yl
-yl
-dK
-dK
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+vi
+pa
+pa
+pa
+pa
+pa
+mt
+mt
+pa
+pa
+pa
 yl
 yl
 yl
@@ -36062,60 +36170,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-dK
-xv
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+mt
+vi
+pa
+pa
 yl
 yl
 yl
@@ -36143,7 +36251,7 @@ tj
 DG
 pz
 Mt
-mY
+Zw
 nW
 Yf
 Yf
@@ -36319,60 +36427,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+pa
+pa
+pa
 yl
 yl
 yl
@@ -36576,60 +36684,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
+pa
+pa
+pa
 yl
 yl
 yl
@@ -36833,60 +36941,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+pa
+pa
+pa
 yl
 yl
 yl
@@ -37090,60 +37198,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-dK
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+mt
+pa
+pa
+pa
 yl
 yl
 yl
@@ -37347,60 +37455,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-dK
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+mt
+pa
+pa
+pa
 yl
 yl
 yl
@@ -37604,60 +37712,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-dK
-dK
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+mt
+mt
+pa
+pa
+pa
 yl
 yl
 yl
@@ -37861,60 +37969,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-dK
-dK
-dK
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+mt
+mt
+mt
+pa
+pa
+pa
 yl
 yl
 yl
@@ -38118,60 +38226,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-dK
-dK
-dK
-lv
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+mt
+mt
+mt
+NV
+pa
+pa
+pa
 yl
 yl
 yl
@@ -38375,60 +38483,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-dK
-dK
-dK
-dK
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+mt
+mt
+mt
+mt
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -38632,60 +38740,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-dK
-dK
-dK
-dK
-lv
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+mt
+mt
+mt
+mt
+NV
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -38889,60 +38997,60 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
-dK
-dK
-dK
-dK
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
+mt
+mt
+mt
+mt
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -39182,24 +39290,24 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
-dK
-lv
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
+mt
+NV
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -39439,24 +39547,24 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-dK
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+mt
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -39696,24 +39804,24 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -39953,24 +40061,24 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-lv
-lv
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+NV
+NV
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -40210,24 +40318,24 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl
@@ -40467,24 +40575,24 @@ yl
 yl
 yl
 yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
-yl
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 yl
 yl
 yl

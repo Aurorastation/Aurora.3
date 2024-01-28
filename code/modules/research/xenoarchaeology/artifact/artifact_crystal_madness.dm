@@ -28,7 +28,7 @@
 	// get mobs
 	var/list/affected_mobs = list()
 	for(var/mob/living/carbon/human/mob_in_range in get_hearers_in_LOS(world.view, src))
-		if((!mob_in_range.is_psi_blocked()) && (mob_in_range.has_psionics() || mob_in_range.has_psi_aug()))
+		if((!mob_in_range.is_psi_blocked()) && (mob_in_range.has_psionics() || mob_in_range.has_psi_aug() || mob_in_range.has_zona_bovinae()))
 			affected_mobs += mob_in_range
 
 	// set up timer for delayed effects
@@ -42,7 +42,7 @@
 					SPAN_NOTICE("For a very brief moment, you feel uneasy."),
 					SPAN_NOTICE("For a very short moment, you feel strange."),
 					SPAN_NOTICE("For a short while, you feel anxious."),
-					SPAN_NOTICE("You feel very anxious for a split second."),
+					SPAN_NOTICE("You feel very anxious for a second or two."),
 					SPAN_NOTICE("You are very uncomfortable for a few seconds."),
 					SPAN_NOTICE("You experience a strange feeling for a short moment."),
 					SPAN_NOTICE("You feel strange and anxious for a short while, but that feeling fades away quickly."),
@@ -64,9 +64,10 @@
 				),
 			)
 			shake_camera(mob, 3, 1)
+			mob.make_adrenaline(5)
 			desc = "\
 				A large crystal, seemingly floating in the air, and giving off a strong light blue glow. \
-				It appears to be vibrating or shaking slightly.
+				It appears to be vibrating or shaking slightly.\
 				"
 		else if(stage < 9)
 			to_chat(mob,
@@ -83,9 +84,11 @@
 				),
 			)
 			shake_camera(mob, 6, 2)
+			mob.make_dizzy(150)
+			mob.make_adrenaline(10)
 			desc = "\
 				A large crystal, seemingly floating in the air, and giving off a strong light blue glow. \
-				It appears to be vibrating or shaking, and lets out a constant, if quiet, hum.
+				It appears to be vibrating or shaking, and lets out a constant, if quiet, hum.\
 				"
 		else
 			to_chat(mob,
@@ -103,6 +106,8 @@
 				),
 			)
 			shake_camera(mob, 9, 4)
+			mob.make_dizzy(200)
+			mob.make_adrenaline(25)
 			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_start)), 10 SECONDS)
 			addtimer(CALLBACK(mob, TYPE_PROC_REF(/mob/living/carbon/human, berserk_stop)), 30 SECONDS)
 			stage = 3
@@ -123,7 +128,7 @@
 				SPAN_WARNING("\The [src] appears to bounce off \the [projectile]. It has little effect."),
 			),
 		)
-	if(istype(projectile, /obj/item/projectile/energy))
+	else if(istype(projectile, /obj/item/projectile/energy))
 		src.visible_message(
 			pick(
 				SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
@@ -133,7 +138,7 @@
 				SPAN_WARNING("\The [src] appears to consume \the [projectile]. It has little effect."),
 			),
 		)
-	if(istype(projectile, /obj/item/projectile/beam))
+	else if(istype(projectile, /obj/item/projectile/beam))
 		var/damage = projectile.get_structure_damage()
 		if(damage < 20)
 			src.visible_message(
@@ -181,7 +186,7 @@
 			)
 
 /obj/structure/crystal_madness/attackby(obj/item/W, mob/living/user)
-	if(stage < 4)
+	if(stage < 6)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			SPAN_DANGER("You touch \the [W] to \the [src]."),
@@ -189,7 +194,7 @@
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You touch \the [W] to \the [src]."),
+			SPAN_DANGER("You touch \the [W] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
 			)
 
 

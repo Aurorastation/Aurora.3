@@ -53,3 +53,11 @@
 // 	landmark_tag = "nav_blueriv_4"
 // 	base_area = /area/bluespaceriver/ground
 
+/area/ship/planet_crystal_outpost
+	name = "Crystal Planet Outpost (abstract/base)"
+	requires_power = TRUE
+	has_gravity = TRUE
+
+/area/ship/planet_crystal_outpost/caves
+	name = "Crystal Planet Outpost Caves"
+	icon_state = "bridge"
