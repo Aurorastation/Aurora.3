@@ -611,6 +611,7 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /**********************Asteroid**************************/
 

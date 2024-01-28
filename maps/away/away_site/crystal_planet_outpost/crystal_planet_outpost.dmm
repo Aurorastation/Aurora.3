@@ -634,7 +634,11 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "gC" = (
 /turf/simulated/floor/tiled/white,
@@ -831,7 +835,11 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "jL" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -2019,7 +2027,11 @@
 	light_color = "#67aaad";
 	light_power = 0.75
 	},
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "vz" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -2245,6 +2257,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/cave_entrance)
+"yy" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/crystal/random/dark,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250
+	},
+/area/crystal_planet_outpost/caves)
 "yz" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_3a{
 	dir = 8
@@ -2302,7 +2322,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "zn" = (
 /obj/structure/flora/pottedplant/bluefern,
@@ -2407,7 +2431,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "Ah" = (
 /obj/effect/decal/cleanable/fruit_smudge{
@@ -2498,7 +2526,11 @@
 "Bd" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "Bi" = (
 /obj/effect/decal/road_marking{
@@ -2933,7 +2965,11 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "Ge" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -3678,7 +3714,11 @@
 /area/crystal_planet_outpost/living)
 "Nj" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "Nx" = (
 /turf/simulated/floor/tiled,
@@ -4207,7 +4247,11 @@
 "RN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0";
+	temperature = 250;
+	initial_gas = list("carbon_dioxide" = 25000)
+	},
 /area/crystal_planet_outpost/power)
 "RQ" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -4551,6 +4595,7 @@
 "VA" = (
 /obj/structure/flora/pottedplant/crystal,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/caves)
 "VD" = (
@@ -34531,8 +34576,8 @@ Zf
 Zf
 Uc
 fZ
-pa
-pa
+NV
+NV
 pa
 pa
 pa
@@ -34780,7 +34825,7 @@ NV
 xm
 sf
 sf
-pa
+vP
 xQ
 AS
 QN
@@ -34788,7 +34833,7 @@ HL
 Zf
 Uc
 VA
-pa
+vP
 pa
 pa
 pa
@@ -35037,7 +35082,7 @@ NV
 xm
 VD
 pa
-pa
+sf
 Mh
 AS
 lq
@@ -35045,7 +35090,7 @@ yW
 nO
 Lg
 Wu
-pa
+sf
 pa
 pa
 pa
@@ -35294,7 +35339,7 @@ IN
 IN
 ZX
 pa
-pa
+vP
 xQ
 pi
 nT
@@ -35302,7 +35347,7 @@ nO
 DD
 jT
 GX
-pa
+vP
 pa
 pa
 pa
@@ -35551,7 +35596,7 @@ pa
 pa
 pa
 pa
-pa
+Un
 jQ
 pf
 bx
@@ -35559,7 +35604,7 @@ pf
 Jw
 eV
 HO
-pa
+sf
 pa
 pa
 pa
@@ -35808,15 +35853,15 @@ pa
 pa
 pa
 pa
-pa
+vP
+yy
+yy
 vP
 sf
 vP
 sf
+yy
 vP
-sf
-vP
-pa
 pa
 pa
 pa
