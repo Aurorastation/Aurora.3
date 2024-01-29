@@ -7,7 +7,6 @@
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/abandoned_propellant_depot//Arbitrary duplicates of the above name/desc
 	map = "Abandoned Propellant Depot"
