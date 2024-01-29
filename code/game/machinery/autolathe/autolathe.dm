@@ -143,7 +143,7 @@
 	return data
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user)
-	if(HAS_FLAG(autolathe_flags, AUTOLATHE_BUSY))
+	if((autolathe_flags & AUTOLATHE_BUSY))
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return TRUE
 
@@ -246,9 +246,9 @@
 		update_use_power(POWER_USE_IDLE)
 
 	if(currently_printing && use_power == POWER_USE_ACTIVE)
-		if(!HAS_FLAG(autolathe_flags, AUTOLATHE_STARTED))
+		if(!(autolathe_flags & AUTOLATHE_STARTED))
 			start_processing_queue_item()
-		else if(HAS_FLAG(autolathe_flags, AUTOLATHE_BUSY))
+		else if((autolathe_flags & AUTOLATHE_BUSY))
 			process_queue_item()
 
 /// Used so that we don't try to add_overlay every tick the autolathe processes.

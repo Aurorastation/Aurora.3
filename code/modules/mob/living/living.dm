@@ -121,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
-				if(prob(40) && NOT_FLAG(mutations, FAT))
+			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+				if(prob(40) && !(mutations & FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -248,9 +248,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(HAS_FLAG(mutations, mShock)) //shockproof
+	if((mutations & mShock)) //shockproof
 		return FALSE
-	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
+	if((mutations & COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()
