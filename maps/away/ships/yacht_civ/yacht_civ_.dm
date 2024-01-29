@@ -9,7 +9,6 @@
 	id = "yacht_civ"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/yacht_civ_shuttle)
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/yacht_civ
 	map = "Civilian Yacht"
