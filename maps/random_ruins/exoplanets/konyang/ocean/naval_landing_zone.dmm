@@ -26,13 +26,14 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/konyang_landing_zone/command_center/landing_pads)
 "as" = (
-/obj/structure/ledge{
+/obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "av" = (
 /turf/simulated/wall,
@@ -209,7 +210,7 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Air Supply Monitor";
-	sensors = list("lz_air_sensor"="Site Tank");
+	sensors = list("lz_air_sensor"="Site    Tank");
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -276,6 +277,9 @@
 	},
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-9"
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -535,13 +539,14 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "fI" = (
+/obj/effect/decal/road_marking/reflector,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/obj/structure/ledge/quarter{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
+/turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "fP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -742,13 +747,13 @@
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center/reactor)
 "hW" = (
-/obj/structure/ledge/quarter{
-	dir = 8
+/obj/structure/railing/mapped{
+	layer = 9.1
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "ir" = (
 /obj/effect/decal/curb{
@@ -1099,6 +1104,14 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center)
+"nD" = (
+/obj/effect/decal/curb{
+	dir = 1;
+	layer = 2.02
+	},
+/obj/structure/crane/arm,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
 "nH" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -1143,6 +1156,9 @@
 	},
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-8"
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -1513,6 +1529,15 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
+"ug" = (
+/obj/structure/utility_pole/street/on{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
 "ur" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1990,13 +2015,13 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Bh" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 8
 	},
-/obj/structure/ledge/quarter{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
+/turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "Bt" = (
 /obj/structure/tank_wall/air{
@@ -2236,9 +2261,6 @@
 /obj/structure/ledge{
 	dir = 5
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
-	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Fr" = (
@@ -2260,7 +2282,7 @@
 "Fu" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Carbon Dioxide Supply Monitor";
-	sensors = list("lz_co2_sensor"="Site Tank");
+	sensors = list("lz_co2_sensor"="Site    Tank");
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2354,11 +2376,13 @@
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center/reactor)
 "GE" = (
-/obj/structure/ledge{
-	dir = 1
+/obj/structure/chainlink_fence{
+	dir = 4
 	},
-/obj/structure/utility_pole/street/on,
-/turf/simulated/floor/asphalt,
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "GG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -2372,16 +2396,16 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "GL" = (
-/obj/structure/ledge/quarter{
+/obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 8
 	},
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "GM" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2395,13 +2419,11 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "GQ" = (
-/obj/structure/ledge{
-	dir = 4
+/obj/structure/utility_pole/street/on,
+/obj/structure/railing/mapped{
+	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
-	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "GR" = (
 /obj/structure/cable/yellow{
@@ -2442,9 +2464,6 @@
 "Hr" = (
 /obj/structure/ledge{
 	dir = 4
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
 	},
 /obj/structure/railing/mapped{
 	layer = 9.1
@@ -2512,6 +2531,9 @@
 	},
 /obj/structure/tank_wall/air{
 	icon_state = "air8"
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -2994,6 +3016,9 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air9"
 	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Qy" = (
@@ -3082,6 +3107,19 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
+"Rs" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	layer = 9.1;
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
 "RC" = (
 /obj/structure/ledge{
 	dir = 4
@@ -3109,6 +3147,16 @@
 "RH" = (
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
+"RT" = (
+/obj/effect/decal/road_marking/reflector,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
 "Sc" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/machinery/light{
@@ -3244,6 +3292,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
+"Tp" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
 "Tq" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/machinery/chemical_dispenser,
@@ -3256,6 +3313,9 @@
 "Tw" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3347,9 +3407,6 @@
 "UB" = (
 /obj/structure/ledge{
 	dir = 9
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -3474,9 +3531,6 @@
 /obj/structure/ledge/quarter{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
-	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/konyang_landing_zone)
 "WA" = (
@@ -3586,12 +3640,7 @@
 /area/konyang_landing_zone/command_center)
 "XW" = (
 /obj/structure/ledge,
-/obj/structure/utility_pole/street/on{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Yd" = (
@@ -3702,13 +3751,14 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "ZR" = (
-/obj/structure/ledge/quarter{
-	dir = 4
+/obj/effect/decal/curb{
+	dir = 5
 	},
-/obj/structure/utility_pole/street/on{
+/obj/effect/decal/road_marking/reflector{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/konyang,
+/obj/structure/crane/body,
+/turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "ZW" = (
 /turf/simulated/wall,
@@ -4265,7 +4315,7 @@ Wz
 VD
 VD
 VD
-ZR
+VD
 mW
 rS
 rS
@@ -4318,7 +4368,7 @@ gF
 gF
 gF
 gF
-gF
+Bh
 gF
 gF
 gF
@@ -4365,7 +4415,7 @@ On
 Og
 Og
 Og
-gj
+ZR
 ae
 By
 ae
@@ -4479,7 +4529,7 @@ Jh
 Zy
 lM
 vX
-Ua
+nD
 ae
 ae
 ae
@@ -4760,9 +4810,22 @@ uy
 vy
 HZ
 TY
+RT
 FR
 FR
-FR
+jH
+jH
+Tp
+jH
+jH
+jH
+jH
+Tp
+jH
+jH
+jH
+jH
+Tp
 jH
 jH
 jH
@@ -4770,25 +4833,12 @@ jH
 jH
 jH
 jH
+Tp
 jH
 jH
 jH
 jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-FR
+RT
 FR
 FR
 ae
@@ -4822,17 +4872,6 @@ Ha
 Ha
 Ha
 Ha
-as
-Ha
-Ha
-Ha
-Ha
-as
-Ha
-Ha
-Ha
-Ha
-as
 Ha
 Ha
 Ha
@@ -4840,12 +4879,23 @@ Ha
 Ha
 Ha
 Ha
-as
 Ha
 Ha
 Ha
 Ha
-as
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
 Ha
 EB
 ae
@@ -4855,7 +4905,7 @@ ae
 Xr
 fV
 ta
-fI
+VD
 VD
 VD
 mW
@@ -5019,7 +5069,7 @@ FU
 FU
 FU
 XW
-RG
+ug
 uy
 Oz
 ae
@@ -5044,8 +5094,8 @@ xd
 aa
 tR
 ae
-RG
-GE
+GQ
+mI
 FU
 lb
 Pq
@@ -5197,7 +5247,7 @@ ae
 YY
 VP
 fn
-Bh
+sL
 jG
 jG
 iX
@@ -5247,7 +5297,7 @@ FU
 FU
 FU
 XW
-RG
+ug
 uy
 Oz
 ae
@@ -5272,8 +5322,8 @@ aa
 vO
 JG
 rJ
-RG
-GE
+GQ
+mI
 FU
 lb
 Pq
@@ -5539,7 +5589,7 @@ ae
 YY
 ta
 VD
-fI
+VD
 VD
 VD
 mW
@@ -5614,8 +5664,8 @@ wR
 av
 sp
 rJ
-RG
-GE
+GQ
+mI
 FU
 lb
 Pq
@@ -5703,7 +5753,7 @@ FU
 FU
 FU
 XW
-RG
+hW
 uy
 Oz
 ae
@@ -5881,7 +5931,7 @@ ae
 od
 VP
 od
-Bh
+sL
 jG
 jG
 iX
@@ -5931,7 +5981,7 @@ DZ
 FU
 FU
 XW
-RG
+ug
 ta
 xR
 Ni
@@ -5956,8 +6006,8 @@ kj
 bZ
 zG
 rJ
-RG
-GE
+GQ
+mI
 FU
 Bf
 mA
@@ -6094,12 +6144,12 @@ wE
 wE
 wE
 wE
-GQ
 wE
 wE
 wE
 wE
-GQ
+wE
+wE
 wE
 vn
 ae
@@ -6151,12 +6201,12 @@ gF
 gF
 gF
 gF
+Bh
 gF
 gF
 gF
 gF
-gF
-Lr
+fI
 Lr
 Lr
 ae
@@ -6190,12 +6240,12 @@ wE
 wE
 wE
 wE
-GQ
 wE
 wE
 wE
 wE
-GQ
+wE
+wE
 wE
 wE
 RC
@@ -6208,12 +6258,12 @@ ae
 ae
 Xs
 Xs
+GE
 Xs
 Xs
 Xs
 Xs
-Xs
-Xs
+GE
 Xs
 Xs
 Xs
@@ -6242,22 +6292,22 @@ ac
 di
 rJ
 ae
+fI
 Lr
 Lr
-Lr
+Dy
+Dy
+Rs
 Dy
 Dy
 Dy
 Dy
-Dy
-Dy
-Dy
-eS
+as
 eS
 eS
 dC
 MH
-MH
+GL
 jH
 JD
 yn
@@ -6265,12 +6315,12 @@ LY
 dw
 cm
 Tz
-GL
-Tz
 cm
 Tz
 cm
-hW
+Tz
+cm
+Tz
 cm
 Tz
 cm

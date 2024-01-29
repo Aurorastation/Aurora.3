@@ -190,6 +190,12 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/tailor)
+"bP" = (
+/obj/structure/chainlink_fence/corner{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "bQ" = (
 /obj/structure/table/wood,
 /obj/item/towel{
@@ -296,7 +302,7 @@
 "cC" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half,
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 31;
 	pixel_y = 10
 	},
@@ -994,7 +1000,7 @@
 "jK" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half,
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 31;
 	pixel_y = 10
 	},
@@ -1231,6 +1237,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"nn" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/chainlink_fence/corner{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "np" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -1335,6 +1350,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
+"oN" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence/corner{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "oW" = (
 /obj/structure/table/rack/clothing{
@@ -1532,6 +1556,18 @@
 /obj/machinery/door/urban,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"rs" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence/corner{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "rx" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
@@ -2692,6 +2728,12 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Dl" = (
+/obj/structure/chainlink_fence/corner{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "Ds" = (
 /obj/machinery/door/window/eastright{
 	layer = 3.4
@@ -2885,14 +2927,7 @@
 /turf/simulated/open,
 /area/point_verdant/interior/laundromat)
 "FO" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /obj/structure/rod_railing{
 	dir = 4
 	},
@@ -4174,6 +4209,18 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"UB" = (
+/obj/structure/chainlink_fence/corner{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence/corner{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "UG" = (
 /obj/effect/floor_decal/corner_wide/white/full{
 	dir = 1
@@ -4424,14 +4471,7 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "Xn" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Xr" = (
@@ -4611,14 +4651,7 @@
 /turf/simulated/floor/carpet/aquablue,
 /area/point_verdant/interior/hotel)
 "Yv" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "Yz" = (
@@ -4635,6 +4668,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"YQ" = (
+/obj/structure/chainlink_fence/corner{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "YR" = (
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
@@ -34169,40 +34208,40 @@ DC
 DC
 DC
 DC
-DC
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-eg
-eg
-eg
-eg
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
-tR
+Dl
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
 bD
 Cw
 Cw
@@ -41365,40 +41404,40 @@ DC
 DC
 DC
 DC
-DC
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
-EF
+bP
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+eg
+eg
+eg
+eg
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
+tR
 bD
 Cw
 Cw
@@ -41876,26 +41915,26 @@ DC
 DC
 DC
 DC
+YQ
+EF
+EF
+EF
+oN
 DC
-tR
-tR
-tR
-tR
+YQ
+EF
+EF
+EF
+rs
 DC
-DC
-tR
-tR
-tR
-tR
-DC
-DC
-tR
-tR
-tR
-tR
-tR
-tR
-tR
+YQ
+EF
+EF
+EF
+EF
+EF
+EF
+UB
 DC
 DC
 DC
@@ -43932,26 +43971,26 @@ ZI
 ZI
 ZI
 DC
+bP
+tR
+tR
+tR
+nn
 DC
-EF
-EF
-EF
-EF
+bP
+tR
+tR
+tR
+nn
 DC
-DC
-EF
-EF
-EF
-EF
-DC
-DC
-EF
-EF
-EF
-EF
-EF
-EF
-EF
+bP
+tR
+tR
+tR
+tR
+tR
+tR
+nn
 DC
 DC
 DC

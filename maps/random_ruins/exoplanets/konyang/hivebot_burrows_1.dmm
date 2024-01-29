@@ -455,11 +455,11 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "im" = (
-/obj/structure/chainlink_fence{
-	dir = 1
-	},
 /obj/random/dirt_75,
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "iq" = (
@@ -1286,6 +1286,12 @@
 "yB" = (
 /obj/structure/flora/rock/konyang/moss{
 	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"yI" = (
+/obj/structure/chainlink_fence{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -2567,10 +2573,10 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "WC" = (
+/obj/random/dirt_75,
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "WE" = (
@@ -3116,8 +3122,8 @@ Fo
 TI
 iq
 Om
-bn
-ft
+WC
+im
 xf
 xf
 xf
@@ -3166,9 +3172,9 @@ Om
 pu
 il
 iq
-TI
-im
-WC
+yI
+aD
+bn
 xf
 xf
 xf

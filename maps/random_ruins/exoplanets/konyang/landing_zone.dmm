@@ -484,7 +484,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -606,7 +606,7 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Air Supply Monitor";
-	sensors = list("lz_air_sensor"="Site Tank");
+	sensors = list("lz_air_sensor"="Site  Tank");
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -671,6 +671,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
+"iM" = (
+/obj/effect/decal/curb{
+	dir = 1;
+	layer = 2.02
+	},
+/obj/structure/crane/arm,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
 "iT" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1338,7 +1346,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "rz" = (
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -1716,7 +1724,7 @@
 "wx" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Carbon Dioxide Supply Monitor";
-	sensors = list("lz_co2_sensor"="Site Tank");
+	sensors = list("lz_co2_sensor"="Site  Tank");
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2504,7 +2512,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -3006,7 +3014,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/konyang_flowers,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -3181,7 +3189,7 @@
 /obj/structure/ledge/quarter{
 	dir = 8
 	},
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -3332,7 +3340,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -3706,6 +3714,16 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
+/area/konyang_landing_zone)
+"Tc" = (
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/obj/structure/crane/body,
+/turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Th" = (
 /obj/machinery/door/urban,
@@ -4847,7 +4865,7 @@ tm
 CU
 CU
 CU
-EV
+Tc
 dK
 aG
 dK
@@ -4961,7 +4979,7 @@ jn
 xo
 bJ
 sK
-pz
+iM
 dK
 dK
 dK

@@ -35907,13 +35907,8 @@
 /area/horizon/holodeck/source_desert)
 "eFm" = (
 /obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	dir = 4;
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
+/obj/structure/television{
 	layer = 6.1;
-	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -37547,14 +37542,7 @@
 	layer = 2.4;
 	name = "grate"
 	},
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
@@ -39147,12 +39135,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	dir = 4;
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
-	name = "expensive flatscreen holovision";
+/obj/structure/television{
 	pixel_y = 15
 	},
 /obj/structure/table/wood,
@@ -39742,12 +39725,8 @@
 	},
 /area/horizon/holodeck/source_beach)
 "sJV" = (
-/obj/effect/decal/fake_object{
-	desc = "A Hephaestus Industries Z-Cube! This state-of-the-art gaming console is the premium of the premium. It's almost VR!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "gamer_console";
-	layer = 2.7;
-	name = "gaming console"
+/obj/structure/console{
+	layer = 2.7
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
