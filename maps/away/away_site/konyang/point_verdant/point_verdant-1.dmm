@@ -543,7 +543,8 @@
 /area/point_verdant/interior)
 "bX" = (
 /obj/structure/street_sign/warnings{
-	pixel_x = -16dir=4
+	pixel_x = -16;
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
