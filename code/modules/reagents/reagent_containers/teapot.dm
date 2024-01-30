@@ -47,7 +47,7 @@
 
 /obj/item/reagent_containers/glass/beaker/teapot/lidded/attack_self(mob/user)
 	if(lid)
-		if(user.get_inactive_hand())
+		if(!user.get_inactive_hand())
 			if(user.put_in_hands(lid))
 				lid = null
 				to_chat(user, SPAN_NOTICE("You slide off \the [src]'s lid."))

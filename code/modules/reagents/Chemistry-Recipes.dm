@@ -1259,7 +1259,7 @@
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
-		/mob/living/simple_animal/hostile/spider_queen,
+		/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen,
 		/mob/living/simple_animal/hostile/tree,
 		/mob/living/simple_animal/hostile/mimic,
 		/mob/living/simple_animal/hostile/cavern_geist,

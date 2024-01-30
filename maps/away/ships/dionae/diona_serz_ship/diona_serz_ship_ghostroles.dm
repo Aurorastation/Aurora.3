@@ -44,6 +44,7 @@
 /datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#6D3175"
+		H.w_uniform.accent_color = H.w_uniform.color
 
 /datum/ghostspawner/human/serz_voidtamer/captain
 	short_name = "serz_voidtamer_captain"

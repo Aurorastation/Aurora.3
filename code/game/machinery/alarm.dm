@@ -506,7 +506,7 @@ pixel_x = 10;
 		return
 
 	var/icon_level = danger_level
-	if (alarm_area.atmosalm)
+	if(alarm_area?.atmosalm)
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
 
 	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
