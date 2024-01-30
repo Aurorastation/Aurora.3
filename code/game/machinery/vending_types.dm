@@ -1051,6 +1051,7 @@
 		/obj/item/reagent_containers/cooking_container/board/bowl = 2,
 		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
+		/obj/item/storage/toolbox/lunchbox/idris = 6,
 		/obj/item/reagent_containers/glass/rag = 8,
 		/obj/item/evidencebag/plasticbag = 20,
 		/obj/item/tray = 12,
@@ -1085,15 +1086,35 @@
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
 
-/obj/machinery/vending/dinnerware/bar
+/obj/machinery/vending/dinnerware/metal
 	name = "utensil vendor"
-	desc = "A bar utensil vendor."
+	desc = "An upscale kitchen and restaurant utensil vendor."
 	products = list(
+		/obj/item/material/kitchen/utensil/fork = 12,
+		/obj/item/material/kitchen/utensil/spoon = 12,
+		/obj/item/material/kitchen/utensil/knife = 12,
+		/obj/item/material/kitchen/utensil/fork/chopsticks = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
+	)
+
+/obj/machinery/vending/dinnerware/bar
+	name = "glasses vendor"
+	desc = "A bar vendor for dispensing various glasses and cups."
+	products = list(
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 20,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
+		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 12,
+		/obj/item/material/kitchen/utensil/fork = 6,
+		/obj/item/material/kitchen/utensil/knife = 6,
+		/obj/item/material/kitchen/utensil/spoon = 6,
+		/obj/item/tray = 12,
+		/obj/item/tray/tea = 2,
 	)
 
 /obj/machinery/vending/sovietsoda
