@@ -243,6 +243,7 @@
 		COMPUTER_APP_PRESET_SYSTEM,
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
 		new /datum/computer_file/program/game/arcade(comp),
+		new /datum/computer_file/program/cooking_codex(comp),
 	)
 	return flatten_list(_prg_list)
 

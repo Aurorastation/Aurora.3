@@ -475,7 +475,7 @@
 
 		// Add the fingerprints.
 		if(fingerprints[full_print])
-			switch(stringpercent(fingerprints[full_print]))	// Tells us how many stars are in the current prints.
+			switch(charcount(fingerprints[full_print]))	// Tells us how many stars are in the current prints.
 
 				if(28 to 32)
 					if(prob(1))

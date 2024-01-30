@@ -116,7 +116,6 @@ var/list/service_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Corporate Reporter",
 	"Chaplain"
 )
 
@@ -124,7 +123,8 @@ var/list/civilian_positions = list(
 	"Assistant",
 	"Off-Duty Crew Member",
 	"Passenger",
-	"Merchant"
+	"Merchant",
+	"Corporate Reporter"
 )
 
 var/list/security_positions = list(
