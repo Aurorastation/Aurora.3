@@ -21,8 +21,8 @@
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
 				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
-								"Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations.",
-								"Convince the command of the [current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics.")
+								"Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations.",
+								"Convince the command of the [SSatlas.current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics.")
 			else
 				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
 								"Have [rand(2,6)] crewmembers sign a pledge of loyalty to the Republic.")
@@ -39,7 +39,7 @@
 			if(isvaurca(H))
 				rep_objectives = pick("Run a questionanaire on Tau Ceti citizens' views on Vaurca citizenship.",
 								"Question non-Vaurca employees about their Vaurca coworkers, looking for areas of improvement.",
-								"Protect and promote the public image of the Zo'ra Hive to all [current_map.boss_name] employees.")
+								"Protect and promote the public image of the Zo'ra Hive to all [SSatlas.current_map.boss_name] employees.")
 			else
 				rep_objectives = pick("Run a questionnaire on Tau Ceti citizens' views on synthetic citizenship.",
 								"Run a questionnaire on Tau Ceti citizens' views on vaurca citizenship.")
@@ -116,14 +116,14 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
 							"Convince [rand(1,3)] solarian employees to apply for the Solarian armed forces.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to [current_map.station_short] command.",
+			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to [SSatlas.current_map.station_short] command.",
 							"Convince [rand(3,6)] qualified specialists among crew to enter Sol Alliance space, and issue them a visa recommendation.")
 		else
-			rep_objectives = pick("Collect [rand(3,7)] pictures of secure [current_map.station_short] areas.",
+			rep_objectives = pick("Collect [rand(3,7)] pictures of secure [SSatlas.current_map.station_short] areas.",
 							"Convince Horizon command to turn a Solarian crewmember's sentence into a fine.")
 
 	return rep_objectives
@@ -272,7 +272,7 @@
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Promote and distribute the copies of Dominian Code of Honor to [rand(3,6)] crewmembers.",
-							"Convince a Dominian citizen to return to the Empire with valuable information on the [current_map.boss_name] to present.")
+							"Convince a Dominian citizen to return to the Empire with valuable information on the [SSatlas.current_map.boss_name] to present.")
 		else
 			rep_objectives = pick("Collect [rand(3,7)] pictures of secure vessel areas.",
 							"Convince [rand(3,6)] crewmembers to apply for a Dominian tourist visa.")

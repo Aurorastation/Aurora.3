@@ -89,7 +89,7 @@
 	icon_state = "globe[rand(1,3)]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return
 
 	maxx = max_x ? max_x : world.maxx

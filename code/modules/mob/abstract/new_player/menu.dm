@@ -77,27 +77,27 @@
 
 /obj/screen/new_player/title/Initialize()
 	if(SSatlas.current_sector.sector_lobby_art)
-		current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
-	else if(!current_map.lobby_icon)
-		current_map.lobby_icon = pick(current_map.lobby_icons)
+		SSatlas.current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
+	else if(!SSatlas.current_map.lobby_icon)
+		SSatlas.current_map.lobby_icon = pick(SSatlas.current_map.lobby_icons)
 
-	if(!length(current_map.lobby_screens))
-		var/list/known_icon_states = icon_states(current_map.lobby_icon)
+	if(!length(SSatlas.current_map.lobby_screens))
+		var/list/known_icon_states = icon_states(SSatlas.current_map.lobby_icon)
 		for(var/screen in known_icon_states)
-			if(!(screen in current_map.lobby_screens))
-				current_map.lobby_screens += screen
-	icon = current_map.lobby_icon
+			if(!(screen in SSatlas.current_map.lobby_screens))
+				SSatlas.current_map.lobby_screens += screen
+	icon = SSatlas.current_map.lobby_icon
 
-	if(length(current_map.lobby_screens))
-		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
-			icon_state = current_map.lobby_screens[lobby_index]
+	if(length(SSatlas.current_map.lobby_screens))
+		if(SSatlas.current_map.lobby_transitions && isnum(SSatlas.current_map.lobby_transitions))
+			icon_state = SSatlas.current_map.lobby_screens[lobby_index]
 			if(!MC_RUNNING())
-				spawn(current_map.lobby_transitions)
+				spawn(SSatlas.current_map.lobby_transitions)
 					Update()
 			else
-				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
+				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 		else
-			icon_state = pick(current_map.lobby_screens)
+			icon_state = pick(SSatlas.current_map.lobby_screens)
 	else //This should basically never happen.
 		crash_with("No lobby screens found!")
 
@@ -110,20 +110,20 @@
 	if(QDELING(src))
 		return
 
-	if(!current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
+	if(!SSatlas.current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
 		return
 	if(!istype(hud) || !isnewplayer(hud.mymob))
 		return
 	lobby_index += 1
-	if (lobby_index > length(current_map.lobby_screens))
+	if (lobby_index > length(SSatlas.current_map.lobby_screens))
 		lobby_index = 1
 	animate(src, alpha = 0, time = 1 SECOND)
-	animate(alpha = 255, icon_state = current_map.lobby_screens[lobby_index], time = 1 SECOND)
+	animate(alpha = 255, icon_state = SSatlas.current_map.lobby_screens[lobby_index], time = 1 SECOND)
 	if(!MC_RUNNING())
-		spawn(current_map.lobby_transitions)
+		spawn(SSatlas.current_map.lobby_transitions)
 			Update()
 	else
-		refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
+		refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /obj/screen/new_player/selection
 	var/click_sound = 'sound/effects/menu_click.ogg'

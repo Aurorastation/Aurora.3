@@ -81,7 +81,7 @@
 /obj/machinery/computer/ship/helm/process()
 	..()
 	if (autopilot && dx && dy)
-		var/turf/T = locate(dx,dy,current_map.overmap_z)
+		var/turf/T = locate(dx,dy,SSatlas.current_map.overmap_z)
 		if(connected.loc == T)
 			if(connected.is_still())
 				autopilot = 0
@@ -251,7 +251,7 @@
 			var/mob/living/carbon/human/H = usr
 			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
 			var/turf/new_turf = get_step(connected, dir_to_move)
-			if(new_turf.x > current_map.overmap_size || new_turf.y > current_map.overmap_size)
+			if(new_turf.x > SSatlas.current_map.overmap_size || new_turf.y > SSatlas.current_map.overmap_size)
 				to_chat(H, SPAN_WARNING("Automated piloting safeties prevent you from going into deep space."))
 				return
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())

@@ -1,12 +1,11 @@
 SUBSYSTEM_DEF(statpanels)
 	name = "Stat Panels"
 	wait = 4
-	init_order = SS_INIT_MISC_FIRST
-	flags = SS_NO_INIT
-	priority = SS_PRIORITY_STATPANELS
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_order = INIT_ORDER_STATPANELS
 	init_stage = INITSTAGE_EARLY
-
+	priority = FIRE_PRIORITY_STATPANEL
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_NO_INIT
 	var/list/currentrun = list()
 	var/list/global_data
 	var/list/mc_data
@@ -29,8 +28,8 @@ SUBSYSTEM_DEF(statpanels)
 		if(evacuation_controller)
 			eta_status = evacuation_controller.get_status_panel_eta()
 		global_data = list(
-			"Map: [current_map.name]",
-			"Round ID: [game_id ? game_id : "NULL"]",
+			"Map: [SSatlas.current_map.name]",
+			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
@@ -99,10 +98,10 @@ SUBSYSTEM_DEF(statpanels)
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
 		var/list/preliminary_stats = list("The server is initializing...")
-		if(current_map?.name)
-			preliminary_stats.Add("Map: [current_map.name]")
-		if(game_id)
-			preliminary_stats.Add("Round ID: [game_id]")
+		if(SSatlas?.current_map?.name)
+			preliminary_stats.Add("Map: [SSatlas.current_map.name]")
+		if(GLOB.round_id)
+			preliminary_stats.Add("Round ID: [GLOB.round_id]")
 		if(world?.timeofday)
 			preliminary_stats.Add("Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]")
 		if(SSatlas?.current_sector?.name)

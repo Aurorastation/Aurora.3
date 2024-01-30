@@ -90,7 +90,7 @@ var/list/mineral_can_smooth_with = list(
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	return INITIALIZE_HINT_NORMAL
 

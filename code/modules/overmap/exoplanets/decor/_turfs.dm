@@ -14,7 +14,7 @@
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
@@ -167,7 +167,7 @@
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E) && E.grass_color)
 			color = E.grass_color

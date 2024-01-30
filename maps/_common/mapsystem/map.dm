@@ -138,7 +138,7 @@
 
 // By default transition randomly to another zlevel
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
-	var/list/candidates = current_map.accessible_z_levels.Copy()
+	var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
 	if(!candidates.len)

@@ -167,7 +167,7 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		return
 
 	for(var/datum/feedback_variable/FV in feedback)
-		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[game_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
+		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[GLOB.round_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
 		var/DBQuery/query_insert = GLOB.dbcon.NewQuery(sql)
 		query_insert.Execute()
 

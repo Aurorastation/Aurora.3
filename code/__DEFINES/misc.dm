@@ -343,16 +343,16 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isStationLevel(Z) ((Z) in current_map.station_levels)
+#define isStationLevel(Z) ((Z) in SSatlas.current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
-#define isPlayerLevel(Z) ((Z) in current_map.player_levels)
+#define isPlayerLevel(Z) ((Z) in SSatlas.current_map.player_levels)
 #define isNotPlayerLevel(Z) !isPlayerLevel(Z)
 
-#define isAdminLevel(Z) ((Z) in current_map.admin_levels)
+#define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
-#define isContactLevel(Z) ((Z) in current_map.contact_levels)
+#define isContactLevel(Z) ((Z) in SSatlas.current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
 
 //Cargo Container Types
