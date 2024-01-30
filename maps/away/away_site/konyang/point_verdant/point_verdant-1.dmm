@@ -4911,13 +4911,6 @@
 /obj/item/ammo_magazine/c45/revolver,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
-"tT" = (
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_bar";
-	identifier = "konyang_bar"
-	},
-/turf/simulated/floor/lino/diamond,
-/area/point_verdant/interior/bar)
 "tW" = (
 /obj/structure/rod_railing,
 /obj/structure/rod_railing{
@@ -39066,7 +39059,7 @@ iw
 sZ
 mj
 eN
-tT
+eN
 eN
 oQ
 sZ

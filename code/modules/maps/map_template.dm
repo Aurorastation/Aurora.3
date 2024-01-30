@@ -41,6 +41,8 @@
 	return bounds
 
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
+	RETURN_TYPE(/turf)
+
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
 	var/initial_z = world.maxz + 1

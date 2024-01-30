@@ -2157,7 +2157,7 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/cooled,
+/turf/simulated/floor/tiled/steel/airless,
 /area/abandoned_prison/exterior)
 "Ay" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

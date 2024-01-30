@@ -300,7 +300,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 /obj/structure/bonfire/proc/burn(var/mob/living/M, var/entered = FALSE)
 	if(safe)
 		return
-	if(M && prob((fuel / max_fuel) * 100))
+	if(istype(M) && prob((fuel / max_fuel) * 100))
 		if(entered)
 			to_chat(M, SPAN_WARNING("You are covered by fire and heat from entering \the [src]!"))
 		if(isanimal(M))

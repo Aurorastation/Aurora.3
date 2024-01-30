@@ -338,7 +338,7 @@ SUBSYSTEM_DEF(records)
 		religions[religion.name] = religion
 
 	if (!religions.len)
-		crash_with("No citizenships located in SSrecords.")
+		crash_with("No religions located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/InitializeAccents()
 	for (var/type in subtypesof(/datum/accent))

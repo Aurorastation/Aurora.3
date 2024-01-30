@@ -164,6 +164,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/konyang/akira
 	back = /obj/item/storage/backpack/satchel
 	l_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
 
 /datum/outfit/admin/konyang_vendor/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
@@ -211,6 +212,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	back = /obj/item/storage/backpack/satchel/pharm
 	l_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
 
 /datum/outfit/admin/konyang_pharm/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
@@ -234,6 +236,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
+	id = /obj/item/card/id
 
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"

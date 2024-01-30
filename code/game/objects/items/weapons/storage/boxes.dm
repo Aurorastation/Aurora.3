@@ -1272,6 +1272,8 @@
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "can"
 	item_state = "can"
+	drop_sound = 'sound/items/drop/metal_pot.ogg'
+	pickup_sound = 'sound/items/drop/metal_pot.ogg'
 	contained_sprite = TRUE
 	max_storage_space = 1
 	can_hold = list(
@@ -1280,6 +1282,7 @@
 	starts_with = list(
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 7
 	)
+	foldable = null
 
 /obj/item/storage/box/tea/tieguanyin
 	name = "tieguanyin cha-tin"

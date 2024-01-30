@@ -52,7 +52,6 @@
 	max_count = 1
 	assigned_role = "Izweski Navy Specialist"
 	special_role = "Izweski Navy Specialist"
-	mob_name_prefix = "Ens. "
 
 /datum/ghostspawner/human/izweski/warpriest
 	short_name = "heg_pri"
@@ -70,7 +69,7 @@
 /datum/outfit/admin/izweski
 	name = "Izweski Crewman"
 
-	uniform = /obj/item/clothing/under/unathi
+	uniform = /obj/item/clothing/under/unathi/izweski
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	id = /obj/item/card/id/distress/kataphract
@@ -83,16 +82,12 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
-/datum/outfit/admin/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.w_uniform)
-		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
-
 /datum/outfit/admin/izweski/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/izweski/klax
 
-	uniform = /obj/item/clothing/under/vaurca
+	uniform = /obj/item/clothing/under/unathi/izweski
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/vaurca
@@ -112,12 +107,6 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
-	var/uniform_colour = pick("#1f8c3c", "#ab7318", "#1846ba")
-	if(H?.w_uniform)
-		H.w_uniform.color = uniform_colour
-	if(H?.shoes)
-		H.shoes.color = uniform_colour
-
 	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)
@@ -125,8 +114,7 @@
 
 /datum/outfit/admin/izweski/captain
 	name = "Hegemony Navy Captain"
-	uniform = /obj/item/clothing/under/unathi/mogazali/orange
-	suit = /obj/item/clothing/suit/unathi/robe/robe_coat/orange
+	uniform = /obj/item/clothing/under/unathi/izweski/officer
 
 /datum/outfit/admin/izweski/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
@@ -135,6 +123,6 @@
 
 /datum/outfit/admin/izweski/priest
 	name = "Hegemony Warpriest"
-	uniform = /obj/item/clothing/under/unathi/mogazali
+	uniform = /obj/item/clothing/under/unathi/izweski
 
 /datum/outfit/admin/izweski/priest/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

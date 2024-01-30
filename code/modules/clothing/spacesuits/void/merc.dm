@@ -47,3 +47,11 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+/obj/item/clothing/head/helmet/space/void/merc/unathi/Initialize()
+	. = ..()
+	refit_for_species(BODYTYPE_UNATHI)
+
+/obj/item/clothing/suit/space/void/merc/unathi/Initialize()
+	. = ..()
+	refit_for_species(BODYTYPE_UNATHI)

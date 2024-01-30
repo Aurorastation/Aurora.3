@@ -519,7 +519,7 @@
 	targets = list()
 	secondarytargets = list()
 
-	var/list/potentials = get_targets_in_LOS(world.view, src)
+	var/list/potentials = get_hearers_in_LOS(world.view, src)
 
 	if(potentials.len)
 		for(var/mob/living/L in potentials)

@@ -52,6 +52,9 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	///A list of strings, each of which represents a group which this UT belongs to, the UT pods will only run UTs that are in their list
 	var/list/groups = list()
 
+	///The priority of the test, the larger it is the later it fires
+	var/priority = 1000
+
 
 /*
  * Log levels used to prettify correctly, only defined in this file (aka undef'd at the end)
@@ -140,6 +143,12 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	fail("No check results proc")
 	return 1
 
+/**
+ * Used to compare the priority of the tests to order them according to the `priority` var,
+ * so that tests with a lower value runs first
+ */
+/datum/unit_test/proc/compare_priority(datum/unit_test/comparedto)
+	return cmp_numeric_dsc(src.priority, comparedto.priority)
 
 /proc/load_unit_test_changes()
 /*
