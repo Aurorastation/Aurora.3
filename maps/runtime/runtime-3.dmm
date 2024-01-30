@@ -78,6 +78,9 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
+"aZ" = (
+/turf/simulated/floor/marble/dark,
+/area/construction/solars)
 "ba" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -125,6 +128,9 @@
 	},
 /turf/simulated/floor,
 /area/construction/hallway)
+"bY" = (
+/turf/simulated/floor/wood/bamboo,
+/area/construction/solars)
 "cC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -461,6 +467,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"je" = (
+/turf/simulated/floor/wood/yew,
+/area/construction/solars)
 "jg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/grille/over,
@@ -545,6 +554,9 @@
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"ln" = (
+/turf/simulated/floor/tiled/dark,
+/area/construction/solars)
 "lB" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -565,6 +577,12 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"lR" = (
+/turf/simulated/floor/wood/mahogany,
+/area/construction/solars)
+"mw" = (
+/turf/simulated/floor/tiled/full,
+/area/construction/solars)
 "mH" = (
 /obj/structure/grille/over/large,
 /obj/structure/window/full/reinforced/shuttle/black,
@@ -727,6 +745,9 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/construction/qmaint)
+"py" = (
+/turf/simulated/floor/wood,
+/area/construction/solars)
 "pz" = (
 /turf/template_noop,
 /area/space)
@@ -781,12 +802,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/construction/solars)
-"qI" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor/tiled,
-/area/construction/solars)
 "qV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
@@ -810,6 +825,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"rR" = (
+/turf/simulated/floor/tiled/dark/full,
 /area/construction/solars)
 "sm" = (
 /obj/machinery/light/small{
@@ -960,6 +978,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"wA" = (
+/turf/simulated/floor/marble,
+/area/construction/solars)
 "wB" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1026,6 +1047,9 @@
 "xs" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/construction/supplyshuttle)
+"xx" = (
+/turf/simulated/floor/wood/walnut,
+/area/construction/solars)
 "xy" = (
 /obj/machinery/door/airlock/generic/maintenance{
 	dir = 4
@@ -1044,29 +1068,6 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor,
 /area/construction/qmaint)
-"xG" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	pixel_x = -6;
-	pixel_y = 6;
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	pixel_x = 6;
-	pixel_y = 6;
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	pixel_x = -6;
-	pixel_y = -6
-	},
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	pixel_x = 6;
-	pixel_y = -6;
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/construction/solars)
 "xH" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1131,6 +1132,9 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/carpet/aquablue,
+/area/construction/solars)
+"yY" = (
+/turf/simulated/floor/wood/ebony,
 /area/construction/solars)
 "za" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -1368,6 +1372,12 @@
 /area/construction/qmaint)
 "DN" = (
 /turf/simulated/floor/reinforced,
+/area/construction/solars)
+"DS" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "DT" = (
 /obj/machinery/atm{
@@ -1654,6 +1664,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"Mn" = (
+/turf/simulated/floor/tiled/white,
+/area/construction/solars)
 "Mp" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1833,6 +1846,29 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"Qv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = -6;
+	pixel_y = 6;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = 6;
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = 6;
+	pixel_y = -6;
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Qw" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1990,6 +2026,9 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"Tf" = (
+/turf/simulated/floor/tiled/freezer,
+/area/construction/solars)
 "Th" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -2060,6 +2099,9 @@
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/reinforced,
 /area/construction/solars)
+"UZ" = (
+/turf/simulated/floor/tiled/yellow,
+/area/construction/solars)
 "Vd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/grille/over,
@@ -2109,6 +2151,9 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"Wv" = (
+/turf/simulated/floor/tiled/red,
 /area/construction/solars)
 "WB" = (
 /obj/structure/cable{
@@ -35813,7 +35858,7 @@ pz
 pz
 pz
 pz
-pz
+Uv
 Uv
 Uv
 Uv
@@ -36070,18 +36115,18 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
 Uv
 pz
 Uv
@@ -36327,16 +36372,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
+DN
 Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+mw
+DN
+py
+bY
+um
+yY
+DN
 Na
 Na
 Uv
@@ -36584,16 +36629,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+ln
+rR
+DN
+lR
+xx
+je
+py
+DN
 Na
 Na
 Uv
@@ -36841,16 +36886,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+Wv
+UZ
+DN
+DN
+DN
+DN
+DN
+DN
 Na
 Na
 Uv
@@ -37098,16 +37143,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-qI
-Na
+DN
+Mn
+Tf
+DN
+DN
+DN
+DN
+DN
+DN
 Na
 Na
 Uv
@@ -37355,17 +37400,17 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+wA
+aZ
+DN
+DN
+DN
+DN
+DN
+DN
+DS
 Na
 Uv
 pz
@@ -37612,17 +37657,17 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-xG
-Na
-Na
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+Qv
 Na
 Uv
 pz
@@ -37869,16 +37914,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
 Na
 Na
 Uv
@@ -38126,16 +38171,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
 Na
 Na
 Uv
@@ -38383,16 +38428,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
 Na
 Na
 Uv
@@ -38640,16 +38685,16 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
 Na
 Na
 Uv
@@ -38897,18 +38942,18 @@ pz
 pz
 pz
 pz
-pz
 Uv
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
-Na
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
 Uv
 pz
 Uv
@@ -39154,7 +39199,7 @@ pz
 pz
 pz
 pz
-pz
+Uv
 Uv
 Uv
 Uv

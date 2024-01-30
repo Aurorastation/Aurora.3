@@ -795,7 +795,7 @@
 	icon_state = "delivery"
 
 /obj/effect/floor_decal/industrial/hatch/yellow
-	color = COLOR_YELLOW_INDUSTRIAL
+	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/hatch/grey
 	color = "#808080"
@@ -808,7 +808,7 @@
 	icon_state = "delivery_small"
 
 /obj/effect/floor_decal/industrial/hatch_small/yellow
-	color = COLOR_YELLOW_INDUSTRIAL
+	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/hatch_small/grey
 	color = "#808080"
@@ -821,7 +821,7 @@
 	icon_state = "delivery_tiny"
 
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow
-	color = COLOR_YELLOW_INDUSTRIAL
+	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/hatch_tiny/grey
 	color = "#808080"
@@ -843,7 +843,7 @@
 
 /obj/effect/floor_decal/industrial/outline/yellow
 	name = "yellow outline"
-	color = COLOR_YELLOW_INDUSTRIAL
+	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/outline/grey
 	name = "grey outline"
@@ -896,7 +896,7 @@
 	icon_state = "loadingarea"
 
 /obj/effect/floor_decal/industrial/loading/yellow
-	color = COLOR_YELLOW_INDUSTRIAL
+	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/loading/grey
 	color = COLOR_GRAY
@@ -910,7 +910,7 @@
 	icon_state = "arrow"
 
 /obj/effect/floor_decal/industrial/arrow/yellow
-	color = COLOR_YELLOW_INDUSTRIAL
+	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/arrow/grey
 	color = COLOR_GRAY
