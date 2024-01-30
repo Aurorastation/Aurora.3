@@ -3600,6 +3600,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"uz" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "uA" = (
 /obj/machinery/artifact_analyser{
 	pixel_y = 8
@@ -7037,12 +7043,6 @@
 	},
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/plating,
-/area/space)
-"Nm" = (
-/obj/structure/bed/stool/chair/folding{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
 /area/space)
 "Nr" = (
 /obj/machinery/sleeper{
@@ -22921,7 +22921,7 @@ ld
 eQ
 ov
 Ad
-Nm
+uz
 RW
 eQ
 Rx
