@@ -311,12 +311,13 @@
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
-	icon_state = "white_preview"
+	icon_state = "white"
 	tile_outline_alpha = 75
 	tile_decal_state = "white"
 	initial_flooring = /singleton/flooring/tiling/white
 	broken_overlay = null
 	burned_overlay = null
+	color = COLOR_STERILE
 
 /turf/simulated/floor/tiled/yellow
 	name = "yellow floor"
@@ -328,6 +329,7 @@
 	icon_state = "freezer"
 	tile_decal_state = "freezer_white"
 	initial_flooring = /singleton/flooring/tiling/freezer
+	color = null
 
 /turf/simulated/floor/tiled/ramp
 	name = "foot ramp"
