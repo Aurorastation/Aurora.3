@@ -771,18 +771,6 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
-"jY" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
-	req_access = list(209)
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/raskara_okon/entry)
 "kd" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
@@ -994,14 +982,6 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/entry)
-"md" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/raskara_okon/entry)
 "mf" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/corner/mauve/full{
@@ -1032,7 +1012,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/template_noop,
 /area/raskara_okon/mining)
 "mF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
@@ -1260,7 +1240,7 @@
 	id = "okon_base_belt"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/airless,
+/turf/template_noop,
 /area/raskara_okon/mining)
 "pY" = (
 /obj/structure/table/steel,
@@ -2264,11 +2244,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
@@ -2594,7 +2569,7 @@
 	},
 /area/raskara_okon/eva)
 "HX" = (
-/turf/simulated/floor/exoplanet/barren/raskara,
+/turf/template_noop,
 /area/exoplanet/barren/raskara)
 "Ic" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
@@ -4376,7 +4351,7 @@ gs
 wj
 Re
 gs
-md
+tl
 Xv
 Oc
 ix
@@ -4478,7 +4453,7 @@ AS
 jg
 Ph
 gs
-md
+tl
 Xv
 Oc
 hj
@@ -4649,7 +4624,7 @@ Ay
 Mu
 Av
 Co
-jY
+Xv
 Oc
 Oc
 Oc
