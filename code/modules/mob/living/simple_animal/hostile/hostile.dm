@@ -199,7 +199,8 @@
 		return 0
 
 /mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
-	return
+	if(isliving(hit_mob) && istype(limb))
+		limb.add_autopsy_data("Mauling by [src.name]")
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
 	setClickCooldown(attack_delay)
