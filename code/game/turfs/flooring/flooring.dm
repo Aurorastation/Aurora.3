@@ -403,11 +403,15 @@
 /singleton/flooring/marble
 	name = "marble floor"
 	desc = "A robust floor made from marble."
-	color = COLOR_GRAY
+	color = COLOR_GRAY80
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "textured"
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/marble
+
+/singleton/flooring/marble/dark
+	color = COLOR_DARK_GRAY
+	build_type = /obj/item/stack/tile/marble/dark
 
 /singleton/flooring/concrete
 	name = "concrete"

@@ -160,13 +160,14 @@
 /turf/simulated/floor/tiled
 	name = "steel tiles"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "tiled_preview"
+	icon_state = "tiled"
 	initial_flooring = /singleton/flooring/tiling
 	tile_outline = "tiled"
 	tile_decal_state = "tiled_light"
 	tile_outline_alpha = 125
 	broken_overlay = "tiled"
 	burned_overlay = "tiled"
+	color = COLOR_TILED
 
 /turf/simulated/floor/tiled/cooled
 	name = "cooled steel tiles"
@@ -174,7 +175,7 @@
 
 /turf/simulated/floor/tiled/full
 	name = "full steel tile"
-	icon_state = "monotile_preview"
+	icon_state = "monotile"
 	initial_flooring = /singleton/flooring/tiling/mono
 	tile_outline = "monotile"
 	tile_decal_state = "monotile_light"
@@ -244,9 +245,10 @@
 
 /turf/simulated/floor/tiled/dark
 	name = "plasteel tiles"
-	icon_state = "dark_preview"
+	icon_state = "dark"
 	initial_flooring = /singleton/flooring/tiling/dark
 	tile_decal_state = "dark_light"
+	color = COLOR_DARK_GUNMETAL
 
 /turf/simulated/floor/tiled/dark/cooled
 	name = "cooled plasteel tiles"
@@ -257,7 +259,7 @@
 
 /turf/simulated/floor/tiled/dark/full
 	name = "full plasteel tile"
-	icon_state = "monotile_dark_preview"
+	icon_state = "monotile_dark"
 	initial_flooring = /singleton/flooring/tiling/dark/full
 	tile_outline = "monotile"
 	tile_decal_state = "monotile_dark_light"
@@ -464,8 +466,10 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "textured"
 	initial_flooring = /singleton/flooring/marble
+	color = COLOR_GRAY80
 
 /turf/simulated/floor/marble/dark
+	initial_flooring = /singleton/flooring/marble/dark
 	color = COLOR_DARK_GRAY
 
 // other
