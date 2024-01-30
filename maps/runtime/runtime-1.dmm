@@ -1855,9 +1855,6 @@
 	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
 	radio_frequency = 2001
 	},
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/maintcentral)
 "IY" = (

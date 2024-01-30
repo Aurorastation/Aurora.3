@@ -28,6 +28,7 @@
 #define COLOR_PALE_YELLOW      "#c1bb7a"
 #define COLOR_WARM_YELLOW      "#b3863c"
 #define COLOR_YELLOW_ENGI      "#efbf2f"
+#define COLOR_YELLOW_INDUSTRIAL"#cfcf55"
 #define COLOR_GRAY             "#808080"
 #define COLOR_RED_GRAY         "#aa5f61"
 #define COLOR_BROWN            "#b19664"
