@@ -1,7 +1,7 @@
 /turf/simulated/floor/plating
 	footstep_sound = /singleton/sound_category/plating_footstep
 
-//Grids
+// ------------------------------- grids
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -29,27 +29,20 @@
 	icon_state = "rcircuit"
 	initial_flooring = /singleton/flooring/reinforced/circuit/red
 
-//Grass
-/turf/simulated/floor/grass
-	name = "grass patch"
-	icon = 'icons/turf/flooring/grass.dmi'
-	icon_state = "grass0"
-	initial_flooring = /singleton/flooring/grass
-	footstep_sound = /singleton/sound_category/grass_footstep
-
-/turf/simulated/floor/diona
-	name = "biomass flooring"
-	icon = 'icons/turf/flooring/diona.dmi'
-	icon_state = "diona0"
-	footstep_sound = /singleton/sound_category/grass_footstep
-	initial_flooring = /singleton/flooring/diona
-	turf_flags = TURF_REMOVE_SHOVEL|TURF_REMOVE_WELDER
-
-/turf/simulated/floor/diona/airless
+/turf/simulated/floor/bluegrid/airless
+	name = "airless floor"
 	initial_gas = null
 	temperature = TCMB
 
-//Tiles
+/turf/simulated/floor/greengrid/airless
+	name = "airless floor"
+	initial_gas = null
+	temperature = TCMB
+
+/turf/simulated/floor/greengrid/nitrogen
+	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
+
+// ------------------------------- tiles
 /turf/simulated/floor/tiled
 	name = "steel tiles"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -78,53 +71,6 @@
 /turf/simulated/floor/tiled/full/airless
 	name = "airless full steel tile"
 	initial_gas = null
-
-/turf/simulated/floor/reinforced
-	name = "reinforced floor"
-	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "reinforced"
-	initial_flooring = /singleton/flooring/reinforced
-	footstep_sound = /singleton/sound_category/plating_footstep
-	tile_outline = "reinforced"
-	tile_decal_state = "reinforced_light"
-
-/turf/simulated/floor/reinforced/cooled
-	name = "cooled reinforced floor"
-	temperature = 278
-
-/turf/simulated/floor/reinforced/airless
-	initial_gas = null
-
-	roof_type = null
-
-/turf/simulated/floor/reinforced/airmix
-	initial_gas = list("oxygen" = MOLES_O2ATMOS, "nitrogen" = MOLES_N2ATMOS)
-
-/turf/simulated/floor/reinforced/nitrogen
-	initial_gas = list("nitrogen" = ATMOSTANK_NITROGEN)
-
-// Reinforced Reactor Flooring
-/turf/simulated/floor/reinforced/reactor
-	name = "reinforced reactor floor"
-	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD) // One atmosphere of nitrogen.
-
-/turf/simulated/floor/reinforced/oxygen
-	initial_gas = list("oxygen" = ATMOSTANK_OXYGEN)
-
-/turf/simulated/floor/reinforced/phoron
-	initial_gas = list("phoron" = ATMOSTANK_PHORON)
-
-/turf/simulated/floor/reinforced/phoron/scarce
-	initial_gas = list("phoron" = ATMOSTANK_PHORON_SCARCE)
-
-/turf/simulated/floor/reinforced/carbon_dioxide
-	initial_gas = list("carbon_dioxide" = ATMOSTANK_CO2)
-
-/turf/simulated/floor/reinforced/n20
-	initial_gas = list("sleeping_agent" = ATMOSTANK_NITROUSOXIDE)
-
-/turf/simulated/floor/reinforced/hydrogen
-	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN)
 
 /turf/simulated/floor/cult
 	name = "engraved floor"
@@ -251,11 +197,6 @@
 	burned_overlay = "tiled"
 
 //ATMOS PREMADES
-/turf/simulated/floor/reinforced/airless
-	name = "vacuum floor"
-	initial_gas = null
-	temperature = TCMB
-	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"
@@ -270,104 +211,13 @@
 	initial_gas = null
 	temperature = TCMB
 
-/turf/simulated/floor/bluegrid/airless
-	name = "airless floor"
-	initial_gas = null
-	temperature = TCMB
-
-/turf/simulated/floor/greengrid/airless
-	name = "airless floor"
-	initial_gas = null
-	temperature = TCMB
-
-/turf/simulated/floor/greengrid/nitrogen
-	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
-
 /turf/simulated/floor/tiled/white/airless
 	name = "airless floor"
 	initial_gas = null
 	temperature = TCMB
 
-// Terrain
-
-/turf/simulated/floor/airless/lava
-	name = "lava"
-	icon = 'icons/turf/flooring/lava.dmi'
-	icon_state = "lava"
-
-/turf/simulated/floor/ice
-	name = "ice"
-	icon = 'icons/turf/flooring/snow.dmi'
-	icon_state = "ice"
-
-/turf/simulated/floor/airless/ice
-	name = "ice"
-	icon = 'icons/turf/flooring/snow.dmi'
-	icon_state = "ice"
-
-/turf/simulated/floor/snow
-	name = "snow"
-	icon = 'icons/turf/flooring/snow.dmi'
-	icon_state = "snow0"
-	does_footprint = TRUE
-	footprint_color = COLOR_SNOW
-	track_distance = 4
-
-/turf/simulated/floor/plating/snow
-	icon = 'icons/turf/flooring/snow.dmi'
-	icon_state = "snowplating"
-	footstep_sound = /singleton/sound_category/snow_footstep
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
 	baseturf = /turf/space
 
-// Material
-
-/turf/simulated/floor/silver
-	name = "silver floor"
-	icon = 'icons/turf/flooring/material.dmi'
-	icon_state = "silver"
-	initial_flooring = /singleton/flooring/silver
-
-/turf/simulated/floor/gold
-	name = "golden floor"
-	icon = 'icons/turf/flooring/material.dmi'
-	icon_state = "gold"
-	initial_flooring = /singleton/flooring/gold
-
-/turf/simulated/floor/uranium
-	name = "uranium floor"
-	icon = 'icons/turf/flooring/material.dmi'
-	icon_state = "uranium"
-	initial_flooring =/singleton/flooring/uranium
-
-/turf/simulated/floor/phoron
-	name = "phoron floor"
-	icon = 'icons/turf/flooring/material.dmi'
-	icon_state = "plasma"
-	initial_flooring = /singleton/flooring/phoron
-
-/turf/simulated/floor/diamond
-	name = "diamond floor"
-	icon = 'icons/turf/flooring/material.dmi'
-	icon_state = "diamond"
-	initial_flooring = /singleton/flooring/diamond
-
-// other
-
-/turf/simulated/floor/vaurca
-	name = "alien floor"
-	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "vaurca"
-
-/turf/simulated/floor/foamedmetal
-	name = "foamed metal"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "metalfoam"
-
-/turf/simulated/floor/foamedmetal/attack_hand(var/mob/user)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(ishuman(user))
-		ChangeTurf(/turf/space)
-		to_chat(user, SPAN_NOTICE("You clear away the metal foam."))
