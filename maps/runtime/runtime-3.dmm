@@ -148,6 +148,9 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
+"dp" = (
+/turf/simulated/floor/tiled/rust,
+/area/construction/solars)
 "dv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1253,6 +1256,9 @@
 	},
 /obj/structure/window,
 /turf/simulated/floor/reinforced,
+/area/construction/solars)
+"BW" = (
+/turf/simulated/floor/tiled/steel,
 /area/construction/solars)
 "Cg" = (
 /obj/structure/cable{
@@ -36888,8 +36894,8 @@ pz
 pz
 Uv
 DN
-Wv
-UZ
+Na
+mw
 DN
 DN
 DN
@@ -37145,8 +37151,8 @@ pz
 pz
 Uv
 DN
-Mn
-Tf
+Wv
+UZ
 DN
 DN
 DN
@@ -37402,8 +37408,8 @@ pz
 pz
 Uv
 DN
-wA
-aZ
+Mn
+Tf
 DN
 DN
 DN
@@ -37659,8 +37665,8 @@ pz
 pz
 Uv
 DN
-DN
-DN
+wA
+aZ
 DN
 DN
 DN
@@ -37916,8 +37922,8 @@ pz
 pz
 Uv
 DN
-DN
-DN
+BW
+dp
 DN
 DN
 DN
