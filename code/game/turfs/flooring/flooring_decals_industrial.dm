@@ -1,0 +1,149 @@
+
+// ------------------------ warning edge stripes
+
+/obj/effect/floor_decal/industrial/warning
+	name = "hazard stripes"
+	icon_state = "warning"
+
+/obj/effect/floor_decal/industrial/warning/corner
+	icon_state = "warningcorner"
+
+/obj/effect/floor_decal/industrial/warning/full
+	icon_state = "warningfull"
+
+/obj/effect/floor_decal/industrial/warning/cee
+	icon_state = "warningcee"
+
+/obj/effect/floor_decal/industrial/warning/dust
+	name = "hazard stripes"
+	icon_state = "warning_dust"
+
+/obj/effect/floor_decal/industrial/warning/dust/corner
+	name = "hazard stripes"
+	icon_state = "warningcorner_dust"
+
+// ------------------------ hatching stripes
+
+/obj/effect/floor_decal/industrial/hatch
+	name = "hatched marking"
+	icon_state = "delivery"
+
+/obj/effect/floor_decal/industrial/hatch/yellow
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/hatch/grey
+	color = "#808080"
+
+/obj/effect/floor_decal/industrial/hatch/red
+	color = "#990C0C"
+
+/obj/effect/floor_decal/industrial/hatch_small
+	name = "hatched marking small"
+	icon_state = "delivery_small"
+
+/obj/effect/floor_decal/industrial/hatch_small/yellow
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/hatch_small/grey
+	color = "#808080"
+
+/obj/effect/floor_decal/industrial/hatch_small/red
+	color = "#990C0C"
+
+/obj/effect/floor_decal/industrial/hatch_tiny
+	name = "hatched marking tiny"
+	icon_state = "delivery_tiny"
+
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/hatch_tiny/grey
+	color = "#808080"
+
+/obj/effect/floor_decal/industrial/hatch_tiny/red
+	color = "#990C0C"
+
+// ------------------------ outline
+
+/obj/effect/floor_decal/industrial/outline
+	name = "white outline"
+	icon_state = "outline"
+
+/obj/effect/floor_decal/industrial/outline/blue
+	name = "cyan outline"
+	color = "#b6efe1"
+
+/obj/effect/floor_decal/industrial/outline/yellow
+	name = "yellow outline"
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/outline/grey
+	name = "grey outline"
+	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/outline/red
+	name = "red outline"
+	color = "#990C0C"
+
+/obj/effect/floor_decal/industrial/outline/custodial
+	name = "custodial purple outline"
+	color = COLOR_PURPLE_GRAY
+
+/obj/effect/floor_decal/industrial/outline/medical
+	name = "medical lime outline"
+	color = COLOR_PALE_GREEN_GRAY
+
+/obj/effect/floor_decal/industrial/outline/medical/dark_green
+	name = "medical dark green outline"
+	color = COLOR_DARK_GREEN_GRAY
+
+/obj/effect/floor_decal/industrial/outline/engineering
+	name = "engineering yellow outline"
+	color = COLOR_BROWN
+
+/obj/effect/floor_decal/industrial/outline/service
+	name = "service green outline"
+	color = COLOR_GREEN_GRAY
+
+/obj/effect/floor_decal/industrial/outline/research
+	name = "research mauve outline"
+	color = COLOR_PALE_PURPLE_GRAY
+
+/obj/effect/floor_decal/industrial/outline/security
+	name = "security blue outline"
+	color = COLOR_BLUE_GRAY
+
+
+/obj/effect/floor_decal/industrial/outline/emergency_closet
+	name = "blue emergency closet outline"
+	color = COLOR_BABY_BLUE
+
+/obj/effect/floor_decal/industrial/outline/firefighting_closet
+	name = "red firefighting closet outline"
+	color = COLOR_RED_LIGHT
+
+// ------------------------ loading/arrows
+
+/obj/effect/floor_decal/industrial/loading
+	name = "loading area"
+	icon_state = "loadingarea"
+
+/obj/effect/floor_decal/industrial/loading/yellow
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/loading/grey
+	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/loading/security
+	name = "security blue loading area"
+	color = COLOR_BLUE_GRAY
+
+/obj/effect/floor_decal/industrial/arrow
+	name = "arrow"
+	icon_state = "arrow"
+
+/obj/effect/floor_decal/industrial/arrow/yellow
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/arrow/grey
+	color = COLOR_GRAY
