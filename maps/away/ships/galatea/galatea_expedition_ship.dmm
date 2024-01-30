@@ -7038,6 +7038,12 @@
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/plating,
 /area/space)
+"Nm" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Nr" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -22915,7 +22921,7 @@ ld
 eQ
 ov
 Ad
-cS
+Nm
 RW
 eQ
 Rx
