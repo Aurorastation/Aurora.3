@@ -2549,6 +2549,16 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"qb" = (
+/obj/structure/window/borosilicate/reinforced,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 2;
+	frequency = 1336;
+	icon_state = "map_injector";
+	id = "scarab_thrust1_in"
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
 "qc" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -2678,14 +2688,12 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/space)
 "qT" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/machinery/meter{
 	pixel_x = -1;
 	pixel_y = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/plating,
 /area/space)
 "qU" = (
@@ -5023,6 +5031,15 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/space)
+"Fl" = (
+/obj/structure/window/borosilicate/reinforced,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 2;
+	id_tag = "scarab_thrust1";
+	frequency = 1336
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/space)
 "Fn" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 9
@@ -5629,6 +5646,15 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"If" = (
+/obj/structure/window/borosilicate/reinforced,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 2;
+	id_tag = "scarab_thrust1";
+	frequency = 1336
+	},
+/turf/simulated/floor/reinforced/airmix,
 /area/space)
 "Ig" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6594,6 +6620,16 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
+/area/space)
+"NL" = (
+/obj/structure/window/borosilicate/reinforced,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 2;
+	frequency = 1336;
+	icon_state = "map_injector";
+	id = "scarab_thrust1_in"
+	},
+/turf/simulated/floor/reinforced/oxygen,
 /area/space)
 "NN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -23799,10 +23835,10 @@ MU
 MU
 ei
 eQ
+qb
 MC
 MC
 MC
-eQ
 Gw
 Gw
 sU
@@ -24056,10 +24092,10 @@ wf
 wf
 wf
 eQ
+If
 MC
 MC
 MC
-eQ
 ON
 sK
 LF
@@ -24313,10 +24349,10 @@ wf
 MU
 Kb
 eQ
-MC
-MC
-MC
 eQ
+MC
+MC
+MC
 qT
 xz
 JN
@@ -24570,10 +24606,10 @@ MU
 MU
 Kb
 eQ
+Fl
 MC
 MC
 MC
-eQ
 KV
 xz
 kS
@@ -24827,10 +24863,10 @@ Kb
 Kb
 Kb
 eQ
+NL
 MC
 MC
 MC
-eQ
 lv
 sv
 mO
