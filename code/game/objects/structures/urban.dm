@@ -54,10 +54,10 @@
 	icon_state = "directional"
 
 /obj/structure/street_sign/directional/right
-	dir = 4
+	dir = WEST
 
 /obj/structure/street_sign/directional/left
-	dir = 8
+	dir = EAST
 
 /obj/structure/street_sign/street
 	name = "street sign"
@@ -72,13 +72,13 @@
 	desc = "A street sign for [street_name]. As common as they are, sometimes people still get lost."
 
 /obj/structure/street_sign/street/both
-	dir = 1
+	dir = NORTH
 
 /obj/structure/street_sign/street/right
-	dir = 4
+	dir = WEST
 
 /obj/structure/street_sign/street/left
-	dir = 8
+	dir = EAST
 
 /obj/structure/street_sign/interstate
 	name = "\improper interstate sign"
