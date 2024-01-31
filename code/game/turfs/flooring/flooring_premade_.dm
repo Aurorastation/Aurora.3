@@ -225,8 +225,38 @@
 
 /turf/simulated/floor/tiled/cargo
 	name = "cargo tiles"
-	icon = 'icons/turf/flooring/tiles_tech.dmi'
-	icon_state = "dark"
+	icon_state = "cargo"
 	// initial_flooring = /singleton/flooring/tiling/dark
-	tile_decal_state = "dark_light"
-	color = COLOR_DARK_GUNMETAL
+	tile_decal_state = "tiled_light"
+	color = COLOR_BRASS
+
+/turf/simulated/floor/tiled/cargo/full
+	name = "cargo tile"
+	icon_state = "cargo_monotile"
+	// initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "monotile_light"
+
+// ------------------------------- bitile
+
+/turf/simulated/floor/tiled/bitile
+	name = "bitile"
+	icon_state = "cargo"
+	// initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "tiled_light"
+	color = COLOR_BRASS
+
+// ------------------------------- gridded/ridged
+
+/turf/simulated/floor/tiled/gridded
+	name = "gridded tiles"
+	icon_state = "grid"
+	// initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "grid_light"
+	color = COLOR_GRAY40
+
+/turf/simulated/floor/tiled/ridged
+	name = "ridged tiles"
+	icon_state = "ridged"
+	// initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "ridged_light"
+	color = COLOR_GUNMETAL
