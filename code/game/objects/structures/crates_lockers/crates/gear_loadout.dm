@@ -983,6 +983,10 @@
 	new /obj/item/clothing/head/helmet/tcaf(src)
 	new /obj/item/clothing/head/helmet/tcaf(src)
 	new /obj/item/clothing/head/helmet/tcaf(src)
+	new /obj/item/clothing/head/helmet/tcaf/tcaf_visor
+	new /obj/item/clothing/head/helmet/tcaf/tcaf_visor
+	new /obj/item/clothing/head/helmet/tcaf/tcaf_visor
+	new /obj/item/clothing/head/helmet/tcaf/tcaf_visor
 	new /obj/item/material/twohanded/pike/flag(src)
 	new /obj/item/clothing/accessory/tcaf_prefect_pauldron(src)
 	new /obj/item/shield/energy/legion(src)
@@ -1020,6 +1024,7 @@
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/clothing/suit/armor/carrier/tcaf(src)
 	new /obj/item/clothing/head/helmet/tcaf(src)
+	new /obj/item/clothing/head/helmet/tcaf/tcaf_visor
 	new /obj/item/gun/energy/blaster/tcaf(src)
 	new /obj/item/storage/belt/military(src)
 
