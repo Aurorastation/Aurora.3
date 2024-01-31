@@ -147,6 +147,22 @@
 	name = "grey outline"
 	color = COLOR_GRAY
 
+/obj/effect/floor_decal/industrial/outline_door
+	name = "white door outline"
+	icon_state = "outline_door"
+
+/obj/effect/floor_decal/industrial/outline_door/yellow
+	name = "yellow door outline"
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/outline_door/grey
+	name = "grey door outline"
+	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/outline_door/red
+	name = "red door outline"
+	color = "#990C0C"
+
 // ------------------------ loading/arrows
 
 /obj/effect/floor_decal/industrial/loading
