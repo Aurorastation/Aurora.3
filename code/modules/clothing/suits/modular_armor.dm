@@ -120,6 +120,7 @@
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light,
 		/obj/item/clothing/accessory/leg_guard/tcaf,
+		/obj/item/clothing/accessory/storage/chest_gear
 	)
 
 /obj/item/clothing/accessory/armor_plate
@@ -284,7 +285,7 @@
 	icon_state = "tcaf_chest_gear"
 	item_state = "tcaf_chest_gear"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_UTILITY_MINOR
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
 	slots = 2
 
 /obj/item/clothing/accessory/storage/modular_pouch
