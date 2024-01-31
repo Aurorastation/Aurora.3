@@ -221,3 +221,12 @@
 	icon_state = "asteroidplating"
 	baseturf = /turf/space
 
+// ------------------------------- cargo
+
+/turf/simulated/floor/tiled/cargo
+	name = "cargo tiles"
+	icon = 'icons/turf/flooring/tiles_tech.dmi'
+	icon_state = "dark"
+	// initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "dark_light"
+	color = COLOR_DARK_GUNMETAL
