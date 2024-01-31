@@ -73,6 +73,7 @@
 	update_icon()
 
 // Prevents ghosts from calling the lift.
+
 /obj/structure/lift/button/attack_ghost(var/mob/user)
     return
 
