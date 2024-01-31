@@ -21405,10 +21405,14 @@
 /turf/simulated/floor/tiled,
 /area/engineering/rust_office)
 "jRK" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/computer/guestpass{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/operations/lobby)
 "jRN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -22961,11 +22965,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "kJw" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "kJZ" = (
@@ -23969,9 +23973,6 @@
 	},
 /obj/structure/bed/stool/chair{
 	dir = 8
-	},
-/obj/machinery/computer/guestpass{
-	pixel_y = -32
 	},
 /obj/effect/landmark/start{
 	name = "Assistant"
@@ -28566,6 +28567,10 @@
 	pixel_y = 25;
 	specialfunctions = 4
 	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 34
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/commisary)
 "nlr" = (
@@ -32425,7 +32430,6 @@
 /turf/simulated/floor/wood,
 /area/rnd/conference)
 "pfB" = (
-/obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
@@ -32835,7 +32839,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "pqE" = (
-/obj/machinery/power/apc/north,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -33734,7 +33737,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "pOl" = (
-/obj/machinery/alarm/north,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -35787,7 +35789,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/newscaster/east,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/horizon/commisary)
 "qNX" = (
@@ -39583,9 +39585,6 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/storage_hard)
 "sIp" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
@@ -42237,6 +42236,10 @@
 "tVu" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/port/far)
+"tWg" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/commisary)
 "tWp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -50151,7 +50154,7 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet/east,
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled,
 /area/horizon/commisary)
 "xrh" = (
@@ -63725,7 +63728,7 @@ qCF
 uGL
 rbF
 uHF
-fzh
+tWg
 sIp
 rnO
 rnO
@@ -63927,9 +63930,9 @@ rew
 vua
 ggy
 liv
-fzh
+tWg
 vQQ
-jRK
+eCD
 eCD
 jSP
 fzh
@@ -64129,7 +64132,7 @@ kmc
 ohc
 uci
 pfB
-fzh
+tWg
 pqE
 eCD
 eCD
@@ -64331,7 +64334,7 @@ rVg
 het
 dJE
 lGf
-fzh
+tWg
 pOl
 pxh
 uqM
@@ -65542,7 +65545,7 @@ ksC
 uXd
 vua
 bDc
-ldT
+jRK
 jWV
 chj
 ijD
