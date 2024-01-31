@@ -513,9 +513,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
-"jI" = (
-/turf/simulated/floor/tiled/light,
-/area/construction/solars)
 "jM" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -834,9 +831,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"qF" = (
-/turf/simulated/floor/tiled/light/full,
-/area/construction/solars)
 "qG" = (
 /obj/structure/window{
 	dir = 4
@@ -1074,6 +1068,9 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"wW" = (
+/turf/simulated/floor/tiled/light,
+/area/construction/solars)
 "wY" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1652,10 +1649,6 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
-"Jy" = (
-/obj/effect/floor_decal/industrial/arrow/yellow,
-/turf/simulated/floor/tiled,
-/area/construction/solars)
 "JE" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -1876,6 +1869,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"OQ" = (
+/turf/simulated/floor/tiled/light/full,
+/area/construction/solars)
 "Pg" = (
 /obj/machinery/ringer{
 	dir = 4
@@ -2028,6 +2024,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"QH" = (
+/obj/effect/floor_decal/industrial/arrow/yellow,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "QV" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -37022,8 +37022,8 @@ pz
 pz
 Uv
 DN
-jI
-qF
+wW
+OQ
 DN
 Dp
 zG
@@ -37544,7 +37544,7 @@ bm
 bm
 bm
 DN
-Jy
+QH
 Et
 Uv
 pz
