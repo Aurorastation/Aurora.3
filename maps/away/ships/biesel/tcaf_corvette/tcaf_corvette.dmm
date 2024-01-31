@@ -2247,6 +2247,11 @@
 /obj/item/clothing/accessory/storage/chestpouch,
 /obj/item/clothing/accessory/storage/chestpouch,
 /obj/item/clothing/accessory/tcaf_senior_legion_pauldron,
+/obj/item/clothing/accessory/storage/chest_gear,
+/obj/item/clothing/accessory/storage/chest_gear,
+/obj/item/clothing/accessory/storage/chest_gear,
+/obj/item/clothing/accessory/storage/chest_gear,
+/obj/item/clothing/accessory/storage/chest_gear,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/armory)
 "sN" = (

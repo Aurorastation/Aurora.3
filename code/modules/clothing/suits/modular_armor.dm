@@ -277,6 +277,16 @@
 	slot = ACCESSORY_SLOT_ARMOR_POCKETS
 	slots = 4
 
+/obj/item/clothing/accessory/storage/chest_gear
+	name = "standard vest equipment"
+	desc = "\the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_chest_gear"
+	item_state = "tcaf_chest_gear"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_UTILITY_MINOR
+	slots = 2
+
 /obj/item/clothing/accessory/storage/modular_pouch
 	name = "plate carrier pouches"
 	desc = "A comfortable set of pouches that can be attached to a plate carrier, allowing the wearer to store some small items."
