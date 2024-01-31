@@ -240,10 +240,10 @@
 
 /turf/simulated/floor/tiled/bitile
 	name = "bitile"
-	icon_state = "cargo"
+	icon_state = "bitile"
 	// initial_flooring = /singleton/flooring/tiling/dark
-	tile_decal_state = "tiled_light"
-	color = COLOR_BRASS
+	tile_decal_state = "bitile_light"
+	color = COLOR_TILED
 
 // ------------------------------- gridded/ridged
 
@@ -260,3 +260,21 @@
 	// initial_flooring = /singleton/flooring/tiling/dark
 	tile_decal_state = "ridged_light"
 	color = COLOR_GUNMETAL
+
+// ------------------------------- tech
+
+/turf/simulated/floor/tiled/techmaint
+	name = "techmaint tiles"
+	icon_state = "techmaint"
+	// initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "techmaint_light"
+	color = COLOR_GRAY20
+
+/turf/simulated/floor/tiled/techfloor
+	name = "techfloor tiles"
+	icon_state = "techfloor"
+	// initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "techfloor_light"
+	color = COLOR_GRAY40
+
+// -------------------------------

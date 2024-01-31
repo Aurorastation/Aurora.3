@@ -45,3 +45,10 @@
 
 /turf/simulated/floor/reinforced/hydrogen
 	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN)
+
+/turf/simulated/floor/reinforced/large
+	name = "reinforced floor"
+	icon_state = "reinforced_large"
+	// initial_flooring = /singleton/flooring/reinforced
+	tile_outline = "reinforced_large"
+	tile_decal_state = "reinforced_large_light"

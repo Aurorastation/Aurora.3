@@ -98,6 +98,9 @@
 /obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"bm" = (
+/turf/simulated/floor/reinforced/large,
+/area/construction/solars)
 "br" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -364,11 +367,19 @@
 "hf" = (
 /turf/simulated/wall,
 /area/construction/qmaint)
+"hg" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 4
+	},
+/area/construction/solars)
 "hs" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood/birch,
+/area/construction/solars)
+"ht" = (
+/turf/simulated/floor/tiled/ridged,
 /area/construction/solars)
 "hx" = (
 /obj/machinery/newscaster,
@@ -523,6 +534,9 @@
 	},
 /turf/simulated/floor,
 /area/antag/mercenary)
+"kl" = (
+/turf/simulated/floor/plating,
+/area/construction/solars)
 "ku" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1078,6 +1092,9 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"xO" = (
+/turf/simulated/floor/tiled/cargo,
+/area/construction/solars)
 "yd" = (
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
@@ -1157,6 +1174,9 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/qmaint)
+"zG" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/construction/solars)
 "zM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -1349,6 +1369,9 @@
 "Di" = (
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"Dp" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/construction/solars)
 "Dt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external/khaki{
@@ -1421,6 +1444,11 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/carpet/aquablue,
+/area/construction/solars)
+"Fl" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 2
+	},
 /area/construction/solars)
 "Fu" = (
 /obj/structure/table/steel,
@@ -1662,6 +1690,11 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
+"LL" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 1
+	},
+/area/construction/solars)
 "Mj" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1697,6 +1730,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/qmaint)
+"ML" = (
+/turf/simulated/floor/tiled/gridded,
+/area/construction/solars)
 "MP" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1792,9 +1828,17 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"Pv" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 8
+	},
+/area/construction/solars)
 "Pz" = (
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
+"PH" = (
+/turf/simulated/floor/tiled/cargo/full,
+/area/construction/solars)
 "PO" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
@@ -36383,10 +36427,10 @@ DN
 Na
 mw
 DN
-py
-bY
-um
-yY
+ML
+ML
+ML
+DN
 DN
 Na
 Na
@@ -36640,10 +36684,10 @@ DN
 ln
 rR
 DN
-lR
-xx
-je
-py
+ht
+ht
+ht
+DN
 DN
 Na
 Na
@@ -36897,9 +36941,9 @@ DN
 Na
 mw
 DN
-DN
-DN
-DN
+Dp
+zG
+kl
 DN
 DN
 Na
@@ -37411,10 +37455,10 @@ DN
 Mn
 Tf
 DN
-DN
-DN
-DN
-DN
+bm
+bm
+bm
+bm
 DN
 DS
 Na
@@ -37925,10 +37969,10 @@ DN
 BW
 dp
 DN
-DN
-DN
-DN
-DN
+Pv
+Pv
+LL
+Fl
 DN
 Na
 Na
@@ -38182,10 +38226,10 @@ DN
 DN
 DN
 DN
-DN
-DN
-DN
-DN
+hg
+hg
+LL
+Fl
 DN
 Na
 Na
@@ -38436,8 +38480,8 @@ pz
 pz
 Uv
 DN
-DN
-DN
+xO
+PH
 DN
 DN
 DN
@@ -38693,13 +38737,13 @@ pz
 pz
 Uv
 DN
+xO
+PH
 DN
-DN
-DN
-DN
-DN
-DN
-DN
+py
+bY
+um
+yY
 DN
 Na
 Na
@@ -38953,13 +38997,13 @@ DN
 DN
 DN
 DN
+lR
+xx
+je
+py
 DN
-DN
-DN
-DN
-DN
-DN
-DN
+Na
+Na
 Uv
 pz
 Uv
@@ -39206,17 +39250,17 @@ pz
 pz
 pz
 Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
 Uv
 pz
 Uv
@@ -39462,19 +39506,19 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz
