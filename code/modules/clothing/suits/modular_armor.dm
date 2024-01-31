@@ -280,7 +280,7 @@
 
 /obj/item/clothing/accessory/storage/chest_gear
 	name = "standard vest equipment"
-	desc = "\the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
+	desc = "the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_chest_gear"
 	item_state = "tcaf_chest_gear"
