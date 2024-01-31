@@ -250,7 +250,6 @@
 /area/konyang_village)
 "fD" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
-/obj/structure/light_pole/konyang/left,
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
@@ -1538,6 +1537,10 @@
 "Oj" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/lino/diamond,
+/area/konyang_village)
+"Oq" = (
+/obj/structure/light_pole/konyang/left,
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
 "Ow" = (
 /obj/structure/bed/padded,
@@ -2928,7 +2931,7 @@ pn
 Ui
 SD
 SD
-SD
+Oq
 Bb
 KO
 KO

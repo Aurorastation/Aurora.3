@@ -570,7 +570,8 @@
 	dir = 4
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -10
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
@@ -839,7 +840,8 @@
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -1666,15 +1668,10 @@
 /area/point_verdant/outdoors)
 "ff" = (
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -50
 	},
-/obj/structure/ledge/corner{
-	dir = 8
-	},
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "fg" = (
 /obj/structure/rope_post{
@@ -2036,7 +2033,8 @@
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -4488,7 +4486,8 @@
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
@@ -4774,7 +4773,8 @@
 	layer = 9.1
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
@@ -4805,7 +4805,8 @@
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
@@ -5412,7 +5413,8 @@
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -58
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
@@ -7019,19 +7021,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
-"uU" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 8;
-	pixel_x = -6
-	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "uV" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -7202,7 +7191,7 @@
 	},
 /obj/structure/utility_pole/street/on{
 	dir = 4;
-	layer = 8.99
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -7260,7 +7249,8 @@
 /area/point_verdant/water)
 "vF" = (
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -50
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
@@ -7446,15 +7436,6 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/point_verdant/outdoors)
-"wb" = (
-/obj/structure/road_barrier{
-	dir = 8
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
-	},
-/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "wc" = (
 /obj/effect/decal/curb{
@@ -8605,13 +8586,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
-"zp" = (
-/obj/structure/utility_pole/street/on,
-/obj/structure/ledge{
-	dir = 1
-	},
-/turf/simulated/floor/sidewalk,
-/area/point_verdant/outdoors)
 "zq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/shutters{
@@ -8884,7 +8858,8 @@
 /area/point_verdant/interior/offices)
 "zX" = (
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -50
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -9478,11 +9453,12 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "BA" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
-	},
 /obj/effect/decal/curb/corner,
 /obj/structure/parking_meter,
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -50
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "BB" = (
@@ -9899,12 +9875,13 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "CN" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -50
+	},
 /obj/structure/street_sign{
 	pixel_y = -4;
 	pixel_x = -13
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -10500,7 +10477,7 @@
 "EC" = (
 /obj/structure/utility_pole/street/on{
 	dir = 4;
-	layer = 9.1
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -11674,7 +11651,8 @@
 /area/point_verdant/interior/police)
 "HR" = (
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -11737,7 +11715,12 @@
 /area/point_verdant/outdoors)
 "Ie" = (
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -12317,11 +12300,12 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
 "JW" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -50
+	},
 /obj/structure/street_sign/yield{
 	pixel_x = -16
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -12888,7 +12872,8 @@
 	dir = 1
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -13087,7 +13072,8 @@
 	dir = 4
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -50
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -13379,7 +13365,7 @@
 "MW" = (
 /obj/structure/utility_pole/street/on{
 	dir = 4;
-	layer = 8.99
+	pixel_x = -14
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
@@ -13558,7 +13544,8 @@
 	},
 /obj/structure/rod_railing,
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -58
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
@@ -13704,6 +13691,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
+/obj/structure/utility_pole/street/on,
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
 "NU" = (
@@ -14948,13 +14936,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"Rn" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4;
-	layer = 8.99
-	},
-/turf/simulated/floor/sidewalk,
-/area/point_verdant/outdoors)
 "Ro" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/beach_umbrella/alt,
@@ -15889,7 +15870,8 @@
 "Uq" = (
 /obj/structure/road_barrier/bot_in,
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -50
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -34107,12 +34089,12 @@ JW
 BT
 BT
 BT
-Qa
+ff
 BT
 BT
 BT
 BT
-Qa
+ff
 BT
 BT
 yt
@@ -34322,16 +34304,16 @@ od
 od
 od
 BT
-Ie
+EC
 BT
 BT
 BT
 BT
-Ie
+EC
 BT
 BT
 BT
-Ie
+EC
 BT
 Of
 LN
@@ -35862,7 +35844,7 @@ BT
 BT
 BT
 BT
-Ie
+EC
 BT
 LN
 mf
@@ -40008,7 +39990,7 @@ yf
 yf
 yf
 NS
-zp
+CV
 Fu
 Dx
 ON
@@ -40715,14 +40697,14 @@ Ao
 Ao
 bS
 BT
-Rn
+EC
 BT
 BT
 BT
 BT
 BT
 BT
-Rn
+EC
 RR
 LN
 iL
@@ -40736,20 +40718,20 @@ BT
 BT
 BT
 BT
-Ie
+EC
 BT
 BT
 BT
 BT
 BT
 BT
-Ie
+EC
 BT
 BT
 BT
 bh
 BT
-Ie
+EC
 BT
 BT
 BT
@@ -40783,7 +40765,7 @@ bh
 Ao
 Ao
 gn
-wb
+vu
 Ao
 gn
 Ao
@@ -40793,7 +40775,7 @@ Ao
 Ao
 Ao
 gn
-wb
+vu
 Ao
 bS
 BT
@@ -42007,7 +41989,7 @@ bu
 cK
 xc
 xc
-ff
+Qv
 bu
 bu
 bu
@@ -42085,7 +42067,7 @@ bu
 sb
 bu
 bu
-uU
+bu
 bu
 JF
 KX
@@ -42236,7 +42218,7 @@ BT
 BT
 BT
 BT
-Qa
+ff
 MG
 GE
 iW
@@ -42250,7 +42232,7 @@ DB
 FQ
 BT
 VM
-Qa
+ff
 lm
 oB
 fC
@@ -42264,7 +42246,7 @@ qJ
 BT
 BT
 BT
-Qa
+ff
 BT
 BT
 Yy
@@ -42291,7 +42273,7 @@ Vd
 BT
 BT
 BT
-Qa
+ff
 BT
 BT
 BT
@@ -42342,7 +42324,7 @@ MU
 BT
 BT
 BT
-BT
+ff
 BT
 yR
 ZT
@@ -44844,24 +44826,24 @@ BH
 iL
 Fq
 bh
-Ie
+EC
 BT
 BT
 BT
-Ie
+EC
 BT
 bh
 BT
 BT
 BT
 BT
-Ie
+EC
 BT
 bh
 Vd
 BT
 BT
-Ie
+EC
 BT
 BT
 VV
@@ -44869,7 +44851,7 @@ BT
 BT
 BT
 BT
-Ie
+EC
 iF
 LN
 iL
@@ -46380,17 +46362,17 @@ pk
 YS
 OB
 BT
-Qa
+ff
 KJ
 BT
 BT
 BT
 BT
-Qa
+ff
 BT
 BT
 BT
-Qa
+ff
 BT
 BT
 BT
@@ -48715,7 +48697,7 @@ dc
 iL
 iL
 Fq
-WJ
+Ir
 KN
 KN
 KN
@@ -48972,7 +48954,7 @@ LN
 iL
 iL
 Fq
-bh
+MW
 Ir
 Ir
 Ir
@@ -49997,7 +49979,7 @@ xd
 xd
 Eq
 BT
-Qa
+ff
 BT
 BT
 BT

@@ -19,17 +19,11 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "am" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/curb{
-	dir = 8
-	},
 /obj/structure/utility_pole/street/on{
 	dir = 8;
-	pixel_x = -6
+	pixel_x = -50
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "ao" = (
 /obj/effect/decal/fake_object{
@@ -489,15 +483,9 @@
 "bR" = (
 /obj/structure/utility_pole/street/on{
 	dir = 8;
-	pixel_x = -6
+	pixel_x = -50
 	},
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "bS" = (
 /obj/structure/ledge/quarter{
@@ -3612,10 +3600,6 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8;
-	pixel_x = -6
-	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "oB" = (
@@ -6594,7 +6578,8 @@
 "Bq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -50
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/tunnels)
@@ -6880,7 +6865,8 @@
 /area/point_verdant/interior/hotel)
 "Cx" = (
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -50
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/tunnels)
@@ -7506,6 +7492,13 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"Fv" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -50
+	},
+/turf/unsimulated/mineral/konyang,
+/area/point_verdant/interior/tunnels)
 "Fw" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/lightblue,
@@ -9960,10 +9953,6 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "Po" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8;
-	pixel_x = -6
-	},
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
@@ -37030,7 +37019,7 @@ LB
 LB
 LB
 AV
-AV
+Fv
 aA
 AV
 AV
@@ -58627,7 +58616,7 @@ TE
 TE
 TE
 TE
-bR
+TE
 dx
 Rv
 xb
@@ -58876,6 +58865,7 @@ Rv
 mn
 QV
 QV
+am
 QV
 QV
 QV
@@ -58883,8 +58873,7 @@ QV
 QV
 QV
 QV
-QV
-QV
+am
 Wx
 Rv
 Rv
@@ -60420,7 +60409,7 @@ TE
 TE
 TE
 TE
-am
+TE
 XT
 XT
 XT
@@ -60430,7 +60419,7 @@ XT
 TE
 TE
 TE
-am
+TE
 TE
 TE
 TE
@@ -60440,7 +60429,7 @@ TE
 Py
 TE
 TE
-am
+TE
 TE
 bq
 vs
@@ -60668,9 +60657,16 @@ QV
 QV
 QV
 rx
+am
 QV
 QV
 QV
+QV
+QV
+rx
+QV
+QV
+am
 QV
 QV
 QV
@@ -60680,14 +60676,7 @@ QV
 QV
 QV
 QV
-QV
-rx
-QV
-QV
-QV
-QV
-QV
-QV
+am
 QV
 QV
 QV
@@ -60697,7 +60686,7 @@ bX
 Uc
 Uc
 Uc
-Uc
+bR
 Uc
 Uc
 Xm

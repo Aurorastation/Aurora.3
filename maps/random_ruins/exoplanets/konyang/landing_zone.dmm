@@ -191,7 +191,8 @@
 	dir = 4
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -26
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -214,7 +215,8 @@
 /area/konyang_landing_zone)
 "cN" = (
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -14
 	},
 /obj/structure/ledge/quarter{
 	dir = 4
@@ -270,10 +272,11 @@
 /area/konyang_landing_zone/command_center/greenhouse)
 "dJ" = (
 /obj/structure/chainlink_fence{
-	dir = 4
+	layer = 9.1
 	},
 /obj/structure/chainlink_fence{
-	layer = 9.1
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
@@ -503,10 +506,11 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "gB" = (
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
 /obj/effect/decal/road_marking/reflector,
+/obj/structure/chainlink_fence{
+	dir = 8;
+	pixel_x = -16
+	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "gL" = (
@@ -606,7 +610,7 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Air Supply Monitor";
-	sensors = list("lz_air_sensor"="Site  Tank");
+	sensors = list("lz_air_sensor"="Site    Tank");
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -797,7 +801,9 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/on{
+	pixel_y = 0
+	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "jZ" = (
@@ -819,7 +825,8 @@
 /area/konyang_landing_zone)
 "ke" = (
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -50
 	},
 /obj/structure/ledge/quarter{
 	dir = 9
@@ -905,10 +912,11 @@
 /turf/simulated/floor/airless,
 /area/konyang_landing_zone/command_center/landing_pads)
 "lp" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/effect/floor_decal/konyang_flowers,
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
+	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "lr" = (
@@ -960,7 +968,8 @@
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -1021,7 +1030,8 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "mF" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
@@ -1039,9 +1049,6 @@
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
-	},
-/obj/structure/chainlink_fence{
-	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1234,11 +1241,12 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
-	},
 /obj/structure/chainlink_fence{
 	layer = 9.1
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -26
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -1367,7 +1375,8 @@
 	dir = 1
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
@@ -1378,11 +1387,12 @@
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "rM" = (
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/chainlink_fence{
+	dir = 8;
+	pixel_x = -16
+	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "rP" = (
@@ -1546,7 +1556,8 @@
 	layer = 9.1
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
@@ -1555,6 +1566,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
+"tv" = (
+/obj/structure/chainlink_fence{
+	dir = 8;
+	pixel_x = -16
+	},
+/obj/effect/decal/road_marking/reflector,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "tz" = (
 /obj/machinery/light_switch{
@@ -1574,6 +1593,19 @@
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"tI" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/chainlink_fence{
+	dir = 8;
+	pixel_x = -16
+	},
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "uc" = (
 /obj/structure/cable/yellow{
@@ -1704,11 +1736,12 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "wr" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -1724,7 +1757,7 @@
 "wx" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Carbon Dioxide Supply Monitor";
-	sensors = list("lz_co2_sensor"="Site  Tank");
+	sensors = list("lz_co2_sensor"="Site    Tank");
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1734,10 +1767,12 @@
 /area/konyang_landing_zone/command_center)
 "wz" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
@@ -2079,7 +2114,7 @@
 	dir = 5
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	pixel_y = 0
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -2308,13 +2343,16 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Dv" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
+	},
 /turf/simulated/floor/concrete,
-/area/konyang_landing_zone/command_center/landing_pads)
+/area/konyang_landing_zone)
 "DP" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -2322,10 +2360,11 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "DQ" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/structure/flora/bush/konyang_reeds,
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
+	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "DS" = (
@@ -2357,12 +2396,13 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Ed" = (
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/chainlink_fence{
+	dir = 8;
+	pixel_x = -16
+	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Eg" = (
@@ -2472,7 +2512,8 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "Fz" = (
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
@@ -2873,9 +2914,6 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "Ju" = (
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
 /obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 4;
@@ -2916,7 +2954,8 @@
 	dir = 9
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_y = 0
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -3010,13 +3049,14 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "Lf" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
@@ -3025,6 +3065,10 @@
 /obj/structure/chainlink_fence,
 /obj/structure/ledge/quarter{
 	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
@@ -3237,12 +3281,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Oa" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/effect/decal/road_marking/reflector,
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "Ob" = (
@@ -3285,10 +3324,11 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Oz" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/effect/decal/road_marking/reflector,
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
+	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "OA" = (
@@ -3337,12 +3377,13 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "OW" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
@@ -3511,7 +3552,8 @@
 "QM" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
@@ -3756,17 +3798,19 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "TB" = (
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
+	},
+/obj/structure/chainlink_fence{
+	dir = 8;
+	pixel_x = -16
+	},
+/obj/structure/chainlink_fence{
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -3986,7 +4030,8 @@
 /area/konyang_landing_zone)
 "WF" = (
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -50
 	},
 /obj/structure/ledge/quarter{
 	dir = 9
@@ -4030,7 +4075,8 @@
 /area/konyang_landing_zone/command_center/garage)
 "Xv" = (
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
@@ -4802,7 +4848,7 @@ YV
 Jp
 Lb
 Ll
-lX
+tI
 dK
 dK
 mF
@@ -5221,7 +5267,7 @@ EO
 jL
 jL
 Pl
-Dv
+rM
 rM
 rM
 rM
@@ -5287,10 +5333,10 @@ Xv
 Xv
 Xv
 Xv
-Xv
-Oz
-Oz
-Oz
+dK
+Oa
+Oa
+Oa
 dK
 dK
 Gc
@@ -6703,9 +6749,9 @@ Ly
 pT
 dK
 dK
-dK
-dK
-dK
+Xv
+Xv
+Xv
 Xv
 Xv
 Xv
@@ -6742,24 +6788,24 @@ fe
 TD
 Zi
 dK
+tv
 gB
 gB
-gB
 wz
-wz
-wz
-wz
-wz
-wz
-wz
+Dv
+Dv
+Dv
+Dv
+Dv
+Dv
 mF
 mF
 mF
 TB
-wz
-wz
+Dv
 Xv
-Oa
+Xv
+tp
 Vt
 xI
 gZ
