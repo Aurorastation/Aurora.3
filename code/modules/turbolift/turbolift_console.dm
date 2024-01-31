@@ -75,7 +75,7 @@
 // Prevents ghosts from calling the lift.
 
 /obj/structure/lift/button/attack_ghost(var/mob/user)
-    return
+	return
 
 /obj/structure/lift/button/ui_interact(var/mob/user)
 	if(!..())
