@@ -23040,7 +23040,7 @@
 /obj/random/tech_supply,
 /obj/item/device/hand_labeler,
 /obj/item/device/hand_labeler,
-/obj/machinery/alarm/east,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "kKM" = (
@@ -29744,6 +29744,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "nSO" = (
