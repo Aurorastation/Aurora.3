@@ -2,6 +2,7 @@
 	footstep_sound = /singleton/sound_category/plating_footstep
 
 // ------------------------------- grids
+
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -42,7 +43,8 @@
 /turf/simulated/floor/greengrid/nitrogen
 	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
 
-// ------------------------------- tiles
+// ------------------------------- tiled
+
 /turf/simulated/floor/tiled
 	name = "steel tiles"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -81,33 +83,6 @@
 
 /turf/simulated/floor/cult/cultify()
 	return
-
-/turf/simulated/floor/tiled/dark
-	name = "plasteel tiles"
-	icon_state = "dark"
-	initial_flooring = /singleton/flooring/tiling/dark
-	tile_decal_state = "dark_light"
-	color = COLOR_DARK_GUNMETAL
-
-/turf/simulated/floor/tiled/dark/cooled
-	name = "cooled plasteel tiles"
-	temperature = 278
-
-/turf/simulated/floor/tiled/dark/airless
-	initial_gas = null
-
-/turf/simulated/floor/tiled/dark/full
-	name = "full plasteel tile"
-	icon_state = "monotile_dark"
-	initial_flooring = /singleton/flooring/tiling/dark/full
-	tile_outline = "monotile"
-	tile_decal_state = "monotile_dark_light"
-	broken_overlay = null
-	burned_overlay = null
-
-/turf/simulated/floor/tiled/dark/full/airless
-	name = "airless full plasteel tile"
-	initial_gas = null
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"
@@ -221,6 +196,53 @@
 	icon_state = "asteroidplating"
 	baseturf = /turf/space
 
+// ------------------------------- tiled/dark
+
+/turf/simulated/floor/tiled/dark
+	name = "plasteel tiles"
+	icon_state = "dark"
+	initial_flooring = /singleton/flooring/tiling/dark
+	tile_decal_state = "dark_light"
+	color = COLOR_DARK_GUNMETAL
+
+/turf/simulated/floor/tiled/dark/cooled
+	name = "cooled plasteel tiles"
+	temperature = 278
+
+/turf/simulated/floor/tiled/dark/airless
+	initial_gas = null
+
+/turf/simulated/floor/tiled/dark/full
+	name = "full plasteel tile"
+	icon_state = "monotile_dark"
+	initial_flooring = /singleton/flooring/tiling/dark/full
+	tile_outline = "monotile"
+	tile_decal_state = "monotile_dark_light"
+	broken_overlay = null
+	burned_overlay = null
+
+/turf/simulated/floor/tiled/dark/full/airless
+	name = "airless full plasteel tile"
+	initial_gas = null
+
+// ------------------------------- tiled/light
+
+/turf/simulated/floor/tiled/light
+	name = "tiles"
+	icon_state = "tiled"
+	initial_flooring = /singleton/flooring/tiling/light
+	tile_decal_state = "tiled_light"
+	color = COLOR_GRAY70
+
+/turf/simulated/floor/tiled/light/full
+	name = "full tile"
+	icon_state = "monotile"
+	initial_flooring = /singleton/flooring/tiling/light/full
+	tile_outline = "monotile"
+	tile_decal_state = "monotile_light"
+	broken_overlay = null
+	burned_overlay = null
+
 // ------------------------------- cargo
 
 /turf/simulated/floor/tiled/cargo
@@ -268,7 +290,7 @@
 	icon_state = "techmaint"
 	// initial_flooring = /singleton/flooring/tiling/dark
 	tile_decal_state = "techmaint_light"
-	color = COLOR_GRAY20
+	color = COLOR_GRAY30
 
 /turf/simulated/floor/tiled/techfloor
 	name = "techfloor tiles"

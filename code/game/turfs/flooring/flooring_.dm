@@ -229,6 +229,14 @@
 	icon_base = "monotile_dark"
 	build_type = /obj/item/stack/tile/floor_dark/full
 
+/singleton/flooring/tiling/light
+	icon_base = "tiled"
+	color = COLOR_GRAY70
+	build_type = null
+
+/singleton/flooring/tiling/light/full
+	icon_base = "monotile"
+
 /singleton/flooring/tiling/freezer
 	name = "floor"
 	desc = "Don't slip."
