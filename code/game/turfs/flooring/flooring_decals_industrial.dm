@@ -63,11 +63,11 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/red
 	color = "#990C0C"
 
-// ------------------------ outline
+// ------------------------ outline main
 
 /obj/effect/floor_decal/industrial/outline
 	name = "white outline"
-	icon_state = "outline"
+	icon_state = "outline_full"
 
 /obj/effect/floor_decal/industrial/outline/blue
 	name = "cyan outline"
@@ -113,7 +113,6 @@
 	name = "security blue outline"
 	color = COLOR_BLUE_GRAY
 
-
 /obj/effect/floor_decal/industrial/outline/emergency_closet
 	name = "blue emergency closet outline"
 	color = COLOR_BABY_BLUE
@@ -121,6 +120,32 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet
 	name = "red firefighting closet outline"
 	color = COLOR_RED_LIGHT
+
+// ------------------------ outline other
+
+/obj/effect/floor_decal/industrial/outline_corner
+	name = "white outline"
+	icon_state = "outline_corner"
+
+/obj/effect/floor_decal/industrial/outline_corner/yellow
+	name = "yellow outline"
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/outline_corner/grey
+	name = "grey outline"
+	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/outline_straight
+	name = "white outline"
+	icon_state = "outline_straight"
+
+/obj/effect/floor_decal/industrial/outline_straight/yellow
+	name = "yellow outline"
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/outline_straight/grey
+	name = "grey outline"
+	color = COLOR_GRAY
 
 // ------------------------ loading/arrows
 
