@@ -1198,7 +1198,7 @@
 	},
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "ayS" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4546,10 +4546,10 @@
 	icon_state = "d2-2"
 	},
 /obj/effect/landmark/entry_point/fore{
-	name = "fore, tool storage"
+	name = "fore, commissary"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "bUk" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -4626,12 +4626,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass{
-	id_tag = "horizon_commisary_door";
-	name = "Commisary"
+	id_tag = "horizon_commissary_door";
+	name = "Commissary"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "bWz" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -5762,7 +5762,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "cDU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -8016,9 +8016,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dJF" = (
@@ -9734,7 +9731,7 @@
 "eCD" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "eCI" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
@@ -11800,7 +11797,7 @@
 /area/rnd/research)
 "fzh" = (
 /turf/simulated/wall,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "fzF" = (
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
@@ -12740,7 +12737,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "fVz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -13079,6 +13076,15 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/rust)
+"gcR" = (
+/obj/structure/table/standard,
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Commissary Backroom";
+	dir = 1
+	},
+/obj/item/folder/yellow,
+/turf/simulated/floor/tiled,
+/area/horizon/commissary)
 "gcS" = (
 /obj/effect/landmark{
 	name = "JoinLateCyborg"
@@ -16637,11 +16643,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/mining{
-	name = "commisary backroom";
+	name = "Commissary Backroom";
 	req_one_access = list(26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "hFm" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -17344,6 +17350,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/operations/lobby)
 "iav" = (
@@ -17397,9 +17406,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "ica" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -18093,7 +18104,7 @@
 	},
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "ipy" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -21445,7 +21456,7 @@
 	},
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "jSY" = (
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -26209,15 +26220,15 @@
 /area/engineering/engine_monitoring/rust)
 "mnm" = (
 /obj/structure/table/standard,
-/obj/machinery/door/window/eastright{
-	req_one_access = list(50)
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
-	id = "horizon_commisary_desk"
+	id = "horizon_commissary_desk"
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "mns" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/cable/green{
@@ -26746,10 +26757,10 @@
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
-	id = "horizon_commisary_desk"
+	id = "horizon_commissary_desk"
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "myN" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /obj/effect/floor_decal/spline/plain{
@@ -28554,15 +28565,15 @@
 "nln" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
-	id = "horizon_commisary_desk";
+	id = "horizon_commissary_desk";
 	name = "desk shutters";
 	pixel_x = -7;
 	pixel_y = 25
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
-	id = "horizon_commisary_door";
-	name = "commisary door bolts";
+	id = "horizon_commissary_door";
+	name = "commissary door bolts";
 	pixel_x = 7;
 	pixel_y = 25;
 	specialfunctions = 4
@@ -28572,7 +28583,7 @@
 	pixel_y = 34
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "nlr" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_hard)
@@ -32847,7 +32858,7 @@
 	},
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "pqH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -33046,7 +33057,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "pxt" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -33745,7 +33756,7 @@
 	},
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "pOV" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/plain,
@@ -34763,15 +34774,15 @@
 /area/security/checkpoint2)
 "qra" = (
 /obj/structure/table/standard,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
-	id = "horizon_commisary_desk"
+	id = "horizon_commissary_desk"
+	},
+/obj/machinery/door/window/eastright{
+	req_one_access = list(50)
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "qre" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -35027,7 +35038,7 @@
 "qvF" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "qvO" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -35791,7 +35802,7 @@
 	},
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "qNX" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet,
@@ -36079,7 +36090,7 @@
 /area/maintenance/research_port)
 "qUc" = (
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "qUt" = (
 /obj/machinery/door/airlock/multi_tile/glass,
 /obj/machinery/door/firedoor/multi_tile,
@@ -36877,7 +36888,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "rof" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -38149,7 +38160,7 @@
 	icon_state = "d2-2"
 	},
 /turf/simulated/wall,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "rSW" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -38233,7 +38244,7 @@
 	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "rUT" = (
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Engineering Entrance"
@@ -39589,7 +39600,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "sIR" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -39607,9 +39618,12 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/item/device/radio/intercom/east,
+/obj/machinery/atm{
+	dir = 4;
+	pixel_x = 16
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "sJq" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -40858,6 +40872,16 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"tmR" = (
+/obj/structure/table/standard,
+/obj/item/device/radio/intercom/west,
+/obj/machinery/light,
+/obj/item/paper_bin{
+	pixel_y = 5
+	},
+/obj/item/pen/black,
+/turf/simulated/floor/tiled,
+/area/horizon/commissary)
 "tna" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/light/small{
@@ -41379,8 +41403,11 @@
 /area/crew_quarters/heads/chief)
 "tCG" = (
 /obj/machinery/alarm/north,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "tCP" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -42239,7 +42266,7 @@
 "tWg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "tWp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -43378,7 +43405,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "ura" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -43555,7 +43582,7 @@
 	name = "high value goods shelf"
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "uvC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -44913,7 +44940,7 @@
 	icon_state = "d2-1"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "vdy" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -45023,7 +45050,7 @@
 	icon_state = "d2-1"
 	},
 /turf/simulated/wall,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "vfQ" = (
 /obj/machinery/smartfridge/chemistry{
 	density = 0;
@@ -46517,7 +46544,7 @@
 	},
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "vQR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
@@ -48268,16 +48295,9 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "wBh" = (
-/obj/machinery/light/small,
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Starboard Emergency Supplies Closet";
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "wBq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -50156,7 +50176,7 @@
 	},
 /obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "xrh" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -51036,7 +51056,7 @@
 	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "xMV" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
@@ -51869,7 +51889,7 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_green/full,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "ydn" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -52000,7 +52020,7 @@
 /area/horizon/kitchen)
 "yfL" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Commisary";
+	c_tag = "Second Deck - Commissary";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -52008,7 +52028,7 @@
 	},
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commisary)
+/area/horizon/commissary)
 "ygq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -62923,7 +62943,7 @@ kJw
 hFg
 ibE
 wBh
-uvB
+tmR
 vfi
 scx
 qgN
@@ -63125,7 +63145,7 @@ aTa
 fzh
 tCG
 qUc
-uvB
+gcR
 rSP
 whe
 qgN
@@ -63326,9 +63346,9 @@ mpV
 qTC
 fzh
 nln
-qUc
 cDT
-uvB
+qUc
+fzh
 vfi
 scx
 qgN
@@ -63530,7 +63550,7 @@ fzh
 myG
 qra
 mnm
-qra
+fzh
 rSP
 whe
 qgN
@@ -64333,7 +64353,7 @@ fjg
 rVg
 het
 dJE
-lGf
+ldT
 tWg
 pOl
 pxh
@@ -64737,7 +64757,7 @@ udv
 gFx
 jVR
 iap
-ldT
+lGf
 fzh
 xqX
 qNy

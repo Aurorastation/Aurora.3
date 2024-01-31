@@ -865,5 +865,5 @@
 
 /********** Weapon Systems End **********/
 
-/area/horizon/commisary
-	name = "Horizon - Commisary"
+/area/horizon/commissary
+	name = "Horizon - Commissary"
