@@ -979,6 +979,8 @@
 	new /obj/item/clothing/suit/armor/carrier/tcaf(src)
 	new /obj/item/clothing/suit/armor/carrier/tcaf(src)
 	new /obj/item/clothing/suit/armor/carrier/tcaf(src)
+	new /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light(src)
+	new /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light(src)
 	new /obj/item/clothing/head/helmet/tcaf(src)
 	new /obj/item/clothing/head/helmet/tcaf(src)
 	new /obj/item/clothing/head/helmet/tcaf(src)
@@ -1023,6 +1025,7 @@
 	new /obj/item/gun/energy/blaster/revolver(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/clothing/suit/armor/carrier/tcaf(src)
+	new /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light(src)
 	new /obj/item/clothing/head/helmet/tcaf(src)
 	new /obj/item/clothing/head/helmet/tcaf/tcaf_visor
 	new /obj/item/gun/energy/blaster/tcaf(src)
