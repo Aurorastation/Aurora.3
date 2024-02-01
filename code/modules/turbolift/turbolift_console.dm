@@ -72,8 +72,6 @@
 	light_up = FALSE
 	update_icon()
 
-// Prevents ghosts from calling the lift unless they are an admin.
-
 /obj/structure/lift/button/attack_ghost(var/mob/user)
 	if(check_rights(R_ADMIN))
 		return ui_interact(user)
