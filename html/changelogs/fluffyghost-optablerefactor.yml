@@ -40,7 +40,6 @@ delete-after: True
 changes:
   - backend: "Implemented COMSIG_ATOM_ENTERED, COMSIG_ATOM_ENTERED, COMSIG_ATOM_EXITED and COMSIG_ATOM_EXITING."
   - backend: "Unified atom's Entered, Entering and Exited in a single proc."
-  - bugfix: "Resolved a double observable call for atom entering."
   - backend: "Added remove_chemical_effect proc to remove chemical effect quantities (currently unused)."
   - backend: "DMDocs, some SDMM proc markings."
   - refactor: "Refactored optable beds."
