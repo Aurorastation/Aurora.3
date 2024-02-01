@@ -161,7 +161,7 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	req_access = list(218);
-	id = "konyang_cell2"
+	id_tag = "konyang_cell2"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -4744,7 +4744,7 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	req_access = list(218);
-	id = "konyang_cell3"
+	id_tag = "konyang_cell3"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -12415,7 +12415,7 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	req_access = list(218);
-	id = "konyang_cell4"
+	id_tag = "konyang_cell4"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -13707,7 +13707,7 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	req_access = list(218);
-	id = "konyang_cell1"
+	id_tag = "konyang_cell1"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -13953,7 +13953,7 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	req_access = list(218);
-	id = "konyang_cell5"
+	id_tag = "konyang_cell5"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
