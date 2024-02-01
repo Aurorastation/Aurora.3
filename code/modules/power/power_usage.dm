@@ -55,7 +55,14 @@ This is /obj/machinery level code to properly manage power usage from the area.
 		else
 			return 0
 
-// This will have this machine have its area eat this much power next tick, and not afterwards. Do not use for continued power draw.
+/**
+ * This will have this machine have its area eat this much power next tick, and not afterwards
+ *
+ * Do not use for continued power draw.
+ *
+ * * amount - The amount of power to consume
+ * * chan - The channel to consume it from, see `code\__DEFINES\machinery.dm`
+ */
 /obj/machinery/proc/use_power_oneoff(var/amount, var/chan = POWER_CHAN)
 	var/area/A = get_area(src)		// make sure it's in an area
 	if(!A)
