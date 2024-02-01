@@ -3,7 +3,7 @@
 	desc = "A bland air conditioning unit."
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "ac"
-	layer = 2.7
+	layer = BELOW_OBJ_LAYER
 	density = 1
 
 /obj/structure/television
