@@ -90,7 +90,7 @@
 
 /obj/effect/overlay/street_light/classic
 	icon_state = "classic_lamp_light"
-	density = 1
+	density = TRUE
 
 /obj/structure/utility_pole/street/classic/on
 	light_wedge = LIGHT_OMNI
