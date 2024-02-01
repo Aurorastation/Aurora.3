@@ -742,7 +742,7 @@
  *
  * * accesses - A list with accesses that the key has, or null if defined in either the map, public access door or other means
  */
-/obj/item/key/door_key/Initialize(var/list/accesses = null)
+/obj/item/key/door_key/Initialize(var/mapload, var/list/accesses)
 	SHOULD_CALL_PARENT(TRUE)
 
 	. = ..()
