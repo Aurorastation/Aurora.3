@@ -284,5 +284,5 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/dominia_honor = 1,
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/projectile/pistol/dominia = 1
 	)

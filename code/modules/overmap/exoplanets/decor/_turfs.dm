@@ -27,6 +27,8 @@
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
+		else
+			log_module_exoplanets("Simulated exoplanet turf NAME: [src.name] LOC [src.x]-[src.y]-[src.z] did not find any exoplanet to copy info from!")
 	..()
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)

@@ -206,8 +206,9 @@
 		return UNIT_TEST_PASSED
 
 
-	/**Something went wrong
-	 * compose a message and fail the test, let the poor soul try to figure out where the issue is, assuming it's not intermittent
+	/*
+		Something went wrong
+		compose a message and fail the test, let the poor soul try to figure out where the issue is, assuming it's not intermittent
 	 */
 	var/fail_message = "[SSair.active_edges.len] edges active at round-start!\n"
 	for(var/connection_edge/E in SSair.active_edges)

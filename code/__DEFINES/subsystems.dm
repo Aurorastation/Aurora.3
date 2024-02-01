@@ -199,6 +199,7 @@
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
 #define INIT_ORDER_SPATIAL_GRID 43
+#define INIT_ORDER_CODEX -3 // Codex subsystem. Should be initialized after chemistry and cooking recipes.
 #define INIT_ORDER_STATPANELS -97
 
 // Subsystem fire priority, from lowest to highest priority

@@ -59,6 +59,9 @@
 	update_icon()
 	src.anchored = TRUE
 
+	add_fingerprint(deployer)
+	add_fibers(deployer)
+
 /**
  * Called when a landmine was triggered, and is supposed to explode
  *

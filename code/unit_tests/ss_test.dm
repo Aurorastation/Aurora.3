@@ -139,12 +139,13 @@ SUBSYSTEM_DEF(unit_tests)
 
 		for(var/group in D.groups)
 			if((group in SSunit_tests_config.config["unit_test_groups"]) || (SSunit_tests_config.config["unit_test_groups"][1] == "*"))
-				queue += D
+				BINARY_INSERT_PROC_COMPARE(D, queue, /datum/unit_test, D, compare_priority, COMPARE_KEY)
 				break
 
 	SSunit_tests_config.UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
 
 	return SS_INIT_SUCCESS
+
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)

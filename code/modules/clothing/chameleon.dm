@@ -70,12 +70,14 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/under/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/under/chameleon/verb/change()
 	set name = "Change Jumpsuit Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -110,12 +112,14 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/head/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/head/chameleon/verb/change()
 	set name = "Change Hat/Helmet Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -148,12 +152,14 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/suit/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/suit/chameleon/verb/change()
 	set name = "Change Oversuit Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -189,12 +195,14 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/shoes/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/shoes/chameleon/verb/change()
 	set name = "Change Footwear Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -230,12 +238,14 @@
 		var/mob/M = src.loc
 		M.update_inv_back()
 
-/obj/item/storage/backpack/chameleon/verb/change(picked in clothing_choices)
+/obj/item/storage/backpack/chameleon/verb/change()
 	set name = "Change Backpack Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -274,12 +284,14 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/gloves/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/gloves/chameleon/verb/change()
 	set name = "Change Gloves Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -311,12 +323,14 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/mask/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/mask/chameleon/verb/change()
 	set name = "Change Mask Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -349,12 +363,14 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/glasses/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/glasses/chameleon/verb/change()
 	set name = "Change Glasses Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(clothing_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
 		return
 
 	disguise(clothing_choices[picked])
@@ -435,12 +451,14 @@
 	else
 		copy_projectile = null
 
-/obj/item/gun/energy/chameleon/verb/change(picked in gun_choices)
+/obj/item/gun/energy/chameleon/verb/change()
 	set name = "Change Gun Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
-	if(!ispath(gun_choices[picked]))
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", gun_choices)
+
+	if(!picked)
 		return
 
 	disguise(gun_choices[picked])
