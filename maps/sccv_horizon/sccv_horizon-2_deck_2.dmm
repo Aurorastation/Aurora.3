@@ -1114,13 +1114,13 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "axL" = (
-/obj/machinery/light/small,
 /obj/item/stack/material/wood/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/bronze/full,
 /obj/structure/closet/crate{
 	name = "Cremation Urn Materials"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "axS" = (

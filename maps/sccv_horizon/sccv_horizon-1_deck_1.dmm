@@ -14247,7 +14247,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/plasticflaps/airtight{
+	layer = 2.5;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/medical/morgue/lower)
 "jTJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
@@ -16627,7 +16631,7 @@
 "lEQ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/button/remote/blast_door{
-	id = "shutters_deck1_morgue";
+	id = "shutters_deck1_morgue2";
 	name = "Viewing Shutters";
 	dir = 4;
 	pixel_x = 20
