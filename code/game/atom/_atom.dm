@@ -17,6 +17,7 @@
 	SEND_SIGNAL(arrived, COMSIG_ATOM_ENTERING, src, old_loc, old_locs)
 
 	//Observables event, Aurora snowflake code
+	GLOB.entered_event.raise_event(src, arrived, old_loc)
 	GLOB.moved_event.raise_event(arrived, old_loc, arrived.loc)
 
 /**
