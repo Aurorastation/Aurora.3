@@ -135,6 +135,10 @@
 	name = "grey outline"
 	color = COLOR_GRAY
 
+/obj/effect/floor_decal/industrial/outline_corner/red
+	name = "red outline"
+	color = "#990C0C"
+
 /obj/effect/floor_decal/industrial/outline_straight
 	name = "white outline"
 	icon_state = "outline_straight"
@@ -146,6 +150,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/grey
 	name = "grey outline"
 	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/outline_corner/red
+	name = "red outline"
+	color = "#990C0C"
 
 /obj/effect/floor_decal/industrial/outline_door
 	name = "white door outline"
