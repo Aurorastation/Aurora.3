@@ -1117,6 +1117,8 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "axS" = (
@@ -5957,9 +5959,10 @@
 	c_tag = "Service - Chapel Storage";
 	dir = 4
 	},
-/obj/structure/table/wood,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	pixel_y = 4
+	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "cKg" = (
@@ -40825,12 +40828,18 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "toe" = (
-/obj/structure/closet/crate/coffin,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/closet/crate/coffin{
-	pixel_y = 4
+/obj/structure/morgue/crematorium{
+	_wifi_id = "chapel_crema"
+	},
+/obj/machinery/button/switch/crematorium{
+	_wifi_id = "chapel_crema";
+	dir = 4;
+	pixel_x = 20;
+	pixel_y = 8;
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
