@@ -3473,21 +3473,41 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "cwK" = (
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
 /obj/structure/table/steel,
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
+	},
+/obj/item/device/radio/med{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/device/radio/med{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/device/radio/med{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/device/radio/med{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/device/radio/med{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/device/radio/med{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/device/radio/med{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/device/radio/med{
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
@@ -18549,25 +18569,18 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "mRu" = (
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
-/obj/structure/table/steel,
 /obj/machinery/light/small{
 	dir = 8
-	},
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
-/obj/item/device/radio/off{
-	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
+/obj/structure/closet/crate{
+	name = "Cremation Urn Materials"
+	},
+/obj/item/stack/material/wood/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/bronze/full,
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "mSd" = (
