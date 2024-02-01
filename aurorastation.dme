@@ -1721,6 +1721,7 @@
 #include "code\modules\client\preference_setup\occupation\occupation.dm"
 #include "code\modules\client\preference_setup\origin\origin.dm"
 #include "code\modules\client\preference_setup\other\01_incidents.dm"
+#include "code\modules\client\verbs\ping.dm"
 #include "code\modules\clothing\chameleon.dm"
 #include "code\modules\clothing\clothing.dm"
 #include "code\modules\clothing\clothing_accessories.dm"
