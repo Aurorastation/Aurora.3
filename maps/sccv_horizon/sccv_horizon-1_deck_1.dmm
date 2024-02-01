@@ -18586,6 +18586,7 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/bronze/full,
 /obj/item/stack/material/glass/full,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "mSd" = (

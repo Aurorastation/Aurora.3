@@ -1122,6 +1122,7 @@
 	},
 /obj/machinery/light,
 /obj/item/stack/material/glass/full,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "axS" = (
