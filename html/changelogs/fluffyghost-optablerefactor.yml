@@ -46,3 +46,7 @@ changes:
   - refactor: "Refactored optable beds."
   - rscadd: "Optable beds now use power to suppress the patient's brain."
   - bugfix: "The camera getting stuck on optable beds should now be fixed."
+  - refactor: "Refactored operating computer in how it connects and disconnects with the surgery table."
+  - backend: "Adjusted integrated bodyscanner to account for tables using weakrefs on patients."
+  - rscadd: "It should now be possible to reliably build operating tables and consoles and have them hook with each other."
+  - backend: "Operating tables and operating computers should now delete cleanly."

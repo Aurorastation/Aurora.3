@@ -28,28 +28,32 @@
 
 
 /obj/machinery/optable/Initialize()
-	. = ..()
+	..()
 
 	LAZYADD(can_buckle, /mob/living)
 	buckle_delay = 30
 
-	for(var/direction in GLOB.cardinal)
-		computer = locate(/obj/machinery/computer/operating) in get_step(src, direction)
-		if(computer)
-			computer.table = src
-			break
-
 	RegisterSignal(loc, COMSIG_ATOM_ENTERED, PROC_REF(mark_patient))
 	RegisterSignal(loc, COMSIG_ATOM_EXITED, PROC_REF(unmark_patient))
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/optable/LateInitialize()
+	. = ..()
+
+	//Search for an operating computer and ask it to hook us up
+	for(var/obj/machinery/computer/operating/candidate_computer in orange(src, 1))
+		if(candidate_computer.hook_table(src))
+			break
 
 /obj/machinery/optable/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	UnregisterSignal(loc, COMSIG_ATOM_ENTERED)
 	UnregisterSignal(loc, COMSIG_ATOM_EXITED)
 
-	//If we have a computer and it's referencing us, clear the ref
-	if(computer?.table == src)
-		computer.table = null
+	//If we have a computer, ask it to unhook us, clear the reference anyways just to be sure
+	if(computer)
+		computer.unhook_table(src)
 	computer = null
 
 	//If there's an occupant, ensure to release the view before dropping the weakref

@@ -886,7 +886,12 @@
 
 /obj/machinery/body_scanconsole/embedded/get_occupant()
 	if(monitor_console?.table)
-		return monitor_console.table.occupant
+
+		if(istype(monitor_console.table.occupant, /datum/weakref))
+			return monitor_console.table.occupant.resolve()
+		else
+			return monitor_console.table.occupant
+
 	return null
 
 // if our primer has a scan target, that means it was validated by a bodyscanner
