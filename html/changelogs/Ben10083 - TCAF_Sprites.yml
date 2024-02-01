@@ -41,6 +41,6 @@ changes:
   - imageadd: "New sprites for most TCAF clothing, credit to Noble Row for the spritework!"
   - rscadd: "New TCAF chest gear added for light armor variant of plate carrier."
   - imageadd: "New sprites for most TCAF clothing, credit to Noble Row for the spritework!"
-  - bugfix: "uplink TCAF group crate cost set to 50 telecrystals. (it was not set in code)"
+  - bugfix: "Uplink TCAF group crate cost set to 50 telecrystals. (it was not set in code)"
   - tweak: "Xeno friendly TCAF visored helmets and toeless jackboots added to uplink crates."
   - tweak: "Republic Fleet ghost roles now spawn with TCAF gloves."
