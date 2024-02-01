@@ -77,8 +77,6 @@
 /obj/structure/lift/button/attack_ghost(var/mob/user)
 	if(check_rights(R_ADMIN))
 		return ui_interact(user)
-	else
-		return
 
 /obj/structure/lift/button/ui_interact(var/mob/user)
 	if(!..())
