@@ -5,7 +5,7 @@
 	icon_state = "car"
 	anchored = TRUE
 	density = TRUE
-	layer = 7
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/automobile/random/Initialize(mapload)
 	. = ..()
@@ -35,7 +35,7 @@
 	desc = "A stop sign to direct traffic. Sometimes a demand."
 	icon = 'icons/obj/structure/urban/street_signs.dmi'
 	icon_state = "stop"
-	layer = 9
+	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/street_sign/yield
@@ -237,7 +237,7 @@
 	icon = 'icons/obj/structure/urban/konyang_neon.dmi'
 	icon_state = "sign1"
 	anchored = TRUE
-	layer = 7
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/shipping_container
 	name = "freight container"
@@ -246,13 +246,13 @@
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
-	layer = 7
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
 	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
 	icon_state = "heph1"
-	layer = 7.01
+	layer = 4.6
 
 /obj/effect/overlay/container_logo/einstein
 	name = "Einstein Engines emblem"
@@ -271,7 +271,7 @@
 	density = TRUE
 	throwpass = TRUE
 	climbable = TRUE
-	layer = 4.01
+	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -302,7 +302,7 @@
 	density = TRUE
 	throwpass = TRUE
 	anchored = TRUE
-	layer = 4.01
+	layer = ABOVE_MOB_LAYER
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -313,7 +313,7 @@
 	throwpass = TRUE
 	climbable = TRUE
 	anchored = TRUE
-	layer = 4.01
+	layer = ABOVE_MOB_LAYER
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in

@@ -18,7 +18,7 @@
 	desc = "A flame-lit lamp dangling precariously from a tall pole."
 	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "lamp"
-	layer = 9.1
+	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = FALSE
 	light_color = "#FA644B"
@@ -36,7 +36,7 @@
 	desc = "A very tall utility pole for urban infrastructure."
 	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "junction"
-	layer = 9
+	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	pixel_x = -32
 	pixel_y = 8
@@ -159,7 +159,7 @@
 	name = "overhead utility line"
 	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "line"
-	layer = 9.1
+	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -32
 	pixel_y = 8
 

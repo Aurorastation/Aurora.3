@@ -73,7 +73,7 @@
 	icon = 'icons/obj/structure/64x64_misc.dmi'
 	icon_state = "umbrella"
 	anchored = TRUE
-	layer = 9
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/beach_umbrella/alt
 	icon_state = "umbrella_alt"
@@ -85,7 +85,7 @@
 	icon_state = "crane"
 	anchored = TRUE
 	density = TRUE
-	layer = 9
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/crane/body
 	icon_state = "crane_body"
