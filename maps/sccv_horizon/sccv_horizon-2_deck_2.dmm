@@ -1121,6 +1121,7 @@
 	name = "Cremation Urn Materials"
 	},
 /obj/machinery/light,
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "axS" = (
