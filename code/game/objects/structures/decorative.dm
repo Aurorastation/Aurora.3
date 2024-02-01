@@ -50,7 +50,7 @@
 	desc = "The *other* kind of power-point."
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "outlet"
-	layer = 2.7
+	layer = LAYER_UNDER_TABLE
 
 /obj/structure/vent
 	name = "wall vent"
