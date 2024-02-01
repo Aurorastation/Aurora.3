@@ -57,7 +57,7 @@
 	desc = "A nondescript vent."
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "vent"
-	layer = 2.7
+	layer = LAYER_UNDER_TABLE
 
 /obj/structure/window
 	name = "window"
