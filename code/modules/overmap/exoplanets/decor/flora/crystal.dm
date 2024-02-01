@@ -32,3 +32,6 @@
 /obj/effect/floor_decal/crystal/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
 	icon_state = "crystal_gen[rand(1,3)]"
 	. = ..()
+
+/obj/effect/floor_decal/crystal/random/dark
+	color = "#666666"
