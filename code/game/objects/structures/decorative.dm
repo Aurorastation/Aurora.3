@@ -4,7 +4,7 @@
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "ac"
 	layer = BELOW_OBJ_LAYER
-	density = 1
+	density = TRUE
 
 /obj/structure/television
 	name = "wide-screen television"
