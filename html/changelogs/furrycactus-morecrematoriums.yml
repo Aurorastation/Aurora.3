@@ -38,5 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a crematorium to the Chapel and to the Medical Morgue."
-  - rscadd: "Added an Autopsy table to the Medical Morgue."
+  - rscadd: "Added a crematorium to the Chapel and to the Medical Morgue, along with a small selection of materials to make Urns from to store the ashes."
