@@ -55,9 +55,7 @@
 	if(!ready_to_use)
 		to_chat(user, SPAN_WARNING("\The [src] isn't ready to use yet!"))
 		return
-	var/turf/T = target
-	if(!istype(T))
-		T = get_turf(target)
+	var/turf/T = get_turf(target)
 	if(!T)
 		to_chat(user, SPAN_WARNING("Something has gone terribly wrong while choosing a target, please try again somewhere else!"))
 		return
