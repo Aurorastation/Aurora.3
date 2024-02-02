@@ -83,8 +83,8 @@
 	use()
 
 /obj/item/robot_teleporter/use()
-	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	ready_to_use = FALSE
+	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	check_maptext(SMALL_FONTS(6, "Charge"))
 	when_recharge = world.time + recharge_time
 
