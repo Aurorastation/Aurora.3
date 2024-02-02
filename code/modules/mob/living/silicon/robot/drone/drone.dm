@@ -59,8 +59,9 @@
 	var/list/pull_list = list(
 					/obj/structure/disposalconstruct,
 					/obj/item/pipe,
-					/obj/item/pipe_meter
-					)
+					/obj/item/pipe_meter,
+					/mob/living/silicon/robot/drone
+					) //Drone conga line, could give them a good robotic look as they march in unison to an objective, I dont know if this will work though
 	mob_bump_flag = SIMPLE_ANIMAL
 	holder_type = /obj/item/holder/drone
 
@@ -68,7 +69,7 @@
 
 	// ID and Access
 	law_update = FALSE
-	req_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
+	req_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS, ACCESS_FORENSICS_LOCKERS) //Should let detectives stop drones from cleaning their crimescenes
 	var/hacked = FALSE
 
 	// Laws
