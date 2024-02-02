@@ -42,7 +42,6 @@
 	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
 		return R.get_cell()
-	return null
 
 /obj/item/robot_teleporter/examine(mob/user, distance)
 	. = ..()
