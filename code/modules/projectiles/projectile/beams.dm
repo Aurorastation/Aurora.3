@@ -228,7 +228,7 @@
 	damage = 1
 	sharp = FALSE
 	eyeblur = 0
-	agony = 25
+	agony = 35
 	damage_type = DAMAGE_BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
@@ -241,6 +241,8 @@
 		H.druggy += 15
 		if(H.dizziness < 400) //too much dizzy is BAD. we add a cap here
 			H.make_dizzy(50)
+		else //max dizzy, we start 'escalating' by adding a additional effect. Effect won't stack, just reset
+			T.confused = 5
 		H.slurring += 15
 	. = ..()
 
