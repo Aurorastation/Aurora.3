@@ -35,9 +35,14 @@
 	tameable = FALSE
 	psi_pingable = FALSE
 	stop_automated_movement_when_pulled = 0
-	var/screen ///icon state for screen overlay
-	var/image/screen_overlay ///overlay of a screen to display on the zombie's monitor
-	var/corpse = /obj/effect/landmark/corpse/ipc_zombie ///ipc corpse to spawn on the simplemob's death
+	///Icon state for screen overlay
+	var/screen
+
+	///Overlay of a screen to display on the zombie's monitor
+	var/image/screen_overlay
+
+	///IPC corpse to spawn on the simplemob's death
+	var/corpse = /obj/effect/landmark/corpse/ipc_zombie
 
 /mob/living/simple_animal/hostile/ipc_zombie/Initialize()
 	. = ..()
