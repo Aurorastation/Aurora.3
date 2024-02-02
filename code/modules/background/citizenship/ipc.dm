@@ -36,5 +36,5 @@
 
 	uniform = /obj/item/clothing/under/suit_jacket/burgundy
 	backpack_contents = list(
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/pistol/goldendeep = 1
 	)

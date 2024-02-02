@@ -222,6 +222,28 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/obj/item/projectile/beam/disorient
+	name = "disorient pulse"
+	icon_state = "stun"
+	damage = 1
+	sharp = FALSE
+	eyeblur = 0
+	agony = 25
+	damage_type = DAMAGE_BURN
+
+	muzzle_type = /obj/effect/projectile/muzzle/stun
+	tracer_type = /obj/effect/projectile/tracer/stun
+	impact_type = /obj/effect/projectile/impact/stun
+
+/obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
+	if(ishuman(target) && blocked < 100) //Make them trip
+		var/mob/living/carbon/human/H = target
+		H.druggy += 75
+		if(H.dizziness < 400) //too much dizzy is BAD. we add a cap here
+			H.make_dizzy(100)
+		H.slurring += 30
+	. = ..()
+
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
