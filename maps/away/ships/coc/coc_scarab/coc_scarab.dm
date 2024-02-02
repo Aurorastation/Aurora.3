@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/coc_scarab
 	name = "Scarab Salvage Ship"
 	description = "Scarab salvage ship."
-	suffixes = list("ships/coc/coc_scarab/coc_scarab.dmm")
+	suffixes = list("ships/coc/coc_scarab/coc_scarab_deck_1.dmm", "ships/coc/coc_scarab/coc_scarab_deck_2.dmm")
 	sectors = list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE)
 	spawn_weight = 1
 	ship_cost = 1
