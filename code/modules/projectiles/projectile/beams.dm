@@ -238,12 +238,14 @@
 /obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target) && blocked < 100) //Make them trip
 		var/mob/living/carbon/human/H = target
-		H.druggy += 15
+		if(H.druggy < 75)
+			H.druggy += 15
 		if(H.dizziness < 400) //too much dizzy is BAD. we add a cap here
 			H.make_dizzy(50)
 		else //max dizzy, we start 'escalating' by adding a additional effect. Effect won't stack, just reset
 			H.confused = 5
-		H.slurring += 15
+		if(H.slurring < 75)
+			H.slurring += 15
 	. = ..()
 
 /obj/item/projectile/beam/gatlinglaser
