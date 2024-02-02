@@ -6659,20 +6659,7 @@
 /area/maintenance/research_port)
 "eHp" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/fancy/tray/autopsy,
-/obj/machinery/light/small,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Autopsy and Cremation";
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/medical,
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "eHq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -7748,6 +7735,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Autopsy and Cremation"
+	},
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
 	temperature = 278.15
@@ -13359,6 +13349,14 @@
 	},
 /obj/machinery/firealarm/west,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/closet/crate{
+	name = "Cremation Urn Materials"
+	},
+/obj/item/stack/material/wood/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/bronze/full,
+/obj/item/stack/material/glass/full,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
 	temperature = 278.15
@@ -16629,7 +16627,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "lEQ" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck1_morgue2";
 	name = "Viewing Shutters";
@@ -16638,6 +16635,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
@@ -18579,14 +18579,8 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
-/obj/structure/closet/crate{
-	name = "Cremation Urn Materials"
-	},
-/obj/item/stack/material/wood/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/bronze/full,
-/obj/item/stack/material/glass/full,
-/obj/item/device/hand_labeler,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "mSd" = (
@@ -30683,17 +30677,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "vif" = (
-/obj/machinery/optable{
-	name = "autopsy table"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/medical,
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
-	},
+/obj/machinery/light/small,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "vik" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -32409,9 +32395,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "wsT" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
