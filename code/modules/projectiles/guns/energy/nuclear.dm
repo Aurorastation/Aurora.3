@@ -191,7 +191,7 @@
 	fire_delay = 3
 	can_turret = FALSE
 	secondary_projectile_type = /obj/item/projectile/beam/pistol
-	secondary_fire_sound = 'sound/weapons/laser1.ogg'
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 	can_switch_modes = TRUE
 
 	projectile_type = /obj/item/projectile/beam/disorient
