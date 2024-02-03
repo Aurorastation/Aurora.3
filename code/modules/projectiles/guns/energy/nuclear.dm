@@ -178,14 +178,14 @@
 		)
 
 /obj/item/gun/energy/pistol/goldendeep
-	name = "golden deep energy pistol"
-	desc = "A energy pistol covered in GOLD I LOVE GOLD I LOVE GOLD."
-	desc_extended = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
-	icon = 'icons/obj/guns/hegemony_pistol.dmi'
-	icon_state = "hegemony_pistol"
-	item_state = "hegemony_pistol"
+	name = "golden deep ornate energy pistol"
+	desc = "An intricate golden energy pistol, engraved with a quality unlike no other. If you had to describe this pistol in one word, it would be <b>expensive.</b>"
+	desc_extended = "Possessed by only the most affluent affiliates of the Golden Deep, this ornate energy pistol covered in gold is the result of a commission, which had the artistic quality of Ultra Maz combined with the scientific technology acquired by the Estriconian to produce a weapon that many outsiders see as a firearm more valuable than the assets it was made to protect."
+	icon = 'icons/obj/guns/goldendeep_ornatepistol.dmi'
+	icon_state = "golden_deep_ornatepistolstun100"
+	item_state = "golden_deep_ornatepistolstun100"
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Taser.ogg'
+	fire_sound = 'sound/weapons/laser2.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 10
 	fire_delay = 3
@@ -196,11 +196,11 @@
 
 	projectile_type = /obj/item/projectile/beam/disorient
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
-	modifystate = "hegemony_pistol"
+	modifystate = "golden_deep_ornatepistolstun"
 
 	firemodes = list(
-		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg', fire_delay = 4),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="golden_deep_ornatepistolstun", fire_sound='sound/weapons/Taser.ogg', fire_delay = 4),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="golden_deep_ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/repeater

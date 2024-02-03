@@ -223,7 +223,7 @@
 	impact_type = /obj/effect/projectile/impact/stun
 
 /obj/item/projectile/beam/disorient
-	name = "disorient pulse"
+	name = "disorienting pulse"
 	icon_state = "stun"
 	damage = 1
 	sharp = FALSE
@@ -231,9 +231,9 @@
 	agony = 35
 	damage_type = DAMAGE_BURN
 
-	muzzle_type = /obj/effect/projectile/muzzle/pulse
-	tracer_type = /obj/effect/projectile/tracer/pulse
-	impact_type = /obj/effect/projectile/impact/pulse
+	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
+	tracer_type = /obj/effect/projectile/muzzle/laser/scc
+	impact_type = /obj/effect/projectile/muzzle/laser/scc
 
 /obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target) && blocked < 100) //Make them trip
