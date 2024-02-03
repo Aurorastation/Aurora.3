@@ -190,16 +190,13 @@
 		if(ishuman(L))
 			if(!vampire_can_affect_target(L, 0, affect_ipc = TRUE))
 				continue
+			L.Weaken(8)
+			L.stuttering = 20
+			L.confused = 10
+			victims += L
+			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
+			L.flash_act(FLASH_PROTECTION_MAJOR)
 
-			if(L.flash_act(ignore_inherent = TRUE))
-				to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
-				L.Weaken(8)
-				L.stuttering = 20
-				L.confused = 10
-				victims += L
-			else(
-				to_chat(L, SPAN_DANGER("You are able to resist [src]'s glare!"))
-			)
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
 			victims += L
