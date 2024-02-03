@@ -205,16 +205,16 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 //DNA related datums
 
 /datum/hair_gradient
-    var/style
-    var/red
-    var/green
-    var/blue
+	var/style
+	var/red
+	var/green
+	var/blue
 
 /datum/hair_gradient/New(var/newStyle, var/newRed, var/newGreen, var/newBlue)
-    style = newStyle
-    red = newRed
-    green = newGreen
-    blue = newBlue
+	style = newStyle
+	red = newRed
+	green = newGreen
+	blue = newBlue
 
 /datum/absorbed_dna
 	var/name
