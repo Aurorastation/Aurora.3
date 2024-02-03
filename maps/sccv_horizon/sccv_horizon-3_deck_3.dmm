@@ -18547,9 +18547,6 @@
 /obj/structure/closet/lawcloset,
 /obj/item/device/camera,
 /obj/item/stamp/denied,
-/obj/item/stamp{
-	name = "consular stamp"
-	},
 /obj/item/folder/blue,
 /obj/item/folder/white,
 /obj/machinery/power/apc/south{
@@ -31021,9 +31018,6 @@
 /obj/structure/closet/lawcloset,
 /obj/item/device/camera,
 /obj/item/stamp/denied,
-/obj/item/stamp{
-	name = "consular stamp"
-	},
 /obj/item/folder/blue,
 /obj/item/folder/white,
 /turf/simulated/floor/carpet,
