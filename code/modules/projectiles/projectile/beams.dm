@@ -240,7 +240,7 @@
 		var/mob/living/carbon/human/H = target
 		if(H.druggy < 75)
 			H.druggy += 15
-		if(H.dizziness < 400) //too much dizzy is BAD. we add a cap here
+		if(H.dizziness < 250) //too much dizzy is BAD. we add a cap here
 			H.make_dizzy(50)
 		else //max dizzy, we start 'escalating' by adding a additional effect. Effect won't stack, just reset
 			H.confused = 5
