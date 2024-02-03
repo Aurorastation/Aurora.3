@@ -6382,6 +6382,10 @@
 /obj/effect/landmark/start{
 	name = "Consular Officer"
 	},
+/obj/item/storage/secure/safe{
+	pixel_y = 43;
+	pixel_x = 60
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular_two)
 "eMN" = (
@@ -14250,11 +14254,6 @@
 /obj/item/clipboard,
 /obj/item/pen/multi,
 /obj/item/device/camera,
-/obj/item/stamp/denied,
-/obj/item/stamp{
-	layer = 3.1;
-	name = "representative stamp"
-	},
 /obj/item/paper_scanner,
 /obj/item/folder/red,
 /obj/item/folder/yellow,
