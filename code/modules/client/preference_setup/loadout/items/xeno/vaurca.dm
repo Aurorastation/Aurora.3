@@ -293,6 +293,6 @@
 	path = /obj/item/clothing/accessory/badge/passcard/tret
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
-	culture_restriction = /singleton/origin_item/culture/klax
+	culture_restriction = list(/singleton/origin_item/culture/klax)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
