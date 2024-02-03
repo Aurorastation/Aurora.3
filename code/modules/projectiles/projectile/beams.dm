@@ -242,8 +242,7 @@
 			H.druggy += 15
 		if(H.dizziness < 250) //too much dizzy is BAD. we add a cap here
 			H.make_dizzy(50)
-		else //max dizzy, we start 'escalating' by adding a additional effect. Effect won't stack, just reset
-			H.confused = 5
+		H.confused = 5
 		if(H.slurring < 75)
 			H.slurring += 15
 	. = ..()
