@@ -228,7 +228,7 @@
 	damage = 1
 	sharp = FALSE
 	eyeblur = 0
-	agony = 35
+	agony = 30
 	damage_type = DAMAGE_BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
