@@ -30,9 +30,24 @@
 	icon_state = "washroom"
 	sound_env = SMALL_ENCLOSED
 
-/area/ship/coc_scarab/hallway
-	name = "Scarab Salvage Vessel - Aft Hallway"
+/area/ship/coc_scarab/engihallway
+	name = "Scarab Salvage Vessel - Engineering Hallway"
+	icon_state = "maint_engineering"
+	sound_env = TUNNEL_ENCLOSED
+
+/area/ship/coc_scarab/forehallway
+	name = "Scarab Salvage Vessel - Fore Hallway"
 	icon_state = "maintcentral"
+	sound_env = TUNNEL_ENCLOSED
+
+/area/ship/coc_scarab/porthallway
+	name = "Scarab Salvage Vessel - Port Hallway"
+	icon_state = "maintenance"
+	sound_env = TUNNEL_ENCLOSED
+
+/area/ship/coc_scarab/starboardhallway
+	name = "Scarab Salvage Vessel - Starboard Hallway"
+	icon_state = "maintenance"
 	sound_env = TUNNEL_ENCLOSED
 
 /area/ship/coc_scarab/armory
@@ -58,15 +73,9 @@
 	name = "Scarab Salvage Vessel - Infirmary"
 	icon_state = "medbay"
 
-/area/ship/coc_scarab/surgery
-	name = "Scarab Salvage Vessel - Operating Theatre"
-	icon_state = "surgery"
-
-/area/ship/coc_scarab/massdriver
-	name = "Scarab Salvage Vessel - Mass Driver"
-	icon_state = "morgue"
-	sound_env = TUNNEL_ENCLOSED
-	ambience = AMBIENCE_GHOSTLY
+/area/ship/coc_scarab/recycling
+	name = "Scarab Salvage Vessel - Recycling"
+	icon_state = "disposal"
 
 /area/ship/coc_scarab/equipment
 	name = "Scarab Salvage Vessel - Equipment Storage"
@@ -83,9 +92,21 @@
 	icon_state = "engine"
 	ambience = AMBIENCE_ATMOS
 
-/area/ship/coc_scarab/solars
-	name = "Scarab Salvage Vessel - Solar Array"
-	icon_state = "green"
+/area/ship/coc_scarab/telecommunications
+	name = "Scarab Salvage Vessel - Telecommunications Closet"
+	icon_state = "tcomsatcham"
+	ambience = AMBIENCE_HIGHSEC
+	sound_env = SMALL_ENCLOSED
+
+/area/ship/coc_scarab/atmospherics
+	name = "Scarab Salvage Vessel - Atmospherics"
+	icon_state = "atmos"
+	ambience = AMBIENCE_ENGINEERING
+
+/area/ship/coc_scarab/cargobay
+	name = "Scarab Salvage Vessel - Cargo Bay"
+	icon_state = "storage"
+	ambience = AMBIENCE_ENGINEERING
 
 /area/ship/coc_scarab/thrust1
 	name = "Scarab Salvage Vessel - Starboard Thruster"
@@ -98,6 +119,7 @@
 /area/ship/coc_scarab/exterior
 	name = "Scarab Salvage Vessel - Exterior"
 	requires_power = FALSE
+	icon_state = "exterior"
 
 /area/shuttle/scarab_harvester
 	name = "Scarab Gas Harvester"
