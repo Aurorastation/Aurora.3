@@ -33,9 +33,13 @@
 	icon_state = "anomaly_core"
 	maptext_x = 3
 	maptext_y = 2
+	///how much power it takes to activate
 	var/power_cost = 1000
+	///whether the teleporter is on cooldown
 	var/ready_to_use = TRUE
+	///how long the user has to wait between teleports
 	var/recharge_time = 30 SECONDS
+	///the time when recharging will be done. used to display the loading bar on examine
 	var/when_recharge = 0
 
 /obj/item/robot_teleporter/get_cell()
