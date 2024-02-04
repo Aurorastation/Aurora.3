@@ -6973,6 +6973,11 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"eQJ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "eRb" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -54021,7 +54026,7 @@ ifD
 wuD
 xCT
 pwR
-evm
+eQJ
 iRC
 iRC
 iRC
@@ -56863,7 +56868,7 @@ gTx
 rPN
 sol
 keZ
-evm
+eQJ
 iRC
 iRC
 iRC
@@ -57066,7 +57071,7 @@ wif
 hdi
 rlc
 dnl
-evm
+eQJ
 iRC
 iRC
 iRC

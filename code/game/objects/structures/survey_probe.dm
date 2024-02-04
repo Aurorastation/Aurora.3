@@ -1,0 +1,94 @@
+/obj/structure/survey_probe
+	name = "survey probe"
+	desc = "\
+		....\
+		"
+	icon = 'icons/obj/structure/survey_probe.dmi'
+	icon_state = "surveying_device"
+	density = TRUE
+	/// If false, probe is not deployed.
+	/// If true, it is deployed and ready to survey.
+	anchored = FALSE
+	///
+	var/timer_id = null
+
+
+/obj/structure/survey_probe/attackby(obj/item/item, mob/living/user)
+	if(!timer_id)
+		if(item.iswrench())
+			if(anchored)
+				user.visible_message(
+					SPAN_NOTICE("\The [user] wrenches \the [src], deploying it."),
+					SPAN_NOTICE("You wrench \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
+					)
+				anchored = TRUE
+			else
+				user.visible_message(
+					SPAN_NOTICE("\The [user] wrenches \the [src], stowing it."),
+					SPAN_NOTICE("You wrench \the [src], stowing it. It retracts its devices and drill bits."),
+					)
+				anchored = FALSE
+
+/obj/structure/survey_probe/attack_hand(mob/user as mob)
+	if(!timer_id)
+		if(anchored)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] activates \the [src], starting the surveying process."),
+				SPAN_NOTICE("You activate \the [src], starting the surveying process. It starts drilling and sampling the ground and air."),
+				)
+			timer_id = addtimer(CALLBACK(src, PROC_REF(survey_end)), 3 SECONDS) // TODO: change to 20
+		else
+			to_chat(user, SPAN_NOTICE("You try to activate \the [src], but its devices and drill bits are not deployed yet."))
+
+/obj/structure/survey_probe/proc/survey_end()
+	if(timer_id)
+		// message
+		src.visible_message(
+			SPAN_NOTICE("\The [src] finishes the surveying process, and prints out a report."),
+			)
+
+		// report vars and default vals
+		var/report_location = "unknown/invalid"
+		var/ground_report = "Invalid or insufficient data, ground survey unsuccessful."
+		var/atmos_report = "Invalid or insufficient data, atmospheric survey unsuccessful."
+
+		// atmos
+		var/turf/turf = src.loc
+		var/datum/gas_mixture/air = turf.return_air()
+		if(air.total_moles>0)
+			atmos_report = english_list(atmosanalyzer_scan(turf, air))
+		var/turf_is_exoplanet = istype(turf, /turf/simulated/floor/exoplanet)
+
+		// sector
+		if(current_map.use_overmap)
+			var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[z]"]
+			if(istype(sector) && sector.survey_result && turf_is_exoplanet)
+				report_location = sector.name
+				ground_report = sector.survey_result
+
+		// not exoplanet turf / hard floor
+		if(!turf_is_exoplanet)
+			ground_report += " The probe cannot penetrate the ground."
+
+		// report text
+		var/timestamp = "[GLOB.game_year]-[time2text(world.realtime, "MM-DD")] [worldtime2text()]"
+		var/report_name = "surveying report - [report_location]"
+		var/report_contents = "\
+			<br><large><b>Survey target: </b>[report_location]</large>\
+			<br><b>Timestamp of survey: </b>[timestamp]\
+			<br><br>\
+			<br><b>Ground survey results:</b>\
+			<br><small>[ground_report]</small>\
+			<br><br>\
+			<br><b>Atmospheric survey results: </b></b>\
+			<br><small>[atmos_report]</small>\
+			<br><br>\
+		"
+
+		// print the report
+		playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
+		new/obj/item/paper/(get_turf(src), report_contents, report_name)
+
+		// fin
+		timer_id = null
+

@@ -171,6 +171,7 @@
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
+	generate_survey_result()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
@@ -423,6 +424,15 @@
 			atmosphere.gas[ng] += part
 			total_moles = max(total_moles - part, 0)
 			i++
+
+/obj/effect/overmap/visitable/sector/exoplanet/generate_survey_result()
+	..()
+	survey_result += "<br><b>Estimated Mass and Volume: </b>[massvolume]BSS(Biesels)"
+	survey_result += "<br><b>Surface Gravity: </b>[surfacegravity]Gs"
+	survey_result += "<br><b>Geological Variables: </b>[geology]"
+	survey_result += "<br><b>Surface Water Coverage: </b>[surfacewater]"
+	survey_result += "<br><b>Apparent Weather Data: </b>[weather]"
+	survey_result += "<br>"
 
 /obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()

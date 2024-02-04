@@ -1280,6 +1280,7 @@
 #include "code\game\objects\structures\signs.dm"
 #include "code\game\objects\structures\simple_doors.dm"
 #include "code\game\objects\structures\statue.dm"
+#include "code\game\objects\structures\survey_probe.dm"
 #include "code\game\objects\structures\tank_dispenser.dm"
 #include "code\game\objects\structures\target_stake.dm"
 #include "code\game\objects\structures\therapy.dm"

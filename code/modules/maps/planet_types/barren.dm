@@ -21,3 +21,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/get_surface_color()
 	return "#6C6251"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_survey_result()
+	..()
+	survey_result += "<br>: "
