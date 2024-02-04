@@ -21,6 +21,7 @@
 					SPAN_NOTICE("\The [user] unfastens the locking bolts on \the [src], deploying it."),
 					SPAN_NOTICE("You unfasten the locking bolts on \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
 					)
+				item.play_tool_sound(user, 30)
 				anchored = TRUE
 				icon_state = "surveying_probe_deployed"
 			else
@@ -28,6 +29,7 @@
 					SPAN_NOTICE("\The [user] fastens the locking bolts on \the [src], stowing it."),
 					SPAN_NOTICE("You fasten the locking bolts \the [src], stowing it. It retracts its devices and drill bits."),
 					)
+				item.play_tool_sound(user, 30)
 				anchored = FALSE
 				icon_state = "surveying_probe"
 
