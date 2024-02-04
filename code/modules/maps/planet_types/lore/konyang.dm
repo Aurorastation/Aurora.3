@@ -54,3 +54,6 @@
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
 		atmosphere.temperature = T20C
 		atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
