@@ -2462,7 +2462,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "bSO" = (
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /obj/item/folder/blue,
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark,
@@ -3909,7 +3909,7 @@
 /turf/simulated/open,
 /area/maintenance/engineering_ladder)
 "ddZ" = (
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /obj/item/pen,
 /obj/item/paper_bin{
 	pixel_x = -3;
@@ -7452,6 +7452,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/bridge_crew,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "fyZ" = (
@@ -7850,12 +7851,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
-"fMm" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "fMB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -8596,7 +8591,6 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "gjT" = (
-/obj/machinery/light,
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
@@ -9091,7 +9085,7 @@
 	id = "bridge_foyer";
 	name = "Bridge Bolt Control";
 	pixel_x = 27;
-	pixel_y = -7;
+	pixel_y = -8;
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11249,6 +11243,21 @@
 	},
 /obj/item/device/radio/intercom/north,
 /obj/structure/table/reinforced/steel,
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/clipboard{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/pen/blue{
+	pixel_x = 5
+	},
+/obj/item/pen/red{
+	pixel_x = 7;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "hYG" = (
@@ -15032,7 +15041,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
 "kHi" = (
-/obj/machinery/alarm/south,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
@@ -15712,26 +15720,24 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/item/clipboard{
-	pixel_x = 5;
-	pixel_y = -4
-	},
 /obj/item/folder/blue{
 	pixel_y = 7;
 	pixel_x = 5
 	},
 /obj/item/folder/blue{
 	pixel_y = 7;
-	pixel_x = 5
-	},
-/obj/item/pen/red{
-	pixel_x = 7;
-	pixel_y = 3
-	},
-/obj/item/pen/blue{
 	pixel_x = 5
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/folder/red{
+	pixel_y = 4;
+	pixel_x = 5
+	},
+/obj/machinery/light_switch{
+	dir = 6;
+	pixel_x = 5;
+	pixel_y = -7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "ldS" = (
@@ -17212,7 +17218,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/upperdeck)
 "mfh" = (
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /obj/item/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -19782,13 +19788,12 @@
 	id = "conferencesafetyshutters";
 	name = "Conference Room Shutters";
 	pixel_x = -26;
-	pixel_y = 4;
+	pixel_y = 8;
 	req_access = list(19)
 	},
 /obj/machinery/light_switch{
 	dir = 5;
-	pixel_x = -26;
-	pixel_y = -3
+	pixel_x = -26
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
@@ -20244,6 +20249,11 @@
 	dir = 6
 	},
 /obj/structure/displaycase/adhomai_map,
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck3_captain";
+	name = "External Shutters";
+	pixel_y = -18
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "oet" = (
@@ -20316,7 +20326,9 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/wood,
-/obj/item/reagent_containers/glass/beaker/teapot,
+/obj/item/reagent_containers/glass/beaker/teapot{
+	pixel_y = 4
+	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "ogm" = (
@@ -21759,15 +21771,6 @@
 /obj/structure/bed/stool/padded/blue,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
-"pfd" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Security Officer"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/security/meeting_room)
 "pfL" = (
 /obj/machinery/door/window{
 	dir = 1
@@ -22441,6 +22444,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "pOs" = (
@@ -22803,10 +22807,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -19
+	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "qcE" = (
@@ -23518,6 +23523,7 @@
 	dir = 6
 	},
 /obj/structure/closet/secure_closet/bridge_crew,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "qDx" = (
@@ -23806,11 +23812,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qMd" = (
-/obj/structure/fireaxecabinet/north{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -24585,7 +24592,7 @@
 "rqM" = (
 /obj/item/folder/blue,
 /obj/item/pen,
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "rqN" = (
@@ -24898,11 +24905,14 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "rzX" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/obj/structure/bed/stool/bar/padded/blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/bridge/minibar)
 "rAd" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/reinforced/airless,
@@ -28123,20 +28133,19 @@
 /area/bridge/controlroom)
 "tLh" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /obj/machinery/button/remote/airlock{
 	dir = 9;
 	id = "conference_room";
 	name = "Conference Room Bolts";
-	pixel_x = -4;
-	pixel_y = 4;
+	pixel_x = -3;
+	pixel_y = 8;
 	specialfunctions = 4
 	},
 /obj/machinery/button/switch/windowtint{
 	dir = 5;
 	id = "bridgeconf";
-	pixel_x = -4;
-	pixel_y = -3
+	pixel_x = -3
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
@@ -28172,10 +28181,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "tNE" = (
-/obj/item/hullbeacon/red,
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
+/obj/structure/grille,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "tNF" = (
@@ -29600,7 +29609,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/paper_bin{
 	pixel_x = -3;
@@ -31563,6 +31572,9 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
+/obj/structure/fireaxecabinet/north{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "wik" = (
@@ -32202,19 +32214,17 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "wGR" = (
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
-/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = 30
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/storage/firstaid/large,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/storage/firstaid/o2,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wHl" = (
@@ -32637,6 +32647,9 @@
 /area/horizon/hallway/deck_three/primary/central)
 "wUu" = (
 /obj/machinery/vending/dinnerware,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/minibar)
 "wUx" = (
@@ -33824,6 +33837,9 @@
 	dir = 4;
 	pixel_y = 6
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "xPq" = (
@@ -33900,14 +33916,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "xSX" = (
-/obj/structure/bed/stool/bar/padded/blue{
-	dir = 8
+/obj/structure/bed/stool/chair{
+	dir = 1
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/effect/landmark/start{
+	name = "Security Officer"
 	},
-/turf/simulated/floor/wood,
-/area/bridge/minibar)
+/turf/simulated/floor/tiled/dark,
+/area/horizon/security/meeting_room)
 "xUZ" = (
 /obj/machinery/button/switch/windowtint{
 	dir = 9;
@@ -34052,7 +34068,7 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/representative_two)
 "ycA" = (
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "ydF" = (
@@ -51327,20 +51343,20 @@ gQw
 ivg
 wGH
 wGH
+iUA
+wGH
+wGH
+wGH
+iUA
+wGH
+wGH
+wGH
+iUA
 wGH
 wGH
 wGH
 wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
+iUA
 wGH
 vBY
 opC
@@ -53566,7 +53582,7 @@ hmu
 ltT
 ltH
 mrU
-wGH
+iUA
 vkb
 dSF
 dSF
@@ -55182,7 +55198,7 @@ eAw
 xEZ
 auq
 mrU
-wGH
+iUA
 vkb
 dSF
 dSF
@@ -55574,7 +55590,7 @@ jKp
 mvo
 sKC
 ugJ
-htX
+asO
 whG
 qEj
 pSe
@@ -56593,7 +56609,7 @@ hKm
 ftB
 qrQ
 qrQ
-xSX
+rzX
 pNE
 sHE
 vkb
@@ -56922,7 +56938,7 @@ cPq
 cPq
 cPq
 cPq
-cPq
+hLZ
 pZS
 kUM
 sfK
@@ -58336,7 +58352,7 @@ cPq
 mKC
 cPq
 cPq
-cPq
+hLZ
 pZS
 kUM
 yfs
@@ -59156,8 +59172,8 @@ waj
 oAR
 ydF
 vrL
-rzX
-rzX
+fll
+fll
 fll
 fll
 gaw
@@ -59345,10 +59361,10 @@ cPq
 cPq
 cPq
 cPq
+cPq
+cPq
 ohD
-cPq
-cPq
-cPq
+hLZ
 vrL
 ydF
 ltv
@@ -59358,7 +59374,7 @@ waj
 sWr
 ydF
 vrL
-cPq
+hLZ
 cPq
 cPq
 cPq
@@ -59550,7 +59566,7 @@ cPq
 cPq
 cPq
 cPq
-cPq
+hLZ
 vrL
 ydF
 dda
@@ -59560,7 +59576,7 @@ waj
 ecP
 ydF
 vrL
-cPq
+hLZ
 cPq
 cPq
 ohD
@@ -59752,7 +59768,7 @@ cPq
 cPq
 cPq
 cPq
-cPq
+hLZ
 vrL
 ydF
 azF
@@ -59762,7 +59778,7 @@ tqS
 sWr
 ydF
 vrL
-cPq
+hLZ
 cPq
 cPq
 cPq
@@ -59954,7 +59970,7 @@ cPq
 cPq
 cPq
 cPq
-cPq
+hLZ
 vrL
 ydF
 eUd
@@ -59964,7 +59980,7 @@ fEh
 eUd
 ydF
 vrL
-cPq
+hLZ
 cPq
 cPq
 cPq
@@ -60154,9 +60170,9 @@ cPq
 cPq
 cPq
 cPq
+cPq
+cPq
 hLZ
-nxf
-cPq
 vrL
 ydF
 ydF
@@ -60166,7 +60182,7 @@ ydF
 ydF
 ydF
 vrL
-cPq
+hLZ
 cPq
 cPq
 cPq
@@ -60356,9 +60372,9 @@ cPq
 cPq
 cPq
 cPq
+cPq
+cPq
 hLZ
-jRX
-cPq
 vrL
 vrL
 vrL
@@ -60368,11 +60384,11 @@ vrL
 vrL
 vrL
 vrL
-cPq
+hLZ
 cPq
 cPq
 cPq
-cPq
+ohD
 qAq
 xMj
 gza
@@ -60558,23 +60574,23 @@ cPq
 cPq
 cPq
 cPq
-hLZ
-ozD
+cPq
+cPq
 tNE
+hLZ
+hLZ
+hLZ
+hLZ
+hLZ
+hLZ
+hLZ
+hLZ
+hLZ
+hLZ
 cPq
 cPq
 cPq
 cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-ohD
-cPq
-cPq
-cPq
-ohD
 fzf
 bif
 hco
@@ -60760,20 +60776,20 @@ cPq
 cPq
 cPq
 cPq
-hLZ
-hLZ
-ozD
-fMm
-fMm
-fMm
-nxf
+cPq
+ohD
 cPq
 cPq
 cPq
 cPq
 cPq
+ohD
 cPq
 cPq
+cPq
+cPq
+cPq
+ohD
 cPq
 cPq
 cPq
@@ -60963,12 +60979,12 @@ cPq
 cPq
 cPq
 cPq
-hLZ
-hLZ
-hLZ
-hLZ
-hLZ
-hLZ
+cPq
+cPq
+cPq
+cPq
+cPq
+cPq
 cPq
 cPq
 cPq
@@ -61398,7 +61414,7 @@ lnI
 jzb
 sLg
 tZE
-pfd
+xSX
 kxs
 dAI
 tni
@@ -61600,7 +61616,7 @@ lnI
 bqY
 iVD
 fyZ
-pfd
+xSX
 kxs
 fxm
 tni
@@ -61802,7 +61818,7 @@ lnI
 vTI
 pms
 fyZ
-pfd
+xSX
 gTO
 xJq
 tGG
@@ -61988,7 +62004,7 @@ cPq
 cPq
 cPq
 cPq
-cPq
+ohD
 gTG
 jzy
 jzy
