@@ -1,7 +1,14 @@
 /obj/structure/survey_probe
 	name = "survey probe"
 	desc = "\
-		....\
+		All-in-one survey probe, able to provide preliminary analysis of planetary bodies. \
+		It has different devices, samplers, and drill bits, as well as internal processing computers, \
+		to inspect the atmosphere, ground, soil, crust, and many other properties and qualities of planetary bodies. \
+		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking for planets that are actually worth settling or exploiting for resources. \
+		This probe was manufactured by Orion Express, but it is based on on older model designed by Hephaestus Industries.\
+		"
+	desc_info = "\
+		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate.\
 		"
 	icon = 'icons/obj/structure/survey_probe.dmi'
 	icon_state = "surveying_probe"
@@ -40,7 +47,7 @@
 				SPAN_NOTICE("\The [user] activates \the [src], starting the surveying process."),
 				SPAN_NOTICE("You activate \the [src], starting the surveying process. It starts drilling and sampling the ground and air."),
 				)
-			timer_id = addtimer(CALLBACK(src, PROC_REF(survey_end)), 3 SECONDS) // TODO: change to 20
+			timer_id = addtimer(CALLBACK(src, PROC_REF(survey_end)), 20 SECONDS)
 			icon_state = "surveying_probe_active"
 		else
 			to_chat(user, SPAN_NOTICE("You try to activate \the [src], but its devices and drill bits are not deployed yet."))
@@ -82,6 +89,7 @@
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 			if(istype(sector))
 				report_location = sector.name
+				ground_report = ""
 				if(istype(exoplanet))
 					ground_report += "<br><b>Estimated Mass and Volume: </b>[exoplanet.massvolume]BSS(Biesels)"
 					ground_report += "<br><b>Surface Gravity: </b>[exoplanet.surfacegravity]Gs"
