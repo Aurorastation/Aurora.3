@@ -171,8 +171,8 @@
 	var/list/guaranteed_exoplanets = sector.guaranteed_exoplanets
 
 	if(length(guaranteed_exoplanets))
-		for(var/j = 0, j < guaranteed_exoplanets.len, j++)
-			var/guaranteed_exoplanet_type = pop(guaranteed_exoplanets)
+		for(var/j in guaranteed_exoplanets)
+			var/guaranteed_exoplanet_type = j
 			log_module_exoplanets("Building new exoplanet with type: [guaranteed_exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 			var/obj/effect/overmap/visitable/sector/exoplanet/P = new guaranteed_exoplanet_type(null, planet_size[1], planet_size[2])
 			P.build_level()
