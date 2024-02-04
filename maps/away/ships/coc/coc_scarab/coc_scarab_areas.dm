@@ -79,7 +79,7 @@
 
 /area/ship/coc_scarab/equipment
 	name = "Scarab Salvage Vessel - Equipment Storage"
-	icon_state = "storage"
+	icon_state = "eva"
 	ambience = AMBIENCE_ENGINEERING
 
 /area/ship/coc_scarab/engistorage
@@ -106,6 +106,11 @@
 /area/ship/coc_scarab/cargobay
 	name = "Scarab Salvage Vessel - Cargo Bay"
 	icon_state = "storage"
+	ambience = AMBIENCE_ENGINEERING
+
+/area/ship/coc_scarab/hangar
+	name = "Scarab Salvage Vessel - Hangar"
+	icon_state = "primarystorage"
 	ambience = AMBIENCE_ENGINEERING
 
 /area/ship/coc_scarab/thrust1
