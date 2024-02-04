@@ -90,7 +90,7 @@
 					ground_report += "<br><b>Apparent Weather Data: </b>[exoplanet.weather]"
 					ground_report += "<br>"
 				if(sector.ground_survey_result)
-					ground_report = sector.ground_survey_result
+					ground_report += sector.ground_survey_result
 
 		// report text
 		var/timestamp = "[GLOB.game_year]-[time2text(world.realtime, "MM-DD")] [worldtime2text()]"
