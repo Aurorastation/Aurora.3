@@ -184,9 +184,10 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/generate_skybox()
 	return
 
+/// Generate ground survey result text.
+/// Called once at init of the sector.
 /obj/effect/overmap/visitable/sector/proc/generate_survey_result()
-	SHOULD_CALL_PARENT(TRUE)
-	survey_result = ""
+	ground_survey_result = ""
 
 /obj/effect/overmap/visitable/proc/toggle_distress_status()
 	has_called_distress_beacon = !has_called_distress_beacon
@@ -232,8 +233,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	icon_state = "sector"
 	anchored = 1
 
-	/// Survey result for use by survey probes to generate survey reports after surveying.
-	var/survey_result = null
+	/// Ground survey result for use by survey probes to generate survey reports after surveying.
+	var/ground_survey_result = null
 
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.

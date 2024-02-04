@@ -26,18 +26,18 @@
 /obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_survey_result()
 	..()
 	if(prob(50))
-		survey_result += "<br>Crystal mush detected in deep crust"
+		ground_survey_result += "<br>Crystal mush detected in deep crust"
 	if(prob(50))
-		survey_result += "<br>Natural silica aerogels predicted to be found in subterranean pockets"
+		ground_survey_result += "<br>Natural silica aerogels predicted to be found in subterranean pockets"
 	if(prob(50))
-		survey_result += "<br>Planetary core contains volatiles, maintaining stability due to high pressure"
+		ground_survey_result += "<br>Planetary core contains volatiles, maintaining stability due to high pressure"
 	if(prob(50))
-		survey_result += "<br>Micro-textural analysis indicates porous crystals in shallow crust"
+		ground_survey_result += "<br>Micro-textural analysis indicates porous crystals in shallow crust"
 	if(prob(50))
-		survey_result += "<br>Superconductors in crystalline form present in the crust"
+		ground_survey_result += "<br>Superconductors in crystalline form present in the crust"
 	if(prob(50))
-		survey_result += "<br>Silicon carbides found deep in the crust"
+		ground_survey_result += "<br>Silicon carbides found deep in the crust"
 	if(prob(50))
-		survey_result += "<br>High content of refractory materials"
+		ground_survey_result += "<br>High content of refractory materials"
 	if(prob(10))
-		survey_result += "<br>Traces of fusile material"
+		ground_survey_result += "<br>Traces of fusile material"

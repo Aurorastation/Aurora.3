@@ -29,20 +29,20 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/generate_survey_result()
 	..()
 	if(prob(50))
-		survey_result += "<br>High sulfide content of the shallow rock bed"
+		ground_survey_result += "<br>High sulfide content of the shallow rock bed"
 	if(prob(50))
-		survey_result += "<br>Pockets of saturated hydrocarbons in deep crust"
+		ground_survey_result += "<br>Pockets of saturated hydrocarbons in deep crust"
 	if(prob(50))
-		survey_result += "<br>Planetary core contains volatiles, maintaining stability due to high pressure"
+		ground_survey_result += "<br>Planetary core contains volatiles, maintaining stability due to high pressure"
 	if(prob(50))
-		survey_result += "<br>Silica alloy superconductors found in stability in the lava"
+		ground_survey_result += "<br>Silica alloy superconductors found in stability in the lava"
 	if(prob(50))
-		survey_result += "<br>Analysis indicates heavy metals of low impurity, high possibility of easy extraction"
+		ground_survey_result += "<br>Analysis indicates heavy metals of low impurity, high possibility of easy extraction"
 	if(prob(50))
-		survey_result += "<br>Traces of precious metals scattered in the crust"
+		ground_survey_result += "<br>Traces of precious metals scattered in the crust"
 	if(prob(20))
-		survey_result += "<br>High entropy alloys detected in deep crust"
+		ground_survey_result += "<br>High entropy alloys detected in deep crust"
 	if(prob(30))
-		survey_result += "<br>Traces of fusile material"
+		ground_survey_result += "<br>Traces of fusile material"
 	if(prob(40))
-		survey_result += "<br>High content of fissile material in the rock"
+		ground_survey_result += "<br>High content of fissile material in the rock"

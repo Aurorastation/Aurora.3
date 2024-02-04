@@ -1559,7 +1559,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/outpost/mining_main/refinery)
 "bgR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3351,6 +3351,9 @@
 	dir = 1;
 	name = "Mining";
 	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/outpost/mining_main/refinery)
@@ -5623,27 +5626,18 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "dWD" = (
-/obj/structure/table/standard,
-/obj/item/device/suit_cooling_unit,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = -1
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
-/obj/item/storage/belt/utility,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/eastleft{
-	name = "Tools Access";
+/obj/machinery/button/remote/blast_door{
+	dir = 2;
+	id = "miningbay";
+	name = "Mining Bay Entrance";
+	pixel_x = 22;
+	pixel_y = -18;
 	req_access = list(48)
 	},
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining - Suit Storage";
-	dir = 1
-	},
-/obj/item/stack/rods/full,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "dWL" = (
 /obj/random/junk,
@@ -6494,7 +6488,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/outpost/mining_main/refinery)
 "eCh" = (
 /obj/structure/railing/mapped{
@@ -9185,6 +9179,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"gld" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/camera/network/mining{
+	c_tag = "Mining - Suit Storage";
+	dir = 1
+	},
+/obj/structure/table/standard,
+/obj/item/stack/rods/full{
+	pixel_y = 7
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 1;
+	pixel_x = -1
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "gmo" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "1,20"
@@ -13476,14 +13488,19 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Mining Entrance"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "miningbay";
+	name = "Mining Bay Entrance";
+	pixel_x = 22;
+	pixel_y = 29;
+	req_access = list(48);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -13574,14 +13591,6 @@
 "jwN" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "miningbay";
-	name = "Mining Bay Entrance";
-	pixel_x = 25;
-	pixel_y = -25;
-	req_access = list(48)
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -15433,13 +15442,6 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "miningbay";
-	name = "Mining Bay Entrance";
-	pixel_x = -7;
-	pixel_y = 25;
-	req_access = list(48)
-	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "kKc" = (
@@ -16621,6 +16623,15 @@
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Locker Room"
+	},
+/obj/structure/table/standard,
+/obj/item/device/suit_cooling_unit,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 0
+	},
+/obj/item/storage/belt/utility,
+/obj/item/stack/rods/full{
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
@@ -18268,8 +18279,15 @@
 	icon_state = "0-4"
 	},
 /obj/structure/table/steel,
-/obj/machinery/recharger,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 6
+	},
 /obj/machinery/power/apc/north,
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "mKo" = (
@@ -18858,6 +18876,11 @@
 	icon_state = "2,16"
 	},
 /area/shuttle/intrepid/atmos_compartment)
+"ncy" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "ncC" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -23048,6 +23071,14 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
+"pXi" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/survey_probe,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "pXv" = (
 /obj/machinery/light{
 	dir = 4
@@ -24035,6 +24066,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"qEZ" = (
+/turf/simulated/floor/tiled/full,
+/area/outpost/mining_main/refinery)
 "qFc" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -25769,26 +25803,19 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "rRq" = (
-/obj/structure/table/standard,
-/obj/item/device/suit_cooling_unit,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = -1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/item/storage/belt/utility,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/door/window/eastleft{
-	name = "Tools Access";
-	req_access = list(48)
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/item/stack/rods/full,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/outpost/mining_main/refinery)
 "rRE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29208,6 +29235,15 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/structure/table/standard,
+/obj/item/device/suit_cooling_unit,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 0
+	},
+/obj/item/storage/belt/utility,
+/obj/item/stack/rods/full{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
 "uni" = (
@@ -31726,6 +31762,7 @@
 	},
 /obj/machinery/door/window/northright,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
 "vZT" = (
@@ -32195,6 +32232,9 @@
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Mining Entrance"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -50370,7 +50410,7 @@ rRb
 wkD
 frg
 obc
-tgR
+qEZ
 bgP
 nTP
 umt
@@ -50573,8 +50613,8 @@ tIS
 wkD
 gKG
 obc
-tgR
-beP
+qEZ
+rRq
 tgR
 fKk
 wkD
@@ -50778,7 +50818,7 @@ wkD
 knh
 tgR
 beP
-tgR
+ncy
 tPr
 dNk
 jyX
@@ -50981,8 +51021,8 @@ cWd
 hhO
 tgR
 uBi
-tgR
-wCx
+ncy
+pXi
 dNk
 gZP
 dJT
@@ -51186,7 +51226,7 @@ tgR
 beP
 tgR
 wCx
-ctM
+tEc
 vTJ
 mFO
 qNK
@@ -51385,11 +51425,11 @@ oOk
 oOk
 oOk
 oul
-tgR
+qEZ
 eBt
-rRq
+tgR
 dWD
-dNk
+tEc
 juI
 rcA
 rcA
@@ -51588,11 +51628,11 @@ xAG
 qUu
 oOk
 mKc
+qEZ
+rRq
 tgR
-beP
-tgR
-wCx
-tEc
+gld
+dNk
 wos
 rcA
 soT
@@ -51795,7 +51835,7 @@ tHv
 hjO
 qpe
 jwN
-tEc
+ctM
 eqk
 rcA
 rcr

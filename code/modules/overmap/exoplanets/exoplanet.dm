@@ -427,12 +427,12 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/generate_survey_result()
 	..()
-	survey_result += "<br><b>Estimated Mass and Volume: </b>[massvolume]BSS(Biesels)"
-	survey_result += "<br><b>Surface Gravity: </b>[surfacegravity]Gs"
-	survey_result += "<br><b>Geological Variables: </b>[geology]"
-	survey_result += "<br><b>Surface Water Coverage: </b>[surfacewater]"
-	survey_result += "<br><b>Apparent Weather Data: </b>[weather]"
-	survey_result += "<br>"
+	ground_survey_result += "<br><b>Estimated Mass and Volume: </b>[massvolume]BSS(Biesels)"
+	ground_survey_result += "<br><b>Surface Gravity: </b>[surfacegravity]Gs"
+	ground_survey_result += "<br><b>Geological Variables: </b>[geology]"
+	ground_survey_result += "<br><b>Surface Water Coverage: </b>[surfacewater]"
+	ground_survey_result += "<br><b>Apparent Weather Data: </b>[weather]"
+	ground_survey_result += "<br>"
 
 /obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()
