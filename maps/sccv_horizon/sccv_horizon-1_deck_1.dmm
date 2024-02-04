@@ -1545,11 +1545,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"bfO" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "bfX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -8799,8 +8794,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "fXM" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/tank/air,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/tank/air,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "fXS" = (
@@ -12233,10 +12234,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"iBu" = (
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "iBL" = (
 /obj/item/material/shard{
 	icon_state = "medium"
@@ -22296,11 +22293,9 @@
 /area/engineering/atmos/propulsion)
 "pwR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
+/obj/structure/survey_probe{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "pxH" = (
@@ -53901,8 +53896,8 @@ usP
 lCX
 wuD
 ybD
-rGK
-bfO
+eQJ
+eQJ
 iRC
 iRC
 iRC
@@ -54105,7 +54100,7 @@ ifD
 wuD
 xCT
 pwR
-eQJ
+pwR
 iRC
 iRC
 iRC
@@ -56337,7 +56332,7 @@ jgk
 qPF
 rPN
 mrC
-aUk
+fXM
 iRC
 iRC
 hAl
@@ -56540,7 +56535,7 @@ kLb
 qeD
 rPN
 vmL
-fXM
+aUk
 iRC
 iRC
 xtM
@@ -56947,7 +56942,7 @@ gTx
 rPN
 sol
 keZ
-eQJ
+evm
 iRC
 iRC
 iRC
@@ -57150,7 +57145,7 @@ wif
 hdi
 rlc
 dnl
-eQJ
+rGK
 iRC
 iRC
 iRC
