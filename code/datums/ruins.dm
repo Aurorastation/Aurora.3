@@ -69,7 +69,6 @@
 	// set up sectors
 	sectors = flatten_list(sectors)
 	sectors_blacklist = flatten_list(sectors_blacklist)
-	sectors -= sectors_blacklist
 
 	// adjust weight from sector dependent override
 	var/datum/space_sector/current_sector = SSatlas.current_sector
@@ -85,4 +84,6 @@
 
 /// Returns `TRUE` if this ruin can spawn in current sector, otherwise `FALSE`.
 /datum/map_template/ruin/proc/spawns_in_current_sector()
+	if(SSatlas.current_sector.name in sectors_blacklist)
+		return FALSE
 	return (SSatlas.current_sector.name in sectors)

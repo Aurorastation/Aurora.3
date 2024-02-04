@@ -122,6 +122,6 @@
 	var/list/away_sites = list()
 	for(var/id in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site = SSmapping.away_sites_templates[id]
-		if(name in away_site.sectors)
+		if((name in away_site.sectors) && !(name in away_site.sectors_blacklist))
 			away_sites += away_site
 	return away_sites
