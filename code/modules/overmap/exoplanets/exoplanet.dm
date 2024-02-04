@@ -171,7 +171,6 @@
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
-	generate_ground_survey_result()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
@@ -425,14 +424,11 @@
 			total_moles = max(total_moles - part, 0)
 			i++
 
+/// Randomly generated planets should call parent and append to `ground_survey_result`.
+/// Lore planets should just set it to one static string.
 /obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
 	..()
-	ground_survey_result += "<br><b>Estimated Mass and Volume: </b>[massvolume]BSS(Biesels)"
-	ground_survey_result += "<br><b>Surface Gravity: </b>[surfacegravity]Gs"
-	ground_survey_result += "<br><b>Geological Variables: </b>[geology]"
-	ground_survey_result += "<br><b>Surface Water Coverage: </b>[surfacewater]"
-	ground_survey_result += "<br><b>Apparent Weather Data: </b>[weather]"
-	ground_survey_result += "<br>"
+	ground_survey_result = ""
 
 /obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()

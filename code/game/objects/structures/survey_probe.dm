@@ -52,31 +52,43 @@
 
 		// report vars and default vals
 		var/report_location = "unknown/invalid"
-		var/ground_report = "Invalid or insufficient data, ground survey unsuccessful."
-		var/atmos_report = "Invalid or insufficient data, atmospheric survey unsuccessful."
+		var/ground_report = "Invalid or insufficient data, ground survey unsuccessful. "
+		var/atmos_report = "Invalid or insufficient data, atmospheric survey unsuccessful. "
 
 		// turf
 		var/turf/turf = src.loc
 		var/turf_is_exoplanet = istype(turf, /turf/simulated/floor/exoplanet)
 		var/turf_is_hard_floor = istype(turf, /turf/simulated/floor/tiled)
+		var/turf_is_fake_grass = istype(turf, /turf/simulated/floor/grass)
 
 		// atmos
 		var/datum/gas_mixture/air = turf.return_air()
 		if(air.total_moles>0)
 			atmos_report = english_list(atmosanalyzer_scan(turf, air))
 
-		// not exoplanet turf / hard floor
+		// not exoplanet turf
 		if(turf_is_hard_floor)
-			ground_report += " The probe cannot penetrate the hard metal floor."
+			ground_report += "The probe cannot penetrate the hard metal floor."
+		else if(turf_is_fake_grass)
+			ground_report += "The probe detects soft soil, but it cannot penetrate the ground deep enough to get any meaningful data."
 		else if(!turf_is_exoplanet)
-			ground_report += " The probe cannot penetrate the ground."
+			ground_report += "The probe cannot penetrate the ground deep enough to get any meaningful data."
 
-		// actually get survey from the sector or exoplanet
+		// ground survey from sector / exoplanet
 		if(turf_is_exoplanet && current_map.use_overmap)
 			var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[z]"]
-			if(istype(sector) && sector.ground_survey_result)
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
+			if(istype(sector))
 				report_location = sector.name
-				ground_report = sector.ground_survey_result
+				if(istype(exoplanet))
+					ground_report += "<br><b>Estimated Mass and Volume: </b>[exoplanet.massvolume]BSS(Biesels)"
+					ground_report += "<br><b>Surface Gravity: </b>[exoplanet.surfacegravity]Gs"
+					ground_report += "<br><b>Geological Variables: </b>[exoplanet.geology]"
+					ground_report += "<br><b>Surface Water Coverage: </b>[exoplanet.surfacewater]"
+					ground_report += "<br><b>Apparent Weather Data: </b>[exoplanet.weather]"
+					ground_report += "<br>"
+				if(sector.ground_survey_result)
+					ground_report = sector.ground_survey_result
 
 		// report text
 		var/timestamp = "[GLOB.game_year]-[time2text(world.realtime, "MM-DD")] [worldtime2text()]"

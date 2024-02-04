@@ -184,11 +184,6 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/generate_skybox()
 	return
 
-/// Generate ground survey result text.
-/// Called once at init of the sector.
-/obj/effect/overmap/visitable/sector/proc/generate_ground_survey_result()
-	ground_survey_result = ""
-
 /obj/effect/overmap/visitable/proc/toggle_distress_status()
 	has_called_distress_beacon = !has_called_distress_beacon
 	if(has_called_distress_beacon)
@@ -234,7 +229,15 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	anchored = 1
 
 	/// Ground survey result for use by survey probes to generate survey reports after surveying.
+	/// A string. Child implementations should set and/or append to the string.
+	/// Stations or ships should keep it null, as they cannot be surveyed with a survey probe.
+	/// Lore planets and static away sites that are planets should keep it to static text trivia.
+	/// For random planets, should be filled with random trivia or blurbs or the like.
 	var/ground_survey_result = null
+
+/obj/effect/overmap/visitable/sector/Initialize()
+	. = ..()
+	generate_ground_survey_result()
 
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
@@ -242,6 +245,11 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 /obj/effect/overmap/visitable/proc/handle_sensor_state_change(var/on)
 	return
+
+/// Generate ground survey result text.
+/// Called once at init of the sector.
+/obj/effect/overmap/visitable/sector/proc/generate_ground_survey_result()
+	ground_survey_result = ""
 
 /proc/build_overmap()
 	if(!current_map.use_overmap)
