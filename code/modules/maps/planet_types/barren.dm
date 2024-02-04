@@ -22,7 +22,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/get_surface_color()
 	return "#6C6251"
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_survey_result()
+/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_ground_survey_result()
 	..()
 	if(prob(50))
 		ground_survey_result += "<br>Evidence of lava tubes being present in the subsurface"

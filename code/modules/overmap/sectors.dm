@@ -186,7 +186,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 /// Generate ground survey result text.
 /// Called once at init of the sector.
-/obj/effect/overmap/visitable/sector/proc/generate_survey_result()
+/obj/effect/overmap/visitable/sector/proc/generate_ground_survey_result()
 	ground_survey_result = ""
 
 /obj/effect/overmap/visitable/proc/toggle_distress_status()

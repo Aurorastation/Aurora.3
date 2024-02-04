@@ -30,7 +30,7 @@
 		atmosphere.temperature = min(T20C + rand(20, 100), limit)
 		atmosphere.update_values()
 
-/obj/effect/overmap/visitable/sector/exoplanet/desert/generate_survey_result()
+/obj/effect/overmap/visitable/sector/exoplanet/desert/generate_ground_survey_result()
 	..()
 	if(prob(40))
 		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"

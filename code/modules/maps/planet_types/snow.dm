@@ -27,7 +27,7 @@
 		atmosphere.temperature = max(T0C - rand(10, 100), limit)
 		atmosphere.update_values()
 
-/obj/effect/overmap/visitable/sector/exoplanet/snow/generate_survey_result()
+/obj/effect/overmap/visitable/sector/exoplanet/snow/generate_ground_survey_result()
 	..()
 	if(prob(40))
 		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"

@@ -29,7 +29,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass/get_surface_color()
 	return grass_color
 
-/obj/effect/overmap/visitable/sector/exoplanet/grass/generate_survey_result()
+/obj/effect/overmap/visitable/sector/exoplanet/grass/generate_ground_survey_result()
 	..()
 	if(prob(40))
 		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"

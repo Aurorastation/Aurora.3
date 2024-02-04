@@ -23,7 +23,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/crystal/get_surface_color()
 	return "#6ba7f7"
 
-/obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_survey_result()
+/obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_ground_survey_result()
 	..()
 	if(prob(50))
 		ground_survey_result += "<br>Crystal mush detected in deep crust"

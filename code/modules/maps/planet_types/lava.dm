@@ -26,7 +26,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/get_surface_color()
 	return "#575d5e"
 
-/obj/effect/overmap/visitable/sector/exoplanet/lava/generate_survey_result()
+/obj/effect/overmap/visitable/sector/exoplanet/lava/generate_ground_survey_result()
 	..()
 	if(prob(50))
 		ground_survey_result += "<br>High sulfide content of the shallow rock bed"

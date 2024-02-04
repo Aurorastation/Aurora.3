@@ -171,7 +171,7 @@
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
-	generate_survey_result()
+	generate_ground_survey_result()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
@@ -425,7 +425,7 @@
 			total_moles = max(total_moles - part, 0)
 			i++
 
-/obj/effect/overmap/visitable/sector/exoplanet/generate_survey_result()
+/obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
 	..()
 	ground_survey_result += "<br><b>Estimated Mass and Volume: </b>[massvolume]BSS(Biesels)"
 	ground_survey_result += "<br><b>Surface Gravity: </b>[surfacegravity]Gs"
