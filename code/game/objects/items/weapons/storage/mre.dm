@@ -174,7 +174,7 @@ MRE Stuff
 /obj/item/storage/box/fancy/mre/menu12_kois
 	name = "k'ois MRE"
 	meal_desc = "This one is menu 12, k'ois. DO NOT CONSUME IF YOU ARE NOT VAURCA. Contains k'ois. Only safe for consumption by Vaurca."
-	icon_state = "crayonmre"
+	icon_state = "koismre"
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu12_kois
 	starts_with = list(
 		/obj/item/storage/box/fancy/mrebag/dessert/menu12_kois = 1,
