@@ -64,7 +64,7 @@
 		var/atmos_report = "Invalid or insufficient data, atmospheric survey unsuccessful. "
 
 		// turf
-		var/turf/turf = src.loc
+		var/turf/turf = get_turf(src)
 		var/turf_is_exoplanet = istype(turf, /turf/simulated/floor/exoplanet)
 		var/turf_is_hard_floor = istype(turf, /turf/simulated/floor/tiled)
 		var/turf_is_fake_grass = istype(turf, /turf/simulated/floor/grass)
@@ -115,7 +115,7 @@
 		"
 
 		// print the report
-		playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
+		playsound(get_turf(src), 'sound/machines/dotprinter.ogg', 30, 1)
 		new/obj/item/paper/(get_turf(src), report_contents, report_name)
 
 		// fin
