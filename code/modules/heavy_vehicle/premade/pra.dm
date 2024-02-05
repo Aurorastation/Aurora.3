@@ -94,6 +94,8 @@
 	max_damage = 150
 	power_use = 250
 
+	cell_type = /obj/item/cell/mecha/nuclear
+
 /obj/item/mech_component/chassis/pra_egg/armored/prebuild()
 	. = ..()
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)

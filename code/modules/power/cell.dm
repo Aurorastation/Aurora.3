@@ -59,6 +59,7 @@
 		return 0
 	var/used = min(charge, amount)
 	charge -= used
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 	return used
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
@@ -78,6 +79,7 @@
 
 	var/amount_used = min(maxcharge-charge,amount)
 	charge += amount_used
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 	return amount_used
 
 
@@ -178,6 +180,7 @@
 	charge -= maxcharge / severity
 	if (charge < 0)
 		charge = 0
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 
 /**
  * Drains a percentage of the power from the battery
@@ -194,6 +197,7 @@
 	charge -= maxcharge / divisor
 	if (charge < 0)
 		charge = 0
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 
 /obj/item/cell/ex_act(severity)
 
