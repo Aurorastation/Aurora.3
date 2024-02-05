@@ -6716,7 +6716,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 1;
 	name = "Break Room";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -7061,7 +7061,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 1;
 	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -7576,7 +7576,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
 	name = "Operations Maintenance";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
@@ -14452,7 +14452,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 1;
 	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -18073,7 +18073,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 1;
 	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -38501,7 +38501,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	name = "Operations Maintenance";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
