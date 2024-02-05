@@ -65,7 +65,7 @@
 		var/atmos_report = "Invalid or insufficient data, atmospheric survey unsuccessful. "
 
 		// turf
-		var/turf/turf = src.loc
+		var/turf/turf = get_turf(src)
 		var/turf_is_exoplanet = istype(turf, /turf/simulated/floor/exoplanet)
 		var/turf_is_hard_floor = istype(turf, /turf/simulated/floor/tiled)
 		var/turf_is_fake_grass = istype(turf, /turf/simulated/floor/grass)
