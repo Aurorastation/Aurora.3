@@ -246,8 +246,10 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/handle_sensor_state_change(var/on)
 	return
 
-/// Generate ground survey result text.
+/// Generate ground survey result text, by setting the `ground_survey_result` var.
 /// Called once at init of the sector.
+/// Randomly generated planets should call parent and append to `ground_survey_result`.
+/// Lore planets or away sites should just set it to one static string.
 /obj/effect/overmap/visitable/sector/proc/generate_ground_survey_result()
 	ground_survey_result = ""
 

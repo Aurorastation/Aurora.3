@@ -21,24 +21,23 @@
 	var/timer_id = null
 
 /obj/structure/survey_probe/attackby(obj/item/item, mob/living/user)
-	if(!timer_id)
-		if(item.iswrench())
-			if(!anchored)
-				user.visible_message(
-					SPAN_NOTICE("\The [user] unfastens the locking bolts on \the [src], deploying it."),
-					SPAN_NOTICE("You unfasten the locking bolts on \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
-					)
-				item.play_tool_sound(user, 30)
-				anchored = TRUE
-				icon_state = "surveying_probe_deployed"
-			else
-				user.visible_message(
-					SPAN_NOTICE("\The [user] fastens the locking bolts on \the [src], stowing it."),
-					SPAN_NOTICE("You fasten the locking bolts \the [src], stowing it. It retracts its devices and drill bits."),
-					)
-				item.play_tool_sound(user, 30)
-				anchored = FALSE
-				icon_state = "surveying_probe"
+	if(!timer_id && item.iswrench())
+		if(!anchored)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] unfastens the locking bolts on \the [src], deploying it."),
+				SPAN_NOTICE("You unfasten the locking bolts on \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
+				)
+			item.play_tool_sound(user, 30)
+			anchored = TRUE
+			icon_state = "surveying_probe_deployed"
+		else
+			user.visible_message(
+				SPAN_NOTICE("\The [user] fastens the locking bolts on \the [src], stowing it."),
+				SPAN_NOTICE("You fasten the locking bolts \the [src], stowing it. It retracts its devices and drill bits."),
+				)
+			item.play_tool_sound(user, 30)
+			anchored = FALSE
+			icon_state = "surveying_probe"
 
 /obj/structure/survey_probe/attack_hand(mob/user as mob)
 	if(!timer_id)
@@ -86,10 +85,10 @@
 		// ground survey from sector / exoplanet
 		if(turf_is_exoplanet && current_map.use_overmap)
 			var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[z]"]
-			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 			if(istype(sector))
 				report_location = sector.name
 				ground_report = ""
+				var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 				if(istype(exoplanet))
 					ground_report += "<br><b>Estimated Mass and Volume: </b>[exoplanet.massvolume]BSS(Biesels)"
 					ground_report += "<br><b>Surface Gravity: </b>[exoplanet.surfacegravity]Gs"

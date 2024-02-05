@@ -424,8 +424,6 @@
 			total_moles = max(total_moles - part, 0)
 			i++
 
-/// Randomly generated planets should call parent and append to `ground_survey_result`.
-/// Lore planets should just set it to one static string.
 /obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
 	..()
 	ground_survey_result = ""
