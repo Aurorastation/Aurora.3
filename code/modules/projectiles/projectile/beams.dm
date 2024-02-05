@@ -227,7 +227,7 @@
 	icon_state = "stun"
 	damage = 1
 	sharp = FALSE
-	eyeblur = 0
+	eyeblur = 1
 	agony = 30
 	damage_type = DAMAGE_BURN
 
