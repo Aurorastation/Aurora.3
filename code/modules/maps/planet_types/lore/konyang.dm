@@ -7,7 +7,7 @@
 	scanimage = "konyang.png"
 	massvolume = "0.89/0.99"
 	surfacegravity = "0.93"
-	charted = "Coalition world, initial Solarian colonization circa 2305"
+	charted = "Charted 2305, Sol Alliance Department of Colonization."
 	geology = "Low-energy tectonic heat signature, minimal surface disruption"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority potable, 88% surface water. Significant tidal forces from natural satellite"
@@ -56,3 +56,71 @@
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
 		atmosphere.temperature = T20C
 		atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi
+	name = "Qixi"
+	desc = "The small, lifeless, and largely insignificant moon of Konyang."
+	icon_state = "globe1"
+	color = "#a2b3ad"
+	rock_colors = list("#807f7f")
+	massvolume = "0.27/0.39"
+	surfacegravity = "0.19"
+	geology = "No tectonic activity detected."
+	charted = "Natural satellite of Konyang. Charted 2305, Sol Alliance Department of Colonization."
+	features_budget = 1
+	surface_color = "#807f7f"
+	generated_name = FALSE
+	ring_chance = 0
+	ruin_planet_type = PLANET_LORE
+	place_near_main = list(1, 1)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/haneunim_crash)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/get_surface_color()
+	return "#807f7f"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/update_icon()
+	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim
+	desc = "An ice-covered rock from the outlying asteroid belt of Haneunim. Largely unexplored and uninhabited."
+	ruin_planet_type = PLANET_LORE
+	place_near_main = null
+	generated_name = FALSE
+	features_budget = 1
+	ring_chance = 0
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining)
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu
+	name = "Huozhu"
+	desc = "A scorching dwarf planet close to Haneunim's star. Largely unexplored."
+	icon_state = "globe1"
+	massvolume = "0.39/0.56"
+	surfacegravity = "0.32"
+	charted = "Charted 2305, Sol Alliance Department of Colonization."
+	ruin_planet_type = PLANET_LORE
+	generated_name = FALSE
+	features_budget = 1
+	ring_chance = 0
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_mystery)
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_atmosphere()
+	..()
+	atmosphere.remove_ratio(1)
+	atmosphere.adjust_gas(GAS_SULFUR, MOLES_N2STANDARD)
+	atmosphere.temperature = T20C + rand(600, 1000)
+	atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung
+	name = "Hwanung"
+	generated_name = FALSE
+	desc = "A dwarf planet in the Haneunim system, largely considered insignificant."
+	icon_state = "globe1"
+	massvolume = "0.31/0.42"
+	surfacegravity = "0.18"
+	charted = "Charted 2305, Sol Alliance Department of Colonization."
+	features_budget = 1
+	ring_chance = 0
+	ruin_planet_type = PLANET_LORE
+	rock_colors = list(COLOR_GRAY80)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining)
+
