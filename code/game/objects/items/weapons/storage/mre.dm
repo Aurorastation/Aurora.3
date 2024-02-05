@@ -181,7 +181,7 @@ MRE Stuff
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 1,
 		/obj/random/mre/spread = 1,
 		/obj/random/mre/drink = 1,
-		/obj/item/reagent_containers/food/condiment/small/packet/salt = 1,
+		/obj/item/reagent_containers/food/condiment/small/packet/toothpaste = 1,
 		/obj/item/material/kitchen/utensil/spoon/plastic = 1
 	)
 
