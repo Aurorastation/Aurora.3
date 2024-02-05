@@ -116,7 +116,7 @@
 		"
 
 		// print the report
-		playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
+		playsound(get_turf(src), 'sound/machines/dotprinter.ogg', 30, 1)
 		new/obj/item/paper/(get_turf(src), report_contents, report_name)
 
 		// fin
