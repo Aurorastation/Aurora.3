@@ -10,7 +10,7 @@
 	desc_info = "\
 		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate.\
 		"
-	icon = 'icons/obj/structure/survey_probe.dmi'
+	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "surveying_probe"
 	density = TRUE
 	/// If false, probe is not deployed.
