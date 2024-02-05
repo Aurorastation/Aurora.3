@@ -31796,7 +31796,6 @@
 	},
 /obj/machinery/door/window/northright,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/survey_probe,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
 "vZT" = (
@@ -53897,7 +53896,7 @@ lCX
 wuD
 ybD
 eQJ
-eQJ
+evm
 iRC
 iRC
 iRC
@@ -54100,7 +54099,7 @@ ifD
 wuD
 xCT
 pwR
-pwR
+evm
 iRC
 iRC
 iRC
@@ -56942,7 +56941,7 @@ gTx
 rPN
 sol
 keZ
-evm
+pwR
 iRC
 iRC
 iRC
