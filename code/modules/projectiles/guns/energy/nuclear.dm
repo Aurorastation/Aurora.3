@@ -199,7 +199,7 @@
 	modifystate = "golden_deep_ornatepistolstun"
 
 	firemodes = list(
-		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="golden_deep_ornatepistolstun", fire_sound='sound/weapons/Taser.ogg', fire_delay = 4),
+		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="golden_deep_ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="golden_deep_ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
 		)
 

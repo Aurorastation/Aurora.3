@@ -236,7 +236,7 @@
 	impact_type = /obj/effect/projectile/muzzle/laser/scc
 
 /obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
-	if(ishuman(target) && blocked < 100) //Make them trip
+	if(ishuman(target) && blocked < 100 && !issilicon(target) && !isipc(target)) //Make them trip
 		var/mob/living/carbon/human/H = target
 		if(H.druggy < 75)
 			H.druggy += 15
