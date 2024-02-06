@@ -185,9 +185,9 @@
 	. = ..()
 	var/list/results = .
 	for(var/thing in results)
-		var/obj/item/XMG = thing
-		XMG.reagents.del_reagent(/singleton/reagent/drink/carrotjuice)
-		XMG.reagents.del_reagent(/singleton/reagent/nutriment/protein/cheese)
+		var/obj/item/xmg = thing
+		xmg.reagents.del_reagent(/singleton/reagent/drink/carrotjuice)
+		xmg.reagents.del_reagent(/singleton/reagent/nutriment/protein/cheese)
 
 //================================
 // Toasts and Toasted Sandwiches
