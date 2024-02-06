@@ -488,10 +488,10 @@
 	},
 /area/derelict)
 "bc" = (
-/turf/simulated/floor/tiled/airless{
-	burnt = 3
-	},
-/area/derelict)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
 "bd" = (
 /obj/item/stack/tile/floor_dark{
 	pixel_x = 5;
@@ -504,17 +504,12 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "bf" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	glass = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_shuttle_bay_door";
-	locked = 1;
-	name = "Transport Airlock";
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/derelict)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
 "bg" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/access_button{
@@ -554,8 +549,17 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "bm" = (
-/turf/simulated/wall/r_wall,
-/area/space)
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	glass = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_shuttle_bay_door";
+	locked = 1;
+	name = "Transport Airlock";
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "bo" = (
 /obj/structure/table/rack,
 /obj/random/tech_supply,
@@ -944,8 +948,8 @@
 	},
 /area/derelict)
 "ct" = (
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/atmos)
 "cu" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/airless,
@@ -989,8 +993,14 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "cB" = (
-/turf/simulated/floor/tiled/dark/airless,
-/area/space)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/item/ore/silver{
+	pixel_y = 4;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
 "cC" = (
 /mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/tiled/airless,
@@ -1055,6 +1065,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
+"cM" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
 "cN" = (
 /obj/structure/table/standard,
 /obj/item/material/kitchen/utensil/fork,
@@ -1198,11 +1214,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "dj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/turf/simulated/floor/tiled/airless{
+	burnt = 3
 	},
-/turf/simulated/floor/airless,
-/area/space)
+/area/derelict)
 "dk" = (
 /mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/airless{
@@ -1312,6 +1327,36 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/airless,
 /area/derelict)
+"dD" = (
+/obj/structure/lattice,
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/space/dynamic,
+/area/derelict/hivebothub/portdocks)
+"dE" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"dF" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
 "dJ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -1319,6 +1364,17 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/airless,
 /area/derelict)
+"dK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
 "dL" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1405,6 +1461,20 @@
 /obj/item/trash/liquidfood,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
+"eg" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = -6;
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
 "el" = (
 /obj/structure/bed,
 /obj/random/plushie,
@@ -1456,21 +1526,13 @@
 /obj/item/device/radio,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
-"ew" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clipboard{
-	pixel_x = -7;
-	pixel_y = 5
+"ex" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
 	},
-/obj/item/folder/blue{
-	pixel_y = 7;
-	pixel_x = 5
-	},
-/obj/item/pen/blue{
-	pixel_x = 8
-	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
 "ey" = (
 /obj/structure/window/reinforced,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -1485,6 +1547,11 @@
 /obj/random/junk,
 /turf/simulated/floor/airless,
 /area/derelict)
+"eC" = (
+/obj/machinery/power/rtg,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
 "eD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
 	dir = 1;
@@ -1524,6 +1591,17 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/airless,
 /area/derelict)
+"eK" = (
+/obj/machinery/door/window/brigdoor/northright{
+	req_access = list();
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
 "eQ" = (
 /obj/item/material/twohanded/fireaxe,
 /obj/effect/decal/cleanable/blood,
@@ -1567,6 +1645,26 @@
 /obj/item/stack/material/steel,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
+"eW" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"eX" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
 "eY" = (
 /obj/machinery/door/airlock{
 	name = "Head";
@@ -1790,65 +1888,367 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
-"fY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/airless,
-/area/space)
-"he" = (
-/obj/machinery/power/rtg,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+"fz" = (
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
 	},
 /turf/simulated/floor/airless,
-/area/space)
-"hq" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
+/area/derelict/hivebothub/starboarddocks)
+"fE" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"fG" = (
+/obj/structure/table/steel{
+	flipped = 1
 	},
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 1
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"fH" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/glass{
+	pixel_y = -9;
+	pixel_x = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"fN" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"fW" = (
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/obj/structure/lattice,
+/turf/space/dynamic,
 /area/space)
-"je" = (
+"gd" = (
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"gg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/engi)
+"gj" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"kg" = (
-/obj/machinery/photocopier,
-/obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"mr" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/airless,
-/area/space)
-"mP" = (
-/obj/effect/overmap/visitable/sector/hivebot_hub,
-/turf/simulated/floor/airless,
-/area/derelict)
-"nd" = (
-/obj/machinery/papershredder,
-/obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"qB" = (
-/obj/structure/filingcabinet/chestdrawer{
-	density = 0
+/area/derelict/hivebothub/bridge)
+"gn" = (
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
 	},
-/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/silver{
+	pixel_y = 4;
+	pixel_x = -9
+	},
 /turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"gt" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"gy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"gE" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"gK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"gS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"gZ" = (
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"hc" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/hivebot/range,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"hi" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"hn" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"hu" = (
+/obj/structure/lattice,
+/obj/item/ore/silver{
+	pixel_y = 17;
+	pixel_x = 3
+	},
+/turf/space/dynamic,
+/area/derelict/hivebothub/starboarddocks)
+"hA" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/grey,
+/mob/living/simple_animal/hostile/hivebot/range,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"hG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"hK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"hO" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"hV" = (
+/obj/item/ore/glass{
+	pixel_y = 13;
+	pixel_x = -7
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
 /area/space)
-"rF" = (
-/obj/structure/bed/stool/chair/office/light{
+"id" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"ie" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"ij" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"ip" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"ir" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"ix" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"iA" = (
+/obj/item/ore/glass{
+	pixel_y = -3;
+	pixel_x = -6
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
 /area/space)
-"rU" = (
+"iB" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/space)
+"iH" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"iR" = (
+/obj/item/ore/glass{
+	pixel_y = -9;
+	pixel_x = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"iX" = (
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"jf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/item/trash/maps{
+	pixel_y = -7;
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"ji" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"js" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/item/material/shard,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"ju" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"jB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"jJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"jM" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"jP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"jT" = (
+/obj/structure/lattice,
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/obj/item/stack/rods,
+/turf/space/dynamic,
+/area/derelict/hivebothub/portdocks)
+"jU" = (
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"jX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"ke" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/space/dynamic,
+/area/space)
+"kf" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_y = 17;
 	pixel_x = -4;
@@ -1858,81 +2258,773 @@
 	pixel_y = 18;
 	pixel_x = 12
 	},
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/structure/sign/staff_only{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"su" = (
-/obj/machinery/computer/ship/navigation/terminal,
-/obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"tc" = (
+/area/derelict/hivebothub/starboarddocks)
+"kp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"kr" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
 /obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"kt" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"kA" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/item/gun/projectile/automatic/rifle/shorty{
+	pixel_y = 18
+	},
+/obj/item/ammo_magazine/c762{
+	pixel_y = 4;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/c762{
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"kB" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5
+	},
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = 14
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"kC" = (
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/space)
+"kJ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"kL" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"kN" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"kP" = (
+/obj/structure/filingcabinet/chestdrawer{
+	density = 0
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"kR" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"lg" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"ln" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"lp" = (
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"lw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/rtg,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"lA" = (
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"lB" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"lS" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"ma" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"mb" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"mg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/engi)
+"mj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"mn" = (
+/obj/machinery/atmospherics/binary/pump{
+	target_pressure = 15000;
+	name = "Scrubbers to Waste"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"mv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"mz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"mA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"mC" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/bridge)
+"mE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"mK" = (
+/obj/item/ore/glass{
+	pixel_y = 7;
+	pixel_x = 3
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"mO" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/gibs/robot/down,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"mP" = (
+/obj/effect/overmap/visitable/sector/hivebot_hub,
+/turf/simulated/floor/airless,
+/area/derelict)
+"ng" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"nl" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"np" = (
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/gold{
+	pixel_y = -10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"nt" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/osmium{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage{
+	pixel_y = 6;
+	pixel_x = 11
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"nC" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"nE" = (
+/obj/item/ore/glass{
+	pixel_y = 7;
+	pixel_x = 9
+	},
+/obj/item/ore/osmium{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/space)
+"nJ" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations";
+	opened = 1
+	},
+/obj/item/trash/chips,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"nN" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/derelict/hivebothub/starboarddocks)
+"nT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/silver{
+	pixel_y = 17;
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"nV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/silver{
+	pixel_y = 17;
+	pixel_x = 3
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"nX" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/material/shard/shrapnel{
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"oe" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"of" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"oi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/silver{
+	pixel_y = 17;
+	pixel_x = 3
+	},
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"oq" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"ou" = (
+/obj/item/ore/gold{
+	pixel_y = -10
+	},
+/obj/item/material/shard{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/item/stack/rods,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/bridge)
+"ov" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"ox" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"oz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/freezer/fridge,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"oE" = (
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/derelict/hivebothub/secure)
+"oF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	opened = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"oK" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"oM" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/structure/table/steel,
+/obj/item/material/hatchet/machete{
+	pixel_y = 9
+	},
+/obj/item/clothing/accessory/holster/utility/machete{
+	pixel_x = 9;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"oO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"oU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"oZ" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"pe" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"pg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"pi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/bridge)
+"pk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"pm" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"pp" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"pz" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"pI" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"uh" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/security,
+/area/derelict/hivebothub/starboarddocks)
+"qc" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"qd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"qf" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"qq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"qr" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/ammo_casing/shotgun/pellet/used{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"qt" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"qv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations";
+	opened = 1
+	},
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"qx" = (
+/obj/structure/girder,
+/turf/simulated/floor/airless,
 /area/space)
-"uC" = (
+"qy" = (
+/obj/structure/girder,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"qG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	opened = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"qK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"qL" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"qS" = (
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"qU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/glass{
+	pixel_y = 7;
+	pixel_x = 3
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"ra" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard/shrapnel{
+	pixel_x = -3;
+	pixel_y = -12
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"rc" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock{
+	door_color = "#2F2F2F";
+	name = "Washroom"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/washroom)
+"rk" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"rn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"rr" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/space)
+"rw" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Secure Storage"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/secure)
+"ry" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"rB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"rE" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/floor_damage/tiled_broken0,
+/obj/effect/decal/cleanable/floor_damage,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"rJ" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/machinery/power/rtg,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"rK" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/liquidfood{
+	pixel_y = 3;
+	pixel_x = -7
+	},
 /turf/simulated/floor/airless,
-/area/space)
-"vI" = (
-/obj/structure/table/steel,
-/obj/machinery/door/window/brigdoor/northright{
-	req_access = list();
-	dir = 4
+/area/derelict/hivebothub/portdocks)
+"rR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"xQ" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"Aq" = (
-/obj/structure/table/steel,
-/obj/machinery/door/window/brigdoor/northright{
-	req_access = list();
-	dir = 8
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations";
+	opened = 1
 	},
+/obj/item/trash/can,
 /turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"Cr" = (
-/obj/structure/bed/stool/chair/office/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"CS" = (
-/turf/simulated/floor/airless,
-/area/space)
-"DF" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"EL" = (
-/obj/structure/table/steel,
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"FT" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"GX" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"Ii" = (
+/area/derelict/hivebothub/portdocks)
+"rT" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_y = 17;
 	pixel_x = 5;
@@ -1942,73 +3034,3068 @@
 	pixel_y = 18;
 	pixel_x = -12
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/obj/structure/sign/staff_only{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"rV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"rW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"rZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"sn" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"sq" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/item/ammo_magazine/boltaction/vintage{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/ammo_magazine/boltaction/vintage{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"sr" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"ss" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
 /area/space)
-"Ip" = (
-/obj/machinery/door/window/brigdoor/northright{
-	req_access = list();
+"sD" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = 14;
+	pixel_x = -8
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"sL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"sO" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"Jt" = (
+/area/derelict/hivebothub/portdocks)
+"sQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/silver{
+	pixel_y = 4;
+	pixel_x = -9
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"sR" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"tc" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"tf" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"th" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"tj" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"tr" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"tt" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"tw" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"ty" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"tE" = (
+/obj/structure/lattice,
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/gold{
+	pixel_y = -10
+	},
+/obj/item/ore/silver{
+	pixel_y = 17;
+	pixel_x = 3
+	},
+/obj/item/stack/rods,
+/turf/space/dynamic,
+/area/derelict/hivebothub/starboarddocks)
+"tF" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"tM" = (
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"tO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"tQ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock{
+	door_color = "#2F2F2F";
+	name = "Dormitory #1"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/dorm1)
+"tW" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"tX" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"um" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
-"Ka" = (
-/obj/structure/table/steel,
-/obj/structure/window/reinforced/crescent{
-	dir = 4
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"uo" = (
+/obj/effect/decal/cleanable/floor_damage/broken2,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"ur" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"uv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
 /area/space)
-"OA" = (
+"ux" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"uF" = (
+/obj/machinery/power/rtg,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"uG" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"uM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"uV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"uX" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	door_color = "#2F2F2F";
+	name = "Central Compartment";
+	welded = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"uY" = (
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/item/ammo_casing/shotgun/used{
+	pixel_x = -11
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"vb" = (
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/engi)
+"vI" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"vK" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"vR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"vZ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"wa" = (
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"we" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"wg" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"wi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"wm" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/engi)
+"wo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"wp" = (
+/obj/structure/lattice,
+/obj/item/ore/silver{
+	pixel_y = 4;
+	pixel_x = -9
+	},
+/turf/space/dynamic,
+/area/derelict/hivebothub/starboarddocks)
+"wt" = (
+/obj/effect/decal/cleanable/floor_damage/tiled_burned0,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"wF" = (
+/obj/effect/decal/cleanable/blood/gibs/robot/down,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"wG" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"wJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/material/hatchet{
+	pixel_y = 10;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/inhaler/soporific{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/obj/item/surgery/scalpel{
+	pixel_y = -1
+	},
+/obj/item/tape_roll{
+	pixel_x = -12;
+	pixel_y = -13
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"wN" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"wP" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"wY" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	target_pressure = 15000;
+	name = "Air to Distribution"
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"xe" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"xi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"xv" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"xy" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"xz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6;
+	icon_state = "spline_fancy"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"xA" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/dorm2)
+"xH" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"xU" = (
+/obj/machinery/power/rtg,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"xW" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"xX" = (
+/obj/item/ore/glass{
+	pixel_y = -9;
+	pixel_x = 4
+	},
+/obj/item/material/shard{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/stack/rods,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/bridge)
+"ya" = (
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/ore/gold{
+	pixel_y = -10
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"ye" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/osmium{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"yg" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"yh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"yl" = (
+/obj/structure/lattice,
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/space/dynamic,
+/area/derelict/hivebothub/portdocks)
+"yo" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/machinery/power/rtg,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"yt" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Secure Storage"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"yy" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"yD" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"yE" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/engi)
+"yP" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Secure Storage"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"yU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"yZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"zd" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/item/material/twohanded/fireaxe,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"zj" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"zq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"zz" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"zG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"zJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"zL" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"zM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"zN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/dinnerware{
+	pixel_y = 22
+	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/cooking_container/board,
+/obj/item/material/hatchet/butch{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"zV" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Ae" = (
+/obj/item/ore/glass{
+	pixel_y = 7;
+	pixel_x = 3
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Ao" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Ax" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"AK" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"AU" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/machinery/floodlight{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Bf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Bi" = (
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Bu" = (
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"Bw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"Bx" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot/down,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Bz" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"BB" = (
+/obj/item/ore/osmium{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"BF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"BK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"BM" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/broken_bottle{
+	pixel_y = 11;
+	pixel_x = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"BO" = (
+/obj/item/ore/iron{
+	pixel_x = 12;
+	pixel_y = 5
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/space)
+"BU" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"BV" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Cn" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Co" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Cr" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"Cv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/obj/structure/table,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"PZ" = (
+/area/derelict/hivebothub/portdocks)
+"Cw" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"CD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"CO" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"CS" = (
+/obj/structure/lattice,
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/turf/space/dynamic,
 /area/space)
-"Uz" = (
+"CV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"CZ" = (
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Dc" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Df" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Dk" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"Dl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Do" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"Dz" = (
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"DF" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"DK" = (
+/obj/structure/lattice,
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/space/dynamic,
+/area/derelict/hivebothub/portdocks)
+"DP" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"DS" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	door_color = "#2F2F2F";
+	name = "Central Compartment";
+	welded = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"DY" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Ei" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Ep" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = 14;
+	pixel_x = -8
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Es" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Eu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Ex" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Ey" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/engi)
+"EA" = (
+/obj/machinery/power/rtg,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"EL" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"EO" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/portdocks)
+"ES" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"EV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"EW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"EX" = (
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"Fe" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/space)
+"Fh" = (
+/obj/machinery/papershredder,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"Fk" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/bridge)
+"Fn" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Fo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"Fq" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"FA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"FB" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"FC" = (
+/mob/living/simple_animal/hostile/hivebotbeacon,
+/obj/effect/decal/cleanable/floor_damage/broken5,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage/broken6,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"FE" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"FF" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"FQ" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"FT" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"FU" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"FV" = (
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"FY" = (
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"FZ" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"Gd" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/space)
+"Gg" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	door_color = "#2F2F2F";
+	name = "Central Compartment";
+	welded = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Gj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/space)
+"Gk" = (
+/obj/item/ore/glass{
+	pixel_y = 7;
+	pixel_x = 9
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/space)
+"Gv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate{
+	opened = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Gx" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"Gy" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"Gz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/machinery/floodlight{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"GF" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/shotgun/used,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = 14;
+	pixel_x = -8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"GJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"GK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"GL" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"GX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"GZ" = (
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"Hx" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/osmium{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"HI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"HL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations";
+	opened = 1
+	},
+/obj/item/trash/gum,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"HM" = (
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/space)
+"HV" = (
+/obj/item/ore/silver{
+	pixel_y = 4;
+	pixel_x = -9
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/space)
+"HZ" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"If" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"Ig" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Ij" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard{
+	pixel_y = 11;
+	pixel_x = -9
+	},
+/obj/structure/table,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Il" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"In" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Ip" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Iv" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Iy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"IH" = (
+/obj/effect/decal/cleanable/floor_damage/broken0,
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/space)
-"VO" = (
-/obj/machinery/power/rtg,
+/area/derelict/hivebothub/starboarddocks)
+"IT" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = null;
+	name = "Bridge";
+	dir = 1;
+	welded = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"IU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"IW" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"IZ" = (
+/obj/structure/girder,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/kitchen)
+"Jg" = (
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"Ji" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"Jm" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Jw" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/atmos{
+	dir = 4;
+	name = "Atmospherics"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/atmos)
+"JE" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"JF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"JH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"JK" = (
+/obj/item/ammo_casing/shotgun/used{
+	pixel_y = 8;
+	pixel_x = 2
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"JL" = (
+/obj/structure/lattice,
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/obj/item/stack/rods,
+/turf/space/dynamic,
+/area/derelict/hivebothub/portdocks)
+"JQ" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"JR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/space)
-"XX" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/area/derelict/hivebothub/engi)
+"JS" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"JU" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/dorm1)
+"JX" = (
+/obj/effect/decal/cleanable/blood/gibs/down,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"JY" = (
+/obj/structure/bed/chair,
+/obj/structure/bed/padded/bunk,
+/obj/item/bedsheet/brown{
+	pixel_y = 16
+	},
+/obj/item/bedsheet/captain,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"JZ" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Kd" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"Ki" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Kk" = (
+/obj/structure/girder,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/dorm2)
+"Kp" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair,
 /turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Ky" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"KI" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"KK" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"KP" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/space/dynamic,
 /area/space)
-"Zd" = (
-/obj/machinery/door/window/brigdoor/northright{
-	req_access = list();
+"LC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"LE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"LL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"LM" = (
+/obj/item/ore/uranium{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"LS" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"LX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/silver{
+	pixel_y = 4;
+	pixel_x = -9
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"Md" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/empty/nitrogen,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Mg" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"Mh" = (
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/window/southleft,
+/obj/machinery/shower{
+	pixel_y = 16
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"Mj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/osmium{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Mk" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Ml" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Mm" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"Mn" = (
+/obj/structure/bed/chair,
+/obj/structure/bed/padded/bunk,
+/obj/item/bedsheet/purple{
+	pixel_y = 16
+	},
+/obj/item/bedsheet/blue,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"Mt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"MD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations";
+	opened = 1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"MF" = (
+/obj/random/soap{
+	pixel_y = 5;
+	pixel_x = -9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"MJ" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/kitchen)
+"MT" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/secure)
+"Nb" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8;
+	pixel_y = 19;
+	pixel_x = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Nj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
 /area/space)
-"ZW" = (
-/obj/machinery/power/rtg,
+"Nk" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Nr" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/item/broken_bottle,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Ny" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"NB" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"NC" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"ND" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"NO" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/blood/gibs/robot/down,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"NQ" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clipboard{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/pen/blue{
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"Oi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/structure/table/reinforced/steel,
+/obj/item/crowbar,
+/obj/item/hammer,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"On" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Or" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Ov" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/blood/gibs/robot/up,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"OD" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"OF" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"OO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"OQ" = (
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"OR" = (
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"OX" = (
+/obj/machinery/computer/ship/navigation/terminal,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"OY" = (
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/obj/item/ore/glass{
+	pixel_y = -9;
+	pixel_x = 4
+	},
+/obj/item/stack/rods,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/bridge)
+"Pd" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window/brigdoor/northright{
+	req_access = list();
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Pf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"Px" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"Pz" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"PB" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"PH" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"PI" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"PL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/item/material/shard{
+	pixel_y = 11;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"PN" = (
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/space)
+"PU" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"PW" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"Qa" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"Qj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/item/storage/pill_bottle/joy{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/pill/happy{
+	pixel_y = 10;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/pill/happy{
+	pixel_y = -5;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/pill/happy{
+	pixel_y = -3;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/absinthe{
+	pixel_y = 4;
+	pixel_x = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Qn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Qp" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Qr" = (
+/obj/item/ore/glass{
+	pixel_y = -3;
+	pixel_x = -6
+	},
+/obj/item/ore/osmium{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/obj/item/ore/silver{
+	pixel_y = 4;
+	pixel_x = -9
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/space)
+"Qs" = (
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"Qu" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/engi)
+"QI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/floodlight,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"QK" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"QN" = (
+/obj/structure/lattice,
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/space/dynamic,
+/area/space)
+"QU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"QV" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Re" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"Rl" = (
+/obj/item/ore/glass{
+	pixel_y = 7;
+	pixel_x = 9
+	},
+/obj/item/ore/iron{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/space)
+"Rq" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"Rr" = (
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Rt" = (
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"RD" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"RG" = (
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"RK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"RR" = (
+/obj/structure/lattice,
+/obj/item/ore/uranium{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/space/dynamic,
+/area/derelict/hivebothub/portdocks)
+"Sl" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"Sm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Sq" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/derelict/hivebothub/secure)
+"SO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"SR" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = null;
+	name = "Bridge";
+	dir = 1;
+	welded = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"SS" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/engi)
+"SU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"SV" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = 14;
+	pixel_x = -8
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"SY" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"Td" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"Tf" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Th" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Ti" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Tj" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/bridge)
+"Tq" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/vomit,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Tt" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -5;
+	pixel_x = -1
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"TB" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/derelict/hivebothub/portdocks)
+"TF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"TO" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"TU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"Ue" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock{
+	door_color = "#2F2F2F";
+	name = "Dining Quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/kitchen)
+"Uf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Us" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Uw" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"UA" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10;
+	icon_state = "spline_fancy"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm1)
+"UF" = (
+/obj/structure/window/reinforced,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"US" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/engi)
+"Vc" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/structure/sign/staff_only{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Vd" = (
+/obj/item/stack/rods,
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"Ve" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ore/glass{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Vh" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/atmos)
+"Vl" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock{
+	door_color = "#2F2F2F";
+	name = "Dormitory #2";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/dorm2)
+"Vn" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"Vt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"VH" = (
+/obj/effect/decal/cleanable/floor_damage/broken2,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/cleanable/blood/gibs/robot/down,
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = -6;
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"VL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"VO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"VQ" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"VR" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/washroom)
+"VT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"VY" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Wd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"We" = (
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"Wg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Wj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/item/trash/liquidfood,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations";
+	opened = 1
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Wp" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"WO" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/surgery/hemostat{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"WS" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/item/ammo_casing/vintage/spent{
+	pixel_y = -6;
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"WW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"WY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/atmos)
+"Xa" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot/limb,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Xj" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"Xq" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"Xr" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Xv" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/derelict/hivebothub/dorm2)
+"Xw" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Xy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Xz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"XB" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"XH" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hivebothub/kitchen)
+"XK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"XL" = (
+/turf/simulated/wall/r_wall,
+/area/derelict/hivebothub/starboarddocks)
+"XN" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/centralhall)
+"XQ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = null;
+	name = "Bridge";
+	dir = 1;
+	welded = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/bridge)
+"XX" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Yb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"Yc" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Yf" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Yk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"Yl" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"Yp" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Yt" = (
+/obj/structure/girder,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
+"Yx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"YC" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/shotgun/used{
+	pixel_y = 8;
+	pixel_x = -12
+	},
+/obj/item/ammo_casing/shotgun/used{
+	pixel_y = -1
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/centralhall)
+"YG" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"YN" = (
+/obj/structure/lattice,
+/obj/item/stack/rods,
+/turf/space/dynamic,
+/area/derelict/hivebothub/starboarddocks)
+"YO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/airless,
+/area/derelict/hivebothub/bridge)
+"YP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/obj/structure/sign/staff_only{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"YS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict/hivebothub/secure)
+"YU" = (
+/obj/structure/lattice,
+/obj/item/ore/glass{
+	pixel_y = -9;
+	pixel_x = 4
+	},
+/turf/space/dynamic,
+/area/derelict/hivebothub/starboarddocks)
+"YW" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"Zb" = (
+/obj/structure/mirror{
+	pixel_y = 30
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/spitgum{
+	pixel_y = 3;
+	pixel_x = 2
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hivebothub/washroom)
+"Zi" = (
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Zk" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
+"Zm" = (
+/obj/item/ore/glass{
+	pixel_y = -3;
+	pixel_x = -6
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
 /area/space)
+"Zn" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/ash,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	door_color = "#2F2F2F";
+	name = "Central Compartment";
+	welded = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/portdocks)
+"Zo" = (
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/portdocks)
+"Zs" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
+"Zt" = (
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/portdocks)
+"Zy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/starboarddocks)
+"ZB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/centralhall)
+"ZF" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"ZL" = (
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/derelict/hivebothub/starboarddocks)
+"ZO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/atmos)
+"ZS" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/starboarddocks)
 
 (1,1,1) = {"
 aa
@@ -10045,12 +14132,12 @@ aa
 aa
 aa
 aa
-aa
-bm
-mr
-mr
-bm
-aa
+Nj
+EO
+rk
+rk
+EO
+ss
 aa
 aa
 aa
@@ -10302,12 +14389,12 @@ aa
 aa
 aa
 aa
-aa
-bm
-CS
-CS
-bm
-aa
+Gj
+EO
+RK
+OD
+TB
+ke
 aa
 aa
 aa
@@ -10557,17 +14644,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-bm
-CS
-CS
-bm
-aa
-aa
-aa
-aa
+Nj
+rr
+HM
+EO
+RK
+OD
+EO
+HM
+rr
+rr
+ss
 aa
 aa
 aa
@@ -10812,21 +14899,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-bm
-bm
-bm
-mr
-mr
-bm
-bm
-bm
-bm
-aa
-aa
-aa
+Nj
+rr
+HM
+Gd
+CS
+EO
+rk
+rk
+EO
+EO
+EO
+EO
+HM
+rr
+ss
 aa
 aa
 aa
@@ -11069,21 +15156,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-ct
-bm
-ct
-ct
-bm
-ct
-ct
-bm
-bm
-bm
-aa
+Gj
+EO
+EO
+EO
+ya
+EO
+PB
+zq
+EO
+Dz
+Dz
+EO
+EO
+EO
+ke
 aa
 aa
 aa
@@ -11326,21 +15413,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-PZ
-XX
-bm
-aa
+Gj
+RR
+oU
+Kp
+Ve
+pk
+sQ
+Zo
+HI
+HI
+Eu
+tt
+oF
+EO
+ke
 aa
 aa
 aa
@@ -11583,21 +15670,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+Gj
+jT
+Md
+pz
+vK
+Il
+Iv
+Xr
+OD
+OD
+Hx
+tt
+ox
+EO
+ke
 aa
 aa
 aa
@@ -11840,21 +15927,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+Gj
+EO
+mz
+yD
+Mj
+Gy
+Iv
+Xr
+Iv
+Il
+jP
+tt
+ox
+EO
+ke
 aa
 aa
 aa
@@ -12097,21 +16184,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-aa
+Gj
+EO
+EO
+EO
+Wj
+rW
+oM
+kA
+rZ
+rW
+jP
+EO
+EO
+EO
+ke
 aa
 aa
 aa
@@ -12351,27 +16438,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-bm
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-bm
-aa
-aa
-aa
-aa
-aa
+Nj
+rr
+rr
+HM
+HM
+DK
+Dz
+OD
+Re
+xH
+Xr
+qL
+rK
+rR
+gn
+yl
+HM
+HM
+rr
+rr
+ss
 aa
 aa
 aa
@@ -12608,27 +16695,27 @@ aa
 aa
 aa
 aa
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-bm
-bm
-bm
-bm
+EO
+EO
+Rt
+EO
+iX
+EX
+EO
+sO
+rW
+Co
+AK
+OQ
+Re
+qv
+EO
+EO
+EO
+EO
+EO
+EO
+EO
 aa
 aa
 aa
@@ -12865,27 +16952,27 @@ aa
 aa
 aa
 aa
-mr
-CS
-CS
-mr
-ct
-ct
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-ct
-ct
-mr
-CS
-CS
-mr
+pe
+OD
+LX
+rk
+Dl
+rZ
+Iv
+tO
+Il
+wJ
+WO
+Tq
+Re
+jf
+rZ
+rZ
+PB
+rk
+Zt
+OD
+pe
 aa
 aa
 aa
@@ -13122,27 +17209,27 @@ aa
 aa
 aa
 aa
-mr
-CS
-CS
-mr
-ct
-ct
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-ct
-ct
-mr
-CS
-CS
-mr
+rk
+OD
+Rt
+pe
+PB
+Iv
+Iv
+tO
+OD
+ra
+nX
+OQ
+Kd
+Hx
+rZ
+Iv
+PB
+rk
+OD
+OD
+rk
 aa
 aa
 aa
@@ -13379,27 +17466,27 @@ aa
 aa
 aa
 aa
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-bm
-bm
-bm
-bm
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+Nr
+js
+Rr
+CD
+Iv
+Kd
+DP
+EO
+EO
+Rt
+EO
+tM
+EO
+EO
 aa
 aa
 aa
@@ -13636,27 +17723,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-bm
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-bm
-aa
-aa
-aa
-aa
-aa
+Fe
+uv
+uv
+HM
+HM
+EO
+Dz
+ur
+Gy
+ip
+Xr
+Df
+RK
+RK
+PB
+EO
+HM
+HM
+uv
+uv
+KP
 aa
 aa
 aa
@@ -13896,21 +17983,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-aa
+Gj
+EO
+EO
+EO
+YG
+Il
+OQ
+VY
+Sm
+Re
+DP
+EO
+EO
+EO
+ke
 aa
 aa
 aa
@@ -14153,21 +18240,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
+Gj
+yl
+jB
 cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+BB
+Il
+rZ
+ix
+ie
+Il
+gt
+tt
+SU
+JL
+ke
 aa
 aa
 aa
@@ -14410,21 +18497,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+Gj
+TB
+mb
+qc
+vK
+rW
+Gz
+nl
+mv
+Il
+jP
+yD
+mA
+dD
+ke
 aa
 aa
 aa
@@ -14667,21 +18754,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-cB
-cB
-ct
-cB
-cB
-cB
-PZ
-XX
-bm
-aa
+Gj
+EO
+xW
+qc
+Fq
+Wd
+Iy
+Xy
+Ky
+eW
+CO
+yD
+Gv
+EO
+ke
 aa
 aa
 aa
@@ -14924,21 +19011,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-bm
-EL
-Aq
-Aq
-EL
-Zd
-bm
-bm
-bm
-bm
-aa
+Gj
+EO
+EO
+EO
+EO
+zd
+Cv
+Ij
+jJ
+TF
+EO
+EO
+TB
+EO
+ke
 aa
 aa
 aa
@@ -15181,21 +19268,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-bm
-cB
-rF
-rF
-cB
-cB
-bm
-aa
-aa
-aa
-aa
+Gj
+HM
+HM
+HM
+Vd
+kr
+Nb
+rZ
+Df
+Yf
+Rt
+HM
+HM
+HM
+ke
 aa
 aa
 aa
@@ -15438,21 +19525,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-bm
-Ii
-ct
-cB
-ct
-cB
-bm
-aa
-aa
-aa
-aa
+Gj
+Gd
+Gd
+Gd
+EO
+rT
+eg
+Ao
+GF
+YP
+EO
+Gd
+Gd
+Gd
+ke
 aa
 aa
 aa
@@ -15695,21 +19782,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-bm
-bm
-GX
-bm
-GX
-bm
-bm
-aa
-aa
-aa
-aa
+Gj
+Gd
+Gd
+Gd
+EO
+EO
+uX
+EO
+uX
+EO
+EO
+Gd
+Gd
+Gd
+ke
 aa
 aa
 aa
@@ -15952,21 +20039,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-bm
-ct
-ct
-ct
-bm
-aa
-aa
-aa
-aa
-aa
+Gj
+HM
+HM
+HM
+HM
+EO
+BU
+DF
+Dc
+EO
+HM
+HM
+HM
+HM
+ke
 aa
 aa
 aa
@@ -16208,23 +20295,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-bm
-bm
-bm
-bm
-bm
-GX
-bm
-GX
-bm
-bm
-bm
-bm
-bm
-aa
-aa
+Nj
+HM
+JU
+JU
+JU
+JU
+EO
+uX
+EO
+Zn
+EO
+ct
+ct
+ct
+ct
+HM
+ke
 aa
 aa
 aa
@@ -16464,23 +20551,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-bm
-bm
-cB
-cB
-cB
-bm
+Nj
+HM
+JU
+JU
+oO
+FZ
+UA
+JU
+sD
+dE
+qr
 ct
-cB
+Vn
+vI
+JE
 ct
-bm
-cB
-cB
-cB
-bm
-bm
+ct
+HM
+ke
 aa
 aa
 aa
@@ -16490,14 +20579,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Nj
+rr
+rr
+rr
+rr
+ss
 aa
 aa
 aa
@@ -16720,47 +20807,47 @@ aa
 aa
 aa
 aa
-aa
-aa
-bm
-bm
-cB
-cB
-cB
-cB
-bm
-cB
-uC
-cB
-bm
-cB
-cB
-cB
-cB
-bm
-bm
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bm
-bm
-bm
-bm
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Nj
+HM
+qx
+JU
+Mn
+uG
+Qs
+wG
+JU
+Xa
+YC
+EL
+ct
+tX
+Dk
+xe
+ZF
+ct
+ct
+HM
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+BO
+HM
+MT
+MT
+MT
+MT
+HM
+rr
+rr
+rr
+rr
+rr
+ss
 aa
 aa
 aa
@@ -16977,47 +21064,47 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-cB
-cB
-cB
-cB
-GX
-cB
-uC
-cB
-bm
-cB
-cB
-cB
-cB
-cB
-bm
-bm
-aa
-aa
-aa
-aa
-bm
-bm
-bm
-bm
-bm
-aa
-bm
-XX
-XX
-bm
-aa
-bm
-bm
-bm
-bm
-bm
-aa
+Gj
+xA
+xA
+JU
+lg
+sL
+sL
+xz
+tQ
+JK
+nC
+WS
+qy
+wY
+ZO
+mn
+xe
+Yx
+ct
+ct
+HM
+Gd
+Gd
+HM
+MT
+MT
+MT
+MT
+MT
+PN
+MT
+YS
+mj
+MT
+Rl
+MT
+MT
+MT
+MT
+MT
+ke
 aa
 aa
 aa
@@ -17228,54 +21315,54 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
-aa
-aa
-aa
-bm
-XX
-XX
-XX
-bm
-bm
-bm
-XX
-XX
-bm
-bm
-bm
-XX
-XX
-XX
-bm
-aa
-aa
+Nj
+rr
+rr
+rr
+rr
+rr
+HM
+xA
+xA
+xA
+JU
+JU
+JU
+JU
+JU
+ij
+Xq
+uY
+ct
+KK
+KK
+SY
+SY
+Yk
+Bw
+ct
+HM
+Gd
+Gd
+HM
+MT
+uM
+uM
+uM
+MT
+MT
+MT
+YS
+YS
+MT
+MT
+MT
+gS
+uM
+gS
+MT
+Gk
+ss
 aa
 aa
 aa
@@ -17483,56 +21570,56 @@ aa
 aa
 aa
 aa
-aa
-bm
-fY
-fY
-bm
-aa
-aa
-aa
-aa
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-cB
-uC
-cB
-GX
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
-aa
-aa
-aa
-bm
-Jt
-Jt
-Jt
-bm
+Nj
+rr
+HM
+Fk
+xX
+mC
+Fk
+Gd
+Gd
+xA
+Xv
+TU
+TU
+yZ
+yy
+Xj
+xA
+Ov
+xv
+eX
+Vh
+gE
+Cr
+WY
+RG
+gE
+WY
 ct
-bm
-Jt
-Jt
-bm
-ct
-bm
-Jt
-Jt
-Jt
-bm
-bm
-aa
+HM
+Gd
+Gd
+nE
+MT
+pm
+pm
+vZ
+MT
+yg
+MT
+um
+um
+MT
+yg
+MT
+pm
+vZ
+pm
+MT
+MT
+ke
 aa
 aa
 aa
@@ -17740,56 +21827,56 @@ aa
 aa
 aa
 aa
-bm
-bm
-kg
-FT
-bm
-bm
-aa
-aa
-bm
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-cB
-uC
-cB
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
-bm
-bm
-bm
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
+Gj
+YO
+Fk
+Fk
+Qa
+JQ
+Fk
+Gd
+Gd
+xA
+JY
+lB
+VL
+VL
+fN
+hn
+xA
+gd
+EW
+Ml
+ct
+zj
+GZ
+lA
+Oi
+kt
+kt
+ct
+HM
+MT
+MT
+MT
+MT
+cM
+ir
+LC
+If
+If
+LC
+CV
+If
+hi
+hi
+If
+If
+rB
+If
+jU
+MT
+ke
 aa
 aa
 aa
@@ -17996,57 +22083,57 @@ aa
 aa
 aa
 aa
-bm
-bm
-uh
-cB
-OA
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-GX
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-bm
-bm
-GX
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-cB
-cB
-cB
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-cB
-bm
 aa
+Gj
+Fk
+Fk
+Do
+tW
+wN
+Fk
+Fk
+Fk
+xA
+xA
+xA
+Vl
+xA
+xA
+xA
+Kk
+FU
+Wp
+YW
+ct
+ct
+Jw
+ct
+ln
+ct
+ct
+MT
+MT
+MT
+rJ
+uF
+LC
+EV
+hO
+hO
+oq
+oq
+hO
+PU
+hO
+oq
+hO
+Rq
+WW
+Rq
+oq
+Fo
+MT
+ke
 aa
 aa
 aa
@@ -18253,57 +22340,57 @@ aa
 aa
 aa
 aa
-fY
-su
-hq
-ct
-ct
-GX
-ct
-GX
-ct
-GX
-ct
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-ct
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-ct
-GX
-ct
-GX
-ct
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-bm
 aa
+Gj
+OY
+OX
+Sl
+Tj
+sn
+XQ
+KI
+SR
+rn
+JZ
+IW
+Nk
+dF
+NC
+Nk
+Mk
+hc
+wt
+OF
+NO
+PI
+oe
+zM
+FB
+rn
+VT
+rw
+yg
+yt
+yg
+ju
+zG
+qt
+qt
+zG
+ji
+zG
+qt
+ji
+qt
+qt
+zG
+We
+qt
+ji
+qt
+JH
+MT
+ke
 aa
 aa
 aa
@@ -18510,57 +22597,57 @@ aa
 aa
 aa
 aa
-fY
-ew
-Uz
-DF
-ct
-bm
-cB
-bm
-cB
-bm
-cB
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-ct
-ct
-ct
-uC
-uC
-uC
-uC
-uC
-uC
-cB
-bm
-ct
-bm
-cB
-cB
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-ct
-cB
-bm
 aa
+Gj
+ou
+NQ
+kN
+zz
+fH
+Fk
+fE
+Fk
+Uw
+Wp
+Wp
+Yl
+Xq
+Yl
+Xq
+Yl
+rE
+FC
+XN
+Xq
+Xq
+Wp
+Wp
+Xq
+Wp
+Th
+MT
+We
+MT
+Jg
+zG
+zG
+GJ
+Ny
+bc
+bc
+Ny
+bf
+bf
+Ny
+bc
+Ny
+Ny
+bc
+bc
+bc
+JH
+MT
+ke
 aa
 aa
 aa
@@ -18767,57 +22854,57 @@ aa
 aa
 aa
 aa
-fY
-su
-hq
-ct
-ct
-GX
-ct
-GX
-ct
-GX
-ct
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-ct
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-ct
-GX
-ct
-GX
-ct
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-bm
 aa
+Gj
+mC
+OX
+Ji
+tr
+Gx
+SR
+KI
+IT
+dK
+vR
+Fn
+HZ
+JX
+uo
+FE
+Ti
+oZ
+GL
+hA
+tw
+Qp
+ES
+VQ
+Qp
+tw
+wo
+rw
+yg
+yP
+qq
+zG
+qt
+qt
+ji
+kp
+ju
+zG
+ju
+zG
+qt
+qt
+zG
+zG
+ji
+zG
+Jg
+Fo
+MT
+ke
 aa
 aa
 aa
@@ -19024,57 +23111,57 @@ aa
 aa
 aa
 aa
-bm
-bm
-je
-cB
-tc
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-GX
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-bm
-bm
-GX
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-cB
-cB
-cB
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-uC
-cB
-bm
 aa
+Gj
+Fk
+Fk
+gj
+oK
+PW
+Fk
+Fk
+Fk
+MJ
+MJ
+MJ
+Ue
+MJ
+IZ
+IZ
+MJ
+rV
+Xq
+XX
+SS
+SS
+yE
+SS
+Yt
+Yt
+SS
+MT
+MT
+MT
+yo
+lw
+JF
+Ax
+th
+hO
+PU
+hO
+PU
+hO
+hO
+sr
+PU
+hO
+th
+PU
+hO
+TO
+MT
+ke
 aa
 aa
 aa
@@ -19282,56 +23369,56 @@ aa
 aa
 aa
 aa
-bm
-bm
-qB
-nd
-bm
-bm
-aa
-aa
-bm
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-cB
-uC
-cB
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
-bm
-bm
-bm
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
+Gj
+pi
+Fk
+Fk
+kP
+Fh
+Fk
+Gd
+Gd
+MJ
+gK
+Td
+Vt
+FY
+qS
+qS
+MJ
+pg
+Mg
+wF
+SS
+wm
+mg
+US
+Ey
+wm
+Ey
+SS
+HM
+MT
+MT
+MT
+MT
+GK
+JF
+IU
+IU
+xi
+zJ
+xi
+xi
+Zk
+we
+xi
+xi
+of
+of
+ux
+MT
+ke
 aa
 aa
 aa
@@ -19539,56 +23626,56 @@ aa
 aa
 aa
 aa
-aa
-bm
-fY
-fY
-bm
-aa
-aa
-aa
-aa
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-cB
-uC
-cB
-GX
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
-aa
-aa
-aa
-bm
-Jt
-Jt
-Jt
-bm
-ct
-bm
-Jt
-Jt
-bm
-ct
-bm
-Jt
-Jt
-Jt
-bm
-bm
-aa
+Fe
+uv
+HM
+Fk
+mC
+mC
+Fk
+Gd
+Gd
+MJ
+zN
+oz
+Td
+NB
+NB
+XH
+IZ
+tf
+Wp
+Cn
+Qu
+mg
+vb
+gg
+mg
+mg
+Ey
+SS
+HM
+Sq
+Sq
+oE
+MT
+pm
+pm
+vZ
+MT
+yg
+MT
+vZ
+vZ
+MT
+yg
+MT
+vZ
+vZ
+pm
+MT
+MT
+ke
 aa
 aa
 aa
@@ -19798,54 +23885,54 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-bm
-cB
-cB
-cB
-cB
-cB
-cB
-bm
-aa
-aa
-aa
-aa
-bm
-XX
-XX
-XX
-bm
-bm
-bm
-XX
-XX
-bm
-bm
-bm
-XX
-XX
-XX
-bm
-aa
-aa
+Fe
+uv
+uv
+uv
+uv
+uv
+HM
+MJ
+MJ
+MJ
+MJ
+MJ
+MJ
+MJ
+MJ
+mO
+pp
+ZB
+SS
+Mt
+uV
+JR
+uV
+Pf
+Pf
+SS
+HM
+Gd
+Gd
+HM
+MT
+uM
+uM
+uM
+MT
+MT
+MT
+mj
+mj
+MT
+MT
+MT
+uM
+uM
+gS
+MT
+HV
+iB
 aa
 aa
 aa
@@ -20061,47 +24148,47 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-cB
-cB
-cB
-cB
-ct
-cB
-uC
-cB
-bm
-dj
-dj
-dj
-dj
-dj
-bm
-bm
-aa
-aa
-aa
-aa
-bm
-bm
-bm
-bm
-bm
-aa
-bm
-XX
-XX
-bm
-aa
-bm
-bm
-bm
-bm
-bm
-aa
+Gj
+fW
+MJ
+MJ
+VR
+Zb
+Mm
+ma
+rc
+Bx
+ty
+Bz
+Yt
+qd
+Px
+hK
+Px
+Px
+SS
+SS
+HM
+Gd
+Gd
+HM
+MT
+MT
+MT
+MT
+MT
+iA
+MT
+mj
+mj
+MT
+Qr
+MT
+MT
+MT
+MT
+MT
+ke
 aa
 aa
 aa
@@ -20318,47 +24405,47 @@ aa
 aa
 aa
 aa
-aa
-aa
-bm
-bm
-cB
-cB
-cB
-cB
-bm
-cB
-uC
-cB
-bm
-CS
-CS
-CS
-CS
-bm
-bm
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bm
-bm
-bm
-bm
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Fe
+HM
+kC
+VR
+VR
+Mh
+MF
+Yb
+VR
+SV
+pp
+Tt
+SS
+Px
+Px
+Bu
+Px
+Yt
+Yt
+HM
+uv
+uv
+uv
+uv
+uv
+uv
+Zm
+uv
+uv
+hV
+MT
+MT
+MT
+MT
+HM
+uv
+uv
+uv
+uv
+uv
+KP
 aa
 aa
 aa
@@ -20576,28 +24663,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-bm
-bm
-cB
-cB
-cB
-bm
-ct
-cB
-ct
-bm
-ZW
-VO
-he
-bm
-bm
-aa
-aa
-aa
-aa
-aa
+uv
+HM
+VR
+VR
+UF
+Cw
+Cw
+VR
+VH
+Ig
+zL
+SS
+xU
+EA
+eC
+SS
+SS
+HM
+KP
 aa
 aa
 aa
@@ -20607,9 +24691,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+Fe
+uv
+uv
+uv
+uv
+KP
 aa
 aa
 aa
@@ -20834,23 +24921,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-bm
-bm
-bm
-bm
-bm
-GX
-bm
-GX
-bm
-bm
-bm
-bm
-bm
-aa
-aa
+Fe
+HM
+VR
+VR
+VR
+VR
+EO
+Gg
+EO
+uX
+EO
+SS
+SS
+SS
+SS
+HM
+KP
 aa
 aa
 aa
@@ -21092,21 +25179,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-bm
-ct
-cB
-ct
-bm
-aa
-aa
-aa
-aa
-aa
+Gj
+HM
+HM
+HM
+HM
+XL
+FA
+Bf
+Ep
+XL
+HM
+HM
+HM
+HM
+ke
 aa
 aa
 aa
@@ -21349,21 +25436,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-bm
-bm
-GX
-bm
-GX
-bm
-bm
-aa
-aa
-aa
-aa
+Gj
+Gd
+Gd
+Gd
+XL
+XL
+DS
+XL
+DS
+XL
+XL
+Gd
+Gd
+Gd
+ke
 aa
 aa
 aa
@@ -21606,21 +25693,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-bm
-rU
-ct
-cB
-ct
-cB
-bm
-aa
-aa
-aa
-aa
+Gj
+Gd
+Gd
+Gd
+XL
+kf
+ry
+XB
+tF
+Vc
+XL
+Gd
+Gd
+Gd
+ke
 aa
 aa
 aa
@@ -21863,21 +25950,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-bm
-cB
-cB
-Cr
-Cr
-cB
-bm
-aa
-aa
-aa
-aa
+Gj
+HM
+HM
+HM
+OR
+IH
+kB
+SO
+xy
+FT
+XL
+HM
+HM
+HM
+ke
 aa
 aa
 aa
@@ -22120,21 +26207,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-bm
-Ip
-Ka
-vI
-vI
-Ka
-bm
-bm
-bm
-bm
-aa
+Gj
+XL
+XL
+XL
+XL
+eK
+PL
+BV
+Pd
+fG
+XL
+XL
+XL
+XL
+ke
 aa
 aa
 aa
@@ -22377,21 +26464,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-cB
-cB
-ct
-cB
-cB
-cB
-PZ
-XX
-bm
-aa
+Gj
+wp
+yh
+PH
+Yp
+kL
+mE
+BK
+qK
+qK
+wa
+iH
+qG
+XL
+ke
 aa
 aa
 aa
@@ -22634,21 +26721,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+Gj
+YU
+GX
+PH
+Xz
+Zs
+id
+AU
+oi
+FF
+Uf
+iH
+LE
+YN
+ke
 aa
 aa
 aa
@@ -22891,21 +26978,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-PZ
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+Gj
+XL
+qG
+iH
+Ip
+FF
+lS
+kJ
+QK
+wg
+Xw
+iH
+yU
+hu
+ke
 aa
 aa
 aa
@@ -23148,21 +27235,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-aa
+Gj
+XL
+XL
+XL
+gy
+wg
+lS
+kR
+OO
+Zs
+wi
+XL
+XL
+XL
+ke
 aa
 aa
 aa
@@ -23402,27 +27489,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-bm
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-bm
-aa
-aa
-aa
-aa
-aa
+Nj
+rr
+rr
+HM
+HM
+QN
+Bi
+On
+wg
+Wg
+QV
+Ex
+Zs
+Qn
+ZL
+XL
+HM
+HM
+rr
+rr
+ss
 aa
 aa
 aa
@@ -23659,27 +27746,27 @@ aa
 aa
 aa
 aa
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-bm
-bm
-bm
-bm
+XL
+iR
+XL
+XL
+XL
+XL
+XL
+ng
+Us
+OO
+sR
+Ei
+Ki
+jX
+XL
+XL
+nN
+XL
+CZ
+XL
+XL
 aa
 aa
 aa
@@ -23916,27 +28003,27 @@ aa
 aa
 aa
 aa
-mr
-CS
-CS
-mr
-ct
-ct
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-ct
-ct
-mr
-CS
-CS
-mr
+LS
+np
+ZS
+jM
+ZL
+Ei
+Ei
+wP
+Ki
+VO
+QV
+VO
+Ki
+Pz
+QK
+ND
+qf
+jM
+Es
+LM
+ov
 aa
 aa
 aa
@@ -24173,27 +28260,27 @@ aa
 aa
 aa
 aa
-mr
-CS
-CS
-mr
-ct
-ct
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-ct
-ct
-mr
-CS
-CS
-mr
+LS
+ZS
+ZS
+jM
+QU
+Ei
+Ei
+Zy
+Zs
+ye
+QV
+FV
+Zs
+nt
+Ei
+QK
+nT
+jM
+ZS
+Zi
+jM
 aa
 aa
 aa
@@ -24430,27 +28517,27 @@ aa
 aa
 aa
 aa
-bm
-bm
-bm
-bm
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-bm
-bm
-bm
-bm
+XL
+XL
+XL
+XL
+XL
+XL
+XL
+LL
+Zs
+zV
+QV
+gZ
+Ki
+sq
+XL
+XL
+XL
+XL
+XL
+OR
+XL
 aa
 aa
 aa
@@ -24687,27 +28774,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-bm
-ct
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-ct
-bm
-aa
-aa
-aa
-aa
-aa
+Fe
+uv
+uv
+HM
+HM
+qU
+nV
+Qj
+BM
+QK
+QV
+VO
+Zs
+Ae
+ZL
+XL
+HM
+HM
+uv
+uv
+KP
 aa
 aa
 aa
@@ -24947,21 +29034,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-bm
-bm
-bm
-aa
+Gj
+XL
+XL
+XL
+Jm
+wg
+Ei
+QV
+Ei
+Zs
+HL
+XL
+XL
+XL
+ke
 aa
 aa
 aa
@@ -25204,21 +29291,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-xQ
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+Gj
+nN
+RD
+Or
+JS
+Us
+FQ
+QV
+FV
+wg
+MD
+PH
+Tf
+mK
+ke
 aa
 aa
 aa
@@ -25461,21 +29548,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-xQ
-cB
-uC
-cB
-ct
-cB
-uC
-cB
-PZ
-XX
-bm
-aa
+Gj
+XL
+BF
+tj
+Ip
+wg
+FV
+kJ
+VO
+Us
+nJ
+tc
+In
+tE
+ke
 aa
 aa
 aa
@@ -25718,21 +29805,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-XX
-xQ
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-PZ
-XX
-bm
-aa
+Gj
+XL
+qG
+Or
+lp
+DY
+DY
+pI
+hG
+ZS
+ex
+PH
+QI
+XL
+ke
 aa
 aa
 aa
@@ -25975,21 +30062,21 @@ aa
 aa
 aa
 aa
-aa
-bm
-bm
-bm
-bm
-bm
-ct
-ct
-bm
-ct
-ct
-bm
-bm
-bm
-aa
+Gj
+XL
+XL
+XL
+OR
+XL
+ZL
+QU
+XL
+QU
+XK
+XL
+XL
+XL
+ke
 aa
 aa
 aa
@@ -26232,21 +30319,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-bm
-bm
-bm
-mr
-mr
-bm
-bm
-bm
-bm
-aa
-aa
-aa
+Fe
+uv
+HM
+XL
+nN
+XL
+LS
+LS
+XL
+XL
+XL
+XL
+HM
+uv
+KP
 aa
 aa
 aa
@@ -26491,17 +30578,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-bm
-CS
-CS
-bm
-aa
-aa
-aa
-aa
+Fe
+uv
+HM
+fz
+ZS
+OR
+XL
+HM
+uv
+uv
+KP
 aa
 aa
 aa
@@ -26750,12 +30837,12 @@ aa
 aa
 aa
 aa
-aa
-bm
-CS
-CS
-bm
-aa
+Gj
+XL
+ZS
+ZS
+XL
+ke
 aa
 aa
 aa
@@ -27007,12 +31094,12 @@ aa
 aa
 aa
 aa
-aa
-bm
-mr
-mr
-bm
-aa
+Fe
+XL
+Yc
+LS
+XL
+KP
 aa
 aa
 aa
@@ -30169,7 +34256,7 @@ aa
 aa
 av
 av
-bf
+bm
 fi
 av
 aa
@@ -31176,7 +35263,7 @@ ac
 av
 av
 aP
-bf
+bm
 av
 av
 av
@@ -35298,7 +39385,7 @@ cg
 aM
 cV
 aM
-bc
+dj
 aM
 aM
 aM
@@ -36069,14 +40156,14 @@ cC
 cK
 aM
 aM
-bc
+dj
 dq
 aM
 aM
 dz
 aD
 ed
-bc
+dj
 aM
 bK
 aD
@@ -36327,7 +40414,7 @@ cL
 aM
 db
 dc
-bc
+dj
 dv
 bh
 dA
@@ -36337,7 +40424,7 @@ aM
 eE
 ee
 aD
-bc
+dj
 aD
 aD
 av
@@ -36575,7 +40662,7 @@ aM
 ba
 bx
 bh
-bc
+dj
 av
 cj
 dk
@@ -37086,7 +41173,7 @@ aa
 aa
 av
 aN
-bc
+dj
 bz
 aa
 bN
@@ -37098,7 +41185,7 @@ cL
 aM
 de
 aM
-bc
+dj
 dw
 aM
 aM
