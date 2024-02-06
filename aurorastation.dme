@@ -3748,6 +3748,8 @@
 #include "maps\away\ships\tramp_freighter\tramp_freighter_ghostroles.dm"
 #include "maps\away\ships\wildlands_militia\militia_ship.dm"
 #include "maps\away\ships\wildlands_militia\militia_ship_ghostroles.dm"
+#include "maps\away\ships\xanu\xanu_frigate.dm"
+#include "maps\away\ships\xanu\xanu_frigate_areas.dm"
 #include "maps\away\ships\yacht\yacht.dm"
 #include "maps\away\ships\yacht\yacht_areas.dm"
 #include "maps\away_sites_testing\away_sites_testing.dm"

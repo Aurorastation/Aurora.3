@@ -171,7 +171,6 @@
 
 /obj/structure/window_frame/shuttle/merc
 	color = "#8b7d86"
-
 /obj/structure/window_frame/shuttle/khaki
 	color = "#ac8b78"
 
@@ -183,3 +182,6 @@
 
 /obj/structure/window_frame/shuttle/blue
 	color = "#6176a1"
+
+/obj/structure/window_frame/shuttle/coalition
+	color = "#949ea3"

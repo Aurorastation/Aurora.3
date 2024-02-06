@@ -161,6 +161,28 @@
 	icon_state = "full_i_rwindow"
 	window_path = /obj/structure/window/full/reinforced/indestructible
 
+//Coalition window frames
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition
+	name = "coalition reinforced window spawner"
+	icon_state = "coalition_window"
+	frame_path = /obj/structure/window_frame/shuttle/coalition
+	window_path = /obj/structure/window/full/reinforced/ultra
+
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille
+	name = "coalition reinforced window spawner with grille"
+	icon_state = "coalition_window-g"
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor
+	name = "coalition reinforced window spawner with firedoor"
+	icon_state = "coalition_window-f"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor
+	name = "coalition reinforced window spawner with grille and firedoor"
+	icon_state = "coalition_window-gf"
+	spawn_firedoor = TRUE
+
 // Reinforced Polarized Window
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized
 	name = "full reinforced polarized window spawner"
