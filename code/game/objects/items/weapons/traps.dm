@@ -195,17 +195,17 @@
 /obj/item/trap/animal/update_icon()
 	icon_state = "[icon_base][deployed]"
 
-/obj/item/trap/animal/examine(mob/user)
+/obj/item/trap/animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(captured)
 		var/datum/L = captured.resolve()
 		if (L)
-			to_chat(user, "<span class='warning'>[L] is trapped inside!</span>")
+			. += SPAN_WARNING("[L] is trapped inside!")
 			return
 	else if(deployed)
-		to_chat(user, SPAN_WARNING("It's set up and ready to capture something."))
+		. += SPAN_WARNING("It's set up and ready to capture something.")
 	else
-		to_chat(user, "<span class='notice'>\The [src] is empty and un-deployed.</span>")
+		. += SPAN_NOTICE("\The [src] is empty and un-deployed.")
 
 /obj/item/trap/animal/Crossed(atom/movable/AM)
 	if(!deployed || !anchored)
@@ -796,10 +796,11 @@
 
 	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
 
-/obj/item/trap/punji/examine(mob/user, distance)
+/obj/item/trap/punji/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(src.message && distance < 3)
-		to_chat(user, SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+		. += SPAN_ALERT("You notice something written on a plate inside the trap:")
+		. += SPAN_BAD(message)
 
 /obj/item/trap/punji/verb/hide_under()
 	set src in oview(1)

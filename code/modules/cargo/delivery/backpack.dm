@@ -17,10 +17,10 @@
 	QDEL_LIST(contained_packages)
 	return ..()
 
-/obj/item/cargo_backpack/examine(mob/user, distance)
+/obj/item/cargo_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contained_packages))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=\ref[src];show_package_data=1>\[Show Package Data\]</a>")))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=\ref[src];show_package_data=1>\[Show Package Data\]</a>"))
 
 /obj/item/cargo_backpack/Topic(href, href_list)
 	if(href_list["show_package_data"])

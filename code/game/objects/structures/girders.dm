@@ -18,20 +18,20 @@
 	var/reinforcing = 0
 	var/plating = FALSE
 
-/obj/structure/girder/examine(mob/user, distance, infix, suffix)
+/obj/structure/girder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/state
 	var/current_damage = health / initial(health)
 	switch(current_damage)
 		if(0 to 0.2)
-			state = "<span class='danger'>The support struts are collapsing!</span>"
+			state = SPAN_DANGER("The support struts are collapsing!")
 		if(0.2 to 0.4)
-			state = "<span class='warning'>The support struts are warped!</span>"
+			state = SPAN_WARNING("The support struts are warped!")
 		if(0.4 to 0.8)
-			state = "<span class='notice'>The support struts are dented, but holding together.</span>"
+			state = SPAN_NOTICE("The support struts are dented, but holding together.")
 		if(0.8 to 1)
-			state = "<span class='notice'>The support struts look completely intact.</span>"
-	to_chat(user, state)
+			state = SPAN_NOTICE("The support struts look completely intact.")
+	. += state
 
 /obj/structure/girder/displaced
 	name = "displaced girder"

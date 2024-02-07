@@ -17,10 +17,10 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 	GLOB.teleportbeacons -= src
 	return ..()
 
-/obj/item/device/radio/beacon/examine(mob/user)
+/obj/item/device/radio/beacon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(anchored)
-		to_chat(user, SPAN_NOTICE("It's been secured to the ground with anchoring screws."))
+		. += SPAN_NOTICE("It's been secured to the ground with anchoring screws.")
 
 /obj/item/device/radio/beacon/attack_hand(mob/user)
 	if(anchored)

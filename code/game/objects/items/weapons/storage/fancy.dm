@@ -73,14 +73,14 @@
 		update_icon()
 	. = ..()
 
-/obj/item/storage/box/fancy/examine(mob/user)
+/obj/item/storage/box/fancy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!icon_type || !storage_type)
 		return
 	if(contents.len <= 0)
-		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
+		. += "There are no [src.icon_type]s left in the [src.storage_type]."
 	else
-		to_chat(user, "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type].")
+		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
 
 /*
  * Donut Box

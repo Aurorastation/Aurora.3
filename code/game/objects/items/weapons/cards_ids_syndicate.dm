@@ -20,11 +20,11 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/examine(mob/user, distance, is_adjacent)
+/obj/item/card/id/syndicate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(user == registered_user)
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
+			. += FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge."))
 
 /obj/item/card/id/syndicate/process()
 	if(electronic_warfare)

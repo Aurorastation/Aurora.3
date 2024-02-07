@@ -409,10 +409,10 @@
 	attack_verb = list("attacked", "struck", "hit")
 	var/dart_count = 5
 
-/obj/item/toy/crossbow/examine(mob/user, distance, is_adjacent)
+/obj/item/toy/crossbow/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2 && dart_count)
-		to_chat(user, "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>")
+		. += "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>"
 
 /obj/item/toy/crossbow/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/toy/ammo/crossbow))

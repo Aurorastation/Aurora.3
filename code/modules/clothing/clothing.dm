@@ -1204,18 +1204,18 @@
 		M.update_inv_w_uniform()
 		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
 
-/obj/item/clothing/under/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/under/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(has_sensor)
 		switch(src.sensor_mode)
 			if(SUIT_SENSOR_OFF)
-				to_chat(user, "Its sensors appear to be disabled.")
+				. += "Its sensors appear to be disabled." 
 			if(SUIT_SENSOR_BINARY)
-				to_chat(user, "Its binary life sensors appear to be enabled.")
+				. += "Its binary life sensors appear to be enabled."
 			if(SUIT_SENSOR_VITAL)
-				to_chat(user, "Its vitals tracker appears to be enabled.")
+				. += "Its vitals tracker appears to be enabled."
 			if(SUIT_SENSOR_TRACKING)
-				to_chat(user, "Its vitals tracker and tracking beacon appear to be enabled.")
+				. += "Its vitals tracker and tracking beacon appear to be enabled."
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user

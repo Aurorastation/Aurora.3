@@ -7,9 +7,9 @@
 	var/new_icon_file
 	var/uses = 1        // Uses before the kit deletes itself.
 
-/obj/item/device/kit/examine()
+/obj/item/device/kit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(usr, "It has [uses] use\s left.")
+	. += "It has [uses] use\s left."
 
 /obj/item/device/kit/use(var/amt, var/mob/user)
 	uses -= amt

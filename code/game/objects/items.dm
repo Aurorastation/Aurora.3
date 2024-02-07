@@ -323,18 +323,18 @@
 
 	I.forceMove(T)
 
-/obj/item/examine(mob/user, distance)
+/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	var/size
 	switch(src.w_class)
-		if (5.0 to INFINITY)
+		if (ITEMSIZE_HUGE to INFINITY)
 			size = "huge"
-		if (4.0 to 5.0)
+		if (ITEMSIZE_LARGE to ITEMSIZE_HUGE)
 			size = "bulky"
-		if (3.0 to 4.0)
+		if (ITEMSIZE_NORMAL to ITEMSIZE_LARGE)
 			size = "normal-sized"
-		if (2.0 to 3.0)
+		if (ITEMSIZE_SMALL to ITEMSIZE_NORMAL)
 			size = "small"
-		if (0 to 2.0)
+		if (0 to ITEMSIZE_SMALL)
 			size = "tiny"
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
@@ -342,7 +342,7 @@
 	. = ..(user, distance, "", "It is a [size] item.")
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])

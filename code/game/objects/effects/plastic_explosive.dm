@@ -37,10 +37,10 @@
 	pixel_x = pixel_shifts[1]
 	pixel_y = pixel_shifts[2]
 
-/obj/effect/plastic_explosive/examine(mob/user, distance, is_adjacent)
+/obj/effect/plastic_explosive/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_WARNING("It is set to blow in [round((parent.detonate_time - world.time) / 10)] seconds."))
+		. += SPAN_WARNING("It is set to blow in [round((parent.detonate_time - world.time) / 10)] seconds.")
 
 /obj/effect/plastic_explosive/attack_hand(mob/living/user)
 	to_chat(user, SPAN_WARNING("\The [src] is solidly attached, it doesn't budge!"))

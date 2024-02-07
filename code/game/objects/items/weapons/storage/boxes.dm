@@ -90,13 +90,13 @@
 			damage(damage)
 	..()
 
-/obj/item/storage/box/examine(var/mob/user)
+/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, SPAN_WARNING("It is slightly torn."))
+			. += SPAN_WARNING("It is slightly torn.")
 		else
-			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
+			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)

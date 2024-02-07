@@ -56,21 +56,21 @@
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
 
-/obj/item/reagent_containers/extinguisher_refill/examine(mob/user, distance) //Copied from inhalers.
+/obj/item/reagent_containers/extinguisher_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!distance <= 2)
 		return
 
 	if(is_open_container())
 		if(LAZYLEN(reagents?.reagent_volumes))
-			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+			. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.")
 		else
-			to_chat(user,"<span class='notice'>It is empty.</span>")
+			. += SPAN_NOTICE("It is empty.")
 	else
 		if(LAZYLEN(reagents?.reagent_volumes))
-			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
+			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
 		else
-			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
+			. += SPAN_NOTICE("The cartridge seems spent.")
 
 /obj/item/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
@@ -128,11 +128,11 @@
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
-/obj/item/extinguisher/examine(mob/user, distance)
+/obj/item/extinguisher/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
-		to_chat(user,"\The [src] contains [src.reagents.total_volume] units of reagents.")
-		to_chat(user,"The safety is [safety ? "on" : "off"].")
+		. += SPAN_NOTICE("\The [src] contains [src.reagents.total_volume] units of reagents.")
+		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
 	return
 
 /obj/item/extinguisher/attack(mob/living/M, mob/living/user, target_zone)
