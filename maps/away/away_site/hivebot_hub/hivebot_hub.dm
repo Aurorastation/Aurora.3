@@ -1,26 +1,28 @@
 /datum/map_template/ruin/away_site/hivebot_hub
 	name = "derelict supply hub"
 	description = "derelict supply hub"
+
+	id = "hivebot_hub"
 	suffixes = list("away_site/hivebot_hub/hivebot_hub.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
-	id = "hivebot_hub"
+	// template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/hivebot_hub
 	map = "derelict supply hub"
-	descriptor = "derelict supply hub"
+	descriptor = "A derelict supply hub."
 
 /obj/effect/overmap/visitable/sector/hivebot_hub
 	name = "derelict supply hub"
+	static_vessel = TRUE
+	generic_object = FALSE
 	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Most curiously, something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside."
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
-	icon_state = "outpost"
-	color = "#393939"
 	volume = "50 meters length, 67 meters beam/width, 11 meters vertical height"
-	sizeclass = "Supply Hub"
+	sizeclass = "Small supply hub and fuel depot"
 
 // Areas
 /area/hivebothub
