@@ -1,9 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds the Abandoned Propellant Depot away site."
-  - rscadd: "Adds map previews for lights."
-  - bugfix: "Fixes invisible damaged grates."
