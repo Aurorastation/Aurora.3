@@ -180,6 +180,15 @@
 	if (distance > 2 && user!=src.loc) return
 	to_chat(user, "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>")
 
+/obj/item/spacecash/ewallet/c2000
+	worth = 2000
+
+/obj/item/spacecash/ewallet/c5000
+	worth = 5000
+
+/obj/item/spacecash/ewallet/c10000
+	worth = 10000
+
 /obj/item/spacecash/ewallet/lotto
 	name = "space lottery card"
 	icon_state = "lottocard_3"

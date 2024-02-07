@@ -6,6 +6,8 @@
 	var/starlight_range = 1
 	var/list/possible_erts = list()
 	var/list/possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/snow, /obj/effect/overmap/visitable/sector/exoplanet/desert)
+	///Guaranteed planets to spawn. This ignores the map exoplanet limit, so don't put too many planets in here.
+	var/list/guaranteed_exoplanets = list()
 	var/list/cargo_price_coef = list("nt" = 1, "hpi" = 1, "zhu" = 1, "een" = 1, "get" = 1, "arz" = 1, "blm" = 1,
 								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 1, "xmg" = 1, "npi" = 1) //how much the space sector afffects how expensive is ordering from that cargo supplier
 	var/skybox_icon = "ceti"
