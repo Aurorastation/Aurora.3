@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "AI shells now, in addition to having the universal borg equipment (tape, GPS, a flash), have an inflatables dispenser, jetpack and paperwork essentials."
+  - rsctweak: "Custodial borgs now have custodial tape instead of engineering tape."
