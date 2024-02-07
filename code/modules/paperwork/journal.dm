@@ -6,9 +6,8 @@
 	icon = 'icons/obj/item/journal.dmi'
 	icon_state = "journal"
 	item_state = "journal"
+	color = COLOR_DARK_BROWN
 	contained_sprite = TRUE
-	build_from_parts = TRUE
-	worn_overlay = "closed"
 	update_icon_on_init = TRUE
 	throw_speed = 1
 	throw_range = 5
