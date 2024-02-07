@@ -3,11 +3,10 @@
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
 	desc_info = "Alt-click this while it's on your person or next to you to open this journal.\nWhile the journal is open, use it in hand or use a pen on it to access the contents."
-	icon = 'icons/obj/item/journal.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "journal"
 	item_state = "journal"
 	color = COLOR_DARK_BROWN
-	contained_sprite = TRUE
 	update_icon_on_init = TRUE
 	throw_speed = 1
 	throw_range = 5
