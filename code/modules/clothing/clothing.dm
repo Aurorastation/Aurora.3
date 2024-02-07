@@ -1209,7 +1209,7 @@
 	if(has_sensor)
 		switch(src.sensor_mode)
 			if(SUIT_SENSOR_OFF)
-				. += "Its sensors appear to be disabled." 
+				. += "Its sensors appear to be disabled."
 			if(SUIT_SENSOR_BINARY)
 				. += "Its binary life sensors appear to be enabled."
 			if(SUIT_SENSOR_VITAL)
