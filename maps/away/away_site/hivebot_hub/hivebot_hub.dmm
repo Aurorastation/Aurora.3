@@ -1550,6 +1550,9 @@
 "eC" = (
 /obj/machinery/power/rtg,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hivebothub/engi)
 "eD" = (
@@ -1948,12 +1951,13 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/space)
+/area/derelict/hivebothub/kitchen)
 "gd" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hivebothub/centralhall)
 "gg" = (
@@ -2013,6 +2017,7 @@
 "gK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/appliance/cooker/stove,
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hivebothub/kitchen)
 "gS" = (
@@ -2041,6 +2046,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/airless,
 /area/derelict/hivebothub/dorm2)
@@ -2075,7 +2081,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/derelict/hivebothub/secure)
 "hV" = (
 /obj/item/ore/glass{
@@ -2206,6 +2212,18 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hivebothub/portdocks)
+"jL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
 "jM" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/airless,
@@ -2330,7 +2348,7 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/space)
+/area/derelict/hivebothub/washroom)
 "kJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -2376,11 +2394,25 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/airless,
 /area/derelict/hivebothub/dorm1)
+"lj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
 "ln" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/derelict/hivebothub/atmos)
+"lo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/power/apc/west,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hivebothub/secure)
 "lp" = (
 /obj/item/ore/iron{
 	pixel_x = 4;
@@ -2673,7 +2705,7 @@
 "oq" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/derelict/hivebothub/secure)
 "ou" = (
 /obj/item/ore/gold{
@@ -2741,6 +2773,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/wood/airless,
 /area/derelict/hivebothub/dorm1)
 "oU" = (
@@ -2883,7 +2918,7 @@
 "qx" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
-/area/space)
+/area/derelict/hivebothub/dorm1)
 "qy" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
@@ -3094,7 +3129,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/derelict/hivebothub/secure)
 "ss" = (
 /obj/structure/lattice/catwalk,
@@ -3129,6 +3164,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hivebothub/portdocks)
 "sQ" = (
@@ -3168,7 +3204,7 @@
 /area/derelict/hivebothub/centralhall)
 "th" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/derelict/hivebothub/secure)
 "tj" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3495,6 +3531,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hivebothub/bridge)
+"wO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/west,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hivebothub/engi)
 "wP" = (
 /obj/effect/decal/cleanable/floor_damage,
 /obj/effect/floor_decal/corner/brown{
@@ -3568,6 +3609,9 @@
 /obj/machinery/power/rtg,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hivebothub/engi)
 "xW" = (
@@ -3684,11 +3728,14 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/derelict/hivebothub/starboarddocks)
 "yZ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict/hivebothub/dorm2)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
 "zd" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -3699,6 +3746,7 @@
 /area/derelict/hivebothub/portdocks)
 "zj" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hivebothub/atmos)
 "zq" = (
@@ -3842,6 +3890,14 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/derelict/hivebothub/starboarddocks)
 "Bu" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hivebothub/engi)
 "Bw" = (
@@ -4167,6 +4223,9 @@
 /obj/machinery/power/rtg,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hivebothub/engi)
 "EL" = (
@@ -4732,6 +4791,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/wood/airless,
 /area/derelict/hivebothub/dorm2)
 "JZ" = (
@@ -4822,6 +4882,7 @@
 	dir = 5
 	},
 /obj/structure/table/steel,
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hivebothub/starboarddocks)
 "LM" = (
@@ -5190,7 +5251,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/derelict/hivebothub/secure)
 "PW" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -5291,6 +5352,13 @@
 	},
 /turf/space/dynamic,
 /area/space)
+"QQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hivebothub/engi)
 "QU" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -5324,7 +5392,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/derelict/hivebothub/secure)
 "Rr" = (
 /turf/simulated/floor/tiled/dark/airless,
@@ -5550,6 +5618,7 @@
 "UF" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hivebothub/washroom)
 "US" = (
@@ -5582,6 +5651,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hivebothub/portdocks)
 "Vh" = (
@@ -5743,7 +5813,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/derelict/hivebothub/secure)
 "WY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5997,6 +6067,7 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hivebothub/washroom)
 "Zi" = (
@@ -21583,7 +21654,7 @@ xA
 Xv
 TU
 TU
-yZ
+TU
 yy
 Xj
 xA
@@ -21865,7 +21936,7 @@ ir
 LC
 If
 If
-LC
+lo
 CV
 If
 hi
@@ -23390,7 +23461,7 @@ pg
 Mg
 wF
 SS
-wm
+wO
 mg
 US
 Ey
@@ -24164,7 +24235,7 @@ Yt
 qd
 Px
 hK
-Px
+lj
 Px
 SS
 SS
@@ -24418,10 +24489,10 @@ SV
 pp
 Tt
 SS
-Px
-Px
+QQ
+jL
 Bu
-Px
+yZ
 Yt
 Yt
 HM

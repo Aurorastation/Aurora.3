@@ -9,8 +9,8 @@
 
 	unit_test_groups = list(1)
 
-/area/derelict/hivebothub
-	icon_state = "blue"
+/area/hivebothub
+	icon_state = "red"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
@@ -18,43 +18,43 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	has_gravity = FALSE
 
-/area/derelict/hivebothub/portdocks
+/area/hivebothub/portdocks
 	name = "Independent Supply Hub - Port Docks"
 
-/area/derelict/hivebothub/starboarddocks
+/area/hivebothub/starboarddocks
 	name = "Independent Supply Hub - Starboard Docks"
 
-/area/derelict/hivebothub/starboarddocks
+/area/hivebothub/starboarddocks
 	name = "Independent Supply Hub - Starboard Docks"
 
-/area/derelict/hivebothub/centralhall
+/area/hivebothub/centralhall
 	name = "Independent Supply Hub - Central Hallway"
 
-/area/derelict/hivebothub/engi
+/area/hivebothub/engi
 	name = "Independent Supply Hub - Engineering"
 
-/area/derelict/hivebothub/atmos
+/area/hivebothub/atmos
 	name = "Independent Supply Hub - Atmospherics"
 
-/area/derelict/hivebothub/dorm1
+/area/hivebothub/dorm1
 	name = "Independent Supply Hub - Dormitory #1"
 
-/area/derelict/hivebothub/dorm2
+/area/hivebothub/dorm2
 	name = "Independent Supply Hub - Dormitory #2"
 
-/area/derelict/hivebothub/kitchen
+/area/hivebothub/kitchen
 	name = "Independent Supply Hub - Kitchen"
 
-/area/derelict/hivebothub/washroom
+/area/hivebothub/washroom
 	name = "Independent Supply Hub - Washroom"
 
-/area/derelict/hivebothub/secure
+/area/hivebothub/secure
 	name = "Independent Supply Hub - Secure Storage"
 
-/area/derelict/hivebothub/bridge
+/area/hivebothub/bridge
 	name = "Independent Supply Hub - Bridge"
 
-/area/derelict/hivebothub/exterior
+/area/hivebothub/exterior
 	name = "Independent Supply Hub - Exterior"
 	icon_state = "exterior"
 
