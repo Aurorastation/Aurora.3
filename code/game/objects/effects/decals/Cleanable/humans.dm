@@ -64,8 +64,8 @@
 		desc = drydesc
 	. = ..()
 
-/obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/gun/energy/rifle/cult))
+/obj/effect/decal/cleanable/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/energy/rifle/cult))
 		return TRUE
 	return ..()
 

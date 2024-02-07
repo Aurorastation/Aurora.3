@@ -244,28 +244,28 @@
 			to_chat(usr, "<span class='danger'>There is \a [I] sticking out of it.</span>")
 	return
 
-/obj/item/organ/external/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/organ/external/attackby(obj/item/attacking_item, mob/user)
 	switch(stage)
 		if(0)
-			if(istype(W,/obj/item/surgery/scalpel))
-				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
+			if(istype(attacking_item, /obj/item/surgery/scalpel))
+				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [attacking_item]!</span>")
 				stage++
 				return
 		if(1)
-			if(istype(W,/obj/item/surgery/retractor))
-				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
+			if(istype(attacking_item, /obj/item/surgery/retractor))
+				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [attacking_item]!</span>")
 				stage++
 				return
 		if(2)
-			if(istype(W,/obj/item/surgery/hemostat))
+			if(istype(attacking_item, /obj/item/surgery/hemostat))
 				if(contents.len)
 					var/obj/item/removing = pick(contents)
 					removing.forceMove(get_turf(user.loc))
 					if(!(user.l_hand && user.r_hand))
 						user.put_in_hands(removing)
-					user.visible_message("<span class='danger'><b>[user]</b> extracts [removing] from [src] with [W]!</span>")
+					user.visible_message("<span class='danger'><b>[user]</b> extracts [removing] from [src] with [attacking_item]!</span>")
 				else
-					user.visible_message("<span class='danger'><b>[user]</b> fishes around fruitlessly in [src] with [W].</span>")
+					user.visible_message("<span class='danger'><b>[user]</b> fishes around fruitlessly in [src] with [attacking_item].</span>")
 				return
 	..()
 

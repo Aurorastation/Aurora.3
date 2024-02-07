@@ -425,8 +425,8 @@
 	icon_state = "purpflag"
 	light_color = LIGHT_COLOR_PURPLE
 
-/obj/item/stack/flag/attackby(obj/item/W, mob/user)
-	if(upright && istype(W, src.type))
+/obj/item/stack/flag/attackby(obj/item/attacking_item, mob/user)
+	if(upright && istype(attacking_item, src.type))
 		src.attack_hand(user)
 	else
 		..()
@@ -508,13 +508,13 @@
 			qdel(src)
 	return
 
-/obj/structure/track/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/stack/tile/floor))
+/obj/structure/track/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
-		T.attackby(C, user)
+		T.attackby(attacking_item, user)
 		return
-	if(C.iswelder())
-		var/obj/item/weldingtool/WT = C
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
 			new /obj/item/stack/rods(get_turf(src))
@@ -560,11 +560,11 @@
 	add_overlay(I)
 	turn_off()
 
-/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/key/minecarts))
+/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key/minecarts))
 		if(!key)
-			user.drop_from_inventory(W, src)
-			key = W
+			user.drop_from_inventory(attacking_item, src)
+			key = attacking_item
 		return
 	..()
 
@@ -865,10 +865,10 @@
 	icon_state = "data"
 	var/points = 500
 
-/obj/item/card/mining_point_card/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/card/id))
+/obj/item/card/mining_point_card/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/card/id))
 		if(points)
-			var/obj/item/card/id/C = I
+			var/obj/item/card/id/C = attacking_item
 			C.mining_points += points
 			to_chat(user, SPAN_INFO("You transfer [points] points to \the [C]."))
 			points = 0
@@ -1184,13 +1184,13 @@ var/list/total_extraction_beacons = list()
 	var/times_carved = 0
 	var/busy_sculpting = FALSE
 
-/obj/structure/sculpting_block/attackby(obj/item/C, mob/user)
-	if(C.iswrench())
+/obj/structure/sculpting_block/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
-		if(C.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored
 
-	else if(istype(C, /obj/item/autochisel))
+	else if(istype(attacking_item, /obj/item/autochisel))
 		if(sculpted)
 			to_chat(user, SPAN_WARNING("\The [src] has already been sculpted!"))
 			return

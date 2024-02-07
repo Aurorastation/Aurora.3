@@ -33,8 +33,8 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 /obj/item/device/radio/beacon/send_hear()
 	return null
 
-/obj/item/device/radio/beacon/attackby(obj/item/W, mob/user)
-	if(isturf(loc) && W.isscrewdriver())
+/obj/item/device/radio/beacon/attackby(obj/item/attacking_item, mob/user)
+	if(isturf(loc) && attacking_item.isscrewdriver())
 		anchored = !anchored
 		user.visible_message("<b>[user]</b> [anchored ? "" : "un"]fastens \the [src] [anchored ? "to" : "from"] the floor.", "You [anchored ? "" : "un"]fasten \the [src] [anchored ? "to" : "from"] the floor.")
 		return

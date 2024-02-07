@@ -42,9 +42,9 @@
 	if(does_teleport)
 		teleport(AM)
 
-/obj/effect/portal/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/bluespace_neutralizer))
-		user.visible_message("<b>[user]</b> collapses \the [src] with \the [I].", SPAN_NOTICE("You collapse \the [src] with \the [I]."))
+/obj/effect/portal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
+		user.visible_message("<b>[user]</b> collapses \the [src] with \the [attacking_item].", SPAN_NOTICE("You collapse \the [src] with \the [attacking_item]."))
 		qdel(src)
 		return TRUE
 	return ..()
@@ -246,9 +246,9 @@
 	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
 	return ..()
 
-/obj/effect/portal/revenant/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/bluespace_neutralizer))
-		to_chat(user, SPAN_WARNING("You need to activate \the [I] and keep it near \the [src] to collapse it."))
+/obj/effect/portal/revenant/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
+		to_chat(user, SPAN_WARNING("You need to activate \the [attacking_item] and keep it near \the [src] to collapse it."))
 		return TRUE
 	return ..()
 

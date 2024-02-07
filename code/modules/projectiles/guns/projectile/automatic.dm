@@ -377,9 +377,9 @@
 
 	. = ..()
 
-/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
+/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/attacking_item, mob/user)
+	if((istype(attacking_item, /obj/item/grenade)))
+		launcher.load(attacking_item, user)
 	else
 		..()
 

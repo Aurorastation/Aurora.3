@@ -381,14 +381,14 @@
 				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
 	return
 
-/mob/living/carbon/slime/attackby(obj/item/W, mob/user)
-	if(W.force > 0)
+/mob/living/carbon/slime/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.force > 0)
 		attacked += 10
 		if(discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			discipline = FALSE
-	if(W.force >= 3)
+	if(attacking_item.force >= 3)
 		if(is_adult)
-			if(prob(5 + round(W.force/2)))
+			if(prob(5 + round(attacking_item.force/2)))
 				if(victim || target)
 					if(prob(80) && !client)
 						discipline++
@@ -405,14 +405,14 @@
 						if(user)
 							canmove = FALSE
 							step_away(src, user)
-							if(prob(25 + W.force))
+							if(prob(25 + attacking_item.force))
 								sleep(2)
 								if(user)
 									step_away(src, user)
 								canmove = TRUE
 
 		else
-			if(prob(10 + W.force*2))
+			if(prob(10 + attacking_item.force*2))
 				if(victim || target)
 					if(prob(80) && !client)
 						discipline++
@@ -430,7 +430,7 @@
 						if(user)
 							canmove = FALSE
 							step_away(src, user)
-							if(prob(25 + W.force*4))
+							if(prob(25 + attacking_item.force*4))
 								sleep(2)
 								if(user)
 									step_away(src, user)

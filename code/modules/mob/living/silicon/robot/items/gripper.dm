@@ -147,15 +147,15 @@
 				//Slow,powerful attack for borgs. No spamclicking
 	return FALSE
 
-/obj/item/gripper/attackby(obj/item/O, mob/user)
+/obj/item/gripper/attackby(obj/item/attacking_item, mob/user)
 	var/resolved = FALSE
 	if(wrapped)
-		if(O == wrapped)
+		if(attacking_item == wrapped)
 			attack_self(user) //Allows gripper to be clicked to use item.
 			return TRUE
-		resolved = wrapped.attackby(O,user)
+		resolved = wrapped.attackby(attacking_item,user)
 		if(!resolved)
-			O.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+			attacking_item.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
 	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)

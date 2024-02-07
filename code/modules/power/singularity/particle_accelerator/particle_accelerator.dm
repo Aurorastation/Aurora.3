@@ -98,9 +98,9 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	. = ..()
 	return
 
-/obj/structure/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(istool(W))
-		if(process_tool_hit(W, user))
+/obj/structure/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
+	if(istool(attacking_item))
+		if(process_tool_hit(attacking_item, user))
 			return
 	..()
 	return
@@ -253,9 +253,9 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	return
 
 
-/obj/machinery/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(istool(W))
-		if(process_tool_hit(W,user))
+/obj/machinery/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
+	if(istool(attacking_item))
+		if(process_tool_hit(attacking_item, user))
 			return
 	..()
 	return

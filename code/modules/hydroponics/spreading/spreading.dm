@@ -229,12 +229,12 @@
 	floor = 1
 	return 1
 
-/obj/effect/plant/attackby(var/obj/item/W, var/mob/user)
+/obj/effect/plant/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	SSplants.add_plant(src)
 
-	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
+	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 		if(sampled)
 			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
 			return
@@ -254,8 +254,8 @@
 		sampled = 1
 	else
 		playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
-		var/damage = W.force ? W.force : 1 //always do at least a little damage
-		if(W.edge || W.sharp)
+		var/damage = attacking_item.force ? attacking_item.force : 1 //always do at least a little damage
+		if(attacking_item.edge || attacking_item.sharp)
 			damage *= 2
 		health -= damage
 	check_health()

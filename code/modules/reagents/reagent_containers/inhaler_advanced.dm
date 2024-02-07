@@ -60,9 +60,9 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
+/obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [attacking_item], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		return
 	. = ..()
@@ -189,7 +189,8 @@
 	update_icon()
 	return
 
-/obj/item/personal_inhaler/attackby(var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)
+/obj/item/personal_inhaler/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge = attacking_item
 	if(istype(cartridge))
 		if(src.stored_cartridge)
 			to_chat(user,"<span class='notice'>\The [src] already has a cartridge.</span>")

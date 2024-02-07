@@ -55,7 +55,7 @@
 	user.put_in_hands(C)
 	update_icon()
 
-/obj/item/storage/box/fancy/yoke/attackby(obj/item/W, mob/user)
+/obj/item/storage/box/fancy/yoke/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("\The [src] cannot be refilled with items!"))
 
 /obj/item/storage/box/fancy/yoke/random

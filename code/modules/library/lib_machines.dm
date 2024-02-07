@@ -246,9 +246,9 @@
 		src.emagged = 1
 		return 1
 
-/obj/machinery/librarycomp/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/barcodescanner))
-		var/obj/item/barcodescanner/scanner = W
+/obj/machinery/librarycomp/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/barcodescanner))
+		var/obj/item/barcodescanner/scanner = attacking_item
 		scanner.computer = src
 		to_chat(user, "[scanner]'s associated machine has been set to [src].")
 		for (var/mob/V in hearers(src))
@@ -411,22 +411,22 @@
 	density = TRUE
 	var/obj/item/book/cache		// Last scanned book
 
-/obj/machinery/libraryscanner/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/book))
+/obj/machinery/libraryscanner/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/book))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
 			return
-		user.drop_from_inventory(O,src)
-	if(O.iswrench())
-		playsound(get_turf(src), O.usesound, 75, TRUE)
+		user.drop_from_inventory(attacking_item,src)
+	if(attacking_item.iswrench())
+		playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
 		if(anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
-				SPAN_NOTICE("You unsecure \the [src] from the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
+			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."),
+								SPAN_NOTICE("You unsecure \the [src] from the floor."),
+								SPAN_WARNING("You hear a ratcheting noise."))
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
-				SPAN_NOTICE("You secure \the [src] to the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
+			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."),
+								SPAN_NOTICE("You secure \the [src] to the floor."),
+								SPAN_WARNING("You hear a ratcheting noise."))
 		anchored = !anchored
 
 /obj/machinery/libraryscanner/attack_hand(var/mob/user)
@@ -477,8 +477,8 @@
 	density = TRUE
 	var/binding = FALSE
 
-/obj/machinery/bookbinder/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/paper))
+/obj/machinery/bookbinder/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
 			return
@@ -486,7 +486,7 @@
 			to_chat(user, SPAN_WARNING("You must wait for \the [src] to finish its current operation!"))
 			return
 		var/turf/T = get_turf(src)
-		user.drop_from_inventory(O,src)
+		user.drop_from_inventory(attacking_item,src)
 		user.visible_message(SPAN_NOTICE("\The [user] loads some paper into \the [src]."), SPAN_NOTICE("You load some paper into \the [src]."))
 		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."))
 		playsound(T, 'sound/bureaucracy/binder.ogg', 75, 1)
@@ -495,18 +495,18 @@
 		binding = FALSE
 		if(!anchored)
 			visible_message(SPAN_WARNING("\The [src] buzzes and flashes an error light."))
-			O.forceMove(T)
+			attacking_item.forceMove(T)
 			return
 		visible_message(SPAN_NOTICE("\The [src] whirs as it prints and binds a new book."))
 		playsound(T, 'sound/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/book/b = new(T)
-		b.dat = O:info
+		b.dat = attacking_item:info
 		b.name = "blank book"
 		b.icon_state = "book[rand(1,7)]"
-		qdel(O)
+		qdel(attacking_item)
 		return
-	if(O.iswrench())
-		playsound(get_turf(src), O.usesound, 75, TRUE)
+	if(attacking_item.iswrench())
+		playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
 				SPAN_NOTICE("You unsecure \the [src] from the floor."), \

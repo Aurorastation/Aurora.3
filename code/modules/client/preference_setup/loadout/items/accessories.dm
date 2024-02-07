@@ -1,4 +1,7 @@
 /datum/gear/accessory
+	abstract_type = /datum/gear/accessory
+
+/datum/gear/accessory/locket
 	display_name = "silver locket"
 	path = /obj/item/clothing/accessory/locket
 	slot = slot_tie

@@ -29,7 +29,7 @@
 		return
 	return attack_hand(user)
 
-/obj/machinery/button/attackby(obj/item/W, mob/user as mob)
+/obj/machinery/button/attackby(obj/item/attacking_item, mob/user)
 	return attack_hand(user)
 
 /obj/machinery/button/attack_hand(mob/living/user)

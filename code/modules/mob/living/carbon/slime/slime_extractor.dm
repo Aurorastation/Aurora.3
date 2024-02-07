@@ -50,16 +50,16 @@
 		else if(ismicrolaser(P))
 			extraction_speed = extraction_speed / P.rating
 
-/obj/machinery/slime_extractor/attackby(obj/item/O, mob/user)
+/obj/machinery/slime_extractor/attackby(obj/item/attacking_item, mob/user)
 	if(length(extract_slimes))
 		to_chat(user, SPAN_WARNING("You can't modify \the [src] while it's busy. Please wait for the completion of previous operation."))
 		return
 
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return
 
 /obj/machinery/slime_extractor/MouseDrop_T(atom/dropping, mob/user)

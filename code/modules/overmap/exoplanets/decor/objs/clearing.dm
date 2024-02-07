@@ -18,10 +18,10 @@
 		/turf/simulated/wall
 	)
 
-/obj/structure/clearing/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/material/minihoe))
+/obj/structure/clearing/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/minihoe))
 		visible_message(SPAN_NOTICE("\The [user] starts adjusting the \the [src]"))
-		if(W.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			visible_message(SPAN_NOTICE("\The [user] adjusts \the [src]!"))
 			qdel(src)
 		else

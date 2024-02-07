@@ -52,8 +52,8 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/rig_assembly/attackby(obj/item/W as obj, mob/user as mob)
-	if(!construct || !construct.action(W, user))
+/obj/item/rig_assembly/attackby(obj/item/attacking_item, mob/user)
+	if(!construct || !construct.action(attacking_item, user))
 		..()
 	return
 

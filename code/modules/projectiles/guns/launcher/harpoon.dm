@@ -41,12 +41,12 @@
 		return FALSE
 	return ..()
 
-/obj/item/gun/launcher/harpoon/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/material/harpoon))
+/obj/item/gun/launcher/harpoon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/harpoon))
 		if(harpoons.len < max_harpoons)
-			user.drop_from_inventory(I,src)
-			harpoons += I
-			to_chat(user, "<span class='notice'>You load \the [I] in \the [src].</span>")
+			user.drop_from_inventory(attacking_item, src)
+			harpoons += attacking_item
+			to_chat(user, "<span class='notice'>You load \the [attacking_item] in \the [src].</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>\The [src] is already loaded.</span>")

@@ -418,23 +418,24 @@ update_flag
 					log_open(admin)
 			valve_open = !valve_open
 
-/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/mecha_equipment/clamp))
+/obj/machinery/portable_atmospherics/canister/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
 		return
-	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
-		if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
+	if(!attacking_item.iswrench() && !is_type_in_list(attacking_item, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(attacking_item) && !(attacking_item.iswirecutter() && signaler))
+		if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
-		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
-		user.do_attack_animation(src, W)
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."))
+		user.do_attack_animation(src, attacking_item)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
-		src.health -= W.force
-		if(!istype(W, /obj/item/forensics))
+		src.health -= attacking_item.force
+		if(!istype(attacking_item, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
 		return TRUE
 
-	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
-		var/datum/gas_mixture/thejetpack = W:air_contents
+	if(istype(user, /mob/living/silicon/robot) && istype(attacking_item, /obj/item/tank/jetpack))
+		var/obj/item/tank/jetpack/jetpack = attacking_item
+		var/datum/gas_mixture/thejetpack = jetpack.air_contents
 		var/env_pressure = thejetpack.return_pressure()
 		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
 		//Can not have a pressure delta that would cause environment pressure > tank pressure

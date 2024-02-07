@@ -77,15 +77,15 @@
 	return
 
 
-/obj/item/paper_bin/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/paper))
-		var/obj/item/paper/i = O
+/obj/item/paper_bin/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/i = attacking_item
 		user.drop_from_inventory(i,src)
 		to_chat(user, "<span class='notice'>You put [i] in [src].</span>")
 		papers.Add(i)
 		amount++
-	/*	if(istype(O, /obj/item/paper_pack))	WIP written in.
-		var/obj/item/paper_bundle/j = O
+	/*	if(istype(attacking_item, /obj/item/paper_pack))	WIP written in.
+		var/obj/item/paper_bundle/j = attacking_item
 		amount += j.amount
 		to_chat(user, "<span class='notice'>You add paper from [j] into [src].</span>")
 		user.drop_from_inventory(j,get_turf(src))

@@ -79,9 +79,9 @@
 		if (store_broken)
 			to_chat(user, "It is storing [stored()]/[max_stored] broken lights.")
 
-/obj/item/device/lightreplacer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/material) && W.get_material_name() == "glass")
-		var/obj/item/stack/G = W
+/obj/item/device/lightreplacer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "glass")
+		var/obj/item/stack/G = attacking_item
 		if(uses >= max_uses)
 			to_chat(user, SPAN_WARNING("[src.name] is full."))
 		else if(G.use(5))
@@ -93,8 +93,8 @@
 			to_chat(user, SPAN_WARNING("You need 5 sheets of glass to replace lights."))
 		return TRUE
 
-	if(istype(W, /obj/item/light))
-		var/obj/item/light/L = W
+	if(istype(attacking_item, /obj/item/light))
+		var/obj/item/light/L = attacking_item
 		if(L.status == 0) // LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
@@ -105,8 +105,8 @@
 			to_chat(user, SPAN_WARNING("You need a working light."))
 		return TRUE
 
-	if(istype(W, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LR = W
+	if(istype(attacking_item, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LR = attacking_item
 		if(LR.uses == LR.max_uses)
 			to_chat(user, SPAN_WARNING("\The [LR] is already full!"))
 			return TRUE

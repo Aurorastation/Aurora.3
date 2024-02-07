@@ -74,19 +74,19 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/pipe/attackby(obj/item/attacking_item, mob/user)
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
 
-	if(istype(W,/obj/item/device/pipe_painter))
+	if(istype(attacking_item,/obj/item/device/pipe_painter))
 		return FALSE
 
-	if(istype(W, /obj/item/device/analyzer) && Adjacent(user))
-		var/obj/item/device/analyzer/A = W
+	if(istype(attacking_item, /obj/item/device/analyzer) && Adjacent(user))
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return FALSE
 
-	if (!W.iswrench() && !istype(W, /obj/item/pipewrench))
+	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -96,14 +96,14 @@
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
-		if(!istype(W, /obj/item/pipewrench))
+		if(!istype(attacking_item, /obj/item/pipewrench))
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
 			return TRUE
 		else
 			to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
@@ -1369,12 +1369,12 @@
 
 	return null
 
-/obj/machinery/atmospherics/pipe/tank/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/device/pipe_painter))
+/obj/machinery/atmospherics/pipe/tank/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/pipe_painter))
 		return FALSE
 
-	if(istype(W, /obj/item/device/analyzer) && in_range(user, src))
-		var/obj/item/device/analyzer/A = W
+	if(istype(attacking_item, /obj/item/device/analyzer) && in_range(user, src))
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 

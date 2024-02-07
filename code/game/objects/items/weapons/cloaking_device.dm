@@ -118,17 +118,17 @@
 		modifier.stop(1)
 		modifier = null
 
-/obj/item/cloaking_device/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/cell))
+/obj/item/cloaking_device/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(!cell)
-			user.drop_from_inventory(W,src)
-			cell = W
+			user.drop_from_inventory(attacking_item, src)
+			cell = attacking_item
 			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))

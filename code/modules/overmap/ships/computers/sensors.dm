@@ -409,11 +409,11 @@
 	base_icon_state = icon_state
 	return ..()
 
-/obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
+/obj/machinery/shipsensors/attackby(obj/item/attacking_item, mob/user)
 	var/damage = max_health - health
-	if(damage && W.iswelder())
+	if(damage && attacking_item.iswelder())
 
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 
 		if(!WT.isOn())
 			return

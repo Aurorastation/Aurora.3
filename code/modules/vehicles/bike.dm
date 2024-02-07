@@ -333,8 +333,8 @@
 		return
 	..()
 
-/obj/vehicle/bike/casino/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/coin/casino))
+/obj/vehicle/bike/casino/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/coin/casino))
 		if(!paid)
 			paid = TRUE
 			to_chat(user, SPAN_NOTICE("Payment confirmed, enjoy two minutes of unlimited snowmobile use."))

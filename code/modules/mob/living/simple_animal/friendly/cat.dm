@@ -171,9 +171,9 @@
 		flee_target = A
 		turns_since_move = 5
 
-/mob/living/simple_animal/cat/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/cat/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(O.force)
+	if(attacking_item.force)
 		set_flee_target(user? user : src.loc)
 
 /mob/living/simple_animal/cat/attack_hand(mob/living/carbon/human/M as mob)

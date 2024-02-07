@@ -132,8 +132,8 @@ var/list/active_radio_jammers = list()
 		update_icon()
 
 
-/obj/item/device/radiojammer/improvised/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+/obj/item/device/radiojammer/improvised/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.isscrewdriver())
 		to_chat(user, "<span class='notice'>You disassemble the improvised signal jammer.</span>")
 		user.put_in_hands(assembly_holder)
 		assembly_holder.detached()

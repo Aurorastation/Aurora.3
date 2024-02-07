@@ -161,9 +161,9 @@
 		to_chat(user, SPAN_WARNING("There are teeth marks on it."))
 	return
 
-/obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (P.ispen())
+	if (attacking_item.ispen())
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
@@ -187,10 +187,10 @@
 		update_icon()
 		return
 
-	if (istype(P, /obj/item/) && P.sharp == 1)
+	if (istype(attacking_item, /obj/item/) && attacking_item.sharp == 1)
 		var/mob/living/carbon/human/H = usr
-		if(LAZYLEN(P.attack_verb))
-			user.visible_message(SPAN_DANGER("[src] has been [pick(P.attack_verb)] with \the [P] by [user]!"))
+		if(LAZYLEN(attacking_item.attack_verb))
+			user.visible_message(SPAN_DANGER("[src] has been [pick(attacking_item.attack_verb)] with \the [attacking_item] by [user]!"))
 		var/atkmsg_filled = null
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
 			atkmsg_filled = " and the contents spray everywhere"
@@ -281,6 +281,6 @@
 	icon_state = "ripped"
 	volume = 0
 
-/obj/item/reagent_containers/blood/ripped/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/ripped/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("You can't do anything further with this."))
 	return

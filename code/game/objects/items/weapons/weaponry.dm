@@ -104,9 +104,9 @@
 	user.visible_message(SPAN_WARNING("\The [user] claws at \the [src]!"), SPAN_WARNING("You claw at \the [src]!"))
 	health_check()
 
-/obj/effect/energy_net/attackby(obj/item/W, mob/user)
-	user.do_attack_animation(src, W)
-	var/attack_force = W.force
+/obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
+	user.do_attack_animation(src, attacking_item)
+	var/attack_force = attacking_item.force
 	if(user == affecting)
 		attack_force /= 2
 	health -= attack_force

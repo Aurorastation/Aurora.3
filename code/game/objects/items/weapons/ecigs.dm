@@ -154,17 +154,17 @@
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-/obj/item/clothing/mask/smokable/ecig/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/ecig_cartridge))
+/obj/item/clothing/mask/smokable/ecig/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/ecig_cartridge))
 		if (ec_cartridge)//can't add second one
 			to_chat(user, SPAN_WARNING("A cartridge has already been installed."))
 		else //fits in new one
-			user.drop_from_inventory(I,src)
-			ec_cartridge = I
+			user.drop_from_inventory(attacking_item, src)
+			ec_cartridge = attacking_item
 			update_icon()
-			to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(cig_cell) //if contains powercell
 			cig_cell.update_icon()
 			user.put_in_hands(cig_cell)
@@ -173,16 +173,16 @@
 		else //does not contains cell
 			to_chat(user, SPAN_WARNING("There's no battery in \the [src]."))
 
-	if (istype(I, /obj/item/cell))
+	if (istype(attacking_item, /obj/item/cell))
 		if(cig_cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a battery installed."))
 			return
-		if (!istype(I, /obj/item/cell/device))
-			to_chat(user, SPAN_WARNING("\The [I] is too large to be inserted into \the [src]."))
+		if (!istype(attacking_item, /obj/item/cell/device))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] is too large to be inserted into \the [src]."))
 			return
-		if(user.unEquip(I))
-			I.forceMove(src)
-			cig_cell = I
+		if(user.unEquip(attacking_item))
+			attacking_item.forceMove(src)
+			cig_cell = attacking_item
 			to_chat(user, SPAN_NOTICE("You install \the [cig_cell] into \the [src]."))
 			update_icon()
 

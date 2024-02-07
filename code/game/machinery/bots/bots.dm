@@ -62,13 +62,13 @@
 			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
 	return
 
-/obj/machinery/bot/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!locked)
 			open = !open
 			to_chat(user, "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>")
 		return TRUE
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
@@ -80,12 +80,12 @@
 			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
 		return TRUE
 	else
-		if(hasvar(W,"force") && hasvar(W,"damtype"))
-			switch(W.damtype)
+		if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
+			switch(attacking_item.damtype)
 				if("fire")
-					src.health -= W.force * fire_dam_coeff
+					src.health -= attacking_item.force * fire_dam_coeff
 				if("brute")
-					src.health -= W.force * brute_dam_coeff
+					src.health -= attacking_item.force * brute_dam_coeff
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			. = ..()
 			healthcheck()

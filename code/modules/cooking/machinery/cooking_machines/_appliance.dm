@@ -199,29 +199,29 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/appliance/attackby(obj/item/attacking_item, mob/user)
 	if(!cook_type || (stat & (BROKEN)))
 		to_chat(user, SPAN_WARNING("[src] is not working."))
 		return
 
-	var/result = can_insert(I, user)
+	var/result = can_insert(attacking_item, user)
 	if(result == CANNOT_INSERT)
-		if(default_deconstruction_screwdriver(user, I))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return
-		else if(default_part_replacement(user, I))
+		else if(default_part_replacement(user, attacking_item))
 			return
-		else if(default_deconstruction_crowbar(user, I))
+		else if(default_deconstruction_crowbar(user, attacking_item))
 			return
 		return
 
 	if(result == INSERT_GRABBED)
-		var/obj/item/grab/G = I
+		var/obj/item/grab/G = attacking_item
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
 			return
 
 	//From here we can start cooking food
-	add_content(I, user)
+	add_content(attacking_item, user)
 	update_icon()
 
 

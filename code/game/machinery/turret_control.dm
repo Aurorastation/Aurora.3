@@ -93,11 +93,11 @@
 
 	return ..()
 
-/obj/machinery/turretid/attackby(obj/item/W, mob/user)
+/obj/machinery/turretid/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)
 		return
 
-	if(W.GetID())
+	if(attacking_item.GetID())
 		if(src.allowed(usr))
 			if(emagged)
 				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")

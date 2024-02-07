@@ -36,9 +36,12 @@
 	to_chat(user, "\The [src]'s radio is [radio.get_broadcasting() ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.get_frequency()].")
 	radio.attack_self(user)
 
-/obj/item/device/spy_bug/attackby(obj/W as obj, mob/living/user as mob)
-	if(istype(W, /obj/item/device/spy_monitor))
-		var/obj/item/device/spy_monitor/SM = W
+/obj/item/device/spy_bug/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(user))
+		return
+
+	if(istype(attacking_item, /obj/item/device/spy_monitor))
+		var/obj/item/device/spy_monitor/SM = attacking_item
 		SM.pair(src, user)
 		return TRUE
 	else
@@ -80,9 +83,12 @@
 	radio.attack_self(user)
 	view_cameras(user)
 
-/obj/item/device/spy_monitor/attackby(obj/W as obj, mob/living/user as mob)
-	if(istype(W, /obj/item/device/spy_bug))
-		pair(W, user)
+/obj/item/device/spy_monitor/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(user))
+		return
+
+	if(istype(attacking_item, /obj/item/device/spy_bug))
+		pair(attacking_item, user)
 		return TRUE
 	else
 		return ..()

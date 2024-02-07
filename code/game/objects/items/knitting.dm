@@ -64,13 +64,13 @@
 		cut_overlays()
 	update_held_icon()
 
-/obj/item/knittingneedles/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/yarn))
+/obj/item/knittingneedles/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/yarn))
 		if(!ball)
-			user.unEquip(O)
-			O.forceMove(src)
-			ball = O
-			to_chat(user, SPAN_NOTICE("You place \the [O] in \the [src]"))
+			user.unEquip(attacking_item)
+			attacking_item.forceMove(src)
+			ball = attacking_item
+			to_chat(user, SPAN_NOTICE("You place \the [attacking_item] in \the [src]"))
 			update_icon()
 		return TRUE
 

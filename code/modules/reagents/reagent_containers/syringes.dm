@@ -105,7 +105,7 @@
 	..()
 	update_icon()
 
-/obj/item/reagent_containers/syringe/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/reagent_containers/syringe/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/reagent_containers/syringe/afterattack(obj/target, mob/user, proximity)

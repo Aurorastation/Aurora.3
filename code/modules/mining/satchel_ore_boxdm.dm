@@ -13,12 +13,12 @@
 	var/obj/item/warp_core/warp_core // to set up the bluespace network
 	var/list/stored_ore = list()
 
-/obj/structure/ore_box/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/ore))
-		user.drop_from_inventory(W, src)
-	else if(istype(W, /obj/item/storage))
-		if(istype(W, /obj/item/storage/bag/ore))
-			var/obj/item/storage/bag/ore/satchel = W
+/obj/structure/ore_box/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ore))
+		user.drop_from_inventory(attacking_item, src)
+	else if(istype(attacking_item, /obj/item/storage))
+		if(istype(attacking_item, /obj/item/storage/bag/ore))
+			var/obj/item/storage/bag/ore/satchel = attacking_item
 			if(satchel.linked_beacon)
 				if(!warp_core)
 					to_chat(user, SPAN_WARNING("\The [src] doesn't have a warp beacon!"))
@@ -26,22 +26,22 @@
 				satchel.linked_box = src
 				to_chat(user, SPAN_NOTICE("You link \the [satchel] to \the [src]."))
 				return
-		var/obj/item/storage/S = W
+		var/obj/item/storage/S = attacking_item
 		S.hide_from(user)
 		for(var/obj/item/ore/O in S.contents)
 			S.remove_from_storage_deferred(O, src, user) //This will move the item to this item's contents
 			CHECK_TICK
 		S.post_remove_from_storage_deferred(loc, user)
 		to_chat(user, SPAN_NOTICE("You empty the satchel into the box."))
-	else if(istype(W, /obj/item/warp_core))
+	else if(istype(attacking_item, /obj/item/warp_core))
 		if(warp_core)
 			to_chat(user, SPAN_WARNING("\The [src] already has a warp core attached!"))
 			return
-		user.drop_from_inventory(W, src)
-		warp_core = W
-		to_chat(user, SPAN_NOTICE("You carefully attach \the [W] to \the [src], connecting it to the bluespace network."))
-	else if(istype(W, /obj/item/gripper/miner)) // myazaki's gonna be so mad at me
-		var/obj/item/gripper/miner/GM = W
+		user.drop_from_inventory(attacking_item, src)
+		warp_core = attacking_item
+		to_chat(user, SPAN_NOTICE("You carefully attach \the [attacking_item] to \the [src], connecting it to the bluespace network."))
+	else if(istype(attacking_item, /obj/item/gripper/miner)) // myazaki's gonna be so mad at me
+		var/obj/item/gripper/miner/GM = attacking_item
 		if(!warp_core)
 			to_chat(user, SPAN_WARNING("\The [src] has no warp core to detach."))
 			return

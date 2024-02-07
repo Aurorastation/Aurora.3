@@ -131,8 +131,8 @@
 	anchored = TRUE
 	var/open = 0
 
-/obj/structure/manhole/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iscrowbar())
+/obj/structure/manhole/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
@@ -426,10 +426,10 @@
 		menu_text = pencode2html(new_text)
 		update_icon()
 
-/obj/structure/restaurant_menu/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper))
-		var/obj/item/paper/P = I
-		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+/obj/structure/restaurant_menu/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/P = attacking_item
+		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		icon_state = "menu_active"
@@ -619,11 +619,11 @@
 				flick("[base_icon]c1", src)
 	return
 
-/obj/machinery/door/urban/attackby(obj/item/I, mob/user)
+/obj/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(I, /obj/item/key/door_key))
+	if(istype(attacking_item, /obj/item/key/door_key))
 
-		if(check_access(I))
+		if(check_access(attacking_item))
 			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
 
 				//Only say that it's unlocked if there actually was an access list that did the locking

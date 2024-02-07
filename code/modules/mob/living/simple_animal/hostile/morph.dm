@@ -207,7 +207,7 @@
 			return
 	return ..()
 
-/mob/living/simple_animal/hostile/morph/attackby(obj/item/O, mob/user)
+/mob/living/simple_animal/hostile/morph/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(morphed && user != src)
 		restore()

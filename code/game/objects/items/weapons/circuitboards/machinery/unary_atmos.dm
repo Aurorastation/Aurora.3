@@ -7,8 +7,8 @@
 	var/machine_dir = SOUTH
 	var/init_dirs = SOUTH
 
-/obj/item/circuitboard/unary_atmos/attackby(obj/item/I as obj, mob/user as mob)
-	if(I.isscrewdriver())
+/obj/item/circuitboard/unary_atmos/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		machine_dir = turn(machine_dir, 90)
 		init_dirs = machine_dir
 		user.visible_message("<span class='notice'>\The [user] adjusts the jumper on the [src]'s port configuration pins.</span>", "<span class='notice'>You adjust the jumper on the port configuration pins. Now set to [dir2text(machine_dir)].</span>")

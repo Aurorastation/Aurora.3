@@ -60,16 +60,16 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/machinery/space_heater/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/cell))
+/obj/machinery/space_heater/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(panel_open)
 			if(cell)
 				to_chat(user, "There is already a power cell inside.")
 			else
 				// insert cell
-				user.drop_from_inventory(I,src)
-				cell = I
-				I.add_fingerprint(user)
+				user.drop_from_inventory(attacking_item,src)
+				cell = attacking_item
+				attacking_item.add_fingerprint(user)
 
 				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
 					SPAN_NOTICE("You insert the power cell into [src]."))
@@ -77,7 +77,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
 		return TRUE
-	else if(I.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
 				SPAN_NOTICE("You [panel_open ? "open" : "close"] the hatch on the [src]."))

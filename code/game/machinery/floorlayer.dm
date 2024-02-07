@@ -33,21 +33,21 @@
 	on = !on
 	user.visible_message("<b>[user]</b> has [!on ? "de" : ""]activated \the [src].", SPAN_NOTICE("You [!on ? "de" : ""]activate \the [src]."))
 
-/obj/machinery/floorlayer/attackby(obj/item/I, mob/user)
-	if(I.iswrench())
+/obj/machinery/floorlayer/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		var/m = tgui_input_list(user, "Choose work mode", "Mode", mode)
 		mode[m] = !mode[m]
 		var/O = mode[m]
 		user.visible_message("<b>[user]</b> has set \the [src] [m] mode [!O ? "off" : "on"].", SPAN_NOTICE("You set \the [src] [m] mode [!O ? "off":"on"]."))
 		return TRUE
 
-	if(istype(I, /obj/item/stack/tile))
-		to_chat(user, SPAN_NOTICE("You successfully load \the [I] into \the [src]."))
-		user.drop_from_inventory(I, src)
-		take_tile(I)
+	if(istype(attacking_item, /obj/item/stack/tile))
+		to_chat(user, SPAN_NOTICE("You successfully load \the [attacking_item] into \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		take_tile(attacking_item)
 		return TRUE
 
-	if(I.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(!length(contents))
 			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		else
@@ -58,7 +58,7 @@
 				T = null
 		return TRUE
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		T = tgui_input_list(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles", contents)
 		return TRUE
 

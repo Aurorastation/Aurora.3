@@ -260,13 +260,13 @@
 		LK = null
 		icon_state = "key_case-e"
 
-/obj/item/leviathan_case/attackby(obj/item/I, mob/user)
+/obj/item/leviathan_case/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(use_check_and_message(user))
 		return
 	if(!LK && open)
-		if(istype(I, /obj/item/leviathan_key))
-			var/obj/item/leviathan_key/key = I
+		if(istype(attacking_item, /obj/item/leviathan_key))
+			var/obj/item/leviathan_key/key = attacking_item
 			user.visible_message(SPAN_NOTICE("[user] puts \the [key] back into \the [src]."))
 			LK = key
 			user.drop_from_inventory(key, src)
@@ -322,17 +322,17 @@
 	flick("safeguard_opening", src)
 	icon_state = "safeguard_open"
 
-/obj/machinery/leviathan_safeguard/attackby(obj/item/I, mob/user)
+/obj/machinery/leviathan_safeguard/attackby(obj/item/attacking_item, mob/user)
 	if(!opened || locked)
 		return
-	if(istype(I, /obj/item/leviathan_key) && !key && !stat)
-		var/obj/item/leviathan_key/LK = I
+	if(istype(attacking_item, /obj/item/leviathan_key) && !key && !stat)
+		var/obj/item/leviathan_key/LK = attacking_item
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_WARNING("[user] places \the [LK] inside \the [src]'s keyhole!"))
 			key = LK
-			user.drop_from_inventory(I, src)
+			user.drop_from_inventory(attacking_item, src)
 			icon_state = "safeguard_open"
 			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
 

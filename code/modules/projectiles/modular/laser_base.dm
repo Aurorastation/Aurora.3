@@ -18,11 +18,11 @@
 		if(condition > reliability)
 			condition = reliability
 
-/obj/item/laser_components/attackby(var/obj/item/D as obj, var/mob/user as mob)
-	if(!istype(D,repair_item))
+/obj/item/laser_components/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, repair_item))
 		return ..()
 	to_chat(user, "<span class='warning'>You begin repairing \the [src].</span>")
-	if(do_after(user,20) && repair_module(D))
+	if(do_after(user, 20) && repair_module(attacking_item))
 		to_chat(user, "<span class='notice'>You repair \the [src].</span>")
 	else
 		to_chat(user, "<span class='warning'>You fail to repair \the [src].</span>")
@@ -157,8 +157,8 @@
 	. = ..()
 	update_icon()
 
-/obj/item/device/laser_assembly/attackby(var/obj/item/D as obj, var/mob/user as mob)
-	var/obj/item/laser_components/A = D
+/obj/item/device/laser_assembly/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/laser_components/A = attacking_item
 	var/success = FALSE
 	if(!istype(A))
 		return ..()

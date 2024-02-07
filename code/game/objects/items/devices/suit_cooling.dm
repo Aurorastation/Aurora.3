@@ -150,8 +150,8 @@
 		if(on)
 			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
-/obj/item/device/suit_cooling_unit/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(cover_open)
 			cover_open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the panel into place."))
@@ -161,13 +161,13 @@
 		update_icon()
 		return
 
-	if(istype(W, /obj/item/cell))
+	if(istype(attacking_item, /obj/item/cell))
 		if(cover_open)
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
-				user.drop_from_inventory(W,src)
-				cell = W
+				user.drop_from_inventory(attacking_item,src)
+				cell = attacking_item
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
 		update_icon()
 		return

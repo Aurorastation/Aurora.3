@@ -107,19 +107,19 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/item as obj, var/mob/user as mob)
-	if(istype(item, /obj/item/reagent_containers/glass))
+/obj/machinery/dna_scannernew/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return TRUE
 
-		beaker = item
-		user.drop_from_inventory(item,src)
-		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
+		beaker = attacking_item
+		user.drop_from_inventory(attacking_item,src)
+		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
 		return TRUE
-	else if (!istype(item, /obj/item/grab))
+	else if (!istype(attacking_item, /obj/item/grab))
 		return
-	var/obj/item/grab/G = item
+	var/obj/item/grab/G = attacking_item
 	if (!ismob(G.affecting))
 		return TRUE
 	if (src.occupant)
@@ -245,12 +245,12 @@
 
 	. = ..()
 
-/obj/machinery/computer/scan_consolenew/attackby(obj/item/I as obj, mob/user as mob)
-	if (istype(I, /obj/item/disk/data)) //INSERT SOME diskS
+/obj/machinery/computer/scan_consolenew/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
-			user.drop_from_inventory(I,src)
-			src.disk = I
-			to_chat(user, "You insert [I].")
+			user.drop_from_inventory(attacking_item, src)
+			src.disk = attacking_item
+			to_chat(user, "You insert [attacking_item].")
 			SSnanoui.update_uis(src) // update all UIs attached to src
 			return TRUE
 	else

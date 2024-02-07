@@ -136,7 +136,8 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/G, mob/user)
+/obj/machinery/bodyscanner/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
 	if (occupant)

@@ -106,15 +106,15 @@
 				var/singleton/reagent/R = GET_SINGLETON(_R)
 				to_chat(user, "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>")
 
-/obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		if(!istype(I, container_type))
-			to_chat(user, "<span class='notice'>[I] doesn't seem to fit into [src].</span>")
+/obj/item/gun/projectile/dartgun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(!istype(attacking_item, container_type))
+			to_chat(user, "<span class='notice'>[attacking_item] doesn't seem to fit into [src].</span>")
 			return
 		if(beakers.len >= max_beakers)
 			to_chat(user, "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>")
 			return
-		var/obj/item/reagent_containers/glass/beaker/B = I
+		var/obj/item/reagent_containers/glass/beaker/B = attacking_item
 		user.drop_from_inventory(B,src)
 		beakers += B
 		to_chat(user, "<span class='notice'>You slot [B] into [src].</span>")

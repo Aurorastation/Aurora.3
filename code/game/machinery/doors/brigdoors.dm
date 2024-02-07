@@ -293,18 +293,18 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/paper/incident))
+/obj/machinery/door_timer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper/incident))
 		if(!incident)
-			if(import(O, user))
+			if(import(attacking_item, user))
 				ping("\The <b>[src]</b> states, \"Successfully imported incident report!\"")
-				user.drop_from_inventory(O,get_turf(src))
-				qdel(O)
+				user.drop_from_inventory(attacking_item,get_turf(src))
+				qdel(attacking_item)
 				src.updateUsrDialog()
 		else
 			to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"There's already an active sentence.\""))
 		return TRUE
-	else if(istype(O, /obj/item/paper))
+	else if(istype(attacking_item, /obj/item/paper))
 		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"This console only accepts authentic incident reports. Copies are invalid.\""))
 		return TRUE
 

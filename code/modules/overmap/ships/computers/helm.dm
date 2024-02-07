@@ -43,17 +43,17 @@
 		PH.linked_helm = null
 	return ..()
 
-/obj/machinery/computer/ship/helm/attackby(obj/item/I, user)
-	if(istype(I, /obj/item/clothing/head/helmet/pilot))
+/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, user)
+	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		if(!connected)
 			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))
 			return
-		var/obj/item/clothing/head/helmet/pilot/PH = I
-		if(I in linked_helmets)
-			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+		var/obj/item/clothing/head/helmet/pilot/PH = attacking_item
+		if(attacking_item in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
 			PH.set_console(null)
 		else
-			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src]."))
 			PH.set_console(src)
 			PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [connected.get_speed()] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		check_processing()

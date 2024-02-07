@@ -106,8 +106,8 @@
 
 	..()
 
-/obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/radio/headset/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(keyslot1 || keyslot2)
 			for(var/ch_name in channels)
 				SSradio.remove_object(src, radiochannels[ch_name])
@@ -130,17 +130,17 @@
 		else
 			to_chat(user, SPAN_WARNING("This headset doesn't have any encryption keys!"))
 
-	else if(istype(W, /obj/item/device/encryptionkey))
+	else if(istype(attacking_item, /obj/item/device/encryptionkey))
 		if(keyslot1 && keyslot2)
 			to_chat(user, SPAN_WARNING("The headset can't hold another key!"))
 			return
 
 		if(!keyslot1)
-			user.drop_from_inventory(W, src)
-			keyslot1 = W
+			user.drop_from_inventory(attacking_item, src)
+			keyslot1 = attacking_item
 		else
-			user.drop_from_inventory(W, src)
-			keyslot2 = W
+			user.drop_from_inventory(attacking_item, src)
+			keyslot2 = attacking_item
 
 		recalculateChannels(TRUE)
 

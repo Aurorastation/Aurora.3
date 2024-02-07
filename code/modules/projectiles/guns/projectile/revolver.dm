@@ -150,8 +150,8 @@
 	ammo_type = /obj/item/ammo_casing/cap
 	needspin = FALSE
 
-/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
-	if(!W.iswirecutter() || icon_state == "revolver")
+/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.iswirecutter() || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
 	icon = 'icons/obj/guns/revolver.dmi'

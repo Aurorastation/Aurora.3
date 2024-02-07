@@ -1,25 +1,25 @@
 // Commonly used code
 #define TRY_INSERT_SUIT_PIECE(slot, path)\
-	if(istype(I, /obj/item/##path)){\
+	if(istype(attacking_item, /obj/item/##path)){\
 		if(active || locked) {\
 			FEEDBACK_FAILURE(user, "\The [src] is locked.");\
 			return\
 		};\
 		if(occupant) {\
-			FEEDBACK_FAILURE(user, "There is no space in \the [src] for \the [I]!");\
+			FEEDBACK_FAILURE(user, "There is no space in \the [src] for \the [attacking_item]!");\
 			return\
 		};\
 		if(##slot){\
 			FEEDBACK_FAILURE(user, "\The [src] already contains \a [slot]!");\
 			return\
 		};\
-		if(I.icon_override == CUSTOM_ITEM_MOB){\
+		if(attacking_item.icon_override == CUSTOM_ITEM_MOB){\
 			FEEDBACK_FAILURE(user, "You cannot insert a customized voidsuit.");\
 			return\
 		};\
-		to_chat(user, SPAN_NOTICE("You load \the [I] into the storage compartment."));\
-		user.drop_from_inventory(I, src);\
-		##slot = I;\
+		to_chat(user, SPAN_NOTICE("You load \the [attacking_item] into the storage compartment."));\
+		user.drop_from_inventory(attacking_item, src);\
+		##slot = attacking_item;\
 		update_icon();\
 		updateUsrDialog();\
 		return\
@@ -175,12 +175,12 @@
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/suit_cycler/attackby(obj/item/I, mob/user)
+/obj/machinery/suit_cycler/attackby(obj/item/attacking_item, mob/user)
 	if(electrified != 0)
 		if(src.shock(user, 100))
 			return
 
-	if(I.GetID())
+	if(attacking_item.GetID())
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock \the [src]."))
@@ -189,14 +189,14 @@
 		return
 
 	//Hacking init.
-	if(I.ismultitool() || I.iswirecutter())
+	if(attacking_item.ismultitool() || attacking_item.iswirecutter())
 		if(panel_open)
 			wires.interact(user)
 		return
 
 	//Other interface stuff.
-	if(istype(I, /obj/item/grab))
-		var/obj/item/grab/G = I
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 		if(G.state < GRAB_NECK)
 			to_chat(user, SPAN_WARNING("You need a stronger grip to do this!"))
 			return
@@ -235,7 +235,7 @@
 			updateUsrDialog()
 			update_icon()
 		return
-	else if(I.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 		updateUsrDialog()

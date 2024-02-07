@@ -27,9 +27,9 @@
 	var/new_light_overlay
 	var/new_mob_icon_file
 
-/obj/item/clothing/head/helmet/space/void/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O,/obj/item/device/kit/suit))
-		var/obj/item/device/kit/suit/kit = O
+/obj/item/clothing/head/helmet/space/void/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/device/kit/suit))
+		var/obj/item/device/kit/suit/kit = attacking_item
 		name = "[kit.new_name] suit helmet"
 		desc = kit.new_desc
 		icon_state = "[kit.new_icon]_helmet"
@@ -48,9 +48,9 @@
 		return TRUE
 	return ..()
 
-/obj/item/clothing/suit/space/void/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O,/obj/item/device/kit/suit))
-		var/obj/item/device/kit/suit/kit = O
+/obj/item/clothing/suit/space/void/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/kit/suit))
+		var/obj/item/device/kit/suit/kit = attacking_item
 		name = "[kit.new_name] voidsuit"
 		desc = kit.new_desc
 		icon_state = "[kit.new_icon]_suit"

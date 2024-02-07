@@ -29,9 +29,9 @@
 	else
 		to_chat(user, "The heart is pulsing slowly.")
 
-/obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
+/obj/item/phylactery/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(I, /obj/item/nullrod))
+	if(istype(attacking_item, /obj/item/nullrod))
 		src.visible_message("\The [src] twists violently and explodes!")
 		gibs(src.loc)
 		qdel(src)

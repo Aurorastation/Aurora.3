@@ -142,11 +142,11 @@
 		health -= 60 / severity
 		check_health()
 
-/obj/structure/closet/statue/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/closet/statue/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	health -= I.force
+	health -= attacking_item.force
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] strikes [src] with [I].</span>")
+	visible_message("<span class='danger'>[user] strikes [src] with [attacking_item].</span>")
 	check_health()
 
 /obj/structure/closet/statue/MouseDrop_T()

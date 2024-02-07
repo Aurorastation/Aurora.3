@@ -95,8 +95,8 @@
 		qdel(RC)
 		update_components()
 
-/obj/item/mech_component/attackby(var/obj/item/thing, var/mob/user)
-	if(thing.isscrewdriver())
+/obj/item/mech_component/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
 			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."))
@@ -106,11 +106,11 @@
 		else
 			to_chat(user, SPAN_WARNING("There is nothing to remove."))
 		return
-	if(thing.iswelder())
-		repair_brute_generic(thing, user)
+	if(attacking_item.iswelder())
+		repair_brute_generic(attacking_item, user)
 		return
-	if(thing.iscoil())
-		repair_burn_generic(thing, user)
+	if(attacking_item.iscoil())
+		repair_burn_generic(attacking_item, user)
 		return
 	return ..()
 

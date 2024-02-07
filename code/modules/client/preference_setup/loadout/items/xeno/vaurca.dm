@@ -225,6 +225,9 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 
+/datum/gear/ears/vaurca
+	abstract_type = /datum/gear/ears/vaurca
+
 /datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"
 	description = "Rings worn by Bulwarks to decorate their horns."
@@ -293,6 +296,6 @@
 	path = /obj/item/clothing/accessory/badge/passcard/tret
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
-	culture_restriction = /singleton/origin_item/culture/klax
+	culture_restriction = list(/singleton/origin_item/culture/klax)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

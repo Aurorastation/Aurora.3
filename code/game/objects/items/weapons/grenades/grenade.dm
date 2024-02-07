@@ -40,9 +40,9 @@
 			return
 		to_chat(user, "\The [src] is set for instant detonation.")
 
-/obj/item/grenade/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/gun/launcher/grenade))
-		var/obj/item/gun/launcher/grenade/G = W
+/obj/item/grenade/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/launcher/grenade))
+		var/obj/item/gun/launcher/grenade/G = attacking_item
 		G.load(src, user)
 	else
 		..()

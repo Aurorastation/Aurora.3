@@ -172,8 +172,8 @@
 		emagged = 1
 		return 1
 
-/obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/W as obj, mob/user as mob)
-	read_authorization(W)
+/obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/attacking_item, mob/user)
+	read_authorization(attacking_item)
 	..()
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, datum/tgui/ui)

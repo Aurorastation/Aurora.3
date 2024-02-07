@@ -276,9 +276,9 @@
 // Proc: attackby()
 // Parameters: 2 (W - the item this spell object is hitting, user - the technomancer who clicked the other object)
 // Description: Tries to combine the spells, if W is a spell, and has CHROMATIC aspect.
-/obj/item/spell/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/spell))
-		var/obj/item/spell/spell = W
+/obj/item/spell/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/spell))
+		var/obj/item/spell/spell = attacking_item
 		if(run_checks() & (cast_methods & CAST_COMBINE))
 			spell.on_combine_cast(src, user)
 		return TRUE

@@ -99,11 +99,11 @@
 /obj/item/tank/phoron/shuttle/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_PHORON, 4*(3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
-/obj/item/tank/phoron/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tank/phoron/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if (istype(W, /obj/item/flamethrower))
-		var/obj/item/flamethrower/F = W
+	if (istype(attacking_item, /obj/item/flamethrower))
+		var/obj/item/flamethrower/F = attacking_item
 		if ((!F.secured)||(F.gas_tank))	return
 		src.master = F
 		F.gas_tank = src

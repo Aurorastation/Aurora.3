@@ -99,24 +99,24 @@
 		LAZYREMOVE(contained_packages, package)
 		update_state()
 
-/obj/item/cargo_backpack/attackby(obj/item/item, mob/living/carbon/human/user)
+/obj/item/cargo_backpack/attackby(obj/item/attacking_item, mob/user)
 	if(!ishuman(user))
 		return ..()
 	if(user.back != src)
-		if(istype(item, /obj/item/cargo_package))
+		if(istype(attacking_item, /obj/item/cargo_package))
 			to_chat(user, SPAN_WARNING("Put \the [src] on your back before you load packages onto it!"))
 			return
 		return ..()
-	if(!istype(item, /obj/item/cargo_package))
+	if(!istype(attacking_item, /obj/item/cargo_package))
 		return ..()
 
 	if(LAZYLEN(contained_packages) >= 2)
 		to_chat(user, SPAN_WARNING("\The [src] is already fully loaded!"))
 		return
 
-	user.visible_message("<b>[user]</b> starts loading \the [item] onto \the [src]...", SPAN_NOTICE("You start loading \the [item] onto \the [src]..."))
+	user.visible_message("<b>[user]</b> starts loading \the [attacking_item] onto \the [src]...", SPAN_NOTICE("You start loading \the [attacking_item] onto \the [src]..."))
 	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
-		user.visible_message("<b>[user]</b> loads \the [item] onto \the [src]!", SPAN_NOTICE("You load \the [item] onto \the [src]!"))
-		user.drop_from_inventory(item, src)
-		LAZYADD(contained_packages, item)
+		user.visible_message("<b>[user]</b> loads \the [attacking_item] onto \the [src]!", SPAN_NOTICE("You load \the [attacking_item] onto \the [src]!"))
+		user.drop_from_inventory(attacking_item, src)
+		LAZYADD(contained_packages, attacking_item)
 		update_state()

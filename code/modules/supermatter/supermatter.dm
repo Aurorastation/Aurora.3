@@ -383,15 +383,19 @@
 		ui = new(user, src, "Supermatter", "Supermatter Crystal", 500, 300)
 		ui.open()
 
-/obj/machinery/power/supermatter/attackby(obj/item/W, mob/living/user)
-	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
-		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
+/obj/machinery/power/supermatter/attackby(obj/item/attacking_item, mob/user)
+	var/mob/living/living_user = user
+	if(!istype(living_user))
+		return
+
+	living_user.visible_message("<span class=\"warning\">\The [living_user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
+		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
 
-	user.drop_from_inventory(W)
-	Consume(W)
+	living_user.drop_from_inventory(attacking_item)
+	Consume(attacking_item)
 
-	user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	living_user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
 	if(!AM.simulated)
