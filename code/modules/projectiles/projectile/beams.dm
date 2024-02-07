@@ -231,9 +231,9 @@
 	agony = 30
 	damage_type = DAMAGE_BURN
 
-	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
-	tracer_type = /obj/effect/projectile/muzzle/laser/scc
-	impact_type = /obj/effect/projectile/muzzle/laser/scc
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
 
 /obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target) && blocked < 100 && !issilicon(target) && !isipc(target)) //Make them trip
