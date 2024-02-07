@@ -7,6 +7,8 @@
 	icon_state = "journal"
 	item_state = "journal"
 	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "closed"
 	update_icon_on_init = TRUE
 	throw_speed = 1
 	throw_range = 5
@@ -26,12 +28,16 @@
 	return ..()
 
 /obj/item/journal/update_icon()
+	cut_overlays()
 	if(!open)
 		icon_state = "[initial(icon_state)]_closed"
+		add_overlay(overlay_image(icon, "closed", flags=RESET_COLOR))
 	else if(LAZYLEN(indices))
-		icon_state = "[initial(icon_state)]_writing"
+		icon_state = initial(icon_state)
+		add_overlay(overlay_image(icon, "writing", flags=RESET_COLOR))
 	else
 		icon_state = initial(icon_state)
+		add_overlay(overlay_image(icon, "blank", flags=RESET_COLOR))
 
 	if(closed_desc)
 		desc = open ? initial(desc) + closed_desc : initial(desc)
