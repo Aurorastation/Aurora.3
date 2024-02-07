@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/hivebot_hub
-	name = "derelict supply hub"
-	desc = "An independent supply hub and fuel depot that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Most curiously, something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside."
+	name = "Derelict Supply Hub"
+	description = "Derelict Supply Hub"
 	suffixes = list("away_site/hivebot_hub/hivebot_hub.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
 	spawn_weight = 1
@@ -8,6 +8,25 @@
 	id = "hivebot_hub"
 
 	unit_test_groups = list(1)
+
+/singleton/submap_archetype/hivebot_hub
+	map = "Derelict Supply Hub"
+	descriptor = "Derelict Supply Hub"
+
+/obj/effect/overmap/visitable/sector/hivebot_hub
+	name = "derelict"
+	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Most curiously, something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside."
+
+	static_vessel = TRUE
+	generic_object = FALSE
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "outpost"
+	color = "#393939"
+	designer = "Unknown"
+	volume = "50 meters length, 67 meters beam/width, 11 meters vertical height"
+	weapons = "Not apparent"
+	sizeclass = "Supply Hub"
+
 
 // Areas
 /area/hivebothub
@@ -88,12 +107,3 @@
 /obj/effect/shuttle_landmark/hivebot_hub/nav6
 	name = "Independent Supply Hub - Starboard Dock #3"
 	landmark_tag = "hivebot_nav6"
-
-/singleton/submap_archetype/hivebot_hub
-	map = "derelict supply hub"
-	descriptor = "A derelict supply hub."
-
-/obj/effect/overmap/visitable/sector/hivebot_hub
-	name = "derelict"
-	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Most curiously, something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside."
-
