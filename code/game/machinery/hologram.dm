@@ -67,7 +67,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		sync_linked()
 
 	get_holopad_id()
@@ -472,7 +472,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/get_holopad_id()
 	holopad_id = ""
 
-	if(current_map.use_overmap && linked)
+	if(SSatlas.current_map.use_overmap && linked)
 		holopad_id = "[linked.name] | "
 
 	var/area/A = get_area(src)
@@ -481,7 +481,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)
 		return FALSE
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
 		if(get_dist(HP.linked, linked) > 1 && !(HP.linked in view(max_overmap_call_range, linked)))

@@ -9,11 +9,11 @@
 
 /proc/max_default_z_level()
 	var/max_z = 0
-	for(var/z in current_map.station_levels)
+	for(var/z in SSatlas.current_map.station_levels)
 		max_z = max(z, max_z)
-	for(var/z in current_map.admin_levels)
+	for(var/z in SSatlas.current_map.admin_levels)
 		max_z = max(z, max_z)
-	for(var/z in current_map.player_levels)
+	for(var/z in SSatlas.current_map.player_levels)
 		max_z = max(z, max_z)
 	return max_z
 

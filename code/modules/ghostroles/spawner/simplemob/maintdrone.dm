@@ -13,8 +13,8 @@
 
 /datum/ghostspawner/simplemob/maintdrone/New()
 	. = ..()
-	if(current_map.station_name)
-		desc = "[desc] on the [current_map.station_name]."
+	if(SSatlas.current_map.station_name)
+		desc = "[desc] on the [SSatlas.current_map.station_name]."
 	else
 		desc = "[desc]."
 

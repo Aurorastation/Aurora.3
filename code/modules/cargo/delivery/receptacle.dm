@@ -20,7 +20,7 @@ var/global/list/all_cargo_receptacles = list()
 	delivery_id = "#[rand(1, 9)][rand(1, 9)][rand(1, 9)]"
 	name += " ([delivery_id])"
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/turf/current_turf = get_turf(loc)
 		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
 		if(my_sector)
@@ -34,7 +34,7 @@ var/global/list/all_cargo_receptacles = list()
 
 	if(spawns_packages)
 		var/list/warehouse_turfs = list()
-		for(var/area_path in typesof(current_map.warehouse_basearea))
+		for(var/area_path in typesof(SSatlas.current_map.warehouse_basearea))
 			var/area/warehouse = locate(area_path)
 			if(warehouse)
 				for(var/turf/simulated/floor/T in warehouse)

@@ -148,7 +148,7 @@
 		TEST_FAIL("The shuttle controller is not setup at time of test.")
 		return 1
 	if(!SSshuttle.shuttles.len)
-		if(length(current_map.map_shuttles))
+		if(length(SSatlas.current_map.map_shuttles))
 			TEST_FAIL("This map should have shuttles, but it doesn't!")
 			return 1
 		else

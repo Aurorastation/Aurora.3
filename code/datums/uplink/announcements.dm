@@ -11,10 +11,10 @@
 
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
-	name = "[current_map.boss_name] Update Announcement"
+	name = "[SSatlas.current_map.boss_name] Update Announcement"
 	telecrystal_cost = 5
 	bluecrystal_cost = 5
-	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
+	desc = "Causes a falsified [SSatlas.current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
 	var/title = tgui_input_text(user, "Enter your announcement title.", "Announcement Title", encode = FALSE)
