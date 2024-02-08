@@ -467,7 +467,7 @@
 			continue
 		localareas += A
 
-/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area())
+/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area(src))
 	if (A.name == "Space")
 		return AREA_SPACE
 	else if(A.alwaysgravity == 1 || A.nevergravity == 1)
