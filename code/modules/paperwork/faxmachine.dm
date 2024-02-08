@@ -38,7 +38,7 @@ var/list/admin_departments
 	allfaxes += src
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
-	destination = current_map.boss_name
+	destination = SSatlas.current_map.boss_name
 
 /obj/machinery/photocopier/faxmachine/Destroy()
 	allfaxes -= src
@@ -49,7 +49,7 @@ var/list/admin_departments
 /obj/machinery/photocopier/faxmachine/ui_data(mob/user)
 	var/list/data = list()
 	data["destination"] = destination
-	data["bossname"] = current_map.boss_name
+	data["bossname"] = SSatlas.current_map.boss_name
 	data["auth"] = is_authenticated()
 	data["cooldown_end"] = sendtime + sendcooldown
 	data["world_time"] = world.time
@@ -284,8 +284,8 @@ var/list/admin_departments
 	arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived
-	if (destination == current_map.boss_name)
-		message_admins(sender, "[uppertext(current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
+	if (destination == SSatlas.current_map.boss_name)
+		message_admins(sender, "[uppertext(SSatlas.current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
 	else if (destination == "External Routing")
 		message_admins(sender, "EXTERNAL ROUTING FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 

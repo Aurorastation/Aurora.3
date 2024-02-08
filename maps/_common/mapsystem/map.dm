@@ -138,7 +138,7 @@
 
 // By default transition randomly to another zlevel
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
-	var/list/candidates = current_map.accessible_z_levels.Copy()
+	var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
 	if(!candidates.len)
@@ -259,11 +259,11 @@
 
 	for (var/site_id in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
-		if ((HAS_FLAG(site.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in GLOB.config.awaysites["guaranteed_sites"]))
+		if (((site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in GLOB.config.awaysites["guaranteed_sites"]))
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
-		else if (NOT_FLAG(site.template_flags, TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
+		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 

@@ -373,7 +373,7 @@
 		occupantData["name"] = connected.occupant.real_name
 		occupantData["stat"] = connected.occupant.stat
 		occupantData["isViableSubject"] = 1
-		if (HAS_FLAG(connected.occupant.mutations, NOCLONE) || !src.connected.occupant.dna)
+		if ((connected.occupant.mutations & NOCLONE) || !src.connected.occupant.dna)
 			occupantData["isViableSubject"] = 0
 		occupantData["health"] = connected.occupant.health
 		occupantData["maxHealth"] = connected.occupant.maxHealth
@@ -710,7 +710,7 @@
 			return 1
 
 		if (bufferOption == "transfer")
-			if (!src.connected.occupant || HAS_FLAG(src.connected.occupant.mutations, NOCLONE) || !src.connected.occupant.dna)
+			if (!src.connected.occupant || (src.connected.occupant.mutations & NOCLONE) || !src.connected.occupant.dna)
 				return
 
 			irradiating = 2

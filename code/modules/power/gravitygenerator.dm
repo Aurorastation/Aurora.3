@@ -454,7 +454,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/gravity_generator/main/LateInitialize()
-	if(current_map.use_overmap && !linked)
+	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
@@ -467,7 +467,7 @@
 			continue
 		localareas += A
 
-/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area())
+/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area(src))
 	if (A.name == "Space")
 		return AREA_SPACE
 	else if(A.alwaysgravity == 1 || A.nevergravity == 1)

@@ -82,7 +82,7 @@
 	if(!T)
 		if(length(GLOB.latejoin))
 			T = pick(GLOB.latejoin)			//Safety in case we cannot find the body's position
-		else if(current_map.force_spawnpoint && length(GLOB.force_spawnpoints["Anyone"]))
+		else if(SSatlas.current_map.force_spawnpoint && length(GLOB.force_spawnpoints["Anyone"]))
 			T = pick(GLOB.force_spawnpoints["Anyone"])
 		else
 			T = locate(1, 1, 1)
@@ -171,7 +171,7 @@ Works together with spawning an observer, noted above.
 		return FALSE
 
 	//Check if the z level is in the restricted list
-	if (!(check in current_map.restricted_levels))
+	if (!(check in SSatlas.current_map.restricted_levels))
 		return FALSE
 
 	return TRUE

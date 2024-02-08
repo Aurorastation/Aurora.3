@@ -142,7 +142,7 @@
 		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
 		return
 
-	if (((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
+	if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(M.eyes_protected(src, FALSE))
 			eyestab(M,user)

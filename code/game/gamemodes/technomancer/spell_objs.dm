@@ -198,7 +198,7 @@
 
 /// Check if we're still being held. Otherwise... time to qdel.
 /obj/item/spell/proc/check_owner()
-	if(!(loc == owner) && NOT_FLAG(cast_methods, CAST_THROW))
+	if(!(loc == owner) && !(cast_methods & CAST_THROW))
 		qdel_self()
 
 // Proc: unref_spells()

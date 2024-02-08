@@ -322,6 +322,17 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("dryness" = 2, "bread" = 2))
 	bitesize = 1
 
+/obj/item/reagent_containers/food/snacks/angry_bread
+	name = "angry bread"
+	desc = "Slices of flatbread with strips of grilled or ground xenomeat lying on top of thinly sliced grilled carrots, topped with walnuts, spices and/or grated cheddar. This recipe was created by a miner from New Gibson who runs a food blog."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "angrybread"
+	bitesize = 5
+	trash = /obj/item/trash/plate
+	filling_color = "#1d5a25"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 9)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 10, "carrot" = 6), /singleton/reagent/nutriment/protein = list("nutty umami meat" = 10,  "cheese" = 5))
+
 //================================
 // Toasts and Toasted Sandwiches
 //================================

@@ -22,7 +22,7 @@
 
 /proc/robotic_analyze_mob (var/mob/living/M, var/mob/living/user, var/just_scan = FALSE)
 	if(!just_scan)
-		if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
+		if((user.is_clumsy() || (user.mutations & DUMB)) && prob(50))
 			to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
 			user.visible_message(SPAN_WARNING("\The [user] has analyzed the floor's vitals!"))
 			to_chat(user, SPAN_NOTICE("Analyzing Results for The floor:"))

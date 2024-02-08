@@ -737,7 +737,7 @@ var/global/list/default_interrogation_channels = list(
 	channels = list()
 
 /obj/item/device/radio/map_preset/Initialize()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
 	var/turf/T = get_turf(src)

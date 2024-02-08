@@ -126,7 +126,7 @@ SUBSYSTEM_DEF(unit_tests)
 	//Start the Round.
 	//
 
-	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
+	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(SSatlas.current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
 
 		if(findtext(D.name, "template"))
@@ -163,7 +163,7 @@ SUBSYSTEM_DEF(unit_tests)
 		var/datum/unit_test/test = curr[curr.len]
 		curr.len--
 
-		if (test.map_path && current_map && current_map.path != test.map_path)
+		if (test.map_path && SSatlas.current_map && SSatlas.current_map.path != test.map_path)
 			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.", __FILE__, __LINE__)
 			if (MC_TICK_CHECK)
 				return

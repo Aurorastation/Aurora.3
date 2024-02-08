@@ -1013,7 +1013,7 @@
 		return
 	self_destructing = TRUE
 	if(anti_theft)
-		to_chat(src, SPAN_WARNING("Initiating wipe of all databases containing information related to [current_map.company_name]!"))
+		to_chat(src, SPAN_WARNING("Initiating wipe of all databases containing information related to [SSatlas.current_map.company_name]!"))
 	else
 		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 
@@ -1021,7 +1021,7 @@
 
 /mob/living/silicon/robot/proc/self_destruct_warning(var/warning_level)
 	if(!process_level_restrictions()) // Robot has returned to a turf where it is safe
-		to_chat(src, SPAN_NOTICE("Unit [src] has returned to [current_map.company_name] property, self-destruct aborted!"))
+		to_chat(src, SPAN_NOTICE("Unit [src] has returned to [SSatlas.current_map.company_name] property, self-destruct aborted!"))
 		say("Unit [src] self-destruct aborted.")
 		self_destructing = FALSE
 		return

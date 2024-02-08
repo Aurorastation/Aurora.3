@@ -94,7 +94,7 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -5057,7 +5057,7 @@
 	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /turf/simulated/floor/tiled/full,
@@ -6381,6 +6381,10 @@
 	},
 /obj/effect/landmark/start{
 	name = "Consular Officer"
+	},
+/obj/item/storage/secure/safe{
+	pixel_y = 43;
+	pixel_x = 60
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular_two)
@@ -10795,7 +10799,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
 	dir = 1;
-	req_one_access = list(26,29,31,48,67);
+	req_one_access = list(26,29,31,48,67,70);
 	name = "Operations Bay"
 	},
 /turf/simulated/floor/tiled/full,
@@ -13249,7 +13253,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -14250,11 +14254,6 @@
 /obj/item/clipboard,
 /obj/item/pen/multi,
 /obj/item/device/camera,
-/obj/item/stamp/denied,
-/obj/item/stamp{
-	layer = 3.1;
-	name = "representative stamp"
-	},
 /obj/item/paper_scanner,
 /obj/item/folder/red,
 /obj/item/folder/yellow,
@@ -18548,9 +18547,6 @@
 /obj/structure/closet/lawcloset,
 /obj/item/device/camera,
 /obj/item/stamp/denied,
-/obj/item/stamp{
-	name = "consular stamp"
-	},
 /obj/item/folder/blue,
 /obj/item/folder/white,
 /obj/machinery/power/apc/south{
@@ -31022,9 +31018,6 @@
 /obj/structure/closet/lawcloset,
 /obj/item/device/camera,
 /obj/item/stamp/denied,
-/obj/item/stamp{
-	name = "consular stamp"
-	},
 /obj/item/folder/blue,
 /obj/item/folder/white,
 /turf/simulated/floor/carpet,
