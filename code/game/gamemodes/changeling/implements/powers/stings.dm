@@ -197,7 +197,7 @@
 /datum/changeling_sting/transformation/can_sting(mob/living/target)
 	. = ..()
 	if(.)
-		if(HAS_FLAG(target.mutations, HUSK) || (!ishuman(target) && !issmall(target)))
+		if((target.mutations & HUSK) || (!ishuman(target) && !issmall(target)))
 			to_chat(owner, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 			return FALSE
 		if(islesserform(target))

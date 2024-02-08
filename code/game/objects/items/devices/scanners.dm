@@ -90,7 +90,7 @@ BREATH ANALYZER
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE, var/sound_scan)
 	if(!just_scan)
-		if (((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(50))
+		if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the ERROR:</b></span>")
 			if(sound_scan)
@@ -601,7 +601,7 @@ BREATH ANALYZER
 		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
 		return
 
-	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(20))
+	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)

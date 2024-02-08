@@ -137,7 +137,7 @@
 	return
 
 /obj/machinery/optable/attack_hand(mob/user)
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
 		density = FALSE
 		qdel(src)

@@ -64,7 +64,7 @@
 			if(src.hydration)
 				adjustHydrationLoss(hydration_loss*0.1)
 
-		if(HAS_FLAG(mutations, FAT) && src.m_intent == M_RUN && src.bodytemperature <= 360)
+		if((mutations & FAT) && src.m_intent == M_RUN && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
 		// Moving around increases germ_level faster
@@ -465,7 +465,7 @@
 		return FALSE
 	if (is_berserk())
 		return FALSE
-	if (HAS_FLAG(mutations, HULK))
+	if ((mutations & HULK))
 		return FALSE
 	if (analgesic > 100)
 		return FALSE

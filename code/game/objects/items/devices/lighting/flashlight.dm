@@ -224,7 +224,7 @@
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == BP_EYES)
 
-		if(((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(50))	//too dumb to use flashlight properly
+		if(((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
 		if(brightness_on < 2)
@@ -270,7 +270,7 @@
 		if(H.stat == DEAD || H.blinded || H.status_flags & FAKEDEATH)	//mob is dead or fully blind
 			to_chat(user, SPAN_WARNING("\The [H]'s pupils do not react to the light!"))
 			return
-		if(HAS_FLAG(H.mutations, XRAY))
+		if((H.mutations & XRAY))
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils give an eerie glow!"))
 		if(vision.damage)
 			to_chat(user, SPAN_WARNING("There's visible damage to [H]'s [vision.name]!"))
