@@ -395,17 +395,50 @@
 	Weaken(FLOOR(stun_duration/2))
 	return 1
 
+/**
+ * Adds an amount of a chemical effect to the mob
+ *
+ * * effect - A string indicative of the effect, as per `CE_*` defines in `code\__DEFINES\chemistry.dm`
+ * * magnitude - The magnitude/quantity/amount of the effect to add
+ */
 /mob/living/carbon/proc/add_chemical_effect(var/effect, var/magnitude = 1)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(effect in chem_effects)
 		chem_effects[effect] += magnitude
 	else
 		chem_effects[effect] = magnitude
 
+/**
+ * Adds _up to_ an amount of a chemical effect to the mob
+ *
+ * Makes a chemical effect have _at least_ the specified `magnitude`
+ *
+ * * effect - A string indicative of the effect, as per `CE_*` defines in `code\__DEFINES\chemistry.dm`
+ * * magnitude - The magnitude/quantity/amount of the effect to reach, if lacking
+ */
 /mob/living/carbon/proc/add_up_to_chemical_effect(var/effect, var/magnitude = 1)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(effect in chem_effects)
 		chem_effects[effect] = max(magnitude, chem_effects[effect])
 	else
 		chem_effects[effect] = magnitude
+
+/**
+ * Removes an amount of a chemical effect from the mob
+ *
+ * Prevents the magnitude to go negative
+ *
+ * * effect - A string indicative of the effect, as per `CE_*` defines in `code\__DEFINES\chemistry.dm`
+ * * magnitude - The magnitude/quantity/amount of the effect to remove
+ */
+/mob/living/carbon/proc/remove_chemical_effect(var/effect, var/magnitude = 1)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(effect in chem_effects)
+		chem_effects[effect] -= max(magnitude, chem_effects[effect])
+
 
 /mob/living/carbon/get_default_language()
 	if(default_language)
