@@ -161,7 +161,7 @@
 		/obj/item/device/synthesized_instrument/violin = 0.1,
 		/obj/item/device/synthesized_instrument/guitar = 1,
 		/obj/item/device/synthesized_instrument/trumpet = 0.25,
-		/obj/item/storage/box/fancy/food/pralinebox = 0.2
+		/obj/item/storage/box/fancy/food/pralinebox = 0.1
 	)
 
 /obj/random/highvalue

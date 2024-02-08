@@ -9,7 +9,7 @@
 /**
  * The path where the logs should be saved
  */
-#define LOGPATH(file) "./data/logs/[game_id]/[file]"
+#define LOGPATH(file) "./data/logs/[GLOB.round_id]/[file]"
 
 //wrapper macros for easier grepping
 #define DIRECT_OUTPUT(A, B) A << B
@@ -85,13 +85,13 @@ rustg_log_write(LOGPATH("condensed.log"), "[text]", "true")
 
 #else
 #define WRITE_LOG(file, text)\
-rustg_log_write(LOGPATH(file), "[game_id] [text]", "true");\
+rustg_log_write(LOGPATH(file), "[GLOB.round_id] [text]", "true");\
 \
 if(GLOB.config?.all_logs_to_chat) { \
 	to_chat(world, "\[[file]\]: [text]");\
 }\
 if(GLOB.config?.condense_all_logs) {\
-	rustg_log_write(LOGPATH("condensed.log"), "[game_id] [text]", "true");\
+	rustg_log_write(LOGPATH("condensed.log"), "[GLOB.round_id] [text]", "true");\
 }
 #endif
 

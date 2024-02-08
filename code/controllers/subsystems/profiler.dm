@@ -1,4 +1,4 @@
-#define PROFILER_PATH(file) "./data/logs/[game_id]/profiler/[##file]"
+#define PROFILER_PATH(file) "./data/logs/[GLOB.round_id]/profiler/[##file]"
 
 #define PROFILER_FILENAME "profiler.json"
 #define SENDMAPS_FILENAME "sendmaps.json"

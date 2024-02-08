@@ -43,9 +43,6 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 		/obj/machinery/portable_atmospherics/hydroponics/soil/invisible,
 
-		// Requires an operating table
-		/obj/machinery/computer/operating,
-
 		// Requires to pick an output at init
 		/obj/machinery/appliance/mixer/,
 

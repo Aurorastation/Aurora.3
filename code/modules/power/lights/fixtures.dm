@@ -8,7 +8,7 @@
 	name = "light fixture"
 	icon = 'icons/obj/machinery/light.dmi'
 	var/base_state = "tube"		// base description and icon_state
-	icon_state = "tube_empty"
+	icon_state = "tube_preview"
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
@@ -83,7 +83,7 @@
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
-	icon_state = "bulb_empty"
+	icon_state = "bulb_preview"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
@@ -104,6 +104,7 @@
 	fitting_is_on_floor = TRUE
 
 /obj/machinery/light/small/emergency
+	icon_state = "bulb_emergency_preview"
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
@@ -122,17 +123,21 @@
 /obj/machinery/light/colored/red
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
+	icon_state = "tube_red_preview"
 
 /obj/machinery/light/colored/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
 
 /obj/machinery/light/colored/dying
 	brightness_color = LIGHT_COLOR_DYING
 	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
 
 /obj/machinery/light/broken
 	status = LIGHT_BROKEN
+	icon_state = "tube_broken_preview"
 
 /obj/machinery/light/spot
 	name = "spotlight fixture"

@@ -10,24 +10,79 @@
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/operating
 
+	///The operating table we are hooked into
 	var/obj/machinery/optable/table
+
+	///The paper with the scan of the patient
 	var/obj/item/paper/medscan/primer
+
 	var/obj/machinery/body_scanconsole/embedded/embedded_scanner
 
 /obj/machinery/computer/operating/Initialize()
-	. = ..()
+	..()
+
 	embedded_scanner = new /obj/machinery/body_scanconsole/embedded(src, 0, TRUE, TRUE)
-	for(var/obj/machinery/optable/T in orange(1,src))
-		table = T
-		if (table)
-			table.computer = src
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/operating/LateInitialize()
+	. = ..()
+
+	for(var/obj/machinery/optable/T in orange(1, src))
+		var/successfully_hooked = hook_table(T)
+		if(successfully_hooked)
 			break
 
 /obj/machinery/computer/operating/Destroy()
 	QDEL_NULL(embedded_scanner)
 	QDEL_NULL(primer)
+
+	//Clear the operating table
+	if(table)
+		unhook_table(table)
+
+	. = ..()
+
+/**
+ * Used to connect (hook) the computer to the operating table
+ *
+ * Returns `TRUE` on successful hook, `FALSE` otherwise
+ *
+ * * table_to_hook - An `/obj/machinery/optable` to hook to
+ */
+/obj/machinery/computer/operating/proc/hook_table(obj/machinery/optable/table_to_hook)
+	if(table)
+		return FALSE
+
+	if(QDELETED(table_to_hook))
+		crash_with("Trying to hook a QDELETED optable!")
+		return FALSE
+
+	if(!istype(table_to_hook))
+		crash_with("Trying to hook a table that is not of the correct type!")
+		return FALSE
+
+	table = table_to_hook
+	table.computer = src
+
+	return TRUE
+
+/**
+ * Used to disconnect (unhook) the computer to the operating table
+ *
+ * Returns `TRUE` on successful unhook, `FALSE` otherwise
+ *
+ * * table_to_unhook - An `/obj/machinery/optable` to hook to
+ */
+/obj/machinery/computer/operating/proc/unhook_table(obj/machinery/optable/table_to_unhook)
+	if(table_to_unhook != table)
+		crash_with("Trying to unhook a table that is not hooked!")
+		return FALSE
+
+	table.computer = null
 	table = null
-	return ..()
+
+	return TRUE
 
 /obj/machinery/computer/operating/attackby(obj/item/item, mob/user)
 	if(istype(item, /obj/item/paper/medscan))

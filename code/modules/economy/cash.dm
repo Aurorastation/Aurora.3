@@ -182,6 +182,15 @@
 	. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
 	. += SPAN_NOTICE("It has [src.worth]电 left.")
 
+/obj/item/spacecash/ewallet/c2000
+	worth = 2000
+
+/obj/item/spacecash/ewallet/c5000
+	worth = 5000
+
+/obj/item/spacecash/ewallet/c10000
+	worth = 10000
+
 /obj/item/spacecash/ewallet/lotto
 	name = "space lottery card"
 	icon_state = "lottocard_3"

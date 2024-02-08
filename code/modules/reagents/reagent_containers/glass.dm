@@ -222,6 +222,10 @@
 	volume = 120
 	possible_transfer_amounts = list(5,10,15,30,60,120)
 
+/obj/item/reagent_containers/glass/beaker/pitcher/coffee
+	name = "coffee pitcher"
+	reagents_to_add = list(/singleton/reagent/drink/coffee = 120)
+
 // buckets
 
 /obj/item/reagent_containers/glass/bucket

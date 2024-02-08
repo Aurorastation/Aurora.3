@@ -11,13 +11,13 @@
 	spawn_mob = /mob/living/simple_animal/rat //The mob that should be spawned
 
 /datum/ghostspawner/simplemob/rat/New()
-	desc = "Join as a rat on the [current_map.station_name], a common nuisance to the crew."
+	desc = "Join as a rat on the [SSatlas.current_map.station_name], a common nuisance to the crew."
 	..()
 
 //This proc selects the spawnpoint to use.
 /datum/ghostspawner/simplemob/rat/select_spawnlocation()
 	//find a viable mouse candidate
-	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(pick(current_map.station_levels))
+	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(pick(SSatlas.current_map.station_levels))
 	return get_turf(spawnpoint)
 
 /datum/ghostspawner/simplemob/rat/cant_spawn()

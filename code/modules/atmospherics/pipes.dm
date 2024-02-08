@@ -714,7 +714,7 @@
 	desc = "A manifold composed of auxiliary piping."
 	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
 	a Universal Adapter pipe."
-	icon_state = "intact-aux"
+	icon_state = "map-aux"
 	connect_types = CONNECT_TYPE_AUX
 	layer = 2.41
 	icon_connect_type = "-aux"

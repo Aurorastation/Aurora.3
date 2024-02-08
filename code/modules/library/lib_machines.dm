@@ -136,9 +136,9 @@
 	var/dat
 	// Public Related Code
 	if(!is_public)
-		dat = "<head><title>[current_map.station_name] Library Management</title></head><body>\n"
+		dat = "<head><title>[SSatlas.current_map.station_name] Library Management</title></head><body>\n"
 	else
-		dat = "<head><title>[current_map.station_name] Library</title></head><body>\n"
+		dat = "<head><title>[SSatlas.current_map.station_name] Library</title></head><body>\n"
 	switch(screenstate)
 		if(0)
 			// Main Menu

@@ -111,7 +111,7 @@
 		<br>
 		<br><b>DIGITAL ARREST WARRANT</b></center>
 		<hr>
-		<b>Facility:</b>__<u>[current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
+		<b>Facility:</b>__<u>[SSatlas.current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
 		<br>
 		<br><small><i>This document serves as a notice and permits the sanctioned arrest of
 		the denoted employee of the SCC Civilian Branch of Operation by the
@@ -147,7 +147,7 @@
 		<br>
 		<br><b>DIGITAL SEARCH WARRANT</b></center>
 		<hr>
-		<b>Facility:</b>__<u>[current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u></br>
+		<b>Facility:</b>__<u>[SSatlas.current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u></br>
 		<br>
 		<small><i>This document serves as notice and permits the sanctioned search of
 		the Suspect's person/belongings/premises and/or Department for any items and materials

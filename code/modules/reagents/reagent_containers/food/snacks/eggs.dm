@@ -202,3 +202,14 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("zesty tomatoes" = 4))
 	filling_color = "#BB2912"
+
+/obj/item/reagent_containers/food/snacks/eggs_benedict
+	name = "eggs benedict"
+	gender = PLURAL
+	desc = "A dish consisting of poached eggs and sliced ham on half a toasted english muffin, then covered with hollandaise sauce. Usually served in pairs."
+	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
+	icon_state = "benedict"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein/egg = list("rich, creamy eggs" = 10), /singleton/reagent/nutriment = list("toasted bread" = 5, "ham" = 3))
+	filling_color = "#ebcd49"
+	bitesize = 3

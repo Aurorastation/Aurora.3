@@ -252,7 +252,7 @@
 		return
 	if(isNotStationLevel(z_co))
 		telefail()
-		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(current_map.station_levels)]."
+		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(SSatlas.current_map.station_levels)]."
 		return
 	if(teles_left > 0)
 		doteleport(user)

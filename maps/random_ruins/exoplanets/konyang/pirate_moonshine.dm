@@ -2,10 +2,13 @@
 	name = "Pirate Moonshine Den"
 	id = "konyang_moonshine"
 	description = "An outpost in the jungle home to a group of Konyang pirates. These ones spend their time making drugs and alcohol."
+	spawn_weight = 1
+	spawn_cost = 2
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/pirate_moonshine.dmm")
+
 
 /area/konyang_pirate_moonshine
 	name = "Konyang Moonshiner Den"

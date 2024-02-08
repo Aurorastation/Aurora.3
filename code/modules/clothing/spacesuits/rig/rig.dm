@@ -804,7 +804,7 @@
 	..()
 
 	if(user.client)
-		SSstatpanels.set_action_tabs(user.client, user)
+		SSstatpanels.set_action_tabs_RIG(user.client, user)
 
 	null_wearer(user)
 

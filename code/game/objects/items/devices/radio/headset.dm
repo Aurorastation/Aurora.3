@@ -730,7 +730,7 @@
 	var/use_common = FALSE
 
 /obj/item/device/radio/headset/ship/Initialize()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
 	var/turf/T = get_turf(src)
