@@ -378,19 +378,19 @@
 	return TRUE
 
 // examine verb
-/obj/machinery/light/examine(mob/user)
+/obj/machinery/light/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(status)
 		if(LIGHT_OK)
-			to_chat(user, "It is turned [!(stat & POWEROFF) ? "on" : "off"].")
+			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
 		if(LIGHT_EMPTY)
-			to_chat(user, "\The [fitting] has been removed.")
+			. += "\The [fitting] has been removed."
 		if(LIGHT_BURNED)
-			to_chat(user, "\The [fitting] is burnt out.")
+			. += "\The [fitting] is burnt out."
 		if(LIGHT_BROKEN)
-			to_chat(user, "\The [fitting] has been smashed.")
+			. += "\The [fitting] has been smashed."
 	if(cell)
-		to_chat(user, "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%.")
+		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 // attack with item - insert light (if right type), otherwise try to break the light
 

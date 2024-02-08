@@ -141,21 +141,21 @@
 
 	return 1
 
-/obj/item/reagent_containers/food/snacks/examine(mob/user, distance)
+/obj/item/reagent_containers/food/snacks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	if (coating)
 		var/singleton/reagent/coating_reagent = GET_SINGLETON(coating)
-		to_chat(user, SPAN_NOTICE("It's coated in [coating_reagent.name]!"))
-	if (bitecount==0)
+		. += SPAN_NOTICE("It's coated in [coating_reagent.name]!")
+	if (!bitecount)
 		return
 	else if (bitecount==1)
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten by someone!"))
+		. += SPAN_NOTICE("\The [src] was bitten by someone!")
 	else if (bitecount<=3)
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten [bitecount] time\s!"))
+		. += SPAN_NOTICE("\The [src] was bitten [bitecount] time\s!")
 	else
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten multiple times!"))
+		. += SPAN_NOTICE("\The [src] was bitten multiple times!")
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/living/user)
 

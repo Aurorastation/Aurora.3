@@ -22,12 +22,12 @@
 	lich = null
 	return ..()
 
-/obj/item/phylactery/examine(mob/user)
+/obj/item/phylactery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!lich)
-		to_chat(user, "The heart is inert.")
+		. += "The heart is inert."
 	else
-		to_chat(user, "The heart is pulsing slowly.")
+		. += "The heart is pulsing slowly."
 
 /obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
 	..()

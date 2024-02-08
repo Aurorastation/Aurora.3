@@ -69,10 +69,10 @@
 	QDEL_LIST(ingredients)
 	return ..()
 
-/obj/item/reagent_containers/food/snacks/csandwich/examine(mob/user)
+/obj/item/reagent_containers/food/snacks/csandwich/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/obj/item/O = pick(contents)
-	to_chat(user, SPAN_NOTICE("You think you can see [O.name] in there."))
+	. += SPAN_NOTICE("You think you can see [O.name] in there.")
 
 /obj/item/reagent_containers/food/snacks/csandwich/roll
 	name = "roll"

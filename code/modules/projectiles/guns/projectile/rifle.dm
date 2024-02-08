@@ -99,17 +99,17 @@
 			ammo_magazine.stored_ammo -= AC
 			chambered = AC
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(jam_chance)
 		if(10 to 20)
-			to_chat(user, SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag."))
+			. += SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag.")
 		if(20 to 40)
-			to_chat(user, SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag.")
 		if(40 to 80)
-			to_chat(user, SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag.")
 		if(80 to INFINITY)
-			to_chat(user, SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag."))
+			. += SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag.")
 
 /obj/item/gun/projectile/shotgun/pump/rifle/pipegun/attackby(obj/item/A, mob/user)
 	if(istype(A, /obj/item/reagent_containers/glass/rag))

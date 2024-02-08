@@ -97,14 +97,14 @@
 	if(istype(dart))
 		fill_dart(dart)
 
-/obj/item/gun/projectile/dartgun/examine(mob/user)
+/obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (beakers.len)
-		to_chat(user, "<span class='notice'>[src] contains:</span>")
+		. += "<span class='notice'>[src] contains:</span>"
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			for(var/_R in B.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				to_chat(user, "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>")
+				. += "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>"
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/reagent_containers/glass))

@@ -40,12 +40,12 @@
 /obj/machinery/power/breakerbox/activated/LateInitialize()
 	set_state(1)
 
-/obj/machinery/power/breakerbox/examine(mob/user)
+/obj/machinery/power/breakerbox/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(on)
-		to_chat(user, SPAN_GOOD("It seems to be online."))
+		. += SPAN_GOOD("It seems to be online.")
 	else
-		to_chat(user, SPAN_BAD("It seems to be offline."))
+		. += SPAN_BAD("It seems to be offline.")
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)
 	if(!ai_can_interact(user))

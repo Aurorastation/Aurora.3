@@ -53,13 +53,13 @@
 			return
 	return ..()
 
-/obj/item/ship_ammunition/examine(mob/user, distance, is_adjacent)
+/obj/item/ship_ammunition/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(written_message)
 		if(distance > 3)
-			to_chat(user, "It has something written on it, but you'd need to get closer to tell what the writing says.")
+			. += "It has something written on it, but you'd need to get closer to tell what the writing says."
 		else
-			to_chat(user, "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>")
+			. += "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>."
 
 /obj/item/ship_ammunition/do_additional_pickup_checks(var/mob/user)
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)

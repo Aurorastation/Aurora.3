@@ -32,7 +32,7 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/personal_inhaler_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if (distance > 2)
@@ -40,14 +40,14 @@
 
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
-			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+			. += "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>"
 		else
-			to_chat(user,"<span class='notice'>It is empty.</span>")
+			. += "<span class='notice'>It is empty.</span>"
 	else
 		if(LAZYLEN(reagents.reagent_volumes))
-			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
+			. += "<span class='notice'>The reagents are secured in the aerosol mix.</span>"
 		else
-			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
+			. += "<span class='notice'>The cartridge seems spent.</span>"
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
@@ -101,12 +101,12 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	var/eject_when_empty = FALSE
 
-/obj/item/personal_inhaler/examine(mob/user, distance, is_adjacent)
+/obj/item/personal_inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if(stored_cartridge)
-		to_chat(user,"<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
+		. += "<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>"
 
 /obj/item/personal_inhaler/update_icon()
 	cut_overlays()

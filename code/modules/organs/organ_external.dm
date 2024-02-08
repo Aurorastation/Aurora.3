@@ -235,14 +235,13 @@
 		return //no eating the limb until everything's been removed
 	return ..()
 
-/obj/item/organ/external/examine(mob/user, distance, is_adjacent)
+/obj/item/organ/external/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue
-			to_chat(usr, "<span class='danger'>There is \a [I] sticking out of it.</span>")
-	return
+			. += "<span class='danger'>There is \a [I] sticking out of it.</span>"
 
 /obj/item/organ/external/attackby(obj/item/W as obj, mob/user as mob)
 	switch(stage)

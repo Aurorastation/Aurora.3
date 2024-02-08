@@ -230,12 +230,12 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/internal/ipc_tag/examine(mob/user)
+/obj/item/organ/internal/ipc_tag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]"))
-	to_chat(user, SPAN_NOTICE("Serial Number: [serial_number]"))
-	to_chat(user, SPAN_NOTICE("Ownership Info: [ownership_info]"))
-	to_chat(user, SPAN_NOTICE("Citizenship Info: [citizenship_info]"))
+	. +=  SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]")
+	. += SPAN_NOTICE("Serial Number: [serial_number]")
+	. += SPAN_NOTICE("Ownership Info: [ownership_info]")
+	. += SPAN_NOTICE("Citizenship Info: [citizenship_info]")
 
 /obj/item/organ/internal/ipc_tag/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/ipc_tag_scanner))
