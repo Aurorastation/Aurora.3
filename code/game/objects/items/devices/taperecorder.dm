@@ -94,7 +94,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("The tape recorder makes a scratchy noise."), hearing_distance = 3)
 		return
 	icon_state = "taperecorderrecording"
 	if(time_recorded < 3600 && !playing)
@@ -122,9 +122,8 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
-
 	if(recording)
 		recording = FALSE
 		timestamp += time_recorded
@@ -147,7 +146,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
 	if(recording || playing)
 		to_chat(usr, SPAN_WARNING("You can't clear the memory while playing or recording!"))
@@ -221,7 +220,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
 	if(!can_print)
 		to_chat(usr, SPAN_WARNING("The recorder can't print that fast!"))
@@ -282,7 +281,7 @@
 			return
 		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 		if(emagged)
-			to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+			src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 			return
 		icon_state = "taperecorderrecording"
 		if(time_recorded < 3600 && !playing)
