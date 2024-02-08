@@ -116,7 +116,7 @@
 "hz" = (/obj/structure/lattice/catwalk,/obj/structure/railing/mapped{dir = 1},/turf/space/dynamic,/area/hivebothub/exterior)
 "hC" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled/airless,/area/hivebothub/kitchen)
 "hD" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector,/turf/simulated/floor/tiled/dark/full/airless,/area/hivebothub/portdocks)
-"hJ" = (/obj/machinery/computer/ship/sensors/terminal{dir = 8},/obj/effect/floor_decal/industrial/outline/security,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark/full/airless,/area/hivebothub/bridge)
+"hJ" = (/obj/machinery/computer/ship/sensors/terminal{dir = 8},/obj/effect/floor_decal/industrial/outline/security,/obj/machinery/light{dir = 1},/obj/machinery/button/distress{pixel_x = -6; pixel_y = 26},/turf/simulated/floor/tiled/dark/full/airless,/area/hivebothub/bridge)
 "hS" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 8},/turf/simulated/floor/airless,/area/hivebothub/portdocks)
 "hY" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/portable_atmospherics/canister/air,/turf/simulated/floor/tiled/dark/full/airless,/area/hivebothub/portdocks)
 "ic" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/unary/vent_pump/high_volume,/turf/simulated/floor/airless,/area/hivebothub/starboarddocks)
