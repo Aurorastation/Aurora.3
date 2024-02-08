@@ -2,39 +2,37 @@
 	var/custom_infix = custom_name ? ", [mod_type] [braintype]" : ""
 	. = ..(user, distance, is_adjacent, infix = custom_infix)
 
-	. += "\n"
 	. += describe_all_modules() // describe modules
-	. += "\n"
 
 	. += "<span class='warning'>"
 	if(getBruteLoss())
 		if(getBruteLoss() < 75)
-			. += "It looks slightly dented.\n"
+			. += "It looks slightly dented."
 		else
-			. += "<B>It looks severely dented!</B>\n"
+			. += "<B>It looks severely dented!</B>"
 	if(getFireLoss())
 		if(getFireLoss() < 75)
-			. += "It looks slightly charred.\n"
+			. += "It looks slightly charred."
 		else
-			. += "<B>It looks severely burnt and heat-warped!</B>\n"
+			. += "<B>It looks severely burnt and heat-warped!</B>"
 	. += "</span>"
 
 	if(opened)
-		. += "<span class='warning'>Its cover is open and the power cell is [cell ? "installed" : "missing"].</span>\n"
+		. += "<span class='warning'>Its cover is open and the power cell is [cell ? "installed" : "missing"].</span>"
 	else
-		. += "Its cover is closed.\n"
+		. += "Its cover is closed."
 
 	if(!has_power)
-		. += "<span class='warning'>It appears to be running on backup power.</span>\n"
+		. += "<span class='warning'>It appears to be running on backup power.</span>"
 
 	switch(stat)
 		if(CONSCIOUS)
 			if(!client)
-				. += "It appears to be in stand-by mode.\n" //afk
+				. += "It appears to be in stand-by mode." //afk
 		if(UNCONSCIOUS)
-			. += "<span class='warning'>It doesn't seem to be responding.</span>\n"
+			. += "<span class='warning'>It doesn't seem to be responding.</span>"
 		if(DEAD)
-			. += "<span class='deadsay'>It looks completely unsalvageable.</span>\n"
+			. += "<span class='deadsay'>It looks completely unsalvageable.</span>"
 	. += "*---------*"
 
 	if(print_flavor_text())
@@ -44,4 +42,4 @@
 		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0 )
 			pose = addtext(pose, ".") //Makes sure all emotes end with a period.
 		. += "\nIt [pose]"
-	user.showLaws(src)
+	. += user.examine_laws(src)

@@ -869,7 +869,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return null
 
 /obj/item/organ/external/proc/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] soaking through the clothes on their [src]!"
+	return "[owner.get_pronoun("has")] [blood_type] soaking through the clothes on [owner.get_pronoun("his")] [src]!"
 
 //Updating wounds. Handles wound natural I had some free spachealing, internal bleedings and infections
 /obj/item/organ/external/proc/update_wounds()

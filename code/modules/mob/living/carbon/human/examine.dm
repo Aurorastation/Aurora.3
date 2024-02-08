@@ -33,7 +33,7 @@
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
 /mob/living/carbon/human/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+	. = list()
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
 	var/skipitems = get_covered_clothes()
