@@ -94,7 +94,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		src.audible_message(SPAN_WARNING("The tape recorder makes a scratchy noise."), hearing_distance = 3)
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
 	icon_state = "taperecorderrecording"
 	if(time_recorded < 3600 && !playing)
@@ -223,7 +223,7 @@
 		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
 	if(!can_print)
-		to_chat(usr, SPAN_WARNING("The recorder can't print that fast!"))
+		to_chat(usr, SPAN_WARNING("\The [src] can't print that fast!"))
 		return
 	if(recording || playing)
 		to_chat(usr, SPAN_WARNING("You can't print the transcript while playing or recording!"))
@@ -298,7 +298,7 @@
 			icon_state = "taperecorderidle"
 			return
 		else
-			to_chat(usr, SPAN_WARNING("Either your tape recorder's memory is full, or it is currently playing back its memory."))
+			to_chat(usr, SPAN_WARNING("Either \the [src]'s memory is full, or it is currently playing back its memory."))
 	else
 		if(use_check_and_message(usr))
 			return
@@ -311,7 +311,7 @@
 			icon_state = "taperecorderidle"
 			return
 		else if(emagged)
-			to_chat(usr, SPAN_WARNING("The tape recorder's buttons doesn't react!"))
+			to_chat(usr, SPAN_WARNING("\The [src]'s buttons doesn't react!"))
 			return
 		else if(playing)
 			playing = FALSE
