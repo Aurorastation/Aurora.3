@@ -92,6 +92,7 @@
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
 		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
 		return
@@ -119,6 +120,7 @@
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
 		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
 		return
@@ -143,6 +145,7 @@
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
 		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
 		return
@@ -216,6 +219,7 @@
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
 		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
 		return
@@ -276,6 +280,7 @@
 	if(!recording && !playing)
 		if(use_check_and_message(usr))
 			return
+		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 		if(emagged)
 			to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
 			return
@@ -298,6 +303,7 @@
 	else
 		if(use_check_and_message(usr))
 			return
+		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 		if(recording)
 			recording = FALSE
 			timestamp += time_recorded
