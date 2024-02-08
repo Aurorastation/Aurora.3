@@ -251,7 +251,8 @@
 
 /datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/human/target)
 	..()
-	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages, target.height, target.gender, target.pronouns, target.accent)
+	var/datum/hair_gradient/newGradient = new(target.g_style, target.r_grad, target.g_grad, target.b_grad)
+	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages, target.height, target.gender, target.pronouns, target.accent, newGradient)
 	owner.absorbDNA(newDNA)
 
 //Boosts the range of your next sting attack by 1
