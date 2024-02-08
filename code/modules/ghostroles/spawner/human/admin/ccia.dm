@@ -29,7 +29,7 @@
 	mob_name_pick_message = "Pick a name."
 
 /datum/ghostspawner/human/admin/corporate/ccia_agent/New()
-	desc = "Board the [current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle."
+	desc = "Board the [SSatlas.current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle."
 	..()
 
 /datum/ghostspawner/human/admin/corporate/ccia_escort
@@ -62,7 +62,7 @@
 	special_role = "SCC Agent"
 
 /datum/ghostspawner/human/admin/corporate/scc_agent/New()
-	desc = "Board the [current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle. But this time you're blue."
+	desc = "Board the [SSatlas.current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle. But this time you're blue."
 	..()
 
 /datum/ghostspawner/human/admin/corporate/scc_bodyguard

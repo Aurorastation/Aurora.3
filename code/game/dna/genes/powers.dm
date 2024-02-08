@@ -133,7 +133,7 @@
 
 /datum/dna/gene/basic/midget/can_activate(var/mob/M,var/flags)
 	// Can't be big and small.
-	if(HAS_FLAG(M.mutations, HULK))
+	if((M.mutations & HULK))
 		return 0
 	return ..(M,flags)
 
@@ -155,7 +155,7 @@
 
 /datum/dna/gene/basic/hulk/can_activate(var/mob/M,var/flags)
 	// Can't be big and small.
-	if(HAS_FLAG(M.mutations, mSmallsize))
+	if((M.mutations & mSmallsize))
 		return 0
 	return ..(M,flags)
 

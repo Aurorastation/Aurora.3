@@ -12,7 +12,7 @@
 
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
-		if(genetic_damage > 100 && !(HAS_FLAG(mutations, SKELETON))) //They need flesh to slough off
+		if(genetic_damage > 100 && !(mutations & SKELETON)) //They need flesh to slough off
 			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), range = 5)
 			ChangeToSkeleton(FALSE)
 		else
@@ -106,17 +106,17 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/Stun(amount)
-	if(HAS_FLAG(mutations, HULK))
+	if((mutations & HULK))
 		return
 	..()
 
 /mob/living/carbon/human/Weaken(amount)
-	if(HAS_FLAG(mutations, HULK))
+	if((mutations & HULK))
 		return
 	..()
 
 /mob/living/carbon/human/Paralyse(amount)
-	if(HAS_FLAG(mutations, HULK))
+	if((mutations & HULK))
 		return
 	// Notify our AI if they can now control the suit.
 	if(wearing_rig?.ai_override_enabled && !stat && paralysis < amount) //We are passing out right this second.
