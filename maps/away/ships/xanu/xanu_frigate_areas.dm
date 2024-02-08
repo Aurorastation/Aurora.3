@@ -10,13 +10,14 @@
 	name = "Xanu Frigate - Bridge"
 	icon_state = "bridge"
 
-/area/ship/xanu_frigate/eva
-	name = "Xanu Frigate - EVA Storage"
-	icon_state = "eva"
-
 /area/ship/xanu_frigate/captain
 	name = "Xanu Frigate - Captain's Quarters"
 	icon_state = "captain"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/ship/xanu_frigate/meeting
+	name = "Xanu Frigate - Briefing Room"
+	icon_state = "purple"
 
 //Fore-Mid
 /area/ship/xanu_frigate/medbay
@@ -26,6 +27,7 @@
 /area/ship/xanu_frigate/rec_room
 	name = "Xanu Frigate - Recreation Room"
 	icon_state = "library"
+	sound_env = LARGE_SOFTFLOOR
 
 /area/ship/xanu_frigate/crew_quarters
 	name = "Xanu Frigate - Crew Quarters"
@@ -47,11 +49,12 @@
 /area/ship/xanu_frigate/cic
 	name = "Xanu Frigate - Combat Information Center"
 	icon_state = "bridge"
-
+	ambience = AMBIENCE_HIGHSEC
+	
 /area/ship/xanu_frigate/weapon
 	name = "Xanu Frigate - Weapon Bay"
 	sound_env = SMALL_ENCLOSED
-	ambience = AMBIENCE_FOREBODING
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/xanu_frigate/weapon/longbow
 	name = "Xanu Frigate - Longbow Weapon Bay"
@@ -94,6 +97,10 @@
 /area/ship/xanu_frigate/brig
 	name = "Xanu Frigate - Brig"
 	icon_state = "brig"
+
+/area/ship/xanu_frigate/eva
+	name = "Xanu Frigate - EVA Storage"
+	icon_state = "eva"
 
 //Engineering
 /area/ship/xanu_frigate/engineering
@@ -140,3 +147,23 @@
 
 /area/ship/xanu_frigate/corridor/aft
 	name = "Xanu Frigate - Aft Corridor"
+
+//Shuttles
+/area/shuttle/xanu_boarder
+	name = "Xanu Spacefleet Runabout"
+	icon_state = "shuttle2"
+	requires_power = TRUE
+
+/area/shuttle/xanu_boarder/engineering
+	name = "Xanu Spacefleet Runabout - Engineering"
+	icon_state = "shuttle2"
+
+/area/shuttle/xanu_boarder/cockpit
+	name = "Xanu Spacefleet Runabout - Cockpit"
+	icon_state = "shuttle2"
+
+/area/shuttle/xanu_fighter
+	name = "Xanu Spacefleet Fighter"
+	icon_state = "shuttle"
+	requires_power = TRUE
+

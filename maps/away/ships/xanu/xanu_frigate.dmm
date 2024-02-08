@@ -4,15 +4,28 @@
 	dir = 4
 	},
 /obj/machinery/meter,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "ab" = (
-/obj/machinery/door/window/westleft,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/brig)
+"ad" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/fancy/crayons/chalkbox{
+	pixel_y = 9
+	},
+/obj/item/storage/box/fancy/crayons/chalkbox{
+	pixel_y = 4
+	},
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "ae" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -35,12 +48,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "ap" = (
-/obj/machinery/power/smes/buildable,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "au" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -51,6 +64,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_y = -19
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
@@ -93,6 +109,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
+"aL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "aM" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/crew_quarters)
@@ -127,13 +150,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "aZ" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "ba" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -154,7 +175,7 @@
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "bj" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/corner/dark_green{
@@ -205,11 +226,23 @@
 	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
+"bs" = (
+/obj/effect/floor_decal/spline/plain/corner/orange{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "bu" = (
-/obj/machinery/door/airlock/external,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
 "bx" = (
@@ -222,20 +255,43 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "by" = (
-/obj/machinery/light{
-	dir = 8
+/obj/structure/closet{
+	name = "equipment closet"
 	},
+/obj/item/storage/backpack/duffel/eng,
+/obj/item/storage/backpack/duffel/eng,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "bC" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/airless,
+/obj/structure/ship_weapon_dummy{
+	opacity = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "bG" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/item/folder/blue{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/folder/red{
+	pixel_y = -1;
+	pixel_x = 7
+	},
+/obj/item/clipboard{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
 "bH" = (
@@ -247,6 +303,12 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
@@ -260,16 +322,35 @@
 "bJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "bK" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(222)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
+"bL" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 7
+	},
+/obj/item/storage/toolbox/mechanical,
+/obj/item/device/flashlight/heavy{
+	pixel_y = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "bO" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
@@ -288,6 +369,11 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "bT" = (
@@ -306,6 +392,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/hydroponics)
+"bX" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder/engineering)
 "cb" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/super/critical/east,
@@ -317,6 +410,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
+"cf" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "External Lockdown Blast Door";
+	id = "xanufrigate_dockinglock"
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = -28
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "ci" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -330,8 +439,17 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/xanu_boarder)
 "cl" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
@@ -358,18 +476,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
 "cw" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_fighter)
 "cx" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/galley)
 "cy" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/space,
-/area/space)
+/turf/simulated/floor/reinforced/airless,
+/area/ship/xanu_frigate/engineering/starboard)
 "cA" = (
 /obj/machinery/door/airlock/medical,
 /obj/machinery/door/firedoor,
@@ -386,7 +503,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "cC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -450,6 +567,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"cV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "cX" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/cable{
@@ -461,15 +590,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "cY" = (
-/obj/structure/platform{
+/obj/structure/platform/dark{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/structure/fireaxecabinet/east,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "cZ" = (
+/obj/machinery/air_sensor{
+	id_tag = "xanufrigate_portco2_sensor";
+	name = "co2 sensor";
+	frequency = 1534
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/xanu_frigate/engineering/port)
 "db" = (
@@ -543,7 +684,8 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "du" = (
 /obj/structure/cable{
@@ -582,6 +724,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/crew_quarters)
+"dx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet/east,
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/hangar)
 "dy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -602,10 +751,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
 	},
 /obj/structure/closet/walllocker/emerglocker/east,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "dF" = (
@@ -620,7 +771,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "dG" = (
-/obj/machinery/suit_cycler/engineering/prepared/atmos,
+/obj/structure/fireaxecabinet/west,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "dH" = (
@@ -635,12 +791,70 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
-"dV" = (
-/obj/structure/cable{
-	icon_state = "2-8"
+"dL" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -16
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -16;
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/mess_hall)
+"dP" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/xanu_frigate/engineering/starboard)
+"dR" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
+"dU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder)
+"dV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder)
 "dW" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/power/apc/south,
@@ -663,6 +877,7 @@
 /area/ship/xanu_frigate/cic)
 "ed" = (
 /obj/structure/table/wood,
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/ship/xanu_frigate/rec_room)
 "ee" = (
@@ -678,16 +893,29 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
+"ej" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
+"ek" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/brig)
 "em" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/xanu_boarder)
 "eq" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -721,6 +949,18 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/pen/fountain/captain{
+	pixel_y = 3;
+	pixel_x = -5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = 20
+	},
 /turf/simulated/floor/carpet/red,
 /area/ship/xanu_frigate/captain)
 "eu" = (
@@ -735,13 +975,31 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
-"ey" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+"ev" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 29;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/xanu_frigate/corridor/fore_atrium)
+"ey" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/corridor/aft_starboard)
 "ez" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -774,6 +1032,15 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
@@ -852,8 +1119,15 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 4;
+	name = "Air to Distribution"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "eW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -871,6 +1145,7 @@
 /obj/structure/closet/crate{
 	name = "fuel crate"
 	},
+/obj/item/stack/material/graphite/full,
 /obj/item/stack/material/graphite/full,
 /obj/item/stack/material/graphite/full,
 /turf/simulated/floor/tiled,
@@ -916,10 +1191,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "fj" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/xanu_frigate/eva)
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "fm" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -996,12 +1273,18 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf/ammo)
 "fA" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/xanu_frigate/hangar)
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/xanu_fighter)
 "fB" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 4
+	dir = 4;
+	input_tag = "xanufrigate_stbdco2_in";
+	frequency = 1534;
+	output_tag = "xanufrigate_stbdco2_out";
+	sensors = list("xanufrigate_stbdco2_sensor"="Tank");
+	name = "Starboard Fuel Control"
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "fC" = (
@@ -1014,16 +1297,14 @@
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "fE" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/recharger{
-	pixel_x = -6;
-	pixel_y = 12
+/obj/machinery/papershredder{
+	pixel_x = -6
 	},
-/obj/machinery/recharger{
-	pixel_x = 6;
-	pixel_y = 12
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "fI" = (
 /obj/machinery/power/portgen/basic,
@@ -1060,6 +1341,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
+"fX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder)
+"fY" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/snacks/chocolatebar{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/mess_hall)
 "ga" = (
 /obj/machinery/shower{
 	pixel_y = 19
@@ -1079,6 +1379,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/longbow)
+"gc" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder/cockpit)
 "gd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1091,10 +1400,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "gk" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/turf/space/transit/east,
 /area/space)
 "gl" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -1104,6 +1410,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
+"gp" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "gq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
@@ -1127,6 +1437,8 @@
 /obj/item/stack/material/glass/phoronrglass/full,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "gu" = (
@@ -1142,15 +1454,27 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "gw" = (
-/obj/machinery/vending/tool,
+/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft)
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/eva)
 "gz" = (
 /obj/machinery/door/airlock/glass_security{
+	dir = 4;
+	req_access = list(222);
+	name = "Cell C"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1158,6 +1482,10 @@
 "gA" = (
 /obj/effect/floor_decal/corner/purple/full,
 /obj/structure/table/steel,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 2;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/custodial)
 "gB" = (
@@ -1168,8 +1496,17 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "gC" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder/cockpit)
 "gE" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/reinforced/steel,
@@ -1200,6 +1537,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "gH" = (
@@ -1209,7 +1549,7 @@
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "gI" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/xanu_boarder)
 "gJ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1251,8 +1591,11 @@
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "gT" = (
 /obj/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -1294,13 +1637,30 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "he" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "Fuel Tank to Thrusters";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "hh" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -1327,14 +1687,26 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "hp" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/space)
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/starboard)
 "hs" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -1380,7 +1752,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/aft_port)
 "hy" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
@@ -1389,6 +1761,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
+"hC" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/corridor/central)
 "hD" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
@@ -1403,7 +1782,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "hK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -1429,12 +1808,45 @@
 "hN" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "hO" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Shutters";
+	id = "xanufrigate_exterior_blast"
+	},
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/ship/xanu_frigate/eva)
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Privacy Shutters";
+	id = "xanufrigate_meetingprivacy"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/meeting)
+"hQ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/aft)
 "hT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1446,14 +1858,24 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
 "hZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/alarm/south,
-/obj/structure/table/reinforced/steel,
+/obj/machinery/autolathe,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "ia" = (
@@ -1466,6 +1888,9 @@
 /obj/item/gun/projectile/xanupistol,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/sign/flag/xanu{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
@@ -1483,8 +1908,11 @@
 "ih" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft)
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/eva)
 "ij" = (
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -1546,6 +1974,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/grauwolf)
+"ir" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "iw" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1556,18 +1990,19 @@
 /area/ship/xanu_frigate/cic)
 "ix" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/large_stock_marker,
 /obj/machinery/light,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
 "iy" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 8
 	},
-/obj/structure/railing/mapped,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/structure/plasticflaps,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/disposals)
 "iC" = (
@@ -1575,11 +2010,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
 "iD" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/carpet/rubber,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "iF" = (
 /obj/machinery/light{
 	dir = 8
@@ -1593,10 +2026,17 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "iH" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/xanu_frigate/eva)
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/sign/flag/xanu{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "iK" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/corridor/central)
@@ -1606,7 +2046,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "iO" = (
 /obj/structure/cable{
@@ -1622,16 +2062,37 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "iV" = (
-/obj/machinery/power/smes/buildable,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "iX" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
+"iZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "ja" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
@@ -1668,8 +2129,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "jl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -1692,10 +2154,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "jn" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1337;
-	id_tag = "merchant_shuttle_dock_pump"
+	frequency = 1534;
+	id_tag = "xanufrigate_air_out"
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/ship/xanu_frigate/engineering/port)
@@ -1706,15 +2168,44 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
+"jp" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/aft)
 "jr" = (
 /obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "jv" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
+"jx" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "jy" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1762,12 +2253,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "jL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "jM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
@@ -1777,17 +2265,23 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "jO" = (
+/obj/machinery/air_sensor{
+	id_tag = "xanufrigate_stbdco2_sensor";
+	name = "co2 sensor";
+	frequency = 1534
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/xanu_frigate/engineering/starboard)
 "jR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/xanu_frigate/hangar)
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/xanu_fighter)
 "jS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1800,13 +2294,40 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "jV" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/brig)
+"jW" = (
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -21;
+	pixel_y = 3;
+	id = "xanufrigate_medbayprivacy";
+	name = "Privacy Shutters"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "jY" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1836,6 +2357,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"ke" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/corridor/aft_port)
 "kh" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1881,7 +2407,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "ko" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1894,9 +2420,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_command{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -1907,7 +2430,7 @@
 /area/ship/xanu_frigate/corridor/central)
 "ku" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "kw" = (
@@ -1915,17 +2438,17 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "ky" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft_starboard)
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/meeting)
 "kz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1936,6 +2459,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/conveyor_switch/oneway{
+	pixel_y = 21;
+	pixel_x = -7;
+	id = "xanu_frigate_disposals"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/disposals)
 "kB" = (
@@ -1945,6 +2473,7 @@
 	tag_west = 5;
 	tag_south = 1
 	},
+/obj/machinery/alarm/east,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "kE" = (
@@ -1961,6 +2490,11 @@
 	name = "External Lockdown Blast Door";
 	id = "xanufrigate_dockinglock"
 	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = 22;
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "kI" = (
@@ -1975,22 +2509,34 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/eva)
+"kJ" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder)
 "kK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor{
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/xanu_fighter)
+"kL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/corridor/fore_atrium)
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "kN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow/ammo)
+"kO" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "kQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -2013,7 +2559,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/ship/xanu_frigate/bridge)
 "kS" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2056,6 +2602,8 @@
 	},
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "lm" = (
@@ -2074,20 +2622,26 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "lo" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/rec_room)
 "lq" = (
-/obj/machinery/disposal/small/east,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
+/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "lr" = (
 /turf/simulated/floor/reinforced/airmix,
 /area/ship/xanu_frigate/engineering/port)
@@ -2107,6 +2661,7 @@
 /obj/structure/reagent_dispensers/coolanttank{
 	amount_per_transfer_from_this = 300
 	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "lw" = (
@@ -2130,6 +2685,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/hangar)
 "lA" = (
@@ -2194,7 +2752,7 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "lT" = (
 /obj/structure/viewport,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "lV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
@@ -2214,17 +2772,32 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "mb" = (
 /obj/structure/platform_stairs/full{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "me" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/corridor/central)
 "mf" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2245,7 +2818,7 @@
 "mo" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "mp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -2266,17 +2839,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "mt" = (
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_command{
-	dir = 4
-	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
+	dir = 4;
+	req_access = list(222);
+	name = "Strike Craft Hangar Bay"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/hangar)
@@ -2289,8 +2860,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder)
 "mG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2310,6 +2882,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "mH" = (
@@ -2317,11 +2892,17 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
+"mK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "mL" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "mM" = (
 /obj/structure/grille,
@@ -2343,6 +2924,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "mU" = (
@@ -2369,17 +2951,34 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"mX" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "mZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
+"na" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder)
 "nb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/xanu_boarder)
 "nc" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -2405,9 +3004,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/glass_command{
-	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2463,7 +3059,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "nj" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -2472,6 +3068,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "nm" = (
@@ -2485,6 +3084,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
 "nq" = (
@@ -2501,19 +3101,30 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/engineering{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/engineering/port)
+"nr" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "ns" = (
 /obj/machinery/recharge_station,
 /obj/machinery/light,
-/obj/effect/floor_decal/corner_wide/blue/full{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "nt" = (
@@ -2528,9 +3139,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -2554,6 +3162,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
+"nz" = (
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "nA" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -2569,6 +3184,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
+"nC" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clipboard{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/meeting)
 "nF" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -2591,8 +3214,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/xanu_frigate/hangar)
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/xanu_fighter)
 "nK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -2618,12 +3241,32 @@
 	dir = 10
 	},
 /obj/machinery/alarm/north,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "nO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
+"nQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "nR" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -2660,7 +3303,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "nY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2688,18 +3331,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "og" = (
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/reinforced/airless,
-/area/space)
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/power/apc/super/north,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/hangar)
 "ok" = (
 /obj/structure/table/steel,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
@@ -2737,9 +3382,17 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
+"op" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "or" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
@@ -2770,7 +3423,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "oC" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -2784,26 +3437,31 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "oD" = (
-/obj/machinery/door/firedoor{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_command{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/corridor/central)
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/xanu_boarder)
 "oG" = (
-/obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
 "oH" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
@@ -2823,6 +3481,9 @@
 /obj/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
@@ -2869,7 +3530,7 @@
 /area/ship/xanu_frigate/medbay)
 "oY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/portgen/basic,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
 "oZ" = (
@@ -2879,6 +3540,18 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/brig)
+"pa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "pb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
@@ -2894,7 +3567,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "ph" = (
 /obj/machinery/light{
 	dir = 1
@@ -2902,46 +3575,59 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
 	},
+/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "pi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
+"pj" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/port)
+"pk" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/meeting)
 "pl" = (
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_command{
-	dir = 4
-	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/hangar)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/corridor/central)
 "pm" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "pn" = (
-/obj/structure/table/steel,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "po" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -2949,8 +3635,8 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "pq" = (
 /obj/structure/sign/flag/xanu/large/north{
 	pixel_y = 32
@@ -2992,7 +3678,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "pv" = (
-/obj/machinery/ammunition_loader/longbow,
+/obj/machinery/ammunition_loader/longbow{
+	weapon_id = "Xanu Frigate Longbow"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow)
 "pA" = (
@@ -3026,16 +3714,20 @@
 /area/ship/xanu_frigate/weapon/francisca_storage)
 "pE" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
 "pF" = (
 /obj/structure/closet/crate{
 	name = "fuel crate"
 	},
-/obj/item/stack/material/tritium/full,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "pG" = (
@@ -3052,9 +3744,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_command{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "pM" = (
@@ -3062,6 +3751,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "pN" = (
@@ -3078,6 +3768,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "pQ" = (
@@ -3098,7 +3789,8 @@
 	},
 /obj/machinery/door/blast/regular{
 	dir = 2;
-	id = "xanufrigate_cic"
+	id = "xanufrigate_cic";
+	name = "Combat Information Center Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
@@ -3120,6 +3812,7 @@
 	},
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "pX" = (
@@ -3134,13 +3827,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "qa" = (
-/obj/structure/platform_deco{
+/obj/structure/platform_deco/dark{
 	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "qc" = (
 /obj/effect/floor_decal/corner{
@@ -3259,7 +3955,7 @@
 "qH" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "qI" = (
 /obj/structure/railing/mapped,
 /obj/structure/table/reinforced/steel,
@@ -3284,7 +3980,7 @@
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "qQ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -3298,6 +3994,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "qU" = (
@@ -3322,7 +4020,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "qY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
@@ -3347,7 +4045,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "rb" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/corner/dark_green{
@@ -3384,9 +4082,19 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow)
 "rj" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft)
+/obj/machinery/door/airlock/glass_command{
+	req_access = list(222);
+	name = "EVA Storage"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/eva)
 "rk" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3400,6 +4108,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"rn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder)
 "rq" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3409,6 +4123,7 @@
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "rr" = (
@@ -3470,11 +4185,14 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/galley)
 "rF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
+/obj/structure/sign/flag/xanu{
+	pixel_y = 32
+	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "rH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3528,12 +4246,19 @@
 	id = "xanufrigate_dockinglock";
 	name = "External Airlocks Lockdown"
 	},
+/obj/item/device/binoculars{
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
+"rP" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "rR" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "sb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3556,6 +4281,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
+"sh" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/folder/sec{
+	pixel_y = 5;
+	pixel_x = -9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/meeting)
 "sl" = (
 /obj/machinery/light{
 	dir = 8
@@ -3620,8 +4353,12 @@
 /area/ship/xanu_frigate/custodial)
 "sA" = (
 /obj/structure/viewport,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow)
+"sB" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "sF" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -3697,10 +4434,17 @@
 /obj/item/bedsheet/captain,
 /turf/simulated/floor/carpet/red,
 /area/ship/xanu_frigate/captain)
+"sU" = (
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "sX" = (
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "ta" = (
@@ -3741,30 +4485,33 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/francisca_storage)
 "tf" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "th" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "tk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/xanu_frigate/hangar)
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/xanu_fighter)
 "tm" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	req_access = list(222);
+	name = "Strike Craft Hangar Bay"
+	},
 /obj/structure/plasticflaps/airtight{
 	layer = 2.5
 	},
@@ -3784,6 +4531,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "to" = (
@@ -3811,11 +4561,12 @@
 /obj/structure/table/rack,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/rods/full,
 /obj/item/stack/rods/full,
-/obj/item/stack/rods/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "ty" = (
@@ -3858,15 +4609,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
+"tC" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 29;
+	pixel_x = -6
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "tD" = (
-/obj/structure/table/steel,
-/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/computer/operating,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "tI" = (
@@ -3886,6 +4647,11 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
+"tK" = (
+/obj/structure/bed/stool/padded/red,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "tM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3900,7 +4666,9 @@
 /area/ship/xanu_frigate/corridor/aft)
 "tP" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command/gold,
+/obj/machinery/door/airlock/command/gold{
+	name = "Captain's Office"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/captain)
 "tQ" = (
@@ -3916,8 +4684,29 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
+"tX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/binary/pump/aux/on{
+	dir = 4;
+	name = "Distribution to Aft Airlock"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/aft)
 "tZ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3951,6 +4740,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "ue" = (
@@ -3977,7 +4769,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "uk" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/floodlight,
@@ -3985,10 +4777,10 @@
 /area/ship/xanu_frigate/hangar)
 "ul" = (
 /obj/machinery/light{
-	dir = 4
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/corridor/port)
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "um" = (
 /obj/machinery/light,
 /turf/simulated/floor/plating,
@@ -4033,17 +4825,24 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_y = 26;
+	pixel_x = 3;
+	id = "xanufrigate_armory";
+	name = "Armory Blast Door"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "ut" = (
-/obj/structure/bed/stool/padded/red{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/power/apc/west,
+/obj/structure/cable,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
 	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "uu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4086,9 +4885,23 @@
 	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
+"uz" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/fore)
 "uC" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "uE" = (
@@ -4100,6 +4913,11 @@
 	dir = 4;
 	name = "External Lockdown Blast Door";
 	id = "xanufrigate_dockinglock"
+	},
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
@@ -4121,6 +4939,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow/ammo)
 "uK" = (
@@ -4179,6 +4998,14 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "vb" = (
@@ -4191,6 +5018,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/bridge)
+"vd" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
+"ve" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_y = -8;
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/mess_hall)
 "vh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/cable{
@@ -4217,6 +5057,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
+"vm" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "External Lockdown Blast Door";
+	id = "xanufrigate_dockinglock"
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "vn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
@@ -4238,7 +5094,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "vx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
 /turf/simulated/floor/tiled,
@@ -4251,12 +5107,10 @@
 /area/ship/xanu_frigate/engineering/port)
 "vB" = (
 /obj/structure/closet/secure_closet/brig,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/brig)
 "vC" = (
-/obj/machinery/door/airlock/glass_security{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4271,6 +5125,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_port)
 "vK" = (
@@ -4284,8 +5141,16 @@
 /area/ship/xanu_frigate/weapon/longbow)
 "vM" = (
 /obj/effect/floor_decal/spline/plain/orange,
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 4
+	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "vN" = (
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
@@ -4316,7 +5181,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "wb" = (
-/obj/structure/platform,
+/obj/structure/platform/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -4356,14 +5221,14 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "wm" = (
-/obj/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle{
+/obj/machinery/computer/shuttle_control/explore/terminal{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "wo" = (
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/eva)
@@ -4375,9 +5240,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "ws" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 8
+	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "wz" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/book/manual/evaguide{
@@ -4389,7 +5257,7 @@
 "wA" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
-	pixel_y = 29;
+	pixel_y = 26;
 	pixel_x = -3;
 	id = "xanufrigate_cic";
 	name = "CIC Blast Door"
@@ -4423,16 +5291,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "wE" = (
-/obj/machinery/door/airlock/external,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "wG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4447,12 +5316,23 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/hangar)
+"wI" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "wM" = (
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_mining{
-	dir = 4
+	dir = 4;
+	req_access = list(222);
+	name = "DIsposals Room"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -4503,6 +5383,9 @@
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
 "wU" = (
@@ -4512,6 +5395,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/light/floor,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "wV" = (
@@ -4520,9 +5404,28 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
+"wX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/airlock_sensor/airlock_interior{
+	dir = 1;
+	pixel_x = 3;
+	pixel_y = -26
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
+"xb" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/xanu_boarder/cockpit)
 "xc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/large_stock_marker,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
 "xe" = (
@@ -4555,10 +5458,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
+"xn" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/aft_starboard)
 "xp" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "xq" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -4566,6 +5475,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
 "xt" = (
@@ -4588,17 +5498,23 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/xanu_frigate/bridge)
 "xw" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/outlet_injector,
-/turf/simulated/floor/reinforced/airless,
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/east,
 /area/space)
 "xy" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating,
-/area/space)
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/meeting)
+"xF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "xH" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
@@ -4606,6 +5522,10 @@
 "xK" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
 "xL" = (
@@ -4635,7 +5555,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/central)
 "xT" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -4661,7 +5581,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "xY" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/engineering/reactor)
@@ -4676,11 +5596,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "yb" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
-/turf/simulated/floor/plating,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/bridge)
 "yc" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4691,7 +5611,9 @@
 /area/ship/xanu_frigate/corridor/central)
 "yd" = (
 /obj/machinery/door/airlock/glass_security{
-	dir = 4
+	dir = 4;
+	req_access = list(222);
+	name = "Brig"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4706,6 +5628,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
@@ -4730,7 +5655,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/ship/xanu_frigate/meeting)
 "yp" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -4748,6 +5673,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
@@ -4791,15 +5719,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "yB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
 "yC" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/plating,
-/area/space)
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/brig)
 "yD" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -4854,17 +5787,11 @@
 /area/ship/xanu_frigate/medbay)
 "yK" = (
 /obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/brig)
 "yM" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/ship/xanu_frigate/meeting)
 "yN" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -4926,8 +5853,9 @@
 /area/ship/xanu_frigate/corridor/central)
 "yU" = (
 /obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/tiled,
-/area/space)
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "yZ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -4935,12 +5863,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "za" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/machinery/power/apc/critical/east,
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "zd" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/holster/thigh{
@@ -4973,13 +5901,15 @@
 	dir = 8
 	},
 /obj/machinery/meter,
+/obj/machinery/atmospherics/binary/pump/aux/on{
+	dir = 1;
+	name = "Distro to Pumps"
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "zg" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9
-	},
-/turf/simulated/floor/reinforced/airless,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/east,
 /area/space)
 "zh" = (
 /obj/structure/toilet{
@@ -5049,15 +5979,18 @@
 /turf/simulated/floor/wood,
 /area/ship/xanu_frigate/rec_room)
 "zn" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 5
-	},
-/turf/simulated/floor/reinforced/airless,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit,
 /area/space)
 "zq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
+"zt" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder)
 "zv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5112,10 +6045,14 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "zB" = (
-/obj/structure/platform_stairs/full,
-/obj/structure/closet/walllocker/emerglocker/east,
-/turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/weapon/longbow)
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Shutters";
+	id = "xanufrigate_exterior_blast"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/eva)
 "zD" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/crew_quarters)
@@ -5242,6 +6179,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/grauwolf)
+"Ad" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "Ae" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/mess_hall)
@@ -5290,6 +6233,9 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "At" = (
@@ -5307,11 +6253,20 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	use_power = 1;
+	icon_state = "map_vent_out";
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/orange,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "AD" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1
+	dir = 1;
+	id = "xanufrigate_portco2_in";
+	frequency = 1534;
+	name = "carbon dioxide injector"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/xanu_frigate/engineering/port)
@@ -5329,10 +6284,14 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/custodial)
 "AF" = (
-/obj/machinery/suit_cycler/engineering/prepared/atmos,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "AI" = (
@@ -5340,14 +6299,26 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "xanufrigate_armory";
+	name = "Armory Blast Door"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "AJ" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/item/clipboard{
+	pixel_x = -7;
+	pixel_y = 7
 	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/meeting)
+"AM" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "AO" = (
 /obj/machinery/door/airlock/external,
@@ -5367,6 +6338,16 @@
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
+"AQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/structure/cable,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Shutters";
+	id = "xanufrigate_exterior_blast"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/rec_room)
 "AR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -5377,11 +6358,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/disposals)
 "AS" = (
-/obj/structure/table/steel,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 1;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "AU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5406,6 +6389,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
+"AX" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder)
 "AZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -5434,15 +6421,13 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_command{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
+/obj/machinery/door/airlock/glass_command{
+	dir = 4;
+	req_access = list(222);
+	name = "Strike Craft Hangar Bay"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/hangar)
@@ -5476,6 +6461,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "Bk" = (
@@ -5492,6 +6478,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "Bo" = (
@@ -5504,6 +6493,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "Br" = (
@@ -5515,6 +6507,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"Bt" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "Bw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5550,7 +6546,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "BB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5563,6 +6559,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
+"BF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "BG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -5595,7 +6597,8 @@
 /area/ship/xanu_frigate/mess_hall)
 "BI" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/table/reinforced/steel,
+/obj/structure/reagent_dispensers/extinguisher,
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "BM" = (
@@ -5616,7 +6619,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "BR" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
@@ -5650,7 +6653,7 @@
 /area/ship/xanu_frigate/rec_room)
 "Ci" = (
 /obj/structure/platform_stairs,
-/obj/structure/platform{
+/obj/structure/platform/dark{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -5684,8 +6687,17 @@
 	dir = 8
 	},
 /obj/machinery/alarm/south,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
+"Co" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder/cockpit)
 "Cq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -5702,15 +6714,18 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "Cv" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
-/area/space)
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/port)
 "Cx" = (
 /obj/machinery/vending/dinnerware/metal,
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
+	},
+/obj/structure/sign/flag/xanu{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
@@ -5752,6 +6767,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "CF" = (
@@ -5792,6 +6810,7 @@
 	pixel_y = 3;
 	pixel_x = -4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/ship/xanu_frigate/rec_room)
 "CO" = (
@@ -5829,6 +6848,14 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 4;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "CQ" = (
@@ -5842,6 +6869,9 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
 "CR" = (
@@ -5867,6 +6897,13 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/freezer{
+	name = "leftovers freezer"
+	},
+/obj/item/reagent_containers/food/snacks/cakeslice/cheese/filled,
+/obj/item/reagent_containers/food/snacks/cone_cake,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/bluemoon,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "CY" = (
@@ -5916,6 +6953,12 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"Ds" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder/engineering)
 "Dv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
@@ -5965,6 +7008,8 @@
 	dir = 1;
 	icon_state = "pipe-j2"
 	},
+/obj/structure/extinguisher_cabinet/east,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "DC" = (
@@ -6008,13 +7053,25 @@
 /area/ship/xanu_frigate/corridor/central)
 "DF" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1
+	dir = 1;
+	id = "xanufrigate_stbdco2_in";
+	frequency = 1534;
+	name = "carbon dioxide injector"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/xanu_frigate/engineering/starboard)
 "DI" = (
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/ship/xanu_frigate/corridor/aft)
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/xanu_frigate/eva)
+"DJ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "DL" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /turf/simulated/floor/tiled,
@@ -6043,7 +7100,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/machinery/light/floor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -6054,7 +7111,8 @@
 /obj/machinery/door/airlock/highsecurity,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "xanufrigate_cic"
+	id = "xanufrigate_cic";
+	name = "Combat Information Center Blast Door"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cic)
@@ -6069,9 +7127,8 @@
 	dir = 10
 	},
 /obj/structure/cable{
-	icon_state = "0-8"
+	icon_state = "4-8"
 	},
-/obj/machinery/power/apc/super/critical/north,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "DU" = (
@@ -6090,14 +7147,15 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "Ee" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/critical/west,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/obj/machinery/power/apc/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "Ef" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
@@ -6111,11 +7169,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_y = 26;
+	pixel_x = 8;
+	id = "xanufrigate_cic";
+	name = "CIC Blast Door"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "Ei" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
-/turf/simulated/floor/reinforced/airless,
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/east,
 /area/space)
 "Ej" = (
 /obj/structure/cable{
@@ -6141,8 +7207,37 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"Em" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/critical/west,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder/cockpit)
+"Er" = (
+/obj/machinery/door/airlock/glass_command{
+	dir = 4;
+	req_access = list(222)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/xanu_boarder/cockpit)
 "Et" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6167,6 +7262,14 @@
 	dir = 4
 	},
 /turf/simulated/floor,
+/area/ship/xanu_frigate/engineering/reactor)
+"Ex" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/engineering/reactor)
 "EA" = (
 /obj/structure/table/rack,
@@ -6193,9 +7296,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
+"EF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "EK" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -6218,7 +7333,9 @@
 /area/ship/xanu_frigate/cic)
 "EN" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command/gold,
+/obj/machinery/door/airlock/command/gold{
+	name = "Bridge"
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -6257,16 +7374,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "ET" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 9
+/obj/machinery/door/airlock/glass_security{
+	dir = 4;
+	req_access = list(222);
+	name = "Cell A"
 	},
-/turf/simulated/floor/plating,
-/area/space)
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/brig)
 "EW" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "EY" = (
@@ -6282,8 +7411,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/beige{
-	dir = 4
+/obj/structure/table/steel,
+/obj/structure/bedsheetbin{
+	pixel_y = 5;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 5;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
@@ -6297,6 +7432,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"Fg" = (
+/obj/item/hullbeacon/red,
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Fi" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6320,7 +7462,13 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Fk" = (
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "Fm" = (
 /obj/machinery/computer/ship/navigation/terminal{
@@ -6343,6 +7491,9 @@
 "Fp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/light/floor{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
@@ -6368,6 +7519,19 @@
 	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
+"Fy" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder/engineering)
+"FB" = (
+/obj/machinery/vending/engivend,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "FD" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
@@ -6375,11 +7539,26 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
+"FE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 7
+	},
+/obj/item/storage/toolbox/mechanical,
+/obj/item/clothing/glasses/welding,
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder/engineering)
 "FF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "FJ" = (
@@ -6418,7 +7597,7 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "FT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -6462,10 +7641,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"Gd" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/xanu_frigate/eva)
 "Ge" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	name = "Privacy Shutters";
+	id = "xanufrigate_meetingprivacy"
+	},
 /turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "Gf" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6478,6 +7670,9 @@
 /area/ship/xanu_frigate/corridor/starboard)
 "Gg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "Gl" = (
@@ -6492,6 +7687,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
 "Gn" = (
@@ -6518,7 +7714,8 @@
 "Gq" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
-	pixel_y = 5
+	pixel_y = 5;
+	department = "AXSF Xanu Frigate"
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -6548,13 +7745,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "Gw" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 7
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
 	},
-/obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft)
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/meeting)
 "Gx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -6568,47 +7766,60 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "GA" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/outlet_injector,
-/turf/simulated/floor/reinforced/airless,
+/turf/space/transit,
 /area/space)
 "GE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "GF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "GL" = (
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/bridge)
 "GM" = (
-/turf/simulated/floor/plating,
-/area/space)
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/aft)
 "GN" = (
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "GO" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/closet/secure_closet/freezer,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/condiment/honey,
+/obj/item/reagent_containers/food/condiment/honey,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
 "GP" = (
@@ -6634,13 +7845,18 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Hb" = (
 /obj/structure/table/reinforced/wood,
+/obj/item/folder/sec{
+	pixel_y = 3;
+	pixel_x = -6
+	},
 /obj/item/device/flashlight/lamp{
 	pixel_x = 3;
-	pixel_y = -3
+	pixel_y = -6
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/xanu_frigate/captain)
@@ -6653,12 +7869,30 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/hydroponics)
+"Hf" = (
+/obj/effect/floor_decal/corner{
+	dir = 10
+	},
+/obj/machinery/air_sensor{
+	id_tag = "xanufrigate_air_sensor";
+	name = "air sensor";
+	frequency = 1534
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/ship/xanu_frigate/engineering/port)
 "Hi" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder/cockpit)
+"Hj" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "Hl" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
@@ -6683,6 +7917,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "Ho" = (
@@ -6697,11 +7934,21 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/hydroponics)
 "Hp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = -7
+	},
+/obj/item/pen{
+	pixel_y = -4;
+	pixel_x = -5
+	},
+/obj/item/pen{
+	pixel_y = -9;
+	pixel_x = -5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "Hq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -6714,11 +7961,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
+"Hr" = (
+/obj/effect/floor_decal/spline/plain/corner/orange,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Hs" = (
 /obj/machinery/ship_weapon/longbow{
 	pixel_x = -32;
 	pixel_y = -320;
-	weapon_id = "Longbow Cannon"
+	weapon_id = "Xanu Frigate Longbow"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -6742,7 +7993,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/extinguisher_cabinet/north,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "Hx" = (
 /obj/structure/cable{
@@ -6760,24 +8015,48 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "Hz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/space)
-"HD" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/space)
-"HM" = (
-/obj/machinery/door/airlock/glass_command{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder/engineering)
+"HA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/xanu_boarder)
+"HD" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder/engineering)
+"HM" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "HN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6797,7 +8076,6 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "HS" = (
@@ -6832,9 +8110,16 @@
 "Ia" = (
 /obj/machinery/anti_bluespace,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "Ie" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/eva)
 "If" = (
@@ -6853,8 +8138,18 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
+"Ik" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
+"In" = (
+/turf/simulated/floor/reinforced/airless,
+/area/ship/xanu_frigate/engineering/port)
 "Io" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -6883,10 +8178,25 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
+"Iq" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/eva)
 "Ir" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
+"Iu" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_x = -3;
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/food/snacks/cheesiehonkers{
+	pixel_y = -11
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/mess_hall)
 "Iv" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6906,8 +8216,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/xanu_frigate/hangar)
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/xanu_fighter)
 "IE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6917,6 +8227,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/hangar)
+"IK" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = -21
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "IL" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6968,12 +8290,17 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "IW" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command,
+/obj/machinery/door/airlock/command,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "IY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6994,6 +8321,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Reactor Access";
+	req_access = list(222);
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "Jg" = (
@@ -7025,12 +8361,16 @@
 	name = "CO2 to Thrusters"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "Jl" = (
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
 /obj/structure/disposalpipe/trunk,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/xanu_frigate/engineering/starboard)
 "Jn" = (
@@ -7044,23 +8384,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/hydroponics)
 "Jr" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/recharger{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/machinery/recharger{
-	pixel_x = 5;
-	pixel_y = 2
-	},
-/obj/item/storage/box/fancy/crayons/chalkbox{
-	pixel_y = 17
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft)
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "Ju" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -7085,6 +8411,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "JA" = (
@@ -7103,6 +8430,11 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/starboard)
@@ -7140,8 +8472,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
 "JG" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/airless,
+/obj/structure/ship_weapon_dummy{
+	opacity = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow)
 "JH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
@@ -7153,9 +8487,6 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/medbay)
 "JJ" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 8
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -7165,12 +8496,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Reactor Access";
+	req_access = list(222);
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "JM" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 1
+	dir = 1;
+	input_tag = "xanufrigate_air_in";
+	frequency = 1534;
+	output_tag = "xanufrigate_air_out";
+	sensors = list("xanufrigate_air_sensor"="Tank");
+	name = "Air Control"
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "JN" = (
@@ -7208,17 +8554,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "JP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7226,11 +8569,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "JS" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
-/turf/simulated/floor/plating,
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit,
 /area/space)
 "JX" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -7251,6 +8592,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "JZ" = (
@@ -7258,7 +8600,7 @@
 	weapon_id = "Francisca Rotary Gun"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Ka" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -7276,11 +8618,13 @@
 /area/ship/xanu_frigate/medbay)
 "Kc" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "Kd" = (
-/obj/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
@@ -7338,9 +8682,6 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_mining{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -7350,8 +8691,32 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4;
+	req_access = list(222);
+	name = "Cargo Bay"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
+"Kq" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/aft)
 "Kr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7369,10 +8734,19 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/engineering{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/engineering/starboard)
+"Ku" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/floodlight,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "Kv" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
@@ -7391,14 +8765,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "Ky" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
+/obj/structure/sign/flag/xanu{
+	pixel_y = 32
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/corridor/fore_atrium)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "Kz" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -7411,8 +8782,18 @@
 	id = "xanufrigate_dockinglock";
 	name = "External Airlocks Lockdown"
 	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
+"KA" = (
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/ship/xanu_frigate/rec_room)
 "KC" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7427,19 +8808,23 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "KF" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "KH" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/railing/mapped,
@@ -7447,19 +8832,42 @@
 	pixel_x = 3;
 	pixel_y = 11
 	},
+/obj/item/pen{
+	pixel_y = 7;
+	pixel_x = -7
+	},
+/obj/item/pen{
+	pixel_y = 7;
+	pixel_x = -13
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "KK" = (
 /obj/effect/floor_decal/spline/plain/orange,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/machinery/shipsensors/weak,
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "KL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/starboard)
@@ -7468,7 +8876,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "KP" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
@@ -7476,11 +8884,18 @@
 /obj/item/bedsheet/black{
 	pixel_y = 16
 	},
-/obj/structure/curtain/open/bed,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "KR" = (
 /obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = 22;
+	pixel_y = -28
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "KT" = (
@@ -7493,14 +8908,37 @@
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	name = "Privacy Shutters";
+	id = "xanufrigate_meetingprivacy"
+	},
 /turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "KY" = (
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/xanu_frigate/rec_room)
+"KZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/aft)
 "La" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/structure/cable{
@@ -7518,6 +8956,7 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "Ld" = (
@@ -7525,8 +8964,8 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "Lh" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7558,6 +8997,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"Lr" = (
+/obj/structure/table/steel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/item/reagent_containers/food/snacks/chips/chicken{
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/mess_hall)
 "Lt" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -7575,7 +9027,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "LA" = (
@@ -7600,7 +9053,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -7620,9 +9073,15 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/custodial)
 "LK" = (
-/obj/structure/platform,
+/obj/structure/platform/dark,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/bridge)
+"LM" = (
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/aft)
 "LN" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7648,6 +9107,9 @@
 	pixel_y = 28
 	},
 /obj/item/soap/yellow_soap,
+/obj/item/soap/space_soap,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/crew_quarters)
 "LP" = (
@@ -7669,6 +9131,7 @@
 	},
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "LX" = (
@@ -7677,6 +9140,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
@@ -7742,6 +9208,7 @@
 /obj/item/ship_ammunition/grauwolf_probe,
 /obj/item/ship_ammunition/grauwolf_probe,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf/ammo)
 "Mm" = (
@@ -7762,15 +9229,25 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "Mt" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 10
+/obj/machinery/door/airlock/glass_security{
+	dir = 4;
+	req_access = list(222);
+	name = "Cell B"
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/brig)
 "Mv" = (
-/obj/machinery/vending/engivend,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "Mw" = (
 /obj/effect/floor_decal/corner/lime/full,
@@ -7784,6 +9261,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "Mx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "My" = (
@@ -7798,15 +9281,16 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/engineering/port)
 "MA" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/internals,
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/cargo_bay)
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "MC" = (
-/obj/machinery/computer/operating,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "MD" = (
@@ -7846,14 +9330,20 @@
 "MX" = (
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf/ammo)
+"MY" = (
+/obj/machinery/vending/tool,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "MZ" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
 /turf/simulated/floor/reinforced,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Na" = (
 /obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Nb" = (
@@ -7869,6 +9359,9 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
@@ -7882,10 +9375,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
 "Ne" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1337;
-	id_tag = "merchant_shuttle_dock_pump"
+	frequency = 1534;
+	id_tag = "xanufrigate_portco2_out"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/xanu_frigate/engineering/port)
@@ -7910,6 +9403,12 @@
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/disposals)
+"Nl" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
 "Nm" = (
 /obj/machinery/door/airlock/glass{
 	dir = 4
@@ -7938,12 +9437,13 @@
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "No" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/floodlight,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/xanu_boarder)
 "Np" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
@@ -7967,8 +9467,15 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
+"Nv" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "Nx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark/full,
@@ -8012,6 +9519,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "NJ" = (
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "NL" = (
@@ -8048,6 +9556,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
+"NS" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/vending/engineering,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "NU" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8061,6 +9577,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "NW" = (
@@ -8105,6 +9622,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"Od" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder/engineering)
 "Oe" = (
 /obj/machinery/porta_turret/stationary{
 	req_access = list(19);
@@ -8127,14 +9649,18 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Oh" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Ok" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -8151,6 +9677,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "Oq" = (
@@ -8191,11 +9718,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/xanu_frigate/bridge)
 "Ov" = (
-/obj/structure/platform/cutout,
+/obj/structure/platform/cutout/dark,
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "Ow" = (
 /obj/structure/table/steel,
@@ -8205,9 +9732,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "Oy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -8215,6 +9740,9 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "OA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "OH" = (
@@ -8232,6 +9760,10 @@
 /obj/machinery/power/terminal,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
+	},
+/obj/structure/extinguisher_cabinet/east,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
@@ -8254,24 +9786,29 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_command{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
+/obj/machinery/door/airlock/glass_command{
+	dir = 4;
+	req_access = list(222);
+	name = "Strike Craft Hangar Bay"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/hangar)
 "OP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "OQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -8285,6 +9822,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"OU" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/xanu_boarder/cockpit)
 "OX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -8300,7 +9842,7 @@
 "Pc" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 1;
-	name = "Air to Distribution"
+	name = "Air Tank to Distribution"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -8312,6 +9854,9 @@
 	dir = 1;
 	name = "Fuel to Thrusters"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "Ph" = (
@@ -8321,20 +9866,28 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
+"Pi" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/engineering/reactor)
 "Pj" = (
 /obj/effect/floor_decal/corner/purple/full,
 /obj/structure/janitorialcart{
@@ -8388,6 +9941,17 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/hangar)
+"Pu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "Pv" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -8399,13 +9963,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "Pw" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/super/east,
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "PB" = (
 /obj/structure/table/wood,
 /obj/item/gamehelm/red{
@@ -8423,6 +9990,7 @@
 	},
 /obj/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
 "PF" = (
@@ -8468,7 +10036,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Qa" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -8480,8 +10048,9 @@
 "Qb" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder/cockpit)
 "Qc" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -8512,15 +10081,25 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"Qn" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/aft_starboard)
 "Qp" = (
 /obj/machinery/iff_beacon,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Qs" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -8559,6 +10138,11 @@
 	dir = 10
 	},
 /obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = 22;
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "QA" = (
@@ -8572,8 +10156,11 @@
 	icon_state = "0-8"
 	},
 /obj/item/stack/material/graphite/full,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "QB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green{
@@ -8583,14 +10170,32 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "QD" = (
-/obj/machinery/atmospherics/omni/mixer,
-/turf/simulated/floor/plating,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/brig)
 "QI" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 5
 	},
+/obj/structure/closet/secure_closet/freezer{
+	name = "leftovers fridge";
+	desc = "A fridge."
+	},
+/obj/item/reagent_containers/food/snacks/bagel,
+/obj/item/reagent_containers/food/snacks/burger/cheese,
+/obj/item/reagent_containers/food/snacks/burrito_spicy,
+/obj/item/reagent_containers/food/snacks/burger/nt_muffin,
+/obj/item/reagent_containers/food/snacks/donerkebab,
+/obj/item/reagent_containers/food/snacks/crepe/chocolate,
+/obj/item/reagent_containers/food/snacks/blt,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "QK" = (
@@ -8621,8 +10226,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "QN" = (
 /obj/structure/cable{
@@ -8642,6 +10246,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "QQ" = (
@@ -8652,7 +10257,7 @@
 "QV" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore)
 "QY" = (
 /obj/structure/cable{
@@ -8660,6 +10265,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
@@ -8673,6 +10281,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
@@ -8728,9 +10339,17 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
+"Rl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "Ro" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "COC Grauwolf Flak Battery"
+	weapon_id = "Xanu Frigate Grauwolf"
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf)
@@ -8738,9 +10357,18 @@
 /obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/wood,
 /area/ship/xanu_frigate/rec_room)
+"Rv" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder)
 "Rw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -8809,11 +10437,11 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_command{
+/obj/machinery/door/airlock/command{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "RH" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
@@ -8823,27 +10451,41 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/xanu_boarder)
 "RK" = (
 /obj/machinery/door/airlock/glass_mining{
-	dir = 4
+	dir = 4;
+	req_access = list(222);
+	name = "Cargo Bay"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
+"RM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_fighter)
 "RO" = (
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "xanu_frigate_disposals"
 	},
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/disposals)
 "RP" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/fireaxecabinet/east,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "RU" = (
@@ -8873,10 +10515,26 @@
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "RX" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1
+	dir = 1;
+	id = "xanufrigate_air_in";
+	frequency = 1534
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/ship/xanu_frigate/engineering/port)
+"RZ" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder)
 "Sg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -8891,6 +10549,12 @@
 "Sh" = (
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
@@ -8931,6 +10595,7 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/machinery/power/apc/north,
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "Sr" = (
@@ -8973,7 +10638,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Sw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/blue,
@@ -8981,8 +10646,23 @@
 /area/ship/xanu_frigate/engineering/port)
 "Sz" = (
 /obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder)
+"SC" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "External Lockdown Blast Door";
+	id = "xanufrigate_dockinglock"
+	},
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore_atrium)
 "SD" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9000,11 +10680,12 @@
 	},
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "SG" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "SH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -9041,8 +10722,19 @@
 /area/ship/xanu_frigate/weapon/longbow)
 "SO" = (
 /obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
+"SQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
 "SU" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9061,16 +10753,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "SX" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft_starboard)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Ta" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/eva)
@@ -9084,10 +10771,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/xanu_frigate/bridge)
 "Te" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1337;
-	id_tag = "merchant_shuttle_dock_pump"
+	frequency = 1534;
+	id_tag = "xanufrigate_stbdco2_out"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/xanu_frigate/engineering/starboard)
@@ -9123,7 +10810,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Tl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9134,6 +10821,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Tm" = (
@@ -9165,6 +10853,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
+"Tq" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "Tr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9181,16 +10878,19 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light/floor,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "Tt" = (
-/obj/machinery/door/airlock/external,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/starboard)
 "Tz" = (
@@ -9229,6 +10929,12 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -19;
+	pixel_x = -28;
+	id = "xanufrigate_cic";
+	name = "CIC Blast Door"
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/cic)
 "TL" = (
@@ -9261,7 +10967,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "TT" = (
 /obj/structure/bed/stool/chair/sofa/left/black,
 /obj/effect/floor_decal/corner/dark_green{
@@ -9324,14 +11030,38 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
+"Uc" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder)
+"Ud" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Shutters";
+	id = "xanufrigate_exterior_blast"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Privacy Shutters";
+	id = "xanufrigate_meetingprivacy"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/meeting)
 "Ue" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Ui" = (
-/obj/structure/platform,
+/obj/structure/platform/dark,
 /obj/machinery/hologram/holopad{
 	pixel_y = -9
 	},
@@ -9347,7 +11077,6 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "Ul" = (
@@ -9374,6 +11103,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
+"Uq" = (
+/obj/structure/bed/stool/padded/red,
+/obj/machinery/power/apc/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "Us" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9387,14 +11124,33 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Uw" = (
-/obj/structure/bed/stool/padded/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/turf/simulated/floor/tiled/dark,
+/area/ship/xanu_frigate/meeting)
 "Ux" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/weapon/longbow)
+"Uy" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = -6;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/condiment/ketchup{
+	pixel_y = 7;
+	pixel_x = 12
+	},
+/obj/item/reagent_containers/food/condiment/mayonnaise{
+	pixel_y = 7;
+	pixel_x = 21
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/mess_hall)
 "Uz" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9438,6 +11194,7 @@
 /obj/machinery/light,
 /obj/structure/closet/crate/freezer/rations,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "UL" = (
@@ -9454,6 +11211,19 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "UU" = (
@@ -9468,6 +11238,9 @@
 "UX" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"Va" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder/engineering)
 "Vb" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -9553,6 +11326,9 @@
 	pixel_x = 5;
 	pixel_y = 2
 	},
+/obj/item/device/flashlight/heavy{
+	pixel_y = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "Vn" = (
@@ -9586,13 +11362,18 @@
 "Vs" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/lamp{
-	pixel_x = 3;
-	pixel_y = -3
+	pixel_x = -5;
+	pixel_y = 10
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/item/paper_bin{
+	pixel_x = 5;
+	pixel_y = -8
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/item/pen{
+	pixel_y = -7;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "Vt" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -9638,7 +11419,7 @@
 /area/ship/xanu_frigate/cic)
 "Vz" = (
 /turf/simulated/floor/tiled/dark,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "VD" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/door/blast/regular/open{
@@ -9659,11 +11440,17 @@
 /area/ship/xanu_frigate/cic)
 "VF" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 8
+	dir = 8;
+	input_tag = "xanufrigate_portco2_in";
+	frequency = 1534;
+	output_tag = "xanufrigate_portco2_out";
+	sensors = list("xanufrigate_portco2_sensor"="Tank");
+	name = "Port Fuel Control"
 	},
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "VG" = (
@@ -9672,6 +11459,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"VK" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/structure/cable,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Shutters";
+	id = "xanufrigate_exterior_blast"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/cargo_bay)
 "VL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -9710,8 +11507,9 @@
 /area/ship/xanu_frigate/weapon/longbow)
 "VQ" = (
 /obj/structure/table/reinforced/steel,
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/xanu_boarder/cockpit)
 "VR" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/floor_decal/corner_wide/blue{
@@ -9725,14 +11523,37 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/xanu_boarder)
 "VU" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/closet/secure_closet/freezer/chicken_and_fish,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/extinguisher_cabinet/west,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
 "VW" = (
@@ -9754,8 +11575,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
+"Wa" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/eva)
 "Wc" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -9780,7 +11610,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Wf" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/weapon/grauwolf)
@@ -9842,6 +11672,19 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore)
+"Ww" = (
+/obj/structure/lattice,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/space,
+/area/space)
+"Wx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder/cockpit)
 "Wy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -9853,6 +11696,8 @@
 /obj/item/device/paint_sprayer{
 	pixel_y = -2
 	},
+/obj/machinery/power/apc/super/critical/south,
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "Wz" = (
@@ -9864,6 +11709,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
@@ -9908,6 +11756,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "WH" = (
@@ -9929,13 +11780,11 @@
 /obj/structure/table/rack,
 /obj/item/stack/material/shuttle/full,
 /obj/item/stack/material/shuttle/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "WT" = (
 /obj/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/machinery/door/airlock/command/gold{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -9960,7 +11809,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "Xanu Frigate Grauwolf"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -10023,21 +11872,43 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/power/apc/super/critical/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "Xr" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/ship/xanu_frigate/hangar)
+/area/shuttle/xanu_fighter)
 "Xs" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
+"Xu" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/starboard)
 "Xw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
@@ -10081,7 +11952,7 @@
 	name = "fuel crate"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/xanu_boarder)
 "XH" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/machinery/door/firedoor,
@@ -10120,6 +11991,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "XM" = (
@@ -10131,12 +12005,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore)
 "XN" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/xanu_boarder/engineering)
 "XQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -10147,16 +12021,16 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "XS" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/machinery/iff_beacon,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 4
 	},
@@ -10175,6 +12049,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "XX" = (
@@ -10184,9 +12061,21 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "XZ" = (
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/starboard)
+"Yc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder)
 "Yd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -10227,6 +12116,15 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
+"Yk" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/xanu_frigate/eva)
 "Yq" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -10304,14 +12202,33 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
+"YA" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/xanu_boarder/engineering)
 "YC" = (
 /obj/structure/sign/flag/xanu/large/north{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"YD" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/aft)
 "YF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
@@ -10322,19 +12239,36 @@
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	name = "Privacy Shutters";
+	id = "xanufrigate_meetingprivacy"
+	},
 /turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/eva)
+/area/ship/xanu_frigate/meeting)
 "YH" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/xanu_boarder)
 "YI" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "YM" = (
@@ -10345,16 +12279,31 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/hangar)
-"YP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
 	},
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_fighter)
+"YO" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/plating,
+/area/shuttle/xanu_boarder/engineering)
+"YP" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/item/device/flashlight/heavy{
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/heavy{
+	pixel_y = 4
+	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "YR" = (
@@ -10378,6 +12327,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
 "YT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
@@ -10441,8 +12393,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
+"Zb" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/obj/machinery/iff_beacon,
+/obj/effect/floor_decal/spline/plain/orange,
+/turf/simulated/floor/reinforced,
+/area/shuttle/xanu_boarder/cockpit)
 "Zc" = (
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Ze" = (
@@ -10455,6 +12418,18 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "Zf" = (
 /obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_x = -20
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -10532,11 +12507,26 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
-"ZP" = (
-/obj/machinery/vending/engineering,
-/obj/effect/floor_decal/industrial/outline/yellow,
+"ZJ" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/aft)
+/area/shuttle/xanu_boarder/engineering)
+"ZK" = (
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder)
+"ZM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
+"ZP" = (
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/space)
 "ZQ" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4
@@ -10565,9 +12555,15 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
+"ZX" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/ship/xanu_frigate/engineering/port)
 "ZZ" = (
-/obj/machinery/atmospherics/valve/open{
-	name = "Filter to Fuel"
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Waste to Thrusters"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -10750,35 +12746,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+Ei
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+Ei
 "}
 (2,1,1) = {"
 Zm
@@ -10952,35 +12948,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (3,1,1) = {"
 Zm
@@ -11154,35 +13150,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (4,1,1) = {"
 Zm
@@ -11356,35 +13352,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (5,1,1) = {"
 Zm
@@ -11558,35 +13554,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (6,1,1) = {"
 Zm
@@ -11760,35 +13756,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (7,1,1) = {"
 Zm
@@ -11962,35 +13958,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (8,1,1) = {"
 Zm
@@ -12164,35 +14160,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (9,1,1) = {"
 Zm
@@ -12366,35 +14362,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (10,1,1) = {"
 Zm
@@ -12568,35 +14564,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (11,1,1) = {"
 Zm
@@ -12770,35 +14766,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (12,1,1) = {"
 Zm
@@ -12972,35 +14968,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (13,1,1) = {"
 Zm
@@ -13174,35 +15170,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (14,1,1) = {"
 Zm
@@ -13376,35 +15372,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (15,1,1) = {"
 Zm
@@ -13578,35 +15574,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (16,1,1) = {"
 Zm
@@ -13780,35 +15776,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (17,1,1) = {"
 Zm
@@ -13982,35 +15978,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (18,1,1) = {"
 Zm
@@ -14184,35 +16180,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (19,1,1) = {"
 Zm
@@ -14386,35 +16382,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (20,1,1) = {"
 Zm
@@ -14588,35 +16584,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (21,1,1) = {"
 Zm
@@ -14790,35 +16786,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (22,1,1) = {"
 Zm
@@ -14992,35 +16988,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (23,1,1) = {"
 Zm
@@ -15194,35 +17190,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (24,1,1) = {"
 Zm
@@ -15396,35 +17392,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (25,1,1) = {"
 Zm
@@ -15598,35 +17594,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (26,1,1) = {"
 Zm
@@ -15800,35 +17796,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (27,1,1) = {"
 Zm
@@ -16002,35 +17998,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (28,1,1) = {"
 Zm
@@ -16204,35 +18200,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (29,1,1) = {"
 Zm
@@ -16406,35 +18402,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (30,1,1) = {"
 Zm
@@ -16608,35 +18604,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (31,1,1) = {"
 Zm
@@ -16810,35 +18806,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (32,1,1) = {"
 Zm
@@ -17012,35 +19008,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (33,1,1) = {"
 Zm
@@ -17214,35 +19210,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (34,1,1) = {"
 Zm
@@ -17416,35 +19412,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (35,1,1) = {"
 Zm
@@ -17618,35 +19614,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (36,1,1) = {"
 Zm
@@ -17820,35 +19816,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (37,1,1) = {"
 Zm
@@ -18022,35 +20018,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (38,1,1) = {"
 Zm
@@ -18224,35 +20220,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (39,1,1) = {"
 Zm
@@ -18426,35 +20422,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (40,1,1) = {"
 Zm
@@ -18628,35 +20624,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (41,1,1) = {"
 Zm
@@ -18830,35 +20826,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (42,1,1) = {"
 Zm
@@ -19032,35 +21028,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (43,1,1) = {"
 Zm
@@ -19234,35 +21230,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (44,1,1) = {"
 Zm
@@ -19436,35 +21432,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (45,1,1) = {"
 Zm
@@ -19638,35 +21634,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (46,1,1) = {"
 Zm
@@ -19840,35 +21836,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zg
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+gk
+zg
 "}
 (47,1,1) = {"
 Zm
@@ -20042,35 +22038,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+xw
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+zg
+xw
 "}
 (48,1,1) = {"
 Zm
@@ -20244,35 +22240,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (49,1,1) = {"
 Zm
@@ -20446,35 +22442,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (50,1,1) = {"
 Zm
@@ -20648,35 +22644,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (51,1,1) = {"
 Zm
@@ -20850,35 +22846,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (52,1,1) = {"
 Zm
@@ -21052,35 +23048,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (53,1,1) = {"
 Zm
@@ -21254,35 +23250,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (54,1,1) = {"
 Zm
@@ -21456,35 +23452,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (55,1,1) = {"
 Zm
@@ -21658,35 +23654,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (56,1,1) = {"
 Zm
@@ -21860,35 +23856,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (57,1,1) = {"
 Zm
@@ -22062,35 +24058,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (58,1,1) = {"
 Zm
@@ -22264,35 +24260,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (59,1,1) = {"
 Zm
@@ -22466,35 +24462,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (60,1,1) = {"
 Zm
@@ -22668,35 +24664,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (61,1,1) = {"
 Zm
@@ -22870,35 +24866,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (62,1,1) = {"
 Zm
@@ -22958,13 +24954,6 @@ Zm
 Zm
 Zm
 Zm
-fe
-fe
-fe
-fe
-gk
-GM
-GM
 Zm
 Zm
 Zm
@@ -23079,28 +25068,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (63,1,1) = {"
 Zm
@@ -23160,13 +25156,6 @@ Zm
 Zm
 Zm
 Zm
-yM
-Ei
-Ei
-cw
-hp
-GM
-GM
 Zm
 Zm
 Zm
@@ -23281,28 +25270,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+zn
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (64,1,1) = {"
 Zm
@@ -23362,149 +25358,149 @@ Zm
 Zm
 Zm
 Zm
-Mt
-Ei
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+zn
 GA
-xy
-me
-QD
-Cv
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+zn
 "}
 (65,1,1) = {"
 Zm
@@ -23564,13 +25560,6 @@ Zm
 Zm
 Zm
 Zm
-Ei
-Ei
-zg
-fe
-GM
-ey
-AJ
 Zm
 Zm
 Zm
@@ -23685,28 +25674,35 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+JS
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+zn
+JS
 "}
 (66,1,1) = {"
 Zm
@@ -23766,13 +25762,13 @@ Zm
 Zm
 Zm
 Zm
-og
-og
-og
-fe
-fe
-fe
-fe
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
 Zm
 Zm
 Zm
@@ -26841,7 +28837,7 @@ sG
 sG
 JG
 ry
-xl
+jL
 Zm
 Zm
 Zm
@@ -26995,7 +28991,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 gg
 gg
 gg
@@ -27043,7 +29039,7 @@ pv
 BZ
 sA
 xL
-xl
+jL
 Zm
 Zm
 Zm
@@ -27197,7 +29193,7 @@ bd
 bd
 bd
 bd
-bd
+ZP
 lS
 lS
 lS
@@ -27214,13 +29210,13 @@ lS
 lS
 xT
 xT
-xT
-xT
+VK
+VK
 xT
 xT
 gg
-Zc
-xl
+Fg
+SX
 Zm
 Zm
 Zm
@@ -27399,31 +29395,31 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 lS
 lS
 lS
 NJ
 sX
-NJ
-NJ
+gp
+Bt
 dG
 AF
 fB
 uC
 eU
 DF
-Zv
+Vb
 xT
 ZW
 jh
 Vi
-Vi
+jM
 xT
 xT
 xT
-xl
-xl
+bs
+SX
 Zm
 Zm
 Zm
@@ -27442,7 +29438,7 @@ KT
 PD
 XF
 cb
-zB
+iC
 VW
 BZ
 Ux
@@ -27601,7 +29597,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 So
 MG
 zT
@@ -27609,10 +29605,10 @@ co
 co
 co
 mH
-co
+jx
 Pg
 zf
-co
+aL
 Hl
 Te
 Zv
@@ -27620,11 +29616,11 @@ xT
 tQ
 tQ
 tQ
-tQ
+oY
 tQ
 kV
 xT
-xT
+VK
 xT
 Zm
 Zm
@@ -27639,7 +29635,7 @@ Zm
 gg
 KT
 or
-SW
+hp
 KT
 Ux
 ZQ
@@ -27803,28 +29799,28 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 So
 YM
 lS
-NJ
-NJ
-NJ
-NJ
-Vg
+ir
+dP
+fL
+Nv
+ZM
 Vg
 ED
-NJ
+XQ
 IR
 Te
-Vb
+Zv
 xT
+kV
+kV
 tQ
+oY
 tQ
-tQ
-jM
-tQ
-MA
+oY
 tQ
 xc
 xT
@@ -27840,8 +29836,8 @@ Zm
 RH
 gg
 KT
-Wk
-SW
+Xu
+hp
 KT
 Ux
 JE
@@ -28005,13 +30001,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 So
 YM
 lS
-NJ
-NJ
-NJ
+ir
+BF
+mp
 GE
 wG
 ZZ
@@ -28019,7 +30015,7 @@ hy
 YP
 lS
 jO
-Zv
+Vb
 xT
 kV
 kV
@@ -28207,13 +30203,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 So
 IU
 lS
 IV
 rt
-fL
+HM
 jN
 Oy
 BN
@@ -28409,11 +30405,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 lS
 lS
 lS
-mp
+Hj
 eC
 QP
 kB
@@ -28444,7 +30440,7 @@ Zm
 Zm
 Zm
 RH
-gg
+fe
 KT
 nh
 JC
@@ -28611,7 +30607,7 @@ bd
 bd
 bd
 bd
-bd
+ZP
 lS
 lS
 lS
@@ -28645,7 +30641,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+fe
 KT
 KT
 LP
@@ -28661,9 +30657,9 @@ ob
 yu
 yu
 gg
-bd
-bd
-bd
+xl
+xl
+xl
 RH
 Zm
 Zm
@@ -28808,12 +30804,12 @@ Zm
 Zm
 Zm
 Zm
+dl
 Zm
 Zm
+dl
 Zm
-Zm
-Zm
-Zm
+ZP
 Jl
 Ze
 Dl
@@ -28863,8 +30859,8 @@ aM
 aM
 aM
 lo
-lo
-lo
+AQ
+AQ
 lo
 Zm
 Zm
@@ -29010,15 +31006,15 @@ Zm
 Zm
 Zm
 Zm
-SG
-SG
+Va
+Va
 th
 th
-SG
+Va
 th
 th
-SG
-SG
+Va
+Va
 cy
 cy
 xY
@@ -29079,7 +31075,7 @@ Zm
 dl
 gK
 re
-re
+cf
 gK
 dl
 Zm
@@ -29212,25 +31208,25 @@ Zm
 Zm
 Zm
 Zm
-SG
-SG
+Va
+Va
 bg
 vv
 iP
 vv
 BQ
-SG
-xp
+Va
+YA
 cy
-xl
+cy
 xY
 fC
 Ij
 xY
-NU
-FV
-hN
-YV
+KZ
+Mv
+xn
+Qn
 Rw
 LD
 Fj
@@ -29280,7 +31276,7 @@ Zm
 Zm
 Zm
 gK
-YR
+ul
 um
 Tc
 xu
@@ -29414,16 +31410,16 @@ Zm
 Zm
 Zm
 Zm
-SG
+Va
 XN
 ws
 Jj
 jj
-GM
+YO
 HD
-SG
-SG
-xl
+Va
+Va
+cy
 xY
 xY
 xY
@@ -29434,17 +31430,17 @@ tM
 yQ
 ne
 FJ
-ky
+IY
 rq
-SX
+Fi
 DB
 Of
 tZ
 ne
 Tl
-ky
-ky
-yQ
+IY
+IY
+ey
 Us
 IY
 rH
@@ -29453,7 +31449,7 @@ Fi
 ne
 ne
 ne
-yQ
+ey
 tU
 Gf
 Gf
@@ -29482,7 +31478,7 @@ pS
 yH
 pS
 gK
-Qc
+ev
 Qc
 Tc
 Tc
@@ -29616,22 +31612,22 @@ Zm
 Zm
 Zm
 Zm
-SG
-GM
-GM
+Va
+XN
+FE
 za
 aZ
 KF
 eV
 iV
-SG
+Va
 xY
 xY
 xY
 Ft
 VZ
 xY
-tn
+Kq
 JP
 gl
 gl
@@ -29659,7 +31655,7 @@ By
 By
 By
 By
-kk
+pl
 xQ
 aM
 ka
@@ -29818,22 +31814,22 @@ Zm
 Zm
 Zm
 Zm
-SG
-SG
-SG
-SG
-SG
+Va
+Va
+Va
+Va
+Ds
 Hz
-HD
+ZJ
 ni
-nb
+Od
 xY
 xY
 lv
 Gg
 uK
 xY
-tn
+Kq
 JP
 gl
 qe
@@ -29873,7 +31869,7 @@ fN
 au
 aM
 lo
-KY
+KA
 KY
 QN
 qk
@@ -30020,22 +32016,22 @@ Zm
 Zm
 Zm
 Zm
-SG
+Yc
 jr
 Ee
 VS
 bK
 Xp
-HD
+bX
 QA
-SG
+Va
 xY
 xY
 uy
 kw
 Hx
 xY
-tn
+Kq
 JP
 DL
 uk
@@ -30089,7 +32085,7 @@ rk
 WJ
 gK
 FS
-kK
+Qm
 Tc
 sT
 eW
@@ -30222,22 +32218,22 @@ Zm
 Zm
 Zm
 Zm
-SG
-jr
-gC
-gC
-SG
-SG
-SG
-jV
-SG
+ej
+rP
+Ik
+fX
+Ds
+Va
+Va
+Fy
+Va
 xY
 xY
 pF
 OI
 br
 xY
-tn
+tX
 JP
 DL
 WU
@@ -30424,22 +32420,22 @@ Zm
 Zm
 Zm
 Zm
-zq
-jr
-gC
-gC
-RJ
-gI
-gI
+rn
+yU
+kO
+oD
+nr
+pa
+Rl
 em
-xp
+AX
 xY
 xY
 xY
 xY
 xY
 xY
-NU
+GM
 gB
 gl
 HO
@@ -30626,31 +32622,31 @@ Zm
 Zm
 Zm
 Zm
-zq
+SQ
+po
+po
 ck
-ck
-ck
-RJ
-gI
-SG
-jV
-SG
+nr
+wX
+kJ
+kJ
+kJ
 xY
 xY
 xY
-xY
-xY
+Ex
+Pi
 xY
 Yy
 JP
 gl
-WU
+og
 GP
 fA
 tk
 fA
 of
-Vz
+cw
 Vz
 JZ
 fA
@@ -30828,20 +32824,20 @@ Zm
 Zm
 Zm
 Zm
-SG
-gC
-gC
-gC
-RJ
-gI
-Sz
+rn
+Ky
+ZK
+dU
+dR
+Pu
+RZ
 dV
 mz
 bH
 UN
 oH
 he
-he
+YD
 qS
 Ph
 eJ
@@ -30908,7 +32904,7 @@ oM
 Ci
 cY
 qa
-GL
+yb
 xK
 EK
 Zm
@@ -31030,14 +33026,14 @@ Zm
 Zm
 Zm
 Zm
-SG
-YH
-YH
+SQ
+Nl
+Nl
 YH
 RJ
-gI
-Sz
-GM
+xF
+zt
+Rv
 Sz
 fb
 iX
@@ -31052,7 +33048,7 @@ ps
 GP
 fA
 tk
-fA
+kK
 rF
 KO
 Ue
@@ -31089,7 +33085,7 @@ dy
 nA
 jJ
 XM
-Ak
+uz
 gO
 dy
 OX
@@ -31232,21 +33228,21 @@ Zm
 Zm
 Zm
 Zm
-SG
+rn
 Ld
 po
-po
+ck
 RJ
-gI
-SG
-SG
-SG
-DI
-DI
-DI
-DI
-DI
-DI
+Uc
+kJ
+kJ
+kJ
+Ta
+Ta
+Ta
+Ta
+Ta
+Ta
 gG
 Xo
 gl
@@ -31254,7 +33250,7 @@ HO
 wH
 rR
 jR
-GP
+RM
 tf
 GZ
 ap
@@ -31299,7 +33295,7 @@ Zs
 aK
 aK
 wT
-gH
+MA
 mf
 XR
 Nx
@@ -31312,7 +33308,7 @@ mV
 qm
 nj
 eF
-CR
+iZ
 sS
 VD
 Zm
@@ -31434,21 +33430,21 @@ Zm
 Zm
 Zm
 Zm
-SG
-yU
-gI
-gI
+SQ
+rP
+kO
+na
 RJ
 gI
 gI
-gI
-xp
-DI
-DI
+sU
+nb
+Ta
+PF
 gw
-iX
+Wa
 ih
-DI
+Ta
 tn
 JP
 DL
@@ -31503,7 +33499,7 @@ eO
 eO
 gK
 yD
-Ky
+SH
 cq
 XL
 cq
@@ -31515,8 +33511,8 @@ nY
 LG
 Qy
 CR
-YR
-VD
+mX
+SC
 Zm
 Zm
 Zm
@@ -31636,23 +33632,23 @@ Zm
 Zm
 Zm
 Zm
-SG
-yU
-gI
-gI
+rn
+op
+DJ
+HA
 RJ
 No
-No
+Ku
 XG
-SG
-DI
-DI
-ZP
-iX
-iX
+kJ
+Ta
+Gd
+sB
+nQ
+Ie
 rj
-tn
-JP
+hQ
+LM
 DL
 WU
 GP
@@ -31710,15 +33706,15 @@ gK
 Hw
 cq
 FF
-Ta
-Ta
+yM
+Ge
 Ge
 RG
-Ta
-Ta
-Ta
-Ta
-Ta
+yM
+yM
+yM
+yM
+yM
 Zm
 Zm
 Zm
@@ -31838,21 +33834,21 @@ Zm
 Zm
 Zm
 Zm
+Wx
 SG
 SG
-HM
+Er
 SG
 SG
 SG
 SG
 SG
-SG
+Ta
 DI
-DI
-Mv
-iX
-iX
-DI
+wo
+EF
+Af
+Iq
 tn
 JP
 gl
@@ -31861,7 +33857,7 @@ Kn
 zy
 Ma
 Ma
-Ma
+dx
 Ma
 zy
 Ma
@@ -31914,9 +33910,9 @@ bQ
 va
 IW
 lq
-jL
 OP
-Uw
+OP
+jW
 ut
 Uw
 pn
@@ -32040,26 +34036,26 @@ Zm
 Zm
 Zm
 Zm
-SG
+Wx
 gS
-gC
+Em
 gC
 Qb
-gC
+Co
 VQ
 SG
 xp
-DI
-DI
-DI
-Gw
-Jr
-DI
+Ta
+Ta
+Uq
+cV
+Af
+Iq
 tn
 JP
 gl
 gl
-pl
+ON
 gl
 DL
 DL
@@ -32083,14 +34079,14 @@ By
 By
 By
 By
-aj
-Qv
-yT
+hC
+me
+iK
 ok
 vN
-wO
-aO
-aO
+Lr
+ve
+Uy
 aO
 XD
 nZ
@@ -32109,20 +34105,20 @@ SU
 De
 gK
 Gc
-UB
+IK
 gK
 mo
 iM
 pm
-Ta
+yM
 iH
 iD
 Hp
-wo
-wo
-Ie
+xy
+ky
+Tq
 AS
-Ta
+Ud
 Zm
 Zm
 Zm
@@ -32242,21 +34238,21 @@ Zm
 Zm
 Zm
 Zm
+Wx
 SG
-SG
-VQ
+xb
+gc
 Hi
 Hi
-Hi
-VQ
+OU
 SG
 SG
-xl
-DI
-DI
-DI
-DI
-DI
+In
+zB
+tK
+Yk
+Af
+Ta
 mG
 Bg
 gJ
@@ -32291,9 +34287,9 @@ yT
 xZ
 vN
 wO
-aO
-aO
-aO
+dL
+Iu
+fY
 XD
 nZ
 Bx
@@ -32310,21 +34306,21 @@ eS
 Yv
 eO
 gK
+wI
 Bh
-Bh
 gK
 gK
 gK
 gK
-Ta
+yM
 fj
-wo
-wo
-wo
-wo
-PF
-Ta
-Ta
+iD
+nC
+sh
+ky
+Ad
+yM
+yM
 Zm
 Zm
 Zm
@@ -32445,21 +34441,21 @@ Zm
 Zm
 Zm
 AB
-SG
-VQ
+zq
+xb
 wm
 cB
 ui
-VQ
-SG
+xb
+zq
 vM
-cy
-xl
-DI
-DI
-DI
-DI
-NU
+In
+zB
+Jr
+nz
+kI
+Ta
+jp
 JP
 MH
 cJ
@@ -32483,7 +34479,7 @@ TV
 bj
 lM
 lM
-MH
+ke
 qs
 SL
 MU
@@ -32512,20 +34508,20 @@ Zm
 Zm
 Zm
 gK
+tC
 YR
-um
 gK
 XS
 Mm
 Ot
-Ta
-Ta
-kI
-Af
-Af
-Af
-Ta
-Ta
+yM
+yM
+pk
+xy
+AJ
+Gw
+yM
+yM
 RH
 Zm
 Zm
@@ -32646,7 +34642,7 @@ Zm
 Zm
 Zm
 Zm
-AB
+Zb
 SG
 SG
 zq
@@ -32655,12 +34651,12 @@ zq
 SG
 SG
 KK
-cy
-cy
-cG
-cG
-cG
-cG
+In
+Ta
+Ta
+Ta
+Ta
+Ta
 nq
 cG
 SJ
@@ -32714,19 +34710,19 @@ Zm
 Zm
 dl
 gK
-re
+vm
 re
 gK
 dl
 Zm
 Zm
 dl
-Ta
-Ta
+yM
+yM
 YF
 KW
-Ta
-Ta
+yM
+yM
 yi
 Zm
 Zm
@@ -32849,17 +34845,17 @@ Zm
 Zm
 Zm
 DZ
-SG
 Zm
 Zm
 Zm
 Zm
 Zm
-SG
+Zm
+Zm
 DZ
-xl
-xl
+In
 Ev
+In
 kF
 Zf
 SO
@@ -33050,13 +35046,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+dl
 bd
 bd
+Ww
 bd
-bd
-bd
-cG
+ZP
+ZX
 cG
 cG
 cG
@@ -33072,10 +35068,10 @@ RX
 qc
 cG
 vB
-Fk
+QD
 Lb
 vB
-Fk
+QD
 Lb
 Ng
 ng
@@ -33089,7 +35085,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+fe
 gZ
 gZ
 QK
@@ -33105,9 +35101,9 @@ tc
 bP
 bP
 gg
-bd
-bd
-bd
+xl
+xl
+xl
 RH
 Zm
 Zm
@@ -33257,11 +35253,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 cG
 cG
 cG
-Lp
+vd
 by
 Cq
 SE
@@ -33271,10 +35267,10 @@ CE
 Pc
 Sw
 jn
-eM
+Hf
 cG
 Mf
-gz
+ET
 Lb
 mg
 gz
@@ -33292,7 +35288,7 @@ Zm
 Zm
 Zm
 RH
-gg
+fe
 gZ
 BM
 YS
@@ -33459,17 +35455,17 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 Oa
 ty
 cG
-Lp
+mK
 Lp
 Za
 Za
 CT
 pi
-CT
+kL
 hZ
 cG
 cG
@@ -33481,7 +35477,7 @@ lk
 Lw
 Kc
 Ns
-Kc
+ek
 du
 Lb
 Zm
@@ -33661,11 +35657,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 Oa
 lV
 cG
-Lp
+bL
 Lp
 Qd
 Qd
@@ -33675,7 +35671,7 @@ aa
 Wy
 cG
 cZ
-Bk
+rv
 cG
 JY
 Xw
@@ -33863,11 +35859,11 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 Oa
 lV
 cG
-Lp
+ad
 Lp
 Ys
 vy
@@ -33877,10 +35873,10 @@ Rf
 mZ
 db
 Ne
-rv
+Bk
 cG
 qp
-gz
+Mt
 Lb
 Vs
 yK
@@ -34065,7 +36061,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 Oa
 aS
 sc
@@ -34082,7 +36078,7 @@ Ne
 Bk
 cG
 vB
-Fk
+jV
 Lb
 fE
 oZ
@@ -34267,13 +36263,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 cG
 cG
 cG
-Lp
-Zf
-Lp
+FB
+NS
+MY
 WM
 gs
 tx
@@ -34281,17 +36277,17 @@ VF
 RP
 Mz
 AD
-Bk
+rv
 cG
 yp
-Fk
+yC
 Lb
 Lb
 Lb
 Lb
 Lb
-xl
-xl
+Hr
+AM
 Zm
 Zm
 Zm
@@ -34304,7 +36300,7 @@ Zm
 Zm
 gZ
 gZ
-oD
+kk
 ko
 Wf
 eT
@@ -34469,7 +36465,7 @@ bd
 bd
 bd
 bd
-bd
+ZP
 cG
 cG
 cG
@@ -34492,7 +36488,7 @@ Lb
 Lb
 gg
 Zc
-xl
+AM
 Zm
 Zm
 Zm
@@ -34506,7 +36502,7 @@ Zm
 RH
 gZ
 gZ
-yB
+Cv
 Wz
 Wf
 Wf
@@ -34671,7 +36667,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ZP
 gg
 gg
 gg
@@ -34922,7 +36918,7 @@ WV
 bk
 bC
 Na
-TF
+eG
 Zm
 Zm
 Zm
@@ -35112,8 +37108,8 @@ Zm
 pG
 Ir
 YT
-ul
 yB
+pj
 Wf
 CJ
 Gv
@@ -35124,7 +37120,7 @@ bk
 bk
 bC
 Na
-TF
+eG
 Zm
 Zm
 Zm
@@ -35325,7 +37321,7 @@ wf
 Ro
 MJ
 lT
-xl
+jL
 Zm
 Zm
 Zm
@@ -38108,13 +40104,13 @@ Zm
 Zm
 Zm
 Zm
-og
-og
-og
-fe
-fe
-fe
-fe
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
 Zm
 Zm
 Zm
@@ -38310,13 +40306,13 @@ Zm
 Zm
 Zm
 Zm
-Ei
-Ei
-zn
-fe
-GM
-yC
-JS
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
 Zm
 Zm
 Zm
@@ -38512,13 +40508,13 @@ Zm
 Zm
 Zm
 Zm
-yM
-Ei
-xw
-xy
-me
-QD
-ET
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
 Zm
 Zm
 Zm
@@ -38714,13 +40710,13 @@ Zm
 Zm
 Zm
 Zm
-Mt
-Ei
-Ei
-cw
-yb
-GM
-GM
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
 Zm
 Zm
 Zm
@@ -38916,13 +40912,13 @@ Zm
 Zm
 Zm
 Zm
-fe
-fe
-fe
-fe
-gk
-GM
-GM
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
 Zm
 Zm
 Zm
