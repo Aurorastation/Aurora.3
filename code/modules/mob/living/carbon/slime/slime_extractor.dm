@@ -19,11 +19,11 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-/obj/machinery/slime_extractor/examine(mob/user)
+/obj/machinery/slime_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time.")))
+	. += FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time."))
 	if(length(extract_slimes))
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is currently processing <b>[length(extract_slimes)] slime\s</b>.")))
+		. += FONT_SMALL(SPAN_WARNING("It is currently processing <b>[length(extract_slimes)] slime\s</b>."))
 
 /obj/machinery/slime_extractor/update_icon()
 	cut_overlays()

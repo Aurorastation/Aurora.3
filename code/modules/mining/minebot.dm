@@ -46,10 +46,10 @@
 	update_icon()
 	density = FALSE
 
-/mob/living/silicon/robot/drone/mining/examine(mob/user)
+/mob/living/silicon/robot/drone/mining/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(health_upgrade)
-		to_chat(user, SPAN_NOTICE("\The [src] appears to have a reinforced chassis."))
+		. += SPAN_NOTICE("\The [src] appears to have a reinforced chassis.")
 	if(ranged_upgrade || drill_upgrade)
 		var/output_text = "\The [src]'s lights indicates it has"
 		if(ranged_upgrade && drill_upgrade)
@@ -58,7 +58,7 @@
 			output_text += " a stationbound class KA mounted to it."
 		else if(drill_upgrade)
 			output_text += " a jackhammer drill mounted to it."
-		to_chat(user, SPAN_NOTICE(output_text))
+		. += SPAN_NOTICE(output_text)
 
 /mob/living/silicon/robot/drone/mining/request_player()
 	if(too_many_active_drones())

@@ -217,15 +217,14 @@
 		src.client.screen = null
 	..()
 
-/mob/living/simple_animal/examine(mob/user)
-	. =  ..()
-
+/mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (stat == DEAD)
-		to_chat(user, "<span class='danger'>It looks dead.</span>")
+		. += "<span class='danger'>It looks dead.</span>"
 	if (health < maxHealth * 0.5)
-		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
+		. += "<span class='danger'>It looks badly wounded.</span>"
 	else if (health < maxHealth)
-		to_chat(user, "<span class='warning'>It looks wounded.</span>")
+		. += "<span class='warning'>It looks wounded.</span>"
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)

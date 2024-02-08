@@ -101,10 +101,14 @@
 /mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
 	if(morphed)
 		. = form.examine(user)
-		if(distance <= 2)
-			to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
+		..()
 	else
 		return ..()
+
+/mob/living/simple_animal/hostile/morph/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 2)
+		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 
 /mob/living/simple_animal/hostile/morph/proc/update_speed()
 	switch(m_intent)

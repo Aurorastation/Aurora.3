@@ -103,10 +103,10 @@
 	if(ispath(cell))
 		cell = new cell(src)
 
-/obj/item/inductive_charger/handheld/examine(mob/user, distance)
+/obj/item/inductive_charger/handheld/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(cell)
-		to_chat(user, SPAN_NOTICE("Cell Charge: [cell.percent()]%"))
+		. += SPAN_NOTICE("Cell Charge: [cell.percent()]%")
 
 /obj/item/inductive_charger/handheld/get_cell()
 	return cell

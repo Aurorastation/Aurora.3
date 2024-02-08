@@ -93,16 +93,16 @@
 	var/obj/item/tank/tank = null              // Deployable tank, if any.
 	var/obj/item/device/suit_cooling_unit/cooler = null // Deployable suit cooler, if any
 
-/obj/item/clothing/suit/space/void/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/suit/space/void/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/list/part_list = new
 	for(var/obj/item/I in list(helmet,boots,tank,cooler))
 		part_list += "\a [I]"
-	to_chat(user, "\The [src] has [english_list(part_list)] installed.")
+	. +=  "\The [src] has [english_list(part_list)] installed."
 	if(tank && distance <= 1)
-		to_chat(user, SPAN_NOTICE("The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank]."))
+		. += SPAN_NOTICE("The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank].")
 	if (cooler && distance <= 1)
-		to_chat(user, SPAN_NOTICE("The mounted cooler's battery charge reads [round(cooler.cell.percent())]%"))
+		. += SPAN_NOTICE("The mounted cooler's battery charge reads [round(cooler.cell.percent())]%")
 
 /obj/item/clothing/suit/space/void/refit_for_species(var/target_species)
 	..()

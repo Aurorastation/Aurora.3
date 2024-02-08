@@ -33,12 +33,12 @@
 	for(var/obj/item/thing in contents)
 		thing.emp_act(severity)
 
-/obj/item/mech_component/examine(mob/user)
+/obj/item/mech_component/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(ready_to_install())
-		to_chat(user, SPAN_NOTICE("It is ready for installation."))
+		. += SPAN_NOTICE("It is ready for installation.")
 	else
-		show_missing_parts(user)
+		. = show_missing_parts(user)
 
 /obj/item/mech_component/set_dir()
 	..(SOUTH)
@@ -47,8 +47,9 @@
 	return
 
 /obj/item/mech_component/proc/return_diagnostics(var/mob/user)
-	to_chat(user, SPAN_NOTICE("[capitalize_first_letters(src.name)]:"))
-	to_chat(user, SPAN_NOTICE(" - Integrity: <b>[round(((max_damage - total_damage) / max_damage) * 100, 0.1)]%</b>" ))
+	. = list()
+	. += SPAN_NOTICE("[capitalize_first_letters(src.name)]:")
+	. += SPAN_NOTICE(" - Integrity: <b>[round(((max_damage - total_damage) / max_damage) * 100, 0.1)]%</b>" )
 
 /obj/item/mech_component/proc/prebuild()
 	return

@@ -71,21 +71,20 @@
 		qdel(CI)
 	return ..()
 
-/obj/machinery/appliance/examine(mob/user, distance, is_adjacent)
+/obj/machinery/appliance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		list_contents(user)
-		return TRUE
+		. += list_contents(user)
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
 	if (isemptylist(cooking_objs))
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. = SPAN_NOTICE("It is empty.")
 		return
 	var/string = "Contains...<ul>"
 	for (var/datum/cooking_item/CI in cooking_objs)
 		string += "<li>\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
 	string += "</ul>"
-	to_chat(user, string)
+	. = string
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)

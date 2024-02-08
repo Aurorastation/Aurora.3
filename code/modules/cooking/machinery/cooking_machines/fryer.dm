@@ -25,10 +25,10 @@
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
 
-/obj/machinery/appliance/cooker/fryer/examine(mob/user, distance, is_adjacent)
+/obj/machinery/appliance/cooker/fryer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (is_adjacent)
-		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
+		. += "The oil gauge displays: [oil.total_volume]u/[optimal_oil]."
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
