@@ -115,16 +115,18 @@
 
 // Unique Stuff
 /mob/living/simple_animal/hostile/hivebotbeacon/weakened
+	name = "dilapidated hivebot beacon"
+	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind. This one appears to have been badly damaged by something."
 	health = 100
 
 /obj/item/paper/hivebot_hub/diary1
-	name = "Diary Entry 2462-03-01"
+	name = "Diary Entry 2463-03-01"
 	desc = "A handwritten note."
 	info = "\
 		2463-03-01 <br>\
 		<br>\
 		<br>\
-		We just had our last big haul. Enough phoron to satisfy half of Elyra, if we so liked. <br>\
+		We just had our last big haul. Enough phoron to satisfy half of Elyra, if we liked. <br>\
 		It cost the skipper a lot, I know. Sold off whatever was left of our shuttle for it. <br>\
 		No easy way off this tincan til it's sold. <br>\
 		But if we can sell this at a decent price, maybe it'll be over? <br>\
@@ -135,7 +137,7 @@
 		"
 
 /obj/item/paper/hivebot_hub/diary2
-	name = "Diary Entry 2462-04-04"
+	name = "Diary Entry 2463-04-04"
 	desc = "A handwritten note."
 	info = "\
 		2463-04-04 <br>\
@@ -151,7 +153,7 @@
 		"
 
 /obj/item/paper/hivebot_hub/diary3
-	name = "Diary Entry 2462-04-05"
+	name = "Diary Entry 2463-04-05"
 	desc = "A handwritten note."
 	info = "\
 		2463-04-05 <br>\
@@ -163,7 +165,7 @@
 		But, I think, after that? I'm moving. Or we're moving, maybe. <br>\
 		Biesel is too close. Xanu, maybe? Somewhere else? <br>\
 		I don't know. Glad this chapter of my life is over, at least. <br>\
-		Odd thing, though. Merchants say they've had some odd behaviour on their ship. Scratching in the walls. <br>\
+		Odd thing, though. Merchants say they're hearing things. Scratching in the walls. <br>\
 		Feels like something trying to get in. Or out. They say. <br>\
 		Last thing we need is xenofauna right now. Keeping my shorty near. <br>\
 		We can't lose that phoron. <br>\
