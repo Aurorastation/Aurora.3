@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - tweak: "Exoplanet turfs now do not spam logs if not located on a exoplanet."
