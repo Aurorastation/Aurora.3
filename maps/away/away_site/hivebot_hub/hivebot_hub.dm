@@ -133,7 +133,7 @@
 		No more living on the edge of space. No more darkness, and silence, and worrying for the next buyer that'll find us. <br>\
 		I could go home. See grass again. Trees. Never realise how much you miss them. <br>\
 		Shit, this needs to work. <br>\
-		~ H.E.B.
+		~ H.E.B. <br>\
 		"
 
 /obj/item/paper/hivebot_hub/diary2
@@ -149,7 +149,7 @@
 		But sometimes, we get it. And it's some new horrible shit. Civil war, they're calling it, now. <br>\
 		Feels like giving it credence. I guess it's really here. Glad I'm not there for it.<br>\
 		That make me a coward? Dunno. <br>\
-		~ H.E.B.
+		~ H.E.B. <br>\
 		"
 
 /obj/item/paper/hivebot_hub/diary3
@@ -169,5 +169,5 @@
 		Feels like something trying to get in. Or out. They say. <br>\
 		Last thing we need is xenofauna right now. Keeping my shorty near. <br>\
 		We can't lose that phoron. <br>\
-		~ H.E.B.
+		~ H.E.B. <br>\
 		"
