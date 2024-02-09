@@ -270,7 +270,7 @@
 	path = /obj/item/organ/external/hand/right/vaurca/security
 	whitelisted = list(SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Security Officer", "Warden")
+	allowed_roles = list("Security Officer", "Warden", "Security Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamed
@@ -280,7 +280,7 @@
 	path = /obj/item/organ/external/hand/right/vaurca/medical
 	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
+	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamag
@@ -290,7 +290,7 @@
 	path = /obj/item/organ/internal/augment/tool/vaurcamag
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist")
+	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
 
 /datum/gear/accessory/tret_passcard
 	display_name = "tret passcard"

@@ -128,6 +128,10 @@ var/list/preferences_datums = list()
 	var/job_engsec_med = 0
 	var/job_engsec_low = 0
 
+	var/job_event_high = 0
+	var/job_event_med = 0
+	var/job_event_low = 0
+
 	// A text blob which temporarily houses data from the SQL.
 	var/unsanitized_jobs = ""
 
@@ -654,6 +658,10 @@ var/list/preferences_datums = list()
 		job_engsec_high = 0
 		job_engsec_med = 0
 		job_engsec_low = 0
+
+		job_event_high = 0
+		job_event_med = 0
+		job_event_low = 0
 
 		alternate_option = 1
 		metadata = ""
