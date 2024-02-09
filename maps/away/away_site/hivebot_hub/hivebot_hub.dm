@@ -25,6 +25,14 @@
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	volume = "50 meters length, 67 meters beam/width, 11 meters vertical height"
 	sizeclass = "Small supply hub and fuel depot"
+	initial_generic_waypoints = list(
+	"hivebot_nav1",
+	"hivebot_nav2",
+	"hivebot_nav3",
+	"hivebot_nav4",
+	"hivebot_nav5",
+	"hivebot_nav6"
+	)
 
 // Areas
 /area/hivebothub
@@ -77,15 +85,6 @@
 	icon_state = "exterior"
 
 // Docks
-
-initial_generic_waypoints = list(
-	"hivebot_nav1",
-	"hivebot_nav2",
-	"hivebot_nav3",
-	"hivebot_nav4",
-	"hivebot_nav5",
-	"hivebot_nav6",
-)
 /obj/effect/shuttle_landmark/hivebot_hub
 	base_turf = /turf/space
 	base_area = /area/space
