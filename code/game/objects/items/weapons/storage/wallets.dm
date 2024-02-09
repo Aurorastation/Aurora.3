@@ -5,7 +5,7 @@
 	icon = 'icons/obj/storage/wallet.dmi'
 	icon_state = "wallet_leather"
 	w_class = ITEMSIZE_SMALL
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = ITEMSIZE_SMALL
 	can_hold = list(
 		/obj/item/spacecash,
 		/obj/item/card,
