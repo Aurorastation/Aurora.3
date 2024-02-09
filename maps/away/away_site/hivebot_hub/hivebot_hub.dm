@@ -114,7 +114,6 @@
 	landmark_tag = "hivebot_nav6"
 
 // Unique Stuff
-// Unique Stuff
 /mob/living/simple_animal/hostile/hivebotbeacon/weakened
 	name = "dilapidated hivebot beacon"
 	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind. This one appears to have been badly damaged."
