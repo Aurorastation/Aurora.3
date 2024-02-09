@@ -21,7 +21,7 @@
 	color = "#a37f5e"
 	static_vessel = TRUE
 	generic_object = FALSE
-	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside. The primary storage compartment of the installation"
+	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside. The primary storage compartment of the installation appears largely untouched, and may still contain valuable materials."
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	volume = "50 meters length, 67 meters beam/width, 11 meters vertical height"
 	sizeclass = "Small supply hub and fuel depot"
@@ -114,24 +114,25 @@
 	landmark_tag = "hivebot_nav6"
 
 // Unique Stuff
+// Unique Stuff
 /mob/living/simple_animal/hostile/hivebotbeacon/weakened
 	name = "dilapidated hivebot beacon"
-	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind. This one appears to have been badly damaged by something."
+	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind. This one appears to have been badly damaged."
+	maxHealth = 100
 	health = 100
 
 /obj/item/paper/hivebot_hub/diary
 	name = "Diary Entry 2463-03-01"
-	desc = "A handwritten note."
+	desc = "A page torn from a handwritten diary."
 	info = "\
 		2463-03-01 <br>\
 		<br>\
 		<br>\
 		We just had our last big haul. Enough phoron to satisfy half of Elyra, if we liked. <br>\
 		It cost the skipper a lot, I know. Sold off whatever was left of our shuttle for it. <br>\
-		No easy way off this tincan til it's sold. <br>\
-		But if we can sell this at a decent price, maybe it'll be over? <br>\
+		No easy way off this tincan til it's sold. But if we can sell this at a decent price, maybe it'll be over? <br>\
 		No more living on the edge of space. No more darkness, and silence, and worrying for the next buyer that'll find us. <br>\
-		I could go home. See grass again. Trees. Never realise how much you miss them. <br>\
-		Shit, this needs to work. <br>\
-		~ H.E.B. <br>\
+		I could go home. See grass again. Trees. You never realise how much you miss them. <br>\
+		This needs to work. <br>\
+		~ HB <br>\
 		"
