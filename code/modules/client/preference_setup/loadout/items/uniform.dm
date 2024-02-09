@@ -427,6 +427,13 @@
 	fetil_dress["fetil dress, gold flairs"] = /obj/item/clothing/under/antillean/goldflair
 	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
 
+/datum/gear/uniform/miscellaneous/galatea_uniform
+	display_name = "galatean uniform"
+	description = "A work uniform often worn by citizens of the Federal Technology of Galatea."
+	path = /obj/item/clothing/under/galatea
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+
 /*
 	Uniform Rolled State Adjustment
 */

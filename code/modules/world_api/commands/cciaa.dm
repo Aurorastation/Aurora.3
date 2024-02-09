@@ -238,7 +238,7 @@
 /datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey, stamptext)
 	// Create the reply message
 	var/obj/item/paper/P = new /obj/item/paper( null ) //hopefully the null loc won't cause trouble for us
-	P.name = "[current_map.boss_name] - [title]"
+	P.name = "[SSatlas.current_map.boss_name] - [title]"
 	P.info = body
 	P.update_icon()
 

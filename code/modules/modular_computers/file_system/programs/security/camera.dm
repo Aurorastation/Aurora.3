@@ -3,7 +3,7 @@
 	if(!network)
 		return FALSE
 
-	. = current_map.get_network_access(network)
+	. = SSatlas.current_map.get_network_access(network)
 	if (.)
 		return
 
@@ -50,7 +50,7 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks = list()
-	for(var/network in current_map.station_networks)
+	for(var/network in SSatlas.current_map.station_networks)
 		all_networks += list(
 			list(
 				"tag" = network,

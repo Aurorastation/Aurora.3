@@ -157,6 +157,22 @@
 	icon_state = "orion_librarian"
 	item_state = "orion_librarian"
 
+/obj/item/clothing/under/librarian/heph
+	icon_state = "heph_librarian"
+	item_state = "heph_librarian"
+
+/obj/item/clothing/under/librarian/pmc
+	icon_state = "pmc_librarian"
+	item_state = "pmc_librarian"
+
+/obj/item/clothing/under/librarian/zavod
+	icon_state = "zav_librarian"
+	item_state = "zav_librarian"
+
+/obj/item/clothing/under/librarian/zeng
+	icon_state = "zeng_librarian"
+	item_state = "zeng_librarian"
+
 // Miner
 
 /obj/item/clothing/under/rank/miner

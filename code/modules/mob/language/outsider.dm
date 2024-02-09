@@ -193,3 +193,17 @@
 	desc = "A way for greimorians to communicate with one another even when seperated."
 	key = "gh"
 	flags = RESTRICTED | HIVEMIND
+
+/datum/language/purpose
+	name = LANGUAGE_PURPOSE
+	desc = "A heavily encrypted communication network, used by the synthetics of Purpose."
+	speech_verb = list("beeps")
+	ask_verb = list("beeps")
+	exclaim_verb = list("loudly beeps")
+	sing_verb = list("rhythmically beeps")
+	colour = "changeling"
+	written_style = "encodedaudiolanguage"
+	key = "pr"
+	flags = RESTRICTED | NO_STUTTER | HIVEMIND
+	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
+	space_chance = 10

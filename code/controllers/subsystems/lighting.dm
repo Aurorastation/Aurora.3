@@ -70,7 +70,7 @@ SUBSYSTEM_DEF(lighting)
 	var/turf/T
 	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (thing in Z_ALL_TURFS(zlevel))
+		for (thing in Z_TURFS(zlevel))
 			T = thing
 			if(GLOB.config.starlight)
 				var/turf/space/S = T

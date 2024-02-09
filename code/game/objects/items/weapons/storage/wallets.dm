@@ -125,44 +125,6 @@
 	if(istype(id) && is_adjacent)
 		id.show(user)
 
-/obj/item/storage/wallet/random/fill()
-	..()
-	var/item1_type = pick(                \
-		/obj/item/spacecash/c10,   \
-		/obj/item/spacecash/c100,  \
-		/obj/item/spacecash/c1000, \
-		/obj/item/spacecash/c20,   \
-		/obj/item/spacecash/c200,  \
-		/obj/item/spacecash/c50,   \
-		/obj/item/spacecash/c500   \
-	)
-	var/item2_type
-	if(prob(50))
-		item2_type = pick(                    \
-			/obj/item/spacecash/c10,   \
-			/obj/item/spacecash/c100,  \
-			/obj/item/spacecash/c1000, \
-			/obj/item/spacecash/c20,   \
-			/obj/item/spacecash/c200,  \
-			/obj/item/spacecash/c50,   \
-			/obj/item/spacecash/c500   \
-		)
-	var/item3_type = pick(            \
-		/obj/item/coin/silver, \
-		/obj/item/coin/silver, \
-		/obj/item/coin/gold,   \
-		/obj/item/coin/iron,   \
-		/obj/item/coin/iron,   \
-		/obj/item/coin/iron    \
-	)
-
-	if(item1_type)
-		new item1_type(src)
-	if(item2_type)
-		new item2_type(src)
-	if(item3_type)
-		new item3_type(src)
-
 /obj/item/storage/wallet/proc/mob_icon_update()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -252,3 +214,68 @@
 			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "[plastic_film_overlay_state]")
 		I.add_overlay(plastic_film)
 	return I
+
+// wallet subtypes
+
+/obj/item/storage/wallet/random/fill()
+	..()
+	var/item1_type = pick(                \
+		/obj/item/spacecash/c10,   \
+		/obj/item/spacecash/c100,  \
+		/obj/item/spacecash/c1000, \
+		/obj/item/spacecash/c20,   \
+		/obj/item/spacecash/c200,  \
+		/obj/item/spacecash/c50,   \
+		/obj/item/spacecash/c500   \
+	)
+	var/item2_type
+	if(prob(50))
+		item2_type = pick(                    \
+			/obj/item/spacecash/c10,   \
+			/obj/item/spacecash/c100,  \
+			/obj/item/spacecash/c1000, \
+			/obj/item/spacecash/c20,   \
+			/obj/item/spacecash/c200,  \
+			/obj/item/spacecash/c50,   \
+			/obj/item/spacecash/c500   \
+		)
+	var/item3_type = pick(            \
+		/obj/item/coin/silver, \
+		/obj/item/coin/silver, \
+		/obj/item/coin/gold,   \
+		/obj/item/coin/iron,   \
+		/obj/item/coin/iron,   \
+		/obj/item/coin/iron    \
+	)
+
+	if(item1_type)
+		new item1_type(src)
+	if(item2_type)
+		new item2_type(src)
+	if(item3_type)
+		new item3_type(src)
+
+/obj/item/storage/wallet/sol_rich/fill()
+	..()
+	var/item1_type = pick(
+		/obj/item/spacecash/ewallet/c10000,
+		/obj/item/spacecash/ewallet/c5000,
+		/obj/item/spacecash/ewallet/c2000,
+		/obj/item/spacecash/c1000,
+		/obj/item/spacecash/c500,
+	)
+	var/item2_type = pick(
+		/obj/item/spacecash/ewallet/c5000,
+		/obj/item/spacecash/ewallet/c2000,
+		/obj/item/spacecash/c500,
+	)
+	var/item3_type = pick(
+		/obj/item/coin/silver,
+		/obj/item/coin/silver,
+		/obj/item/coin/gold,
+	)
+
+	new item1_type(src)
+	new item2_type(src)
+	new item3_type(src)
+	new /obj/item/clothing/accessory/badge/passport/sol(src)
