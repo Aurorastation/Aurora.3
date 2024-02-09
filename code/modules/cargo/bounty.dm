@@ -17,12 +17,12 @@
 /datum/bounty/New()
 	if(reward_low > 0 && reward_high > reward_low)
 		reward = round(rand(reward_low, reward_high), 100)
-	description = replacetext(description, "%DOCKNAME",current_map.dock_name)
-	description = replacetext(description, "%DOCKSHORT",current_map.dock_short)
-	description = replacetext(description, "%BOSSNAME",current_map.boss_name)
-	description = replacetext(description, "%BOSSSHORT",current_map.boss_short)
-	description = replacetext(description, "%COMPNAME",current_map.company_name)
-	description = replacetext(description, "%COMPSHORT",current_map.company_short)
+	description = replacetext(description, "%DOCKNAME", SSatlas.current_map.dock_name)
+	description = replacetext(description, "%DOCKSHORT", SSatlas.current_map.dock_short)
+	description = replacetext(description, "%BOSSNAME", SSatlas.current_map.boss_name)
+	description = replacetext(description, "%BOSSSHORT", SSatlas.current_map.boss_short)
+	description = replacetext(description, "%COMPNAME", SSatlas.current_map.company_name)
+	description = replacetext(description, "%COMPSHORT", SSatlas.current_map.company_short)
 	description = replacetext(description, "%PERSONNAME","[pick("Trooper", "Commander", "Agent", "Director", "Doctor")] [pick(last_names)]")
 
 // Displayed on bounty UI screen.

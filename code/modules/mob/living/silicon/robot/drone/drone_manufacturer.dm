@@ -31,7 +31,7 @@
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
 	check_add_to_late_firers()
-	fabricator_tag = current_map.station_short
+	fabricator_tag = SSatlas.current_map.station_short
 
 /obj/machinery/drone_fabricator/derelict
 	name = "construction drone fabricator"

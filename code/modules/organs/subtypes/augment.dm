@@ -212,7 +212,7 @@
 	if(!.)
 		return FALSE
 
-	health_scan_mob(owner, owner)
+	health_scan_mob(owner, owner, TRUE, TRUE)
 
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"

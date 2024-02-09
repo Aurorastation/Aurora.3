@@ -233,7 +233,7 @@
 	path = /obj/item/clothing/head/helmet/security/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
-	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain")
+	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain", "Security Personnel")
 
 /datum/gear/head/skrell_helmet/hos
 	display_name = "Head of Security Skrellmet"

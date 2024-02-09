@@ -61,7 +61,8 @@
 		"Corporate Reporter" = /datum/outfit/job/journalist/idris,
 		"Chaplain" = /datum/outfit/job/chaplain/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/idris
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/idris,
+		"Security Personnel" = /datum/outfit/job/officer/idris
 	)
 
 /datum/outfit/job/officer/idris

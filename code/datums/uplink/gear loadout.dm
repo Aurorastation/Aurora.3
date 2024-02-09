@@ -196,6 +196,7 @@
 	name = "Tau Ceti Armed Forces Assets (Group)"
 	desc = "A crate containing gear for a group."
 	path = /obj/structure/closet/crate/secure/gear_loadout/tcaf
+	telecrystal_cost = 50
 
 /datum/uplink_item/item/gear_loadout/tcaf_single
 	name = "Tau Ceti Armed Forces Assets (Single)"

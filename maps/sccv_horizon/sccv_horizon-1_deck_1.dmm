@@ -1085,6 +1085,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"aQN" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/bluegrid,
+/area/operations/storage)
 "aRG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1343,6 +1347,12 @@
 /obj/structure/tank_wall/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"aYv" = (
+/obj/structure/ecd{
+	pixel_x = -16
+	},
+/turf/simulated/floor/bluegrid,
+/area/operations/storage)
 "aYY" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -2926,7 +2936,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/storage)
@@ -3943,7 +3953,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 1;
 	name = "Cargo Bay";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -4722,7 +4732,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Operations Hangar";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -5515,6 +5525,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
+"dRB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "dSD" = (
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
@@ -9295,6 +9314,9 @@
 	c_tag = "Operations - Warehouse Starboard Fore Storage Room";
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "grm" = (
@@ -11630,6 +11652,9 @@
 "icm" = (
 /turf/simulated/wall,
 /area/maintenance/engineering/auxillary)
+"icW" = (
+/turf/simulated/floor/bluegrid,
+/area/operations/storage)
 "idq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -12191,10 +12216,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"iBu" = (
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "iBL" = (
 /obj/item/material/shard{
 	icon_state = "medium"
@@ -22854,6 +22875,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"pRc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "pRz" = (
 /obj/structure/sign/securearea{
 	pixel_y = 32
@@ -24288,12 +24318,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "qQa" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/machinery/alarm/west,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/bluegrid,
 /area/operations/storage)
 "qQk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -25908,7 +25934,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Warehouse";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/unres{
@@ -26733,6 +26759,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -30454,7 +30483,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/storage)
@@ -31373,6 +31402,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
+"vMc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid,
+/area/operations/storage)
 "vMd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -45286,7 +45321,7 @@ pcv
 giX
 tiV
 qdE
-giX
+dRB
 qQa
 gqW
 qdE
@@ -45489,9 +45524,9 @@ ccU
 kAn
 nzG
 qdE
-iBu
-nCV
-tFO
+aQN
+aYv
+vMc
 qdE
 oct
 qdE
@@ -45692,8 +45727,8 @@ sWr
 giX
 iQI
 qdE
-giX
-iQI
+pRc
+icW
 sDJ
 qdE
 vgU
