@@ -21,7 +21,7 @@
 	color = "#a37f5e"
 	static_vessel = TRUE
 	generic_object = FALSE
-	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Most curiously, something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside."
+	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside. The primary storage compartment of the installation"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	volume = "50 meters length, 67 meters beam/width, 11 meters vertical height"
 	sizeclass = "Small supply hub and fuel depot"
@@ -119,7 +119,7 @@
 	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind. This one appears to have been badly damaged by something."
 	health = 100
 
-/obj/item/paper/hivebot_hub/diary1
+/obj/item/paper/hivebot_hub/diary
 	name = "Diary Entry 2463-03-01"
 	desc = "A handwritten note."
 	info = "\
@@ -133,41 +133,5 @@
 		No more living on the edge of space. No more darkness, and silence, and worrying for the next buyer that'll find us. <br>\
 		I could go home. See grass again. Trees. Never realise how much you miss them. <br>\
 		Shit, this needs to work. <br>\
-		~ H.E.B. <br>\
-		"
-
-/obj/item/paper/hivebot_hub/diary2
-	name = "Diary Entry 2463-04-04"
-	desc = "A handwritten note."
-	info = "\
-		2463-04-04 <br>\
-		<br>\
-		<br>\
-		Starting to think. <br>\
-		I hate this place. I never realised, it never came to mind, how much I did. <br>\
-		It isn't going to get better, either. With everything happening home. News is rare, all depends on the relays. <br>\
-		But sometimes, we get it. And it's some new horrible shit. Civil war, they're calling it, now. <br>\
-		Feels like giving it credence. I guess it's really here. Glad I'm not there for it.<br>\
-		That make me a coward? Dunno. <br>\
-		~ H.E.B. <br>\
-		"
-
-/obj/item/paper/hivebot_hub/diary3
-	name = "Diary Entry 2463-04-05"
-	desc = "A handwritten note."
-	info = "\
-		2463-04-05 <br>\
-		<br>\
-		<br>\
-		Got a call, skipper just said. A buyer. Some merchant vessel, not much better on their luck than we are. <br>\
-		Price isn't great, but it's enough. No position to haggle. They'll be here in a couple of weeks. <br>\
-		Not sure if she wants to see me, after all this time. Soon, I'll find out. It'll all be over. <br>\
-		But, I think, after that? I'm moving. Or we're moving, maybe. <br>\
-		Biesel is too close. Xanu, maybe? Somewhere else? <br>\
-		I don't know. Glad this chapter of my life is over, at least. <br>\
-		Odd thing, though. Merchants say they're hearing things. Scratching in the walls. <br>\
-		Feels like something trying to get in. Or out. They say. <br>\
-		Last thing we need is xenofauna right now. Keeping my shorty near. <br>\
-		We can't lose that phoron. <br>\
 		~ H.E.B. <br>\
 		"
