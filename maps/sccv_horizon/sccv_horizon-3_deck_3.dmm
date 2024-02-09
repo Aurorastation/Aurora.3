@@ -4515,11 +4515,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/alarm/north{
-	pixel_y = 0;
-	dir = 8;
-	pixel_x = -10
-	},
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "dFS" = (
@@ -5284,6 +5279,14 @@
 	pixel_y = 4
 	},
 /obj/item/pen,
+/obj/item/stamp/xo{
+	pixel_x = 6;
+	pixel_y = 14
+	},
+/obj/item/stamp/denied{
+	pixel_y = 14;
+	pixel_x = -2
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "ehu" = (
@@ -8548,6 +8551,9 @@
 /obj/item/folder/yellow{
 	pixel_x = 3
 	},
+/obj/item/device/radio/off{
+	pixel_y = 9
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "gjn" = (
@@ -11789,6 +11795,7 @@
 	dir = 4
 	},
 /obj/item/device/taperecorder,
+/obj/item/device/radio/off,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "ivg" = (
@@ -11820,6 +11827,7 @@
 	},
 /obj/machinery/light,
 /obj/item/clothing/head/helmet/space/void/captain,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "ivO" = (
@@ -24412,8 +24420,6 @@
 	eftpos_name = "HoP EFTPOS scanner"
 	},
 /obj/item/book/manual/wiki/security_space_law,
-/obj/item/stamp/denied,
-/obj/item/stamp/xo,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "rmh" = (
@@ -26767,6 +26773,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "sKT" = (
@@ -28746,10 +28753,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "uhy" = (
