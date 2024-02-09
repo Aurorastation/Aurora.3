@@ -18,7 +18,7 @@
 /obj/effect/overmap/visitable/sector/hivebot_hub
 	name = "derelict supply hub"
 	icon_state = "depot"
-	color = "#81644b"
+	color = "#a37f5e"
 	static_vessel = TRUE
 	generic_object = FALSE
 	desc = "A small, independent supply hub and fuel depot, that apparently vanished off scopes some years ago. The installation appears to have been breached at several points, and scans indicate total depressurisation, with no clear lifesigns within. Most curiously, something at the centre of the installation is transmitting an extremely eclectic collection of signals; they vary in frequency, and alternate rapidly between binary and ternary. They do not seem to be encrypted using any familiar method, but they are nontheless incomprehensible to scopes. Despite an absence of lifesigns, there appear to be many small objects moving erratically inside."
@@ -77,8 +77,17 @@
 	icon_state = "exterior"
 
 // Docks
+
+initial_generic_waypoints = list(
+	"hivebot_nav1",
+	"hivebot_nav2",
+	"hivebot_nav3",
+	"hivebot_nav4",
+	"hivebot_nav5",
+	"hivebot_nav6",
+)
 /obj/effect/shuttle_landmark/hivebot_hub
-	base_turf = /turf/space/dynamic
+	base_turf = /turf/space
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/hivebot_hub/nav1
