@@ -165,40 +165,40 @@
  */
 /atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = USE_SUCCESS
-	if(NOT_FLAG(use_flags, USE_ALLOW_NONLIVING) && !isliving(user)) // No message for ghosts.
+	if(!(use_flags & USE_ALLOW_NONLIVING) && !isliving(user)) // No message for ghosts.
 		return USE_FAIL_NONLIVING
 
-	if(NOT_FLAG(use_flags, USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+	if(!(use_flags & USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You're too far away from [src] to do that."))
 		return USE_FAIL_NON_ADJACENT
 
-	if(NOT_FLAG(use_flags, USE_ALLOW_DEAD) && user.stat == DEAD)
+	if(!(use_flags & USE_ALLOW_DEAD) && user.stat == DEAD)
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("How do you expect to do that when you're dead?"))
 		return USE_FAIL_DEAD
 
-	if(NOT_FLAG(use_flags, USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+	if(!(use_flags & USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You cannot do that in your current state."))
 		return USE_FAIL_INCAPACITATED
 
-	if(NOT_FLAG(use_flags, USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+	if(!(use_flags & USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You don't know how to operate [src]."))
 		return USE_FAIL_NON_ADV_TOOL_USR
 
-	if(HAS_FLAG(use_flags, USE_DISALLOW_SILICONS) && issilicon(user))
+	if((use_flags & USE_DISALLOW_SILICONS) && issilicon(user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("How do you propose doing that without hands?"))
 		return USE_FAIL_IS_SILICON
 
-	if(HAS_FLAG(use_flags, USE_DISALLOW_SPECIALS) && is_mob_special(user))
+	if((use_flags & USE_DISALLOW_SPECIALS) && is_mob_special(user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("Your current mob type prevents you from doing this."))
 		return USE_FAIL_IS_MOB_SPECIAL
 
-	if(HAS_FLAG(use_flags, USE_FORCE_SRC_IN_USER) && !(src in user))
+	if((use_flags & USE_FORCE_SRC_IN_USER) && !(src in user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You need to be holding [src] to do that."))
 		return USE_FAIL_NOT_IN_USER
@@ -434,7 +434,7 @@
 		add_fibers(M)
 
 		// They have no prints.
-		if (HAS_FLAG(M.mutations, mFingerprints))
+		if ((M.mutations & mFingerprints))
 			if(fingerprintslast != M.key)
 				fingerprintshidden += "(Has no fingerprints) Real name: [M.real_name], Key: [M.key]"
 				fingerprintslast = M.key

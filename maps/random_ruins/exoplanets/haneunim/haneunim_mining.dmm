@@ -1,0 +1,2573 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ax" = (
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"bb" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"bd" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining2";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"bE" = (
+/obj/random/firstaid,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"bJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger/hephaestus,
+/mob/living/heavy_vehicle/premade/miner,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"cy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"cC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"cV" = (
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/tracker,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"da" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"dk" = (
+/obj/structure/cryofeed,
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"do" = (
+/obj/structure/closet/secure_closet/miner,
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"dD" = (
+/turf/template_noop,
+/area/template_noop)
+"dH" = (
+/obj/structure/table/rack,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"dX" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"ek" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"et" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"eG" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining3";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"eL" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"eV" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"fn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"fv" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"gf" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining3";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/mineral/processing_unit,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"gy" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"hk" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"hv" = (
+/obj/machinery/mineral/processing_unit_console{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"im" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20
+	},
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"iv" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining2";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"iA" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"ja" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"je" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"ji" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"jr" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining3";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"kC" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"mn" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"np" = (
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"ny" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining2";
+	layer = 2.9
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"nT" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"ok" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"pn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"pH" = (
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"pW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"qm" = (
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"qK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger/hephaestus,
+/mob/living/heavy_vehicle/premade/miner,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"rY" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"sq" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining2";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/mineral/processing_unit,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"su" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"ta" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"td" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/mineral/stacking_machine,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"uS" = (
+/obj/machinery/mineral/processing_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"uW" = (
+/turf/simulated/floor/exoplanet/barren{
+	color = "#807f7f"
+	},
+/area/haneunim_mining)
+"vu" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"wM" = (
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"wT" = (
+/obj/structure/closet/secure_closet/miner,
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"wX" = (
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"wZ" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining1";
+	layer = 2.9
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"xq" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"xW" = (
+/obj/machinery/power/smes/buildable/autosolars,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"yF" = (
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"yQ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/haneunim_mining)
+"zk" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/drill,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"zJ" = (
+/obj/structure/cryofeed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Ck" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"CD" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/mob/living/simple_animal/hostile/retaliate/minedrone,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"Dz" = (
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Ed" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining1";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Eh" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_x = -20
+	},
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"EO" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "haneunim_mining1"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Fd" = (
+/obj/random/custom_ka,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Fl" = (
+/obj/machinery/vending/cola/konyang,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Fx" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"Ga" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/north,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Gh" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"GM" = (
+/obj/effect/floor_decal/industrial/loading/grey,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"Hc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	id = "haneunim_mining3";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Hy" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"HL" = (
+/obj/structure/table/rack,
+/obj/random/custom_ka,
+/obj/random/custom_ka,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"HO" = (
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"HX" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"Ij" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/machinery/mineral/unloading_machine,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"ID" = (
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"IL" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "haneunim_mining2"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"IX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Ju" = (
+/obj/structure/bed/stool/bar/padded/beige,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Kd" = (
+/obj/machinery/suit_cycler/mining/prepared,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Kp" = (
+/obj/structure/cryofeed{
+	dir = 4
+	},
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"KH" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"KZ" = (
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/obj/machinery/vending/snack/konyang,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Li" = (
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/solar_control/autostart{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"LZ" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Ma" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"Nm" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Nt" = (
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"NJ" = (
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Oa" = (
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"OO" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"PT" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"PW" = (
+/obj/structure/closet/secure_closet/miner,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Qs" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining1";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/mineral/processing_unit,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"QF" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"QN" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/structure/closet/crate/miningcart,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Rf" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Rl" = (
+/obj/machinery/vending/dinnerware/plastic,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Rr" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"Rv" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"RB" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"SB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"SK" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_haneunim_mining";
+	name = "airlock_haneunim_mining";
+	frequency = 1131
+	},
+/turf/simulated/floor/plating,
+/area/haneunim_mining)
+"SN" = (
+/obj/structure/table/rack,
+/obj/item/plastique/seismic,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"SR" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"Tq" = (
+/turf/simulated/floor/exoplanet/barren{
+	color = "#807f7f"
+	},
+/area/template_noop)
+"TA" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Um" = (
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"VH" = (
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Xm" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/haneunim_mining)
+"Xo" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"Xx" = (
+/obj/machinery/conveyor{
+	id = "haneunim_mining3";
+	layer = 2.9
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"YI" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "haneunim_mining3"
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+"YZ" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/rust,
+/area/haneunim_mining)
+
+(1,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(2,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(3,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(4,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(5,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(6,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(7,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+dk
+yF
+yF
+yF
+yF
+dk
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(8,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+rY
+pH
+pH
+pH
+pH
+pH
+HO
+yQ
+ID
+np
+yQ
+je
+je
+je
+je
+je
+je
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(9,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+eV
+pH
+Ju
+Ju
+pH
+pH
+pH
+yQ
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+Xo
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(10,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Rl
+Ju
+Hy
+Hy
+Ju
+pH
+pH
+yQ
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(11,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+KZ
+Ju
+Hy
+Hy
+Ju
+pH
+pH
+pH
+pH
+pH
+yQ
+gy
+gy
+gy
+gy
+gy
+gy
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(12,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Fl
+Ju
+Hy
+Hy
+Ju
+pH
+pH
+pH
+pH
+pH
+yQ
+Kp
+zJ
+zJ
+zJ
+zJ
+Kp
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(13,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+pH
+Ju
+Hy
+Hy
+Ju
+pH
+pH
+yQ
+pH
+pH
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(14,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+pH
+pH
+Ju
+Ju
+pH
+pH
+pH
+yQ
+Dz
+pH
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+ja
+ja
+ja
+ja
+ja
+ja
+ja
+dD
+dD
+"}
+(15,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+YZ
+ok
+pH
+pH
+pH
+pH
+qm
+yQ
+wX
+pH
+yQ
+dD
+dD
+dD
+dD
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+ja
+ja
+ja
+ja
+ja
+ja
+ja
+dD
+dD
+"}
+(16,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+yQ
+Oa
+VH
+LZ
+bb
+yQ
+ja
+ja
+ja
+ja
+ja
+ja
+ja
+dD
+dD
+"}
+(17,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+wT
+pH
+pH
+OO
+yQ
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+yQ
+pH
+pH
+pH
+pW
+yQ
+ja
+ja
+ja
+ja
+ja
+ja
+ja
+dD
+dD
+"}
+(18,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+do
+pH
+pH
+HL
+yQ
+pH
+bE
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+pH
+pH
+pH
+pW
+yQ
+yQ
+yQ
+yQ
+ja
+ja
+ja
+ja
+dD
+dD
+"}
+(19,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+PW
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+NJ
+cy
+HX
+Eh
+da
+Ck
+uW
+Tq
+ja
+ja
+dD
+dD
+"}
+(20,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+PW
+pH
+pH
+pH
+pH
+iA
+kC
+kC
+kC
+wM
+kC
+kC
+kC
+kC
+SB
+ta
+Rf
+fv
+im
+SK
+xq
+Gh
+Tq
+ja
+ja
+dD
+dD
+"}
+(21,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Kd
+pH
+pH
+dH
+yQ
+Ga
+pH
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+pH
+Rv
+Um
+mn
+yQ
+yQ
+yQ
+yQ
+RB
+Tq
+ja
+ja
+dD
+dD
+"}
+(22,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Kd
+pH
+pH
+SN
+yQ
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+yQ
+Dz
+vu
+xW
+Li
+yQ
+ja
+ja
+ja
+RB
+Tq
+ja
+ja
+dD
+dD
+"}
+(23,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Kd
+pH
+Fd
+Nm
+yQ
+Dz
+pH
+yQ
+dD
+dD
+dD
+dD
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+ja
+ja
+ja
+RB
+Tq
+ja
+ja
+dD
+dD
+"}
+(24,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Kd
+pH
+bE
+su
+yQ
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+ja
+ja
+ja
+RB
+Tq
+ja
+ja
+dD
+dD
+"}
+(25,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Dz
+pH
+pH
+pH
+yQ
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+ja
+ja
+ja
+RB
+Tq
+ja
+ja
+dD
+dD
+"}
+(26,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+RB
+Tq
+dD
+dD
+dD
+dD
+"}
+(27,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+yQ
+Dz
+pH
+yQ
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+Tq
+Tq
+Tq
+RB
+Tq
+Tq
+Tq
+dD
+dD
+"}
+(28,1,1) = {"
+dD
+dD
+ja
+ja
+SR
+ek
+CD
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+pH
+pH
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+QF
+Xm
+hk
+Xm
+ji
+Tq
+dD
+dD
+"}
+(29,1,1) = {"
+dD
+dD
+ja
+ja
+Ma
+Nt
+dX
+yQ
+pH
+HO
+hv
+pH
+HO
+eL
+pH
+EO
+pH
+HO
+pH
+pH
+pH
+IX
+fn
+IX
+IX
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+Tq
+Tq
+RB
+Tq
+Tq
+Tq
+dD
+dD
+"}
+(30,1,1) = {"
+dD
+dD
+ja
+ja
+Ma
+GM
+Ij
+wZ
+Ed
+Ed
+Qs
+Ed
+Ed
+td
+Ed
+QN
+pH
+pH
+pH
+pH
+pH
+zk
+zk
+zk
+zk
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+QF
+Xm
+hk
+Xm
+ji
+Tq
+dD
+dD
+"}
+(31,1,1) = {"
+dD
+dD
+ja
+ja
+Ma
+ax
+dX
+yQ
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+IL
+pH
+pH
+pH
+pH
+pH
+nT
+nT
+nT
+nT
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+Tq
+Tq
+RB
+Tq
+Tq
+Tq
+dD
+dD
+"}
+(32,1,1) = {"
+dD
+dD
+ja
+ja
+Ma
+GM
+Ij
+ny
+iv
+iv
+sq
+iv
+bd
+td
+bd
+QN
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+QF
+Xm
+hk
+Xm
+ji
+Tq
+dD
+dD
+"}
+(33,1,1) = {"
+dD
+dD
+ja
+ja
+Ma
+ax
+dX
+yQ
+pH
+pH
+pH
+pH
+pH
+pH
+pH
+YI
+pH
+pH
+pH
+pH
+pH
+cC
+cC
+pn
+cC
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+Tq
+Tq
+RB
+Tq
+Tq
+Tq
+dD
+dD
+"}
+(34,1,1) = {"
+dD
+dD
+ja
+ja
+Ma
+GM
+Ij
+Xx
+eG
+eG
+gf
+eG
+Hc
+td
+jr
+QN
+pH
+pH
+pH
+pH
+pH
+pn
+cC
+pn
+pn
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+QF
+Xm
+hk
+Xm
+ji
+Tq
+dD
+dD
+"}
+(35,1,1) = {"
+dD
+dD
+ja
+ja
+Ma
+ax
+KH
+yQ
+pH
+qm
+uS
+pH
+pH
+TA
+pH
+pH
+pH
+bJ
+qK
+bJ
+pH
+pn
+et
+pn
+cC
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+Tq
+Tq
+RB
+Tq
+Tq
+Tq
+dD
+dD
+"}
+(36,1,1) = {"
+dD
+dD
+ja
+ja
+Rr
+PT
+Fx
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+dD
+dD
+dD
+dD
+dD
+Tq
+QF
+Xm
+hk
+Xm
+ji
+Tq
+dD
+dD
+"}
+(37,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+Tq
+Tq
+Tq
+cV
+Tq
+Tq
+Tq
+dD
+dD
+"}
+(38,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(39,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}
+(40,1,1) = {"
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+dD
+"}

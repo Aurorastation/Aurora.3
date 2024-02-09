@@ -2936,7 +2936,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/storage)
@@ -3953,7 +3953,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 1;
 	name = "Cargo Bay";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -4732,7 +4732,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Operations Hangar";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -12216,10 +12216,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"iBu" = (
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "iBL" = (
 /obj/item/material/shard{
 	icon_state = "medium"
@@ -25938,7 +25934,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Warehouse";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/unres{
@@ -30487,7 +30483,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/storage)

@@ -178,7 +178,7 @@
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
 
-	if(usr && HAS_FLAG(usr.mutations, HULK))
+	if(usr && (usr.mutations & HULK))
 		src.throwing = 2 // really strong throw!
 
 	var/dist_travelled = 0
@@ -284,7 +284,7 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in current_map.sealed_levels)
+	if(z in SSatlas.current_map.sealed_levels)
 		return
 
 	if(anchored)
@@ -293,7 +293,7 @@
 	if(!GLOB.universe.OnTouchMapEdge(src))
 		return
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
 		return
 
@@ -330,7 +330,7 @@
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
-	return current_map.get_transit_zlevel()
+	return SSatlas.current_map.get_transit_zlevel()
 
 // Returns the current scaling of the sprite.
 // Note this DOES NOT measure the height or width of the icon, but returns what number is being multiplied with to scale the icons, if any.

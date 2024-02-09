@@ -115,7 +115,10 @@ Class Procs:
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
 	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
-	var/processing_flags // Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
+
+	/// Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
+	var/processing_flags
+
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine

@@ -136,7 +136,7 @@
 		occupantData["name"] = occupant.name
 		var/displayed_stat = occupant.stat
 		var/blood_oxygenation = occupant.get_blood_oxygenation()
-		if(HAS_FLAG(occupant.status_flags, FAKEDEATH))
+		if((occupant.status_flags & FAKEDEATH))
 			displayed_stat = DEAD
 			blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
 		var/pulse_result

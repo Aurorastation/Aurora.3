@@ -43,7 +43,7 @@
 			warned_computerid = lookup_query.item[2]
 
 	var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_warnings (id, time, game_id, severity, reason, notes, ckey, computerid, ip, a_ckey, a_ip, a_computerid) VALUES (null, Now(), :game_id:, :warning_severity:, :warning_reason:, :warning_notes:, :warned_ckey:, :warned_computerid:, :warned_ip:, :a_ckey:, :a_ip:, :a_computerid:)")
-	insert_query.Execute(list("game_id" = game_id,"warning_severity" = warning_severity, "warning_reason" = warning_reason, "warning_notes" = warning_notes, "warned_ckey" = warned_ckey, "warned_computerid" = warned_computerid, "warned_ip" = warned_ip, "a_ckey" = ckey, "a_ip" = address, "a_computerid" = computer_id))
+	insert_query.Execute(list("game_id" = GLOB.round_id,"warning_severity" = warning_severity, "warning_reason" = warning_reason, "warning_notes" = warning_notes, "warned_ckey" = warned_ckey, "warned_computerid" = warned_computerid, "warned_ip" = warned_ip, "a_ckey" = ckey, "a_ip" = address, "a_computerid" = computer_id))
 
 	notes_add_sql(warned_ckey, "Warning added by [ckey], for: [warning_reason]. || Notes regarding the warning: [warning_notes].", src, warned_ip, warned_computerid)
 

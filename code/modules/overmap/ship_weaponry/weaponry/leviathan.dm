@@ -289,7 +289,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/leviathan_safeguard/LateInitialize()
-	if(current_map.use_overmap && !linked)
+	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
@@ -361,7 +361,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/leviathan_button/LateInitialize()
-	if(current_map.use_overmap && !linked)
+	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)

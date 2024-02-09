@@ -2,11 +2,14 @@
 	name = "Pirate Outpost"
 	id = "konyang_pirate"
 	description = "An outpost in the jungle home to a group of Konyang pirates."
+	spawn_weight = 1
+	spawn_cost = 2
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/pirate_outpost.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/konyang_pirate)
+
 
 /area/konyang_pirate_outpost
 	name = "Konyang Pirate Outpost"

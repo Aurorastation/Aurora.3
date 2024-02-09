@@ -26,7 +26,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/keycard_auth/LateInitialize()
-	if(current_map.use_overmap && !linked)
+	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)

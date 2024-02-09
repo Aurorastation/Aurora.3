@@ -18,12 +18,36 @@
   //
   // Refer to https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
-  "CHECK_FLAG": {
-    "prefix": ["CHECK_FLAG", "HAS_FLAG", "NOT_FLAG"],
-    "body": ["${1|HAS_FLAG,NOT_FLAG|}(${2:variable}, ${3:flag})"]
-  },
   "SET_FLAG": {
-    "prefix": ["SET_FLAG", "BITFLAG"],
-    "body": ["${1:variable} = BITFLAG(${2:flag_position})"]
+	"prefix": ["SET_FLAG"],
+	"body": ["${1:variable} = BITFLAG(${2:flag_position})"]
   },
+  "HAS_FLAG": {
+    "prefix": ["HAS_FLAG"],
+	"description": "Checks that a flag is set",
+    "body": ["(${1:variable} & ${2:flag})"]
+  },
+  "NOT_FLAG": {
+    "prefix": ["NOT_FLAG"],
+	"description": "Checks that a flag is NOT set",
+    "body": ["!(${1:variable} & ${2:flag})"]
+  },
+
+  //Bits-related snippets
+  "SET_BIT": {
+    "prefix": ["SET_BIT"],
+	"description": "Set bit at index BIT",
+    "body": ["(${1:variable} |= BITFLAG(${2:index}))"]
+  },
+  "CLEAR_BIT": {
+    "prefix": ["CLEAR_BIT"],
+	"description": "Unset bit at index BIT",
+    "body": ["(${1:variable}  &= ~BITFLAG(${2:index}))"]
+  },
+  "FLIP_BIT": {
+    "prefix": ["FLIP_BIT"],
+	"description": "Flip bit at index BIT",
+    "body": ["(${1:variable}  ^= BITFLAG(${2:index}))"]
+  },
+
 }

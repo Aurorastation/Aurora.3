@@ -331,3 +331,10 @@
 	icon_state = "wooden_platter"
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/custard_bowl
+	name = "custard bowl"
+	desc = "It smells tasty... Wait, why are you smelling it? It's trash!"
+	icon_state = "custard_bowl"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'

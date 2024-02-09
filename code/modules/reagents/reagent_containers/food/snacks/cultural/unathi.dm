@@ -101,7 +101,7 @@
 /obj/item/reagent_containers/food/snacks/bacon_stick
 	name = "eggpop"
 	desc = "A bacon wrapped boiled egg, conviently skewered on a wooden stick."
-	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "bacon_stick"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment/protein/egg = 1)
 	filling_color = "#FFFEE8"

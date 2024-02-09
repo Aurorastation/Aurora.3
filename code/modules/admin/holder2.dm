@@ -33,7 +33,7 @@ var/list/admin_datums = list()
 		qdel(src)
 		return
 
-	if (!current_map)
+	if (!SSatlas.current_map)
 		SSatlas.OnMapload(CALLBACK(src, PROC_REF(update_newscaster_sig)))
 	else
 		update_newscaster_sig()
@@ -68,7 +68,7 @@ var/list/admin_datums = list()
 
 /datum/admins/proc/update_newscaster_sig()
 	if (!admincaster_signature)
-		admincaster_signature = "[current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
+		admincaster_signature = "[SSatlas.current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
 
 /datum/admins/proc/toggle_aooc_mute_check()
 	aooc_mute = !aooc_mute
