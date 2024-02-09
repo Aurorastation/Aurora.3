@@ -409,3 +409,27 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/guitar
+	display_name = "guitar"
+	description = "A wooden musical instrument with six strings. This one looks like it may actually work."
+	path = /obj/item/device/synthesized_instrument/guitar
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
+/datum/gear/polyguitar
+	display_name = "polyguitar"
+	description = "An instrument for a more ass-kicking era."
+	path = /obj/item/device/synthesized_instrument/guitar/multi
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
+/datum/gear/violin
+	display_name = "violin"
+	description = "A wooden musical instrument with four strings and a bow, it is quite old."
+	path = /obj/item/device/synthesized_instrument/violin
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
+/datum/gear/trumpet
+	display_name = "Omnitrumpet"
+	description = "The Omnitrumptet series 400 with more than 30 sound samples and fully customizable high fidelity output provides the ultimate means to toot your own horn."
+	path = /obj/item/device/synthesized_instrument/trumpet
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
