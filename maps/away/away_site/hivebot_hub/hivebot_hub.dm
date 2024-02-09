@@ -112,3 +112,60 @@
 /obj/effect/shuttle_landmark/hivebot_hub/nav6
 	name = "Independent Supply Hub - Starboard Dock #3"
 	landmark_tag = "hivebot_nav6"
+
+// Unique Stuff
+/mob/living/simple_animal/hostile/hivebotbeacon/weakened
+	health = 100
+
+/obj/item/paper/hivebot_hub/diary1
+	name = "Diary Entry 2462-03-01"
+	desc = "A handwritten note."
+	info = "\
+		2463-03-01 <br>\
+		<br>\
+		<br>\
+		We just had our last big haul. Enough phoron to satisfy half of Elyra, if we so liked. <br>\
+		It cost the skipper a lot, I know. Sold off whatever was left of our shuttle for it. <br>\
+		No easy way off this tincan til it's sold. <br>\
+		But if we can sell this at a decent price, maybe it'll be over? <br>\
+		No more living on the edge of space. No more darkness, and silence, and worrying for the next buyer that'll find us. <br>\
+		I could go home. See grass again. Trees. Never realise how much you miss them. <br>\
+		Shit, this needs to work. <br>\
+		~ H.E.B.
+		"
+
+/obj/item/paper/hivebot_hub/diary2
+	name = "Diary Entry 2462-04-04"
+	desc = "A handwritten note."
+	info = "\
+		2463-04-04 <br>\
+		<br>\
+		<br>\
+		Starting to think. <br>\
+		I hate this place. I never realised, it never came to mind, how much I did. <br>\
+		It isn't going to get better, either. With everything happening home. News is rare, all depends on the relays. <br>\
+		But sometimes, we get it. And it's some new horrible shit. Civil war, they're calling it, now. <br>\
+		Feels like giving it credence. I guess it's really here. Glad I'm not there for it.<br>\
+		That make me a coward? Dunno. <br>\
+		~ H.E.B.
+		"
+
+/obj/item/paper/hivebot_hub/diary3
+	name = "Diary Entry 2462-04-05"
+	desc = "A handwritten note."
+	info = "\
+		2463-04-05 <br>\
+		<br>\
+		<br>\
+		Got a call, skipper just said. A buyer. Some merchant vessel, not much better on their luck than we are. <br>\
+		Price isn't great, but it's enough. No position to haggle. They'll be here in a couple of weeks. <br>\
+		Not sure if she wants to see me, after all this time. Soon, I'll find out. It'll all be over. <br>\
+		But, I think, after that? I'm moving. Or we're moving, maybe. <br>\
+		Biesel is too close. Xanu, maybe? Somewhere else? <br>\
+		I don't know. Glad this chapter of my life is over, at least. <br>\
+		Odd thing, though. Merchants say they've had some odd behaviour on their ship. Scratching in the walls. <br>\
+		Feels like something trying to get in. Or out. They say. <br>\
+		Last thing we need is xenofauna right now. Keeping my shorty near. <br>\
+		We can't lose that phoron. <br>\
+		~ H.E.B.
+		"
