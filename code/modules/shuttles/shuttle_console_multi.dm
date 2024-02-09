@@ -48,6 +48,6 @@
 		else if(our_shuttle.next_location == our_shuttle.home_waypoint)
 			if(our_shuttle.return_warning_cooldown < world.time)
 				our_shuttle.return_warning_cooldown = world.time + 60 SECONDS
-				tgui_alert(user, "If you return to base, you won't be able to return to [current_map.station_short]. Launch again if you're sure about this.", "Shuttle Control", list("Acknowledged."))
+				tgui_alert(user, "If you return to base, you won't be able to return to [SSatlas.current_map.station_short]. Launch again if you're sure about this.", "Shuttle Control", list("Acknowledged."))
 				return FALSE
 	return ..()

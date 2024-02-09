@@ -60,7 +60,7 @@
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
 	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer",
-		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager")
+		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager", "Security Personnel")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -109,17 +109,17 @@
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Investigator", "Security Personnel")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern", "Medical Personnel")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -156,17 +156,17 @@
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern", "Medical Personnel")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -177,13 +177,13 @@
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 	cost = 2
 
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
+	allowed_roles = list("Shaft Miner", "Xenoarchaeologist", "Operations Personnel", "Science Personnel")
 	cost = 2
 
 /datum/gear/accessory/polo
@@ -337,7 +337,7 @@
 /datum/gear/accessory/holobadge
 	display_name = "badge, holographic"
 	path = /obj/item/clothing/accessory/badge/holo
-	allowed_roles = list("Head of Security", "Investigator", "Warden", "Security Officer", "Security Cadet")
+	allowed_roles = list("Head of Security", "Investigator", "Warden", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/accessory/holobadge/New()
 	..()
@@ -349,12 +349,12 @@
 /datum/gear/accessory/officerbadge
 	display_name = "badge, officer"
 	path = /obj/item/clothing/accessory/badge/officer
-	allowed_roles = list("Security Officer")
+	allowed_roles = list("Security Officer", "Security Personnel")
 
 /datum/gear/accessory/wardenbadge
 	display_name = "badge, warden"
 	path = /obj/item/clothing/accessory/badge/warden
-	allowed_roles = list("Warden")
+	allowed_roles = list("Warden", "Security Personnel")
 
 /datum/gear/accessory/hosbadge
 	display_name = "badge, HoS"
@@ -364,7 +364,7 @@
 /datum/gear/accessory/detbadge
 	display_name = "badge, investigations"
 	path = /obj/item/clothing/accessory/badge/investigator
-	allowed_roles = list("Investigator")
+	allowed_roles = list("Investigator", "Security Personnel")
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"

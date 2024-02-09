@@ -8,7 +8,7 @@
 
 /datum/ghostspawner/human/ert/commando/New()
 	..()
-	welcome_message = "The order has been given - the [current_map.station_name] and its crew are to be wiped off the star-charts, by any means necessary."
+	welcome_message = "The order has been given - the [SSatlas.current_map.station_name] and its crew are to be wiped off the star-charts, by any means necessary."
 
 /datum/ghostspawner/human/ert/commando/leader
 	name = "Syndicate Commando Leader"

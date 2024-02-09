@@ -268,9 +268,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!IsJobAvailable(rank))
 		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
 		return 0
-	if(!(spawning_at in current_map.allowed_spawns))
-		to_chat(usr, SPAN_NOTICE("Spawn location [spawning_at] invalid for [current_map]. Defaulting to [current_map.default_spawn]."))
-		spawning_at = current_map.default_spawn
+	if(!(spawning_at in SSatlas.current_map.allowed_spawns))
+		to_chat(usr, SPAN_NOTICE("Spawn location [spawning_at] invalid for [SSatlas.current_map]. Defaulting to [SSatlas.current_map.default_spawn]."))
+		spawning_at = SSatlas.current_map.default_spawn
 
 	spawning = 1
 	close_spawn_windows()
@@ -332,7 +332,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [current_map.station_type]"].", "Arrivals Announcer")
+		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [SSatlas.current_map.station_type]"].", "Arrivals Announcer")
 
 /mob/abstract/new_player/proc/LateChoices()
 	if(!istype(late_choices_ui))

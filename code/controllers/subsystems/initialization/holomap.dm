@@ -64,7 +64,7 @@ SUBSYSTEM_DEF(holomap)
 	var/turf/T
 	var/area/A
 	var/Ttype
-	for (var/thing in Z_ALL_TURFS(zlevel))
+	for (var/thing in Z_TURFS(zlevel))
 		T = thing
 		A = T.loc
 		Ttype = T.type
@@ -93,7 +93,7 @@ SUBSYSTEM_DEF(holomap)
 
 	var/turf/T
 	var/area/A
-	for (var/thing in Z_ALL_TURFS(zlevel))
+	for (var/thing in Z_TURFS(zlevel))
 		T = thing
 		A = T.loc
 		if (A.holomap_color)
@@ -134,7 +134,7 @@ SUBSYSTEM_DEF(holomap)
 
 	var/turf/T
 	var/Ttype
-	for (var/thing in Z_ALL_TURFS(zlevel))
+	for (var/thing in Z_TURFS(zlevel))
 		T = thing
 		Ttype = T.type
 

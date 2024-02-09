@@ -47,7 +47,9 @@
 		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/hephaestus,
 		"Corporate Reporter" = /datum/outfit/job/journalist/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/hephaestus
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/hephaestus,
+		"Engineering Personnel" = /datum/outfit/job/engineer/hephaestus,
+		"Operations Personnel" = /datum/outfit/job/hangar_tech/hephaestus
 	)
 
 /datum/outfit/job/hangar_tech/hephaestus

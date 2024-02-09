@@ -1,3 +1,7 @@
+
+/// Exoplanet turfs try to take the atmos and area of the exoplanet they were spawned on,
+/// so that exoplanets have consistent atmosphere everywhere on the surface.
+/// If not located on an exoplanet, default or mapped in atmos is kept.
 /turf/simulated/floor/exoplanet
 	name = "space land"
 	icon = 'icons/turf/desert.dmi'
@@ -14,7 +18,8 @@
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
-	if(current_map.use_overmap)
+	// try to get the the atmos and area of the exoplanet
+	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
@@ -27,8 +32,7 @@
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
-		else
-			log_module_exoplanets("Simulated exoplanet turf NAME: [src.name] LOC [src.x]-[src.y]-[src.z] did not find any exoplanet to copy info from!")
+	// if not on an exoplanet, instead just keep the default or mapped in atmos
 	..()
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)
@@ -169,7 +173,7 @@
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E) && E.grass_color)
 			color = E.grass_color

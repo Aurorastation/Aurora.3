@@ -38,7 +38,7 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Begin the TCFL enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
@@ -111,14 +111,14 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the K'lax Hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the K'lax Hive to all [SSatlas.current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -137,6 +137,7 @@
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(H), slot_in_backpack)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
@@ -180,7 +181,7 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
@@ -188,7 +189,7 @@
 
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the C'thur Hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the C'thur Hive to all [SSatlas.current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -207,6 +208,7 @@
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_in_backpack)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE

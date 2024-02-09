@@ -315,7 +315,7 @@
 	if ((l_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (r_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (head?.item_flags & ITEM_FLAG_SOUND_PROTECTION))
 		return EAR_PROTECTION_MAJOR
 
-	if(istype(head, /obj/item/clothing/head/helmet) || HAS_FLAG(mutations, HULK))
+	if(istype(head, /obj/item/clothing/head/helmet) || (mutations & HULK))
 		. = EAR_PROTECTION_MODERATE
 
 	return max(EAR_PROTECTION_REDUCED, . - (get_hearing_sensitivity() / 2))
@@ -354,7 +354,7 @@
 	. = ..() - organs
 
 /mob/living/carbon/human/proc/pressure_resistant()
-	if(HAS_FLAG(mutations, COLD_RESISTANCE))
+	if((mutations & COLD_RESISTANCE))
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_PRESSURE_IMMUNITY))
 		return TRUE
