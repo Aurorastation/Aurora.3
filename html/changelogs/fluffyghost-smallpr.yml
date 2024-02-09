@@ -48,3 +48,4 @@ changes:
   - backend: "Added spawn gear unit test."
   - backend: "Modified some spawn gears that were abstract, marking them as abstract."
   - backend: "Some reordering in general for the spawn gears."
+  - tweak: "Attack message on atoms is only shown if you have harm intent."

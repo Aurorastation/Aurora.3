@@ -41,10 +41,10 @@ avoid code duplication. This includes items that may sometimes act as a standard
  * * params - Click params such as alt/shift etc
  */
 /atom/proc/attackby(obj/item/attacking_item, mob/user, params)
-	return
+	return FALSE
 
 /atom/movable/attackby(obj/item/attacking_item, mob/user, params)
-	if(!(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
+	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
 		visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item]."))
 
 /mob/living/attackby(obj/item/I, mob/user)
