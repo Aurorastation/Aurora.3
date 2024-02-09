@@ -208,6 +208,10 @@
 	},
 /turf/simulated/floor/lino,
 /area/konyang/garage)
+"jA" = (
+/obj/structure/girder,
+/turf/simulated/floor/asphalt,
+/area/konyang/garage)
 "jS" = (
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/asphalt,
@@ -1336,7 +1340,7 @@ vQ
 "}
 (16,1,1) = {"
 iL
-hI
+jA
 PQ
 wU
 cp
@@ -1398,7 +1402,7 @@ hI
 BP
 BP
 hI
-hI
+jA
 BP
 BP
 iL
