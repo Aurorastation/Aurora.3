@@ -57,6 +57,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "acp" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1130,11 +1134,8 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/representative_two)
 "aPR" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
+/obj/effect/shuttle_landmark/lift/operations_third_deck,
+/turf/simulated/open,
 /area/operations/office_aux)
 "aQk" = (
 /obj/machinery/door/firedoor,
@@ -1580,6 +1581,9 @@
 /area/tcommsat/chamber)
 "bbA" = (
 /obj/machinery/recharge_station,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
@@ -1810,6 +1814,9 @@
 /turf/simulated/floor/tiled/full,
 /area/bridge)
 "bkj" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -5501,22 +5508,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "eny" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/horizon/hallway/deck_three/primary/starboard)
+/turf/simulated/floor/tiled/full,
+/area/operations/office_aux)
 "enA" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/table/wood,
@@ -5669,9 +5665,6 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "erV" = (
@@ -7398,13 +7391,18 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "fxk" = (
+/obj/machinery/door/window/northleft,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/computer/shuttle_control/multi/lift/operations{
+	pixel_x = -27;
+	pixel_y = 16
 	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "fxm" = (
@@ -8903,8 +8901,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "gvG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /obj/machinery/light,
-/turf/simulated/open,
+/turf/simulated/floor/tiled/full,
 /area/operations/office_aux)
 "gvP" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -9821,6 +9822,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
 "hdq" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -9829,6 +9833,12 @@
 /obj/machinery/power/apc/low/north,
 /obj/structure/cable/green{
 	icon_state = "0-2"
+	},
+/obj/structure/sign/drop{
+	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
+	name = "\improper DANGER: FALLING HAZARD sign";
+	pixel_x = -48;
+	pixel_y = 32
 	},
 /obj/item/folder/yellow{
 	pixel_x = -2;
@@ -13083,10 +13093,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
-"jnj" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/full,
-/area/operations/office_aux)
 "jns" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -20696,6 +20702,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/upperdeck)
 "opw" = (
+/obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -21215,18 +21222,12 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "oIL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
@@ -22012,11 +22013,6 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
-"prh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
-/area/operations/office_aux)
 "psa" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -22108,7 +22104,18 @@
 /turf/simulated/floor/tiled/full,
 /area/bridge)
 "pwt" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/mining{
+	dir = 1;
+	req_one_access = list(26,29,31,48,67,70);
+	name = "Operations Bay"
+	},
 /turf/simulated/floor/tiled/full,
 /area/operations/office_aux)
 "pwL" = (
@@ -23574,21 +23581,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
-"qGg" = (
-/obj/machinery/door/airlock/mining{
-	dir = 1;
-	req_one_access = list(26,29,31,48,67);
-	name = "Operations Bay"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
-/area/operations/office_aux)
 "qGP" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/random/pottedplant,
@@ -25433,6 +25425,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -26084,16 +26077,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "snv" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
+/obj/machinery/door/window/northright,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 10
 	},
-/obj/structure/railing/mapped,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "soE" = (
@@ -30353,14 +30351,14 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "cargo_desk"
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/desk/southright{
 	name = "Operations Desk Interior Access";
 	req_access = list(50)
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "cargo_desk"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office_aux)
@@ -32544,6 +32542,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -33177,8 +33176,18 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "xon" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -47085,7 +47094,7 @@ hzU
 gzJ
 oWf
 aPR
-pwt
+svx
 fxk
 gvG
 rhm
@@ -47286,12 +47295,12 @@ heB
 vLH
 iSt
 oWf
-prh
-jnj
-snv
 svx
-hCi
-iya
+svx
+snv
+oRM
+pwt
+xAc
 xon
 mqJ
 vlC
@@ -47491,10 +47500,10 @@ oWf
 hdq
 acp
 oIL
-oRM
-qGg
-xAc
 eny
+hCi
+iya
+uOA
 iHj
 gqw
 rWG
