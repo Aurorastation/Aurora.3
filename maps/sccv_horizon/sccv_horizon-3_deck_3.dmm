@@ -32220,9 +32220,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "wGR" = (
-/obj/structure/closet/walllocker/medical/secure{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/item/storage/firstaid/large,
@@ -32231,6 +32228,9 @@
 /obj/item/reagent_containers/hypospray/autoinjector/dylovene,
 /obj/item/reagent_containers/hypospray/autoinjector/dylovene,
 /obj/item/storage/firstaid/o2,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wHl" = (
