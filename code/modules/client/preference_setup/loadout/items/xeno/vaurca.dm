@@ -21,17 +21,22 @@
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 
-/datum/gear/mask/vaurca_expression
-	display_name = "human expression mask"
+/datum/gear/mask/expression
+	display_name = "expression mask selection"
 	path = /obj/item/clothing/head/expression
 	cost = 1
+	slot = slot_head
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/mask/vaurca_expression/skrell
-	display_name = "skrell expression mask"
-	path = /obj/item/clothing/head/expression/skrell
+/datum/gear/mask/expression/New()
+	..()
+	var/list/masks = list()
+	masks["expression mask, human"] = /obj/item/clothing/head/expression
+	masks["expression mask, skrell"] = /obj/item/clothing/head/expression/skrell
+	masks["expression mask, unathi"] = /obj/item/clothing/head/expression/unathi
+	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/head/shaper
 	display_name = "shaper helmet"
@@ -170,7 +175,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/augment/language_processor
 	display_name = "language processor"
@@ -293,6 +298,6 @@
 	path = /obj/item/clothing/accessory/badge/passcard/tret
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
-	culture_restriction = /singleton/origin_item/culture/klax
+	culture_restriction = list(/singleton/origin_item/culture/klax)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

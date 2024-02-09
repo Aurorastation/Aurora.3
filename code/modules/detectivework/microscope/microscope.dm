@@ -85,16 +85,28 @@
 		info = "<b><font size=\"4\">Fingerprint analysis report #[report_print_num]</font></b><HR>"
 		info += "<b>Source locations:</b> "
 		info += "[english_list(card.source, "no sources were found", ", ", ", ", "")].<br><br>"
+
 		if(card.evidence && card.evidence.len)
 			info += "Surface analysis has determined unique fingerprint strings:<ul>"
-			for(var/prints in card.evidence)
+
+			//Get the list of all the COMPLETE fingerprints, use it to acquire the hidden ones, check if they are complete enough, if so show them
+			for(var/full_fingerprint in card.evidence)
+
+				//Acquire the partial fingerprint
+				var/partial_fingerprint = card.evidence[full_fingerprint]
+
 				info += "<li><b>Fingerprint string: </b>"
-				if(!is_complete_print(prints))
+
+				//If the fingerprint is complete enough, show the partial fingerprint
+				if(!is_complete_print(partial_fingerprint))
 					info += "INCOMPLETE PRINT"
 				else
-					info += "[prints]"
+					info += "[partial_fingerprint]"
+
 				info += "</li>"
+
 			info += "</ul>"
+
 		else
 			info += "No information available."
 

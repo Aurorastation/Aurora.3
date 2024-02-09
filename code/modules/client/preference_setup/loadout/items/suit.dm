@@ -542,3 +542,17 @@
 	display_name = "visegradi ponczo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable/ponczo
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/galatea_labcoat
+	display_name = "galatean labcoat"
+	description = "A labcoat design used by the Federal Technology of Galatea."
+	path = /obj/item/clothing/suit/storage/galatea_labcoat
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/galatea_labcoat/New()
+	..()
+	var/list/galatea_labcoat = list()
+	galatea_labcoat["galatean labcoat"] = /obj/item/clothing/suit/storage/galatea_labcoat
+	galatea_labcoat["galatean labcoat, alt"] = /obj/item/clothing/suit/storage/galatea_labcoat/alt
+	gear_tweaks += new /datum/gear_tweak/path(galatea_labcoat)

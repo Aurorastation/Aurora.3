@@ -10,6 +10,13 @@
 /obj/item/hullbeacon/red
 	name = "red hull beacon"
 	desc = "A light-emitting red hull beacon."
-	icon_state = "beacon_red_on"
+	icon_state = "beacon_green_on"
 	light_color = LIGHT_COLOR_RED
+	light_range = 3
+
+/obj/item/hullbeacon/green
+	name = "green hull beacon"
+	desc = "A light-emitting green hull beacon."
+	icon_state = "beacon_red_on"
+	light_color = LIGHT_COLOR_GREEN
 	light_range = 3

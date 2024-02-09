@@ -60,8 +60,10 @@
 	name = SECTOR_HANEUNIM
 	description = "Located in the northern Orion Spur, the Haneunim system is home to the planet Konyang - known for being one of the most pro-synthetic planets in the Spur, and the only place where synthetics have full and equal legal rights to humanity. Einstein Engines, Zeng-Hu Pharmaceuticals and Hephaestus Industries all have a major presence in this sector, and many vessels of desperate synthetics seek to find sanctuary from the wider Spur wihtin the borders of Konyang. A wealthy and prosperous system, Haneunim has endured a period of uncertainty - seceding from the Sol Alliance and joining the Coalition of Colonies in 2462, in the hope of protection from the Solarian warlords that plagued the region."
 	skybox_icon = "haneunim"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/konyang)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim, /obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung, /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu)
+	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/konyang)
 	cargo_price_coef = list("nt" = 1.1, "hpi" = 0.7, "zhu" = 0.4, "een" = 1.0, "get" = 1.1, "arz" = 1.8, "blm" = 0.9, "iac" = 1.2, "zsc" = 1.8, "vfc" = 0.9, "bis" = 0.4, "xmg" = 0.7, "npi" = 0.8)
+
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder

@@ -212,7 +212,7 @@
 	if(!.)
 		return FALSE
 
-	health_scan_mob(owner, owner)
+	health_scan_mob(owner, owner, TRUE, TRUE)
 
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"
@@ -496,8 +496,8 @@
 	cooldown = 8
 
 	var/taste_sensitivity = TASTE_NORMAL
-	var/action_verb = "licks"
-	var/self_action_verb = "lick"
+	var/action_verb = "samples"
+	var/self_action_verb = "sample"
 
 /obj/item/organ/internal/augment/gustatorial/attack_self(var/mob/user)
 	. = ..()
