@@ -70,14 +70,14 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	find_z_levels()     // This populates map_z and assigns z levels to the ship.
 	register_z_levels() // This makes external calls to update global z level information.
 
-	if(!current_map.overmap_z)
+	if(!SSatlas.current_map.overmap_z)
 		build_overmap()
 
 	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
 	tracked_dock_tags = flatten_list(tracked_dock_tags)
 
 	var/map_low = OVERMAP_EDGE
-	var/map_high = current_map.overmap_size - OVERMAP_EDGE
+	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
 	var/turf/home
 	if (place_near_main)
 		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
@@ -90,7 +90,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	else
 		start_x = start_x || rand(map_low, map_high)
 		start_y = start_y || rand(map_low, map_high)
-		home = locate(start_x, start_y, current_map.overmap_z)
+		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
 
 	if(!invisible_until_ghostrole_spawn)
 		forceMove(home)
@@ -143,13 +143,13 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	for(var/zlevel in map_z)
 		GLOB.map_sectors["[zlevel]"] = src
 
-	current_map.player_levels |= map_z
+	SSatlas.current_map.player_levels |= map_z
 	if(!in_space)
-		current_map.sealed_levels |= map_z
+		SSatlas.current_map.sealed_levels |= map_z
 	if(base)
-		current_map.station_levels |= map_z
-		current_map.contact_levels |= map_z
-		current_map.map_levels |= map_z
+		SSatlas.current_map.station_levels |= map_z
+		SSatlas.current_map.contact_levels |= map_z
+		SSatlas.current_map.map_levels |= map_z
 
 //Helper for init.
 /obj/effect/overmap/visitable/proc/check_ownership(obj/object)
@@ -236,26 +236,26 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	return
 
 /proc/build_overmap()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return 1
 
 	log_module_sectors("Building overmap...")
 	world.maxz++
-	current_map.overmap_z = world.maxz
+	SSatlas.current_map.overmap_z = world.maxz
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
-	log_module_sectors("Putting overmap on [current_map.overmap_z]")
+	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
 	var/area/overmap/A = new
 	global.map_overmap = A
-	for (var/square in block(locate(1,1,current_map.overmap_z), locate(current_map.overmap_size,current_map.overmap_size,current_map.overmap_z)))
+	for (var/square in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
 		var/turf/T = square
-		if(T.x == current_map.overmap_size || T.y == current_map.overmap_size)
+		if(T.x == SSatlas.current_map.overmap_size || T.y == SSatlas.current_map.overmap_size)
 			T = T.ChangeTurf(/turf/unsimulated/map/edge)
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
 		ChangeArea(T, A)
 
-	current_map.sealed_levels |= current_map.overmap_z
+	SSatlas.current_map.sealed_levels |= SSatlas.current_map.overmap_z
 
 	log_module_sectors("Overmap build complete.")
 	return 1

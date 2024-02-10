@@ -228,7 +228,7 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(HAS_FLAG(mutations, LASER_EYES) && a_intent == I_HURT)
+	if((mutations & LASER_EYES) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
 		return
 	A.attack_ranged(src, params)

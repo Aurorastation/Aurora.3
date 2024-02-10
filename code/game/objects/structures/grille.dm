@@ -88,7 +88,7 @@
 	if(shock(user, 70))
 		return
 
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK))
 		damage_dealt += 5
 	else
 		damage_dealt += 1

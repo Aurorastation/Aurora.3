@@ -130,7 +130,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 //Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK))
 		power *= 2
 	if(user.is_berserk())
 		power *= 1.5

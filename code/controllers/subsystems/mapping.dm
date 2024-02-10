@@ -16,8 +16,8 @@ SUBSYSTEM_DEF(mapping)
 	for(var/atype in subtypesof(/singleton/submap_archetype))
 		submap_archetypes[atype] = new atype
 
-	current_map.build_away_sites()
-	current_map.build_exoplanets()
+	SSatlas.current_map.build_away_sites()
+	SSatlas.current_map.build_exoplanets()
 
 	return SS_INIT_SUCCESS
 

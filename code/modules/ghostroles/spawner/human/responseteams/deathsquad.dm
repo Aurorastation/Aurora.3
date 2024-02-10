@@ -12,7 +12,7 @@
 
 /datum/ghostspawner/human/ert/deathsquad/New()
 	..()
-	welcome_message = "The [current_map.station_name] has been compromised. Recover SCC assets by any means necessary. Crew expendable."
+	welcome_message = "The [SSatlas.current_map.station_name] has been compromised. Recover SCC assets by any means necessary. Crew expendable."
 
 /datum/ghostspawner/human/ert/deathsquad/leader
 	name = "SCC Asset Protection Leader"

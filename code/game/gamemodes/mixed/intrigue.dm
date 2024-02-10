@@ -8,5 +8,5 @@
 	require_all_templates = 1
 
 /datum/game_mode/intrigue/pre_setup()
-	round_description = "Crewmembers are contacted by external elements while an outsider infiltrates the [current_map.station_type]."
+	round_description = "Crewmembers are contacted by external elements while an outsider infiltrates the [SSatlas.current_map.station_type]."
 	. = ..()

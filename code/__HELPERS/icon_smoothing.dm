@@ -528,7 +528,7 @@
 /proc/smooth_zlevel(var/zlevel, now = FALSE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	for(var/V in Z_ALL_TURFS(zlevel))
+	for(var/V in Z_TURFS(zlevel))
 		var/turf/T = V
 
 		//There's no use in smoothing turfs that have been deleted

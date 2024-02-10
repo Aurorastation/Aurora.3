@@ -52,7 +52,9 @@
 		"Medical Intern" = /datum/outfit/job/intern_med/pmc,
 		"Corporate Reporter" = /datum/outfit/job/journalist/pmc,
 		"Corporate Liaison" = /datum/outfit/job/representative/pmc,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/pmc
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/pmc,
+		"Security Personnel" = /datum/outfit/job/officer/pmc,
+		"Medical Personnel" = /datum/outfit/job/med_tech/pmc
 	)
 
 /datum/outfit/job/officer/pmc

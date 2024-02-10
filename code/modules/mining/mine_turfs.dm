@@ -90,7 +90,7 @@ var/list/mineral_can_smooth_with = list(
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -608,6 +608,10 @@ var/list/mineral_can_smooth_with = list(
 	icon = 'icons/turf/smooth/icy_wall.dmi'
 	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
+/turf/simulated/mineral/crystal
+	color = "#6fb1b5"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /**********************Asteroid**************************/
 
