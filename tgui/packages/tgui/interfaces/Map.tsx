@@ -1,6 +1,6 @@
 import { paginate } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
+import { Tabs, Slider, Section, NoticeBox, Table, LabeledList } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MapData = {
@@ -11,6 +11,7 @@ export type MapData = {
   station_levels: number[];
   z_override: number;
   dept_colors_map: { d: string; c: string }[];
+  pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
 
 export const Map = (props, context) => {
@@ -19,7 +20,7 @@ export const Map = (props, context) => {
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
     context,
     `minimapZoom`,
-    100
+    150
   );
 
   const [showLegend, setShowLegend] = useLocalState<boolean>(
@@ -27,6 +28,8 @@ export const Map = (props, context) => {
     `showLegend`,
     false
   );
+
+  const pois = data.pois?.filter((poi) => poi.z == data.user_z);
 
   const map_size = 255;
   const zoom_mod = minimapZoom / 100.0;
@@ -76,6 +79,11 @@ export const Map = (props, context) => {
                   </Table.Row>
                 ))}
               </Table>
+              <LabeledList>
+                {pois?.map((poi) => (
+                  <LabeledList.Item label={poi.name}>poi.desc</LabeledList.Item>
+                ))}
+              </LabeledList>
             </NoticeBox>
           ) : (
             ''
@@ -109,6 +117,30 @@ export const Map = (props, context) => {
                 height={map_size * zoom_mod}
                 xlinkHref={`data:image/jpeg;base64,${data.map_image}`}
               />
+              {pois?.map((poi) => (
+                <g
+                  transform={`translate(
+                  ${poi.x * zoom_mod}
+                  ${(map_size - poi.y) * zoom_mod}
+                )`}>
+                  <polygon
+                    points="3,0 0,3 -3,0 0,-3"
+                    fill="#AA0000"
+                    stroke="#FFFF00"
+                    stroke-width="0.5"
+                  />
+                  <text
+                    x={poi.x > data.user_x ? 3 : -3}
+                    y={poi.y > data.user_y ? -3 : 3}
+                    fill="#FF0000"
+                    stroke="#FFFF00"
+                    stroke-width="0.1"
+                    font-size="9"
+                    text-anchor={poi.x > data.user_x ? 'start' : 'end'}>
+                    {poi.name}
+                  </text>
+                </g>
+              ))}
               {!data.z_override || data.user_z === data.z_override ? (
                 <>
                   <polygon

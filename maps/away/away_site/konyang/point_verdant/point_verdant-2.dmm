@@ -712,6 +712,12 @@
 "bT" = (
 /turf/simulated/wall,
 /area/point_verdant/outdoors)
+"bU" = (
+/obj/effect/landmark/minimap_poi{
+	name = "waterport"
+	},
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 "bV" = (
 /obj/structure/utility_pole/street/on{
 	pixel_y = -3
@@ -2978,6 +2984,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/offices)
+"ip" = (
+/obj/effect/landmark/minimap_poi{
+	name = "police"
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/police)
 "iq" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/structure/flora/rock/konyang/water,
@@ -3705,6 +3717,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"ko" = (
+/obj/effect/landmark/minimap_poi{
+	name = "arcade"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/arcade)
 "kp" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -8717,6 +8735,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices)
+"xq" = (
+/obj/effect/landmark/minimap_poi{
+	name = "pharm"
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/pharmacy)
 "xr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -10412,6 +10436,12 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
+"Bx" = (
+/obj/effect/landmark/minimap_poi{
+	name = "beach"
+	},
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 "By" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner2"
@@ -10579,6 +10609,12 @@
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"BW" = (
+/obj/effect/landmark/minimap_poi{
+	name = "robo"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/robotics)
 "BX" = (
 /obj/effect/decal/road_marking/thin,
 /obj/effect/decal/road_marking/thin{
@@ -10610,6 +10646,12 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"Cb" = (
+/obj/effect/landmark/minimap_poi{
+	name = "cloth"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/tailor)
 "Cc" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/wood,
@@ -11199,6 +11241,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"DD" = (
+/obj/effect/landmark/minimap_poi{
+	name = "store"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/minimart)
 "DF" = (
 /obj/structure/closet/crate/bin/urban/compact{
 	pixel_y = 24
@@ -11894,6 +11942,15 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Fw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "hotel"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "Fx" = (
 /obj/structure/ledge/quarter{
 	dir = 8
@@ -13501,6 +13558,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/hotel)
+"JU" = (
+/obj/effect/landmark/minimap_poi{
+	name = "cafe"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/cafe)
 "JV" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -16333,6 +16396,12 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
+"Rh" = (
+/obj/effect/landmark/minimap_poi{
+	name = "corpo"
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "Ri" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom";
@@ -16392,6 +16461,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"Rs" = (
+/obj/effect/landmark/minimap_poi{
+	name = "bar"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/bar)
 "Rt" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -18099,6 +18174,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Wg" = (
+/obj/effect/landmark/minimap_poi{
+	name = "spaceport"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/spaceport)
 "Wh" = (
 /obj/structure/table/wood,
 /obj/item/pen/red{
@@ -18514,6 +18595,9 @@
 	},
 /obj/effect/decal/curb/corner{
 	dir = 4
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "gwok"
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
@@ -32733,7 +32817,7 @@ ci
 Jz
 ci
 Kw
-rB
+Rh
 BY
 iU
 Dc
@@ -32813,7 +32897,7 @@ ku
 Aw
 Qw
 IF
-IF
+Fw
 os
 Vb
 os
@@ -34579,7 +34663,7 @@ Ys
 OI
 vH
 Yf
-Yf
+ip
 pg
 ly
 fW
@@ -40455,7 +40539,7 @@ GM
 My
 Vp
 Oo
-Hh
+xq
 ak
 Hh
 fF
@@ -40488,7 +40572,7 @@ uO
 oF
 zt
 Yx
-Yx
+DD
 Yx
 Yx
 uO
@@ -40990,7 +41074,7 @@ gK
 ru
 dr
 ct
-ct
+BW
 ct
 DJ
 DS
@@ -45113,7 +45197,7 @@ BT
 yZ
 GZ
 HN
-zl
+JU
 qI
 zl
 zl
@@ -45358,7 +45442,7 @@ Jl
 mR
 mR
 kj
-LD
+Rs
 oV
 oV
 oV
@@ -49228,7 +49312,7 @@ nK
 uZ
 Ax
 NF
-uZ
+ko
 nl
 yT
 KN
@@ -49463,7 +49547,7 @@ zx
 Iq
 hL
 hL
-hL
+Cb
 hL
 Gw
 yd
@@ -50536,7 +50620,7 @@ md
 gx
 NU
 Yw
-Yw
+Wg
 XF
 hQ
 hQ
@@ -63113,7 +63197,7 @@ wQ
 wQ
 wQ
 wQ
-wQ
+bU
 wQ
 wQ
 wQ
@@ -69092,7 +69176,7 @@ wQ
 wQ
 wQ
 wQ
-wQ
+Bx
 wQ
 wQ
 wQ

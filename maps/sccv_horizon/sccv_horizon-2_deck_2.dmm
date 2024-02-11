@@ -133,6 +133,9 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "medbay"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "abR" = (
@@ -621,6 +624,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
+"apl" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "operations"
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "aqg" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8198,6 +8210,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "central ring"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "dPE" = (
@@ -14407,6 +14422,9 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "security"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
@@ -28022,6 +28040,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"mZI" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "science"
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/hallway)
 "nac" = (
 /obj/machinery/alarm/west,
 /obj/effect/floor_decal/corner/mauve{
@@ -50316,6 +50343,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"xvR" = (
+/obj/effect/landmark/minimap_poi{
+	name = "service"
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_two/fore)
 "xvZ" = (
 /obj/structure/table/standard,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -51086,6 +51119,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/chief)
+"xOl" = (
+/obj/effect/landmark/minimap_poi{
+	name = "engineering"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/lobby)
 "xOo" = (
 /turf/simulated/wall,
 /area/horizon/hydroponics/garden)
@@ -64316,7 +64355,7 @@ wPj
 hGE
 ciP
 kRZ
-kEY
+apl
 hQE
 nOS
 kRZ
@@ -70759,7 +70798,7 @@ wch
 wGh
 nge
 gPw
-gbT
+xOl
 hfm
 gII
 eMT
@@ -72220,7 +72259,7 @@ ayc
 ayc
 hwI
 kEK
-hMX
+xvR
 hww
 cWP
 pKz
@@ -78244,7 +78283,7 @@ mso
 hfv
 pZQ
 wEq
-rnA
+mZI
 bUN
 xdr
 tSJ

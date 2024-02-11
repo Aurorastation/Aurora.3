@@ -21,6 +21,9 @@ SUBSYSTEM_DEF(holomap)
 	/// Same as `minimaps_base64`, but does not discriminate between walls and paths.
 	var/list/minimaps_scan_base64 = list()
 
+	/// List of all `/obj/effect/landmark/minimap_poi`.
+	var/list/pois = list()
+
 /datum/controller/subsystem/holomap/Initialize()
 	generate_all_minimaps()
 	LOG_DEBUG("SSholomap: [minimaps.len] maps.")

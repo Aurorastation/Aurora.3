@@ -5556,6 +5556,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "intrepid hangar"
+	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "dTe" = (
@@ -12969,6 +12972,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
+"jbh" = (
+/obj/effect/landmark/minimap_poi{
+	name = "canary hangar"
+	},
+/turf/simulated/wall/r_wall,
+/area/hangar/canary)
 "jbm" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -28061,6 +28070,15 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"txK" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "spark hangar"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "txT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/dispenser,
@@ -50813,7 +50831,7 @@ tPr
 dNk
 jyX
 rcA
-oXD
+txK
 rBI
 nIP
 vFD
@@ -60555,7 +60573,7 @@ gPv
 dYf
 nNx
 ows
-pPV
+jbh
 bAM
 sxy
 keh
