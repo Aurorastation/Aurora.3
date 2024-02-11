@@ -63,10 +63,10 @@
 	if(drone_progress >= 100)
 		visible_message(SPAN_NOTICE("\The [src] voices a strident beep, indicating a drone chassis is prepared."))
 
-/obj/machinery/drone_fabricator/examine(mob/user)
+/obj/machinery/drone_fabricator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && GLOB.config.allow_drone_spawn && count_drones() < GLOB.config.max_maint_drones)
-		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>"))
+		. += SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>")
 
 /obj/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)
 	if(stat & NOPOWER)

@@ -84,14 +84,14 @@
 	// Good to go.
 	return TRUE
 
-/obj/item/computer_hardware/examine(var/mob/user)
+/obj/item/computer_hardware/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(damage > damage_failure)
-		to_chat(user, SPAN_DANGER("It seems to be severely damaged!"))
+		. += SPAN_DANGER("It seems to be severely damaged!")
 	else if(damage > damage_malfunction)
-		to_chat(user, SPAN_WARNING("It seems to be damaged!"))
+		. += SPAN_WARNING("It seems to be damaged!")
 	else if(damage)
-		to_chat(user, SPAN_WARNING("It seems to be slightly damaged."))
+		. += SPAN_WARNING("It seems to be slightly damaged.")
 
 // Damages the component. Contains necessary checks. Negative damage "heals" the component.
 /obj/item/computer_hardware/proc/take_damage(var/amount)

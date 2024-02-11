@@ -32,7 +32,8 @@
 			else
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
-/mob/living/carbon/human/examine(mob/user, distance, is_adjacent)
+/mob/living/carbon/human/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
 	var/skipitems = get_covered_clothes()
@@ -404,11 +405,10 @@
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\n[get_pronoun("He")] [pose]"
 
-	to_chat(user, msg.Join())
+	. += msg.Join()
+
 	if(Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
-
-	return TRUE
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)

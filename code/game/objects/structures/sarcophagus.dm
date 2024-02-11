@@ -7,12 +7,12 @@
 	anchored = 0
 	var/open = FALSE
 
-/obj/structure/sarcophagus/examine(mob/user)
+/obj/structure/sarcophagus/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!open)
-		to_chat(user, "\The [src]'s lid is closed shut.")
+		. += "\The [src]'s lid is closed shut."
 	else
-		to_chat(user, "\The [src]'s lid is open.")
+		. += "\The [src]'s lid is open."
 
 /obj/structure/sarcophagus/Initialize()
 	. = ..()

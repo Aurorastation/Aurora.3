@@ -43,12 +43,12 @@
 		to_chat(M, SPAN_WARNING("You pump [src], but the magazine is empty."))
 	update_icon()
 
-/obj/item/gun/launcher/grenade/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/launcher/grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("It has [get_ammo()] grenade\s remaining."))
+		. += SPAN_NOTICE("It has [get_ammo()] grenade\s remaining.")
 		if(chambered)
-			to_chat(user, SPAN_NOTICE("\A [chambered] is chambered."))
+			. += SPAN_NOTICE("\A [chambered] is chambered.")
 
 /obj/item/gun/launcher/grenade/proc/load(obj/item/grenade/G, mob/user)
 	if(!can_load_grenade_type(G, user))

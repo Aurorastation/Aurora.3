@@ -11,10 +11,10 @@
 	var/linked_beacon = FALSE // can't hold an actual beacon beclause storage code a shit
 	var/linked_beacon_uses = 3 // to hold the amount of uses the beacon had, storage code a shit.
 
-/obj/item/storage/bag/ore/examine(mob/user, distance, is_adjacent)
+/obj/item/storage/bag/ore/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent && linked_beacon)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> inside.")))
+		. += FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> inside."))
 
 /obj/item/storage/bag/ore/drone
 	// this used to be 400. The inventory system FUCKING DIED at this.

@@ -288,17 +288,17 @@
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
 
-/obj/item/gun/projectile/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/projectile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	if(jam_num)
-		to_chat(user, "<span class='warning'>It looks jammed.</span>")
+		. += "<span class='warning'>It looks jammed.</span>"
 	if(ammo_magazine)
-		to_chat(user, "It has \a [ammo_magazine] loaded.")
+		. += "It has \a [ammo_magazine] loaded."
 	if(suppressed)
-		to_chat(user, "It has a suppressor attached.")
-	to_chat(user, "Has [get_ammo()] round\s remaining.")
+		. += "It has a suppressor attached."
+	. += "Has [get_ammo()] round\s remaining."
 	return
 
 /obj/item/gun/projectile/get_ammo()

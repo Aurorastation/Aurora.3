@@ -79,23 +79,23 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/gun/custom_ka/examine(var/mob/user)
+/obj/item/gun/custom_ka/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(installed_upgrade_chip)
-		to_chat(user,"It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip].")
+		. += "It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip]."
 	else if(installed_barrel)
-		to_chat(user,"It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip.")
+		. += "It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip."
 	else if(installed_cell)
-		to_chat(user,"It is equipped with \the [installed_cell]. The assembly lacks a barrel installation.")
+		. += "It is equipped with \the [installed_cell]. The assembly lacks a barrel installation."
 
 	if(installed_barrel)
 		if(custom_name)
-			to_chat(user,"[custom_name] is written crudely in pen across the side, covering up the offical designation.")
+			. += "[custom_name] is written crudely in pen across the side, covering up the offical designation."
 		else
-			to_chat(user,"The official designation \"[official_name]\" is etched neatly on the side.")
+			. += "The official designation \"[official_name]\" is etched neatly on the side."
 
 	if(installed_cell)
-		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")
+		. += "It has <b>[get_ammo()]</b> shots remaining."
 
 /obj/item/gun/custom_ka/get_ammo()
 	if(!installed_cell || !installed_cell.stored_charge)

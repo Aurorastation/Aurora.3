@@ -15,12 +15,12 @@
 	if(!augment_type)
 		augment_type = new new_augment(src)
 
-/obj/item/device/augment_implanter/examine(mob/user)
+/obj/item/device/augment_implanter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(augment_type)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")))
+		. += FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel."))
 	else
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is spent.")))
+		. += FONT_SMALL(SPAN_WARNING("It is spent."))
 
 /obj/item/device/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
 	if(!proximity)

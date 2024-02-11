@@ -23,7 +23,7 @@
 	complexity = number_of_pins
 	. = ..()
 
-/obj/item/integrated_circuit/memory/storage/examine(mob/user)
+/obj/item/integrated_circuit/memory/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/i
 	for (i in 1 to outputs.len)
@@ -35,7 +35,7 @@
 				data = "[d]"
 		else if(!isnull(O.data))
 			data = O.data
-		to_chat(user, "\The [src] has [data] saved to address [i].")
+		. += "\The [src] has [data] saved to address [i]."
 
 /obj/item/integrated_circuit/memory/storage/do_work()
 	for(var/i = 1 to inputs.len)

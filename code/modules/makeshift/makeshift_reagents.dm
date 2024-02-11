@@ -29,10 +29,10 @@
 	. = ..()
 	create_reagents(180)
 
-/obj/structure/chemkit/examine(mob/user)
+/obj/structure/chemkit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(analyzer)
-		to_chat(user, SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C."))
+		. += SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C.")
 
 /obj/structure/chemkit/verb/phase_filter()
 	set name = "Set Phase Filter"

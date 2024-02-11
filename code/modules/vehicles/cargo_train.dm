@@ -248,16 +248,16 @@
 	else
 		return ..()
 
-/obj/vehicle/train/cargo/engine/examine(mob/user, distance)
+/obj/vehicle/train/cargo/engine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 
-	if(!istype(usr, /mob/living/carbon/human))
+	if(!ishuman(user))
 		return
 
-	to_chat(user, "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition.")
-	to_chat(user, "The charge meter reads [cell? round(cell.percent(), 0.01) : 0]%")
+	. += "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition."
+	. += "The charge meter reads [cell? round(cell.percent(), 0.01) : 0]%."
 
 /obj/vehicle/train/cargo/engine/CtrlClick(mob/user)
 	if(load && load != user)

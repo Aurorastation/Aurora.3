@@ -263,10 +263,10 @@
 		QDEL_NULL(explosive)
 	return ..()
 
-/obj/item/material/twohanded/spear/examine(mob/user)
+/obj/item/material/twohanded/spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(explosive)
-		to_chat(user, "It has \the [explosive] strapped to it.")
+		. += "It has \the [explosive] strapped to it."
 
 /obj/item/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
@@ -472,12 +472,12 @@
 
 	RemoveFuel(FuelToRemove)
 
-/obj/item/material/twohanded/chainsaw/examine(mob/user, distance, is_adjacent)
+/obj/item/material/twohanded/chainsaw/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel.")
+		. += "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel."
 		if(powered)
-			to_chat(user, SPAN_NOTICE("It is currently powered on."))
+			. += SPAN_NOTICE("It is currently powered on.")
 
 /obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()

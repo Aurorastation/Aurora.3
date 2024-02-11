@@ -17,10 +17,10 @@
 	//To update the icon based on the power cell charge we spawn with
 	update_icon()
 
-/obj/item/recharger_backpack/examine(mob/user)
+/obj/item/recharger_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(powersupply)
-		to_chat(user, SPAN_NOTICE("The backpack display shows that the installed power cell is at [round(powersupply.percent())]%."))
+		. += SPAN_NOTICE("The backpack display shows that the installed power cell is at [round(powersupply.percent())]%.")
 
 /obj/item/recharger_backpack/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/cell) && !powersupply)

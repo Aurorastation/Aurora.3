@@ -402,16 +402,14 @@
 	update_icon()
 	return
 
-
-/obj/machinery/door/examine(mob/user)
+/obj/machinery/door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(src.health < src.maxhealth / 4)
-		to_chat(user, SPAN_WARNING("\The [src] looks like it's about to break!"))
+		. += SPAN_WARNING("\The [src] looks like it's about to break!")
 	else if(src.health < src.maxhealth / 2)
-		to_chat(user, SPAN_WARNING("\The [src] looks seriously damaged!"))
+		. += SPAN_WARNING("\The [src] looks seriously damaged!")
 	else if(src.health < src.maxhealth * 3/4)
-		to_chat(user, SPAN_WARNING("\The [src] shows signs of damage!"))
-
+		. += SPAN_WARNING("\The [src] shows signs of damage!")
 
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
@@ -419,13 +417,11 @@
 	update_icon()
 	return
 
-
 /obj/machinery/door/emp_act(severity)
 	. = ..()
 
 	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
 		open()
-
 
 /obj/machinery/door/ex_act(severity)
 	var/bolted = 0

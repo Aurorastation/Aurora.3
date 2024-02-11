@@ -58,14 +58,13 @@ var/global/photo_count = 0
 			scribble = txt
 	..()
 
-/obj/item/photo/examine(mob/user, distance, is_adjacent)
+/obj/item/photo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		show(user)
-		to_chat(user, "<span class='notice'>[picture_desc]</span>")
+		. += "<span class='notice'>[picture_desc]</span>"
 	else
-		to_chat(user, "<span class='notice'>You are too far away to discern its contents.</span>")
-
+		. += "<span class='notice'>You are too far away to discern its contents.</span>"
 
 /obj/item/photo/proc/show(mob/user as mob)
 	send_rsc(user, img, "tmp_photo_[id].png")
@@ -150,10 +149,10 @@ var/global/photo_count = 0
 	var/icon_off = "camera_off"
 	var/size = 3
 
-/obj/item/device/camera/examine(mob/user, distance, is_adjacent)
+/obj/item/device/camera/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("It has <b>[pictures_left]</b> photos left."))
+		. += SPAN_NOTICE("It has <b>[pictures_left]</b> photos left.")
 
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"

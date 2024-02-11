@@ -589,9 +589,9 @@
 	var/credit_score = 5
 	var/species_tag = ""
 
-/obj/item/clothing/accessory/badge/passport/nralakk/examine(mob/user)
+/obj/item/clothing/accessory/badge/passport/nralakk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
+	. +=  SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score].")
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"

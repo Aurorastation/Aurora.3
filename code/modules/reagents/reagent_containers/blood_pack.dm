@@ -155,11 +155,10 @@
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/blood/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (distance <= 2 && vampire_marks)
-		to_chat(user, SPAN_WARNING("There are teeth marks on it."))
-	return
+		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
 
 /obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
 	..()

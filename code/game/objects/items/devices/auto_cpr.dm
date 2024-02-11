@@ -477,17 +477,17 @@
 	playsound(usr, 'sound/machines/click.ogg', 50)
 	update_icon()
 
-/obj/item/auto_cpr/examine(mob/user, distance, is_adjacent)
+/obj/item/auto_cpr/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!is_adjacent)
 		return
-	to_chat(user, SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"]."))
+	. += SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"].")
 	if(battery)
-		to_chat(user, SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge."))
+		. += SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge.")
 	if(tank)
-		to_chat(user, SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]"))
+		. += SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]")
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed."))
+		. += SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed.")
 
 #undef EPP

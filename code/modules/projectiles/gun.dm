@@ -664,24 +664,23 @@
 	suppressor = null
 	update_icon()
 
-/obj/item/gun/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	if(markings)
-		to_chat(user, SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock."))
+		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
 	if(needspin)
 		if(pin)
-			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
+			. += "\The [pin] is installed in the trigger mechanism."
 			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
 		else
-			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
+			. += "It doesn't have a firing pin installed, and won't fire."
 	if(firemodes.len > 1)
 		var/datum/firemode/current_mode = firemodes[sel_mode]
-		to_chat(user, "The fire selector is set to [current_mode.name].")
+		. += "The fire selector is set to [current_mode.name]."
 	if(has_safety)
-		to_chat(user, "The safety is [safety() ? "on" : "off"].")
-	return TRUE
+		. += "The safety is [safety() ? "on" : "off"]."
 
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)

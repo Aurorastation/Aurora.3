@@ -223,11 +223,11 @@ var/global/list/breach_burn_descriptors = list(
 
 	..()
 
-/obj/item/clothing/suit/space/examine(mob/user)
+/obj/item/clothing/suit/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
-			to_chat(user, "<span class='danger'>It has \a [B.descriptor].</span>")
+			. += "<span class='danger'>It has \a [B.descriptor].</span>"
 
 /obj/item/clothing/suit/space/get_pressure_weakness(pressure)
 	. = ..()

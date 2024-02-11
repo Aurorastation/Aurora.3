@@ -535,29 +535,29 @@
 	if (!mapload)
 		addtimer(CALLBACK(src, PROC_REF(update)), 5, TIMER_UNIQUE)
 
-/obj/machinery/power/apc/examine(mob/user, distance, is_adjacent)
+/obj/machinery/power/apc/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		if(stat & BROKEN)
-			to_chat(user, "Looks broken.")
+			. += SPAN_WARNING("It looks broken.")
 			return
 		if(opened)
 			if(has_electronics && terminal)
-				to_chat(user, "The cover is [opened==COVER_REMOVED?"removed":"open"] and the power cell is [ cell ? "installed" : "missing"].")
+				. += "The cover is [opened==COVER_REMOVED?"removed":"open"] and the power cell is [ cell ? "installed" : "missing"]."
 			else if (has_electronics == HAS_ELECTRONICS_NONE && terminal)
-				to_chat(user, "There are some wires but not any electronics.")
+				. += "There are some wires but not any electronics."
 			else if (has_electronics != HAS_ELECTRONICS_NONE && !terminal)
-				to_chat(user, "Electronics are installed but not wired.")
+				. += "Electronics are installed but not wired."
 			else /* if (has_electronics == HAS_ELECTRONICS_NONE && !terminal) */
-				to_chat(user, "There are no electronics nor connected wires.")
+				. += "There are no electronics nor connected wires."
 
 		else
 			if (stat & MAINT)
-				to_chat(user, "The cover is closed. Something wrong with it: it doesn't work.")
+				. += SPAN_WARNING("The cover is closed. Something wrong with it: it doesn't work.")
 			else if (hacker)
-				to_chat(user, "The cover is locked.")
+				. += "The cover is locked."
 			else
-				to_chat(user, "The cover is closed.")
+				. += "The cover is closed."
 
 
 // update the APC icon to show the three base states

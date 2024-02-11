@@ -24,27 +24,27 @@
 	. = ..()
 	AddComponent(/datum/component/base_name, name)
 
-/obj/item/reagent_containers/glass/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/glass/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))
+		. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent.")
 		for(var/_T in reagents.reagent_volumes)
 			var/singleton/reagent/T = GET_SINGLETON(_T)
 			if(T.reagent_state == LIQUID)
-				to_chat(user, SPAN_NOTICE("You see something liquid in the beaker."))
+				. += SPAN_NOTICE("You see something liquid in the beaker.")
 				break // to stop multiple messages of this
 			if(T.reagent_state == GAS)
-				to_chat(user, SPAN_NOTICE("You see something gaseous in the beaker."))
+				. += SPAN_NOTICE("You see something gaseous in the beaker.")
 				break
 			if(T.reagent_state == SOLID)
-				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
+				. += SPAN_NOTICE("You see something solid in the beaker.")
 				break
 	else
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 	if(!is_open_container())
-		to_chat(user, SPAN_NOTICE("An airtight lid seals it completely."))
+		. += SPAN_NOTICE("An airtight lid seals it completely.")
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()

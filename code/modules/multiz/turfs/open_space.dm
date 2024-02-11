@@ -207,13 +207,13 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
-/turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix)
+/turf/simulated/open/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
 		var/depth = 1
 		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
 			depth += 1
-		to_chat(user, "It is about [depth] level\s deep.")
+		. += "It is about [depth] level\s deep."
 
 
 /turf/simulated/open/is_open()

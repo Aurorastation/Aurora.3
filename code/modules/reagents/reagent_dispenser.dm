@@ -21,11 +21,11 @@
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 		desc_info = ""
 
-/obj/structure/reagent_dispensers/examine(mob/user, distance, is_adjacent)
+/obj/structure/reagent_dispensers/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
-	to_chat(user,"<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>")
+	. += "<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>"
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -128,14 +128,14 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/examine(mob/user, distance, is_adjacent)
+/obj/structure/reagent_dispensers/fueltank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if (is_leaking)
-		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")
+		. += "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
 	if(rig)
-		to_chat(user, "<span class='notice'>There is some kind of device rigged to the tank.</span>")
+		. += "<span class='notice'>There is some kind of device rigged to the tank.</span>"
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
 	if (rig)

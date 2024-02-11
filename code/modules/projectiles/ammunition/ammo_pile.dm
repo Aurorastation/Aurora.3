@@ -27,10 +27,10 @@
 			add_ammo(C)
 	addtimer(CALLBACK(src, PROC_REF(check_ammo)), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
 
-/obj/item/ammo_pile/examine(mob/user, distance, is_adjacent)
+/obj/item/ammo_pile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("It contains [length(ammo)] rounds."))
+		. += SPAN_NOTICE("It contains [length(ammo)] rounds.")
 
 /obj/item/ammo_pile/attack()
 	return

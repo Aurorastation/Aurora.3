@@ -55,9 +55,9 @@
 			return TRUE
 		return cable.attackby(O, user)
 
-/obj/machinery/cablelayer/examine(mob/user)
+/obj/machinery/cablelayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "\The [src]'s cable reel has [cable.amount] length\s left.")
+	. += SPAN_NOTICE("\The [src]'s cable reel has [cable.amount] length\s left.")
 
 /obj/machinery/cablelayer/proc/load_cable(var/obj/item/stack/cable_coil/CC)
 	if(istype(CC) && CC.amount)

@@ -74,10 +74,10 @@
 			extra_examine_info = "The braincase is sealed and ready for use. The only thing that will undo the seal is a circular saw, and that will destroy the brain inside."
 	update_icon()
 
-/obj/item/device/mmi/examine(mob/user, distance)
+/obj/item/device/mmi/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(extra_examine_info)
-		to_chat(user, SPAN_NOTICE(extra_examine_info))
+		. += SPAN_NOTICE(extra_examine_info)
 
 /obj/item/device/mmi/attackby(obj/item/I, mob/user)
 	switch(cradle_state)

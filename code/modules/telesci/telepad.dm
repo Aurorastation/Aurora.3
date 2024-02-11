@@ -121,9 +121,9 @@
 	var/emagged = 0
 	var/teleporting = 0
 
-/obj/item/rcs/examine(mob/user)
+/obj/item/rcs/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "There are [rcharges] charge\s left.")
+	. += "There are [rcharges] charge\s left."
 
 /obj/item/rcs/process()
 	if(rcharges > 10)

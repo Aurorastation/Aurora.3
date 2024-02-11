@@ -850,12 +850,12 @@
 		emagged = TRUE
 		update_icon()
 
-/obj/item/lazarus_injector/examine(mob/user)
+/obj/item/lazarus_injector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!loaded)
-		to_chat(user, SPAN_INFO("\The [src] is empty."))
+		. += SPAN_INFO("\The [src] is empty.")
 	if(malfunctioning || emagged)
-		to_chat(user, SPAN_INFO("The display on \the [src] seems to be flickering."))
+		. += SPAN_INFO("The display on \the [src] seems to be flickering.")
 
 /**********************Point Transfer Card**********************/
 
@@ -876,9 +876,9 @@
 			to_chat(user, SPAN_INFO("There's no points left on \the [src]."))
 	..()
 
-/obj/item/card/mining_point_card/examine(mob/user)
+/obj/item/card/mining_point_card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("There's [points] point\s on the card."))
+	. += SPAN_NOTICE("There's [points] point\s on the card.")
 
 /**********************"Fultons"**********************/
 
@@ -896,9 +896,9 @@ var/list/total_extraction_beacons = list()
 	var/uses_left = 3
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
-/obj/item/extraction_pack/examine(mob/user)
+/obj/item/extraction_pack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("It has [uses_left] uses remaining."))
+	. += SPAN_NOTICE("It has [uses_left] uses remaining.")
 
 /obj/item/extraction_pack/attack_self(mob/user)
 	var/list/possible_beacons = list()

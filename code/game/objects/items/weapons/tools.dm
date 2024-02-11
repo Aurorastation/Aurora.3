@@ -339,10 +339,10 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+/obj/item/weldingtool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
-		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
+		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
@@ -795,10 +795,10 @@
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
-/obj/item/combitool/examine(var/mob/user)
+/obj/item/combitool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
+		. += "It has the following fittings: <b>[english_list(tools)]</b>."
 
 /obj/item/combitool/iswrench()
 	return current_tool == "wrench"
@@ -854,12 +854,12 @@
 /obj/item/powerdrill/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "S")
 
-/obj/item/powerdrill/examine(var/mob/user)
+/obj/item/powerdrill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings:")
+		. += "It has the following fittings:"
 		for(var/tool in tools)
-			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+			. += "- [tool][tools[current_tool] == tool ? " (selected)" : ""]"
 
 /obj/item/powerdrill/MouseEntered(location, control, params)
 	. = ..()

@@ -39,15 +39,15 @@
 	add_overlay("cell-o2")
 	add_overlay("[icon_state]-o[charge_level]")
 
-/obj/machinery/cell_charger/examine(mob/user, distance, is_adjacent)
+/obj/machinery/cell_charger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 5)
-		return TRUE
+		return
 
 	if(charging)
-		to_chat(user, "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%.")
+		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
 	else
-		to_chat(user, SPAN_WARNING("The charger is empty."))
+		. += SPAN_WARNING("The charger is empty.")
 
 /obj/machinery/cell_charger/attackby(obj/item/W, mob/user)
 	if(stat & BROKEN)

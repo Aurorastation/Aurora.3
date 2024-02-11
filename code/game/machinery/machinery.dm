@@ -170,10 +170,10 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/examine(mob/user, distance, is_adjacent)
+/obj/machinery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(signaler && is_adjacent)
-		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing

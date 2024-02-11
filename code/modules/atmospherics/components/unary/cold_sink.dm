@@ -181,7 +181,7 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/freezer/examine(mob/user)
+/obj/machinery/atmospherics/unary/freezer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(panel_open)
-		to_chat(user, "The maintenance hatch is open.")
+		. += "The maintenance hatch is open."
