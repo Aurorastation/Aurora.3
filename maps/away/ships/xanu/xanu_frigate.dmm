@@ -759,6 +759,7 @@
 "do" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
 "dq" = (
@@ -1321,6 +1322,7 @@
 "fi" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "fj" = (
@@ -1682,6 +1684,10 @@
 "gH" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass{
+	name = "Docking Port Access";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "gI" = (
@@ -2588,6 +2594,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Docking Port Access";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "kl" = (
@@ -2623,6 +2634,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Docking Port Access";
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
@@ -3027,6 +3043,7 @@
 "mo" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "mp" = (
@@ -3201,7 +3218,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "na" = (
@@ -3250,6 +3269,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Docking Port Access";
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
@@ -3602,6 +3626,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 5
+	},
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
@@ -4017,6 +4044,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Docking Port Access";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
 "pK" = (
@@ -4302,7 +4334,11 @@
 /obj/machinery/atmospherics/binary/pump/fuel/on{
 	dir = 1;
 	name = "Fuel Line to Refill Connector";
-	target_pressure = 5000
+	target_pressure = 15000
+	},
+/obj/machinery/door/airlock/glass{
+	name = "Docking Port Access";
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
@@ -5484,6 +5520,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/glass{
+	name = "Docking Port Access";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "vp" = (
@@ -5946,6 +5986,7 @@
 	dir = 8
 	},
 /obj/structure/closet/walllocker/emerglocker/north,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
 "xt" = (
@@ -6540,9 +6581,6 @@
 /area/ship/xanu_frigate/cargo_bay)
 "zA" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
-/obj/structure/sign/flag/xanu/large/north{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
@@ -8243,6 +8281,11 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Docking Port Access";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "FT" = (
@@ -8584,6 +8627,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass{
+	name = "Docking Port Access";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "Hn" = (
@@ -8763,13 +8810,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/hangar)
 "HP" = (
-/obj/machinery/alarm/west,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/crew_quarters)
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "HS" = (
 /obj/machinery/door/airlock/glass_service{
 	req_access = list(222);
@@ -9905,6 +9950,9 @@
 /obj/item/soap/space_soap,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothbrush/red,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/crew_quarters)
 "LP" = (
@@ -10801,6 +10849,7 @@
 	dir = 9
 	},
 /obj/structure/closet/walllocker/emerglocker/east,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "Po" = (
@@ -10907,15 +10956,15 @@
 /area/ship/xanu_frigate/eva)
 "PN" = (
 /obj/structure/closet/secure_closet/personal,
-/obj/structure/sign/flag/coalition/large/north{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/item/towel/random,
+/obj/structure/sign/flag/xanu/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "PS" = (
@@ -10988,6 +11037,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Docking Port Access";
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
@@ -11994,6 +12048,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "TU" = (
@@ -13316,7 +13371,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
 "YC" = (
-/obj/structure/sign/flag/xanu/large/north{
+/obj/structure/sign/flag/coalition/large/north{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -32397,7 +32452,7 @@ Fc
 Dk
 wj
 jK
-HP
+jK
 jK
 kh
 KP
@@ -37211,7 +37266,7 @@ TU
 PS
 NO
 xN
-PS
+HP
 CF
 Ne
 Bk
