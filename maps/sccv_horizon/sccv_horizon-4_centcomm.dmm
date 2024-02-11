@@ -38978,12 +38978,16 @@
 /area/horizon/holodeck/source_emptycourt)
 "pgL" = (
 /obj/structure/table/rack,
-/obj/item/device/versebook/trinary,
-/obj/item/device/versebook/trinary,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
 	icon_state = "corner_white"
 	},
+/obj/item/device/versebook/trinary,
+/obj/item/device/versebook/trinary,
+/obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "pic" = (
@@ -39336,13 +39340,13 @@
 	},
 /obj/item/clothing/mask/trinary_mask,
 /obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
 /obj/item/flame/candle{
 	pixel_x = 6
 	},
 /obj/item/flame/candle{
 	pixel_x = -6
 	},
-/obj/item/clothing/mask/trinary_mask,
 /turf/simulated/floor/bluegrid,
 /area/horizon/holodeck/source_trinary)
 "qHU" = (
