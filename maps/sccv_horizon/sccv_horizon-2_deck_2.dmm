@@ -1119,10 +1119,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "axL" = (
-/obj/machinery/light/small,
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/obj/item/stack/material/wood/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/bronze/full,
+/obj/structure/closet/crate{
+	name = "Cremation Urn Materials"
+	},
+/obj/machinery/light,
+/obj/item/stack/material/glass/full,
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "axS" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -2359,10 +2365,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "aYI" = (
 /obj/structure/bed/stool/chair/padded/purple{
@@ -5933,17 +5936,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "cKc" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Chapel Storage";
 	dir = 4
 	},
-/obj/structure/table/wood,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
-/turf/simulated/floor/wood,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "cKg" = (
 /obj/machinery/vending/hydronutrients,
@@ -7236,14 +7237,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "dqs" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
 /obj/structure/closet/crate/coffin,
 /obj/structure/closet/crate/coffin{
 	pixel_y = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "dqy" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -25104,15 +25102,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "lMi" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
 /obj/structure/closet/wardrobe/chaplain_black,
 /obj/item/storage/box/fancy/crayons,
 /obj/item/reagent_containers/food/drinks/bottle/holywater,
 /obj/item/reagent_containers/spray/aspergillum,
 /obj/item/nullrod/obsidianshards,
-/turf/simulated/floor/wood,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "lMm" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -25276,10 +25273,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_room/rust)
 "lQn" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "lRe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -28256,21 +28250,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
-"nfL" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/wood,
-/area/chapel/office)
 "nfN" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -40925,14 +40904,18 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "toe" = (
-/obj/structure/closet/crate/coffin,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+/obj/structure/morgue/crematorium{
+	_wifi_id = "chapel_crema"
 	},
-/obj/structure/closet/crate/coffin{
-	pixel_y = 4
+/obj/machinery/button/switch/crematorium{
+	_wifi_id = "chapel_crema";
+	dir = 4;
+	pixel_x = 20;
+	pixel_y = 8;
+	req_access = null
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/chapel/office)
 "toA" = (
 /obj/structure/table/standard,
@@ -42304,10 +42287,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "tWH" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -68778,7 +68759,7 @@ xjH
 oCz
 tDl
 lQn
-nfL
+aYE
 axL
 fol
 fol
