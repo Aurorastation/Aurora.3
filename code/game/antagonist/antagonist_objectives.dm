@@ -36,8 +36,6 @@
  * Only to be called as a verb, not programmatically
  */
 /mob/living/proc/write_ambition()
-	SHOULD_NOT_SLEEP(TRUE)
-
 	set name = "Set Ambition"
 	set category = "IC"
 
