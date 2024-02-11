@@ -1,0 +1,6 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed incorrect transparency on shuttle cockpits."
