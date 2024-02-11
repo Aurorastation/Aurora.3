@@ -550,6 +550,13 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"awF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "awJ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos/propulsion/starboard)
@@ -919,10 +926,6 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint)
-"aKG" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "aLc" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "4,13"
@@ -975,15 +978,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
-"aMI" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "aNc" = (
 /obj/structure/closet/emcloset,
 /obj/item/storage/toolbox/emergency,
@@ -1097,6 +1091,19 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"aQE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "aQN" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/bluegrid,
@@ -1428,18 +1435,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bax" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1;
-	use_power = 1;
-	name = "emergency outlet injector";
-	volume_rate = 700
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "baS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2084,12 +2079,6 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
-"byX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/engineering/atmos/propulsion/starboard)
 "bzc" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/ship_weapon_dummy/barrel,
@@ -2875,10 +2864,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
-"caq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/engineering/atmos/propulsion)
 "caN" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/lime/full,
@@ -3366,6 +3351,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/operations_lift)
+"ctc" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion/starboard)
 "cty" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -3531,6 +3522,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
+"cwP" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "cxc" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "2,10";
@@ -5030,6 +5025,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"dzA" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "dAI" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -6019,9 +6018,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "ekT" = (
@@ -6069,6 +6065,12 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"emU" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion)
 "enh" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -6199,12 +6201,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
-"eqo" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "eqs" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -6540,7 +6536,7 @@
 /area/maintenance/research_port)
 "eBj" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 10
+	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
@@ -8324,17 +8320,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
-"fJK" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner_wide/black{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "fJR" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -8566,12 +8551,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"fQL" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/engineering/atmos/propulsion)
 "fQZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -9063,16 +9042,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "gdP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
 	},
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "gdR" = (
@@ -9737,6 +9711,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
+"gBv" = (
+/obj/machinery/atmospherics/valve{
+	dir = 4;
+	name = "Emergency Propellant Line Evacuation"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "gBw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -10495,10 +10477,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"hgc" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "hgn" = (
 /obj/machinery/atmospherics/unary/heater{
 	dir = 1
@@ -11763,7 +11741,7 @@
 /area/shuttle/canary)
 "iei" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out_starboardthruster";
 	sensors = list("ph_sensor"="Tank")
@@ -12696,7 +12674,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 6
 	},
-/obj/machinery/computer/security/engineering,
+/obj/machinery/computer/security/engineering/terminal,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "iOn" = (
@@ -13031,7 +13009,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 10
 	},
-/obj/machinery/computer/security/engineering,
+/obj/machinery/computer/security/engineering/terminal,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "jbm" = (
@@ -13744,16 +13722,13 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "jyY" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1;
-	use_power = 1;
-	name = "emergency outlet injector";
-	volume_rate = 700
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "jzw" = (
 /turf/simulated/wall/shuttle/scc,
@@ -13871,10 +13846,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"jDI" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "jDU" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -14524,6 +14495,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/atmos_compartment)
+"kdD" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/atmos/propulsion/starboard)
 "kdE" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -14678,14 +14655,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "kka" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/valve{
+	dir = 4;
+	name = "Emergency Propellant Line Evacuation"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
+/area/engineering/atmos/propulsion/starboard)
 "kki" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -15086,12 +15063,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
-"kxa" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "kxk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	layer = 2.8
@@ -15571,6 +15542,10 @@
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
+"kKT" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/atmos/propulsion)
 "kLb" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15902,6 +15877,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"kXv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/atmos/propulsion)
 "kXw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -15944,12 +15925,6 @@
 /obj/structure/shuttle_part/scc/mining,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
-"laE" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "laX" = (
 /obj/structure/window/shuttle/unique/scc/scout{
 	icon_state = "3,5"
@@ -16871,13 +16846,13 @@
 	dir = 6
 	},
 /obj/machinery/light,
-/obj/machinery/computer/general_air_control/large_tank_control{
-	frequency = 1442;
-	input_tag = "port_prop_in";
-	output_tag = "port_prop_out";
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("port_prop_sensor"="Port Propulsion Sensor");
-	dir = 8;
-	name = "Port Propulsion Control Console"
+	output_tag = "port_prop_out";
+	frequency = 1442;
+	name = "Port Propulsion Control Console";
+	input_tag = "port_prop_in";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -17678,14 +17653,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
-"mjl" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4;
-	name = "Emergency Propellant Line Evacuation"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "mjG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -18952,6 +18919,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"nal" = (
+/obj/machinery/atmospherics/valve{
+	dir = 4;
+	name = "Equalization Valve"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "nar" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/structure/cable/green{
@@ -19836,6 +19811,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"nCi" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/atmos/propulsion/starboard)
 "nCC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -20108,15 +20089,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
-"nOz" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "nOM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -20229,13 +20201,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
-"nRl" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos/propulsion)
 "nRy" = (
 /turf/simulated/wall,
 /area/horizon/hydroponics/lower)
@@ -21050,6 +21015,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"oxw" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "oxP" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -21098,6 +21072,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"oyX" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "ozx" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -21343,6 +21326,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"oIk" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/atmos/propulsion/starboard)
 "oIO" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -21949,6 +21938,18 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"pgz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	use_power = 1;
+	name = "emergency outlet injector";
+	volume_rate = 700
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion)
 "pgW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -23037,7 +23038,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Hydrogen Supply Monitor";
 	output_tag = "H2_out_portthruster";
 	sensors = list("h_sensor"="Tank")
@@ -23457,15 +23458,6 @@
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"qfD" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/valve{
-	dir = 4;
-	name = "Emergency Propellant Line Evacuation"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "qfH" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 5
@@ -23963,6 +23955,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"qvX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "qwr" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -24359,6 +24355,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
+"qMl" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "qMH" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, escape pods"
@@ -24978,10 +24983,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
-"rhP" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "riF" = (
 /obj/structure/grille/broken,
 /obj/item/material/shard{
@@ -25415,6 +25416,15 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"rwV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "rwY" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -26753,7 +26763,7 @@
 /area/engineering/atmos/propulsion)
 "swD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out_portthruster";
 	sensors = list("ph_sensor"="Tank")
@@ -27306,14 +27316,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/stairwell/central)
-"sRB" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4;
-	name = "Equalization Valve"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "sRM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -27324,10 +27326,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
-"sRQ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "sRX" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/door/blast/shutters/open{
@@ -28497,12 +28495,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"tIb" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 6
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/engineering/atmos/propulsion/starboard)
 "tIz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -28561,18 +28553,21 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"tJh" = (
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 5
-	},
-/obj/machinery/meter,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "tJq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
+"tJK" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -28733,6 +28728,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"tQD" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "tQM" = (
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
@@ -30529,7 +30528,7 @@
 /area/hangar/intrepid)
 "uZU" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 10
+	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
@@ -30608,6 +30607,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
+"vcD" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion)
 "vcF" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
@@ -30814,6 +30819,13 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"viO" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion)
 "viX" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmospherics Tanks 5";
@@ -31255,6 +31267,18 @@
 	icon_state = "7,25"
 	},
 /area/shuttle/intrepid/engine_compartment)
+"vwz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	use_power = 1;
+	name = "emergency outlet injector";
+	volume_rate = 700
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion/starboard)
 "vwT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/reinforced,
@@ -31695,10 +31719,8 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "vRX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "vSF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -31878,10 +31900,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"vXX" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "vYV" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -32068,13 +32086,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
-	frequency = 1442;
-	input_tag = "starboard_prop_in";
-	output_tag = "starboard_prop_out";
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("starboard_prop_sensor"="Starboard  Propulsion  Sensor");
-	dir = 4;
-	name = "Starboard Propulsion Control Console"
+	output_tag = "starboard_prop_out";
+	frequency = 1442;
+	name = "Starboard Propulsion Control Console";
+	input_tag = "starboard_prop_in";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -32313,7 +32331,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Hydrogen Supply Monitor";
 	output_tag = "H2_out_starboardthruster";
 	sensors = list("h_sensor"="Tank")
@@ -32915,15 +32933,6 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
-"wKA" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "wKE" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -33275,12 +33284,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"wVZ" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "wWe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
@@ -33418,14 +33421,6 @@
 /obj/effect/shuttle_landmark/horizon/exterior/deck_1/port_propulsion,
 /turf/template_noop,
 /area/template_noop)
-"xaz" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4;
-	name = "Equalization Valve"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "xaE" = (
 /obj/machinery/computer/general_air_control/large_tank_control/wall{
 	input_tag = "mixed_in";
@@ -34726,12 +34721,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "xMk" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/propulsion/starboard)
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "xMm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -35399,6 +35391,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"ygN" = (
+/obj/machinery/atmospherics/valve{
+	dir = 4;
+	name = "Equalization Valve"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "yhf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -49387,8 +49387,8 @@ dGu
 xWM
 sOI
 hqH
-tIb
-bax
+kdD
+vwz
 gsr
 gsr
 awJ
@@ -49793,7 +49793,7 @@ szM
 xQU
 jQh
 xGQ
-byX
+nCi
 iCX
 iCX
 dCC
@@ -49995,9 +49995,9 @@ szM
 bxJ
 fBs
 iQR
-qfD
+kka
 awJ
-eqo
+uZU
 eDE
 gPf
 awJ
@@ -50197,10 +50197,10 @@ mNU
 szM
 szM
 xQU
-aMI
+qMl
 lFD
 awJ
-uZU
+ctc
 gal
 uPX
 awJ
@@ -50405,7 +50405,7 @@ awJ
 awJ
 awJ
 uob
-vRX
+oIk
 awJ
 awJ
 gWp
@@ -50811,7 +50811,7 @@ awJ
 gVu
 wsO
 sfF
-kxa
+ekt
 dNa
 awJ
 ldW
@@ -51014,7 +51014,7 @@ mDx
 uCr
 ntJ
 sfF
-kxa
+ekt
 pzY
 awJ
 jLn
@@ -51215,10 +51215,10 @@ vUo
 lsd
 awJ
 akw
-xaz
-aKG
-nOz
-fJK
+ygN
+tQD
+oyX
+tJK
 awJ
 jLn
 crh
@@ -51420,7 +51420,7 @@ awJ
 lrd
 vPo
 sfF
-ekt
+rwV
 psr
 awJ
 hcD
@@ -51622,9 +51622,9 @@ beu
 awJ
 awJ
 koH
-sRQ
+vRX
 kzC
-xMk
+awF
 awJ
 pBJ
 bmn
@@ -51822,7 +51822,7 @@ szM
 szM
 xQU
 lYV
-hgc
+dzA
 awJ
 iQM
 lOi
@@ -59333,7 +59333,7 @@ fWs
 fWs
 qxV
 fvq
-rhP
+cwP
 uVL
 jSF
 eKg
@@ -59539,9 +59539,9 @@ hAU
 uVL
 uVL
 oWe
-vXX
-gdP
-nRl
+xMk
+aQE
+viO
 uVL
 lUr
 rSW
@@ -59743,7 +59743,7 @@ uVL
 xoH
 fnB
 hRF
-wKA
+jyY
 pyd
 uVL
 lUr
@@ -59944,9 +59944,9 @@ rsP
 apQ
 uVL
 eET
-sRB
-jDI
-kka
+nal
+qvX
+oxw
 uni
 uVL
 lUr
@@ -60959,7 +60959,7 @@ qxV
 fvq
 hRF
 uVL
-laE
+vcD
 wsF
 qnr
 uVL
@@ -61160,9 +61160,9 @@ fWs
 iFH
 jFb
 gwg
-tJh
+gdP
 uVL
-eBj
+emU
 lBi
 irW
 uVL
@@ -61363,9 +61363,9 @@ fWs
 fWs
 qxV
 bQb
-mjl
+gBv
 uVL
-wVZ
+eBj
 moj
 cne
 uVL
@@ -61769,9 +61769,9 @@ eSV
 uVL
 uVL
 uVL
-fQL
-caq
-jyY
+kXv
+kKT
+pgz
 iPb
 iPb
 uVL
