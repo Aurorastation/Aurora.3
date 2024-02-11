@@ -232,7 +232,7 @@
 
 /obj/item/organ/internal/ipc_tag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. +=  SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]")
+	. += SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]")
 	. += SPAN_NOTICE("Serial Number: [serial_number]")
 	. += SPAN_NOTICE("Ownership Info: [ownership_info]")
 	. += SPAN_NOTICE("Citizenship Info: [citizenship_info]")

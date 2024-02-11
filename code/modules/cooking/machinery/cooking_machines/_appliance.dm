@@ -77,14 +77,14 @@
 		. += list_contents(user)
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
+	. = list()
 	if (isemptylist(cooking_objs))
 		. = SPAN_NOTICE("It is empty.")
 		return
-	var/string = "Contains...<ul>"
+	. = "Contains...<ul>"
 	for (var/datum/cooking_item/CI in cooking_objs)
-		string += "<li>\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
-	string += "</ul>"
-	. = string
+		. += "\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
+	. += "</ul>"
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)

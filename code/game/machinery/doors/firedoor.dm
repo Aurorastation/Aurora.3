@@ -158,27 +158,24 @@
 
 	. += "<b>Sensor readings:</b>"
 	for(var/index = 1; index <= tile_info.len; index++)
-		var/o = "&nbsp;&nbsp;"
 		switch(index)
 			if(1)
-				o += "NORTH: "
+				. += "NORTH: "
 			if(2)
-				o += "SOUTH: "
+				. += "SOUTH: "
 			if(3)
-				o += "EAST: "
+				. += "EAST: "
 			if(4)
-				o += "WEST: "
+				. += "WEST: "
 		if(tile_info[index] == null)
-			o += "<span class='warning'>DATA UNAVAILABLE</span>"
-			. += o
+			. += "<span class='warning'>DATA UNAVAILABLE</span>"
 			continue
 		var/celsius = convert_k2c(tile_info[index][1])
 		var/pressure = tile_info[index][2]
-		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
-		o += "[celsius]&deg;C</span> "
-		o += "<span style='color:blue'>"
-		o += "[pressure]kPa</span></li>"
-		. += o
+		. += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
+		. += "[celsius]&deg;C</span> "
+		. += "<span style='color:blue'>"
+		. += "[pressure]kPa</span>"
 
 	if(islist(users_to_open) && users_to_open.len)
 		var/users_to_open_string = users_to_open[1]
