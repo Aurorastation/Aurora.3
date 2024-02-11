@@ -96,13 +96,13 @@
 	if(do_after(scribe, 3 SECONDS))
 		create_rune(scribe, chosen_rune, target_turf)
 
-/obj/item/book/tome/examine(mob/user)
+/obj/item/book/tome/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(iscultist(user) || isobserver(user))
-		to_chat(user, "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though.")
-		to_chat(user, SPAN_WARNING("\[?\] This tome contains arcane knowledge of the Geometer's runes. <a href=?src=\ref[src];read_tome=1>\[Read Tome\]</a>"))
+		. += "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
+		. += SPAN_WARNING("\[?\] This tome contains arcane knowledge of the Geometer's runes. <a href=?src=\ref[src];read_tome=1>\[Read Tome\]</a>")
 	else
-		to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
+		. += "An old, dusty tome with frayed edges and a sinister looking cover."
 
 /obj/item/book/tome/Topic(href, href_list)
 	if(href_list["read_tome"])

@@ -46,10 +46,10 @@
 	if(location)
 		pickup_items_from_loc_and_feedback(user, location)
 
-/obj/item/storage/bag/ore/examine(mob/user, distance, is_adjacent)
+/obj/item/storage/bag/ore/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent && linked_beacon)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> inside.")))
+		. += FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> inside."))
 
 /obj/item/storage/bag/ore/drone
 	// this used to be 400. The inventory system FUCKING DIED at this.

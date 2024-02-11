@@ -274,13 +274,13 @@
 	update_icon()
 	user.visible_message("\The [user] [concealed ? "conceals" : "reveals"] their hand.")
 
-/obj/item/hand/examine(mob/user)
+/obj/item/hand/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((!concealed || src.loc == user) && cards.len)
 		if(cards.len > 1)
-			to_chat(user, "It contains: ")
+			. += "It contains: "
 		for(var/datum/playingcard/P in cards)
-			to_chat(user, "The [P.name]. [P.desc ? "<i>[P.desc]</i>" : ""]")
+			. += "The [P.name]. [P.desc ? "<i>[P.desc]</i>" : ""]"
 
 /obj/item/hand/update_icon(var/direction = 0)
 

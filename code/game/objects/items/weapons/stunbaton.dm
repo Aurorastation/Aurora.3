@@ -59,14 +59,14 @@
 	else
 		set_light(0)
 
-/obj/item/melee/baton/examine(mob/user, distance)
+/obj/item/melee/baton/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!distance <= 1)
 		return
 	if(bcell)
-		to_chat(user, "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>")
+		. += "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>"
 	else
-		to_chat(user, "<span class='warning'>The baton does not have a power source installed.</span>")
+		. += "<span class='warning'>The baton does not have a power source installed.</span>"
 
 /obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))

@@ -163,9 +163,9 @@
 /obj/structure/gravemarker/cross
 	icon_state = "cross"
 
-/obj/structure/gravemarker/examine(mob/user)
+/obj/structure/gravemarker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It says: '[message]'")
+	. += "It says: '[message]'."
 
 /obj/structure/gravemarker/random/Initialize()
 	generate()

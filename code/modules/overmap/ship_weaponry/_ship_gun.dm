@@ -88,9 +88,9 @@
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
 			return "It looks to be in tip top shape and not damaged at all."
 
-/obj/machinery/ship_weapon/examine(mob/user)
+/obj/machinery/ship_weapon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, get_damage_description())
+	. += get_damage_description()
 
 /obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/device/multitool))

@@ -69,11 +69,11 @@
 			node = target
 			break
 
-/obj/machinery/atmospherics/unary/cryo_cell/examine(mob/user, distance, is_adjacent)
+/obj/machinery/atmospherics/unary/cryo_cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(beaker)
-			to_chat(user, SPAN_NOTICE("It is loaded with a beaker."))
+			. += SPAN_NOTICE("It is loaded with a beaker.")
 		if(occupant)
 			occupant.examine(arglist(args))
 

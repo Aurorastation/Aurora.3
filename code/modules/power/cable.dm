@@ -657,12 +657,12 @@ By design, d1 is the smallest direction and d2 is the highest
 		w_class = ITEMSIZE_SMALL
 		slot_flags = SLOT_BELT
 
-/obj/item/stack/cable_coil/examine(mob/user)
+/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!uses_charge)
-		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
+		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
 	else
-		to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
+		. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"

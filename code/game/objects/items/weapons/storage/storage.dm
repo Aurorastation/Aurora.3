@@ -194,10 +194,10 @@
 	return return_status
 
 
-/obj/item/storage/examine(mob/user)
+/obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(isobserver(user))
-		to_chat(user, "It contains: [counting_english_list(contents)]")
+		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/MouseDrop(obj/over_object)
 	if(!canremove)

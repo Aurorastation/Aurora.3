@@ -15,7 +15,7 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
-/obj/item/reagent_containers/weldpack/examine(mob/user, distance)
+/obj/item/reagent_containers/weldpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
 		return
@@ -23,9 +23,9 @@
 		var/fuel_volume = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 		if(!fuel_volume)
 			fuel_volume = 0
-		to_chat(user, SPAN_NOTICE("\The [src] has [reagents.total_volume]u of reagents in it, <b>[fuel_volume]u</b> of which is fuel."))
+		. += SPAN_NOTICE("\The [src] has [reagents.total_volume]u of reagents in it, <b>[fuel_volume]u</b> of which is fuel.")
 	else
-		to_chat(user, SPAN_WARNING("\The [src] is empty!"))
+		. += SPAN_WARNING("\The [src] is empty!")
 
 /obj/item/reagent_containers/weldpack/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())

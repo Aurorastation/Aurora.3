@@ -71,10 +71,10 @@
 		else
 			stored_ore[O.name] = 1
 
-/obj/structure/ore_box/examine(mob/user, distance, is_adjacent)
+/obj/structure/ore_box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	// Borgs can now check contents too.
-	if((!istype(user, /mob/living/carbon/human)) && (!istype(user, /mob/living/silicon/robot)))
+	if(!ishuman(user) && !isrobot(user))
 		return
 	if(!is_adjacent) //Can only check the contents of ore boxes if you can physically reach them.
 		return
@@ -82,20 +82,19 @@
 	add_fingerprint(user)
 
 	if(warp_core)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction beacon signaller</b> attached to it.")))
+		. +=  FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction beacon signaller</b> attached to it."))
 
 	if(!length(contents))
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 		return
 
 	if(world.time > last_update + 10)
 		update_ore_count()
 		last_update = world.time
 
-	to_chat(user, SPAN_NOTICE("It holds:"))
+	. += SPAN_NOTICE("It holds:")
 	for(var/ore in stored_ore)
-		to_chat(user, SPAN_NOTICE("- [stored_ore[ore]] [ore]"))
-	return
+		. += SPAN_NOTICE("- [stored_ore[ore]] [ore]")
 
 /obj/structure/ore_box/verb/empty_box()
 	set name = "Empty Ore Box"

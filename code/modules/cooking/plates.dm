@@ -19,10 +19,10 @@ Plates that can hold your cooking stuff
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/grease = FALSE
 
-/obj/item/reagent_containers/bowl/examine(mob/user, distance)
+/obj/item/reagent_containers/bowl/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(grease)
-		to_chat(user, SPAN_WARNING("\The [name] looks a little unclean."))
+		. += SPAN_WARNING("\The [name] looks a little unclean.")
 
 /obj/item/reagent_containers/bowl/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/kitchen/utensil))
@@ -111,11 +111,11 @@ Plates that can hold your cooking stuff
 		qdel(holding)
 	return ..()
 
-/obj/item/reagent_containers/bowl/plate/examine(mob/user, distance)
+/obj/item/reagent_containers/bowl/plate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(holding)
-		to_chat(user, "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src].")
-		to_chat(user, SPAN_INFO(" - [holding.desc]"))
+		. += "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src]."
+		. += SPAN_INFO(" - [holding.desc]")
 
 /obj/item/reagent_containers/bowl/plate/attackby(obj/item/attacking_item, mob/user)
 	if((istype(attacking_item, /obj/item/reagent_containers/food/snacks) || istype(attacking_item, /obj/item/trash)) && !holding)

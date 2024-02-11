@@ -81,16 +81,18 @@
 	return amount_used
 
 
-/obj/item/cell/examine(mob/user, distance, is_adjacent)
+/obj/item/cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-
 	if(distance > 1)
 		return
 
 	if(maxcharge <= 2500)
-		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
+		. += "[desc]"
+		. += "The manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it."
+		. += "The charge meter reads [round(src.percent() )]%."
 	else
-		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!\nThe charge meter reads [round(src.percent() )]%.")
+		. += "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!"
+		. += "The charge meter reads [round(src.percent() )]%."
 
 /obj/item/cell/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/syringe))

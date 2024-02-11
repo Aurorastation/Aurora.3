@@ -219,14 +219,19 @@
 /obj/item/crossbowframe/update_icon()
 	icon_state = "crossbowframe[buildstate]"
 
-/obj/item/crossbowframe/examine(mob/user)
+/obj/item/crossbowframe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(buildstate)
-		if(1) to_chat(user, "It has a loose rod frame in place.")
-		if(2) to_chat(user, "It has a steel backbone welded in place.")
-		if(3) to_chat(user, "It has a steel backbone and a cell mount installed.")
-		if(4) to_chat(user, "It has a steel backbone, plastic limbs and a cell mount installed.")
-		if(5) to_chat(user, "It has a steel cable loosely strung across the limbs.")
+		if(1)
+			. += "It has a loose rod frame in place."
+		if(2)
+			. += "It has a steel backbone welded in place."
+		if(3)
+			. += "It has a steel backbone and a cell mount installed."
+		if(4)
+			. += "It has a steel backbone, plastic limbs and a cell mount installed."
+		if(5)
+			. += "It has a steel cable loosely strung across the limbs."
 
 /obj/item/crossbowframe/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/rods))
@@ -368,6 +373,6 @@
 	else
 		icon_state = "rxb"
 
-/obj/item/gun/launcher/crossbow/RFD/examine(var/user)
+/obj/item/gun/launcher/crossbow/RFD/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It currently holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.")
+	. += "It currently holds <b>[stored_matter]/[max_stored_matter]</b> matter-units."

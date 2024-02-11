@@ -53,14 +53,13 @@
 		log_and_message_admins("emagged [src]'s inner circuits")
 		return 1
 
-/obj/machinery/bot/examine(mob/user)
+/obj/machinery/bot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (src.health < maxhealth)
 		if (src.health > maxhealth/3)
-			to_chat(user, "<span class='warning'>[src]'s parts look loose.</span>")
+			. += "<span class='warning'>[src]'s parts look loose.</span>"
 		else
-			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
-	return
+			. += "<span class='danger'>[src]'s parts look very loose!</span>"
 
 /obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())

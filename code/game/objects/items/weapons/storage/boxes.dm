@@ -90,13 +90,13 @@
 			damage(damage)
 	..()
 
-/obj/item/storage/box/examine(var/mob/user)
+/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, SPAN_WARNING("It is slightly torn."))
+			. += SPAN_WARNING("It is slightly torn.")
 		else
-			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
+			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -1238,6 +1238,16 @@
 	. = ..()
 	make_exact_fit()
 
+/obj/item/storage/box/cleaner_tablets
+	name = "\improper Idris cleaner tablets box"
+	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
+	desc_extended = "A new generation of cleaning chemicals, according to Idris at least. The instructions on the box reads: \"Dissolve tablet fully in container of water\". A warning label mentions that you should not consume the tablets nor drink the mixture after dissolving them."
+	illustration = "soapbucket"
+	max_storage_space = 16
+	starts_with = list(
+		/obj/item/reagent_containers/pill/cleaner_tablet = 16
+	)
+
 /obj/item/storage/box/led_collars
 	name = "box of LED collars"
 	desc = "A box containing eight LED collars, usually worn around the neck of the voidsuit."
@@ -1299,3 +1309,4 @@
 	starts_with = list(
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
 	)
+

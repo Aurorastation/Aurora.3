@@ -32,22 +32,22 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	GLOB.total_active_bonfires -= src
 	. = ..()
 
-/obj/structure/bonfire/examine(mob/user, distance, is_adjacent)
+/obj/structure/bonfire/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if(on_fire)
 		switch(fuel)
 			if(0 to 200)
-				to_chat(user, "\The [src] is burning weakly.")
+				. += "\The [src] is burning weakly."
 			if(200 to 600)
-				to_chat(user, "\The [src] is gently burning.")
+				. += "\The [src] is gently burning."
 			if(600 to 900)
-				to_chat(user, "\The [src] is burning steadily.")
+				. += "\The [src] is burning steadily."
 			if(900 to 1300)
-				to_chat(user, "The flames are dancing wildly!")
+				. += "The flames are dancing wildly!"
 			if(1300 to 2000)
-				to_chat(user, "The fire is roaring!")
+				. += "The fire is roaring!"
 
 /obj/structure/bonfire/update_icon()
 	if(on_fire)

@@ -21,17 +21,22 @@
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 
-/datum/gear/mask/vaurca_expression
-	display_name = "human expression mask"
+/datum/gear/mask/expression
+	display_name = "expression mask selection"
 	path = /obj/item/clothing/head/expression
 	cost = 1
+	slot = slot_head
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/mask/vaurca_expression/skrell
-	display_name = "skrell expression mask"
-	path = /obj/item/clothing/head/expression/skrell
+/datum/gear/mask/expression/New()
+	..()
+	var/list/masks = list()
+	masks["expression mask, human"] = /obj/item/clothing/head/expression
+	masks["expression mask, skrell"] = /obj/item/clothing/head/expression/skrell
+	masks["expression mask, unathi"] = /obj/item/clothing/head/expression/unathi
+	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/head/shaper
 	display_name = "shaper helmet"
@@ -268,7 +273,7 @@
 	path = /obj/item/organ/external/hand/right/vaurca/security
 	whitelisted = list(SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Security Officer", "Warden")
+	allowed_roles = list("Security Officer", "Warden", "Security Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamed
@@ -278,7 +283,7 @@
 	path = /obj/item/organ/external/hand/right/vaurca/medical
 	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
+	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamag
@@ -288,7 +293,7 @@
 	path = /obj/item/organ/internal/augment/tool/vaurcamag
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist")
+	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
 
 /datum/gear/accessory/tret_passcard
 	display_name = "tret passcard"

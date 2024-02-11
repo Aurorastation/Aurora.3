@@ -17,10 +17,10 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/structure/bed/stool/chair/remote/examine(mob/user)
+/obj/structure/bed/stool/chair/remote/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(portable_type)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("Can be packed up by using a wrench on it.")))
+		. += FONT_SMALL(SPAN_NOTICE("Can be packed up by using a wrench on it."))
 
 /obj/structure/bed/stool/chair/remote/update_icon()
 	return

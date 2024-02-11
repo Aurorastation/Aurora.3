@@ -84,22 +84,14 @@
 		to_chat(user, "<span class='notice'>You put [i] in [src].</span>")
 		papers.Add(i)
 		amount++
-	/*	if(istype(attacking_item, /obj/item/paper_pack))	WIP written in.
-		var/obj/item/paper_bundle/j = attacking_item
-		amount += j.amount
-		to_chat(user, "<span class='notice'>You add paper from [j] into [src].</span>")
-		user.drop_from_inventory(j,get_turf(src))
-		qdel(j)
-	*/
 
-
-/obj/item/paper_bin/examine(mob/user, distance, is_adjacent)
+/obj/item/paper_bin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(amount)
-			to_chat(user, "<span class='notice'>There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.</span>")
+			. += "<span class='notice'>There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.</span>"
 		else
-			to_chat(user, "<span class='notice'>There are no papers in the bin.</span>")
+			. += "<span class='notice'>There are no papers in the bin.</span>"
 
 
 /obj/item/paper_bin/update_icon()

@@ -29,9 +29,9 @@
 		update_icon()
 
 
-/obj/machinery/gumballmachine/examine(mob/user)
+/obj/machinery/gumballmachine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The [src] costs [gumprice] credits to use."))
+	. += SPAN_NOTICE("\The [src] costs [gumprice] credits to use.")
 
 /obj/machinery/gumballmachine/update_icon()
 	switch(amountleft)

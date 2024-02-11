@@ -47,7 +47,7 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user, distance, is_adjacent)
+/obj/item/tank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -65,7 +65,7 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
 /obj/item/tank/attackby(obj/item/attacking_item, mob/user)
 	..()

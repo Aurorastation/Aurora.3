@@ -27,7 +27,7 @@
 	if(our_creator)
 		creator = our_creator
 
-/obj/structure/reagent_crystal/examine(mob/user)
+/obj/structure/reagent_crystal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/state
 	var/current_damage = health / initial(health)
@@ -40,7 +40,7 @@
 			state = SPAN_WARNING("The crystal has scratches and deeper grooves on its surface.")
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The crystal looks structurally sound.")
-	to_chat(user, state)
+	. += state
 
 /obj/structure/reagent_crystal/proc/take_damage(var/damage)
 	health -= damage

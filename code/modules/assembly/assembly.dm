@@ -108,13 +108,13 @@
 	return
 
 
-/obj/item/device/assembly/examine(mob/user, distance, is_adjacent)
+/obj/item/device/assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 || loc == user)
 		if(secured)
-			to_chat(user, "\The [src] is ready!")
+			. += "\The [src] is ready!"
 		else
-			to_chat(user, "\The [src] can be attached!")
+			. += "\The [src] can be attached!"
 
 
 /obj/item/device/assembly/attack_self(mob/user)

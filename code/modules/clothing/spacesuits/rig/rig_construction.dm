@@ -35,10 +35,10 @@
 	. = ..()
 
 
-/obj/item/rig_assembly/examine(mob/user, distance)
+/obj/item/rig_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(construct)
-		to_chat(user, construct.get_desc())
+		. += construct.get_desc()
 
 /obj/item/rig_assembly/MouseEntered(location, control, params)
 	. = ..()

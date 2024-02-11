@@ -90,30 +90,30 @@
 
 /obj/structure/closet/proc/content_info(mob/user, content_size)
 	if(!content_size)
-		to_chat(user, "\The [src] is empty.")
+		. = "\The [src] is empty."
 	else if(storage_capacity > content_size*4)
-		to_chat(user, "\The [src] is barely filled.")
+		. = "\The [src] is barely filled."
 	else if(storage_capacity > content_size*2)
-		to_chat(user, "\The [src] is less than half full.")
+		. = "\The [src] is less than half full."
 	else if(storage_capacity > content_size)
-		to_chat(user, "\The [src] still has some free space.")
+		. = "\The [src] still has some free space."
 	else
-		to_chat(user, "\The [src] is full.")
+		. = "\The [src] is full."
 
-/obj/structure/closet/examine(mob/user, distance, is_adjacent)
+/obj/structure/closet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 && !src.opened)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
-		content_info(user, content_size)
+		. += content_info(user, content_size)
 
 	if(!src.opened && isobserver(user))
-		to_chat(user, "It contains: [counting_english_list(contents)]")
+		. += "It contains: [counting_english_list(contents)]"
 
 	if(src.opened && linked_teleporter && is_adjacent)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
+		. += FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]..."))
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0

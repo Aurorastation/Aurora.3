@@ -160,6 +160,14 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
+/obj/structure/urban_grate
+	name = "water drain grate"
+	desc = "A grate which funnels water into underground passageways."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "grate"
+	layer = 2.01
+	anchored = TRUE
+
 /obj/structure/parking_meter
 	name = "parking meter"
 	desc = "A parking meter that seems to be turned off."
@@ -391,6 +399,27 @@
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "exit"
 	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/sign/billboard
+	name = "commercial billboard"
+	desc = "A large and typically roadside billboard rented out for advertisement space."
+	icon = 'icons/obj/structure/urban/billboard.dmi'
+	icon_state = "board-l"
+	density = TRUE
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/sign/billboard/advert
+	name = "billboard advertisement"
+	desc = null
+	icon_state = "sign"
+	density = TRUE
+	layer = 4.6
+
+/obj/structure/sign/billboard/advert/random/Initialize(mapload)
+	. = ..()
+	cut_overlays()
+	icon_state = "sign[rand(1, 14)]"
+	return
 
 /obj/structure/sign/urban/drive_thru
 	name = "drive thru sign"
@@ -713,7 +742,7 @@
  *
  * * accesses - A list with accesses that the key has, or null if defined in either the map, public access door or other means
  */
-/obj/item/key/door_key/Initialize(var/list/accesses = null)
+/obj/item/key/door_key/Initialize(var/mapload, var/list/accesses)
 	SHOULD_CALL_PARENT(TRUE)
 
 	. = ..()

@@ -11,6 +11,7 @@
 	density = TRUE
 	var/state = ECD_WELDED
 	slowdown = 10
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/ecd/examine(mob/living/user, distance)
 	. = ..()

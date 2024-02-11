@@ -52,14 +52,19 @@
 	else
 		..()
 
-/obj/item/gun/projectile/shotgun/improvised/examine(mob/user)
+/obj/item/gun/projectile/shotgun/improvised/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(fail_chance)
-		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
-		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
-		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
-		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
-		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")
+		if(1)
+			. += "All craftsmanship is of the highest quality."
+		if(2 to 25)
+			. += "All craftsmanship is of high quality."
+		if(26 to 50)
+			. += "All craftsmanship is of average quality."
+		if(51 to 75)
+			. += "All craftsmanship is of low quality."
+		if(100)
+			. += "All craftsmanship is of the lowest quality."
 
 /obj/item/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
@@ -89,12 +94,15 @@
 /obj/item/receivergun/update_icon()
 	icon_state = "ishotgun[buildstate]"
 
-/obj/item/receivergun/examine(mob/user)
+/obj/item/receivergun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(buildstate)
-		if(1) to_chat(user, "It has a pipe segment installed.")
-		if(2) to_chat(user, "It has a stock installed.")
-		if(3) to_chat(user, "Its pieces are held together by tape roll.")
+		if(1)
+			. += "It has a pipe segment installed."
+		if(2)
+			. += "It has a stock installed."
+		if(3)
+			. += "Its pieces are held together by tape roll."
 
 /obj/item/receivergun/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/pipe))
@@ -155,24 +163,32 @@
 /obj/item/gun/projectile/improvised_handgun/loaded
 	magazine_type = /obj/item/ammo_magazine/c45m
 
-/obj/item/gun/projectile/improvised_handgun/examine(mob/user)
+/obj/item/gun/projectile/improvised_handgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(jam_chance)
-		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
-		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
-		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
-		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
-		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")
+		if(1)
+			. += "All craftsmanship is of the highest quality."
+		if(2 to 25)
+			. += "All craftsmanship is of high quality."
+		if(26 to 50)
+			. += "All craftsmanship is of average quality."
+		if(51 to 75)
+			. += "All craftsmanship is of low quality."
+		if(100)
+			. += "All craftsmanship is of the lowest quality."
 
 /obj/item/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
 
-/obj/item/stock/examine(mob/user)
+/obj/item/stock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(buildstate)
-		if(1) to_chat(user, "It is carved in the shape of a pistol handle.")
-		if(2) to_chat(user, "It has a receiver installed.")
-		if(3) to_chat(user, "It has a pipe installed.")
+		if(1)
+			. += "It is carved in the shape of a pistol handle."
+		if(2)
+			. += "It has a receiver installed."
+		if(3)
+			. += "It has a pipe installed."
 
 /obj/item/stock/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/hatchet))

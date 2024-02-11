@@ -3,10 +3,10 @@
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
 	desc_info = "Alt-click this while it's on your person or next to you to open this journal.\nWhile the journal is open, use it in hand or use a pen on it to access the contents."
-	icon = 'icons/obj/item/journal.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "journal"
 	item_state = "journal"
-	contained_sprite = TRUE
+	color = COLOR_DARK_BROWN
 	update_icon_on_init = TRUE
 	throw_speed = 1
 	throw_range = 5
@@ -26,12 +26,16 @@
 	return ..()
 
 /obj/item/journal/update_icon()
+	cut_overlays()
 	if(!open)
 		icon_state = "[initial(icon_state)]_closed"
+		add_overlay(overlay_image(icon, "closed", flags=RESET_COLOR))
 	else if(LAZYLEN(indices))
-		icon_state = "[initial(icon_state)]_writing"
+		icon_state = initial(icon_state)
+		add_overlay(overlay_image(icon, "writing", flags=RESET_COLOR))
 	else
 		icon_state = initial(icon_state)
+		add_overlay(overlay_image(icon, "blank", flags=RESET_COLOR))
 
 	if(closed_desc)
 		desc = open ? initial(desc) + closed_desc : initial(desc)

@@ -15,10 +15,10 @@
 		to_chat(target, "<span class='notice'>The strange presence vanishes away...</span>")
 	return ..()
 
-/obj/item/poppet/examine(mob/user)
+/obj/item/poppet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(countenance)
-		to_chat(user, "<span class='notice'>It is modeled after a [countenance].</span>")
+		. += "<span class='notice'>It is modeled after a [countenance].</span>"
 
 /obj/item/poppet/afterattack(var/atom/A, var/mob/user, var/proximity)
 

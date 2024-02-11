@@ -2060,19 +2060,19 @@ About the new airlock wires panel:
 		src.lock()
 	return
 
-/obj/machinery/door/airlock/examine(mob/user)
+/obj/machinery/door/airlock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (bolt_cut_state == BOLTS_EXPOSED)
-		to_chat(user, "The bolt cover has been cut open.")
+		. += SPAN_WARNING("The bolt cover has been cut open.")
 	if (bolt_cut_state == BOLTS_CUT)
-		to_chat(user, "The door bolts have been cut.")
+		. += SPAN_WARNING("The door bolts have been cut.")
 	if(bracer)
-		to_chat(user, "\The [bracer] is installed on \the [src], preventing it from opening.")
-		to_chat(user, bracer.health)
+		. += SPAN_WARNING("\The [bracer] is installed on \the [src], preventing it from opening.")
+		. +=  bracer.health
 	if(p_open)
-		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
+		. += SPAN_NOTICE("\The [src]'s maintenance panel has been unscrewed and is hanging open.")
 	if(islist(access_by_level) || islist(req_one_access_by_level))
-		to_chat(user, SPAN_NOTICE("This airlock changes access requirements depending on the level."))
+		. +=  SPAN_NOTICE("This airlock changes access requirements depending on the level.")
 
 /obj/machinery/door/airlock/emag_act(var/remaining_charges)
 	. = ..()

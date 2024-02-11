@@ -304,7 +304,7 @@
 /obj/item/material/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
 
-/obj/item/material/drill_head/examine(mob/user, distance)
+/obj/item/material/drill_head/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/percentage = get_durability_percentage()
 	var/descriptor = "looks close to breaking"
@@ -317,7 +317,7 @@
 	if(percentage > 95)
 		descriptor = "shows no wear"
 
-	to_chat(user, SPAN_NOTICE("It [descriptor]."))
+	. += SPAN_NOTICE("It [descriptor].")
 
 /obj/item/mecha_equipment/drill
 	name = "drill"

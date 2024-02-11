@@ -324,6 +324,6 @@
 		qdel(src)
 		return TRUE
 
-/obj/machinery/atmospherics/valve/examine(mob/user)
+/obj/machinery/atmospherics/valve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is [open ? "open" : "closed"].")
+	. += "It is [open ? "open" : "closed"]."

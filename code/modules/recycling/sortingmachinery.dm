@@ -108,13 +108,13 @@
 			I.pixel_y = -3
 		add_overlay(I)
 
-/obj/structure/bigDelivery/examine(mob/user, distance, is_adjacent)
+/obj/structure/bigDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
+			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
 		if(examtext)
-			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
+			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
 
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
@@ -228,13 +228,13 @@
 				I.pixel_y = -3
 		add_overlay(I)
 
-/obj/item/smallDelivery/examine(mob/user, distance, is_adjacent)
+/obj/item/smallDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
+			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
 		if(examtext)
-			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
+			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0

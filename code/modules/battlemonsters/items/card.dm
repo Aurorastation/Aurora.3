@@ -164,12 +164,11 @@
 
 	transform = M
 
-/obj/item/battle_monsters/card/examine(mob/user, distance, is_adjacent)
-
+/obj/item/battle_monsters/card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if(facedown && src.loc != user)
-		to_chat(user, SPAN_NOTICE("You can't examine \the [src] while it's face down!"))
+		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
 		return
 
 	if(trap_datum)

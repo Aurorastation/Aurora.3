@@ -31,9 +31,9 @@
 	. = ..()
 	update_state()
 
-/obj/structure/door_assembly/examine(mob/user)
+/obj/structure/door_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is currently facing [dir2text(dir)].")
+	. += "It is currently facing [dir2text(dir)]."
 
 /obj/structure/door_assembly/door_assembly_generic
 	base_name = "airlock"

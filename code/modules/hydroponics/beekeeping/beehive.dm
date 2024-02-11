@@ -46,23 +46,23 @@
 			if(81 to 100)
 				add_overlay("bees3")
 
-/obj/machinery/beehive/examine(mob/user, distance, is_adjacent)
+/obj/machinery/beehive/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames."))
+	. += SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames.")
 	if(is_adjacent)
 		if(bee_count)
 			if(closed)
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src].")))
+				. += FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src]."))
 			else
-				to_chat(user, FONT_SMALL(SPAN_WARNING("The lid is <b>open</b>. The bees can't grow and produce honey until it's <b>closed!</b>")))
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src].")))
+				. += FONT_SMALL(SPAN_WARNING("The lid is <b>open</b>. The bees can't grow and produce honey until it's <b>closed!</b>"))
+				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
 		else
 			if(closed)
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] lies silent.")))
+				. += FONT_SMALL(SPAN_NOTICE("\The [src] lies silent."))
 			else
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src].")))
+				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
 		if(honeycombs / 100 > 1)
-			to_chat(user, SPAN_NOTICE("\The [src] has a frame full of honeycombs which you can harvest."))
+			. += SPAN_NOTICE("\The [src] has a frame full of honeycombs which you can harvest.")
 
 /obj/machinery/beehive/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iscrowbar())

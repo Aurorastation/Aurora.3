@@ -62,7 +62,7 @@
 		T = tgui_input_list(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles", contents)
 		return TRUE
 
-/obj/machinery/floorlayer/examine(mob/user)
+/obj/machinery/floorlayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/dismantle = mode["dismantle"]
 	var/laying = mode["laying"]
@@ -70,7 +70,7 @@
 	var/number = 0
 	if (T)
 		number = T.get_amount()
-	to_chat(user, SPAN_NOTICE("\The [src] has [number] tile\s, dismantle is [dismantle ? "on" : "off"], laying is [laying ? "on" : "off"], collect is [collect ? "on" : "off"]."))
+	. += SPAN_NOTICE("\The [src] has [number] tile\s, dismantle is [dismantle ? "on" : "off"], laying is [laying ? "on" : "off"], collect is [collect ? "on" : "off"].")
 
 /obj/machinery/floorlayer/proc/reset()
 	on = FALSE

@@ -39,11 +39,11 @@
 		QDEL_NULL(ball)
 	return ..()
 
-/obj/item/knittingneedles/examine(mob/user, distance, is_adjacent)
+/obj/item/knittingneedles/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(ball)
-			to_chat(user, "There is \the [ball] between the needles.")
+			. += "There is \the [ball] between the needles."
 
 /obj/item/knittingneedles/update_icon()
 	if(working)

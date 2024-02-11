@@ -1024,10 +1024,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/cigbutt/roll
 	icon_state = "rollbutt"
 
-/obj/item/clothing/mask/smokable/cigarette/rolled/examine(mob/user)
+/obj/item/clothing/mask/smokable/cigarette/rolled/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(filter)
-		to_chat(user, "Capped off one end with a filter.")
+		. += "It's capped off one end with a filter."
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/update_icon()
 	. = ..()

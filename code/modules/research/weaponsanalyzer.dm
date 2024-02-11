@@ -17,12 +17,9 @@
 			/obj/item/stock_parts/console_screen = 1
 		)
 
-/obj/machinery/weapons_analyzer/examine(mob/user)
+/obj/machinery/weapons_analyzer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	var/name_of_thing = ""
-	if(item)
-		name_of_thing = item.name
-	to_chat(user, SPAN_NOTICE("It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
+	. += SPAN_NOTICE("It has [item ? "[item.name]" : "nothing"] attached.")
 
 /obj/machinery/weapons_analyzer/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item || !user || !ishuman(user))

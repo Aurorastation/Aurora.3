@@ -138,12 +138,12 @@
 			return
 	..()
 
-/obj/item/cloaking_device/examine(mob/user)
+/obj/item/cloaking_device/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (!cell)
-		to_chat(user, "It needs a power cell to function.")
+		. += SPAN_WARNING("It needs a power cell to function.")
 	else
-		to_chat(user, "It has [cell.percent()]% power remaining")
+		. += SPAN_NOTICE("It has [cell.percent()]% power remaining.")
 
 /obj/item/cloaking_device/process()
 	if (!cell || !cell.checked_use(power_usage*CELLRATE))

@@ -864,3 +864,6 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Weapon Systems End **********/
+
+/area/horizon/commissary
+	name = "Horizon - Commissary"

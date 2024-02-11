@@ -62,12 +62,12 @@
 
 	overlays = new_overlays
 
-/obj/item/defibrillator/examine(mob/user)
+/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(bcell)
-		to_chat(user, "The charge meter is showing [bcell.percent()]% charge left.")
+		. += "The charge meter is showing [bcell.percent()]% charge left."
 	else
-		to_chat(user, "There is no cell inside.")
+		. += "There is no cell inside."
 
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()

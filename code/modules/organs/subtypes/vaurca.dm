@@ -337,7 +337,7 @@
 
 	return ..()
 
-/obj/item/organ/internal/vaurca/preserve/examine(mob/user, distance, is_adjacent)
+/obj/item/organ/internal/vaurca/preserve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -355,7 +355,7 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		. += "<span class='notice'>\The [src] feels [descriptive].</span>"
 
 /obj/item/organ/internal/vaurca/preserve/attackby(obj/item/attacking_item, mob/user)
 	..()

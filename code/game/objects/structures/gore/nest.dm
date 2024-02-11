@@ -13,18 +13,18 @@
 	. = ..()
 	health = maxHealth
 
-/obj/structure/bed/nest/examine(mob/user, distance, is_adjacent)
+/obj/structure/bed/nest/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
 		var/health_div = health / maxHealth
 		if(health_div >= 0.9)
-			to_chat(user, SPAN_NOTICE("\The [src] appears completely intact."))
+			. += SPAN_NOTICE("\The [src] appears completely intact.")
 		else if(health_div >= 0.7)
-			to_chat(user, SPAN_NOTICE("\The [src] is starting to tear somewhat."))
+			. += SPAN_NOTICE("\The [src] is starting to tear somewhat.")
 		else if(health_div >= 0.4)
-			to_chat(user, SPAN_WARNING("\The [src] is starting to fall apart."))
+			. += SPAN_WARNING("\The [src] is starting to fall apart.")
 		else
-			to_chat(user, SPAN_WARNING("\The [src] is barely holding itself together!"))
+			. += SPAN_WARNING("\The [src] is barely holding itself together!")
 
 /obj/structure/bed/nest/update_icon()
 	return

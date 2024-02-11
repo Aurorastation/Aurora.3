@@ -44,13 +44,13 @@ FLOOR SAFES
 			space += I.w_class
 			I.forceMove(src)
 
-/obj/structure/safe/examine(mob/user)
+/obj/structure/safe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(broken)
-		to_chat(user, SPAN_WARNING("\The [src]'s locking system has been drilled open!"))
+		. += SPAN_WARNING("\The [src]'s locking system has been drilled open!")
 	else if(time_to_drill < 300 SECONDS)
 		var/time_left = max(round(time_to_drill / 10), 0)
-		to_chat(user, SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!"))
+		. += SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!")
 
 /obj/structure/safe/Destroy()
 	if(drill)

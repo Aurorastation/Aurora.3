@@ -79,7 +79,7 @@
 
 	var/old_angle = 0
 
-/obj/machinery/porta_turret/examine(mob/user)
+/obj/machinery/porta_turret/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/msg = ""
 	if(!health)
@@ -92,7 +92,7 @@
 		msg += SPAN_NOTICE("\The [src] is slightly damaged!")
 	else
 		msg += SPAN_GOOD("\The [src] is not damaged!")
-	to_chat(user, msg)
+	. +=  msg
 
 /obj/machinery/porta_turret/crescent
 	enabled = FALSE

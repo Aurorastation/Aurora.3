@@ -69,7 +69,7 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	backpack_contents = list(/obj/item/device/camera = 1)
-	belt = /obj/item/gun/energy/pistol/hegemony
+	belt = /obj/item/melee/energy/sword/hegemony
 
 /datum/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)

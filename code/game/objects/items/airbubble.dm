@@ -82,16 +82,16 @@
 	slowdown = 0
 
 // Examine to see tank pressure
-/obj/structure/closet/airbubble/examine(mob/user)
+/obj/structure/closet/airbubble/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!isnull(internal_tank))
-		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
+		. += "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>"
 	else
-		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
+		. += "<span class='notice'>\The [src] has no tank attached.</span>"
 	if (cell)
-		to_chat(user, "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%.")
+		. += "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%."
 	else
-		to_chat(user, "<span class='warning'>[src] has no power cell installed.</span>")
+		. += "<span class='warning'>[src] has no power cell installed.</span>"
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)

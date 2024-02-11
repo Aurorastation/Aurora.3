@@ -26,14 +26,10 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			SPECIES_TAJARA,
-			SPECIES_TAJARA_MSAI,
-			SPECIES_TAJARA_ZHAN,
 			SPECIES_DIONA,
 			SPECIES_DIONA_COEUS,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR,
-			SPECIES_UNATHI
+			SPECIES_VAURCA_WARRIOR
 		)
 	)
 
@@ -52,7 +48,9 @@
 		"Medical Intern" = /datum/outfit/job/intern_med/pmc,
 		"Corporate Reporter" = /datum/outfit/job/journalist/pmc,
 		"Corporate Liaison" = /datum/outfit/job/representative/pmc,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/pmc
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/pmc,
+		"Security Personnel" = /datum/outfit/job/officer/pmc,
+		"Medical Personnel" = /datum/outfit/job/med_tech/pmc
 	)
 
 /datum/outfit/job/officer/pmc

@@ -33,7 +33,6 @@
 			SPECIES_IPC_ZENGHU,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_SHELL,
-			SPECIES_UNATHI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
@@ -63,7 +62,10 @@
 		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/zavodskoi,
 		"Corporate Reporter" = /datum/outfit/job/journalist/zavodskoi,
 		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zavodskoi
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zavodskoi,
+		"Security Personnel" = /datum/outfit/job/officer/zavodskoi,
+		"Engineering Personnel" = /datum/outfit/job/engineer/zavodskoi,
+		"Science Personnel" = /datum/outfit/job/scientist/zavodskoi
 	)
 
 /datum/outfit/job/officer/zavodskoi

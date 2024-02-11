@@ -61,10 +61,10 @@
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
 
-/obj/item/rfd/examine(var/mob/user)
+/obj/item/rfd/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(loc == user)
-		to_chat(user, "It currently holds [stored_matter]/30 matter units.")
+		. += "It currently holds [stored_matter]/30 matter units."
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
@@ -538,13 +538,13 @@
 /obj/item/rfd/transformer/attack_self(mob/user)
 	return
 
-/obj/item/rfd/transformer/examine(var/mob/user)
+/obj/item/rfd/transformer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(loc == user)
 		if(malftransformermade)
-			to_chat(user, "There is already a transformer machine made!")
+			. += "There is already a transformer machine made!"
 		else
-			to_chat(user, "It is ready to deploy a transformer machine.")
+			. += "It is ready to deploy a transformer machine."
 
 /obj/item/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
 
@@ -671,11 +671,11 @@
 		"Omni Gas Filter" = PIPE_OMNI_FILTER
 	)
 
-/obj/item/rfd/piping/examine(mob/user)
+/obj/item/rfd/piping/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, FONT_SMALL(SPAN_NOTICE("Change pipe category by ALT-clicking, change pipe selection by using in-hand.")))
-	to_chat(user, SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>"))
-	to_chat(user, SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>"))
+	. += FONT_SMALL(SPAN_NOTICE("Change pipe category by ALT-clicking, change pipe selection by using in-hand."))
+	. += SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>.")
+	. += SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>.")
 
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !isturf(A))

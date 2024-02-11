@@ -76,17 +76,17 @@
 		status = STATUS_ACTIVE
 		attach(newtarget)
 
-/obj/item/device/magnetic_lock/examine(mob/user)
+/obj/item/device/magnetic_lock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if (status == STATUS_BROKEN)
-		to_chat(user, "<span class='danger'>It looks broken!</span>")
+		. += "<span class='danger'>It looks broken!</span>"
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			to_chat(user, "<span class='notice'>The powercell is at [power]% charge.</span>")
+			. += "<span class='notice'>The powercell is at [power]% charge.</span>"
 		else
-			to_chat(user, "<span class='warning'>It has no powercell to power it!")
+			. += "<span class='warning'>It has no powercell to power it!"
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)

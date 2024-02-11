@@ -176,20 +176,20 @@
 		system_error("Resource field depleted.")
 		update_icon()
 
-/obj/machinery/mining/drill/examine(mob/user, distance, is_adjacent)
+/obj/machinery/mining/drill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(need_player_check)
-		to_chat(user, SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"]."))
+		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
 	else
-		to_chat(user, "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"].")
+		. += "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"]."
 	if(panel_open)
-		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
-	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%.")
+		. += "The power cell is [cell ? "installed" : "missing"]."
+	. += "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%."
 	if(is_adjacent)
 		if(attached_satchel)
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
+			. += FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it."))
 		if(current_error)
-			to_chat(user, FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\".")))
+			. += FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\"."))
 	return
 
 /obj/machinery/mining/drill/proc/activate_light(var/lights = DRILL_LIGHT_IDLE)

@@ -17,17 +17,17 @@
 	else
 		return temp_access
 
-/obj/item/card/id/guest/examine(mob/user)
+/obj/item/card/id/guest/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(world.time > expiration_time)
-		to_chat(usr, "This pass expired at: [worldtime2text(expiration_time)].")
+		. += SPAN_WARNING("This pass expired at: [worldtime2text(expiration_time)].")
 	else
-		to_chat(usr, "This pass expires at: [worldtime2text(expiration_time)].")
+		. += "This pass expires at: [worldtime2text(expiration_time)]."
 
-	to_chat(usr, "It grants access to the following areas:")
+	. += "It grants access to the following areas:"
 	for(var/A in temp_access)
-		to_chat(usr, "[get_access_desc(A)]")
-	to_chat(usr, "Issuing reason: [reason].")
+		. += "[get_access_desc(A)]"
+	. += "Issuing reason: [reason]."
 
 /obj/item/card/id/guest/Initialize(mapload, duration)
 	. = ..(mapload)

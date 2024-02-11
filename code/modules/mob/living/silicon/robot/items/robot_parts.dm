@@ -28,13 +28,13 @@
 	else
 		name = "robot [initial(name)]"
 
-/obj/item/robot_parts/examine(mob/user, distance, is_adjacent)
+/obj/item/robot_parts/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		report_missing_parts(user)
+		. = report_missing_parts(user)
 
 /obj/item/robot_parts/proc/report_missing_parts(var/mob/user)
-	return
+	. = list()
 
 /obj/item/robot_parts/l_arm
 	name = "left arm"
@@ -98,18 +98,19 @@
 	update_icon()
 
 /obj/item/robot_parts/robot_suit/report_missing_parts(var/mob/user)
+	. = ..()
 	if(!head)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking a functional head.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking a functional head."))
 	if(!chest)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking a functional chest.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking a functional chest."))
 	if(!l_arm)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking a functional left arm.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking a functional left arm."))
 	if(!r_arm)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking a functional right arm.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking a functional right arm."))
 	if(!l_leg)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking a functional left leg.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking a functional left leg."))
 	if(!r_leg)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking a functional right leg.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking a functional right leg."))
 
 /obj/item/robot_parts/robot_suit/equipped/Initialize()
 	. = ..()
@@ -321,10 +322,11 @@
 	return ..()
 
 /obj/item/robot_parts/chest/report_missing_parts(var/mob/user)
+	. = ..()
 	if(!cell)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking a functional cell.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking a functional cell."))
 	if(!wires)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking wiring.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking wiring."))
 
 /obj/item/robot_parts/chest/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))
@@ -349,12 +351,13 @@
 	return ..()
 
 /obj/item/robot_parts/head/report_missing_parts(var/mob/user)
+	. = ..()
 	var/law_manager_msg = "Its lawing circuits are <b>[law_manager ? "enabled" : "disabled"]</b>."
-	to_chat(user, SPAN_NOTICE(law_manager_msg))
+	. +=  SPAN_NOTICE(law_manager_msg)
 	if(!left_flash)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking its left flash.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking its left flash."))
 	if(!right_flash)
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking its right flash.")))
+		. += FONT_SMALL(SPAN_WARNING("It is lacking its right flash."))
 
 /obj/item/robot_parts/head/attackby(obj/item/attacking_item, mob/user)
 	..()

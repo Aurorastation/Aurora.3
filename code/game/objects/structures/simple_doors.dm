@@ -58,10 +58,10 @@
 	lock = null
 	return ..()
 
-/obj/structure/simple_door/examine(mob/user)
+/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(lock)
-		to_chat(user, "<span class='notice'>It appears to have a lock.</span>")
+		. += SPAN_NOTICE("It appears to have a lock.")
 
 /obj/structure/simple_door/CollidedWith(atom/user)
 	..()

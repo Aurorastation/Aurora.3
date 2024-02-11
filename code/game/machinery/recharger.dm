@@ -32,9 +32,9 @@
 	var/portable = 1
 	var/list/chargebars
 
-/obj/machinery/recharger/examine(mob/user, distance, is_adjacent)
+/obj/machinery/recharger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
+	. += "There is [charging ? "\a [charging]" : "nothing"] in [src]."
 	if (charging && distance <= 3)
 		var/obj/item/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))

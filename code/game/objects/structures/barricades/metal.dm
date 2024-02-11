@@ -14,15 +14,15 @@
 	can_wire = TRUE
 	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
 
-/obj/structure/barricade/metal/examine(mob/user)
+/obj/structure/barricade/metal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)
-			to_chat(user, SPAN_INFO("The protection panel is still tighly screwed in place."))
+			. += SPAN_INFO("The protection panel is still tighly screwed in place.")
 		if(BARRICADE_BSTATE_UNSECURED)
-			to_chat(user, SPAN_INFO("The protection panel has been removed, you can see the anchor bolts."))
+			. += SPAN_INFO("The protection panel has been removed, you can see the anchor bolts.")
 		if(BARRICADE_BSTATE_MOVABLE)
-			to_chat(user, SPAN_INFO("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart."))
+			. += SPAN_INFO("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart.")
 
 /obj/structure/barricade/metal/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswelder())

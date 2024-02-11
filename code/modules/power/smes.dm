@@ -123,17 +123,17 @@
 	if(!should_be_mapped)
 		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
 
-/obj/machinery/power/smes/examine(mob/user)
+/obj/machinery/power/smes/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_badly_damaged())
-		to_chat(user, SPAN_DANGER("\The [src] is damaged to the point of non-function!"))
+		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")
 	if(open_hatch)
-		to_chat(user, SPAN_SUBTLE("The maintenance hatch is open."))
+		. += SPAN_SUBTLE("The maintenance hatch is open.")
 		if (max_coils > 1 && Adjacent(user))
 			var/list/coils = list()
 			for(var/obj/item/smes_coil/C in component_parts)
 				coils += C
-			to_chat(user, "The [max_coils] coil slots contain: [counting_english_list(coils)]")
+			. += "The [max_coils] coil slots contain: [counting_english_list(coils)]."
 
 /obj/machinery/power/smes/proc/can_function()
 	if(is_badly_damaged())

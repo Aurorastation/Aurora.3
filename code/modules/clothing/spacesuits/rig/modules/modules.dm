@@ -61,15 +61,15 @@
 	var/list/stat_rig_module/stat_modules = new()
 	var/category	// Use for restricting modules for specific suits, to specialize
 
-/obj/item/rig_module/examine(mob/user)
+/obj/item/rig_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(damage)
 		if(0)
-			to_chat(user, SPAN_NOTICE("It is undamaged."))
+			. += SPAN_NOTICE("It is undamaged.")
 		if(1)
-			to_chat(user, SPAN_WARNING("It is badly damaged."))
+			. += SPAN_WARNING("It is badly damaged.")
 		if(2)
-			to_chat(user, SPAN_DANGER("It is almost completely destroyed."))
+			. += SPAN_DANGER("It is almost completely destroyed.")
 
 /obj/item/rig_module/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/nanopaste))
