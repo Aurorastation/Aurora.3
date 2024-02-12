@@ -4,5 +4,6 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "Ghost spawners show the location of the spawner (ship, station, etc)."
+  - rscadd: "Ghost spawners show the location of the spawner."
   - tweak: "Ghost spawners are shown in the list even if full."
+  - tweak: "Ghost spawners are grayed out if visible, but cannot use them for whatever reason."

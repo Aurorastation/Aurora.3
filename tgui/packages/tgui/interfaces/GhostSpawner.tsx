@@ -158,7 +158,10 @@ export const GhostSpawner = (props, context) => {
             {spawners.map(
               (spawner) =>
                 (spawner.tags.indexOf(tab) > -1 || tab === 'All') && (
-                  <Table.Row key={spawner.short_name} className="candystripe">
+                  <Table.Row
+                    key={spawner.short_name}
+                    className="candystripe"
+                    color={spawner.cant_spawn ? 'gray' : null}>
                     <Table.Cell>{spawner.name}</Table.Cell>
                     <Table.Cell
                       color={loc_to_color[spawner.spawn_overmap_location]}>
