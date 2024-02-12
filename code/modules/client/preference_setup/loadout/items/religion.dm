@@ -1,7 +1,5 @@
 /datum/gear/religion
 	abstract_type = /datum/gear/religion
-	path = /obj/item/clothing/mask/trinary_mask
-	slot = slot_wear_mask
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -12,6 +10,11 @@
 
 /datum/gear/religion/trinary
 	abstract_type = /datum/gear/religion/trinary
+
+/datum/gear/religion/trinary/mask
+	display_name = "trinary perfection mask"
+	path = /obj/item/clothing/mask/trinary_mask
+	slot = slot_wear_mask
 
 /datum/gear/religion/trinary/coif
 	display_name = "trinary perfection coif"
