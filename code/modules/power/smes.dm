@@ -327,8 +327,8 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/power/smes/attackby(var/obj/item/W, var/mob/user)
-	if(W.isscrewdriver())
+/obj/machinery/power/smes/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!open_hatch)
 			if(is_badly_damaged())
 				to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel is broken open!"))
@@ -351,9 +351,9 @@
 		to_chat(user, "<span class='warning'>You need to open access hatch on [src] first!</span>")
 		return 0
 
-	if(W.iscoil() && !terminal && !building_terminal)
+	if(attacking_item.iscoil() && !terminal && !building_terminal)
 		building_terminal = 1
-		var/obj/item/stack/cable_coil/CC = W
+		var/obj/item/stack/cable_coil/CC = attacking_item
 		if (CC.get_amount() <= 10)
 			to_chat(user, "<span class='warning'>You need more cables.</span>")
 			building_terminal = 0
@@ -370,7 +370,7 @@
 		stat = 0
 		return 0
 
-	else if(W.iswirecutter() && terminal && !building_terminal)
+	else if(attacking_item.iswirecutter() && terminal && !building_terminal)
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
@@ -378,7 +378,7 @@
 				to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			else
 				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
-				if(W.use_tool(src, user, 50, volume = 50))
+				if(attacking_item.use_tool(src, user, 50, volume = 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
 						building_terminal = 0

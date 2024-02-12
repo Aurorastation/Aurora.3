@@ -92,7 +92,7 @@
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
-/obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/attacking_item, mob/user)
 	..()
 	update_icon()
 

@@ -92,8 +92,8 @@
 		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
-/obj/machinery/power/breakerbox/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(W.ismultitool())
+/obj/machinery/power/breakerbox/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 		if(newtag)
 			RCon_tag = newtag

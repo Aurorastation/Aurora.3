@@ -59,12 +59,12 @@
 
 	return machine
 
-/obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/processing_unit_console/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
@@ -326,12 +326,12 @@
 		console.machine = null
 	return ..()
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/processing_unit/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 

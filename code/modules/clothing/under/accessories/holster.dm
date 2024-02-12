@@ -89,8 +89,8 @@
 
 	..(user)
 
-/obj/item/clothing/accessory/holster/attackby(obj/item/W, mob/user)
-	holster(W, user)
+/obj/item/clothing/accessory/holster/attackby(obj/item/attacking_item, mob/user)
+	holster(attacking_item, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)
 	. = ..()

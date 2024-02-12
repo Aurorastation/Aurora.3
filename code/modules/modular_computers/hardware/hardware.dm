@@ -26,21 +26,21 @@
 		return disable()
 	return enable()
 
-/obj/item/computer_hardware/attackby(obj/item/W, mob/living/user)
+/obj/item/computer_hardware/attackby(obj/item/attacking_item, mob/user)
 	// Multitool. Runs diagnostics
-	if(W.ismultitool())
+	if(attacking_item.ismultitool())
 		to_chat(user, SPAN_NOTICE("***** DIAGNOSTICS REPORT *****"))
 		diagnostics(user)
 		to_chat(user, SPAN_NOTICE("******************************"))
 		return 1
 	// Nanopaste. Repair all damage if present for a single unit.
-	var/obj/item/stack/S = W
+	var/obj/item/stack/S = attacking_item
 	if(istype(S, /obj/item/stack/nanopaste))
 		if(!damage)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't seem to require repairs."))
 			return TRUE
 		if(S.use(1))
-			to_chat(user, SPAN_NOTICE("You apply a bit of \the [W] to \the [src], repairing it fully."))
+			to_chat(user, SPAN_NOTICE("You apply a bit of \the [attacking_item] to \the [src], repairing it fully."))
 			damage = 0
 		return TRUE
 	// Cable coil. Works as repair method, but will probably require multiple applications and more cable.
@@ -49,7 +49,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't seem to require repairs."))
 			return TRUE
 		if(S.use(1))
-			to_chat(user, SPAN_NOTICE("You patch up \the [src] with a bit of \the [W]."))
+			to_chat(user, SPAN_NOTICE("You patch up \the [src] with a bit of \the [attacking_item]."))
 			take_damage(-10)
 		return TRUE
 	return ..()

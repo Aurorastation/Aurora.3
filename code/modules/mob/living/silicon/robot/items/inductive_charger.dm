@@ -111,16 +111,16 @@
 /obj/item/inductive_charger/handheld/get_cell()
 	return cell
 
-/obj/item/inductive_charger/handheld/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/cell))
+/obj/item/inductive_charger/handheld/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cell inserted."))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
-		cell = I
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
+		cell = attacking_item
 		return TRUE
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(!cell)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a cell inserted."))
 			return TRUE

@@ -81,8 +81,8 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/omni/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench())
+/obj/machinery/atmospherics/omni/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.iswrench())
 		return ..()
 
 	var/int_pressure = 0
@@ -95,7 +95,7 @@
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, 40, volume = 50))
+	if(attacking_item.use_tool(src, user, 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

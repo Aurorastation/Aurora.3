@@ -49,19 +49,19 @@
 			qdel(src)
 	return
 
-/obj/structure/lattice/attackby(obj/item/C, mob/user)
-	if (istype(C, /obj/item/stack/tile/floor))
+/obj/structure/lattice/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
-		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
+		T.attackby(attacking_item, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (C.iswelder())
-		var/obj/item/weldingtool/WT = C
+	if (attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
 			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
-	if (istype(C, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = C
+	if (istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(2))
 			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
@@ -87,22 +87,22 @@
 	can_be_unanchored = TRUE
 	layer = 2.7	// Above wires.
 
-/obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
-	if(C.iswelder())
-		var/obj/item/weldingtool/WT = C
+/obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(1, user))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			return
-		if(C.use_tool(src, user, 5, volume = 50))
+		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			to_chat(user, SPAN_NOTICE("You slice apart [src]."))
 			var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src))
 			R.amount = return_amount
 			R.update_icon()
 			qdel(src)
 
-/obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
-	if(C.isscrewdriver())
-		if(C.use_tool(src, user, 5, volume = 50))
+/obj/structure/lattice/catwalk/indoor/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
 			SSicon_smooth.add_to_queue(src)
@@ -127,10 +127,10 @@
 	var/base_icon_state = "grate"
 	var/damaged = FALSE
 
-/obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/C, mob/user)
-	if(C.iswelder() && damaged)
-		var/obj/item/weldingtool/WT = C
-		if(C.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
+/obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder() && damaged)
+		var/obj/item/weldingtool/WT = attacking_item
+		if(attacking_item.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			user.visible_message(
 				SPAN_NOTICE("\The [user] slices apart \the [src], leaving nothing useful behind."),
 				SPAN_NOTICE("You slice apart \the [src], leaving nothing useful behind."),

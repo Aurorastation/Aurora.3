@@ -72,10 +72,10 @@
 	icon = 'icons/mob/npc/vannatusk.dmi'
 	icon_state = "bonedart"
 
-/mob/living/simple_animal/hostile/vannatusk/attackby(obj/item/O, mob/user)
+/mob/living/simple_animal/hostile/vannatusk/attackby(obj/item/attacking_item, mob/user)
 	if(stat != DEAD)
 		return ..()
-	if(istype(O, /obj/item/surgery/scalpel))
+	if(istype(attacking_item, /obj/item/surgery/scalpel))
 		if(crystal_harvested)
 			to_chat(user, SPAN_WARNING("\The [src]'s crystal has already been harvested!"))
 			return

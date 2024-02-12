@@ -50,11 +50,11 @@
 		buck.old_y = 0
 		unbuckle()
 
-/obj/structure/bed/nest/attackby(obj/item/W, mob/user)
+/obj/structure/bed/nest/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, W)
-	var/force_damage = W.force
-	if(W.damtype == DAMAGE_BURN)
+	user.do_attack_animation(src, attacking_item)
+	var/force_damage = attacking_item.force
+	if(attacking_item.damtype == DAMAGE_BURN)
 		force_damage *= 1.25
 	health -= force_damage
 	playsound(loc, 'sound/effects/attackblob.ogg', 80, TRUE)

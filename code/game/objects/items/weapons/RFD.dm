@@ -73,20 +73,20 @@
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
 	playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 
-/obj/item/rfd/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/rfd_ammo))
+/obj/item/rfd/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > 30)
 			to_chat(user, SPAN_NOTICE("The RFD can't hold any more matter units."))
 			return
-		user.drop_from_inventory(W,src)
-		qdel(W)
+		user.drop_from_inventory(attacking_item, src)
+		qdel(attacking_item)
 		stored_matter += 10
 		playsound(src.loc, 'sound/weapons/laser_reload1.ogg', 50, FALSE)
 		to_chat(user, SPAN_NOTICE("The RFD now holds [stored_matter]/30 matter units."))
 		update_icon()
 		return TRUE
 
-	if(W.isscrewdriver())  // Turning it into a crossbow
+	if(attacking_item.isscrewdriver())  // Turning it into a crossbow
 		crafting = !crafting
 		if(!crafting)
 			to_chat(user, SPAN_NOTICE("You reassemble the RFD."))
@@ -97,14 +97,14 @@
 
 	if(crafting)
 		var/obj/item/crossbow // the thing we're gonna add, check what it is below
-		if(istype(W, /obj/item/crossbowframe))
-			var/obj/item/crossbowframe/F = W
+		if(istype(attacking_item, /obj/item/crossbowframe))
+			var/obj/item/crossbowframe/F = attacking_item
 			if(F.buildstate != 5)
 				to_chat(user, SPAN_WARNING("You need to fully assemble the crossbow frame first!"))
 				return TRUE
 			crossbow = F
-		else if(istype(W, /obj/item/gun/launcher/crossbow) && !istype(W, /obj/item/gun/launcher/crossbow/RFD))
-			var/obj/item/gun/launcher/crossbow/C = W
+		else if(istype(attacking_item, /obj/item/gun/launcher/crossbow) && !istype(attacking_item, /obj/item/gun/launcher/crossbow/RFD))
+			var/obj/item/gun/launcher/crossbow/C = attacking_item
 			if(C.bolt)
 				to_chat(user, SPAN_WARNING("You need to remove \the [C.bolt] from \the [C] before you can attach it to \the [src]."))
 				return TRUE

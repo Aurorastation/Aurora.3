@@ -123,8 +123,8 @@
 		a_right.holder_movement()
 	return ..()
 
-/obj/item/device/assembly_holder/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/assembly_holder/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!a_left || !a_right)
 			to_chat(user, SPAN_DANGER("BUG: Assembly part missing, please report this!"))
 			return
@@ -137,8 +137,8 @@
 			to_chat(user, SPAN_NOTICE("\The [src] can now be taken apart!"))
 		update_icon()
 		return
-	else if(W.IsSpecialAssembly())
-		attach_special(W, user)
+	else if(attacking_item.IsSpecialAssembly())
+		attach_special(attacking_item, user)
 	else
 		return ..()
 

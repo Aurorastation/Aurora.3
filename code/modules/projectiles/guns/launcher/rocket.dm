@@ -24,11 +24,11 @@
 	if(is_adjacent)
 		. += "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>"
 
-/obj/item/gun/launcher/rocket/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/ammo_casing/rocket))
+/obj/item/gun/launcher/rocket/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_casing/rocket))
 		if(rockets.len < max_rockets)
-			user.drop_from_inventory(I,src)
-			rockets += I
+			user.drop_from_inventory(attacking_item, src)
+			rockets += attacking_item
 			to_chat(user, "<span class='notice'>You put the rocket in [src].</span>")
 			to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
 		else

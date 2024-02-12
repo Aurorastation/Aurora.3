@@ -51,9 +51,9 @@ var/global/photo_count = 0
 /obj/item/photo/attack_self(mob/user as mob)
 	examinate(user, src)
 
-/obj/item/photo/attackby(obj/item/P as obj, mob/user as mob)
-	if(P.ispen())
-		var/txt = sanitize(input(user, "What would you like to write on the back?", "Photo Writing", null)  as text, 128)
+/obj/item/photo/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
+		var/txt = sanitize( tgui_input_text(user, "What would you like to write on the back?", "Photo Writing", max_length = 128), 128 )
 		if(loc == user && user.stat == 0)
 			scribble = txt
 	..()
@@ -176,14 +176,14 @@ var/global/photo_count = 0
 	to_chat(user, "You switch the camera [on ? "on" : "off"].")
 	return
 
-/obj/item/device/camera/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/device/camera_film))
+/obj/item/device/camera/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/camera_film))
 		if(pictures_left)
 			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
 			return TRUE
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
-		user.drop_from_inventory(I,get_turf(src))
-		qdel(I)
+		to_chat(user, "<span class='notice'>You insert [attacking_item] into [src].</span>")
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		qdel(attacking_item)
 		pictures_left = pictures_max
 		return TRUE
 	return ..()

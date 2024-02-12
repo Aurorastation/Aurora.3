@@ -23,7 +23,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mmi/digital/posibrain/attackby(obj/item/I, mob/user)
+/obj/item/device/mmi/digital/posibrain/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/device/mmi/digital/posibrain/attack_self(mob/user)

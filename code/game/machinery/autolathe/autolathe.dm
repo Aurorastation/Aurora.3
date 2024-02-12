@@ -142,17 +142,17 @@
 		)
 	return data
 
-/obj/machinery/autolathe/attackby(obj/item/O, mob/user)
+/obj/machinery/autolathe/attackby(obj/item/attacking_item, mob/user)
 	if((autolathe_flags & AUTOLATHE_BUSY))
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return TRUE
 
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		SStgui.update_uis(src)
 		return TRUE
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 	if(stat)
@@ -160,20 +160,20 @@
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(O.ismultitool() || O.iswirecutter())
+		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
 			if(panel_open)
 				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 			return TRUE
 
-	if(O.loc != user && !istype(O, /obj/item/stack))
+	if(attacking_item.loc != user && !istype(attacking_item, /obj/item/stack))
 		return FALSE
 
-	if(is_robot_module(O))
+	if(is_robot_module(attacking_item))
 		return FALSE
 
-	load_lathe(O, user)
+	load_lathe(attacking_item, user)
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)

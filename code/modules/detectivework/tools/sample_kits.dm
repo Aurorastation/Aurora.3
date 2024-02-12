@@ -45,14 +45,14 @@
 	to_chat(user, SPAN_NOTICE("You overlay \the [src] and \the [initial(supplied.name)], combining the print records."))
 	return 1
 
-/obj/item/sample/attackby(var/obj/O, var/mob/user)
-	if(O.type == src.type)
-		user.unEquip(O)
-		if(merge_evidence(O, user))
-			qdel(O)
+/obj/item/sample/attackby(obj/item/attacking_item, var/mob/user)
+	if(attacking_item.type == src.type)
+		user.unEquip(attacking_item)
+		if(merge_evidence(attacking_item, user))
+			qdel(attacking_item)
 		return TRUE
-	else if (O.ispen())
-		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
+	else if (attacking_item.ispen())
+		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > MAX_NAME_LEN)
 			to_chat(user, SPAN_WARNING("The label can be at most [MAX_NAME_LEN] characters long."))
 		else

@@ -102,9 +102,9 @@
 	else if(load)
 		unload(user)			//unload if loaded
 
-/obj/vehicle/train/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
-		playsound(loc, W.usesound, 70, FALSE)
+/obj/vehicle/train/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
+		playsound(loc, attacking_item.usesound, 70, FALSE)
 		unattach(user)
 		return
 	return ..()

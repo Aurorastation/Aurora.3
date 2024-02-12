@@ -181,13 +181,13 @@
 /obj/item/proc/reset_table_position()
 	animate(src, pixel_y = 0, time = 2, loop = 1, easing = BOUNCE_EASING)
 
-/obj/structure/table/attackby(obj/item/W, mob/user, var/click_parameters)
-	if (!W)
+/obj/structure/table/attackby(obj/item/attacking_item, mob/user, params)
+	if (!attacking_item)
 		return
 
 	// Handle harm intent grabbing/tabling.
-	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
+	if(istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = attacking_item
 		if(istype(G.affecting, /mob/living))
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
@@ -222,17 +222,17 @@
 					G.affecting.forceMove(src.loc)
 					G.affecting.Weaken(rand(2,4))
 					visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
-					qdel(W)
+					qdel(attacking_item)
 				return
 			else
 				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 				return
 
-	if(!W.dropsafety())
+	if(!attacking_item.dropsafety())
 		return
 
-	if(istype(W, /obj/item/melee/energy/blade))
-		var/obj/item/melee/energy/blade/blade = W
+	if(istype(attacking_item, /obj/item/melee/energy/blade))
+		var/obj/item/melee/energy/blade/blade = attacking_item
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
@@ -241,11 +241,11 @@
 		return
 
 	if(can_plate && !material)
-		to_chat(user, "<span class='warning'>There's nothing to put \the [W] on! Try adding plating to \the [src] first.</span>")
+		to_chat(user, "<span class='warning'>There's nothing to put \the [attacking_item] on! Try adding plating to \the [src] first.</span>")
 		return
 
 
-	if(W.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
@@ -262,9 +262,9 @@
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
 
 	// Placing stuff on tables
-	if(user.unEquip(W, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion
-		user.make_item_drop_sound(W)
-		auto_align(W, click_parameters)
+	if(user.unEquip(attacking_item, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion
+		user.make_item_drop_sound(attacking_item)
+		auto_align(attacking_item, params)
 		return
 
 #define CELLS 8								//Amount of cells per row/column in grid

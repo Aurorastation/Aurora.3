@@ -62,7 +62,7 @@
 		glow_state = make_screen_overlay(icon, icon_state)
 	add_overlay(glow_state)
 
-/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/temp_visual/constellation/attackby(obj/item/attacking_item, mob/user)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
 	qdel(src)
 	return TRUE

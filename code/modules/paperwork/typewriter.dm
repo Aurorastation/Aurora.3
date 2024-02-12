@@ -83,18 +83,18 @@
 	update_icon()
 	return TRUE
 
-/obj/item/portable_typewriter/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/paper))
+/obj/item/portable_typewriter/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/paper))
 		if(!stored_paper)
-			if(W.icon_state == "scrap")
-				to_chat(user, SPAN_ALERT("\The [W] is too crumpled to feed correctly!"))
+			if(attacking_item.icon_state == "scrap")
+				to_chat(user, SPAN_ALERT("\The [attacking_item] is too crumpled to feed correctly!"))
 				return
 			else
-				user.drop_item(W)
-				user.unEquip(W)
-				W.forceMove(src)
-				stored_paper = W
-				user.visible_message(SPAN_ALERT("\The [user] sucks up \the [W] into \the [src]."), SPAN_ALERT("You suck up \the [W] into \the [src]."))
+				user.drop_item(attacking_item)
+				user.unEquip(attacking_item)
+				attacking_item.forceMove(src)
+				stored_paper = attacking_item
+				user.visible_message(SPAN_ALERT("\The [user] sucks up \the [attacking_item] into \the [src]."), SPAN_ALERT("You suck up \the [attacking_item] into \the [src]."))
 				src.update_icon()
 		else
 			to_chat(user, SPAN_ALERT("\The [src] already has a paper in it."))
@@ -176,14 +176,14 @@
 /obj/item/typewriter_case/MouseDrop(mob/user as mob)
 	attack_self(user)
 
-/obj/item/typewriter_case/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/portable_typewriter))
+/obj/item/typewriter_case/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/portable_typewriter))
 		if(!machine)
-			user.drop_item(W)
-			user.unEquip(W)
-			W.forceMove(src)
-			src.machine = W
-			user.visible_message(SPAN_ALERT("[user] places \the [W] into \the [src]."), SPAN_ALERT ("You store \the [W] in \the [src]."))
+			user.drop_item(attacking_item)
+			user.unEquip(attacking_item)
+			attacking_item.forceMove(src)
+			src.machine = attacking_item
+			user.visible_message(SPAN_ALERT("[user] places \the [attacking_item] into \the [src]."), SPAN_ALERT ("You store \the [attacking_item] in \the [src]."))
 			src.update_icon()
 		else
 			to_chat(user, SPAN_ALERT("\The [src] already has a typewriter in it!"))
