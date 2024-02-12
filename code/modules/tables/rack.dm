@@ -37,7 +37,7 @@
 /obj/structure/table/rack/retail_shelf
 	name = "retail shelves"
 	desc = "A large, assorted shelf with many platforms for setting things upon."
-	icon_state = "shelf"
+	icon_state = "shelf_alt"
 
 /obj/structure/table/rack/cafe_table
 	name = "round cafe table"

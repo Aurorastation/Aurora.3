@@ -120,22 +120,23 @@
 /area/point_verdant/outdoors
 	name = "Point Verdant - Outdoors"
 	ambience = AMBIENCE_KONYANG_RAIN
-	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city. Rain batters down on your body, encouraging you to seek shelter." //alter this if a dynamic weather system is added, so its isn't always raining.
+	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city." //alter this if a dynamic weather system is added, so its isn't always raining.
 	area_blurb_category = "verdant_outdoors"
 
-/area/point_verdant/outdoors/Initialize()
-	. = ..()
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="splat","layer"=OBJ_LAYER-0.1))
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
+//Rainy areas are still incomplete, so these are commented out temporarily until a proper implementation is made
+///area/point_verdant/outdoors/Initialize()
+//	. = ..()
+//	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="splat","layer"=OBJ_LAYER-0.1))
+//	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
 
 /area/point_verdant/water
 	name = "Point Verdant - Open Water"
 	icon_state = "fitness_pool"
 
-/area/point_verdant/water/Initialize()
-	. = ..()
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="ripple","layer"=OBJ_LAYER-0.1))
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
+///area/point_verdant/water/Initialize()
+//	. = ..()
+//	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="ripple","layer"=OBJ_LAYER-0.1))
+//	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
 
 /area/point_verdant/water/deep // also used for waterdock landing area
 	name = "Point Verdant - Deep Water"

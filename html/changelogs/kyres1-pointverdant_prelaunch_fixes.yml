@@ -1,0 +1,8 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed invisible shelving on Point Verdant."
+  - bugfix: "Fixed nonfunctioning animations on the Haneunim title screen."
+  - tweak: "Disabled Point Verdant's rain due to missing functionality."
