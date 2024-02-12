@@ -89,6 +89,9 @@
 				return
 		// Repairs and deconstruction
 		else if(C.iscrowbar())
+			var/area/A = get_area(src)
+			if(A.area_flags & AREA_FLAG_INDESTRUCTIBLE_TURFS)
+				return
 			if(broken || burnt)
 				playsound(src, 'sound/items/crowbar_tile.ogg', 80, 1)
 				visible_message("<span class='notice'>[user] has begun prying off the damaged plating.</span>")
