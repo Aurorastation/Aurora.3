@@ -101,7 +101,6 @@ export const GhostSpawner = (props, context) => {
     'red',
     'green',
     'yellow',
-    'white',
   ];
 
   let loc_to_color: Map<string, string> = new Map();

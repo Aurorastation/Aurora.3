@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Ghost spawners show the location of the spawner (ship, station, etc)."
+  - tweak: "Ghost spawners are shown in the list even if full."
