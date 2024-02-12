@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Fixes Intern Investigators spawning with two pairs of gloves."
+  - backend: "Slight refactor of how Security Cadet outfits are handled, so nobody inherits anything they shouldn't."
