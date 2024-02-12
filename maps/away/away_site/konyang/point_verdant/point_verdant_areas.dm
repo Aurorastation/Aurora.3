@@ -120,7 +120,7 @@
 /area/point_verdant/outdoors
 	name = "Point Verdant - Outdoors"
 	ambience = AMBIENCE_KONYANG_RAIN
-	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city." //alter this if a dynamic weather system is added, so its isn't always raining.
+	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city."
 	area_blurb_category = "verdant_outdoors"
 
 //Rainy areas are still incomplete, so these are commented out temporarily until a proper implementation is made
