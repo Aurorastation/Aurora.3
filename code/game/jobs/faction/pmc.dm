@@ -40,7 +40,7 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/pmc,
 		"Warden" = /datum/outfit/job/warden/pmc,
-		"Security Cadet" = /datum/outfit/job/intern_sec/pmc,
+		"Security Cadet" = /datum/outfit/job/intern_sec/officer/pmc,
 		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/pmc,
 		"Investigator" =/datum/outfit/job/forensics/pmc,
 		"Physician" = /datum/outfit/job/doctor/pmc,
@@ -80,7 +80,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
 	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
-/datum/outfit/job/intern_sec/pmc
+/datum/outfit/job/intern_sec/officer/pmc
 	name = "Security Cadet - PMC"
 
 	uniform = /obj/item/clothing/under/rank/cadet/pmc
