@@ -239,7 +239,7 @@
 
 			if(Z.A.air.gas.len && Z.B.air.gas.len)
 				fail_message += "--> Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start. <--\n"
-
+				problem = Z.A + Z.B
 			else if(Z.A.air.gas.len)
 				problem = Z.A
 			else if(Z.B.air.gas.len)
