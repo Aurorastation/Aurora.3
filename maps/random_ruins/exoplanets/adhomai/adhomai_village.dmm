@@ -11,9 +11,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "am" = (
 /obj/structure/bed/stool/chair/wood{
@@ -22,9 +20,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "aF" = (
 /obj/structure/table/wood,
@@ -32,17 +28,13 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "aP" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle,
 /obj/item/storage/box/fancy/matches,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "cw" = (
 /turf/simulated/floor/carpet/art{
@@ -53,28 +45,20 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/green,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "ev" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "ew" = (
 /obj/structure/railing/fence,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "eS" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/plastic,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "eU" = (
 /obj/structure/railing/fence{
@@ -89,17 +73,13 @@
 	pixel_y = 32;
 	desc = "An ancient icon representing Adhomai's suns."
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "fq" = (
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "fD" = (
 /obj/structure/closet/outhouse,
@@ -111,9 +91,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "gm" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -124,18 +102,14 @@
 "gw" = (
 /obj/structure/table/wood,
 /obj/item/material/twohanded/pike/pitchfork,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "gz" = (
 /obj/structure/railing/fence{
 	dir = 4
 	},
 /obj/structure/railing/fence,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "if" = (
 /obj/machinery/appliance/cooker/stove/adhomai,
@@ -151,16 +125,12 @@
 /obj/structure/table/rack,
 /obj/item/wirecutters/clippers,
 /obj/item/wirecutters/clippers,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "iM" = (
 /obj/structure/bed/stool/wood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "jg" = (
 /obj/structure/table/stone/marble,
@@ -183,16 +153,12 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/hardbread,
 /obj/item/pickaxe,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "kB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "kF" = (
 /obj/structure/table/wood,
@@ -200,9 +166,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "kJ" = (
 /obj/structure/closet/crate/freezer,
@@ -216,16 +180,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "kO" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "mf" = (
 /obj/structure/closet/cabinet,
@@ -235,24 +195,18 @@
 /obj/item/ammo_casing/shotgun/pellet,
 /obj/item/ammo_casing/shotgun/pellet,
 /obj/item/clothing/accessory/storage/bandolier,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "mF" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "na" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "nD" = (
 /obj/structure/bed/stool/chair/sofa/blue{
@@ -263,9 +217,7 @@
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "nR" = (
 /obj/machinery/shower{
@@ -290,15 +242,11 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass{
 	pixel_x = -8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "pz" = (
 /mob/living/simple_animal/climber,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "pK" = (
 /obj/structure/closet/crate/hydroponics,
@@ -308,9 +256,7 @@
 /obj/item/seeds/blizzard,
 /obj/item/seeds/nifberries,
 /obj/item/seeds/nifberries,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "qk" = (
 /obj/structure/closet/cabinet,
@@ -319,9 +265,7 @@
 /obj/item/clothing/suit/storage/toggle/tajaran/wool,
 /obj/item/clothing/under/pants/tajaran,
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "qm" = (
 /obj/structure/bed/padded,
@@ -340,9 +284,7 @@
 /area/adhomai_village)
 "rf" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "rM" = (
 /obj/structure/light_pole/r,
@@ -356,17 +298,13 @@
 /obj/item/material/hatchet,
 /obj/item/material/minihoe,
 /obj/item/material/minihoe,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "sS" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "tK" = (
 /obj/structure/closet/cabinet,
@@ -379,9 +317,7 @@
 /obj/item/clothing/accessory/tajaran/ruddy,
 /obj/item/clothing/head/tajaran/circlet,
 /obj/item/clothing/shoes/flats/purple,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "uc" = (
 /obj/structure/toilet{
@@ -393,18 +329,14 @@
 /area/adhomai_village)
 "vJ" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "vP" = (
 /obj/machinery/appliance/cooker/oven/adhomai,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "wj" = (
 /obj/structure/sink{
@@ -432,15 +364,11 @@
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "wH" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "wY" = (
 /obj/machinery/light/small,
@@ -457,23 +385,17 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "xJ" = (
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "yd" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "yQ" = (
 /obj/structure/closet/cabinet,
@@ -483,30 +405,22 @@
 /obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/shoes/workboots/tajara,
 /obj/item/clothing/accessory/tajaran/charm,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "yV" = (
 /obj/item/holder/monkey/farwa,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "zf" = (
 /obj/item/bedsheet/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "zh" = (
 /obj/structure/window/basic{
 	dir = 1
 	},
 /obj/structure/curtain/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "zA" = (
 /obj/structure/railing/fence{
@@ -523,17 +437,13 @@
 /area/adhomai_village)
 "AU" = (
 /obj/item/reagent_containers/glass/bucket/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "AZ" = (
 /obj/structure/bed/stool/chair/sofa/left/blue{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Bt" = (
 /obj/structure/table/rack,
@@ -548,9 +458,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Cc" = (
 /obj/structure/bed/stool/chair/sofa/beige{
@@ -560,9 +468,7 @@
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Cw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -579,15 +485,11 @@
 /area/adhomai_village)
 "DP" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Em" = (
 /obj/machinery/appliance/cooker/stove/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Fz" = (
 /obj/structure/sink/puddle,
@@ -601,9 +503,7 @@
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Gk" = (
 /obj/structure/bed/stool/chair/sofa/right/blue{
@@ -613,9 +513,7 @@
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Gu" = (
 /turf/simulated/wall/wood,
@@ -628,26 +526,20 @@
 	icon_state = "television";
 	name = "adhomian television"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "GQ" = (
 /mob/living/simple_animal/fatshouter,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "GR" = (
 /obj/structure/weapon_rack/double_pellet{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Ht" = (
 /obj/structure/closet/cabinet,
@@ -660,28 +552,20 @@
 /obj/item/clothing/gloves/black/tajara,
 /obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/shoes/workboots/tajara,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "HM" = (
 /obj/structure/trash_pile,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "HX" = (
 /obj/structure/bed/stool/chair/sofa/right/brown,
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Ic" = (
 /obj/random/pottedplant,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Ii" = (
 /obj/structure/closet/crate/hydroponics,
@@ -691,17 +575,13 @@
 /obj/item/seeds/sugartree,
 /obj/item/seeds/nifberries,
 /obj/item/seeds/nifberries,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Iy" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "IJ" = (
 /obj/machinery/light/small{
@@ -711,9 +591,7 @@
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "IK" = (
 /obj/structure/closet/crate/freezer,
@@ -724,9 +602,7 @@
 /obj/item/material/kitchen/utensil/knife,
 /obj/item/material/kitchen/utensil/knife,
 /obj/item/tray,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "IM" = (
 /obj/structure/bed/stool/chair/padded/black,
@@ -734,9 +610,7 @@
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "IO" = (
 /obj/structure/railing/fence{
@@ -755,16 +629,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Kq" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/rag,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "KB" = (
 /obj/structure/railing/fence,
@@ -780,25 +650,19 @@
 /obj/item/paper_bundle,
 /obj/structure/table/wood,
 /obj/item/pen/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "LC" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "LL" = (
 /obj/structure/table/wood,
 /obj/item/pocketwatch/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Mv" = (
 /obj/structure/bed/stool/chair/wood,
@@ -806,27 +670,21 @@
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "NS" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Oa" = (
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Oc" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -841,9 +699,7 @@
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
 /obj/item/reagent_containers/food/condiment/shaker/salt,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "OA" = (
 /obj/structure/railing/fence,
@@ -855,9 +711,7 @@
 "Pa" = (
 /obj/structure/table/wood,
 /obj/item/toy/plushie/farwa,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Pc" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
@@ -889,9 +743,7 @@
 /obj/structure/bed/stool/chair/sofa/left/beige{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Rh" = (
 /obj/structure/light_pole,
@@ -902,24 +754,18 @@
 "Rq" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Rw" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "RA" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
 	pixel_x = 21
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "RE" = (
 /obj/structure/table/standard,
@@ -978,44 +824,32 @@
 /obj/item/clothing/shoes/flats,
 /obj/item/clothing/under/dress/tajaran,
 /obj/item/clothing/head/tajaran/circlet/silver,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "TD" = (
 /obj/structure/curtain/black,
 /obj/structure/window/basic{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "TQ" = (
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Vv" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/saddle,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Wa" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "WK" = (
 /obj/structure/coatrack,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "WQ" = (
 /obj/structure/table/rack,
@@ -1026,17 +860,13 @@
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bottle/ammonia,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Xk" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 26
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Yn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1086,9 +916,7 @@
 /area/adhomai_village)
 "Zo" = (
 /mob/living/simple_animal/fatshouter,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 
 (1,1,1) = {"

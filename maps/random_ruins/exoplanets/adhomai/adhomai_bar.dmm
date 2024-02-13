@@ -140,9 +140,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "hk" = (
 /obj/machinery/vending/dinnerware,
@@ -196,9 +194,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "jz" = (
 /obj/machinery/floodlight,
@@ -430,9 +426,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "se" = (
 /obj/structure/table/wood,
@@ -474,6 +468,11 @@
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
+/area/adhomai_bar)
+"tl" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "tv" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -574,9 +573,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "yR" = (
 /obj/structure/table/wood,
@@ -590,6 +587,12 @@
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
+/area/adhomai_bar)
+"Ad" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Ag" = (
 /obj/machinery/computer/slot_machine,
@@ -614,9 +617,7 @@
 "BB" = (
 /obj/structure/railing/fence,
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "BZ" = (
 /obj/structure/table/wood,
@@ -727,9 +728,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Gf" = (
 /obj/structure/simple_door/wood,
@@ -819,6 +818,9 @@
 /turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
+/area/adhomai_bar)
+"JZ" = (
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Kq" = (
 /obj/machinery/computer/slot_machine,
@@ -1064,9 +1066,7 @@
 /obj/structure/railing/fence,
 /obj/structure/table/wood,
 /obj/item/material/ashtray,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "UY" = (
 /obj/structure/table/wood,
@@ -1265,6 +1265,12 @@
 /turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
+/area/adhomai_bar)
+"Zj" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Zm" = (
 /obj/structure/table/wood,
@@ -1515,10 +1521,10 @@ Xv
 Xv
 Xv
 Xv
-sS
-eS
-eS
-eS
+Zj
+JZ
+JZ
+JZ
 UT
 nR
 nR
@@ -1554,10 +1560,10 @@ se
 IH
 qF
 Xv
-Bh
-eS
-eS
-eS
+tl
+JZ
+JZ
+JZ
 yN
 nR
 nR
@@ -1594,9 +1600,9 @@ gm
 oL
 Xv
 FS
-eS
-eS
-eS
+JZ
+JZ
+JZ
 gz
 nR
 nR
@@ -1632,10 +1638,10 @@ gm
 gm
 tv
 Xv
-eS
-eS
-eS
-eS
+JZ
+JZ
+JZ
+JZ
 BB
 nR
 nR
@@ -1671,10 +1677,10 @@ gm
 gm
 oL
 Xv
-eS
-eS
-eS
-wx
+JZ
+JZ
+JZ
+Ad
 yN
 nR
 nR

@@ -177,6 +177,9 @@
 	temperature = 268.15
 	},
 /area/adhomai_hunting)
+"qU" = (
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
 "rg" = (
 /turf/simulated/wall/wood,
 /area/adhomai_hunting)
@@ -259,6 +262,11 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"BM" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
 "Cy" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -359,6 +367,14 @@
 	temperature = 278.15
 	},
 /area/adhomai_hunting)
+"Mj" = (
+/obj/structure/closet/cabinet,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/device/flashlight/heavy,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
 "Nd" = (
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/wood{
@@ -452,9 +468,7 @@
 "Yx" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "YA" = (
 /obj/structure/closet/crate/drop,
@@ -970,9 +984,9 @@ lk
 Im
 Im
 VL
-Im
-Im
-TL
+qU
+qU
+BM
 rg
 Hj
 Hj
@@ -1004,8 +1018,8 @@ lk
 Im
 Im
 rg
-Dx
-Im
+Mj
+qU
 Yx
 rg
 Hj
