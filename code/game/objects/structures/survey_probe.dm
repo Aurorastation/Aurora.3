@@ -2,6 +2,8 @@
 	name = "survey probe"
 	desc = "\
 		All-in-one survey probe, able to provide preliminary analysis of planetary bodies. \
+		"
+	desc_extended = "\
 		It has different devices, samplers, and drill bits, as well as internal processing computers, \
 		to inspect the atmosphere, ground, soil, crust, and many other properties and qualities of planetary bodies. \
 		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking for planets that are actually worth settling or exploiting for resources. \
@@ -12,7 +14,7 @@
 		"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "surveying_probe"
-	density = TRUE
+	density = FALSE
 	/// If false, probe is not deployed.
 	/// If true, it is deployed and ready to survey.
 	anchored = FALSE
@@ -29,6 +31,7 @@
 				)
 			item.play_tool_sound(user, 30)
 			anchored = TRUE
+			density = TRUE
 			icon_state = "surveying_probe_deployed"
 		else
 			user.visible_message(
@@ -37,19 +40,23 @@
 				)
 			item.play_tool_sound(user, 30)
 			anchored = FALSE
+			density = FALSE
 			icon_state = "surveying_probe"
 
 /obj/structure/survey_probe/attack_hand(mob/user as mob)
-	if(!timer_id)
-		if(anchored)
-			user.visible_message(
-				SPAN_NOTICE("\The [user] activates \the [src], starting the surveying process."),
-				SPAN_NOTICE("You activate \the [src], starting the surveying process. It starts drilling and sampling the ground and air."),
-				)
-			timer_id = addtimer(CALLBACK(src, PROC_REF(survey_end)), 20 SECONDS)
-			icon_state = "surveying_probe_active"
-		else
-			to_chat(user, SPAN_NOTICE("You try to activate \the [src], but its devices and drill bits are not deployed yet."))
+	if(timer_id)
+		to_chat(user, SPAN_NOTICE("\The [src] is active, sampling the ground and atmosphere."))
+		return
+
+	if(anchored)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] activates \the [src], starting the surveying process."),
+			SPAN_NOTICE("You activate \the [src], starting the surveying process. It begins drilling into the ground and sampling the atmosphere."),
+			)
+		timer_id = addtimer(CALLBACK(src, PROC_REF(survey_end)), 20 SECONDS)
+		icon_state = "surveying_probe_active"
+	else
+		to_chat(user, SPAN_NOTICE("You try to activate \the [src], but its devices and drill bits are not deployed yet."))
 
 /obj/structure/survey_probe/proc/survey_end()
 	if(timer_id)
@@ -66,6 +73,7 @@
 		// turf
 		var/turf/turf = get_turf(src)
 		var/turf_is_exoplanet = istype(turf, /turf/simulated/floor/exoplanet)
+		var/turf_is_asteroid = istype(turf, /turf/unsimulated/floor/asteroid)
 		var/turf_is_hard_floor = istype(turf, /turf/simulated/floor/tiled)
 		var/turf_is_fake_grass = istype(turf, /turf/simulated/floor/grass)
 
@@ -79,18 +87,18 @@
 			ground_report += "The probe cannot penetrate the hard metal floor."
 		else if(turf_is_fake_grass)
 			ground_report += "The probe detects soft soil, but it cannot penetrate the ground deep enough to get any meaningful data."
-		else if(!turf_is_exoplanet)
+		else if(!(turf_is_exoplanet || turf_is_asteroid))
 			ground_report += "The probe cannot penetrate the ground deep enough to get any meaningful data."
 
 		// ground survey from sector / exoplanet
-		if(turf_is_exoplanet && current_map.use_overmap)
+		if((turf_is_exoplanet || turf_is_asteroid) && SSatlas.current_map.use_overmap)
 			var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[z]"]
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 			if(istype(sector))
 				report_location = sector.name
 				ground_report = ""
-				var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 				if(istype(exoplanet))
-					ground_report += "<br><b>Estimated Mass and Volume: </b>[exoplanet.massvolume]BSS(Biesels)"
+					ground_report += "<b>Estimated Mass and Volume: </b>[exoplanet.massvolume]BSS(Biesels)"
 					ground_report += "<br><b>Surface Gravity: </b>[exoplanet.surfacegravity]Gs"
 					ground_report += "<br><b>Geological Variables: </b>[exoplanet.geology]"
 					ground_report += "<br><b>Surface Water Coverage: </b>[exoplanet.surfacewater]"
@@ -105,12 +113,16 @@
 		var/report_contents = "\
 			<br><large><b>Survey target: </b>[report_location]</large>\
 			<br><b>Timestamp of survey: </b>[timestamp]\
+			<br><b>Signature of surveyor: </b><span class=\"paper_field\"></span>\
 			<br><br>\
 			<br><b>Ground survey results:</b>\
 			<br><small>[ground_report]</small>\
 			<br><br>\
-			<br><b>Atmospheric survey results: </b></b>\
+			<br><b>Atmospheric survey results:</b>\
 			<br><small>[atmos_report]</small>\
+			<br><br>\
+			<br><b>Additional notes: </b><span class=\"paper_field\"></span>\
+			<br><span class=\"paper_field\"></span>\
 			<br><br>\
 		"
 
