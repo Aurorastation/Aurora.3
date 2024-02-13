@@ -4116,7 +4116,7 @@
 /obj/machinery/atmospherics/binary/pump/fuel{
 	max_pressure_setting = 5000;
 	name = "Phoron Pump";
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/effect/floor_decal/corner/black/full,
 /obj/effect/floor_decal/industrial/warning{
@@ -26932,7 +26932,7 @@
 "sIN" = (
 /obj/machinery/atmospherics/binary/pump/aux{
 	name = "Carbon Dioxide Pump";
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
@@ -33761,12 +33761,12 @@
 "xmc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
+/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Fuel Bay";
 	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
-/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xmg" = (
