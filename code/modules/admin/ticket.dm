@@ -170,7 +170,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 	VALUES
 		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:, :closed_by:, :delay:, :opened_at:, :closed_at:)"})
 	Q.Execute(list(
-		"g_id" = game_id,
+		"g_id" = GLOB.round_id,
 		"m_count" = length(msgs),
 		"a_count" = length(assigned_admins),
 		"a_list" = json_encode(assigned_admins),

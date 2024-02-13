@@ -13,8 +13,8 @@
 	var/enhanced = FALSE //has it been enhanced before?
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/slime_extract/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/extract_enhancer))
+/obj/item/slime_extract/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/extract_enhancer))
 		if(enhanced)
 			to_chat(user, SPAN_WARNING("This extract has already been enhanced!"))
 			return ..()
@@ -24,7 +24,7 @@
 		to_chat(user, SPAN_NOTICE("You apply the enhancer. It now has triple the amount of uses."))
 		uses *= 3
 		enhanced = TRUE
-		qdel(O)
+		qdel(attacking_item)
 		return TRUE
 	. = ..()
 

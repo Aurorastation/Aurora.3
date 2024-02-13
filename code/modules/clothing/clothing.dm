@@ -397,10 +397,10 @@
 	OE.attack_hand(H)
 	qdel(src)
 
-/obj/item/clothing/ears/offear/attackby(obj/item/I, mob/user)
+/obj/item/clothing/ears/offear/attackby(obj/item/attacking_item, mob/user)
 	var/mob/living/carbon/human/H = loc // we will never not be on a humanoid
 	var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
-	OE.attackby(I, user)
+	OE.attackby(attacking_item, user)
 
 ///////////////////////////////////////////////////////////////////////
 //Gloves
@@ -458,9 +458,9 @@
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
-/obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
+/obj/item/clothing/gloves/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(is_sharp(W))
+	if(is_sharp(attacking_item))
 		if(clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()
@@ -879,15 +879,15 @@
 	return
 
 
-/obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
-	if(can_hold_knife && is_type_in_list(I, list(/obj/item/material/shard, /obj/item/material/kitchen/utensil, /obj/item/material/knife)))
+/obj/item/clothing/shoes/attackby(obj/item/attacking_item, mob/user)
+	if(can_hold_knife && is_type_in_list(attacking_item, list(/obj/item/material/shard, /obj/item/material/kitchen/utensil, /obj/item/material/knife)))
 		if(holding)
 			to_chat(user, SPAN_WARNING("\The [src] is already holding \a [holding]."))
 			return
-		user.unEquip(I)
-		I.forceMove(src)
-		holding = I
-		user.visible_message(SPAN_NOTICE("\The [user] shoves \the [I] into \the [src]."))
+		user.unEquip(attacking_item)
+		attacking_item.forceMove(src)
+		holding = attacking_item
+		user.visible_message(SPAN_NOTICE("\The [user] shoves \the [attacking_item] into \the [src]."))
 		playsound(get_turf(src), 'sound/weapons/holster/holster_knife.ogg', 25)
 		verbs |= /obj/item/clothing/shoes/proc/draw_knife
 		update_icon()
@@ -1204,18 +1204,18 @@
 		M.update_inv_w_uniform()
 		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
 
-/obj/item/clothing/under/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/under/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(has_sensor)
 		switch(src.sensor_mode)
 			if(SUIT_SENSOR_OFF)
-				to_chat(user, "Its sensors appear to be disabled.")
+				. += "Its sensors appear to be disabled."
 			if(SUIT_SENSOR_BINARY)
-				to_chat(user, "Its binary life sensors appear to be enabled.")
+				. += "Its binary life sensors appear to be enabled."
 			if(SUIT_SENSOR_VITAL)
-				to_chat(user, "Its vitals tracker appears to be enabled.")
+				. += "Its vitals tracker appears to be enabled."
 			if(SUIT_SENSOR_TRACKING)
-				to_chat(user, "Its vitals tracker and tracking beacon appear to be enabled.")
+				. += "Its vitals tracker and tracking beacon appear to be enabled."
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user

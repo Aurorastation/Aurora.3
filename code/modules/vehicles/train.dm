@@ -28,12 +28,12 @@
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
 
-/obj/vehicle/train/examine(mob/user)
+/obj/vehicle/train/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(lead)
-		to_chat(user, SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))]."))
+		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")
 	if(tow)
-		to_chat(user, SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))]."))
+		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
 
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)
@@ -102,9 +102,9 @@
 	else if(load)
 		unload(user)			//unload if loaded
 
-/obj/vehicle/train/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
-		playsound(loc, W.usesound, 70, FALSE)
+/obj/vehicle/train/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
+		playsound(loc, attacking_item.usesound, 70, FALSE)
 		unattach(user)
 		return
 	return ..()

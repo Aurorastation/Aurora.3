@@ -14,17 +14,17 @@
 		held_weapon = new held_weapon(src)
 		icon_state = initial(icon_state) + "_[held_weapon.icon_state]"
 
-/obj/structure/weapon_rack/attackby(obj/item/W, mob/user)
+/obj/structure/weapon_rack/attackby(obj/item/attacking_item, mob/user)
 	if(isrobot(user))
 		return
-	if((initial(icon_state) + "_[W.icon_state]") in icon_states(icon))
-		user.unEquip(W)
-		W.forceMove(src)
-		held_weapon = W
-		to_chat(user, SPAN_NOTICE("You place \the [W] on \the [src]."))
-		icon_state = initial(icon_state) + "_[W.icon_state]"
+	if((initial(icon_state) + "_[attacking_item.icon_state]") in icon_states(icon))
+		user.unEquip(attacking_item)
+		attacking_item.forceMove(src)
+		held_weapon = attacking_item
+		to_chat(user, SPAN_NOTICE("You place \the [attacking_item] on \the [src]."))
+		icon_state = initial(icon_state) + "_[attacking_item.icon_state]"
 	else
-		to_chat(user, SPAN_NOTICE("[W] does not fit on \the [src]."))
+		to_chat(user, SPAN_NOTICE("[attacking_item] does not fit on \the [src]."))
 
 /obj/structure/weapon_rack/attack_hand(mob/user)
 	if(isrobot(user))

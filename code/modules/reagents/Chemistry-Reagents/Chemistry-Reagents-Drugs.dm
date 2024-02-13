@@ -577,9 +577,13 @@
 	M.apply_effect(1, STUTTER)
 	M.make_jittery(power - 6)
 	M.add_chemical_effect(CE_NEUROTOXIC, removed / 3)
-	M.add_chemical_effect(CE_CARDIOTOXIC, removed * 2)
-	if(prob(10))
-		M.add_chemical_effect(CE_NOPULSE, power)
+	M.add_chemical_effect(CE_CARDIOTOXIC, removed / 2) //Tolerable damage, unless your heart can't regenerate...
+	if(prob(7))
+		var/obj/item/organ/internal/heart/H = M.internal_organs_by_name[BP_HEART]
+		if(istype(H) && !BP_IS_ROBOTIC(H)) //But at least a robot heart can keep working at all!
+			to_chat(M, SPAN_WARNING(pick("You feel a cramp in your chest!", "Something tingles inside your chest.", "You feel lightheaded.", "Your vision tunnels.", "You can't feel your fingers.", "Maybe you should slow down?")))
+			if(prob(20))
+				M.add_chemical_effect(CE_NOPULSE, power)
 
 /singleton/reagent/drugs/cocaine/contemplus
 	name = "Contemplus"

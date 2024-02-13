@@ -297,10 +297,10 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	update_icon()
 	find_control_computer()
 
-/obj/machinery/cryopod/examine(mob/user, distance, is_adjacent)
+/obj/machinery/cryopod/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(occupant)
-		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)]."))
+		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
 
 /obj/machinery/cryopod/can_hold_dropped_items()
 	return FALSE
@@ -419,7 +419,8 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	occupant = null
 	update_icon()
 
-/obj/machinery/cryopod/attackby(var/obj/item/grab/G, var/mob/user)
+/obj/machinery/cryopod/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
 	if(istype(G))
 		if(occupant)
 			to_chat(user, SPAN_WARNING("\The [src] is in use."))

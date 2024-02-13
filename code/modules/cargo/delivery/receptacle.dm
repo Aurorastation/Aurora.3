@@ -20,7 +20,7 @@ var/global/list/all_cargo_receptacles = list()
 	delivery_id = "#[rand(1, 9)][rand(1, 9)][rand(1, 9)]"
 	name += " ([delivery_id])"
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/turf/current_turf = get_turf(loc)
 		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
 		if(my_sector)
@@ -34,7 +34,7 @@ var/global/list/all_cargo_receptacles = list()
 
 	if(spawns_packages)
 		var/list/warehouse_turfs = list()
-		for(var/area_path in typesof(current_map.warehouse_basearea))
+		for(var/area_path in typesof(SSatlas.current_map.warehouse_basearea))
 			var/area/warehouse = locate(area_path)
 			if(warehouse)
 				for(var/turf/simulated/floor/T in warehouse)
@@ -51,9 +51,9 @@ var/global/list/all_cargo_receptacles = list()
 	all_cargo_receptacles -= src
 	return ..()
 
-/obj/structure/cargo_receptacle/attackby(obj/item/item, mob/user)
-	if(istype(item, /obj/item/cargo_package))
-		var/obj/item/cargo_package/package = item
+/obj/structure/cargo_receptacle/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cargo_package))
+		var/obj/item/cargo_package/package = attacking_item
 		if(!package.associated_delivery_point)
 			to_chat(user, SPAN_WARNING("Something's wrong with the cargo package, submit a bug report. ERRCODE: 0"))
 			return
@@ -63,11 +63,11 @@ var/global/list/all_cargo_receptacles = list()
 			visible_message(SPAN_WARNING("\The [src] buzzes harshly, \"Invalid package! Check the delivery ID!\""))
 			return
 
-		user.visible_message("<b>[user]</b> starts heaving \the [item] into \the [src]...", SPAN_NOTICE("You start heaving \the [item] into \the [src]..."))
+		user.visible_message("<b>[user]</b> starts heaving \the [attacking_item] into \the [src]...", SPAN_NOTICE("You start heaving \the [attacking_item] into \the [src]..."))
 		if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
-			user.drop_from_inventory(item, src)
-			pay_account(user, item)
-			qdel(item)
+			user.drop_from_inventory(attacking_item, src)
+			pay_account(user, attacking_item)
+			qdel(attacking_item)
 		return
 	return ..()
 

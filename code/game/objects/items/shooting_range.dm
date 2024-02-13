@@ -17,12 +17,12 @@
 		stake.set_target(null)
 	return ..()
 
-/obj/item/target/attackby(var/obj/item/W, var/mob/user)
-	if(W.iswelder())
+/obj/item/target/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
 		if(hp == initial(hp))
 			to_chat(user, SPAN_NOTICE("\The [src] is fully repaired."))
 			return TRUE
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			cut_overlays()
 			LAZYCLEARLIST(bullet_holes)

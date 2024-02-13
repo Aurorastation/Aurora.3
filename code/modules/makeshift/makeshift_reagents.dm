@@ -29,10 +29,10 @@
 	. = ..()
 	create_reagents(180)
 
-/obj/structure/chemkit/examine(mob/user)
+/obj/structure/chemkit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(analyzer)
-		to_chat(user, SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C."))
+		. += SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C.")
 
 /obj/structure/chemkit/verb/phase_filter()
 	set name = "Set Phase Filter"
@@ -131,17 +131,17 @@
 		analyzer = null
 	qdel(src)
 
-/obj/structure/chemkit/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/chemkit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		dismantle()
 		return
-	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
-		trans_item(W, user)
+	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
+		trans_item(attacking_item, user)
 		return
-	if(W.isFlameSource())
-		heat_item(W, user)
+	if(attacking_item.isFlameSource())
+		heat_item(attacking_item, user)
 		return
-	if(istype(W) && W.force >= 5 && !has_edge(W) && LAZYLEN(contents - analyzer))
+	if(istype(attacking_item) && attacking_item.force >= 5 && !has_edge(attacking_item) && LAZYLEN(contents - analyzer))
 		var/obj/item/smashed = pick(contents - analyzer)
 		if(!smashed.reagents && !sheet_reagents[smashed.type])
 			return // should never happen anyway, but still
@@ -150,7 +150,7 @@
 			return
 		smash(smashed, user)
 		return
-	if(has_edge(W) && LAZYLEN(contents - analyzer))
+	if(has_edge(attacking_item) && LAZYLEN(contents - analyzer))
 		var/obj/item/chopped = pick(contents - analyzer)
 		if(!chopped.reagents)
 			return
@@ -158,14 +158,14 @@
 			return
 		chop(chopped, user)
 		return
-	if(!analyzer && istype(W, /obj/item/device/analyzer))
-		user.drop_from_inventory(W)
-		analyzer = W
-		W.forceMove(src)
+	if(!analyzer && istype(attacking_item, /obj/item/device/analyzer))
+		user.drop_from_inventory(attacking_item)
+		analyzer = attacking_item
+		attacking_item.forceMove(src)
 		return
-	if(!is_type_in_list(W, forbidden) && (W.w_class <= 3.0) && (W.reagents || sheet_reagents[W.type]))
-		user.drop_from_inventory(W)
-		W.forceMove(src)
+	if(!is_type_in_list(attacking_item, forbidden) && (attacking_item.w_class <= 3.0) && (attacking_item.reagents || sheet_reagents[attacking_item.type]))
+		user.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(src)
 		return
 	. = ..()
 
@@ -229,24 +229,24 @@
 		reagents.remove_reagent(_R, ARvol)
 	icon_state = "distillery-off"
 
-/obj/structure/distillery/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/distillery/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		dismantle()
 		return
-	if(!welder && istype(W, /obj/item/weldingtool))
-		user.drop_from_inventory(W)
-		src.welder = W
-		W.forceMove(src)
+	if(!welder && istype(attacking_item, /obj/item/weldingtool))
+		user.drop_from_inventory(attacking_item)
+		src.welder = attacking_item
+		attacking_item.forceMove(src)
 		icon_state = "distillery-off"
 		return
-	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
-		trans_item(W, user)
+	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
+		trans_item(attacking_item, user)
 		return
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		transfer_out = !transfer_out
 		to_chat(user, SPAN_NOTICE("You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
 		return
-	if(W.isFlameSource() && istype(welder))
+	if(attacking_item.isFlameSource() && istype(welder))
 		to_chat(user, SPAN_NOTICE("You light \the [src] and begin the distillation process."))
 		addtimer(CALLBACK(src, PROC_REF(distill)), 60 SECONDS)
 		src.icon_state = "distillery-active"

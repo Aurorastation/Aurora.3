@@ -55,67 +55,73 @@
 		var/image/casingoverlay = image('icons/obj/fuses.dmi', icon_state = "pipe_bomb")
 		add_overlay(casingoverlay)
 
-/obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/grenade/chem_grenade/large))
-		var/obj/item/grenade/chem_grenade/grenade_casing = W
+/obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grenade/chem_grenade/large))
+		var/obj/item/grenade/chem_grenade/grenade_casing = attacking_item
 		if(!grenade_casing.detonator && !length(grenade_casing.beakers) && bombcasing < BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_LOOSE
 			desc = "A grenade casing with \a [name] slotted into it."
 			if(fuselength)
 				desc += " It has some steel wool stuffed into the opening."
-			user.visible_message(SPAN_NOTICE("[user] slots \the [grenade_casing] over \the [name]."), SPAN_NOTICE("You slot \the [grenade_casing] over \the [name]."))
+			user.visible_message(SPAN_NOTICE("[user] slots \the [grenade_casing] over \the [name]."),
+									SPAN_NOTICE("You slot \the [grenade_casing] over \the [name]."))
 			desc = "A grenade casing with \a [name] slotted into it."
 			qdel(grenade_casing)
 			update_icon()
 
-	if(W.isscrewdriver() && bombcasing > BOMBCASING_EMPTY)
+	if(attacking_item.isscrewdriver() && bombcasing > BOMBCASING_EMPTY)
 		if(bombcasing == BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_SECURE
 			shrapnelcount = 14
-			user.visible_message(SPAN_NOTICE("[user] tightens the grenade casing around \the [name]."), SPAN_NOTICE("You tighten the grenade casing around \the [name]."))
+			user.visible_message(SPAN_NOTICE("[user] tightens the grenade casing around \the [name]."),
+									SPAN_NOTICE("You tighten the grenade casing around \the [name]."))
 		else if(bombcasing == BOMBCASING_SECURE)
 			bombcasing = BOMBCASING_EMPTY
 			shrapnelcount = initial(shrapnelcount)
 			desc = initial(desc)
 			if(fuselength)
 				desc += " It has some steel wool stuffed into the opening."
-			user.visible_message(SPAN_NOTICE("[user] removes \the [name] from the grenade casing."), SPAN_NOTICE("You remove \the [name] from the grenade casing."))
+			user.visible_message(SPAN_NOTICE("[user] removes \the [name] from the grenade casing."),
+									SPAN_NOTICE("You remove \the [name] from the grenade casing."))
 			new /obj/item/grenade/chem_grenade/large(get_turf(src))
-		playsound(loc, W.usesound, 50, 1)
+		playsound(loc, attacking_item.usesound, 50, 1)
 		update_icon()
 
-	if(istype(W, /obj/item/steelwool))
+	if(istype(attacking_item, /obj/item/steelwool))
 		if(is_open_container())
 			switch(fuselength)
 				if(-INFINITY to FUSELENGTH_MAX)
-					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].", SPAN_NOTICE("You feed steel wool into \the [name], ruining it in the process. It will last approximately 10 seconds."))
+					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].",
+											SPAN_NOTICE("You feed steel wool into \the [name], ruining it in the process. It will last approximately 10 seconds."))
 					fuselength = FUSELENGTH_MAX
 					update_icon()
 					desc += " It has some steel wool stuffed into the opening."
-					if(W.isFlameSource())
-						light_fuse(W, user, TRUE)
-					qdel(W)
+					if(attacking_item.isFlameSource())
+						light_fuse(attacking_item, user, TRUE)
+					qdel(attacking_item)
 				if(FUSELENGTH_MAX)
 					to_chat(user, SPAN_WARNING("You cannot make the fuse longer than 10 seconds!"))
 		else
 			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
-	else if(W.iswirecutter() && fuselength)
+	else if(attacking_item.iswirecutter() && fuselength)
 		switch(fuselength)
 			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
-				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
+				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].",
+										SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
 				FuseRemove()
 			if(4 to FUSELENGTH_MAX)
-				var/fchoice = alert("Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", "Shorten", "Remove", "Cancel")
+				var/fchoice = tgui_input_list(user, "Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", list("Shorten", "Remove", "Cancel"), "Cancel")
 				switch(fchoice)
 					if("Shorten")
-						var/short = input("How many seconds do you want the fuse to be?", "[name] fuse") as null|num
+						var/short = tgui_input_number(user, "How many seconds do you want the fuse to be?", "[name] fuse", min_value = FUSELENGTH_MIN)
 						if(!use_check_and_message(user))
 							if(short < fuselength && short >= FUSELENGTH_MIN)
 								to_chat(user, SPAN_NOTICE("You shorten the fuse to [short] seconds."))
 								FuseRemove(fuselength - short)
 							else if(!short && !isnull(short))
-								user.visible_message("<b>[user]</b> removes the steel wool from \the [name]", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
+								user.visible_message("<b>[user]</b> removes the steel wool from \the [name]",
+														SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
 								FuseRemove()
 							else if(short == fuselength || isnull(short))
 								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
@@ -133,8 +139,8 @@
 						return
 				return
 
-	else if(W.isFlameSource() && fuselength)
-		light_fuse(W, user)
+	else if(attacking_item.isFlameSource() && fuselength)
+		light_fuse(attacking_item, user)
 	. = ..()
 
 /obj/item/reagent_containers/food/drinks/cans/proc/light_fuse(obj/item/W, mob/user, var/premature=FALSE)

@@ -323,18 +323,18 @@
 
 	I.forceMove(T)
 
-/obj/item/examine(mob/user, distance)
+/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	var/size
 	switch(src.w_class)
-		if (5.0 to INFINITY)
+		if (ITEMSIZE_HUGE to INFINITY)
 			size = "huge"
-		if (4.0 to 5.0)
+		if (ITEMSIZE_LARGE to ITEMSIZE_HUGE)
 			size = "bulky"
-		if (3.0 to 4.0)
+		if (ITEMSIZE_NORMAL to ITEMSIZE_LARGE)
 			size = "normal-sized"
-		if (2.0 to 3.0)
+		if (ITEMSIZE_SMALL to ITEMSIZE_NORMAL)
 			size = "small"
-		if (0 to 2.0)
+		if (0 to ITEMSIZE_SMALL)
 			size = "tiny"
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
@@ -342,7 +342,7 @@
 	. = ..(user, distance, "", "It is a [size] item.")
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
@@ -409,54 +409,16 @@
 		R.activate_module(src)
 		R.hud_used.update_robot_modules_display()
 
-// Due to storage type consolidation this should get used more now.
-// I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/storage))
-		var/obj/item/storage/S = I
-		if(S.use_to_pickup)
-			if(S.collection_mode && !is_type_in_list(src, S.pickup_blacklist)) //Mode is set to collect all items on a tile and we clicked on a valid one.
-				if(isturf(loc))
-					var/list/rejections = list()
-					var/success = FALSE
-					var/failure = FALSE
-					var/original_loc = user ? user.loc : null
-
-					for(var/obj/item/item in loc)
-						if (user && user.loc != original_loc)
-							break
-
-						if(rejections[item.type]) // To limit bag spamming: any given type only complains once
-							continue
-
-						if(!S.can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
-							rejections[item.type] = TRUE	// therefore full bags are still a little spammy
-							failure = TRUE
-							CHECK_TICK
-							continue
-
-						success = TRUE
-						S.handle_item_insertion_deferred(item, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
-						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
-
-					S.handle_storage_deferred(user)
-					if(success && !failure)
-						to_chat(user, "<span class='notice'>You put everything in [S].</span>")
-					else if(success)
-						to_chat(user, "<span class='notice'>You put some things in [S].</span>")
-					else
-						to_chat(user, "<span class='notice'>You fail to pick anything up with \the [S].</span>")
-
-			else if(S.can_be_inserted(src))
-				S.handle_item_insertion(src)
-			return TRUE
-
-//Called when the user alt-clicks on something with this item in their active hand
-//this function is designed to be overridden by individual weapons
+/**
+ * Called when the user alt-clicks on something with this item in their active hand
+ *
+ * This function is designed to be overridden by individual weapons
+ *
+ * A return value of `TRUE` continues on to do the normal alt-click action,
+ * a return value of `FALSE` does not continue, and will not do the alt-click
+ */
 /obj/item/proc/alt_attack(var/atom/target, var/mob/user)
-	return 1
-	//A return value of 1 continues on to do the normal alt-click action.
-	//A return value of 0 does not continue, and will not do the alt-click
+	return TRUE
 
 /obj/item/proc/talk_into(mob/M as mob, text)
 	return
@@ -524,7 +486,7 @@
 		zoom(user)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
-// called just as an item is picked up (loc is not yet changed)
+///Called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
 	pixel_x = 0
 	pixel_y = 0

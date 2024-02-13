@@ -46,55 +46,55 @@
 			if(81 to 100)
 				add_overlay("bees3")
 
-/obj/machinery/beehive/examine(mob/user, distance, is_adjacent)
+/obj/machinery/beehive/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames."))
+	. += SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames.")
 	if(is_adjacent)
 		if(bee_count)
 			if(closed)
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src].")))
+				. += FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src]."))
 			else
-				to_chat(user, FONT_SMALL(SPAN_WARNING("The lid is <b>open</b>. The bees can't grow and produce honey until it's <b>closed!</b>")))
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src].")))
+				. += FONT_SMALL(SPAN_WARNING("The lid is <b>open</b>. The bees can't grow and produce honey until it's <b>closed!</b>"))
+				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
 		else
 			if(closed)
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] lies silent.")))
+				. += FONT_SMALL(SPAN_NOTICE("\The [src] lies silent."))
 			else
-				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src].")))
+				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
 		if(honeycombs / 100 > 1)
-			to_chat(user, SPAN_NOTICE("\The [src] has a frame full of honeycombs which you can harvest."))
+			. += SPAN_NOTICE("\The [src] has a frame full of honeycombs which you can harvest.")
 
-/obj/machinery/beehive/attackby(obj/item/I, mob/user)
-	if(I.iscrowbar())
+/obj/machinery/beehive/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		closed = !closed
 		user.visible_message(SPAN_NOTICE("\The [user] [closed ? "closes" : "opens"] \the [src]."), SPAN_NOTICE("You [closed ? "close" : "open"] \the [src]."))
 		update_icon()
 		return
-	else if(I.iswrench())
+	else if(attacking_item.iswrench())
 		anchored = !anchored
 		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "wrenches" : "unwrenches"] \the [src]."), SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 		if(!smoked && !anchored && (bee_count > 10))
 			visible_message(SPAN_WARNING("The bees don't like their home being moved!"))
 			release_bees(0.1, 5)
 		return
-	else if(istype(I, /obj/item/honey_frame))
+	else if(istype(attacking_item, /obj/item/honey_frame))
 		if(closed)
-			to_chat(user, SPAN_WARNING("You need to open \the [src] with a crowbar before inserting \the [I]."))
+			to_chat(user, SPAN_WARNING("You need to open \the [src] with a crowbar before inserting \the [attacking_item]."))
 			return
 		if(frames >= maxFrames)
 			to_chat(user, SPAN_WARNING("\The [src] cannot fit more frames."))
 			return
-		var/obj/item/honey_frame/H = I
+		var/obj/item/honey_frame/H = attacking_item
 		if(H.honey)
-			to_chat(user, SPAN_WARNING("\The [I] is full with beeswax and honey, empty it into the extractor first."))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] is full with beeswax and honey, empty it into the extractor first."))
 			return
 		frames++
-		user.visible_message(SPAN_NOTICE("\The [user] loads \the [I] into \the [src]."), SPAN_NOTICE("You load \the [I] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] loads \the [attacking_item] into \the [src]."), SPAN_NOTICE("You load \the [attacking_item] into \the [src]."))
 		update_icon()
-		qdel(I)
+		qdel(attacking_item)
 		return
-	else if(istype(I, /obj/item/bee_pack))
-		var/obj/item/bee_pack/B = I
+	else if(istype(attacking_item, /obj/item/bee_pack))
+		var/obj/item/bee_pack/B = attacking_item
 		if(B.full && bee_count)
 			to_chat(user, SPAN_WARNING("\The [B] is already full of bees."))
 			return
@@ -117,7 +117,7 @@
 			B.fill()
 		update_icon()
 		return
-	else if(istype(I, /obj/item/device/analyzer/plant_analyzer))
+	else if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer))
 		to_chat(user, SPAN_NOTICE("Scan result of \the [src]:"))
 		to_chat(user, SPAN_NOTICE("Beehive is <b>[bee_count ? "[round(bee_count)]% full" : "empty"]</b>.[bee_count > 90 ? " Colony is ready to split." : ""]"))
 		if(frames)
@@ -129,9 +129,9 @@
 		if(smoked)
 			to_chat(user, SPAN_NOTICE("The hive is <b>smoked</b>."))
 		return
-	else if(I.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		to_chat(user, SPAN_NOTICE("You start dismantling \the [src]. This will take a while..."))
-		if(I.use_tool(src, user, 150, volume = 50))
+		if(attacking_item.use_tool(src, user, 150, volume = 50))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
 			if(bee_count)
 				visible_message(SPAN_WARNING("The bees are furious over the destruction of their home!"))

@@ -255,14 +255,14 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-/obj/item/disk/tech_disk/examine(mob/user, distance)
+/obj/item/disk/tech_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		if(stored)
-			to_chat(user, FONT_SMALL("It is storing the following tech:"))
-			to_chat(user, FONT_SMALL(" - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]"))
+			. += FONT_SMALL("It is storing the following tech:")
+			. += FONT_SMALL(" - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]")
 		else
-			to_chat(user, FONT_SMALL("It doesn't have any tech stored."))
+			. += FONT_SMALL("It doesn't have any tech stored.")
 
 /obj/item/disk/design_disk
 	name = "component design disk"
@@ -279,11 +279,11 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-/obj/item/disk/design_disk/examine(mob/user, distance)
+/obj/item/disk/design_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		if(blueprint)
-			to_chat(user, FONT_SMALL("It is storing the following design:"))
-			to_chat(user, FONT_SMALL(" - [blueprint.name]"))
+			. += FONT_SMALL("It is storing the following design:")
+			. += FONT_SMALL(" - [blueprint.name]")
 		else
-			to_chat(user, FONT_SMALL("It doesn't have any blueprint stored."))
+			. += FONT_SMALL("It doesn't have any blueprint stored.")

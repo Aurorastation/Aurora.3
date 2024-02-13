@@ -30,6 +30,17 @@
 	modules += new /obj/item/device/healthanalyzer(src)
 	modules += new /obj/item/extinguisher/mini(src)
 	modules += new /obj/item/device/advanced_healthanalyzer(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	modules += new /obj/item/inflatable_dispenser(src)
+	modules += new /obj/item/device/gps(src)
+	modules += new /obj/item/taperoll/medical(src)
+	modules += new /obj/item/taperoll/engineering(src)
+	modules += new /obj/item/taperoll/police(src)
+	modules += new /obj/item/taperoll/science(src)
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/flash(src)
 
 /mob/living/silicon/robot/shell
 	spawn_module = /obj/item/robot_module/aicontrol

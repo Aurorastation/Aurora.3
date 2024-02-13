@@ -10,7 +10,7 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or oppressive against employees from [name], to be used as leverage in future diplomatic talks",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or oppressive against employees from [name], to be used as leverage in future diplomatic talks",
 							"Convince [rand(1,3)] [demonym] employees to apply for the [demonym] armed forces")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)

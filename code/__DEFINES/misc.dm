@@ -1,9 +1,5 @@
 #define DEBUG
 
-// Turf-only flags.
-#define TURF_FLAG_NOJAUNT 		1
-#define TURF_FLAG_BACKGROUND 	2 // Used by shuttle movement to determine if it should be ignored by turf translation.
-
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
 
@@ -268,25 +264,6 @@
 
 // Performance bullshit.
 
-//supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
-#define RANGE_TURFS(RADIUS, CENTER) \
-	block( \
-		locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
-		locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
-	)
-
-#define RECT_TURFS(H_RADIUS, V_RADIUS, CENTER) \
-	block( \
-	locate(max((CENTER).x-(H_RADIUS),1), max((CENTER).y-(V_RADIUS),1), (CENTER).z), \
-	locate(min((CENTER).x+(H_RADIUS),world.maxx), min((CENTER).y+(V_RADIUS),world.maxy), (CENTER).z) \
-	)
-
-#define get_turf(A) (get_step(A, 0))
-#define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
-#define EAST_OF_TURF(T)		locate(T.x + 1, T.y, T.z)
-#define SOUTH_OF_TURF(T)	locate(T.x, T.y - 1, T.z)
-#define WEST_OF_TURF(T)		locate(T.x - 1, T.y, T.z)
-
 #define UNTIL(X) while(!(X)) stoplag()
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
@@ -307,7 +284,8 @@
 #define NL_TEMPORARY_DISABLE 1
 #define NL_PERMANENT_DISABLE 2
 
-// Used for creating soft references to objects. A manner of storing an item reference
+///Used for creating soft references to objects. A manner of storing an item reference
+///DO NOT USE, USE `WEAKREF()`
 #define SOFTREF(A) ref(A)
 
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
@@ -343,16 +321,16 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isStationLevel(Z) ((Z) in current_map.station_levels)
+#define isStationLevel(Z) ((Z) in SSatlas.current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
-#define isPlayerLevel(Z) ((Z) in current_map.player_levels)
+#define isPlayerLevel(Z) ((Z) in SSatlas.current_map.player_levels)
 #define isNotPlayerLevel(Z) !isPlayerLevel(Z)
 
-#define isAdminLevel(Z) ((Z) in current_map.admin_levels)
+#define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
-#define isContactLevel(Z) ((Z) in current_map.contact_levels)
+#define isContactLevel(Z) ((Z) in SSatlas.current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
 
 //Cargo Container Types
@@ -434,13 +412,8 @@ example:
 // Maximum number of Zs away you can be from a sound before it stops being audible.
 #define MAX_SOUND_Z_TRAVERSAL 2
 
-#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
-
 // Z-controller stuff - see basic.dm to see why the fuck this is the way it is.
 #define IS_VALID_ZINDEX(z) !((z) > world.maxz || (z) > 17)
-
-#define GET_ABOVE(A) (HasAbove(A:z) ? get_step(A, UP) : null)
-#define GET_BELOW(A) (HasBelow(A:z) ? get_step(A, DOWN) : null)
 
 #define GET_Z(A) (get_step(A, 0)?.z || 0)
 

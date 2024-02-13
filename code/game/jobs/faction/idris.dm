@@ -47,7 +47,7 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/idris,
 		"Warden" = /datum/outfit/job/warden/idris,
-		"Security Cadet" = /datum/outfit/job/intern_sec/idris,
+		"Security Cadet" = /datum/outfit/job/intern_sec/officer/idris,
 		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/idris,
 		"Investigator" =/datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
@@ -61,7 +61,8 @@
 		"Corporate Reporter" = /datum/outfit/job/journalist/idris,
 		"Chaplain" = /datum/outfit/job/chaplain/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/idris
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/idris,
+		"Security Personnel" = /datum/outfit/job/officer/idris
 	)
 
 /datum/outfit/job/officer/idris
@@ -101,7 +102,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
 	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
-/datum/outfit/job/intern_sec/idris
+/datum/outfit/job/intern_sec/officer/idris
 	name = "Security Cadet - Idris"
 
 	uniform = /obj/item/clothing/under/rank/cadet/idris

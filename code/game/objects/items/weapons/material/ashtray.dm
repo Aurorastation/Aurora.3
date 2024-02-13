@@ -57,18 +57,18 @@
 	else
 		desc = "An ashtray made of [material.display_name]."
 
-/obj/item/material/ashtray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/material/ashtray/attackby(obj/item/attacking_item, mob/user)
 	if (health <= 0)
 		return
-	if (istype(W,/obj/item/trash/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/flame/match))
+	if (istype(attacking_item, /obj/item/trash/cigbutt) || istype(attacking_item, /obj/item/clothing/mask/smokable/cigarette) || istype(attacking_item, /obj/item/flame/match))
 		if (contents.len >= max_butts)
 			to_chat(user, "\The [src] is full.")
 			return
-		user.remove_from_mob(W)
-		W.forceMove(src)
+		user.remove_from_mob(attacking_item)
+		attacking_item.forceMove(src)
 
-		if (istype(W,/obj/item/clothing/mask/smokable/cigarette))
-			var/obj/item/clothing/mask/smokable/cigarette/cig = W
+		if (istype(attacking_item,/obj/item/clothing/mask/smokable/cigarette))
+			var/obj/item/clothing/mask/smokable/cigarette/cig = attacking_item
 			if (cig.lit == TRUE)
 				user.visible_message("<b>[user]</b> crushes [cig] in [src], putting it out.", SPAN_NOTICE("You crush [cig] in [src], putting it out."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
@@ -76,7 +76,7 @@
 				var/obj/item/butt = new cig.type_butt(src)
 				cig.transfer_fingerprints_to(butt)
 				qdel(cig)
-				W = butt
+				attacking_item = butt
 				//spawn(1)
 				//	TemperatureAct(150)
 			else if (cig.lit == FALSE)
@@ -85,15 +85,15 @@
 					SPAN_NOTICE("You place [cig] in [src] without even smoking it. Why would you do that?")
 				)
 		else
-			user.visible_message("<b>[user]</b> places [W] in [src].", SPAN_NOTICE("You place [W] in [src]."))
+			user.visible_message("<b>[user]</b> places [attacking_item] in [src].", SPAN_NOTICE("You place [attacking_item] in [src]."))
 
 		user.update_inv_l_hand()
 		user.update_inv_r_hand()
 		add_fingerprint(user)
 		update_icon()
 	else
-		health = max(0,health - W.force)
-		user.visible_message(user, SPAN_DANGER("[user] hits [src] with [W]!"), SPAN_DANGER("You hit [src] with [W]."))
+		health = max(0,health - attacking_item.force)
+		user.visible_message(user, SPAN_DANGER("[user] hits [src] with [attacking_item]!"), SPAN_DANGER("You hit [src] with [attacking_item]."))
 		playsound(get_turf(src), material.hitsound, 25)
 		if (health < 1)
 			shatter()

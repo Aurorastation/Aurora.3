@@ -263,31 +263,31 @@
 		QDEL_NULL(explosive)
 	return ..()
 
-/obj/item/material/twohanded/spear/examine(mob/user)
+/obj/item/material/twohanded/spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(explosive)
-		to_chat(user, "It has \the [explosive] strapped to it.")
+		. += "It has \the [explosive] strapped to it."
 
-/obj/item/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
-	if(istype(I, /obj/item/organ/external/head))
+/obj/item/material/twohanded/spear/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/organ/external/head))
 		to_chat(user, "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>")
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
-		I.transform = M
-		usr.drop_from_inventory(I,HS)
-		var/mutable_appearance/MA = new(I)
+		attacking_item.transform = M
+		usr.drop_from_inventory(attacking_item, HS)
+		var/mutable_appearance/MA = new(attacking_item)
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)
-		HS.name = "[I.name] on a spear"
+		HS.name = "[attacking_item.name] on a spear"
 		HS.material = material.name
 		qdel(src)
 		return
 
-	if(istype(I, /obj/item/grenade))
-		to_chat(user, "<span class='notice'>You strap \the [I] to \the [src].</span>")
-		user.unEquip(I)
-		I.forceMove(src)
-		explosive = I
+	if(istype(attacking_item, /obj/item/grenade))
+		to_chat(user, "<span class='notice'>You strap \the [attacking_item] to \the [src].</span>")
+		user.unEquip(attacking_item)
+		attacking_item.forceMove(src)
+		explosive = attacking_item
 		update_icon()
 		return
 	return ..()
@@ -472,12 +472,12 @@
 
 	RemoveFuel(FuelToRemove)
 
-/obj/item/material/twohanded/chainsaw/examine(mob/user, distance, is_adjacent)
+/obj/item/material/twohanded/chainsaw/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel.")
+		. += "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel."
 		if(powered)
-			to_chat(user, SPAN_NOTICE("It is currently powered on."))
+			. += SPAN_NOTICE("It is currently powered on.")
 
 /obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
