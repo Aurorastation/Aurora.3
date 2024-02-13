@@ -221,17 +221,20 @@
 				fail_message += "--> [U.A.name] and [U.B] have mismatched gas mixtures! <--\n"
 
 			var/zone/A = U.A
-			var/offending_turfs = "Problem turfs: \n"
+			var/offending_turfs_text = "Problem turfs: \n"
 			fail_message += "Mismatching edge gasses: [(U.A.air) ? json_encode(U.A.air.gas) : "vacuum"] <-----> [(U.B.air) ? json_encode(U.B.air.gas) : "vacuum"]\n\n"
 			for(var/turf/simulated/S in A.contents)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
-					offending_turfs += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
 
-			fail_message += "[offending_turfs]"
+			fail_message += "[offending_turfs_text]"
 
 		else
 			var/connection_edge/zone/Z = E
-			var/zone/problem
+
+			//A list of turfs that are related to the found issue
+			var/list/turf/problem_turfs = list()
+
 			if(!istype(Z))
 				return
 
@@ -239,22 +242,23 @@
 
 			if(Z.A.air.gas.len && Z.B.air.gas.len)
 				fail_message += "--> Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start. <--\n"
-				problem = Z.A + Z.B
+				problem_turfs = Z.A.contents + Z.B.contents
 			else if(Z.A.air.gas.len)
-				problem = Z.A
+				problem_turfs = Z.A.contents
 			else if(Z.B.air.gas.len)
-				problem = Z.B
+				problem_turfs = Z.B.contents
 
-			if(!istype(problem))
+			if(!length(problem_turfs))
 				continue
 
-			var/offending_turfs = "Problem turfs: "
 			fail_message += "Mismatching edge gasses: [(Z.A.air) ? json_encode(Z.A.air.gas) : "vacuum"] <-----> [(Z.B.air) ? json_encode(Z.B.air.gas) : "vacuum"]\n\n"
-			for(var/turf/simulated/S in problem.contents)
-				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
-					offending_turfs += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
 
-			fail_message += "[offending_turfs]"
+			var/offending_turfs_text = "Problem turfs: "
+			for(var/turf/simulated/S in problem_turfs)
+				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
+					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+
+			fail_message += "[offending_turfs_text]"
 
 	TEST_FAIL("[fail_message]")
 	return UNIT_TEST_FAILED
