@@ -344,6 +344,7 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4)
 	filling_color = "#EDF291"
+	result_quantity = 4
 
 /obj/item/reagent_containers/food/snacks/nugget/Initialize()
 	. = ..()
