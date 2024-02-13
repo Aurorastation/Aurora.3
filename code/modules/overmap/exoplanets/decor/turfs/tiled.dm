@@ -24,6 +24,15 @@
 	broken_overlay = null
 	burned_overlay = null
 
+/turf/simulated/floor/exoplanet/tiled/full
+	name = "full steel tile"
+	icon_state = "monotile_preview"
+	initial_flooring = /singleton/flooring/tiling/mono
+	tile_outline = "monotile"
+	tile_decal_state = "monotile_light"
+	broken_overlay = null
+	burned_overlay = null
+
 /turf/simulated/floor/exoplanet/tiled/white
 	name = "white floor"
 	icon_state = "white_preview"

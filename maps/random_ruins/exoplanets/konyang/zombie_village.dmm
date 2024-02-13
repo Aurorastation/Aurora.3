@@ -10,7 +10,7 @@
 "ag" = (
 /obj/item/material/shard,
 /obj/structure/window_frame/wood,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "aE" = (
 /obj/random/junk{
@@ -70,7 +70,7 @@
 /obj/item/material/shard,
 /obj/item/material/shard,
 /obj/structure/window_frame/wood,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "cK" = (
 /obj/structure/sink/kitchen{
@@ -162,7 +162,7 @@
 "gz" = (
 /obj/structure/window_frame/wood,
 /obj/item/material/shard,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "gE" = (
 /obj/structure/chainlink_fence{
@@ -222,7 +222,7 @@
 "hP" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /obj/structure/curtain/black,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "ic" = (
 /obj/structure/flora/rock/konyang/small,
@@ -335,7 +335,7 @@
 /obj/item/material/shard,
 /obj/item/material/shard,
 /obj/structure/window_frame/wood,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "mv" = (
 /obj/structure/flora/rock/konyang/water,
@@ -398,7 +398,7 @@
 /area/konyang_village)
 "oF" = (
 /obj/effect/map_effect/window_spawner/full/wood,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "oI" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -739,7 +739,7 @@
 /area/konyang_village)
 "xS" = (
 /obj/structure/girder,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "xV" = (
 /obj/structure/flora/rock/konyang,
@@ -1552,7 +1552,7 @@
 /obj/structure/window_frame/wood,
 /obj/item/material/shard,
 /obj/item/material/shard,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/exoplanet/tiled/full,
 /area/konyang_village)
 "PQ" = (
 /obj/structure/railing/fence{
