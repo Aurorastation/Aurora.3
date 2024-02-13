@@ -8,7 +8,7 @@
 	affected_levels = zlevels
 
 /datum/universal_state/bluespace_jump/OnEnter()
-	var/space_zlevel = current_map.get_empty_zlevel() //get a place for stragglers
+	var/space_zlevel = SSatlas.current_map.get_empty_zlevel() //get a place for stragglers
 	for(var/mob/living/M in GLOB.mob_list)
 		if(M.z in affected_levels)
 			var/area/A = get_area(M)
@@ -18,9 +18,9 @@
 					M.forceMove(T)
 			else
 				apply_bluespaced(M)
-	old_accessible_z_levels = current_map.accessible_z_levels.Copy()
+	old_accessible_z_levels = SSatlas.current_map.accessible_z_levels.Copy()
 	for(var/z in affected_levels)
-		current_map.accessible_z_levels -= "[z]" //not accessible during the jump
+		SSatlas.current_map.accessible_z_levels -= "[z]" //not accessible during the jump
 
 /datum/universal_state/bluespace_jump/OnExit()
 	for(var/mob/M in bluespaced)
@@ -28,7 +28,7 @@
 			clear_bluespaced(M)
 
 	bluespaced.Cut()
-	current_map.accessible_z_levels = old_accessible_z_levels
+	SSatlas.current_map.accessible_z_levels = old_accessible_z_levels
 	old_accessible_z_levels = null
 
 /datum/universal_state/bluespace_jump/OnPlayerLatejoin(var/mob/living/M)

@@ -10,19 +10,19 @@
 	door_hinge_alt = 7.5
 	double_doors = TRUE
 
-/obj/structure/closet/cabinet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/closet/cabinet/attackby(obj/item/attacking_item, mob/user)
 	if(opened)
-		if(istype(W, /obj/item/grab))
-			var/obj/item/grab/G = W
+		if(istype(attacking_item, /obj/item/grab))
+			var/obj/item/grab/G = attacking_item
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(!W.dropsafety())
+		if(!attacking_item.dropsafety())
 			return
-		if(W)
-			user.drop_from_inventory(W,loc)
+		if(attacking_item)
+			user.drop_from_inventory(attacking_item, loc)
 		else
 			user.drop_item()
-	else if(istype(W, /obj/item/stack/packageWrap))
+	else if(istype(attacking_item, /obj/item/stack/packageWrap))
 		return
 	else
 		attack_hand(user)

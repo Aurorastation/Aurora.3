@@ -13,7 +13,7 @@
 	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
 	var/list/additional_channels = list()
 
-/obj/item/device/encryptionkey/attackby(obj/item/W, mob/user)
+/obj/item/device/encryptionkey/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/device/encryptionkey/ship
@@ -21,7 +21,7 @@
 	channels = list()
 
 /obj/item/device/encryptionkey/ship/Initialize()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
 	if(flags_1 & INITIALIZED_1)

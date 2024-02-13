@@ -53,11 +53,11 @@
 	else
 		remove_contents(user)
 
-/obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && W.isFlameSource())
+/obj/item/reagent_containers/glass/rag/attackby(obj/item/attacking_item, mob/user)
+	if(!on_fire && attacking_item.isFlameSource())
 		ignite()
 		if(on_fire)
-			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."))
 		else
 			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 		return TRUE

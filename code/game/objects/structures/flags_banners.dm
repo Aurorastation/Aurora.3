@@ -263,9 +263,9 @@
 	if(rip_linked && linked_flag)
 		linked_flag.rip(user, FALSE) // Prevents an infinite ripping loop.
 
-/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
+/obj/structure/sign/flag/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(W.isFlameSource())
+	if(attacking_item.isFlameSource())
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
 		if(!do_after(user, 2 SECONDS, src))
 			return FALSE

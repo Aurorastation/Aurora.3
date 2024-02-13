@@ -237,6 +237,22 @@ var/global/const/base_law_type = /datum/ai_laws/nanotrasen
 			if(ismob(who) && M.vr_mob)
 				to_chat(M.vr_mob, "<span class='danger'>[law.get_index()]. [law.law]</span>")
 
+/datum/ai_laws/proc/get_laws(var/who)
+	. = list()
+	sort_laws()
+	for(var/datum/ai_law/law in sorted_laws)
+		if(law == zeroth_law_borg)
+			continue
+		var/mob/M = who
+		if(law == zeroth_law)
+			. += "<span class='danger'>[law.get_index()]. [law.law]</span>"
+			if(ismob(who) && M.vr_mob)
+				. += "<span class='danger'>[law.get_index()]. [law.law]</span>"
+		else
+			. += "[law.get_index()]. [law.law]"
+			if(ismob(who) && M.vr_mob)
+				. += "<span class='danger'>[law.get_index()]. [law.law]</span>"
+
 /********************
 *	Stating Laws	*
 ********************/

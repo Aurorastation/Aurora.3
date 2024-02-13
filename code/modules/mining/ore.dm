@@ -8,16 +8,6 @@
 	var/datum/geosample/geologic_data
 	var/material
 
-/obj/item/ore/Crossed(AM as mob|obj)
-	..()
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
-		var/obj/item/storage/bag/ore/S = locate() in H
-		if(S && (S == H.l_store || S == H.r_store || S == H.l_hand || S == H.r_hand))
-			if(S.collection_mode)
-				attackby(S, H)
-				return
-
 /obj/item/ore/uranium
 	name = "pitchblende"
 	icon_state = "ore_uranium"
@@ -95,9 +85,9 @@
 	icon_state = "slag"
 	material = null
 
-/obj/item/ore/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/device/core_sampler))
-		var/obj/item/device/core_sampler/C = W
+/obj/item/ore/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/device/core_sampler))
+		var/obj/item/device/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 	else
 		return ..()

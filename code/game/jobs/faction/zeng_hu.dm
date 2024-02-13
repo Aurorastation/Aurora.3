@@ -54,7 +54,9 @@
 		"Xenoarchaeologist"= /datum/outfit/job/scientist/xenoarchaeologist/zeng_hu,
 		"Corporate Reporter" = /datum/outfit/job/journalist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zeng_hu
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zeng_hu,
+		"Science Personnel" = /datum/outfit/job/scientist/zeng_hu,
+		"Medical Personnel" = /datum/outfit/job/med_tech/zeng_hu
 	)
 
 /datum/outfit/job/doctor/zeng_hu

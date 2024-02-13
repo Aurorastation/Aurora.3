@@ -199,3 +199,41 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("chives" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/custard
+	name = "custard"
+	desc = "A lovely dessert that can also be used to make other, much less lazy desserts."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "custard"
+	trash = /obj/item/trash/custard_bowl
+	filling_color = "#ebedc2"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/egg = 2, /singleton/reagent/nutriment/glucose = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("custard" = 5))
+	bitesize = 2
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+	is_liquid = TRUE
+
+//Custard + blowtorch = creme brulee
+/obj/item/reagent_containers/food/snacks/custard/attackby(obj/item/W, mob/living/user)
+	. = ..()
+	if(W.iswelder())
+		var/obj/item/weldingtool/welder = W
+		if(welder.isOn())
+			new /obj/item/reagent_containers/food/snacks/creme_brulee(src)
+			to_chat(user, "You apply the flame to the sugary custard, caramelizing it.")
+			playsound(get_turf(src), 'sound/items/flare.ogg', 100, 1)
+			qdel(src)
+
+/obj/item/reagent_containers/food/snacks/creme_brulee
+	name = "creme brulee"
+	desc = "You know what would makes a nice, sweet dessert better? A BLOWTORCH!"
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "brulee"
+	trash = /obj/item/trash/custard_bowl
+	filling_color = "#e9c35b"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/egg = 1, /singleton/reagent/nutriment/glucose = 2, /singleton/reagent/nutriment/caramel = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("custard" = 5))
+	bitesize = 2
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'

@@ -399,7 +399,7 @@
 
 			found_obj = locate(/obj/structure/window) in target_turf
 			if(found_obj)
-				if(HAS_FLAG(found_obj.atom_flags, ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != GLOB.reverse_dir[card_dir])
+				if((found_obj.atom_flags & ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != GLOB.reverse_dir[card_dir])
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time

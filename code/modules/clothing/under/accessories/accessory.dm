@@ -117,7 +117,7 @@
 	return ..()
 
 //default attackby behaviour
-/obj/item/clothing/accessory/attackby(obj/item/I, mob/user)
+/obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
 	..()
 
 //default attack_hand behaviour

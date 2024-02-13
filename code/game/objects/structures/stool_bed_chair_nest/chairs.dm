@@ -62,6 +62,9 @@
 	base_icon = "chair_fancy"
 	held_item = /obj/item/material/stool/chair/fancy
 
+/obj/structure/bed/stool/chair/padded
+	icon_state = "chair_padding"
+
 /obj/structure/bed/stool/chair/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 

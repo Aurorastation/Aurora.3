@@ -195,17 +195,17 @@
 /obj/item/trap/animal/update_icon()
 	icon_state = "[icon_base][deployed]"
 
-/obj/item/trap/animal/examine(mob/user)
+/obj/item/trap/animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(captured)
 		var/datum/L = captured.resolve()
 		if (L)
-			to_chat(user, "<span class='warning'>[L] is trapped inside!</span>")
+			. += SPAN_WARNING("[L] is trapped inside!")
 			return
 	else if(deployed)
-		to_chat(user, SPAN_WARNING("It's set up and ready to capture something."))
+		. += SPAN_WARNING("It's set up and ready to capture something.")
 	else
-		to_chat(user, "<span class='notice'>\The [src] is empty and un-deployed.</span>")
+		. += SPAN_NOTICE("\The [src] is empty and un-deployed.")
 
 /obj/item/trap/animal/Crossed(atom/movable/AM)
 	if(!deployed || !anchored)
@@ -373,9 +373,9 @@
 	release_time = world.time
 	layer = initial(layer)
 
-/obj/item/trap/animal/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/grab))
-		var/obj/item/grab/G = W
+/obj/item/trap/animal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 		var/mob/living/M = G.affecting
 
 		if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
@@ -393,8 +393,8 @@
 				return
 			capture(M)
 
-	else if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	else if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
@@ -411,7 +411,7 @@
 				release(user)
 				qdel(src)
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
@@ -422,7 +422,7 @@
 		var/sound_to_play = pick(list('sound/items/Screwdriver.ogg', 'sound/items/Screwdriver2.ogg'))
 		playsound(src.loc, sound_to_play, 50, 1)
 
-		if(W.use_tool(src, user, 30, volume = 50))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
@@ -588,8 +588,8 @@
 	else
 		..()
 
-/obj/item/trap/animal/large/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/item/trap/animal/large/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
@@ -602,12 +602,12 @@
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
 								"<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
 
-		if(W.use_tool(src, user, 30, volume = 50))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
 								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		// Unlike smaller traps, screwdriver shouldn't work on this.
 		return
 	else
@@ -647,9 +647,9 @@
 	force = 5
 	w_class = ITEMSIZE_HUGE
 
-/obj/item/large_trap_foundation/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/rods))
-		var/obj/item/stack/rods/O = W
+/obj/item/large_trap_foundation/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/O = attacking_item
 		if(O.get_amount() >= 12)
 
 			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
@@ -664,7 +664,7 @@
 			return
 		else
 			to_chat(user, "<span class='warning'>You need at least 12 rods to complete \the [src].</span>")
-	else if(istype(W, /obj/item/screwdriver))
+	else if(istype(attacking_item, /obj/item/screwdriver))
 		return
 	else
 		..()
@@ -796,10 +796,11 @@
 
 	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
 
-/obj/item/trap/punji/examine(mob/user, distance)
+/obj/item/trap/punji/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(src.message && distance < 3)
-		to_chat(user, SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+		. += SPAN_ALERT("You notice something written on a plate inside the trap:")
+		. += SPAN_BAD(message)
 
 /obj/item/trap/punji/verb/hide_under()
 	set src in oview(1)

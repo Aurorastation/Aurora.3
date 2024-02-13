@@ -13,6 +13,9 @@
 	S["job_engsec_high"]	>> pref.job_engsec_high
 	S["job_engsec_med"]		>> pref.job_engsec_med
 	S["job_engsec_low"]		>> pref.job_engsec_low
+	S["job_event_high"]	>> pref.job_event_high
+	S["job_event_med"]		>> pref.job_event_med
+	S["job_event_low"]		>> pref.job_event_low
 	S["player_alt_titles"]	>> pref.player_alt_titles
 	S["faction"]            >> pref.faction
 
@@ -27,6 +30,9 @@
 	S["job_engsec_high"]	<< pref.job_engsec_high
 	S["job_engsec_med"]		<< pref.job_engsec_med
 	S["job_engsec_low"]		<< pref.job_engsec_low
+	S["job_event_high"]	>> pref.job_event_high
+	S["job_event_med"]		>> pref.job_event_med
+	S["job_event_low"]		>> pref.job_event_low
 	S["player_alt_titles"]	<< pref.player_alt_titles
 	S["faction"]            << pref.faction
 
@@ -68,7 +74,11 @@
 		"job_medsci_low" = pref.job_medsci_low,
 		"job_engsec_high" = pref.job_engsec_high,
 		"job_engsec_med" = pref.job_engsec_med,
-		"job_engsec_low" = pref.job_engsec_low
+		"job_engsec_low" = pref.job_engsec_low,
+		"job_event_high" = pref.job_event_high,
+		"job_event_med" = pref.job_event_med,
+		"job_event_low" = pref.job_event_low
+
 	)
 
 	return list(
@@ -99,6 +109,9 @@
 			pref.job_engsec_high	= 0
 			pref.job_engsec_med 	= 0
 			pref.job_engsec_low 	= 0
+			pref.job_event_high	= 0
+			pref.job_event_med 	= 0
+			pref.job_event_low 	= 0
 		else
 			for (var/preference in jobs)
 				try
@@ -117,6 +130,10 @@
 	pref.job_engsec_high   = sanitize_integer(text2num(pref.job_engsec_high), 0, 65535, initial(pref.job_engsec_high))
 	pref.job_engsec_med    = sanitize_integer(text2num(pref.job_engsec_med), 0, 65535, initial(pref.job_engsec_med))
 	pref.job_engsec_low    = sanitize_integer(text2num(pref.job_engsec_low), 0, 65535, initial(pref.job_engsec_low))
+	pref.job_event_high   = sanitize_integer(text2num(pref.job_event_high), 0, 65535, initial(pref.job_event_high))
+	pref.job_event_med    = sanitize_integer(text2num(pref.job_event_med), 0, 65535, initial(pref.job_event_med))
+	pref.job_event_low    = sanitize_integer(text2num(pref.job_event_low), 0, 65535, initial(pref.job_event_low))
+
 
 	if (!pref.player_alt_titles)
 		pref.player_alt_titles = new()
@@ -357,14 +374,17 @@
 			pref.job_civilian_high = 0
 			pref.job_medsci_high = 0
 			pref.job_engsec_high = 0
+			pref.job_event_high = 0
 			return 1
 		if(2)//Set current highs to med, then reset them
 			pref.job_civilian_med |= pref.job_civilian_high
 			pref.job_medsci_med |= pref.job_medsci_high
 			pref.job_engsec_med |= pref.job_engsec_high
+			pref.job_event_med |= pref.job_event_high
 			pref.job_civilian_high = 0
 			pref.job_medsci_high = 0
 			pref.job_engsec_high = 0
+			pref.job_event_high = 0
 
 	switch(job.department_flag)
 		if(SERVICE)
@@ -397,6 +417,16 @@
 					pref.job_engsec_low &= ~job.flag
 				else
 					pref.job_engsec_low |= job.flag
+		if(EVENTDEPT)
+			switch(level)
+				if(2)
+					pref.job_event_high = job.flag
+					pref.job_event_med &= ~job.flag
+				if(3)
+					pref.job_event_med |= job.flag
+					pref.job_event_low &= ~job.flag
+				else
+					pref.job_event_low |= job.flag
 	return 1
 
 /datum/category_item/player_setup_item/occupation/proc/ResetJobs()
@@ -411,6 +441,10 @@
 	pref.job_engsec_high = 0
 	pref.job_engsec_med = 0
 	pref.job_engsec_low = 0
+
+	pref.job_event_high = 0
+	pref.job_event_med = 0
+	pref.job_event_low = 0
 
 	pref.player_alt_titles.Cut()
 
@@ -519,4 +553,12 @@
 					return job_engsec_med
 				if(3)
 					return job_engsec_low
+		if(EVENTDEPT)
+			switch(level)
+				if(1)
+					return job_event_high
+				if(2)
+					return job_event_med
+				if(3)
+					return job_event_low
 	return 0

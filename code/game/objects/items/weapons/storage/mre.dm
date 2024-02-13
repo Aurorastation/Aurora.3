@@ -35,9 +35,9 @@ MRE Stuff
 /obj/item/storage/mre/attack_self(mob/user)
 	open(user)
 
-/obj/item/storage/box/fancy/mre/examine(mob/user)
+/obj/item/storage/box/fancy/mre/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, meal_desc)
+	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/menu2
 	name = "\improper MRE, menu 2"

@@ -351,7 +351,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 
 		if(href_list["refund_functions"])
 			var/turf/T = get_turf(H)
-			if(T.z in current_map.player_levels)
+			if(T.z in SSatlas.current_map.player_levels)
 				to_chat(H, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
 				return
 			var/obj/item/technomancer_core/core = H.get_technomancer_core()
@@ -364,23 +364,23 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 							break
 		attack_self(H)
 
-/obj/item/technomancer_catalog/attackby(var/atom/movable/AM, var/mob/user)
+/obj/item/technomancer_catalog/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = get_turf(user)
-	if(T.z in current_map.player_levels)
+	if(T.z in SSatlas.current_map.player_levels)
 		to_chat(user, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
 		return TRUE
 	for(var/datum/technomancer/equipment/E in equipment_instances + assistance_instances)
-		if(AM.type == E.obj_path) // We got a match.
+		if(attacking_item.type == E.obj_path) // We got a match.
 			if(budget + E.cost > max_budget)
 				to_chat(user, "<span class='warning'>\The [src] will not allow you to overflow your maximum budget by refunding that.</span>")
 				return TRUE
 			else
 				budget = budget + E.cost
-				to_chat(user, "<span class='notice'>You've refunded \the [AM].</span>")
+				to_chat(user, "<span class='notice'>You've refunded \the [attacking_item].</span>")
 
 				// We sadly need to do special stuff here or else people who refund cores with spells will lose points permanently.
-				if(istype(AM, /obj/item/technomancer_core))
-					var/obj/item/technomancer_core/core = AM
+				if(istype(attacking_item, /obj/item/technomancer_core))
+					var/obj/item/technomancer_core/core = attacking_item
 					for(var/obj/spellbutton/technomancer/spell in core.spells)
 						for(var/datum/technomancer/spell/spell_datum in spell_instances)
 							if(spell_datum.obj_path == spell.spellpath)
@@ -388,7 +388,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 								to_chat(user, "<span class='notice'>[spell.name] was inside \the [core], and was refunded.</span>")
 								core.remove_spell(spell)
 								break
-				qdel(AM)
+				qdel(attacking_item)
 				return TRUE
-	to_chat(user, "<span class='warn'>\The [src] is unable to refund \the [AM].</span>")
+	to_chat(user, "<span class='warn'>\The [src] is unable to refund \the [attacking_item].</span>")
 

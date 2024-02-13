@@ -409,11 +409,11 @@
 	base_icon_state = icon_state
 	return ..()
 
-/obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
+/obj/machinery/shipsensors/attackby(obj/item/attacking_item, mob/user)
 	var/damage = max_health - health
-	if(damage && W.iswelder())
+	if(damage && attacking_item.iswelder())
 
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 
 		if(!WT.isOn())
 			return
@@ -468,16 +468,16 @@
 	if(heat_percentage > 85)
 		add_overlay("sensors-effect-hot")
 
-/obj/machinery/shipsensors/examine(mob/user)
+/obj/machinery/shipsensors/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(health <= 0)
-		to_chat(user, "\The [src] is wrecked.")
+		. += "\The [src] is wrecked."
 	else if(health < max_health * 0.25)
-		to_chat(user, "<span class='danger'>\The [src] looks like it's about to break!</span>")
+		. += "<span class='danger'>\The [src] looks like it's about to break!</span>"
 	else if(health < max_health * 0.5)
-		to_chat(user, "<span class='danger'>\The [src] looks seriously damaged!</span>")
+		. += "<span class='danger'>\The [src] looks seriously damaged!</span>"
 	else if(health < max_health * 0.75)
-		to_chat(user, "\The [src] shows signs of damage!")
+		. += "\The [src] shows signs of damage!"
 
 /obj/machinery/shipsensors/bullet_act(var/obj/item/projectile/Proj)
 	take_damage(Proj.get_structure_damage())

@@ -8,14 +8,14 @@
 			if (AC.slot == A.slot)
 				return 0
 
-/obj/item/clothing/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/clothing/accessory))
+/obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/accessory))
 
 		if(!valid_accessory_slots || !valid_accessory_slots.len)
 			to_chat(usr, "<span class='warning'>You cannot attach accessories of any kind to \the [src].</span>")
 			return
 
-		var/obj/item/clothing/accessory/A = I
+		var/obj/item/clothing/accessory/A = attacking_item
 		if(can_attach_accessory(A))
 			user.drop_item()
 			attach_accessory(user, A)
@@ -26,7 +26,7 @@
 
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			A.attackby(I, user)
+			A.attackby(attacking_item, user)
 		return
 
 	..()
@@ -91,11 +91,11 @@
 	return main_ear
 
 
-/obj/item/clothing/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			to_chat(user, SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it."))
+			. += SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
 /obj/item/clothing/equipped(mob/user, slot, assisted_equip)
 	. = ..()

@@ -421,9 +421,9 @@
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.
-/mob/living/silicon/pai/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/nanopaste))
-		var/obj/item/stack/nanopaste/N = W
+/mob/living/silicon/pai/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/nanopaste))
+		var/obj/item/stack/nanopaste/N = attacking_item
 		if(getBruteLoss() || getFireLoss())
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			if(do_mob(user, src, 1 SECOND))
@@ -436,12 +436,12 @@
 			to_chat(user, SPAN_NOTICE("All [src]'s systems are nominal."))
 		return
 
-	if(W.force)
-		visible_message(SPAN_DANGER("[user.name] attacks [src] with [W]!"))
-		src.adjustBruteLoss(W.force)
+	if(attacking_item.force)
+		visible_message(SPAN_DANGER("[user.name] attacks [src] with [attacking_item]!"))
+		src.adjustBruteLoss(attacking_item.force)
 		src.updatehealth()
 	else
-		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [W]."))
+		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [attacking_item]."))
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return

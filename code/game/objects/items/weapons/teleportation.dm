@@ -158,13 +158,13 @@ Frequency:
 
 	var/max_portals = 2
 
-/obj/item/hand_tele/examine(mob/user, distance)
+/obj/item/hand_tele/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(linked_pad)
 		var/area/A = get_area(linked_pad)
-		to_chat(user, SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]"))
+		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]")
 	else
-		to_chat(user, SPAN_WARNING("\The [src] isn't linked to any teleportation pads!"))
+		. += SPAN_WARNING("\The [src] isn't linked to any teleportation pads!")
 
 /obj/item/hand_tele/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")

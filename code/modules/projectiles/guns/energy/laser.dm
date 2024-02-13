@@ -228,9 +228,9 @@
 	turret_is_lethal = FALSE
 	turret_sprite_set = "red"
 
-/obj/item/gun/energy/lasertag/attackby(obj/item/I, mob/user)
-	if(I.ismultitool())
-		var/chosen_color = input(user, "Which color do you wish your gun to be?", "Color Selection") as null|anything in list("blue", "red")
+/obj/item/gun/energy/lasertag/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
+		var/chosen_color = tgui_input_list(user, "Which color do you wish your gun to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return
 		get_tag_color(chosen_color)
