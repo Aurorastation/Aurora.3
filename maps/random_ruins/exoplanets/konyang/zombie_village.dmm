@@ -26,7 +26,7 @@
 /area/konyang_village)
 "aP" = (
 /obj/structure/table/glass,
-/turf/simulated/floor/carpet/darkblue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/konyang_village)
 "bD" = (
 /obj/structure/closet/crate/bin,
@@ -82,7 +82,7 @@
 /obj/structure/bed/stool/padded/purple{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/darkblue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/konyang_village)
 "dx" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -1026,7 +1026,7 @@
 /obj/structure/bed/stool/padded/purple{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/darkblue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/konyang_village)
 "CH" = (
 /obj/structure/bed/stool/bar/wood{

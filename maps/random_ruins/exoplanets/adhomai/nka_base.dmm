@@ -14,7 +14,7 @@
 /obj/structure/sign/painting_frame/shumaila{
 	pixel_y = 31
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "bK" = (
 /obj/item/reagent_containers/glass/bucket/wood{
@@ -42,7 +42,7 @@
 	initial_lock_value = "nka_cell";
 	name = "cell"
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "eF" = (
 /obj/structure/sign/emergency/meetingpoint{
@@ -73,7 +73,7 @@
 /obj/item/handcuffs,
 /obj/item/handcuffs/legcuffs,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "gU" = (
 /obj/structure/blocker/steel/fence{
@@ -119,7 +119,7 @@
 /area/nka_base)
 "ka" = (
 /obj/structure/bed/padded,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "kO" = (
 /obj/structure/bed/stool/chair/wood{
@@ -147,7 +147,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "mj" = (
 /obj/structure/window/reinforced{
@@ -269,7 +269,7 @@
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "uO" = (
 /obj/structure/table/wood,
@@ -318,7 +318,7 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "vX" = (
 /obj/structure/reagent_dispensers/keg/mead{
@@ -358,7 +358,7 @@
 /obj/item/landmine,
 /obj/item/landmine,
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "xj" = (
 /obj/item/gun/projectile/automatic/tommygun,
@@ -370,7 +370,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "xN" = (
 /obj/item/gun/projectile/revolver/adhomian,
@@ -385,7 +385,7 @@
 /obj/structure/sign/flag/nka{
 	pixel_x = -32
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "yk" = (
 /obj/machinery/shower{
@@ -435,7 +435,7 @@
 /obj/structure/sign/flag/nka{
 	pixel_x = -32
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Ab" = (
 /obj/structure/bonfire/fireplace{
@@ -455,7 +455,7 @@
 	pixel_y = 6;
 	pixel_x = 10
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "BZ" = (
 /obj/structure/closet/secure_closet/cabinet{
@@ -471,20 +471,20 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "CO" = (
 /turf/simulated/wall/iron,
 /area/nka_base)
 "CW" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "DB" = (
 /obj/structure/simple_door/iron{
 	initial_lock_value = "nka_armory"
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "DL" = (
 /turf/simulated/floor/exoplanet/snow{
@@ -574,13 +574,13 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinedrum,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Md" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "NP" = (
 /obj/structure/table/wood,
@@ -621,11 +621,11 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Rb" = (
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Rg" = (
 /obj/effect/map_effect/window_spawner/basic,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Sr" = (
 /obj/structure/bed/padded,
@@ -744,7 +744,7 @@
 	dir = 8
 	},
 /obj/item/trash/tray,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "YD" = (
 /obj/structure/table/wood,
