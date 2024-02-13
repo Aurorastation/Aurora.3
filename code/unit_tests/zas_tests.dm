@@ -210,7 +210,7 @@
 		Something went wrong
 		compose a message and fail the test, let the poor soul try to figure out where the issue is, assuming it's not intermittent
 	 */
-	var/fail_message = "[SSair.active_edges.len] edges active at round-start!\n"
+	var/fail_message = "\n\n\n\n\n[SSair.active_edges.len] edges active at round-start!\n"
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E
 		if(istype(U))
@@ -259,9 +259,6 @@
 					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
 
 			fail_message += "[offending_turfs_text]"
-
-		//Make some space so it doesn't all blend together in the output
-		fail_message +="\n\n\n\n\n"
 
 	TEST_FAIL("[fail_message]")
 	return UNIT_TEST_FAILED
