@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aT" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "aU" = (
 /obj/effect/decal/road_marking{
@@ -69,7 +69,7 @@
 /area/konyang/office)
 "fw" = (
 /obj/structure/grille,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "fB" = (
 /obj/effect/decal/cleanable/generic,
@@ -167,7 +167,7 @@
 /area/konyang/office)
 "md" = (
 /obj/item/material/shard,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "mT" = (
 /obj/machinery/light{
@@ -196,7 +196,7 @@
 /area/exoplanet/grass/konyang)
 "of" = (
 /obj/item/pen,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "oj" = (
 /obj/effect/decal/road_marking,
@@ -237,11 +237,11 @@
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
 "pR" = (
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "pX" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "qd" = (
 /obj/structure/table/standard,
@@ -311,7 +311,7 @@
 "uT" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "vQ" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -334,7 +334,7 @@
 /area/exoplanet/grass/konyang)
 "yN" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "yS" = (
 /obj/structure/urban_grate,
@@ -382,14 +382,14 @@
 "AP" = (
 /obj/random/dirt_75,
 /obj/structure/table,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "Be" = (
 /obj/random/dirt_75,
 /obj/structure/table,
 /obj/item/folder/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "BO" = (
 /obj/item/material/shard,
@@ -534,7 +534,7 @@
 /area/exoplanet/grass/konyang)
 "MP" = (
 /obj/structure/table,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "Ng" = (
 /obj/random/dirt_75,
@@ -564,7 +564,7 @@
 "Px" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "PM" = (
 /obj/effect/decal/cleanable/generic,
@@ -621,13 +621,13 @@
 	pixel_x = 10;
 	pixel_y = 1
 	},
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "Su" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "SE" = (
 /obj/effect/decal/cleanable/generic,
@@ -705,7 +705,7 @@
 /area/exoplanet/grass/konyang)
 "Ys" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "Yz" = (
 /obj/effect/decal/road_marking{

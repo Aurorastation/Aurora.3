@@ -21,9 +21,7 @@
 /obj/item/seeds/blizzard,
 /obj/item/seeds/nifberries,
 /obj/item/seeds/nifberries,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "bf" = (
 /obj/machinery/light/small,
@@ -198,18 +196,14 @@
 /area/adhomai_bar)
 "jz" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "jW" = (
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "ko" = (
 /obj/machinery/appliance/cooker/oven,
@@ -670,9 +664,7 @@
 /obj/item/material/hatchet,
 /obj/item/material/minihoe,
 /obj/item/material/minihoe,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Eg" = (
 /obj/structure/simple_door/wood{
@@ -839,9 +831,7 @@
 /obj/structure/table/rack,
 /obj/item/wirecutters/clippers,
 /obj/item/wirecutters/clippers,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Kw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1102,9 +1092,7 @@
 /obj/item/seeds/sugartree,
 /obj/item/seeds/nifberries,
 /obj/item/seeds/nifberries,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Wa" = (
 /obj/structure/table/wood,
@@ -1239,9 +1227,7 @@
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bottle/ammonia,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Zc" = (
 /obj/structure/table/wood,
@@ -1698,7 +1684,7 @@ TA
 In
 TA
 In
-eS
+JZ
 DE
 Xv
 hy
@@ -1737,7 +1723,7 @@ TA
 In
 TA
 In
-eS
+JZ
 Kv
 Xv
 TJ
@@ -1776,7 +1762,7 @@ TA
 In
 TA
 VS
-eS
+JZ
 YY
 Xv
 HS

@@ -123,9 +123,7 @@
 "kt" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/adhomai_raskariim_hideout)
 "kM" = (
 /obj/structure/bookcase,
@@ -155,9 +153,7 @@
 "lI" = (
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/wood,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/adhomai_raskariim_hideout)
 "nm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -343,9 +339,7 @@
 	pixel_x = -5;
 	pixel_y = 12
 	},
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/adhomai_raskariim_hideout)
 "wx" = (
 /obj/structure/bed/stool/chair/sofa/black{
@@ -418,9 +412,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "zn" = (
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/adhomai_raskariim_hideout)
 "zC" = (
 /obj/machinery/light/small{

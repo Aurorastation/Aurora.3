@@ -2870,6 +2870,7 @@
 #include "code\modules\overmap\exoplanets\decor\turfs\abyss.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\asphalt.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\barren.dm"
+#include "code\modules\overmap\exoplanets\decor\turfs\carpet.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\concrete.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\crystal.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\foundation.dm"
