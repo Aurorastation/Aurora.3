@@ -222,7 +222,7 @@
 
 			var/zone/A = U.A
 			var/offending_turfs = "Problem turfs: \n"
-			fail_message += "Mismatching edge gasses: [json_encode(U.A.air.gas)] <-----> [json_encode(U.B.air.gas)]"
+			fail_message += "Mismatching edge gasses: [(U.A.air) ? json_encode(U.A.air.gas) : "vacuum"] <-----> [(U.B.air) ? json_encode(U.B.air.gas) : "vacuum"]"
 			for(var/turf/simulated/S in A.contents)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
 					offending_turfs += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
@@ -249,10 +249,10 @@
 				continue
 
 			var/offending_turfs = "Problem turfs: "
-			fail_message += "Mismatching edge gasses: [json_encode(Z.A.air.gas)] <-----> [json_encode(Z.B.air.gas)]"
+			fail_message += "Mismatching edge gasses: [(Z.A.air) ? json_encode(Z.A.air.gas) : "vacuum"] <-----> [(Z.B.air) ? json_encode(Z.B.air.gas) : "vacuum"]"
 			for(var/turf/simulated/S in problem.contents)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
-					offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
+					offending_turfs += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
 
 			fail_message += "[offending_turfs]"
 
