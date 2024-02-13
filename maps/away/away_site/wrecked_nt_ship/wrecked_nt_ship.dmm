@@ -1,100 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless{
-	burnt = 3
-	},
-/area/wrecked_nt_ship)
 "ab" = (
 /turf/simulated/floor/tiled/white/airless{
 	icon_state = "freezer"
 	},
-/area/wrecked_nt_ship)
-"ac" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/wrecked_nt_ship)
-"ad" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"ae" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"af" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"ag" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"ah" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"ai" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"aj" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"ak" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
-"al" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "am" = (
 /obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged2"
 	},
-/area/wrecked_nt_ship)
-"an" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/wrecked_nt_ship)
-"ao" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/wrecked_nt_ship)
-"ap" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "aq" = (
 /obj/machinery/door/airlock/centcom{
@@ -330,11 +244,6 @@
 /obj/item/material/twohanded/fireaxe,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
-"fb" = (
-/obj/structure/table/reinforced,
-/obj/item/lazarus_injector,
-/turf/simulated/floor/tiled/steel/airless,
-/area/wrecked_nt_ship)
 "fe" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/melee/energy/vaurca_zweihander,
@@ -498,11 +407,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"iy" = (
-/turf/simulated/floor/tiled/airless{
-	burnt = 3
-	},
-/area/wrecked_nt_ship)
 "iz" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless{
@@ -846,7 +750,6 @@
 /area/wrecked_nt_ship)
 "pF" = (
 /obj/structure/table/rack,
-/obj/item/lazarus_injector,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "pL" = (
@@ -27519,7 +27422,7 @@ Kn
 Kn
 ot
 gv
-aa
+gv
 iR
 ot
 Kn
@@ -27775,8 +27678,8 @@ Kn
 Kn
 Kn
 zs
-iy
-iy
+Mc
+Mc
 Zh
 zs
 Kn
@@ -28032,7 +27935,7 @@ Kn
 Kn
 Kn
 zs
-iy
+Mc
 aF
 Zh
 zs
@@ -28291,7 +28194,7 @@ Kn
 zs
 Zh
 Zh
-iy
+Mc
 zs
 PA
 Kn
@@ -28548,7 +28451,7 @@ Kn
 ot
 rA
 rA
-ac
+iR
 ot
 Kn
 Kn
@@ -28803,8 +28706,8 @@ Kn
 Kn
 Kn
 ot
-iy
-iy
+Mc
+Mc
 aF
 ot
 Kn
@@ -29062,7 +28965,7 @@ ot
 ot
 Zh
 Zh
-iy
+Mc
 ot
 ot
 ot
@@ -29323,7 +29226,7 @@ ll
 ll
 uV
 ot
-iy
+Mc
 Zh
 Mc
 Zh
@@ -29583,7 +29486,7 @@ ot
 aF
 to
 nZ
-iy
+Mc
 nZ
 LI
 Zh
@@ -30099,8 +30002,8 @@ jR
 nf
 Mc
 Zh
-iy
-iy
+Mc
+Mc
 ot
 FP
 Kn
@@ -30327,7 +30230,7 @@ ot
 ot
 ll
 tN
-fb
+iA
 fC
 SE
 aY
@@ -31109,7 +31012,7 @@ ot
 ot
 ot
 ot
-ad
+aq
 ot
 jM
 jM
@@ -32636,7 +32539,7 @@ ot
 ot
 ot
 ot
-ae
+aq
 ot
 ot
 ot
@@ -32651,7 +32554,7 @@ ot
 ot
 ot
 ot
-af
+aq
 ot
 ot
 ot
@@ -32659,7 +32562,7 @@ ot
 ot
 ot
 ot
-ag
+aq
 ot
 ll
 Kn
@@ -33407,7 +33310,7 @@ ot
 ot
 ot
 ot
-ah
+aq
 ot
 ll
 CR
@@ -33422,7 +33325,7 @@ ot
 ot
 ot
 ot
-ai
+aq
 ot
 ot
 ot
@@ -34707,7 +34610,7 @@ ot
 ot
 ot
 ot
-aj
+aq
 ot
 sC
 Kn
@@ -35735,7 +35638,7 @@ YT
 ot
 ot
 ot
-ak
+aq
 ot
 ab
 TN
@@ -35751,7 +35654,7 @@ ot
 Mc
 mt
 LI
-iy
+Mc
 mt
 LI
 aF
@@ -36005,7 +35908,7 @@ ot
 ll
 ll
 ot
-iy
+Mc
 LI
 mt
 gr
@@ -36238,8 +36141,8 @@ xi
 ot
 ot
 ot
-al
-an
+iR
+iR
 ot
 ot
 ot
@@ -36268,7 +36171,7 @@ Mc
 aF
 Mc
 Mc
-iy
+Mc
 ot
 FP
 Kn
@@ -38551,8 +38454,8 @@ ot
 ot
 ot
 ot
-ao
-ap
+iR
+iR
 ot
 ot
 ot

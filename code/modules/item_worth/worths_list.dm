@@ -184,7 +184,6 @@ var/list/worths = list(
 					/obj/item/shovel/spade = 20,
 					/obj/item/rfd/mining = 200,
 					/obj/item/ore_radar = 30,
-					/obj/item/lazarus_injector = 800,
 					/obj/item/extraction_pack = 600,
 					/obj/item/resonator/upgraded = 650,
 					/obj/item/resonator = 450,
