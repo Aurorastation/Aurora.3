@@ -260,6 +260,9 @@
 
 			fail_message += "[offending_turfs_text]"
 
+		//Make some space so it doesn't all blend together in the output
+		fail_message +="\n\n\n\n\n"
+
 	TEST_FAIL("[fail_message]")
 	return UNIT_TEST_FAILED
 

@@ -192,9 +192,7 @@
 	},
 /area/nka_base)
 "mB" = (
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "nc" = (
 /obj/structure/bed/padded,
@@ -343,17 +341,13 @@
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = 9
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "vs" = (
 /obj/structure/table/wood,
 /obj/item/saddle,
 /obj/item/saddle,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "vQ" = (
 /obj/structure/closet/secure_closet/cabinet{
@@ -854,9 +848,7 @@
 	dir = 4
 	},
 /obj/vehicle/bike/climber,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "YC" = (
 /obj/machinery/light/small{
@@ -1308,7 +1300,7 @@ DL
 DL
 DL
 yB
-mB
+mb
 WS
 qa
 pB
@@ -1324,7 +1316,7 @@ EP
 EP
 yB
 tI
-mB
+mb
 rV
 yB
 gU
@@ -1343,22 +1335,22 @@ DL
 DL
 yB
 Yr
-mB
-mB
-mB
-mB
-mB
-mB
-mB
-mB
+mb
+mb
+mb
+mb
+mb
+mb
+mb
+mb
 uO
 yB
 DL
 EP
 EP
 WG
-mB
-mB
+mb
+mb
 vd
 yB
 gU
@@ -1378,13 +1370,13 @@ DL
 yB
 mb
 UX
-mB
-mB
-mB
-mB
-mB
-mB
-mB
+mb
+mb
+mb
+mb
+mb
+mb
+mb
 aa
 yB
 DL
@@ -1417,8 +1409,8 @@ pB
 nc
 Et
 nc
-mB
-mB
+mb
+mb
 UX
 yB
 DL
@@ -1542,7 +1534,7 @@ DL
 DL
 CO
 Up
-mB
+mb
 NW
 NP
 YD
@@ -1576,8 +1568,8 @@ DL
 DL
 CO
 fq
-mB
-mB
+mb
+mb
 kO
 Qx
 CO
@@ -1610,9 +1602,9 @@ DL
 DL
 CO
 VN
-mB
-mB
-mB
+mb
+mb
+mb
 Jc
 CO
 DL

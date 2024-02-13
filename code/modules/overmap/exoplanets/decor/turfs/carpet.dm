@@ -10,3 +10,8 @@
 /turf/simulated/floor/exoplanet/carpet/art
 	icon_state = "artcarpet"
 	initial_flooring = /singleton/flooring/carpet/art
+
+/turf/simulated/floor/exoplanet/carpet/rubber
+	name = "rubber carpet"
+	icon_state = "rub_carpet"
+	initial_flooring = /singleton/flooring/carpet/rubber

@@ -2879,6 +2879,7 @@
 #include "code\modules\overmap\exoplanets\decor\turfs\konyang.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\linoleum.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\mineral.dm"
+#include "code\modules\overmap\exoplanets\decor\turfs\plating.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\sand.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\sidewalk.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\snow.dm"
