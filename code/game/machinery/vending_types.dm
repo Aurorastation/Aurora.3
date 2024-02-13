@@ -1500,7 +1500,7 @@
 		/obj/item/storage/box/fancy/mre/menu8 = 2,
 		/obj/item/storage/box/fancy/mre/menu9 = 10,
 		/obj/item/storage/box/fancy/mre/menu10 = 10,
-		/obj/item/storage/box/fancy/mre/menu12_kois = 5
+		/obj/item/storage/box/fancy/mre/menu12 = 5
 	)
 	prices = list(
 		/obj/item/storage/box/fancy/mre = 50,
@@ -1513,7 +1513,7 @@
 		/obj/item/storage/box/fancy/mre/menu8 = 50,
 		/obj/item/storage/box/fancy/mre/menu9 = 50,
 		/obj/item/storage/box/fancy/mre/menu10 = 50,
-		/obj/item/storage/box/fancy/mre/menu12_kois = 50
+		/obj/item/storage/box/fancy/mre/menu12 = 50
 	)
 	contraband = list(
 		/obj/item/storage/box/fancy/mre/menu11 = 5, // memes.
