@@ -900,11 +900,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/old_outpost/hallway)
-"qu" = (
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/old_outpost/dorms)
 "rf" = (
 /obj/machinery/alarm/north,
 /obj/item/storage/toolbox/mechanical{
@@ -3772,7 +3767,7 @@ cg
 cg
 cg
 Yc
-qu
+Yc
 Yc
 cg
 cg
