@@ -6,4 +6,4 @@ delete-after: True
 changes:
   - bugfix: "Fixes burglar shuttle airlock being closed at round start."
   - bugfix: "Fixes some broken icons on the antag bases."
-  - bugfix: "Fixes some old style or non-destructible windows on the antag bases."
+  - bugfix: "Fixes some old style or destructible windows on the antag bases."
