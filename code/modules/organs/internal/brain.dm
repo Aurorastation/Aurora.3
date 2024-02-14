@@ -110,12 +110,11 @@
 			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	/ 10
 			//Effects of bloodloss
 			switch(blood_volume)
-// REMEMBER TO UNCOMMENT THIS
-//				if(BLOOD_VOLUME_SAFE to INFINITY)
-//					if(can_heal && owner.chem_effects[CE_BRAIN_REGEN])
-//						damage = max(damage - brain_regen_amount, 0)
-//					else if(can_heal)
-//						damage = max(damage-1, 0)
+				if(BLOOD_VOLUME_SAFE to INFINITY)
+					if(can_heal && owner.chem_effects[CE_BRAIN_REGEN])
+						damage = max(damage - brain_regen_amount, 0)
+					else if(can_heal)
+						damage = max(damage-1, 0)
 				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 					if(prob(1))
 						to_chat(owner, SPAN_WARNING("You feel a bit [pick("lightheaded","dizzy","pale")]..."))
