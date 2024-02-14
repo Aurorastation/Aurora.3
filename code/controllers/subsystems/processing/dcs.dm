@@ -22,8 +22,6 @@ PROCESSING_SUBSYSTEM_DEF(dcs)
 		return
 	. = elements_by_type[element_id] = new eletype
 
-///Temporary compatibility to not rewrite the proc, it is being ported already in another PR
-#define REF(k) ref(##k)
 /****
 	* Generates an id for bespoke elements when given the argument list
 	* Generating the id here is a bit complex because we need to support named arguments
@@ -66,4 +64,3 @@ PROCESSING_SUBSYSTEM_DEF(dcs)
 		named_arguments = sortList(named_arguments)
 		fullid += named_arguments
 	return list2params(fullid)
-#undef REF
