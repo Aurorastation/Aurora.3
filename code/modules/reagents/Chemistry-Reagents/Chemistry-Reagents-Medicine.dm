@@ -1363,12 +1363,12 @@
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC])) //skips the oxygenation check under brain.dm
 				brain.damage = max(brain.damage - 15*removed, 0) //high number, as cryo slows metabolism.
-		M.add_chemical_effect(CE_STABLE)
 	else //without cryogenics. skips the oxygen check, however has large downsides if not pushed thorugh an IV to moderate volume in blood.
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC]) && prob(75))
 				brain.damage = max(brain.damage - 4, 0) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2% brain activity per tick. only really useful during apocalyptic scenarios.
 		M.dizziness = max(200, M.dizziness + 15)
+		M.hallucination = max(M.hallucination, 100)
 		M.add_chemical_effect(CE_BLOODTHIN, 40) //treat (arterial) bleeding first
 		if(prob(25))
 			to_chat(M, SPAN_HIGHDANGER(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!", "You feel a painful pressure build up within your skull!", "An unbearable pain radiates throughout your head!")))
@@ -1387,11 +1387,12 @@
 	if(.)
 		M.add_chemical_effect(CE_HALLUCINATE, 2)
 		if(prob(40))
-			M.add_chemical_effect(CE_HEPATOTOXIC, 5) //major downside of using cataleptinol. this will create more problems if left unchecked.
+			M.add_chemical_effect(CE_HEPATOTOXIC, 2) //major downside of using cataleptinol, this will create more problems if left unchecked. outside of cryogenic conditions, this translates to trading ~25% brain activity for total liver failure; in cryogenic conditions, you trade 50% brain activity for total liver failure.
 
 /singleton/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed) //crashes both the brain & liver if you OD. Neurotoxic also stops it from healing, so you just fucked up a patient for no gain.
-	M.add_chemical_effect(CE_HEPATOTOXIC, 0.5*removed) //stacks on top of ambient liver damage from using cataleptinol
+	M.add_chemical_effect(CE_NEUROTOXIC, 6*removed) //crashes both the brain & liver if you OD. Neurotoxic also stops it from healing, so you just fucked up a patient for no gain.
+	if(prob(40))
+		M.add_chemical_effect(CE_HEPATOTOXIC, 2) //stacks on top of ambient liver damage from using cataleptinol
 	if(prob(30))
 		M.seizure(rand(2,3))
 

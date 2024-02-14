@@ -13,4 +13,5 @@ changes:
   - tweak: "Bicaridine's AB fixing requires a minimum of 30u (you should still use more than this - every 0.1u above this is another roll of 'will it fix the AB?') instead of a minimum of 50u. Alternatively, you can used bicaridine in a cryotube."
   - rscadd: "Kelotane can now be used in a cryotube to fix disfiguration."
   - bugfix: "Coolant tanks no longer anti-nuke an environment's atmosphere when destroyed."
-  - imageadd: "Adds 'Cryonics Mixture' and 'Other Mixture' blood bag labels."
+  - imageadd: "Adds 'Cryonics Mixture' and 'Other Mixture' IV bag labels."
+  - tweak: "Renames Blood Pack -> IV Bag."

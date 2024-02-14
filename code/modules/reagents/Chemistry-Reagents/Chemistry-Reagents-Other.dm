@@ -527,7 +527,7 @@
 	description = "A bright orange powder consisting of strange self-heating properties that reacts when exposed to sodium chloride."
 	reagent_state = SOLID
 	color = "#FFFF00"
-	breath_met = REM/2
+	breathe_met = REM/2
 	touch_met = REM/2
 	taste_description = "chalk"
 	default_temperature = 600 //Kelvin
@@ -537,7 +537,7 @@
 	description = "A bright cyan liquid consisting of strange self-cooling properties that reacts when exposed to water."
 	reagent_state = LIQUID
 	color = "#00FFFF"
-	breath_met = REM/2
+	breathe_met = REM/2
 	touch_met = REM/2
 	taste_description = "needles"
 	default_temperature = 100 //Kelvin
