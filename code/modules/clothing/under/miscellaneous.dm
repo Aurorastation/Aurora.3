@@ -724,3 +724,12 @@
 	item_state = "upburger"
 	contained_sprite = TRUE
 	has_sensor = SUIT_NO_SENSORS
+
+//Galatea
+/obj/item/clothing/under/galatea
+	name = "\improper Galatean uniform"
+	desc = "A pair of slacks and matching protected shirt in the traditional black and green colors of a Galatean worker, seeing use across their space for all matter of jobs. Has a small plate to protect against chemical spills and small stab wounds, though providing little actual protection. Traditionally, one's planet of origin is marked on the right side of its high collar while the Technocracy's flag is on the left side of the collar."
+	icon = 'icons/clothing/under/uniforms/galatea.dmi'
+	icon_state = "underglove"
+	item_state = "underglove"
+	contained_sprite = TRUE

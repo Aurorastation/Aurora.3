@@ -105,12 +105,12 @@
 	if (.)
 		INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
-/obj/item/clothing/shoes/magboots/examine(mob/user)
+/obj/item/clothing/shoes/magboots/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/state = "disabled"
 	if(item_flags & ITEM_FLAG_NO_SLIP)
 		state = "enabled"
-	to_chat(user, "Its mag-pulse traction system appears to be [state].")
+	. += "Its mag-pulse traction system appears to be [state]."
 
 /obj/item/clothing/shoes/magboots/hegemony
 	name = "hegemony magboots"

@@ -17,11 +17,11 @@
 
 	. = ..()
 
-/obj/item/device/assembly/electronic_assembly/attackby(obj/item/I, mob/user)
-	if (I.iscrowbar())
+/obj/item/device/assembly/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iscrowbar())
 		toggle_open(user)
 	else if (opened)
-		EA.attackby(I, user)
+		EA.attackby(attacking_item, user)
 	else
 		..()
 

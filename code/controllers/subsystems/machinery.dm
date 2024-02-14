@@ -204,7 +204,7 @@ SUBSYSTEM_DEF(machinery)
 			processing -= machine
 			continue
 		//process_all was moved here because of calls overhead for no benefits
-		if(HAS_FLAG(machine.processing_flags, MACHINERY_PROCESS_SELF))
+		if((machine.processing_flags & MACHINERY_PROCESS_SELF))
 			if(machine.process(wait * 0.1) == PROCESS_KILL)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine

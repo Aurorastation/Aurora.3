@@ -47,10 +47,10 @@
 	..()
 	remove_cuffs(user)
 
-/obj/item/clothing/shoes/sneakers/orange/attackby(H as obj, mob/user as mob)
+/obj/item/clothing/shoes/sneakers/orange/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (istype(H, /obj/item/handcuffs))
-		attach_cuffs(H, user)
+	if (istype(attacking_item, /obj/item/handcuffs))
+		attach_cuffs(attacking_item, user)
 
 /obj/item/clothing/shoes/sneakers/yellow
 	name = "yellow shoes"

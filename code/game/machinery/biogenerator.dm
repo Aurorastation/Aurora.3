@@ -320,28 +320,28 @@ SPECIAL
 	else
 		icon_state = "[initial(icon_state)]-work"
 
-/obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(default_deconstruction_screwdriver(user, O))
+/obj/machinery/biogenerator/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	if(istype(O, /obj/item/reagent_containers/glass))
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, SPAN_NOTICE("\The [src] is already loaded."))
 		else
-			user.remove_from_mob(O)
-			O.forceMove(src)
-			beaker = O
+			user.remove_from_mob(attacking_item)
+			attacking_item.forceMove(src)
+			beaker = attacking_item
 			updateUsrDialog()
 		. = TRUE
 	else if(processing)
 		to_chat(user, SPAN_NOTICE("\The [src] is currently processing."))
 		. = TRUE
-	else if(istype(O, /obj/item/storage/bag/plants))
+	else if(istype(attacking_item, /obj/item/storage/bag/plants))
 		var/i = 0
-		var/obj/item/storage/bag/P = O
+		var/obj/item/storage/bag/P = attacking_item
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
@@ -357,9 +357,9 @@ SPECIAL
 				CHECK_TICK
 
 			if(i < capacity)
-				to_chat(user, SPAN_NOTICE("You empty \the [O] into \the [src]."))
+				to_chat(user, SPAN_NOTICE("You empty \the [attacking_item] into \the [src]."))
 		. = TRUE
-	else if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
+	else if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown))
 		to_chat(user, SPAN_NOTICE("You cannot put this in \the [src]."))
 		. = TRUE
 	else
@@ -369,9 +369,9 @@ SPECIAL
 		if(i >= capacity)
 			to_chat(user, SPAN_NOTICE("\The [src] is full! Activate it."))
 		else
-			user.remove_from_mob(O)
-			O.forceMove(src)
-			to_chat(user, SPAN_NOTICE("You put \the [O] in \the [src]"))
+			user.remove_from_mob(attacking_item)
+			attacking_item.forceMove(src)
+			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] in \the [src]"))
 			. = TRUE
 	update_icon()
 

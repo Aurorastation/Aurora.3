@@ -6,9 +6,9 @@
 	antag_tags = list(MODE_RAIDER)
 
 /datum/game_mode/heist/pre_setup()
-	round_description = "An unidentified bluespace signature has slipped past the Icarus and is approaching the [current_map.station_type]!"
+	round_description = "An unidentified bluespace signature has slipped past the Icarus and is approaching the [SSatlas.current_map.station_type]!"
 	extended_round_description = "The galaxy is a place full of dangers, even the inner colonies are not free of such scourges. \
-	Raiders and pirates are a well-know threat in the inhabited space, and places such as [current_map.station_type]s are easy targets \
+	Raiders and pirates are a well-know threat in the inhabited space, and places such as [SSatlas.current_map.station_type]s are easy targets \
 	for their greedy plans."
 	. = ..()
 

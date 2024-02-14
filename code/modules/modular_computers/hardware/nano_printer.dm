@@ -31,13 +31,13 @@
 	stored_paper--
 	return P
 
-/obj/item/computer_hardware/nano_printer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/paper))
+/obj/item/computer_hardware/nano_printer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
 		if(stored_paper >= max_paper)
-			to_chat(user, SPAN_WARNING("You try to add \the [W] to the [src], but its paper bin is full."))
+			to_chat(user, SPAN_WARNING("You try to add \the [attacking_item] to the [src], but its paper bin is full."))
 			return
-		to_chat(user, SPAN_NOTICE("You insert \the [W] into [src]."))
-		qdel(W)
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into [src]."))
+		qdel(attacking_item)
 		stored_paper++
 	else
 		..()

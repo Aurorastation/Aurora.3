@@ -29,7 +29,7 @@
 	set category = "Object"
 	set src in view()
 
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return
 
 	if(use_check_and_message(usr))

@@ -620,7 +620,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = current_map.station_levels)
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = SSatlas.current_map.station_levels)
 	if (cinematic)
 		return	//already a cinematic in progress!
 
@@ -763,9 +763,9 @@ var/datum/controller/subsystem/ticker/SSticker
 		var/list/ship_names = list()
 		for(var/datum/map_template/ruin/site in sites)
 			if(site.ship_cost)
-				ship_names += site.name
+				ship_names += "[site.name] ([site.spawn_weight])"
 			else
-				site_names += site.name
+				site_names += "[site.name] ([site.spawn_weight])"
 
 		var/datum/browser/sites_win = new(
 			usr,
@@ -773,7 +773,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			"Sector: " + current_sector.name,
 			500, 500,
 		)
-		var/html = "<h1>Ships and sites that spawn in this sector:</h1>"
+		var/html = "<h1>Ships and sites that spawn in this sector, with their spawn weights:</h1>"
 		html += "<h3>Ships:</h3>"
 		html += english_list(ship_names)
 		html += "<h3>Sites:</h3>"

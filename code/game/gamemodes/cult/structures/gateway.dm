@@ -44,9 +44,9 @@
 	new thing(src.loc)
 	qdel(src)
 
-/obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
+/obj/effect/gateway/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(I, /obj/item/nullrod))
-		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
+	if(istype(attacking_item, /obj/item/nullrod))
+		to_chat(user, "<span class='notice'>You touch \the [src] with \the [attacking_item], closing the path to the otherworld.</span>")
 		qdel(src)
 		return TRUE

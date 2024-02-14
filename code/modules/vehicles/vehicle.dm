@@ -84,21 +84,21 @@
 /obj/vehicle/proc/create_vehicle_overlay()
 	return
 
-/obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/hand_labeler))
+/obj/vehicle/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/hand_labeler))
 		return
-	if(W.isscrewdriver() && !organic)
+	if(attacking_item.isscrewdriver() && !organic)
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
-	else if(W.iscrowbar() && cell && open && !organic)
+	else if(attacking_item.iscrowbar() && cell && open && !organic)
 		remove_cell(user)
 
-	else if(istype(W, /obj/item/cell) && !cell && open && !organic)
-		insert_cell(W, user)
-	else if(W.iswelder() && !organic)
-		var/obj/item/weldingtool/T = W
+	else if(istype(attacking_item, /obj/item/cell) && !cell && open && !organic)
+		insert_cell(attacking_item, user)
+	else if(attacking_item.iswelder() && !organic)
+		var/obj/item/weldingtool/T = attacking_item
 		if(T.welding)
 			if(health < maxhealth)
 				if(open)
@@ -111,13 +111,13 @@
 				to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
 		else
 			to_chat(user, "<span class='notice'>Unable to repair while [src] is off.</span>")
-	else if(hasvar(W,"force") && hasvar(W,"damtype"))
+	else if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if("fire")
-				health -= W.force * fire_dam_coeff
+				health -= attacking_item.force * fire_dam_coeff
 			if("brute")
-				health -= W.force * brute_dam_coeff
+				health -= attacking_item.force * brute_dam_coeff
 		..()
 		healthcheck()
 	else

@@ -368,24 +368,25 @@
 					qdel(N)
 			. = TRUE
 
-/obj/machinery/seed_storage/attackby(var/obj/item/O, var/mob/user)
-	if (istype(O, /obj/item/seeds))
-		add(O)
-		user.visible_message(SPAN_NOTICE("[user] puts \the [O.name] into \the [src]."), SPAN_NOTICE("You put \the [O] into \the [src]."))
+/obj/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/seeds))
+		add(attacking_item)
+		user.visible_message(SPAN_NOTICE("[user] puts \the [attacking_item.name] into \the [src]."), SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 		return
-	else if (istype(O, /obj/item/storage/bag/plants))
-		var/obj/item/storage/P = O
+	else if (istype(attacking_item, /obj/item/storage/bag/plants))
+		var/obj/item/storage/P = attacking_item
 		var/loaded = 0
 		for(var/obj/item/seeds/G in P.contents)
 			++loaded
 			add(G)
 		if (loaded)
-			user.visible_message(SPAN_NOTICE("[user] puts the seeds from \the [O.name] into \the [src]."), SPAN_NOTICE("You put the seeds from \the [O.name] into \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] puts the seeds from \the [attacking_item.name] into \the [src]."),
+								SPAN_NOTICE("You put the seeds from \the [attacking_item.name] into \the [src]."))
 		else
-			to_chat(user, SPAN_WARNING("There are no seeds in \the [O.name]."))
+			to_chat(user, SPAN_WARNING("There are no seeds in \the [attacking_item.name]."))
 		return
-	else if(O.iswrench())
-		playsound(loc, O.usesound, 50, 1)
+	else if(attacking_item.iswrench())
+		playsound(loc, attacking_item.usesound, 50, 1)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 

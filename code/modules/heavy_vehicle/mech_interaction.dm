@@ -329,13 +329,13 @@
 		use_cell_power(PZ.active_power_use * CELLRATE)
 	return ..()
 
-/mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
-	if(user.a_intent != I_HURT && istype(thing, /obj/item/mecha_equipment))
+/mob/living/heavy_vehicle/attackby(obj/item/attacking_item, mob/user)
+	if(user.a_intent != I_HURT && istype(attacking_item, /obj/item/mecha_equipment))
 		if(hardpoints_locked)
 			to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
 			return
 
-		var/obj/item/mecha_equipment/realThing = thing
+		var/obj/item/mecha_equipment/realThing = attacking_item
 		if(realThing.owner)
 			return
 
@@ -344,21 +344,21 @@
 			if(hardpoints[hardpoint] == null)
 				free_hardpoints += hardpoint
 		var/to_place = tgui_input_list(user, "Where would you like to install it?", "Install Hardpoint", (realThing.restricted_hardpoints & free_hardpoints))
-		if(install_system(thing, to_place, user))
+		if(install_system(attacking_item, to_place, user))
 			return
-		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
+		to_chat(user, "<span class='warning'>\The [attacking_item] could not be installed in that hardpoint.</span>")
 		return
 
 	else
 		if(user.a_intent != I_HURT)
-			if(istype(thing, /obj/item/remote_mecha))
+			if(istype(attacking_item, /obj/item/remote_mecha))
 				if(length(pilots))
 					to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
 					return
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]..."), SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
+				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [attacking_item] into \the [src]..."), SPAN_NOTICE("You begin installing the [attacking_item] into \the [src]..."))
 				if(do_after(user, 30, src))
 					if(length(pilots))
 						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
@@ -366,15 +366,15 @@
 					if(!maintenance_protocols)
 						to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 						return
-					var/obj/item/remote_mecha/RM = thing
-					user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] into \the [src]."), SPAN_NOTICE("You install the [thing] into \the [src]."))
+					var/obj/item/remote_mecha/RM = attacking_item
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [attacking_item] into \the [src]."), SPAN_NOTICE("You install the [attacking_item] into \the [src]."))
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
 					dummy_type = RM.dummy_path
 					remote_type = RM.type
 					become_remote()
-					qdel(thing)
-			else if(thing.ismultitool())
+					qdel(attacking_item)
+			else if(attacking_item.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
 					return
@@ -391,7 +391,7 @@
 				to_chat(user, "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>")
 				return
 
-			else if(thing.iswrench())
+			else if(attacking_item.iswrench())
 				if(!remote && length(pilots))
 					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
@@ -417,7 +417,7 @@
 							new remote_type(get_turf(src))
 					dismantle()
 					return
-			else if(thing.iswelder())
+			else if(attacking_item.iswelder())
 				if(!getBruteLoss())
 					return
 				var/list/damaged_parts = list()
@@ -426,9 +426,9 @@
 						damaged_parts += MC
 				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
-					to_fix.repair_brute_generic(thing, user)
+					to_fix.repair_brute_generic(attacking_item, user)
 				return
-			else if(thing.iscoil())
+			else if(attacking_item.iscoil())
 				if(!getFireLoss())
 					return
 				var/list/damaged_parts = list()
@@ -437,9 +437,9 @@
 						damaged_parts += MC
 				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
-					to_fix.repair_burn_generic(thing, user)
+					to_fix.repair_burn_generic(attacking_item, user)
 				return
-			else if(thing.iscrowbar())
+			else if(attacking_item.iscrowbar())
 				if(!maintenance_protocols)
 					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
 					return
@@ -452,13 +452,13 @@
 
 				user.put_in_hands(body.cell)
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
-				playsound(user.loc, thing.usesound, 50, 1)
-				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [thing].</span>")
+				playsound(user.loc, attacking_item.usesound, 50, 1)
+				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [attacking_item].</span>")
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
 				body.cell = null
 				return
-			else if(istype(thing, /obj/item/cell))
+			else if(istype(attacking_item, /obj/item/cell))
 				if(!maintenance_protocols)
 					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
 					return
@@ -466,14 +466,14 @@
 					to_chat(user, "<span class='warning'>There is already a cell in there!</span>")
 					return
 
-				if(user.unEquip(thing))
-					thing.forceMove(body)
-					body.cell = thing
+				if(user.unEquip(attacking_item))
+					attacking_item.forceMove(body)
+					body.cell = attacking_item
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
-			else if(istype(thing, /obj/item/device/robotanalyzer))
+			else if(istype(attacking_item, /obj/item/device/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
 				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
 					if(limb)
