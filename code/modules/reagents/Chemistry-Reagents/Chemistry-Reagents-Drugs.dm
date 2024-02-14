@@ -257,7 +257,7 @@
 		if(prob(85))
 			M.emote(pick("twitch", "shiver"))
 		else
-			M.seizure()
+			M.seizure(rand(2,3))
 
 /singleton/reagent/drugs/night_juice
 	name = "Nightlife"

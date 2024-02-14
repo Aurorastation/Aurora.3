@@ -1,0 +1,12 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - bugfix: "Cryotubes no longer render synthetics unconscious - IPCs can now bathe in cryotubes to cool off."
+  - tweak: "Cryotubes apply less stasis at temperatures between 120K and 200K, meaning cryotube beaker mixes are more viable."
+  - rscadd: "Cataleptinol (new recipe: 0.5u phoron, 2u alkysine, 0.5u clonexadone, 1u cryosilicate) has been reworked from the ground up to be more useful and versatile. Cataleptinol will heal brain activity regardless of oxygenation - at cryo temperatures, this is with no consequence; outside of cryogenics, the benefits come with large consequences which will exacerbate any medical conditions."
+  - rscadd: "Cryo/Clonexadone now stop the heart when overdosed at 5u. This isn't anything to worry about when using Cryo/Clonexadone in a cryotube; using these two chemicals outside of cryotubes requires greater care."
+  - tweak: "Renames Cryosurfactant -> Cryosilicate. The recipe now also uses silicate instead of surfactant."
+  - rscadd: "Leporazine has special interactions when combod with either Pyrosilicate or Cryosilicate, for use as a cryonic medication or a lethal toxin."
+  - bugfix: "Coolant tanks no longer anti-nuke an environment's atmosphere when destroyed."

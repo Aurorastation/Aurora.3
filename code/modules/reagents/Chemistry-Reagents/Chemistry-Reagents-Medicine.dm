@@ -217,13 +217,14 @@
 	description = "Cryoxadone is a ground-breaking and complex medication that, when acting on bodies cooler than 170K, is capable of increasing the rate at which wounds regenerate, as well as treating genetic damage. Cryoxadone, alongside Clonexadone, are the backbones of the cloning industry."
 	reagent_state = LIQUID
 	color = "#8080FF"
-	metabolism = REM * 0.5
+	metabolism = REM*3 //0.6u/t
+	overdose = 5
 	scannable = TRUE
 	taste_description = "sludge"
 
 /singleton/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
-	if(M.bodytemperature < 170 && !M.is_diona())
+	if(M.bodytemperature < 170 && !M.is_diona() && (REAGENT_VOLUME(holder, type) < overdose))
 		M.add_chemical_effect(CE_PULSE, -2)
 		M.add_chemical_effect(CE_OXYGENATED, 1)
 		M.adjustCloneLoss(-100 * removed)
@@ -236,18 +237,22 @@
 	else if(M.is_diona() && M.bodytemperature < 170)
 		M.adjustFireLoss(5 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
+/singleton/reagent/cryoxadone/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_NOPULSE)
+	M.add_chemical_effect(CE_NEPHROTOXIC, 4*removed)
 /singleton/reagent/clonexadone
 	name = "Clonexadone"
 	description = "Clonexadone is a ground-breaking, complex medication that improved upon Cryoxadone. When acting on bodies cooler than 170K, the drug is capable of increasing the rate at which wounds regenerate, as well as treating genetic damage. Clonexadone, alongside Cryoxadone, are the backbones of the cloning industry."
 	reagent_state = LIQUID
 	color = "#80BFFF"
-	metabolism = REM * 0.5
+	metabolism = REM*3 //0.6u/t
+	overdose = 5
 	scannable = TRUE
 	taste_description = "slime"
 
 /singleton/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
-	if(M.bodytemperature < 170 && !M.is_diona())
+	if(M.bodytemperature < 170 && !M.is_diona() && (REAGENT_VOLUME(holder, type) < overdose))
 		M.add_chemical_effect(CE_PULSE, -2)
 		M.add_chemical_effect(CE_OXYGENATED, 2)
 		M.adjustCloneLoss(-300 * removed)
@@ -259,6 +264,10 @@
 					I.heal_damage(30*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
 		M.adjustFireLoss(15 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
+
+/singleton/reagent/clonexadone/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_NOPULSE)
+	M.add_chemical_effect(CE_NEPHROTOXIC, 4*removed)
 
 /* Painkillers */
 
@@ -560,7 +569,7 @@
 		if(prob(75))
 			M.emote(pick("twitch", "shiver"))
 		else
-			M.seizure()
+			M.seizure(rand(1,2))
 
 /singleton/reagent/alkysine
 	name = "Alkysine"
@@ -1048,6 +1057,8 @@
 	description = "Leporazine is a complex medication which improves thermal homeostasis, stabilising and regulating the body's core temperature. Leporazine often results in hyperventilation which should be monitored."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
+	metabolism = REM/2 //0.1u/t
+	breathe_met = REM/4 //0.05u/t
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
@@ -1056,10 +1067,18 @@
 	if(!check_min_dose(M))
 		return
 	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Also handles the effects of fevers
-	if(!(REAGENT_VOLUME(holder, type) > 20))
-		if(M.bodytemperature > 310)
+	if(!(REAGENT_VOLUME(holder, type) > overdose))
+		if(REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) > 5)
+			if(M.bodytemperature > M.species.cold_level_3)
+				M.bodytemperature = max(120, M.bodytemperature - (80 * TEMPERATURE_DAMAGE_COEFFICIENT))
+		else if(REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate) > 5)
+			if(M.bodytemperature < M.species.heat_level_3)
+				M.bodytemperature = min(1000, M.bodytemperature + (80 * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+		var/combination_present = REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) || REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate)
+		if((M.bodytemperature > 310) && !combination_present)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
-		else if(M.bodytemperature < 311)
+		else if((M.bodytemperature < 311) && !combination_present)
 			M.bodytemperature = min(310, M.bodytemperature + (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /singleton/reagent/leporazine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -1315,34 +1334,53 @@
 
 /singleton/reagent/cataleptinol
 	name = "Cataleptinol"
-	description = "Cataleptinol is a highly advanced, expensive medication capable of regenerating the most damaged of brain tissues. Cataleptinol is used in the treatment of dumbness, cerebral blindness, cerebral paralysis and aphasia. The drug is more effective when the patient's core temperature is below 170K."
+	description = "Cataleptinol is a highly advanced, expensive medication recently developed by Yomi Genetics. Originally developed as a drug to facilitate the advanced cloning of non-human animal brains for wealthy pet owners, some doctors have found it exceptional at treating significant brain injuries in humans. The drug is licensed as a safe medication for use in cryogenics; outside of cryogenic conditions, the drug performs worse, though emergency, off-label uses of cataleptinol can prove lifesaving."
 	reagent_state = LIQUID
 	color = "#FFFF00"
-	metabolism = REM //0.2u/tick
-	overdose = 15
+	metabolism = REM*3 //0.6u/t
+	od_minimum_dose = 0.6
+	overdose = 3
 	scannable = TRUE
-	taste_description = "bitterness"
+	taste_description = "sharp cardamom"
 	metabolism_min = REM * 0.25
 
-
 /singleton/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 10)
-	M.dizziness = max(100, M.dizziness)
-	M.make_dizzy(5)
-	var/chance = M.chem_doses[type]*removed
-	if(M.bodytemperature < 170)
-		chance = (chance*4) + 5
-		M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of cryo-tube Cataleptinol will raise brain activity by 10%.
-	else
-		M.add_chemical_effect(CE_BRAIN_REGEN, 20) //1 unit of Cataleptinol will raise brain activity by 5%.
+	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/alkysine)) //don't mix alkysine and cataleptinol
+		overdose(M, alien, removed, holder)
+		return
 
+	var/obj/item/organ/internal/brain = M.internal_organs_by_name[BP_BRAIN]
+	if((M.bodytemperature < 182) && (M.chem_effects[CE_CRYO])) //best use in cryogenics, experiment with Balanced or Prioritising Metabolisation settings, aiming for a gas cooler temperature target that minimises the cryostasis multiplier. remember the cryotube heats slowly when someone is inside.
+		if(brain)
+			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC])) //skips the oxygenation check under brain.dm
+				brain.damage = max(brain.damage - 40*removed, 0) //high number, as cryo slows metabolism a lot and we dont want someone waiting 10 mins.
+		M.add_chemical_effect(CE_STABLE)
+	else //without cryogenics. skips the oxygen check, however has large downsides if not pushed thorugh an IV to moderate volume in blood.
+		if(brain)
+			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC]) && prob(75))
+				brain.damage = max(brain.damage - 4, 0) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2% brain activity per tick
+		M.dizziness = max(100, M.dizziness)
+		M.make_dizzy(15)
+		if(prob(40))
+			to_chat(M, SPAN_HIGHDANGER(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!", "You feel a painful pressure build up within your skull!", "An unbearable pain radiates throughout your head!")))
+			M.adjustHalLoss(rand(40,60))
+			M.Weaken(4)
+			M.stuttering = (40)
+		else if(prob(40))
+			to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
+			M.emote(pick("twitch", "shiver"))
+
+/singleton/reagent/cataleptinol/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed) //hallucinations done under here so antipsychotics can still work
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_HALLUCINATE, 2)
+		M.add_chemical_effect(CE_HEPATOTOXIC, 2*removed)
 
 /singleton/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.hallucination = max(M.hallucination, 15)
-	if(prob(5))
-		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
-	..()
-
+	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed) //crashes both the brain & liver if you OD. Neurotoxic also stops it from healing, so you just fucked up a patient for no gain.
+	M.add_chemical_effect(CE_HEPATOTOXIC, 2*removed)
+	if(prob(40))
+		M.seizure(rand(2,3))
 
 /singleton/reagent/fluvectionem
 	name = "Fluvectionem"

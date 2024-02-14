@@ -530,8 +530,8 @@
 	taste_description = "chalk"
 	default_temperature = 600 //Kelvin
 
-/singleton/reagent/cryosurfactant
-	name = "Cryosurfactant"
+/singleton/reagent/cryosilicate
+	name = "Cryosilicate"
 	description = "A bright cyan liquid consisting of strange self-cooling properties that reacts when exposed to water."
 	reagent_state = LIQUID
 	color = "#00FFFF"
