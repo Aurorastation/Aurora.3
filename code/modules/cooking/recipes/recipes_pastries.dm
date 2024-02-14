@@ -215,6 +215,11 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/NTellacheesecake
 
+/singleton/recipe/cake/starcake
+	fruit = list("orange" = 1)
+	reagents = list(/singleton/reagent/nutriment/flour = 10, /singleton/reagent/sugar = 15, /singleton/reagent/nutriment/coco = 10, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/nutriment/protein/egg = 6)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/starcake
+
 //Predesigned pies
 //=======================
 /singleton/recipe/berryclafoutis

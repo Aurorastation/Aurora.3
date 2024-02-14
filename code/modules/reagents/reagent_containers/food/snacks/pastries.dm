@@ -478,6 +478,28 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=14)
 
+/obj/item/reagent_containers/food/snacks/sliceable/cake/starcake //
+	name = "starcake"
+	desc = "This pound cake mixes citrus fruits with cocoa, and has a layer of creamy glaze on top. It's dense and relatively simple to make. You can find it in various coffee shops and bakeries around the spur, but for some uknown reason, in the weeping stars system it has become somewhat associated with funerals over the years."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "starcake"
+	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/starcake
+	slices_num = 6
+	filling_color = "#f0b97b"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 15, /singleton/reagent/nutriment/glucose = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 10, "cocoa" = 10, "orange" = 15))
+
+/obj/item/reagent_containers/food/snacks/cakeslice/starcake
+	name = "orange cake slice"
+	desc = "A thin slice of pound cake that mixes citrus fruits with cocoa, and has a layer of creamy glaze on top. Enjoyed with a side of coffee or tea all over the spur, in the weeping stars system it is also frequently served in funerals for some reason."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "starcake_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#f0b97b"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
+
 //Predesigned pies
 //=======================
 /obj/item/reagent_containers/food/snacks/berryclafoutis
