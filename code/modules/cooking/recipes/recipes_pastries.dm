@@ -29,14 +29,18 @@
 
 /singleton/recipe/pancakes
 	appliance = SKILLET
+	reagents = list(/singleton/reagent/sugar = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
-		)
+	)
 	result = /obj/item/reagent_containers/food/snacks/pancakes
-	result_quantity = 1
 
-/singleton/recipe/pancakes/berry
+/singleton/recipe/pancakes/berry //alternate way to get berry pancakes if you want to use actual berries and not syrup.
 	fruit = list("berries" = 1)
+	reagents = list(/singleton/reagent/sugar = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
 	result = /obj/item/reagent_containers/food/snacks/pancakes/berry
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////

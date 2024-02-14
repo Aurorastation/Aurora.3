@@ -28,20 +28,63 @@
 
 /obj/item/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
+	gender = PLURAL
 	desc = "Pancakes, delicious."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "pancakes"
 	trash = /obj/item/trash/plate
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("pancake" = 8))
-	bitesize = 2
-	filling_color = "#EDF291"
+	bitesize = 3
+	filling_color = "#facf7e"
+
+///makes pancakes change their look and name, flavor and description when you add syrup to them instead of having to have them each be an entirely separate food item that has to be made by the cook. This also means ingredient contents carry over if you turn one type of pancake into another.
+/obj/item/reagent_containers/food/snacks/pancakes/on_reagent_change()
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_chocolate))
+		name = "chocolate pancakes"
+		desc = "Delicious pancakes covered in chocolate syrup."
+		icon_state = "pancakes_chocolate"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_berry))
+		name = "berry pancakes"
+		desc = "Delicious pancakes covered in berry syrup."
+		icon_state = "pancakes_berry"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_strawberry))
+		name = "strawberry pancakes"
+		desc = "Delicious pancakes covered in strawberry syrup."
+		icon_state = "pancakes_strawberry"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_caramel))
+		name = "caramel pancakes"
+		desc = "Delicious pancakes covered in caramel syrup."
+		icon_state = "pancakes_caramel"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_vanilla))
+		name = "vanilla pancakes"
+		desc = "Delicious pancakes covered in vanilla syrup."
+		icon_state = "pancakes_vanilla"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_pumpkin))
+		name = "pumpkin spice pancakes"
+		desc = "A delicious autumn breakfast."
+		icon_state = "pancakes_pumpkin"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_ylphaberry))
+		name = "ylpha berry pancakes"
+		desc = "Overwhelmingly sweet with a side of tangy, a delicious way to wake up!"
+		icon_state = "pancakes_ylpha"
+
+	if(reagents.has_any_reagent(list(/singleton/reagent/nutriment/ketchup, /singleton/reagent/nutriment/mayonnaise, /singleton/reagent/antidexafen, /singleton/reagent/carbon))) //Because scrubbers and quirky people exist.
+		name = "ruined pancakes"
+		desc = "Why? Who hurt you?"
+		icon_state = "pancakes_ruined"
 
 /obj/item/reagent_containers/food/snacks/pancakes/berry
 	name = "berry pancakes"
 	desc = "Pancakes with berries, delicious."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
-	icon_state = "berry_pancakes"
+	icon_state = "pancakes_berry"
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
 

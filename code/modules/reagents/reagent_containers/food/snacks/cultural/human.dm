@@ -621,7 +621,7 @@
 
 /obj/item/reagent_containers/food/snacks/pazillo
 	name = "pazillo"
-	desc = "A simple handheld pastry from Assunzione, this is a calzone filled with a mixture of ground chickpeas, onions and tomatoes mixed together. It is sometimes served with olive oil, artichoke spread, or garlic sauce, but can also be eaten on it's own. It's tradtionally considered street food, but can occasionally be found in proper restaurants."
+	desc = "A simple handheld pastry that originates from Assunzione, this is a calzone filled with a mixture of ground chickpeas, onions and tomatoes mixed together. It is sometimes served with olive oil, artichoke spread, or garlic sauce, but can also be eaten on it's own. It's tradtionally considered street food, but can occasionally be found in proper restaurants."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "pazillo"
 	filling_color = "#5c802e"
