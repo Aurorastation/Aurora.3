@@ -41,17 +41,17 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
+	if((M.chem_doses[type] > 30) || ((M.bodytemperature < 167) && M.chem_effects[CE_CRYO])) //Bicaridine treats arterial bleeding when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
+		var/mob/living/carbon/human/H = M
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+				E.status &= ~ORGAN_ARTERY_CUT
+
 /singleton/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
 	M.adjustHydrationLoss(5*removed)
 	M.adjustNutritionLoss(5*removed)
-
-	var/mob/living/carbon/human/H = M
-	if(M.chem_doses[type] > 30) //Bicaridine treats arterial bleeding when dose is greater than 30u and when the drug is overdosing (chemical volume in blood greater than 20).
-		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_ARTERY_CUT && prob(2))
-				E.status &= ~ORGAN_ARTERY_CUT
 
 /singleton/reagent/butazoline
 	name = "Butazoline"
@@ -85,6 +85,13 @@
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type] * 2)
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) //Cell regeneration spiralling out of control resulting in genetic damage.
+
+	if((M.bodytemperature < 178) && M.chem_effects[CE_CRYO])
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
+		if(head.disfigured && prob(4))
+			to_chat(M, SPAN_DANGER("You feel a truly disgusting sensation as the skin and muscles of your face twist, crawl and turn."))
+			head.disfigured = FALSE
 
 /singleton/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -238,14 +245,15 @@
 		M.adjustFireLoss(5 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
 /singleton/reagent/cryoxadone/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_NOPULSE)
-	M.add_chemical_effect(CE_NEPHROTOXIC, 4*removed)
+	M.adjustCloneLoss(10*removed) //'genetic healing' spirals out of control.
+	M.add_chemical_effect(CE_OCULOTOXIC, 4*removed)
+
 /singleton/reagent/clonexadone
 	name = "Clonexadone"
 	description = "Clonexadone is a ground-breaking, complex medication that improved upon Cryoxadone. When acting on bodies cooler than 170K, the drug is capable of increasing the rate at which wounds regenerate, as well as treating genetic damage. Clonexadone, alongside Cryoxadone, are the backbones of the cloning industry."
 	reagent_state = LIQUID
 	color = "#80BFFF"
-	metabolism = REM*3 //0.6u/t
+	metabolism = REM*2 //0.4u/t
 	overdose = 5
 	scannable = TRUE
 	taste_description = "slime"
@@ -266,8 +274,8 @@
 		M.adjustFireLoss(15 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
 /singleton/reagent/clonexadone/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_NOPULSE)
-	M.add_chemical_effect(CE_NEPHROTOXIC, 4*removed)
+	M.adjustCloneLoss(20*removed) //'genetic healing' spirals out of control.
+	M.add_chemical_effect(CE_OCULOTOXIC, 8*removed)
 
 /* Painkillers */
 
@@ -561,6 +569,7 @@
 		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_chemical_effect(CE_HALLUCINATE, -1)
 		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
+		M.add_chemical_effect(CE_BLOODTHIN, 25)
 
 /singleton/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(prob(M.chem_doses[type] / 2))
@@ -1070,10 +1079,10 @@
 	if(!(REAGENT_VOLUME(holder, type) > overdose))
 		if(REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) > 5)
 			if(M.bodytemperature > M.species.cold_level_3)
-				M.bodytemperature = max(120, M.bodytemperature - (80 * TEMPERATURE_DAMAGE_COEFFICIENT))
+				M.bodytemperature = max(120, M.bodytemperature - (60 * TEMPERATURE_DAMAGE_COEFFICIENT))
 		else if(REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate) > 5)
 			if(M.bodytemperature < M.species.heat_level_3)
-				M.bodytemperature = min(1000, M.bodytemperature + (80 * TEMPERATURE_DAMAGE_COEFFICIENT))
+				M.bodytemperature = min(500, M.bodytemperature + (60 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 		var/combination_present = REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) || REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate)
 		if((M.bodytemperature > 310) && !combination_present)
@@ -1338,7 +1347,7 @@
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM*3 //0.6u/t
-	od_minimum_dose = 0.6
+	od_minimum_dose = 1
 	overdose = 3
 	scannable = TRUE
 	taste_description = "sharp cardamom"
@@ -1353,33 +1362,37 @@
 	if((M.bodytemperature < 182) && (M.chem_effects[CE_CRYO])) //best use in cryogenics, experiment with Balanced or Prioritising Metabolisation settings, aiming for a gas cooler temperature target that minimises the cryostasis multiplier. remember the cryotube heats slowly when someone is inside.
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC])) //skips the oxygenation check under brain.dm
-				brain.damage = max(brain.damage - 40*removed, 0) //high number, as cryo slows metabolism a lot and we dont want someone waiting 10 mins.
+				brain.damage = max(brain.damage - 15*removed, 0) //high number, as cryo slows metabolism.
 		M.add_chemical_effect(CE_STABLE)
 	else //without cryogenics. skips the oxygen check, however has large downsides if not pushed thorugh an IV to moderate volume in blood.
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC]) && prob(75))
-				brain.damage = max(brain.damage - 4, 0) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2% brain activity per tick
-		M.dizziness = max(100, M.dizziness)
-		M.make_dizzy(15)
-		if(prob(40))
+				brain.damage = max(brain.damage - 4, 0) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2% brain activity per tick. only really useful during apocalyptic scenarios.
+		M.dizziness = max(200, M.dizziness + 15)
+		M.add_chemical_effect(CE_BLOODTHIN, 40) //treat (arterial) bleeding first
+		if(prob(25))
 			to_chat(M, SPAN_HIGHDANGER(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!", "You feel a painful pressure build up within your skull!", "An unbearable pain radiates throughout your head!")))
-			M.adjustHalLoss(rand(40,60))
-			M.Weaken(4)
-			M.stuttering = (40)
-		else if(prob(40))
-			to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
-			M.emote(pick("twitch", "shiver"))
+			M.adjustHalLoss(rand(30,60)) //painshock levels of pain, though still managable.
+			M.Weaken(2)
+			M.stuttering = 40
+			M.emote(pick("flail", "twitch_v", "choke", "scream"))
+		else if(prob(30))
+			if(prob(50))
+				to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
+			else
+				M.emote(pick("twitch", "shiver"))
 
 /singleton/reagent/cataleptinol/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed) //hallucinations done under here so antipsychotics can still work
 	. = ..()
 	if(.)
 		M.add_chemical_effect(CE_HALLUCINATE, 2)
-		M.add_chemical_effect(CE_HEPATOTOXIC, 2*removed)
+		if(prob(40))
+			M.add_chemical_effect(CE_HEPATOTOXIC, 5) //major downside of using cataleptinol. this will create more problems if left unchecked.
 
 /singleton/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed) //crashes both the brain & liver if you OD. Neurotoxic also stops it from healing, so you just fucked up a patient for no gain.
-	M.add_chemical_effect(CE_HEPATOTOXIC, 2*removed)
-	if(prob(40))
+	M.add_chemical_effect(CE_HEPATOTOXIC, 0.5*removed) //stacks on top of ambient liver damage from using cataleptinol
+	if(prob(30))
 		M.seizure(rand(2,3))
 
 /singleton/reagent/fluvectionem
@@ -1416,6 +1429,11 @@
 	M.adjustToxLoss(removed + amount_purged*0.5) //15u has the potential to do 15 + 30 toxin damage in 30 seconds
 
 	. = ..()
+
+/singleton/reagent/fluvectionem/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_BLOODTHIN, 25)
 
 /singleton/reagent/pulmodeiectionem
 	name = "Pulmodeiectionem"
