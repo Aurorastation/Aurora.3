@@ -7,4 +7,4 @@
 /obj/item/device/radio/microphone/Initialize()
 	. = ..()
 	set_frequency(ENT_FREQ)
-	internal_channels = num2text(ENT_FREQ).Copy()
+	internal_channels = list(num2text(ENT_FREQ).Copy())
