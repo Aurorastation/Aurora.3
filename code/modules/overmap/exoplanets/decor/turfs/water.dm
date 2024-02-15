@@ -140,6 +140,7 @@
 
 /turf/simulated/floor/exoplanet/water/shallow/sewage/process()
 	. = ..()
+	reagents.add_reagent(/singleton/reagent/toxin, 2)
 	for(var/mob/living/carbon/human/H in src)
 		for(var/A in H.organs)
 			var/obj/item/organ/external/E = A
