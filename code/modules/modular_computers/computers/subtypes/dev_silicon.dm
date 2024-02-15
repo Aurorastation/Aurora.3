@@ -20,11 +20,11 @@
 	. = computer_host
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
-    if(istype(loc, /mob/living/silicon))
-        computer_host = loc
-    else
-        return INITIALIZE_HINT_QDEL
-    . = ..()
+	if(istype(loc, /mob/living/silicon))
+		computer_host = loc
+	else
+		return INITIALIZE_HINT_QDEL
+	. = ..()
 
 /obj/item/modular_computer/silicon/Destroy()
 	computer_host = null
