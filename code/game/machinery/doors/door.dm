@@ -509,7 +509,7 @@
 	set_opacity(0)
 	operating = FALSE
 
-	if(autoclose)
+	if(autoclose && !QDELETED(src))
 		close_door_in(next_close_time())
 
 	return 1
