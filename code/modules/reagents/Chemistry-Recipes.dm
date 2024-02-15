@@ -726,7 +726,7 @@
 	name = "Cataleptinol"
 	id = "cataleptinol"
 	result = /singleton/reagent/cataleptinol
-	required_reagents = list(/singleton/reagent/toxin/phoron = 0.5, /singleton/reagent/alkysine = 2, /singleton/reagent/clonexadone = 0.5, /singleton/reagent/cryosilicate = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron = 0.25, /singleton/reagent/alkysine = 1, /singleton/reagent/clonexadone = 0.5, /singleton/reagent/cryosilicate = 0.75)
 	result_amount = 1
 
 /datum/chemical_reaction/coughsyrup

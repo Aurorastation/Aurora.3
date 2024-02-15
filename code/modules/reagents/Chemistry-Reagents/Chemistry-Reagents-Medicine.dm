@@ -41,10 +41,10 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
-	if((M.chem_doses[type] > 30) || ((M.bodytemperature < 167) && M.chem_effects[CE_CRYO])) //Bicaridine treats arterial bleeding when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
+	if((M.chem_doses[type] > 30) && prob(2) || ((M.bodytemperature < 189) && M.chem_effects[CE_CRYO] && prob(10))) //Bicaridine treats arterial bleeding when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
 
 /singleton/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -86,10 +86,10 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) //Cell regeneration spiralling out of control resulting in genetic damage.
 
-	if((M.bodytemperature < 178) && M.chem_effects[CE_CRYO])
+	if((M.bodytemperature < 192) && M.chem_effects[CE_CRYO])
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
-		if(head.disfigured && prob(4))
+		if(head.disfigured && prob(20))
 			to_chat(M, SPAN_DANGER("You feel a truly disgusting sensation as the skin and muscles of your face twist, crawl and turn."))
 			head.disfigured = FALSE
 
@@ -239,8 +239,8 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			for(var/obj/item/organ/internal/I in H.internal_organs)
-				if(!BP_IS_ROBOTIC(I))
-					I.heal_damage(20*removed)
+				if(!BP_IS_ROBOTIC(I) && !(I.organ_tag == BP_BRAIN))
+					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
 		M.adjustFireLoss(5 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
@@ -268,8 +268,8 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			for(var/obj/item/organ/internal/I in H.internal_organs)
-				if(!BP_IS_ROBOTIC(I))
-					I.heal_damage(30*removed)
+				if(!BP_IS_ROBOTIC(I) && !(I.organ_tag == BP_BRAIN))
+					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
 		M.adjustFireLoss(15 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
@@ -1079,10 +1079,10 @@
 	if(!(REAGENT_VOLUME(holder, type) > overdose))
 		if(REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) > 5)
 			if(M.bodytemperature > M.species.cold_level_3)
-				M.bodytemperature = max(120, M.bodytemperature - (60 * TEMPERATURE_DAMAGE_COEFFICIENT))
+				M.bodytemperature = max(140, M.bodytemperature - (50 * TEMPERATURE_DAMAGE_COEFFICIENT)) //will have body temp fluctuate in and out of cryogenic ranges, so not 100% without taking some other measures to cool a subject.
 		else if(REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate) > 5)
 			if(M.bodytemperature < M.species.heat_level_3)
-				M.bodytemperature = min(500, M.bodytemperature + (60 * TEMPERATURE_DAMAGE_COEFFICIENT))
+				M.bodytemperature = min(474, M.bodytemperature + (50 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 		var/combination_present = REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) || REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate)
 		if((M.bodytemperature > 310) && !combination_present)
@@ -1347,7 +1347,7 @@
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM*3 //0.6u/t
-	od_minimum_dose = 1
+	od_minimum_dose = 2.4
 	overdose = 3
 	scannable = TRUE
 	taste_description = "sharp cardamom"
@@ -1359,10 +1359,10 @@
 		return
 
 	var/obj/item/organ/internal/brain = M.internal_organs_by_name[BP_BRAIN]
-	if((M.bodytemperature < 182) && (M.chem_effects[CE_CRYO])) //best use in cryogenics, experiment with Balanced or Prioritising Metabolisation settings, aiming for a gas cooler temperature target that minimises the cryostasis multiplier. remember the cryotube heats slowly when someone is inside.
+	if((M.bodytemperature < 179) && (M.chem_effects[CE_CRYO])) //best use in cryogenics, experiment with Balanced or Prioritising Metabolisation settings, aiming for a gas cooler temperature target that minimises the cryostasis multiplier. remember the cryotube heats slowly when someone is inside.
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC])) //skips the oxygenation check under brain.dm
-				brain.damage = max(brain.damage - 15*removed, 0) //high number, as cryo slows metabolism.
+				brain.damage = max(brain.damage - 12*removed, 0) //high number, as cryo slows metabolism.
 	else //without cryogenics. skips the oxygen check, however has large downsides if not pushed thorugh an IV to moderate volume in blood.
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC]) && prob(75))
@@ -1376,7 +1376,7 @@
 			M.Weaken(2)
 			M.stuttering = 40
 			M.emote(pick("flail", "twitch_v", "choke", "scream"))
-		else if(prob(30))
+		else if(prob(25))
 			if(prob(50))
 				to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
 			else
@@ -1387,7 +1387,7 @@
 	if(.)
 		M.add_chemical_effect(CE_HALLUCINATE, 2)
 		if(prob(40))
-			M.add_chemical_effect(CE_HEPATOTOXIC, 2) //major downside of using cataleptinol, this will create more problems if left unchecked. outside of cryogenic conditions, this translates to trading ~25% brain activity for total liver failure; in cryogenic conditions, you trade 50% brain activity for total liver failure.
+			M.add_chemical_effect(CE_HEPATOTOXIC, 1.5) //major downside of using cataleptinol, this will create more problems if left unchecked. outside of cryogenic conditions, this translates to trading ~25% brain activity for total liver failure; in cryogenic conditions, you trade ~40% brain activity for total liver failure.
 
 /singleton/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, 6*removed) //crashes both the brain & liver if you OD. Neurotoxic also stops it from healing, so you just fucked up a patient for no gain.
