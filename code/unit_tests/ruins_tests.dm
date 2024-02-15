@@ -26,6 +26,10 @@
 	for(var/zlevel in test_exoplanet.map_z[length(test_exoplanet.map_z)] to 1024) //I pray to the lord we won't ever have 1024 ruins
 		GLOB.map_sectors["[zlevel]"] = test_exoplanet
 
+	//ZAS could run and remove an active edge before we can scan for one, we don't want that as things could get missed otherwise,
+	//hence we stop ZAS from running
+	SSair.can_fire = FALSE
+
 	for(var/ruin in subtypesof(/datum/map_template/ruin/exoplanet))
 		var/datum/map_template/ruin/exoplanet/tested_ruin = new ruin()
 		var/turf/center_ruin = tested_ruin.load_new_z(FALSE)

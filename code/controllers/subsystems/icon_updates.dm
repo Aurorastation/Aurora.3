@@ -113,6 +113,8 @@ SUBSYSTEM_DEF(icon_update)
 	var/icon_update_delay = null
 
 /atom/proc/update_icon()
+	SHOULD_NOT_SLEEP(TRUE)
+	return
 
 /**
  * DO NOT USE

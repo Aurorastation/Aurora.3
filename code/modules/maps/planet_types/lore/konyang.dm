@@ -1,3 +1,6 @@
+
+// --------------------------------- Konyang
+
 /obj/effect/overmap/visitable/sector/exoplanet/konyang
 	name = "Konyang"
 	desc = "A Coalition world which was recently Solarian territory, now resting on the fringes of the northern Frontier. It possesses very humid weather and highly developed infrastructure, boasting a population in some billions."
@@ -58,6 +61,9 @@
 		atmosphere.temperature = T20C
 		atmosphere.update_values()
 
+/obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/pre_ruin_preparation()
 	landing_area = pick("overgrown wilderness within the Yakusoku Jungle.", "abandoned infrastructure in Han'ei Industrial Park, discontinued.", "rough terrain; cavern depths within central Aoyama Kokuni mountains.")
 	switch(landing_area)
@@ -74,6 +80,8 @@
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_landing_zone)
 
 	desc += " Landing beacon details of [landing_area]"
+
+// --------------------------------- Qixi
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi
 	name = "Qixi"
@@ -99,6 +107,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/update_icon()
 	return
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- ice asteroid
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim
 	desc = "An ice-covered rock from the outlying asteroid belt of Haneunim. Largely unexplored and uninhabited."
 	ruin_planet_type = PLANET_LORE
@@ -107,6 +120,11 @@
 	features_budget = 1
 	ring_chance = 0
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Huozhu
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu
 	name = "Huozhu"
@@ -128,6 +146,11 @@
 	atmosphere.temperature = T20C + rand(600, 1000)
 	atmosphere.update_values()
 
+/obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Hwanung
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung
 	name = "Hwanung"
 	generated_name = FALSE
@@ -142,3 +165,5 @@
 	rock_colors = list(COLOR_GRAY80)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining)
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results

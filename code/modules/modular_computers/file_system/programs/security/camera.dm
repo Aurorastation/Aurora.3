@@ -228,7 +228,7 @@
 	filename = "idcammon"
 	filedesc = "Journalism Camera Monitoring"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
-	size = 6
+	size = 2
 	nanomodule_path = /datum/nano_module/camera_monitor/news
 	required_access_download = null
 	usage_flags = PROGRAM_ALL
