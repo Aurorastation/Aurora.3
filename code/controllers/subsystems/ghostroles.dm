@@ -162,7 +162,7 @@ SUBSYSTEM_DEF(ghostroles)
 				to_chat(usr, "Unable to spawn: [cant_spawn]")
 				return
 			if(S.password)
-				var/password = input(usr, "Input Password:", "Ghost Spawner")
+				var/password = tgui_input_text(usr, "Input Password", "Ghost Spawner", multiline = FALSE)
 				if(password != S.password)
 					to_chat(usr, SPAN_WARNING("Unable to spawn: Incorrect password"))
 					return
