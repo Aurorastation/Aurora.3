@@ -61,9 +61,6 @@
 	if(!enabled && !can_edit(user)) //If its not enabled and the user cant edit it, dont show it
 		return "Currently Disabled"
 
-	if(loc_type == GS_LOC_ATOM && !length(spawn_atoms))
-		return "No spawn atoms available"
-
 	var/ban_reason = jobban_isbanned(user,jobban_job)
 	if(jobban_job && ban_reason)
 		return "[ban_reason]"
