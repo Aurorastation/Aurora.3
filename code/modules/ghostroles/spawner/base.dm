@@ -24,6 +24,7 @@
 	var/count = 0
 	// What permission flags are required to use this spawner
 	var/req_perms = null
+	// What permission flags are required to edit this spawner
 	var/req_perms_edit = R_ADMIN
 	// If the spawnpoint is enabled
 	var/enabled = TRUE
