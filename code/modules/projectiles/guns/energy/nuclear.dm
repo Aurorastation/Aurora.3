@@ -182,8 +182,8 @@
 	desc = "An intricate golden energy pistol, engraved with a quality unlike no other. If you had to describe this pistol in one word, it would be <b>expensive.</b>"
 	desc_extended = "Possessed by only the most affluent affiliates of the Golden Deep, this ornate energy pistol covered in gold is the result of a commission, which had the artistic quality of Ultra Maz combined with the scientific technology acquired by the Estriconian to produce a weapon that many outsiders see as a firearm more valuable than the assets it was made to protect."
 	icon = 'icons/obj/guns/goldendeep_ornatepistol.dmi'
-	icon_state = "golden_deep_ornatepistolstun100"
-	item_state = "golden_deep_ornatepistolstun100"
+	icon_state = "ornatepistolstun100"
+	item_state = "ornatepistolstun100"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser2.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -196,11 +196,11 @@
 
 	projectile_type = /obj/item/projectile/beam/disorient
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
-	modifystate = "golden_deep_ornatepistolstun"
+	modifystate = "ornatepistolstun"
 
 	firemodes = list(
-		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="golden_deep_ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="golden_deep_ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/repeater
