@@ -95,7 +95,7 @@ var/list/reverseradiochannels = list(
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.
 
-/// central command channels, i.e deathsquid & response teams
+/// central command channels, i.e deathsquad & response teams
 var/list/CENT_FREQS = list(
 	ERT_FREQ,
 	DTH_FREQ
