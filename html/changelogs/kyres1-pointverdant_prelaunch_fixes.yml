@@ -3,6 +3,7 @@ author: kyres1
 delete-after: True
 
 changes:
-  - bugfix: "Fixed invisible shelving on Point Verdant."
   - bugfix: "Fixed nonfunctioning animations on the Haneunim title screen."
+  - bugfix: "Fixed missing sprites for buffet smartheaters on Konyang."
   - tweak: "Disabled Point Verdant's rain due to missing functionality."
+  - tweak: "Disabled Konyang's cave biome due to missing functionality."
