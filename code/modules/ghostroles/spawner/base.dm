@@ -18,21 +18,21 @@
 
 	var/loc_type = GS_LOC_POS
 
-	// How often can this spawner be used
+	/// How often can this spawner be used
 	var/max_count = 0
-	// How often has this spawner been used
+	/// How often has this spawner been used
 	var/count = 0
-	// What permission flags are required to use this spawner
+	/// What permission flags are required to use this spawner
 	var/req_perms = null
-	// What permission flags are required to edit this spawner
+	/// What permission flags are required to edit this spawner
 	var/req_perms_edit = R_ADMIN
-	// If the spawnpoint is enabled
+	/// If the spawnpoint is enabled
 	var/enabled = TRUE
-	// If set to a value other than null, has the set chance to become enabled
+	/// If set to a value other than null, has the set chance to become enabled
 	var/enable_chance = null
-	// The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
+	/// The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
 	var/enable_dmessage = TRUE
-	// Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
+	/// Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	var/respawn_flag = null
 	/// Whether to disable and hide if full
 	var/disable_and_hide_if_full = TRUE
