@@ -1,7 +1,7 @@
 /obj/structure/flora/pottedplant
 	name = "potted plant"
 	desc = "A potted plant."
-	icon = 'icons/obj/plants.dmi'
+	icon = 'icons/obj/pottedplants_big.dmi'
 	icon_state = "plant-26"
 	anchored = FALSE
 	density = FALSE
@@ -71,6 +71,28 @@
 		return 1
 	return ..()
 
+// ------------------------------------ dead/empty
+
+/obj/structure/flora/pottedplant/dead
+	name = "dead potted plant"
+	desc = "A dead potted plant."
+	icon_state = "plant-dead"
+	dead = TRUE
+
+/obj/structure/flora/pottedplant/dead2
+	name = "dead potted plant"
+	desc = "A dead potted plant."
+	icon_state = "plant-dead-2"
+	dead = TRUE
+
+/obj/structure/flora/pottedplant/empty
+	name = "empty plant pot"
+	desc = "An empty plant pot."
+	icon_state = "plant-empty"
+	dead = TRUE
+
+// ------------------------------------ actual plants
+
 /obj/structure/flora/pottedplant/applebush
 	name = "decorative potted plant"
 	desc = "This is a decorative shrub. It's been trimmed into the shape of an apple."
@@ -81,9 +103,9 @@
 	desc = "This is an ordinary looking fern. It has some big leaves."
 	icon_state = "plant-01"
 
-/obj/structure/flora/pottedplant/fern
-	name = "potted fern"
-	desc = "This is an ordinary looking fern. It looks like it could do with some water."
+/obj/structure/flora/pottedplant/tree
+	name = "potted tree"
+	desc = "This is a small tree. It has hard bark and lots of tiny leaves."
 	icon_state = "plant-02"
 
 /obj/structure/flora/pottedplant/overgrown
@@ -118,7 +140,7 @@
 
 /obj/structure/flora/pottedplant/unusual
 	name = "unusual potted plant"
-	desc = "A fleshy cave dwelling plant with huge nodules for flowers. It's bulbous ends emit a soft blue light."
+	desc = "A fleshy cave dwelling plant with huge nodules for flowers. Its bulbous ends emit a soft blue light."
 	icon_state = "plant-09"
 
 /obj/structure/flora/pottedplant/unusual/Initialize()
@@ -151,7 +173,7 @@
 	icon_state = "plant-14"
 
 /obj/structure/flora/pottedplant/bouquet
-	name = "tiny potted bouquet"
+	name = "small potted bouquet"
 	desc = "A pitiful pot of assorted small flora. Some look familiar."
 	icon_state = "plant-15"
 
@@ -177,7 +199,7 @@
 
 /obj/structure/flora/pottedplant/subterranean
 	name = "subterranean potted plant-fungus"
-	desc = "A bioluminescent subterranean half-plant half-fungus hybrid, it's bulbous ends glow faintly. Said to come from Sedantis I."
+	desc = "A bioluminescent subterranean half-plant half-fungus hybrid, its bulbous ends glow faintly. Said to come from Sedantis I."
 	icon_state = "plant-20"
 
 /obj/structure/flora/pottedplant/subterranean/Initialize()
@@ -265,21 +287,3 @@
 			Scientists assure, the blinking \"eye\" is simply just a form of heat regulation, \
 			and other than that, this plant is same as any other greenery."
 	icon_state = "plant-36"
-
-/obj/structure/flora/pottedplant/dead
-	name = "dead potted plant"
-	desc = "A dead potted plant."
-	icon_state = "plant-dead"
-	dead = TRUE
-
-/obj/structure/flora/pottedplant/dead2
-	name = "dead potted plant"
-	desc = "A dead potted plant."
-	icon_state = "plant-dead-2"
-	dead = TRUE
-
-/obj/structure/flora/pottedplant/empty
-	name = "empty plant pot"
-	desc = "An empty plant pot."
-	icon_state = "plant_empty"
-	dead = TRUE
