@@ -15,7 +15,7 @@
 
 /obj/structure/console
 	name = "\improper Game-Box"
-	desc = "A generic video-games console."
+	desc = "A generic video-games console. For *Gamers*."
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "games_console"
 	anchored = TRUE
