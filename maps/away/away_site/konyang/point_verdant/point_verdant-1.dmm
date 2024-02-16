@@ -7064,7 +7064,6 @@
 	dir = 1
 	},
 /obj/structure/chainlink_fence{
-	pixel_x = -;
 	pixel_y = -32
 	},
 /turf/simulated/floor/asphalt,
@@ -16550,7 +16549,6 @@
 "Xm" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence{
-	pixel_x = -;
 	pixel_y = -32
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
