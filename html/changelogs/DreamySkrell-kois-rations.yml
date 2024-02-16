@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds kois freezer locker and crate."
+  - rscadd: "Maps one kois rations crate to Point Verdant Corporate Offices."
