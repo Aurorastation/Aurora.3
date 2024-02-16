@@ -272,10 +272,12 @@
 
 	return data
 
-/*
+/**
  * A proc used to gather if someone has Unacknowledged Warnings
  */
 /client/proc/fetch_unacked_warning_count()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if (!GLOB.dbcon)
 		return
 	if (!establish_db_connection(GLOB.dbcon))

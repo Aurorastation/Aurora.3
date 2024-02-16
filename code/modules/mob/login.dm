@@ -54,6 +54,7 @@
  * ckey.
  */
 /mob/proc/LateLogin()
+	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
@@ -105,5 +106,3 @@
 
 	if(client)
 		client.update_skybox(TRUE)
-
-	addtimer(CALLBACK(client, TYPE_PROC_REF(/client, check_panel_loaded)), 30 SECONDS)
