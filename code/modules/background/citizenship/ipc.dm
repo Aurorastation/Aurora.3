@@ -34,7 +34,7 @@
 /datum/outfit/job/representative/consular/golden
 	name = "Golden Deep Consular Officer"
 
-	uniform = /obj/item/clothing/under/suit_jacket/burgundy
+	uniform = /obj/item/clothing/under/goldendeep/suit
 	backpack_contents = list(
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/pistol/goldendeep = 1
 	)

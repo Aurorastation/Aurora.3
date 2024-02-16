@@ -35,12 +35,51 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">16 February 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes burglar shuttle airlock being closed at round start.</li>
+				<li class="bugfix">Fixes some broken icons on the antag bases.</li>
+				<li class="bugfix">Fixes some old style or destructible windows on the antag bases.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Resolved a runtime on QDEL&#x27;d doors that tries to register a closing timer.</li>
+				<li class="bugfix">Resolved a runtime on vomit decal ending on space atoms and having access to the reagents attempted.</li>
+				<li class="backend">SDMM markings on handle_additional_vomit_reagents proc.</li>
+				<li class="bugfix">Fixed log grabbing procs for the relevant clients.</li>
+				<li class="rscdel">Removed runtime log access granting proc, noone uses it.</li>
+				<li class="rscdel">Removed signals log browser proc, noone used it ever.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed nonfunctioning animations on the Haneunim title screen.</li>
+				<li class="bugfix">Fixed missing sprites for buffet smartheaters on Konyang.</li>
+				<li class="tweak">Disabled Point Verdant&#x27;s rain due to missing functionality.</li>
+				<li class="tweak">Disabled Konyang&#x27;s cave biome due to missing functionality.</li>
+			</ul>
+
 			<h2 class="date">15 February 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a new gold-plated pistol for Golden Deep Representatives. Credit to NobleRow for sprites</li>
+				<li class="tweak">Golden Deep Consular job outfit adjusted.</li>
+				<li class="bugfix">Law Manager software has been fixed.</li>
+			</ul>
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Ghost spawners show the location of the spawner.</li>
 				<li class="tweak">Ghost spawners are shown in the list even if full.</li>
 				<li class="tweak">Ghost spawners are grayed out if visible, but cannot use them for whatever reason.</li>
+				<li class="bugfix">Fixes all ghost spawners being visible always.</li>
+				<li class="bugfix">Fixes cooking codex search.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Ruins UT should not randomly allow broken ruins to pass the test anymore.</li>
+				<li class="maptweak">Added various exoplanet turfs equivalents.</li>
+				<li class="maptweak">Changed various turfs on ruins to be exoplanet equivalents and avoid active edges.</li>
+				<li class="backend">Improved ZAS active edge test logging capability, for slightly easier debugging.</li>
 			</ul>
 			<h3 class="author">SimpleMaroon updated:</h3>
 			<ul class="changes bgimages16">
