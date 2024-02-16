@@ -3968,7 +3968,7 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "kU" = (
-/obj/structure/street_sign{
+/obj/structure/street_sign/stop_konyang{
 	pixel_x = -12;
 	pixel_y = 30
 	},
@@ -6835,7 +6835,7 @@
 /obj/structure/hydrant{
 	pixel_x = 15
 	},
-/obj/structure/street_sign{
+/obj/structure/street_sign/stop_konyang{
 	pixel_y = 30;
 	pixel_x = -10
 	},
@@ -13398,7 +13398,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "Jt" = (
-/obj/structure/street_sign{
+/obj/structure/street_sign/stop_konyang{
 	pixel_y = -4;
 	pixel_x = -13
 	},
@@ -16504,7 +16504,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/street_sign,
+/obj/structure/street_sign/stop_konyang,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Ru" = (
@@ -16618,7 +16618,7 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/cafe)
 "RH" = (
-/obj/structure/street_sign{
+/obj/structure/street_sign/stop_konyang{
 	pixel_y = -4;
 	pixel_x = -13
 	},
@@ -19103,7 +19103,7 @@
 	pixel_x = -12;
 	street_name = "Spaceport Avenue"
 	},
-/obj/structure/street_sign,
+/obj/structure/street_sign/stop_konyang,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Yz" = (

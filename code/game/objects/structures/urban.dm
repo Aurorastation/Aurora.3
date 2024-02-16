@@ -38,6 +38,10 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
+/obj/structure/street_sign/stop_konyang
+	icon_state = "stop_konyang"
+	desc = "A stop sign. You can't be really sure unless you speak Konyang."
+
 /obj/structure/street_sign/yield
 	name = "yield sign"
 	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
@@ -53,11 +57,8 @@
 	desc = "A directional sign. How the turntables..."
 	icon_state = "directional"
 
-/obj/structure/street_sign/directional/right
-	dir = WEST
-
-/obj/structure/street_sign/directional/left
-	dir = EAST
+/obj/structure/street_sign/directional/yellow
+	icon_state = "directional_yellow"
 
 /obj/structure/street_sign/street
 	name = "street sign"
