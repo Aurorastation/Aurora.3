@@ -14,13 +14,12 @@
 
 /turf/simulated/floor/exoplanet/water/Initialize()
 	. = ..()
-	if(deep)
-		var/obj/effect/water_effect/W = new /obj/effect/water_effect(src)
-		W.icon = icon
-		W.icon_state = icon_state
-		water_overlay = W
-		W.alpha = 128
-		create_reagents(4)
+	var/obj/effect/water_effect/W = new /obj/effect/water_effect(src)
+	W.icon = icon
+	W.icon_state = icon_state
+	water_overlay = W
+	W.alpha = 128
+	create_reagents(4)
 
 /turf/simulated/floor/exoplanet/water/Destroy()
 	if(water_overlay)
