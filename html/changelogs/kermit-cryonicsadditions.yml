@@ -16,3 +16,4 @@ changes:
   - bugfix: "Coolant tanks no longer anti-nuke an environment's atmosphere when destroyed."
   - imageadd: "Adds 'Cryonics Mixture' and 'Other Mixture' IV bag labels."
   - tweak: "Renames Blood Pack -> IV Bag."
+  - rscadd: "Cryocells can be deconstructed or have their components upgraded. Upgrading the components increases the effectiveness of the Cryostasis Settings."

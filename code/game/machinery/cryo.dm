@@ -31,6 +31,15 @@
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	clickvol = 30
 
+	component_types = list(
+		/obj/item/circuitboard/cryotube,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/console_screen,
+		/obj/item/reagent_containers/glass/beaker/large
+	)
+
 	var/temperature_archived
 	var/mob/living/carbon/human/occupant = null
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -455,9 +464,24 @@
 	if(loc)
 		return loc.return_air()
 
+/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
+	return ..()
+
+/obj/machinery/atmospherics/unary/cryo_cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(panel_open)
+		. += "The maintenance hatch is open."
+
 /obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
 	..()
-	var/man_rating = STOCK_PART_BASIC
+	var/man_rating = 1
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))
 			man_rating += P.rating
