@@ -462,16 +462,16 @@
 	spawn_nothing_percentage = 1
 
 /obj/random/pottedplant_small/spawn_item()
-	var/obj/structure/flora/pottedplant_small/P = null
+	var/obj/item/flora/pottedplant_small/P = null
 	var/list/unwanted = list(
-		/obj/structure/flora/pottedplant_small, // don't want parent base obj
-		/obj/structure/flora/pottedplant_small/empty
+		/obj/item/flora/pottedplant_small, // don't want parent base obj
+		/obj/item/flora/pottedplant_small/empty
 	)
 	var/list/rare = list(
-		/obj/structure/flora/pottedplant_small/dead
+		/obj/item/flora/pottedplant_small/dead
 	)
 	while(!P)
-		P = pick(typesof(/obj/structure/flora/pottedplant_small))
+		P = pick(typesof(/obj/item/flora/pottedplant_small))
 		if(P in unwanted || ((P in rare) && prob(50)))
 			P = null
 	. = new P(loc)
