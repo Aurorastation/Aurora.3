@@ -40,8 +40,8 @@
 	var/temperature_warning_threshold = 170
 	var/temperature_danger_threshold = T0C
 
-	var/fast_stasis_mult = 0.8
-	var/slow_stasis_mult = 1.25
+	var/fast_stasis_mult = 0.6
+	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
 	var/global/list/screen_overlays
@@ -457,12 +457,12 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
 	..()
-	var/man_rating = 0
+	var/man_rating = STOCK_PART_BASIC
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))
 			man_rating += P.rating
-	fast_stasis_mult = max(1 - (man_rating * 0.06), 0.66)
-	slow_stasis_mult = min(1 + (man_rating * 0.06), 1.5)
+	fast_stasis_mult = max(0.6/man_rating, 0.2)
+	slow_stasis_mult = min(1.6+(man_rating/10), 2)
 
 /datum/data/function/proc/reset()
 	return
