@@ -20,7 +20,8 @@
 	dir = 10
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 1
+	dir = 1;
+	pixel_y = 0
 	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -150,7 +151,8 @@
 /area/point_verdant/interior/arcade)
 "bc" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/ledge/quarter/corner{
 	dir = 8
@@ -244,7 +246,9 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/on{
+	pixel_y = 0
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "bF" = (
@@ -402,7 +406,7 @@
 "cC" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half,
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 31;
 	pixel_y = 10
 	},
@@ -566,7 +570,8 @@
 /area/point_verdant/interior/restaurant)
 "eg" = (
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/rod_railing{
 	dir = 8
@@ -615,7 +620,8 @@
 	dir = 4
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 8
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -997,7 +1003,8 @@
 "gS" = (
 /obj/structure/ledge,
 /obj/structure/utility_pole/street/on{
-	dir = 1
+	dir = 1;
+	pixel_y = 0
 	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -1321,7 +1328,7 @@
 "jK" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half,
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 31;
 	pixel_y = 10
 	},
@@ -1387,6 +1394,19 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
+"ko" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/utility_pole/street/on{
+	dir = 4;
+	pixel_x = -40;
+	pixel_y = 0;
+	layer = 4.6
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "kv" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -1414,6 +1434,19 @@
 	},
 /obj/effect/decal/road_marking/center{
 	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"kD" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -24;
+	pixel_y = 0;
+	layer = 4.6
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -1696,7 +1729,8 @@
 /area/point_verdant/interior/offices)
 "nd" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/concrete/square,
 /area/point_verdant/outdoors)
@@ -1953,6 +1987,17 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"px" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -24
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "pC" = (
 /obj/structure/window/urban/full,
 /obj/structure/window_frame/urban/full,
@@ -2032,10 +2077,12 @@
 /obj/structure/ledge{
 	dir = 5
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
-	},
 /obj/item/hullbeacon/red,
+/obj/structure/utility_pole/street/on{
+	dir = 8;
+	pixel_x = -24;
+	pixel_y = 0
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "qq" = (
@@ -2251,7 +2298,8 @@
 /area/point_verdant/outdoors)
 "rE" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/ledge/quarter{
 	dir = 4
@@ -2298,6 +2346,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
+"rZ" = (
+/obj/structure/ledge,
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "sa" = (
 /turf/simulated/floor/carpet/aquablue,
 /area/point_verdant/interior/hotel)
@@ -2332,7 +2392,8 @@
 "sk" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/concrete/square,
 /area/point_verdant/outdoors)
@@ -2496,7 +2557,8 @@
 /area/point_verdant/outdoors)
 "tR" = (
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
@@ -2541,6 +2603,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
+"ua" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4;
+	pixel_x = -40;
+	pixel_y = 0
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "ub" = (
 /obj/structure/rod_railing,
@@ -2749,7 +2823,8 @@
 	dir = 9
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/asphalt,
@@ -2888,7 +2963,9 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "wZ" = (
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/on{
+	pixel_y = 0
+	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "xa" = (
@@ -3016,7 +3093,8 @@
 /area/point_verdant/interior/offices)
 "yk" = (
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/concrete/square,
 /area/point_verdant/outdoors)
@@ -3029,7 +3107,8 @@
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -3246,7 +3325,7 @@
 /obj/structure/ledge/quarter{
 	dir = 9
 	},
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 40;
 	layer = 9
 	},
@@ -3962,7 +4041,8 @@
 /area/point_verdant/interior/hotel)
 "EF" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
@@ -4092,14 +4172,7 @@
 /turf/simulated/open,
 /area/point_verdant/interior/laundromat)
 "FO" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /obj/structure/rod_railing{
 	dir = 4
 	},
@@ -4943,7 +5016,8 @@
 /area/point_verdant/interior/minimart)
 "Mx" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/concrete/square,
@@ -5009,7 +5083,8 @@
 	dir = 1
 	},
 /obj/structure/utility_pole/street/on{
-	dir = 1
+	dir = 1;
+	pixel_y = 0
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -5110,7 +5185,6 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "NJ" = (
-/obj/structure/urban/pylon,
 /obj/effect/decal/road_marking/no_pass{
 	dir = 8
 	},
@@ -5151,7 +5225,8 @@
 /area/point_verdant/outdoors)
 "NR" = (
 /obj/structure/utility_pole/street/on{
-	dir = 4
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/structure/ledge/quarter{
 	dir = 8
@@ -5187,12 +5262,13 @@
 /obj/structure/ledge{
 	dir = 6
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
-	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	layer = 9.1
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 1;
+	pixel_y = 0
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -5570,7 +5646,6 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "RA" = (
-/obj/machinery/mech_recharger/automobile,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "RG" = (
@@ -5702,6 +5777,20 @@
 	},
 /obj/structure/rod_railing,
 /turf/simulated/floor/beach/water/pool,
+/area/point_verdant/outdoors)
+"SG" = (
+/obj/structure/ledge{
+	dir = 6
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "SH" = (
 /obj/effect/decal/road_marking{
@@ -6271,14 +6360,7 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "Xn" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Xr" = (
@@ -6420,14 +6502,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Yc" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /obj/machinery/light/small/floor,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -6505,14 +6580,7 @@
 /turf/simulated/floor/carpet/aquablue,
 /area/point_verdant/interior/hotel)
 "Yv" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "Yy" = (
@@ -6529,7 +6597,8 @@
 /area/point_verdant/interior/spaceport)
 "YG" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
@@ -36401,7 +36470,7 @@ yS
 DC
 DC
 tP
-wt
+ko
 PP
 PP
 PP
@@ -43083,7 +43152,7 @@ Il
 DC
 DC
 tP
-qi
+kD
 Ym
 Ym
 Ym
@@ -46435,7 +46504,7 @@ ac
 DC
 DC
 oa
-wt
+ua
 PP
 PP
 PP
@@ -47995,7 +48064,7 @@ DD
 DD
 DD
 DD
-gS
+rZ
 DC
 DC
 DC
@@ -49023,7 +49092,7 @@ DD
 DD
 DD
 DD
-gS
+rZ
 DC
 DC
 DC
@@ -50528,7 +50597,7 @@ pN
 DC
 DC
 oa
-qi
+px
 Ym
 Ym
 Ym
@@ -50543,7 +50612,7 @@ ew
 Ym
 Ym
 Ym
-Ob
+SG
 DC
 DC
 oa

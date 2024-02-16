@@ -2,7 +2,7 @@
 "ac" = (
 /obj/structure/chainlink_fence,
 /obj/structure/flora/bush/konyang_reeds,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -303,14 +303,7 @@
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
 "nt" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "nz" = (
@@ -328,7 +321,7 @@
 /area/konyang_telecomms_outpost)
 "on" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_telecomms_outpost)
 "oG" = (
@@ -385,7 +378,7 @@
 /area/konyang_telecomms_outpost)
 "rm" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /obj/vehicle/bike/speeder{
 	dir = 4
 	},
@@ -479,7 +472,7 @@
 /area/konyang_telecomms_outpost)
 "uR" = (
 /obj/structure/chainlink_fence,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -569,7 +562,7 @@
 /area/konyang_telecomms_outpost)
 "yr" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /obj/vehicle/bike/speeder{
 	dir = 8
 	},
