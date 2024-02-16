@@ -20,6 +20,7 @@
 		W.icon_state = icon_state
 		water_overlay = W
 		W.alpha = 128
+		create_reagents(2)
 
 /turf/simulated/floor/exoplanet/water/Destroy()
 	if(water_overlay)
