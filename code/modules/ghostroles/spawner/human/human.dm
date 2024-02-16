@@ -3,7 +3,8 @@
 	name = null
 	desc = null
 
-	respawn_flag = CREW //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
+	respawn_flag = CREW
+	disable_and_hide_if_full = FALSE
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/carbon/human //The mob that should be spawned

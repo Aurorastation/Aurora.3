@@ -21,38 +21,28 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "f" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "g" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/machinery/light/small,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "j" = (
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "k" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/greenglow/radioactive,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "q" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
@@ -60,15 +50,11 @@
 	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/greenglow/radioactive,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "w" = (
 /obj/effect/decal/cleanable/greenglow/radioactive,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "H" = (
 /obj/machinery/light/small{
@@ -77,9 +63,7 @@
 /obj/structure/table/wood,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/mask/gas,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "I" = (
 /obj/machinery/light/small{
@@ -98,9 +82,7 @@
 	pixel_y = -4;
 	pixel_x = 7
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "J" = (
 /obj/structure/flora/bush/adhomai,
@@ -110,9 +92,7 @@
 /area/exoplanet/adhomai)
 "M" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "O" = (
 /obj/structure/flora/tree/adhomai,
@@ -123,9 +103,7 @@
 "P" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/effect/decal/cleanable/greenglow/radioactive,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "S" = (
 /turf/simulated/wall/wood,

@@ -95,7 +95,7 @@ var/list/reverseradiochannels = list(
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.
 
-// central command channels, i.e deathsquid & response teams
+/// central command channels, i.e deathsquad & response teams
 var/list/CENT_FREQS = list(
 	ERT_FREQ,
 	DTH_FREQ
@@ -106,7 +106,7 @@ var/list/CENT_FREQS_ASSOC = list(
 	"[DTH_FREQ]" = TRUE
 )
 
-// Antag channels, i.e. Syndicate
+/// Antag channels, i.e. Syndicate
 var/list/ANTAG_FREQS = list(
 	SYND_FREQ,
 	RAID_FREQ,
@@ -123,7 +123,7 @@ var/list/ANTAG_FREQS_ASSOC = list(
 	"[BLSP_FREQ]" = TRUE
 )
 
-//Department channels, arranged lexically
+/// Department channels, arranged lexically
 var/list/DEPT_FREQS = list(
 	AI_FREQ,
 	COMM_FREQ,
@@ -148,10 +148,14 @@ var/list/DEPT_FREQS_ASSOC = list(
 	"[ENT_FREQ]" = TRUE
 )
 
-#define TRANSMISSION_WIRE        0 // Wired transmission, unused at the moment
-#define TRANSMISSION_RADIO       1 // Default radiowave transmission
-#define TRANSMISSION_SUBSPACE    2 // Subspace transmission (headsets)
-#define TRANSMISSION_SUPERSPACE  3 // Independent / CentCom radios only
+/// Wired transmission, unused at the moment
+#define TRANSMISSION_WIRE        0
+/// Default radiowave transmission
+#define TRANSMISSION_RADIO       1
+/// Subspace transmission (headsets)
+#define TRANSMISSION_SUBSPACE    2
+/// Independent / CentCom radios only
+#define TRANSMISSION_SUPERSPACE  3
 
 #define RADIO_NO_Z_LEVEL_RESTRICTION 0
 
@@ -160,11 +164,12 @@ var/list/DEPT_FREQS_ASSOC = list(
 //Other devices can then choose to send signals to only those devices that belong to a particular filter.
 //This is done for performance, so we don't send signals to lots of machines unnecessarily.
 
-//This filter is special because devices belonging to default also receive signals sent to any other filter.
+/// This filter is special because devices belonging to default also receive signals sent to any other filter.
 #define RADIO_DEFAULT "radio_default"
-
-#define RADIO_TO_AIRALARM "radio_airalarm" //air alarms
-#define RADIO_FROM_AIRALARM "radio_airalarm_rcvr" //devices interested in recieving signals from air alarms
+/// air alarms
+#define RADIO_TO_AIRALARM "radio_airalarm"
+/// devices interested in recieving signals from air alarms
+#define RADIO_FROM_AIRALARM "radio_airalarm_rcvr"
 #define RADIO_CHAT "radio_telecoms"
 #define RADIO_ATMOSIA "radio_atmos"
 #define RADIO_NAVBEACONS "radio_navbeacon"
@@ -173,7 +178,9 @@ var/list/DEPT_FREQS_ASSOC = list(
 #define RADIO_ARRIVALS "radio_arrvl"
 
 #define JAMMER_OFF -1
-#define JAMMER_ALL 1 // affects ALL wireless streams
-#define JAMMER_SYNTHETIC 2 // affects only synthetic wireless connections (attack_ai)
+///// affects ALL wireless streams
+#define JAMMER_ALL 1
+/// affects only synthetic wireless connections (attack_ai)
+#define JAMMER_SYNTHETIC 2
 
 #define DEFAULT_LAW_CHANNEL "Main Frequency"

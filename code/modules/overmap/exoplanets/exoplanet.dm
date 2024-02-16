@@ -424,6 +424,10 @@
 			total_moles = max(total_moles - part, 0)
 			i++
 
+/obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
+	..()
+	ground_survey_result = ""
+
 /obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()
 	. += "<br><center><large><b>Scan Details</b></large>"
