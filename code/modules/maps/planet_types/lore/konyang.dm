@@ -65,7 +65,7 @@
 	ground_survey_result = "" // so it does not get randomly generated survey results
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/pre_ruin_preparation()
-	landing_area = pick("overgrown wilderness within the Yakusoku Jungle.", "abandoned infrastructure in Han'ei Industrial Park, discontinued.", "rough terrain; cavern depths within central Aoyama Kokuni mountains.")
+	landing_area = pick("overgrown wilderness within the Yakusoku Jungle.", "abandoned infrastructure in Han'ei Industrial Park, discontinued.")
 	switch(landing_area)
 		if("overgrown wilderness within the Yakusoku Jungle.")
 			possible_themes = list(/datum/exoplanet_theme/konyang)
@@ -74,10 +74,6 @@
 		if("abandoned infrastructure in Han'ei Industrial Park, discontinued.")
 			possible_themes = list(/datum/exoplanet_theme/konyang/abandoned)
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_abandoned_landing_zone, /datum/map_template/ruin/exoplanet/konyang_office, /datum/map_template/ruin/exoplanet/konyang_house_small, /datum/map_template/ruin/exoplanet/konyang_factory_robotics, /datum/map_template/ruin/exoplanet/konyang_factory_refinery, /datum/map_template/ruin/exoplanet/konyang_factory_arms, /datum/map_template/ruin/exoplanet/konyang_garage)
-
-		if("rough terrain; cavern depths within central Aoyama Kokuni mountains.")
-			possible_themes = list(/datum/exoplanet_theme/konyang/underground)
-			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_landing_zone)
 
 	desc += " Landing beacon details of [landing_area]"
 
