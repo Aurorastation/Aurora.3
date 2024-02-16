@@ -1622,6 +1622,10 @@
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"sT" = (
+/obj/effect/landmark/lobby_mobs_location,
+/turf/unsimulated/floor,
+/area/template_noop)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1933,6 +1937,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"NF" = (
+/turf/unsimulated/wall/steel,
+/area/template_noop)
 "Ot" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -13931,8 +13938,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+NF
+NF
 ac
 Uf
 Uf
@@ -14188,8 +14195,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+NF
+sT
 ac
 Uf
 Uf
@@ -14445,8 +14452,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+NF
+NF
 ac
 ac
 ac
