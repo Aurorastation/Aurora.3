@@ -6826,7 +6826,6 @@
 	pixel_y = -8
 	},
 /obj/structure/chainlink_fence{
-	pixel_x = -;
 	pixel_y = -32
 	},
 /turf/simulated/floor/asphalt,
