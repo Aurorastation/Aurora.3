@@ -61,9 +61,12 @@
 		examinate(user, IC)
 	. = ..()
 
-/obj/item/clothing/attackby(obj/item/I, mob/user)
-	if(IC && (istype(I, /obj/item/integrated_circuit) || I.iswrench() || I.iscrowbar() || istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.ismultitool() || I.isscrewdriver() || istype(I, /obj/item/cell/device)))
-		IC.attackby(I, user)
+/obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
+	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.iswrench() || attacking_item.iscrowbar() || \
+				istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || \
+				attacking_item.ismultitool() || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device)))
+
+		IC.attackby(attacking_item, user)
 	else
 		..()
 

@@ -80,36 +80,36 @@
 			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
-/obj/machinery/botany/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/seeds))
+/obj/machinery/botany/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/seeds))
 		if(seed)
 			to_chat(user, "There is already a seed loaded.")
 			return
-		var/obj/item/seeds/S =W
+		var/obj/item/seeds/S = attacking_item
 		if(S.seed && S.seed.get_trait(TRAIT_IMMUTABLE) > 0)
 			to_chat(user, "That seed is not compatible with our genetics technology.")
 		else
-			user.drop_from_inventory(W,src)
-			seed = W
-			to_chat(user, "You load [W] into [src].")
+			user.drop_from_inventory(attacking_item,src)
+			seed = attacking_item
+			to_chat(user, "You load [attacking_item] into [src].")
 		return
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		open = !open
 		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
 		return
 
 	if(open)
-		if(W.iscrowbar())
+		if(attacking_item.iscrowbar())
 			dismantle()
 			return
 
-	if(istype(W,/obj/item/disk/botany))
+	if(istype(attacking_item,/obj/item/disk/botany))
 		if(loaded_disk)
 			to_chat(user, "There is already a data disk loaded.")
 			return
 		else
-			var/obj/item/disk/botany/B = W
+			var/obj/item/disk/botany/B = attacking_item
 
 			if(B.genes && B.genes.len)
 				if(!disk_needs_genes)
@@ -120,9 +120,9 @@
 					to_chat(user, "That disk does not have any gene data loaded.")
 					return
 
-			user.drop_from_inventory(W,src)
-			loaded_disk = W
-			to_chat(user, "You load [W] into [src].")
+			user.drop_from_inventory(attacking_item,src)
+			loaded_disk = attacking_item
+			to_chat(user, "You load [attacking_item] into [src].")
 
 		return
 	..()

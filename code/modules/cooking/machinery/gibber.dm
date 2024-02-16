@@ -77,29 +77,29 @@
 		return
 	startgibbing(user)
 
-/obj/machinery/gibber/examine()
+/obj/machinery/gibber/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(usr, "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"].")
+	. += "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"]."
 
 /obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
 	to_chat(user, SPAN_DANGER("You [emagged ? "disable" : "enable"] [src]'s safety guard."))
 	return TRUE
 
-/obj/machinery/gibber/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/grab))
-		var/obj/item/grab/G = W
+/obj/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 		if(G.state < GRAB_AGGRESSIVE)
 			to_chat(user, SPAN_DANGER("You need a better grip to do that!"))
 			return
 		move_into_gibber(user,G.affecting)
 		user.drop_from_inventory(G)
 
-	else if(isorgan(W))
-		user.drop_from_inventory(W)
+	else if(isorgan(attacking_item))
+		user.drop_from_inventory(attacking_item)
 		//TODO: Gibber Animations
-		qdel(W)
-		user.visible_message(SPAN_DANGER("[user] feeds [W] into [src], obliterating it."))
+		qdel(attacking_item)
+		user.visible_message(SPAN_DANGER("[user] feeds [attacking_item] into [src], obliterating it."))
 
 	do_hair_pull(user)
 

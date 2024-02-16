@@ -144,22 +144,22 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_imprinter.linked_console = null
 	return ..()
 
-/obj/machinery/computer/rdconsole/attackby(var/obj/item/D as obj, var/mob/user as mob)
+/obj/machinery/computer/rdconsole/attackby(obj/item/attacking_item, mob/user)
 	//Loading a disk into it.
-	if(istype(D, /obj/item/disk))
+	if(istype(attacking_item, /obj/item/disk))
 		if(t_disk || d_disk)
 			to_chat(user, "A disk is already loaded into the machine.")
 			return
 
-		if(istype(D, /obj/item/disk/tech_disk))
-			t_disk = D
-		else if (istype(D, /obj/item/disk/design_disk))
-			d_disk = D
+		if(istype(attacking_item, /obj/item/disk/tech_disk))
+			t_disk = attacking_item
+		else if (istype(attacking_item, /obj/item/disk/design_disk))
+			d_disk = attacking_item
 		else
 			to_chat(user, "<span class='notice'>Machine cannot accept disks in that format.</span>")
 			return
-		user.drop_from_inventory(D,src)
-		to_chat(user, "<span class='notice'>You add \the [D] to the machine.</span>")
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, "<span class='notice'>You add \the [attacking_item] to the machine.</span>")
 	else
 		//The construction/deconstruction of the console code.
 		..()

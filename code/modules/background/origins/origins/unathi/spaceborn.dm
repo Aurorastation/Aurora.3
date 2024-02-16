@@ -14,7 +14,7 @@
 	important_information = "Outside of the Hegemony, records should say they have some kind of visa instead of citizenship."
 	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_HEARTLAND_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TZA_PEASANT, ACCENT_TZA_NOBLE, ACCENT_SOUTHLANDS_NOBLE, ACCENT_SOUTHLANDS_PEASANT, ACCENT_TORN, ACCENT_ZAZ_LOW, ACCENT_ZAZ_HIGH, ACCENT_BROKEN_PEASANT, ACCENT_BROKEN_NOBLE, ACCENT_WASTELAND, ACCENT_UNATHI_SPACER, ACCENT_HAZANA, ACCENT_OUEREA)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/ouerea
 	name = "Ouerea"
@@ -23,7 +23,7 @@
 	with human, Skrell and Unathi culture blending into something strange, new and altogether unique within the Orion Spur."
 	possible_accents = list(ACCENT_OUEREA)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/colonist
 	name = "Colonist"
@@ -55,6 +55,6 @@
 	and have integrated into the population smoothly. Following the Republic of Biesel's annexation of Mictlan, the Unathi of the planet have largely refused to involve themselves in the ongoing struggle between the Samaritan movement and Biesel, simply wishing not to see another home consumed in war."
 	possible_accents = list(ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_BIESEL)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_NONE)
 	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
 	origin_traits_descriptions = list("are not affected by spicy foods")

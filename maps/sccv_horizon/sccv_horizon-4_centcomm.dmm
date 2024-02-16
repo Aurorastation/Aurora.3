@@ -15434,7 +15434,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/antag/jockey)
 "aNZ" = (
@@ -20952,17 +20952,15 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "baV" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_closed";
-	name = "elevator door";
-	opacity = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+/turf/unsimulated/wall/fakeairlock{
+	icon = 'icons/obj/doors/basic/single/external/door.dmi';
+	icon_state = "door_locked";
+	name = "external airlock";
+	opacity = 0;
+	permit_ao = 0;
+	dir = 2;
+	pixel_x = -16;
+	pixel_y = -16
 	},
 /area/antag/wizard)
 "baW" = (
@@ -21432,48 +21430,8 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/burglar)
-"bcd" = (
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4.1;
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 1;
-	pixel_y = -25
-	},
-/turf/unsimulated/floor/plating,
-/area/antag/burglar)
 "bce" = (
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4.1;
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 1;
-	pixel_y = -25
-	},
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/antag/burglar)
 "bcf" = (
@@ -21766,13 +21724,13 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bcL" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bcM" = (
@@ -21788,7 +21746,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bcN" = (
@@ -21809,7 +21767,7 @@
 	pixel_y = -8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bcO" = (
@@ -21822,7 +21780,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bcP" = (
@@ -21838,13 +21796,13 @@
 	pixel_y = -13
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bcQ" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bcR" = (
@@ -22477,12 +22435,12 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bdL" = (
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bdM" = (
@@ -22492,7 +22450,7 @@
 	},
 /obj/item/spacecash/c1,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bdN" = (
@@ -22503,7 +22461,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bdO" = (
@@ -22513,7 +22471,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bdP" = (
@@ -22868,14 +22826,14 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "beK" = (
 /obj/structure/bed,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "beL" = (
@@ -23232,27 +23190,25 @@
 "bfE" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffee/full{
-	pixel_x = -6;
+	pixel_x = -4;
 	pixel_y = 5
 	},
-/obj/effect/floor_decal/spline/plain,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bfF" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/fancy/donut{
-	pixel_x = -15;
+	pixel_x = -13;
 	pixel_y = 4
 	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 9;
 	pixel_y = 1
 	},
-/obj/effect/floor_decal/spline/plain,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/burglar)
 "bfG" = (
@@ -24886,10 +24842,6 @@
 /area/centcom/legion/hangar5)
 "biY" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/machinery/door/window/northleft{
-	name = "cockpit";
-	req_access = list(150)
-	},
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/shuttle/mercenary)
 "bje" = (
@@ -25179,6 +25131,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/door/window/northleft{
+	name = "cockpit";
+	req_access = list(150)
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjJ" = (
@@ -25322,7 +25278,8 @@
 	icon_state = "door_locked";
 	id_tag = "burglar_hideout_hatch";
 	locked = 1;
-	name = "Hangar Access"
+	name = "Hangar Access";
+	dir = 4
 	},
 /obj/machinery/door/blast/odin{
 	dir = 2;
@@ -25333,7 +25290,7 @@
 /area/antag/mercenary)
 "bke" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "burglar_hideout";
 	name = "hangar controller";
 	pixel_x = -1;
@@ -25397,18 +25354,18 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	dir = 9
 	},
 /area/antag/raider)
 "bkm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/reinforced,
 /obj/item/device/taperecorder,
 /obj/item/device/megaphone/red,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	dir = 1
 	},
@@ -25569,9 +25526,9 @@
 /area/antag/raider)
 "bkO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/reinforced,
 /obj/machinery/door/window/westright,
 /obj/item/device/hand_labeler,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	dir = 8
 	},
@@ -25816,8 +25773,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/reinforced,
 /obj/item/device/camera,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	dir = 8
 	},
@@ -26284,12 +26241,12 @@
 /area/antag/raider)
 "bmR" = (
 /obj/structure/lattice,
-/obj/structure/window/reinforced/crescent,
 /obj/machinery/light/small/emergency{
 	brightness_range = 4;
 	dir = 8;
 	name = "adjusted emergency light"
 	},
+/obj/structure/window/reinforced/crescent,
 /turf/space/dynamic,
 /area/antag/raider)
 "bmS" = (
@@ -26301,6 +26258,7 @@
 	},
 /obj/item/stack/rods,
 /obj/item/material/shard,
+/obj/structure/window/reinforced/crescent,
 /turf/space/dynamic,
 /area/antag/raider)
 "bmT" = (
@@ -26549,11 +26507,14 @@
 /area/antag/raider)
 "bnE" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/basic/single/external/door.dmi';
 	icon_state = "door_locked";
 	name = "external airlock";
 	opacity = 0;
-	permit_ao = 0
+	permit_ao = 0;
+	dir = 4;
+	pixel_x = -16;
+	pixel_y = -16
 	},
 /area/antag/raider)
 "bnF" = (
@@ -26565,7 +26526,7 @@
 	layer = 2.4;
 	name = "conveyor"
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor/plating,
 /area/antag/raider)
 "bnG" = (
 /obj/item/ore{
@@ -26579,20 +26540,18 @@
 	layer = 2.4;
 	name = "conveyor"
 	},
-/turf/unsimulated/floor{
-	icon_state = "panelscorched"
-	},
+/turf/unsimulated/floor/plating,
 /area/antag/raider)
 "bnH" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/doors/door_assembly.dmi';
-	icon_state = "door_as_ext0";
-	name = "damaged airlock"
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "panelscorched"
+	icon_state = "wood_preview"
 	},
-/area/antag/raider)
+/area/antag/burglar)
 "bnI" = (
 /obj/structure/table/rack{
 	pixel_x = -3;
@@ -27062,13 +27021,13 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bov" = (
 /obj/machinery/computer/slot_machine,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bow" = (
@@ -27086,7 +27045,7 @@
 	dir = 8
 	},
 /obj/item/material/ashtray,
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "boy" = (
@@ -27096,7 +27055,7 @@
 	layer = 2.4;
 	name = "shutter"
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "boz" = (
@@ -27109,7 +27068,7 @@
 /obj/item/reagent_containers/glass/rag{
 	pixel_y = 3
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "boA" = (
@@ -27119,11 +27078,11 @@
 	layer = 2.4;
 	name = "shutter"
 	},
-/obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/bottle/rum{
 	pixel_x = 14;
 	pixel_y = 10
 	},
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "boB" = (
@@ -27134,7 +27093,7 @@
 	name = "shutter"
 	},
 /obj/item/flame/lighter/zippo,
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "boC" = (
@@ -27150,21 +27109,17 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "boD" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor,
 /area/antag/raider)
-"boE" = (
-/obj/structure/window/reinforced/crescent,
-/turf/unsimulated/floor,
-/area/antag/raider)
 "boF" = (
+/obj/structure/lattice,
 /obj/structure/window/reinforced/crescent,
-/obj/item/material/shard,
-/turf/unsimulated/floor,
+/turf/space/dynamic,
 /area/antag/raider)
 "boG" = (
 /obj/structure/urinal{
@@ -27444,24 +27399,19 @@
 	name = "old chair"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bpm" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/antag/raider)
-"bpn" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bpo" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bpp" = (
@@ -27470,7 +27420,7 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bpq" = (
@@ -27479,7 +27429,7 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bpr" = (
@@ -27492,9 +27442,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "floorscorched2"
-	},
+/turf/unsimulated/floor,
 /area/antag/raider)
 "bps" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -27521,23 +27469,23 @@
 /area/antag/raider)
 "bpv" = (
 /obj/structure/lattice,
-/obj/structure/window/reinforced/crescent,
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
 /obj/machinery/light/small/emergency{
 	brightness_range = 4;
 	dir = 8;
 	name = "adjusted emergency light"
 	},
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/structure/window/reinforced/crescent,
 /turf/space/dynamic,
 /area/antag/raider)
 "bpw" = (
 /obj/structure/lattice,
-/obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
+/obj/structure/window/reinforced/crescent,
 /turf/space/dynamic,
 /area/antag/raider)
 "bpx" = (
@@ -27826,9 +27774,6 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "bqf" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
 /obj/effect/decal/fake_object{
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
@@ -27839,9 +27784,6 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "bqg" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
 /obj/effect/decal/fake_object{
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
@@ -28102,15 +28044,6 @@
 	icon_state = "cargo_trailer";
 	name = "cargo trailer";
 	pixel_x = 1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A crate of military supplies.";
-	icon = 'icons/obj/crate.dmi';
-	icon_state = "dropcrate";
-	layer = 3.02;
-	name = "metal crate";
-	pixel_x = 1;
-	pixel_y = 4
 	},
 /obj/machinery/light{
 	dir = 8
@@ -28552,14 +28485,14 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "brF" = (
 /obj/structure/table/wood,
 /obj/random/coin,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "brG" = (
@@ -28570,7 +28503,7 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "brH" = (
@@ -28619,7 +28552,7 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "brL" = (
@@ -28629,7 +28562,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "brM" = (
@@ -28640,7 +28573,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "brO" = (
@@ -28708,13 +28641,13 @@
 /area/antag/raider)
 "brV" = (
 /obj/structure/lattice,
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
 /obj/machinery/light/small/emergency{
 	brightness_range = 4;
 	dir = 8;
 	name = "adjusted emergency light"
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 1
 	},
 /turf/space/dynamic,
 /area/antag/raider)
@@ -29025,7 +28958,7 @@
 	pixel_y = -6
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bsB" = (
@@ -29045,7 +28978,7 @@
 	prices = null
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "bsD" = (
@@ -29350,10 +29283,10 @@
 /area/antag/mercenary)
 "btc" = (
 /obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
 	locked = 1;
 	name = "Abandoned Wing";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/antag/raider)
@@ -29381,17 +29314,7 @@
 /turf/space/dynamic,
 /area/antag/raider)
 "btg" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
 /obj/item/stack/rods,
-/turf/unsimulated/floor,
-/area/antag/raider)
-"bth" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "bti" = (
@@ -29431,16 +29354,7 @@
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/antag/raider)
-"btn" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/turf/unsimulated/floor,
-/area/antag/raider)
 "bto" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -29450,14 +29364,14 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "btp" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
 /obj/structure/lattice,
 /obj/machinery/light/small/emergency{
 	brightness_range = 5;
 	dir = 1;
 	name = "adjusted emergency light"
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 8
 	},
 /turf/space/dynamic,
 /area/antag/raider)
@@ -29643,26 +29557,9 @@
 /obj/effect/map_effect/mecha_part_spawner/propulsion,
 /turf/unsimulated/floor,
 /area/antag/jockey)
-"btN" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor,
-/area/antag/raider)
 "btO" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
 /obj/item/material/shard,
 /turf/unsimulated/floor,
-/area/antag/raider)
-"btP" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/structure/lattice,
-/turf/space/dynamic,
 /area/antag/raider)
 "btQ" = (
 /obj/random/junk,
@@ -29919,14 +29816,9 @@
 /turf/unsimulated/wall/steel,
 /area/antag/ninja)
 "buo" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/rods,
-/turf/unsimulated/floor{
-	icon_state = "panelscorched"
-	},
+/turf/unsimulated/floor,
 /area/antag/raider)
 "buv" = (
 /obj/machinery/door/airlock/centcom{
@@ -35580,21 +35472,6 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
-"duV" = (
-/obj/structure/window/reinforced{
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/obj/structure/grille,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/mercenary)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -36159,17 +36036,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
-"fPY" = (
-/obj/structure/window/reinforced{
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 140
-	},
-/obj/structure/grille,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/mercenary)
 "fQK" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
@@ -36801,16 +36667,8 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
 "hTO" = (
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/obj/structure/grille,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "hWe" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -38499,21 +38357,17 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "nCh" = (
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
+/turf/unsimulated/wall/fakeairlock{
+	icon = 'icons/obj/doors/basic/single/external/door.dmi';
+	icon_state = "door_locked";
+	name = "external airlock";
+	opacity = 0;
+	permit_ao = 0;
+	dir = 2;
+	pixel_x = -16;
+	pixel_y = -16
 	},
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 140
-	},
-/obj/structure/grille,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/mercenary)
+/area/antag/raider)
 "nCC" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -38978,12 +38832,16 @@
 /area/horizon/holodeck/source_emptycourt)
 "pgL" = (
 /obj/structure/table/rack,
-/obj/item/device/versebook/trinary,
-/obj/item/device/versebook/trinary,
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
 	icon_state = "corner_white"
 	},
+/obj/item/device/versebook/trinary,
+/obj/item/device/versebook/trinary,
+/obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "pic" = (
@@ -39336,13 +39194,13 @@
 	},
 /obj/item/clothing/mask/trinary_mask,
 /obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/mask/trinary_mask,
 /obj/item/flame/candle{
 	pixel_x = 6
 	},
 /obj/item/flame/candle{
 	pixel_x = -6
 	},
-/obj/item/clothing/mask/trinary_mask,
 /turf/simulated/floor/bluegrid,
 /area/horizon/holodeck/source_trinary)
 "qHU" = (
@@ -39783,21 +39641,6 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
-"sPP" = (
-/obj/structure/window/reinforced{
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
-	},
-/obj/structure/grille,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/mercenary)
 "sQe" = (
 /obj/structure/table/holotable,
 /obj/machinery/readybutton,
@@ -40190,21 +40033,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
-"url" = (
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/obj/structure/window/reinforced{
-	maxhealth = 140
-	},
-/obj/structure/grille,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/mercenary)
 "uux" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/sand{
@@ -85229,9 +85057,9 @@ aaa
 aaa
 aaa
 axk
-nCh
 hTO
-url
+hTO
+hTO
 axk
 axk
 bjG
@@ -85485,7 +85313,7 @@ aaa
 aaa
 aaa
 aaa
-duV
+hTO
 bfX
 bgO
 bhB
@@ -85742,7 +85570,7 @@ aaa
 aaa
 aaa
 aaa
-fPY
+hTO
 bfY
 bgP
 bhC
@@ -85999,7 +85827,7 @@ aaa
 aaa
 aaa
 aaa
-sPP
+hTO
 bfZ
 bgQ
 bhD
@@ -86257,9 +86085,9 @@ aaa
 aaa
 aaa
 axk
-nCh
 hTO
-url
+hTO
+hTO
 axk
 axk
 bjK
@@ -92959,7 +92787,7 @@ bmy
 bix
 bix
 bix
-buZ
+bnB
 bvM
 bwM
 bxC
@@ -97564,7 +97392,7 @@ bbw
 bcK
 bdK
 beJ
-bbw
+bdL
 bgt
 bhg
 bhU
@@ -97817,10 +97645,10 @@ aaa
 aaa
 baZ
 aaa
-bcd
+bce
 bcL
 bdL
-bdL
+bnH
 bdL
 bgu
 bhh
@@ -97838,9 +97666,9 @@ bpj
 bny
 bqN
 brB
-bnE
+nCh
 btg
-btN
+btj
 buo
 axm
 axm
@@ -98095,8 +97923,8 @@ bpk
 btj
 bqO
 brC
-bnE
-bth
+nCh
+btj
 btO
 aaa
 axm
@@ -98335,7 +98163,7 @@ bbw
 bcN
 bdM
 bdL
-bbw
+bdL
 bgv
 bhh
 bhh
@@ -98863,8 +98691,8 @@ bjB
 bjB
 bou
 bpl
-bpn
-bpn
+bqb
+bqb
 brE
 blU
 bmB
@@ -99120,8 +98948,8 @@ bmC
 bjB
 bov
 bpl
-bpn
-bpn
+bqb
+bqb
 brF
 blU
 bmB
@@ -99377,8 +99205,8 @@ bmD
 bjB
 bov
 bpl
-bpn
-bpn
+bqb
+bqb
 brG
 bjB
 bjB
@@ -99634,9 +99462,9 @@ bmE
 bjB
 bjB
 bpm
-bpn
-bpn
-bpn
+bqb
+bqb
+bqb
 bsA
 bjB
 bjB
@@ -99890,8 +99718,8 @@ bjB
 bmF
 bnx
 bow
-bpn
-bpn
+bqb
+bqb
 xYM
 brH
 brH
@@ -100148,7 +99976,7 @@ bmG
 bny
 box
 bpo
-bpn
+bqb
 bqS
 brI
 bsB
@@ -100405,7 +100233,7 @@ bmH
 bny
 boy
 bpo
-bpn
+bqb
 bqT
 brJ
 brJ
@@ -100662,9 +100490,9 @@ bmI
 bnz
 boz
 bpp
-bpn
-bpn
-bpn
+bqb
+bqb
+bqb
 bsC
 bjB
 bjB
@@ -100919,8 +100747,8 @@ bmJ
 bny
 boA
 bpo
-bpn
-bpn
+bqb
+bqb
 brK
 bjB
 bjB
@@ -101176,8 +101004,8 @@ bmK
 bny
 boB
 bpo
-bpn
-bpn
+bqb
+bqb
 brL
 blU
 bmB
@@ -102208,8 +102036,8 @@ btj
 bny
 btj
 bsD
-btn
-btn
+bny
+bny
 akr
 bvn
 bwd
@@ -102723,7 +102551,7 @@ bqX
 brP
 blU
 btp
-btP
+bti
 bti
 axm
 axm
@@ -104515,10 +104343,10 @@ aaa
 aaa
 bmR
 bnF
-boE
+bny
 bpv
 bqf
-boE
+bny
 brV
 aaa
 aaa
@@ -104770,12 +104598,12 @@ aaa
 aaa
 aaa
 aaa
-bmB
-bnG
 boF
+bnG
+btO
 bpw
 bqg
-boE
+bny
 brW
 aaa
 aaa
@@ -105028,7 +104856,7 @@ aaa
 aaa
 aaa
 bmS
-bnH
+bnE
 bnE
 bpw
 bnE

@@ -25,3 +25,24 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/get_surface_color()
 	return "#575d5e"
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/generate_ground_survey_result()
+	..()
+	if(prob(50))
+		ground_survey_result += "<br>High sulfide content of the shallow rock bed"
+	if(prob(50))
+		ground_survey_result += "<br>Pockets of saturated hydrocarbons in deep crust"
+	if(prob(50))
+		ground_survey_result += "<br>Planetary core contains volatiles, maintaining stability due to high pressure"
+	if(prob(50))
+		ground_survey_result += "<br>Silica alloy superconductors found in stability in the lava"
+	if(prob(50))
+		ground_survey_result += "<br>Analysis indicates heavy metals of low impurity, high possibility of easy extraction"
+	if(prob(50))
+		ground_survey_result += "<br>Traces of precious metals scattered in the crust"
+	if(prob(20))
+		ground_survey_result += "<br>High entropy alloys detected in deep crust"
+	if(prob(30))
+		ground_survey_result += "<br>Traces of fusile material"
+	if(prob(40))
+		ground_survey_result += "<br>High content of fissile material in the rock"

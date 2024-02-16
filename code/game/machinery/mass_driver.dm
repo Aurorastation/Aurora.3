@@ -54,17 +54,17 @@
 
 	drive()
 
-/obj/machinery/mass_driver/attackby(obj/item/W, mob/user)
+/obj/machinery/mass_driver/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(!anchored)
-			playsound(src.loc, W.usesound, 75, 1)
+			playsound(src.loc, attacking_item.usesound, 75, 1)
 			user.visible_message("[user.name] secures [src] to the floor.", \
 				"You secure the external reinforcing bolts to the floor.", \
 				"You hear a ratchet")
 			src.anchored = 1
 		else
-			playsound(src.loc, W.usesound, 75, 1)
+			playsound(src.loc, attacking_item.usesound, 75, 1)
 			user.visible_message("[user.name] unsecures [src] from the floor.", \
 				"You unsecure the external reinforcing bolts from the floor.", \
 				"You hear a ratchet")

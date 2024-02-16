@@ -227,13 +227,12 @@
 	if(recharger)
 		disconnect()
 
-/obj/item/gun/energy/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/energy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
-	to_chat(user, "Has [shots_remaining] shot\s remaining.")
-	return
+	. += "It has [shots_remaining] shot\s remaining."
 
 /obj/item/gun/energy/update_icon()
 	if(charge_meter && power_supply && power_supply.maxcharge)

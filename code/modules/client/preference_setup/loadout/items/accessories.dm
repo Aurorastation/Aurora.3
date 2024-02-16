@@ -1,8 +1,11 @@
 /datum/gear/accessory
+	abstract_type = /datum/gear/accessory
+	sort_category = "Accessories"
+
+/datum/gear/accessory/locket
 	display_name = "silver locket"
 	path = /obj/item/clothing/accessory/locket
 	slot = slot_tie
-	sort_category = "Accessories"
 
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"

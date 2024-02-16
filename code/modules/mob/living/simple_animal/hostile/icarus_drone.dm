@@ -98,13 +98,13 @@
 	has_loot = FALSE
 	qdel(src)
 
-/mob/living/simple_animal/hostile/icarus_drone/examine(mob/user)
+/mob/living/simple_animal/hostile/icarus_drone/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(malfunctioning)
 		if(hostile_drone)
-			to_chat(user, SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed."))
+			. += SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed.")
 		else
-			to_chat(user, SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted."))
+			. += SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted.")
 
 /mob/living/simple_animal/hostile/icarus_drone/Allow_Spacemove(var/check_drift = 0)
 	return TRUE

@@ -45,9 +45,9 @@
 	if(severity && prob(30))
 		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.")*/
 
-/obj/item/ore/strangerock/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weldingtool/))
-		var/obj/item/weldingtool/w = W
+/obj/item/ore/strangerock/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/weldingtool/))
+		var/obj/item/weldingtool/w = attacking_item
 		if(w.isOn())
 			if(w.get_fuel() >= 4 && !src.method)
 				if(inside)
@@ -65,8 +65,8 @@
 				w.use(1)
 			return
 
-	else if(istype(W,/obj/item/device/core_sampler/))
-		var/obj/item/device/core_sampler/S = W
+	else if(istype(attacking_item, /obj/item/device/core_sampler/))
+		var/obj/item/device/core_sampler/S = attacking_item
 		S.sample_item(src, user)
 		return
 

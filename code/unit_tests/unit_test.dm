@@ -119,9 +119,18 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	log_unit_test(LOG_UNIT_TEST_WARNING, message, file, line)
 
 /datum/unit_test/proc/fail(var/message, var/file, var/line)
-	all_unit_tests_passed = 0
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	all_unit_tests_passed = FALSE
 	unit_tests_failures++
-	reported = 1
+	reported = TRUE
+
+	//If we're running in manual mode, raise an exception so we can see it in VSC directly
+	#if defined(MANUAL_UNIT_TEST)
+	stack_trace("Unit test failed: [src.name] - Message: [message] @@@ [file]:[line]")
+	#endif
+
 	log_unit_test(LOG_UNIT_TEST_ERROR, message, file, line)
 	return UNIT_TEST_FAILED
 

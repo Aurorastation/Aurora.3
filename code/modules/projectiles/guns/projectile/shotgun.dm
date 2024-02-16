@@ -9,7 +9,7 @@
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
 
-/obj/item/gun/projectile/shotgun/attackby(obj/item/A, mob/user)
+/obj/item/gun/projectile/shotgun/attackby(obj/item/attacking_item, mob/user)
 	if (!can_sawoff || sawing_in_progress)
 		return ..()
 
@@ -18,7 +18,7 @@
 		/obj/item/melee/energy,
 		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))
-	if(is_type_in_typecache(A, barrel_cutting_tools) && w_class != 3)
+	if(is_type_in_typecache(attacking_item, barrel_cutting_tools) && w_class != 3)
 		to_chat(user, "<span class='notice'>You begin to [sawnoff_workmsg] of \the [src].</span>")
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
@@ -27,9 +27,9 @@
 			return
 
 		sawing_in_progress = TRUE
-		if(A.use_tool(src, user, 30, volume = 50))	//SHIT IS STEALTHY EYYYYY
+		if(attacking_item.use_tool(src, user, 30, volume = 50))	//SHIT IS STEALTHY EYYYYY
 			sawing_in_progress = FALSE
-			saw_off(user, A)
+			saw_off(user, attacking_item)
 		else
 			sawing_in_progress = FALSE
 	else
@@ -273,7 +273,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 
-/obj/item/gun/projectile/shotgun/foldable/cameragun/examine(mob/user, distance, ...)
+/obj/item/gun/projectile/shotgun/foldable/cameragun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button."))
+		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")

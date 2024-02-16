@@ -18,18 +18,18 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/spacecash/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/spacecash))
-		if(istype(W, /obj/item/spacecash/ewallet)) return 0
+/obj/item/spacecash/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/spacecash))
+		if(istype(attacking_item, /obj/item/spacecash/ewallet)) return 0
 
 		var/obj/item/spacecash/bundle/bundle
-		if(!istype(W, /obj/item/spacecash/bundle))
-			var/obj/item/spacecash/cash = W
+		if(!istype(attacking_item, /obj/item/spacecash/bundle))
+			var/obj/item/spacecash/cash = attacking_item
 			bundle = new(src.loc)
 			bundle.worth += cash.worth
 			qdel(cash)
 		else //is bundle
-			bundle = W
+			bundle = attacking_item
 		bundle.worth += src.worth
 		bundle.update_icon()
 		if(istype(user, /mob/living/carbon/human))
@@ -175,10 +175,12 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/spacecash/ewallet/examine(mob/user, distance, is_adjacent)
+/obj/item/spacecash/ewallet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if (distance > 2 && user!=src.loc) return
-	to_chat(user, "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>")
+	if(distance > 2 && user != loc)
+		return
+	. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
+	. += SPAN_NOTICE("It has [src.worth]电 left.")
 
 /obj/item/spacecash/ewallet/c2000
 	worth = 2000
