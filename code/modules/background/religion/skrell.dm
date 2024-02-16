@@ -35,3 +35,13 @@
 	entity, whether that be artificial or biological. This belief system enforces the Ya'Qu, or 'the right to live', a saying that is similar to the human 'live in the moment'. As \
 	such, the Skrell following the Kir'gul belief system often are explorers, artists, or other such creators, and reject authority in favor of individuality."
 	book_name = "book of Ya'Qu"
+
+/datum/religion/skrell/univalvism
+	name = RELIGION_UNIVALVISM
+	description = "An obscure belief held by the fleetmembers of the Prescient Republic of the Qar. The core tenets of the faith can be found in a short series of written principles \
+	called the Communes of Trust. The Communes are claimed to have originated from a series of dialogues between the Univalvist figurehead and a Great Slug. Adherence to Univalvism \
+	is not made out to be a duty of the faithful, but a responsibility entrusted to them; there is no spiritual punishment for failing to abide. Univalvists hold a firm belief in \
+	reincarnation and a cyclical universe, holding staunchly to the belief that in a past life or universe, everybody was once a Skrellian Univalvist, and that their current beliefs \
+	come from improperly interpreted memories of their past lives. Salt is seen as a symbol of immorality in Univalvist, and salting a corpse is seen as a way of halting reincarnation \
+	and causing a complete cessation of consciouss. 'Wishing salt upon you' is considered the gravest insult among followers of the faith."
+	book_name = "communes of trust"

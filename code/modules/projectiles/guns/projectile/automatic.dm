@@ -332,6 +332,7 @@
 /obj/item/gun/projectile/automatic/rifle/dominia/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
@@ -371,9 +372,14 @@
 	. = ..()
 	launcher = new(src)
 
-/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
+/obj/item/gun/projectile/automatic/rifle/z8/Destroy()
+	QDEL_NULL(launcher)
+
+	. = ..()
+
+/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/attacking_item, mob/user)
+	if((istype(attacking_item, /obj/item/grenade)))
+		launcher.load(attacking_item, user)
 	else
 		..()
 
@@ -398,12 +404,12 @@
 	else
 		icon_state = "carbine-empty"
 
-/obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
+/obj/item/gun/projectile/automatic/rifle/z8/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(launcher.chambered)
-		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
+		. += "\The [launcher] has \a [launcher.chambered] loaded."
 	else
-		to_chat(user, "\The [launcher] is empty.")
+		. += "\The [launcher] is empty."
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
@@ -617,6 +623,28 @@
 	..()
 	icon_state = (ammo_magazine)? "owen" : "owen-empty"
 
+/obj/item/gun/projectile/automatic/tommygun/assassin
+	name = "integrally suppressed machine pistol"
+	desc = "An Eridanian “rat hunting” gun manufactured by the Amon Pest Control Company. Commonly used by corporate assassins, uncommonly used by pest control workers. Chambered in 6mm."
+	desc_extended = "The APCC RatAway SMG is manufactured by a shell company of Ringspire for use in corporate assassination duties. Extremely quiet and firing caseless ammunition, it is an ideal weapon for putting down those who dare to threaten megacorporate interests."
+	icon = 'icons/obj/guns/assassin_smg.dmi'
+	icon_state = "assassin_smg"
+	item_state = "assassin_smg"
+	magazine_type = /obj/item/ammo_magazine/submachinemag/assassin
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
+	caliber = "6mm"
+	suppressed = TRUE
+	can_unsuppress = FALSE
+	suppressor_x_offset = null
+	suppressor_y_offset = null
+	handle_casings = DELETE_CASINGS
+	max_shells = 30
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
+
+/obj/item/gun/projectile/automatic/tommygun/assassin/update_icon()
+	..()
+	icon_state = (ammo_magazine) ? "assassin_smg" : "assassin_smg-empty"
+
 /obj/item/gun/projectile/automatic/rifle/dnac
 	name = "dNAC-6.5 assault rifle"
 	desc = "A durable, sleek-looking bullpup rifle manufactured by d.N.A Defense & Aerospace for the All-Xanu Armed Forces. This model has been adopted by a majority of the Coalition's military forces as well due to its simplicity and reliability."
@@ -807,6 +835,7 @@
 /obj/item/gun/projectile/automatic/rifle/dominia_lmg/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"

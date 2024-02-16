@@ -175,12 +175,12 @@
 		if(desc)
 			to_chat(user, SPAN_INFO("Role description: ") + desc)
 	GLOB.universe.OnPlayerLatejoin(user)
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]
 		if(sector?.invisible_until_ghostrole_spawn)
 			sector.x = sector.start_x
 			sector.y = sector.start_y
-			sector.z = current_map.overmap_z
+			sector.z = SSatlas.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
 	return TRUE
 

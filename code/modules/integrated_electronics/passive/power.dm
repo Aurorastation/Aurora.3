@@ -184,7 +184,7 @@
 	return ..()
 
 /obj/item/integrated_circuit/passive/power/powernet/Destroy()
-	qdel(IO)
+	QDEL_NULL(IO)
 	return ..()
 
 /obj/item/integrated_circuit/passive/power/powernet/on_anchored()

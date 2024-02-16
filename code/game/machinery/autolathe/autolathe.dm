@@ -14,7 +14,7 @@
 	clicksound = /singleton/sound_category/keyboard_sound
 	clickvol = 30
 
-	var/print_loc
+	var/atom/print_loc
 
 	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
 	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
@@ -62,8 +62,12 @@
 	populate_lathe_recipes()
 
 /obj/machinery/autolathe/Destroy()
+	print_loc = null
+	QDEL_NULL(currently_printing)
 	QDEL_NULL(wires)
-	print_queue.Cut()
+
+	QDEL_LIST(print_queue)
+
 	return ..()
 
 /obj/machinery/autolathe/proc/populate_lathe_recipes()
@@ -138,17 +142,17 @@
 		)
 	return data
 
-/obj/machinery/autolathe/attackby(obj/item/O, mob/user)
-	if(HAS_FLAG(autolathe_flags, AUTOLATHE_BUSY))
+/obj/machinery/autolathe/attackby(obj/item/attacking_item, mob/user)
+	if((autolathe_flags & AUTOLATHE_BUSY))
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return TRUE
 
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		SStgui.update_uis(src)
 		return TRUE
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 	if(stat)
@@ -156,20 +160,20 @@
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(O.ismultitool() || O.iswirecutter())
+		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
 			if(panel_open)
 				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 			return TRUE
 
-	if(O.loc != user && !istype(O, /obj/item/stack))
+	if(attacking_item.loc != user && !istype(attacking_item, /obj/item/stack))
 		return FALSE
 
-	if(is_robot_module(O))
+	if(is_robot_module(attacking_item))
 		return FALSE
 
-	load_lathe(O, user)
+	load_lathe(attacking_item, user)
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
@@ -242,9 +246,9 @@
 		update_use_power(POWER_USE_IDLE)
 
 	if(currently_printing && use_power == POWER_USE_ACTIVE)
-		if(!HAS_FLAG(autolathe_flags, AUTOLATHE_STARTED))
+		if(!(autolathe_flags & AUTOLATHE_STARTED))
 			start_processing_queue_item()
-		else if(HAS_FLAG(autolathe_flags, AUTOLATHE_BUSY))
+		else if((autolathe_flags & AUTOLATHE_BUSY))
 			process_queue_item()
 
 /// Used so that we don't try to add_overlay every tick the autolathe processes.

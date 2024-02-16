@@ -191,10 +191,23 @@
 /// The timer key used to know how long subsystem initialization takes
 #define SS_INIT_TIMER_KEY "ss_init"
 
+//! ### SS initialization load orders
+// Subsystem init_order, from highest priority to lowest priority
+// Subsystems shutdown in the reverse of the order they initialize in
+// The numbers just define the ordering, they are meaningless otherwise.
+
+#define INIT_ORDER_PROFILER 101
+#define INIT_ORDER_GARBAGE 99
+#define INIT_ORDER_SPATIAL_GRID 43
+#define INIT_ORDER_CODEX -3 // Codex subsystem. Should be initialized after chemistry and cooking recipes.
+#define INIT_ORDER_STATPANELS -97
+
 // Subsystem fire priority, from lowest to highest priority
 // If the subsystem isn't listed here it's either DEFAULT or PROCESS (if it's a processing subsystem child)
 
+#define FIRE_PRIORITY_GARBAGE 15
 #define FIRE_PRIORITY_DEFAULT 50
+#define FIRE_PRIORITY_STATPANEL 390
 
 
 /* AURORA SHIT */

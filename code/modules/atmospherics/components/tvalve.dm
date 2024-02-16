@@ -343,8 +343,8 @@
 			else
 				go_to_side()
 
-/obj/machinery/atmospherics/tvalve/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+/obj/machinery/atmospherics/tvalve/attackby(obj/item/attacking_item, mob/user)
+	if (!attacking_item.iswrench())
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
@@ -357,7 +357,7 @@
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

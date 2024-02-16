@@ -43,17 +43,17 @@
 		PH.linked_helm = null
 	return ..()
 
-/obj/machinery/computer/ship/helm/attackby(obj/item/I, user)
-	if(istype(I, /obj/item/clothing/head/helmet/pilot))
+/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, user)
+	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		if(!connected)
 			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))
 			return
-		var/obj/item/clothing/head/helmet/pilot/PH = I
-		if(I in linked_helmets)
-			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+		var/obj/item/clothing/head/helmet/pilot/PH = attacking_item
+		if(attacking_item in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
 			PH.set_console(null)
 		else
-			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src]."))
 			PH.set_console(src)
 			PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [connected.get_speed()] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		check_processing()
@@ -81,7 +81,7 @@
 /obj/machinery/computer/ship/helm/process()
 	..()
 	if (autopilot && dx && dy)
-		var/turf/T = locate(dx,dy,current_map.overmap_z)
+		var/turf/T = locate(dx,dy,SSatlas.current_map.overmap_z)
 		if(connected.loc == T)
 			if(connected.is_still())
 				autopilot = 0
@@ -251,7 +251,7 @@
 			var/mob/living/carbon/human/H = usr
 			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
 			var/turf/new_turf = get_step(connected, dir_to_move)
-			if(new_turf.x > current_map.overmap_size || new_turf.y > current_map.overmap_size)
+			if(new_turf.x > SSatlas.current_map.overmap_size || new_turf.y > SSatlas.current_map.overmap_size)
 				to_chat(H, SPAN_WARNING("Automated piloting safeties prevent you from going into deep space."))
 				return
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())

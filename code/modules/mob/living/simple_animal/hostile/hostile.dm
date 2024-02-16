@@ -52,7 +52,7 @@
 	friends = null
 	target_mob = null
 	targets = null
-	QDEL_NULL_ASSOC(target_type_validator_map)
+	QDEL_LIST_ASSOC_VAL(target_type_validator_map)
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
@@ -155,9 +155,7 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	var/los = null
-	SPATIAL_CHECK_LOS(los, src, target_mob, world.view)
-	return los
+	return is_in_sight(src, target_mob)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -201,7 +199,8 @@
 		return 0
 
 /mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
-	return
+	if(isliving(hit_mob) && istype(limb))
+		limb.add_autopsy_data("Mauling by [src.name]")
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
 	setClickCooldown(attack_delay)
@@ -271,7 +270,7 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/get_targets(dist = world.view)
-	return get_targets_in_LOS(dist, src)
+	return get_hearers_in_LOS(dist, src)
 
 /mob/living/simple_animal/hostile/death()
 	..()
@@ -400,7 +399,7 @@
 
 			found_obj = locate(/obj/structure/window) in target_turf
 			if(found_obj)
-				if(HAS_FLAG(found_obj.atom_flags, ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != GLOB.reverse_dir[card_dir])
+				if((found_obj.atom_flags & ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != GLOB.reverse_dir[card_dir])
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time

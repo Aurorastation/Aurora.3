@@ -307,7 +307,7 @@
 	if(len == 2)
 		item_state = "target_costume_two"
 
-/obj/item/clothing/suit/storage/target_costume/attackby(obj/item/W, mob/user)
+/obj/item/clothing/suit/storage/target_costume/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	var/len = length(pockets.contents)
 	if(!len)

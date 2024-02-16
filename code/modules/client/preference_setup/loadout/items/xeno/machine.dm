@@ -103,7 +103,7 @@
 	path = /obj/item/clothing/suit/storage/toggle/armor/vest/idris
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
-	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet")
+	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet", "Security Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/idris/New()
@@ -139,6 +139,9 @@
 	goldendeep["golden deep suit"] = /obj/item/clothing/under/goldendeep/suit
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
 	gear_tweaks += new /datum/gear_tweak/path(goldendeep)
+
+/datum/gear/augment/machine
+	abstract_type = /datum/gear/augment/machine
 
 /datum/gear/augment/machine/gustatorial
 	display_name = "gustatorial centre (tongue)"

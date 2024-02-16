@@ -89,8 +89,8 @@
 
 	..(user)
 
-/obj/item/clothing/accessory/holster/attackby(obj/item/W, mob/user)
-	holster(W, user)
+/obj/item/clothing/accessory/holster/attackby(obj/item/attacking_item, mob/user)
+	holster(attacking_item, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)
 	. = ..()
@@ -98,12 +98,12 @@
 	if (holstered)
 		holstered.emp_act(severity)
 
-/obj/item/clothing/accessory/holster/examine(mob/user)
+/obj/item/clothing/accessory/holster/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (holstered)
-		to_chat(user, "A [holstered] is holstered here.")
+		. += "A [holstered] is holstered here."
 	else
-		to_chat(user, "It is empty.")
+		. += "It is empty."
 
 /obj/item/clothing/accessory/holster/on_attached(obj/item/clothing/under/S, mob/user)
 	..()

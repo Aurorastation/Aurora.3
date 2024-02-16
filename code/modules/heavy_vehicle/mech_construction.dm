@@ -160,7 +160,7 @@
 
 	return 1
 
-/mob/living/heavy_vehicle/proc/remove_system(var/system_hardpoint, var/mob/user, var/force)
+/mob/living/heavy_vehicle/proc/remove_system_interact(var/system_hardpoint, var/mob/user, var/force)
 	if((hardpoints_locked && !force) || !hardpoints[system_hardpoint])
 		return 0
 
@@ -172,6 +172,19 @@
 			if(!do_after(user, delay, src) || hardpoints[system_hardpoint] != system)
 				return FALSE
 
+	remove_system(system_hardpoint, force)
+
+	if(user)
+		system.forceMove(get_turf(user))
+		user.put_in_hands(system)
+		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
+		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+
+/mob/living/heavy_vehicle/proc/remove_system(var/system_hardpoint, var/force)
+	if((hardpoints_locked && !force) || !hardpoints[system_hardpoint])
+		return 0
+
+	var/obj/item/system = hardpoints[system_hardpoint]
 	hardpoints[system_hardpoint] = null
 
 	if(system_hardpoint == selected_hardpoint)
@@ -196,11 +209,5 @@
 	hud_elements -= system
 	refresh_hud()
 	queue_icon_update()
-
-	if(user)
-		system.forceMove(get_turf(user))
-		user.put_in_hands(system)
-		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
-		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	return system

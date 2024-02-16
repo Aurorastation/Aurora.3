@@ -421,21 +421,80 @@
 /client/proc/cmd_display_del_log()
 	set category = "Debug"
 	set name = "Display del() Log"
-	set desc = "Displays a list of things that have failed to GC this round"
+	set desc = "Display del's log of everything that's passed through it."
 
-	var/dat = "<B>List of things that failed to GC this round</B><BR><BR>"
-	for(var/path in SSgarbage.didntgc)
-		dat += "[path] - [SSgarbage.didntgc[path]] times<BR>"
+	var/list/dellog = list("<B>List of things that have gone through qdel this round</B><BR><BR><ol>")
+	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	for(var/path in SSgarbage.items)
+		var/datum/qdel_item/I = SSgarbage.items[path]
+		dellog += "<li><u>[path]</u><ul>"
+		if (I.qdel_flags & QDEL_ITEM_SUSPENDED_FOR_LAG)
+			dellog += "<li>SUSPENDED FOR LAG</li>"
+		if (I.failures)
+			dellog += "<li>Failures: [I.failures]</li>"
+		dellog += "<li>qdel() Count: [I.qdels]</li>"
+		dellog += "<li>Destroy() Cost: [I.destroy_time]ms</li>"
+		if (I.hard_deletes)
+			dellog += "<li>Total Hard Deletes [I.hard_deletes]</li>"
+			dellog += "<li>Time Spent Hard Deleting: [I.hard_delete_time]ms</li>"
+			dellog += "<li>Highest Time Spent Hard Deleting: [I.hard_delete_max]ms</li>"
+			if (I.hard_deletes_over_threshold)
+				dellog += "<li>Hard Deletes Over Threshold: [I.hard_deletes_over_threshold]</li>"
+		if (I.slept_destroy)
+			dellog += "<li>Sleeps: [I.slept_destroy]</li>"
+		if (I.no_respect_force)
+			dellog += "<li>Ignored force: [I.no_respect_force]</li>"
+		if (I.no_hint)
+			dellog += "<li>No hint: [I.no_hint]</li>"
+		if(LAZYLEN(I.extra_details))
+			var/details = I.extra_details.Join("</li><li>")
+			dellog += "<li>Extra Info: <ul><li>[details]</li></ul>"
+		dellog += "</ul></li>"
 
-	dat += "<B>List of paths that did not return a qdel hint in Destroy()</B><BR><BR>"
-	for(var/path in SSgarbage.noqdelhint)
-		dat += "[path]<BR>"
+	dellog += "</ol>"
 
-	dat += "<B>List of paths that slept in Destroy()</B><BR><BR>"
-	for(var/path in SSgarbage.sleptDestroy)
-		dat += "[path]<BR>"
+	usr << browse(dellog.Join(), "window=dellog")
 
-	usr << browse(dat, "window=dellog")
+/**
+ * Same as `cmd_display_del_log`, but only shows harddels
+ */
+/client/proc/cmd_display_harddel_log()
+	set category = "Debug"
+	set name = "Display harddel() Log"
+	set desc = "Display harddel's log."
+
+	var/list/dellog = list("<B>List of things that have harddel'd this round</B><BR><BR><ol>")
+	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	for(var/path in SSgarbage.items)
+		var/datum/qdel_item/I = SSgarbage.items[path]
+		if(I.hard_deletes)
+			dellog += "<li><u>[path]</u><ul>"
+			if (I.qdel_flags & QDEL_ITEM_SUSPENDED_FOR_LAG)
+				dellog += "<li>SUSPENDED FOR LAG</li>"
+			if (I.failures)
+				dellog += "<li>Failures: [I.failures]</li>"
+			dellog += "<li>qdel() Count: [I.qdels]</li>"
+			dellog += "<li>Destroy() Cost: [I.destroy_time]ms</li>"
+			if (I.hard_deletes)
+				dellog += "<li>Total Hard Deletes [I.hard_deletes]</li>"
+				dellog += "<li>Time Spent Hard Deleting: [I.hard_delete_time]ms</li>"
+				dellog += "<li>Highest Time Spent Hard Deleting: [I.hard_delete_max]ms</li>"
+				if (I.hard_deletes_over_threshold)
+					dellog += "<li>Hard Deletes Over Threshold: [I.hard_deletes_over_threshold]</li>"
+			if (I.slept_destroy)
+				dellog += "<li>Sleeps: [I.slept_destroy]</li>"
+			if (I.no_respect_force)
+				dellog += "<li>Ignored force: [I.no_respect_force]</li>"
+			if (I.no_hint)
+				dellog += "<li>No hint: [I.no_hint]</li>"
+			if(LAZYLEN(I.extra_details))
+				var/details = I.extra_details.Join("</li><li>")
+				dellog += "<li>Extra Info: <ul><li>[details]</li></ul>"
+			dellog += "</ul></li>"
+
+	dellog += "</ol>"
+
+	usr << browse(dellog.Join(), "window=harddellog")
 
 /client/proc/cmd_display_init_log()
 	set category = "Debug"

@@ -45,13 +45,13 @@
 	else
 		..(over_object)
 
-/obj/item/clothing/suit/armor/attackby(obj/item/W, mob/user)
+/obj/item/clothing/suit/armor/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(W, /obj/item/clothing/accessory/armor_plate))
-		if(W in accessories) //We already attached this. Don't try to put it in our pockets
+	if(istype(attacking_item, /obj/item/clothing/accessory/armor_plate))
+		if(attacking_item in accessories) //We already attached this. Don't try to put it in our pockets
 			return
 	if(pockets)
-		pockets.attackby(W, user)
+		pockets.attackby(attacking_item, user)
 
 /obj/item/clothing/suit/armor/emp_act(severity)
 	. = ..()
@@ -217,9 +217,9 @@
 	QDEL_NULL(pockets)	//Tactical armor has internal holster instead of pockets, so we null this out
 	cut_overlays()	// Remove the holster's overlay.
 
-/obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/armor/tactical/attackby(obj/item/attacking_item, mob/user)
 	..()
-	holster.attackby(W, user)
+	holster.attackby(attacking_item, user)
 
 /obj/item/clothing/suit/armor/tactical/attack_hand(mob/user as mob)
 	if (loc == user)//If we're wearing the suit and we click it with an empty hand

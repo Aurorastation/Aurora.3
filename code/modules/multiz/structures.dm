@@ -55,12 +55,12 @@
 		target_up = null
 	return ..()
 
-/obj/structure/ladder/attackby(obj/item/C, mob/user)
+/obj/structure/ladder/attackby(obj/item/attacking_item, mob/user)
 	if(LAZYLEN(destroy_tools))
-		if(is_type_in_list(C, destroy_tools))
-			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [C]!", SPAN_NOTICE("You start breaking down \the [src] with \the [C]."))
+		if(is_type_in_list(attacking_item, destroy_tools))
+			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [attacking_item]!", SPAN_NOTICE("You start breaking down \the [src] with \the [attacking_item]."))
 			if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
-				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [C]!", SPAN_NOTICE("You break down \the [src] with \the [C]."))
+				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [attacking_item]!", SPAN_NOTICE("You break down \the [src] with \the [attacking_item]."))
 				qdel(src)
 			return
 	attack_hand(user)
@@ -371,12 +371,12 @@
 /obj/structure/platform
 	name = "platform"
 	desc = "An archaic method of preventing travel along the X and Y axes if you are on a lower point on the Z-axis."
-	density = TRUE
-	anchored = TRUE
-	atom_flags = ATOM_FLAG_CHECKS_BORDER
-	climbable = TRUE
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform"
+	density = TRUE
+	anchored = TRUE
+	atom_flags = ATOM_FLAG_CHECKS_BORDER|ATOM_FLAG_ALWAYS_ALLOW_PICKUP
+	climbable = TRUE
 	color = COLOR_TILED
 
 /obj/structure/platform/dark

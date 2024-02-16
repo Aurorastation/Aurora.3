@@ -25,6 +25,8 @@
 	var/mob/living/silicon/pai/pai = new(card)
 	pai.key = pai_key
 	card.setPersonality(pai)
+	if(pai.mind)
+		pai.mind.current.client.init_verbs()
 
 	if(name)
 		pai.SetName(name)

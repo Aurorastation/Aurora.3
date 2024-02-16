@@ -92,7 +92,8 @@
 
 /obj/effect/landmark/Destroy()
 	GLOB.landmarks_list -= src
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/effect/landmark/start
 	name = "start"
@@ -261,7 +262,7 @@ var/list/ruin_landmarks = list()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/entry_point/LateInitialize()
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		SSshuttle.entry_points_to_initialize += src
 	name += " [x], [y]"
 

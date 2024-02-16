@@ -156,7 +156,7 @@
 /obj/item/computer_hardware/hard_drive/Destroy()
 	if(parent_computer?.hard_drive == src)
 		parent_computer.hard_drive = null
-	QDEL_NULL_LIST(stored_files)
+	QDEL_LIST(stored_files)
 	return ..()
 
 /obj/item/computer_hardware/hard_drive/Initialize(mapload)
@@ -175,8 +175,8 @@
 		remove_file(F)
 	install_default_programs()
 
-/obj/item/computer_hardware/hard_drive/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/card/tech_support))
+/obj/item/computer_hardware/hard_drive/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/tech_support))
 		reset_drive()
 		to_chat(user, SPAN_NOTICE("Drive successfully reset."))
 	else

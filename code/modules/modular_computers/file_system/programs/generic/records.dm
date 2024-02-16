@@ -31,6 +31,16 @@
 		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
 	)
 
+/datum/computer_file/program/records/New()
+	. = ..()
+	listener = new(src)
+
+/datum/computer_file/program/records/Destroy()
+	active = null
+	QDEL_NULL(listener)
+	active_virus = null
+	. = ..()
+
 /datum/computer_file/program/records/medical
 	filename = "medrec"
 	filedesc = "Medical Records"
@@ -82,21 +92,15 @@
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 
+/datum/computer_file/program/records/employment/Destroy()
+	. = ..()
+
+
 /datum/computer_file/program/records/pai
 	available_on_ntnet = 1
 	extended_desc = "This program is used to view crew records."
 	usage_flags = PROGRAM_SILICON_PAI
 	edit_type = 0
-
-/datum/computer_file/program/records/New()
-	. = ..()
-	listener = new(src)
-
-/datum/computer_file/program/records/Destroy()
-	active = null
-	QDEL_NULL(listener)
-	active_virus = null
-	. = ..()
 
 /datum/computer_file/program/records/ui_data(mob/user)
 	var/list/data = list(

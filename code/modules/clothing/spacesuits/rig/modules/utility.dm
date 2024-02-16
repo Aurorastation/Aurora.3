@@ -30,6 +30,13 @@
 	var/device_type
 	var/obj/item/device
 
+/obj/item/rig_module/device/Destroy()
+	if(!ispath(src.device))
+		QDEL_NULL(src.device)
+	src.device = null
+
+	. = ..()
+
 /obj/item/rig_module/device/healthscanner
 	name = "health scanner module"
 	desc = "A hardsuit-mounted health scanner."
@@ -383,10 +390,16 @@
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/voice/New()
-	..()
+/obj/item/rig_module/voice/Initialize(mapload, ...)
+	. = ..()
+
 	voice_holder = new(src)
 	voice_holder.active = 0
+
+/obj/item/rig_module/voice/Destroy()
+	QDEL_NULL(voice_holder)
+
+	. = ..()
 
 /obj/item/rig_module/voice/installed()
 	..()
@@ -552,11 +565,18 @@
 
 	category = MODULE_GENERAL
 
-/obj/item/rig_module/device/stamp/New()
-	..()
+/obj/item/rig_module/device/stamp/Initialize()
+	. = ..()
+
 	iastamp = new /obj/item/stamp/internalaffairs(src)
 	deniedstamp = new /obj/item/stamp/denied(src)
 	device = iastamp
+
+/obj/item/rig_module/device/stamp/Destroy()
+	QDEL_NULL(iastamp)
+	QDEL_NULL(deniedstamp)
+
+	. = ..()
 
 /obj/item/rig_module/device/stamp/engage(atom/target, mob/user)
 	if(!..() || !device)
@@ -670,7 +690,7 @@
 			if (combatType && ismob(aa))
 				continue
 
-			if (aa.density && NOT_FLAG(aa.atom_flags, ATOM_FLAG_CHECKS_BORDER))
+			if (aa.density && !(aa.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 				to_chat(user, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
 				return FALSE
 

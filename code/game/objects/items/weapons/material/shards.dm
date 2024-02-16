@@ -20,6 +20,10 @@
 	drop_sound = 'sound/effects/glass_step.ogg'
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
+/obj/item/material/shard/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)
 	if(!istype(material))
@@ -50,9 +54,9 @@
 		color = "#ffffff"
 		alpha = 255
 
-/obj/item/material/shard/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswelder() && material.shard_can_repair)
-		var/obj/item/weldingtool/WT = W
+/obj/item/material/shard/attackby(obj/item/attacking_item, mob/user as mob)
+	if(attacking_item.iswelder() && material.shard_can_repair)
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			material.place_sheet(user.loc)
 			qdel(src)

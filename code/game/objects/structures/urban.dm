@@ -80,11 +80,6 @@
 /obj/structure/street_sign/street/left
 	dir = EAST
 
-/obj/structure/street_sign/interstate
-	name = "\improper interstate sign"
-	desc = "A interstate sign. You can get your very rough bearings on where you are from these, allegedly."
-	icon_state = "interstate"
-
 /obj/structure/ms13/street_sign/turning
 	desc = "A stop sign. Looks like you've passed the point of no return."
 	icon_state = "noturn"
@@ -186,8 +181,8 @@
 	anchored = TRUE
 	var/open = 0
 
-/obj/structure/manhole/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iscrowbar())
+/obj/structure/manhole/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
@@ -213,6 +208,14 @@
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "hydrant"
 	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
+
+/obj/structure/urban_grate
+	name = "water drain grate"
+	desc = "A grate which funnels water into underground passageways."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "grate"
+	layer = 2.01
 	anchored = TRUE
 
 /obj/structure/parking_meter
@@ -445,6 +448,27 @@
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
 	icon_state = "buddha"
 
+/obj/structure/sign/billboard
+	name = "commercial billboard"
+	desc = "A large and typically roadside billboard rented out for advertisement space."
+	icon = 'icons/obj/structure/urban/billboard.dmi'
+	icon_state = "board-l"
+	density = TRUE
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/sign/billboard/advert
+	name = "billboard advertisement"
+	desc = null
+	icon_state = "sign"
+	density = TRUE
+	layer = 4.6
+
+/obj/structure/sign/billboard/advert/random/Initialize(mapload)
+	. = ..()
+	cut_overlays()
+	icon_state = "sign[rand(1, 14)]"
+	return
+
 /obj/structure/restaurant_menu
 	name = "restaurant menu"
 	desc = "A sign displaying a variety of delectable meals."
@@ -462,10 +486,10 @@
 		menu_text = pencode2html(new_text)
 		update_icon()
 
-/obj/structure/restaurant_menu/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper))
-		var/obj/item/paper/P = I
-		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+/obj/structure/restaurant_menu/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/P = attacking_item
+		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		icon_state = "menu_active"
@@ -624,11 +648,11 @@
 				flick("[base_icon]c1", src)
 	return
 
-/obj/machinery/door/urban/attackby(obj/item/I, mob/user)
+/obj/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(I, /obj/item/key/door_key))
+	if(istype(attacking_item, /obj/item/key/door_key))
 
-		if(check_access(I))
+		if(check_access(attacking_item))
 			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
 
 				//Only say that it's unlocked if there actually was an access list that did the locking
@@ -718,7 +742,7 @@
  *
  * * accesses - A list with accesses that the key has, or null if defined in either the map, public access door or other means
  */
-/obj/item/key/door_key/Initialize(var/list/accesses = null)
+/obj/item/key/door_key/Initialize(var/mapload, var/list/accesses)
 	SHOULD_CALL_PARENT(TRUE)
 
 	. = ..()

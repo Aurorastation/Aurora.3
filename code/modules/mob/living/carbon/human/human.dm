@@ -104,7 +104,7 @@
 /mob/living/carbon/human/Destroy()
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
-	QDEL_NULL_LIST(organs)
+	QDEL_LIST(organs)
 	internal_organs_by_name = null
 	internal_organs = null
 	organs_by_name = null
@@ -130,7 +130,8 @@
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
@@ -418,7 +419,7 @@
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name()
 	var/obj/item/organ/external/head = get_organ(BP_HEAD)
-	if(!head || head.disfigured || head.is_stump() || !real_name || HAS_FLAG(mutations, HUSK))	//disfigured. use id-name if possible
+	if(!head || head.disfigured || head.is_stump() || !real_name || (mutations & HUSK))	//disfigured. use id-name if possible
 		return "Unknown"
 	return real_name
 
@@ -1024,7 +1025,7 @@
 		remoteview_target = null
 		return
 
-	if(NOT_FLAG(mutations, mMorph))
+	if(!(mutations & mMorph))
 		remove_verb(src, /mob/living/carbon/human/proc/morph)
 		return
 
@@ -1105,7 +1106,7 @@
 		remoteview_target = null
 		return
 
-	if(NOT_FLAG(mutations, mRemotetalk))
+	if(!(mutations & mRemotetalk))
 		remove_verb(src, /mob/living/carbon/human/proc/remotesay)
 		return
 	var/list/creatures = list()
@@ -1119,7 +1120,7 @@
 		return
 
 	var/say = sanitize(input("What do you wish to say"))
-	if(HAS_FLAG(target.mutations, mRemotetalk))
+	if((target.mutations & mRemotetalk))
 		target.show_message(SPAN_NOTICE("You hear [src.real_name]'s voice: [say]"))
 	else
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
@@ -1137,7 +1138,7 @@
 		reset_view(0)
 		return
 
-	if(NOT_FLAG(mutations, mRemote))
+	if(!(mutations & mRemote))
 		remoteview_target = null
 		reset_view(0)
 		remove_verb(src, /mob/living/carbon/human/proc/remoteobserve)
@@ -1499,7 +1500,7 @@
 
 	species.set_default_tail(src)
 
-	if(species.psi_deaf || HAS_FLAG(species.flags, IS_MECHANICAL) || HAS_FLAG(species.flags, NO_SCAN))
+	if(species.psi_deaf || (species.flags & IS_MECHANICAL) || (species.flags & NO_SCAN))
 		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
 	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
@@ -1874,7 +1875,7 @@
 	return ..() * (species ? species.metabolism_mod : 1)
 
 /mob/living/carbon/human/is_clumsy()
-	if(HAS_FLAG(mutations, CLUMSY))
+	if((mutations & CLUMSY))
 		return TRUE
 	if(CE_CLUMSY in chem_effects)
 		return TRUE
@@ -1933,7 +1934,7 @@
 		victim.forceMove(stomach)
 
 /mob/living/carbon/human/need_breathe()
-	if(NOT_FLAG(mutations, mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
+	if(!(mutations & mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
 		return TRUE
 	return FALSE
 

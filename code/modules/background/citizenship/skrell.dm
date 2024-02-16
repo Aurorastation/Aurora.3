@@ -37,9 +37,9 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
-				rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Federation employees, to be used as leverage in future hive labor negotiations",
+				rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Federation employees, to be used as leverage in future hive labor negotiations",
 								"Acquire information on dissidents towards the Federation, forwarding it to the embassy",
-								"Convince the command of the [current_map.boss_name] of the advantages that Bound Vaurcae hold over synthetics.")
+								"Convince the command of the [SSatlas.current_map.boss_name] of the advantages that Bound Vaurcae hold over synthetics.")
 			else
 				rep_objectives = pick("Some Skrell are not part of the Federation; attempt to convince them to become a citizen",
 								"Acquire information on dissidents towards the Federation, forwarding it to the embassy",
@@ -48,12 +48,12 @@
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
 				rep_objectives = pick("Legally curtail the advancements and liberal thinking towards synthetics.",
-								"Remind C'thur Vaurcae aboard the [current_map.station_name] that they are representative of their hive-cell, and encourage them to increase their social credit",
+								"Remind C'thur Vaurcae aboard the [SSatlas.current_map.station_name] that they are representative of their hive-cell, and encourage them to increase their social credit",
 								"Ensure the interests of Federation citizens are upheld by the vessel - whether Skrell, C'thur or Diona.")
 			else
 				rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the vessel. This includes C'thur and Diona of Federation origin",
 								"Legally curtail the advancements and liberal thinking towards synthetics.",
-								"The [current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory",
+								"The [SSatlas.current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory",
 								"Encourage Federation citizens with low social credit to work to increase their score.")
 		else
 			if(isvaurca(H))
@@ -63,7 +63,7 @@
 			else
 				rep_objectives = pick("Consider assisting crew within the capacity of your role, an altruistic image is good PR towards the Federation",
 								"Some Skrell are not part of the Federation; attempt to convince them to become a citizen.",
-								"Promote Nralakk tourism among the non-citizen employees of the [current_map.boss_name] in order to build positive opinion.")
+								"Promote Nralakk tourism among the non-citizen employees of the [SSatlas.current_map.boss_name] in order to build positive opinion.")
 
 	return rep_objectives
 

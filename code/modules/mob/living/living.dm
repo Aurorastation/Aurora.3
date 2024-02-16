@@ -121,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
-				if(prob(40) && NOT_FLAG(mutations, FAT))
+			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+				if(prob(40) && !(mutations & FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -248,9 +248,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(HAS_FLAG(mutations, mShock)) //shockproof
+	if((mutations & mShock)) //shockproof
 		return FALSE
-	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
+	if((mutations & COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()
@@ -1042,29 +1042,6 @@ default behaviour is:
 	set hidden = 1
 	set name = "throw_intent_toggle"
 	toggle_throw_mode()
-
-/**
- * User by a macro in skin.dmf to toggle the running
- */
-/mob/living/verb/run_intent_keyDown()
-	set hidden = 1
-	set name = "run_intent"
-
-	if(usr?.m_intent != M_WALK)
-		return
-
-	if(hud_used?.move_intent)
-		hud_used.move_intent.Click()
-
-/mob/living/verb/run_intent_keyUp()
-	set hidden = 1
-	set name = "run_intent_up"
-
-	if(usr?.m_intent != M_RUN)
-		return
-
-	if(hud_used?.move_intent)
-		hud_used.move_intent.Click()
 
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount

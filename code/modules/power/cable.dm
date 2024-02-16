@@ -123,19 +123,19 @@ By design, d1 is the smallest direction and d2 is the highest
 //   - Cable coil : merge cables
 //   - Multitool : get the power currently passing through the cable
 //
-/obj/structure/cable/attackby(obj/item/W, mob/user)
+/obj/structure/cable/attackby(obj/item/attacking_item, mob/user)
 
 	var/turf/T = src.loc
 	if(!T.can_have_cabling())
 		return
 
-	if(W.iswirecutter() || (W.sharp || W.edge))
+	if(attacking_item.iswirecutter() || (attacking_item.sharp || attacking_item.edge))
 
-		if(!W.iswirecutter())
+		if(!attacking_item.iswirecutter())
 			if(user.a_intent != I_HELP)
 				return
 
-			if(W.obj_flags & OBJ_FLAG_CONDUCTABLE)
+			if(attacking_item.obj_flags & OBJ_FLAG_CONDUCTABLE)
 				shock(user, 50, 0.7)
 
 		if(d1 == 12 || d2 == 12)
@@ -171,14 +171,14 @@ By design, d1 is the smallest direction and d2 is the highest
 		return
 
 
-	else if(W.iscoil())
-		var/obj/item/stack/cable_coil/coil = W
+	else if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable.")
 			return
 		coil.cable_join(src, user)
 
-	else if(W.ismultitool())
+	else if(attacking_item.ismultitool())
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, SPAN_WARNING("[powernet.avail]W in power network."))
@@ -629,8 +629,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 	check_maptext(SMALL_FONTS(7, get_amount()))
 
-/obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
-	if(W.ismultitool())
+/obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		choose_cable_color(user)
 	return ..()
 
@@ -657,12 +657,12 @@ By design, d1 is the smallest direction and d2 is the highest
 		w_class = ITEMSIZE_SMALL
 		slot_flags = SLOT_BELT
 
-/obj/item/stack/cable_coil/examine(mob/user)
+/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!uses_charge)
-		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
+		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
 	else
-		to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
+		. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
@@ -1041,14 +1041,14 @@ By design, d1 is the smallest direction and d2 is the highest
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/structure/noose/attackby(obj/item/I, mob/user, params)
-	if(I.iswirecutter())
+/obj/structure/noose/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.iswirecutter())
 		user.visible_message("<b>[user]</b> cuts \the [src].", SPAN_NOTICE("You cut \the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(istype(buckled, /mob/living))
 			var/mob/living/M = buckled
-			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),\
-										SPAN_DANGER("You fall over and hit the ground!"))
+			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),
+								SPAN_DANGER("You fall over and hit the ground!"))
 			M.adjustBruteLoss(10)
 		new /obj/item/stack/cable_coil(get_turf(src), 25, color)
 		qdel(src)

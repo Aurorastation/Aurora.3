@@ -14,18 +14,11 @@
 	anchored = TRUE
 
 /obj/structure/console
-	name = "\improper Game-Station"
-	desc = "Unfortunately, it just doesn't have any games."
+	name = "\improper Game-Box"
+	desc = "A generic video-games console."
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "games_console"
 	anchored = TRUE
-
-/obj/structure/console/Initialize(mapload)
-	. = ..()
-	if(prob(50))
-		name = "\improper X-Cuboid"
-		desc = "Hopefully it doesn't fall victim to the infamous red light of death."
-		icon_state = "games_console1"
 
 /obj/structure/pylon
 	name = "charging pylon"

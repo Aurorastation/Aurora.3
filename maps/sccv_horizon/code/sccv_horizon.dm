@@ -60,7 +60,8 @@
 		NETWORK_FIRST_DECK,
 		NETWORK_SECOND_DECK,
 		NETWORK_THIRD_DECK,
-		NETWORK_INTREPID
+		NETWORK_INTREPID,
+		NETWORK_NEWS
 	)
 
 	shuttle_docked_message = "Attention all hands: the shift change preparations are over. It will start in approximately %ETA%."

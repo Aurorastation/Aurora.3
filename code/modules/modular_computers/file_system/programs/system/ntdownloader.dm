@@ -106,6 +106,7 @@
 		return TRUE
 
 	if(!PRG.is_supported_by_hardware(computer.hardware_flag))
+		to_chat(user, SPAN_WARNING("Hardware Error - Incompatible software."))
 		return FALSE
 
 	if(PRG.available_on_ntnet)

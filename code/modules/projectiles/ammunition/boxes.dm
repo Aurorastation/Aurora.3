@@ -301,6 +301,16 @@
 /obj/item/ammo_magazine/submachinemag/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/submachinemag/assassin
+	name = "magazine (6mm)"
+	icon_state = "tommy-mag"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c6mm
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
+	caliber = "6mm"
+	insert_sound = /singleton/sound_category/polymer_slide_reload
+	max_ammo = 30
+
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
@@ -405,7 +415,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a556/dlmg
-	name = "MPR-24/5 light machine gun magazine"
+	name = "MPR-24/5 light machine gun magazine (5.56mm)"
 	max_ammo = 50
 	icon = 'icons/obj/guns/dominia_lmg.dmi'
 	icon_state = "dom_lmg_mag"

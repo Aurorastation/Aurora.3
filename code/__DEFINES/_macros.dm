@@ -2,9 +2,6 @@
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 #define JOINTEXT(X) jointext(X, null)
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
-#define hex2num(hex) text2num(hex, 16)
-#define num2hex(num, pad) num2text(num, pad, 16)
-#define text_ref(datum) (isdatum(datum) ? (datum:cached_ref ||= "\ref[datum]") : ("\ref[datum]"))
 
 #define span(class, text) ("<span class='[class]'>" + text + "</span>")
 #define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
@@ -32,6 +29,9 @@
 #define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
 
 #define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+
+/// Adds a generic box around whatever message you're sending in chat. Really makes things stand out.
+#define EXAMINE_BLOCK(str) ("<div class='examine_block'>" + str + "</div>")
 
 #define FONT_SIZE_SMALL "10px"
 #define FONT_SIZE_NORMAL "13px"

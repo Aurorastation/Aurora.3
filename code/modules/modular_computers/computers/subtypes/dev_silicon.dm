@@ -19,11 +19,16 @@
 	. = computer_host
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
+	. = ..()
 	if(istype(loc, /mob/living/silicon))
 		computer_host = loc
 	else
 		return INITIALIZE_HINT_QDEL
+
+/obj/item/modular_computer/silicon/Destroy()
+	computer_host = null
 	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle there power
@@ -37,10 +42,6 @@
 	else
 		// If we don't have host, then we let regular computer code handle power - like batteries and tesla coils.
 		return ..()
-
-/obj/item/modular_computer/silicon/Destroy()
-	computer_host = null
-	return ..()
 
 /obj/item/modular_computer/silicon/Click(location, control, params)
 	return attack_self(usr)

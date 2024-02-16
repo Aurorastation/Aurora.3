@@ -19,6 +19,7 @@
 /datum/outfit/admin/tcaf_crewman
 	name = "TCAF Crewman"
 	uniform = /obj/item/clothing/under/legion/tcaf
+	gloves = /obj/item/clothing/gloves/tcaf
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/tcaf
 	id = /obj/item/card/id

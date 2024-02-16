@@ -9,8 +9,6 @@
 	for(var/obj/item/organ/external/E in src.organs)
 		E.droplimb(0,DROPLIMB_EDGE,1)
 
-	sleep(1)
-
 	for(var/obj/item/I in src)
 		drop_from_inventory(I)
 		I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)), rand(1,3), round(30/I.w_class))
@@ -83,7 +81,7 @@
 	updatehealth()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HAS_FLAG(mutations, HUSK))
+	if((mutations & HUSK))
 		return
 
 	if(f_style)
@@ -108,7 +106,7 @@
 	return
 
 /mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
-	if(HAS_FLAG(mutations, SKELETON))
+	if((mutations & SKELETON))
 		return
 
 	if(f_style)

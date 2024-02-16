@@ -57,6 +57,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	"log_subsystems" = TRUE,	// General Subsystems
 	"log_subsystems_chemistry" = TRUE,	// SSChemistry
+	"log_subsystems_codex" = TRUE,	// SScodex
 	"log_subsystems_atlas" = TRUE,	// ATLAS
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
@@ -114,6 +115,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	"world_subsystems_log" = "subsystems/world_subsystems.log",
 	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
+	"world_subsystems_codex_log" = "subsystems/codex.log",
 	"world_subsystems_atlas_log" = "subsystems/atlas.log",
 	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
 	"world_subsystems_law_log" = "subsystems/law.log",

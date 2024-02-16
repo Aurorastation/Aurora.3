@@ -33,9 +33,9 @@
 	src.content = content
 
 /// TRUE if the bucket is operating in fixed TTL mode
-#define STB_IS_FIXEDTTL_MODE (HAS_FLAG(src.mode, STB_MODE_FIXEDTTL))
+#define STB_IS_FIXEDTTL_MODE ((src.mode & STB_MODE_FIXEDTTL))
 /// TRUE if the bucket is a leaky bucket
-#define STB_IS_LEAKYBUCKET (HAS_FLAG(src.flags, STB_FLAG_LEAKYBUCKET))
+#define STB_IS_LEAKYBUCKET (src.flags & STB_FLAG_LEAKYBUCKET)
 
 /**
  * # Smart Token Bucket
