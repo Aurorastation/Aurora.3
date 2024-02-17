@@ -1855,10 +1855,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "IQ" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square/wide{
-	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
-	radio_frequency = 2001
-	},
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
@@ -11605,10 +11601,10 @@ aa
 aa
 aa
 aa
+ac
 ae
 ae
-ae
-ae
+ac
 Ft
 fH
 at
