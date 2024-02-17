@@ -982,6 +982,12 @@
 /obj/structure/grille/over/large,
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
+"wH" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
 "wL" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -2114,6 +2120,10 @@
 /obj/machinery/power/breakerbox,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"XA" = (
+/obj/structure/lattice,
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Yi" = (
 /obj/machinery/atmospherics/binary/pump/on,
 /obj/machinery/light/small{
@@ -2141,9 +2151,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"Zl" = (
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "Zv" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4738,7 +4745,7 @@ nA
 nA
 nA
 nA
-Zl
+nA
 nA
 nA
 nA
@@ -13220,13 +13227,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -13477,13 +13484,13 @@ pM
 pM
 pM
 pM
-pM
-pM
-pM
-pM
-pM
-pM
-pM
+XA
+XA
+XA
+XA
+XA
+XA
+XA
 pM
 pM
 pM
@@ -13734,13 +13741,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -13991,13 +13998,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -14248,13 +14255,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -14505,13 +14512,13 @@ nA
 nA
 nA
 nA
-nA
-Pu
-nA
-nA
-nA
-nA
-nA
+Bc
+wH
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
