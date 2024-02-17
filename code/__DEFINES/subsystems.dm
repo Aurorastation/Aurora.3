@@ -209,6 +209,7 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
+#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_AIR -1

@@ -4,7 +4,6 @@
 	THAT ARE PRESENT THERE
 */
 
-#define SS_INIT_MAPFINALIZE 20	// Asteroid generation.
 #define SS_INIT_CARGO       13	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PIPENET     12	// Initial pipenet build.
 #define SS_INIT_NIGHT       9	// Nightmode controller. Will trigger lighting updates.
