@@ -481,7 +481,7 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
 	..()
-	var/man_rating = 1
+	var/man_rating = 0
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))
 			man_rating += P.rating
