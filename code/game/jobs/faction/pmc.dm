@@ -26,21 +26,17 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			SPECIES_TAJARA,
-			SPECIES_TAJARA_MSAI,
-			SPECIES_TAJARA_ZHAN,
 			SPECIES_DIONA,
 			SPECIES_DIONA_COEUS,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR,
-			SPECIES_UNATHI
+			SPECIES_VAURCA_WARRIOR
 		)
 	)
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/pmc,
 		"Warden" = /datum/outfit/job/warden/pmc,
-		"Security Cadet" = /datum/outfit/job/intern_sec/pmc,
+		"Security Cadet" = /datum/outfit/job/intern_sec/officer/pmc,
 		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/pmc,
 		"Investigator" =/datum/outfit/job/forensics/pmc,
 		"Physician" = /datum/outfit/job/doctor/pmc,
@@ -82,7 +78,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
 	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
-/datum/outfit/job/intern_sec/pmc
+/datum/outfit/job/intern_sec/officer/pmc
 	name = "Security Cadet - PMC"
 
 	uniform = /obj/item/clothing/under/rank/cadet/pmc

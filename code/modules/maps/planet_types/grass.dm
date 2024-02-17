@@ -29,6 +29,27 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass/get_surface_color()
 	return grass_color
 
+/obj/effect/overmap/visitable/sector/exoplanet/grass/generate_ground_survey_result()
+	..()
+	if(prob(40))
+		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+	if(prob(40))
+		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	if(prob(40))
+		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+	if(prob(40))
+		ground_survey_result += "<br>Muddy dirt rich in organic material"
+	if(prob(40))
+		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+	if(prob(40))
+		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	if(prob(10))
+		ground_survey_result += "<br>Traces of fissile material"
+
 /obj/effect/overmap/visitable/sector/exoplanet/grass/adapt_seed(var/datum/seed/S)
 	..()
 	var/carnivore_prob = rand(100)

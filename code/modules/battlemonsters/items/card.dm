@@ -19,9 +19,9 @@
 	. = ..()
 	Generate_Card(prefix, root, title, trap, spell)
 
-/obj/item/battle_monsters/card/attackby(var/obj/item/attacking, var/mob/user)
-	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
-		var/obj/item/battle_monsters/card/adding_card = attacking
+/obj/item/battle_monsters/card/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/battle_monsters/card) && attacking_item != src)
+		var/obj/item/battle_monsters/card/adding_card = attacking_item
 		make_deck(user,adding_card)
 
 /obj/item/battle_monsters/card/resolve_attackby(atom/A, mob/user, var/click_parameters)
@@ -164,12 +164,11 @@
 
 	transform = M
 
-/obj/item/battle_monsters/card/examine(mob/user, distance, is_adjacent)
-
+/obj/item/battle_monsters/card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if(facedown && src.loc != user)
-		to_chat(user, SPAN_NOTICE("You can't examine \the [src] while it's face down!"))
+		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
 		return
 
 	if(trap_datum)

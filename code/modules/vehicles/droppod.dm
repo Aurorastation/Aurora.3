@@ -45,12 +45,12 @@
 /obj/vehicle/droppod/Move()
 	return
 
-/obj/vehicle/droppod/attackby(obj/item/I as obj, mob/user as mob)
-	if(I.iswelder() && status == USED && !humanload && !passenger)
-		var/obj/item/weldingtool/W = I
+/obj/vehicle/droppod/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder() && status == USED && !humanload && !passenger)
+		var/obj/item/weldingtool/W = attacking_item
 		if(W.welding)
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
-			if(I.use_tool(src, user, 200, volume = 50))
+			if(attacking_item.use_tool(src, user, 200, volume = 50))
 				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)

@@ -94,27 +94,27 @@ var/list/mineral_can_smooth_with = list(
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/simulated/mineral/examine(mob/user)
+/turf/simulated/mineral/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(mineral)
 		switch(mined_ore)
 			if(0)
-				to_chat(user, SPAN_INFO("It is ripe with [mineral.display_name]."))
+				. += SPAN_INFO("It is ripe with [mineral.display_name].")
 			if(1)
-				to_chat(user, SPAN_INFO("Its [mineral.display_name] looks a little depleted."))
+				. += SPAN_INFO("Its [mineral.display_name] looks a little depleted.")
 			if(2)
-				to_chat(user, SPAN_INFO("Its [mineral.display_name] looks very depleted!"))
+				. += SPAN_INFO("Its [mineral.display_name] looks very depleted!")
 	else
-		to_chat(user, SPAN_INFO("It is devoid of any valuable minerals."))
+		. += SPAN_INFO("It is devoid of any valuable minerals.")
 	switch(emitter_blasts_taken)
 		if(0)
-			to_chat(user, SPAN_INFO("It is in pristine condition."))
+			. += SPAN_INFO("It is in pristine condition.")
 		if(1)
-			to_chat(user, SPAN_INFO("It appears a little damaged."))
+			. += SPAN_INFO("It appears a little damaged.")
 		if(2)
-			to_chat(user, SPAN_INFO("It is crumbling!"))
+			. += SPAN_INFO("It is crumbling!")
 		if(3)
-			to_chat(user, SPAN_INFO("It looks ready to collapse at any moment!"))
+			. += SPAN_INFO("It looks ready to collapse at any moment!")
 
 /turf/simulated/mineral/ex_act(severity)
 	switch(severity)
@@ -230,23 +230,23 @@ var/list/mineral_can_smooth_with = list(
 	new /obj/effect/mineral(src, mineral)
 
 //Not even going to touch this pile of spaghetti //motherfucker - geeves
-/turf/simulated/mineral/attackby(obj/item/W, mob/user)
+/turf/simulated/mineral/attackby(obj/item/attacking_item, mob/user)
 	if(!user.IsAdvancedToolUser())
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
-	if(istype(W, /obj/item/device/core_sampler))
-		var/obj/item/device/core_sampler/C = W
+	if(istype(attacking_item, /obj/item/device/core_sampler))
+		var/obj/item/device/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 		return
 
-	if(istype(W, /obj/item/device/depth_scanner))
-		var/obj/item/device/depth_scanner/C = W
+	if(istype(attacking_item, /obj/item/device/depth_scanner))
+		var/obj/item/device/depth_scanner/C = attacking_item
 		C.scan_atom(user, src)
 		return
 
-	if(istype(W, /obj/item/device/measuring_tape))
-		var/obj/item/device/measuring_tape/P = W
+	if(istype(attacking_item, /obj/item/device/measuring_tape))
+		var/obj/item/device/measuring_tape/P = attacking_item
 		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , SPAN_NOTICE("You extend \the [P] towards \the [src]."))
 		if(do_after(user,25))
 			if(!istype(src, /turf/simulated/mineral))
@@ -254,11 +254,11 @@ var/list/mineral_can_smooth_with = list(
 			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] \The [src] has been excavated to a depth of [2 * excavation_level]cm."))
 		return
 
-	if(istype(W, /obj/item/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.
+	if(istype(attacking_item, /obj/item/pickaxe) && attacking_item.simulated)	// Pickaxe offhand is not simulated.
 		var/turf/T = user.loc
 		if(!(istype(T, /turf)))
 			return
-		var/obj/item/pickaxe/P = W
+		var/obj/item/pickaxe/P = attacking_item
 		if(last_act + P.digspeed > world.time)//prevents message spam
 			return
 		if(P.drilling)
@@ -275,7 +275,8 @@ var/list/mineral_can_smooth_with = list(
 			var/datum/find/F = finds[1]
 			if(excavation_level + P.excavation_amount > F.excavation_required)
 				//Chance to destroy / extract any finds here
-				fail_message = ". <b>[pick("There is a crunching noise","[W] collides with some different rock","Part of the rock face crumbles away","Something breaks under [W]")]</b>"
+				fail_message = ". <b>[pick("There is a crunching noise","[attacking_item] collides with some different rock","Part of the rock face crumbles away",\
+								"Something breaks under [attacking_item]")]</b>"
 
 		if(fail_message)
 			to_chat(user, SPAN_WARNING("You start [P.drill_verb][fail_message ? fail_message : ""]."))
@@ -345,14 +346,14 @@ var/list/mineral_can_smooth_with = list(
 			to_chat(user, SPAN_NOTICE("You stop [P.drill_verb] \the [src]."))
 			P.drilling = FALSE
 
-	if(istype(W, /obj/item/autochisel))
+	if(istype(attacking_item, /obj/item/autochisel))
 		if(last_act + 80 > world.time)//prevents message spam
 			return
 		last_act = world.time
 
 		to_chat(user, SPAN_NOTICE("You start chiselling \the [src] into a sculptable block."))
 
-		if(!W.use_tool(src, user, 80, volume = 50))
+		if(!attacking_item.use_tool(src, user, 80, volume = 50))
 			return
 
 		if(!istype(src, /turf/simulated/mineral))
@@ -701,25 +702,25 @@ var/list/asteroid_floor_smooth = list(
 /turf/unsimulated/floor/asteroid/is_plating()
 	return FALSE
 
-/turf/unsimulated/floor/asteroid/attackby(obj/item/W, mob/user)
-	if(!W || !user)
+/turf/unsimulated/floor/asteroid/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item || !user)
 		return FALSE
 
-	if(istype(W, /obj/item/stack/rods))
+	if(istype(attacking_item, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
 			return
-		var/obj/item/stack/rods/R = W
+		var/obj/item/stack/rods/R = attacking_item
 		if(R.use(1))
 			to_chat(user, SPAN_NOTICE("Constructing support lattice..."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
-	if(istype(W, /obj/item/stack/tile/floor))
+	if(istype(attacking_item, /obj/item/stack/tile/floor))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
-			var/obj/item/stack/tile/floor/S = W
+			var/obj/item/stack/tile/floor/S = attacking_item
 			if(S.get_amount() < 1)
 				return
 			qdel(L)
@@ -738,7 +739,7 @@ var/list/asteroid_floor_smooth = list(
 		/obj/item/pickaxe/borgdrill
 	))
 
-	if(is_type_in_typecache(W, usable_tools))
+	if(is_type_in_typecache(attacking_item, usable_tools))
 		var/turf/T = get_turf(user)
 		if(!istype(T))
 			return
@@ -750,7 +751,7 @@ var/list/asteroid_floor_smooth = list(
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 			digging = TRUE
-			if(!W.use_tool(src, user, 60, volume = 50))
+			if(!attacking_item.use_tool(src, user, 60, volume = 50))
 				if(istype(src, /turf/unsimulated/floor/asteroid))
 					digging = FALSE
 				return
@@ -814,22 +815,22 @@ var/list/asteroid_floor_smooth = list(
 
 		gets_dug(user)
 
-	else if(istype(W,/obj/item/storage/bag/ore))
-		var/obj/item/storage/bag/ore/S = W
+	else if(istype(attacking_item,/obj/item/storage/bag/ore))
+		var/obj/item/storage/bag/ore/S = attacking_item
 		if(S.collection_mode)
 			for(var/obj/item/ore/O in contents)
-				O.attackby(W, user)
+				O.attackby(attacking_item, user)
 				CHECK_TICK
 				return
-	else if(istype(W,/obj/item/storage/bag/fossils))
-		var/obj/item/storage/bag/fossils/S = W
+	else if(istype(attacking_item,/obj/item/storage/bag/fossils))
+		var/obj/item/storage/bag/fossils/S = attacking_item
 		if(S.collection_mode)
 			for(var/obj/item/fossil/F in contents)
-				F.attackby(W, user)
+				F.attackby(attacking_item, user)
 				CHECK_TICK
 				return
 	else
-		..(W, user)
+		..()
 	return
 
 /turf/unsimulated/floor/asteroid/proc/gets_dug(mob/user)

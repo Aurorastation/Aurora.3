@@ -100,6 +100,7 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nugget
+	result_quantity = 4
 
 /singleton/recipe/lasagna
 	appliance = OVEN

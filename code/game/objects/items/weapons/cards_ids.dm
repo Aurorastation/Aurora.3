@@ -282,9 +282,9 @@ var/const/NO_EMAG_ACT = -50
 				return 1
 	return ..()
 
-/obj/item/card/id/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/card/id))
-		var/obj/item/card/id/ID = W
+/obj/item/card/id/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		var/obj/item/card/id/ID = attacking_item
 		if(ID.can_copy_access)
 			ID.access |= src.access
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

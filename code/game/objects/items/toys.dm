@@ -62,20 +62,20 @@
 		src.update_icon()
 	return
 
-/obj/item/toy/waterballoon/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/glass))
-		if(O.reagents)
-			if(O.reagents.total_volume < 1)
-				to_chat(user, "The [O] is empty.")
-			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1))
+/obj/item/toy/waterballoon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(attacking_item.reagents)
+			if(attacking_item.reagents.total_volume < 1)
+				to_chat(user, "The [attacking_item] is empty.")
+			else if(attacking_item.reagents.total_volume >= 1)
+				if(attacking_item.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
-					O.reagents.splash(user, reagents.total_volume)
+					attacking_item.reagents.splash(user, reagents.total_volume)
 					qdel(src)
 				else
 					src.desc = "A translucent balloon with some form of liquid sloshing around in it."
-					to_chat(user, "<span class='notice'>You fill the balloon with the contents of [O].</span>")
-					O.reagents.trans_to_obj(src, 10)
+					to_chat(user, "<span class='notice'>You fill the balloon with the contents of [attacking_item].</span>")
+					attacking_item.reagents.trans_to_obj(src, 10)
 		src.update_icon()
 		return TRUE
 
@@ -174,8 +174,8 @@
 		burst()
 	return
 
-/obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.can_puncture())
+/obj/item/toy/balloon/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.can_puncture())
 		burst()
 		return TRUE
 
@@ -409,16 +409,16 @@
 	attack_verb = list("attacked", "struck", "hit")
 	var/dart_count = 5
 
-/obj/item/toy/crossbow/examine(mob/user, distance, is_adjacent)
+/obj/item/toy/crossbow/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2 && dart_count)
-		to_chat(user, "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>")
+		. += "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>"
 
-/obj/item/toy/crossbow/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/toy/ammo/crossbow))
+/obj/item/toy/crossbow/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/toy/ammo/crossbow))
 		if(dart_count <= 4)
-			user.drop_from_inventory(I, src)
-			qdel(I)
+			user.drop_from_inventory(attacking_item, src)
+			qdel(attacking_item)
 			dart_count++
 			to_chat(user, "<span class='notice'>You load the foam dart into \the [src].</span>")
 		else

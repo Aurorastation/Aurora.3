@@ -176,17 +176,19 @@ LINEN BINS
 	inuse = FALSE
 	return FALSE
 
-/obj/item/bedsheet/attackby(obj/item/I, mob/user)
-	if(I.isscrewdriver())
-		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."), SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
-		if(I.use_tool(src, user, 50, volume = 50))
+/obj/item/bedsheet/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [attacking_item]."),
+							SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [attacking_item]."))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
 			qdel(src)
 		return TRUE
-	else if(is_sharp(I))
-		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [I]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [I]."))
-		if(I.use_tool(src, user, 50, volume = 50))
+	else if(is_sharp(attacking_item))
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [attacking_item]."),
+							SPAN_NOTICE("You begin cutting up \the [src] with \the [attacking_item]."))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
 			new /obj/item/stack/material/cloth(get_turf(src), rand(2, 5))
 			qdel(src)
@@ -376,16 +378,15 @@ LINEN BINS
 	var/obj/item/hidden = null
 
 
-/obj/structure/bedsheetbin/examine(mob/user)
+/obj/structure/bedsheetbin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-
 	if(amount < 1)
-		to_chat(user, "There are no bed sheets in the bin.")
+		. += "There are no bed sheets in the bin."
 		return
 	if(amount == 1)
-		to_chat(user, "There is one bed sheet in the bin.")
+		. += "There is one bed sheet in the bin."
 		return
-	to_chat(user, "There are [amount] bed sheets in the bin.")
+	. += "There are [amount] bed sheets in the bin."
 
 
 /obj/structure/bedsheetbin/update_icon()
@@ -397,16 +398,16 @@ LINEN BINS
 	else
 		icon_state = "linenbin-empty"
 
-/obj/structure/bedsheetbin/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/bedsheet))
-		user.drop_from_inventory(I,src)
-		sheets.Add(I)
+/obj/structure/bedsheetbin/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bedsheet))
+		user.drop_from_inventory(attacking_item,src)
+		sheets.Add(attacking_item)
 		amount++
-		to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
-	else if(amount && !hidden && I.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
-		user.drop_from_inventory(I,src)
-		hidden = I
-		to_chat(user, "<span class='notice'>You hide [I] among the sheets.</span>")
+		to_chat(user, "<span class='notice'>You put [attacking_item] in [src].</span>")
+	else if(amount && !hidden && attacking_item.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
+		user.drop_from_inventory(attacking_item,src)
+		hidden = attacking_item
+		to_chat(user, "<span class='notice'>You hide [attacking_item] among the sheets.</span>")
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
 	if(amount >= 1)

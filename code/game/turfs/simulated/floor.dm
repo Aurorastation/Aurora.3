@@ -20,7 +20,7 @@
 	heat_capacity = 10000
 	var/lava = 0
 
-/turf/simulated/floor/examine(mob/user, distance, infix, suffix)
+/turf/simulated/floor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(flooring)
 		var/list/can_remove_with = list()
@@ -37,7 +37,7 @@
 		if(flooring.flags & TURF_REMOVE_WELDER)
 			can_remove_with += "welding tools"
 		if(length(can_remove_with))
-			to_chat(user, SPAN_NOTICE("\The [src] can be removed with: [english_list(can_remove_with)]."))
+			. += SPAN_NOTICE("\The [src] can be removed with: [english_list(can_remove_with)].")
 
 /turf/simulated/floor/is_plating()
 	return !flooring

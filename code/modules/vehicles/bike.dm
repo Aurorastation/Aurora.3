@@ -6,7 +6,7 @@
 		- CTRL-click the bike to toggle the engine.<br>\
 		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
 		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
-	icon = 'icons/obj/bike.dmi'
+	icon = 'icons/obj/vehicle/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
 
@@ -333,8 +333,8 @@
 		return
 	..()
 
-/obj/vehicle/bike/casino/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/coin/casino))
+/obj/vehicle/bike/casino/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/coin/casino))
 		if(!paid)
 			paid = TRUE
 			to_chat(user, SPAN_NOTICE("Payment confirmed, enjoy two minutes of unlimited snowmobile use."))
@@ -363,3 +363,56 @@
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE
+
+/obj/vehicle/bike/motor
+	name = "sports bike"
+	desc = "A two-wheeled vehicle meant for easy riding."
+	icon_state = "sport_on"
+	bike_icon = "sport"
+	land_speed = 1
+	space_speed = 0
+	protection_percent = 10
+	can_hover = FALSE
+
+/obj/vehicle/bike/motor/blue
+	icon_state = "bluesport_on"
+	bike_icon = "bluesport"
+
+/obj/vehicle/bike/motor/green
+	icon_state = "greensport_on"
+	bike_icon = "greensport"
+
+/obj/vehicle/bike/motor/brown
+	icon_state = "brownsport_on"
+	bike_icon = "brownsport"
+
+/obj/vehicle/bike/motor/police_konyang
+	name = "police bike"
+	desc = "A two-wheeled vehicle meant for easy riding. This comes in stark white colors with flashy lights, indicating it is the law. It has the insignias of Konyang's police force."
+	icon_state = "konyangpolice_on"
+	bike_icon = "konyangpolice"
+
+/obj/vehicle/bike/motor/moped
+	name = "moped"
+	desc = "A cheap, two-wheeled motorized bicycle."
+	icon_state = "greenmoped_on"
+	bike_icon = "greenmoped"
+	land_speed = 2//slower than a sport bike but will still get you around big maps
+
+/obj/vehicle/bike/motor/moped/police_konyang
+	name = "police moped"
+	desc = "A cheap, two-wheeled motorized bicycle. This comes in stark white colors with flashy lights, indicating it is the law. It has the insignias of Konyang's police force."
+	icon_state = "konyangpolicemoped_on"
+	bike_icon = "konyangpolicemoped"
+
+/obj/vehicle/bike/motor/moped/red
+	icon_state = "redmoped_on"
+	bike_icon = "redmoped"
+
+/obj/vehicle/bike/motor/moped/teal
+	icon_state = "tealmoped_on"
+	bike_icon = "tealmoped"
+
+/obj/vehicle/bike/motor/moped/blue
+	icon_state = "bluemoped_on"
+	bike_icon = "bluemoped"

@@ -9,12 +9,12 @@
 	var/hardpoint_lock = FALSE // Whether mechs that receive this upgrade gets locked
 	var/dummy_path = /mob/living/simple_animal/spiderbot
 
-/obj/item/remote_mecha/examine(mob/user)
+/obj/item/remote_mecha/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, FONT_SMALL(SPAN_WARNING("This exosuit upgrade cannot be undone if applied!")))
+	. += FONT_SMALL(SPAN_WARNING("This exosuit upgrade cannot be undone if applied!"))
 	if(Adjacent(user))
 		var/message = "Applying \the [src] <b>will [hardpoint_lock ? "" : "not"]</b> lock the hardpoints[hardpoint_lock ? ", preventing further modification" : ""]."
-		to_chat(user, FONT_SMALL(SPAN_NOTICE(message)))
+		. += FONT_SMALL(SPAN_NOTICE(message))
 
 /obj/item/remote_mecha/penal
 	name = "penal exosuit remote upgrade"
@@ -22,10 +22,10 @@
 	mech_remote_network = REMOTE_PRISON_MECH
 	hardpoint_lock = TRUE
 
-/obj/item/remote_mecha/penal/examine(mob/user, distance, is_adjacent)
+/obj/item/remote_mecha/penal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("Applying \the [src] will additionally add the mech to the security penal network, where they can remotely monitor and shut it down.")))
+		. += FONT_SMALL(SPAN_NOTICE("Applying \the [src] will additionally add the mech to the security penal network, where they can remotely monitor and shut it down."))
 
 /obj/item/remote_mecha/ai
 	name = "AI exosuit remote upgrade"

@@ -112,9 +112,9 @@ var/list/holder_mob_icon_cache = list()
 
 	qdel(src)
 
-/obj/item/holder/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/holder/attackby(obj/item/attacking_item, mob/user)
 	for(var/mob/M in src.contents)
-		M.attackby(W,user)
+		M.attackby(attacking_item, user)
 
 /obj/item/holder/dropped(mob/user)
 	. = ..()

@@ -261,8 +261,18 @@
 
 // Examination code for all atoms.
 // Returns TRUE, the caller always expects TRUE
-// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
+// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent.
+// You should usually be overriding get_examine_text(), unless you need special examine behaviour.
 /atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
+	var/list/examine_strings = get_examine_text(user, distance, is_adjacent, infix, suffix)
+	if(!length(examine_strings))
+		crash_with("Examine called with no examine strings on [src].")
+	to_chat(user, EXAMINE_BLOCK(examine_strings.Join("\n")))
+	return TRUE
+
+// This proc is what you should usually override to get things to show up inside the examine box.
+/atom/proc/get_examine_text(mob/user, distance, is_adjacent, infix = "", suffix = "")
+	. = list()
 	var/f_name = "\a [src]. [infix]"
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
@@ -274,27 +284,25 @@
 		else
 			f_name += "oil-stained [name][infix]."
 
-	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object. It is a normal-sized item."
+	. += "[icon2html(src, user)] That's [f_name] [suffix]" // Object name. I.e. "This is an Object. It is a normal-sized item."
 
 	if(src.desc)
-		to_chat(user, src.desc)	// Object description.
+		. += src.desc	// Object description.
 
 	// Extra object descriptions examination code.
 	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>"))) // If any of the above are true, show that the object has more information available.
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>")) // If any of the above are true, show that the object has more information available.
 		if(desc_extended) // If the item has a extended description, show that it is available.
-			to_chat(user, FONT_SMALL("- This object has an extended description."))
+			. +=  FONT_SMALL("- This object has an extended description.")
 		if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics.")))
+			. += FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics."))
 		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists.")))
+			. += FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists."))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
-
-	return TRUE
 
 // Same as examine(), but without the "this object has more info" thing and with the extra information instead.
 /atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
@@ -587,7 +595,13 @@
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
-/mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+/mob/living/proc/handle_additional_vomit_reagents(obj/effect/decal/cleanable/vomit/vomit)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(!istype(vomit))
+		return
+
 	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()

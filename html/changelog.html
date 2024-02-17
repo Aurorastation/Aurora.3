@@ -35,6 +35,238 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">17 February 2024</h2>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Fixed the buttons in the Medical Morgue and Cremation rooms being a bit funny with the shutters.</li>
+				<li class="rscadd">Renamed the Autopsy and Cremation door to just Cremation.</li>
+				<li class="rscadd">Gave Pharmacists access to the Morgue and Cremation prep room.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a handheld microphone to the Corporate Reporter&#x27;s locker. It functions as a shortwave that only has Entertainment channel access.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The chicken nugget recipe now creates four chicken nuggets.</li>
+			</ul>
+
+			<h2 class="date">16 February 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes burglar shuttle airlock being closed at round start.</li>
+				<li class="bugfix">Fixes some broken icons on the antag bases.</li>
+				<li class="bugfix">Fixes some old style or destructible windows on the antag bases.</li>
+				<li class="rscadd">Adds k&#x27;ois MRE.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Resolved a runtime on QDEL&#x27;d doors that tries to register a closing timer.</li>
+				<li class="bugfix">Resolved a runtime on vomit decal ending on space atoms and having access to the reagents attempted.</li>
+				<li class="backend">SDMM markings on handle_additional_vomit_reagents proc.</li>
+				<li class="bugfix">Fixed log grabbing procs for the relevant clients.</li>
+				<li class="rscdel">Removed runtime log access granting proc, noone uses it.</li>
+				<li class="rscdel">Removed signals log browser proc, noone used it ever.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the Golden Deep away ship being visible if no crew for it have spawned.</li>
+			</ul>
+			<h3 class="author">The Stryker, The Lancer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Konyanger police vest.</li>
+				<li class="tweak">Changes the Konyang police lieutenant uniform.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Tidies up away site and old event sprites.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed nonfunctioning animations on the Haneunim title screen.</li>
+				<li class="bugfix">Fixed missing sprites for buffet smartheaters on Konyang.</li>
+				<li class="tweak">Disabled Point Verdant&#x27;s rain due to missing functionality.</li>
+				<li class="tweak">Disabled Konyang&#x27;s cave biome due to missing functionality.</li>
+			</ul>
+
+			<h2 class="date">15 February 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a new gold-plated pistol for Golden Deep Representatives. Credit to NobleRow for sprites</li>
+				<li class="tweak">Golden Deep Consular job outfit adjusted.</li>
+				<li class="bugfix">Law Manager software has been fixed.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ghost spawners show the location of the spawner.</li>
+				<li class="tweak">Ghost spawners are shown in the list even if full.</li>
+				<li class="tweak">Ghost spawners are grayed out if visible, but cannot use them for whatever reason.</li>
+				<li class="bugfix">Fixes all ghost spawners being visible always.</li>
+				<li class="bugfix">Fixes cooking codex search.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Ruins UT should not randomly allow broken ruins to pass the test anymore.</li>
+				<li class="maptweak">Added various exoplanet turfs equivalents.</li>
+				<li class="maptweak">Changed various turfs on ruins to be exoplanet equivalents and avoid active edges.</li>
+				<li class="backend">Improved ZAS active edge test logging capability, for slightly easier debugging.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduces the cost of the Journalism Camera Monitoring program from 6 GQ to 2 GQ.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Overhauled Horizon propulsion to use the new method of separate burn and thrust mixtures. The burn mixture heats up the thrust mixture via heat exchangers in the combustion chamber.</li>
+				<li class="maptweak">Added additional equalization and evacuation valves to propulsion for both experimentation and emergency use. The thruster lines now have evacuation valves to empty their thruster line in a matter of minutes.</li>
+			</ul>
+
+			<h2 class="date">14 February 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Hopefully fixed the vines icons once and for all.</li>
+				<li class="refactor">Plant icons and icon generation now use a cache to store the images of the plants, saving processing time when the image is requested as they&#x27;re not regenerated each time.</li>
+				<li class="backend">Requesting a plant icon state that doesn&#x27;t exist now throws a runtime.</li>
+				<li class="backend">Some SDMM markings, DMDoc, minor adjustments around.</li>
+				<li class="backend">Atom update icons are now marked as not sleepable.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Hegemony consulars now have a gun again.</li>
+			</ul>
+
+			<h2 class="date">13 February 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds survey probe, and planetary survey mechanics.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Gives Bridge Crew access to the pumps in the Fuel Bay to fill canisters.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Makes Si&#x27;akh available to offworld Unathi.</li>
+			</ul>
+			<h3 class="author">hazelmouse updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Updates the hivebot hub offsite to fit modern mapping standards.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two new bike types; mopeds and sports bikes, and different color varieties for them, as well as Konyanger police variants.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Moderately modified and fixed some things in the Captain&#x27;s office, including a broken button, some lighting tweaks, furniture reshuffling, and more equipment.</li>
+				<li class="maptweak">Added a light switch to the bridge, among some other furniture reshuffling to prevent wall object overlap.</li>
+				<li class="maptweak">Changed the sec briefing room chairs. They now actually make sense.</li>
+			</ul>
+
+			<h2 class="date">12 February 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored attackby function headers.</li>
+				<li class="refactor">Minor attackby&#x27;s internal refactors across the codebase.</li>
+				<li class="refactor">Refactored some attackby to not sleep.</li>
+				<li class="refactor">Turned various alerts and inputs to tgui inputs to accomplish the no sleep listed above.</li>
+				<li class="refactor">Refactored large bags pickup to not lag the server to death as much.</li>
+				<li class="backend">Added spawn gear DMdoc.</li>
+				<li class="backend">Added some DMdoc to other procs.</li>
+				<li class="backend">Added spawn gear unit test.</li>
+				<li class="backend">Modified some spawn gears that were abstract, marking them as abstract.</li>
+				<li class="backend">Some reordering in general for the spawn gears.</li>
+				<li class="tweak">Attack message on atoms is only shown if you have harm intent.</li>
+				<li class="backend">DMDoced gear vars.</li>
+				<li class="backend">Reordered gears.</li>
+				<li class="backend">Implemented handling of abstract types for gears.</li>
+				<li class="backend">Created unit test to check gears.</li>
+				<li class="refactor">Refactored object attackby and handling of bags pickups.</li>
+				<li class="backend">DMDoced attackby proc.</li>
+				<li class="backend">DMDoced and minor refactor of some mob inventory procs.</li>
+				<li class="refactor">Refactored attackby proc args name.</li>
+				<li class="refactor">Refactored some attackby procs to not sleep.</li>
+				<li class="refactor">Refactored a bunch of procs to use tgui inputs instead of native alert/input.</li>
+				<li class="backend">Unit tests failures will throw an exception if compiled with MANUAL_UNIT_TEST so it&#x27;s easier to catch them in VSC.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Intern Investigators spawning with two pairs of gloves.</li>
+				<li class="backend">Slight refactor of how Security Cadet outfits are handled, so nobody inherits anything they shouldn&#x27;t.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes Za&#x27;Akaix&#x27;Pleig C&#x27;thur&#x27;s Lyukal rig custom item.</li>
+			</ul>
+			<h3 class="author">Sniblet updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Nerfed and reflavoured the cocaine overdose&#x27;s effect on the heart.</li>
+			</ul>
+
+			<h2 class="date">11 February 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Independent Assistants are now possible.</li>
+				<li class="maptweak">Trinary Holodeck template tweaked with additional items.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the set ambition verb.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a crematorium to the Chapel and to the Medical Morgue, along with a small selection of materials to make Urns from to store the ashes.</li>
+			</ul>
+			<h3 class="author">HanSolo1519 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added dissolvable cleaner tablets, places cleaner tablets in maint loot table and janitorial closets.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The Hegemony Consular Officer now starts with the Kataphract e-sword instead of a pistol.</li>
+				<li class="rscadd">Added a visible message for when someone interacts with a universal recorder.</li>
+				<li class="tweak">Changed the local chat message for e-magged universal recorders to an audible message.</li>
+				<li class="rscadd">Adds journals to the loadout under &#x27;utility&#x27;.</li>
+				<li class="tweak">Tweaked the journal to allow proper recolouring.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Examining things now puts the examine text in a fancy box.</li>
+				<li class="tweak">Some examines have been tweaked to look nicer.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Allows Unathi to be Zavodskoi &amp; PMCG representatives, and allows Tajara to be PMCG representatives.</li>
+			</ul>
+			<h3 class="author">kermit updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">AI shells now, in addition to having the universal borg equipment (tape, GPS, a flash), have an inflatables dispenser, jetpack and paperwork essentials.</li>
+				<li class="tweak">Custodial borgs now have custodial tape instead of engineering tape.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed incorrect transparency on shuttle cockpits.</li>
+			</ul>
+
+			<h2 class="date">10 February 2024</h2>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Boxes of cigarette components are now tiny items, the same as boxes of cigarettes, rather than small items.</li>
+				<li class="bugfix">Wallets can now hold the boxes for cigarette components as intended.</li>
+			</ul>
+			<h3 class="author">greenjoe12345 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes some wiring issues with the commissary and tool storage.</li>
+			</ul>
+			<h3 class="author">kyres1, Nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a variety of billboards for Konyang, sprited by Nauticall and implemented on Point Verdant.</li>
+				<li class="rscadd">Added a few new tile types for urban decor.</li>
+				<li class="rscadd">Polished the remainder of Point Verdant&#x27;s map, adding content where areas were empty.</li>
+				<li class="rscadd">Added the basic biomes to Konyang&#x27;s spawn rotation, with a few new ruins that spawn in the Abandoned biome/theme type.</li>
+				<li class="bugfix">Fixed the landing zones for the ocean and jungle landing sites that the Horizon shuttles use.</li>
+			</ul>
+
 			<h2 class="date">09 February 2024</h2>
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">

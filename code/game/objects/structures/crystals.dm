@@ -27,7 +27,7 @@
 	if(our_creator)
 		creator = our_creator
 
-/obj/structure/reagent_crystal/examine(mob/user)
+/obj/structure/reagent_crystal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/state
 	var/current_damage = health / initial(health)
@@ -40,7 +40,7 @@
 			state = SPAN_WARNING("The crystal has scratches and deeper grooves on its surface.")
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The crystal looks structurally sound.")
-	to_chat(user, state)
+	. += state
 
 /obj/structure/reagent_crystal/proc/take_damage(var/damage)
 	health -= damage
@@ -55,30 +55,30 @@
 		return
 	return ..()
 
-/obj/structure/reagent_crystal/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/gun/energy/plasmacutter))
-		mine_crystal(user, 30 / W.toolspeed, W.usesound)
+/obj/structure/reagent_crystal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/energy/plasmacutter))
+		mine_crystal(user, 30 / attacking_item.toolspeed, attacking_item.usesound)
 
-	else if(istype(W, /obj/item/melee/energy))
-		var/obj/item/melee/energy/WT = W
+	else if(istype(attacking_item, /obj/item/melee/energy))
+		var/obj/item/melee/energy/WT = attacking_item
 		if(WT.active)
-			mine_crystal(user, 30 / W.toolspeed, W.usesound)
+			mine_crystal(user, 30 / attacking_item.toolspeed, attacking_item.usesound)
 		else
-			to_chat(user, SPAN_NOTICE("You need to activate \the [W] to do that!"))
+			to_chat(user, SPAN_NOTICE("You need to activate \the [attacking_item] to do that!"))
 			return
 
-	else if(istype(W, /obj/item/melee/energy/blade))
-		mine_crystal(user, 30 / W.toolspeed, W.usesound)
+	else if(istype(attacking_item, /obj/item/melee/energy/blade))
+		mine_crystal(user, 30 / attacking_item.toolspeed, attacking_item.usesound)
 
-	else if(istype(W, /obj/item/pickaxe))
-		var/obj/item/pickaxe/P = W
-		mine_crystal(user, P.digspeed, W.usesound)
+	else if(istype(attacking_item, /obj/item/pickaxe))
+		var/obj/item/pickaxe/P = attacking_item
+		mine_crystal(user, P.digspeed, attacking_item.usesound)
 
-	else if(W.force > 5)
+	else if(attacking_item.force > 5)
 		user.do_attack_animation(src)
 		playsound(get_turf(src), 'sound/weapons/smash.ogg', 50)
-		visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]."))
-		take_damage(W.force * 4)
+		visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]."))
+		take_damage(attacking_item.force * 4)
 
 /obj/structure/reagent_crystal/proc/mine_crystal(var/mob/user, var/time_to_dig, var/use_sound)
 	if(!user)

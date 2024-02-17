@@ -123,9 +123,9 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/monitor/attackby(var/obj/item/D as obj, var/mob/user as mob)
-	if(D.isscrewdriver())
-		if(D.use_tool(src, user, 20, volume = 50))
+/obj/machinery/computer/telecomms/monitor/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

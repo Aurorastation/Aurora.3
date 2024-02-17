@@ -24,9 +24,7 @@
 	pixel_x = -11
 	},
 /obj/item/tray,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "az" = (
 /obj/structure/table/steel,
@@ -40,9 +38,7 @@
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "aA" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -54,9 +50,7 @@
 /obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "bD" = (
 /obj/item/storage/secure/safe,
@@ -68,15 +62,11 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/storage/box/syringes,
 /obj/item/storage/box/gloves,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "cn" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "cA" = (
 /obj/structure/table/steel,
@@ -84,9 +74,7 @@
 	dir = 8
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "dg" = (
 /obj/structure/sign/flag/dpra/large/east,
@@ -100,18 +88,14 @@
 	},
 /obj/item/gun/projectile/dragunov,
 /obj/item/clothing/accessory/storage/bayonet,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "eh" = (
 /obj/machinery/door/blast/shutters{
 	id = "ala_garage";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "eo" = (
 /obj/structure/table/standard,
@@ -131,18 +115,14 @@
 	pixel_x = -10
 	},
 /obj/item/reagent_containers/syringe,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "fb" = (
 /obj/structure/railing/fence{
 	dir = 4
 	},
 /obj/machinery/appliance/cooker/oven/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "fi" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -155,26 +135,20 @@
 /obj/machinery/light/small,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "fY" = (
 /obj/structure/railing/fence{
 	dir = 1
 	},
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "gU" = (
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "gV" = (
 /obj/structure/closet/cabinet,
@@ -185,15 +159,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "gW" = (
 /obj/structure/sign/flag/dpra/large/north,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "hT" = (
 /obj/structure/flora/bush/adhomai,
@@ -203,9 +173,7 @@
 /area/exoplanet/adhomai)
 "iM" = (
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "iP" = (
 /obj/structure/sign/flag/dpra{
@@ -219,9 +187,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "jH" = (
 /obj/structure/flora/grass/adhomai,
@@ -237,9 +203,7 @@
 	identifier = "ala_base_officer";
 	name = "igs - ala_base_officer"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "lI" = (
 /obj/structure/table/wood,
@@ -260,31 +224,23 @@
 /obj/structure/sign/flag/dpra{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "lX" = (
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/bedsheet/medical,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "mB" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/tajara,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "mC" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/knife/bayonet,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "nc" = (
 /obj/structure/blocker/steel/fence{
@@ -299,9 +255,7 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "nu" = (
 /obj/structure/curtain/black{
@@ -313,9 +267,7 @@
 /area/ala_base)
 "nE" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "nR" = (
 /obj/structure/closet/crate/bin{
@@ -326,21 +278,12 @@
 	},
 /area/ala_base)
 "om" = (
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
-/area/ala_base)
-"oA" = (
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "pc" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/flame/lighter/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "pB" = (
 /obj/structure/railing/fence{
@@ -350,24 +293,18 @@
 	dir = 8
 	},
 /obj/machinery/floodlight,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "pU" = (
 /obj/structure/closet/secure_closet/brig{
 	req_access = null
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "qa" = (
 /obj/structure/railing/fence,
 /obj/structure/bed/stool/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "qd" = (
 /obj/effect/decal/fake_object{
@@ -382,9 +319,7 @@
 /area/ala_base)
 "qm" = (
 /obj/structure/bed,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "qA" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -407,15 +342,11 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "ra" = (
 /obj/machinery/space_heater,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "rp" = (
 /obj/machinery/light{
@@ -428,16 +359,12 @@
 "sD" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/machinery/iv_drip,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "th" = (
 /obj/structure/trash_pile,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "tO" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -454,9 +381,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "tT" = (
 /obj/machinery/button/remote/blast_door{
@@ -465,9 +390,7 @@
 	req_access = list(214);
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "ui" = (
 /obj/vehicle/bike/snow{
@@ -475,15 +398,11 @@
 	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "uk" = (
 /obj/structure/simple_door/iron,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "ut" = (
 /obj/machinery/light,
@@ -501,9 +420,7 @@
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/silenced,
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "uI" = (
 /obj/machinery/light/small{
@@ -523,12 +440,7 @@
 /obj/item/pocketwatch/adhomai,
 /obj/item/clothing/under/tajaran/ala/black/officer,
 /obj/item/clothing/head/tajaran/ala_officer,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/ala_base)
-"uK" = (
-/turf/simulated/wall/iron,
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "uM" = (
 /obj/structure/table/wood,
@@ -539,15 +451,11 @@
 	req_one_access = null
 	},
 /obj/machinery/light/small,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "uO" = (
 /obj/machinery/space_heater,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "vi" = (
 /turf/simulated/floor/exoplanet/snow{
@@ -566,9 +474,7 @@
 	pixel_y = 11;
 	pixel_x = -11
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "vH" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -582,9 +488,7 @@
 /obj/item/ammo_magazine/c762/dpra,
 /obj/item/ammo_magazine/c762/dpra,
 /obj/item/ammo_magazine/c762/dpra,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "vJ" = (
 /obj/structure/table/wood,
@@ -595,9 +499,7 @@
 	pixel_y = 1;
 	pixel_x = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "vP" = (
 /obj/structure/barricade/metal/wired{
@@ -609,9 +511,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "wf" = (
 /obj/machinery/light,
@@ -630,21 +530,15 @@
 	name = "igs - ala_base_soldier"
 	},
 /obj/item/bedsheet/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "wC" = (
 /obj/structure/bed/stool/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "wH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "wU" = (
 /obj/item/stack/material/wood/log/full,
@@ -671,24 +565,18 @@
 /obj/item/material/kitchen/utensil/knife,
 /obj/item/material/kitchen/utensil/knife,
 /obj/item/material/kitchen/utensil/knife,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "xy" = (
 /obj/structure/bed/stool/bar/padded/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "xN" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "xW" = (
 /obj/structure/table/wood/gamblingtable,
@@ -697,9 +585,7 @@
 	pixel_x = 8;
 	pixel_y = 12
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "yB" = (
 /obj/structure/blocker/steel/fence,
@@ -709,9 +595,7 @@
 /area/ala_base)
 "yE" = (
 /obj/machinery/washing_machine,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "yO" = (
 /obj/structure/closet/crate,
@@ -727,24 +611,13 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "yS" = (
 /turf/simulated/wall/wood,
 /area/ala_base)
 "zp" = (
-/obj/structure/bed/padded,
-/obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
-	identifier = "ala_base_soldier";
-	name = "igs - ala_base_soldier"
-	},
-/obj/item/bedsheet/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "zz" = (
 /obj/structure/railing/fence{
@@ -754,9 +627,7 @@
 	reagents_to_add = list(/singleton/reagent/water=1000);
 	name = "water barrel"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "zA" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -766,25 +637,19 @@
 	},
 /obj/item/ammo_magazine/d762,
 /obj/item/ammo_magazine/d762,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "zC" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = -8;
 	pixel_y = -3
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "zJ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "zQ" = (
 /obj/structure/table/standard,
@@ -805,9 +670,7 @@
 	pixel_x = 5;
 	pixel_y = 3
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Am" = (
 /obj/machinery/light{
@@ -831,9 +694,7 @@
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "AW" = (
 /obj/structure/reagent_dispensers/coolanttank{
@@ -854,31 +715,23 @@
 	},
 /obj/item/handcuffs,
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Bi" = (
 /obj/structure/table/standard,
 /obj/item/storage/belt/utility,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "Bl" = (
 /obj/structure/simple_door/iron,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "BV" = (
 /obj/structure/noticeboard{
 	icon_state = "nboard03";
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Ci" = (
 /obj/structure/table/wood/gamblingtable,
@@ -887,9 +740,7 @@
 	pixel_x = -6
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Cj" = (
 /obj/machinery/light{
@@ -910,9 +761,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "DB" = (
 /turf/simulated/floor/exoplanet/snow{
@@ -921,9 +770,7 @@
 /area/ala_base)
 "DG" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "DL" = (
 /obj/structure/closet/cabinet,
@@ -931,9 +778,7 @@
 /obj/item/clothing/under/tajaran/ala,
 /obj/item/clothing/head/beret/tajaran/dpra/alt,
 /obj/item/clothing/accessory/badge/dpra_passport,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "DU" = (
 /obj/structure/bed/stool/padded/black,
@@ -946,15 +791,11 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Ec" = (
 /obj/structure/railing/fence,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Ed" = (
 /obj/structure/table/standard,
@@ -965,9 +806,7 @@
 	name = "ALA operation tray";
 	desc = "A tray of various mundane surgical instruments for fixing someone up when they've been shot."
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Ex" = (
 /obj/structure/table/standard,
@@ -975,9 +814,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "Ez" = (
 /obj/structure/railing/fence{
@@ -987,24 +824,18 @@
 /obj/machinery/shower{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "EK" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "EN" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "EP" = (
 /obj/structure/blocker/steel/fence{
@@ -1018,16 +849,12 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Fc" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Fg" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1046,9 +873,7 @@
 /obj/item/landmine,
 /obj/item/landmine,
 /obj/item/landmine,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "Fo" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -1064,9 +889,7 @@
 /obj/machinery/shower{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "In" = (
 /obj/machinery/door/airlock/glass_security{
@@ -1074,9 +897,7 @@
 	req_access = list(214);
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "IO" = (
 /obj/structure/table/standard,
@@ -1084,16 +905,12 @@
 	pixel_y = 8
 	},
 /obj/item/storage/toolbox/electrical,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "JT" = (
 /obj/structure/closet/crate,
 /obj/item/storage/box/lights,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "Kf" = (
 /obj/item/pipe{
@@ -1114,9 +931,7 @@
 	pixel_x = 5
 	},
 /obj/structure/railing/fence,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "KV" = (
 /obj/structure/bed/padded,
@@ -1127,9 +942,7 @@
 	name = "igs - ala_base_soldier"
 	},
 /obj/item/bedsheet/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Lg" = (
 /obj/machinery/door/airlock/security{
@@ -1137,16 +950,12 @@
 	req_access = list(214);
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "LP" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/extinguisher_cabinet/north,
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "LV" = (
 /obj/structure/table/wood,
@@ -1167,9 +976,7 @@
 	pixel_y = 19;
 	pixel_x = -4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "LW" = (
 /obj/structure/bed/stool/padded/black,
@@ -1182,20 +989,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/ala_base)
-"Ma" = (
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Md" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "MX" = (
 /obj/structure/closet/walllocker/medical{
@@ -1213,9 +1011,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Nl" = (
 /obj/structure/railing/fence{
@@ -1225,16 +1021,12 @@
 /obj/machinery/shower{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Oc" = (
 /obj/structure/railing/fence,
 /obj/machinery/space_heater,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Od" = (
 /obj/structure/sign/emergency/meetingpoint{
@@ -1257,9 +1049,7 @@
 /area/ala_base)
 "OG" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "OK" = (
 /obj/structure/table/steel,
@@ -1273,18 +1063,14 @@
 	pixel_x = 5;
 	pixel_y = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Pd" = (
 /obj/structure/sign/painting_frame/nated{
 	pixel_y = 32
 	},
 /obj/item/trash/tray,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Pi" = (
 /obj/structure/closet/outhouse,
@@ -1307,9 +1093,7 @@
 	dir = 4
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Rg" = (
 /obj/structure/table/standard,
@@ -1317,9 +1101,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "RD" = (
 /obj/structure/sign/flag/dpra{
@@ -1346,17 +1128,13 @@
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/box/drinkingglasses,
 /obj/item/storage/box/drinkingglasses,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "St" = (
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "SQ" = (
 /obj/structure/sign/painting_frame/nated{
@@ -1364,9 +1142,7 @@
 	},
 /obj/item/book/manual/dpra_manifesto,
 /obj/structure/table/standard,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Ty" = (
 /obj/machinery/floodlight{
@@ -1397,17 +1173,13 @@
 	icon_state = "nboard04";
 	pixel_x = -32
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Wl" = (
 /obj/structure/sign/painting_frame/nated{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "Xe" = (
 /obj/item/stack/material/wood/log/full,
@@ -1423,9 +1195,7 @@
 /obj/structure/curtain/black{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "XT" = (
 /obj/machinery/door/blast/shutters{
@@ -1440,9 +1210,7 @@
 	dir = 1
 	},
 /obj/structure/reagent_dispensers/keg/mead,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "YI" = (
 /obj/structure/table/standard,
@@ -1450,9 +1218,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "ZQ" = (
 /obj/structure/flora/grass/adhomai,
@@ -1710,7 +1476,7 @@ Kf
 Hq
 KV
 Rg
-zp
+wB
 Md
 ne
 gV
@@ -1747,14 +1513,14 @@ DB
 DB
 qd
 Hq
-Ma
-oA
-oA
-oA
-oA
-oA
-oA
-oA
+zp
+zp
+zp
+zp
+zp
+zp
+zp
+zp
 OG
 Hq
 DB
@@ -1787,13 +1553,13 @@ DB
 wU
 Hq
 SQ
-oA
-oA
-oA
-oA
-oA
-oA
-oA
+zp
+zp
+zp
+zp
+zp
+zp
+zp
 ra
 Hq
 DB
@@ -1826,13 +1592,13 @@ DB
 DB
 Hq
 gW
-oA
-oA
-oA
-oA
-oA
+zp
+zp
+zp
+zp
+zp
 xy
-oA
+zp
 OG
 Hq
 DB
@@ -1866,13 +1632,13 @@ DB
 Hq
 wB
 YI
-zp
+wB
 zJ
 ne
 yO
 Fc
 xy
-oA
+zp
 Hq
 DB
 Hq
@@ -2002,7 +1768,7 @@ DB
 wH
 XN
 lr
-oA
+zp
 Hq
 DB
 EP
@@ -2039,9 +1805,9 @@ qA
 qA
 qA
 nE
-oA
-oA
-oA
+zp
+zp
+zp
 Hq
 DB
 EP
@@ -2078,8 +1844,8 @@ Cs
 DB
 wf
 bD
-oA
-oA
+zp
+zp
 vJ
 Hq
 DB
@@ -2111,14 +1877,14 @@ Hq
 DB
 pB
 CW
-oA
+zp
 CW
 xN
 DB
 DB
 Hq
 uI
-oA
+zp
 ES
 Hq
 DB
@@ -2149,16 +1915,16 @@ om
 Hq
 Vc
 zz
-oA
-oA
-oA
+zp
+zp
+zp
 Ec
 DB
 DB
 Hq
 Hq
 dg
-uK
+Hq
 Hq
 DB
 EP
@@ -2188,7 +1954,7 @@ DG
 Hq
 DB
 Yr
-oA
+zp
 wC
 wC
 Ec
@@ -2210,7 +1976,7 @@ EP
 DB
 Hq
 Pd
-oA
+zp
 In
 qA
 qA
@@ -2344,7 +2110,7 @@ Hq
 Hq
 Vc
 St
-oA
+zp
 wC
 wC
 Ec
@@ -2383,9 +2149,9 @@ DB
 EP
 DB
 vy
-oA
-oA
-oA
+zp
+zp
+zp
 Oc
 DB
 DB
@@ -2408,7 +2174,7 @@ DB
 DB
 yS
 zQ
-oA
+zp
 Ed
 yS
 DB
@@ -2422,9 +2188,9 @@ DB
 EP
 DB
 fY
-oA
-oA
-oA
+zp
+zp
+zp
 xp
 DB
 DB
@@ -2447,7 +2213,7 @@ DB
 DB
 yS
 lX
-oA
+zp
 eo
 yS
 DB
@@ -2462,7 +2228,7 @@ EP
 DB
 ak
 fb
-oA
+zp
 gU
 Sr
 DB

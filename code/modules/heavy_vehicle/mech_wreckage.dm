@@ -42,16 +42,16 @@
 			return
 	return ..()
 
-/obj/structure/mech_wreckage/attackby(var/obj/item/W, var/mob/user)
+/obj/structure/mech_wreckage/attackby(obj/item/attacking_item, mob/user)
 	var/cutting
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			cutting = TRUE
 		else
 			to_chat(user, "<span class='warning'>Turn the torch on, first.</span>")
 			return
-	else if(istype(W, /obj/item/gun/energy/plasmacutter))
+	else if(istype(attacking_item, /obj/item/gun/energy/plasmacutter))
 		cutting = TRUE
 
 	if(cutting)
@@ -62,7 +62,7 @@
 			to_chat(user, "<span class='warning'>\The [src] has already been weakened.</span>")
 		return 1
 
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(prepared)
 			to_chat(user, "<span class='notice'>You finish dismantling \the [src].</span>")
 			new /obj/item/stack/material/steel(get_turf(src),rand(5,10))
@@ -70,8 +70,8 @@
 		else
 			to_chat(user, "<span class='warning'>It's too solid to dismantle. Try cutting through some of the bigger bits.</span>")
 		return 1
-	else if(istype(W) && W.force > 20)
-		visible_message("<span class='danger'>\The [src] has been smashed with \the [W] by \the [user]!</span>")
+	else if(istype(attacking_item) && attacking_item.force > 20)
+		visible_message("<span class='danger'>\The [src] has been smashed with \the [attacking_item] by \the [user]!</span>")
 		if(prob(20))
 			new /obj/item/stack/material/steel(get_turf(src),rand(1,3))
 			qdel(src)

@@ -525,19 +525,19 @@ BLIND     // can't see anything
 	prescription = 7
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/clothing/glasses/hud/health))
-		user.drop_item(W)
-		qdel(W)
+/obj/item/clothing/glasses/regular/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/glasses/hud/health))
+		user.drop_item(attacking_item)
+		qdel(attacking_item)
 		to_chat(user, SPAN_NOTICE("You attach a set of medical HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/health/prescription/P = new /obj/item/clothing/glasses/hud/health/prescription(user.loc)
 		P.glasses_type = src.type
 		user.put_in_hands(P)
 		qdel(src)
-	if(istype(W, /obj/item/clothing/glasses/hud/security))
-		user.drop_item(W)
-		qdel(W)
+	if(istype(attacking_item, /obj/item/clothing/glasses/hud/security))
+		user.drop_item(attacking_item)
+		qdel(attacking_item)
 		to_chat(user, SPAN_NOTICE("You attach a set of security HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/security/prescription/P = new /obj/item/clothing/glasses/hud/security/prescription(user.loc)

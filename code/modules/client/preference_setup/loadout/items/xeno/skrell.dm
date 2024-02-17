@@ -1,3 +1,6 @@
+/datum/gear/ears/skrell
+	abstract_type = /datum/gear/ears/skrell
+
 /datum/gear/ears/skrell/chains	//Chains
 	display_name = "headtail chain selection"
 	path = /obj/item/clothing/ears/skrell/chain
@@ -295,6 +298,9 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	outfit["iqi medical"] = /obj/item/clothing/under/skrell/nralakk/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 
+/datum/gear/suit/skrell
+	abstract_type = /datum/gear/suit/skrell
+
 /datum/gear/suit/skrell/jacket
 	display_name = "work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
@@ -327,6 +333,8 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	jacket["iqi medical"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
+/datum/gear/accessory/skrell
+	abstract_type = /datum/gear/accessory/skrell
 /datum/gear/accessory/skrell/starcoat
 	display_name = "star coat"
 	path = /obj/item/clothing/suit/storage/toggle/skrell/starcoat
