@@ -8065,7 +8065,7 @@
 "vH" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/southleft{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -10001,7 +10001,7 @@
 "Ax" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/desk/southright{
-	req_access = list(218)
+	req_access = list(219)
 	},
 /obj/item/device/flashlight/lamp/box{
 	pixel_y = 5
@@ -13292,7 +13292,7 @@
 	id = "konyang_clinic";
 	name = "Clinic Shutters";
 	pixel_y = 32;
-	req_access = list(218)
+	req_access = list(219)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
@@ -13493,7 +13493,7 @@
 	id = "konyang_clinic";
 	name = "Clinic Shutters";
 	pixel_y = 32;
-	req_access = list(218)
+	req_access = list(219)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
@@ -14168,7 +14168,7 @@
 /area/point_verdant/outdoors)
 "LK" = (
 /obj/machinery/door/window/eastright{
-	req_access = list(218)
+	req_access = list(219)
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
@@ -16060,7 +16060,7 @@
 "Qu" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/desk/southleft{
-	req_access = list(218)
+	req_access = list(219)
 	},
 /obj/item/toy/desk/fan{
 	pixel_y = 7;
@@ -18490,7 +18490,7 @@
 "Xe" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/machinery/door/blast/shutters/open{
 	id = "konyang_police";
@@ -19439,7 +19439,7 @@
 "ZM" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 4;
-	req_access = list(217)
+	req_access = list(218)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
