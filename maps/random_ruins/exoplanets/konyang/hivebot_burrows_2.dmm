@@ -386,6 +386,9 @@
 /obj/structure/chainlink_fence{
 	dir = 1
 	},
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "fg" = (
@@ -3836,6 +3839,9 @@
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/hivebot_burrows_2)
 "Zq" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/dirt_75,
@@ -5485,7 +5491,7 @@ iq
 eO
 XM
 Xi
-fc
+Oh
 Zq
 XQ
 XQ
@@ -5537,8 +5543,8 @@ Rp
 eO
 XM
 rJ
+Oh
 fc
-Np
 pt
 XQ
 XQ

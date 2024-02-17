@@ -6552,7 +6552,12 @@
 /obj/machinery/shower{
 	dir = 4
 	},
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript shower drain.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14
 	},
@@ -7304,7 +7309,12 @@
 	},
 /area/cruise/beach)
 "fLx" = (
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript shower drain.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14
 	},
@@ -9770,7 +9780,12 @@
 /obj/machinery/shower{
 	dir = 8
 	},
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript shower drain.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14
 	},
@@ -10011,7 +10026,12 @@
 	},
 /area/cruise/security)
 "hTz" = (
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /obj/structure/table/wood,
@@ -10575,7 +10595,12 @@
 /area/cruise/tcomms_sat)
 "ipv" = (
 /obj/structure/table/standard,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /turf/unsimulated/floor{
@@ -14306,7 +14331,12 @@
 	},
 /area/cruise/fore)
 "lsd" = (
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /obj/structure/table/wood,
@@ -14540,7 +14570,11 @@
 /area/cruise/main_bar)
 "lAa" = (
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -30167,7 +30201,12 @@
 /obj/machinery/shower{
 	dir = 4
 	},
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript shower drain.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14
 	},

@@ -44,6 +44,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
+"af" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Administrative Wing";
+	req_access = list(101);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/city/mendell/interior)
+"ag" = (
+/obj/machinery/door/airlock/glass_centcom{
+	name = "Kitchen";
+	req_access = list(101);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/city/mendell/interior)
 "ah" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
@@ -62,6 +78,13 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
+"aj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/city/mendell)
 "ak" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -98,9 +121,12 @@
 	},
 /area/city/mendell)
 "ao" = (
-/obj/structure/sign/double/hotel_montparnasse,
-/turf/unsimulated/wall/steel,
-/area/city/mendell/interior)
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/glass_security{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/city/mendell)
 "ap" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -368,7 +394,12 @@
 	},
 /area/city/mendell/interior)
 "bR" = (
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf1";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
@@ -521,6 +552,10 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
+"cL" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
+/turf/simulated/floor/marble/dark,
+/area/city/mendell/interior)
 "cN" = (
 /obj/structure/table/rack,
 /obj/item/rfd/construction,
@@ -552,7 +587,11 @@
 	},
 /area/city/mendell/interior)
 "cX" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win2";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -596,6 +635,19 @@
 	icon_state = "tiles_small";
 	name = "small tiles"
 	},
+/area/city/mendell/interior)
+"df" = (
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign1";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "dh" = (
 /obj/machinery/smartfridge/foodheater,
@@ -668,7 +720,11 @@
 "dp" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/carpet,
@@ -1046,7 +1102,11 @@
 /obj/item/clothing/under/suit_jacket/white,
 /obj/effect/floor_decal/industrial/hatch,
 /obj/structure/table/rack,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win3";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/marble/dark,
@@ -1181,7 +1241,11 @@
 /obj/item/clothing/under/suit_jacket/checkered,
 /obj/effect/floor_decal/industrial/hatch,
 /obj/structure/table/rack,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/marble/dark,
@@ -1249,7 +1313,11 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win3";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/unsimulated/floor{
@@ -1310,7 +1378,12 @@
 	},
 /area/city/mendell)
 "gF" = (
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /obj/structure/filingcabinet/chestdrawer,
@@ -1540,7 +1613,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/city/mendell/interior)
 "hO" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -1563,8 +1640,12 @@
 /area/city/mendell/interior)
 "hW" = (
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
 	layer = 9;
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /obj/structure/window/reinforced{
@@ -1604,7 +1685,11 @@
 	},
 /area/city/mendell)
 "ih" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = -32
 	},
 /turf/simulated/floor/carpet,
@@ -1658,7 +1743,12 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "iO" = (
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 8;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /obj/structure/table/wood,
@@ -1846,6 +1936,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
+"jy" = (
+/obj/machinery/door/airlock/glass_centcom{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/city/mendell/interior)
 "jB" = (
 /obj/machinery/floor_light/dance,
 /turf/simulated/floor/marble/dark,
@@ -1952,7 +2048,12 @@
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "kx" = (
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript vent.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
 	},
@@ -2184,7 +2285,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript vent.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
 	},
@@ -2192,6 +2298,19 @@
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
+/area/city/mendell/interior)
+"lR" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign2";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "lV" = (
 /obj/structure/closet/secure_closet/cabinet/bar,
@@ -2246,14 +2365,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "mo" = (
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript vent.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
 	},
@@ -2287,7 +2421,11 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win3";
+	name = "window";
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -3149,7 +3287,12 @@
 /area/city/mendell)
 "rH" = (
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 8;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /turf/unsimulated/floor{
@@ -3267,7 +3410,11 @@
 "st" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = 32
 	},
 /turf/simulated/floor/carpet,
@@ -3360,7 +3507,12 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "tn" = (
-/obj/structure/outlet{
+/obj/effect/decal/fake_object{
+	desc = "Power outlets, in space!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "outlet";
+	layer = 2.7;
+	name = "power outlets";
 	pixel_x = 21;
 	pixel_y = 9
 	},
@@ -3415,7 +3567,12 @@
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "tM" = (
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf2";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
@@ -3562,7 +3719,11 @@
 /turf/simulated/floor/tiled/ramp,
 /area/city/mendell/interior)
 "uL" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/marble/dark,
@@ -4266,7 +4427,14 @@
 	},
 /area/city/mendell/interior)
 "yj" = (
-/obj/structure/ac_unit,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A bland air conditioning unit.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "ac";
+	layer = 2.7;
+	name = "AC unit"
+	},
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "yk" = (
@@ -4291,6 +4459,17 @@
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
+/area/city/mendell/interior)
+"ys" = (
+/obj/structure/table/stone/marble,
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign1";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "yu" = (
 /obj/machinery/light/small{
@@ -4394,7 +4573,12 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "zi" = (
-/obj/structure/outlet{
+/obj/effect/decal/fake_object{
+	desc = "Power outlets, in space!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "outlet";
+	layer = 2.7;
+	name = "power outlets";
 	pixel_y = -12
 	},
 /turf/unsimulated/floor{
@@ -4405,7 +4589,12 @@
 /turf/simulated/floor/carpet/art,
 /area/city/mendell/interior)
 "zl" = (
-/obj/structure/outlet{
+/obj/effect/decal/fake_object{
+	desc = "Power outlets, in space!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "outlet";
+	layer = 2.7;
+	name = "power outlets";
 	pixel_y = -12
 	},
 /turf/simulated/floor/carpet,
@@ -4569,7 +4758,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf1";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /obj/structure/table/wood,
@@ -4578,7 +4772,11 @@
 /area/city/mendell/interior)
 "At" = (
 /obj/machinery/recharge_station,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win2";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/unsimulated/floor{
@@ -4793,6 +4991,13 @@
 	},
 /area/city/mendell/interior)
 "BQ" = (
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign1";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -4914,7 +5119,11 @@
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "CF" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -4928,7 +5137,11 @@
 /area/city/mendell/interior)
 "CI" = (
 /obj/machinery/recharge_station,
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win2";
+	name = "window";
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -5130,7 +5343,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf1";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
@@ -5263,7 +5481,11 @@
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "Eh" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win1";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -5297,8 +5519,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Ez" = (
-/obj/structure/console{
-	layer = 2.7
+/obj/effect/decal/fake_object{
+	desc = "A Hephaestus Industries Z-Cube! This state-of-the-art gaming console is the premium of the premium. It's almost VR!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "gamer_console";
+	layer = 2.7;
+	name = "gaming console"
 	},
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
@@ -5388,7 +5614,12 @@
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 8
 	},
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf1";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
@@ -5396,6 +5627,13 @@
 	},
 /area/city/mendell/interior)
 "Fz" = (
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign2";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
 /obj/structure/table/wood,
 /obj/item/device/camera,
 /obj/item/device/camera,
@@ -5654,7 +5892,12 @@
 	},
 /area/city/mendell/interior)
 "HD" = (
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /turf/simulated/floor/carpet,
@@ -5684,7 +5927,12 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
@@ -5692,7 +5940,11 @@
 	},
 /area/city/mendell/interior)
 "HN" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win3";
+	name = "window";
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -5785,6 +6037,10 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
+"IA" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
+/turf/simulated/floor/marble/dark,
+/area/city/mendell/interior)
 "IC" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
@@ -5833,7 +6089,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/outlet{
+/obj/effect/decal/fake_object{
+	desc = "Power outlets, in space!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "outlet";
+	layer = 2.7;
+	name = "power outlets";
 	pixel_x = -3;
 	pixel_y = 35
 	},
@@ -5924,6 +6185,13 @@
 	},
 /area/city/mendell)
 "Js" = (
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign2";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
@@ -6611,10 +6879,20 @@
 /area/city/mendell/interior)
 "MP" = (
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript vent.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
 	},
@@ -6658,7 +6936,12 @@
 /area/city/mendell)
 "Nb" = (
 /obj/machinery/door/window/eastleft,
-/obj/structure/outlet{
+/obj/effect/decal/fake_object{
+	desc = "Power outlets, in space!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "outlet";
+	layer = 2.7;
+	name = "power outlets";
 	pixel_y = -12
 	},
 /turf/simulated/floor/wood,
@@ -6676,7 +6959,11 @@
 /area/city/mendell)
 "Nh" = (
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /turf/simulated/floor/wood,
@@ -6740,7 +7027,12 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "NM" = (
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /obj/random/pottedplant,
@@ -7254,7 +7546,11 @@
 	},
 /area/city/mendell)
 "Ql" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win3";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -7606,6 +7902,17 @@
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
+/area/city/mendell/interior)
+"Sf" = (
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign1";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Sl" = (
 /obj/structure/window/reinforced{
@@ -8079,7 +8386,12 @@
 	},
 /area/city/mendell/interior)
 "Vf" = (
-/obj/structure/shelf{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript decorative shelf.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "shelf";
+	layer = 2.7;
+	name = "shelf";
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
@@ -8099,7 +8411,14 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/ac_unit,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A bland air conditioning unit.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "ac";
+	layer = 2.7;
+	name = "AC unit"
+	},
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "Vl" = (
@@ -8137,7 +8456,11 @@
 	},
 /area/city/mendell/interior)
 "Vz" = (
-/obj/structure/window{
+/obj/effect/decal/fake_object{
+	desc = "A window overlooking the pristine Mendell City.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "win3";
+	name = "window";
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -8222,7 +8545,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/outlet{
+/obj/effect/decal/fake_object{
+	desc = "Power outlets, in space!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "outlet";
+	layer = 2.7;
+	name = "power outlets";
 	pixel_y = -12
 	},
 /turf/simulated/floor/carpet,
@@ -8447,6 +8775,17 @@
 	icon_state = "wood_birch"
 	},
 /area/city/mendell/interior)
+"WZ" = (
+/obj/effect/decal/fake_object{
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "sign2";
+	name = "glamorous sign";
+	pixel_y = 33
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled/dark,
+/area/city/mendell/interior)
 "Xb" = (
 /obj/machinery/door/window/northleft,
 /obj/structure/window/reinforced{
@@ -8618,14 +8957,24 @@
 /area/city/mendell/interior)
 "Yz" = (
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 8;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "YD" = (
 /obj/random/pottedplant,
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript vent.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
 	},
@@ -8891,7 +9240,12 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/city)
 "ZY" = (
-/obj/structure/vent{
+/obj/effect/decal/fake_object{
+	desc = "A nondescript vent.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "vent";
+	layer = 2.7;
+	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
 	},
@@ -16759,8 +17113,8 @@ ZL
 CP
 CP
 CP
-ao
-pK
+CP
+Sf
 ny
 ny
 ny
@@ -16847,7 +17201,7 @@ CP
 CP
 CP
 CP
-pK
+WZ
 ny
 ny
 CP
@@ -18812,7 +19166,7 @@ hx
 rz
 CP
 CP
-cF
+IA
 CP
 js
 nn
@@ -19020,7 +19374,7 @@ ZL
 ZL
 bo
 ZG
-ac
+jy
 ZG
 ZG
 ZG
@@ -19194,7 +19548,7 @@ ZL
 ZL
 bk
 ZG
-ac
+jy
 ZG
 ZG
 ZG
@@ -19396,8 +19750,8 @@ zU
 Eq
 AN
 CP
-cF
-cF
+IA
+IA
 CP
 fa
 Hn
@@ -19461,8 +19815,8 @@ QK
 Uk
 pc
 pc
-ao
-sm
+CP
+df
 ZG
 Dt
 DI
@@ -19564,7 +19918,7 @@ CP
 CP
 CP
 ae
-ae
+af
 CP
 Eq
 Eq
@@ -19849,7 +20203,7 @@ Rb
 Iw
 jq
 tj
-cF
+IA
 ZL
 ZL
 ZL
@@ -19911,7 +20265,7 @@ UZ
 UZ
 ob
 CP
-ah
+ag
 ah
 CP
 Eq
@@ -20023,7 +20377,7 @@ fg
 WA
 EA
 Lz
-cF
+IA
 ZL
 ZL
 ZL
@@ -20262,7 +20616,7 @@ GI
 Dt
 Dt
 Xs
-cF
+IA
 Eq
 Eq
 Eq
@@ -20349,7 +20703,7 @@ CP
 CP
 Dt
 Dt
-cF
+IA
 Eq
 Eq
 Eq
@@ -20424,8 +20778,8 @@ CP
 CP
 CP
 CP
-ao
-JQ
+CP
+ys
 JQ
 Af
 Af
@@ -20440,7 +20794,7 @@ CP
 ug
 ug
 CP
-cF
+IA
 CP
 CP
 yA
@@ -20512,7 +20866,7 @@ Dt
 OU
 av
 CP
-sm
+lR
 sm
 eV
 eV
@@ -20615,7 +20969,7 @@ ZG
 ZG
 ZG
 ZG
-cF
+IA
 CY
 yU
 yU
@@ -20676,7 +21030,7 @@ ZG
 ZG
 ZG
 lc
-cF
+IA
 JQ
 Dt
 Dt
@@ -20702,7 +21056,7 @@ Dt
 Dt
 ZG
 ZG
-cF
+IA
 Dt
 Dt
 Dt
@@ -20763,7 +21117,7 @@ ZG
 ZG
 ZG
 ZG
-cF
+IA
 JQ
 sm
 Ph
@@ -20789,7 +21143,7 @@ KX
 Dt
 ZG
 ZG
-cF
+IA
 Dt
 Dt
 Dt
@@ -20850,41 +21204,41 @@ ZG
 ZG
 ZG
 tQ
-cF
-cF
-cF
+IA
+IA
+IA
 CP
-cF
-cF
-cF
+IA
+IA
+IA
 CP
 CP
 CP
-cF
-cF
-cF
+IA
+IA
+IA
 CP
-cF
-cF
-cF
+IA
+IA
+IA
 CP
 CP
 CP
 Dt
-ao
+CP
 BQ
 Dt
 ZG
 tQ
 CP
-cF
+IA
 yY
 yY
-cF
+IA
 CP
 GX
 jH
-cF
+IA
 Vi
 yj
 CP
@@ -20892,8 +21246,8 @@ YX
 qT
 xY
 kZ
-cF
-cF
+IA
+IA
 ZL
 ZL
 ZL
@@ -20971,7 +21325,7 @@ kY
 jH
 GX
 GX
-cF
+IA
 GX
 GX
 CP
@@ -20980,7 +21334,7 @@ ny
 ny
 QI
 JF
-cF
+IA
 ZL
 ZL
 ZL
@@ -21058,7 +21412,7 @@ GX
 GX
 GX
 GX
-cF
+IA
 GX
 GX
 CP
@@ -21067,7 +21421,7 @@ Lw
 ny
 ny
 oE
-cF
+IA
 ZL
 ZL
 ZL
@@ -21154,7 +21508,7 @@ CP
 zk
 zk
 zk
-cF
+IA
 ZL
 ZL
 ZL
@@ -21241,7 +21595,7 @@ CP
 jX
 zk
 zk
-cF
+IA
 ZL
 ZL
 ZL
@@ -21328,7 +21682,7 @@ CP
 zk
 zO
 zO
-cF
+IA
 ZL
 ZL
 ZL
@@ -21464,7 +21818,7 @@ jB
 jB
 hd
 oT
-cF
+IA
 Bl
 Df
 Df
@@ -21551,7 +21905,7 @@ jB
 jB
 hd
 UZ
-cF
+IA
 Bn
 Eq
 Go
@@ -21638,7 +21992,7 @@ jB
 jB
 hd
 oT
-cF
+IA
 Bx
 Eq
 Go
@@ -21660,7 +22014,7 @@ kd
 GX
 kd
 GX
-cF
+IA
 kd
 GX
 gZ
@@ -21725,7 +22079,7 @@ jB
 jB
 hd
 UZ
-cF
+IA
 Bn
 Eq
 Go
@@ -21751,8 +22105,8 @@ OQ
 kd
 GX
 gZ
-cF
-cF
+IA
+IA
 CP
 CU
 CU
@@ -21812,7 +22166,7 @@ jB
 jB
 hd
 oT
-cF
+IA
 BD
 yY
 yY
@@ -21838,12 +22192,12 @@ cF
 kd
 GX
 GX
-cF
+IA
 fh
 gG
 ny
 ny
-cF
+IA
 GX
 wS
 ZG
@@ -21917,20 +22271,20 @@ CP
 Dt
 Dt
 Ix
-cF
+IA
 Ee
-cF
+IA
 BL
 WG
 GX
 GX
 GX
-cF
+IA
 kd
 ny
 ny
 ny
-cF
+IA
 GX
 wS
 ZG
@@ -22012,12 +22366,12 @@ Vh
 vJ
 GX
 GX
-cF
+IA
 fh
 Gf
 ny
 ny
-cF
+IA
 GX
 wS
 ZG
@@ -22095,12 +22449,12 @@ vJ
 GX
 vJ
 GX
-cF
+cL
 vJ
 GX
 gZ
-cF
-cF
+IA
+IA
 CP
 CU
 CU
@@ -22182,7 +22536,7 @@ vJ
 GX
 vJ
 GX
-cF
+IA
 vJ
 GX
 gZ
@@ -22356,7 +22710,7 @@ vJ
 GX
 vJ
 wP
-cF
+cL
 vJ
 GX
 Ln
@@ -22607,11 +22961,11 @@ ZG
 ZG
 ZG
 tQ
-cF
+IA
 sj
 Df
 Qx
-cF
+IA
 Rs
 ZG
 ZG
@@ -22772,9 +23126,9 @@ nH
 VY
 VY
 yz
-cF
+IA
 Tp
-cF
+IA
 CP
 Uc
 eX
@@ -22792,9 +23146,9 @@ CX
 eX
 jp
 CP
-cF
+IA
 Tp
-cF
+IA
 nH
 VY
 VY
@@ -22859,7 +23213,7 @@ VY
 VY
 VY
 VY
-cF
+IA
 ZL
 ZL
 ZL
@@ -22881,7 +23235,7 @@ ZL
 ZL
 ZL
 Ju
-cF
+IA
 VY
 VY
 VY
@@ -22946,7 +23300,7 @@ VY
 VY
 VY
 VY
-cF
+IA
 ZL
 ZL
 ZL
@@ -22968,7 +23322,7 @@ ZL
 ZL
 ZL
 ZL
-cF
+IA
 VY
 VY
 VY
@@ -23055,7 +23409,7 @@ ZL
 ZL
 ZL
 ZL
-cF
+IA
 Df
 Df
 Df
@@ -23064,7 +23418,7 @@ CP
 Hp
 EO
 Yu
-cF
+IA
 vk
 EO
 yL
@@ -23111,7 +23465,7 @@ bL
 Ga
 EO
 Yu
-cF
+IA
 vk
 EO
 EO
@@ -23120,7 +23474,7 @@ Df
 Df
 Df
 Df
-cF
+IA
 ZL
 ZL
 ZL
@@ -23207,7 +23561,7 @@ sj
 Df
 Df
 Qx
-cF
+IA
 ZL
 ZL
 ZL
@@ -23229,7 +23583,7 @@ ZL
 ZL
 ZL
 ZL
-cF
+IA
 sj
 Df
 Df
@@ -23652,7 +24006,7 @@ FM
 Lo
 Rj
 uO
-cF
+IA
 FM
 yQ
 yQ
@@ -23737,9 +24091,9 @@ FM
 FM
 FM
 Yu
-cF
+IA
 vk
-cF
+IA
 FM
 yQ
 GJ
@@ -23826,7 +24180,7 @@ Po
 ZS
 po
 vr
-cF
+IA
 FM
 yQ
 cW
@@ -23981,7 +24335,7 @@ cK
 ho
 ho
 ls
-cF
+IA
 rk
 ho
 oZ
@@ -24000,7 +24354,7 @@ EO
 sF
 EO
 EO
-cF
+IA
 FM
 yQ
 GJ
@@ -24071,7 +24425,7 @@ ho
 oD
 ho
 ls
-cF
+IA
 vk
 Px
 UZ
@@ -24087,7 +24441,7 @@ yL
 CP
 EO
 EO
-cF
+IA
 FM
 yQ
 yQ
@@ -24174,7 +24528,7 @@ EO
 EO
 EO
 EO
-cF
+IA
 Hk
 yQ
 yQ
@@ -24435,11 +24789,11 @@ wp
 CG
 CA
 ho
-cF
+IA
 ho
-cF
+IA
 ho
-cF
+IA
 FM
 yQ
 CP
@@ -24593,7 +24947,7 @@ ho
 oZ
 ho
 ls
-cF
+IA
 vk
 wo
 UZ
@@ -24677,7 +25031,7 @@ cK
 ho
 ho
 ls
-cF
+IA
 rk
 ho
 oD
@@ -24696,7 +25050,7 @@ EO
 EO
 EO
 EO
-cF
+IA
 FM
 yQ
 EO
@@ -24721,7 +25075,7 @@ GJ
 rl
 CG
 CG
-cF
+IA
 ZL
 ZL
 ZL
@@ -24783,7 +25137,7 @@ EO
 EO
 EO
 EO
-cF
+IA
 FM
 yQ
 EO
@@ -24870,7 +25224,7 @@ EO
 cW
 EO
 EO
-cF
+IA
 FM
 yQ
 EO
@@ -24895,7 +25249,7 @@ EO
 rl
 CG
 Sp
-cF
+IA
 ZL
 ZL
 ZL
@@ -24982,7 +25336,7 @@ EO
 rl
 CG
 rc
-cF
+IA
 ZL
 ZL
 ZL
@@ -25046,9 +25400,9 @@ PF
 PF
 CP
 CP
-cF
+IA
 Tp
-cF
+IA
 CP
 CP
 CP
@@ -25067,8 +25421,8 @@ nr
 yZ
 CP
 Tp
-cF
-cF
+IA
+IA
 CP
 ZL
 ZL
@@ -28959,7 +29313,7 @@ Kg
 xD
 xD
 xD
-tY
+aj
 xD
 xD
 hM
@@ -30351,7 +30705,7 @@ Kg
 xD
 xD
 xD
-aN
+ao
 xD
 xD
 hM

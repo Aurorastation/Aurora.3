@@ -16,30 +16,26 @@
 /obj/structure/light_pole/konyang
 	name = "dangling lamp"
 	desc = "A flame-lit lamp dangling precariously from a tall pole."
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
-	icon_state = "lamp"
-	layer = ABOVE_ALL_MOB_LAYER
+	icon = 'icons/obj/structure/urban/poles.dmi'
+	icon_state = "right_lamp"
+	layer = 9.1
 	anchored = TRUE
 	density = FALSE
 	light_color = "#FA644B"
 	light_wedge = LIGHT_OMNI
 	light_range = 6
 	light_power = 1
-	pixel_x = -32
-	pixel_y = 8
 
 /obj/structure/light_pole/konyang/left
-	dir = NORTH
+	icon_state = "left_lamp"
 
 /obj/structure/utility_pole
 	name = "tall pole"
 	desc = "A very tall utility pole for urban infrastructure."
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'icons/obj/structure/urban/poles.dmi'
 	icon_state = "junction"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = 9
 	anchored = TRUE
-	pixel_x = -32
-	pixel_y = 8
 
 /obj/structure/utility_pole/gwok
 	name = "Go Go Gwok street sign"
@@ -47,52 +43,38 @@
 	icon = 'icons/obj/structure/urban/konyang64x96.dmi'
 	icon_state = "nice_gwok"
 
-// street lights
-
 /obj/structure/utility_pole/street
-	name = "\improper street lamp"
-	desc = "A tall light source. What more is there to say?"
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
-	icon_state = "streetlight"
+	desc = "A tall light source. This one seems to be off."
+	icon = 'icons/obj/structure/urban/poles.dmi'
+	icon_state = "street"
 
-/obj/structure/utility_pole/street/on
-	light_wedge = LIGHT_OMNI
-	light_color = "#e8ffeb"
-	light_range = 8
-	light_power = 1.9
-
-/obj/structure/utility_pole/street/corner
-	name = "\improper street lamp"
-	desc = "A tall light source. What more is there to say?"
-	icon_state = "streetlightcorner"
-
-/obj/structure/utility_pole/street/corner/on
-	light_wedge = LIGHT_OMNI
-	light_color = "#e8ffeb"
-	light_range = 8
-	light_power = 1.9
-
-/obj/structure/utility_pole/street/double
-	name = "\improper street lamp"
-	desc = "A tall light source. What more is there to say?"
-	icon_state = "streetlightduo"
-
-/obj/structure/utility_pole/street/double/on
-	light_wedge = LIGHT_OMNI
-	light_color = "#e8ffeb"
-	light_range = 8
-	light_power = 1.9
-
-/obj/structure/utility_pole/street/classic
-	name = "\improper stone lamp"
-	desc = "A stone lamp commonly found in Konyang."
-	icon_state = "classic_lamp"
+/obj/effect/overlay/street_light
+	icon = 'icons/obj/structure/urban/poles.dmi'
+	icon_state = "street_light"
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 
 /obj/effect/overlay/street_light/classic
 	icon_state = "classic_lamp_light"
-	density = TRUE
+	density = 1
+
+/obj/structure/utility_pole/street/on
+	desc = "A tall light source. This one shines brightly."
+	light_wedge = LIGHT_OMNI
+	light_color = "#e8ffeb"
+	light_range = 8
+	light_power = 1.9
+
+/obj/structure/utility_pole/street/on/Initialize(mapload)
+	. = ..()
+	cut_overlays()
+	overlays += /obj/effect/overlay/street_light
+	return
+
+/obj/structure/utility_pole/street/classic
+	icon_state = "classic_lamp"
 
 /obj/structure/utility_pole/street/classic/on
+	desc = "A tall light source. This one shines brightly."
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_range = 8
@@ -130,7 +112,7 @@
 /obj/structure/utility_pole/street/traffic
 	name = "traffic indicator"
 	desc = "A very tall crosswalk indicator which can be used to better run red lights."
-	icon_state = "trafficlight"
+	icon_state = "traffic"
 	light_color = LIGHT_COLOR_HALOGEN
 	light_range = 3.1
 	light_power = 2.6
@@ -157,11 +139,9 @@
 
 /obj/effect/overlay/overhead_line
 	name = "overhead utility line"
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'icons/obj/structure/urban/poles.dmi'
 	icon_state = "line"
-	layer = ABOVE_ALL_MOB_LAYER
-	pixel_x = -32
-	pixel_y = 8
+	layer = 9.1
 
 /obj/effect/overlay/overhead_line/end
 	icon_state = "line_end"
