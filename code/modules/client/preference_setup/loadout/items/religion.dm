@@ -69,6 +69,11 @@
 	path = /obj/item/clothing/accessory/rosary
 	slot = slot_tie
 
+/datum/gear/religion/scapular
+	display_name = "scapular"
+	path = /obj/item/clothing/accessory/scapular
+	slot = slot_tie
+
 /datum/gear/religion/crucifix
 	display_name = "crucifix selection"
 	description = "A selection of different crucifixes, commonly associated with Christianity."

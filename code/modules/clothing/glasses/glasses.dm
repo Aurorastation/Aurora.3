@@ -480,13 +480,6 @@ BLIND     // can't see anything
 	icon_state = "eyepatch_white"
 	item_state = "eyepatch_white"
 
-/obj/item/clothing/glasses/monocle
-	name = "monocle"
-	desc = "Such a dapper eyepiece!"
-	icon_state = "monocle"
-	item_state = "monocle"
-	body_parts_covered = 0
-
 /obj/item/clothing/glasses/material
 	name = "optical material scanner"
 	desc = "Very confusing glasses."
@@ -533,6 +526,7 @@ BLIND     // can't see anything
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/health/prescription/P = new /obj/item/clothing/glasses/hud/health/prescription(user.loc)
 		P.glasses_type = src.type
+		P.color = src.color
 		user.put_in_hands(P)
 		qdel(src)
 	if(istype(attacking_item, /obj/item/clothing/glasses/hud/security))
@@ -542,6 +536,7 @@ BLIND     // can't see anything
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/security/prescription/P = new /obj/item/clothing/glasses/hud/security/prescription(user.loc)
 		P.glasses_type = src.type
+		P.color = src.color
 		user.put_in_hands(P)
 		qdel(src)
 
@@ -563,25 +558,70 @@ BLIND     // can't see anything
 	desc = "Made by Uncool. Co."
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/threedglasses
-	desc = "A long time ago, people used these glasses to makes images from screens threedimensional."
+	desc = "A long time ago, people used these glasses to makes images from screens three-dimensional."
 	name = "3D glasses"
 	icon_state = "3d"
 	item_state = "3d"
 	body_parts_covered = 0
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/regular/jamjar
 	name = "jamjar glasses"
 	desc = "Also known as Virginity Protectors."
 	icon_state = "jamjar_glasses"
 	item_state = "jamjar_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/regular/circle
 	name = "circle glasses"
 	desc = "Why would you wear something so controversial yet so brave?"
 	icon_state = "circle_glasses"
 	item_state = "circle_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
+
+/obj/item/clothing/glasses/regular/contacts
+	name = "contact lenses"
+	desc = "The benefits of sight without the troubles of glasses! Just don't drop them."
+	icon_state = "contacts"
+	item_state = "contacts"
+
+/obj/item/clothing/glasses/regular/recolorable
+	icon_state = "glassesr"
+	item_state = "glassesr"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
+
+/obj/item/clothing/glasses/regular/pincenez
+	name = "pince-nez glasses"
+	desc = "Popularized in the 19th century by French people, evil scientists, and dead people in bathtubs."
+	icon_state = "pincenez"
+	item_state = "pincenez"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
+
+/obj/item/clothing/glasses/regular/panto
+	name = "panto glasses"
+	desc = "So iconic. So generic. The monobloc chair of the glasses world."
+	icon_state = "panto"
+	item_state = "panto"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
+
+/obj/item/clothing/glasses/monocle
+	name = "monocle"
+	desc = "Such a dapper eyepiece!"
+	icon_state = "monocle"
+	item_state = "monocle"
+	body_parts_covered = 0
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/aug/glasses
 	name = "corrective lenses"
@@ -591,6 +631,8 @@ BLIND     // can't see anything
 	prescription = 7
 	body_parts_covered = 0
 	canremove = FALSE
+
+// Sunglasses
 
 /obj/item/clothing/glasses/sunglasses
 	name = "sunglasses"

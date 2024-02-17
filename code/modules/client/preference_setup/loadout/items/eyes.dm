@@ -12,19 +12,22 @@
 
 /datum/gear/eyes/glasses
 	display_name = "glasses selection"
-	description = "A selection of glasses."
-	path = /obj/item/clothing/glasses/regular
+	description = "A selection of prescription glasses."
+	path = /obj/item/clothing/glasses/regular/recolorable
+	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/eyes/glasses/New()
 	..()
 	var/list/glasses = list()
-	glasses["glasses, regular"] = /obj/item/clothing/glasses/regular
+	glasses["glasses, regular"] = /obj/item/clothing/glasses/regular/recolorable
 	glasses["glasses, hipster"] = /obj/item/clothing/glasses/regular/hipster
 	glasses["glasses, circle"] = /obj/item/clothing/glasses/regular/circle
 	glasses["glasses, jamjar"] = /obj/item/clothing/glasses/regular/jamjar
 	glasses["glasses, monocle"] = /obj/item/clothing/glasses/monocle
-	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety
-	glasses["glasses, safety (prescription)"] = /obj/item/clothing/glasses/safety/prescription
+	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety/prescription
+	glasses["glasses, pince-nez"] = /obj/item/clothing/glasses/regular/pincenez
+	glasses["glasses, panto"] = /obj/item/clothing/glasses/regular/panto
+	glasses["contact lenses"] = /obj/item/clothing/glasses/regular/contacts
 	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/fakesunglasses
