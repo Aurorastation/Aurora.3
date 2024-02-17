@@ -1111,7 +1111,7 @@
 /area/engineering/atmos/propulsion)
 "aQN" = (
 /obj/machinery/firealarm/north,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/tiled,
 /area/operations/storage)
 "aRG" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1371,12 +1371,6 @@
 /obj/structure/tank_wall/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"aYv" = (
-/obj/structure/ecd{
-	pixel_x = -16
-	},
-/turf/simulated/floor/bluegrid,
-/area/operations/storage)
 "aYY" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -5594,15 +5588,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
-"dRB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "dSD" = (
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
@@ -9417,9 +9402,6 @@
 	c_tag = "Operations - Warehouse Starboard Fore Storage Room";
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "grm" = (
@@ -11764,9 +11746,6 @@
 "icm" = (
 /turf/simulated/wall,
 /area/maintenance/engineering/auxillary)
-"icW" = (
-/turf/simulated/floor/bluegrid,
-/area/operations/storage)
 "idq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -23119,15 +23098,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"pRc" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "pRz" = (
 /obj/structure/sign/securearea{
 	pixel_y = 32
@@ -24594,7 +24564,8 @@
 /area/maintenance/research_port)
 "qQa" = (
 /obj/machinery/alarm/west,
-/turf/simulated/floor/bluegrid,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/operations/storage)
 "qQk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -27037,9 +27008,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -31724,12 +31692,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
-"vMc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/bluegrid,
-/area/operations/storage)
 "vMd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -45678,7 +45640,7 @@ pcv
 giX
 tiV
 qdE
-dRB
+tiV
 qQa
 gqW
 qdE
@@ -45882,8 +45844,8 @@ kAn
 nzG
 qdE
 aQN
-aYv
-vMc
+nCV
+tFO
 qdE
 oct
 qdE
@@ -46084,8 +46046,8 @@ sWr
 giX
 iQI
 qdE
-pRc
-icW
+iQI
+giX
 sDJ
 qdE
 vgU
