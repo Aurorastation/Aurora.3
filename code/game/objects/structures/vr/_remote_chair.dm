@@ -25,8 +25,8 @@
 /obj/structure/bed/stool/chair/remote/update_icon()
 	return
 
-/obj/structure/bed/stool/chair/remote/attackby(obj/item/W, mob/user)
-	if(portable_type && W.iswrench())
+/obj/structure/bed/stool/chair/remote/attackby(obj/item/attacking_item, mob/user)
+	if(portable_type && attacking_item.iswrench())
 		user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
 		if(do_after(user, 20 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))

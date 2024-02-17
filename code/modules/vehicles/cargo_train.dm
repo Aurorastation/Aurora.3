@@ -126,19 +126,20 @@
 
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/attackby(obj/item/W as obj, mob/user as mob)
-	if(open && W.iswirecutter())
+/obj/vehicle/train/cargo/trolley/attackby(obj/item/attacking_item, mob/user)
+	if(open && attacking_item.iswirecutter())
 		passenger_allowed = !passenger_allowed
-		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))
+		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),
+								SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))
 	else
 		..()
 
-/obj/vehicle/train/cargo/engine/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, key_type))
+/obj/vehicle/train/cargo/engine/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, key_type))
 		if(!key)
-			user.drop_from_inventory(W, src)
-			key = W // put the key in the ignition
-			to_chat(user, SPAN_NOTICE("You slide \the [W] into \the [src]\s ignition."))
+			user.drop_from_inventory(attacking_item, src)
+			key = attacking_item // put the key in the ignition
+			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] into \the [src]\s ignition."))
 			playsound(src, 'sound/machines/vehicles/key_in.ogg', 50, FALSE)
 		else
 			to_chat(user, SPAN_NOTICE("There is already a key in \the [src]\s ignition."))

@@ -346,14 +346,14 @@
 			return
 	attackpylon(user, damage, user)
 
-/obj/structure/cult/pylon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/holder))
-		var/obj/item/holder/H = W
+/obj/structure/cult/pylon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/holder))
+		var/obj/item/holder/H = attacking_item
 		if(H.contained)
 			present_sacrifice(user, H.contained)
 		return TRUE
 
-	attackpylon(user, W.force, W)
+	attackpylon(user, attacking_item.force, attacking_item)
 
 //Mousedrop so that constructs can drag rats out of maintenance to make turrets
 /obj/structure/cult/pylon/MouseDrop_T(var/atom/movable/C, mob/user)

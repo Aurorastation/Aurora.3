@@ -20,17 +20,17 @@
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
-/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/O, mob/user)
-	if(O.isscrewdriver())
+/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(is_open_container())
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
-		to_chat(user, SPAN_NOTICE("Using \the [O], you [is_open_container() ? "unsecure" : "secure"] the cartridge's lid!"))
+		to_chat(user, SPAN_NOTICE("Using \the [attacking_item], you [is_open_container() ? "unsecure" : "secure"] the cartridge's lid!"))
 		return TRUE
 
-	if(istype(O,/obj/item/extinguisher))
-		var/obj/item/extinguisher/E = O
+	if(istype(attacking_item, /obj/item/extinguisher))
+		var/obj/item/extinguisher/E = attacking_item
 		if(is_open_container())
 			to_chat(user,"<span class='notice'>\The [src] needs to be secured first!</span>")
 		else if(reagents.total_volume <= 0)
@@ -147,10 +147,10 @@
 	to_chat(user, "The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/extinguisher/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(O,/obj/item/reagent_containers/extinguisher_refill))
-		var/obj/item/reagent_containers/extinguisher_refill/ER = O
+	if(istype(attacking_item,/obj/item/reagent_containers/extinguisher_refill))
+		var/obj/item/reagent_containers/extinguisher_refill/ER = attacking_item
 		if(ER.is_open_container())
 			to_chat(user,"<span class='notice'>\The [ER] needs to be secured first!</span>")
 		else if(ER.reagents.total_volume <= 0)

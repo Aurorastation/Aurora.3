@@ -138,19 +138,19 @@
 		user.visible_message("<b>[user]</b> draws back the string of \the [src]!", SPAN_NOTICE("You continue drawing back the string of \the [src]!"))
 		playsound(loc, 'sound/weapons/reload_clip.ogg', 50, FALSE)
 
-/obj/item/gun/launcher/crossbow/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gun/launcher/crossbow/attackby(obj/item/attacking_item, mob/user)
 	if(!bolt)
-		if (istype(W, /obj/item/arrow))
-			user.drop_from_inventory(W, src)
-			bolt = W
+		if (istype(attacking_item, /obj/item/arrow))
+			user.drop_from_inventory(attacking_item, src)
+			bolt = attacking_item
 			user.visible_message("<b>[user]</b> slides \the [bolt] into \the [src].", SPAN_NOTICE("You slide \the [bolt] into \the [src]."))
 			update_icon()
-			if(istype(W, /obj/item/arrow/rod) && W.throwforce < 15)
+			if(istype(attacking_item, /obj/item/arrow/rod) && attacking_item.throwforce < 15)
 				// un-heated converted arrow rod
 				superheat_rod(user)
 			return
-		else if(istype(W, /obj/item/stack/rods))
-			var/obj/item/stack/rods/R = W
+		else if(istype(attacking_item, /obj/item/stack/rods))
+			var/obj/item/stack/rods/R = attacking_item
 			if (R.use(1))
 				bolt = new /obj/item/arrow/rod(src)
 				bolt.fingerprintslast = src.fingerprintslast
@@ -160,26 +160,26 @@
 				superheat_rod(user)
 			return
 
-	if(istype(W, /obj/item/cell))
+	if(istype(attacking_item, /obj/item/cell))
 		if(!cell)
-			user.drop_from_inventory(W, src)
-			cell = W
+			user.drop_from_inventory(attacking_item, src)
+			cell = attacking_item
 			to_chat(user, SPAN_NOTICE("You jam \the [cell] into \the [src] and wire it to the firing coil."))
 			superheat_rod(user)
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] already has a cell installed."))
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(cell)
 			var/obj/item/C = cell
 			C.forceMove(get_turf(user))
-			to_chat(user, SPAN_NOTICE("You jimmy \the [cell] out of \the [src] with \the [W]."))
+			to_chat(user, SPAN_NOTICE("You jimmy \the [cell] out of \the [src] with \the [attacking_item]."))
 			cell = null
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] doesn't have a cell installed."))
 
-	else if(istype(W, /obj/item/rfd))
-		W.attackby(src, user)
+	else if(istype(attacking_item, /obj/item/rfd))
+		attacking_item.attackby(src, user)
 
 	else
 		..()
@@ -233,10 +233,10 @@
 		if(5)
 			. += "It has a steel cable loosely strung across the limbs."
 
-/obj/item/crossbowframe/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack/rods))
+/obj/item/crossbowframe/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/rods))
 		if(buildstate == 0)
-			var/obj/item/stack/rods/R = W
+			var/obj/item/stack/rods/R = attacking_item
 			if(R.use(3))
 				to_chat(user, SPAN_NOTICE("You assemble a backbone of rods around the wooden stock."))
 				buildstate++
@@ -244,9 +244,9 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three rods to complete this task."))
 			return
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(buildstate == 1)
-			var/obj/item/weldingtool/T = W
+			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
@@ -254,8 +254,8 @@
 			buildstate++
 			update_icon()
 		return
-	else if(W.iscoil())
-		var/obj/item/stack/cable_coil/C = W
+	else if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 2)
 			if(C.use(5))
 				to_chat(user, SPAN_NOTICE("You wire a crude cell mount into the top of the crossbow."))
@@ -272,9 +272,9 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least five segments of cable coil to complete this task."))
 			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == MATERIAL_PLASTIC)
+	else if(istype(attacking_item,/obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_PLASTIC)
 		if(buildstate == 3)
-			var/obj/item/stack/material/P = W
+			var/obj/item/stack/material/P = attacking_item
 			if(P.use(3))
 				to_chat(user, SPAN_NOTICE("You assemble and install heavy plastic limbs onto the crossbow."))
 				buildstate++
@@ -282,7 +282,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three plastic sheets to complete this task."))
 			return
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(buildstate == 5)
 			to_chat(user, SPAN_NOTICE("You secure the crossbow's various parts."))
 			new /obj/item/gun/launcher/crossbow(get_turf(src))
@@ -334,19 +334,19 @@
 		genBolt(user)
 		draw(user)
 
-/obj/item/gun/launcher/crossbow/RFD/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/rfd_ammo))
+/obj/item/gun/launcher/crossbow/RFD/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > max_stored_matter)
 			to_chat(user, SPAN_NOTICE("The RFD can't hold that many additional matter-units."))
 			return
 		stored_matter += 10
-		qdel(W)
+		qdel(attacking_item)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/[max_stored_matter]</b> matter-units."))
 		update_icon()
 		return
-	if(istype(W, /obj/item/arrow/RFD))
-		var/obj/item/arrow/RFD/A = W
+	if(istype(attacking_item, /obj/item/arrow/RFD))
+		var/obj/item/arrow/RFD/A = attacking_item
 		if((stored_matter + 5) > max_stored_matter)
 			to_chat(user, SPAN_NOTICE("Unable to reclaim flashforged bolt. The RFD can't hold that many additional matter-units."))
 			return

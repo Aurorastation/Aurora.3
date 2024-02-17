@@ -19,9 +19,9 @@
 	. = ..()
 	Generate_Card(prefix, root, title, trap, spell)
 
-/obj/item/battle_monsters/card/attackby(var/obj/item/attacking, var/mob/user)
-	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
-		var/obj/item/battle_monsters/card/adding_card = attacking
+/obj/item/battle_monsters/card/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/battle_monsters/card) && attacking_item != src)
+		var/obj/item/battle_monsters/card/adding_card = attacking_item
 		make_deck(user,adding_card)
 
 /obj/item/battle_monsters/card/resolve_attackby(atom/A, mob/user, var/click_parameters)

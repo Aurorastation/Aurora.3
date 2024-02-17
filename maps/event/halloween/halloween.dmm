@@ -945,13 +945,6 @@
 /area/city/kitchen)
 "cD" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/obj/effect/decal/fake_object{
-	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "sign1";
-	name = "glamorous sign";
-	pixel_y = 33
-	},
 /obj/structure/closet/lasertag,
 /obj/item/gun/energy/lasertag/red,
 /obj/item/gun/energy/lasertag/red,
@@ -1248,12 +1241,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "dN" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit";
+/obj/structure/ac_unit{
 	layer = 3.3
 	},
 /obj/structure/railing/mapped{
@@ -1274,19 +1262,10 @@
 /area/city/hallway)
 "dQ" = (
 /obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
-	name = "expensive flatscreen holovision";
+/obj/structure/television{
 	pixel_y = 25
 	},
-/obj/effect/decal/fake_object{
-	desc = "A Hephaestus Industries Z-Cube! This state-of-the-art gaming console is the premium of the premium. It's almost VR!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "gamer_console";
-	name = "gaming console"
-	},
+/obj/structure/console,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -5273,14 +5252,7 @@
 /turf/simulated/floor/wood,
 /area/city/bar)
 "vO" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/marble/dark,
 /area/city/costumeroom)
 "vP" = (
@@ -5921,12 +5893,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/city/medical)
 "xk" = (
-/obj/effect/decal/fake_object{
-	desc = "A nondescript decorative shelf.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "shelf";
-	layer = 2.7;
-	name = "shelf";
+/obj/structure/shelf{
 	pixel_y = 29
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -6167,14 +6134,7 @@
 /turf/simulated/floor/wood,
 /area/city/dining)
 "yG" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /obj/effect/map_effect/perma_light/brighter{
 	color = "#FFA500";
 	light_color = "#FFA500"
@@ -7201,12 +7161,7 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "Dp" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit";
+/obj/structure/ac_unit{
 	layer = 3.3
 	},
 /obj/structure/railing/mapped{
@@ -8353,14 +8308,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/plating,
 /area/city/pool)
 "GI" = (
@@ -9411,13 +9359,6 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "KW" = (
-/obj/effect/decal/fake_object{
-	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "sign2";
-	name = "glamorous sign";
-	pixel_y = 33
-	},
 /obj/structure/closet/lasertag/blue,
 /obj/item/gun/energy/lasertag/blue,
 /obj/item/gun/energy/lasertag/blue,
@@ -10294,16 +10235,6 @@
 "OQ" = (
 /obj/structure/simple_door/sandstone,
 /turf/simulated/floor/gold,
-/area/city/horrorhouse)
-"OR" = (
-/obj/effect/decal/fake_object{
-	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "sign2";
-	name = "glamorous sign";
-	pixel_y = 33
-	},
-/turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "OT" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -12103,12 +12034,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/city/dining)
 "Ub" = (
-/obj/effect/decal/fake_object{
-	desc = "A nondescript decorative shelf.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "shelf2";
-	layer = 2.7;
-	name = "shelf";
+/obj/structure/shelf{
 	pixel_y = 31
 	},
 /obj/structure/flora/pottedplant/dead,
@@ -12548,11 +12474,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "VI" = (
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
-	name = "expensive flatscreen holovision";
+/obj/structure/television{
 	pixel_y = 15
 	},
 /obj/structure/table/wood,
@@ -13576,15 +13498,8 @@
 /turf/simulated/floor/beach/water/alt,
 /area/city/hallway)
 "Zf" = (
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/obj/effect/decal/fake_object{
-	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "sign1";
-	name = "glamorous sign";
-	pixel_y = 33
-	},
-/turf/simulated/floor/wood,
+/obj/structure/sign/double/hotel_montparnasse,
+/turf/simulated/wall/wood,
 /area/city/horrorhouse)
 "Zg" = (
 /obj/structure/railing/mapped{
@@ -13605,12 +13520,7 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "Zj" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit";
+/obj/structure/ac_unit{
 	layer = 3.3;
 	pixel_x = -2
 	},
@@ -13637,20 +13547,11 @@
 /area/city/outside)
 "Zl" = (
 /obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
-	name = "expensive flatscreen holovision";
+/obj/structure/television{
 	pixel_y = 25;
 	layer = 3.5
 	},
-/obj/effect/decal/fake_object{
-	desc = "A Hephaestus Industries Z-Cube! This state-of-the-art gaming console is the premium of the premium. It's almost VR!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "gamer_console";
-	name = "gaming console"
-	},
+/obj/structure/console,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -16938,7 +16839,7 @@ Ub
 Rq
 XM
 eo
-rn
+Zf
 cD
 Gq
 xN
@@ -17262,8 +17163,8 @@ xk
 Xp
 eB
 hu
-rn
 Zf
+yu
 aQ
 Am
 dk
@@ -17344,7 +17245,7 @@ WA
 WA
 WA
 rn
-OR
+WA
 Vd
 qC
 zb

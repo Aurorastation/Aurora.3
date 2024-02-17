@@ -81,9 +81,9 @@
 /obj/item/gun/launcher/grenade/unique_action(mob/user)
 	pump(user)
 
-/obj/item/gun/launcher/grenade/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		load(I, user)
+/obj/item/gun/launcher/grenade/attackby(obj/item/attacking_item, mob/user)
+	if((istype(attacking_item, /obj/item/grenade)))
+		load(attacking_item, user)
 	else
 		..()
 

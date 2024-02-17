@@ -71,16 +71,16 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
-	if(is_type_in_list(I, insertable))
-		if (!can_fit(I))
+/obj/item/reagent_containers/cooking_container/attackby(obj/item/attacking_item, mob/user)
+	if(is_type_in_list(attacking_item, insertable))
+		if (!can_fit(attacking_item))
 			to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
 			return FALSE
 
-		if(!user.unEquip(I))
+		if(!user.unEquip(attacking_item))
 			return
-		I.forceMove(src)
-		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
+		attacking_item.forceMove(src)
+		to_chat(user, SPAN_NOTICE("You put [attacking_item] [place_verb] [src]."))
 		update_icon()
 		return
 

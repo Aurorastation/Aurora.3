@@ -65,11 +65,11 @@
 		return TRUE
 	return FALSE
 
-/obj/item/clothing/head/helmet/attackby(obj/item/W, mob/user)
+/obj/item/clothing/head/helmet/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(!has_storage || istype(W, /obj/item/clothing/accessory))
+	if(!has_storage || istype(attacking_item, /obj/item/clothing/accessory))
 		return
-	hold.attackby(W, user)
+	hold.attackby(attacking_item, user)
 
 /obj/item/clothing/head/helmet/emp_act(severity)
 	. =  ..()

@@ -265,9 +265,9 @@
 		emagged = TRUE
 		return TRUE
 
-/obj/machinery/power/portgen/basic/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, sheet_path))
-		var/obj/item/stack/addstack = O
+/obj/machinery/power/portgen/basic/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, sheet_path))
+		var/obj/item/stack/addstack = attacking_item
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
 			to_chat(user, SPAN_NOTICE("The [name] is full!"))
@@ -277,7 +277,7 @@
 		addstack.use(amount)
 		return
 	else if(!active)
-		if(O.iswrench())
+		if(attacking_item.iswrench())
 
 			if(!anchored)
 				connect_to_network()
@@ -289,14 +289,14 @@
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(O.isscrewdriver())
+		else if(attacking_item.isscrewdriver())
 			open = !open
-			playsound(loc, O.usesound, 50, 1)
+			playsound(loc, attacking_item.usesound, 50, 1)
 			if(open)
 				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else
 				to_chat(user, SPAN_NOTICE("You close the access panel."))
-		else if(open && O.iscrowbar())
+		else if(open && attacking_item.iscrowbar())
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(loc)
 			for(var/obj/item/I in component_parts)
 				I.forceMove(loc)
@@ -514,9 +514,9 @@
 	if(power_output > max_safe_output)
 		icon_state = "reactordanger"
 
-/obj/machinery/power/portgen/basic/fusion/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/reagent_containers))
-		var/obj/item/reagent_containers/R = O
+/obj/machinery/power/portgen/basic/fusion/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/R = attacking_item
 		if(R.standard_pour_into(user, src))
 			if(reagents.has_reagent(/singleton/reagent/coolant))
 				audible_message("<span class='notice'>[src] blips happily!</span>")

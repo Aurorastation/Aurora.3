@@ -222,22 +222,22 @@
 /turf/simulated/open/update_icon(mapload)
 	update_mimic(!mapload)
 
-/turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
-	if (istype(C, /obj/item/stack/rods))
+/turf/simulated/open/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
 			return
-		var/obj/item/stack/rods/R = C
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice(locate(src.x, src.y, src.z))
 		return
 
-	if (istype(C, /obj/item/stack/tile))
+	if (istype(attacking_item, /obj/item/stack/tile))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
-			var/obj/item/stack/tile/floor/S = C
+			var/obj/item/stack/tile/floor/S = attacking_item
 			if (S.get_amount() < 1)
 				return
 			qdel(L)
@@ -249,8 +249,8 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(C.iscoil())
-		var/obj/item/stack/cable_coil/coil = C
+	if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 		return
 	return

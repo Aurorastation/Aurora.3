@@ -227,13 +227,13 @@
 	update_maptext()
 	update_icon()
 
-/obj/item/gun/projectile/attackby(obj/item/I, mob/user)
+/obj/item/gun/projectile/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(.)
 		return
-	load_ammo(I, user)
-	if(istype(I, /obj/item/suppressor))
-		var/obj/item/suppressor/S = I
+	load_ammo(attacking_item, user)
+	if(istype(attacking_item, /obj/item/suppressor))
+		var/obj/item/suppressor/S = attacking_item
 		if(!can_suppress)
 			balloon_alert(user, "\the [S.name] doesn't fit")
 			return

@@ -68,17 +68,17 @@
 	else
 		. += "<span class='warning'>The baton does not have a power source installed.</span>"
 
-/obj/item/melee/baton/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/cell))
+/obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(!bcell)
-			user.drop_from_inventory(W,src)
-			bcell = W
+			user.drop_from_inventory(attacking_item, src)
+			bcell = attacking_item
 			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.forceMove(get_turf(src))
@@ -215,7 +215,7 @@
 		bcell = R.cell
 	return ..()
 
-/obj/item/melee/baton/robot/attackby(obj/item/W, mob/user)
+/obj/item/melee/baton/robot/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/melee/baton/robot/arm

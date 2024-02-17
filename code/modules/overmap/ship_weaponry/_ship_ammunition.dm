@@ -42,11 +42,11 @@
 	original_projectile = null
 	return ..()
 
-/obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
-	if(I.ispen())
-		var/obj/item/pen/P = I
+/obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
+		var/obj/item/pen/P = attacking_item
 		if(!use_check_and_message(user))
-			var/friendly_message = sanitizeSafe(input(user, "What do you want to write on \the [src]?", "Personal Message"), 32)
+			var/friendly_message = sanitizeSafe( tgui_input_text(user, "What do you want to write on \the [src]?", "Personal Message", "", 32), 32 )
 			if(friendly_message)
 				written_message = friendly_message
 			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), SPAN_NOTICE("You leave a nice message on \the [src]!"))
@@ -97,10 +97,10 @@
 	if(prob(50) && ((ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE) || (ammunition_flags & SHIP_AMMO_FLAG_VULNERABLE)))
 		cookoff(FALSE)
 
-/obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
+/obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(I.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
-		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [I]!", user)
+	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
 		cookoff(FALSE)
 
 /obj/item/ship_ammunition/ex_act(severity)

@@ -26,3 +26,27 @@
 			limit = initial(H.cold_level_1) + rand(1,10)
 		atmosphere.temperature = max(T0C - rand(10, 100), limit)
 		atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/snow/generate_ground_survey_result()
+	..()
+	if(prob(40))
+		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+	if(prob(40))
+		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	if(prob(40))
+		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+	if(prob(40))
+		ground_survey_result += "<br>Muddy dirt rich in organic material"
+	if(prob(40))
+		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+	if(prob(40))
+		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	if(prob(10))
+		ground_survey_result += "<br>Traces of fissile material"
+	if(prob(50))
+		ground_survey_result += "<br>Atmosphere micro-analysis detects high contents of aerogens stable in low temperature"
+

@@ -269,7 +269,7 @@
 	selection_color = "#991818"
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS)
-	outfit = /datum/outfit/job/intern_sec
+	outfit = /datum/outfit/job/intern_sec/officer
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,
@@ -285,7 +285,6 @@
 	uniform = /obj/item/clothing/under/rank/cadet
 	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
-	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -302,6 +301,15 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
 /datum/outfit/job/intern_sec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+/datum/outfit/job/intern_sec/officer
+	name = "Security Cadet"
+	jobtype = /datum/job/intern_sec
+
+	shoes = null
+
+/datum/outfit/job/intern_sec/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)

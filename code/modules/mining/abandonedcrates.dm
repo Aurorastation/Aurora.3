@@ -174,9 +174,9 @@
 		if(guesschar != code[i])
 			. = 0
 
-/obj/structure/closet/crate/secure/loot/attackby(obj/item/W, mob/user)
+/obj/structure/closet/crate/secure/loot/attackby(obj/item/attacking_item, mob/user)
 	if(locked)
-		if(W.ismultitool()) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
+		if(attacking_item.ismultitool()) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
 			to_chat(user, SPAN_NOTICE("DECA-CODE LOCK ANALYSIS:"))
 			if(attempts == 1)
 				to_chat(user, SPAN_WARNING("* Anti-Tamper system will activate on the next failed access attempt."))

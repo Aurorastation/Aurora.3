@@ -291,11 +291,11 @@
 		do_animate("deny")
 		return
 
-/obj/machinery/door/attackby(obj/item/I as obj, mob/user as mob)
-	if(!istype(I, /obj/item/forensics))
+/obj/machinery/door/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(I.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/stack/stack = usr.get_inactive_hand()
 		if(istype(stack) && stack.get_material_name() == get_material_name())
 			if(stat & BROKEN)
@@ -328,12 +328,12 @@
 
 			return TRUE
 
-	if(repairing && I.iswelder())
+	if(repairing && attacking_item.iswelder())
 		if(!density)
 			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
 			return TRUE
 
-		var/obj/item/weldingtool/welder = I
+		var/obj/item/weldingtool/welder = attacking_item
 		if(welder.use(0,user))
 			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
 			if(welder.use_tool(src, user, 5 * repairing.amount, volume = 50) && welder && welder.isOn())
@@ -344,16 +344,16 @@
 				repairing = null
 		return TRUE
 
-	if(repairing && I.iscrowbar())
+	if(repairing && attacking_item.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, I.usesound, 50, 1)
+		playsound(src.loc, attacking_item.usesound, 50, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return TRUE
 
 	//psa to whoever coded this, there are plenty of objects that need to call attack() on doors without bludgeoning them.
-	if(src.density && istype(I, /obj/item) && user.a_intent == I_HURT && !istype(I, /obj/item/card))
-		var/obj/item/W = I
+	if(src.density && istype(attacking_item, /obj/item) && user.a_intent == I_HURT && !istype(attacking_item, /obj/item/card))
+		var/obj/item/W = attacking_item
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 			user.do_attack_animation(src)
@@ -509,7 +509,7 @@
 	set_opacity(0)
 	operating = FALSE
 
-	if(autoclose)
+	if(autoclose && !QDELETED(src))
 		close_door_in(next_close_time())
 
 	return 1

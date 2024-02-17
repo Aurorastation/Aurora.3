@@ -16,10 +16,10 @@
 /obj/structure/sign/ex_act(severity)
 	qdel(src)
 
-/obj/structure/sign/attackby(obj/item/tool, mob/user) // Deconstruction.
-	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+/obj/structure/sign/attackby(obj/item/attacking_item, mob/user) // Deconstruction.
+	if(attacking_item.isscrewdriver() && !istype(src, /obj/structure/sign/double))
 		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), SPAN_NOTICE("You start to unfasten \the [src]."))
-		if(tool.use_tool(src, user, 0, volume = 50))
+		if(attacking_item.use_tool(src, user, 0, volume = 50))
 			unfasten(user)
 	else ..()
 
@@ -39,8 +39,8 @@
 	w_class = ITEMSIZE_HUGE
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool, mob/user) // Construction.
-	if(tool.isscrewdriver() && isturf(user.loc))
+/obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
+	if(attacking_item.isscrewdriver() && isturf(user.loc))
 		var/direction = tgui_input_list(user, "In which direction?", "Select Direction", list("North", "East", "South", "West", "Cancel"))
 		if(direction == "Cancel") return
 		if(QDELETED(src)) //Prevents spawning multiple new signs with queued dialogues
@@ -59,7 +59,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		to_chat(user, "You fasten \the [S] with your [tool].")
+		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
 	else ..()
 
@@ -625,3 +625,59 @@
 	door to the tent with her body as the insurgents attempted to shoot through it. While she ultimately perished to gunfire, her sacrifice allowed the medical tent to be evacuated and let \
 	the 23rd capture all insurgents involved in the attack. Formerly a frontierswoman with no nation to call her own, she was buried with military honors and became the first Holy Martyr of \
 	Sun Reach in 2426. She is commonly venerated on Sun Reach and by Ma’zals throughout the Empire."
+
+// Urban
+
+/obj/structure/sign/exit
+	name = "exit sign"
+	desc = "A sign indicating where you should probably go in a hurry."
+	icon_state = "exit"
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/sign/restroom
+	name = "restroom sign"
+	desc = "A sign indicating where you can find a restroom."
+	icon_state = "restroom"
+
+/obj/structure/sign/staff
+	name = "staff only sign"
+	desc = "A sign that warns of this entry being barred to the public."
+	icon_state = "staff"
+
+/obj/structure/sign/double
+	icon = 'icons/obj/structure/64x32_signs.dmi'
+
+/obj/structure/sign/double/hotel_montparnasse
+	name = "glamorous sign"
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!"
+	icon_state = "hotel_montparnasse"
+
+/obj/structure/sign/double/convenience
+	name = "convenience store sign"
+	desc = "A sign labeling the structure as a 24-7 MINI MART. Convenient!"
+	icon_state = "shop_sign"
+
+/obj/structure/sign/double/police
+	name = "police station sign"
+	desc = "A sign labeling the structure as a Konyang police department building."
+	icon_state = "police_sign"
+
+/obj/structure/sign/double/robotics
+	name = "robotics clinic sign"
+	desc = "A sign labeling the structure as a robotics and clinical support building."
+	icon_state = "krc_sign"
+
+/obj/structure/sign/double/bar
+	name = "club and bar sign"
+	desc = "A sign labeling the structure as the Resting Tiger nightclub and bar."
+	icon_state = "bar_sign"
+
+/obj/structure/sign/double/arcade
+	name = "arcade sign"
+	desc = "A sign labeling the structure as a very cool arcade."
+	icon_state = "arcade_sign"
+
+/obj/structure/sign/double/pharmacy
+	name = "pharmacy sign"
+	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
+	icon_state = "pharmacy_sign"

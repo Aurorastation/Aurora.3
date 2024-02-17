@@ -1,14 +1,20 @@
 /datum/gear/religion
-	display_name = "trinary perfection mask"
-	path = /obj/item/clothing/mask/trinary_mask
-	slot = slot_wear_mask
+	abstract_type = /datum/gear/religion
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 
+/datum/gear/religion/shaman_staff
+	display_name = "shaman staff"
+	path = /obj/item/cane/shaman
+	slot = slot_l_hand
+
 /datum/gear/religion/trinary
-	display_name = "trinary perfection brooch"
-	path = /obj/item/clothing/accessory/badge/trinary
-	slot = slot_tie
+	abstract_type = /datum/gear/religion/trinary
+
+/datum/gear/religion/trinary/mask
+	display_name = "trinary perfection mask"
+	path = /obj/item/clothing/mask/trinary_mask
+	slot = slot_wear_mask
 
 /datum/gear/religion/trinary/coif
 	display_name = "trinary perfection coif"
@@ -98,6 +104,9 @@
 	slot = slot_tie
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/religion/dominia
+	abstract_type = /datum/gear/religion/dominia
+
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
@@ -142,21 +151,6 @@
 	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	gear_tweaks += new /datum/gear_tweak/path(cape)
 
-/datum/gear/religion/assunzione/robe
-	display_name = "assunzione robe selection"
-	description = "A selection of robes worn by adherents to Luceism."
-	path = /obj/item/clothing/accessory/poncho/assunzione
-	slot = slot_wear_suit
-	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
-
-/datum/gear/religion/assunzione/robe/New()
-	..()
-	var/list/assunzionerobe = list()
-	assunzionerobe["assunzione robe"] = /obj/item/clothing/accessory/poncho/assunzione
-	assunzionerobe["assunzione vine-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/vine
-	assunzionerobe["assunzione gold-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/gold
-	gear_tweaks += new /datum/gear_tweak/path(assunzionerobe)
-
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia
@@ -186,11 +180,6 @@
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
-/datum/gear/religion/shaman_staff
-	display_name = "shaman staff"
-	path = /obj/item/cane/shaman
-	slot = slot_l_hand
-
 /datum/gear/religion/dominia/robe_consular
 	display_name = "tribunalist consular uniform"
 	description = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
@@ -215,24 +204,6 @@
 	allowed_roles = list("Consular Officer")
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
-/datum/gear/religion/assunzione/accessory
-	display_name = "luceian amulet"
-	path = /obj/item/clothing/accessory/assunzione
-	slot = slot_tie
-	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
-
-/datum/gear/religion/assunzioneorb
-	display_name = "assunzione warding sphere"
-	description = "A religious artefact commonly associated with Luceism."
-	path = /obj/item/assunzioneorb
-	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
-
-/datum/gear/religion/assunzionesheath
-	display_name = "assunzione warding sphere sheath"
-	description = "A small metal shell designed to hold a warding sphere."
-	path = /obj/item/storage/assunzionesheath
-	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
-
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
 	path = /obj/item/device/versebook/tribunal
@@ -254,3 +225,36 @@
 	dominiaicon["icon of the martyr, matteo"] = /obj/item/sign/painting_frame/martyr/matteo
 	dominiaicon["icon of the martyr, valeria"] = /obj/item/sign/painting_frame/martyr/valeria
 	gear_tweaks += new /datum/gear_tweak/path(dominiaicon)
+
+/datum/gear/religion/assunzione
+	abstract_type = /datum/gear/religion/assunzione
+	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
+
+/datum/gear/religion/assunzione/robe
+	display_name = "assunzione robe selection"
+	description = "A selection of robes worn by adherents to Luceism."
+	path = /obj/item/clothing/accessory/poncho/assunzione
+	slot = slot_wear_suit
+
+/datum/gear/religion/assunzione/robe/New()
+	..()
+	var/list/assunzionerobe = list()
+	assunzionerobe["assunzione robe"] = /obj/item/clothing/accessory/poncho/assunzione
+	assunzionerobe["assunzione vine-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/vine
+	assunzionerobe["assunzione gold-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/gold
+	gear_tweaks += new /datum/gear_tweak/path(assunzionerobe)
+
+/datum/gear/religion/assunzione/accessory
+	display_name = "luceian amulet"
+	path = /obj/item/clothing/accessory/assunzione
+	slot = slot_tie
+
+/datum/gear/religion/assunzione/orb
+	display_name = "assunzione warding sphere"
+	description = "A religious artefact commonly associated with Luceism."
+	path = /obj/item/assunzioneorb
+
+/datum/gear/religion/assunzione/sheath
+	display_name = "assunzione warding sphere sheath"
+	description = "A small metal shell designed to hold a warding sphere."
+	path = /obj/item/storage/assunzionesheath

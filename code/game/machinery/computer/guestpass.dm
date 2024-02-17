@@ -66,11 +66,11 @@
 	. = ..()
 	uid = "[rand(100,999)]-G[rand(10,99)]"
 
-/obj/machinery/computer/guestpass/attackby(obj/O, mob/user)
-	if(istype(O, /obj/item/card/id))
-		if((!giver || giver == GUEST_PASS_TERMINAL_UNSET) && user.unEquip(O))
-			O.forceMove(src)
-			giver = O
+/obj/machinery/computer/guestpass/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		if((!giver || giver == GUEST_PASS_TERMINAL_UNSET) && user.unEquip(attacking_item))
+			attacking_item.forceMove(src)
+			giver = attacking_item
 			updateUsrDialog()
 		else if(giver && giver != GUEST_PASS_TERMINAL_UNSET)
 			to_chat(user, SPAN_WARNING("There is already ID card inside \the [src]."))

@@ -524,11 +524,11 @@
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
-/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/arrow))
-		load(I, user)
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
+/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/arrow))
+		load(attacking_item, user)
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			var/obj/item/arrow/rod/ROD = new /obj/item/arrow/rod(src)
 			load(ROD, user)

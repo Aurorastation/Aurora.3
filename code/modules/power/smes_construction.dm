@@ -375,9 +375,8 @@
 		..()
 
 // Proc: attackby()
-// Parameters: 2 (W - object that was used on this machine, user - person which used the object)
 // Description: Handles tool interaction. Allows deconstruction/upgrading/fixing.
-/obj/machinery/power/smes/buildable/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/power/smes/buildable/attackby(obj/item/attacking_item, mob/user)
 	// No more disassembling of overloaded SMESs. You broke it, now enjoy the consequences.
 	if (failing)
 		to_chat(user, "<span class='warning'>The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea.</span>")
@@ -386,11 +385,11 @@
 	// - Hatch is open, so we can modify the SMES
 	// - No action was taken in parent function (terminal de/construction atm).
 	if (..())
-		if(W.iswelder())
+		if(attacking_item.iswelder())
 			if(health == initial(health))
 				to_chat(user, SPAN_WARNING("\The [src] is already repaired."))
 				return
-			var/obj/item/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = attacking_item
 			if(!WT.welding)
 				to_chat(user, SPAN_WARNING("\The [src] isn't lit."))
 				return
@@ -404,7 +403,7 @@
 					busted = FALSE
 				return
 		// Multitool - change RCON tag
-		if(W.ismultitool())
+		if(attacking_item.ismultitool())
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
@@ -429,12 +428,12 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(W.iscrowbar())
+		if(attacking_item.iscrowbar())
 			if (terminal)
 				to_chat(user, "<span class='warning'>You have to disassemble the terminal first!</span>")
 				return
 
-			playsound(get_turf(src), W.usesound, 50, 1)
+			playsound(get_turf(src), attacking_item.usesound, 50, 1)
 			to_chat(user, "<span class='warning'>You begin to disassemble the [src]!</span>")
 			if (do_after(usr, 100 * cur_coils, src, DO_REPAIR_CONSTRUCT)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
 
@@ -453,7 +452,7 @@
 				return
 
 		// Superconducting Magnetic Coil - Upgrade the SMES
-		else if(istype(W, /obj/item/smes_coil))
+		else if(istype(attacking_item, /obj/item/smes_coil))
 			if (cur_coils < max_coils)
 
 				if (failure_probability && prob(failure_probability))
@@ -461,9 +460,9 @@
 					return
 
 				to_chat(usr, "You install the coil into the SMES unit!")
-				user.drop_from_inventory(W,src)
+				user.drop_from_inventory(attacking_item,src)
 				cur_coils ++
-				component_parts += W
+				component_parts += attacking_item
 				recalc_coils()
 			else
 				to_chat(usr, "<span class='warning'>You can't insert more coils to this SMES unit!</span>")

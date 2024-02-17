@@ -9,47 +9,47 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("bun" = 3))
 
-/obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/reagent_containers/food/snacks/result = null
 	// Bun + meatball = burger
-	if(istype(W,/obj/item/reagent_containers/food/snacks/meatball))
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/meatball))
 		result = new /obj/item/reagent_containers/food/snacks/burger(src)
 		to_chat(user, "You make a burger.")
 
 	// Bun + cutlet = hamburger
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/cutlet))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/cutlet))
 		result = new /obj/item/reagent_containers/food/snacks/burger(src)
 		to_chat(user, "You make a burger.")
 
 	//Bun + katsu = chickenfillet
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/chickenkatsu))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/chickenkatsu))
 		result = new /obj/item/reagent_containers/food/snacks/chickenfillet(src)
 		to_chat(user, "You make a chicken fillet sandwich.")
 
 	// Bun + sausage = hotdog
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/sausage))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sausage))
 		result = new /obj/item/reagent_containers/food/snacks/hotdog(src)
 		to_chat(user, "You make a hotdog.")
 
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/variable/mob))
-		var/obj/item/reagent_containers/food/snacks/variable/mob/MF = W
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/variable/mob))
+		var/obj/item/reagent_containers/food/snacks/variable/mob/MF = attacking_item
 
 		switch (MF.kitchen_tag)
 			if ("rodent")
 				result = new /obj/item/reagent_containers/food/snacks/burger/mouse(src)
 				to_chat(user, "You make a ratburger!")
 
-	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/roll/R = new(get_turf(src))
-		R.attackby(W,user)
+		R.attackby(attacking_item, user)
 		qdel(src)
 
 	if (result)
-		if (W.reagents)
+		if (attacking_item.reagents)
 			//Reagents of reuslt objects will be the sum total of both.  Except in special cases where nonfood items are used
 			//Eg robot head
 			result.reagents.clear_reagents()
-			W.reagents.trans_to(result, W.reagents.total_volume)
+			attacking_item.reagents.trans_to(result, attacking_item.reagents.total_volume)
 			reagents.trans_to(result, reagents.total_volume)
 
 		//If the bun was in your hands, the result will be too
@@ -57,7 +57,7 @@
 			user.drop_from_inventory(src) //This has to be here in order to put the pun in the proper place
 			user.put_in_hands(result)
 
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/bunbun

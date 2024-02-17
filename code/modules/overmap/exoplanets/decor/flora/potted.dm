@@ -28,22 +28,22 @@
 	death()
 	return ..()
 
-/obj/structure/flora/pottedplant/attackby(obj/item/W, mob/user)
+/obj/structure/flora/pottedplant/attackby(obj/item/attacking_item, mob/user)
 	if(!ishuman(user))
 		return
-	if(istype(W, /obj/item/holder))
+	if(istype(attacking_item, /obj/item/holder))
 		return //no hiding mobs in there
-	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], trying to hide \the [W].")
+	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], trying to hide \the [attacking_item].")
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
 	if(do_after(user, 20, src))
 		if(!stored_item)
-			if(W.w_class <= ITEMSIZE_NORMAL)
-				user.drop_from_inventory(W,src)
-				stored_item = W
-				to_chat(user,"<span class='notice'>You hide \the [W] in [src].</span>")
+			if(attacking_item.w_class <= ITEMSIZE_NORMAL)
+				user.drop_from_inventory(attacking_item, src)
+				stored_item = attacking_item
+				to_chat(user,"<span class='notice'>You hide \the [attacking_item] in [src].</span>")
 				return
 			else
-				to_chat(user,"<span class='notice'>\The [W] can't be hidden in [src], it's too big.</span>")
+				to_chat(user,"<span class='notice'>\The [attacking_item] can't be hidden in [src], it's too big.</span>")
 				return
 		else
 			to_chat(user,"<span class='notice'>There is something hidden in [src].</span>")

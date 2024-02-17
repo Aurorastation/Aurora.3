@@ -31,12 +31,12 @@
 	else
 		. += rune.get_normal_fluff_text()
 
-/obj/effect/rune/attackby(obj/I, mob/user)
-	if(istype(I, /obj/item/book/tome) && iscultist(user))
-		rune.do_tome_action(user, I)
+/obj/effect/rune/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/book/tome) && iscultist(user))
+		rune.do_tome_action(user, attacking_item)
 		return TRUE
-	else if(istype(I, /obj/item/nullrod))
-		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]!"))
+	else if(istype(attacking_item, /obj/item/nullrod))
+		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [attacking_item]!"))
 		qdel(src)
 		return TRUE
 

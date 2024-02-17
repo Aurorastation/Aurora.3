@@ -226,10 +226,10 @@
 	icon_state = "ricetub"
 	var/has_chopsticks = FALSE
 
-/obj/item/trash/ricetub/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/material/kitchen/utensil/fork/chopsticks))
-		to_chat(user, SPAN_NOTICE("You reattach the [W] to \the [src]"))
-		qdel(W)
+/obj/item/trash/ricetub/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/fork/chopsticks))
+		to_chat(user, SPAN_NOTICE("You reattach the [attacking_item] to \the [src]"))
+		qdel(attacking_item)
 		has_chopsticks = TRUE
 		update_icon()
 		return TRUE

@@ -5,7 +5,7 @@
 	icon_state = "car"
 	anchored = TRUE
 	density = TRUE
-	layer = 7
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/automobile/random/Initialize(mapload)
 	. = ..()
@@ -28,44 +28,105 @@
 	anchored = TRUE
 	density = TRUE
 
-/obj/structure/road_sign
+// Street Signs
+
+/obj/structure/street_sign
 	name = "stop sign"
 	desc = "A stop sign to direct traffic. Sometimes a demand."
-	icon = 'icons/obj/structure/urban/road_signs.dmi'
+	icon = 'icons/obj/structure/urban/street_signs.dmi'
 	icon_state = "stop"
-	layer = 9
+	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
-/obj/structure/road_sign/yield
+/obj/structure/street_sign/stop_konyang
+	icon_state = "stop_konyang"
+	desc = "A stop sign. You can't be really sure unless you speak Konyang."
+
+/obj/structure/street_sign/yield
 	name = "yield sign"
 	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
 	icon_state = "yield"
 
-/obj/structure/road_sign/pedestrian
-	name = "pedestrian passing sign"
-	desc = "A yellow sign which alerts you of bonus points ahead."
-	icon_state = "pedestrian"
+/obj/structure/street_sign/warnings
+	name = "warning sign"
+	desc = "A sign. You think it's trying to warn you of something."
+	icon_state = "warnings"
 
-/obj/structure/road_sign/turn
+/obj/structure/street_sign/directional
 	name = "turn ahead sign"
-	desc = "A sign which warns of an approaching turn to the right. Is it the right choice?"
-	icon_state = "right"
+	desc = "A directional sign. How the turntables..."
+	icon_state = "directional"
 
-/obj/structure/road_sign/turn/left
-	desc = "A sign which warns of an approaching turn to the left. Is anything left?"
-	icon_state = "left"
+/obj/structure/street_sign/directional/yellow
+	icon_state = "directional_yellow"
 
-/obj/structure/road_sign/street
+/obj/structure/street_sign/street
 	name = "street sign"
-	desc = "A green, wide street sign with words telling you that you are indeed on a street."
-	icon_state = "street_big"
+	desc = "A street sign. As common as they are, sometimes people still get lost."
+	icon_state = "street"
 
 	var/street_name = null
 
-/obj/structure/road_sign/street/Initialize(mapload)
+/obj/structure/street_sign/street/Initialize(mapload)
 	. = ..()
 	name = "[street_name]"
-	desc = "This sign indicates this crossing street is called [street_name]."
+	desc = "A street sign for [street_name]. As common as they are, sometimes people still get lost."
+
+/obj/structure/street_sign/street/both
+	dir = NORTH
+
+/obj/structure/street_sign/street/right
+	dir = WEST
+
+/obj/structure/street_sign/street/left
+	dir = EAST
+
+/obj/structure/ms13/street_sign/turning
+	desc = "A stop sign. Looks like you've passed the point of no return."
+	icon_state = "noturn"
+
+/obj/structure/street_sign/parking
+	desc = "A sign. No parking allowed."
+	icon_state = "noparking"
+
+/obj/structure/street_sign/one_way
+	desc = "A sign. Apparently you can only go one direction..."
+	icon_state = "direction"
+
+/obj/structure/street_sign/bus
+	desc = "A bus sign. If you had to guess, you have to wait for a bus here."
+	icon_state = "busstop"
+
+/obj/structure/street_sign/railroad
+	desc = "A sign. This one is a big white X. Wonder what that entails?"
+	icon_state = "railcrossing"
+
+/obj/structure/street_sign/only_direction
+	desc = "A sign. It's telling you to only go this way."
+	icon_state = "onlydir"
+
+/obj/structure/street_sign/speed
+	desc = "A sign. Always trying to slow you down."
+	icon_state = "speed"
+
+/obj/structure/street_sign/turn
+	desc = "A sign. It's pointing a direction with arrows on it. Cool."
+	icon_state = "turn"
+
+/obj/structure/street_sign/exit
+	desc = "A sign. It's showing you to an exit."
+	icon_state = "exit"
+
+/obj/structure/street_sign/nopedestrian
+	desc = "A sign. Only operators of heavy machinery allowed!"
+	icon_state = "nopedestrian"
+
+/obj/structure/street_sign/drive_thru
+	name = "drive thru sign"
+	desc = "A drive-thru sign."
+	icon_state = "drivethru"
+
+// infrastructure
 
 /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
@@ -113,16 +174,6 @@
 /obj/structure/structural_support/side
 	icon_state = "truss_side"
 
-/obj/structure/urban/pylon
-	name = "vehicle charging pylon"
-	desc = "A vehicle-grade charging pylon attached to a nearby port."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "chargepylon"
-	light_color = LIGHT_COLOR_CYAN
-	light_range = 1.2
-	density = TRUE
-	anchored = TRUE
-
 /obj/structure/manhole
 	name = "sewer access manhole"
 	desc = "Probably a bad idea to open this."
@@ -131,8 +182,8 @@
 	anchored = TRUE
 	var/open = 0
 
-/obj/structure/manhole/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iscrowbar())
+/obj/structure/manhole/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
@@ -176,13 +227,6 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
-/obj/structure/television
-	name = "wide-screen television"
-	desc = "A fancy wide-screen television with a wide selection of channels."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "television"
-	anchored = TRUE
-
 /obj/structure/dressing_divider
 	name = "wardrobe dressing divider"
 	desc = "A divider for an environment where you're probably swapping clothes, made with your privacy in mind."
@@ -197,7 +241,7 @@
 	icon = 'icons/obj/structure/urban/konyang_neon.dmi'
 	icon_state = "sign1"
 	anchored = TRUE
-	layer = 7
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/shipping_container
 	name = "freight container"
@@ -206,13 +250,13 @@
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
-	layer = 7
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
 	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
 	icon_state = "heph1"
-	layer = 7.01
+	layer = 4.6
 
 /obj/effect/overlay/container_logo/einstein
 	name = "Einstein Engines emblem"
@@ -231,7 +275,7 @@
 	density = TRUE
 	throwpass = TRUE
 	climbable = TRUE
-	layer = 4.01
+	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -262,7 +306,7 @@
 	density = TRUE
 	throwpass = TRUE
 	anchored = TRUE
-	layer = 4.01
+	layer = ABOVE_MOB_LAYER
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -273,7 +317,7 @@
 	throwpass = TRUE
 	climbable = TRUE
 	anchored = TRUE
-	layer = 4.01
+	layer = ABOVE_MOB_LAYER
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in
@@ -309,15 +353,27 @@
 	return TRUE
 
 /obj/structure/chainlink_fence
-	name = "chainlink industrial fencing"
+	name = "chainlink fence"
 	desc = "A tall, imposing metal fence. Not to be confused with the slightly more popular Chainlink of recent years."
-	icon = 'icons/obj/structure/industrial/fencing_tall.dmi'
+	icon = 'icons/obj/structure/obstacles/obstacles.dmi'
 	density = TRUE
-	icon_state = "fence"
+	icon_state = "normal_fence"
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/chainlink_fence/corner
+	icon_state = "fence_corner"
+
+/obj/structure/chainlink_fence/intersect_bottom
+	icon_state = "fence_intersect_bottom"
+
+/obj/structure/chainlink_fence/intersect_middle
+	icon_state = "fence_intersect_middle"
+
+/obj/structure/chainlink_fence/intersect_corner
+	icon_state = "fence_intersect_corner"
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
@@ -393,13 +449,6 @@
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
 	icon_state = "buddha"
 
-/obj/structure/sign/urban
-	name = "exit sign"
-	desc = "A sign indicating where you should probably go in a hurry."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "exit"
-	layer = ABOVE_ALL_MOB_LAYER
-
 /obj/structure/sign/billboard
 	name = "commercial billboard"
 	desc = "A large and typically roadside billboard rented out for advertisement space."
@@ -421,23 +470,6 @@
 	icon_state = "sign[rand(1, 14)]"
 	return
 
-/obj/structure/sign/urban/drive_thru
-	name = "drive thru sign"
-	desc = "A drive-thru sign."
-	icon = 'icons/obj/structure/urban/restaurant.dmi'
-	icon_state = "drivethru"
-	density = 1
-
-/obj/structure/sign/urban/restroom
-	name = "restroom sign"
-	desc = "A sign indicating where you can find a restroom."
-	icon_state = "restroom"
-
-/obj/structure/sign/urban/staff
-	name = "staff only sign"
-	desc = "A sign that warns of this entry being barred to the public."
-	icon_state = "staff"
-
 /obj/structure/restaurant_menu
 	name = "restaurant menu"
 	desc = "A sign displaying a variety of delectable meals."
@@ -455,47 +487,16 @@
 		menu_text = pencode2html(new_text)
 		update_icon()
 
-/obj/structure/restaurant_menu/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper))
-		var/obj/item/paper/P = I
-		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+/obj/structure/restaurant_menu/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/P = attacking_item
+		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		icon_state = "menu_active"
 		update_icon()
 		return TRUE
 	return ..()
-
-/obj/structure/sign/urban/konyang
-	name = "convenience store sign"
-	desc = "A sign labeling the structure as a 24-7 MINI MART. Convenient!"
-	icon = 'icons/obj/structure/urban/konyang_signs.dmi'
-	icon_state = "shop_sign"
-
-/obj/structure/sign/urban/konyang/police
-	name = "police station sign"
-	desc = "A sign labeling the structure as a Konyang police department building."
-	icon_state = "police_sign"
-
-/obj/structure/sign/urban/konyang/robotics
-	name = "robotics clinic sign"
-	desc = "A sign labeling the structure as a robotics and clinical support building."
-	icon_state = "krc_sign"
-
-/obj/structure/sign/urban/konyang/bar
-	name = "club and bar sign"
-	desc = "A sign labeling the structure as the Resting Tiger nightclub and bar."
-	icon_state = "bar_sign"
-
-/obj/structure/sign/urban/konyang/arcade
-	name = "arcade sign"
-	desc = "A sign labeling the structure as a very cool arcade."
-	icon_state = "arcade_sign"
-
-/obj/structure/sign/urban/konyang/pharmacy
-	name = "pharmacy sign"
-	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
-	icon_state = "pharmacy_sign"
 
 /obj/structure/window/urban
 	icon = 'icons/obj/structure/urban/windows_tall.dmi'
@@ -648,11 +649,11 @@
 				flick("[base_icon]c1", src)
 	return
 
-/obj/machinery/door/urban/attackby(obj/item/I, mob/user)
+/obj/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(I, /obj/item/key/door_key))
+	if(istype(attacking_item, /obj/item/key/door_key))
 
-		if(check_access(I))
+		if(check_access(attacking_item))
 			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
 
 				//Only say that it's unlocked if there actually was an access list that did the locking

@@ -273,9 +273,9 @@ Possible to do for anyone motivated enough:
 		return 0
 	return -1
 
-/obj/machinery/hologram/holopad/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/modular_computer))
-		var/obj/item/modular_computer/MC = W
+/obj/machinery/hologram/holopad/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/modular_computer))
+		var/obj/item/modular_computer/MC = attacking_item
 		if(!(MC in linked_pdas))
 			linked_pdas |= MC
 			to_chat(user, SPAN_NOTICE("You link \the [MC] to \the [src]."))

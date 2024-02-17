@@ -359,8 +359,8 @@
 	icon_state = "squidmeat"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
 
-/obj/item/reagent_containers/food/snacks/squidmeat/attackby(var/obj/item/W, var/mob/user)
-	if(is_sharp(W) && (locate(/obj/structure/table) in loc))
+/obj/item/reagent_containers/food/snacks/squidmeat/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item) && (locate(/obj/structure/table) in loc))
 		var/transfer_amt = FLOOR(reagents.total_volume/3)
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
