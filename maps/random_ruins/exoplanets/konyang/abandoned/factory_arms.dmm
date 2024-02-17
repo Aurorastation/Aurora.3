@@ -683,7 +683,7 @@
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "zb" = (
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk/flat,

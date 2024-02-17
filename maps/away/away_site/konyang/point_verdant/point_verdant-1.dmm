@@ -43,7 +43,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -81,7 +81,7 @@
 "ap" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -568,7 +568,7 @@
 /area/point_verdant/interior/police)
 "bL" = (
 /obj/random/dirt_75,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -596,7 +596,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/hotel)
 "bQ" = (
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16;
 	name = "cavern warning sign";
 	desc = "A warning sign which declares the area ahead as off-limits. It details it as a dangerous, unregulated cave."
@@ -605,7 +605,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "bR" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -1096,7 +1096,7 @@
 /obj/structure/road_barrier/bot_end{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/crosswalk{
+/obj/structure/utility_pole/street/crosswalk/konyang{
 	pixel_x = 10
 	},
 /obj/random/dirt_75,
@@ -3180,7 +3180,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -4788,7 +4788,7 @@
 /turf/simulated/floor/foundation,
 /area/point_verdant/sewer)
 "oy" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
 "oz" = (
@@ -4799,7 +4799,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -5243,7 +5243,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -5273,7 +5273,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -5544,7 +5544,7 @@
 /obj/structure/road_barrier{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -6460,7 +6460,7 @@
 /obj/structure/dock_structure{
 	pixel_y = -16
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -6821,7 +6821,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -7685,7 +7685,7 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
 "xq" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
@@ -8887,7 +8887,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -9466,7 +9466,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -9544,7 +9544,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -10599,7 +10599,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "GB" = (
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16;
 	name = "cavern warning sign";
 	desc = "A warning sign which declares the area ahead as off-limits. It details it as a dangerous, unregulated cave."
@@ -11336,7 +11336,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8;
 	layer = 4.6
@@ -12025,7 +12025,7 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/police)
 "KG" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -3
 	},
 /obj/random/dirt_75,
@@ -13632,7 +13632,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "Po" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -13705,7 +13705,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Pz" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -14240,7 +14240,7 @@
 /area/point_verdant/interior)
 "QT" = (
 /obj/structure/dock_structure,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -15158,7 +15158,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Tt" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "Tu" = (
@@ -15299,7 +15299,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -15514,7 +15514,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "Uz" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -3
 	},
 /turf/simulated/floor/concrete,
@@ -16277,7 +16277,7 @@
 /area/point_verdant/interior/offices/basement)
 "Ww" = (
 /obj/structure/dock_structure,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -16389,7 +16389,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "WM" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -18
 	},
@@ -16480,7 +16480,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
 "Xc" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /obj/item/reagent_containers/food/drinks/bottle/sake{
 	pixel_x = -20;
 	pixel_y = -3

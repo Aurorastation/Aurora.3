@@ -27,7 +27,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "ae" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "af" = (
@@ -111,7 +111,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/outdoors)
 "as" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -8
 	},
 /obj/random/dirt_75,
@@ -657,7 +657,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -719,7 +719,7 @@
 /turf/simulated/wall,
 /area/point_verdant/outdoors)
 "bV" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -1069,7 +1069,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -1866,7 +1866,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "ff" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -1944,7 +1944,7 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/shallow)
 "ft" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -2118,7 +2118,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -2287,7 +2287,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/curb,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/asphalt,
@@ -2767,7 +2767,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "hG" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -2916,7 +2916,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "ie" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /turf/simulated/floor/sidewalk,
@@ -3124,7 +3124,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -3257,7 +3257,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "je" = (
@@ -3559,7 +3559,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -4088,7 +4088,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -4145,7 +4145,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -4408,7 +4408,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "lZ" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /turf/simulated/floor/sidewalk/detail,
@@ -4449,7 +4449,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},
@@ -4673,7 +4673,7 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /turf/simulated/floor/concrete,
@@ -5178,7 +5178,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},
@@ -5350,7 +5350,7 @@
 	dir = 4;
 	pixel_x = 16
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},
@@ -5701,7 +5701,7 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/asphalt,
@@ -5766,7 +5766,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic/on{
 	pixel_y = -6
 	},
 /turf/simulated/floor/asphalt,
@@ -5782,7 +5782,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "pu" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
 "pv" = (
@@ -5976,7 +5976,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "pV" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -6515,8 +6515,8 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "ry" = (
-/obj/structure/utility_pole/street/crosswalk,
-/obj/structure/utility_pole/street/traffic/base{
+/obj/structure/utility_pole/street/crosswalk/konyang,
+/obj/structure/utility_pole/street/traffic/konyang{
 	pixel_x = 12;
 	dir = 1;
 	pixel_y = -1
@@ -6553,7 +6553,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -6911,7 +6911,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "sD" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	layer = 9.1
@@ -7268,7 +7268,7 @@
 /obj/structure/ledge{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -7531,7 +7531,7 @@
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -7646,7 +7646,7 @@
 /obj/structure/chainlink_fence{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -7680,7 +7680,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "ux" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk/detail,
@@ -7849,7 +7849,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -8028,7 +8028,7 @@
 	dir = 8
 	},
 /obj/effect/decal/curb,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/asphalt,
@@ -8091,7 +8091,7 @@
 	dir = 1;
 	pixel_y = 32
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -8295,7 +8295,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -8513,7 +8513,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -8837,7 +8837,7 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -8883,7 +8883,7 @@
 /area/point_verdant/interior/hotel)
 "xG" = (
 /obj/structure/road_barrier,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16;
 	layer = 4.6
 	},
@@ -9090,8 +9090,8 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/interior/shallow)
 "yh" = (
-/obj/structure/utility_pole/street/crosswalk,
-/obj/structure/utility_pole/street/traffic/base{
+/obj/structure/utility_pole/street/crosswalk/konyang,
+/obj/structure/utility_pole/street/traffic/konyang{
 	pixel_y = 18;
 	pixel_x = -14
 	},
@@ -9175,7 +9175,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "yq" = (
-/obj/structure/utility_pole/street/traffic/inverted{
+/obj/structure/utility_pole/street/traffic/konyang{
 	dir = 4;
 	pixel_y = -1;
 	pixel_x = 1
@@ -9202,7 +9202,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "yt" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /obj/structure/hydrant{
@@ -9555,7 +9555,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "zp" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /obj/structure/ledge{
@@ -10233,7 +10233,7 @@
 /obj/structure/road_barrier/bot_end{
 	dir = 1
 	},
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16
 	},
 /obj/effect/decal/road_marking/thin{
@@ -10359,7 +10359,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
 "Bh" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk,
@@ -10734,7 +10734,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	layer = 9.1
@@ -10901,7 +10901,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "CL" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /turf/simulated/floor/sidewalk,
@@ -10913,7 +10913,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "CN" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -11010,7 +11010,7 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -11067,7 +11067,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "Dh" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -11264,7 +11264,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -11598,7 +11598,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "EC" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -11764,7 +11764,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -11817,7 +11817,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
@@ -12341,7 +12341,7 @@
 /obj/structure/road_barrier{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -12486,7 +12486,7 @@
 /area/point_verdant/outdoors)
 "GO" = (
 /obj/structure/road_barrier,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16;
 	layer = 4.6
 	},
@@ -12518,7 +12518,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -12660,7 +12660,7 @@
 /area/point_verdant/interior/shallow)
 "Hm" = (
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic/on{
 	pixel_x = 11
 	},
 /turf/simulated/floor/sidewalk,
@@ -12685,7 +12685,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /obj/structure/rod_railing{
@@ -12879,7 +12879,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -12915,7 +12915,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/police)
 "HR" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -12996,7 +12996,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Ie" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -13256,7 +13256,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
 "IT" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -13285,7 +13285,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -13594,7 +13594,7 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
 "JW" = (
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk,
@@ -13975,7 +13975,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -14192,7 +14192,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "Lz" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -14517,7 +14517,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Mz" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -15573,7 +15573,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "OZ" = (
-/obj/structure/utility_pole/street/traffic/inverted{
+/obj/structure/utility_pole/street/traffic/konyang{
 	dir = 8;
 	pixel_y = 12
 	},
@@ -15708,7 +15708,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic/on{
 	pixel_x = -7;
 	pixel_y = 12
 	},
@@ -15879,7 +15879,7 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /turf/simulated/floor/sidewalk,
@@ -15929,7 +15929,7 @@
 /area/point_verdant/interior/streetvendor)
 "PN" = (
 /obj/structure/road_barrier,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = -16
 	},
 /turf/simulated/floor/sidewalk,
@@ -16032,7 +16032,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Qa" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -16181,7 +16181,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -16566,7 +16566,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "RB" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -16705,7 +16705,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "RT" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "RU" = (
@@ -16718,7 +16718,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "RW" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
@@ -16832,7 +16832,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "Sn" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -16981,7 +16981,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "SJ" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -17346,7 +17346,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -17479,14 +17479,14 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "Ua" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -18074,7 +18074,7 @@
 /obj/structure/road_barrier/bot_end{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/crosswalk,
+/obj/structure/utility_pole/street/crosswalk/konyang,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "VP" = (
@@ -18495,7 +18495,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -18732,7 +18732,7 @@
 /obj/structure/road_barrier{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -19628,7 +19628,7 @@
 	dir = 4;
 	pixel_x = 16
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},

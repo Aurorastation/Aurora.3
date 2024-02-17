@@ -30,7 +30,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -278,7 +278,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-9"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -543,7 +543,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -750,7 +750,7 @@
 /obj/structure/railing/mapped{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1157,7 +1157,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-8"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1292,7 +1292,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -1533,7 +1533,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ug" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1
 	},
 /obj/structure/railing/mapped{
@@ -1726,7 +1726,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -1929,7 +1929,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -2021,7 +2021,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2054,7 +2054,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -2382,7 +2382,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2405,7 +2405,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2422,7 +2422,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "GQ" = (
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on,
 /obj/structure/railing/mapped{
 	layer = 9.1
 	},
@@ -2535,7 +2535,7 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air8"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3019,7 +3019,7 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air9"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3118,7 +3118,7 @@
 	layer = 9.1;
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3155,7 +3155,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -3299,7 +3299,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -3318,7 +3318,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3696,7 +3696,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "YJ" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,

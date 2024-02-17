@@ -111,7 +111,7 @@
 /turf/simulated/floor/foundation,
 /area/exoplanet/grass/konyang)
 "hm" = (
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16
 	},
 /obj/structure/hydrant,

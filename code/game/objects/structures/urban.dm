@@ -47,6 +47,10 @@
 	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
 	icon_state = "yield"
 
+/obj/structure/street_sign/yield_konyang
+	desc = "A yield sign. In Konyang!"
+	icon_state = "yield_konyang"
+
 /obj/structure/street_sign/warnings
 	name = "warning sign"
 	desc = "A sign. You think it's trying to warn you of something."

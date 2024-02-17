@@ -19,7 +19,7 @@
 /obj/structure/ledge{
 	dir = 10
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = 0
 	},
@@ -246,7 +246,7 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -619,7 +619,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -1002,7 +1002,7 @@
 /area/point_verdant/interior/offices)
 "gS" = (
 /obj/structure/ledge,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = 0
 	},
@@ -1399,7 +1399,7 @@
 	dir = 9
 	},
 /obj/item/hullbeacon/red,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40;
 	pixel_y = 0;
@@ -1442,7 +1442,7 @@
 	dir = 5
 	},
 /obj/item/hullbeacon/red,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24;
 	pixel_y = 0;
@@ -1991,7 +1991,7 @@
 /obj/structure/ledge{
 	dir = 5
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24
 	},
@@ -2078,7 +2078,7 @@
 	dir = 5
 	},
 /obj/item/hullbeacon/red,
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -24;
 	pixel_y = 0
@@ -2352,7 +2352,7 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = 0
 	},
@@ -2608,7 +2608,7 @@
 /obj/structure/ledge{
 	dir = 9
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40;
 	pixel_y = 0
@@ -2802,7 +2802,7 @@
 /turf/simulated/floor/plating,
 /area/point_verdant/outdoors)
 "wn" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "wo" = (
@@ -2822,7 +2822,7 @@
 /obj/structure/ledge{
 	dir = 9
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -2963,7 +2963,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "wZ" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	pixel_y = 0
 	},
 /turf/simulated/floor/concrete,
@@ -3106,7 +3106,7 @@
 /obj/structure/ledge{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -5082,7 +5082,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = 0
 	},
@@ -5224,7 +5224,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "NR" = (
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 4;
 	pixel_x = -40
 	},
@@ -5266,7 +5266,7 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = 0
 	},
@@ -5782,7 +5782,7 @@
 /obj/structure/ledge{
 	dir = 6
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 1;
 	pixel_y = 0
 	},

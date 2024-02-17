@@ -61,6 +61,15 @@
 	light_range = 8
 	light_power = 1.9
 
+/obj/structure/utility_pole/street/konyang
+	icon_state = "streetlight_konyang"
+
+/obj/structure/utility_pole/street/konyang/on
+	light_wedge = LIGHT_OMNI
+	light_color = "#e8ffeb"
+	light_range = 8
+	light_power = 1.9
+
 /obj/structure/utility_pole/street/corner
 	name = "\improper street lamp"
 	desc = "A tall light source. What more is there to say?"
@@ -83,25 +92,25 @@
 	light_range = 8
 	light_power = 1.9
 
-/obj/structure/utility_pole/street/classic
+/obj/structure/utility_pole/street/konyang/classic
 	name = "\improper stone lamp"
 	desc = "A stone lamp commonly found in Konyang."
 	icon_state = "classic_lamp"
 
-/obj/effect/overlay/street_light/classic
+/obj/effect/overlay/street_light/konyang/classic
 	icon_state = "classic_lamp_light"
 	density = TRUE
 
-/obj/structure/utility_pole/street/classic/on
+/obj/structure/utility_pole/street/konyang/classic/on
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_range = 8
 	light_power = 1.9
 
-/obj/structure/utility_pole/street/classic/on/Initialize(mapload)
+/obj/structure/utility_pole/street/konyang/classic/on/Initialize(mapload)
 	. = ..()
 	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/classic
+	overlays += /obj/effect/overlay/street_light/konyang/classic
 	return
 
 /obj/effect/overlay/street_light/crosswalk
@@ -115,17 +124,14 @@
 	light_range = 3.1
 	light_power = 2.6
 
+/obj/structure/utility_pole/street/crosswalk/konyang
+	icon_state = "crosswalk_konyang"
+
 /obj/structure/utility_pole/street/crosswalk/Initialize(mapload)
 	. = ..()
 	cut_overlays()
 	overlays += /obj/effect/overlay/street_light/crosswalk
 	return
-
-/obj/effect/overlay/street_light/traffic
-	icon_state = "traffic_lights"
-
-/obj/effect/overlay/street_light/traffic/inverted
-	icon_state = "traffic_lights_inverse"
 
 /obj/structure/utility_pole/street/traffic
 	name = "traffic indicator"
@@ -135,17 +141,8 @@
 	light_range = 3.1
 	light_power = 2.6
 
-/obj/structure/utility_pole/street/traffic/base/Initialize(mapload)
-	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/traffic
-	return
-
-/obj/structure/utility_pole/street/traffic/inverted/Initialize(mapload)
-	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/traffic/inverted
-	return
+/obj/structure/utility_pole/street/traffic/konyang
+	icon_state = "trafficlight_konyang"
 
 /obj/structure/utility_pole/power
 	name = "power pole"

@@ -396,7 +396,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street{
+/obj/structure/utility_pole/street/konyang{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -763,7 +763,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street{
+/obj/structure/utility_pole/street/konyang{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -959,7 +959,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street{
+/obj/structure/utility_pole/street/konyang{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -1122,7 +1122,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "Sl" = (
-/obj/structure/utility_pole/street{
+/obj/structure/utility_pole/street/konyang{
 	pixel_y = -5
 	},
 /turf/simulated/floor/sidewalk/flat,

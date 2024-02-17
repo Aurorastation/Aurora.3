@@ -432,7 +432,7 @@
 "wG" = (
 /obj/structure/chainlink_fence,
 /obj/structure/flora/bush/konyang_reeds,
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -792,7 +792,7 @@
 /area/konyang_telecomms_outpost)
 "Qe" = (
 /obj/structure/chainlink_fence,
-/obj/structure/street_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
