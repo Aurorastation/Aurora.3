@@ -13,13 +13,12 @@
 /datum/gear/eyes/glasses
 	display_name = "glasses selection"
 	description = "A selection of prescription glasses."
-	path = /obj/item/clothing/glasses/regular/recolorable
-	flags = GEAR_HAS_COLOR_SELECTION
+	path = /obj/item/clothing/glasses/regular
 
 /datum/gear/eyes/glasses/New()
 	..()
 	var/list/glasses = list()
-	glasses["glasses, regular"] = /obj/item/clothing/glasses/regular/recolorable
+	glasses["glasses, regular"] = /obj/item/clothing/glasses/regular
 	glasses["glasses, hipster"] = /obj/item/clothing/glasses/regular/hipster
 	glasses["glasses, circle"] = /obj/item/clothing/glasses/regular/circle
 	glasses["glasses, jamjar"] = /obj/item/clothing/glasses/regular/jamjar
@@ -90,6 +89,8 @@
 	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
 	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
 	medhud["visor sunglasses, medical"] = /obj/item/clothing/glasses/hud/health/aviator/visor
+	medhud["pincenez, medical"] = /obj/item/clothing/glasses/hud/health/aviator/pincenez
+	medhud["panto, medical"] = /obj/item/clothing/glasses/hud/health/aviator/panto
 	gear_tweaks += new /datum/gear_tweak/path(medhud)
 
 /datum/gear/eyes/sechuds
@@ -108,6 +109,8 @@
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
 	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
 	sechud["visor sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+	sechud["pincenez, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pincenez
+	sechud["panto, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/panto
 	gear_tweaks += new /datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch

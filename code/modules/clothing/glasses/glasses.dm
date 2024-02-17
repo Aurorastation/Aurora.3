@@ -201,6 +201,18 @@ BLIND     // can't see anything
 	icon_state = "visor_medhud"
 	item_state = "visor_medhud"
 
+/obj/item/clothing/glasses/hud/health/aviator/pincenez
+	name = "medical HUD pincenez"
+	desc = "Modified pincenez glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "pincenez_med"
+	item_state = "pincenez_med"
+
+/obj/item/clothing/glasses/hud/health/aviator/panto
+	name = "medical HUD panto"
+	desc = "Modified panto glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "panto_med"
+	item_state = "panto_med"
+
 /obj/item/clothing/glasses/science
 	name = "science goggles"
 	desc = "Used to protect your eyes against harmful chemicals!"
@@ -592,27 +604,17 @@ BLIND     // can't see anything
 	icon_state = "contacts"
 	item_state = "contacts"
 
-/obj/item/clothing/glasses/regular/recolorable
-	icon_state = "glassesr"
-	item_state = "glassesr"
-	build_from_parts = TRUE
-	worn_overlay = "lens"
-
 /obj/item/clothing/glasses/regular/pincenez
 	name = "pince-nez glasses"
 	desc = "Popularized in the 19th century by French people, evil scientists, and dead people in bathtubs."
 	icon_state = "pincenez"
 	item_state = "pincenez"
-	build_from_parts = TRUE
-	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/regular/panto
 	name = "panto glasses"
 	desc = "So iconic. So generic. The monobloc chair of the glasses world."
 	icon_state = "panto"
 	item_state = "panto"
-	build_from_parts = TRUE
-	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/monocle
 	name = "monocle"
@@ -620,8 +622,6 @@ BLIND     // can't see anything
 	icon_state = "monocle"
 	item_state = "monocle"
 	body_parts_covered = 0
-	build_from_parts = TRUE
-	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/aug/glasses
 	name = "corrective lenses"
@@ -1002,6 +1002,18 @@ BLIND     // can't see anything
 	desc = "NanoTrasen security visor glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "visor_sec"
 	item_state = "visor_sec"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/pincenez
+	name = "security HUD pincenez"
+	desc = "NanoTrasen security pincenez glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "pincenez_sec"
+	item_state = "pincenez_sec"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/panto
+	name = "security HUD panto"
+	desc = "NanoTrasen security panto glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "panto_sec"
+	item_state = "panto_sec"
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
