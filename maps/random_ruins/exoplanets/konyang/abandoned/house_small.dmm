@@ -40,7 +40,7 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "cL" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_recharger/automobile,
 /obj/effect/decal/curb{
 	dir = 10
 	},
@@ -204,7 +204,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "ki" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_recharger/automobile,
 /obj/effect/decal/curb{
 	dir = 6
 	},
@@ -915,7 +915,14 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang/house_small)
 "Vx" = (
-/obj/structure/ac_unit,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A bland air conditioning unit.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "ac";
+	layer = 2.7;
+	name = "AC unit"
+	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "Wv" = (

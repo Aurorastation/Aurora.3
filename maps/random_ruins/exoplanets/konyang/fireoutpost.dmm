@@ -118,7 +118,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/chainlink_fence/corner,
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_fireoutpost)
 "eQ" = (
@@ -461,8 +461,7 @@
 /area/konyang_fireoutpost)
 "qV" = (
 /obj/structure/chainlink_fence{
-	dir = 8;
-	pixel_x = -16
+	dir = 8
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_fireoutpost)
@@ -715,12 +714,11 @@
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/exoplanet/grass/konyang)
 "Fq" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
 /obj/effect/decal/exterior_stairs/half,
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/chainlink_fence{
-	dir = 8;
-	pixel_x = -16
-	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_fireoutpost)
 "Fy" = (
@@ -998,13 +996,6 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_fireoutpost)
-"Qj" = (
-/obj/structure/chainlink_fence/corner,
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/konyang,
-/area/konyang_fireoutpost)
 "QE" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb{
@@ -1018,8 +1009,7 @@
 /area/exoplanet/grass/konyang)
 "QS" = (
 /obj/structure/chainlink_fence{
-	dir = 8;
-	pixel_x = -16
+	dir = 8
 	},
 /obj/structure/closet/outhouse,
 /turf/simulated/floor/concrete,
@@ -1098,8 +1088,7 @@
 /area/exoplanet/grass/konyang)
 "TI" = (
 /obj/structure/chainlink_fence{
-	dir = 8;
-	pixel_x = -16
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_fireoutpost)
@@ -1247,7 +1236,10 @@
 "ZQ" = (
 /obj/structure/chainlink_fence{
 	dir = 8;
-	pixel_x = -16
+	pixel_y = -19
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/konyang_fireoutpost)
@@ -1580,7 +1572,7 @@ qV
 Fq
 TI
 ZQ
-ZQ
+mh
 Pp
 fO
 BY
@@ -2150,7 +2142,7 @@ zS
 "}
 (29,1,1) = {"
 yn
-Qj
+sK
 pU
 JU
 mw

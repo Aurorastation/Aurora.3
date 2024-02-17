@@ -306,7 +306,7 @@
 /area/konyang_telecomms_outpost)
 "pw" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_recharger/automobile,
 /obj/vehicle/bike/speeder{
 	dir = 8
 	},
@@ -422,7 +422,7 @@
 /area/konyang_telecomms_outpost)
 "wj" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_recharger/automobile,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_telecomms_outpost)
 "wz" = (
@@ -432,7 +432,7 @@
 "wG" = (
 /obj/structure/chainlink_fence,
 /obj/structure/flora/bush/konyang_reeds,
-/obj/structure/street_sign/yield{
+/obj/structure/road_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -716,7 +716,14 @@
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
 "Nh" = (
-/obj/structure/ac_unit,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A bland air conditioning unit.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "ac";
+	layer = 2.7;
+	name = "AC unit"
+	},
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "Nm" = (
@@ -792,7 +799,7 @@
 /area/konyang_telecomms_outpost)
 "Qe" = (
 /obj/structure/chainlink_fence,
-/obj/structure/street_sign/yield{
+/obj/structure/road_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -913,7 +920,7 @@
 /area/konyang_telecomms_outpost)
 "Vi" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_recharger/automobile,
 /obj/vehicle/bike/speeder{
 	dir = 4
 	},
@@ -997,8 +1004,13 @@
 /area/konyang_telecomms_outpost)
 "YL" = (
 /obj/structure/table/wood,
-/obj/structure/television{
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
 	layer = 6.1;
+	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,

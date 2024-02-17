@@ -103,7 +103,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "gH" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_recharger/automobile,
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "gZ" = (
@@ -111,7 +111,7 @@
 /turf/simulated/floor/foundation,
 /area/exoplanet/grass/konyang)
 "hm" = (
-/obj/structure/street_sign/yield{
+/obj/structure/road_sign/yield{
 	pixel_x = -16
 	},
 /obj/structure/hydrant,
@@ -365,7 +365,7 @@
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "sY" = (
-/obj/structure/pylon,
+/obj/structure/urban/pylon,
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "tf" = (
