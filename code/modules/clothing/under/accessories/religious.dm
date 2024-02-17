@@ -65,3 +65,12 @@
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/clothing/accessory/tallit
+	name = "tallit"
+	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
+	The tallit has special twined and knotted fringes known as tzitzit attached to its four corners."
+	icon = 'icons/obj/clothing/accessory/religious.dmi'
+	item_state = "tallit"
+	icon_state = "tallit"
+	contained_sprite = TRUE
