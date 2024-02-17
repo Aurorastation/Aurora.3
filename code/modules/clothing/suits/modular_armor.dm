@@ -534,8 +534,7 @@
 
 /obj/item/clothing/accessory/flagpatch/europa
 	name = "europa flagpatch"
-	desc = "A flagpatch representing Europa. It is a common tradition that no one can place the origin of to make these patches out of waterproof fabric then carry \
-	them on a dive before displaying them on one's clothes in order to gain good luck."
+	desc = "A flagpatch representing Europa. It is a common tradition, which nobody really knows the origin of, to make these patches out of waterproof fabric then carry them on a dive, before displaying them on one's own clothes in order to gain good luck."
 	icon_state = "flagpatch_europa"
 	item_state = "flagpatch_europa"
 
