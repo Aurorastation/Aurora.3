@@ -1096,9 +1096,7 @@
 /obj/structure/road_barrier/bot_end{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/crosswalk/konyang{
-	pixel_x = 10
-	},
+/obj/structure/utility_pole/street/crosswalk/konyang,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
