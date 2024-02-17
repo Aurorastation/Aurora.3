@@ -45,6 +45,26 @@
 	fore_dir = SOUTH
 	invisible_until_ghostrole_spawn = FALSE
 
+	initial_restricted_waypoints = list(
+		"Xanu Fighter" = list("xanufrigate_hangar"),
+		"Xanu Boarder" = list("xanufrigate_aft")
+	)
+	initial_generic_waypoints = list(
+		"xanufrigate_fore_bow",
+		"xanufrigate_fore_port",
+		"xanufrigate_fore_stbd",
+		"xanufrigate_mid_port",
+		"xanufrigate_mid_stbd",
+		"xanufrigate_space_fore_port",
+		"xanufrigate_space_fore_stbd",
+		"xanufrigate_space_mid_port",
+		"xanufrigate_space_mid_stbd",
+		"xanufrigate_space_aft_port",
+		"xanufrigate_space_aft_stbd",
+		"xanufrigate_space_far_port",
+		"xanufrigate_space_far_stbd",
+	)
+
 /obj/effect/overmap/visitable/ship/xanu_frigate/New()
 	designation = "[pick("Sterrenlicht", "Riviere", "Vandenberg", "Sterkarm", "Fontaine", "Souverain", "Zilverberg", "Vanhoorn", "Lefebure", "Eclairant", "Liberte", "Huyghe", "Montclair")]"
 	..()
@@ -54,8 +74,8 @@
 /obj/effect/overmap/visitable/ship/landable/xanu_fighter
 	name = "Xanu Fighter"
 	class = "AXSS"
-	desc = "The A-42 'Arbalest' heavy fighter is a trademark of the All-Xanu Spacefleet's fighter contingent and the standard strike craft of choice on non-carrier vessels with a hangar. It boasts the maneuverability and speed of a light fighter while also \
-	possessing the armor and range capabilities of a larger vessel. Compared to its carrier-based cousins, the Arbalest-class is more capable of holding ground on its own, and it is usually fielded as a compliment to a larger mothership."
+	desc = "The A-42 'Halberd' heavy fighter is a trademark of the All-Xanu Spacefleet's fighter contingent and the standard strike craft of choice on non-carrier vessels with a hangar. It boasts the maneuverability and speed of a light fighter while also \
+	possessing the armor and range capabilities of a larger vessel. Compared to its carrier-based cousins, the A-42 is more capable of holding ground on its own, and it is usually fielded as a compliment to a larger mothership."
 	shuttle = "Xanu Fighter"
 	icon_state = "canary"
 	moving_state = "canary_moving"
@@ -72,7 +92,7 @@
 	shiptype = "Anti-ship high-speed combat and interception"
 
 /obj/effect/overmap/visitable/ship/landable/xanu_fighter/New()
-	designation = "Xanu Fighter"
+	designation = "[pick("Halberd", "Guisarme", "Ranseur", "Goedendag", "Bardiche", "Swordstaff", "Mancatcher")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/xanu_fighter
