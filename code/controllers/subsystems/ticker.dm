@@ -12,7 +12,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	priority = SS_PRIORITY_TICKER
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	init_order = SS_INIT_LOBBY
+	init_order = INIT_ORDER_TICKER
 
 	wait = 1 SECOND
 

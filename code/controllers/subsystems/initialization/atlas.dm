@@ -3,7 +3,7 @@
 SUBSYSTEM_DEF(atlas)
 	name = "Atlas"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MAPLOAD
+	init_order = INIT_ORDER_MAPPING
 	init_stage = INITSTAGE_EARLY
 
 	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.

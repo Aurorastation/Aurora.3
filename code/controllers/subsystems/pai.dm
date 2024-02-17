@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(pai)
 	name = "pAI"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE | SS_NO_INIT
 
 	var/list/pai_software_by_key
