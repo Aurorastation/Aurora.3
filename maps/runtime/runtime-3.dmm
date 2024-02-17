@@ -443,7 +443,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled,
 /area/construction/hallway)
 "iV" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
@@ -2141,6 +2141,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"Zl" = (
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Zv" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4735,7 +4738,7 @@ nA
 nA
 nA
 nA
-nA
+Zl
 nA
 nA
 nA
