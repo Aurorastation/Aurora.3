@@ -37,7 +37,7 @@
 /obj/item/key/bike/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		. += "\The [src] has a small tag attached to it, with a serial number, '[key_data]'."
+		. += "\The [src] has a small tag attached to it, written on it is '[key_data]'."
 
 /obj/item/key/bike/sport
 	name = "sports bike key"
