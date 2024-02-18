@@ -200,7 +200,6 @@
 "aay" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaz" = (
@@ -259,8 +258,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaG" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
