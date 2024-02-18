@@ -9,5 +9,3 @@ changes:
   - bugfix: "Fixes some inconsistent railings on Point Verdant, forcing players to walk through them to climb stairs."
   - bugfix: "Adds a light switch to the Point Verdant street vendor building."
   - bugfix: "Adjusts the location of deep water on Konyang to avoid structures, so the overlays don't conflict."
-  - tweak: "Adds a mop to the Point Verdant minimart."
-  - tweak: "Adds bikes to Point Verdant because I forgot to earlier. Whoops."

@@ -1878,15 +1878,6 @@
 /obj/item/device/analyzer,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/spaceport)
-"oT" = (
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/obj/vehicle/bike/motor/moped/red{
-	dir = 8
-	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "oW" = (
 /obj/structure/table/rack/clothing{
 	layer = 3.1
@@ -2626,9 +2617,6 @@
 "vo" = (
 /obj/effect/decal/curb{
 	dir = 10
-	},
-/obj/vehicle/bike/motor/moped/teal{
-	dir = 8
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -5229,10 +5217,6 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
-"OG" = (
-/obj/effect/decal/exterior_stairs/center,
-/turf/unsimulated/mineral/konyang,
-/area/point_verdant/interior)
 "OI" = (
 /obj/structure/ledge/roof{
 	dir = 9
@@ -5680,9 +5664,6 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/vehicle/bike/motor/moped/blue{
-	dir = 8
-	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "SB" = (
@@ -6104,11 +6085,6 @@
 /obj/structure/closet/crate/secure/large,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
-"VY" = (
-/obj/effect/decal/exterior_stairs/center,
-/obj/effect/decal/exterior_stairs/center,
-/turf/unsimulated/mineral/konyang,
-/area/point_verdant/interior)
 "We" = (
 /obj/machinery/door/urban/glass_sliding/double,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13145,8 +13121,8 @@ ER
 ER
 ER
 ER
-OG
-VY
+ER
+ER
 ER
 ER
 ER
@@ -21942,7 +21918,7 @@ bf
 hw
 um
 vo
-oT
+rg
 Sy
 uT
 xh
