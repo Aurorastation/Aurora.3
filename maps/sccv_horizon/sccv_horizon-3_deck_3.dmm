@@ -4450,7 +4450,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Investigator"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -7215,11 +7215,11 @@
 /turf/simulated/floor/tiled/full,
 /area/bridge/cciaroom)
 "frA" = (
-/obj/effect/landmark/start{
-	name = "Security Cadet"
-	},
 /obj/structure/bed/stool/chair{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Warden"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -7468,7 +7468,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Investigator"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -11094,11 +11094,11 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/effect/landmark/start{
-	name = "Security Officer"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/effect/landmark/start{
+	name = "Security Cadet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -30891,10 +30891,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "Security Officer"
-	},
 /obj/machinery/firealarm/south,
+/obj/effect/landmark/start{
+	name = "Security Cadet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "vED" = (
@@ -33827,12 +33827,6 @@
 "xJq" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
-	},
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Security Officer"
 	},
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
@@ -61936,7 +61930,7 @@ lnI
 vTI
 pms
 fyZ
-xSX
+frA
 gTO
 xJq
 tGG
@@ -62138,7 +62132,7 @@ lnI
 mVs
 rhT
 fyZ
-frA
+xSX
 kxs
 vEh
 oIR
@@ -62340,7 +62334,7 @@ lnI
 kMa
 muO
 xPv
-frA
+xSX
 kxs
 hOi
 oIR
