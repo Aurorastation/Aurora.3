@@ -1260,6 +1260,7 @@
 #include "code\game\objects\structures\coatrack.dm"
 #include "code\game\objects\structures\crystals.dm"
 #include "code\game\objects\structures\curtains.dm"
+#include "code\game\objects\structures\decorative.dm"
 #include "code\game\objects\structures\displaycase.dm"
 #include "code\game\objects\structures\door_assembly.dm"
 #include "code\game\objects\structures\ECD.dm"
