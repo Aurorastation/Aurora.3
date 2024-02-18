@@ -242,6 +242,7 @@
 	name = "comet cola can"
 	desc = "Getmore's most popular line of soda. A generic cola, otherwise."
 	icon_state = "cola"
+	item_state = "cola"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/space_cola = 30)
 
@@ -249,6 +250,7 @@
 	name = "stellar jolt can"
 	desc = "For those who have a need for caffeine stronger than would be sensible."
 	icon_state = "space_mountain_wind"
+	item_state = "space_mountain_wind"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/spacemountainwind = 30)
@@ -256,6 +258,7 @@
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
 	name = "getmore energy can"
 	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date!"
+	icon_state = "thirteen_loko"
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -265,6 +268,7 @@
 	name = "getmore root-cola can"
 	desc = "A canned mixture of Comet Cola and Getmore Root Beer. More popular than one would expect."
 	icon_state = "dr_gibb"
+	item_state = "dr_gibb"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/dr_gibb = 30)
@@ -273,6 +277,7 @@
 	name = "orange starshine can"
 	desc = "A sugary-sweet citrus soda."
 	icon_state = "starkist"
+	item_state = "starkist"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/brownstar = 30)
@@ -289,6 +294,7 @@
 	name = "\improper Lemon-Lime"
 	desc = "Generic lemon-lime soda."
 	icon_state = "lemon-lime"
+	item_state = "lemon-lime"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/lemon_lime = 30)
@@ -297,6 +303,7 @@
 	name = "\improper Silversun Wave iced tea"
 	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
 	icon_state = "ice_tea_can"
+	item_state = "ice_tea_can"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/icetea = 30)
@@ -305,6 +312,7 @@
 	name = "\improper Grapel juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
 	icon_state = "grapesoda"
+	item_state = "grapesoda"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/grapejuice = 30)
@@ -313,6 +321,7 @@
 	name = "\improper T-Borg's tonic water"
 	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
 	icon_state = "tonic"
+	item_state = "tonic"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/tonic = 50)
@@ -321,6 +330,7 @@
 	name = "soda water"
 	desc = "A can of soda water. Still water's more refreshing cousin."
 	icon_state = "sodawater"
+	item_state = "sodawater"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/sodawater = 50)
@@ -329,6 +339,7 @@
 	name = "\improper Phoron Punch!"
 	desc = "A radical looking can of " + SPAN_WARNING("Phoron Punch!") + " Phoron poisoning has never been more extreme! " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurca. Consuming this product might lead to death.")
 	icon_state = "phoron_punch"
+	item_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron = 5)
@@ -337,6 +348,7 @@
 	name = "getmore root beer can"
 	desc = "A classic Earth drink, made from various roots."
 	icon_state = "root_beer"
+	item_state = "root_beer"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/root_beer = 30)
@@ -353,60 +365,70 @@
 	name = "\improper Zo'ra Soda Cherry"
 	desc = "A can of cherry flavoured Zo'ra Soda energy drink, with V'krexi additives. All good energy drinks come in cherry."
 	icon_state = "zoracherry"
+	item_state = "zoracherry"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/cherry = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron
 	name = "\improper Zo'ra Soda Phoron Passion"
 	desc = "A can of grape flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound vaurca taste testers."
 	icon_state = "phoronpassion"
+	item_state = "phoronpassion"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/phoron = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
 	name = "\improper K'laxan Energy Crush"
 	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
 	icon_state = "klaxancrush"
+	item_state = "klaxancrush"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/klax = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
 	name = "\improper C'thur Rockin' Raspberry"
 	desc = "A can of \"blue raspberry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a more flowery and aromatic raspberry."
 	icon_state = "cthurberry"
+	item_state = "cthurberry"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/cthur = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
 	name = "\improper Zo'ra Sour Venom Grass"
 	desc = "A can of sour \"venom grass\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a cloud of angry stinging acidic bees."
 	icon_state = "sourvenomgrass"
+	item_state = "sourvenomgrass"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/venomgrass = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm // "Contraband"
 	name = "\improper High Octane Zorane Might"
 	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
 	icon_state = "hozm"
+	item_state = "hozm"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/hozm = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/kois
 	name = "\improper Zo'ra Soda K'ois Twist"
 	desc = "A can of K'ois-imitation flavoured Zo'ra Soda energy drink, with V'krexi additives. Contains no K'ois, contrary to what the name may imply."
 	icon_state = "koistwist"
+	item_state = "koistwist"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/kois = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Vaurca Drone Fuel"
 	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca.<br/>" + SPAN_DANGER(" WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
 	icon_state = "dronefuel"
+	item_state = "dronefuel"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/drone = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly
 	name = "\improper Royal Vaurca Jelly"
 	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 	icon_state = "royaljelly"
+	item_state = "royaljelly"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/jelly = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
 	name = "fermented fatshouters milk"
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
 	icon_state = "milk_can"
+	item_state = "milk_can"
 	center_of_mass = list("x"=16, "y"=10)
 	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
@@ -416,6 +438,7 @@
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
 	icon_state = "beetlemilk"
+	item_state = "beetlemilk"
 	center_of_mass = list("x"=17, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/milk/beetle = 30)
 	can_size_overrides = list("x" = 1, "y" = -2)
@@ -424,6 +447,7 @@
 	name = "Cooling Breeze"
 	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar."
 	icon_state = "dyncan"
+	item_state = "dyncan"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/dynjuice/cold = 30)
 
@@ -431,6 +455,7 @@
 	name = "\improper Three Towns Cider"
 	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
 	icon_state = "three_towns_cider"
+	item_state = "three_towns_cider"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/threetownscider = 30)
 
@@ -441,6 +466,7 @@
 	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
 	students because of its stimulant effect."
 	icon_state = "hrozamal_soda"
+	item_state = "hrozamal_soda"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 30)
@@ -449,6 +475,7 @@
 	name = "diet cola can"
 	desc = "Comet Cola! Now in diet!"
 	icon_state = "diet_cola"
+	item_state = "diet_cola"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/diet_cola = 30)
 
@@ -457,6 +484,7 @@
 	desc = "Made from the NEW Xanu Prime peaches."
 	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
 	icon_state = "xanu_rush"
+	item_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/peach_soda = 30)
 
@@ -465,6 +493,7 @@
 	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
 	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
 	icon_state = "space_beer"
+	item_state = "space_beer"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/alcohol/beer = 40)
 
@@ -472,20 +501,24 @@
 	name = "\improper Ebisu Super Dry"
 	desc = "Konyang's favourite rice beer brand, 200 years running."
 	icon_state = "ebisu"
+	item_state = "ebisu"
 	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 40)
 
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma
 	name = "\improper Shimauma Ichiban"
 	desc = "Konyang's most middling rice beer brand. Not as popular as Ebisu, but it's comfortable in second place."
 	icon_state = "shimauma"
+	item_state = "shimauma"
 
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor
 	name = "\improper Moonlabor Malt's"
 	desc = "Konyang's underdog rice beer brand. Popular amongst New Hai Phongers, for reasons unknown."
 	icon_state = "moonlabor"
+	item_state = "moonlabor"
 
 /obj/item/reagent_containers/food/drinks/cans/melon_soda
 	name = "Kansumi Melon Soda"
 	desc = "Konyang's favourite melon soda, now available in can form!"
 	icon_state = "melon_soda"
+	item_state = "melon_soda"
 	reagents_to_add = list(/singleton/reagent/drink/melon_soda = 30)

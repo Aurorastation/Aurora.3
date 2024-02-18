@@ -7285,6 +7285,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/item/device/radio/microphone,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "ftA" = (
