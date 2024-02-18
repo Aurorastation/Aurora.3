@@ -89,6 +89,7 @@
 				. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	else
 		. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
+	. += "</span>"
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)
