@@ -85,7 +85,7 @@
 /obj/structure/street_sign/street/left
 	dir = EAST
 
-/obj/structure/ms13/street_sign/turning
+/obj/structure/large/street_sign/turning
 	desc = "A stop sign. Looks like you've passed the point of no return."
 	icon_state = "noturn"
 

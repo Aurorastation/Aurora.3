@@ -681,3 +681,124 @@
 	name = "pharmacy sign"
 	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
 	icon_state = "pharmacy_sign"
+
+//64x64
+
+/obj/structure/large/sign
+	name = "Generic large sign"
+	desc = "You shouldn't see this"
+	icon = 'icons/obj/structure/64x64_signs.dmi'
+	anchored = TRUE
+	density = TRUE
+	layer = ABOVE_MOB_LAYER
+	var/on = FALSE
+
+/obj/structure/large/sign/bazaar
+	name = "bazaar sign"
+	desc = "A set of signs clearly directing you to the heart of a town. Obviously there is many things to be gained in this particular direction."
+	icon_state = "bazaar"
+
+/obj/structure/large/sign/bazaar/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/large/sign/bazaar/Initialize(mapload)
+	. = ..()
+	set_light(1,1.5,"#da693c")
+	update_icon()
+
+/obj/structure/large/sign/private
+	name = "sign"
+	desc = "A sign exclaiming 'Private Property'! You get the feeling the property ahead is private."
+	icon_state = "private"
+	bound_x = 64
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/workers
+	name = "sign"
+	desc = "A sign declaring a zone being off limits. Peculiar."
+	icon_state = "workers"
+	bound_x = 64
+	pixel_y = 24
+	density = FALSE
+
+/obj/structure/large/sign/rent
+	name = "rent sign"
+	desc = "FOR RENT. How exciting."
+	icon_state = "rent"
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/clinic
+	name = "clinic sign"
+	desc = "The great green cross of Snowcrest. You're finally safe..?"
+	icon_state = "clinic"
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/bar
+	name = "bar sign"
+	desc = "Light blocks forming the word 'BAR'. Throat be dry no more!"
+	icon_state = "bar"
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/bar/update_icon()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]")
+	. += emissive_appearance(icon, "[icon_state]")
+
+/obj/structure/large/sign/bar/Initialize(mapload)
+	. = ..()
+	set_light(1,1.5,"#dce62a")
+	update_icon()
+
+/obj/structure/large/sign/open
+	name = "open sign"
+	desc = "A neon sign, showing if the building is open for business or not! Incredible!"
+	icon_state = "open"
+	max_integrity = 75
+	integrity_failure = 35
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/open/update_icon()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/large/sign/open/Initialize(mapload)
+	. = ..()
+	set_light(2,2,"#9c476f")
+	update_icon()
+
+/obj/structure/large/sign/open/bar
+	icon_state = "open_bar"
+
+/obj/structure/large/sign/hotel
+	name = "hotel sign"
+	desc = "A hotel at last! Time to rest those weary feet."
+	icon_state = "hotel"
+	bound_x = 64
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/weopen
+	name = "sign"
+	desc = "A sign. We're OPEN? Fantastic news!"
+	icon_state = "we_open"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/large/sign/weopen/update_icon()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/large/sign/weopen/Initialize(mapload)
+	. = ..()
+	set_light(1.5,2,"#ab4775")
+	update_icon()
+
