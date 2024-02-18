@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Changed the chocolate hazelnut spread paths to be lowercase."
+  - rscadd: "Changed the chocolate hazelnut spread paths to be lowercase."
