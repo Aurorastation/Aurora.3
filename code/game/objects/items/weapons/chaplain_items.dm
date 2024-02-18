@@ -18,8 +18,20 @@
 	w_class = ITEMSIZE_SMALL
 	var/can_change_form = TRUE // For holodeck check.
 	var/cooldown = 0 // Floor tap cooldown.
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm,
-									"Mata'ke Sword" = /obj/item/nullrod/matake, "Rredouane Sword" = /obj/item/nullrod/rredouane, "Shumaila Hammer" = /obj/item/nullrod/shumaila, "Zhukamir Ladle" = /obj/item/nullrod/zhukamir, "Azubarre Torch" = /obj/item/nullrod/azubarre)
+	var/static/list/nullchoices = list(
+		"Null Rod" = /obj/item/nullrod,
+		"Null Staff" = /obj/item/nullrod/staff,
+		"Null Orb" = /obj/item/nullrod/orb,
+		"Null Athame" = /obj/item/nullrod/athame,
+		"Tribunal Rod" = /obj/item/nullrod/dominia,
+		"Tajaran charm" = /obj/item/nullrod/charm,
+		"Mata'ke Sword" = /obj/item/nullrod/matake,
+		"Rredouane Sword" = /obj/item/nullrod/rredouane,
+		"Shumaila Hammer" = /obj/item/nullrod/shumaila,
+		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
+		"Azubarre Torch" = /obj/item/nullrod/azubarre,
+		"Luminous Sceptre" = /obj/item/nullrod/luceiansceptre,
+		)
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -149,7 +161,7 @@
 	name = "\improper Luminous Sceptre"
 	desc = "The Luminous Sceptre is a ceremonial staff optionally carried by the ministerial clergy of Luceism. It is fashioned from cedar and 18-karat gold, wrapped in sacred luce vine, \
 	and topped with a miniature, specialized warding sphere. Such sceptres are traditionally employed in Luceian exorcisms or rituals to rid a corrupted soul of the darkness in their body - often to great effect."
-	force = 25
+	force = 30
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	light_range = 2
