@@ -1,0 +1,13 @@
+
+author: kyres1
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes Point Verdant's stairs literally obliterating the server by making their directions work in accordance to their bounding boxes."
+  - bugfix: "Fixes duplicate stairs on Point Verdant."
+  - bugfix: "Fixes some inconsistent railings on Point Verdant, forcing players to walk through them to climb stairs."
+  - bugfix: "Adds a light switch to the Point Verdant street vendor building."
+  - bugfix: "Adjusts the location of deep water on Konyang to avoid structures, so the overlays don't conflict."
+  - tweak: "Adds a mop to the Point Verdant minimart."
+  - tweak: "Adds bikes to Point Verdant because I forgot to earlier. Whoops."
