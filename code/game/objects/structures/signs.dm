@@ -625,3 +625,180 @@
 	door to the tent with her body as the insurgents attempted to shoot through it. While she ultimately perished to gunfire, her sacrifice allowed the medical tent to be evacuated and let \
 	the 23rd capture all insurgents involved in the attack. Formerly a frontierswoman with no nation to call her own, she was buried with military honors and became the first Holy Martyr of \
 	Sun Reach in 2426. She is commonly venerated on Sun Reach and by Ma’zals throughout the Empire."
+
+// Urban
+
+/obj/structure/sign/exit
+	name = "exit sign"
+	desc = "A sign indicating where you should probably go in a hurry."
+	icon_state = "exit"
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/sign/restroom
+	name = "restroom sign"
+	desc = "A sign indicating where you can find a restroom."
+	icon_state = "restroom"
+
+/obj/structure/sign/staff
+	name = "staff only sign"
+	desc = "A sign that warns of this entry being barred to the public."
+	icon_state = "staff"
+
+/obj/structure/sign/double
+	icon = 'icons/obj/structure/64x32_signs.dmi'
+
+/obj/structure/sign/double/hotel_montparnasse
+	name = "glamorous sign"
+	desc = "A beautiful sign denoting you as being in the Hotel Montparnasse!"
+	icon_state = "hotel_montparnasse"
+
+/obj/structure/sign/double/convenience
+	name = "convenience store sign"
+	desc = "A sign labeling the structure as a 24-7 MINI MART. Convenient!"
+	icon_state = "shop_sign"
+
+/obj/structure/sign/double/police
+	name = "police station sign"
+	desc = "A sign labeling the structure as a Konyang police department building."
+	icon_state = "police_sign"
+
+/obj/structure/sign/double/robotics
+	name = "robotics clinic sign"
+	desc = "A sign labeling the structure as a robotics and clinical support building."
+	icon_state = "krc_sign"
+
+/obj/structure/sign/double/bar
+	name = "club and bar sign"
+	desc = "A sign labeling the structure as the Resting Tiger nightclub and bar."
+	icon_state = "bar_sign"
+
+/obj/structure/sign/double/arcade
+	name = "arcade sign"
+	desc = "A sign labeling the structure as a very cool arcade."
+	icon_state = "arcade_sign"
+
+/obj/structure/sign/double/pharmacy
+	name = "pharmacy sign"
+	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
+	icon_state = "pharmacy_sign"
+
+//64x64
+
+/obj/structure/large/sign
+	name = "Generic large sign"
+	desc = "You shouldn't see this"
+	icon = 'icons/obj/structure/64x64_signs.dmi'
+	anchored = TRUE
+	density = TRUE
+	layer = ABOVE_MOB_LAYER
+	var/on = FALSE
+
+/obj/structure/large/sign/bazaar
+	name = "bazaar sign"
+	desc = "A set of signs clearly directing you to the heart of a town. Obviously there is many things to be gained in this particular direction."
+	icon_state = "bazaar"
+
+/obj/structure/large/sign/bazaar/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/large/sign/bazaar/Initialize(mapload)
+	. = ..()
+	set_light(1,1.5,"#da693c")
+	update_icon()
+
+/obj/structure/large/sign/private
+	name = "sign"
+	desc = "A sign exclaiming 'Private Property'! You get the feeling the property ahead is private."
+	icon_state = "private"
+	bound_x = 64
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/workers
+	name = "sign"
+	desc = "A sign declaring a zone being off limits. Peculiar."
+	icon_state = "workers"
+	bound_x = 64
+	pixel_y = 24
+	density = FALSE
+
+/obj/structure/large/sign/rent
+	name = "rent sign"
+	desc = "FOR RENT. How exciting."
+	icon_state = "rent"
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/clinic
+	name = "clinic sign"
+	desc = "The great green cross of Snowcrest. You're finally safe..?"
+	icon_state = "clinic"
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/bar
+	name = "bar sign"
+	desc = "Light blocks forming the word 'BAR'. Throat be dry no more!"
+	icon_state = "bar"
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/bar/update_icon()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]")
+	. += emissive_appearance(icon, "[icon_state]")
+
+/obj/structure/large/sign/bar/Initialize(mapload)
+	. = ..()
+	set_light(1,1.5,"#dce62a")
+	update_icon()
+
+/obj/structure/large/sign/open
+	name = "open sign"
+	desc = "A neon sign, showing if the building is open for business or not! Incredible!"
+	icon_state = "open"
+	max_integrity = 75
+	integrity_failure = 35
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/open/update_icon()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/large/sign/open/Initialize(mapload)
+	. = ..()
+	set_light(2,2,"#9c476f")
+	update_icon()
+
+/obj/structure/large/sign/open/bar
+	icon_state = "open_bar"
+
+/obj/structure/large/sign/hotel
+	name = "hotel sign"
+	desc = "A hotel at last! Time to rest those weary feet."
+	icon_state = "hotel"
+	bound_x = 64
+	pixel_y = 32
+	density = FALSE
+
+/obj/structure/large/sign/weopen
+	name = "sign"
+	desc = "A sign. We're OPEN? Fantastic news!"
+	icon_state = "we_open"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/large/sign/weopen/update_icon()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/large/sign/weopen/Initialize(mapload)
+	. = ..()
+	set_light(1.5,2,"#ab4775")
+	update_icon()
+

@@ -78,7 +78,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street{
+/obj/structure/utility_pole/street/konyang{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -853,7 +853,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street{
+/obj/structure/utility_pole/street/konyang{
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang/small,

@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/drinks/trophy
 	name = "pewter cup"
 	desc = "Everyone gets a trophy."
-	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/drinks/trophy.dmi'
 	icon_state = "pewter_cup"
 	w_class = ITEMSIZE_TINY
 	force = 1
