@@ -8,9 +8,6 @@
 #define SS_INIT_PIPENET     12	// Initial pipenet build.
 #define SS_INIT_NIGHT       9	// Nightmode controller. Will trigger lighting updates.
 #define SS_INIT_AO          6	// Wall AO neighbour build.
-#define SS_INIT_AWAY_MAPS   4   // Note: away maps (ruins, exoplanets, ...) must initialize before ghost roles in order for their spawnpoints to work.
-#define SS_INIT_GHOSTROLES  3   // Ghost roles must initialize before SS_INIT_MISC due to some roles (matriarch drones) relying on the assumption that this SS is initialized.
-#define SS_INIT_MISC        2	// Subsystems without an explicitly set initialization order start here.
 #define SS_INIT_SUNLIGHT    1	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
 #define SS_INIT_XENOARCH   -2   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
 #define SS_INIT_HOLOMAP    -4   // Minimap subsystem. Should be initialized after all maps, away sites, ships, planets, etc.
