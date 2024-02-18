@@ -775,8 +775,8 @@
 	organ_tag = BP_AUG_GLARE_DAMPENER
 	augment_type = /obj/item/clothing/glasses/aug/welding
 
-/obj/item/organ/internal/augment/eye_sensors/phalynx
-	name = "phalynx facial plate"
+/obj/item/organ/internal/augment/eye_sensors/phalanx
+	name = "phalanx facial plate"
 	desc = "This modular face plate accommodates a wide array of cybernetic augmentations, enabling seamless integration with Phalanx's transhumanist doctrine. \
 	Enhanced sensory overlays and HUDs offer Phalanx members superior situational awareness and promote a sense of hive-thinking."
 	icon_state = "vaurca_plate"
@@ -787,7 +787,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/augments_external.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/augments_external.dmi'
 	)
-/obj/item/organ/internal/augment/eye_sensors/phalynx/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/eye_sensors/phalanx/attack_self(var/mob/user)
 	. = ..()
 
 	if(selected_hud == "disabled")
@@ -803,7 +803,7 @@
 		to_chat(user, "You deactivate \the [src].")
 		return
 
-/obj/item/organ/internal/augment/eye_sensors/phalynx/process()
+/obj/item/organ/internal/augment/eye_sensors/phalanx/process()
 	..()
 
 	switch(selected_hud)
