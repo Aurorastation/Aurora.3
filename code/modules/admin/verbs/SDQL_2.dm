@@ -431,8 +431,8 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 	L[++L.len] = list("[id] ", "[delete_click.update("DELETE QUERY | STATE : [text_state()] | ALL/ELIG/FIN \
 	[islist(obj_count_all)? length(obj_count_all) : (isnull(obj_count_all)? "0" : obj_count_all)]/\
 	[islist(obj_count_eligible)? length(obj_count_eligible) : (isnull(obj_count_eligible)? "0" : obj_count_eligible)]/\
-	[islist(obj_count_finished)? length(obj_count_finished) : (isnull(obj_count_finished)? "0" : obj_count_finished)] - [get_query_text()]")]", ref(delete_click))
-	L[++L.len] = list(" ", "[action_click.update("[SDQL2_IS_RUNNING? "HALT" : "RUN"]")]", ref(action_click))
+	[islist(obj_count_finished)? length(obj_count_finished) : (isnull(obj_count_finished)? "0" : obj_count_finished)] - [get_query_text()]")]", REF(delete_click))
+	L[++L.len] = list(" ", "[action_click.update("[SDQL2_IS_RUNNING? "HALT" : "RUN"]")]", REF(action_click))
 	return L
 
 /datum/sdql2_query/proc/delete_click()
@@ -696,7 +696,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 			obj_count_finished = select_refs
 			for(var/i in found)
 				SDQL_print(i, text_list, print_nulls)
-				select_refs[ref(i)] = TRUE
+				select_refs[REF(i)] = TRUE
 				SDQL2_TICK_CHECK
 				SDQL2_HALT_CHECK
 			select_text = text_list
@@ -717,7 +717,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 
 /datum/sdql2_query/proc/SDQL_print(object, list/text_list, print_nulls = TRUE)
 	if(isdatum(object))
-		text_list += "<A HREF='?_src_=vars;Vars=[ref(object)]'>[ref(object)]</A> : [object]"
+		text_list += "<A HREF='?_src_=vars;Vars=[REF(object)]'>[REF(object)]</A> : [object]"
 		if(istype(object, /atom))
 			var/atom/A = object
 			var/turf/T = A.loc
