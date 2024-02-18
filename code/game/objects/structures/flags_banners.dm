@@ -3116,13 +3116,13 @@
 
 /obj/item/flag/callisto
 	name = "\improper Callistean flag"
-	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and it's largest port."
+	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
 	flag_path = "callisto"
 	flag_structure = /obj/structure/sign/flag/callisto
 
 /obj/structure/sign/flag/callisto
 	name = "\improper Callistean flag"
-	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and it's largest port."
+	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
 	flag_path = "callisto"
 	icon_state = "callisto"
 	flag_item = /obj/item/flag/callisto
