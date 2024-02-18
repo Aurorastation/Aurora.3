@@ -8,7 +8,6 @@
 			. += "\n<span class='warning'>It doesn't seem to be responding.</span>"
 		if(DEAD)
 			. += "\n<span class='deadsay'>It looks completely unsalvageable.</span>"
-	. += "\n*---------*"
 
 	if(print_flavor_text())
 		. += "\n[print_flavor_text()]\n"

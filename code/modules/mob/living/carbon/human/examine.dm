@@ -48,7 +48,7 @@
 	var/skipears = skipitems & HIDEEARS
 	var/skipwrists = skipitems & HIDEWRISTS
 
-	var/list/msg = list("<span class='info'>*---------*\nThis is ")
+	var/list/msg = list("<span class='info'>This is ")
 
 	if(icon)
 		msg += icon2html(icon, user)
@@ -390,7 +390,7 @@
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
-	msg += "*---------*</span>"
+	msg += "</span>"
 
 	if(src in GLOB.intent_listener)
 		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")

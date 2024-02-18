@@ -25,7 +25,6 @@
 		if (src.stat == UNCONSCIOUS)
 			. += "It is non-responsive and displaying the text: \"RUNTIME: Sensory Overload, stack 26/3\"."
 		. += "</span>"
-	. += "*---------*"
 	if(hardware && (hardware.owner == src))
 		. += "<br>"
 		. += hardware.get_examine_desc()
