@@ -91,7 +91,9 @@
 	if(!on)
 		if(!key)
 			to_chat(user, SPAN_WARNING("You cannot turn \the [src] on, without a key."))
-		else if(key && (key.key_data != registration_plate))
+			return
+
+		if((key.key_data != registration_plate))
 			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], but it lets out a sharp buzz.")
 		else
 			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], and it beeps happily.")
