@@ -48,6 +48,10 @@
 	/// otherwise it will be an unusable prop.
 	var/spawns_with_key = TRUE
 
+/obj/vehicle/bike/Destroy()
+	QDEL_NULL(key)
+	return ..()
+
 /obj/vehicle/bike/setup_vehicle()
 	..()
 	ion = new ion_type(src)
