@@ -162,16 +162,16 @@
 			to_chat(user, "You unbuckle [load] from \the [src]")
 			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
-/obj/vehicle/bike/attackby(obj/item/item, mob/living/user)
-	if(istype(item, /obj/item/key))
+/obj/vehicle/bike/attackby(obj/item/attacking_item, mob/living/user)
+	if(istype(attacking_item, /obj/item/key))
 		if(!key)
-			if(istype(item, key_type))
-				user.drop_from_inventory(item, src)
-				key = item
-				to_chat(user, SPAN_NOTICE("You put \the [item] in \the [src]."))
+			if(istype(attacking_item, key_type))
+				user.drop_from_inventory(attacking_item, src)
+				key = attacking_item
+				to_chat(user, SPAN_NOTICE("You put \the [attacking_item] in \the [src]."))
 				update_icon()
 			else
-				to_chat(user, SPAN_NOTICE("You try to put \the [item] in \the [src], but it does not fit."))
+				to_chat(user, SPAN_NOTICE("You try to put \the [attacking_item] in \the [src], but it does not fit."))
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] already has a key in it."))
 	..()
