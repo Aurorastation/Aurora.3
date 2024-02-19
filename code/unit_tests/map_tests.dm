@@ -365,6 +365,11 @@
 
 			test_status = TEST_FAIL("The stairs at [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z have map-defined bounds!")
 
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All the mapped stairs are valid.")
+	else
+		TEST_FAIL("Some mapped stairs are invalid!")
+
 	return test_status
 
 #undef SUCCESS
