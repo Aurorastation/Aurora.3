@@ -38,7 +38,7 @@
 		/obj/item/storage/business_card_holder,
 		/obj/item/sample,
 		/obj/item/key,
-		/obj/item/sign/painting_frame
+		/obj/item/sign/painting_frame,
 		/obj/item/clothing/accessory/dominia/tic/retired
 		/obj/item/clothing/accessory/dominia/tic/retired/caladius
 	)
