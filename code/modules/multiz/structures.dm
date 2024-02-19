@@ -202,6 +202,13 @@
 	icon_state = "ladderawaydown"
 
 /// Note that stairs facing left/right may need the stairs_lower structure if they're not placed against walls.
+/**
+ * #Stairs
+ *
+ * Stairs allow you to traverse up and down between Z-levels
+ *
+ * They _MUST_ have either `bound_width` or `bound_height` set to 64 and
+ */
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
@@ -297,9 +304,6 @@
 /obj/structure/stairs/west
 	dir = WEST
 	bound_width = 64
-
-/obj/structure/stairs/flat
-	icon_state = "stairs_flat"
 
 /// Snowflake railing object for 64x64 stairs.
 /obj/structure/stairs_railing
