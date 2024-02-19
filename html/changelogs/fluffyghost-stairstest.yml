@@ -41,3 +41,4 @@ changes:
   - backend: "Added a test to verify stairs have the proper bounds set, are not abstract objects."
   - backend: "Added a test to verify mapped stairs are not duplicated."
   - backend: "Unit tests can now be marked as abstract and they would be ignored from running."
+  - maptweak: "Fixed point verdant leftover stairs once more."

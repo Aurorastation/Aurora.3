@@ -357,7 +357,7 @@
 											Only one stair should exist inside a turf.")
 
 		if(is_abstract(a_stair))
-			test_status = TEST_FAIL("The stairs located in [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z are of an abstract type that should never be mapped!")
+			test_status = TEST_FAIL("The stairs located in [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z are of an abstract type ([a_stair.type]) that should never be mapped!")
 
 		//Check that noone changed the bounds in the map editor
 		if(a_stair.bound_height != initial(a_stair.bound_height) || a_stair.bound_width != initial(a_stair.bound_width) || \
