@@ -10,7 +10,7 @@
  *
  */
 
-var/global/datum/ui_state/heavy_vehicle/heavy_vehicle_state = new
+GLOBAL_DATUM_INIT(heavy_vehicle_state, /datum/ui_state/heavy_vehicle, new)
 
 /datum/ui_state/heavy_vehicle/can_use_topic(src_object, mob/user)
 	. = user.shared_ui_interaction(src_object)

@@ -382,7 +382,7 @@
 	does_flick = FALSE
 
 /obj/machinery/autolathe/mounted/ui_state(mob/user)
-	return heavy_vehicle_state
+	return GLOB.heavy_vehicle_state
 
 /// Queue items are needed so that the queue knows exactly what it's doing.
 /datum/autolathe_queue_item

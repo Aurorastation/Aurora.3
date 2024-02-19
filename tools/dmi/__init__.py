@@ -116,7 +116,7 @@ class Dmi:
         return s
 
     @property
-    def default_state(self):
+    def GLOB.default_state(self):
         return self.states[0]
 
     def get_state(self, name):

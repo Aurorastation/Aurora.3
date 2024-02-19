@@ -28,7 +28,7 @@ extract those things into `ui_state` procs like so:
 
 ```dm
 .../ui_state(mob/user)
-	return GLOB.default_state
+	return GLOB.GLOB.default_state
 ```
 
 Then reduce `ui_interact` until you finish with something like this:

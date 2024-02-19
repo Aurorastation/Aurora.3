@@ -5,7 +5,7 @@
  * human adjacent user.
  */
 
-var/global/datum/ui_state/human_adjacent_loc_state/human_adjacent_loc_state = new
+GLOBAL_DATUM_INIT(human_adjacent_loc_state, /datum/ui_state/human_adjacent_loc_state, new)
 
 /datum/ui_state/human_adjacent_loc_state/can_use_topic(src_object, mob/user)
 	var/turf/src_object_turf = get_turf(src_object)
