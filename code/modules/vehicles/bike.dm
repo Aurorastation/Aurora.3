@@ -164,7 +164,7 @@
 			to_chat(user, "You unbuckle [load] from \the [src]")
 			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
-/obj/vehicle/bike/attackby(obj/item/attacking_item, mob/living/user)
+/obj/vehicle/bike/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/key))
 		if(!key)
 			if(istype(attacking_item, key_type))
