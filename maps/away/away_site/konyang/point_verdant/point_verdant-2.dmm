@@ -12283,8 +12283,8 @@
 /area/point_verdant/outdoors)
 "FS" = (
 /obj/machinery/vending/rental_bikes{
-	key_data_mopeds = list("17M-3023","36M-1211","56M-4117",);
-	key_data_sports = list("75S-1649","87S-5702",)
+	key_data_mopeds = list("17M-3023","36M-1211","56M-4117");
+	key_data_sports = list("75S-1649","87S-5702")
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -16261,8 +16261,8 @@
 /area/point_verdant/interior/tailor)
 "PY" = (
 /obj/machinery/vending/rental_bikes{
-	key_data_mopeds = list("18M-1785","56M-7849","69M-5179","97M-2096","72M-2664","18M-8296","35M-3772","58M-7428","97M-6406",);
-	key_data_sports = list("53S-6393","35S-8084","27S-3782","89S-8023","96S-3842",)
+	key_data_mopeds = list("18M-1785","56M-7849","69M-5179","97M-2096","72M-2664","18M-8296","35M-3772","58M-7428","97M-6406");
+	key_data_sports = list("53S-6393","35S-8084","27S-3782","89S-8023","96S-3842")
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
@@ -16767,8 +16767,8 @@
 /area/point_verdant/outdoors)
 "Rr" = (
 /obj/machinery/vending/rental_bikes{
-	key_data_mopeds = list("73M-3908","93M-5839","68M-6909","25M-5737",);
-	key_data_sports = list("67S-3512","18S-6261",)
+	key_data_mopeds = list("73M-3908","93M-5839","68M-6909","25M-5737");
+	key_data_sports = list("67S-3512","18S-6261")
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
