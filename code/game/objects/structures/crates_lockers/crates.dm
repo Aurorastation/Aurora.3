@@ -345,13 +345,27 @@
 		newgas.temperature = target_temp
 	return newgas
 
-/obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
+/obj/structure/closet/crate/freezer/rations
 	name = "emergency rations"
-	desc = "A crate of emergency rations and some bottles of water."
+	desc = "A crate of emergency rations and bottles of water."
 
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
 		new /obj/random/mre(src)
+		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
+
+/obj/structure/closet/crate/freezer/kois
+	name = "freezer"
+	desc = "A freezer, painted in a sickly yellow, with a biohazard sign on the side."
+	icon_state = "freezer_kois"
+
+/obj/structure/closet/crate/freezer/kois/rations
+	name = "emergency k'ois rations"
+	desc = "A crate of emergency k'ois rations and bottles of water. Painted in a sickly yellow, with a biohazard sign on the side."
+
+/obj/structure/closet/crate/freezer/kois/rations/fill()
+	for(var/i=1,i<=6,i++)
+		new /obj/item/storage/box/fancy/mre/menu12(src)
 		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
