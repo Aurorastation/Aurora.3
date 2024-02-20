@@ -1642,9 +1642,9 @@
 /obj/machinery/vending/rental_bikes
 	name = "\improper Rental Bikes self-service vendor"
 	desc = "Rent-a-bike, for a day!"
-	icon_state = "battlemonsters"
-	icon_vend = "battlemonsters-vend"
-	vend_id = "battlemonsters"
+	icon_state = "rent-a-bike"
+	icon_vend = "rent-a-bike-vend"
+	vend_id = "rent-a-bike"
 	products = list(
 		/obj/item/key/bike/moped = 0, // filled from the key data lists
 		/obj/item/key/bike/sport = 0,
