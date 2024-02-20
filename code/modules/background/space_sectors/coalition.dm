@@ -72,3 +72,10 @@
 	sector_welcome_message = 'sound/AI/welcome_konyang.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
+
+	lobby_tracks = list(
+		'sound/music/lobby/konyang/konyang-1.ogg',
+		'sound/music/lobby/konyang/konyang-2.ogg',
+		'sound/music/lobby/konyang/konyang-3.ogg',
+		'sound/music/lobby/konyang/konyang-4.ogg'
+	)
