@@ -1,11 +1,14 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_info = "Click-drag yourself onto the bike to climb onto it.<br>\
+	desc_info = "\
+		- Click-drag yourself onto the bike to climb onto it.<br>\
 		- Click-drag it onto yourself to access its mounted storage.<br>\
 		- CTRL-click the bike to toggle the engine.<br>\
+		- Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key.<br>\
 		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
-		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
+		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike.<br>\
+	"
 	icon = 'icons/obj/vehicle/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -30,6 +33,25 @@
 	var/kickstand = TRUE
 	var/can_hover = TRUE
 
+	/// Registration plate string of the vehicle, visible on examine,
+	/// to distingush different vehicles of the same type from each other.
+	/// Also used to check if the key is for this vehicle.
+	/// If null, it is randomly generated on init.
+	var/registration_plate = null
+	/// Key type accepted in vehicle ignition.
+	var/key_type = /obj/item/key/bike
+	/// Actual key object in the vehicle ignition, or null if no key in ignition.
+	/// To actually start the vehicle, key data needs to match with the registration plate string.
+	var/obj/item/key/key = null
+	/// If TRUE, vehicle spawns with the key that matches its registration plate string.
+	/// If FALSE, the key needs to be mapped/spawned somewhere outside of the vehicle,
+	/// otherwise it will be an unusable prop.
+	var/spawns_with_key = TRUE
+
+/obj/vehicle/bike/Destroy()
+	QDEL_NULL(key)
+	return ..()
+
 /obj/vehicle/bike/setup_vehicle()
 	..()
 	ion = new ion_type(src)
@@ -38,6 +60,23 @@
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
+	if(!registration_plate)
+		generate_registration_plate()
+	if(spawns_with_key)
+		key = new key_type(src)
+		key.key_data = registration_plate
+
+/obj/vehicle/bike/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 4)
+		. += "\The [src] has a small registration plate on the back, '[registration_plate]'."
+		if(key)
+			. += "\The [src] has \a [key] in."
+		else
+			. += "\The [src] does not have a key in."
+
+/obj/vehicle/bike/proc/generate_registration_plate()
+	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
 	if(Adjacent(user) && anchored)
@@ -50,9 +89,17 @@
 		return
 
 	if(!on)
-		turn_on()
-		src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
+		if(!key)
+			to_chat(user, SPAN_WARNING("You cannot turn \the [src] on, without a key."))
+			return
+
+		if((key.key_data != registration_plate))
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], but it lets out a sharp buzz.")
+		else
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], and it beeps happily.")
+			turn_on()
+			src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
+			playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
 	else
 		turn_off()
 		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
@@ -83,7 +130,6 @@
 			var/mob/M = pulledby
 			M.stop_pulling()
 
-
 	kickstand = !kickstand
 	anchored = (kickstand || on)
 
@@ -105,15 +151,32 @@
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
-	if(user == load)
-		unload(load)
-		to_chat(user, "You unbuckle yourself from \the [src]")
+	if(key)
+		to_chat(user, "You take \the [key] out of \the [src]")
+		user.put_in_hands(key)
+		key = null
+		if(on)
+			toggle_engine(user)
 	else if(user != load && load)
 		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, src))
 			unload(load)
 			to_chat(user, "You unbuckle [load] from \the [src]")
 			to_chat(load, "You were unbuckled from \the [src] by [user]")
+
+/obj/vehicle/bike/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key))
+		if(!key)
+			if(istype(attacking_item, key_type))
+				user.drop_from_inventory(attacking_item, src)
+				key = attacking_item
+				to_chat(user, SPAN_NOTICE("You put \the [attacking_item] in \the [src]."))
+				update_icon()
+			else
+				to_chat(user, SPAN_NOTICE("You try to put \the [attacking_item] in \the [src], but it does not fit."))
+		else
+			to_chat(user, SPAN_NOTICE("\The [src] already has a key in it."))
+	..()
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
@@ -373,6 +436,10 @@
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE
+	key_type = /obj/item/key/bike/sport
+
+/obj/vehicle/bike/motor/generate_registration_plate()
+	registration_plate = "[rand(10,99)]S-[rand(1000,9999)]"
 
 /obj/vehicle/bike/motor/blue
 	icon_state = "bluesport_on"
@@ -391,19 +458,31 @@
 	desc = "A two-wheeled vehicle meant for easy riding. This comes in stark white colors with flashy lights, indicating it is the law. It has the insignias of Konyang's police force."
 	icon_state = "konyangpolice_on"
 	bike_icon = "konyangpolice"
+	key_type = /obj/item/key/bike/police
+
+/obj/vehicle/bike/motor/police_konyang/generate_registration_plate()
+	registration_plate = "[rand(10,99)]P-[rand(1000,9999)]"
 
 /obj/vehicle/bike/motor/moped
 	name = "moped"
 	desc = "A cheap, two-wheeled motorized bicycle."
 	icon_state = "greenmoped_on"
 	bike_icon = "greenmoped"
-	land_speed = 2//slower than a sport bike but will still get you around big maps
+	land_speed = 2 // slower than a sport bike but will still get you around big maps
+	key_type = /obj/item/key/bike/moped
+
+/obj/vehicle/bike/motor/moped/generate_registration_plate()
+	registration_plate = "[rand(10,99)]M-[rand(1000,9999)]"
 
 /obj/vehicle/bike/motor/moped/police_konyang
 	name = "police moped"
 	desc = "A cheap, two-wheeled motorized bicycle. This comes in stark white colors with flashy lights, indicating it is the law. It has the insignias of Konyang's police force."
 	icon_state = "konyangpolicemoped_on"
 	bike_icon = "konyangpolicemoped"
+	key_type = /obj/item/key/bike/police
+
+/obj/vehicle/bike/motor/moped/police_konyang/generate_registration_plate()
+	registration_plate = "[rand(10,99)]P-[rand(1000,9999)]"
 
 /obj/vehicle/bike/motor/moped/red
 	icon_state = "redmoped_on"

@@ -36,7 +36,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/Topic(href, href_list, var/datum/ui_state/state = default_state)
+/obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 

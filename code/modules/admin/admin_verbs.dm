@@ -493,6 +493,8 @@ var/list/admin_verbs_cciaa = list(
 )
 
 /client/proc/add_admin_verbs()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(holder)
 		add_verb(src, admin_verbs_default)
 		if(holder.rights & R_BUILDMODE)		add_verb(src, /client/proc/togglebuildmodeself)
