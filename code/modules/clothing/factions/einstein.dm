@@ -9,7 +9,7 @@
 /obj/item/clothing/under/rank/einstein/synthetic
 	name = "einstein synthetic utility uniform"
 	desc = "A standardized uniform worn by Einstein Engines Synthetics in non-public-facing roles. \
-	The acronym \"EES\" is emblazoned on the back."
+	The acronym \"EES\" is emblazoned on the chest and upper back."
 	desc_extended = "Light as air, electrically insulated, and specially fitted to ensure surgical, microelectronic, or \
 	what-have-you precision, this expensive multipurpose synthetic worker's outfit feels like wearing a breeze! \
 	Synthetics intended to be seen by outsiders to the corporation are likely to wear more conventional clothing instead."
