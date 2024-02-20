@@ -5940,6 +5940,14 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"UW" = (
+/obj/structure/closet/crate/freezer/kois/rations,
+/obj/item/paper{
+	info = "For any visiting Vaurca, from Einstein Engines.";
+	name = "small note"
+	},
+/turf/simulated/floor/sidewalk/dark/detail,
+/area/point_verdant/interior/offices)
 "UY" = (
 /obj/structure/rod_railing,
 /obj/structure/table/wood,
@@ -20881,7 +20889,7 @@ Ag
 gQ
 rn
 jm
-jP
+UW
 jP
 AT
 HS

@@ -1,4 +1,4 @@
-/mob/living/carbon/alien/instantiate_hud(var/datum/hud/HUD)
+/mob/living/carbon/alien/instantiate_hud(datum/hud/HUD)
 	HUD.nymph_hud()
 
 /datum/hud/proc/nymph_hud()

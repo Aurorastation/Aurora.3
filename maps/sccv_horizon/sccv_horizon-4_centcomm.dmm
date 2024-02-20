@@ -357,7 +357,6 @@
 /obj/machinery/door/airlock/glass_centcom{
 	dir = 1;
 	name = "Sector Administration Copula";
-	req_access = null;
 	req_one_access = list(109,108)
 	},
 /turf/unsimulated/floor{
@@ -3491,8 +3490,7 @@
 "ahN" = (
 /obj/machinery/door/airlock/glass_centcom{
 	dir = 4;
-	name = "To: NTCC Odin Mass Transit";
-	req_access = null
+	name = "To: NTCC Odin Mass Transit"
 	},
 /turf/unsimulated/floor,
 /area/centcom/bar)
@@ -4091,7 +4089,6 @@
 /obj/machinery/door/airlock/glass_centcom{
 	dir = 4;
 	name = "Sector Administration Copula";
-	req_access = null;
 	req_one_access = list(109,108)
 	},
 /turf/unsimulated/floor{
@@ -4284,8 +4281,7 @@
 	id = "corvette_exterior";
 	name = "aft blast door";
 	pixel_x = 32;
-	pixel_y = 12;
-	req_access = null
+	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -6599,7 +6595,6 @@
 "apE" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Monitoring";
-	req_access = null;
 	req_one_access = list(106,108,109)
 	},
 /turf/unsimulated/floor{
@@ -6940,8 +6935,7 @@
 "aqQ" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
-	name = "Lounge";
-	req_access = null
+	name = "Lounge"
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -9272,7 +9266,6 @@
 /obj/machinery/computer/shuttle_control{
 	can_rename_ship = 1;
 	dir = 4;
-	req_access = null;
 	req_one_access = list(38,72);
 	shuttle_tag = "SCC Shuttle"
 	},
@@ -9856,7 +9849,6 @@
 "ayG" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -9872,7 +9864,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
@@ -10199,7 +10190,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/dropper,
@@ -12711,8 +12701,7 @@
 /obj/machinery/door/airlock/glass_centcom{
 	dir = 4;
 	icon = 'icons/obj/doors/Doorglass.dmi';
-	name = "To: Mendell City Shuttle Terminal";
-	req_access = null
+	name = "To: Mendell City Shuttle Terminal"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -13689,7 +13678,6 @@
 	name = "VIP Shuttle Access";
 	pixel_x = -7;
 	pixel_y = -23;
-	req_access = null;
 	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
@@ -13827,8 +13815,7 @@
 /area/centcom/ferry)
 "aJc" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Hangar Access";
-	req_access = null
+	name = "Hangar Access"
 	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -13840,8 +13827,7 @@
 "aJd" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 1;
-	name = "Entertainment Wing";
-	req_access = null
+	name = "Entertainment Wing"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -13870,7 +13856,6 @@
 	dir = 1;
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Upper Shuttle Terminal";
-	req_access = null;
 	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
@@ -14321,7 +14306,6 @@
 /obj/machinery/door/airlock/glass_centcom{
 	dir = 4;
 	name = "Diplomatic Waiting Lounge";
-	req_access = null;
 	req_one_access = list(38,72)
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -14821,8 +14805,7 @@
 /area/centcom/suppy)
 "aMf" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Auxillary Cryogenics";
-	req_access = null
+	name = "Auxillary Cryogenics"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -14870,7 +14853,6 @@
 	dir = 4;
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = null;
 	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
@@ -14976,7 +14958,6 @@
 	dir = 4;
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = null;
 	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
@@ -15043,7 +15024,6 @@
 "aMS" = (
 /obj/machinery/door/window/eastleft{
 	name = "cockpit";
-	req_access = null;
 	req_one_access = list(38,72)
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -20026,8 +20006,7 @@
 /area/centcom/legion)
 "aYR" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Aft Thrusters Access - Deck 1";
-	req_access = null
+	name = "Aft Thrusters Access - Deck 1"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
@@ -24324,7 +24303,6 @@
 	req_access = list(150)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "burglar_blast";
 	layer = 3;
 	name = "blast door";
@@ -29055,8 +29033,7 @@
 	id = "mercworkshop";
 	name = "shutter";
 	pixel_x = 10;
-	pixel_y = -22;
-	req_access = null
+	pixel_y = -22
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -30239,7 +30216,6 @@
 	name = "blast door"
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "raiderblastdoor";
 	name = "blast door";
 	pixel_x = 25;
@@ -35220,6 +35196,12 @@
 	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
+"cst" = (
+/obj/effect/landmark/lobby_mobs_location,
+/turf/unsimulated/floor,
+/area/centcom/start{
+	name = "Romanovich Cloud, Tau Ceti"
+	})
 "cvH" = (
 /obj/effect/decal{
 	anchored = 1;
@@ -37779,16 +37761,14 @@
 	id = "merchant_windows";
 	name = "viewing shutters";
 	pixel_x = -7;
-	pixel_y = 25;
-	req_access = null
+	pixel_y = 25
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "merchant_airlock";
 	name = "external airlock shutter";
 	pixel_x = -7;
-	pixel_y = 35;
-	req_access = null
+	pixel_y = 35
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/merchant)
@@ -40615,16 +40595,14 @@
 	id = "merchant_windows";
 	name = "viewing shutters";
 	pixel_x = -7;
-	pixel_y = 25;
-	req_access = null
+	pixel_y = 25
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "merchant_airlock";
 	name = "external airlock shutter";
 	pixel_x = -7;
-	pixel_y = 35;
-	req_access = null
+	pixel_y = 35
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -41436,8 +41414,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aNQ
+aNQ
 aNQ
 aNQ
 aNQ
@@ -41693,8 +41671,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aNQ
+cst
 aNQ
 aOg
 aOg
@@ -41950,8 +41928,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aNQ
+aNQ
 aNQ
 aOg
 aOg

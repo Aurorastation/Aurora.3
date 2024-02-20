@@ -2724,9 +2724,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"bSM" = (
-/turf/simulated/floor/airless,
-/area/hangar/intrepid)
 "bUN" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5715,7 +5712,6 @@
 	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "miningbay";
 	name = "Mining Bay Entrance";
 	pixel_x = 22;
@@ -16810,9 +16806,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 0
-	},
+/obj/item/storage/toolbox/mechanical,
 /obj/item/storage/belt/utility,
 /obj/item/stack/rods/full{
 	pixel_y = 4
@@ -29521,9 +29515,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 0
-	},
+/obj/item/storage/toolbox/mechanical,
 /obj/item/storage/belt/utility,
 /obj/item/stack/rods/full{
 	pixel_y = 4
@@ -55864,7 +55856,7 @@ kyK
 oSi
 kaM
 iRC
-bSM
+iRC
 xsx
 eSV
 eSV

@@ -68,6 +68,7 @@
 	desc = "This sign indicates this crossing street is called [street_name]."
 
 /obj/structure/stairs/urban
+	abstract_type = /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
@@ -96,6 +97,7 @@
 	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
 	icon_state = "road-ramp-center"
 	layer = 2.02
+	abstract_type = /obj/structure/stairs/urban/road_ramp
 
 /obj/structure/stairs/urban/road_ramp/right
 	dir = EAST
