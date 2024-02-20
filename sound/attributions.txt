@@ -84,8 +84,8 @@ ATTRIBUTIONS SECTION START
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTOR START
-sound/music/lobby/konyang/konyang-1.ogg - zolezzi
-sound/music/lobby/konyang/konyang-2.ogg - Karl Casey @ White Bat Audio
-sound/music/lobby/konyang/konyang-3.ogg - PocketNoMoney
-sound/music/lobby/konyang/konyang-4.ogg - BGM gongbang
+sound/music/lobby/konyang/konyang-1.ogg - PocketNoMoney
+sound/music/lobby/konyang/konyang-2.ogg - BGM gongbang
+sound/music/lobby/konyang/konyang-3.ogg - zolezzi
+sound/music/lobby/konyang/konyang-4.ogg - Karl Casey @ White Bat Audio
 ATTRIBUTIONS SECTION END
