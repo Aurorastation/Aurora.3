@@ -106,6 +106,15 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"ap" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
+/obj/vehicle/bike/motor/moped/blue{
+	dir = 8;
+	registration_plate = "93M-5839"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "aq" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/outdoors)
@@ -203,6 +212,14 @@
 	},
 /obj/structure/closet/crate/bin/urban/dumpster,
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/outdoors)
+"aC" = (
+/obj/effect/decal/road_marking/thin,
+/obj/vehicle/bike/motor/moped/teal{
+	dir = 8;
+	registration_plate = "17M-3023"
+	},
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "aD" = (
 /turf/simulated/floor/carpet/magenta,
@@ -1373,6 +1390,11 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"dV" = (
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "dW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal{
@@ -1658,6 +1680,18 @@
 "eE" = (
 /turf/simulated/floor/carpet/red,
 /area/point_verdant/interior/hotel)
+"eF" = (
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/blue{
+	dir = 8;
+	spawns_with_key = 0;
+	registration_plate = "58S-2165"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "eG" = (
 /obj/structure/ledge{
 	dir = 5
@@ -1674,7 +1708,8 @@
 /area/point_verdant/interior/restaurant)
 "eI" = (
 /obj/vehicle/bike/motor/moped/blue{
-	dir = 8
+	dir = 8;
+	registration_plate = "18M-1785"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
@@ -1774,14 +1809,11 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
 "eX" = (
-/obj/effect/decal/road_marking/thin,
-/obj/effect/decal/road_marking/thin{
-	dir = 8
+/obj/machinery/vending/rental_bikes{
+	key_data_mopeds = list("17M-3023","36M-1211","56M-4117",);
+	key_data_sports = list("75S-1649","87S-5702",)
 	},
-/obj/structure/automobile/random{
-	dir = 4
-	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "eY" = (
 /obj/effect/decal/curb,
@@ -1905,6 +1937,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
+"fp" = (
+/obj/structure/automobile_filler,
+/obj/effect/decal/road_marking/thin,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "fr" = (
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/white,
@@ -1985,7 +2028,8 @@
 "fD" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/red{
-	dir = 8
+	dir = 8;
+	registration_plate = "58M-7428"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -2267,6 +2311,14 @@
 	layer = 9.2
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/outdoors)
+"gs" = (
+/obj/vehicle/bike/motor/moped/blue{
+	dir = 8;
+	registration_plate = "56M-4117"
+	},
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "gt" = (
 /obj/structure/konyang_cliff{
@@ -2617,11 +2669,26 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
+"ho" = (
+/obj/effect/decal/road_marking/thin{
+	dir = 8
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "hp" = (
 /obj/structure/extinguisher_cabinet/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
+"hq" = (
+/obj/effect/decal/road_marking/thin,
+/obj/vehicle/bike/motor/green{
+	dir = 8;
+	registration_plate = "75S-1649"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "hs" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/concrete,
@@ -3207,7 +3274,8 @@
 "iX" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/red{
-	dir = 8
+	dir = 8;
+	registration_plate = "69M-5179"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
@@ -3562,6 +3630,15 @@
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/robotics)
+"jY" = (
+/obj/structure/automobile_filler,
+/obj/effect/decal/road_marking/thin,
+/obj/vehicle/bike/motor/blue{
+	dir = 8;
+	registration_plate = "18S-6261"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "jZ" = (
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices)
@@ -4290,6 +4367,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"lK" = (
+/obj/effect/decal/curb,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor{
+	dir = 4;
+	spawns_with_key = 0;
+	registration_plate = "2KA-N3DA"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "lL" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -4490,11 +4579,19 @@
 /area/point_verdant/interior/parking)
 "mq" = (
 /obj/structure/table/wood,
-/obj/item/toy/desk/fan,
+/obj/item/toy/desk/fan{
+	pixel_x = -1;
+	pixel_y = 2
+	},
 /obj/machinery/ringer_button{
 	pixel_x = -6;
 	pixel_y = 14;
 	id = "ringers_tailor"
+	},
+/obj/item/key/bike/moped{
+	pixel_x = 14;
+	pixel_y = -1;
+	key_data = "77M-3836"
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
@@ -4636,7 +4733,8 @@
 /area/point_verdant/interior/parking)
 "mI" = (
 /obj/vehicle/bike/motor/moped/teal{
-	dir = 8
+	dir = 8;
+	registration_plate = "56M-7849"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
@@ -4647,6 +4745,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"mK" = (
+/obj/effect/decal/road_marking,
+/obj/vehicle/bike/motor{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/offices)
 "mL" = (
 /obj/structure/ledge{
 	dir = 1
@@ -4774,6 +4879,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin{
+	dir = 4
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "nk" = (
@@ -6021,6 +6129,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"qb" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/brown{
+	dir = 1;
+	spawns_with_key = 0;
+	registration_plate = "71S-3614"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "qc" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 4
@@ -6041,7 +6161,8 @@
 "qf" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/green{
-	dir = 8
+	dir = 8;
+	registration_plate = "27S-3782"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -6408,6 +6529,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
+"rk" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
+/obj/vehicle/bike/motor/moped{
+	dir = 4;
+	registration_plate = "77M-3836";
+	spawns_with_key = 0
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "rl" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/rod_railing{
@@ -6587,6 +6718,16 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"rJ" = (
+/obj/effect/decal/road_marking/thin{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/thin,
+/obj/structure/automobile/random{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "rK" = (
 /obj/structure/table/steel,
 /obj/item/storage/overloader/classic{
@@ -6748,6 +6889,16 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
+"sf" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
+/obj/vehicle/bike/motor/moped/police_konyang{
+	dir = 8;
+	spawns_with_key = 0;
+	registration_plate = "97P-7137"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "sg" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -6905,7 +7056,8 @@
 "sC" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/blue{
-	dir = 8
+	dir = 8;
+	registration_plate = "97M-2096"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
@@ -7315,10 +7467,12 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "tE" = (
-/obj/structure/automobile/random{
-	dir = 8
+/obj/structure/automobile_filler,
+/obj/vehicle/bike/motor/moped/red{
+	dir = 8;
+	registration_plate = "36M-1211"
 	},
-/obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "tF" = (
@@ -7462,6 +7616,14 @@
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/water)
+"tZ" = (
+/obj/effect/decal/road_marking,
+/obj/vehicle/bike/motor/moped/red{
+	dir = 8;
+	spawns_with_key = 0
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/offices)
 "ua" = (
 /obj/structure/table/rack/cafe_table,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
@@ -7662,14 +7824,13 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/streetvendor)
 "uv" = (
-/obj/structure/dam{
-	icon_state = "dam9";
-	opacity = 1
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin,
+/obj/vehicle/bike/motor/moped/red{
+	dir = 8;
+	registration_plate = "25M-5737"
 	},
-/obj/structure/dam{
-	icon_state = "dam7"
-	},
-/turf/simulated/open,
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "uw" = (
 /obj/effect/decal/road_marking/no_pass,
@@ -7740,10 +7901,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"uF" = (
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin,
+/obj/vehicle/bike/motor/brown{
+	dir = 8;
+	registration_plate = "67S-3512"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "uG" = (
 /obj/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/spaceport)
+"uH" = (
+/obj/vehicle/bike/motor/blue{
+	dir = 8;
+	registration_plate = "87S-5702"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "uI" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -7788,6 +7967,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"uM" = (
+/obj/effect/decal/road_marking/thin,
+/obj/vehicle/bike/motor/moped/red{
+	dir = 8;
+	registration_plate = "97M-6406"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/parking)
 "uN" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
@@ -7951,6 +8139,18 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/restaurant)
+"vm" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "vn" = (
 /obj/structure/shipping_container{
 	icon_state = "red3"
@@ -8463,6 +8663,9 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
+/obj/effect/decal/road_marking/thin{
+	dir = 4
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "wx" = (
@@ -8754,6 +8957,12 @@
 "xp" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/offices)
+"xq" = (
+/obj/vehicle/bike/motor/moped/teal{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "xr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9193,6 +9402,20 @@
 /obj/effect/decal/road_marking/center{
 	dir = 8
 	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"yv" = (
+/obj/effect/decal/road_marking/thin{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/thin{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/thin,
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "yw" = (
@@ -9679,13 +9902,13 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "zE" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
 /obj/effect/decal/curb{
-	dir = 8
+	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin{
+	dir = 1
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "zF" = (
@@ -9778,7 +10001,8 @@
 "zO" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped{
-	dir = 8
+	dir = 8;
+	registration_plate = "72M-2664"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -10060,6 +10284,18 @@
 "AB" = (
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/interior/shallow)
+"AC" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/moped/teal{
+	dir = 8;
+	registration_plate = "T3T-5U01"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "AD" = (
 /obj/structure/bed/stool/chair/sofa/right/blue{
 	dir = 8
@@ -10475,7 +10711,8 @@
 "BF" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/brown{
-	dir = 8
+	dir = 8;
+	registration_plate = "96S-3842"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
@@ -10579,12 +10816,10 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "BQ" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/road_marking,
-/obj/effect/decal/curb{
-	dir = 10
+/obj/effect/decal/curb,
+/obj/vehicle/bike/motor/moped/teal{
+	dir = 4;
+	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -11219,6 +11454,18 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"DD" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor{
+	dir = 1;
+	spawns_with_key = 0;
+	registration_plate = "62S-4394"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "DF" = (
 /obj/structure/closet/crate/bin/urban/compact{
 	pixel_y = 24
@@ -11484,7 +11731,8 @@
 "Es" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/teal{
-	dir = 8
+	dir = 8;
+	registration_plate = "18M-8296"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -11635,6 +11883,11 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
+/obj/item/key/bike/police{
+	pixel_x = 10;
+	key_data = "97P-7137";
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "EH" = (
@@ -12639,6 +12892,13 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"Hq" = (
+/obj/machinery/vending/rental_bikes{
+	key_data_mopeds = list("73M-3908","93M-5839","68M-6909","25M-5737",);
+	key_data_sports = list("67S-3512","18S-6261",)
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/outdoors)
 "Hr" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey/diagonal{
@@ -13255,6 +13515,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Jc" = (
+/obj/effect/decal/curb,
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/brown{
+	dir = 4;
+	spawns_with_key = 0;
+	registration_plate = "17S-3906"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Jd" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -13277,10 +13547,22 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/robotics)
+"Jg" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Jh" = (
 /obj/random/dirt_75,
 /obj/vehicle/bike/motor/green{
-	dir = 8
+	dir = 8;
+	registration_plate = "89S-8023"
 	},
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
@@ -14122,6 +14404,14 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
+"Lp" = (
+/obj/vehicle/bike/motor/moped/blue{
+	dir = 8;
+	spawns_with_key = 0;
+	registration_plate = "99M-7614"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Lq" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -14760,7 +15050,12 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Ne" = (
-/obj/effect/decal/road_marking/no_park,
+/obj/effect/decal/road_marking/thin{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Nf" = (
@@ -15002,6 +15297,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
+"NI" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
+/obj/vehicle/bike/motor/police_konyang{
+	dir = 8;
+	spawns_with_key = 0;
+	registration_plate = "31P-3862"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "NJ" = (
 /obj/structure/road_barrier/bot_in{
 	dir = 8
@@ -15764,6 +16069,14 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
+"Pz" = (
+/obj/vehicle/bike/motor/moped{
+	dir = 4;
+	registration_plate = "68M-6909"
+	},
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "PA" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp{
@@ -15974,7 +16287,10 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "PY" = (
-/obj/machinery/vending/rental_bikes,
+/obj/machinery/vending/rental_bikes{
+	key_data_mopeds = list("18M-1785","56M-7849","69M-5179","97M-2096","72M-2664","18M-8296","35M-3772","58M-7428","97M-6406",);
+	key_data_sports = list("53S-6393","35S-8084","27S-3782","89S-8023","96S-3842",)
+	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
 "PZ" = (
@@ -16058,6 +16374,11 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
+"Qk" = (
+/obj/structure/automobile_filler,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Ql" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -16462,7 +16783,8 @@
 /area/point_verdant/outdoors)
 "Rs" = (
 /obj/vehicle/bike/motor{
-	dir = 8
+	dir = 8;
+	registration_plate = "53S-6393"
 	},
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
@@ -16914,6 +17236,12 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/structure/table/wood,
+/obj/item/key/bike/police{
+	pixel_x = -8;
+	key_data = "31P-3862";
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "SF" = (
@@ -17030,6 +17358,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
+"SW" = (
+/obj/effect/decal/road_marking/thin,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "SX" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -17480,10 +17818,14 @@
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/outdoors)
 "Ue" = (
+/obj/structure/automobile_filler,
+/obj/effect/decal/road_marking/thin{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/thin,
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/automobile_filler,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Uf" = (
@@ -17812,7 +18154,8 @@
 "Vh" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped{
-	dir = 8
+	dir = 8;
+	registration_plate = "35M-3772"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
@@ -17832,6 +18175,15 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"Vk" = (
+/obj/vehicle/bike/motor/moped/teal{
+	dir = 8;
+	registration_plate = "73M-3908"
+	},
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Vl" = (
@@ -18217,6 +18569,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
+"Wk" = (
+/obj/effect/decal/road_marking,
+/obj/vehicle/bike/motor/brown{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/offices)
 "Wl" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/item/reagent_containers/glass/bucket/wood{
@@ -18937,7 +19296,8 @@
 "XT" = (
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/blue{
-	dir = 8
+	dir = 8;
+	registration_plate = "35S-8084"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -18953,9 +19313,12 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/water/deep)
 "XW" = (
-/obj/effect/decal/road_marking/thin,
-/obj/effect/decal/road_marking/thin{
-	dir = 8
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 10
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -19289,10 +19652,10 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Zb" = (
-/obj/effect/decal/road_marking/thin{
-	dir = 8
-	},
 /obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/thin{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -30277,10 +30640,10 @@ ci
 id
 AQ
 iG
-Vy
+mK
 iG
-Vy
-iG
+Wk
+xq
 Vy
 eo
 Vy
@@ -31311,7 +31674,7 @@ aY
 eo
 Vy
 iG
-Vy
+tZ
 gy
 ci
 oP
@@ -38231,10 +38594,10 @@ BT
 hb
 iL
 bb
+El
 Nd
 zh
-zh
-zh
+rJ
 UJ
 pf
 BT
@@ -38489,9 +38852,9 @@ ve
 bx
 bb
 El
-XW
-zh
-eX
+bx
+iL
+bx
 Zb
 Ir
 Ir
@@ -38742,14 +39105,14 @@ MA
 MA
 vQ
 BT
-dO
+BQ
 bx
 iL
 El
 Si
 bb
 gp
-Ja
+Ne
 Ir
 Ir
 Vp
@@ -38999,14 +39362,14 @@ MA
 MA
 vQ
 BT
-ve
+ho
 iL
 iL
-Ne
-bx
 iL
-gp
-uV
+iL
+iL
+Qk
+zE
 Ir
 Ir
 Vp
@@ -39263,7 +39626,7 @@ iL
 iL
 iL
 bb
-uV
+zE
 Ir
 Ir
 fF
@@ -39287,7 +39650,7 @@ oq
 wB
 wB
 cX
-ok
+Jc
 uV
 gK
 wg
@@ -39516,11 +39879,11 @@ bh
 dO
 iL
 iL
-iL
-iL
-iL
-bb
-uV
+El
+hq
+gs
+dV
+Jg
 bh
 Ir
 fF
@@ -39568,7 +39931,7 @@ UV
 uO
 BT
 BT
-LN
+sf
 iL
 iL
 uf
@@ -39773,11 +40136,11 @@ BT
 oB
 iL
 iL
-Ne
-bx
-tE
-bx
-Ja
+El
+iL
+bb
+iL
+Zb
 bh
 Ir
 fF
@@ -39801,7 +40164,7 @@ Ib
 sk
 wB
 Xd
-ec
+lK
 tS
 gK
 ja
@@ -40030,11 +40393,11 @@ BT
 oB
 iL
 iL
-Ne
-bx
-ro
-Si
-uV
+El
+aC
+tE
+uH
+Jg
 wh
 Ir
 Vp
@@ -40291,7 +40654,7 @@ DN
 ww
 Ue
 nj
-aX
+yv
 wh
 Ir
 Vp
@@ -40316,7 +40679,7 @@ Ll
 dL
 lu
 oT
-tS
+AC
 gK
 gK
 gK
@@ -40547,7 +40910,7 @@ Ja
 pf
 BT
 BT
-Ir
+eX
 SJ
 wh
 wh
@@ -40830,7 +41193,7 @@ ue
 XH
 ue
 fd
-aX
+eF
 gK
 nO
 gR
@@ -40853,7 +41216,7 @@ PD
 uO
 OQ
 BT
-LN
+NI
 iL
 iL
 uf
@@ -45433,7 +45796,7 @@ iL
 Oi
 ro
 Oi
-iL
+Lp
 Oi
 ro
 Oi
@@ -49577,7 +49940,7 @@ tV
 hE
 rg
 BT
-LN
+rk
 iL
 iL
 Fq
@@ -51898,10 +52261,10 @@ BT
 BT
 bh
 jk
-rs
+qb
 iT
 rs
-rs
+DD
 Gc
 Ir
 pU
@@ -53627,10 +53990,10 @@ Zc
 Oq
 Al
 Ir
-BQ
-zE
-zE
-bu
+LN
+iL
+bb
+Wf
 bu
 bu
 Kr
@@ -53884,10 +54247,10 @@ SI
 Oq
 Al
 Ir
-Ir
-BT
-BT
-BT
+ap
+Pz
+uF
+Fq
 pf
 BT
 BT
@@ -54141,10 +54504,10 @@ cf
 cf
 cf
 Ir
-Ir
-BT
-fW
-fW
+LN
+bb
+iL
+Fq
 BT
 Ir
 Al
@@ -54398,10 +54761,10 @@ cf
 cf
 cf
 Ir
-Ir
-Ir
-fW
-fW
+Vk
+jY
+uv
+Fq
 Ir
 Ir
 Al
@@ -54655,10 +55018,10 @@ cf
 cf
 cf
 Ir
-Ir
-Ir
-BT
-BT
+XW
+fp
+SW
+vm
 Ir
 Ir
 Al
@@ -54912,10 +55275,10 @@ cf
 cf
 cf
 Ir
-Ir
-Ir
 BT
-fW
+BT
+Hq
+SJ
 wh
 Ir
 Oq
@@ -55277,7 +55640,7 @@ eI
 nF
 Vh
 fD
-fD
+uM
 nF
 RN
 RN
@@ -56454,11 +56817,11 @@ cf
 cf
 cf
 Xq
-ag
 wQ
 wQ
-WM
-sE
+wQ
+wQ
+wQ
 jy
 jy
 jy
@@ -56711,7 +57074,7 @@ cf
 cf
 cf
 Xq
-ag
+wQ
 wQ
 wQ
 wQ
@@ -56968,7 +57331,7 @@ cf
 cf
 cf
 Xq
-uv
+wQ
 wQ
 wQ
 wQ
@@ -57225,7 +57588,7 @@ cf
 cf
 cf
 Xq
-uv
+wQ
 wQ
 wQ
 wQ
@@ -57482,7 +57845,7 @@ cf
 cf
 cf
 Xq
-ag
+wQ
 wQ
 wQ
 wQ

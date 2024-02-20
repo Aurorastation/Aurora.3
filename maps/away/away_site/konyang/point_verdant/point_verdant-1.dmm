@@ -2377,6 +2377,18 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"hn" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/tunnels)
 "ho" = (
 /turf/unsimulated/wall/konyang,
 /area/point_verdant/interior/offices/kaf)
@@ -2943,6 +2955,26 @@
 "iY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced/wood,
+/obj/item/key/bike/sport{
+	pixel_x = 2;
+	pixel_y = 2;
+	key_data = "58S-2165"
+	},
+/obj/item/key/bike/sport{
+	pixel_x = 8;
+	pixel_y = -2;
+	key_data = "T3T-5U01"
+	},
+/obj/item/key/bike/sport{
+	pixel_x = -5;
+	key_data = "17S-3906"
+	},
+/obj/item/key/bike/sport{
+	pixel_x = -9;
+	pixel_y = 5;
+	key_data = "2KA-N3DA"
+	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "ja" = (
@@ -4688,6 +4720,16 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/offices/kaf)
+"ok" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
+/obj/vehicle/bike/motor/police_konyang{
+	dir = 4;
+	spawns_with_key = 0;
+	registration_plate = "99P-7257"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/tunnels)
 "om" = (
 /obj/structure/ledge/quarter,
 /obj/structure/trash_pile,
@@ -5310,6 +5352,9 @@
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
 /obj/effect/decal/curb{
 	dir = 5
 	},
@@ -5454,6 +5499,15 @@
 "qI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
+/obj/item/key/bike/sport{
+	pixel_x = -4;
+	key_data = "71S-3614"
+	},
+/obj/item/key/bike/sport{
+	pixel_x = 8;
+	key_data = "62S-4394";
+	pixel_y = -3
+	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
 "qJ" = (
@@ -8344,6 +8398,9 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/vehicle/bike/motor/moped/police_konyang{
+	dir = 1
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "zU" = (
@@ -9196,6 +9253,11 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
+	},
+/obj/item/key/bike/moped{
+	pixel_x = 5;
+	pixel_y = -7;
+	key_data = "22M-2289"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
@@ -10459,6 +10521,9 @@
 /area/point_verdant/interior/maint_janitorial)
 "Gq" = (
 /obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
 /obj/effect/decal/curb{
 	dir = 6
 	},
@@ -10904,6 +10969,16 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/interior/tunnels)
+"Hp" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
+/obj/vehicle/bike/motor/brown{
+	dir = 4;
+	spawns_with_key = 0;
+	registration_plate = "84S-7683"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/tunnels)
 "Hq" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/sidewalk/flat,
@@ -11219,7 +11294,9 @@
 /area/point_verdant/interior/spaceport)
 "Im" = (
 /obj/vehicle/bike/motor/moped{
-	dir = 4
+	dir = 4;
+	registration_plate = "22M-2289";
+	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
@@ -11807,6 +11884,14 @@
 	},
 /obj/structure/ledge/quarter,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/interior/offices/kaf)
+"Kf" = (
+/obj/effect/decal/curb,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/cell_charger{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
 "Kg" = (
 /obj/random/junk,
@@ -13996,10 +14081,15 @@
 	pixel_y = 4;
 	req_access = list(218)
 	},
-/obj/machinery/cell_charger{
-	pixel_y = 3
-	},
 /obj/structure/table/reinforced/steel,
+/obj/item/key/bike/sport{
+	pixel_x = -4;
+	key_data = "84S-7683"
+	},
+/obj/item/key/bike/police{
+	pixel_x = 4;
+	key_data = "99P-7257"
+	},
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
 "Qv" = (
@@ -21545,7 +21635,7 @@ ho
 PD
 PD
 KU
-gI
+Kf
 VQ
 gJ
 FW
@@ -23852,7 +23942,7 @@ rf
 AV
 Th
 WO
-fB
+ok
 DQ
 hJ
 hJ
@@ -24109,11 +24199,11 @@ rf
 AV
 Th
 WO
-VX
+fB
 DQ
 hJ
 hJ
-Ks
+hn
 WO
 ho
 BR
@@ -24366,7 +24456,7 @@ rf
 AV
 Th
 WO
-VX
+Hp
 DQ
 DQ
 DQ
@@ -24627,7 +24717,7 @@ fB
 WX
 DQ
 fi
-Ks
+hn
 WO
 WO
 WO
@@ -29538,7 +29628,7 @@ wr
 mO
 mO
 Yn
-fh
+xn
 kg
 wD
 wD
@@ -29795,7 +29885,7 @@ UW
 UW
 UW
 Yn
-xn
+fh
 wD
 wD
 kg
