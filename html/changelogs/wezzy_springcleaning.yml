@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Tidies up away site and old event sprites."
+  - imageadd: "Updates Hotel Montparnasse and Mendell City event sprites and standardizes them so they can be used for future events."
+  - imageadd: "Adds new generic props for mapping."
+  - imageadd: "Tweaks generic map props such as street lamps and infrastructure so they can also be used for other away sites and planets. Konyang-specific sprites are mostly untouched."
