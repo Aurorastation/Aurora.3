@@ -115,9 +115,6 @@
 		if("Necronomicon")
 			icon_state = "necronomicon"
 			item_state = "necronomicon"
-		if("Luceism")
-			icon_state = "luce2"
-			item_state = "luce2"
 		if("Skrell")
 			icon_state = "skrellbible"
 			item_state = "skrellbible"

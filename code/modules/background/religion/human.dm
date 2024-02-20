@@ -78,8 +78,7 @@
 					modern Abrahamic religions, Luceism is a hard-to-define religion dedicated to the worship of an abstract representation of light referred to as \
 					the Ennoia. Though it is, unsurprisingly, strongest on Assunzione, followers of the faith can be found throughout the Orion Spur alongside their \
 					houses of worship."
-	book_name = "Luceian Book of Scripture and Prayers"
-	book_sprite = "luce"
+	book_name = "luceian scripture"
 
 /datum/religion/sikhism
 	name = RELIGION_SIKHISM

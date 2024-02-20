@@ -367,3 +367,7 @@
 /obj/item/clothing/head/winterhood/colorable/ponczo
 	name = "visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/assunzione_robe 
+	name = "assunzione clerical robe"
+

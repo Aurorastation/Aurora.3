@@ -230,17 +230,22 @@
 	abstract_type = /datum/gear/religion/assunzione
 	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
-/datum/gear/religion/assunzione/robe
-	display_name = "assunzione robe selection"
-	description = "A selection of robes worn by adherents to Luceism."
+/datum/gear/religion/assunzione/scripture
+	display_name = "luceian scripture"
+	description = "A collection of texts belonging to Luceism, the dominant religion of Assunzione."
+	path = /obj/item/device/versebook/assunzione
+
+/datum/gear/religion/assunzione/cloak
+	display_name = "assunzione cloak selection"
+	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
 	path = /obj/item/clothing/accessory/poncho/assunzione
 	slot = slot_wear_suit
 
-/datum/gear/religion/assunzione/robe/New()
-	..()
-	var/list/assunzionerobe = list()
-	assunzionerobe["assunzione robe"] = /obj/item/clothing/accessory/poncho/assunzione
-	gear_tweaks += new /datum/gear_tweak/path(assunzionerobe)
+/datum/gear/religion/assunzione/robe
+	display_name = "assunzione clerical robe"
+	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
+	path = /obj/item/clothing/suit/storage/hooded/assunzione_robe
+	slot = slot_wear_suit
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
