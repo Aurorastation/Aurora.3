@@ -94,6 +94,7 @@
 	item_state = "orion_liaison"
 
 /obj/item/clothing/under/rank/liaison/einstein
+	name = "einstein corporate liaison uniform"
 	desc_extended = "If you're seeing this outfit in an SCC facility, something somewhere has gone terribly, terribly wrong."
 	icon = 'icons/clothing/under/uniforms/einstein.dmi'
 	icon_state = "ee_liaison"
@@ -282,6 +283,7 @@
 	item_state = "orion_machinist"
 
 /obj/itel/clothing/under/rank/machinist/einstein
+	name = "einstein machinist's jumpsuit"
 	desc_extended = "Usually, but not necessarily worn by Einstein's Terranaeus Diagnostics subsidiary. Subsidiary or not, \
 	whoever wears this uniform probably knows a lot about putting guns and cameras on robots."
 	icon = 'icons/clothing/under/uniforms/einstein.dmi'

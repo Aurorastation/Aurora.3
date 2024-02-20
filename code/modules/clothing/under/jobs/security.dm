@@ -109,7 +109,7 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/security/einstein
-	name = "einstein security officer uniform"
+	name = "einstein security officer's uniform"
 	desc_extended = "Even the Chainlink's hated enemy puts their security officers in drab officewear. Rumors that these are woven \
 	from Skrellian supermaterials are likely false."
 	icon = 'icons/clothing/under/uniforms/einstein.dmi'
