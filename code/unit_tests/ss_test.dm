@@ -129,7 +129,7 @@ SUBSYSTEM_DEF(unit_tests)
 	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(SSatlas.current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
 
-		if(findtext(D.name, "template"))
+		if(findtext(D.name, "template") || is_abstract(D))
 			qdel(D)
 			continue
 
