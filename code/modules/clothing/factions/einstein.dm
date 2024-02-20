@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/einstein/synthetic
-	name = "\improper EES utility uniform"
+	name = "einstein synthetic utility uniform"
 	desc = "A standardized uniform worn by Einstein Engines Synthetics in non-public-facing roles. \
 	The acronym \"EES\" is emblazoned on the back."
 	desc_extended = "Light as air, electrically insulated, and specially fitted to ensure surgical, microelectronic, or \
