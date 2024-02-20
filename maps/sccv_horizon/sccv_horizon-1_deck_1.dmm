@@ -12216,10 +12216,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"iBu" = (
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "iBL" = (
 /obj/item/material/shard{
 	icon_state = "medium"

@@ -50,7 +50,7 @@
 	name = "Xanu Frigate - Combat Information Center"
 	icon_state = "bridge"
 	ambience = AMBIENCE_HIGHSEC
-	
+
 /area/ship/xanu_frigate/weapon
 	name = "Xanu Frigate - Weapon Bay"
 	sound_env = SMALL_ENCLOSED
@@ -150,9 +150,13 @@
 
 //Shuttles
 /area/shuttle/xanu_boarder
-	name = "Xanu Spacefleet Runabout"
+	name = "Xanu Spacefleet Runabout Parent Area"
 	icon_state = "shuttle2"
 	requires_power = TRUE
+
+/area/shuttle/xanu_boarder/main
+	name = "Xanu Spacefleet Runabout - Main Compartment"
+	icon_state = "shuttle"
 
 /area/shuttle/xanu_boarder/engineering
 	name = "Xanu Spacefleet Runabout - Engineering"
@@ -160,7 +164,7 @@
 
 /area/shuttle/xanu_boarder/cockpit
 	name = "Xanu Spacefleet Runabout - Cockpit"
-	icon_state = "shuttle2"
+	icon_state = "shuttle3"
 
 /area/shuttle/xanu_fighter
 	name = "Xanu Spacefleet Fighter"

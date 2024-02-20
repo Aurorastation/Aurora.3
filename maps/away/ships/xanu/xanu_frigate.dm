@@ -144,7 +144,7 @@
 /datum/shuttle/autodock/overmap/xanu_boarder
 	name = "Xanu Boarder"
 	move_time = 15
-	shuttle_area = list(/area/shuttle/xanu_boarder, /area/shuttle/xanu_boarder/cockpit, /area/shuttle/xanu_boarder/engineering)
+	shuttle_area = list(/area/shuttle/xanu_boarder/main, /area/shuttle/xanu_boarder/cockpit, /area/shuttle/xanu_boarder/engineering)
 	dock_target = "xanu_boarder"
 	current_location = "xanufrigate_aft"
 	landmark_transition = "xanufrigate_transit_a"
