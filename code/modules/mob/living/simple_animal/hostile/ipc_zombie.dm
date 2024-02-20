@@ -9,7 +9,7 @@
 	maxHealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	armor_penetration = 10
+	armor_penetration = 20
 	attack_sound = 'sound/weapons/smash.ogg'
 	attacktext = "smashed"
 	faction = "hivebot"
