@@ -6654,7 +6654,7 @@
 /obj/item/key/bike/moped{
 	pixel_x = 6;
 	pixel_y = -11;
-	key_data = "99M-7614"
+	key_data = "M99-7614"
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)

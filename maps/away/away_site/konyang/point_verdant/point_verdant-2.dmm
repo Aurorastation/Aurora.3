@@ -577,7 +577,7 @@
 /obj/vehicle/bike/motor/police_konyang{
 	dir = 8;
 	spawns_with_key = 0;
-	registration_plate = "31P-3862"
+	registration_plate = "P31-3862"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -868,7 +868,7 @@
 /obj/vehicle/bike/motor/brown{
 	dir = 1;
 	spawns_with_key = 0;
-	registration_plate = "71S-3614"
+	registration_plate = "S71-3614"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -1697,7 +1697,7 @@
 "eI" = (
 /obj/vehicle/bike/motor/moped/blue{
 	dir = 8;
-	registration_plate = "18M-1785";
+	registration_plate = "M18-1785";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -1805,7 +1805,7 @@
 /obj/vehicle/bike/motor{
 	dir = 1;
 	spawns_with_key = 0;
-	registration_plate = "62S-4394"
+	registration_plate = "S62-4394"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -2012,7 +2012,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/red{
 	dir = 8;
-	registration_plate = "97M-6406";
+	registration_plate = "M97-6406";
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
@@ -2307,7 +2307,7 @@
 "gs" = (
 /obj/vehicle/bike/motor/moped/teal{
 	dir = 8;
-	registration_plate = "73M-3908";
+	registration_plate = "M73-3908";
 	spawns_with_key = 0
 	},
 /obj/effect/decal/road_marking,
@@ -2603,7 +2603,7 @@
 "hf" = (
 /obj/vehicle/bike/motor/moped{
 	dir = 4;
-	registration_plate = "68M-6909";
+	registration_plate = "M68-6909";
 	spawns_with_key = 0
 	},
 /obj/effect/decal/road_marking/thin,
@@ -3263,7 +3263,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/red{
 	dir = 8;
-	registration_plate = "69M-5179";
+	registration_plate = "M69-5179";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -3749,7 +3749,7 @@
 "km" = (
 /obj/vehicle/bike/motor/moped/blue{
 	dir = 8;
-	registration_plate = "56M-4117";
+	registration_plate = "M56-4117";
 	spawns_with_key = 0
 	},
 /obj/effect/decal/road_marking/thin,
@@ -4402,7 +4402,7 @@
 /obj/vehicle/bike/motor/blue{
 	dir = 8;
 	spawns_with_key = 0;
-	registration_plate = "58S-2165"
+	registration_plate = "S58-2165"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -4609,7 +4609,7 @@
 /obj/item/key/bike/moped{
 	pixel_x = 14;
 	pixel_y = -1;
-	key_data = "77M-3836"
+	key_data = "M77-3836"
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
@@ -4752,7 +4752,7 @@
 "mI" = (
 /obj/vehicle/bike/motor/moped/teal{
 	dir = 8;
-	registration_plate = "56M-7849";
+	registration_plate = "M56-7849";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -6169,7 +6169,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/green{
 	dir = 8;
-	registration_plate = "27S-3782";
+	registration_plate = "S27-3782";
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
@@ -6297,7 +6297,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/brown{
 	dir = 8;
-	registration_plate = "67S-3512";
+	registration_plate = "S67-3512";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -6552,7 +6552,7 @@
 /obj/effect/decal/curb,
 /obj/vehicle/bike/motor/moped{
 	dir = 4;
-	registration_plate = "77M-3836";
+	registration_plate = "M77-3836";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -7067,7 +7067,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/blue{
 	dir = 8;
-	registration_plate = "97M-2096";
+	registration_plate = "M97-2096";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -7906,7 +7906,7 @@
 /obj/vehicle/bike/motor/moped/blue{
 	dir = 8;
 	spawns_with_key = 0;
-	registration_plate = "99M-7614"
+	registration_plate = "M99-7614"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -8927,7 +8927,7 @@
 "xo" = (
 /obj/vehicle/bike/motor/blue{
 	dir = 8;
-	registration_plate = "87S-5702";
+	registration_plate = "S87-5702";
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
@@ -9959,7 +9959,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped{
 	dir = 8;
-	registration_plate = "72M-2664";
+	registration_plate = "M72-2664";
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
@@ -10315,7 +10315,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/red{
 	dir = 8;
-	registration_plate = "25M-5737";
+	registration_plate = "M25-5737";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -10668,7 +10668,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/brown{
 	dir = 8;
-	registration_plate = "96S-3842";
+	registration_plate = "S96-3842";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -11297,7 +11297,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/teal{
 	dir = 8;
-	registration_plate = "17M-3023";
+	registration_plate = "M17-3023";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -11702,7 +11702,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/teal{
 	dir = 8;
-	registration_plate = "18M-8296";
+	registration_plate = "M18-8296";
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
@@ -11856,7 +11856,7 @@
 /obj/random/dirt_75,
 /obj/item/key/bike/police{
 	pixel_x = 10;
-	key_data = "97P-7137";
+	key_data = "P97-7137";
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
@@ -12283,8 +12283,8 @@
 /area/point_verdant/outdoors)
 "FS" = (
 /obj/machinery/vending/rental_bikes{
-	key_data_mopeds = list("17M-3023","36M-1211","56M-4117");
-	key_data_sports = list("75S-1649","87S-5702")
+	key_data_mopeds = list("M17-3023","M36-1211","M56-4117");
+	key_data_sports = list("S75-1649","S87-5702")
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -13512,7 +13512,7 @@
 /obj/random/dirt_75,
 /obj/vehicle/bike/motor/green{
 	dir = 8;
-	registration_plate = "89S-8023";
+	registration_plate = "S89-8023";
 	spawns_with_key = 0
 	},
 /obj/effect/decal/road_marking/thin,
@@ -13708,7 +13708,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/green{
 	dir = 8;
-	registration_plate = "75S-1649";
+	registration_plate = "S75-1649";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -14370,7 +14370,7 @@
 /obj/vehicle/bike/motor/moped/police_konyang{
 	dir = 8;
 	spawns_with_key = 0;
-	registration_plate = "97P-7137"
+	registration_plate = "P97-7137"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -14560,7 +14560,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/blue{
 	dir = 8;
-	registration_plate = "18S-6261";
+	registration_plate = "S18-6261";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -14577,7 +14577,7 @@
 /obj/effect/decal/curb,
 /obj/vehicle/bike/motor/moped/blue{
 	dir = 8;
-	registration_plate = "93M-5839";
+	registration_plate = "M93-5839";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -15382,7 +15382,7 @@
 /obj/vehicle/bike/motor/brown{
 	dir = 4;
 	spawns_with_key = 0;
-	registration_plate = "17S-3906"
+	registration_plate = "S17-3906"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -16261,8 +16261,8 @@
 /area/point_verdant/interior/tailor)
 "PY" = (
 /obj/machinery/vending/rental_bikes{
-	key_data_mopeds = list("18M-1785","56M-7849","69M-5179","97M-2096","72M-2664","18M-8296","35M-3772","58M-7428","97M-6406");
-	key_data_sports = list("53S-6393","35S-8084","27S-3782","89S-8023","96S-3842")
+	key_data_mopeds = list("M18-1785","M56-7849","M69-5179","M97-2096","M72-2664","M18-8296","M35-3772","M58-7428","M97-6406");
+	key_data_sports = list("S53-6393","S35-8084","S27-3782","S89-8023","S96-3842")
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
@@ -16767,15 +16767,15 @@
 /area/point_verdant/outdoors)
 "Rr" = (
 /obj/machinery/vending/rental_bikes{
-	key_data_mopeds = list("73M-3908","93M-5839","68M-6909","25M-5737");
-	key_data_sports = list("67S-3512","18S-6261")
+	key_data_mopeds = list("M73-3908","M93-5839","M68-6909","M25-5737");
+	key_data_sports = list("S67-3512","S18-6261")
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "Rs" = (
 /obj/vehicle/bike/motor{
 	dir = 8;
-	registration_plate = "53S-6393";
+	registration_plate = "S53-6393";
 	spawns_with_key = 0
 	},
 /obj/effect/decal/road_marking/thin,
@@ -17242,7 +17242,7 @@
 /obj/structure/table/wood,
 /obj/item/key/bike/police{
 	pixel_x = -8;
-	key_data = "31P-3862";
+	key_data = "P31-3862";
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled,
@@ -17331,7 +17331,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped/red{
 	dir = 8;
-	registration_plate = "58M-7428";
+	registration_plate = "M58-7428";
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
@@ -18158,7 +18158,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/moped{
 	dir = 8;
-	registration_plate = "35M-3772";
+	registration_plate = "M35-3772";
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
@@ -18582,7 +18582,7 @@
 /obj/structure/automobile_filler,
 /obj/vehicle/bike/motor/moped/red{
 	dir = 8;
-	registration_plate = "36M-1211";
+	registration_plate = "M36-1211";
 	spawns_with_key = 0
 	},
 /obj/effect/decal/road_marking/thin,
@@ -19309,7 +19309,7 @@
 /obj/effect/decal/road_marking/thin,
 /obj/vehicle/bike/motor/blue{
 	dir = 8;
-	registration_plate = "35S-8084";
+	registration_plate = "S35-8084";
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
