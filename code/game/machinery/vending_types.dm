@@ -1672,7 +1672,7 @@
 	if(istype(key))
 		return
 	// expires the next day
-	var/rental_expiry = "[GLOB.game_year]-[time2text(world.realtime + DAY, "MM-DD")] [worldtime2text()]"
+	var/rental_expiry = "[GLOB.game_year]-[time2text(world.realtime + 1 DAY, "MM-DD")] [worldtime2text()]"
 	key.desc += "Property of Idris Incorporated. Rental expires on [rental_expiry]. Return fully charged."
 	if(key_data_mopeds && istype(key, /obj/item/key/bike/moped))
 		key.key_data = key_data_mopeds[1]
