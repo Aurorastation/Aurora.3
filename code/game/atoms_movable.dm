@@ -372,31 +372,6 @@
 	Moved(old_loc, TRUE)
 	return TRUE
 
-/atom/movable/Move()
-	var/old_loc = loc
-	. = ..()
-	if (.)
-		// Events.
-		if (GLOB.moved_event.global_listeners[src])
-			GLOB.moved_event.raise_event(src, old_loc, loc)
-
-		// Lighting.
-		if (light_sources)
-			var/datum/light_source/L
-			var/thing
-			for (thing in light_sources)
-				L = thing
-				L.source_atom.update_light()
-
-		// Openturf.
-		if (bound_overlay)
-			// The overlay will handle cleaning itself up on non-openspace turfs.
-			bound_overlay.forceMove(get_step(src, UP))
-			if (bound_overlay.dir != dir)
-				bound_overlay.set_dir(dir)
-
-		Moved(old_loc, FALSE)
-
 /atom/movable/proc/Moved(atom/old_loc, forced)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
