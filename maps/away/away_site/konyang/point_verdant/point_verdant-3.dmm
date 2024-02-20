@@ -599,7 +599,6 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "eu" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
@@ -610,6 +609,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/orange,
 /area/point_verdant/interior/hotel)
 "ev" = (
@@ -741,17 +741,6 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
-"fr" = (
-/obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1;
-	dir = 8
-	},
-/obj/structure/road_barrier/bot_end{
-	dir = 1
-	},
-/turf/simulated/floor/sidewalk,
-/area/point_verdant/outdoors)
 "fs" = (
 /obj/structure/table/wood,
 /obj/item/towel{
@@ -1216,11 +1205,6 @@
 /obj/item/device/paicard,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
-"iC" = (
-/obj/effect/decal/exterior_stairs/left,
-/obj/effect/decal/exterior_stairs/center,
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "iJ" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/wood,
@@ -2118,7 +2102,6 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
 "qK" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
@@ -2129,6 +2112,7 @@
 	dir = 4
 	},
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
 "qO" = (
@@ -2189,7 +2173,6 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "ri" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
@@ -2199,6 +2182,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "rj" = (
@@ -2993,9 +2977,6 @@
 	pixel_x = 12;
 	pixel_y = 24
 	},
-/turf/simulated/floor/sidewalk,
-/area/point_verdant/outdoors)
-"xk" = (
 /obj/structure/road_barrier,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -3113,7 +3094,6 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "yG" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
@@ -3124,6 +3104,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet,
 /area/point_verdant/interior/hotel)
 "yJ" = (
@@ -3461,7 +3442,6 @@
 /turf/simulated/open,
 /area/point_verdant/outdoors)
 "Bn" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
@@ -3472,6 +3452,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "Bp" = (
@@ -5312,10 +5293,6 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
-"OG" = (
-/obj/effect/decal/exterior_stairs/right,
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "OI" = (
 /obj/structure/ledge/roof{
 	dir = 9
@@ -6197,10 +6174,6 @@
 /obj/structure/closet/crate/secure/large,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
-"VY" = (
-/obj/effect/decal/exterior_stairs/left,
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "We" = (
 /obj/machinery/door/urban/glass_sliding/double,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6564,7 +6537,6 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Yu" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
@@ -6577,6 +6549,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/aquablue,
 /area/point_verdant/interior/hotel)
 "Yv" = (
@@ -16621,8 +16594,8 @@ fx
 fx
 fx
 fx
-fx
-fr
+hw
+Jx
 rx
 DD
 Ni
@@ -21760,9 +21733,9 @@ UV
 DD
 oe
 aS
-hw
-hw
 Jx
+hw
+hw
 rx
 DD
 Ni
@@ -22019,7 +21992,7 @@ Sy
 uT
 xh
 hw
-xk
+hw
 rx
 DD
 Ni
@@ -22274,9 +22247,9 @@ An
 An
 An
 An
-An
-An
 mO
+Cw
+Cw
 Cw
 Cw
 Cw
@@ -39297,7 +39270,7 @@ DC
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -39554,7 +39527,7 @@ DC
 DC
 DC
 DC
-iC
+gs
 DD
 DD
 DD
@@ -40325,7 +40298,7 @@ DC
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
@@ -42381,7 +42354,7 @@ oR
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -42895,7 +42868,7 @@ za
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
@@ -46742,7 +46715,7 @@ pN
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -46761,7 +46734,7 @@ SU
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -47256,7 +47229,7 @@ pN
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
@@ -47275,7 +47248,7 @@ SU
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
@@ -48284,7 +48257,7 @@ pN
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -48303,7 +48276,7 @@ SU
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -48798,7 +48771,7 @@ pN
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
@@ -48817,7 +48790,7 @@ SU
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
@@ -49826,7 +49799,7 @@ pN
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -49845,7 +49818,7 @@ SU
 DC
 DC
 DC
-VY
+gs
 DD
 DD
 DD
@@ -50340,7 +50313,7 @@ pN
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
@@ -50359,7 +50332,7 @@ SU
 DC
 DC
 DC
-OG
+gs
 DD
 DD
 DD
