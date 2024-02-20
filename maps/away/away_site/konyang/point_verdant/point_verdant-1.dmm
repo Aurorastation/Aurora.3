@@ -1988,10 +1988,17 @@
 /area/point_verdant/interior/offices/kaf)
 "gj" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/flares,
+/obj/item/storage/box/flares{
+	pixel_y = 0
+	},
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "gk" = (
@@ -5737,6 +5744,10 @@
 	},
 /obj/item/storage/box/folders{
 	pixel_y = 5
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_x = -2;
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
