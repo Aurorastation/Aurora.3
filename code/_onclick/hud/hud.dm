@@ -119,12 +119,23 @@ var/list/global_huds
 */
 
 /datum/hud
+	///The mob that possesses the HUD
 	var/mob/mymob
 
-	var/hud_shown = 1			//Used for the HUD toggle (F12)
-	var/inventory_shown = 1		//the inventory
-	var/show_intent_icons = 0
-	var/hotkey_ui_hidden = 0	//This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
+	///Boolean, if the HUD is shown, used for the HUD toggle (F12)
+	var/hud_shown = TRUE
+
+	///Boolean, if the inventory is shows
+	var/inventory_shown = TRUE
+
+	///Boolean, if the intent icons are shown
+	var/show_intent_icons = FALSE
+
+	///Boolean, this is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
+	var/hotkey_ui_hidden = FALSE
+
+	///Boolean, if the action buttons are hidden
+	var/action_buttons_hidden = FALSE
 
 	var/obj/screen/lingchemdisplay
 	var/obj/screen/instability_display //Technomancer.
@@ -141,7 +152,6 @@ var/list/global_huds
 	var/list/obj/screen/hotkeybuttons
 
 	var/obj/screen/movable/action_button/hide_toggle/hide_actions_toggle
-	var/action_buttons_hidden = 0
 
 /datum/hud/New(mob/owner)
 	mymob = owner
@@ -169,7 +179,9 @@ var/list/global_huds
 	. = ..()
 
 /datum/hud/proc/hidden_inventory_update()
-	if(!mymob) return
+	if(!mymob)
+		return
+
 	if(ishuman(mymob))
 		var/mob/living/carbon/human/H = mymob
 		for(var/gear_slot in H.species.hud.gear)
@@ -289,16 +301,30 @@ var/list/global_huds
 							H.r_store.screen_loc = null
 
 
+/**
+ * Instantiate an HUD to the current mob that own is
+ */
 /datum/hud/proc/instantiate()
-	if(!ismob(mymob)) return 0
-	if(!mymob.client) return 0
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+
+	if(!ismob(mymob))
+		stack_trace("HUD instantiation called on an HUD without a mob!")
+		return FALSE
+
+	if(!(mymob.client))
+		return FALSE
+
 	var/ui_style = ui_style2icon(mymob.client.prefs.UI_style)
 	var/ui_color = mymob.client.prefs.UI_style_color
 	var/ui_alpha = mymob.client.prefs.UI_style_alpha
 
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
-/mob/proc/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
+/mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+
 	return
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
@@ -307,16 +333,19 @@ var/list/global_huds
 	set hidden = 1
 
 	if(!hud_used)
-		to_chat(usr, "<span class='warning'>This mob type does not use a HUD.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type does not use a HUD."))
 		return
 
 	if(!ishuman(src))
-		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>")
+		to_chat(usr, SPAN_WARNING("Inventory hiding is currently only supported for human mobs."))
 		return
 
-	if(!client) return
+	if(!client)
+		return
+
 	if(client.view != world.view)
 		return
+
 	if(hud_used.hud_shown)
 		hud_used.hud_shown = 0
 		if(src.hud_used.adding)

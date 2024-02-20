@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/morph/instantiate_hud(var/datum/hud/HUD)
+/mob/living/simple_animal/hostile/morph/instantiate_hud(datum/hud/HUD)
 	HUD.morph_hud()
 
 /datum/hud/proc/morph_hud()

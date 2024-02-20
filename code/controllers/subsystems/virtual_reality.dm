@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(virtualreality)
 	name = "Virtual Reality"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	// MECHA
