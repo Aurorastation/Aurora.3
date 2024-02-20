@@ -71,7 +71,7 @@ nanoui is used to open and update nano browser uis
  *
  * @return /nanoui new nanoui object
  */
-/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/datum/nanoui/master_ui = null, var/datum/ui_state/state = default_state)
+/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/datum/nanoui/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
 	user = nuser
 	src_object = nsrc_object
 	ui_key = nui_key

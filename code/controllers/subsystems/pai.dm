@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(pai)
 	default_pai_software = SSpai.default_pai_software
 
 /datum/controller/subsystem/pai/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/pai/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE

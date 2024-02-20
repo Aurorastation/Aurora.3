@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(ghostroles)
 			return get_turf(P)
 
 /datum/controller/subsystem/ghostroles/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/ghostroles/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE

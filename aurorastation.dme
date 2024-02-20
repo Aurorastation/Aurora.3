@@ -3469,6 +3469,7 @@
 #include "code\modules\tgui\states\deep_inventory.dm"
 #include "code\modules\tgui\states\default.dm"
 #include "code\modules\tgui\states\hands.dm"
+#include "code\modules\tgui\states\heavy_vehicle.dm"
 #include "code\modules\tgui\states\human_adjacent.dm"
 #include "code\modules\tgui\states\human_adjacent_loc.dm"
 #include "code\modules\tgui\states\inventory.dm"
