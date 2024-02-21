@@ -2159,6 +2159,16 @@
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center_abandoned/garage)
+"AQ" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
 "Bi" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/reinforced,
@@ -4264,6 +4274,10 @@
 "ZU" = (
 /obj/structure/ledge/quarter/corner,
 /obj/structure/flora/bush/konyang_reeds,
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 
@@ -4280,7 +4294,7 @@ rf
 rf
 rf
 YV
-YV
+rz
 YV
 rf
 rf
@@ -4310,7 +4324,7 @@ rf
 rf
 rf
 rf
-rf
+dt
 YV
 rf
 rf
@@ -7392,7 +7406,7 @@ ef
 Il
 Il
 GK
-Pt
+AQ
 rf
 rf
 sS
