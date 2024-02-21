@@ -4548,7 +4548,7 @@
 	master_tag = "airlock_barge_stbddock";
 	name = "airlock_barge_stbddock"
 	},
-/obj/effect/shuttle_landmark/scc_scout_ship/catwalk/fore_starboard{
+/obj/effect/shuttle_landmark/water_barge/starboarddock{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
