@@ -8874,9 +8874,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "ary" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
+/obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
