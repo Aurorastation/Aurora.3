@@ -29,15 +29,16 @@
 	if(_program == null)
 		qdel(src) //Delete itself if no program is set
 		return
-	var/datum/computer_file/program/PRG = GLOB.ntnet_global.find_ntnet_file_by_name(_program)
-	if(!PRG)
+	var/datum/computer_file/program/program = GLOB.ntnet_global.find_ntnet_file_by_name(_program)
+	if(!program)
 		qdel(src) //Delete itself it no matching program is found
 		return
-	max_capacity = PRG.size // Set the capacity of the backup disk to the capacity of the program
-	store_file(PRG)
+	max_capacity = program.size // Set the capacity of the backup disk to the capacity of the program
+	var/datum/computer_file/program/program_cloned = program.clone()
+	store_file(program_cloned)
 	read_only = TRUE
 	desc = "A read-only backup storage crystal containing a backup of the following software: [PRG.filedesc]"
-	name = "[PRG.filedesc] backup crystal"
+	name = "[program_cloned.filedesc] backup crystal"
 
 /obj/structure/closet/crate/software_backup
 	desc = "A crate containing a backup of all the NT Software available."
