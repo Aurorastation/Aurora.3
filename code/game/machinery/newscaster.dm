@@ -810,15 +810,15 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 
 
-/obj/machinery/newscaster/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/newscaster/attackby(obj/item/attacking_item, mob/user)
 	if (src.isbroken)
 		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 100, 1)
 		for (var/mob/O in hearers(5, src.loc))
 			O.show_message("<EM>[user.name]</EM> further abuses the shattered [src.name].")
 	else
-		if(istype(I, /obj/item) )
+		if(istype(attacking_item, /obj/item) )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			var/obj/item/W = I
+			var/obj/item/W = attacking_item
 			if(W.force <15)
 				for (var/mob/O in hearers(5, src.loc))
 					O.show_message("[user.name] hits the [src.name] with the [W.name] with no visible effect." )
@@ -832,7 +832,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 					playsound(src.loc, /singleton/sound_category/glass_break_sound, 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
-						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
+						O.show_message("[user.name] forcefully slams the [src.name] with the [attacking_item.name]!" )
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
 			to_chat(user, "<span class='notice'>This does nothing.</span>")
@@ -1026,8 +1026,8 @@ var/list/obj/machinery/newscaster/allCasters = list()
 			src.attack_self(src.loc)
 
 
-/obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.ispen())
+/obj/item/newspaper/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		if(rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
 									SPAN_NOTICE("You unroll \the [src] to write on it."))
@@ -1035,8 +1035,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
 		else
-			var/s = sanitize(input(user, "Write something", "Newspaper", ""))
-			s = sanitize(s)
+			var/s = sanitize( tgui_input_text(user, "Write something", "Newspaper", "") )
 			if (!s)
 				return
 			if (!in_range(src, usr) && src.loc != usr)

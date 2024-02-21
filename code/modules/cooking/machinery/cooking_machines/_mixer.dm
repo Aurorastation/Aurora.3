@@ -17,9 +17,9 @@ fundamental differences
 	idle_power_usage = 50
 	appliancetype = 0
 
-/obj/machinery/appliance/mixer/examine(mob/user, distance, is_adjacent)
+/obj/machinery/appliance/mixer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("It is currently set to make a [selected_option]"))
+	. += SPAN_NOTICE("It is currently set to make a [selected_option]")
 
 /obj/machinery/appliance/mixer/Initialize()
 	. = ..()

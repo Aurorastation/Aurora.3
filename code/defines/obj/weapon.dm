@@ -263,13 +263,14 @@
 	else
 		..()
 
-/obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
-	if(!src.concealed_blade && istype(W))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [W] into \the [src].")
+/obj/item/cane/concealed/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/canesword/attacking_canesword = attacking_item
+	if(!src.concealed_blade && istype(attacking_canesword))
+		user.visible_message("<span class='warning'>[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [attacking_canesword] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
-		user.drop_from_inventory(W)
-		W.forceMove(src)
-		src.concealed_blade = W
+		user.drop_from_inventory(attacking_canesword)
+		attacking_canesword.forceMove(src)
+		src.concealed_blade = attacking_canesword
 		update_icon()
 		return TRUE
 	else
@@ -450,8 +451,8 @@
 	desc = "Heavy-duty switching circuits for power control."
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-/obj/item/module/power_control/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
+/obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
@@ -521,10 +522,10 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 
-/obj/item/neuralbroke/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, W.usesound, 50, 1)
+		playsound(src.loc, attacking_item.usesound, 50, 1)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)

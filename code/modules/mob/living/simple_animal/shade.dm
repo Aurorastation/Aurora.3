@@ -51,9 +51,9 @@
 /mob/living/simple_animal/shade/can_name(var/mob/living/M)
 	return FALSE
 
-/mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
-	if(istype(O, /obj/item/device/soulstone))
-		var/obj/item/device/soulstone/S = O;
+/mob/living/simple_animal/shade/attackby(obj/item/attacking_item, mob/user)  //Marker -Agouri
+	if(istype(attacking_item, /obj/item/device/soulstone))
+		var/obj/item/device/soulstone/S = attacking_item
 		S.transfer_soul("SHADE", src, user)
 		return
 	return ..()

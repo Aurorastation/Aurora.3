@@ -247,3 +247,11 @@
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Medical Personnel", "Science Personnel")
 	cost = 3
 
+/datum/gear/augment/phalanx_plate
+	display_name = "phalanx facial plate"
+	description = "This modular face plate accommodates a wide array of cybernetic augmentations, enabling seamless integration with Phalanx's transhumanist doctrine. Enhanced sensory overlays and HUDs offer Phalanx members superior situational awareness and promote a sense of hive-thinking."
+	path = /obj/item/organ/internal/augment/eye_sensors/phalanx
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Captain")
+	faction = "Private Military Contracting Group"
+	cost = 1

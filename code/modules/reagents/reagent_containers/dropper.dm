@@ -102,12 +102,12 @@
 		worn_overlay = null
 	update_held_icon()
 
-/obj/item/reagent_containers/dropper/examine(mob/user)
+/obj/item/reagent_containers/dropper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, SPAN_NOTICE("\The [src] is holding [reagents.total_volume] units out of [volume]. Current transfer is [amount_per_transfer_from_this] units."))
+		. += SPAN_NOTICE("\The [src] is holding [reagents.total_volume] units out of [volume]. Current transfer is [amount_per_transfer_from_this] units.")
 	else
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 
 /obj/item/reagent_containers/dropper/electronic_pipette
 	name = "electronic pipette"

@@ -250,17 +250,17 @@
 	chicken_count -= 1
 	desc = "Now it's ready for plucking and cooking!"
 
-/mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
-		var/obj/item/reagent_containers/food/snacks/grown/G = O
+/mob/living/simple_animal/chicken/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
+		var/obj/item/reagent_containers/food/snacks/grown/G = attacking_item
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It clucks happily."),
-					SPAN_NOTICE("You feed \the [O] to \the [name]! It clucks happily."),
+					SPAN_NOTICE("\The [user] feeds \the [attacking_item] to \the [name]! It clucks happily."),
+					SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It clucks happily."),
 					"You hear a cluck.")
-				user.drop_from_inventory(O,get_turf(src))
-				qdel(O)
+				user.drop_from_inventory(attacking_item,get_turf(src))
+				qdel(attacking_item)
 				eggsleft += rand(1, 4)
 			else
 				to_chat(user, "\The [name] doesn't seem hungry!")

@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(economy)
 	name = "Economy"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_ECONOMY
+	init_order = INIT_ORDER_ECONOMY
 	var/datum/money_account/station_account
 	var/list/department_accounts = list()
 	var/list/all_money_accounts = list()

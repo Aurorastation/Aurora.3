@@ -35,17 +35,17 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/examine(mob/user, distance, is_adjacent)
+/obj/machinery/power/emitter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(state)
 		if(EMITTER_LOOSE)
-			to_chat(user, SPAN_NOTICE("\The [src] isn't attached to anything and is not ready to fire."))
+			. += SPAN_NOTICE("\The [src] isn't attached to anything and is not ready to fire.")
 		if(EMITTER_BOLTED)
-			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire."))
+			. += SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire.")
 		if(EMITTER_WELDED)
-			to_chat(user, SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire."))
+			. += SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire.")
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("The shot counter display reads: [shot_counter]"))
+		. += SPAN_NOTICE("The shot counter display reads: [shot_counter] shots.")
 
 /obj/machinery/power/emitter/Destroy()
 	if(special_emitter)
@@ -161,22 +161,22 @@
 		A.launch_projectile(get_step(src, dir))
 		shot_counter++
 
-/obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/power/emitter/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		if(active)
 			to_chat(user, SPAN_WARNING("You cannot unbolt \the [src] while it's active."))
 			return
 		switch(state)
 			if(EMITTER_LOOSE)
 				state = EMITTER_BOLTED
-				playsound(get_turf(src), W.usesound, 75, TRUE)
+				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(EMITTER_BOLTED)
 				state = EMITTER_LOOSE
-				playsound(get_turf(src), W.usesound, 75, TRUE)
+				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
@@ -185,8 +185,8 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
 		return
 
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(active)
 			to_chat(user, SPAN_NOTICE("You cannot unweld \the [src] while it's active."))
 			return
@@ -199,7 +199,7 @@
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
 						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(W.use_tool(src, user, 20, volume = 50))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = EMITTER_WELDED
@@ -213,7 +213,7 @@
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
 						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(W.use_tool(src, user, 20, volume = 50))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = EMITTER_BOLTED
@@ -223,7 +223,7 @@
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return
 
-	if(W.GetID())
+	if(attacking_item.GetID())
 		if(emagged)
 			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
 			return

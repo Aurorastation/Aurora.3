@@ -23,11 +23,11 @@
 		add_overlay(bombassembly)
 		add_overlay("bomb_assembly")
 
-/obj/item/device/onetankbomb/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/device/analyzer))
-		bombtank.attackby(W, user)
+/obj/item/device/onetankbomb/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/analyzer))
+		bombtank.attackby(attacking_item, user)
 		return
-	if(!status && (W.iswrench() || istype(W, /obj/item/wirecutters/bomb)))	//This is basically bomb assembly code inverted. apparently it works.
+	if(!status && (attacking_item.iswrench() || istype(attacking_item, /obj/item/wirecutters/bomb)))	//This is basically bomb assembly code inverted. apparently it works.
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]."))
 
 		bombassembly.forceMove(get_turf(user))
@@ -41,8 +41,8 @@
 
 		qdel(src)
 		return
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.welding)
 			return
 		if(!status)

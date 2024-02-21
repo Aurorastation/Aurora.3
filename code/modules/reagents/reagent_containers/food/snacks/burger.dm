@@ -11,16 +11,16 @@
 	bitesize = 2
 
 // Burger + cheese wedge = cheeseburger
-/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/reagent_containers/food/snacks/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/reagent_containers/food/snacks/cheesewedge))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
+/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/cheesewedge))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
 		to_chat(user, "You make a cheeseburger.")
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 		return
-	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/burger/B = new(get_turf(src))
-		B.attackby(W,user)
+		B.attackby(attacking_item, user)
 		qdel(src)
 	else
 		..()

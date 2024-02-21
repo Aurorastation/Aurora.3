@@ -1,6 +1,5 @@
 /area/shuttle/air_konyang
-	name = "Air Konyang Liner - Rear Hall"
-	icon_state = "green"
+	name = "Air Konyang Liner"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
@@ -34,3 +33,7 @@
 /area/shuttle/air_konyang/bridge
 	name = "Air Konyang Liner - Cockpit"
 	icon_state = "bridge"
+
+/area/shuttle/air_konyang/rear_hall
+	name = "Air Konyang Liner - Rear Hall"
+	icon_state = "green"

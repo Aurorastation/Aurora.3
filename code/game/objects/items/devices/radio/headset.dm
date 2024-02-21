@@ -56,14 +56,14 @@
 /obj/item/device/radio/headset/list_channels(var/mob/user)
 	return list_secure_channels()
 
-/obj/item/device/radio/headset/examine(mob/user, distance, is_adjacent)
+/obj/item/device/radio/headset/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if(!(is_adjacent && radio_desc))
 		return
 
-	to_chat(user, "The following channels are available:")
-	to_chat(user, radio_desc)
+	. += "The following channels are available:"
+	. += radio_desc
 
 /obj/item/device/radio/headset/setupRadioDescription()
 	if(translate_binary || translate_hivenet)
@@ -106,8 +106,8 @@
 
 	..()
 
-/obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/radio/headset/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(keyslot1 || keyslot2)
 			for(var/ch_name in channels)
 				SSradio.remove_object(src, radiochannels[ch_name])
@@ -130,17 +130,17 @@
 		else
 			to_chat(user, SPAN_WARNING("This headset doesn't have any encryption keys!"))
 
-	else if(istype(W, /obj/item/device/encryptionkey))
+	else if(istype(attacking_item, /obj/item/device/encryptionkey))
 		if(keyslot1 && keyslot2)
 			to_chat(user, SPAN_WARNING("The headset can't hold another key!"))
 			return
 
 		if(!keyslot1)
-			user.drop_from_inventory(W, src)
-			keyslot1 = W
+			user.drop_from_inventory(attacking_item, src)
+			keyslot1 = attacking_item
 		else
-			user.drop_from_inventory(W, src)
-			keyslot2 = W
+			user.drop_from_inventory(attacking_item, src)
+			keyslot2 = attacking_item
 
 		recalculateChannels(TRUE)
 

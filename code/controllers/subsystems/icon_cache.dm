@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(icon_cache)
 	name = "Icon Cache"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 
 	// Cached bloody overlays, key is object type.
 	var/list/bloody_cache = list()

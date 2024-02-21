@@ -81,13 +81,13 @@ Possible to do for anyone motivated enough:
 	var/area/A = get_area(src)
 	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
 
-/obj/machinery/hologram/holopad/examine(mob/user)
+/obj/machinery/hologram/holopad/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(connected_pad)
 		if(established_connection)
-			to_chat(user, SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]")
 		else
-			to_chat(user, SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]")
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())
@@ -273,9 +273,9 @@ Possible to do for anyone motivated enough:
 		return 0
 	return -1
 
-/obj/machinery/hologram/holopad/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/modular_computer))
-		var/obj/item/modular_computer/MC = W
+/obj/machinery/hologram/holopad/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/modular_computer))
+		var/obj/item/modular_computer/MC = attacking_item
 		if(!(MC in linked_pdas))
 			linked_pdas |= MC
 			to_chat(user, SPAN_NOTICE("You link \the [MC] to \the [src]."))

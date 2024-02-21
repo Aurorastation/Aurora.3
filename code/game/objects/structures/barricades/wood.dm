@@ -15,9 +15,9 @@
 	can_wire = FALSE
 	metallic = FALSE
 
-/obj/structure/barricade/wooden/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/stack/material/wood))
-		var/obj/item/stack/material/wood/D = W
+/obj/structure/barricade/wooden/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material/wood))
+		var/obj/item/stack/material/wood/D = attacking_item
 		if(health < maxhealth)
 			if(D.get_amount() < 1)
 				to_chat(user, SPAN_WARNING("You need one plank of wood to repair [src]."))

@@ -17,7 +17,7 @@
 
 SUBSYSTEM_DEF(icon_smooth)
 	name = "Icon Smoothing"
-	init_order = SS_INIT_SMOOTHING
+	init_order = INIT_ORDER_ICON_SMOOTHING
 	wait = 1
 	priority = SS_PRIORITY_SMOOTHING
 	flags = SS_TICKER

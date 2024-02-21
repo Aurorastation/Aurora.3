@@ -48,7 +48,7 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
 		"Warden" = /datum/outfit/job/warden/zavodskoi,
-		"Security Cadet" = /datum/outfit/job/intern_sec/zavodskoi,
+		"Security Cadet" = /datum/outfit/job/intern_sec/officer/zavodskoi,
 		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/zavodskoi,
 		"Investigator" =/datum/outfit/job/forensics/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
@@ -93,7 +93,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/intern_sec/zavodskoi
+/datum/outfit/job/intern_sec/officer/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/cadet/zavod

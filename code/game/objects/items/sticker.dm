@@ -35,13 +35,13 @@
 	if(attached_atom && user.Adjacent(attached_atom))
 		attack_hand(user)
 
-/obj/item/sticker/attackby(obj/item/I, mob/user)
+/obj/item/sticker/attackby(obj/item/attacking_item, mob/user)
 	if(!attached)
 		return ..()
 
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom)
-		attached_atom.attackby(I, user) // don't allow people to make sticker armor
+		attached_atom.attackby(attacking_item, user) // don't allow people to make sticker armor
 		return TRUE
 
 /obj/item/sticker/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)

@@ -397,48 +397,48 @@
 			breath_mask = null
 			update_icon()
 
-/obj/machinery/iv_drip/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/blood/ripped))
+/obj/machinery/iv_drip/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
-	if(is_type_in_list(W, accepted_containers))
+	if(is_type_in_list(attacking_item, accepted_containers))
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
 			return TRUE
-		user.drop_from_inventory(W, src)
-		beaker = W
-		user.visible_message(SPAN_NOTICE("[user] attaches \the [W] to \the [src]."), SPAN_NOTICE("You attach \the [W] to \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		beaker = attacking_item
+		user.visible_message(SPAN_NOTICE("[user] attaches \the [attacking_item] to \the [src]."), SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/clothing/mask/breath))
-		if(is_type_in_list(W, mask_blacklist))
-			to_chat(user, "\The [W] is incompatible with \the [src].")
+	if(istype(attacking_item, /obj/item/clothing/mask/breath))
+		if(is_type_in_list(attacking_item, mask_blacklist))
+			to_chat(user, "\The [attacking_item] is incompatible with \the [src].")
 			return TRUE
 		if(breath_mask)
 			to_chat(user, "There is already a mask installed.")
 			return TRUE
-		user.drop_from_inventory(W, src)
-		breath_mask = W
-		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		breath_mask = attacking_item
+		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/tank))
-		if(is_type_in_list(W, tank_blacklist))
-			to_chat(user, "\The [W] is incompatible with \the [src].")
+	if(istype(attacking_item, /obj/item/tank))
+		if(is_type_in_list(attacking_item, tank_blacklist))
+			to_chat(user, "\The [attacking_item] is incompatible with \the [src].")
 			return TRUE
 		if(tank)
 			to_chat(user, "There is already a tank installed!")
 			return TRUE
-		if(istype(W, /obj/item/tank/phoron))
+		if(istype(attacking_item, /obj/item/tank/phoron))
 			if(tipped)
-				to_chat(user, "You're not sure how to place \the [W] in the fallen [src].")
+				to_chat(user, "You're not sure how to place \the [attacking_item] in the fallen [src].")
 				return TRUE
-		user.drop_from_inventory(W, src)
-		tank = W
-		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		tank = attacking_item
+		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 		update_icon()
 		return TRUE
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(!tank)
 			to_chat(user, "There isn't a tank installed for you to secure!")
 			return TRUE
@@ -451,9 +451,9 @@
 		playsound(src.loc, 'sound/items/wrench.ogg', 50, 1)
 		is_loose = !is_loose
 		return TRUE
-	if(default_deconstruction_screwdriver(user, W))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, W))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 	return ..()
 
@@ -683,30 +683,30 @@
 		transfer_amount = amount
 		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
 
-/obj/machinery/iv_drip/examine(mob/user, distance, is_adjacent)
+/obj/machinery/iv_drip/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
-	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
-	system is [epp ? "on" : "off"]."))
+	. += SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
+	system is [epp ? "on" : "off"].")
 	if(attached)
-		to_chat(user, SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name]."))
+		. += SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name].")
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."))
+			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"].")
 		else
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty."))
+			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty.")
 	else
-		to_chat(user, SPAN_NOTICE("No chemicals are attached."))
+		. += SPAN_NOTICE("No chemicals are attached.")
 	if(tank)
-		to_chat(user, SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."))
+		. += SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"].")
 	else
-		to_chat(user, SPAN_NOTICE("No gas tank installed."))
+		. += SPAN_NOTICE("No gas tank installed.")
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
+		. += SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it.")
 	else
-		to_chat(user, SPAN_NOTICE("No breath mask installed."))
+		. += SPAN_NOTICE("No breath mask installed.")
 
 /obj/machinery/iv_drip/RefreshParts()
 	..()

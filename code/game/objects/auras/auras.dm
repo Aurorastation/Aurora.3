@@ -21,7 +21,7 @@ They should also be used for when you want to effect the ENTIRE mob, like having
 /obj/aura/proc/life_tick()
 	return FALSE
 
-/obj/aura/attackby(obj/item/I, mob/user)
+/obj/aura/attackby(obj/item/attacking_item, mob/user)
 	return FALSE
 
 /obj/aura/bullet_act(obj/item/projectile/P, def_zone)

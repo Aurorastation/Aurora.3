@@ -13,12 +13,12 @@
 	w_class = ITEMSIZE_NORMAL
 	var/charges = 0
 
-/obj/item/device/vending_refill/examine(mob/user)
+/obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(charges > 0)
-		to_chat(user, "It can restock [charges] item(s).")
+		. +=  "It can restock [charges] item(s)."
 	else
-		to_chat(user, "It's empty!")
+		. += SPAN_WARNING("It's empty!")
 
 /obj/item/device/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
 	if(vendor)

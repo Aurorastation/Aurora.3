@@ -95,10 +95,15 @@
 		new /obj/item/reagent_containers/food/condiment/sugar(src)
 
 /obj/structure/closet/secure_closet/freezer/kois
-	name = "k'ois freezer"
-	desc = "A freezer with k'ois inside. Don't eat this unless you're a Vaurca!"
+	name = "freezer"
+	desc = "A freezer, painted in a sickly yellow, with a biohazard sign on the door."
+	icon_state = "freezer_kois"
 
-/obj/structure/closet/secure_closet/freezer/kois/fill()
+/obj/structure/closet/secure_closet/freezer/kois/spores
+	name = "k'ois freezer"
+	desc = "A freezer with k'ois inside. Painted in a sickly yellow, with a biohazard sign on the door."
+
+/obj/structure/closet/secure_closet/freezer/kois/spores/fill()
 	..()
 	for(var/i = 0, i < 8, i++)
 		new /obj/item/reagent_containers/food/snacks/grown/kois(src)
