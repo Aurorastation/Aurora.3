@@ -456,19 +456,19 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 5, "sweetness" = 5, "apple" = 5))
 
-/obj/item/reagent_containers/food/snacks/sliceable/cake/NTellacheesecake
+/obj/item/reagent_containers/food/snacks/sliceable/cake/ntella_cheesecake
 	name = "NTella cheesecake"
 	desc = "An elaborate layer cheesecake made with chocolate hazelnut spread. You gain calories just by looking at it for too long."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "NTellacheesecake"
-	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/NTellacheesecake_slice
+	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/ntella_cheesecake_slice
 	slices_num = 5
 	filling_color = "#331c03"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("hazelnut chocolate" = 15, "creamy cheese" = 10, "crunchy cookie base" = 5))
 
-/obj/item/reagent_containers/food/snacks/cakeslice/NTellacheesecake_slice
+/obj/item/reagent_containers/food/snacks/cakeslice/ntella_cheesecake_slice
 	name = "NTella cheesecake slice"
 	desc = "A slice of cake marrying the chocolate taste of NTella with the creamy smoothness of cheesecake, all on a cookie crumble base."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
