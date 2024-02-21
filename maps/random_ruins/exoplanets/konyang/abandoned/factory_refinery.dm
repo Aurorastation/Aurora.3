@@ -9,6 +9,6 @@
 
 /area/konyang/refinery
 	name = "Planetary Material Refinery"
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	sound_env = HANGAR

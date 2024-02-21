@@ -1,7 +1,7 @@
 /turf/simulated/floor/ex_act(severity)
 	//set src in oview(1)
 	var/area/A = get_area(src)
-	if(A.area_flags & AREA_FLAG_INDESTRUCTIBLE_TURFS)
+	if(A && A.area_flags & AREA_FLAG_INDESTRUCTIBLE_TURFS)
 		switch(severity)
 			if(1)
 				ChangeTurf(get_base_turf_by_area(src))
