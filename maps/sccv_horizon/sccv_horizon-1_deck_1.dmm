@@ -2986,12 +2986,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
@@ -5589,6 +5589,7 @@
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "17,22"
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "dRB" = (
@@ -5818,6 +5819,9 @@
 	icon_state = "long2-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "ebk" = (
@@ -6417,6 +6421,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "ewI" = (
@@ -11781,6 +11786,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "ieb" = (
@@ -11867,15 +11875,18 @@
 "ifw" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/door/blast/shutters/open{
-	dir = 8;
+	dir = 4;
 	id = "intrepid_outer";
 	name = "Intrepid Shutter"
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/bed/handrail{
-	dir = 8
+	dir = 4
 	},
 /obj/item/hullbeacon/red,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "ifD" = (
@@ -16499,9 +16510,6 @@
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/regular,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "lvP" = (
@@ -17800,9 +17808,6 @@
 "mlL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
@@ -19688,9 +19693,6 @@
 /turf/simulated/floor/plating,
 /area/rnd/eva)
 "nwF" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/standard,
 /obj/item/roller{
@@ -25125,6 +25127,7 @@
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "14,8"
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "rkQ" = (
@@ -26845,6 +26848,7 @@
 	icon_state = "1,22";
 	opacity = 1
 	},
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "svZ" = (
@@ -27432,22 +27436,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
-"sRX" = (
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "intrepid_outer";
-	name = "Intrepid Shutter"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/crew_compartment)
 "sSm" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -29099,9 +29087,6 @@
 	icon_state = "long2-1"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, medbay"
 	},
@@ -33170,6 +33155,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "wOZ" = (
@@ -34357,6 +34345,7 @@
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "4,8"
 	},
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/quarters)
 "xvG" = (
@@ -54418,7 +54407,7 @@ rCK
 bEN
 pru
 ncq
-ifw
+ewy
 ewy
 nyz
 xPX
@@ -57260,8 +57249,8 @@ ker
 wOI
 qnb
 imc
+ifw
 lIM
-sRX
 hhb
 knw
 bjm
