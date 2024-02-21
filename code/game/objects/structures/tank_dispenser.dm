@@ -74,7 +74,7 @@
 			held_oxygen_tanks.Add(attacking_item)
 			phoron_tanks++
 			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
-			if(oxygentanks < 6)
+			if(oxygen_tanks < 6)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
