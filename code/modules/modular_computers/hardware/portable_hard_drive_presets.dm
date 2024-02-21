@@ -33,7 +33,7 @@
 	if(!program)
 		qdel(src) //Delete itself it no matching program is found
 		return
-	var/datum/computer_file/program/program_cloned = program.clone()
+	var/datum/computer_file/program/program_cloned = program.clone(FALSE, "Compless")
 	max_capacity = program_cloned.size // Set the capacity of the backup disk to the capacity of the program
 	store_file(program_cloned)
 	read_only = TRUE
