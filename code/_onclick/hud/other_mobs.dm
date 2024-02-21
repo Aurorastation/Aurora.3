@@ -2,16 +2,16 @@
 /datum/hud/proc/unplayer_hud()
 	return
 
-/mob/abstract/observer/instantiate_hud(var/datum/hud/HUD)
+/mob/abstract/observer/instantiate_hud(datum/hud/HUD)
 	HUD.ghost_hud()
 
 /datum/hud/proc/ghost_hud()
 	return
 
-/mob/living/carbon/brain/instantiate_hud(var/datum/hud/HUD)
+/mob/living/carbon/brain/instantiate_hud(datum/hud/HUD)
 	return
 
-/mob/living/silicon/ai/instantiate_hud(var/datum/hud/HUD)
+/mob/living/silicon/ai/instantiate_hud(datum/hud/HUD)
 	HUD.ai_hud()
 
 /datum/hud/proc/blob_hud(ui_style = 'icons/mob/screen/midnight.dmi')
@@ -32,7 +32,7 @@
 
 	mymob.client.screen += list(blobpwrdisplay, blobhealthdisplay)
 
-/mob/living/carbon/slime/instantiate_hud(var/datum/hud/HUD)
+/mob/living/carbon/slime/instantiate_hud(datum/hud/HUD)
 	HUD.slime_hud()
 
 /datum/hud/proc/slime_hud(ui_style = 'icons/mob/screen/midnight.dmi')
@@ -103,7 +103,7 @@
 
 	return
 
-/mob/living/simple_animal/construct/instantiate_hud(var/datum/hud/HUD)
+/mob/living/simple_animal/construct/instantiate_hud(datum/hud/HUD)
 	HUD.construct_hud()
 
 /datum/hud/proc/construct_hud()

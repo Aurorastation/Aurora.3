@@ -163,18 +163,18 @@
 	var/mopping = 0
 	var/hoover = 0
 
-/obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers))
+/obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers))
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel isn't open."))
 			return
 		if(!bucket)
-			user.drop_from_inventory(W,src)
-			bucket = W
+			user.drop_from_inventory(attacking_item,src)
+			bucket = attacking_item
 			to_chat(user, SPAN_NOTICE("You replace \the [src]'s reagent reservoir."))
 			return
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel isn't open."))
 			return
@@ -187,7 +187,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a reagent reservoir installed."))
 			return
 
-	if(W.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
 			return

@@ -1,9 +1,9 @@
 SUBSYSTEM_DEF(vote)
 	name = "Voting"
 	wait = 1 SECOND
-	flags = SS_KEEP_TIMING | SS_KEEP_TIMING
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	priority = SS_PRIORITY_VOTE
+	flags = SS_KEEP_TIMING
+	init_order = INIT_ORDER_VOTE
+	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
 	var/next_transfer_time
 
@@ -326,7 +326,7 @@ SUBSYSTEM_DEF(vote)
 	)
 
 /datum/controller/subsystem/vote/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/vote/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE

@@ -369,6 +369,9 @@
 		if ("trinary perfection IPC screen")
 			return LIGHT_COLOR_RED
 
+		if ("golden deep IPC screen")
+			return LIGHT_COLOR_YELLOW
+
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)

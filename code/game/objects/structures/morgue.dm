@@ -92,10 +92,10 @@
 		return attack_hand(user)
 	else return ..()
 
-/obj/structure/morgue/attackby(obj/P, mob/user)
-	if(P.ispen())
+/obj/structure/morgue/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		var/t = tgui_input_text(user, "What would you like the label to be?", "Morgue", "", MAX_NAME_LEN)
-		if(user.get_active_hand() != P)
+		if(user.get_active_hand() != attacking_item)
 			return
 		if((!in_range(src, usr) > 1 && src.loc != user))
 			return

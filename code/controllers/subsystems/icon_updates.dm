@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(icon_update)
 	wait = 1	// ticks
 	flags = SS_TICKER
 	priority = SS_PRIORITY_ICON_UPDATE
-	init_order = SS_INIT_ICON_UPDATE
+	init_order = INIT_ORDER_ICON_UPDATE
 
 	/**
 	 * Associative list of atoms -> callback params
@@ -113,6 +113,8 @@ SUBSYSTEM_DEF(icon_update)
 	var/icon_update_delay = null
 
 /atom/proc/update_icon()
+	SHOULD_NOT_SLEEP(TRUE)
+	return
 
 /**
  * DO NOT USE

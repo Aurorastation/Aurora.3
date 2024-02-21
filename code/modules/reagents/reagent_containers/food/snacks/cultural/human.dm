@@ -618,3 +618,23 @@
 	icon_state = "ladylulaine_slice"
 	filling_color = "#dbddff"
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/pazillo
+	name = "pazillo"
+	desc = "A simple handheld pastry that originates from Assunzione, this is a calzone filled with a mixture of ground chickpeas, onions and tomatoes mixed together. It is sometimes served with olive oil, artichoke spread, or garlic sauce, but can also be eaten on it's own. It's tradtionally considered street food, but can occasionally be found in proper restaurants."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "pazillo"
+	filling_color = "#5c802e"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 8)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 5, "chickpeas" = 3, "onion" = 3, "tomato" = 3))
+
+/obj/item/reagent_containers/food/snacks/pazillo/update_icon()
+	var/percent_pazillo = round((reagents.total_volume / 8) * 100)
+	switch(percent_pazillo)
+		if(0 to 50)
+			icon_state = "pazillo_small"
+		if(51 to 95)
+			icon_state = "pazillo_bitten"
+		if(96 to INFINITY)
+			icon_state = "pazillo"

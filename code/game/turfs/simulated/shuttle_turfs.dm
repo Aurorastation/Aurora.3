@@ -193,6 +193,7 @@
 	icon_state = "wall2"
 	health = 500
 	maxhealth = 500
+	alpha = 255
 	smoothing_flags = null
 	canSmoothWith = null
 	can_be_unanchored = FALSE

@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(shuttle)
 	name = "Shuttle"
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_SHUTTLE
-	init_order = SS_INIT_MISC                    //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
+	init_order = INIT_ORDER_MISC                    //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
 
 	var/overmap_halted = FALSE                   //Whether ships can move on the overmap; used for adminbus.
 	var/list/ships = list()                      //List of all ships.
@@ -32,7 +32,7 @@ SUBSYSTEM_DEF(shuttle)
 	last_landmark_registration_time = world.time
 	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
 		var/datum/shuttle/shuttle = shuttle_type
-		if(!(shuttle in current_map.map_shuttles))
+		if(!(shuttle in SSatlas.current_map.map_shuttles))
 			continue
 		if(!initial(shuttle.defer_initialisation))
 			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)

@@ -1072,6 +1072,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/miner,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "Dm" = (
@@ -1480,6 +1481,8 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -1564,6 +1567,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
+"QG" = (
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/structure/closet/toolcloset/empty,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/tiled/steel,
+/area/burzsia_mining/mining)
 "QI" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -1689,9 +1712,7 @@
 /area/burzsia_mining/mining)
 "TX" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/east{
-	req_access = list(202)
-	},
+/obj/machinery/power/apc/hyper/east,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "Ub" = (
@@ -1872,21 +1893,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "YQ" = (
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/structure/closet/toolcloset/empty,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "YT" = (
@@ -2439,7 +2447,7 @@ qm
 qg
 qm
 qm
-qm
+QG
 mc
 qm
 qm

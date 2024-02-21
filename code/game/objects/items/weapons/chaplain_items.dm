@@ -257,6 +257,7 @@
 /obj/item/material/urn
 	name = "urn"
 	desc = "A vase used to store the ashes of the deceased."
+	desc_extended = "To store ashes in an urn, click on the ash pile with the urn in your active hand. To empty an urn, use the urn in your active hand. Make sure you've labeled the urn so you know who's ashes are inside!"
 	icon = 'icons/obj/urn.dmi'
 	icon_state = "urn"
 	applies_material_colour = TRUE
@@ -272,6 +273,7 @@
 			return
 		user.visible_message("[user] scoops \the [A] into \the [src], securing the lid.", "You scoop \the [A] into \the [src], securing the lid.")
 		desc = "A vase used to store the ashes of the deceased. It contains some ashes."
+		desc_extended = "To store ashes in an urn, click on the ash pile with the urn in your active hand. To empty an urn, use the urn in your active hand. Make sure you've labeled the urn so you know who's ashes are inside!"
 		A.forceMove(src)
 
 /obj/item/material/urn/attack_self(mob/user)
@@ -283,6 +285,7 @@
 			A.dropInto(loc)
 			user.visible_message("[user] pours \the [A] out from \the [src].", "You pour \the [A] out from \the [src].")
 			desc = "A vase used to store the ashes of the deceased."
+			desc_extended = "To store ashes in an urn, click on the ash pile with the urn in your active hand. To empty an urn, use the urn in your active hand. Make sure you've labeled the urn so you know who's ashes are inside!"
 
 /obj/item/assunzioneorb
 	name = "warding sphere"

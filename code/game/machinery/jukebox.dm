@@ -161,16 +161,16 @@
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
 
-/obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W, /obj/item/forensics))
+/obj/machinery/media/jukebox/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(playing)
 			StopPlaying()
 		user.visible_message("<span class='warning'>[user] has [anchored ? "un" : ""]secured \the [src].</span>", "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].</span>")
 		anchored = !anchored
-		playsound(src.loc, W.usesound, 50, 1)
+		playsound(src.loc, attacking_item.usesound, 50, 1)
 		power_change()
 		update_icon()
 		return TRUE

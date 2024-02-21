@@ -8,8 +8,8 @@
 	to_chat(user, SPAN_NOTICE("You need a crowbar to pry this open!"))
 	return
 
-/obj/structure/largecrate/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iscrowbar())
+/obj/structure/largecrate/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)

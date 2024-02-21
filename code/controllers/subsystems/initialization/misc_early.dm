@@ -3,7 +3,7 @@
 
 SUBSYSTEM_DEF(misc_early)
 	name = "Early Miscellaneous Init"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)

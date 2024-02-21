@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			handled_ruin_paths += ruin.type
 			continue
 
-		if(HAS_FLAG(ruin.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
+		if((ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
 			force_spawn |= ruin
 			for(var/ruin_path in ruin.force_ruins)
 				var/datum/map_template/ruin/force_ruin = new ruin_path
@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 		if(ruin.spawn_cost > 0)
 			remaining -= ruin.spawn_cost
 
-		if(NOT_FLAG(ruin.template_flags, TEMPLATE_FLAG_ALLOW_DUPLICATES))
+		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 			GLOB.banned_ruin_ids += ruin.id
 			available -= ruin
 
@@ -97,7 +97,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 		load_ruin(choice, ruin)
 		selected += ruin
 
-		if(NOT_FLAG(ruin.template_flags, TEMPLATE_FLAG_ALLOW_DUPLICATES))
+		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 			GLOB.banned_ruin_ids += ruin.id
 
 	if (remaining)

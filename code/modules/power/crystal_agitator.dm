@@ -93,12 +93,12 @@
 		if(iscapacitor(SP))
 			change_power_consumption((initial(active_power_usage) - (SP.rating * 500)), POWER_USE_ACTIVE)
 
-/obj/machinery/power/crystal_agitator/attackby(obj/item/I, mob/user, params)
-	if(default_part_replacement(user, I))
+/obj/machinery/power/crystal_agitator/attackby(obj/item/attacking_item, mob/user, params)
+	if(default_part_replacement(user, attacking_item))
 		return
-	else if(default_deconstruction_screwdriver(user, I))
+	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	else if(default_deconstruction_crowbar(user, I))
+	else if(default_deconstruction_crowbar(user, attacking_item))
 		return
 	return ..()
 

@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(mobs)
 	name = "Mobs - Life"
-	init_order = SS_INIT_MISC	// doesn't really matter when we init
+	init_order = INIT_ORDER_MISC	// doesn't really matter when we init
 	priority = SS_PRIORITY_MOB
 	runlevels = RUNLEVELS_PLAYING
 

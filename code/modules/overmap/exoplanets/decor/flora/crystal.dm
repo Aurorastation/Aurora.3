@@ -9,7 +9,7 @@
 	. = ..()
 	icon_state = "gem[rand(1,2)]"
 
-/obj/structure/flora/tree/crystal/attackby(obj/item/I, mob/user)
+/obj/structure/flora/tree/crystal/attackby(obj/item/attacking_item, mob/user)
 	return TRUE // could probably make this mineable but I'm lazy
 
 /obj/structure/flora/rock/spire

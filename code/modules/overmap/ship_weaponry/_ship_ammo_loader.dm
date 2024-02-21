@@ -41,23 +41,23 @@
 	if(damage >= max_damage)
 		qdel(src)
 
-/obj/machinery/ammunition_loader/attackby(obj/item/W, mob/user)
+/obj/machinery/ammunition_loader/attackby(obj/item/attacking_item, mob/user)
 	if(isliving(user))
 		var/mob/living/carbon/human/H = user
-		if(istype(W, /obj/item/ship_ammunition))
-			var/obj/item/ship_ammunition/SA = W
+		if(istype(attacking_item, /obj/item/ship_ammunition))
+			var/obj/item/ship_ammunition/SA = attacking_item
 			return load_ammo(SA, H)
 	if(ismech(user))
 		var/mob/living/heavy_vehicle/HV = user
-		if(istype(W, /obj/item/mecha_equipment/clamp))
-			var/obj/item/mecha_equipment/clamp/CL = W
+		if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
+			var/obj/item/mecha_equipment/clamp/CL = attacking_item
 			if(!length(CL.carrying))
 				to_chat(user, SPAN_WARNING("\The [CL] is empty."))
 				return TRUE
 			if(istype(CL.carrying[1], /obj/item/ship_ammunition))
 				var/obj/item/ship_ammunition/SA = CL.carrying[1]
 				return load_ammo(SA, HV)
-		if(istype(W, /obj/item/device/multitool))
+		if(istype(attacking_item, /obj/item/device/multitool))
 			to_chat(user, SPAN_NOTICE("You hook up the tester's wires to \the [src]: its identification tag is <b>[weapon_id]</b>."))
 			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
 			if(length(new_id) && !use_check_and_message(user))

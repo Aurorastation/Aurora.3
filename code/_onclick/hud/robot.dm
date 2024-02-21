@@ -1,6 +1,6 @@
 var/obj/screen/robot_inventory
 
-/mob/living/silicon/robot/instantiate_hud(var/datum/hud/HUD)
+/mob/living/silicon/robot/instantiate_hud(datum/hud/HUD)
 	HUD.robot_hud()
 
 /datum/hud/proc/robot_hud()

@@ -8,6 +8,9 @@
 	flags = GEAR_NO_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/diona_sol)
 
+/datum/gear/suit/diona
+	abstract_type = /datum/gear/suit/diona
+
 /datum/gear/suit/diona/eternal
 	display_name = "mesh weave robes"
 	description = "A set of mesh weave robes worn almost exclusively by priests of the Orthodox Eternal faith."
@@ -122,8 +125,9 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
-
-/datum/gear/accessory/skrell_passport/diona
+/datum/gear/accessory/diona
+	abstract_type = /datum/gear/accessory/diona
+/datum/gear/accessory/diona/skrell_passport
 	display_name = "dionae nralakk federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)

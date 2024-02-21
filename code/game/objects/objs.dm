@@ -36,7 +36,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/Topic(href, href_list, var/datum/ui_state/state = default_state)
+/obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
@@ -239,12 +239,12 @@
 		return
 	..()
 
-/obj/examine(mob/user)
+/obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
-		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+		. +=  SPAN_SUBTLE("Can be rotated with alt-click.")
 	if(contaminated)
-		to_chat(user, SPAN_ALIEN("\The [src] has been contaminated!"))
+		. += SPAN_ALIEN("\The [src] has been contaminated!")
 
 // whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()

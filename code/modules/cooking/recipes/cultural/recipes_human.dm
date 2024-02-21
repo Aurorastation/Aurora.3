@@ -337,3 +337,12 @@
 	reagents = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/drink/ice = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/lady_lulaine
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+
+/singleton/recipe/pazillo
+	appliance = OVEN
+	fruit = list ("tomato" = 1 , "chickpeas" = 1, "onion" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/reagent_containers/food/snacks/pazillo
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace so it's not full of juice

@@ -42,12 +42,12 @@
 	linkedServer = null
 	return ..()
 
-/obj/machinery/computer/message_monitor/attackby(obj/item/O as obj, mob/living/user as mob)
+/obj/machinery/computer/message_monitor/attackby(obj/item/attacking_item, mob/living/user)
 	if(stat & (NOPOWER|BROKEN))
 		return ..()
 	if(!istype(user))
 		return TRUE
-	if(O.isscrewdriver() && emag)
+	if(attacking_item.isscrewdriver() && emag)
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
 		to_chat(user, "<span class='warning'>It is too hot to mess with!</span>")
 		return TRUE

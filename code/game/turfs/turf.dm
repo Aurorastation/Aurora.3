@@ -94,7 +94,7 @@
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
@@ -320,12 +320,12 @@ var/const/enterloopsanity = 100
 /turf/proc/can_lay_cable()
 	return can_have_cabling()
 
-/turf/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/grab))
-		var/obj/item/grab/grab = C
+/turf/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/grab = attacking_item
 		step(grab.affecting, get_dir(grab.affecting, src))
-	if (can_lay_cable() && C.iscoil())
-		var/obj/item/stack/cable_coil/coil = C
+	if (can_lay_cable() && attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
 		..()

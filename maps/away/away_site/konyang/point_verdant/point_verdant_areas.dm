@@ -52,6 +52,15 @@
 	area_blurb = "The deafening avalanche of arcade machines begging for your attention fill the air, all promising fantastic gaming experiences for fun and prizes."
 	area_blurb_category = "verdant_arcade"
 
+/area/point_verdant/interior/minimart
+	name = "Point Verdant - Convenience Store"
+
+/area/point_verdant/interior/cafe
+	name = "Point Verdant - Cafe"
+
+/area/point_verdant/interior/streetvendor
+	name = "Point Verdant - Decrepit Street Vendor"
+
 /area/point_verdant/interior/police
 	name = "Point Verdant - Police Department"
 	icon_state = "security"
@@ -82,6 +91,18 @@
 /area/point_verdant/interior/offices
 	name = "Point Verdant - Corporate Offices"
 
+/area/point_verdant/interior/offices/basement
+	name = "Point Verdant - Corporate Subterranean Compound"
+
+/area/point_verdant/interior/offices/headquarters
+	name = "Conglomerate Local Command Headquarters"
+
+/area/point_verdant/interior/offices/kaf
+	name = "KAF Military Base"
+
+/area/point_verdant/interior/offices/einstein
+	name = "Einstein Engines System Advisory"
+
 /area/point_verdant/interior/maint_janitorial
 	name = "Point Verdant - Maint/Janitorial"
 	icon_state = "maintenance"
@@ -93,28 +114,15 @@
 
 /area/point_verdant/interior/shallow//For open-walled areas, like awnings and balconies
 	sound_env = CITY
-	ambience = AMBIENCE_KONYANG_RAIN_INDOORS
 
-//Stuff for rainy areas below. WIP implementation
 /area/point_verdant/outdoors
 	name = "Point Verdant - Outdoors"
-	ambience = AMBIENCE_KONYANG_RAIN
-	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city. Rain batters down on your body, encouraging you to seek shelter." //alter this if a dynamic weather system is added, so its isn't always raining.
+	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city."
 	area_blurb_category = "verdant_outdoors"
-
-/area/point_verdant/outdoors/Initialize()
-	. = ..()
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="splat","layer"=OBJ_LAYER-0.1))
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
 
 /area/point_verdant/water
 	name = "Point Verdant - Open Water"
 	icon_state = "fitness_pool"
-
-/area/point_verdant/water/Initialize()
-	. = ..()
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="ripple","layer"=OBJ_LAYER-0.1))
-	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
 
 /area/point_verdant/water/deep // also used for waterdock landing area
 	name = "Point Verdant - Deep Water"

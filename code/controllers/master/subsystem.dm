@@ -7,7 +7,7 @@
 	name = "fire coderbus"
 
 	/// Order of initialization. Higher numbers are initialized first, lower numbers later. Use or create defines such as [INIT_ORDER_DEFAULT] so we can see the order in one file.
-	var/init_order = SS_INIT_MISC
+	var/init_order = INIT_ORDER_DEFAULT
 
 	/// Time to wait (in deciseconds) between each call to fire(). Must be a positive integer.
 	var/wait = 20

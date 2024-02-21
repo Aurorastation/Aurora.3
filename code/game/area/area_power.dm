@@ -43,7 +43,11 @@
 	oneoff_light = 0
 	oneoff_environ = 0
 
-// Don't call this unless you know what you're doing. See use_power_oneoff below.
+/**
+ * Don't call this unless you know what you're doing
+ *
+ * See use_power_oneoff below
+ */
 /area/proc/use_power(var/amount, var/chan)
 	switch(chan)
 		if(EQUIP)

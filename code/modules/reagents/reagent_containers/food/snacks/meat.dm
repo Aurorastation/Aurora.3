@@ -359,27 +359,13 @@
 	icon_state = "squidmeat"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
 
-/obj/item/reagent_containers/food/snacks/squidmeat/attackby(var/obj/item/W, var/mob/user)
-	if(is_sharp(W) && (locate(/obj/structure/table) in loc))
+/obj/item/reagent_containers/food/snacks/squidmeat/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item) && (locate(/obj/structure/table) in loc))
 		var/transfer_amt = FLOOR(reagents.total_volume/3)
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
 			reagents.trans_to(sashimi, transfer_amt)
 		qdel(src)
-
-/obj/item/reagent_containers/food/snacks/lasagna
-	name = "lasagna"
-	desc = "Favorite of cats."
-	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
-	icon_state = "lasagna"
-	trash = /obj/item/trash/grease
-	drop_sound = /singleton/sound_category/tray_hit_sound
-	center_of_mass = list("x"=16, "y"=17)
-	filling_color = "#EDF291"
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 12, /singleton/reagent/nutriment/protein = 12)
-	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 4, "tomato" = 2))
-	bitesize = 6
 
 /obj/item/reagent_containers/food/snacks/donerkebab
 	name = "doner kebab"

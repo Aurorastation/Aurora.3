@@ -13,6 +13,7 @@
 	var/spawn_grille = FALSE // For electrified windows.
 	var/spawn_firedoor = FALSE
 	var/activated
+	atmos_canpass = CANPASS_NEVER
 
 /obj/effect/map_effect/window_spawner/CanPass() // Stops ZAS expanding zones past us, the windows will block the zone anyway.
 	return FALSE
