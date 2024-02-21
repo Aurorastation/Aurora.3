@@ -603,7 +603,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "cF" = (
@@ -2867,7 +2867,7 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
 "kR" = (
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
@@ -4032,9 +4032,6 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "pn" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/meeting)
@@ -4850,7 +4847,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "sK" = (
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -6088,6 +6085,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
+"xj" = (
+/obj/effect/floor_decal/spline/plain/cee/orange{
+	dir = 4
+	},
+/obj/item/hullbeacon/green,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/xanu_boarder/cockpit)
 "xl" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
@@ -7982,6 +7986,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
+"DV" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/hullbeacon/green,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "DX" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
@@ -8305,7 +8314,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "Fg" = (
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
@@ -10247,7 +10256,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "LQ" = (
@@ -10672,7 +10681,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/crew_quarters)
 "NB" = (
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -12526,6 +12535,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/meeting)
@@ -30610,7 +30622,7 @@ pv
 BZ
 sA
 xL
-uq
+DV
 Zm
 Zm
 Zm
@@ -36423,7 +36435,7 @@ Zm
 Zm
 Zm
 Zm
-DZ
+xj
 Ce
 Ev
 In
