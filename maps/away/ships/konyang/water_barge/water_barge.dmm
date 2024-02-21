@@ -49,8 +49,6 @@
 	dir = 6
 	},
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -104,6 +102,16 @@
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/water_barge/fuelbay)
+"by" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/water_barge/thrust)
+"bE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/water_barge)
 "bF" = (
 /obj/effect/shuttle_landmark/water_barge/nav1,
 /turf/template_noop,
@@ -160,6 +168,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/water_barge/medbay)
 "cp" = (
@@ -187,6 +196,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/office)
+"cz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/dockingport/port)
 "cA" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -307,8 +322,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
-	name = "Engineering";
-	req_one_access = list(11,24)
+	name = "Engineering"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -371,13 +385,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
-"ea" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/water_barge)
 "eg" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -389,8 +396,6 @@
 /area/water_barge/mainhallway)
 "ek" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
@@ -547,10 +552,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport)
-"fp" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/water_barge/thrust)
 "fB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -684,6 +685,10 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor/plating,
 /area/water_barge/hangar)
+"gI" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/plating,
+/area/water_barge/thrust)
 "gK" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -709,8 +714,6 @@
 /area/water_barge/breakroom)
 "hg" = (
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
@@ -722,6 +725,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
+"hh" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "hl" = (
 /obj/effect/shuttle_landmark/water_barge_shuttle/transit,
 /turf/space,
@@ -840,10 +849,6 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport)
-"ix" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge/cargo)
 "iy" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -851,15 +856,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/water_barge)
-"iz" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
 /area/water_barge)
 "iA" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -1127,6 +1123,12 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/water_barge/engineering)
+"kD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "kF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1221,15 +1223,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
-"ld" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/water_barge/mainhallway)
 "lj" = (
 /obj/machinery/door/window{
 	dir = 4
@@ -1251,6 +1244,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
+"lt" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/water_barge/engineering)
 "ly" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1275,6 +1272,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/water_barge/engineering)
+"lE" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/dockingport)
 "lH" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -1332,13 +1333,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
-"mg" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge)
 "mj" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard dock"
@@ -1377,14 +1371,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/office)
-"mD" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge/toolstorage)
 "mG" = (
-/obj/machinery/light/small{
+/obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge)
 "mM" = (
@@ -1510,6 +1501,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
+"nQ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/cargo)
 "nS" = (
 /obj/item/reagent_containers/cooking_container/board,
 /obj/structure/table/stone/marble,
@@ -1591,6 +1591,10 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
+"oA" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/cargo)
 "oC" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/reagentgrinder{
@@ -1610,20 +1614,6 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
-"oJ" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge/cargo)
-"oN" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge/cargo)
 "oQ" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
@@ -1672,15 +1662,6 @@
 "pk" = (
 /turf/simulated/floor/plating,
 /area/water_barge/hangar)
-"pw" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/water_barge/cargo)
 "pC" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -1883,10 +1864,6 @@
 "rO" = (
 /turf/simulated/floor/reinforced/hydrogen,
 /area/water_barge/fuelbay)
-"rT" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/water_barge/thrust/port)
 "rW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1906,17 +1883,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
+"sg" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/water_barge/thrust/port)
 "su" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport)
-"sw" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/water_barge/thrust/port)
 "sE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
@@ -1930,15 +1904,6 @@
 	name = "airlock_barge_portdock"
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/dockingport/port)
-"sQ" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
 "sT" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1966,10 +1931,34 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
+"tb" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/water_barge)
 "tc" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport)
+"tf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge)
 "th" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
@@ -2036,6 +2025,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
+"tQ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/toolstorage)
+"tU" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/mainhallway)
 "ua" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -2056,6 +2058,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/mainhallway)
+"ud" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/water_barge/hangar)
+"uf" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge)
 "uk" = (
 /obj/machinery/vending/cigarette,
 /obj/machinery/light,
@@ -2166,6 +2181,13 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/water_barge/engineering)
+"vh" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/water_barge)
 "vl" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 2;
@@ -2280,6 +2302,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport)
+"wd" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "we" = (
 /obj/effect/shuttle_landmark/water_barge/nav4,
 /turf/template_noop,
@@ -2341,10 +2367,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
-"wF" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/water_barge/hangar)
 "wJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -2378,15 +2400,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
-"wN" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge/mainhallway)
 "wR" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -2523,10 +2536,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
-"xT" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/floor/plating,
-/area/water_barge/thrust/port)
 "xW" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/engineering)
@@ -2588,12 +2597,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/water_barge/engineering)
-"yZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/water_barge/thrust/port)
 "za" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/glass/reinforced/full,
@@ -2652,6 +2655,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/dockingport/port)
+"zR" = (
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "zY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -2721,17 +2727,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
-"Bq" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge)
 "Bv" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
@@ -2808,17 +2803,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
-"Cn" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/water_barge/engineering)
-"Cu" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/water_barge)
 "Cw" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -2858,8 +2842,6 @@
 /area/shuttle/water_barge)
 "CO" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -2867,10 +2849,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
-"CQ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
 "CS" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/dockingport/port)
@@ -2911,6 +2889,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/breakroom)
+"Dq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/water_barge/fuelbay)
 "Dr" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 4
@@ -2959,6 +2941,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/cryo)
+"DG" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/water_barge/mainhallway)
 "DI" = (
 /obj/machinery/light{
 	dir = 4
@@ -3108,8 +3099,6 @@
 	name = "Engineering Supplies"
 	},
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3514,12 +3503,6 @@
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
-"JP" = (
-/turf/simulated/wall/shuttle/space_ship{
-	can_open = 1;
-	color = "#DDDDD"
-	},
-/area/water_barge/breakroom)
 "JQ" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/helm)
@@ -3682,10 +3665,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/dockingport)
-"La" = (
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/dark,
-/area/water_barge/dockingport)
 "Lb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -3719,10 +3698,7 @@
 	dir = 10
 	},
 /obj/machinery/power/apc/high,
-/obj/structure/cable/green{
-	icon_state = "0-2";
-	dir = 1
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
 "Ln" = (
@@ -3731,6 +3707,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/hangar)
+"Lw" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/water_barge)
 "Ly" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -3822,6 +3804,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport)
+"Mf" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/hangar)
 "Mi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
@@ -4004,6 +3995,13 @@
 /obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/plating,
 /area/water_barge/engineering)
+"NR" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/water_barge)
 "NS" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -4026,10 +4024,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/cargo)
-"Oi" = (
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/plating,
-/area/water_barge/thrust)
 "Oj" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, office"
@@ -4042,11 +4036,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge)
-"Os" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/decal/cleanable/flour,
-/turf/simulated/floor/tiled/white,
-/area/water_barge/breakroom)
 "Ou" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -4093,8 +4082,6 @@
 /area/water_barge/fuelbay)
 "OP" = (
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4183,9 +4170,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/breakroom)
@@ -4286,6 +4275,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
+"Qv" = (
+/turf/simulated/wall/shuttle/space_ship{
+	can_open = 1;
+	color = "#DDDDD"
+	},
+/area/water_barge/breakroom)
 "Qy" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = null
@@ -4377,6 +4372,11 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
+"Rk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/water_barge/mainhallway)
 "Rl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
@@ -4577,6 +4577,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport)
+"SM" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/cargo)
 "SO" = (
 /obj/machinery/light{
 	dir = 8
@@ -4642,6 +4651,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/cargo)
+"To" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "Tr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4656,6 +4669,13 @@
 "TD" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/office)
+"TE" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/dockingport/port)
 "TG" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -4726,11 +4746,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge)
 "Up" = (
@@ -4761,9 +4776,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/water_barge/bathroom)
-"Uy" = (
-/turf/simulated/floor/plating,
-/area/water_barge/thrust/port)
 "UA" = (
 /obj/machinery/sleeper,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -4912,6 +4924,9 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
 "Vg" = (
@@ -4971,12 +4986,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
-"Vy" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/water_barge)
 "VF" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -5018,8 +5027,6 @@
 /area/water_barge/office)
 "VW" = (
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
@@ -5040,8 +5047,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_mining{
-	name = "Warehouse";
-	req_one_access = list(26,29,31,48,67,70)
+	name = "Warehouse"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
@@ -5128,8 +5134,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
+"Wx" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/flour,
+/turf/simulated/floor/tiled/white,
+/area/water_barge/breakroom)
 "Wz" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
@@ -5206,11 +5218,6 @@
 "WZ" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/medbay)
-"Xb" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/water_barge/mainhallway)
 "Xd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
@@ -5409,14 +5416,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
-"YY" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+"YZ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark,
-/area/water_barge)
+/area/water_barge/cargo)
 "Zl" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/hangar)
@@ -5432,9 +5436,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge)
-"Zo" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/water_barge/thrust/port)
 "Zq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 8
@@ -15188,7 +15189,7 @@ NL
 NL
 AA
 pM
-fp
+by
 MR
 PY
 Vh
@@ -15512,16 +15513,16 @@ NL
 NL
 AA
 pM
-Oi
+gI
 MR
 HV
-oN
+YZ
 TA
 JC
 Tj
 PG
 ar
-La
+lE
 PG
 bf
 bf
@@ -16002,7 +16003,7 @@ HB
 fU
 ws
 EA
-oJ
+SM
 EA
 iS
 PG
@@ -16325,7 +16326,7 @@ zY
 Hr
 MR
 HU
-ix
+oA
 vI
 aq
 Up
@@ -16488,7 +16489,7 @@ AA
 MR
 Og
 oZ
-pw
+nQ
 oZ
 vp
 PG
@@ -16661,7 +16662,7 @@ xW
 Iw
 Iw
 Iw
-JP
+Qv
 Iw
 iR
 Yy
@@ -17145,7 +17146,7 @@ PI
 LC
 xW
 QM
-Os
+Wx
 KD
 ks
 Il
@@ -17301,7 +17302,7 @@ xW
 xW
 NQ
 hV
-Cn
+lt
 zb
 af
 Ks
@@ -17960,39 +17961,39 @@ xs
 xs
 dq
 dE
-mg
+mG
 dp
 TK
 Yy
-Cu
+NR
 Yy
 Yy
 Fh
 sT
-Cu
+NR
 Yy
 Yy
-Cu
+NR
 Yy
 Yy
 Cg
 Yy
 pc
-Cu
+NR
 Yy
 Yy
-Cu
+NR
 Yy
 Yy
 hG
 hU
 Yy
 Yy
-Cu
+NR
 Yy
 TK
 dp
-mG
+Lw
 JQ
 Kr
 Jm
@@ -18102,12 +18103,12 @@ UD
 Vg
 kF
 UY
-dO
+Mf
 jL
 nl
-ld
-ld
-ld
+DG
+DG
+DG
 AN
 fB
 Bo
@@ -18118,43 +18119,43 @@ GG
 Ex
 jc
 Rp
-wN
+tU
 PA
 uv
 re
-YY
-iz
-Zn
-YY
-YY
-YY
 Um
+uf
+Zn
+Um
+Um
+Um
+tb
 qm
 dl
-iz
-YY
-YY
-YY
-YY
-YY
+uf
+Um
+Um
+Um
+Um
+Um
 dl
-YY
+Um
 nV
-Bq
-YY
-YY
-YY
-YY
-YY
+tf
+Um
+Um
+Um
+Um
+Um
 dl
 nV
-YY
-YY
-YY
-YY
+Um
+Um
+Um
+Um
 Zn
-YY
-YY
+Um
+Um
 me
 Vs
 Gw
@@ -18269,7 +18270,7 @@ KS
 rW
 Lf
 Lf
-Xb
+Rk
 MJ
 qW
 Vr
@@ -18284,35 +18285,35 @@ SI
 By
 cS
 dE
-Vy
+bE
 dp
 TK
 Yy
-ea
+vh
 He
 Dc
 hU
 sT
-ea
+vh
 Yy
 Yy
-ea
+vh
 Yy
 Yy
 qZ
 Yy
 Yh
-ea
+vh
 Yy
 Yy
-ea
+vh
 Yy
 Yy
 hG
 Fh
 Yy
 Yy
-ea
+vh
 Yy
 TK
 dp
@@ -18426,7 +18427,7 @@ BL
 BL
 BL
 Rt
-wF
+ud
 bn
 dE
 lU
@@ -18917,7 +18918,7 @@ gG
 oa
 Ws
 cI
-mD
+tQ
 cI
 cI
 yz
@@ -19722,10 +19723,10 @@ NL
 NL
 NL
 NL
-Zo
-Zo
-Zo
-Zo
+sg
+sg
+sg
+sg
 eQ
 eQ
 Jc
@@ -19733,7 +19734,7 @@ mn
 wn
 CS
 Ja
-sQ
+TE
 kj
 kV
 iV
@@ -19887,7 +19888,7 @@ NL
 Hc
 PO
 Gv
-Zo
+sg
 vu
 LP
 KI
@@ -20046,18 +20047,18 @@ NL
 NL
 NL
 NL
-Zo
+sg
 Nv
 PD
 Se
 fR
 wy
 Lb
-CQ
+Dq
 Ed
 CS
 Ja
-sQ
+Wv
 lL
 lL
 Em
@@ -20370,10 +20371,10 @@ NL
 NL
 NL
 NL
-Zo
+sg
 la
-sw
-Zo
+hh
+sg
 jD
 sc
 gC
@@ -20381,7 +20382,7 @@ as
 Ed
 CS
 lX
-Wv
+cz
 lL
 kM
 eW
@@ -20533,9 +20534,9 @@ NL
 NL
 NL
 kl
-xT
-Uy
-Zo
+wd
+zR
+sg
 nP
 QB
 nk
@@ -20694,10 +20695,10 @@ NL
 NL
 NL
 NL
-Zo
+sg
 la
-rT
-Zo
+To
+sg
 CI
 UZ
 dP
@@ -20857,9 +20858,9 @@ NL
 NL
 NL
 Hc
-xT
-Uy
-Zo
+wd
+zR
+sg
 Mo
 KR
 dP
@@ -21018,10 +21019,10 @@ NL
 NL
 NL
 NL
-Zo
+sg
 la
-Uy
-Zo
+zR
+sg
 Mo
 NW
 dP
@@ -21181,9 +21182,9 @@ NL
 NL
 NL
 Hc
-yZ
-Uy
-Zo
+kD
+zR
+sg
 dP
 dP
 dP
@@ -21342,10 +21343,10 @@ NL
 NL
 NL
 NL
-Zo
-Zo
-Zo
-Zo
+sg
+sg
+sg
+sg
 NL
 NL
 NL
