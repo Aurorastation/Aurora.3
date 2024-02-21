@@ -2962,11 +2962,6 @@
 	key_data = "S58-2165"
 	},
 /obj/item/key/bike/sport{
-	pixel_x = 8;
-	pixel_y = -2;
-	key_data = "T3T-5U01"
-	},
-/obj/item/key/bike/sport{
 	pixel_x = -5;
 	key_data = "S17-3906"
 	},
@@ -2974,6 +2969,11 @@
 	pixel_x = -9;
 	pixel_y = 5;
 	key_data = "2KA-N3DA"
+	},
+/obj/item/key/bike/moped{
+	pixel_x = 8;
+	pixel_y = -1;
+	key_data = "T3T-5U01"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)

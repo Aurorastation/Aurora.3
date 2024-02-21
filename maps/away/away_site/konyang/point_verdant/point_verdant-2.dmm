@@ -4539,7 +4539,8 @@
 /obj/random/dirt_75,
 /obj/vehicle/bike/motor/moped/teal{
 	dir = 8;
-	registration_plate = "T3T-5U01"
+	registration_plate = "T3T-5U01";
+	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
