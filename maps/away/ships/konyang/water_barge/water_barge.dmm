@@ -3066,6 +3066,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
 "Eo" = (
+/obj/item/device/gps/engineering{
+	pixel_y = 12;
+	pixel_x = -7
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
@@ -3073,6 +3077,18 @@
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
 /obj/machinery/recharger,
+/obj/item/device/gps/engineering{
+	pixel_y = 12;
+	pixel_x = 2
+	},
+/obj/item/device/gps/engineering{
+	pixel_y = 12;
+	pixel_x = -2
+	},
+/obj/item/device/gps/engineering{
+	pixel_y = 12;
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
 "Eu" = (
@@ -3902,6 +3918,13 @@
 "Mo" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/water_barge/fuelbay)
+"Mq" = (
+/obj/structure/table/steel,
+/obj/item/toy/desk/dippingbird{
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/water_barge/dockingport/port)
 "Mr" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
@@ -4589,6 +4612,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
+/obj/item/toy/comic/inspector,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
 "Sw" = (
@@ -20762,7 +20786,7 @@ Ke
 CS
 lL
 ta
-ta
+Mq
 lL
 lL
 bS
