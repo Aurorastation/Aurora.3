@@ -3041,10 +3041,10 @@
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 1
 
-/datum/chemical_reaction/drink/NTellashake
+/datum/chemical_reaction/drink/ntella_shake
 	name = "NTella milkshake"
 	id = "NTellamilkshake"
-	result = /singleton/reagent/drink/NTellamilkshake
+	result = /singleton/reagent/drink/ntella_milkshake
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/nutriment/choconutspread = 1)
 	result_amount = 6
 
@@ -3118,10 +3118,10 @@
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/mintsyrup = 1)
 	result_amount = 6
 
-/datum/chemical_reaction/drink/NTellahotchocolate
+/datum/chemical_reaction/drink/ntella_hot_chocolate
 	name = "NTella hot chocolate"
 	id = "NTellahotchocolate"
-	result = /singleton/reagent/drink/NTellahotchocolate
+	result = /singleton/reagent/drink/ntella_hot_chocolate
 	required_reagents = list(/singleton/reagent/drink/milk = 1, /singleton/reagent/nutriment/choconutspread = 1, /singleton/reagent/drink/milk/cream = 1)
 	result_amount = 3
 

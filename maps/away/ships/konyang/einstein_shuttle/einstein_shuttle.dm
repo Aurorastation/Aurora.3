@@ -94,7 +94,7 @@
 /datum/shuttle/autodock/overmap/einstein_shuttle
 	name = "Einstein Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/einstein_shuttle, /area/shuttle/einstein_shuttle/helm, /area/shuttle/einstein_shuttle/main, /area/shuttle/einstein_shuttle/room, /area/shuttle/einstein_shuttle/room/two, /area/shuttle/einstein_shuttle/room/three, /area/shuttle/einstein_shuttle/room/four, /area/shuttle/einstein_shuttle/conference, /area/shuttle/einstein_shuttle/bathroom, /area/shuttle/einstein_shuttle/porteng, /area/shuttle/einstein_shuttle/starbeng, /area/shuttle/einstein_shuttle/dock)
+	shuttle_area = list(/area/shuttle/einstein_shuttle/helm, /area/shuttle/einstein_shuttle/main, /area/shuttle/einstein_shuttle/room, /area/shuttle/einstein_shuttle/room/two, /area/shuttle/einstein_shuttle/room/three, /area/shuttle/einstein_shuttle/room/four, /area/shuttle/einstein_shuttle/conference, /area/shuttle/einstein_shuttle/bathroom, /area/shuttle/einstein_shuttle/porteng, /area/shuttle/einstein_shuttle/starbeng, /area/shuttle/einstein_shuttle/dock)
 	current_location = "nav_start_einstein"
 	landmark_transition = "nav_transit_einstein"
 	range = 1

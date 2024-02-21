@@ -431,9 +431,9 @@
 		return /obj/item/tank/emergency_oxygen/double
 
 /obj/random/pottedplant
-	name = "random potted plant"
+	name = "random potted plant, big"
 	desc = "Spawns a random potted plant."
-	icon = 'icons/obj/plants.dmi'
+	icon = 'icons/obj/pottedplants_big.dmi'
 	icon_state = "plant-26"
 	spawn_nothing_percentage = 1
 
@@ -450,6 +450,28 @@
 	)
 	while(!P)
 		P = pick(typesof(/obj/structure/flora/pottedplant))
+		if(P in unwanted || ((P in rare) && prob(50)))
+			P = null
+	. = new P(loc)
+
+/obj/random/pottedplant_small
+	name = "random potted plant, small"
+	desc = "Spawns a random potted plant."
+	icon = 'icons/obj/pottedplants_small.dmi'
+	icon_state = "plant-01"
+	spawn_nothing_percentage = 1
+
+/obj/random/pottedplant_small/spawn_item()
+	var/obj/item/flora/pottedplant_small/P = null
+	var/list/unwanted = list(
+		/obj/item/flora/pottedplant_small, // don't want parent base obj
+		/obj/item/flora/pottedplant_small/empty
+	)
+	var/list/rare = list(
+		/obj/item/flora/pottedplant_small/dead
+	)
+	while(!P)
+		P = pick(typesof(/obj/item/flora/pottedplant_small))
 		if(P in unwanted || ((P in rare) && prob(50)))
 			P = null
 	. = new P(loc)

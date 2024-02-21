@@ -120,7 +120,19 @@
 	M.item_flags |= ITEM_FLAG_NO_MOVE
 	owner.equip_to_slot(M, aug_slot)
 	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
-	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
+
+	//If we didn't found the organ, it might be a sub-organ, search for it
+	if(!O)
+		for(var/external_organ_key in owner.organs_by_name)
+			var/obj/item/organ/external/external_organ = owner.organs_by_name[external_organ_key]
+			for(var/obj/item/organ/internal/internal_organ in external_organ.internal_organs)
+				if(internal_organ.organ_tag == parent_organ)
+					O = internal_organ
+					break
+
+	//If we have found it, print the message, otherwise don't bother, it would just runtime
+	if(O)
+		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
