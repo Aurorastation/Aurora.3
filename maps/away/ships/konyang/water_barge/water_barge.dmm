@@ -704,6 +704,10 @@
 /obj/effect/shuttle_landmark/water_barge_shuttle/transit,
 /turf/space,
 /area/space)
+"hq" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "hv" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -1049,7 +1053,7 @@
 	name = "aft, port thruster"
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "kn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1107,6 +1111,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
+"kG" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "kM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -1170,7 +1180,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "lb" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1897,6 +1907,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
+"tB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "tC" = (
 /obj/structure/table/standard,
 /obj/item/roller,
@@ -1955,6 +1971,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/mainhallway)
+"uh" = (
+/turf/simulated/floor/plating,
+/area/water_barge/thrust/port)
 "uk" = (
 /obj/machinery/vending/cigarette,
 /obj/machinery/light,
@@ -3044,7 +3063,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "Gw" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3091,7 +3110,7 @@
 /obj/structure/window/borosilicate/reinforced,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "He" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/alarm/east,
@@ -3779,7 +3798,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "Nz" = (
 /obj/machinery/light/small/built{
 	dir = 4;
@@ -3966,7 +3985,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "Pm" = (
 /turf/simulated/floor/plating,
 /area/water_barge/thrust)
@@ -3999,7 +4018,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "PG" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/dockingport)
@@ -4026,7 +4045,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "PS" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -4308,14 +4327,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "Se" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/door/airlock/multi_tile{
 	name = "Fuel Bay"
 	},
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "Sg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4396,6 +4415,9 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/water_barge/dockingport/port)
+"SH" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/water_barge/thrust/port)
 "SI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -4938,7 +4960,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/water_barge/fuelbay)
+/area/water_barge/thrust/port)
 "Wv" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -19524,10 +19546,10 @@ NL
 NL
 NL
 NL
-dP
-dP
-dP
-dP
+SH
+SH
+SH
+SH
 eQ
 eQ
 Jc
@@ -19689,7 +19711,7 @@ NL
 Hc
 PO
 Gv
-dP
+SH
 vu
 LP
 KI
@@ -19848,7 +19870,7 @@ NL
 NL
 NL
 NL
-dP
+SH
 Nv
 PD
 Se
@@ -20172,10 +20194,10 @@ NL
 NL
 NL
 NL
-dP
+SH
 la
-gC
-dP
+kG
+SH
 jD
 sc
 gC
@@ -20335,9 +20357,9 @@ NL
 NL
 NL
 kl
-wy
-as
-dP
+hq
+uh
+SH
 nP
 QB
 nk
@@ -20496,10 +20518,10 @@ NL
 NL
 NL
 NL
-dP
+SH
 la
-as
-dP
+uh
+SH
 CI
 UZ
 dP
@@ -20659,9 +20681,9 @@ NL
 NL
 NL
 Hc
-wy
-as
-dP
+hq
+uh
+SH
 Mo
 KR
 dP
@@ -20820,10 +20842,10 @@ NL
 NL
 NL
 NL
-dP
+SH
 la
-as
-dP
+uh
+SH
 Mo
 NW
 dP
@@ -20983,9 +21005,9 @@ NL
 NL
 NL
 Hc
-KI
-as
-dP
+tB
+uh
+SH
 dP
 dP
 dP
@@ -21144,10 +21166,10 @@ NL
 NL
 NL
 NL
-dP
-dP
-dP
-dP
+SH
+SH
+SH
+SH
 NL
 NL
 NL
