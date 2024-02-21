@@ -18,21 +18,10 @@
 	phoron_tanks = 0
 	max_tanks = 10
 
-// Oxygen (20 tanks)
-/obj/structure/dispenser/oxygen/large
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 oxygen tanks."
-	oxygen_tanks = 20
-
 // Phoron
 /obj/structure/dispenser/phoron
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 phoron tanks."
 	oxygen_tanks = 0
-
-// Oxygen (20 tanks)
-/obj/structure/dispenser/phoron/large
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 phoron tanks."
-	phoron_tanks = 20
-	max_tanks = 20
 
 /obj/structure/dispenser/Initialize()
 	. = ..()
