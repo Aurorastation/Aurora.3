@@ -71,7 +71,7 @@
 	if(istype(attacking_item, /obj/item/tank/phoron))
 		if(phoron_tanks < max_tanks)
 			user.drop_from_inventory(attacking_item, src)
-			platanks.Add(attacking_item)
+			held_oxygen_tanks.Add(attacking_item)
 			phoron_tanks++
 			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 			if(oxygentanks < 6)
