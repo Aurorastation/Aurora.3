@@ -6,17 +6,17 @@
 	density = TRUE
 	anchored = TRUE
 	w_class = ITEMSIZE_HUGE
+	var/max_tanks = 20
 	var/oxygen_tanks = 10
 	var/phoron_tanks = 10
-	var/max_tanks = 20
 	var/list/held_oxygen_tanks = list()
 	var/list/held_phoron_tanks = list()
 
 // Oxygen
 /obj/structure/dispenser/oxygen
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen tanks."
-	phoron_tanks = 0
 	max_tanks = 10
+	phoron_tanks = 0
 
 // Phoron
 /obj/structure/dispenser/phoron
