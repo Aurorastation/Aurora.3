@@ -41,6 +41,11 @@ SUBSYSTEM_DEF(mobs)
 		/mob/living/simple_animal/penguin/holodeck
 	)
 
+	/**
+	 * An associative list containing timer IDs associated with a mannequin that they're supposed to delete
+	 */
+	var/list/mannequins_del_timers = list()
+
 /datum/controller/subsystem/mobs/Initialize()
 	// Some setup work for the eat-types lists.
 	mtl_synthetic = typecacheof(mtl_synthetic) + list(
@@ -119,12 +124,37 @@ SUBSYSTEM_DEF(mobs)
 		. = new /mob/living/carbon/human/dummy/mannequin
 		mannequins[ckey] = .
 
-	addtimer(CALLBACK(src, PROC_REF(del_mannequin), ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+	mannequins_del_timers[ckey] = addtimer(CALLBACK(src, PROC_REF(del_mannequin), ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /datum/controller/subsystem/mobs/proc/del_mannequin(ckey)
 	var/mannequin = mannequins[ckey]
-	qdel(mannequin)
+	mannequins[ckey] = null
 	mannequins -= ckey
+
+	//Remove the deletion timer, if it exists
+	if(mannequins_del_timers[ckey])
+		deltimer(mannequins_del_timers[ckey])
+	mannequins_del_timers[ckey] = null
+	mannequins_del_timers -= ckey
+
+	qdel(mannequin)
+
+/**
+ * Used to dereference a mannequin, does not delete it per-se
+ *
+ * * the_mannequin - A `/mob/living/carbon/human/dummy/mannequin` to search for, and dereference if found
+ */
+/datum/controller/subsystem/mobs/proc/free_mannequin(mob/living/carbon/human/dummy/mannequin/the_mannequin)
+	for(var/ckey in mannequins)
+		if(mannequins[ckey] == the_mannequin)
+			mannequins[ckey] = null
+			mannequins -= ckey
+
+			//Remove the deletion timer, if it exists
+			if(mannequins_del_timers[ckey])
+				deltimer(mannequins_del_timers[ckey])
+			mannequins_del_timers[ckey] = null
+			mannequins_del_timers -= ckey
 
 // Helper so PROCESS_KILL works.
 /datum/controller/subsystem/mobs/proc/stop_processing(datum/D)
