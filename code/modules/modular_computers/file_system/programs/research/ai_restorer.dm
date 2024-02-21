@@ -51,7 +51,7 @@
 			return TRUE
 
 		if("PRG_uploadNTDefault")
-			A.laws = new /datum/ai_laws/nanotrasen
+			A.laws = new /datum/ai_laws/pra
 			to_chat(A, SPAN_WARNING("All laws purged. Default lawset uploaded."))
 			return TRUE
 

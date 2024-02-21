@@ -100,7 +100,7 @@
 
 	// Laws
 	var/mob/living/silicon/ai/connected_ai
-	var/law_preset = /datum/ai_laws/nanotrasen
+	var/law_preset = /datum/ai_laws/pra
 	var/law_update = TRUE // Whether they sync with their AI or not.
 
 	// Access
