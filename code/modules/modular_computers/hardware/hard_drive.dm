@@ -156,6 +156,8 @@
 /obj/item/computer_hardware/hard_drive/Destroy()
 	if(parent_computer?.hard_drive == src)
 		parent_computer.hard_drive = null
+	for(var/datum/computer_file/file in store_files)
+		file.hard_drive = null
 	QDEL_LIST(stored_files)
 	return ..()
 
