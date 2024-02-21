@@ -1,17 +1,36 @@
 /obj/item/clothing/under/unathi
 	name = "sinta tunic"
-	desc = "A tunic common on both Moghes and Ouerea. It's simple and easily-manufactured design makes it \
+	desc = "A tunic common on both Moghes and Ouerea. Its simple and easily-manufactured design makes it \
 	universally favorable."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "tunic"
 	item_state = "tunic"
 	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "belt"
+	has_accents = TRUE
 
 /obj/item/clothing/under/unathi/jizixi
 	name = "jizixi dress"
 	desc = "A striking, modern dress typically worn by Moghean women of high birth."
 	icon_state = "jizixi"
 	item_state = "jizixi"
+
+/obj/item/clothing/under/unathi/jizixi/green
+	icon_state = "jizixi2"
+	item_state = "jizixi2"
+
+/obj/item/clothing/under/unathi/jizixi/blue
+	icon_state = "jizixi3"
+	item_state = "jizixi3"
+
+/obj/item/clothing/under/unathi/jizixi/white
+	icon_state = "jizixi4"
+	item_state = "jizixi4"
+
+/obj/item/clothing/under/unathi/jizixi/orange
+	icon_state = "jizixi5"
+	item_state = "jizixi5"
 
 /obj/item/clothing/under/unathi/sashes
 	name = "gy'zao sashes"
@@ -27,35 +46,27 @@
 	icon_state = "mogazali"
 	item_state = "mogazali"
 
+/obj/item/clothing/under/unathi/mogazali/blue
+	icon_state = "mogazali2"
+	item_state = "mogazali2"
+
+/obj/item/clothing/under/unathi/mogazali/green
+	icon_state = "mogazali3"
+	item_state = "mogazali3"
+
+/obj/item/clothing/under/unathi/mogazali/orange
+	icon_state = "mogazali4"
+	item_state = "mogazali4"
+
 /obj/item/clothing/under/unathi/zazali
 	name = "zazali garb"
 	desc = "An old fashioned, extremely striking garb for a Unathi man with pointy shoulders. It's typically \
 	worn by those in the warrior caste or those with something to prove."
 	icon_state = "zazali"
 	item_state = "zazali"
-	var/additional_color = COLOR_GRAY // The default color.
-
-/obj/item/clothing/under/unathi/zazali/update_icon()
-	cut_overlays()
-	var/image/top = image(icon, null, "zazali_top")
-	top.appearance_flags = RESET_COLOR
-	top.color = additional_color
-	add_overlay(top)
-	var/image/belt = image(icon, null, "zazali_belt")
-	belt.appearance_flags = RESET_COLOR
-	add_overlay(belt)
-
-/obj/item/clothing/under/unathi/zazali/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(slot == slot_w_uniform_str)
-		var/image/top = image(mob_icon, null, "zazali_un_top")
-		top.appearance_flags = RESET_COLOR
-		top.color = additional_color
-		I.add_overlay(top)
-		var/image/belt = image(mob_icon, null, "zazali_un_belt")
-		belt.appearance_flags = RESET_COLOR
-		I.add_overlay(belt)
-	return I
+	build_from_parts = TRUE
+	worn_overlay = "belt"
+	has_accents = TRUE
 
 /obj/item/clothing/under/unathi/huytai
 	name = "huytai outfit"
@@ -79,26 +90,24 @@
 	for simple noble wear (the cloth can be embroidered), and practical for labor!"
 	icon_state = "himation"
 	item_state = "himation"
-	var/additional_color = COLOR_GRAY
+	build_from_parts = TRUE
+	worn_overlay = "belt"
+	has_accents = TRUE
 
-/obj/item/clothing/under/unathi/himation/update_icon()
-	cut_overlays()
-	var/image/skirt = image(icon, null, "himation_skirt")
-	skirt.appearance_flags = RESET_COLOR
-	skirt.color = additional_color
-	add_overlay(skirt)
-	var/image/belt = image(icon, null, "himation_belt")
-	belt.appearance_flags = RESET_COLOR
-	add_overlay(belt)
+/obj/item/clothing/under/unathi/izweski
+	name = "izweski navy uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its insignia indicates it as belonging to a soldier of the Izweski Hegemony's Navy."
+	icon = 'icons/clothing/under/uniforms/izweski.dmi'
+	icon_state = "izweski"
+	item_state = "izweski"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
 
-/obj/item/clothing/under/unathi/himation/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(slot == slot_w_uniform_str)
-		var/image/skirt = image(mob_icon, null, "himation_un_skirt")
-		skirt.appearance_flags = RESET_COLOR
-		skirt.color = additional_color
-		I.add_overlay(skirt)
-		var/image/belt = image(mob_icon, null, "himation_un_belt")
-		belt.appearance_flags = RESET_COLOR
-		I.add_overlay(belt)
-	return I
+/obj/item/clothing/under/unathi/izweski/officer
+	name = "izweski navy officer's uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its golden ornamentation indicates it as belonging to an officer of the Izweski Hegemony's Navy."
+	icon_state = "izweski_officer"
+	item_state = "izweski_officer"

@@ -3,7 +3,7 @@
 /obj/machinery/mineral/stacking_unit_console
 	name = "stacking machine console"
 	desc = "This console allows you to set the max stack size for the stacking machine, as well as letting you eject stacks manually."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
@@ -50,12 +50,12 @@
 
 	return machine
 
-/obj/machinery/mineral/stacking_unit_console/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/stacking_unit_console/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
@@ -63,7 +63,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
+/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = GLOB.default_state)
 	if(!setup_machine(user))
 		return
 
@@ -91,7 +91,7 @@
 		return
 
 	if(href_list["change_stack"])
-		var/choice = input("What would you like to set the stack amount to?") as null|anything in list(1,5,10,20,50)
+		var/choice = tgui_input_list(usr, "What would you like to set the stack amount to?", "Stacking", list(1,5,10,20,50))
 		if(!choice)
 			return TRUE
 		machine.stack_amt = choice
@@ -143,19 +143,19 @@
 		stack_paths[stacktype] = capitalize(initial(S.name))
 
 	//Locate our output and input machinery.
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)
 			break
 
 	if(!input)
-		input = get_step(src, reverse_dir[dir])
+		input = get_step(src, GLOB.reverse_dir[dir])
 	if(!output)
 		output = get_step(src, dir)
 
@@ -164,12 +164,12 @@
 		console.machine = null
 	return ..()
 
-/obj/machinery/mineral/stacking_machine/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/stacking_machine/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 

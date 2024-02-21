@@ -21,15 +21,17 @@
 		data = null
 		return TRUE
 
-	if(G.has_enabled_antagHUD && config.antag_hud_restricted && allow_antaghud == 0)
+	if(G.has_enabled_antagHUD && GLOB.config.antag_hud_restricted && allow_antaghud == 0)
 		statuscode = 409
 		response = "Ghost has used Antag Hud - Respawn Aborted"
 		data = null
 		return TRUE
-	G.timeofdeath=-19999	/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
-										 timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
-										 there won't be an autopsy.
-									*/
+
+	/*
+	time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+	timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure there won't be an autopsy.
+	*/
+	G.timeofdeath=-19999
 	var/datum/preferences/P
 
 	if (G.client)
@@ -82,7 +84,7 @@
 	var/client/C
 	var/req_ckey = ckey(queryparams["ckey"])
 
-	for(var/client/K in clients)
+	for(var/client/K in GLOB.clients)
 		if(K.ckey == req_ckey)
 			C = K
 			break
@@ -105,7 +107,7 @@
 	sound_to(C, 'sound/effects/adminhelp.ogg')
 	to_chat(C, message)
 
-	for(var/client/A in staff)
+	for(var/client/A in GLOB.staff)
 		if(A != C && check_rights(R_MOD|R_ADMIN, show_msg = FALSE, user = A.mob))
 			to_chat(A, amessage)
 

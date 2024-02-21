@@ -12,41 +12,41 @@
 /obj/machinery/icecream_vat
 	name = "icecream vat"
 	desc = "Ding-aling ding dong. Get your SCC-approved ice cream!"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "icecream_vat"
 	density = 1
 	anchored = 0
 	use_power = POWER_USE_OFF
-	flags = OPENCONTAINER | NOREACT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 
 	var/list/product_types = list()
 	var/dispense_flavour = ICECREAM_VANILLA
 	var/flavour_name = "vanilla"
 	reagents_to_add = list(
-		/decl/reagent/drink/milk = 5,
-		/decl/reagent/nutriment/flour = 5,
-		/decl/reagent/sugar = 5,
-		/decl/reagent/drink/ice = 5
+		/singleton/reagent/drink/milk = 5,
+		/singleton/reagent/nutriment/flour = 5,
+		/singleton/reagent/sugar = 5,
+		/singleton/reagent/drink/ice = 5
 	)
 
 /obj/machinery/icecream_vat/proc/get_ingredient_list(var/type)
 	switch(type)
 		if(ICECREAM_CHOCOLATE)
-			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/nutriment/coco)
+			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice, /singleton/reagent/nutriment/coco)
 		if(ICECREAM_STRAWBERRY)
-			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/drink/berryjuice)
+			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice, /singleton/reagent/drink/berryjuice)
 		if(ICECREAM_BLUE)
-			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/alcohol/singulo)
+			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice, /singleton/reagent/alcohol/singulo)
 		if(ICECREAM_CHERRY)
-			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/nutriment/cherryjelly)
+			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice, /singleton/reagent/nutriment/cherryjelly)
 		if(ICECREAM_BANANA)
-			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/drink/banana)
+			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice, /singleton/reagent/drink/banana)
 		if(CONE_WAFFLE)
-			return list(/decl/reagent/nutriment/flour, /decl/reagent/sugar)
+			return list(/singleton/reagent/nutriment/flour, /singleton/reagent/sugar)
 		if(CONE_CHOC)
-			return list(/decl/reagent/nutriment/flour, /decl/reagent/sugar, /decl/reagent/nutriment/coco)
+			return list(/singleton/reagent/nutriment/flour, /singleton/reagent/sugar, /singleton/reagent/nutriment/coco)
 		else
-			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice)
+			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice)
 
 /obj/machinery/icecream_vat/proc/get_flavour_name(var/flavour_type)
 	switch(flavour_type)
@@ -93,7 +93,7 @@
 	dat += "<br>"
 	dat += "<b>VAT CONTENT</b><br>"
 	for(var/_R in reagents.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		dat += "[R.name]: [reagents.reagent_volumes[_R]]"
 		dat += "<A href='?src=\ref[src];disposeI=[_R]'>Purge</A><BR>"
 	dat += "<a href='?src=\ref[src];refresh=1'>Refresh</a> <a href='?src=\ref[src];close=1'>Close</a>"
@@ -102,9 +102,9 @@
 	popup.set_content(dat)
 	popup.open()
 
-/obj/machinery/icecream_vat/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/icecream))
-		var/obj/item/reagent_containers/food/snacks/icecream/I = O
+/obj/machinery/icecream_vat/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/icecream))
+		var/obj/item/reagent_containers/food/snacks/icecream/I = attacking_item
 		if(!I.ice_creamed)
 			if(product_types[dispense_flavour] > 0)
 				visible_message("\icon[src] <b>[user]</b> scoops [flavour_name] icecream into [I].")
@@ -113,14 +113,14 @@
 			//	if(beaker)
 			//		beaker.reagents.trans_to(I, 10)
 				if(I.reagents.total_volume < 10)
-					I.reagents.add_reagent(/decl/reagent/sugar, 10 - I.reagents.total_volume, temperature = T0C - 15)
-					I.reagents.reagent_data = list(/decl/reagent/nutriment = list("[flavour_name]" = 10))
+					I.reagents.add_reagent(/singleton/reagent/sugar, 10 - I.reagents.total_volume, temperature = T0C - 15)
+					I.reagents.reagent_data = list(/singleton/reagent/nutriment = list("[flavour_name]" = 10))
 			else
 				to_chat(user, SPAN_WARNING("There is not enough icecream left!"))
 		else
-			to_chat(user, SPAN_NOTICE("[O] already has icecream in it."))
+			to_chat(user, SPAN_NOTICE("[attacking_item] already has icecream in it."))
 		return TRUE
-	else if(O.is_open_container())
+	else if(attacking_item.is_open_container())
 		return
 	..()
 
@@ -186,11 +186,12 @@
 /obj/item/reagent_containers/food/snacks/icecream
 	name = "ice cream cone"
 	desc = "Delicious waffle cone, but no ice cream."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "icecream_cone_waffle" //default for admin-spawned cones, href_list["cone"] should overwrite this all the time
 	layer = 3.1
 	bitesize = 3
 	volume = 20
-	reagents_to_add = list(/decl/reagent/nutriment = 5)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	var/ice_creamed = 0
 	var/cone_type
 

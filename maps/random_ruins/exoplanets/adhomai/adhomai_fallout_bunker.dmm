@@ -1,0 +1,2485 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"af" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"aJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"bb" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"bo" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"bu" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"bQ" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"bU" = (
+/turf/simulated/wall/r_wall,
+/area/adhomai_fallout_bunker)
+"bX" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"dn" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"dA" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"eA" = (
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"eB" = (
+/obj/machinery/vending/tool{
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"eD" = (
+/obj/structure/curtain/open/bed,
+/obj/structure/bed/padded,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"eS" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"fk" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Living Quarters";
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"fJ" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"hd" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"hR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/stool/bar/padded/red,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"hY" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"iw" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"jf" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"jo" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/mask/gas,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"jz" = (
+/obj/structure/table/standard,
+/obj/item/device/radio,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"kd" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"ke" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"kj" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"kG" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"kH" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/sign/flag/pra/large/north,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"lo" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"lO" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Food Storage";
+	req_access = list(209);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"me" = (
+/obj/structure/curtain/open/bed,
+/obj/structure/bed/padded,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/sign/flag/pra/large/north,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"mz" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"mV" = (
+/obj/structure/table/standard,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/book/manual/pra_manifesto,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"mZ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"nd" = (
+/obj/machinery/door/airlock/freezer{
+	name = "Restroom";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"nl" = (
+/turf/simulated/floor{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"nu" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"nC" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"nI" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/lardwich,
+/obj/item/reagent_containers/food/snacks/lardwich,
+/obj/item/reagent_containers/food/snacks/lardwich,
+/obj/item/reagent_containers/food/snacks/lardwich,
+/obj/item/reagent_containers/food/snacks/lardwich,
+/obj/item/reagent_containers/food/snacks/lardwich,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"nQ" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"nT" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Bunker Observation";
+	req_access = list(209);
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"oe" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"ol" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"oI" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"pt" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"pz" = (
+/obj/machinery/washing_machine,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"pF" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"pG" = (
+/turf/simulated/floor/tiled/freezer{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"pT" = (
+/obj/structure/table/standard,
+/obj/item/device/radio,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"pW" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"qA" = (
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/structure/sign/flag/pra/large/south,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"qY" = (
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"rk" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"rt" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"rG" = (
+/obj/machinery/vending/coffee,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"sc" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"sn" = (
+/obj/effect/map_effect/airlock/s_to_n,
+/turf/simulated/wall/r_wall,
+/area/adhomai_fallout_bunker)
+"sL" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"tb" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"ua" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_y = -32;
+	req_access = list(209);
+	name = "Bunker Entry";
+	id = "bunker_door"
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"uq" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Bunker";
+	req_access = list(209);
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"ux" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"uy" = (
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"uS" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"vl" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"vw" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu,
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu,
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu,
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu,
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu,
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"wb" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"wc" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	uid = "bunker_entry"
+	},
+/turf/simulated/floor{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"wj" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"wn" = (
+/obj/structure/closet/crate,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"wS" = (
+/obj/structure/table/glass,
+/obj/item/storage/firstaid/toxin,
+/obj/item/bodybag/cryobag,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/storage/pill_bottle/dylovene,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"xa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"xo" = (
+/obj/structure/table/glass,
+/obj/item/storage/firstaid/adv{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"xJ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"yG" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "ammo cabinet"
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"zp" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"zX" = (
+/obj/structure/toilet{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"At" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"AY" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 5
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Bj" = (
+/obj/machinery/vending/cigarette,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Bv" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	req_access = list(209);
+	name = "Bunker Entrance Lockdown";
+	pixel_x = -32;
+	uid = "bunker_entry"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"BQ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Cd" = (
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Cj" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Cq" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Cu" = (
+/obj/machinery/door/airlock/medical{
+	req_access = list(209);
+	name = "Medbay";
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"CW" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"DG" = (
+/obj/structure/hadii_statue,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Ez" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"EL" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Bunker Entry";
+	req_access = list(209);
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	uid = "bunker_entry"
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"EM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Fg" = (
+/obj/structure/table/glass,
+/obj/item/storage/box/bodybags,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Fj" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Fx" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Ga" = (
+/obj/machinery/vending/wallmed2{
+	req_access = null;
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Gk" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	req_access = list(209);
+	name = "Bunker Entrance Lockdown";
+	pixel_x = 32;
+	uid = "bunker_entry"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"GV" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Hl" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/mask/gas,
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Hu" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"HL" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meat_rikazu,
+/obj/item/reagent_containers/food/snacks/meat_rikazu,
+/obj/item/reagent_containers/food/snacks/meat_rikazu,
+/obj/item/reagent_containers/food/snacks/meat_rikazu,
+/obj/item/reagent_containers/food/snacks/meat_rikazu,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Iw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"IA" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Jb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled/white{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"JI" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Kc" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Kn" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"KG" = (
+/obj/structure/table/standard,
+/obj/item/device/binoculars,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"KP" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"KS" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"KY" = (
+/obj/structure/bedsheetbin,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"LG" = (
+/obj/machinery/vending/snack,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"LN" = (
+/obj/machinery/door/blast/shutters{
+	id = "bunker_door";
+	dir = 2
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"MM" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Nv" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/standard,
+/obj/item/gamehelm/red,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"NM" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/sign/flag/pra/large/north,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"NN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Oi" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"OG" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"OJ" = (
+/obj/structure/closet/walllocker/medical/secure{
+	name = "O- Blood Locker";
+	req_access = list(209);
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"ON" = (
+/obj/structure/bed/roller,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Pm" = (
+/obj/structure/table/rack,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"PK" = (
+/obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Qk" = (
+/obj/structure/sign/flag/pra/large/north,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Qq" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/mask/gas,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Rg" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Rw" = (
+/obj/structure/table/standard,
+/obj/item/device/binoculars,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"RF" = (
+/turf/simulated/floor/tiled/ramp,
+/area/adhomai_fallout_bunker)
+"RW" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Sj" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209)
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/energy/rifle/icelance,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Sx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"SB" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	uid = "bunker_entry"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"SQ" = (
+/obj/structure/curtain/open/bed,
+/obj/structure/bed/padded,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Te" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Barracks";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Tq" = (
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Ub" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"UI" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Vb" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/door/window,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Vx" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/suit/storage/hooded/wintercoat,
+/obj/item/clothing/mask/gas,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"VB" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"VJ" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"VL" = (
+/obj/machinery/vending/engivend{
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Wc" = (
+/obj/structure/hadii_statue,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"WC" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"WJ" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/structure/sign/flag/pra/large/south,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"XB" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Maintenance Equipment Storage";
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"XX" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Radiation Suit Storage";
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Ya" = (
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 268.15
+	},
+/area/adhomai_fallout_bunker)
+"Ym" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Ys" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/standard,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+"Zo" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/adhomai_fallout_bunker)
+
+(1,1,1) = {"
+Oi
+bU
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+bU
+Oi
+"}
+(2,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bQ
+Oi
+"}
+(3,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(4,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+zX
+oe
+VJ
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(5,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+bU
+Vb
+pG
+pG
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(6,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+OJ
+mz
+iw
+ON
+bU
+bU
+nd
+bU
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(7,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+vl
+xJ
+eB
+bU
+Ga
+Tq
+Tq
+Tq
+Cu
+wj
+Ub
+uy
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(8,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+Ez
+eA
+VL
+bU
+qY
+wS
+xo
+Fg
+bU
+uS
+af
+nu
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(9,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+Pm
+eA
+AY
+bU
+bU
+bU
+bU
+bU
+bU
+IA
+af
+VB
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(10,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+XB
+bU
+bU
+Rg
+hR
+ke
+MM
+Ym
+IA
+af
+qA
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(11,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+NM
+Ub
+Bj
+bU
+kH
+kG
+mZ
+BQ
+Rg
+IA
+af
+Sj
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(12,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+bU
+bU
+bU
+CW
+nC
+Bv
+jz
+KG
+bU
+ol
+af
+aJ
+bU
+pF
+Nv
+Ys
+BQ
+Rg
+IA
+af
+yG
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(13,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+bU
+nl
+wc
+rk
+sL
+NN
+NN
+wb
+nT
+Iw
+af
+nu
+bU
+UI
+Jb
+BQ
+Rg
+Rg
+IA
+af
+wn
+bU
+bU
+Kn
+bQ
+Oi
+"}
+(14,1,1) = {"
+kj
+bU
+At
+bU
+bU
+Ya
+bU
+bU
+sn
+SB
+SB
+SB
+bU
+Wc
+af
+bu
+bU
+wj
+Cj
+Cj
+Cj
+Cj
+OG
+af
+sc
+KS
+bU
+Kn
+bQ
+Oi
+"}
+(15,1,1) = {"
+Oi
+LN
+Kn
+EL
+RF
+nl
+nl
+lo
+nl
+Sx
+pt
+EM
+uq
+xa
+af
+aJ
+fk
+IA
+af
+af
+af
+af
+af
+dn
+af
+pz
+bU
+Kn
+bQ
+Oi
+"}
+(16,1,1) = {"
+ua
+bU
+At
+bU
+bU
+Ya
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+DG
+af
+bu
+bU
+rG
+fJ
+NN
+fJ
+NN
+fJ
+NN
+NN
+KY
+bU
+Kn
+bQ
+Oi
+"}
+(17,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+bU
+nl
+wc
+Zo
+Fx
+Ub
+Ub
+uy
+nT
+oI
+af
+nu
+bU
+bU
+bU
+lO
+bU
+bU
+bU
+Te
+bU
+bU
+bU
+Kn
+bQ
+Oi
+"}
+(18,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+bU
+bU
+bU
+nQ
+pW
+Gk
+pT
+Rw
+bU
+Qk
+af
+aJ
+bU
+ux
+KP
+KP
+zp
+bU
+mV
+KP
+Hu
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(19,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+rt
+kd
+LG
+bU
+Cq
+RW
+RW
+Fj
+bU
+jo
+RW
+Hl
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(20,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+XX
+bU
+bU
+WC
+RW
+RW
+eS
+bU
+me
+RW
+WJ
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(21,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+PK
+eA
+PK
+bU
+vw
+RW
+RW
+hd
+bU
+Qq
+RW
+Vx
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(22,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+PK
+eA
+PK
+bU
+HL
+RW
+RW
+nI
+bU
+eD
+RW
+dA
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(23,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+PK
+JI
+PK
+bU
+hY
+RW
+RW
+bX
+bU
+jo
+RW
+Hl
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(24,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+jf
+bo
+GV
+bb
+bU
+me
+RW
+WJ
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(25,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+bU
+Qq
+RW
+Vx
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(26,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+SQ
+Cd
+Kc
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(27,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bU
+bU
+bU
+bU
+bU
+Kn
+Kn
+bQ
+Oi
+"}
+(28,1,1) = {"
+Oi
+bQ
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bQ
+Oi
+"}
+(29,1,1) = {"
+Oi
+bU
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+bU
+Oi
+"}

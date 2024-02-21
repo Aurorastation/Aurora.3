@@ -4,9 +4,7 @@
 #define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
-var/datum/controller/subsystem/cargo/SScargo
-
-/datum/controller/subsystem/cargo
+SUBSYSTEM_DEF(cargo)
 	name = "Cargo"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
@@ -72,11 +70,11 @@ var/datum/controller/subsystem/cargo/SScargo
 	supply_account = SSeconomy.get_department_account("Operations")
 
 	//Load in the cargo items config
-	if(config.cargo_load_items_from == "sql")
-		log_debug("SScargo: Attempting to Load from SQL")
+	if(GLOB.config.cargo_load_items_from == "sql")
+		log_subsystem_cargo("SScargo: Attempting to Load from SQL")
 		load_from_sql()
-	else if(config.cargo_load_items_from == "json")
-		log_debug("SScargo: Attempting to Load from JSON")
+	else if(GLOB.config.cargo_load_items_from == "json")
+		log_subsystem_cargo("SScargo: Attempting to Load from JSON")
 		load_from_json()
 	else
 		log_game("SScargo: invalid load option specified in config")
@@ -88,13 +86,8 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/datum/cargospawner/spawner = new
 	spawner.start()
 	qdel(spawner)
-	..()
 
-/datum/controller/subsystem/cargo/New()
-	NEW_SS_GLOBAL(SScargo)
-
-
-
+	return SS_INIT_SUCCESS
 
 /*
 	Loading Data
@@ -111,15 +104,15 @@ var/datum/controller/subsystem/cargo/SScargo
 
 //Load the cargo data from SQL
 /datum/controller/subsystem/cargo/proc/load_from_sql()
-	if(!establish_db_connection(dbcon))
-		log_debug("SScargo: SQL ERROR - Failed to connect. - Falling back to JSON")
+	if(!establish_db_connection(GLOB.dbcon))
+		log_subsystem_cargo("SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
 		//Reset the currently loaded data
 		reset_cargo()
 
 		//Load the categories
-		var/DBQuery/category_query = dbcon.NewQuery("SELECT id, name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
+		var/DBQuery/category_query = GLOB.dbcon.NewQuery("SELECT id, name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
 		category_query.Execute()
 		while(category_query.NextRow())
 			CHECK_TICK
@@ -130,7 +123,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				category_query.item[5],
 				text2num(category_query.item[6]))
 		//Load the suppliers
-		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT id, short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
+		var/DBQuery/supplier_query = GLOB.dbcon.NewQuery("SELECT id, short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
 		while(supplier_query.NextRow())
 			CHECK_TICK
@@ -144,7 +137,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				supplier_query.item[8],
 				supplier_query.item[9])
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
+		var/DBQuery/item_query = GLOB.dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
@@ -162,18 +155,23 @@ var/datum/controller/subsystem/cargo/SScargo
 				item_query.item[10],
 				item_query.item[11])
 			if(error_message && istext(error_message))
-				log_debug("SScargo: Error when loading item [item_id] from sql: [error_message]")
-				var/DBQuery/item_error_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET error_message = :error_message: WHERE id = :id:")
+				log_subsystem_cargo("SScargo: Error when loading item [item_id] from sql: [error_message]")
+				var/DBQuery/item_error_query = GLOB.dbcon.NewQuery("UPDATE ss13_cargo_items SET error_message = :error_message: WHERE id = :id:")
 				item_error_query.Execute(list("id"=item_id,"error_message"=error_message))
 
 
 //Loads the cargo data from JSON
 /datum/controller/subsystem/cargo/proc/load_from_json()
 	var/list/cargoconfig = list()
+
+	if(!(rustg_file_exists("config/cargo.json") == "true"))
+		log_config("The file config/cargo.json was not found, cargo items will not be loaded.")
+		return
+
 	try
 		cargoconfig = json_decode(return_file_text("config/cargo.json"))
 	catch(var/exception/ej)
-		log_debug("SScargo: Warning: Could not load config, as cargo.json is missing - [ej]")
+		log_subsystem_cargo("Warning: Could not load config, as cargo.json is missing - [ej]")
 		return
 
 	//Reset the currently loaded data
@@ -216,7 +214,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			cargoconfig["items"][item]["groupable"],
 			cargoconfig["items"][item]["item_mul"])
 		if(error_message && istext(error_message))
-			log_debug("SScargo: Error when loading item: [error_message]")
+			log_subsystem_cargo("Error when loading item: [error_message]")
 	return 1
 
 //Add a new Category to the Cargo Subsystem
@@ -286,7 +284,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		ci.item_mul = text2num(item_mul)
 		ci.amount = length(ci.items)*ci.item_mul
 	catch(var/exception/e)
-		log_debug("SScargo: Error when loading item [name] - [id]: [e]")
+		log_subsystem_cargo("Error when loading item [name] - [id]: [e]")
 		qdel(ci)
 		return "Error when loading item [name] - [id]: [e]"
 
@@ -294,7 +292,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	for(var/item in ci.items)
 		var/itempath = text2path(ci.items[item]["path"])
 		if(!ispath(itempath))
-			log_debug("SScargo: Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]]")
+			log_subsystem_cargo("Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]]")
 			path_error += "Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]].\n"
 
 	if(path_error)
@@ -302,14 +300,14 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Check if a valid container is specified
 	if(!(ci.container_type in list(CARGO_CONTAINER_CRATE, CARGO_CONTAINER_FREEZER, CARGO_CONTAINER_BOX, CARGO_CONTAINER_BODYBAG)))
-		log_debug("SScargo: Invalid container type specified for item [name] - [id]: Aborting")
+		log_subsystem_cargo("Invalid container type specified for item [name] - [id]: Aborting")
 		qdel(ci)
 		return "Invalid container type specified for item [name] - [id]"
 
 	//Verify the suppliers exist
 	var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
 	if(!cs)
-		log_debug("SScargo: [supplier] is not a valid supplier for item [name] - [id]")
+		log_subsystem_cargo("[supplier] is not a valid supplier for item [name] - [id]")
 		qdel(ci)
 		return "[supplier] is not a valid supplier for item [name] - [id]"
 
@@ -324,7 +322,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Log a message if no categories are specified
 	if(ci.categories.len == 0)
-		log_debug("SScargo: No categories specified for item [ci.name]")
+		log_subsystem_cargo("No categories specified for item [ci.name]")
 		ci.supplier_datum = null
 		qdel(ci)
 		return "No categories specified for item [name] - [id]"
@@ -336,7 +334,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(cc) //Check if the category exists
 			cc.items.Add(ci)
 		else
-			log_debug("SScargo: Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
+			log_subsystem_cargo("Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
 
 	return ci
 
@@ -405,7 +403,7 @@ var/datum/controller/subsystem/cargo/SScargo
 //Gets the orders based on their status (submitted, approved, shipped)
 /datum/controller/subsystem/cargo/proc/get_orders_by_status(var/status, var/data_list=0)
 	if(!status)
-		log_debug("SScargo: get_orders_by_status has been called with a invalid status")
+		log_subsystem_cargo("get_orders_by_status has been called with a invalid status")
 		return list()
 	var/list/orders = list()
 	for (var/datum/cargo_order/co in all_orders)
@@ -418,7 +416,7 @@ var/datum/controller/subsystem/cargo/SScargo
 //Gets the value of orders based on their status, type is passed on to co.get_value
 /datum/controller/subsystem/cargo/proc/get_orders_value_by_status(var/status, var/type=0)
 	if(!status)
-		log_debug("SScargo: get_orders_value_by_status has been called with a invalid status")
+		log_subsystem_cargo("get_orders_value_by_status has been called with a invalid status")
 		return 0
 	var/value = 0
 	for (var/datum/cargo_order/co in all_orders)
@@ -428,7 +426,7 @@ var/datum/controller/subsystem/cargo/SScargo
 //Gets the suppliers of the orders of a specific type
 /datum/controller/subsystem/cargo/proc/get_order_suppliers_by_status(var/status, var/pretty_names=0)
 	if(!status)
-		log_debug("SScargo: get_order_suppliers_by_status has been called with a invalid status")
+		log_subsystem_cargo("get_order_suppliers_by_status has been called with a invalid status")
 		return list()
 	var/list/suppliers = list()
 	for(var/datum/cargo_order/co in all_orders)
@@ -452,7 +450,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Check if cargo has enough money to pay for the shipment of the item and the maximum shipment cost
 	if(item_price + shipment_cost > get_cargo_money())
-		log_debug("SScargo: Order could not be shipped. Insufficient money. [item_price] + [shipment_cost] > [get_cargo_money()].")
+		log_subsystem_cargo("Order could not be shipped. Insufficient money. [item_price] + [shipment_cost] > [get_cargo_money()].")
 		return 0
 
 	co.set_shipped()
@@ -497,7 +495,7 @@ var/datum/controller/subsystem/cargo/SScargo
 //Charges cargo. Accepts a text that should appear as charge and the numer of credits to charge
 /datum/controller/subsystem/cargo/proc/charge_cargo(var/charge_text, var/charge_credits)
 	if(!supply_account)
-		log_debug("SScargo: Warning Tried to charge supply account but supply acount doesnt exist")
+		log_subsystem_cargo("Warning: Tried to charge supply account but supply acount doesnt exist")
 		return 0
 	return SSeconomy.charge_to_account(supply_account.account_number, "[commstation_name()] - Operations", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
 //Gets the pending shipment costs for the items that are about to be shipped to the station
@@ -549,11 +547,11 @@ var/datum/controller/subsystem/cargo/SScargo
 			current_shipment.shuttle_fee = shipment_cost
 
 			if(current_shipment.shuttle_time < min_movetime)
-				log_debug("SScargo: Shuttle Time less than [min_movetime]: [current_shipment.shuttle_time] - Setting to [min_movetime]")
+				log_subsystem_cargo("Shuttle Time less than [min_movetime]: [current_shipment.shuttle_time] - Setting to [min_movetime]")
 				current_shipment.shuttle_time = min_movetime
 
 			if(current_shipment.shuttle_time > max_movetime)
-				log_debug("SScargo: Shuttle Time larger than [max_movetime]: [current_shipment.shuttle_time] - Setting to [max_movetime]")
+				log_subsystem_cargo("Shuttle Time larger than [max_movetime]: [current_shipment.shuttle_time] - Setting to [max_movetime]")
 				current_shipment.shuttle_time = max_movetime
 
 			movetime = current_shipment.shuttle_time
@@ -683,13 +681,13 @@ var/datum/controller/subsystem/cargo/SScargo
 
 		//Check if theres space to place the order
 		if(!clear_turfs.len)
-			log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because the shuttle is full")
+			log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because the shuttle is full")
 			break
 
 		//Check if the supplier is still available
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi.ci.supplier_datum.available)
-				log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_datum.name] for item [coi.ci.name] is unavailable")
+				log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_datum.name] for item [coi.ci.name] is unavailable")
 				continue
 
 		//Check if there is enough money to ship the order
@@ -726,7 +724,7 @@ var/datum/controller/subsystem/cargo/SScargo
 						try
 							item.vars[var_name] = coi.ci.items[name]["vars"][var_name]
 						catch(var/exception/e)
-							log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
+							log_subsystem_cargo("Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
 
 		//Spawn the Paper Inside
 		var/obj/item/paper/P = new(A)
@@ -740,23 +738,23 @@ var/datum/controller/subsystem/cargo/SScargo
 //Dumps the cargo orders to the database when the round ends
 /datum/controller/subsystem/cargo/proc/dump_orders()
 	if(dumped_orders)
-		log_debug("SScargo: Order Data Dump Aborted - Orders already dumped")
+		log_subsystem_cargo("Order Data Dump Aborted - Orders already dumped")
 		return
-	if(config.cargo_load_items_from != "sql")
-		log_debug("SScargo: Order Data Dump Aborted - Cargo not loaded from database")
+	if(GLOB.config.cargo_load_items_from != "sql")
+		log_subsystem_cargo("Order Data Dump Aborted - Cargo not loaded from database")
 		return
-	if(!establish_db_connection(dbcon))
-		log_debug("SScargo: SQL ERROR - Failed to connect. - Unable to dump order data")
+	if(!establish_db_connection(GLOB.dbcon))
+		log_subsystem_cargo("SQL ERROR - Failed to connect. - Unable to dump order data")
 		return
 
 	dumped_orders = TRUE
 
 	// Loop through all the orders and dump them all
-	var/DBQuery/dump_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
+	var/DBQuery/dump_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
 	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
-	var/DBQuery/dump_item_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
+	var/DBQuery/dump_item_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
 	VALUES (:cargo_orderlog_id:, :cargo_item_id:, :amount:)")
-	var/DBQuery/log_id = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 	for(var/datum/cargo_order/co in all_orders)
 		//Iterate over the items in the order and build the a list with the item count
 		var/list/itemcount = list()
@@ -767,7 +765,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				itemcount["[coi.ci.id]"] = 1
 
 		if(!dump_query.Execute(list(
-			"game_id"=game_id,
+			"game_id"=GLOB.round_id,
 			"order_id"=co.order_id,
 			"status"=co.status,
 			"price"=co.price,
@@ -786,7 +784,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			"time_paid"=co.time_paid,
 			"reason"=co.reason
 			)))
-			log_debug("SScargo: SQL ERROR - Cound not write order to database")
+			log_subsystem_cargo("SQL ERROR - Cound not write order to database")
 			continue
 
 		//Run the query to get the inserted id

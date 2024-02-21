@@ -1,15 +1,15 @@
 /obj/structure/closet/secure_closet/hydroponics
 	name = "botanist's locker"
-	req_access = list(access_hydroponics)
+	req_access = list(ACCESS_HYDROPONICS)
 	icon_state = "hydro"
 
 /obj/structure/closet/secure_closet/hydroponics/fill()
 	..()
 	switch(rand(1,2))
 		if(1)
-			new /obj/item/clothing/suit/apron(src)
+			new /obj/item/clothing/accessory/apron/blue(src)
 		if(2)
-			new /obj/item/clothing/suit/apron/overalls/blue(src)
+			new /obj/item/clothing/accessory/overalls/blue(src)
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/clothing/under/rank/hydroponics(src)
 	new /obj/item/device/analyzer/plant_analyzer(src)
@@ -23,16 +23,16 @@
 
 /obj/structure/closet/secure_closet/xenobotany
 	name = "xenobotanist's locker"
-	req_access = list(access_xenobotany)
+	req_access = list(ACCESS_XENOBOTANY)
 	icon_state = "xenobot"
 
 /obj/structure/closet/secure_closet/xenobotany/fill()
 	..()
 	switch(rand(1,2))
 		if(1)
-			new /obj/item/clothing/suit/apron(src)
+			new /obj/item/clothing/accessory/apron/blue(src)
 		if(2)
-			new /obj/item/clothing/suit/apron/overalls/blue(src)
+			new /obj/item/clothing/accessory/overalls/blue(src)
 	new /obj/item/clothing/under/rank/scientist/botany(src)
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/clothing/under/rank/scientist(src)

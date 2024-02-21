@@ -8,14 +8,14 @@
 			if (AC.slot == A.slot)
 				return 0
 
-/obj/item/clothing/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/clothing/accessory))
+/obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/accessory))
 
 		if(!valid_accessory_slots || !valid_accessory_slots.len)
 			to_chat(usr, "<span class='warning'>You cannot attach accessories of any kind to \the [src].</span>")
 			return
 
-		var/obj/item/clothing/accessory/A = I
+		var/obj/item/clothing/accessory/A = attacking_item
 		if(can_attach_accessory(A))
 			user.drop_item()
 			attach_accessory(user, A)
@@ -26,7 +26,7 @@
 
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			A.attackby(I, user)
+			A.attackby(attacking_item, user)
 		return
 
 	..()
@@ -91,11 +91,21 @@
 	return main_ear
 
 
-/obj/item/clothing/examine(var/mob/user)
-	..(user)
+/obj/item/clothing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			to_chat(user, "\A [A] [A.gender == PLURAL ? "are" : "is"] attached to it.")
+			. += SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
+
+/obj/item/clothing/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	for(var/obj/item/clothing/accessory/bling in accessories)
+		bling.on_clothing_change(user)
+
+/obj/item/clothing/dropped(mob/user)
+	. = ..()
+	for(var/obj/item/clothing/accessory/bling in accessories)
+		bling.on_clothing_change(user)
 
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0
@@ -108,6 +118,7 @@
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -117,6 +128,7 @@
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"
@@ -132,12 +144,17 @@
 
 	if(!LAZYLEN(accessories))
 		return
-	
+
 	var/obj/item/clothing/accessory/A
 	if(LAZYLEN(accessories) > 1)
 		var/list/options = list()
 		for (var/obj/item/clothing/accessory/i in accessories)
 			var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
+			if(i.color)
+				radial_button.color = i.color
+			if(i.build_from_parts && i.worn_overlay)
+				radial_button.cut_overlays()
+				radial_button.add_overlay(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
 	else
@@ -147,7 +164,8 @@
 		verbs -= /obj/item/clothing/proc/removetie_verb
 
 /obj/item/clothing/emp_act(severity)
+	. = ..()
+
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.emp_act(severity)
-	..()

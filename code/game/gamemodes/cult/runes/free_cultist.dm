@@ -14,13 +14,15 @@
 		if(iscultist(C) && !C.stat)
 			users += C
 
+	cultists = cultists - users
+
 	if(length(users) >= 3)
-		var/mob/living/carbon/human/cultist = input("Choose a cultist you wish to free.", "Followers of Geometer") as null|anything in (cultists - users)
+		var/mob/living/carbon/human/cultist = tgui_input_list(usr, "Choose a cultist you wish to free.", "Followers of the Geometer", cultists)
 		if(!cultist)
 			return fizzle(user, A)
 		if(cultist == user) //just to be sure.
 			return
-		
+
 		var/cultist_free = TRUE
 		if(cultist.buckled_to)
 			cultist_free = FALSE
@@ -52,7 +54,7 @@
 				cultist_free = FALSE
 				door.unlock()
 				door.open()
-		
+
 		if(!cultist_free)
 			to_chat(cultist, SPAN_CULT("Your fellow cultists have freed you!"))
 

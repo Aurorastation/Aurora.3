@@ -70,7 +70,7 @@
 		)
 	), RUSTG_HTTP_METHOD_POST, callback = callback)
 	/* [
-  {
+	{
 	"content": "AAAAA",
 	"freq": "1459",
 	"source": "Telecomms Broadcaster",
@@ -79,11 +79,11 @@
 	"verb": "says",
 	"language": "Ceti Basic",
 	"reference": null
-  }
+	}
 ]*/
 
 /datum/ntsl2_program/tcomm/proc/retrieve_messages(callback = null)
-	SSntsl2.send_task("tcom/get", callback = CALLBACK(src, .proc/_finish_retrieve_messages, callback))
+	SSntsl2.send_task("tcom/get", callback = CALLBACK(src, PROC_REF(_finish_retrieve_messages), callback))
 
 /datum/ntsl2_program/tcomm/proc/_finish_retrieve_messages(callback = null, data)
 	if(data)
@@ -94,9 +94,9 @@
 			if(!istype(sig))
 				continue
 
-			var/datum/language/L = all_languages[S["language"]]
+			var/datum/language/L = GLOB.all_languages[S["language"]]
 			if(!L || !(L.flags & TCOMSSIM))
-				L = all_languages[LANGUAGE_TCB]
+				L = GLOB.all_languages[LANGUAGE_TCB]
 
 			sig.frequency = S["freq"] || PUB_FREQ
 

@@ -83,7 +83,7 @@
 	if(!.)
 		return FALSE
 
-	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."))
+	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'. Have a lovely day."))
 	if (evacuation_controller.get_status_panel_eta())
 		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [evacuation_controller.get_status_panel_eta()]."))
 
@@ -117,9 +117,10 @@
 
 	var/obj/item/M = new augment_type(owner)
 	M.canremove = FALSE
-	M.item_flags |= NOMOVE
+	M.item_flags |= ITEM_FLAG_NO_MOVE
 	owner.equip_to_slot(M, aug_slot)
-	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You deploy \the [M]!"))
+	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
+	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
@@ -211,7 +212,7 @@
 	if(!.)
 		return FALSE
 
-	health_scan_mob(owner, owner)
+	health_scan_mob(owner, owner, TRUE, TRUE)
 
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"
@@ -239,7 +240,7 @@
 	if(owner)
 		to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel your [src.name] surge with energy!")))
 		spark(get_turf(owner), 3)
-		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
 		if(is_bruised() && prob(50))
 			owner.electrocute_act(40, owner)
 
@@ -248,7 +249,7 @@
 		return
 	actual_charges = min(actual_charges - 1, max_charges)
 	if(actual_charges > 0)
-		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
 	if(is_broken())
 		owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
 		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
@@ -272,6 +273,13 @@
 	owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
 	playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(owner, 7, 1500)
+
+/obj/item/organ/internal/augment/tesla/massive
+	name = "massive tesla spine"
+	icon_state = "tesla_spine"
+	organ_tag = BP_AUG_TESLA
+	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
+	species_restricted = list(SPECIES_TAJARA_TESLA_BODY)
 
 /obj/item/organ/internal/augment/eye_sensors
 	name = "integrated HUD sensors"
@@ -303,10 +311,12 @@
 		return
 
 /obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
-	..()
+	. = ..()
+
 	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
 	if(!E)
 		return
+
 	E.take_damage(5)
 
 /obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
@@ -332,7 +342,7 @@
 	switch(selected_hud)
 
 		if(SEC_HUDTYPE)
-			req_access = list(access_security)
+			req_access = list(ACCESS_SECURITY)
 			if(allowed(owner))
 				active_hud = "security"
 				process_sec_hud(owner, 1)
@@ -360,7 +370,7 @@
 	switch(selected_hud)
 
 		if(MED_HUDTYPE)
-			req_access = list(access_medical)
+			req_access = list(ACCESS_MEDICAL)
 			if(allowed(owner))
 				active_hud = "medical"
 				process_med_hud(owner, 1)
@@ -417,6 +427,10 @@
 	name = "integrated fuel cell"
 	organ_tag = BP_AUG_FUEL_CELL
 
+/obj/item/organ/internal/augment/ethanol_burner
+	name = "integrated ethanol burner"
+	organ_tag = BP_AUG_ETHANOL_BURNER
+
 // Geeves!
 /obj/item/organ/internal/augment/language
 	name = "language processor"
@@ -441,9 +455,11 @@
 
 /obj/item/organ/internal/augment/language/emp_act()
 	. = ..()
+
 	for(var/language in added_languages)
 		if(prob(25))
 			owner.remove_language(language)
+
 	owner.set_default_language(pick(owner.languages))
 
 /obj/item/organ/internal/augment/language/klax
@@ -452,6 +468,22 @@
 
 /obj/item/organ/internal/augment/language/cthur
 	name = "C'thur language processor"
+	augment_languages = list(LANGUAGE_SKRELLIAN)
+
+/obj/item/organ/internal/augment/language/mikuetz
+	name = "Mi'kuetz language processor"
+	augment_languages = list(LANGUAGE_AZAZIBA)
+
+/obj/item/organ/internal/augment/language/zino
+	name = "Zino language processor"
+	augment_languages = list(LANGUAGE_GUTTER)
+
+/obj/item/organ/internal/augment/language/eridani
+	name = "Eridani language processor"
+	augment_languages = list(LANGUAGE_TRADEBAND)
+
+/obj/item/organ/internal/augment/language/zeng
+	name = "Zeng-Hu Nral'malic language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
 
 /obj/item/organ/internal/augment/gustatorial
@@ -464,8 +496,8 @@
 	cooldown = 8
 
 	var/taste_sensitivity = TASTE_NORMAL
-	var/action_verb = "licks"
-	var/self_action_verb = "lick"
+	var/action_verb = "samples"
+	var/self_action_verb = "sample"
 
 /obj/item/organ/internal/augment/gustatorial/attack_self(var/mob/user)
 	. = ..()
@@ -503,9 +535,9 @@
 	parent_organ = BP_HEAD
 
 /obj/item/organ/internal/augment/synthetic_cords/voice
-    desc = "An array of vocal cords. These appears to have been modified with a specific accent."
-    organ_tag = BP_AUG_ACC_CORDS
-    var/accent = ACCENT_TTS
+	desc = "An array of vocal cords. These appears to have been modified with a specific accent."
+	organ_tag = BP_AUG_ACC_CORDS
+	var/accent = ACCENT_TTS
 
 /obj/item/organ/internal/augment/synthetic_cords/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
@@ -521,7 +553,6 @@
 	organ_tag = BP_AUG_COCHLEAR
 	parent_organ = BP_HEAD
 
-// Snakebitten!
 /obj/item/organ/internal/augment/psi
 	name = "psionic receiver"
 	desc = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
@@ -559,7 +590,8 @@
 	return TRUE
 
 /obj/item/organ/internal/augment/memory_inhibitor/emp_act(severity)
-	..()
+	. = ..()
+
 	if(prob(25))
 		do_broken_act()
 
@@ -600,9 +632,9 @@
 	if(world.time > (last_emotion + 5 MINUTES))
 		switch(set_emotion)
 			if("happiness")
-				to_chat(owner, SPAN_NOTICE("You feel happy."))
+				to_chat(owner, SPAN_GOOD("You feel happy."))
 			if("calmness")
-				to_chat(owner, SPAN_NOTICE("You feel calm."))
+				to_chat(owner, SPAN_GOOD("You feel calm."))
 		last_emotion = world.time
 
 		if(is_broken())
@@ -631,13 +663,16 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner,7,7, FALSE)
+	zoom(owner, 7, 7, FALSE, FALSE)
+	owner.visible_message(zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.", range = 3)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
-	..()
+	. = ..()
+
 	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
 	if(!E)
 		return
+
 	E.take_damage(5)
 
 /obj/item/organ/internal/augment/sightlights
@@ -739,3 +774,52 @@
 	action_button_name = "Deploy Glare Dampeners"
 	organ_tag = BP_AUG_GLARE_DAMPENER
 	augment_type = /obj/item/clothing/glasses/aug/welding
+
+/obj/item/organ/internal/augment/eye_sensors/phalanx
+	name = "phalanx facial plate"
+	desc = "This modular face plate accommodates a wide array of cybernetic augmentations, enabling seamless integration with Phalanx's transhumanist doctrine. \
+	Enhanced sensory overlays and HUDs offer Phalanx members superior situational awareness and promote a sense of hive-thinking."
+	icon_state = "vaurca_plate"
+	action_button_name = "Toggle HUD"
+	action_button_icon = "vaurca_plate"
+	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/augments_external.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/augments_external.dmi'
+	)
+/obj/item/organ/internal/augment/eye_sensors/phalanx/attack_self(var/mob/user)
+	. = ..()
+
+	if(selected_hud == "disabled")
+		selected_hud = SEC_HUDTYPE
+		to_chat(user, "You activate \the [src] security HUD.")
+		return
+	if(selected_hud == SEC_HUDTYPE)
+		selected_hud = MED_HUDTYPE
+		to_chat(user, "You activate \the [src] medical HUD.")
+		return
+	if(selected_hud == MED_HUDTYPE)
+		selected_hud = "disabled"
+		to_chat(user, "You deactivate \the [src].")
+		return
+
+/obj/item/organ/internal/augment/eye_sensors/phalanx/process()
+	..()
+
+	switch(selected_hud)
+		if(SEC_HUDTYPE)
+			req_access = list(ACCESS_SECURITY)
+			if(allowed(owner))
+				active_hud = "security"
+				process_sec_hud(owner, 1)
+			else
+				active_hud = "disabled"
+		if(MED_HUDTYPE)
+			req_access = list(ACCESS_MEDICAL)
+			if(allowed(owner))
+				active_hud = "medical"
+				process_med_hud(owner, 1)
+			else
+				active_hud = "disabled"
+		else
+			active_hud = "disabled"

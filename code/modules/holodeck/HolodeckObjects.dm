@@ -6,7 +6,7 @@
 /turf/simulated/floor/holofloor
 	thermal_conductivity = 0
 
-/turf/simulated/floor/holofloor/attackby(obj/item/W as obj, mob/user as mob)
+/turf/simulated/floor/holofloor/attackby(obj/item/attacking_item, mob/user)
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
@@ -17,78 +17,73 @@
 	name = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
-	initial_flooring = /decl/flooring/carpet
-	footstep_sound = /decl/sound_category/carpet_footstep
+	initial_flooring = /singleton/flooring/carpet
+	footstep_sound = /singleton/sound_category/carpet_footstep
 
 /turf/simulated/floor/holofloor/carpet/rubber
 	name = "rubber carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "rub_carpet"
-	initial_flooring = /decl/flooring/carpet/rubber
+	initial_flooring = /singleton/flooring/carpet/rubber
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "steel"
-	initial_flooring = /decl/flooring/tiling
+	icon_state = "tiled_preview"
+	initial_flooring = /singleton/flooring/tiling
 
 /turf/simulated/floor/holofloor/tiled/ramp
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "ramptop"
-	initial_flooring = /decl/flooring/reinforced/ramp
+	initial_flooring = /singleton/flooring/reinforced/ramp
 
 /turf/simulated/floor/holofloor/tiled/ramp/bottom
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "rampbot"
-	initial_flooring = /decl/flooring/reinforced/ramp/bottom
+	initial_flooring = /singleton/flooring/reinforced/ramp/bottom
 
 /turf/simulated/floor/holofloor/tiled/dark
 	name = "dark floor"
-	icon_state = "dark"
-	initial_flooring = /decl/flooring/tiling/dark
+	icon_state = "dark_preview"
+	initial_flooring = /singleton/flooring/tiling/dark
 
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
-	icon_state = "lino_grey"
-	initial_flooring = /decl/flooring/linoleum/grey
+	icon_state = "lino_diamond"
+	initial_flooring = /singleton/flooring/linoleum/diamond
+	color = COLOR_LINOLEUM
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "wood"
-	initial_flooring = /decl/flooring/wood
+	initial_flooring = /singleton/flooring/wood
+	tile_outline = "wood"
+	tile_outline_blend_process = ICON_ADD
+	color = WOOD_COLOR_GENERIC
 
 /turf/simulated/floor/holofloor/grass
 	name = "lush grass"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
-	initial_flooring = /decl/flooring/grass
-	footstep_sound = /decl/sound_category/grass_footstep
-
-/turf/simulated/floor/holofloor/grass/alt
-	name = "lush grass"
-	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "grass_alt"
-	initial_flooring = /decl/flooring/grass/alt
+	initial_flooring = /singleton/flooring/grass
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
 	base_name = "snow"
-	icon = 'icons/turf/floors.dmi'
-	base_icon = 'icons/turf/floors.dmi'
-	icon_state = "snow"
-	base_icon_state = "snow"
-	footstep_sound = /decl/sound_category/snow_footstep
+	icon = 'icons/turf/flooring/snow.dmi'
+	icon_state = "snow0"
+	initial_flooring = /singleton/flooring/snow
 
 /turf/simulated/floor/holofloor/reinforced
 	icon = 'icons/turf/flooring/tiles.dmi'
-	initial_flooring = /decl/flooring/reinforced
+	initial_flooring = /singleton/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
-	footstep_sound = /decl/sound_category/tiles_footstep
+	footstep_sound = /singleton/sound_category/tiles_footstep
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
@@ -115,7 +110,7 @@
 	base_icon_state = "sand"
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
-	footstep_sound = /decl/sound_category/sand_footstep
+	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -125,13 +120,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
-	footstep_sound = /decl/sound_category/water_footstep
+	footstep_sound = /singleton/sound_category/water_footstep
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
-	footstep_sound = /decl/sound_category/water_footstep
+	footstep_sound = /singleton/sound_category/water_footstep
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -143,7 +138,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
-	footstep_sound = /decl/sound_category/sand_footstep
+	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
@@ -153,7 +148,7 @@
 /obj/structure/holostool
 	name = "stool"
 	desc = "Apply butt."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "stool_padded_preview"
 	anchored = 1.0
 
@@ -166,25 +161,27 @@
 /obj/structure/window/reinforced/holowindow/Destroy()
 	return ..()
 
-/obj/structure/window/reinforced/holowindow/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
+/obj/structure/window/reinforced/holowindow/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item))
+		return//I really wish I did not need this
+
+	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = attacking_item
 		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, PAIN)
+			grab_smash_attack(G, DAMAGE_PAIN)
 			return
 
-	if(W.flags & NOBLUDGEON) return
+	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
-	else if(W.iscrowbar() && reinf && state <= 1)
+	else if(attacking_item.iscrowbar() && reinf && state <= 1)
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't pry it!</span>"))
-	else if(W.iswrench() && !anchored && (!state || !reinf))
+	else if(attacking_item.iswrench() && !anchored && (!state || !reinf))
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>"))
 	else
-		if(W.damtype == BRUTE || W.damtype == BURN)
-			hit(W.force)
+		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
+			hit(attacking_item.force)
 			if(health <= 7)
 				anchored = 0
 				update_nearby_icons()
@@ -195,7 +192,7 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/shatter(var/display_message = 1)
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -207,16 +204,16 @@
 /obj/machinery/door/window/holowindoor/Destroy()
 	return ..()
 
-/obj/machinery/door/window/holowindoor/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/door/window/holowindoor/attackby(obj/item/attacking_item, mob/user)
 
 	if (src.operating == 1)
 		return
 
-	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
-		var/aforce = I.force
+	if(src.density && istype(attacking_item, /obj/item) && !istype(attacking_item, /obj/item/card))
+		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message("<span class='danger'>[src] was hit by [I].</span>")
-		if(I.damtype == BRUTE || I.damtype == BURN)
+		visible_message("<span class='danger'>[src] was hit by [attacking_item].</span>")
+		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return
 
@@ -237,7 +234,7 @@
 
 /obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
 	src.density = 0
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -248,13 +245,13 @@
 /obj/structure/bed/stool/chair/holochair/Destroy()
 	return ..()
 
-/obj/structure/bed/stool/chair/holochair/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswrench())
+/obj/structure/bed/stool/chair/holochair/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		to_chat(user, ("<span class='notice'>It's a holochair, you can't dismantle it!</span>"))
 	return
 
 /obj/item/holo
-	damtype = PAIN
+	damtype = DAMAGE_PAIN
 	no_attack_log = 1
 
 /obj/item/holo/esword
@@ -267,7 +264,7 @@
 	throw_range = 5
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'
@@ -338,20 +335,20 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
+/obj/structure/holohoop/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = attacking_item
 		if(G.state<2)
 			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 			return
 		G.affecting.forceMove(src.loc)
 		G.affecting.Weaken(5)
 		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", range = 3)
-		qdel(W)
+		qdel(attacking_item)
 		return
-	else if (istype(W, /obj/item) && get_dist(src,user)<2)
-		user.drop_from_inventory(W,get_turf(src))
-		visible_message("<span class='notice'>[user] dunks [W] into the [src]!</span>", range = 3)
+	else if (istype(attacking_item, /obj/item) && get_dist(src,user)<2)
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		visible_message("<span class='notice'>[user] dunks [attacking_item] into the [src]!</span>", range = 3)
 		return
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -385,7 +382,7 @@
 	to_chat(user, "The station AI is not to interact with these devices!")
 	return
 
-/obj/machinery/readybutton/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
 /obj/machinery/readybutton/attack_hand(mob/user as mob)

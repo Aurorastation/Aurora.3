@@ -35,7 +35,7 @@
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/item/projectile/beam/practice
 
-obj/item/gun/energy/retro
+/obj/item/gun/energy/retro
 	name = "retro laser"
 	icon = 'icons/obj/guns/retro.dmi'
 	icon_state = "retro"
@@ -169,7 +169,7 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/sniperrifle/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -228,9 +228,9 @@ obj/item/gun/energy/retro
 	turret_is_lethal = FALSE
 	turret_sprite_set = "red"
 
-/obj/item/gun/energy/lasertag/attackby(obj/item/I, mob/user)
-	if(I.ismultitool())
-		var/chosen_color = input(user, "Which color do you wish your gun to be?", "Color Selection") as null|anything in list("blue", "red")
+/obj/item/gun/energy/lasertag/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
+		var/chosen_color = tgui_input_list(user, "Which color do you wish your gun to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return
 		get_tag_color(chosen_color)

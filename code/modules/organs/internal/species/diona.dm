@@ -43,8 +43,6 @@
 	name = "nutrient channel"
 	parent_organ = BP_CHEST
 	organ_tag = "nutrient channel"
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "claw"
 
 /obj/item/organ/internal/diona/nutrients/removed()
 	return
@@ -53,8 +51,6 @@
 	name = "response node"
 	parent_organ = BP_HEAD
 	organ_tag = "response node"
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "claw"
 
 /obj/item/organ/internal/diona/node/removed()
 	return
@@ -62,5 +58,3 @@
 /obj/item/organ/internal/stomach/diona
 	name = "digestion cavity"
 	should_process_alcohol = FALSE
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "chitin"

@@ -1,4 +1,4 @@
-var/list/GPS_list = list()
+GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/device/gps
 	name = "global positioning system"
@@ -50,24 +50,24 @@ var/list/GPS_list = list()
 	update_icon()
 
 	if(held_by)
-		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+		GLOB.moved_event.register(held_by, src, PROC_REF(update_position))
 	if(implanted_into)
-		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
-	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
+		GLOB.moved_event.register(implanted_into, src, PROC_REF(update_position))
+	GLOB.moved_event.register(src, src, PROC_REF(update_position))
 
-	for(var/gps in GPS_list)
-		tracking += GPS_list[gps]["tag"]
+	for(var/gps in GLOB.gps_list)
+		tracking += GLOB.gps_list[gps]["tag"]
 
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/device/gps/Destroy()
-	GPS_list -= GPS_list[gpstag]
-	moved_event.unregister(src, src)
+	GLOB.gps_list -= GLOB.gps_list[gpstag]
+	GLOB.moved_event.unregister(src, src)
 	if(held_by)
-		moved_event.unregister(held_by, src)
+		GLOB.moved_event.unregister(held_by, src)
 		held_by = null
 	if(implanted_into)
-		moved_event.unregister(implanted_into, src)
+		GLOB.moved_event.unregister(implanted_into, src)
 		implanted_into = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -84,16 +84,16 @@ var/list/GPS_list = list()
 /obj/item/device/gps/pickup(var/mob/user)
 	..()
 	if(held_by)
-		moved_event.unregister(held_by, src)
+		GLOB.moved_event.unregister(held_by, src)
 	held_by = user
-	moved_event.register(user, src, /obj/item/device/gps/proc/update_position)
+	GLOB.moved_event.register(user, src, PROC_REF(update_position))
 	update_icon()
 
 /obj/item/device/gps/dropped(var/mob/user)
 	..()
 	if(isturf(loc))
 		held_by = null
-		moved_event.unregister(user, src)
+		GLOB.moved_event.unregister(user, src)
 	if(user.client)
 		user.client.screen -= compass
 	update_icon()
@@ -119,8 +119,10 @@ var/list/GPS_list = list()
 		R.client.screen -= compass
 
 /obj/item/device/gps/emp_act(severity)
+	. = ..()
+
 	emped = TRUE
-	addtimer(CALLBACK(src, .proc/post_emp), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(post_emp)), 30 SECONDS)
 	update_icon()
 	update_position()
 
@@ -129,122 +131,119 @@ var/list/GPS_list = list()
 	update_icon()
 	update_position()
 
-/obj/item/device/gps/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = data = list()
+/obj/item/device/gps/ui_data(mob/user)
+	var/list/data = list()
 
 	data["own_tag"] = gpstag
 
 	var/list/tracking_list = list()
 	for(var/tracking_tag in sortList(tracking))
-		if(!GPS_list[tracking_tag]) // Another GPS device has changed its tag or been destroyed
+		if(!GLOB.gps_list[tracking_tag]) // Another GPS device has changed its tag or been destroyed
 			tracking -= tracking_tag
 			continue
 
-		if(AreConnectedZLevels(loc.z, GPS_list[tracking_tag]["pos_z"]))
-			tracking_list[tracking_tag] = (GPS_list[tracking_tag])
+		if(AreConnectedZLevels(loc.z, GLOB.gps_list[tracking_tag]["pos_z"]))
+			tracking_list += list(list("tag" = tracking_tag , "gps" = (GLOB.gps_list[tracking_tag])))
 
 	data["tracking_list"] = tracking_list
 	data["compass_list"] = tracking_compass
 
-	return data // should update constantly
+	return data
 
 /obj/item/device/gps/attack_self(mob/user)
 	if(!emped)
 		ui_interact(user)
 
-/obj/item/device/gps/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "devices-gps-gps", 460, 600, capitalize(name))
-		ui.auto_update_content = TRUE
-	ui.open()
+/obj/item/device/gps/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "GPS", capitalize_first_letters(name), 460, 600)
+		ui.open()
 
 /obj/item/device/gps/process()
 	if(held_by || implanted_into || (world.time < last_process + process_interval))
 		return
 	update_position(FALSE)
 
-/obj/item/device/gps/Topic(href, href_list)
-	..()
+/obj/item/device/gps/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["tag"])
-		var/set_tag = uppertext(copytext(sanitize(href_list["tag"]), 1, 8))
+	switch(action)
+		if("tag")
+			var/set_tag = uppertext(copytext(sanitize(params["tag"]), 1, 8))
 
-		var/was_tracked // If we were tracking this, we want to keep it on the list with its new tag
-		if(gpstag in tracking)
-			was_tracked = TRUE
-			tracking -= gpstag
+			var/was_tracked // If we were tracking this, we want to keep it on the list with its new tag
+			if(gpstag in tracking)
+				was_tracked = TRUE
+				tracking -= gpstag
 
-		if(loc == usr)
-			if(!GPS_list[set_tag])
-				GPS_list -= gpstag
-				gpstag = set_tag
-				name = "global positioning system ([gpstag])"
+			if(loc == usr)
+				if(!GLOB.gps_list[set_tag])
+					GLOB.gps_list -= gpstag
+					gpstag = set_tag
+					name = "global positioning system ([gpstag])"
+					ui.title = capitalize_first_letters(name)
 
-				var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-				if(ui)
-					ui.title = capitalize(name)
+					update_position()
 
-				update_position()
+					if(was_tracked)
+						tracking |= gpstag
+				else
+					to_chat(usr, SPAN_WARNING("This GPS tag already assigned, please choose another."))
 
-				if(was_tracked)
-					tracking |= gpstag
+			return TRUE
+
+		if("add_tag")
+			var/new_tag = uppertext(copytext(sanitize(params["add_tag"]), 1, 8))
+
+			if(GLOB.gps_list[new_tag])
+				tracking |= new_tag
+				update_compass(TRUE)
 			else
-				to_chat(usr, SPAN_WARNING("GPS tag already assigned, choose another."))
+				to_chat(usr, SPAN_WARNING("That GPS tag could not be located."))
 
-		return TRUE
+			return TRUE
 
-	if(href_list["add_tag"])
-		var/new_tag = uppertext(copytext(sanitize(href_list["add_tag"]), 1, 8))
-
-		if(GPS_list[new_tag])
-			tracking |= new_tag
+		if("remove_tag")
+			tracking -= params["remove_tag"]
 			update_compass(TRUE)
-		else
-			to_chat(usr, "Could not locate GPS tag.")
+			return TRUE
 
-		return TRUE
+		if("add_all")
+			tracking.Cut()
+			for(var/gps in GLOB.gps_list)
+				tracking += GLOB.gps_list[gps]["tag"]
+			update_compass(TRUE)
+			return TRUE
 
-	if(href_list["remove_tag"])
-		tracking -= href_list["remove_tag"]
-		update_compass(TRUE)
-		return TRUE
+		if("clear_all")
+			tracking.Cut()
+			tracking |= gpstag // always want to track ourselves
+			update_compass(TRUE)
+			return TRUE
 
-	if(href_list["add_all"])
-		tracking.Cut()
-		for(var/gps in GPS_list)
-			tracking += GPS_list[gps]["tag"]
-		update_compass(TRUE)
-		return TRUE
-
-	if(href_list["clear_all"])
-		tracking.Cut()
-		tracking |= gpstag // always want to track ourselves
-		update_compass(TRUE)
-		return TRUE
-
-	if(href_list["compass"])
-		var/tracking_tag = href_list["compass"]
-		if(LAZYISIN(tracking_compass, tracking_tag))
-			LAZYREMOVE(tracking_compass, tracking_tag)
-		else
-			LAZYADD(tracking_compass, tracking_tag)
-		update_compass(TRUE)
-		return TRUE
+		if("compass")
+			var/tracking_tag = params["compass"]
+			if(LAZYISIN(tracking_compass, tracking_tag))
+				LAZYREMOVE(tracking_compass, tracking_tag)
+			else
+				LAZYADD(tracking_compass, tracking_tag)
+			update_compass(TRUE)
+			return TRUE
 
 	return FALSE
 
 /obj/item/device/gps/proc/update_position(var/check_held_by = TRUE)
 	var/turf/T = get_turf(src)
 	if(check_held_by && held_by && (held_by.x != T.x || held_by.y != T.y || held_by.z != T.z) && held_by != recursive_loc_turf_check(src, 3, held_by))
-		moved_event.unregister(held_by, src)
+		GLOB.moved_event.unregister(held_by, src)
 		held_by = null
 		update_icon()
 		return
 	var/area/gpsarea = get_area(src)
-	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped, "compass_color" = compass_color)
-	SSvueui.check_uis_for_change(src)
+	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped, "compass_color" = compass_color)
 	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
 		update_compass(TRUE)
 
@@ -252,15 +251,15 @@ var/list/GPS_list = list()
 	compass.hide_waypoints(FALSE)
 	if(LAZYLEN(tracking_compass))
 		for(var/tracking_tag in tracking_compass - gpstag)
-			if(!GPS_list[tracking_tag])
+			if(!GLOB.gps_list[tracking_tag])
 				continue
 			if(!(tracking_tag in tracking))
 				continue
-			if(GPS_list[tracking_tag]["pos_x"] == GPS_list[gpstag]["pos_x"] && GPS_list[tracking_tag]["pos_y"] == GPS_list[gpstag]["pos_y"])
+			if(GLOB.gps_list[tracking_tag]["pos_x"] == GLOB.gps_list[gpstag]["pos_x"] && GLOB.gps_list[tracking_tag]["pos_y"] == GLOB.gps_list[gpstag]["pos_y"])
 				continue
-			compass.set_waypoint(tracking_tag, tracking_tag, GPS_list[tracking_tag]["pos_x"], GPS_list[tracking_tag]["pos_y"], GPS_list[tracking_tag]["pos_z"], GPS_list[tracking_tag]["compass_color"])
+			compass.set_waypoint(tracking_tag, tracking_tag, GLOB.gps_list[tracking_tag]["pos_x"], GLOB.gps_list[tracking_tag]["pos_y"], GLOB.gps_list[tracking_tag]["pos_z"], GLOB.gps_list[tracking_tag]["compass_color"])
 			var/turf/origin = get_turf(src)
-			if(!emped && !GPS_list[tracking_tag]["emped"] && origin.z == GPS_list[tracking_tag]["pos_z"])
+			if(!emped && !GLOB.gps_list[tracking_tag]["emped"] && origin.z == GLOB.gps_list[tracking_tag]["pos_z"])
 				compass.show_waypoint(tracking_tag)
 	compass.rebuild_overlay_lists(update_compass_icon)
 
@@ -270,7 +269,7 @@ var/list/GPS_list = list()
 
 	. = "[gps_prefix][gps_count[gps_prefix]++]"
 
-	if(GPS_list[.]) // if someone has renamed a GPS manually to take this tag already
+	if(GLOB.gps_list[.]) // if someone has renamed a GPS manually to take this tag already
 		. = next_initial_tag()
 
 /obj/item/device/gps/science
@@ -321,6 +320,12 @@ var/list/GPS_list = list()
 	gpstag = "STAT0"
 
 /obj/item/device/gps/stationary/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	compass = new(src)
 	update_position()
 
@@ -341,15 +346,17 @@ var/list/GPS_list = list()
 	update_icon()
 
 	if(held_by)
-		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+		GLOB.moved_event.register(held_by, src, PROC_REF(update_position))
 	if(implanted_into)
-		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
-	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
+		GLOB.moved_event.register(implanted_into, src, PROC_REF(update_position))
+	GLOB.moved_event.register(src, src, PROC_REF(update_position))
 
-	for(var/gps in GPS_list)
-		tracking += GPS_list[gps]["tag"]
+	for(var/gps in GLOB.gps_list)
+		tracking += GLOB.gps_list[gps]["tag"]
 
 	START_PROCESSING(SSprocessing, src)
+
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
 	return
@@ -371,4 +378,12 @@ var/list/GPS_list = list()
 	gps_prefix = "COM"
 	compass_color = "#193A7A"
 	gpstag = "INTREPID"
+
+/obj/item/device/gps/stationary/sccv_canary
+	name = "static GPS (SCCV Canary)"
+	desc = "A static global positioning system helpful for finding your way back to the SCCV Canary."
+	icon_state = "gps-com"
+	gps_prefix = "COM"
+	compass_color = "#57c5e0"
+	gpstag = "CANARY"
 /********** Static GPS End **********/

@@ -1,0 +1,147 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"o" = (
+/obj/structure/flora/bush/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"s" = (
+/obj/item/flame/candle{
+	start_lit = 1;
+	pixel_y = 12;
+	pixel_x = -9
+	},
+/obj/item/flame/candle{
+	start_lit = 1;
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_x = -12
+	},
+/obj/item/reagent_containers/food/snacks/meat/adhomai{
+	pixel_y = -3;
+	pixel_x = 13
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug{
+	pixel_y = -5
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"u" = (
+/obj/structure/rredouane_statue,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"x" = (
+/obj/structure/flora/tree/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"J" = (
+/obj/item/storage/pill_bottle/dice/tajara{
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"K" = (
+/obj/structure/flora/grass/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"N" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"P" = (
+/obj/structure/flora/rock/adhomai,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"T" = (
+/obj/item/deck/cards{
+	pixel_y = 10;
+	pixel_x = -10
+	},
+/obj/item/deck/tarot/adhomai{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+N
+N
+N
+N
+N
+N
+x
+"}
+(2,1,1) = {"
+N
+P
+N
+N
+N
+K
+N
+"}
+(3,1,1) = {"
+N
+N
+N
+J
+N
+N
+N
+"}
+(4,1,1) = {"
+N
+o
+N
+u
+s
+N
+N
+"}
+(5,1,1) = {"
+N
+N
+N
+N
+T
+N
+N
+"}
+(6,1,1) = {"
+N
+N
+x
+N
+N
+N
+P
+"}
+(7,1,1) = {"
+N
+K
+N
+N
+K
+N
+N
+"}

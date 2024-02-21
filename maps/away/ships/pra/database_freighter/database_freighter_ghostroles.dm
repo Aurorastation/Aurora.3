@@ -21,7 +21,7 @@
 	name = "Database Freighter Surveyor"
 
 	id = /obj/item/card/id
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/database_freighter
 	l_ear = /obj/item/device/radio/headset/ship
@@ -31,7 +31,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/database_freighter_crew/get_id_access()
-	return list(access_pra, access_external_airlocks)
+	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/database_freighter_crew/captain
 	short_name = "database_freighter_captain"

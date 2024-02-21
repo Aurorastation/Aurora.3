@@ -16,6 +16,8 @@
 	special_role = "SFA Navy Crewman"
 	respawn_flag = null
 
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
+
 
 /datum/outfit/admin/sfa_navy_crewman
 	name = "SFA Navy Crewman"
@@ -34,7 +36,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/sfa_navy_crewman/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sfa_navy_officer
 	short_name = "sfa_navy_officer"
@@ -54,6 +56,8 @@
 	special_role = "SFA Navy Officer"
 	respawn_flag = null
 
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
+
 
 /datum/outfit/admin/sfa_navy_officer
 	name = "SFA Navy Officer"
@@ -71,7 +75,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/sfa_navy_officer/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sfa_marine
 	short_name = "sfa_marine"
@@ -91,6 +95,8 @@
 	special_role = "SFA Marine"
 	respawn_flag = null
 
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
+
 
 /datum/outfit/admin/sfa_marine
 	name = "SFA Marine"
@@ -109,10 +115,10 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/sfa_marine/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 
 /obj/item/card/id/sfa_ship
 	name = "sfa patrol ship id"
-	access = list(access_sol_ships, access_external_airlocks)
+	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)

@@ -51,7 +51,7 @@
 		add_to_openlist(next.x+2,next.y,next.x,next.y)
 		add_to_openlist(next.x,next.y-2,next.x,next.y)
 
-	 // Cleanup. Map stays in memory for display proc.
+	// Cleanup. Map stays in memory for display proc.
 	checked_coord_cache.Cut()
 	openlist.Cut()
 	closedlist.Cut()

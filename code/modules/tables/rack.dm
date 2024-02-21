@@ -1,7 +1,7 @@
 /obj/structure/table/rack
 	name = "rack"
 	desc = "Different from the Middle Ages version."
-	icon = 'icons/obj/tables.dmi'
+	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "rack"
 	build_amt = 1
 	can_plate = 0
@@ -28,6 +28,22 @@
 
 /obj/structure/table/rack/no_cargo
 	no_cargo = TRUE
+
+/obj/structure/table/rack/clothing
+	name = "clothing rack"
+	desc = "A mighty rack, suitable for grabbing and pushing. It's quite mobile."
+	icon_state = "clothes_rack"
+
+/obj/structure/table/rack/retail_shelf
+	name = "retail shelves"
+	desc = "A large, assorted shelf with many platforms for setting things upon."
+	icon_state = "shelf"
+
+/obj/structure/table/rack/cafe_table
+	name = "round cafe table"
+	desc = "A wood table with soft, rounded edges."
+	icon_state = "cafe"
+	table_mat = MATERIAL_WOOD
 
 /obj/structure/table/rack/holorack/dismantle(obj/item/wrench/W, mob/user)
 	to_chat(user, SPAN_WARNING("You cannot dismantle \the [src]."))

@@ -31,7 +31,6 @@
 	minbodytemp = 0
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/cosmozoan/Initialize()
@@ -40,7 +39,7 @@
 
 // run away when attacked
 /mob/living/simple_animal/cosmozoan/handle_attack_by(var/mob/M)
-	var/list/valid_dirs = alldirs.Copy()
+	var/list/valid_dirs = GLOB.alldirs.Copy()
 	valid_dirs -= get_dir(src, M)
 	var/turf/target_turf = get_ranged_target_turf(src, pick(valid_dirs), 5)
 	if(target_turf)

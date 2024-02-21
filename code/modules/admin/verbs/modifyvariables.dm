@@ -1,16 +1,9 @@
-var/list/forbidden_varedit_object_types = list(
-	/datum/admins,						//Admins editing their own admin-power object? Yup, sounds like a good idea.
-	/datum/controller/subsystem/statistics,	//Prevents people messing with feedback gathering
-	/datum/feedback_variable,			//Prevents people messing with feedback gathering
-	/datum/discord_bot					//Nope.jpg. Stop it.
-)
-
 var/list/VVlocked = list("vars", "holder", "client", "virus", "viruses", "cuffed", "last_eaten", "unlock_content", "bound_x", "bound_y", "step_x", "step_y", "force_ending")
 var/list/VVicon_edit_lock = list("icon", "icon_state", "overlays", "underlays")
 var/list/VVckey_edit = list("key", "ckey")
 
 // The paranoia box. Specify a var name => bitflags required to edit it.
-// Allows the securing of specific variables for, for example, config. That alter
+// Allows the securing of specific variables for, for example, GLOB.config. That alter
 // how players could join! Definitely not something you want folks to touch if they
 // don't have the perms.
 var/list/VVdynamic_lock = list(
@@ -310,11 +303,10 @@ var/list/VVdynamic_lock = list(
 			mod_list(variable, O, original_name, objectvar)
 
 		if("restore to default")
-			new_var = initial(variable)
 			if(assoc)
-				L[assoc_key] = new_var
+				L[assoc_key] = variable
 			else
-				L[L.Find(variable)] = new_var
+				L[L.Find(variable)] = variable
 
 		if("edit referenced object")
 			modify_variables(variable)
@@ -407,13 +399,12 @@ var/list/VVdynamic_lock = list(
 /client/proc/modify_variables(var/atom/O, var/param_var_name = null, var/autodetect_class = 0)
 	if(!check_rights(R_VAREDIT|R_DEV))	return
 
-	for(var/p in forbidden_varedit_object_types)
-		if( istype(O,p) )
-			to_chat(usr, "<span class='danger'>It is forbidden to edit this object's variables.</span>")
-			return
-
 	if(istype(O, /client) && (param_var_name == "ckey" || param_var_name == "key"))
 		to_chat(usr, "<span class='danger'>You cannot edit ckeys on client objects.</span>")
+		return
+
+	if(!O.can_vv_get(param_var_name))
+		to_chat(src, SPAN_WARNING("You cannot edit this variable."))
 		return
 
 	var/class
@@ -486,7 +477,8 @@ var/list/VVdynamic_lock = list(
 		names = sortList(names)
 
 		variable = input("Which var?","Var") as null|anything in names
-		if(!variable)	return
+		if(!variable)
+			return
 		var_value = O.vars[variable]
 
 		if(variable in VVlocked)
@@ -597,28 +589,47 @@ var/list/VVdynamic_lock = list(
 
 		if("text")
 			var/var_new = input("Enter new text:","Text",O.vars[variable]) as null|text
-			if(var_new==null) return
-			O.vars[variable] = var_new
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 
 		if("num")
 			if(variable=="light_range")
 				var/var_new = input("Enter new number:","Num",O.vars[variable]) as null|num
-				if(var_new == null) return
+				if(var_new == null)
+					return
+
+				if(!O.can_vv_get(variable))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
+
 				O.set_light(var_new)
 			else if(variable=="stat")
 				var/var_new = input("Enter new number:","Num",O.vars[variable]) as null|num
-				if(var_new == null) return
-				if((O.vars[variable] == 2) && (var_new < 2))//Bringing the dead back to life
-					dead_mob_list -= O
-					living_mob_list += O
-				if((O.vars[variable] < 2) && (var_new == 2))//Kill he
-					living_mob_list -= O
-					dead_mob_list += O
-				O.vars[variable] = var_new
+				if(var_new == null)
+					return
+
+				if(!O.vv_edit_var(variable, var_new))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
+
+				if((O.vars[variable] == DEAD) && (var_new < DEAD))//Bringing the dead back to life
+					GLOB.dead_mob_list -= O
+					GLOB.living_mob_list += O
+				if((O.vars[variable] < DEAD) && (var_new == DEAD))//Kill he
+					GLOB.living_mob_list -= O
+					GLOB.dead_mob_list += O
 			else
 				var/var_new =  input("Enter new number:","Num",O.vars[variable]) as null|num
-				if(var_new==null) return
-				O.vars[variable] = var_new
+				if(var_new==null)
+					return
+
+				if(!O.vv_edit_var(variable, var_new))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
 
 		if("type")
 			var/object = input("Enter typepath:","Type",O.vars[variable]) as null|text
@@ -642,30 +653,53 @@ var/list/VVdynamic_lock = list(
 			else
 				var_new = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
 
-			if(var_new==null) return
-			O.vars[variable] = var_new
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 
 		if("reference")
 			var/var_new = input("Select reference:","Reference",O.vars[variable]) as null|mob|obj|turf|area in world
-			if(var_new==null) return
-			O.vars[variable] = var_new
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 
 		if("mob reference")
 			var/var_new = input("Select reference:","Reference",O.vars[variable]) as null|mob in world
 			if(var_new==null) return
-			O.vars[variable] = var_new
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 
 		if("file")
 			var/var_new = input("Pick file:","File",O.vars[variable]) as null|file
-			if(var_new==null) return
-			O.vars[variable] = var_new
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 
 		if("icon")
 			var/var_new = input("Pick icon:","Icon",O.vars[variable]) as null|icon
-			if(var_new==null) return
-			O.vars[variable] = var_new
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 
 		if("marked datum")
+			if(!O.can_vv_get(variable))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = holder.marked_datum
 
 	world.log <<  "### VarEdit by [src]: [O.type] [variable]=[html_encode("[O.vars[variable]]")]"

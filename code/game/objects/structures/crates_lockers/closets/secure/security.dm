@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/captains
 	name = "captain's locker"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains/fill()
@@ -12,12 +12,12 @@
 	new /obj/item/storage/backpack/duffel/cap(src)
 	// Armor
 	new /obj/item/clothing/head/helmet(src)
-	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
 	new /obj/item/device/megaphone/command(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
 	// uniform briefcases
@@ -28,7 +28,7 @@
 
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains2/fill()
@@ -40,7 +40,7 @@
 	new /obj/item/clothing/head/bandana/captain(src)
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/suit/storage/vest(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/gloves/captain(src)
 	new /obj/item/clothing/under/dress/dress_cap(src)
 	new /obj/item/clothing/head/helmet/formalcaptain(src)
@@ -48,7 +48,7 @@
 
 /obj/structure/closet/secure_closet/xo
 	name = "executive officer's locker"
-	req_access = list(access_hop)
+	req_access = list(ACCESS_HOP)
 	icon_state = "sec"
 	icon_door = "hop"
 
@@ -61,7 +61,7 @@
 	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	//Tools
@@ -69,31 +69,32 @@
 	new /obj/item/device/radio/headset/heads/xo/alt(src)
 	new /obj/item/device/megaphone/command(src)
 	new /obj/item/storage/box/goldstar(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
 /obj/structure/closet/secure_closet/xo2
 	name = "executive officer's attire"
-	req_access = list(access_hop)
+	req_access = list(ACCESS_HOP)
 	icon_state = "sec"
 	icon_door = "hop"
 
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
+	new /obj/item/clothing/head/caphat/xo(src)
 	new /obj/random/suit(src)
 	new /obj/random/suit(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
-	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/shoes/sneakers(src)
 	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
 	new /obj/item/clothing/gloves/captain/white/xo(src)
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
-	req_access = list(access_hos)
+	req_access = list(ACCESS_HOS)
 	icon_state = "hos"
 
 /obj/structure/closet/secure_closet/hos/fill()
@@ -101,6 +102,7 @@
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/ids(src)
+	new /obj/item/storage/box/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -112,7 +114,6 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
@@ -125,7 +126,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 	new /obj/item/shield/riot/tact(src)
 	new /obj/item/melee/telebaton(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/breath_analyzer(src)
 	new /obj/item/crowbar/red(src)
@@ -137,7 +138,7 @@
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
-	req_access = list(access_hos)
+	req_access = list(ACCESS_HOS)
 	icon_state = "hos"
 
 /obj/structure/closet/secure_closet/hos2/fill()
@@ -162,7 +163,7 @@
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
 	icon_state = "warden"
 
 /obj/structure/closet/secure_closet/warden/fill()
@@ -170,6 +171,7 @@
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/teargas(src)
+	new /obj/item/storage/box/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -181,7 +183,6 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -205,7 +206,7 @@
 
 /obj/structure/closet/secure_closet/security_cadet
 	name = "security cadet's locker"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	icon_state = "sec"
 	icon_door = "seccadet"
 
@@ -235,7 +236,7 @@
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
-	req_access = list(access_brig)
+	req_access = list(ACCESS_BRIG)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/security/fill()
@@ -264,12 +265,13 @@
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/modular(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
 
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"
-	req_access = list(access_forensics_lockers)
+	req_access = list(ACCESS_FORENSICS_LOCKERS)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/investigator/fill()
@@ -281,8 +283,7 @@
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/gloves/black/forensic(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
@@ -295,13 +296,16 @@
 	new /obj/item/device/camera/detective(src)
 	new /obj/item/device/camera_film(src)
 	new /obj/item/stamp/investigations(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 
 /obj/structure/closet/secure_closet/injection/fill()
 	new /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral(src)
@@ -311,32 +315,32 @@
 // These are special snowflakes that need to be in a global list.
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
-	req_access = list(access_brig)
+	req_access = list(ACCESS_BRIG)
 	anchored = TRUE
 	canbemoved = TRUE
 	var/id = null
 
 /obj/structure/closet/secure_closet/brig/Initialize()
 	. = ..()
-	brig_closets += src
+	GLOB.brig_closets += src
 
 /obj/structure/closet/secure_closet/brig/Destroy()
-	brig_closets -= src
+	GLOB.brig_closets -= src
 	return ..()
 
 /obj/structure/closet/secure_closet/brig/fill()
 	new /obj/item/clothing/under/color/orange( src )
-	new /obj/item/clothing/shoes/orange( src )
+	new /obj/item/clothing/shoes/sneakers/orange( src )
 
 /obj/structure/closet/secure_closet/courtroom
 	name = "courtroom locker"
-	req_access = list(access_lawyer)
+	req_access = list(ACCESS_LAWYER)
 
 /obj/structure/closet/secure_closet/courtroom/fill()
 	..()
 	//Appearance
 	new /obj/item/clothing/head/powdered_wig (src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/suit/judgerobe (src)
 	//Tools
 	new /obj/item/paper/Court (src)
@@ -347,13 +351,14 @@
 
 /obj/structure/closet/secure_closet/bridge_crew
 	name = "bridge crew's locker"
-	req_access = list(access_bridge_crew)
+	req_access = list(ACCESS_BRIDGE_CREW)
 	icon_state = "sec"
 	icon_door = "hop"
 
 /obj/structure/closet/secure_closet/bridge_crew/fill()
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
+	new /obj/item/clothing/head/caphat/bridge_crew(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
@@ -367,11 +372,11 @@
 	name = "evidence storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_one_access = list(access_brig, access_armory, access_forensics_lockers)
+	req_one_access = list(ACCESS_BRIG, ACCESS_ARMORY, ACCESS_FORENSICS_LOCKERS)
 
 // Contraband Storage Locker
 /obj/structure/closet/secure_closet/contraband
 	name = "contraband weapons and ammunition storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)

@@ -69,15 +69,15 @@
 	else
 		..()
 
-/obj/singularity/energy_ball/examine(mob/user)
-	..()
+/obj/singularity/energy_ball/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(orbiting_balls.len)
-		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
+		. +=  "There are [orbiting_balls.len] energy balls orbiting \the [src]."
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
 
-	var/list/valid_directions = alldirs.Copy()
+	var/list/valid_directions = GLOB.alldirs.Copy()
 
 	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
 	if(can_zmove && prob(10))
@@ -127,10 +127,10 @@
 				zMove(DOWN)
 				visible_message(SPAN_DANGER("\The [src] gravitates from above!"))
 
-		if(dir in alldirs)
+		if(dir in GLOB.alldirs)
 			dir = move_dir
 		else
-			dir = pick(alldirs)
+			dir = pick(GLOB.alldirs)
 
 		for(var/mob/living/carbon/C in loc)
 			dust_mobs(C)
@@ -157,7 +157,7 @@
 		energy_to_raise = energy_to_raise * 1.25
 
 		playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 30)
-		addtimer(CALLBACK(src, .proc/new_mini_ball), 100)
+		addtimer(CALLBACK(src, PROC_REF(new_mini_ball)), 100)
 
 	else if(energy < energy_to_lower && orbiting_balls.len)
 		energy_to_raise = energy_to_raise / 1.25
@@ -314,8 +314,8 @@
 	var/beam_range = zap_range + 2
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, beam_range), things_to_shock, blacklisted_types))
 
-		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))
-			var/obj/machinery/power/singularity_beacon/emergency/E = A
+		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/tesla_beacon))
+			var/obj/machinery/power/tesla_beacon/E = A
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return
@@ -430,7 +430,7 @@
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob
 			if(stun_mobs)
-				S.emp_act(2)
+				S.emp_act(EMP_LIGHT)
 			tesla_zap(S, 7, power / 1.5, explosive, stun_mobs) // metallic folks bounce it further
 		else
 			tesla_zap(closest_mob, 5, power / 1.5, explosive, stun_mobs)
@@ -440,3 +440,6 @@
 
 	else if(closest_structure)
 		closest_structure.tesla_act(power, melt)
+
+#undef TESLA_DEFAULT_POWER
+#undef TESLA_MINI_POWER

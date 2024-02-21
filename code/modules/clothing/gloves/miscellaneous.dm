@@ -67,9 +67,9 @@
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
 
-/obj/item/clothing/gloves/latex/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = O
+/obj/item/clothing/gloves/latex/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(C.use(1))
 			var/obj/item/L = new src.balloon
 			user.drop_from_inventory(L,get_turf(src))
@@ -215,7 +215,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -246,7 +246,7 @@
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
 		var/T = get_turf(user)
-		spark(T, 3, alldirs)
+		spark(T, 3, GLOB.alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
@@ -277,8 +277,22 @@
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
 	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "starmittens"
 	item_state = "starmittens"
+	build_from_parts = TRUE
+	worn_overlay = "over"
+
+/obj/item/clothing/gloves/tcaf
+	name = "\improper TCAF armsman gloves"
+	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
+	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	contained_sprite = TRUE
+	icon_state = "tcaf_armsman_gloves"
+	item_state = "tcaf_armsman_gloves"
+	build_from_parts = TRUE
+	worn_overlay = "over"
 
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
@@ -318,17 +332,17 @@
 
 	if(user.a_intent == I_HURT)
 		if(mounted)
-			spark(user, 3, alldirs)
+			spark(user, 3, GLOB.alldirs)
 			mounted.Fire(L, user)
 
-/obj/item/clothing/gloves/ballistic/attackby(obj/item/W, mob/user)
+/obj/item/clothing/gloves/ballistic/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(mounted)
-		mounted.load_ammo(W, user)
+		mounted.load_ammo(attacking_item, user)
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()
-	set name = "Unload Ballistic Gauntlet "
+	set name = "Unload Ballistic Gauntlet"
 	set desc = "Unload the shells from the gauntlet's mounted gun."
 	set category = "Object"
 	set src in usr
@@ -380,23 +394,23 @@
 			if(iscarbon(A))
 				var/mob/living/carbon/L = A
 				L.electrocute_act(20,src, 1, user.zone_sel.selecting)
-				spark(src, 3, alldirs)
+				spark(src, 3, GLOB.alldirs)
 				charged = FALSE
 				update_icon()
 				user.update_inv_gloves()
-				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(rearm)), 10 SECONDS)
 
 		else
 			var/turf/T = get_turf(user)
 			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
 			var/obj/item/projectile/beam/tesla/LE = new (T)
 			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)
 			charged = FALSE
 			update_icon()
 			user.update_inv_gloves()
-			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
 	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))

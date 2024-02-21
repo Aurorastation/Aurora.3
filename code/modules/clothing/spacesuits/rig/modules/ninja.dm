@@ -43,7 +43,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	to_chat(H, SPAN_NOTICE("<b>You are now invisible to normal detection.</b>"))
-	H.invisibility = INVISIBILITY_LEVEL_TWO
+	H.set_invisibility(INVISIBILITY_LEVEL_TWO)
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)
 
@@ -56,7 +56,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	to_chat(H, SPAN_NOTICE("<b>You are now visible.</b>"))
-	H.invisibility = FALSE
+	H.set_invisibility(0)
 
 	anim(get_turf(H), H, 'icons/mob/mob.dmi', ,"uncloak", , H.dir)
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)
@@ -96,7 +96,7 @@
 	if(!M || !T)
 		return
 
-	playsound(T, /decl/sound_category/spark_sound, 50, 1)
+	playsound(T, /singleton/sound_category/spark_sound, 50, 1)
 	new phase_out_visual(T, M.dir)
 
 /obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)
@@ -303,7 +303,7 @@
 	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 	holder.cell.give(generation_amount)
 	cooldown = 1
-	addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/rig_module/emergency_powergenerator, reset_cooldown)), 2 MINUTES)
 	return TRUE
 
 /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()

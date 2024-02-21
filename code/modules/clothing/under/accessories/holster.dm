@@ -6,6 +6,7 @@
 	desc = "A handgun holster."
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "holster"
+	item_state = "holster"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY
 	var/obj/item/holstered = null
@@ -88,20 +89,21 @@
 
 	..(user)
 
-/obj/item/clothing/accessory/holster/attackby(obj/item/W, mob/user)
-	holster(W, user)
+/obj/item/clothing/accessory/holster/attackby(obj/item/attacking_item, mob/user)
+	holster(attacking_item, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)
+	. = ..()
+
 	if (holstered)
 		holstered.emp_act(severity)
-	..()
 
-/obj/item/clothing/accessory/holster/examine(mob/user)
-	..(user)
+/obj/item/clothing/accessory/holster/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (holstered)
-		to_chat(user, "A [holstered] is holstered here.")
+		. += "A [holstered] is holstered here."
 	else
-		to_chat(user, "It is empty.")
+		. += "It is empty."
 
 /obj/item/clothing/accessory/holster/on_attached(obj/item/clothing/under/S, mob/user)
 	..()
@@ -141,50 +143,73 @@
 	else
 		H.unholster(usr)
 
+/*###################
+	Holster Subtypes
+###################*/
+
 /obj/item/clothing/accessory/holster/armpit
 	name = "black armpit holster"
 	desc = "A worn-out handgun holster. Mostly seen in cheesy cop flicks, used to keep the actor's face in the shot."
 	icon_state = "holster"
+	item_state = "holster"
 
 /obj/item/clothing/accessory/holster/waist
 	name = "black waist holster"
 	desc = "A handgun holster, made of expensive leather. Can possibly be concealed under a shirt, albeit a little archaic."
 	icon_state = "holster_low"
+	item_state = "holster_low"
 
 /obj/item/clothing/accessory/holster/hip
 	name = "black hip holster"
 	desc = "A black firearm hip holster."
 	icon_state = "holster_hip"
+	item_state = "holster_hip"
 
 /obj/item/clothing/accessory/holster/thigh
 	name = "black thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."
 	icon_state = "holster_thigh"
+	item_state = "holster_thigh"
 	sound_in = 'sound/weapons/holster/tactiholsterin.ogg'
 	sound_out = 'sound/weapons/holster/tactiholsterout.ogg'
 
 /obj/item/clothing/accessory/holster/armpit/brown
 	name = "brown armpit holster"
 	icon_state = "holster_brown"
+	item_state = "holster_brown"
 
 /obj/item/clothing/accessory/holster/waist/brown
 	name = "brown waist holster"
 	icon_state = "holster_brown_low"
+	item_state = "holster_brown_low"
 
 /obj/item/clothing/accessory/holster/hip/brown
 	name = "brown hip holster"
 	icon_state = "holster_brown_hip"
+	item_state = "holster_brown_hip"
 
 /obj/item/clothing/accessory/holster/thigh/brown
 	name = "brown thigh holster"
 	icon_state = "holster_brown_thigh"
+	item_state = "holster_brown_thigh"
 
-/********** Utility Holsters Start **********/
+/obj/item/clothing/accessory/holster/modular
+	name = "plate carrier holster"
+	desc = "A special holster with rigging able to attach to modern modular plate carriers."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "modular_holster"
+	item_state = "modular_holster"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	flippable = FALSE
+
+/*##### Utility Holsters Start #####*/
 // Utility Holster
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
 	desc = "A utility holster."
-
+	icon_state = "holster"
+	item_state = "holster"
 	var/list/allowed_items = list() // A list of allowed items.
 
 /obj/item/clothing/accessory/holster/utility/holster(var/obj/item/I, var/mob/living/user)
@@ -221,4 +246,17 @@
 	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
 	icon_state = "holster_brown_hip"
 	item_state = "holster_brown_hip"
+
+/obj/item/clothing/accessory/holster/utility/machete
+	name = "machete sheath"
+	desc = "A handsome synthetic leather sheath with matching belt."
+	icon_state = "holster_machete"
+	item_state = "thigh_brown"
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
+	allowed_items = list(
+		/obj/item/material/hatchet/machete,
+		/obj/item/material/hatchet/machete/deluxe,
+		/obj/item/material/hatchet/machete/unbreakable,
+		/obj/item/material/hatchet/machete/steel
+	)
 /********** Utility Holsters End **********/

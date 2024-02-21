@@ -8,6 +8,7 @@
 	var/net_type = /obj/effect/energy_net
 
 /obj/item/energy_net/dropped()
+	. = ..()
 	if(!QDELETED(src))
 		QDEL_IN(src, 1)
 
@@ -41,6 +42,7 @@
 	density = TRUE
 	opacity = FALSE
 	anchored = TRUE
+	mouse_opacity = MOUSE_OPACITY_ICON
 
 	var/health = 50
 	var/mob/living/affecting = null //Who it is currently affecting, if anyone.
@@ -94,7 +96,7 @@
 			health -= rand(10, 20)
 		else
 			health -= rand(1, 3)
-	else if (HULK in user.mutations)
+	else if ((user.mutations & HULK))
 		health = 0
 	else
 		health -= rand(5, 8)
@@ -102,9 +104,9 @@
 	user.visible_message(SPAN_WARNING("\The [user] claws at \the [src]!"), SPAN_WARNING("You claw at \the [src]!"))
 	health_check()
 
-/obj/effect/energy_net/attackby(obj/item/W, mob/user)
-	user.do_attack_animation(src, W)
-	var/attack_force = W.force
+/obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
+	user.do_attack_animation(src, attacking_item)
+	var/attack_force = attacking_item.force
 	if(user == affecting)
 		attack_force /= 2
 	health -= attack_force
@@ -125,8 +127,8 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 
 /obj/item/banhammer
 	desc = "banhammer"

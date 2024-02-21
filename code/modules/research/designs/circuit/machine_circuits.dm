@@ -236,3 +236,8 @@
 	name = "IV drip"
 	req_tech = list(TECH_DATA = 1, TECH_BIO = 2)
 	build_path = /obj/item/circuitboard/iv_drip
+
+/datum/design/circuit/oxyregenerator
+	name = "oxygen regenerator"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/oxyregenerator

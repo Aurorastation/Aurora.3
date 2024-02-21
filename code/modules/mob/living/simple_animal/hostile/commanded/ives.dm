@@ -20,12 +20,16 @@
 
 	speak_chance = 1
 	turns_per_move = 7
-	see_in_dark = 6
 
 	speak = list("Rawr!", "Gawrgle!", "Bizzbop!", "Bweeewoooo!")
 	speak_emote = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	emote_hear = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	sad_emote = list("bwoops sadly")
+	emote_sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)
 
 	ranged = TRUE
 	projectilesound = 'sound/weapons/taser2.ogg'
@@ -58,7 +62,7 @@
 	..(null, "blows apart!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, alldirs)
+	spark(T, 1, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/verb/befriend()
@@ -71,6 +75,7 @@
 		if(istype(H))
 			master = usr
 			audible_emote("bwuups happily!")
+			playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
 			return TRUE
 	else if(usr == master)
 		return TRUE

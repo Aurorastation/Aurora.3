@@ -1,6 +1,7 @@
 /obj/structure/bed/stool
 	name = "stool"
 	desc = "Apply butt."
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "stool_preview"
 	base_icon = "stool"
 	anchored = FALSE
@@ -20,7 +21,7 @@
 		if(!held_item || use_check_and_message(usr) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
 			return
 		usr.visible_message(SPAN_NOTICE("[usr] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
-		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null, painted_colour) // Handles all the material code so you don't have to.
+		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material?.name, painted_colour) // Handles all the material code so you don't have to.
 		TransferComponents(S)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
 			S.color = material.icon_colour
@@ -153,12 +154,25 @@
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
+/obj/structure/bed/chair/stool/bamboo
+	name = "bamboo stool"
+	desc = "A makeshift bamboo stool with a rustic look."
+	icon_state = "bamboo_stool_item"
+	item_state = "bamboo_stool"
+	base_icon = "bamboo_stool"
+	icon_state = "bamboo_stool"
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	held_item = /obj/item/material/stool/bamboo
+	can_pad = FALSE
+
+/obj/structure/bed/stool/bamboo/New(var/newloc)
+	..(newloc, MATERIAL_BAMBOO)
+
+// Stool Items
+
 /obj/item/material/stool
-	icon = 'icons/obj/furniture.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
-		)
+	name = "stool"
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "stool_item_preview"
 	item_state = "stool"
 	base_icon = "stool"
@@ -170,7 +184,7 @@
 	throw_range = 5
 	force_divisor = 0.4
 	w_class = ITEMSIZE_HUGE
-	use_material_name = FALSE
+	contained_sprite = TRUE
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
 	var/deploy_verb = "right"
@@ -207,9 +221,9 @@
 
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(prob(300 / force)) // Weaker materials are more likely to shatter on people randomly.
-		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE)
+		var/blocked = target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE)
 		target.Weaken(force * BLOCKED_MULT(blocked))
-		target.apply_damage(force * 2, BRUTE, hit_zone, blocked, src)
+		target.apply_damage(force * 2, DAMAGE_BRUTE, hit_zone, blocked, src)
 		user.visible_message(SPAN_DANGER("[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!"), SPAN_DANGER("\The [src] [material.destruction_desc] to pieces against \the [target]'s [hit_zone]!"))
 		use_material_shatter = FALSE
 		shatter()
@@ -240,7 +254,7 @@
 	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), SPAN_NOTICE("You [deploy_verb] \the [name]."))
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
-	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material.name, padding_material ? padding_material.name : null, painted_colour) // Fuck me.
+	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material?.name, padding_material?.name, painted_colour) // Fuck me.
 	TransferComponents(S)
 	S.dir = user.dir // Plant it where the user's facing
 	if(blood_DNA)
@@ -294,8 +308,44 @@
 	base_icon = "bar_stool"
 	origin_type = /obj/structure/bed/stool/bar
 
+/obj/item/material/stool/bar/New(var/newloc, new_material, new_padding_material, new_painted_colour)
+	if(!new_material)
+		new_material = MATERIAL_STEEL
+	..(newloc, new_material, new_padding_material, new_painted_colour)
+
 /obj/item/material/stool/hover
 	icon_state = "hover_stool_item"
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
+
+/obj/item/material/stool/hover/New(var/newloc, new_material, new_padding_material, new_painted_colour)
+	if(!new_material)
+		new_material = MATERIAL_SHUTTLE_SKRELL
+	..(newloc, new_material, new_padding_material, new_painted_colour)
+
+/obj/item/material/stool/bamboo
+	icon_state = "bamboo_stool_item"
+	item_state = "bamboo_stool"
+	base_icon = "bamboo_stool"
+	origin_type = /obj/structure/bed/stool/bamboo
+
+/obj/item/material/stool/bamboo/New(var/newloc, new_material, new_padding_material, new_painted_colour)
+	if(!new_material)
+		new_material = MATERIAL_BAMBOO
+	..(newloc, new_material, new_padding_material, new_painted_colour)
+
+/obj/structure/flora/log_bench
+	name = "log bench"
+	desc = "Apply butt."
+	icon = 'icons/obj/wood.dmi'
+	icon_state = "tree_log"
+	anchored = FALSE
+	density = FALSE
+
+/obj/structure/flora/log_bench/fire_act()
+	for(var/obj/structure/bonfire/B in get_turf(src))
+		if(B.on_fire)
+			B.fuel = min(B.max_fuel, B.fuel + 300)
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)

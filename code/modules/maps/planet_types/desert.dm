@@ -2,16 +2,22 @@
 	name = "desert exoplanet"
 	desc = "An arid exoplanet with sparse biological resources but rich mineral deposits underground."
 	color = "#a08444"
+	scanimage = "desert.png"
+	geology = "Non-existent tectonic activity, minimal geothermal signature"
+	weather = "Global full-atmosphere geothermal weather system. Barely-habitable ambient high temperatures. Slow-moving, stagnant meteorological activity prone to unpredictable upset in wind condition"
 	planetary_area = /area/exoplanet/desert
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
-	map_generators = list(/datum/random_map/noise/exoplanet/desert)
+	possible_themes = list(/datum/exoplanet_theme/desert)
+	flora_diversity = 4
+	has_trees = FALSE
 	surface_color = "#d6cca4"
 	water_color = null
+	ruin_planet_type = PLANET_DESERT
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_map()
-	if(prob(70))
-		lightlevel = rand(5,10)/10	//deserts are usually :lit:
+	lightlevel = rand(5,10)/10	//deserts are usually :lit:
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_atmosphere()
@@ -23,6 +29,27 @@
 			limit = initial(H.heat_level_1) - rand(1,10)
 		atmosphere.temperature = min(T20C + rand(20, 100), limit)
 		atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/desert/generate_ground_survey_result()
+	..()
+	if(prob(40))
+		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+	if(prob(40))
+		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	if(prob(40))
+		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+	if(prob(40))
+		ground_survey_result += "<br>Muddy dirt rich in organic material"
+	if(prob(40))
+		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+	if(prob(40))
+		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	if(prob(10))
+		ground_survey_result += "<br>Traces of fissile material"
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/adapt_seed(var/datum/seed/S)
 	..()
@@ -36,27 +63,6 @@
 	if(prob(75))
 		S.set_trait(TRAIT_CARNIVOROUS,2)
 	S.set_trait(TRAIT_SPREAD,0)
-
-/datum/random_map/noise/exoplanet/desert
-	descriptor = "desert exoplanet"
-	smoothing_iterations = 4
-	land_type = /turf/simulated/floor/exoplanet/desert
-
-	flora_prob = 0
-	fauna_types = list(/mob/living/simple_animal/thinbug, /mob/living/simple_animal/tindalos)
-
-/datum/random_map/noise/exoplanet/desert/get_additional_spawns(var/value, var/turf/T)
-	..()
-	if(is_edge_turf(T))
-		return
-	var/v = noise2value(value)
-	if(v > 6)
-		if(prob(10))
-			new/obj/structure/quicksand(T)
-
-/area/exoplanet/desert
-	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /obj/structure/quicksand
 	name = "sand"
@@ -136,8 +142,8 @@
 	exposed = 1
 	update_icon()
 
-/obj/structure/quicksand/attackby(obj/item/W, mob/user)
-	if(!exposed && W.force)
+/obj/structure/quicksand/attackby(obj/item/attacking_item, mob/user)
+	if(!exposed && attacking_item.force)
 		expose()
 	else
 		..()

@@ -27,7 +27,6 @@
 	show_stat_health = TRUE
 	faction = "cult"
 	supernatural = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_ONE
 	blood_type = "#000000"
 
@@ -46,6 +45,8 @@
 
 	psi_pingable = FALSE
 
+	simple_default_language = LANGUAGE_CULT
+
 
 /mob/living/simple_animal/construct/cultify()
 	return
@@ -55,7 +56,6 @@
 	var/static/list/construct_descriptors = list("lumbering", "ponderous", "rumbling", "sleek", "solid", "ephemeral", "dense", "shimmering", "dull", "glittering", "shining", "sluggish", "quiet", "ominious", "weighty", "mysterious")
 	name = "[capitalize(pick(construct_descriptors))] [initial(name)]"
 	real_name = name
-	add_language(LANGUAGE_CULT)
 	add_language(LANGUAGE_OCCULT)
 	for(var/spell in construct_spells)
 		src.add_spell(new spell, "const_spell_ready")
@@ -103,13 +103,13 @@
 			return
 	return ..()
 
-/mob/living/simple_animal/construct/examine(mob/user)
-	..(user)
+/mob/living/simple_animal/construct/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(health < maxHealth)
 		if(health >= maxHealth / 2)
-			to_chat(user, SPAN_WARNING("It looks slightly dented."))
+			. += SPAN_WARNING("It looks slightly dented.")
 		else
-			to_chat(user, SPAN_WARNING("It looks severely dented!"))
+			. += SPAN_WARNING("It looks severely dented!")
 
 /mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
 	if(istype(A, /obj/effect/rune))
@@ -173,6 +173,3 @@
 		newstate = "[health_prefix]_health[newstate]"
 		if(healths.icon_state != newstate)
 			healths.icon_state = newstate
-
-/mob/living/simple_animal/construct/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

@@ -13,7 +13,7 @@
 		return
 
 	var/list/T = list()
-	for (var/obj/machinery/camera/C in cameranet.cameras)
+	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		var/list/tempnetwork = C.network&src.network
 		if (tempnetwork.len)
 			T[text("[][]", C.c_tag, (C.can_use() ? null : " (Deactivated)"))] = C
@@ -104,7 +104,7 @@
 		return list()
 
 	var/datum/trackable/TB = new()
-	for(var/mob/living/M in mob_list)
+	for(var/mob/living/M in GLOB.mob_list)
 		if(M == usr)
 			continue
 		if(M.tracking_status() != TRACKING_POSSIBLE)
@@ -203,12 +203,12 @@
 		return
 	var/list/target = L.Copy()
 	// sortTim sorts in-place, but returns a ref to the list anyways.
-	return sortTim(target, /proc/cmp_camera, FALSE)
+	return sortTim(target, GLOBAL_PROC_REF(cmp_camera), FALSE)
 
-mob/living/proc/near_camera()
+/mob/living/proc/near_camera()
 	if (!isturf(loc))
 		return 0
-	else if(!cameranet.is_visible(src))
+	else if(!GLOB.cameranet.is_visible(src))
 		return 0
 	return 1
 
@@ -227,7 +227,7 @@ mob/living/proc/near_camera()
 	if(istype(loc,/obj/effect/dummy))
 		return TRACKING_TERMINATE
 
-	 // Now, are they viewable by a camera? (This is last because it's the most intensive check)
+	// Now, are they viewable by a camera? (This is last because it's the most intensive check)
 	return near_camera() ? TRACKING_POSSIBLE : TRACKING_NO_COVERAGE
 
 /mob/living/silicon/robot/tracking_status()
@@ -251,16 +251,16 @@ mob/living/proc/near_camera()
 		if(T && isStationLevel(T.z) && hassensorlevel(src, SUIT_SENSOR_TRACKING))
 			return TRACKING_POSSIBLE
 
-mob/living/proc/tracking_initiated()
+/mob/living/proc/tracking_initiated()
 
-mob/living/silicon/robot/tracking_initiated()
+/mob/living/silicon/robot/tracking_initiated()
 	tracking_entities++
 	if(tracking_entities == 1 && has_zeroth_law())
 		to_chat(src, "<span class='warning'>Internal camera is currently being accessed.</span>")
 
-mob/living/proc/tracking_cancelled()
+/mob/living/proc/tracking_cancelled()
 
-mob/living/silicon/robot/tracking_initiated()
+/mob/living/silicon/robot/tracking_initiated()
 	tracking_entities--
 	if(!tracking_entities && has_zeroth_law())
 		to_chat(src, "<span class='notice'>Internal camera is no longer being accessed.</span>")

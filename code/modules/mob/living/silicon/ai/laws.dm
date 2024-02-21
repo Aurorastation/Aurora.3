@@ -19,11 +19,12 @@
 
 /mob/living/silicon/ai/add_ion_law(var/law)
 	..()
-	for(var/mob/living/silicon/robot/R in mob_list)
+	for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 		if(R.law_update && (R.connected_ai == src))
 			R.show_laws()
 
 /mob/living/silicon/ai/proc/ai_checklaws()
 	set category = "AI Commands"
 	set name = "State Laws"
-	subsystem_law_manager()
+	computer.ui_interact(usr)
+	computer.run_program("lawmanager")

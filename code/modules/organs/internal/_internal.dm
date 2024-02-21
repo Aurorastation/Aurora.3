@@ -45,10 +45,10 @@
 		icon_state = dead_icon
 
 /obj/item/organ/internal/proc/surgical_fix(mob/user)
-	if(damage > min_broken_damage && !(status & ORGAN_ROBOT))
+	if(damage > min_broken_damage)
 		var/scarring = damage / max_damage
 		scarring = 1 - 0.5 * scarring ** 2 // Between ~15 and 50 percent loss.
-		var/new_max_dam = Floor(scarring * max_damage)
+		var/new_max_dam = FLOOR(scarring * max_damage)
 		if(new_max_dam < max_damage)
 			to_chat(user, SPAN_WARNING("Not every part of [src] could be saved; some dead tissue had to be removed, making it more susceptible to future damage."))
 			set_max_damage(new_max_dam)
@@ -64,7 +64,7 @@
 
 /obj/item/organ/internal/is_usable()
 	if(robotize_type)
-		var/datum/robolimb/R = all_robolimbs[robotize_type]
+		var/datum/robolimb/R = GLOB.all_robolimbs[robotize_type]
 		if(!R.malfunctioning_check(owner))
 			return TRUE
 	else
@@ -83,7 +83,7 @@
 
 	if(company)
 		model = company
-		var/datum/robolimb/R = all_robolimbs[company]
+		var/datum/robolimb/R = GLOB.all_robolimbs[company]
 
 		if(R)
 			if(robotic_sprite)
@@ -97,9 +97,9 @@
 	return damage
 
 /obj/item/organ/internal/proc/set_max_damage(var/ndamage)
-	max_damage = Floor(ndamage)
-	min_broken_damage = Floor(0.75 * max_damage)
-	min_bruised_damage = Floor(0.25 * max_damage)
+	max_damage = FLOOR(ndamage)
+	min_broken_damage = FLOOR(0.75 * max_damage)
+	min_bruised_damage = FLOOR(0.25 * max_damage)
 
 /obj/item/organ/internal/proc/take_internal_damage(amount, var/silent=0)
 	if(BP_IS_ROBOTIC(src))
@@ -129,9 +129,9 @@
 		. = "damaged "
 	if(status & ORGAN_DEAD)
 		if(can_recover())
-			. = "decaying [.]"
+			. = "necrotic and debridable [.]"
 		else
-			. = "necrotic [.]"
+			. = "necrotic and dead [.]"
 	. = "[.][name]"
 
 /obj/item/organ/internal/process()

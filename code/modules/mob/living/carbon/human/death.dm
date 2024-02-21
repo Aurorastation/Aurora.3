@@ -4,16 +4,14 @@
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
 		if(isturf(loc))
-			I.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
+			I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 
 	for(var/obj/item/organ/external/E in src.organs)
 		E.droplimb(0,DROPLIMB_EDGE,1)
 
-	sleep(1)
-
 	for(var/obj/item/I in src)
 		drop_from_inventory(I)
-		I.throw_at(get_edge_target_turf(src,pick(alldirs)), rand(1,3), round(30/I.w_class))
+		I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)), rand(1,3), round(30/I.w_class))
 
 	..(species.gibbed_anim)
 	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
@@ -58,7 +56,7 @@
 				B.host_brain.name = "host brain"
 				B.host_brain.real_name = "host brain"
 
-			verbs -= /mob/living/carbon/proc/release_control
+			remove_verb(src, /mob/living/carbon/proc/release_control)
 
 	callHook("death", list(src, gibbed))
 
@@ -80,8 +78,10 @@
 
 	handle_hud_list()
 
+	updatehealth()
+
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HUSK in mutations)
+	if((mutations & HUSK))
 		return
 
 	if(f_style)
@@ -95,7 +95,7 @@
 
 	scrub_flavor_text()
 
-	mutations.Add(HUSK)
+	mutations |= HUSK
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
 	update_body(TRUE)
 	return
@@ -106,7 +106,8 @@
 	return
 
 /mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
-	if(SKELETON in src.mutations)	return
+	if((mutations & SKELETON))
+		return
 
 	if(f_style)
 		f_style = "Shaved"
@@ -119,10 +120,9 @@
 		real_name = "Unknown"
 		scrub_flavor_text()
 
-	mutations.Add(SKELETON)
+	mutations |= SKELETON
 	status_flags |= DISFIGURED
 	update_body(TRUE)
-	return
 
 /mob/living/carbon/human/proc/scrub_flavor_text()
 	for(var/text in flavor_texts)

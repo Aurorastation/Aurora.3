@@ -12,6 +12,7 @@
 	set name = "Lock Antenna(e)"
 	set desc = "Lock your antenna(e) in place."
 	set category = "Object"
+	set src in usr
 
 	if(!ishuman(usr))
 		return

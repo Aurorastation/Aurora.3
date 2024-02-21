@@ -2,57 +2,105 @@
 //################### NEWSCASTERS BE HERE! ####
 //###-Agouri###################################
 
-var/list/obj/machinery/newscaster/allCasters = list() //Global list that will contain reference to all newscasters in existence.
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 30;
+
+#define PRESET_SOUTH \
+dir = SOUTH; \
+pixel_y = -26;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -8;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 8;
+
+///Global list that contains reference to all newscasters in existence.
+var/list/obj/machinery/newscaster/allCasters = list()
 
 /obj/machinery/newscaster
 	name = "newscaster"
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "newscaster"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	var/isbroken = 0  //1 if someone banged it with something heavy
-	var/ispowered = 1 //starts powered, changes with power_change()
-	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
-	//OBSOLETE: We're now using a global news network
-	var/screen = 0                  //Or maybe I'll make it into a list within a list afterwards... whichever I prefer, go fuck yourselves :3
-		// 0 = welcome screen - main menu
-		// 1 = view feed channels
-		// 2 = create feed channel
-		// 3 = create feed story
-		// 4 = feed story submited sucessfully
-		// 5 = feed channel created successfully
-		// 6 = ERROR: Cannot create feed story
-		// 7 = ERROR: Cannot create feed channel
-		// 8 = print newspaper
-		// 9 = viewing channel feeds
-		// 10 = censor feed story
-		// 11 = censor feed channel
-		//Holy shit this is outdated, made this when I was still starting newscasters :3
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+
+	///If the newscaster is broken, boolean
+	var/isbroken = FALSE
+
+	///If it starts powered on, boolean
+	var/ispowered = TRUE //starts powered, changes with power_change()
+
+	/**
+	 * What the screen is displaying
+	 *
+	 * 0 = welcome screen - main menu
+	 * 1 = view feed channels
+	 * 2 = create feed channel
+	 * 3 = create feed story
+	 * 4 = feed story submited sucessfully
+	 * 5 = feed channel created successfully
+	 * 6 = ERROR: Cannot create feed story
+	 * 7 = ERROR: Cannot create feed channel
+	 * 8 = print newspaper
+	 * 9 = viewing channel feeds
+	 * 10 = censor feed story
+	 * 11 = censor feed channel
+	 */
+	var/screen = 0
+
 	var/paper_remaining = 0
-	var/securityCaster = 0
-		// 0 = Caster cannot be used to issue wanted posters
-		// 1 = the opposite
+
+	///If the caster can be used to issue wanted posters, boolean
+	var/securityCaster = FALSE
+
+	///Unique newscaster unit number
 	var/unit_no = 0 //Each newscaster has a unit number
-	//var/datum/feed_message/wanted //We're gonna use a feed_message to store data of the wanted person because fields are similar
-	//var/wanted_issue = 0          //OBSOLETE
-		// 0 = there's no WANTED issued, we don't need a special icon_state
-		// 1 = Guess what.
+
 	var/alert_delay = 500
-	var/alert = 0
-		// 0 = there hasn't been a news/wanted update in the last alert_delay
-		// 1 = there has
-	var/scanned_user = "Unknown" //Will contain the name of the person who currently uses the newscaster
-	var/msg = "";                //Feed message
+
+	///If there hasn't been a news/wanted update in the last alert_delay, boolean
+	var/alert = FALSE
+
+	///Contains the name of the person who currently uses the newscaster
+	var/scanned_user = "Unknown"
+
+	///Feed message
+	var/msg = "";
+
 	var/datum/news_photo/photo_data = null
 	var/paper_data = ""
 	var/paper_name = ""
-	var/channel_name = ""; //the feed channel which will be receiving the feed, or being created
-	var/c_locked=0;        //Will our new channel be locked to public submissions?
-	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
+
+	///The feed channel which will be receiving the feed, or being created
+	var/channel_name = "";
+
+	///If our new channel will be locked to public submissions, boolean
+	var/c_locked=FALSE
+
+	///How many hits the newscaster has taken
+	var/hitstaken = 0
+
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
 	var/global/list/screen_overlays
+
+/obj/machinery/newscaster/north
+	PRESET_NORTH
+
+/obj/machinery/newscaster/south
+	PRESET_SOUTH
+
+/obj/machinery/newscaster/west
+	PRESET_WEST
+
+/obj/machinery/newscaster/east
+	PRESET_EAST
 
 /obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
 	if(LAZYLEN(screen_overlays) && !force)
@@ -65,21 +113,42 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	for(var/i in 1 to 3)
 		screen_overlays["crack[i]"] = make_screen_overlay(icon, "crack[i]")
 
-/obj/machinery/newscaster/security_unit                   //Security unit
+/obj/machinery/newscaster/security_unit
 	name = "Security Newscaster"
 	securityCaster = 1
 
-/obj/machinery/newscaster/Initialize()         //Constructor, ho~
+/obj/machinery/newscaster/security_unit/north
+	PRESET_NORTH
+
+/obj/machinery/newscaster/security_unit/south
+	PRESET_SOUTH
+
+/obj/machinery/newscaster/security_unit/west
+	PRESET_WEST
+
+/obj/machinery/newscaster/security_unit/east
+	PRESET_EAST
+
+/obj/machinery/newscaster/Initialize(mapload)
 	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	allCasters += src
-	src.paper_remaining = 15            // Will probably change this to something better
-	src.unit_no = allCasters.len + 1
-	src.generate_overlays()
-	src.update_icon() //for any custom ones on the map...
+	paper_remaining = 15            // Will probably change this to something better
+	unit_no = allCasters.len + 1
+	if(dir & NORTH)
+		alpha = 127
+	generate_overlays()
+	update_icon() //for any custom ones on the map...
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/newscaster/Destroy()
 	allCasters -= src
 	return ..()
+
+/obj/machinery/newscaster/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/newscaster/update_icon()
 	if(!ispowered || isbroken)
@@ -122,7 +191,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		addtimer(CALLBACK(src, .proc/post_power_loss), rand(1, 15))
+		addtimer(CALLBACK(src, PROC_REF(post_power_loss)), rand(1, 15))
 
 /obj/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0
@@ -189,7 +258,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					dat+="<HR><B>Feed Security functions:</B><BR>"
 					dat+="<BR><A href='?src=\ref[src];menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>"
 					dat+="<BR><A href='?src=\ref[src];menu_censor_story=1'>Censor Feed Stories</A>"
-					dat+="<BR><A href='?src=\ref[src];menu_censor_channel=1'>Mark Feed Channel with [current_map.company_name] D-Notice</A>"
+					dat+="<BR><A href='?src=\ref[src];menu_censor_channel=1'>Mark Feed Channel with [SSatlas.current_map.company_name] D-Notice</A>"
 				dat+="<BR><HR>The newscaster recognises you as: <span class='good'>[src.scanned_user]</span>"
 			if(1)
 				dat+= "Station Feed Channels<HR>"
@@ -275,7 +344,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			if(9)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[created by: <span class='boldannounce'>[src.viewing_channel.author]</span>\]</font><HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [current_map.company_name] D-Notice.<BR>"
+					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -296,7 +365,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<BR><HR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[1]'>Back</A>"
 			if(10)
-				dat+="<B>[current_map.company_name] Feed Censorship Tool</B><BR>"
+				dat+="<B>[SSatlas.current_map.company_name] Feed Censorship Tool</B><BR>"
 				dat+="<FONT SIZE=1>NOTE: Due to the nature of news Feeds, total deletion of a Feed Story is not possible.<BR>"
 				dat+="Keep in mind that users attempting to view a censored feed will instead see the \[REDACTED\] tag above it.</font>"
 				dat+="<HR>Select Feed channel to get Stories from:<BR>"
@@ -308,7 +377,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Cancel</A>"
 			if(11)
-				dat+="<B>[current_map.company_name] D-Notice Handler</B><HR>"
+				dat+="<B>[SSatlas.current_map.company_name] D-Notice Handler</B><HR>"
 				dat+="<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station's"
 				dat+="morale, integrity or disciplinary behaviour. A D-Notice will render a channel unable to be updated by anyone, without deleting any feed"
 				dat+="stories it might contain at the time. You can lift a D-Notice if you have the required access at any time.</font><HR>"
@@ -336,7 +405,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <span class='boldannounce'>[src.viewing_channel.author]</span> \]</font><BR>"
 				dat+="Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=\ref[src];toggle_d_notice=\ref[src.viewing_channel]'>Bestow a D-Notice upon the channel</A>.<HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [current_map.company_name] D-Notice.<BR>"
+					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -426,8 +495,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
 				dat += "<BR><A href='?src=\ref[src];setScreen=[0]'>ATTEMPT RESET</A>"
 
-		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
+		var/datum/browser/newscaster_main = new(user, "newscaster_main", "Newscaster", 450, 500)
+		newscaster_main.set_content(dat)
+		newscaster_main.open()
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)
@@ -520,6 +590,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			comment.posted = "[worldtime2text()]"
 			viewing_story.comments += comment
 			to_chat(usr, "Comment successfully added!")
+			src.viewing_message = viewing_story
 			src.screen = 22
 			src.updateUsrDialog()
 
@@ -620,7 +691,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						src.screen = 15
 					else
 						if(SSnews.wanted_issue.is_admin_message)
-							alert("The wanted issue has been distributed by a [current_map.company_name] higherup. You cannot edit it.","Ok")
+							alert("The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot edit it.","Ok")
 							return
 						SSnews.wanted_issue.author = src.channel_name
 						SSnews.wanted_issue.body = src.msg
@@ -633,7 +704,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 		else if(href_list["cancel_wanted"])
 			if(SSnews.wanted_issue.is_admin_message)
-				alert("The wanted issue has been distributed by a [current_map.company_name] higherup. You cannot take it down.","Ok")
+				alert("The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot take it down.","Ok")
 				return
 			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
@@ -649,7 +720,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else if(href_list["censor_channel_author"])
 			var/datum/feed_channel/FC = locate(href_list["censor_channel_author"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a [current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
+				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
 				return
 			if(FC.author != "<B>\[REDACTED\]</B>")
 				FC.backup_author = FC.author
@@ -662,7 +733,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else if(href_list["censor_channel_story_author"])
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_author"])
 			if(MSG.is_admin_message)
-				alert("This message was created by a [current_map.company_name] Officer or a external news agency. You cannot censor its author.","Ok")
+				alert("This message was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor its author.","Ok")
 				return
 			if(MSG.author != "<B>\[REDACTED\]</B>")
 				MSG.backup_author = MSG.author
@@ -675,7 +746,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else if(href_list["censor_channel_story_body"])
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_body"])
 			if(MSG.is_admin_message)
-				alert("This channel was created by a [current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
+				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
 				return
 			if(MSG.body != "<B>\[REDACTED\]</B>")
 				MSG.backup_body = MSG.body
@@ -701,7 +772,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else if(href_list["toggle_d_notice"])
 			var/datum/feed_channel/FC = locate(href_list["toggle_d_notice"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a [current_map.company_name] Officer or a external news agency. You cannot place a D-Notice upon it.","Ok")
+				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot place a D-Notice upon it.","Ok")
 				return
 			FC.censored = !FC.censored
 			FC.update()
@@ -739,15 +810,15 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 
 
-/obj/machinery/newscaster/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/newscaster/attackby(obj/item/attacking_item, mob/user)
 	if (src.isbroken)
 		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 100, 1)
 		for (var/mob/O in hearers(5, src.loc))
 			O.show_message("<EM>[user.name]</EM> further abuses the shattered [src.name].")
 	else
-		if(istype(I, /obj/item) )
+		if(istype(attacking_item, /obj/item) )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			var/obj/item/W = I
+			var/obj/item/W = attacking_item
 			if(W.force <15)
 				for (var/mob/O in hearers(5, src.loc))
 					O.show_message("[user.name] hits the [src.name] with the [W.name] with no visible effect." )
@@ -758,10 +829,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, /decl/sound_category/glass_break_sound, 100, 1)
+					playsound(src.loc, /singleton/sound_category/glass_break_sound, 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
-						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
+						O.show_message("[user.name] forcefully slams the [src.name] with the [attacking_item.name]!" )
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
 			to_chat(user, "<span class='notice'>This does nothing.</span>")
@@ -836,12 +907,12 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(user.a_intent == I_GRAB)
 		if(!rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] rolls up \the [src]."),\
-								 SPAN_NOTICE("You roll up \the [src]."))
+									SPAN_NOTICE("You roll up \the [src]."))
 			rolled(user)
 		return
 	if(rolled)
 		user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to read it."),\
-						     SPAN_NOTICE("You unroll \the [src] to read it."))
+								SPAN_NOTICE("You unroll \the [src] to read it."))
 		rolled(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
@@ -850,7 +921,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(0) //Cover
 				dat+="<DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</font></B></div>"
-				dat+="<DIV ALIGN='center'><FONT SIZE=2>[current_map.company_name]-standard newspaper, for use on [current_map.company_name] Vessels.</font></div><HR>"
+				dat+="<DIV ALIGN='center'><FONT SIZE=2>[SSatlas.current_map.company_name]-standard newspaper, for use on [SSatlas.current_map.company_name] Vessels.</font></div><HR>"
 				if(isemptylist(src.news_content))
 					if(src.important_message)
 						dat+="Contents:<BR><ul><B><span class='warning'>**</span>Important Security Announcement<span class='warning'>**</span></B> <FONT SIZE=2>\[page [src.pages+2]\]</font><BR></ul>"
@@ -916,8 +987,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
-		send_theme_resources(src)
-		human_user << browse(enable_ui_theme(human_user, dat), "window=newspaper_main;size=300x400")
+
+		human_user << browse(dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
 		to_chat(user, "The paper is full of intelligible symbols!")
@@ -937,7 +1008,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == 0) //We're at the start, get to the middle
 					src.screen=1
 			src.curr_page++
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		else if(href_list["prev_page"])
 			if(curr_page == 0)
@@ -949,23 +1020,22 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == src.pages+1) //we're at the end, let's go back to the middle.
 					src.screen = 1
 			src.curr_page--
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		if (istype(src.loc, /mob))
 			src.attack_self(src.loc)
 
 
-/obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.ispen())
+/obj/item/newspaper/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		if(rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
-						     	 SPAN_NOTICE("You unroll \the [src] to write on it."))
+									SPAN_NOTICE("You unroll \the [src] to write on it."))
 			rolled()
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
 		else
-			var/s = sanitize(input(user, "Write something", "Newspaper", ""))
-			s = sanitize(s)
+			var/s = sanitize( tgui_input_text(user, "Write something", "Newspaper", "") )
 			if (!s)
 				return
 			if (!in_range(src, usr) && src.loc != usr)
@@ -1028,7 +1098,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		if (!alert)
 			alert = 1
 			update_icon()
-			addtimer(CALLBACK(src, .proc/clearAlert), 300, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(clearAlert)), 300, TIMER_UNIQUE)
 
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else
@@ -1040,3 +1110,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/proc/clearAlert()
 	alert = 0
 	update_icon()
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

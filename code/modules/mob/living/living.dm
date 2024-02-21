@@ -11,11 +11,11 @@
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
-	if(src.stat || !src.canmove || src.restrained())
+	if(src.stat || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
-		
+
 	. = ..()
 
 	if(.)
@@ -29,9 +29,9 @@ var/mob/living/next_point_time = 0
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
- - non-passive mob passes the passive version
- - passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
- - if si, the proc returns
+	- non-passive mob passes the passive version
+	- passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
+	- if si, the proc returns
 */
 /mob/living/proc/can_move_mob(var/mob/living/swapped, swapping = 0, passive = 0)
 	if(!swapped)
@@ -121,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
-				if(prob(40) && !(FAT in src.mutations))
+			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+				if(prob(40) && !(mutations & FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -172,15 +172,33 @@ default behaviour is:
 
 				now_pushing = FALSE
 
+/**
+ * Checks if two mobs can swap with each other based on the density
+ *
+ * Returns `TRUE` if the density allows them to swap, `FALSE` otherwise
+ *
+ * swapper - A `/mob`, the one trying to perform the swap
+ * swapee - A `/mob`, the one the `swapper` is trying to swap with
+ */
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	var/turf/T = get_turf(swapper)
+
+	if(!T)
+		return FALSE
+
 	if(T.density)
-		return 1
+		return TRUE
+
 	for(var/atom/movable/A in T)
+
 		if(A == swapper)
 			continue
+
 		if(!A.CanPass(swapee, T, 1))
-			return 1
+			return TRUE
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
 	if(tmob.buckled_to || buckled_to)
@@ -214,7 +232,7 @@ default behaviour is:
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 	else
 		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
 
@@ -230,9 +248,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(mShock in mutations) //shockproof
+	if((mutations & mShock)) //shockproof
 		return FALSE
-	if (COLD_RESISTANCE in mutations) //fireproof
+	if((mutations & COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()
@@ -297,6 +315,9 @@ default behaviour is:
 
 /mob/living/proc/getHalLoss()
 	return 0
+
+/mob/living/proc/get_shock()
+	return getHalLoss()
 
 /mob/living/proc/getCloneLoss()
 	return 0
@@ -474,6 +495,13 @@ default behaviour is:
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
+	hallucination = 0
+	silent = 0
+	dizziness = 0
+	drowsiness = 0
+	stuttering = 0
+	confused = 0
+	jitteriness = 0
 
 	// fix blindness and deafness
 	blinded = 0
@@ -488,13 +516,13 @@ default behaviour is:
 
 	// remove the character from the list of the dead
 	if(stat == DEAD)
-		dead_mob_list -= src
-		living_mob_list += src
+		GLOB.dead_mob_list -= src
+		GLOB.living_mob_list += src
 		tod = null
 		timeofdeath = 0
 
 	// restore us to conciousness
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 
 	// make the icons look correct
 	regenerate_icons()
@@ -517,7 +545,7 @@ default behaviour is:
 		switch_from_dead_to_living_mob_list()
 		timeofdeath = 0
 
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	regenerate_icons()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -547,7 +575,7 @@ default behaviour is:
 	set category = "OOC"
 	set src in view()
 
-	if(config.allow_Metadata)
+	if(GLOB.config.allow_Metadata)
 		if(client)
 			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
 		else
@@ -586,8 +614,7 @@ default behaviour is:
 
 		if (!restrained())
 			var/diag = get_dir(src, pulling)
-			if ((diag - 1) & diag)
-			else
+			if (!((diag - 1) & diag))
 				diag = null
 			if ((get_dist(src, pulling) > 1 || diag))
 				if (isliving(pulling))
@@ -630,9 +657,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(REAGENT_VOLUME(H.vessel, /decl/reagent/blood))
+												var/total_blood = round(REAGENT_VOLUME(H.vessel, /singleton/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent(/decl/reagent/blood, 1)
+													H.vessel.remove_reagent(/singleton/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -759,10 +786,11 @@ default behaviour is:
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
+			break
 
 	if(resisting)
 		visible_message(SPAN_WARNING("[src] resists!"))
-		setClickCooldown(25)
+		setClickCooldown(2.5 SECONDS)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
@@ -896,6 +924,10 @@ default behaviour is:
 	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
+/mob/living/Initialize()
+	. = ..()
+	add_to_target_grid()
+
 /mob/living/Destroy()
 	if(loc)
 		for(var/mob/M in contents)
@@ -904,6 +936,13 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 	QDEL_NULL(reagents)
+	clear_from_target_grid()
+
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+
+	QDEL_NULL(ability_master)
 
 	return ..()
 
@@ -929,9 +968,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = /decl/reagent/iron
+			src.composition_reagent = /singleton/reagent/iron
 		else
-			src.composition_reagent = /decl/reagent/nutriment/protein
+			src.composition_reagent = /singleton/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -975,40 +1014,34 @@ default behaviour is:
 	update_icon()
 	return TRUE
 
-/mob/living/proc/apply_radiation_effects()
-	var/area/A = get_area(src)
-	if(!A)
-		return FALSE
-	if(isNotStationLevel(A.z))
-		return FALSE
-	if(A.flags & RAD_SHIELDED)
-		return FALSE
-	. = TRUE
-
-/mob/living/Destroy()
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-	return ..()
-
 /mob/living/proc/needs_wheelchair()
 	return FALSE
-
-//called when the mob receives a bright flash
-/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(override_blindness_check || !(disabilities & BLIND))
-		..()
-		overlay_fullscreen("flash", type)
-		spawn(25)
-			if(src)
-				clear_fullscreen("flash", 25)
-		return 1
 
 /mob/living/verb/toggle_run_intent()
 	set hidden = 1
 	set name = "mov_intent"
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
+
+/**
+ * Used by a macro in skin.dmf to toggle the throw
+ */
+/mob/living/verb/throw_intent_keyDown()
+	set hidden = 1
+	set name = "throw_intent"
+	if(!(src.in_throw_mode))
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_keyUp()
+	set hidden = 1
+	set name = "throw_intent_up"
+	if(src.in_throw_mode)
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_toggle()
+	set hidden = 1
+	set name = "throw_intent_toggle"
+	toggle_throw_mode()
 
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount
@@ -1022,3 +1055,6 @@ default behaviour is:
 
 /mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE
+
+/mob/living/get_speech_bubble_state_modifier()
+	return isSynthetic() ? "robot" : ..()

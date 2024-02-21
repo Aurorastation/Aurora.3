@@ -27,8 +27,8 @@ FLOOR SAFES
 	var/time_to_drill = 300 SECONDS		// Drill duration of the current thermal drill.
 	var/last_drill_time = 0				// Last world.time the drill time was checked. Used to reduce time_to_drill accurately
 	var/image/drill_overlay				// The drill overlay image to display during the drilling process.
-	var/drill_x_offset = -13			// The X pixel offset for the drill
-	var/drill_y_offset = -3				// The Y pixel offset for the drill
+	var/drill_x_offset = -4				// The X pixel offset for the drill
+	var/drill_y_offset = -8				// The Y pixel offset for the drill
 
 /obj/structure/safe/Initialize()
 	. = ..()
@@ -44,13 +44,13 @@ FLOOR SAFES
 			space += I.w_class
 			I.forceMove(src)
 
-/obj/structure/safe/examine(mob/user)
+/obj/structure/safe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(broken)
-		to_chat(user, SPAN_WARNING("\The [src]'s locking system has been drilled open!"))
+		. += SPAN_WARNING("\The [src]'s locking system has been drilled open!")
 	else if(time_to_drill < 300 SECONDS)
 		var/time_left = max(round(time_to_drill / 10), 0)
-		to_chat(user, SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!"))
+		. += SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!")
 
 /obj/structure/safe/Destroy()
 	if(drill)
@@ -215,29 +215,29 @@ FLOOR SAFES
 				updateUsrDialog()
 
 
-/obj/structure/safe/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/safe/attackby(obj/item/attacking_item, mob/user)
 	if(open)
-		if(I.w_class + space <= maxspace)
-			space += I.w_class
-			user.drop_from_inventory(I,src)
-			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
+		if(attacking_item.w_class + space <= maxspace)
+			space += attacking_item.w_class
+			user.drop_from_inventory(attacking_item, src)
+			to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 			updateUsrDialog()
 			return
 		else
-			to_chat(user, SPAN_NOTICE("[I] won't fit in [src]."))
+			to_chat(user, SPAN_NOTICE("[attacking_item] won't fit in [src]."))
 			return
 	else
-		if(istype(I, /obj/item/clothing/accessory/stethoscope))
+		if(istype(attacking_item, /obj/item/clothing/accessory/stethoscope))
 			attack_hand(user)
-		else if(istype(I, /obj/item/thermal_drill))
+		else if(istype(attacking_item, /obj/item/thermal_drill))
 			if(drill)
 				to_chat(user, SPAN_WARNING("There is already a drill attached!"))
 			else if(do_after(user, 2 SECONDS))
-				user.drop_from_inventory(I, src)
-				drill = I
+				user.drop_from_inventory(attacking_item, src)
+				drill = attacking_item
 				update_icon()
 		else
-			to_chat(user, SPAN_WARNING("You can't put [I] into the safe while it is closed!"))
+			to_chat(user, SPAN_WARNING("You can't put [attacking_item] into the safe while it is closed!"))
 
 /obj/structure/safe/process()
 	if(!drill)
@@ -245,12 +245,13 @@ FLOOR SAFES
 	time_to_drill -= (world.time - last_drill_time) * drill.time_multiplier
 	last_drill_time = world.time
 	if(prob(15))
-		spark(loc, 3, alldirs)
+		spark(loc, 3, GLOB.alldirs)
 	if(time_to_drill <= 0)
 		drill_open()
 
 /obj/structure/safe/proc/drill_open()
 	broken = TRUE
+	drill.soundloop.stop()
 	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
@@ -275,7 +276,7 @@ FLOOR SAFES
 	update_icon()
 
 /obj/structure/safe/floor/hide(var/intact)
-	invisibility = intact ? 101 : 0
+	set_invisibility(intact ? 101 : 0)
 
 /obj/structure/safe/floor/hides_under_flooring()
 	return 1
@@ -286,10 +287,12 @@ FLOOR SAFES
 
 /obj/structure/safe/station/Initialize()
 	. = ..()
-	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
+	new /obj/item/stack/telecrystal/twentyfive(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
 
 /obj/structure/safe/cash
 	name = "credit safe"

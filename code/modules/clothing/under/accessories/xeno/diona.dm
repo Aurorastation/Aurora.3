@@ -15,3 +15,15 @@
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+
+/obj/item/clothing/accessory/poncho/eumponcho
+	name = "adorned poncho"
+	desc = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "eumponcho"
+	item_state = "eumponcho"
+	icon_override = null
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "chain"
+	has_accents = TRUE

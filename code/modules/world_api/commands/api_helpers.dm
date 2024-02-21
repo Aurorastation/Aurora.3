@@ -12,8 +12,8 @@
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 3 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 0 //Minor Version Number --> Increment when adding features
-	version["patch"] = 1 //Patchlevel --> Increment when fixing bugs
+	version["minor"] = 1 //Minor Version Number --> Increment when adding features
+	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
 
@@ -31,12 +31,12 @@
 /datum/topic_command/api_get_authed_commands/run_command(queryparams)
 	var/list/commands = list()
 	//Check if DB Connection is established
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		statuscode = 500
 		response = "DB Connection Unavailable"
 		return TRUE
 
-	var/DBQuery/commandsquery = dbcon.NewQuery({"SELECT api_f.command
+	var/DBQuery/commandsquery = GLOB.dbcon.NewQuery({"SELECT api_f.command
 	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND (
@@ -55,7 +55,7 @@
 		if(commandsquery.item[1] == "_ANY")
 			statuscode = 200
 			response = "Authorized commands retrieved - ALL"
-			data = topic_commands_names
+			data = GLOB.topic_commands_names
 			return TRUE
 
 
@@ -74,7 +74,7 @@
 		)
 
 /datum/topic_command/api_explain_command/run_command(queryparams)
-	var/datum/topic_command/apicommand = topic_commands[queryparams["command"]]
+	var/datum/topic_command/apicommand = GLOB.topic_commands[queryparams["command"]]
 	var/list/commanddata = list()
 
 	if (isnull(apicommand))
@@ -83,7 +83,7 @@
 		return TRUE
 
 	//Then query for auth
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		statuscode = 500
 		response = "DB Connection Unavailable"
 		return TRUE
@@ -116,21 +116,21 @@
 		return TRUE
 
 /datum/topic_command/update_command_database/proc/api_update_command_database()
-	log_debug("API: DB Command Update Called")
+	LOG_DEBUG("API: DB Command Update Called")
 	//Check if DB Connection is established
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		response = "Database connection lost, cannot update commands."
 		return FALSE //Error
 
-	var/DBQuery/commandinsertquery = dbcon.NewQuery({"INSERT INTO ss13_api_commands (command,description)
+	var/DBQuery/commandinsertquery = GLOB.dbcon.NewQuery({"INSERT INTO ss13_api_commands (command,description)
 	VALUES (:command_name:,:command_description:)
 	ON DUPLICATE KEY UPDATE description = :command_description:;"})
 
-	for(var/com in topic_commands)
-		var/datum/topic_command/command = topic_commands[com]
+	for(var/com in GLOB.topic_commands)
+		var/datum/topic_command/command = GLOB.topic_commands[com]
 		commandinsertquery.Execute(list("command_name" = command.name, "command_description" = command.description))
 
-	log_debug("API: DB Command Update Executed")
+	LOG_DEBUG("API: DB Command Update Executed")
 
 	response = "Commands successfully updated."
 	return TRUE //OK

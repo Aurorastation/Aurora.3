@@ -17,7 +17,7 @@
 do { \
 	var/timer = start_watch(); \
 	proc2run ;\
-	log_debug("\[MAZE] Operation '[opname]' on maze at [##x],[##y],[##z] took [stop_watch(timer)]s"); \
+	LOG_DEBUG("\[MAZE] Operation '[opname]' on maze at [##x],[##y],[##z] took [stop_watch(timer)]s"); \
 } while (FALSE)
 
 
@@ -51,7 +51,7 @@ do { \
 	run_generator()
 
 /obj/effect/mazegen/generator/Destroy()
-	LAZYREMOVE(SSatoms.late_misc_firers, src)
+	LAZYREMOVE(SSmisc_late.late_misc_firers, src)
 	return ..()
 
 // "Push" a turf to the working "stack"
@@ -69,13 +69,13 @@ do { \
 	ASSERT(ISODD(mwidth))
 	ASSERT(ISODD(mheight))
 	var/total_time = start_watch()
-	log_debug("\[MAZE] Started generation on maze at [x],[y],[z] | [mwidth * mheight] turfs total")
+	LOG_DEBUG("\[MAZE] Started generation on maze at [x],[y],[z] | [mwidth * mheight] turfs total")
 	LOG_MAZE_PROGRESS(generate_path(), "Path Generation")
 	LOG_MAZE_PROGRESS(apply_helper_modules(FALSE), "Helper Modules")
 	if(length(loot_modules)) // Only bother with this if we have some
 		LOG_MAZE_PROGRESS(calculate_loot_spots(), "Loot Spot Calculation")
 		LOG_MAZE_PROGRESS(apply_loot_modules(), "Loot Modules")
-	log_debug("\[MAZE] Generation of maze at [x],[y],[z] complete within [stop_watch(total_time)]s")
+	LOG_DEBUG("\[MAZE] Generation of maze at [x],[y],[z] complete within [stop_watch(total_time)]s")
 	qdel(src)
 
 /obj/effect/mazegen/generator/proc/generate_path()
@@ -133,7 +133,7 @@ do { \
 
 			// On both tiles
 			for(var/obj/structure/window/reinforced/crescent/W in T3)
-				if(W.dir == reverse_dir[text2num(D)])
+				if(W.dir == GLOB.reverse_dir[text2num(D)])
 					qdel(W)
 
 			// Mark as visited

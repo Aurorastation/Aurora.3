@@ -6,7 +6,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
 
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 	//Has a list of items that it can hold.
 	var/list/can_hold = list(
@@ -35,10 +35,15 @@
 
 	var/force_holder
 
-/obj/item/gripper/examine(var/mob/user)
-	..()
+/obj/item/gripper/examine(mob/user)
+	. = ..()
 	if(wrapped)
-		to_chat(user, SPAN_NOTICE("It is holding \the [wrapped]"))
+		wrapped.examine(user)
+
+/obj/item/gripper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(wrapped)
+		. += SPAN_NOTICE("It is holding \the [wrapped].")
 
 /proc/grippersafety(var/obj/item/gripper/G)
 	if(!G || !G.wrapped)//The object must have been lost
@@ -57,6 +62,9 @@
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if(!wrapped)
 		if((can_hold && is_type_in_list(I, can_hold)) || (cant_hold && !is_type_in_list(I, cant_hold)))
+			if(I.anchored)
+				to_chat(user, SPAN_WARNING("\The [I] is anchored down!"))
+				return FALSE
 			if(feedback)
 				to_chat(user, SPAN_NOTICE("You collect \the [I]."))
 			if(isturf(I.loc) && I.Adjacent(user))
@@ -144,15 +152,15 @@
 				//Slow,powerful attack for borgs. No spamclicking
 	return FALSE
 
-/obj/item/gripper/attackby(obj/item/O, mob/user)
+/obj/item/gripper/attackby(obj/item/attacking_item, mob/user)
 	var/resolved = FALSE
 	if(wrapped)
-		if(O == wrapped)
+		if(attacking_item == wrapped)
 			attack_self(user) //Allows gripper to be clicked to use item.
 			return TRUE
-		resolved = wrapped.attackby(O,user)
+		resolved = wrapped.attackby(attacking_item,user)
 		if(!resolved)
-			O.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+			attacking_item.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
 	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)

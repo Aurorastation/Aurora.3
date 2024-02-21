@@ -16,12 +16,13 @@
 	assigned_role = "People's Space Station Crewmember"
 	special_role = "People's Space Station Crewmember"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
+	respawn_flag = null
 
 /datum/outfit/admin/peoples_station_crew
 	name = "People's Space Station Crewmember"
 
 	id = /obj/item/card/id
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
 	l_ear = /obj/item/device/radio/headset/ship
@@ -32,7 +33,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/peoples_station_crew/get_id_access()
-	return list(access_pra, access_external_airlocks)
+	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/peoples_station_crew/captain
 	short_name = "peoples_station_captain"
@@ -56,6 +57,7 @@
 
 	head = /obj/item/clothing/head/tajaran/orbital_captain
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/captain
+	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt = /obj/item/storage/belt/military
 	belt_contents = list(
 						/obj/item/ammo_magazine/mc9mm = 1,

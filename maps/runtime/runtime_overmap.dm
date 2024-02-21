@@ -3,6 +3,10 @@
 	class = "NSS"
 	designation = "Runtime"
 	desc = "A large cube-shaped station, a penal colony of sorts for the likes of video game developers."
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "runtime_penal_colony"
+	moving_state = "runtime_penal_colony"
+	colors = list("#f147cd", "#f79aea")
 	vessel_mass = 100000
 	burn_delay = 2 SECONDS
 	base = TRUE

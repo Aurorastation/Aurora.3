@@ -2,16 +2,16 @@
 	name = "bee pack"
 	desc = "A stasis pack for moving bees. Contains a queen bee and some worker bees. Everything you'll need to start a hive!"
 	icon = 'icons/obj/beekeeping.dmi'
-	icon_state = "beepack"
+	icon_state = "bee_pack"
 	var/full = TRUE
 
 /obj/item/bee_pack/Initialize()
 	. = ..()
-	add_overlay("beepack-full")
+	add_overlay("bee_pack-full")
 
 /obj/item/bee_pack/update_icon()
 	cut_overlays()
-	add_overlay("beepack-[full ? "full" : "empty"]")
+	add_overlay("bee_pack-[full ? "full" : "empty"]")
 
 /obj/item/bee_pack/proc/empty()
 	name = "empty bee pack"

@@ -11,7 +11,7 @@
 	icon_supported_species_tags = list("skr")
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -33,7 +33,8 @@
 		/obj/item/rig_module/vision/nvg,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/actuators/combat
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -61,7 +62,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/rfd_c,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/recharger
 		)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
 
@@ -87,7 +89,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/injector,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL
@@ -114,12 +117,68 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/mounted/egun,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/recharger
 		)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
+/obj/item/rig/ert/scc
+	name = "\improper SCC ERT-C hardsuit control module"
+	desc = "A suit worn by the commander of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
+	suit_type = "SCC ERT commander"
+	icon = 'icons/clothing/rig/scc_ert/commander.dmi'
+	icon_state = "scc_rig"
+	icon_supported_species_tags = null
+	species_restricted = list(BODYTYPE_HUMAN)
+
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/storage,
+		/obj/item/rig_module/recharger
+		)
+
+/obj/item/rig/ert/scc/engineer
+	name = "\improper SCC ERT-E hardsuit control module"
+	desc = "A suit worn by the engineer of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
+	suit_type = "SCC ERT engineer"
+	icon = 'icons/clothing/rig/scc_ert/engineer.dmi'
+	icon_state = "scc_rig"
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
+
+/obj/item/rig/ert/scc/medical
+	name = "\improper SCC ERT-M hardsuit control module"
+	desc = "A suit worn by the medical specialist of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
+	suit_type = "SCC ERT medic"
+	icon = 'icons/clothing/rig/scc_ert/medic.dmi'
+	icon_state = "scc_rig"
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL
+
+/obj/item/rig/ert/scc/security
+	name = "\improper SCC ERT-S hardsuit control module"
+	desc = "A suit worn by the security specialist of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
+	suit_type = "SCC ERT security"
+	icon = 'icons/clothing/rig/scc_ert/security.dmi'
+	icon_state = "scc_rig"
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
+
 /obj/item/rig/ert/assetprotection
-	name = "heavy asset protection suit control module"
+	name = "\improper heavy asset protection suit control module"
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
 	suit_type = "heavy asset protection"
 	icon = 'icons/clothing/rig/asset_protection.dmi'
@@ -150,7 +209,8 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/actuators/combat
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA // all modules

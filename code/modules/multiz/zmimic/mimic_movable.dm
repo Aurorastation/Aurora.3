@@ -77,7 +77,7 @@
 // Holder object used for dimming openspaces & copying lighting of below turf.
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"
-	desc = "You shouldn't see this."
+	desc = DESC_PARENT
 	icon = 'icons/effects/lighting_overlay.dmi'
 	icon_state = "dark"
 	plane = OPENTURF_MAX_PLANE
@@ -100,7 +100,7 @@
 	appearance = LO
 	layer = MIMICED_LIGHTING_LAYER
 	plane = OPENTURF_MAX_PLANE
-	invisibility = 0
+	set_invisibility(101)
 	blend_mode = BLEND_MULTIPLY
 	if (icon_state == null)
 		// We're using a color matrix, so just darken the colors across the board.
@@ -151,8 +151,8 @@
 	var/original_z
 	var/override_depth
 
-/atom/movable/openspace/mimic/New()
-	initialized = TRUE
+/atom/movable/openspace/mimic/Initialize(mapload, ...)
+	. = ..()
 	SSzcopy.openspace_overlays += 1
 
 /atom/movable/openspace/mimic/Destroy()
@@ -167,7 +167,7 @@
 
 	return ..()
 
-/atom/movable/openspace/mimic/attackby(obj/item/W, mob/user)
+/atom/movable/openspace/mimic/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_NOTICE("\The [src] is too far away."))
 
 /atom/movable/openspace/mimic/attack_hand(mob/user)
@@ -184,23 +184,23 @@
 			deltimer(destruction_timer)
 			destruction_timer = null
 	else if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, /datum/.proc/qdel_self), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
 
 // Called when the turf we're on is deleted/changed.
 /atom/movable/openspace/mimic/proc/owning_turf_changed()
 	if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, /datum/.proc/qdel_self), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
 
 // -- TURF PROXY --
 
 // This thing holds the mimic appearance for non-OVERWRITE turfs.
 /atom/movable/openspace/turf_proxy
 	plane = OPENTURF_MAX_PLANE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	no_z_overlay = TRUE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
-/atom/movable/openspace/turf_proxy/attackby(obj/item/W, mob/user)
-	loc.attackby(W, user)
+/atom/movable/openspace/turf_proxy/attackby(obj/item/attacking_item, mob/user)
+	loc.attackby(attacking_item, user)
 
 /atom/movable/openspace/turf_proxy/attack_hand(mob/user as mob)
 	loc.attack_hand(user)
@@ -218,7 +218,7 @@
 // A type for copying non-overwrite turfs' self-appearance.
 /atom/movable/openspace/turf_mimic
 	plane = OPENTURF_MAX_PLANE	// These *should* only ever be at the top?
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/turf/delegate
 
 /atom/movable/openspace/turf_mimic/Initialize(mapload, ...)
@@ -226,8 +226,8 @@
 	ASSERT(isturf(loc))
 	delegate = loc:below
 
-/atom/movable/openspace/turf_mimic/attackby(obj/item/W, mob/user)
-	loc.attackby(W, user)
+/atom/movable/openspace/turf_mimic/attackby(obj/item/attacking_item, mob/user)
+	loc.attackby(attacking_item, user)
 
 /atom/movable/openspace/turf_mimic/attack_hand(mob/user as mob)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))

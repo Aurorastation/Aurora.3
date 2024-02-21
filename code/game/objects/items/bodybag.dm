@@ -53,7 +53,7 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
-	density = 0
+	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
 	var/contains_body = FALSE
@@ -72,10 +72,10 @@
 		to_chat(user, "\The [src] is full.")
 	to_chat(user, "It [contains_body ? "contains" : "does not contain"] a body.")
 
-/obj/structure/closet/body_bag/attackby(var/obj/item/W, mob/user as mob)
-	if (W.ispen())
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
-		if (user.get_active_hand() != W)
+/obj/structure/closet/body_bag/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.ispen())
+		var/t = tgui_input_text(user, "What would you like the label to be?", name)
+		if (user.get_active_hand() != attacking_item)
 			return TRUE
 		if (!in_range(src, user) && src.loc != user)
 			return TRUE
@@ -88,15 +88,15 @@
 		else
 			src.name = "body bag"
 		return TRUE
-	else if(W.iswirecutter())
+	else if(attacking_item.iswirecutter())
 		to_chat(user, "You cut the tag off the bodybag.")
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		src.name = "body bag"
 		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
 		return TRUE
 
-/obj/structure/closet/body_bag/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/body_bag/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	slowdown = 0
 	if(contains_body)
 		for(var/mob/living/M in contents)
@@ -234,11 +234,11 @@
 		return airtank
 	..()
 
-/obj/structure/closet/body_bag/cryobag/examine(mob/user)
+/obj/structure/closet/body_bag/cryobag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user,"The stasis meter shows '[stasis_power]x'.")
-	if(Adjacent(user) && length(contents)) //The bag's rather thick and opaque from a distance.
-		to_chat(user, "<span class='info'>You peer into \the [src].</span>")
+	. += "The stasis meter shows '[stasis_power]x'."
+	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
+		. += "<span class='info'>You peer into \the [src].</span>"
 		for(var/mob/living/L in contents)
 			L.examine(arglist(args))
 

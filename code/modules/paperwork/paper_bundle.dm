@@ -16,43 +16,43 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
-/obj/item/paper_bundle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if (istype(W, /obj/item/paper/carbon))
-		var/obj/item/paper/carbon/C = W
+	if (istype(attacking_item, /obj/item/paper/carbon))
+		var/obj/item/paper/carbon/C = attacking_item
 		if (!C.iscopy && !C.copied)
 			to_chat(user, "<span class='notice'>Take off the carbon copy first.</span>")
 			add_fingerprint(user)
 			return
 	// adding sheets
-	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
-		insert_sheet_at(user, pages.len+1, W)
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo))
+		insert_sheet_at(user, pages.len+1, attacking_item)
 		amount++
 		attack_self(usr) //Update the browsed page.
 
 	// burning
-	else if(istype(W, /obj/item/flame))
-		burnpaper(W, user)
+	else if(istype(attacking_item, /obj/item/flame))
+		burnpaper(attacking_item, user)
 
 	// merging bundles
-	else if(istype(W, /obj/item/paper_bundle))
-		for(var/obj/O in W)
+	else if(istype(attacking_item, /obj/item/paper_bundle))
+		for(var/obj/O in attacking_item)
 			O.forceMove(src)
 			O.add_fingerprint(usr)
 			pages.Add(O)
 			amount++
 
-		to_chat(user, "<span class='notice'>You add \the [W.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		to_chat(user, "<span class='notice'>You add \the [attacking_item.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
 		attack_self(usr) //Update the browsed page.
-		qdel(W)
+		qdel(attacking_item)
 	else
-		if(istype(W, /obj/item/tape_roll))
+		if(istype(attacking_item, /obj/item/tape_roll))
 			return 0
-		// if(istype(W, /obj/item/pen))
+		// if(istype(attacking_item, /obj/item/pen))
 			// usr << browse("", "window=[name]") // TODO: actually does nothing, either fix it so you can write directly to the bundle screen or actually prevent the window from opening until you're done
 		var/obj/P = pages[page]
-		P.attackby(W, user)
+		P.attackby(attacking_item, user)
 
 	update_icon()
 	add_fingerprint(usr)
@@ -91,12 +91,12 @@
 			else
 				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
-/obj/item/paper_bundle/examine(mob/user)
-	if(..(user, 1))
+/obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
 		src.show_content(user)
 	else
-		to_chat(user, "<span class='notice'>It is too far away.</span>")
-	return
+		. += "<span class='notice'>It is too far away.</span>"
 
 /obj/item/paper_bundle/proc/show_content(mob/user as mob)
 	var/dat
@@ -176,7 +176,7 @@
 			var/obj/P = pages[page]
 			page++
 			var/obj/A = pages[page]
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 			if(A.type != P.type)
 				usr << browse(null, "window=[name]")
 	if(href_list["prev_page"])
@@ -184,7 +184,7 @@
 			var/obj/P = pages[page]
 			page--
 			var/obj/A = pages[page]
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 			if(A.type != P.type)
 				usr << browse(null, "window=[name]")
 	if(href_list["remove"])
@@ -226,7 +226,7 @@
 		return
 
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
-	
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return
 
@@ -256,7 +256,7 @@
 /obj/item/paper_bundle/update_icon()
 	var/obj/item/paper/P = pages[1]
 	icon_state = P.icon_state
-	copy_overlays(P.overlays, TRUE)
+	copy_overlays(P, TRUE)
 	underlays = 0
 	var/i = 0
 	var/photo

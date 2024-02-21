@@ -301,11 +301,12 @@
 	},
 /area/dungeon/crashed_ship)
 "gB" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	electrified_until = 0;
 	icon_state = "door_locked";
 	locked = 1;
-	welded = 1
+	welded = 1;
+	dir = 1
 	},
 /obj/structure/inflatable/wall,
 /obj/effect/decal/cleanable/dirt,
@@ -688,14 +689,7 @@
 "nY" = (
 /obj/random/booze,
 /obj/structure/table/wood,
-/obj/structure/sign/flag/coalition/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/coalition/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/coalition/large/north,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "oe" = (
@@ -792,7 +786,8 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
-	welded = 1
+	welded = 1;
+	dir = 4
 	},
 /obj/structure/inflatable/wall,
 /obj/effect/decal/cleanable/dirt,
@@ -807,7 +802,7 @@
 	},
 /area/dungeon/crashed_ship)
 "qn" = (
-/obj/item/reagent_containers/cooking_container/plate/bowl{
+/obj/item/reagent_containers/cooking_container/board/bowl{
 	pixel_y = 8
 	},
 /obj/item/storage/box/fancy/cigarettes,
@@ -976,9 +971,7 @@
 /area/dungeon/crashed_ship)
 "tT" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";
@@ -1008,7 +1001,9 @@
 	},
 /area/dungeon/crashed_ship)
 "un" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/dungeon/crashed_ship)
@@ -1019,7 +1014,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "uL" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
@@ -1664,8 +1661,9 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Iw" = (
-/obj/machinery/door/airlock/sac{
-	electrified_until = 0
+/obj/machinery/door/airlock/external{
+	electrified_until = 0;
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,

@@ -15,24 +15,24 @@
 	var/list/forbidden = list(/obj/item/reagent_containers/inhaler, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/glass, /obj/item/extinguisher)
 	// duplicate from blender code, since it's not really worth a define. also, it has fewer things.
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list(/decl/reagent/iron),
-		/obj/item/stack/material/uranium = list(/decl/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/decl/reagent/toxin/phoron),
-		/obj/item/stack/material/gold = list(/decl/reagent/gold),
-		/obj/item/stack/material/silver = list(/decl/reagent/silver),
-		/obj/item/stack/material/steel = list(/decl/reagent/iron, /decl/reagent/carbon),
-		/obj/item/stack/material/sandstone = list(/decl/reagent/silicon, /decl/reagent/acetone),
-		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
+		/obj/item/stack/material/iron = list(/singleton/reagent/iron),
+		/obj/item/stack/material/uranium = list(/singleton/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/singleton/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/singleton/reagent/gold),
+		/obj/item/stack/material/silver = list(/singleton/reagent/silver),
+		/obj/item/stack/material/steel = list(/singleton/reagent/iron, /singleton/reagent/carbon),
+		/obj/item/stack/material/sandstone = list(/singleton/reagent/silicon, /singleton/reagent/acetone),
+		/obj/item/stack/material/glass = list(/singleton/reagent/silicate),
 		) // removed borosilicate glass, platinum, and plasteel, too tough. just steal a grinder if you need it
 
 /obj/structure/chemkit/Initialize()
 	. = ..()
 	create_reagents(180)
 
-/obj/structure/chemkit/examine(mob/user)
+/obj/structure/chemkit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(analyzer)
-		to_chat(user, SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C."))
+		. += SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C.")
 
 /obj/structure/chemkit/verb/phase_filter()
 	set name = "Set Phase Filter"
@@ -125,23 +125,23 @@
 
 /obj/structure/chemkit/dismantle()
 	new /obj/structure/table(loc)
-	new /obj/item/reagent_containers/cooking_container/plate/bowl(loc)
+	new /obj/item/reagent_containers/cooking_container/board/bowl(loc)
 	if(analyzer)
 		analyzer.forceMove(loc)
 		analyzer = null
 	qdel(src)
 
-/obj/structure/chemkit/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/chemkit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		dismantle()
 		return
-	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
-		trans_item(W, user)
+	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
+		trans_item(attacking_item, user)
 		return
-	if(W.isFlameSource())
-		heat_item(W, user)
+	if(attacking_item.isFlameSource())
+		heat_item(attacking_item, user)
 		return
-	if(istype(W) && W.force >= 5 && !has_edge(W) && LAZYLEN(contents - analyzer))
+	if(istype(attacking_item) && attacking_item.force >= 5 && !has_edge(attacking_item) && LAZYLEN(contents - analyzer))
 		var/obj/item/smashed = pick(contents - analyzer)
 		if(!smashed.reagents && !sheet_reagents[smashed.type])
 			return // should never happen anyway, but still
@@ -150,7 +150,7 @@
 			return
 		smash(smashed, user)
 		return
-	if(has_edge(W) && LAZYLEN(contents - analyzer))
+	if(has_edge(attacking_item) && LAZYLEN(contents - analyzer))
 		var/obj/item/chopped = pick(contents - analyzer)
 		if(!chopped.reagents)
 			return
@@ -158,14 +158,14 @@
 			return
 		chop(chopped, user)
 		return
-	if(!analyzer && istype(W, /obj/item/device/analyzer))
-		user.drop_from_inventory(W)
-		analyzer = W
-		W.forceMove(src)
+	if(!analyzer && istype(attacking_item, /obj/item/device/analyzer))
+		user.drop_from_inventory(attacking_item)
+		analyzer = attacking_item
+		attacking_item.forceMove(src)
 		return
-	if(!is_type_in_list(W, forbidden) && (W.w_class <= 3.0) && (W.reagents || sheet_reagents[W.type]))
-		user.drop_from_inventory(W)
-		W.forceMove(src)
+	if(!is_type_in_list(attacking_item, forbidden) && (attacking_item.w_class <= 3.0) && (attacking_item.reagents || sheet_reagents[attacking_item.type]))
+		user.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(src)
 		return
 	. = ..()
 
@@ -219,36 +219,36 @@
 	if(!reagents?.total_volume) // can't distill nothing
 		return
 	for(var/_R in reagents.reagent_volumes)
-		if(!ispath(_R, /decl/reagent/alcohol))
+		if(!ispath(_R, /singleton/reagent/alcohol))
 			continue
-		var/decl/reagent/alcohol/AR = decls_repository.get_decl(_R)
+		var/singleton/reagent/alcohol/AR = GET_SINGLETON(_R)
 		var/ARvol = REAGENT_VOLUME(reagents, _R)
 		var/alcohol_fraction = AR.strength/100
-		reagents.add_reagent(/decl/reagent/water, (1-alcohol_fraction)*ARvol)
-		reagents.add_reagent(ispath(_R, /decl/reagent/alcohol/butanol) ? /decl/reagent/alcohol/butanol : /decl/reagent/alcohol, alcohol_fraction*ARvol)
+		reagents.add_reagent(/singleton/reagent/water, (1-alcohol_fraction)*ARvol)
+		reagents.add_reagent(ispath(_R, /singleton/reagent/alcohol/butanol) ? /singleton/reagent/alcohol/butanol : /singleton/reagent/alcohol, alcohol_fraction*ARvol)
 		reagents.remove_reagent(_R, ARvol)
 	icon_state = "distillery-off"
 
-/obj/structure/distillery/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/distillery/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		dismantle()
 		return
-	if(!welder && istype(W, /obj/item/weldingtool))
-		user.drop_from_inventory(W)
-		src.welder = W
-		W.forceMove(src)
+	if(!welder && istype(attacking_item, /obj/item/weldingtool))
+		user.drop_from_inventory(attacking_item)
+		src.welder = attacking_item
+		attacking_item.forceMove(src)
 		icon_state = "distillery-off"
 		return
-	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
-		trans_item(W, user)
+	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
+		trans_item(attacking_item, user)
 		return
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		transfer_out = !transfer_out
 		to_chat(user, SPAN_NOTICE("You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
 		return
-	if(W.isFlameSource() && istype(welder))
+	if(attacking_item.isFlameSource() && istype(welder))
 		to_chat(user, SPAN_NOTICE("You light \the [src] and begin the distillation process."))
-		addtimer(CALLBACK(src, .proc/distill), 60 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(distill)), 60 SECONDS)
 		src.icon_state = "distillery-active"
 		return
 	. = ..()

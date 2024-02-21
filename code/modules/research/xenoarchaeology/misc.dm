@@ -47,27 +47,27 @@
 /obj/structure/bookcase/manuals/xenoarchaeology
 	name = "Xenoarchaeology Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/book/manual/excavation(src)
-		new /obj/item/book/manual/mass_spectrometry(src)
-		new /obj/item/book/manual/materials_chemistry_analysis(src)
-		new /obj/item/book/manual/anomaly_testing(src)
-		new /obj/item/book/manual/anomaly_spectroscopy(src)
-		new /obj/item/book/manual/stasis(src)
-		update_icon()
+/obj/structure/bookcase/manuals/xenoarchaeology/New()
+	..()
+	new /obj/item/book/manual/excavation(src)
+	new /obj/item/book/manual/mass_spectrometry(src)
+	new /obj/item/book/manual/materials_chemistry_analysis(src)
+	new /obj/item/book/manual/anomaly_testing(src)
+	new /obj/item/book/manual/anomaly_spectroscopy(src)
+	new /obj/item/book/manual/stasis(src)
+	update_icon()
 
 //---- Lockers and closets
 
 /obj/structure/closet/secure_closet/xenoarchaeologist
 	name = "xenoarchaeologist's locker"
-	req_access = list(access_xenoarch)
+	req_access = list(ACCESS_XENOARCH)
 	icon_state = "science"
 
 /obj/structure/closet/secure_closet/xenoarchaeologist/fill()
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/clothing/glasses/science(src)
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/storage/belt/archaeology(src)
@@ -91,6 +91,8 @@
 	new /obj/item/device/beacon_locator(src)
 	new /obj/item/device/radio/beacon(src)
 	new /obj/item/pickaxe(src)
+	new /obj/item/material/hatchet/machete/steel(src)
+	new /obj/item/clothing/accessory/holster/utility/machete(src)
 	new /obj/item/device/measuring_tape(src)
 	new /obj/item/pickaxe/hand(src)
 	new /obj/item/storage/bag/fossils(src)
@@ -104,9 +106,9 @@
 //---- Isolation room air alarms
 
 /obj/machinery/alarm/isolation
-	req_one_access = list(access_research, access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/alarm/monitor/isolation
-	req_one_access = list(access_research, access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	locked = 0
 	remote_control = 1

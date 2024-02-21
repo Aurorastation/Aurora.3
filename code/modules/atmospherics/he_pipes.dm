@@ -32,7 +32,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions_he)
 			if (!node1_dir)
 				node1_dir = direction
@@ -51,6 +51,7 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/process()
@@ -84,7 +85,7 @@
 				heat_limit = H.species.heat_level_3
 
 			if(pipe_air.temperature > heat_limit + 1)
-				M.apply_damage(4 * log(pipe_air.temperature - heat_limit), BURN, BP_CHEST, used_weapon = "Excessive Heat")
+				M.apply_damage(4 * log(pipe_air.temperature - heat_limit), DAMAGE_BURN, BP_CHEST, used_weapon = "Excessive Heat")
 
 		//fancy radiation glowing
 		if(pipe_air.temperature && (icon_temperature > 500 || pipe_air.temperature > 500)) //start glowing at 500K
@@ -153,4 +154,5 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	queue_icon_update()

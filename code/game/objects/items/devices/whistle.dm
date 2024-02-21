@@ -4,7 +4,7 @@
 	icon_state = "voice0"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	w_class = ITEMSIZE_TINY
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	var/use_message = "Halt! Security!"
 	var/spamcheck = 0
@@ -14,6 +14,7 @@
 	set name = "Set Hailer Message"
 	set category = "Object"
 	set desc = "Alter the message shouted by your hailer."
+	set src in usr
 
 	if(!isnull(insults))
 		to_chat(usr, "The hailer is fried. The tiny input screen just shows a waving ASCII penis.")

@@ -1,5 +1,3 @@
-#define MINIMUM_USEFUL_LIGHT_RANGE 1.4
-
 /atom
 	var/light_power = 1 // Intensity of the light.
 	var/light_range = 0 // Range in tiles of the light.
@@ -72,10 +70,7 @@
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
 		QDEL_NULL(light)
 	else
-		if (!istype(loc, /atom/movable)) // We choose what atom should be the top atom of the light here.
-			. = src
-		else
-			. = loc
+		. = get_light_atom()
 
 #ifdef ENABLE_SUNLIGHT
 		if (light) // Update the light or create it if it does not exist.
@@ -90,6 +85,12 @@
 		else
 			light = new /datum/light_source(src, .)
 #endif
+
+/atom/proc/get_light_atom()
+	if (!istype(loc, /atom/movable)) // We choose what atom should be the top atom of the light here.
+		return src
+	return loc
+
 
 // If we have opacity, make sure to tell (potentially) affected light sources.
 /atom/movable/Destroy()

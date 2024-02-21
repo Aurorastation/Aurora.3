@@ -26,7 +26,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	if(!next_event_time)
 		set_event_delay()
 
-	if(delayed || !config.allow_random_events)
+	if(delayed || !GLOB.config.allow_random_events)
 		next_event_time += (world.time - last_world_time)
 	else if(world.time > next_event_time)
 		start_event()
@@ -46,7 +46,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 		new next_event.event_type(next_event)	// Events are added and removed from the processing queue in their New/kill procs
 
-		log_debug("Starting event '[next_event.name]' of severity [severity_to_string[severity]].")
+		LOG_DEBUG("Starting event '[next_event.name]' of severity [severity_to_string[severity]].")
 		next_event = null						// When set to null, a random event will be selected next time
 	else
 		// If not, wait for one minute, instead of one tick, before checking again.
@@ -80,22 +80,22 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	var/last_time = last_event_time[EM]
 	if(last_time)
 		var/time_passed = world.time - last_time
-		var/weight_modifier = max(0, round((config.expected_round_length - time_passed) / 300))
+		var/weight_modifier = max(0, round((GLOB.config.expected_round_length - time_passed) / 300))
 		weight = weight - weight_modifier
 
 	return weight
 
 /datum/event_container/proc/set_event_delay()
 	// If the next event time has not yet been set and we have a custom first time start
-	if(next_event_time == 0 && config.event_first_run[severity])
-		var/lower = config.event_first_run[severity]["lower"]
-		var/upper = config.event_first_run[severity]["upper"]
+	if(next_event_time == 0 && GLOB.config.event_first_run[severity])
+		var/lower = GLOB.config.event_first_run[severity]["lower"]
+		var/upper = GLOB.config.event_first_run[severity]["upper"]
 		var/event_delay = rand(lower, upper)
 		next_event_time = world.time + event_delay
 	// Otherwise, follow the standard setup process
 	else
 		var/playercount_modifier = 1
-		switch(player_list.len)
+		switch(GLOB.player_list.len)
 			if(0 to 10)
 				playercount_modifier = 1.2
 			if(11 to 15)
@@ -108,10 +108,10 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 				playercount_modifier = 0.8
 		playercount_modifier = playercount_modifier * delay_modifier
 
-		var/event_delay = rand(config.event_delay_lower[severity], config.event_delay_upper[severity]) * playercount_modifier
+		var/event_delay = rand(GLOB.config.event_delay_lower[severity], GLOB.config.event_delay_upper[severity]) * playercount_modifier
 		next_event_time = world.time + event_delay
 
-	log_debug("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
+	LOG_DEBUG("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
 
 /datum/event_container/proc/SelectEvent()
 	var/datum/event_meta/EM = input("Select an event to queue up.", "Event Selection", null) as null|anything in available_events
@@ -137,7 +137,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	active_with_role["Janitor"] = 0
 	active_with_role["Gardener"] = 0
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(!M.mind || !M.client || M.client.is_afk(10 MINUTES)) // longer than 10 minutes AFK counts them as inactive
 			continue
 
@@ -186,24 +186,23 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 /datum/event_container/mundane
 	severity = EVENT_LEVEL_MUNDANE
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",					/datum/event/nothing,				120),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",				/datum/event/apc_damage,			20, 	list(ASSIGNMENT_ENGINEER = 15)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",		/datum/event/brand_intelligence,	0, 		list(ASSIGNMENT_ENGINEER = 5), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage",				/datum/event/camera_damage,			20, 	list(ASSIGNMENT_ENGINEER = 10)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News",				/datum/event/economic_event,		300),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Lost Carp",					/datum/event/carp_migration, 		20, 	list(ASSIGNMENT_SECURITY = 10), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration",		/datum/event/carp_migration/cozmo,	60),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Hacker",				/datum/event/money_hacker, 			10),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",				/datum/event/money_lotto, 			0, 		list(ASSIGNMENT_ANY = 1), TRUE, 5, 15),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane News", 				/datum/event/mundane_news, 			300),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",					/datum/event/wallrot, 				75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",				/datum/event/vent_clog, 			55),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",				/datum/event/false_alarm, 			100),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",				/datum/event/supply_drop, 			80),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "CCIA General Notice",		/datum/event/ccia_general_notice, 	300),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane Vermin Infestation",/datum/event/infestation, 			60,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Drone Malfunction",			/datum/event/rogue_maint_drones,	10,		list(ASSIGNMENT_ENGINEER = 30)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Visitor", 					/datum/event/visitor,				50, is_one_shot = TRUE)
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",						/datum/event/nothing,				120),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",					/datum/event/apc_damage,			20, 	list(ASSIGNMENT_ENGINEER = 15)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",			/datum/event/brand_intelligence,	0, 		list(ASSIGNMENT_ENGINEER = 5), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage",					/datum/event/camera_damage,			20, 	list(ASSIGNMENT_ENGINEER = 10)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News",					/datum/event/economic_event,		300),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration",			/datum/event/carp_migration/cozmo,	60),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Hacker",					/datum/event/money_hacker, 			10),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",					/datum/event/money_lotto, 			0, 		list(ASSIGNMENT_ANY = 1), TRUE, 5, 15),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane News", 					/datum/event/mundane_news, 			300),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",						/datum/event/wallrot, 				75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",					/datum/event/vent_clog, 			55),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",					/datum/event/false_alarm, 			100),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",					/datum/event/supply_drop, 			80),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "CCIA General Notice",			/datum/event/ccia_general_notice, 	300),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane Vermin Infestation",	/datum/event/infestation, 			60,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Drone Malfunction",				/datum/event/rogue_maint_drones,	10,		list(ASSIGNMENT_ENGINEER = 30)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Visitor", 						/datum/event/visitor,				50, is_one_shot = TRUE)
 	)
 
 // Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
@@ -213,10 +212,12 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing",							/datum/event/nothing,						200),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_SURGEON = 25)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School",						/datum/event/carp_migration,				25, 	list(ASSIGNMENT_SECURITY = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout",			/datum/event/communications_blackout,		100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm",					/datum/event/electrical_storm, 				50,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Gravity Failure",					/datum/event/gravity,	 					100),
+		// see comment at code/modules/events/gravity.dm
+		// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
+		// this needs to be fixed before we can uncomment this
+		// new /datum/event_meta(EVENT_LEVEL_MODERATE, "Gravity Failure",					/datum/event/gravity,	 					100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",						/datum/event/ionstorm, 						0,		list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",						/datum/event/prison_break,					0,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology",	/datum/event/prison_break/xenobiology,		0,		list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20), TRUE),
@@ -235,8 +236,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Nothing",					/datum/event/nothing,					135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Carp Migration",			/datum/event/carp_migration,			50,		list(ASSIGNMENT_SECURITY =  10), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list("Engineer" = 2), pop_needed = 10),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Space Vines",				/datum/event/spacevine, 				0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Spider Infestation",		/datum/event/spider_infestation,		25,	 	list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Major Vermin Infestation",	/datum/event/infestation/major, 		15,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),

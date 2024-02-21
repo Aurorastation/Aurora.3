@@ -19,7 +19,7 @@
 /datum/outfit/admin/ee_crewman
 	name = "Einstein Engines Crewman"
 
-	uniform = /obj/item/clothing/under/rank/engineer/heph
+	uniform = /obj/item/clothing/under/rank/einstein
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/utility/full
@@ -32,7 +32,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/ee_crewman/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ee_research_officer
 	short_name = "ee_research_officer"
@@ -55,7 +55,7 @@
 /datum/outfit/admin/ee_research_officer
 	name = "Einstein Engines Research Officer"
 
-	uniform = /obj/item/clothing/under/rank/engineer/heph
+	uniform = /obj/item/clothing/under/rank/einstein
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel/leather
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -69,10 +69,10 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/ee_research_officer/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 
 /obj/item/card/id/ee_ship
 	name = "ee research ship id"
-	access = list(access_ee_spy_ship, access_external_airlocks)
+	access = list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

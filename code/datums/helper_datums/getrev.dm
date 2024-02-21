@@ -2,7 +2,7 @@ var/global/datum/getrev/revdata = new()
 
 /hook/startup/proc/initialize_test_merges()
 	if (!revdata)
-		log_debug("GETREV: No rev found.")
+		LOG_DEBUG("GETREV: No rev found.")
 		return TRUE
 
 	revdata.testmerge_initialize()
@@ -40,21 +40,21 @@ var/global/datum/getrev/revdata = new()
 	world.log << date
 	world.log << revision
 
-client/verb/showrevinfo()
+/client/verb/showrevinfo()
 	set category = "OOC"
 	set name = "Show Server Revision"
 	set desc = "Check the current server code revision"
 
 	if(revdata.revision)
 		to_chat(src, "<b>Server revision:</b> [revdata.branch] - [revdata.date]")
-		if(config.githuburl)
-			to_chat(src, "<a href='[config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
+		if(GLOB.config.githuburl)
+			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
 		else
 			to_chat(src, revdata.revision)
 	else
 		to_chat(src, "Revision unknown")
 
-	to_chat(src, "<b>Current Map:</b> [current_map.full_name]")
+	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
 
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)
@@ -72,8 +72,8 @@ client/verb/showrevinfo()
 /datum/getrev/proc/generate_greeting_info()
 	if (!test_merges.len)
 		greeting_info = {"<div class="alert alert-info">
-		                  There are currently no test merges loaded onto the server.
-		                  </div>"}
+						There are currently no test merges loaded onto the server.
+						</div>"}
 		return
 
 	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",
@@ -91,11 +91,11 @@ client/verb/showrevinfo()
 	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
 
 	if (api)
-		log_debug("GETREV: TGS API found.")
+		LOG_DEBUG("GETREV: TGS API found.")
 		test_merges = api.TestMerges()
-		log_debug("GETREV: [test_merges.len] test merges found.")
+		LOG_DEBUG("GETREV: [test_merges.len] test merges found.")
 	else
-		log_debug("GETREV: No TGS API found.")
+		LOG_DEBUG("GETREV: No TGS API found.")
 		test_merges = list()
 
 	generate_greeting_info()
@@ -106,8 +106,8 @@ client/verb/showrevinfo()
 	. += "<hr><p>PR #[tm.number]: \"[html_encode(tm.title)]\""
 	. += "<br>\tAuthor: [html_encode(tm.author)]"
 
-	if (config.githuburl)
-		. += "<br>\t<a href='[config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
+	if (GLOB.config.githuburl)
+		. += "<br>\t<a href='[GLOB.config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
 
 	. += "</p>"
 
@@ -121,7 +121,7 @@ client/verb/showrevinfo()
 	. += {"<table class="table">"}
 	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
 
-	if (config.githuburl)
+	if (GLOB.config.githuburl)
 		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
 
 	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}

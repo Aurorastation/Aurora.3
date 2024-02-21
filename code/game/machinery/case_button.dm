@@ -8,7 +8,7 @@
 	idle_power_usage = 50 //50W because the forcefield is disabled
 	active_power_usage = 2000 //2kW because of the forcefield
 	power_channel = EQUIP
-	req_access = list(access_keycard_auth) //Access required to unlock the cover
+	req_access = list(ACCESS_KEYCARD_AUTH) //Access required to unlock the cover
 	//Style variables
 	var/case = 1 //What case to use - c value
 	var/cover = 1 //What cover to use - g value
@@ -31,8 +31,8 @@
 	QDEL_NULL(listener)
 	return ..()
 
-/obj/machinery/case_button/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/card))
+/obj/machinery/case_button/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card))
 		if(src.allowed(user))
 			covered = !covered //Enable / Disable the forcefield
 		update_use_power(covered + 1) //Update the power usage
@@ -41,7 +41,7 @@
 		if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
 			. = ..()
 		else
-			user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield.</span>","You hear something boucing off a forcefield.")
+			user.visible_message("<span class='danger'>[src] has been hit by [user] with [attacking_item], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [attacking_item], but it bounces off the forcefield.</span>","You hear something bouncing off a forcefield.")
 			. = TRUE
 	update_icon()
 
@@ -98,7 +98,7 @@
 
 
 /obj/machinery/case_button/shuttle
-	name = "\improper Emergency Shuttle Button"
+	name = "bluespace jump button"
 	desc = "A button in a case protected with a forcefield."
 	icon_state = "c2"
 	button_type = "button_case_emergencyshuttle"
@@ -107,7 +107,7 @@
 
 /obj/machinery/case_button/shuttle/activate(mob/user)
 	..()
-	return call_shuttle_proc(user, TRUE)
+	return call_shuttle_proc(user, TRANSFER_JUMP)
 
 /obj/machinery/case_button/shuttle/deactivate(mob/user)
 	..()

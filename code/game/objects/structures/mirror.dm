@@ -5,6 +5,7 @@
 	icon_state = "mirror"
 	density = 0
 	anchored = 1
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/shattered = 0
 
 	/// Visual object for handling the viscontents
@@ -18,14 +19,14 @@
 	reflection.setup_visuals(src)
 	ref = WEAKREF(reflection)
 
-	entered_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_enter)
-	exited_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_exit)
+	GLOB.entered_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_enter))
+	GLOB.exited_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_exit))
 
 /obj/structure/mirror/Destroy()
 	var/obj/effect/reflection/reflection = ref.resolve()
 	if(istype(reflection))
-		entered_event.unregister(loc, reflection)
-		exited_event.unregister(loc, reflection)
+		GLOB.entered_event.unregister(loc, reflection)
+		GLOB.exited_event.unregister(loc, reflection)
 		qdel(reflection)
 		ref = null
 	return ..()
@@ -41,13 +42,13 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.change_appearance(APPEARANCE_ALL_HAIR, H, FALSE, ui_state = default_state, state_object = src)
+		H.change_appearance(APPEARANCE_ALL_HAIR, H, FALSE, ui_state = GLOB.default_state, state_object = src)
 
 /obj/structure/mirror/proc/shatter()
 	if(shattered)	return
 	shattered = 1
 	icon_state = "mirror_broke"
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	desc = "Oh no, seven years of bad luck!"
 
 	var/obj/effect/reflection/reflection = ref.resolve()
@@ -64,16 +65,16 @@
 			playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
 	..()
 
-/obj/structure/mirror/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/mirror/attackby(obj/item/attacking_item, mob/user)
 	if(shattered)
 		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
 		return
 
-	if(prob(I.force * 2))
-		visible_message("<span class='warning'>[user] smashes [src] with [I]!</span>")
+	if(prob(attacking_item.force * 2))
+		visible_message("<span class='warning'>[user] smashes [src] with [attacking_item]!</span>")
 		shatter()
 	else
-		visible_message("<span class='warning'>[user] hits [src] with [I]!</span>")
+		visible_message("<span class='warning'>[user] hits [src] with [attacking_item]!</span>")
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 70, 1)
 
 /obj/structure/mirror/attack_generic(var/mob/user, var/damage)
@@ -93,7 +94,7 @@
 /obj/effect/reflection
 	name = "reflection"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_HIDE
 	layer = ABOVE_OBJ_LAYER
 	var/alpha_icon = 'icons/obj/watercloset.dmi'
@@ -184,4 +185,4 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.change_appearance(APPEARANCE_HAIR, H, FALSE, ui_state = default_state, state_object = src)
+		H.change_appearance(APPEARANCE_HAIR, H, FALSE, ui_state = GLOB.default_state, state_object = src)

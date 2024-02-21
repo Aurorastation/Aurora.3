@@ -1,20 +1,20 @@
-var/global/list/all_robolimbs = list()
-var/global/list/internal_robolimbs = list()
-var/global/list/chargen_robolimbs = list()
-var/global/list/fabricator_robolimbs = list()
-var/global/datum/robolimb/basic_robolimb
+GLOBAL_LIST_EMPTY(all_robolimbs)
+GLOBAL_LIST_EMPTY(internal_robolimbs)
+GLOBAL_LIST_EMPTY(chargen_robolimbs)
+GLOBAL_LIST_EMPTY(fabricator_robolimbs)
+GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /proc/populate_robolimb_list()
-	basic_robolimb = new()
+	GLOB.basic_robolimb = new()
 	for(var/limb_type in typesof(/datum/robolimb))
 		var/datum/robolimb/R = new limb_type()
-		all_robolimbs[R.company] = R
+		GLOB.all_robolimbs[R.company] = R
 		if(!R.unavailable_at_chargen)
-			chargen_robolimbs[R.company] = R
+			GLOB.chargen_robolimbs[R.company] = R
 		if(R.fabricator_available)
-			fabricator_robolimbs[R.company] = R
+			GLOB.fabricator_robolimbs[R.company] = R
 		if(R.allows_internal)
-			internal_robolimbs[R.company] = R
+			GLOB.internal_robolimbs[R.company] = R
 
 /datum/robolimb
 	var/company = "Unbranded"                            // Shown when selecting the limb.
@@ -140,6 +140,13 @@ var/global/datum/robolimb/basic_robolimb
 		return FALSE
 	else
 		return TRUE
+
+/datum/robolimb/tesla/industrial
+	company = PROSTHETIC_TESLA_BODY
+	desc = "A heavy version of the Tesla prosthetics created for the Tesla Rejuvenation Suit"
+	icon = 'icons/mob/human_races/tajara/industrial_tesla_limbs.dmi'
+	species_can_use = list(SPECIES_TAJARA_TESLA_BODY)
+	brute_mod = 0.7
 
 /datum/robolimb/vaurca
 	company = PROSTHETIC_VAURCA

@@ -1,5 +1,6 @@
 /datum/unit_test/species
 	name = "SPECIES template"
+	groups = list("generic")
 
 /datum/unit_test/species/injection_mod
 	name = "SPECIES: All species shall have a valid injection_mod"
@@ -18,9 +19,9 @@
 
 	if(failed_species.len)
 		for(var/fail in failed_species)
-		fail("SPECIES: Invalid injection_mod var set on species: [english_list(failed_species)]")
+		TEST_FAIL("SPECIES: Invalid injection_mod var set on species: [english_list(failed_species)]")
 	else
-		pass("SPECIES: All species had valid injection_mod vars set.")
+		TEST_PASS("SPECIES: All species had valid injection_mod vars set.")
 
 
 	return 1

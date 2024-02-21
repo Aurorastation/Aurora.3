@@ -17,6 +17,11 @@
 	item_state = "electropack"
 	w_class = ITEMSIZE_TINY
 
+/obj/item/device/camera_film/taj_film
+	name = "film canister"
+	icon = 'icons/obj/tajara_items.dmi'
+	desc = "A rolle of 35mm film intended for cameras of Tajaran make."
+	icon_state = "taj_film"
 
 /********
 * photo *
@@ -44,23 +49,22 @@ var/global/photo_count = 0
 	id = photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
-	user.examinate(src)
+	examinate(user, src)
 
-/obj/item/photo/attackby(obj/item/P as obj, mob/user as mob)
-	if(P.ispen())
-		var/txt = sanitize(input(user, "What would you like to write on the back?", "Photo Writing", null)  as text, 128)
+/obj/item/photo/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
+		var/txt = sanitize( tgui_input_text(user, "What would you like to write on the back?", "Photo Writing", max_length = 128), 128 )
 		if(loc == user && user.stat == 0)
 			scribble = txt
 	..()
 
-/obj/item/photo/examine(mob/user)
+/obj/item/photo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
+	if(distance <= 1)
 		show(user)
-		to_chat(user, "<span class='notice'>[picture_desc]</span>")
+		. += "<span class='notice'>[picture_desc]</span>"
 	else
-		to_chat(user, "<span class='notice'>You are too far away to discern its contents.</span>")
-
+		. += "<span class='notice'>You are too far away to discern its contents.</span>"
 
 /obj/item/photo/proc/show(mob/user as mob)
 	send_rsc(user, img, "tmp_photo_[id].png")
@@ -106,7 +110,7 @@ var/global/photo_count = 0
 		var/mob/M = usr
 		if(!( istype(over_object, /obj/screen) ))
 			return ..()
-		playsound(loc, /decl/sound_category/rustle_sound, 50, 1, -5)
+		playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over_object.name)
 				if("right hand")
@@ -134,9 +138,10 @@ var/global/photo_count = 0
 	icon_state = "camera"
 	item_state = "electropack"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	var/black_white = FALSE
 	var/pictures_max = 10
 	var/pictures_left = 10
 	var/on = 1
@@ -144,14 +149,16 @@ var/global/photo_count = 0
 	var/icon_off = "camera_off"
 	var/size = 3
 
-/obj/item/device/camera/examine(mob/user, distance)
-	..()
-	if(Adjacent(user))
-		to_chat(user, SPAN_NOTICE("It has <b>[pictures_left]</b> photos left."))
+/obj/item/device/camera/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
+		. += SPAN_NOTICE("It has <b>[pictures_left]</b> photos left.")
 
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"
 	set category = "Object"
+	set src in usr
+
 	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3,5,7)
 	if(nsize)
 		size = nsize
@@ -169,14 +176,14 @@ var/global/photo_count = 0
 	to_chat(user, "You switch the camera [on ? "on" : "off"].")
 	return
 
-/obj/item/device/camera/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/device/camera_film))
+/obj/item/device/camera/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/camera_film))
 		if(pictures_left)
 			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
 			return TRUE
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
-		user.drop_from_inventory(I,get_turf(src))
-		qdel(I)
+		to_chat(user, "<span class='notice'>You insert [attacking_item] into [src].</span>")
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		qdel(attacking_item)
 		pictures_left = pictures_max
 		return TRUE
 	return ..()
@@ -207,7 +214,7 @@ var/global/photo_count = 0
 	if(!on || !pictures_left || ismob(target.loc)) return
 	captureimage(target, user, flag)
 
-	playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, 1, -3)
+	do_photo_sound()
 
 	pictures_left--
 	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
@@ -216,6 +223,9 @@ var/global/photo_count = 0
 	spawn(64)
 		icon_state = icon_on
 		on = 1
+
+/obj/item/device/camera/proc/do_photo_sound()
+	playsound(loc, /singleton/sound_category/print_sound, 75, 1, -3)
 
 /obj/item/device/camera/detective
 	name = "detectives camera"
@@ -265,6 +275,9 @@ var/global/photo_count = 0
 	p.icon = ic
 	p.tiny = pc
 	p.img = photoimage
+	if(black_white)
+		p.img.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
+		p.tiny.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
 	p.picture_desc = mobs
 	p.pixel_x = rand(-10, 10)
 	p.pixel_y = rand(-10, 10)
@@ -294,3 +307,19 @@ var/global/photo_count = 0
 		p.id = id
 
 	return p
+
+/obj/item/device/camera/adhomai
+	name = "adhomian camera"
+	icon = 'icons/obj/tajara_items.dmi'
+	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
+	icon_state = "taj_camera_on"
+	item_state = "taj_camera"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK
+	black_white = TRUE
+	icon_on = "taj_camera_on"
+	icon_off = "taj_camera_off"
+
+/obj/item/device/camera/adhomai/do_photo_sound()
+	flick("taj_camera_flash", src)
+	playsound(loc, 'sound/items/camerabulb.ogg', 75, 1, -3)

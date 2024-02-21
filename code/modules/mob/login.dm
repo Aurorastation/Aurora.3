@@ -4,10 +4,10 @@
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
-	if(config.guests_allowed) // shut up if guests allowed for testing
+	if(GLOB.config.guests_allowed) // shut up if guests allowed for testing
 		return
-	if(config.log_access)
-		for(var/mob/M in player_list)
+	if(GLOB.config.logsettings["log_access"])
+		for(var/mob/M in GLOB.player_list)
 			if(M == src)	continue
 			if( M.key && (M.key != key) )
 				var/matches
@@ -54,11 +54,13 @@
  * ckey.
  */
 /mob/proc/LateLogin()
+	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
-	player_list |= src
+	GLOB.player_list |= src
 	update_Login_details()
-	SSfeedback.update_status()
+	SSstatistics.update_status()
 
 	client.images.Cut()				//remove the images such as AIs being unable to see runes
 	client.screen.Cut()				//remove hud items just in case
@@ -85,9 +87,9 @@
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	if(client.prefs.toggles_secondary & HOTKEY_DEFAULT)
-		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#D3B5B5")
+		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true")
 	else
-		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
+		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true")
 	MOB_STOP_THINKING(src)
 
 	clear_important_client_contents(client)
@@ -102,4 +104,5 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
-	client.chatOutput.start()
+	if(client && !istype(src, /mob/abstract/new_player)) //Do not update the skybox if it's a new player mob, they don't see it anyways and it can runtime
+		client.update_skybox(TRUE)

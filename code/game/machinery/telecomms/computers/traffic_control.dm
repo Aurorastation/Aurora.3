@@ -5,7 +5,7 @@
 	icon_screen = "computer_generic"
 	icon_keyboard = "green_key"
 	light_color = LIGHT_COLOR_GREEN
-	req_access = list(access_tcomsat)
+	req_access = list(ACCESS_TCOMSAT)
 
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer
@@ -200,9 +200,9 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/traffic/attackby(var/obj/item/D as obj, var/mob/user as mob)
-	if(D.isscrewdriver())
-		if(D.use_tool(src, user, 20, volume = 50))
+/obj/machinery/computer/telecomms/traffic/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

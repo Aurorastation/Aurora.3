@@ -52,7 +52,8 @@
 	fire_sound_text = "a metallic click"
 	accuracy = 1
 	recoil = 0
-	silenced = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = 0
@@ -96,24 +97,24 @@
 	if(istype(dart))
 		fill_dart(dart)
 
-/obj/item/gun/projectile/dartgun/examine(mob/user)
-	..()
+/obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (beakers.len)
-		to_chat(user, "<span class='notice'>[src] contains:</span>")
+		. += "<span class='notice'>[src] contains:</span>"
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			for(var/_R in B.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
-				to_chat(user, "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>")
+				var/singleton/reagent/R = GET_SINGLETON(_R)
+				. += "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>"
 
-/obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		if(!istype(I, container_type))
-			to_chat(user, "<span class='notice'>[I] doesn't seem to fit into [src].</span>")
+/obj/item/gun/projectile/dartgun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(!istype(attacking_item, container_type))
+			to_chat(user, "<span class='notice'>[attacking_item] doesn't seem to fit into [src].</span>")
 			return
 		if(beakers.len >= max_beakers)
 			to_chat(user, "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>")
 			return
-		var/obj/item/reagent_containers/glass/beaker/B = I
+		var/obj/item/reagent_containers/glass/beaker/B = attacking_item
 		user.drop_from_inventory(B,src)
 		beakers += B
 		to_chat(user, "<span class='notice'>You slot [B] into [src].</span>")
@@ -138,7 +139,7 @@
 			dat += "Beaker [i] contains: "
 			if(LAZYLEN(B.reagents.reagent_volumes))
 				for(var/_R in B.reagents.reagent_volumes)
-					var/decl/reagent/R = decls_repository.get_decl(_R)
+					var/singleton/reagent/R = GET_SINGLETON(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
 					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")

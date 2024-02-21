@@ -10,7 +10,7 @@
 	desc = "This machine has a dish-like shape and green lights. It is designed to detect and process subspace radio activity."
 	telecomms_type = /obj/machinery/telecomms/receiver
 	produces_heat = FALSE
-	overmap_range = 2
+	overmap_range = 3
 	circuitboard = "/obj/item/circuitboard/telecomms/receiver"
 
 /obj/machinery/telecomms/receiver/Initialize(mapload)

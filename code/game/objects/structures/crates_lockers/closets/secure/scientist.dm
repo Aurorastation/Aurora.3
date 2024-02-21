@@ -1,12 +1,12 @@
 /obj/structure/closet/secure_closet/scientist
 	name = "scientist's locker"
-	req_access = list(access_tox_storage)
+	req_access = list(ACCESS_TOX_STORAGE)
 	icon_state = "science"
 
 /obj/structure/closet/secure_closet/scientist/fill()
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/device/radio/headset/headset_sci/alt(src)
 	new /obj/item/tank/air(src)
@@ -15,7 +15,7 @@
 
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
-	req_access = list(access_rd)
+	req_access = list(ACCESS_RD)
 	icon_state = "rd"
 
 /obj/structure/closet/secure_closet/RD/fill()
@@ -23,7 +23,7 @@
 	new /obj/item/clothing/head/hazmat/research(src)
 	new /obj/item/clothing/under/rank/research_director(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/rd(src)
@@ -42,13 +42,13 @@
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
-	req_access = list(access_rd)
+	req_access = list(ACCESS_RD)
 	icon_state = "rd"
 
 /obj/structure/closet/secure_closet/RD2/fill()
 	new /obj/item/clothing/under/rank/research_director(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/rd(src)

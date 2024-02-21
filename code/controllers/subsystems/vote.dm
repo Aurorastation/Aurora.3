@@ -1,10 +1,9 @@
-var/datum/controller/subsystem/vote/SSvote
-
-/datum/controller/subsystem/vote
+SUBSYSTEM_DEF(vote)
 	name = "Voting"
 	wait = 1 SECOND
-	flags = SS_KEEP_TIMING | SS_FIRE_IN_LOBBY | SS_NO_TICK_CHECK
-	priority = SS_PRIORITY_VOTE
+	flags = SS_KEEP_TIMING
+	init_order = INIT_ORDER_VOTE
+	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
 	var/next_transfer_time
 
@@ -21,11 +20,9 @@ var/datum/controller/subsystem/vote/SSvote
 
 	var/list/round_voters = list()
 
-/datum/controller/subsystem/vote/New()
-	NEW_SS_GLOBAL(SSvote)
-
 /datum/controller/subsystem/vote/Initialize(timeofday)
-	next_transfer_time = config.vote_autotransfer_initial
+	next_transfer_time = GLOB.config.vote_autotransfer_initial
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/vote/fire(resumed = FALSE)
 	if (mode)
@@ -35,25 +32,27 @@ var/datum/controller/subsystem/vote/SSvote
 			reset()
 			return
 
-		if(((started_time + config.vote_period - world.time)) < 0)
+		if(((started_time + GLOB.config.vote_period - world.time)) < 0)
 			result()
-			SSvueui.close_uis(src)
+			SStgui.close_uis(src)
 			reset()
 
 	if (get_round_duration() >= next_transfer_time - 600)
 		autotransfer()
-		next_transfer_time += config.vote_autotransfer_interval
+		next_transfer_time += GLOB.config.vote_autotransfer_interval
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/vote/proc/autotransfer()
 	initiate_vote("crew_transfer","the server", 1)
-	log_debug("The server has called a crew transfer vote")
+	LOG_DEBUG("The server has called a crew transfer vote")
 
 /datum/controller/subsystem/vote/proc/autogamemode()
-	for(var/thing in clients)
+	for(var/thing in GLOB.clients)
 		var/client/C = thing
 		window_flash(C)
 	initiate_vote("gamemode","the server", 1)
-	log_debug("The server has called a gamemode vote")
+	LOG_DEBUG("The server has called a gamemode vote")
 
 /datum/controller/subsystem/vote/proc/reset()
 	initiator = null
@@ -63,7 +62,7 @@ var/datum/controller/subsystem/vote/SSvote
 	choices.Cut()
 	voted.Cut()
 	current_votes.Cut()
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 /datum/controller/subsystem/vote/proc/get_result()
 	//get the highest number of votes
@@ -75,18 +74,18 @@ var/datum/controller/subsystem/vote/SSvote
 		if(votes > greatest_votes)
 			greatest_votes = votes
 	//default-vote for everyone who didn't vote
-	if(!config.vote_no_default && choices.len)
-		var/non_voters = (clients.len - total_votes)
+	if(!GLOB.config.vote_no_default && choices.len)
+		var/non_voters = (GLOB.clients.len - total_votes)
 		if(non_voters > 0)
 			if(mode == "restart")
 				choices["Continue Playing"]["votes"] += non_voters
 				if(choices["Continue Playing"]["votes"] >= greatest_votes)
 					greatest_votes = choices["Continue Playing"]["votes"]
 			else if(mode == "gamemode")
-				if(master_mode in choices)
-					choices[master_mode]["votes"] += non_voters
-					if(choices[master_mode]["votes"] >= greatest_votes)
-						greatest_votes = choices[master_mode]["votes"]
+				if(GLOB.master_mode in choices)
+					choices[GLOB.master_mode]["votes"] += non_voters
+					if(choices[GLOB.master_mode]["votes"] >= greatest_votes)
+						greatest_votes = choices[GLOB.master_mode]["votes"]
 			else if(mode == "crew_transfer")
 				var/factor = 0.5
 				switch(get_round_duration() / (10 * 60)) // minutes
@@ -157,12 +156,12 @@ var/datum/controller/subsystem/vote/SSvote
 				if(. == "Restart Round")
 					restart = 1
 			if("gamemode")
-				if(master_mode != .)
-					SSpersist_config.last_gamemode = .
+				if(GLOB.master_mode != .)
+					SSpersistent_configuration.last_gamemode = .
 					if(SSticker.mode)
 						restart = 1
 					else
-						master_mode = .
+						GLOB.master_mode = .
 			if("crew_transfer")
 				if(. == "Initiate Crew Transfer")
 					init_shift_change(null, 1)
@@ -171,11 +170,11 @@ var/datum/controller/subsystem/vote/SSvote
 				if(isnull(.) || . == "None")
 					antag_add_failed = 1
 				else
-					additional_antag_types |= antag_names_to_ids[.]
+					GLOB.additional_antag_types |= GLOB.antag_names_to_ids[.]
 
 	if(mode == "gamemode") //fire this even if the vote fails.
-		if(!round_progressing)
-			round_progressing = 1
+		if(!GLOB.round_progressing)
+			GLOB.round_progressing = 1
 			to_world("<span class='warning'><b>The round will start soon.</b></span>")
 
 	if(restart)
@@ -188,7 +187,7 @@ var/datum/controller/subsystem/vote/SSvote
 /datum/controller/subsystem/vote/proc/submit_vote(ckey, vote)
 	if(mode)
 		if (mode == "crew_transfer")
-			if(config.vote_no_dead && usr && !usr.client.holder)
+			if(GLOB.config.vote_no_dead && usr && !usr.client.holder)
 				if (isnewplayer(usr))
 					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 					return 0
@@ -219,7 +218,7 @@ var/datum/controller/subsystem/vote/SSvote
 			// Transfer votes are their own little special snowflake
 			var/next_allowed_time = 0
 			if (vote_type == "crew_transfer")
-				if (config.vote_no_dead && !usr.client.holder)
+				if (GLOB.config.vote_no_dead && !usr.client.holder)
 					if (isnewplayer(usr))
 						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 						return 0
@@ -230,11 +229,11 @@ var/datum/controller/subsystem/vote/SSvote
 							return 0
 
 				if (last_transfer_vote)
-					next_allowed_time = (last_transfer_vote + config.vote_delay)
+					next_allowed_time = (last_transfer_vote + GLOB.config.vote_delay)
 				else
-					next_allowed_time = config.transfer_timeout
+					next_allowed_time = GLOB.config.transfer_timeout
 			else
-				next_allowed_time = (started_time + config.vote_delay)
+				next_allowed_time = (started_time + GLOB.config.vote_delay)
 
 			if(next_allowed_time > get_round_duration())
 				return 0
@@ -248,11 +247,11 @@ var/datum/controller/subsystem/vote/SSvote
 				round_voters.Cut() //Delete the old list, since we are having a new gamemode vote
 				if(SSticker.current_state >= 2)
 					return 0
-				for (var/F in config.votable_modes)
-					var/datum/game_mode/M = gamemode_cache[F]
+				for (var/F in GLOB.config.votable_modes)
+					var/datum/game_mode/M = GLOB.gamemode_cache[F]
 					if(!M)
 						continue
-					AddChoice(F, capitalize(M.name), "[M.required_players]")
+					AddChoice(F, capitalize(M.name), "", M.required_players)
 				AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
 				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
 					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
@@ -272,16 +271,18 @@ var/datum/controller/subsystem/vote/SSvote
 					AddChoice("Initiate Crew Transfer")
 					AddChoice("Continue The Round")
 			if("add_antagonist")
-				if(!config.allow_extra_antags || SSticker.current_state >= 2)
+				if(!GLOB.config.allow_extra_antags || SSticker.current_state >= 2)
 					return 0
-				for(var/antag_type in all_antag_types)
-					var/datum/antagonist/antag = all_antag_types[antag_type]
-					if(!(antag.id in additional_antag_types) && antag.is_votable())
+				for(var/antag_type in GLOB.all_antag_types)
+					var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
+					if(!(antag.id in GLOB.additional_antag_types) && antag.is_votable())
 						AddChoice(antag.role_text)
 				AddChoice("None")
 			if("custom")
-				question = input(usr,"What is the vote for?") as text|null
-				if(!question)	return 0
+				question = tgui_input_text(usr, "What is the vote for?")
+				if(!question)
+					return FALSE
+
 				for(var/i=1,i<=10,i++)
 					var/option = capitalize(sanitize(input(usr,"Please enter an option or hit cancel to finish") as text|null))
 					if(!option || mode || !usr.client)	break
@@ -296,9 +297,9 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "\n[sanitizeSafe(question)]"
 
 		log_vote(text)
-		to_world("<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
-		for(var/cc in clients)
+		for(var/cc in GLOB.clients)
 			var/client/C = cc
+			to_chat(C, "<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [GLOB.config.vote_period/10] seconds to vote.</span>")
 			if(C.prefs.sfx_toggles & ASFX_VOTE) //Personal mute
 				switch(vote_type)
 					if("crew_transfer")
@@ -307,112 +308,143 @@ var/datum/controller/subsystem/vote/SSvote
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
 					if("custom")
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
-		if(mode == "gamemode" && round_progressing)
-			round_progressing = 0
+		if(mode == "gamemode" && GLOB.round_progressing)
+			GLOB.round_progressing = 0
 			to_world("<span class='warning'><b>Round start has been delayed.</b></span>")
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return 1
 	return 0
 
-/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text)
+/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text = "", required_players = 0)
 	if(!display_name)
 		display_name = name
-	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
+	choices[name] = list(
+		"name" = display_name,
+		"extra" = extra_text,
+		"required_players" = required_players,
+		"votes" = 0
+	)
 
-/datum/controller/subsystem/vote/Topic(href, list/href_list = list(), hsrc)
-	if(!usr || !usr.client)
-		return	//not necessary but meh...just in-case somebody does something stupid
+/datum/controller/subsystem/vote/ui_state(mob/user)
+	return GLOB.always_state
+
+/datum/controller/subsystem/vote/ui_status(mob/user, datum/ui_state/state)
+	return UI_INTERACTIVE
+
+/datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "Voting", "Voting", 400, 500)
+		ui.open()
+
+/datum/controller/subsystem/vote/Topic(href, href_list)
+	. = ..()
 	if(href_list["open"])
-		OpenVotingUI(usr)
-	var/isstaff = usr.client.holder && (usr.client.holder.rights & (R_ADMIN|R_MOD))
+		SSvote.ui_interact(usr)
+		return TRUE
 
-	switch(href_list["action"])
+/datum/controller/subsystem/vote/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	. = TRUE
+	var/isstaff = ui.user.client.holder && (ui.user.client.holder.rights & (R_ADMIN|R_MOD))
+
+	switch(action)
 		if("cancel")
 			if(isstaff)
 				reset()
+				return TRUE
 		if("toggle_restart")
 			if(isstaff)
-				config.allow_vote_restart = !config.allow_vote_restart
-				SSvueui.check_uis_for_change(src)
+				GLOB.config.allow_vote_restart = !GLOB.config.allow_vote_restart
+				SStgui.update_uis(src)
+				return TRUE
 		if("toggle_gamemode")
 			if(isstaff)
-				config.allow_vote_mode = !config.allow_vote_mode
-				SSvueui.check_uis_for_change(src)
+				GLOB.config.allow_vote_mode = !GLOB.config.allow_vote_mode
+				SStgui.update_uis(src)
+				return TRUE
 		if("restart")
 			if(isstaff)
-				initiate_vote("restart",usr.key)
-			else if (config.allow_vote_restart)
+				initiate_vote("restart", ui.user.key)
+				return TRUE
+			else if (GLOB.config.allow_vote_restart)
 				var/admin_number_present = 0
 				var/admin_number_afk = 0
 
-				for (var/s in staff)
+				for (var/s in GLOB.staff)
 					var/client/X = s
 					if (X.holder.rights & R_ADMIN)
 						admin_number_present++
 						if (X.is_afk())
 							admin_number_afk++
 						if (X.prefs.toggles & SOUND_ADMINHELP)
-							to_chat(X, 'sound/effects/adminhelp.ogg')
+							sound_to(X, 'sound/effects/adminhelp.ogg')
 
 				if ((admin_number_present - admin_number_afk) <= 0)
-					initiate_vote("restart", usr.key)
+					initiate_vote("restart", ui.user.key)
+					return TRUE
 				else
 					log_and_message_admins("tried to start a restart vote.", usr, null)
-					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
+					to_chat(ui.user, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
-			if(config.allow_vote_mode || isstaff)
-				initiate_vote("gamemode",usr.key)
+			if(GLOB.config.allow_vote_mode || isstaff)
+				initiate_vote("gamemode", ui.user.key)
+				return TRUE
 		if("crew_transfer")
-			if(config.allow_vote_restart || isstaff)
-				initiate_vote("crew_transfer",usr.key)
+			if(GLOB.config.allow_vote_restart || isstaff)
+				initiate_vote("crew_transfer", ui.user.key)
+				return TRUE
 		if("add_antagonist")
-			if(!antag_add_failed && config.allow_extra_antags)
-				initiate_vote("add_antagonist",usr.key)
+			if(!antag_add_failed && GLOB.config.allow_extra_antags)
+				initiate_vote("add_antagonist", ui.user.key)
+				return TRUE
 		if("custom")
 			if(isstaff)
-				initiate_vote("custom",usr.key)
+				initiate_vote("custom", ui.user.key)
+				return TRUE
 		if("vote")
-			var/t = href_list["vote"]
-			if(t) // It starts from 1, so there's no problem
-				if(submit_vote(usr.ckey, t))
-					SSvueui.check_uis_for_change(src)
+			var/list/T = params["vote"]
+			var/our_vote = T["choice"]
+			if(our_vote)
+				if(submit_vote(ui.user.ckey, our_vote))
+					SStgui.update_uis(src)
+			return TRUE
 
-/datum/controller/subsystem/vote/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = list("choices" = list(), "mode" = 0, "voted" = 0)
-	data = . || data
+/datum/controller/subsystem/vote/ui_data(mob/user)
+	var/list/data = list()
 	if(choices.len != LAZYLEN(data["choices"]))
 		data["choices"] = list()
 	for(var/choice in choices)
-		VUEUI_SET_IFNOTSET(data["choices"][choice], deepCopyList(choices[choice]), ., data)
-		VUEUI_SET_CHECK(data["choices"][choice]["votes"], choices[choice]["votes"], ., data) // Only votes trigger data update
+		data["choices"] += list(list(
+			"choice" = choice,
+			"votes" = choices[choice]["votes"],
+			"extra" = choices[choice]["extra"],
+			"required_players" = choices[choice]["required_players"],
+		))
 
-	VUEUI_SET_CHECK(data["mode"], mode, ., data)
-	VUEUI_SET_CHECK(data["voted"], current_votes[user.ckey], ., data)
-	VUEUI_SET_CHECK(data["endtime"], started_time + config.vote_period, ., data)
-	VUEUI_SET_CHECK(data["allow_vote_restart"], config.allow_vote_restart, ., data)
-	VUEUI_SET_CHECK(data["allow_vote_mode"], config.allow_vote_mode, ., data)
-	VUEUI_SET_CHECK(data["allow_extra_antags"], (!antag_add_failed && config.allow_extra_antags), ., data)
+	data["mode"] = mode
+	data["voted"] = current_votes[user.ckey]
+	data["endtime"] = started_time + GLOB.config.vote_period
+	data["allow_vote_restart"] = GLOB.config.allow_vote_restart
+	data["allow_vote_mode"] = GLOB.config.allow_vote_mode
+	data["allow_extra_antags"] = (!antag_add_failed && GLOB.config.allow_extra_antags)
 
 	if(!question)
-		VUEUI_SET_CHECK(data["question"], capitalize(mode), ., data)
+		data["question"] = capitalize(mode)
 	else
-		VUEUI_SET_CHECK(data["question"], question, ., data)
-	VUEUI_SET_CHECK(data["isstaff"], (user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))), ., data)
+		data["question"] = question
+	data["is_staff"] = user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))
 	var/slevel = get_security_level()
-	VUEUI_SET_CHECK(data["is_code_red"], (slevel == "red" || slevel == "delta"), ., data)
-
-
-
-/datum/controller/subsystem/vote/proc/OpenVotingUI(var/mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, SSvote, "misc-voting", 400, 500, "Voting panel", state = interactive_state)
-		ui.header = "minimal"
-	ui.open()
+	data["is_code_red"] = (slevel == "red" || slevel == "delta")
+	data["total_players"] = SSticker.total_players
+	data["total_players_ready"] = SSticker.total_players_ready
+	return data
 
 /mob/verb/vote()
 	set category = "OOC"
 	set name = "Vote"
 
-	SSvote.OpenVotingUI(src)
+	SSvote.ui_interact(src)

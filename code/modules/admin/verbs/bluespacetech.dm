@@ -57,7 +57,7 @@
 	bst.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/bst(bst), slot_l_ear)
 	bst.equip_to_slot_or_del(new /obj/item/storage/backpack/holding/bst(bst), slot_back)
 	bst.equip_to_slot_or_del(new /obj/item/storage/box/survival(bst.back), slot_in_backpack)
-	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/black/bst(bst), slot_shoes)
+	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/black/bst(bst), slot_shoes)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer/bst(bst), slot_head)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/bst(bst), slot_glasses)
 	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/very_full(bst), slot_belt)
@@ -117,17 +117,21 @@
 	bst.add_language(LANGUAGE_CHANGELING)
 	bst.add_language(LANGUAGE_BORER)
 
-	addtimer(CALLBACK(src, .proc/bst_post_spawn, bst), 5)
-	addtimer(CALLBACK(src, .proc/bst_spawn_cooldown), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(bst_post_spawn), bst), 5)
+	addtimer(CALLBACK(src, PROC_REF(bst_spawn_cooldown)), 5 SECONDS)
 
-	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
+	bst.client.init_verbs()
+
+	bst.client.init_verbs()
+
+	LOG_DEBUG("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
 
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
-	spark(bst, 3, alldirs)
+	spark(bst, 3, GLOB.alldirs)
 	bst.anchored = FALSE
 
 /mob/living/carbon/human/bst
@@ -160,12 +164,13 @@
 		return
 
 	src.custom_emote(VISIBLE_MESSAGE,"presses a button on their suit, followed by a polite bow.")
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
 		if(client.holder && client.holder.original_mob)
 			client.holder.original_mob.key = key
+			client.init_verbs()
 		else
 			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
@@ -173,6 +178,7 @@
 			ghost.name = "[ghost.key] BSTech"
 			ghost.real_name = "[ghost.key] BSTech"
 			ghost.voice_name = "[ghost.key] BSTech"
+			ghost.client.init_verbs()
 
 /mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
 	if(set_species(SPECIES_TAJARA))
@@ -453,14 +459,14 @@
 		..()
 
 //Shoes
-/obj/item/clothing/shoes/black/bst
+/obj/item/clothing/shoes/sneakers/black/bst
 	name = "bluespace technician's shoes"
 	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	canremove = 0
 
-/obj/item/clothing/shoes/black/bst/attack_hand()
+/obj/item/clothing/shoes/sneakers/black/bst/attack_hand()
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))

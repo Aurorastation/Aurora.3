@@ -3,8 +3,12 @@
 
 	if(ismob(mover))
 		var/mob/moving_mob = mover
-		if ((other_mobs && moving_mob.other_mobs))
-			return 1
+		if(moving_mob.pulledby == src)
+			return TRUE
+		if(length(moving_mob.grabbed_by))
+			for(var/obj/item/grab/G in moving_mob.grabbed_by)
+				if(G.assailant == src)
+					return TRUE
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)
@@ -238,9 +242,16 @@
 				console.jump_on_click(mob,T)
 				return
 
-		// Only meaningful for living mobs.
-		if(Process_Grab())
-			return
+		if(length(mob.grabbed_by))
+			var/turf/target_turf = get_step(mob, direct)
+			for(var/obj/item/grab/G in mob.grabbed_by)
+				// can't move, try resisting and stop movement
+				if(G.state > GRAB_PASSIVE || get_dist(G.assailant, target_turf) > 1)
+					L.resist()
+					return
+
+		for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
+			G.reset_kill_state() //no wandering across the station/asteroid while choking someone
 
 	if(!mob.canmove || mob.paralysis)
 		return
@@ -282,7 +293,7 @@
 				move_delay = world.time
 				//drunk driving
 				if(mob.confused && prob(25))
-					direct = pick(cardinal)
+					direct = pick(GLOB.cardinal)
 				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
@@ -298,11 +309,11 @@
 					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
 				if(mob.confused && prob(25))
-					direct = pick(cardinal)
-				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
+					direct = pick(GLOB.cardinal)
+				move_delay += max((mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled_to.relaymove(mob,direct)
 
-		var/tally = mob.movement_delay() + config.walk_speed
+		var/tally = mob.movement_delay() + GLOB.config.walk_speed
 
 		// Apply human specific modifiers.
 		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
@@ -312,11 +323,13 @@
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
 			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
 				sprint_tally = tally
-				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+				tally = (tally / (1 + H.sprint_speed_factor)) * GLOB.config.run_delay_multiplier
+			else if (H.m_intent == M_LAY && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE)))
+				tally = (tally / (1 + H.lying_speed_factor)) * GLOB.config.lying_delay_multiplier
 			else
-				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
+				tally = max(tally * GLOB.config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
 		else
-			tally *= config.walk_delay_multiplier
+			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
 
@@ -326,12 +339,6 @@
 			if(crawl_tally >= 120)
 				return FALSE
 
-		var/tickcomp = 0 //moved this out here so we can use it for vehicles
-		if(config.Tickcomp)
-			// move_delay -= 1.3 //~added to the tickcomp calculation below
-			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
-			move_delay = move_delay + tickcomp
-
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))
 				return
@@ -339,7 +346,8 @@
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
 		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
-			move_delay += 1
+			var/obj/structure/S = mob.pulledby
+			move_delay += S.slowdown
 			return mob.pulledby.relaymove(mob, direct)
 
 		var/old_loc = mob.loc
@@ -356,13 +364,13 @@
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
-			step(mob, pick(cardinal))
+			step(mob, pick(GLOB.cardinal))
 		else
 			. = mob.SelfMove(n, direct)
 
 		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
-				mob.set_dir(reverse_dir[direct])
+				mob.set_dir(GLOB.reverse_dir[direct])
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)
@@ -454,7 +462,7 @@
 						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
 					BS.mind.transfer_to(D)
 					D.echo = 1
-					D.stat = CONSCIOUS
+					D.set_stat(CONSCIOUS)
 					D.gestalt = L
 					D.sync_languages(D.gestalt)
 					D.update_verbs()
@@ -504,16 +512,15 @@
 	var/turf/T = get_turf(src)
 
 	if (!T) // nullspace so sure, have gravity.
-		return 1
-	else if (istype(T, /turf/space))
-		return 0
+		return TRUE
+	else if(T.is_hole)
+		return FALSE
 
 	var/area/A = T.loc
-
 	if (!A.has_gravity() && !Check_Shoegrip())
-		return 0
+		return FALSE
 
-	return 1
+	return TRUE
 
 
 /mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles

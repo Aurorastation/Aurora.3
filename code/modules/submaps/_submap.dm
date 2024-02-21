@@ -1,7 +1,7 @@
 /datum/submap
 	var/name
 	var/pref_name
-	var/decl/submap_archetype/archetype
+	var/singleton/submap_archetype/archetype
 	var/associated_z
 
 /datum/submap/New(var/existing_z)
@@ -12,7 +12,7 @@
 	SSmapping.submaps -= src
 	. = ..()
 
-/datum/submap/proc/setup_submap(var/decl/submap_archetype/_archetype)
+/datum/submap/proc/setup_submap(var/singleton/submap_archetype/_archetype)
 
 	if(!istype(_archetype))
 		log_game( "Submap error - [name] - null or invalid archetype supplied ([_archetype]).")
@@ -35,7 +35,7 @@
 		qdel(src)
 		return
 
-	var/obj/effect/overmap/visitable/cell = map_sectors["[associated_z]"]
+	var/obj/effect/overmap/visitable/cell = GLOB.map_sectors["[associated_z]"]
 	if(istype(cell))
 		sync_cell(cell)
 

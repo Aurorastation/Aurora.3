@@ -20,7 +20,7 @@
 	if(cached_icon)
 		icon = cached_icon
 
-	set_dir(pick(cardinal))
+	set_dir(pick(GLOB.cardinal))
 	pixel_x = -32 + rand(-8, 8)
 	pixel_y = -32 + rand(-8, 8)
 
@@ -48,13 +48,19 @@
 /obj/effect/effect/smoke/chem/Crossed(atom/movable/AM)
 	..()
 	if(!istype(AM, /obj/effect/effect/smoke/chem))
-		reagents.splash(AM, splash_amount, copy = 1)
+		if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+			return
+		else
+			reagents.splash(AM, splash_amount, copy = 1)
 
 /obj/effect/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))
 		for(var/atom/movable/AM in T)
 			if(!istype(AM, /obj/effect/effect/smoke/chem))
-				reagents.splash(AM, splash_amount, copy = 1)
+				if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+					return
+				else
+					reagents.splash(AM, splash_amount, copy = 1)
 
 /////////////////////////////////////////////
 // Chem Smoke Effect System
@@ -208,7 +214,7 @@
 
 		var/offset = 0
 		var/points = round((radius * 2 * M_PI) / arcLength)
-		var/angle = round(ToDegrees(arcLength / radius), 1)
+		var/angle = round(TO_DEGREES(arcLength / radius), 1)
 
 		if(!IsInteger(radius))
 			offset = 45		//degrees
@@ -279,7 +285,7 @@
 
 	while(pending.len)
 		for(var/turf/current in pending)
-			for(var/D in cardinal)
+			for(var/D in GLOB.cardinal)
 				var/turf/target = get_step(current, D)
 				if(wallList)
 					if(istype(target, /turf/simulated/wall))

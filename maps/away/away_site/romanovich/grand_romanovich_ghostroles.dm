@@ -21,7 +21,7 @@
 	name = "Grand Romanovich Host"
 
 	uniform = /obj/item/clothing/under/tajaran/fancy
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	back = /obj/item/storage/backpack/satchel/leather
 
@@ -31,7 +31,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)
 
 /datum/outfit/admin/grand_romanovich_host/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/grand_romanovich_staff
 	short_name = "casino_staff"
@@ -56,7 +56,7 @@
 
 	uniform = /obj/item/clothing/under/tajaran
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site
@@ -66,7 +66,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)
 
 /datum/outfit/admin/grand_romanovich_staff/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/grand_romanovich_guard
 	short_name = "casino_guard"
@@ -93,7 +93,7 @@
 
 	head = /obj/item/clothing/head/fedora/grey
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site
@@ -115,7 +115,7 @@
 	)
 
 /datum/outfit/admin/grand_romanovich_guard/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/casino_patron
 	short_name = "casino_patron"

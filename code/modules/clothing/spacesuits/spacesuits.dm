@@ -9,7 +9,7 @@
 	icon_state = "softsuit_helmet"
 	item_state = "softsuit_helmet"
 	contained_sprite = TRUE
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	permeability_coefficient = 0.01
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,
@@ -26,11 +26,17 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	allow_hair_covering = FALSE
 
+	has_storage = FALSE
+
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
 	brightness_on = 4
 	light_wedge = LIGHT_WIDE
 	on = 0
+
+/obj/item/clothing/head/helmet/space/Initialize()
+	. = ..()
+	build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space
 	name = "softsuit"
@@ -43,7 +49,7 @@
 	w_class = ITEMSIZE_LARGE
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
-	item_flags = THICKMATERIAL|INJECTIONPORT
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_INJECTION_PORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/device/suit_cooling_unit, /obj/item/tank)
 	slowdown = 1
@@ -60,6 +66,10 @@
 	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM,BODYTYPE_VAURCA_BULWARK)
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
+
+/obj/item/clothing/suit/space/Initialize()
+	. = ..()
+	build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()

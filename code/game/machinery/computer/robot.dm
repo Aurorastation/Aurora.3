@@ -1,13 +1,13 @@
 /obj/machinery/computer/robotics
 	name = "robotics control console"
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 
 	icon_screen = "robot"
 	icon_keyboard = "purple_key"
 	light_color = LIGHT_COLOR_PURPLE
 
-	req_one_access = list(access_rd, access_robotics)
+	req_one_access = list(ACCESS_RD, ACCESS_ROBOTICS)
 	circuit = /obj/item/circuitboard/robotics
 
 	var/safety = 1
@@ -56,7 +56,7 @@
 		if(isrobot(user) && user != target)
 			to_chat(user, "Access denied.")
 			return
-		var/choice = input("Really detonate [target.name]?") in list ("Yes", "No")
+		var/choice = tgui_alert(usr, "Really detonate [target.name]?", "Robotics Control", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 		if(!target || !istype(target))
@@ -98,7 +98,7 @@
 		if(target.emagged)
 			return
 
-		var/choice = input("Really [target.lock_charge ? "unlock" : "lockdown"] [target.name] ?") in list ("Yes", "No")
+		var/choice = tgui_alert(usr, "Really [target.lock_charge ? "unlock" : "lockdown"] [target.name] ?", "Robotics Control", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 
@@ -109,7 +109,7 @@
 		message_admins("[key_name_admin(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!")
 		log_game("[key_name(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
 		to_chat(target, (target.lock_charge ? "You have been locked down!" : "Your lockdown has been lifted!"))
-	
+
 	// Changes borg's access
 	else if(href_list["access"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["access"])
@@ -130,10 +130,10 @@
 		if(!target.module)
 			to_chat(user, "\The [src]\s access protocols are immutable.")
 			return
-		
+
 		target.module.all_access = !target.module.all_access
 		target.update_access()
-		
+
 		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]."
 		message_admins(log_message)
 		log_game(log_message, ckey = key_name(usr))
@@ -154,7 +154,7 @@
 			to_chat(user, "Robot is already hacked.")
 			return
 
-		var/choice = input("Really hack [target.name]? This cannot be undone.") in list("Yes", "No")
+		var/choice = tgui_alert(usr, "Really hack [target.name]? This cannot be undone.", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 
@@ -187,7 +187,7 @@
 		message_admins("[key_name_admin(usr)] detonated all cyborgs!")
 		log_game("[key_name(usr)] detonated all cyborgs!",ckey=key_name(usr))
 
-		for(var/mob/living/silicon/robot/R in mob_list)
+		for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))
 				continue
 			// Ignore antagonistic cyborgs
@@ -206,7 +206,7 @@
 /obj/machinery/computer/robotics/proc/get_cyborgs(var/mob/operator)
 	var/list/robots = list()
 
-	for(var/mob/living/silicon/robot/R in mob_list)
+	for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 		// Ignore drones
 		if(istype(R, /mob/living/silicon/robot/drone))
 			continue
@@ -248,6 +248,6 @@
 /obj/machinery/computer/robotics/proc/get_cyborg_by_name(var/name)
 	if(!name)
 		return
-	for(var/mob/living/silicon/robot/R in mob_list)
+	for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 		if(R.name == name)
 			return R

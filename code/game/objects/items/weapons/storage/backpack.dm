@@ -38,7 +38,7 @@
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
-	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in backbagstrap)
+	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in GLOB.backbagstrap)
 		if("Hidden")
 			alpha_mask = "hidden"
 		if("Thin")
@@ -84,8 +84,8 @@
  */
 
 /obj/item/storage/backpack/holding
-	name = "bag of holding"
-	desc = "A backpack that opens into a localized pocket of Blue Space."
+	name = "portable bluespace pocket"
+	desc = "A backpack that opens into a localized pocket of bluespace. Extremely dangerous, and officially these devices do not exist. Officially."
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
 	item_state = "holdingpack"
@@ -94,18 +94,18 @@
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
 
-	attackby(obj/item/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/storage/backpack/holding))
-			to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
-			qdel(W)
-			return
-		..()
+/obj/item/storage/backpack/holding/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/storage/backpack/holding))
+		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
+		qdel(attacking_item)
+		return
+	..()
 
 	//Please don't clutter the parent storage item with stupid hacks.
-	can_be_inserted(obj/item/W as obj, stop_messages = 0)
-		if(istype(W, /obj/item/storage/backpack/holding))
-			return 1
-		return ..()
+/obj/item/storage/backpack/holding/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+	if(istype(W, /obj/item/storage/backpack/holding))
+		return 1
+	return ..()
 
 /obj/item/storage/backpack/santabag
 	name = "\improper Santa's gift bag"
@@ -113,7 +113,7 @@
 	icon_state = "giftbag0"
 	item_state = "giftbag"
 	w_class = ITEMSIZE_LARGE
-	max_storage_space = 400 // can store a ton of shit!
+	max_storage_space = 200 // can store a ton of shit!
 	empty_delay = 1 SECOND
 
 /obj/item/storage/backpack/cultpack
@@ -180,7 +180,7 @@
 	item_state = "emtpack"
 
 /obj/item/storage/backpack/syndie
-	name = "syndicate rucksack"
+	name = "tactical rucksack"
 	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"
 	icon_state = "syndiepack"
 	item_state = "syndiepack"
@@ -261,6 +261,13 @@
 	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
 	icon_state = "legion_bag"
 	item_state = "legion_bag"
+	empty_delay = 0.8 SECOND
+
+/obj/item/storage/backpack/tcaf
+	name = "\improper TCAF carapace backpack"
+	desc = "A hard shelled backpack with the flag of the Republic of Biesel front and center. Made for the Tau Ceti Armed Forces."
+	icon_state = "tcaf_carapace_backpack"
+	item_state = "tcaf_carapace_backpack"
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/service
@@ -397,8 +404,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/satchel/syndie
-	name = "syndicate satchel"
-	desc = "A satchel in the new age style of a multi-corporate terrorist organisation."
+	name = "tactical satchel"
+	desc = "A stylish satchel in the same hip and trendy color scheme as many pieces of combat equipment."
 	icon_state = "satchel-syndie"
 	item_state = "satchel-syndie"
 	empty_delay = 0.8 SECOND
@@ -594,7 +601,7 @@
 	item_state = "duffel-emt"
 
 /obj/item/storage/backpack/duffel/syndie
-	name = "syndicate duffel bag"
+	name = "tactical duffel bag"
 	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
 	item_state = "duffel-syndie"
@@ -740,7 +747,7 @@
 	item_state = "courierbagsec"
 
 /obj/item/storage/backpack/messenger/syndie
-	name = "syndicate messenger bag"
+	name = "tactical messenger bag"
 	desc = "A sturdy backpack worn over one shoulder. This one is in red and black menacing colors."
 	icon_state = "courierbagsyndie"
 	item_state = "courierbagsyndie"
@@ -869,10 +876,30 @@
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
-	canremove = 0
+	canremove = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
-	var/wings
+	var/wings_extended = FALSE
+
+/obj/item/storage/backpack/typec/verb/toggle_wings()
+	set name = "Spread Wings"
+	set desc = "Spread your wings."
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr) || !ishuman(usr))
+		return FALSE
+
+	var/mob/living/carbon/human/user = usr
+
+	wings_extended = !wings_extended
+	playsound(src.loc, 'sound/items/storage/wings.ogg', 50)
+	user.visible_message("<b>[user]</b> [wings_extended ? "extend" : "collapse"]s their wings.", SPAN_NOTICE("You [wings_extended ? "extend" : "collapse"] your wings."))
+	icon_state = "[initial(icon_state)][wings_extended ? "_open" : ""]"
+	item_state = "icon_state"
+
+	user.update_icon()
+	user.update_inv_back()
 
 /obj/item/storage/backpack/typec/klax
 	icon = 'icons/mob/species/breeder/inventory.dmi'
@@ -888,22 +915,6 @@
 	icon_state = "wings_cthur"
 	item_state = "wings_cthur"
 
-/obj/item/storage/backpack/typec/verb/toggle_wings()
-	set name = "Spread Wings"
-	set desc = "Spread your wings."
-	set category = "Object"
-	set src in usr
-	if(use_check_and_message(usr))
-		return 0
-	wings = !wings
-	playsound(src.loc, 'sound/items/storage/wings.ogg', 50)
-	to_chat(usr, "You [wings ? "extend" : "collapse"] your [src].")
-	icon_state = "[initial(icon_state)][wings ? "_open" : ""]"
-	item_state = "icon_state"
-	var/mob/living/carbon/human/H = src.loc
-	H.update_icon()
-	H.update_inv_back()
-
 
 //**Vaurca cloaks**//
 
@@ -916,6 +927,7 @@
 	contained_sprite = FALSE
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi')
 	var/hooded = FALSE
+	var/cape_backing_state = "cape_backing"
 
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
@@ -931,6 +943,12 @@
 	var/mob/living/carbon/human/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
+
+/obj/item/storage/backpack/cloak/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", BELOW_MOB_LAYER)
+	I.add_overlay(cape_backing)
+	return I
 
 /obj/item/storage/backpack/cloak/sedantis
 	name = "Sedantis tunnel cloak"
@@ -973,6 +991,24 @@
 	desc = "A Vaurca cloak with storage pockets. This one has the security department design."
 	icon_state = "seccape"
 	item_state = "seccape"
+
+/obj/item/storage/backpack/cloak/zora
+	name = "\improper Zo'ra tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Zo'ra Hive flag design."
+	icon_state = "zoracape"
+	item_state = "zoracape"
+
+/obj/item/storage/backpack/cloak/klax
+	name = "\improper K'lax tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the K'lax Hive flag design."
+	icon_state = "klaxcape"
+	item_state = "klaxcape"
+
+/obj/item/storage/backpack/cloak/cthur
+	name = "\improper C'thur tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the C'thur Hive flag design."
+	icon_state = "cthurcape"
+	item_state = "cthurcape"
 
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"

@@ -1,5 +1,6 @@
 /datum/unit_test/roundstart_cable_connectivity
 	name = "POWER: Roundstart Cables that are Connected Share Powernets"
+	groups = list("map")
 
 /datum/unit_test/roundstart_cable_connectivity/proc/find_connected_neighbours(var/obj/structure/cable/C)
 	. = list()
@@ -10,7 +11,7 @@
 
 /datum/unit_test/roundstart_cable_connectivity/proc/get_connected_neighbours(var/obj/structure/cable/self, var/dir)
 	var/turf/T = get_step(get_turf(self), dir)
-	var/reverse = reverse_dir[dir]
+	var/reverse = GLOB.reverse_dir[dir]
 
 	. = list() //can have multiple connected neighbours for a dir, e.g. Y-junctions
 	for(var/obj/structure/cable/other in T)
@@ -35,22 +36,23 @@
 				if(other in searched)
 					continue
 				if(next.powernet != other.powernet)
-					log_unit_test("[ascii_red]--------------- Cable at ([next.x], [next.y], [next.z]) did not share powernet with connected neighbour at ([other.x], [other.y], [other.z])")
+					TEST_FAIL("Cable at ([next.x], [next.y], [next.z]) did not share powernet with connected neighbour at ([other.x], [other.y], [other.z])")
 					failed++
 				to_search += other
 
 		found_cables += searched
 
 	if(failed)
-		fail("Found [failed] bad cables.")
+		TEST_FAIL("Found [failed] bad cables.")
 	else
-		pass("All connected roundstart cables have matching powernets.")
+		TEST_PASS("All connected roundstart cables have matching powernets.")
 
 	return 1
 
 
 /datum/unit_test/areas_apc_uniqueness
 	name = "POWER: Each area should have at most one APC."
+	groups = list("map")
 
 /datum/unit_test/areas_apc_uniqueness/start_test()
 	var/failed = 0
@@ -60,17 +62,18 @@
 			if(!found_apc)
 				found_apc = APC
 				continue
-			log_unit_test("[ascii_red]--------------- Duplicated APCs in area: [A.name]. #1: [log_info_line(found_apc)]  #2: [log_info_line(APC)]")
+			TEST_FAIL("Duplicated APCs in area: [A.name]. #1: [log_info_line(found_apc)]  #2: [log_info_line(APC)]")
 			failed++
 
 	if(failed)
-		fail("Found [failed] duplicate APCs.")
+		TEST_FAIL("Found [failed] duplicate APCs.")
 	else
-		pass("No areas with duplicated APCs have been found.")
+		TEST_PASS("No areas with duplicated APCs have been found.")
 	return 1
 
 /datum/unit_test/area_power_tally_accuracy
 	name = "POWER: All areas must have accurate power use values."
+	groups = list("map")
 
 /datum/unit_test/area_power_tally_accuracy/start_test()
 	var/failed = FALSE
@@ -82,10 +85,10 @@
 		for(var/i in 1 to length(old_values))
 			if(abs(old_values[i] - new_values[i]) > 1) // Round because there can in fact be roundoff error here apparently.
 				failed = TRUE
-				log_unit_test("[ascii_red]--------------- The area [A.name] had improper power use values on the [channel_names[i]] channel: was [old_values[i]] but should be [new_values[i]].")
+				TEST_FAIL("The area [A.name] had improper power use values on the [channel_names[i]] channel: was [old_values[i]] but should be [new_values[i]].")
 
 	if(failed)
-		fail("At least one area had improper power use values")
+		TEST_FAIL("At least one area had improper power use values")
 	else
-		pass("All areas had accurate power use values.")
+		TEST_PASS("All areas had accurate power use values.")
 	return 1

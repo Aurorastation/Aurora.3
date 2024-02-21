@@ -10,7 +10,7 @@
 
 /mob/abstract/eye/cameranet/Initialize()
 	. = ..()
-	visualnet = cameranet
+	visualnet = GLOB.cameranet
 
 /mob/abstract/eye/aiEye
 	name = "Inactive AI Eye"
@@ -19,7 +19,7 @@
 
 /mob/abstract/eye/aiEye/Initialize()
 	. = ..()
-	visualnet = cameranet
+	visualnet = GLOB.cameranet
 
 /mob/abstract/eye/aiEye/setLoc(var/T, var/cancel_tracking = 1)
 	. = ..()

@@ -47,13 +47,9 @@
 	toggle_reel_spin(FALSE)
 
 	for(cointype in typesof(/obj/item/coin))
-		var/obj/item/coin/C = new cointype
-		coinvalues["[cointype]"] = get_value(C)
-		qdel(C) //Sigh
+		coinvalues["[cointype]"] = get_value(cointype)
 
 /obj/machinery/computer/slot_machine/Destroy()
-	if(balance)
-		give_payout(balance)
 	return ..()
 
 /obj/machinery/computer/slot_machine/process(delta_time)
@@ -80,9 +76,9 @@
 	..()
 	update_icon()
 
-/obj/machinery/computer/slot_machine/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/coin))
-		var/obj/item/coin/C = I
+/obj/machinery/computer/slot_machine/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/coin))
+		var/obj/item/coin/C = attacking_item
 		if(paymode == COIN)
 			if(prob(2))
 				if(!user.drop_from_inventory(C, user.loc))
@@ -100,9 +96,9 @@
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting credit chips!"))
 		return TRUE
-	else if(istype(I, /obj/item/spacecash))
+	else if(istype(attacking_item, /obj/item/spacecash))
 		if(paymode == CREDITCHIP)
-			var/obj/item/spacecash/H = I
+			var/obj/item/spacecash/H = attacking_item
 			to_chat(user, SPAN_NOTICE("You insert [H.worth] credits into [src]'s slot!"))
 			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
 			balance += H.worth
@@ -111,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
 		return TRUE
-	else if(I.ismultitool())
+	else if(attacking_item.ismultitool())
 		if(balance > 0)
 			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
 		else
@@ -129,7 +125,7 @@
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
-		playsound(src, /decl/sound_category/spark_sound, 50, 1)
+		playsound(src, /singleton/sound_category/spark_sound, 50, 1)
 		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
@@ -172,7 +168,7 @@
 		spin(usr)
 
 	else if(href_list["refund"])
-		playsound(src, /decl/sound_category/button_sound, clickvol)
+		playsound(src, /singleton/sound_category/button_sound, clickvol)
 		if(balance > 0)
 			give_payout(balance, usr)
 			balance = 0
@@ -180,12 +176,16 @@
 
 /obj/machinery/computer/slot_machine/emp_act(severity)
 	. = ..()
+
 	if(stat & (NOPOWER|BROKEN))
 		return
+
 	if(prob(15 * severity))
 		return
+
 	if(prob(1)) // :^)
 		emagged = TRUE
+
 	var/severity_ascending = 4 - severity
 	money = max(rand(money - (200 * severity_ascending), money + (200 * severity_ascending)), 0)
 	balance = max(rand(balance - (50 * severity_ascending), balance + (50 * severity_ascending)), 0)
@@ -214,9 +214,9 @@
 	update_icon()
 	updateUsrDialog()
 
-	INVOKE_ASYNC(src, .proc/do_spin)
+	INVOKE_ASYNC(src, PROC_REF(do_spin))
 
-	addtimer(CALLBACK(src, .proc/finish_spinning, user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
+	addtimer(CALLBACK(src, PROC_REF(finish_spinning), user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
 
 /obj/machinery/computer/slot_machine/proc/do_spin(mob/user, the_name)
 	while(working)
@@ -246,9 +246,14 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value, delay = 0) //value is 1 or 0 aka on or off
+/obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value) //value is 1 or 0 aka on or off
 	for(var/list/reel in reels)
 		reels[reel] = value
+
+/obj/machinery/computer/slot_machine/proc/toggle_reel_spin_delay(value, delay = 0) //value is 1 or 0 aka on or off
+	toggle_reel_spin(value)
+
+	if(delay)
 		sleep(delay)
 
 /obj/machinery/computer/slot_machine/proc/randomize_reels()
@@ -263,7 +268,7 @@
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
 		visible_message("<b>[src]</b> says, 'JACKPOT! You win [money] credits!'")
-		global_announcer.autosay("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!", "Automated Announcement System")
+		GLOB.global_announcer.autosay("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!", "Automated Announcement System")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 20, 1, required_asfx_toggles = ASFX_ARCADE) // ham it up
 		jackpots += 1
 		balance += money - give_payout(JACKPOT)

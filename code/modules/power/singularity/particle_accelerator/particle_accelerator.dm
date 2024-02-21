@@ -34,9 +34,9 @@ process()
 check_build()
 
 Setup map
-  |EC|
-CC|FC|
-  |PB|
+	|EC|
+--CC|FC|
+	|PB|
 PE|PE|PE
 
 
@@ -83,24 +83,21 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	icon_state = "end_cap"
 	reference = "end_cap"
 
-/obj/structure/particle_accelerator/examine(mob/user)
+/obj/structure/particle_accelerator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	switch(construction_state)
 		if(0)
-			desc = "[initial(desc)] Looks like it's not attached to the flooring."
+			. += "Looks like it's not attached to the flooring."
 		if(1)
-			desc = "[initial(desc)] It's missing some cables."
+			. += "It's missing some cables."
 		if(2)
-			desc = "[initial(desc)] The panel is open."
+			. += "The panel is open."
 		if(3)
-			desc = "[initial(desc)] It seems completely assembled."
-			if(powered)
-				desc = initial(desc)
-	..()
-	return
+			. += "It seems completely assembled."
 
-/obj/structure/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(istool(W))
-		if(process_tool_hit(W, user))
+/obj/structure/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
+	if(istool(attacking_item))
+		if(process_tool_hit(attacking_item, user))
 			return
 	..()
 	return
@@ -125,7 +122,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(prob(25))
 				qdel(src)
 				return
-		else
+
 	return
 
 /obj/structure/particle_accelerator/update_icon()
@@ -237,25 +234,21 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/machinery/particle_accelerator/update_icon()
 	return
 
-/obj/machinery/particle_accelerator/examine(mob/user)
+/obj/machinery/particle_accelerator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	switch(construction_state)
 		if(0)
-			desc = "[initial(desc)] Looks like it's not attached to the flooring."
+			. += "Looks like it's not attached to the flooring."
 		if(1)
-			desc = "[initial(desc)] It's missing some cables."
+			. += "It's missing some cables."
 		if(2)
-			desc = "[initial(desc)] The panel is open."
+			. += "The panel is open."
 		if(3)
-			desc = "[initial(desc)] It seems completely assembled."
-			if(powered)
-				desc = initial(desc)
-	..()
-	return
+			. += "It seems completely assembled."
 
-
-/obj/machinery/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(istool(W))
-		if(process_tool_hit(W,user))
+/obj/machinery/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
+	if(istool(attacking_item))
+		if(process_tool_hit(attacking_item, user))
 			return
 	..()
 	return
@@ -273,7 +266,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(prob(25))
 				qdel(src)
 			return
-		else
+
 	return
 
 /obj/machinery/particle_accelerator/proc/update_state()

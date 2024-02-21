@@ -1,6 +1,6 @@
 // Helper proc to make sure no more than one active syndieborg exists at a time.
 /proc/can_buy_syndieborg()
-	for (var/mob/living/silicon/robot/R in silicon_mob_list)
+	for (var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
 		if (istype(R, /mob/living/silicon/robot/combat))
 			return 0
 
@@ -28,7 +28,7 @@
 
 	var/mob/M = new mob_type(get_turf(user))
 	M.faction = user.faction
-	spark(M, 4, alldirs)
+	spark(M, 4, GLOB.alldirs)
 	SSghostroles.add_spawn_atom(ghost_role_id, M)
 	equip_antag(M, user)
 	return M
@@ -45,7 +45,7 @@
 	. = ..()
 	var/mob/living/silicon/robot/combat/S = target
 	if(user?.mind.special_role)
-		var/datum/antagonist/user_antag = all_antag_types[lowertext(user.mind.special_role)]
+		var/datum/antagonist/user_antag = GLOB.all_antag_types[lowertext(user.mind.special_role)]
 		if(user_antag)
 			S.assigned_antagonist = user_antag
 	S.say("Initiating boot-up sequence!")
@@ -85,6 +85,8 @@
 	G.preEquipOutfit(outfit_type, FALSE)
 	G.equipOutfit(outfit_type, FALSE)
 	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, preserve_appearance)
+
+	G.client.init_verbs()
 
 	qdel(src)
 

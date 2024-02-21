@@ -166,7 +166,7 @@
 		else
 			for(var/atom/movable/A in destturf)
 				if(A != teleatom && A.density && A.anchored  && !istype(A, /obj/effect/portal))
-					if(A.flags & ON_BORDER)
+					if(A.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 						if(prob(10))
 							impediment = A
 							break
@@ -219,7 +219,7 @@
 							if(organs_to_gib.len)
 								var/obj/item/organ/external/E = pick(organs_to_gib)
 								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
-								H.apply_damage(35, BRUTE, E, 0)
+								H.apply_damage(35, DAMAGE_BRUTE, E, 0)
 
 					else
 						if(newdest)
@@ -289,7 +289,7 @@
 
 /datum/teleport/instant/science/setEffects(datum/effect/effect/system/aeffectin,datum/effect/effect/system/aeffectout)
 	if(!aeffectin || !aeffectout)
-		var/datum/effect_system/sparks/aeffect = new(null, FALSE, 5, alldirs)
+		var/datum/effect_system/sparks/aeffect = new(null, FALSE, 5, GLOB.alldirs)
 		effectin = effectin || aeffect
 		effectout = effectout || aeffect
 		return TRUE

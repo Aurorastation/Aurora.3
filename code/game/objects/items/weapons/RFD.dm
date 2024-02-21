@@ -22,7 +22,7 @@
 	opacity = FALSE
 	density = FALSE
 	anchored = FALSE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5
 	throwforce = 10
 	throw_speed = 1
@@ -61,10 +61,10 @@
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
 
-/obj/item/rfd/examine(var/mob/user)
-	..()
+/obj/item/rfd/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(loc == user)
-		to_chat(user, "It currently holds [stored_matter]/30 matter units.")
+		. += "It currently holds [stored_matter]/30 matter units."
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
@@ -73,20 +73,20 @@
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
 	playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 
-/obj/item/rfd/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/rfd_ammo))
+/obj/item/rfd/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > 30)
 			to_chat(user, SPAN_NOTICE("The RFD can't hold any more matter units."))
 			return
-		user.drop_from_inventory(W,src)
-		qdel(W)
+		user.drop_from_inventory(attacking_item, src)
+		qdel(attacking_item)
 		stored_matter += 10
 		playsound(src.loc, 'sound/weapons/laser_reload1.ogg', 50, FALSE)
 		to_chat(user, SPAN_NOTICE("The RFD now holds [stored_matter]/30 matter units."))
 		update_icon()
 		return TRUE
 
-	if(W.isscrewdriver())  // Turning it into a crossbow
+	if(attacking_item.isscrewdriver())  // Turning it into a crossbow
 		crafting = !crafting
 		if(!crafting)
 			to_chat(user, SPAN_NOTICE("You reassemble the RFD."))
@@ -97,14 +97,14 @@
 
 	if(crafting)
 		var/obj/item/crossbow // the thing we're gonna add, check what it is below
-		if(istype(W, /obj/item/crossbowframe))
-			var/obj/item/crossbowframe/F = W
+		if(istype(attacking_item, /obj/item/crossbowframe))
+			var/obj/item/crossbowframe/F = attacking_item
 			if(F.buildstate != 5)
 				to_chat(user, SPAN_WARNING("You need to fully assemble the crossbow frame first!"))
 				return TRUE
 			crossbow = F
-		else if(istype(W, /obj/item/gun/launcher/crossbow) && !istype(W, /obj/item/gun/launcher/crossbow/RFD))
-			var/obj/item/gun/launcher/crossbow/C = W
+		else if(istype(attacking_item, /obj/item/gun/launcher/crossbow) && !istype(attacking_item, /obj/item/gun/launcher/crossbow/RFD))
+			var/obj/item/gun/launcher/crossbow/C = attacking_item
 			if(C.bolt)
 				to_chat(user, SPAN_WARNING("You need to remove \the [C.bolt] from \the [C] before you can attach it to \the [src]."))
 				return TRUE
@@ -538,13 +538,13 @@
 /obj/item/rfd/transformer/attack_self(mob/user)
 	return
 
-/obj/item/rfd/transformer/examine(var/mob/user)
-	..()
+/obj/item/rfd/transformer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(loc == user)
 		if(malftransformermade)
-			to_chat(user, "There is already a transformer machine made!")
+			. += "There is already a transformer machine made!"
 		else
-			to_chat(user, "It is ready to deploy a transformer machine.")
+			. += "It is ready to deploy a transformer machine."
 
 /obj/item/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
 
@@ -570,7 +570,7 @@
 	var/used_energy = 100
 	to_chat(user, "Fabricating machine...")
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
-	if(do_after(user, 30 SECONDS, act_target = src))
+	if(do_after(user, 30 SECONDS, src, DO_UNIQUE))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
 		product.forceMove(get_turf(A))
@@ -592,6 +592,8 @@
 #define STANDARD_PIPE "Standard Pipes"
 #define SUPPLY_PIPE "Supply Pipes"
 #define SCRUBBER_PIPE "Scrubber Pipes"
+#define FUEL_PIPE "Fuel Pipes"
+#define AUX_PIPE "Auxiliary Pipes"
 #define DEVICES "Devices"
 
 /obj/item/rfd/piping
@@ -609,51 +611,71 @@
 	// The numbers below refer to the numberized designator for each pipe, which is used in obj/item/pipe's new
 	// Take a look at code\game\machinery\pipe\construction.dm line 69 for more information. - Geeves
 	var/list/standard_pipes = list(
-		"Pipe" = 0,
-		"Bent Pipe" = 1,
-		"Manifold" = 5,
-		"Manual Valve" = 8,
-		"4-Way Manifold" = 19,
-		"Manual T-Valve" = 18,
-		"Upward Pipe" = 21,
-		"Downward Pipe" = 22
+		"Pipe" = PIPE_SIMPLE_STRAIGHT,
+		"Bent Pipe" = PIPE_SIMPLE_BENT,
+		"Manifold" = PIPE_MANIFOLD,
+		"Manual Valve" = PIPE_MVALVE,
+		"4-Way Manifold" = PIPE_MANIFOLD4W,
+		"Manual T-Valve" = PIPE_MTVALVE,
+		"Upward Pipe" = PIPE_UP,
+		"Downward Pipe" = PIPE_DOWN
 	)
 
 	var/list/supply_pipes = list(
-		"Pipe" = 29,
-		"Bent Pipe" = 30,
-		"Manifold" = 33,
-		"4-Way Manifold" = 35,
-		"Upward Pipe" = 37,
-		"Downward Pipe" = 39
+		"Pipe" = PIPE_SUPPLY_STRAIGHT,
+		"Bent Pipe" = PIPE_SUPPLY_BENT,
+		"Manifold" = PIPE_SUPPLY_MANIFOLD,
+		"4-Way Manifold" = PIPE_SUPPLY_MANIFOLD4W,
+		"Upward Pipe" = PIPE_SUPPLY_UP,
+		"Downward Pipe" = PIPE_SUPPLY_DOWN
 	)
 
 	var/list/scrubber_pipes = list(
-		"Pipe" = 31,
-		"Bent Pipe" = 32,
-		"Manifold" = 34,
-		"4-Way Manifold" = 36,
-		"Upward Pipe" = 38,
-		"Downward Pipe" = 40
+		"Pipe" = PIPE_SCRUBBERS_STRAIGHT,
+		"Bent Pipe" = PIPE_SCRUBBERS_BENT,
+		"Manifold" = PIPE_SCRUBBERS_MANIFOLD,
+		"4-Way Manifold" = PIPE_SCRUBBERS_MANIFOLD4W,
+		"Upward Pipe" = PIPE_SCRUBBERS_UP,
+		"Downward Pipe" = PIPE_SCRUBBERS_DOWN
+	)
+
+	var/list/fuel_pipes = list(
+		"Pipe" = PIPE_FUEL_STRAIGHT,
+		"Bent Pipe" = PIPE_FUEL_BENT,
+		"Manifold" = PIPE_FUEL_MANIFOLD,
+		"4-Way Manifold" = PIPE_FUEL_MANIFOLD4W,
+		"Upward Pipe" = PIPE_FUEL_UP,
+		"Downward Pipe" = PIPE_FUEL_DOWN
+	)
+
+	var/list/aux_pipes = list(
+		"Pipe" = PIPE_AUX_STRAIGHT,
+		"Bent Pipe" = PIPE_AUX_BENT,
+		"Manifold" = PIPE_AUX_MANIFOLD,
+		"4-Way Manifold" = PIPE_AUX_MANIFOLD4W,
+		"Upward Pipe" = PIPE_AUX_UP,
+		"Downward Pipe" = PIPE_AUX_DOWN
 	)
 
 	var/list/devices = list(
-		"Universal Pipe Adapter" = 28,
-		"Connector" = 4,
-		"Unary Vent" = 7,
-		"Scrubber" = 10,
-		"Gas Pump" = 9,
-		"Pressure Regulator" = 15,
-		"High Power Gas Pump" = 16,
-		"Gas Filter" = 13,
-		"Omni Gas Filter" = 27
+		"Universal Pipe Adapter" = PIPE_UNIVERSAL,
+		"Connector" = PIPE_CONNECTOR,
+		"Unary Vent" = PIPE_UVENT,
+		"Auxiliary Unary Vent" = PIPE_AUX_UVENT,
+		"Scrubber" = PIPE_SCRUBBER,
+		"Gas Pump" = PIPE_PUMP,
+		"Fuel Gas Pump" = PIPE_PUMP_FUEL,
+		"Pressure Regulator" = PIPE_PASSIVE_GATE,
+		"High Power Gas Pump" = PIPE_VOLUME_PUMP,
+		"Gas Filter" = PIPE_GAS_FILTER_M,
+		"Omni Gas Filter" = PIPE_OMNI_FILTER
 	)
 
-/obj/item/rfd/piping/examine(mob/user)
+/obj/item/rfd/piping/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, FONT_SMALL(SPAN_NOTICE("Change pipe category by ALT-clicking, change pipe selection by using in-hand.")))
-	to_chat(user, SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>"))
-	to_chat(user, SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>"))
+	. += FONT_SMALL(SPAN_NOTICE("Change pipe category by ALT-clicking, change pipe selection by using in-hand."))
+	. += SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>.")
+	. += SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>.")
 
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !isturf(A))
@@ -692,7 +714,7 @@
 
 	// Special case handling for bent pipes. They require a non-cardinal direction
 	var/pipe_dir = NORTH
-	if(selected_pipe in list(1, 30, 32))
+	if(selected_pipe in list(PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT))
 		pipe_dir = NORTHEAST
 	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
@@ -710,26 +732,36 @@
 			pipe_selection = supply_pipes
 		if(SCRUBBER_PIPE)
 			pipe_selection = scrubber_pipes
+		if(FUEL_PIPE)
+			pipe_selection = fuel_pipes
+		if(AUX_PIPE)
+			pipe_selection = aux_pipes
 		if(DEVICES)
 			pipe_selection = devices
-	pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
+	pipe_examine = tgui_input_list(user, "Choose the pipe you want to deploy.", "Pipe Selection", pipe_selection, selected_pipe)
 	selected_pipe = pipe_selection[pipe_examine]
 
 /obj/item/rfd/piping/AltClick(mob/user)
-	selected_mode = input(user, "Choose the category you want to change to.", "Pipe Categories") in modes
+	selected_mode = tgui_input_list(user, "Choose the category you want to change to.", "Pipe Categories", modes, selected_mode)
 	switch(selected_mode)
 		if(STANDARD_PIPE)
 			pipe_examine = "Pipe"
-			selected_pipe = 0
+			selected_pipe = PIPE_SIMPLE_STRAIGHT
 		if(SUPPLY_PIPE)
 			pipe_examine = "Pipe"
-			selected_pipe = 29
+			selected_pipe = PIPE_SUPPLY_STRAIGHT
 		if(SCRUBBER_PIPE)
 			pipe_examine = "Pipe"
-			selected_pipe = 31
+			selected_pipe = PIPE_SCRUBBERS_STRAIGHT
+		if(FUEL_PIPE)
+			pipe_examine = "Pipe"
+			selected_pipe = PIPE_FUEL_STRAIGHT
+		if(AUX_PIPE)
+			pipe_examine = "Pipe"
+			selected_pipe = PIPE_AUX_STRAIGHT
 		if(DEVICES)
 			pipe_examine = "Universal Pipe Adapter"
-			selected_pipe = 28
+			selected_pipe = PIPE_UNIVERSAL
 
 /obj/item/rfd/piping/borg/useResource(var/amount, var/mob/user)
 	if(isrobot(user))
@@ -747,5 +779,7 @@
 #undef STANDARD_PIPE
 #undef SUPPLY_PIPE
 #undef SCRUBBER_PIPE
+#undef FUEL_PIPE
+#undef AUX_PIPE
 #undef DEVICES
 #undef MATERIALIZATION_FAIL_MESSAGE

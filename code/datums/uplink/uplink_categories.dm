@@ -11,7 +11,7 @@
 /datum/uplink_category/proc/can_view(obj/item/device/uplink/U)
 	if(LAZYLEN(restricted_antags))
 		for(var/antag_role in restricted_antags)
-			var/datum/antagonist/antag = all_antag_types[antag_role]
+			var/datum/antagonist/antag = GLOB.all_antag_types[antag_role]
 			if(antag.is_antagonist(U.uplink_owner))
 				return FALSE
 
@@ -22,7 +22,7 @@
 		return FALSE
 
 	for(var/antag_role in antag_roles)
-		var/datum/antagonist/antag = all_antag_types[antag_role]
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_role]
 		if(antag.is_antagonist(U.uplink_owner))
 			return TRUE
 	return FALSE
@@ -69,8 +69,8 @@
 /datum/uplink_category/corporate_equipment
 	name = "Corporate Equipment"
 
-/datum/uplink_category/telecrystals
-	name = "Telecrystals"
+/datum/uplink_category/crystals
+	name = "Crystals"
 
 /datum/uplink_category/specialty //snowflake antag items - a brave new frontier!
 	name = "Specialised Items"
@@ -88,3 +88,6 @@
 
 /datum/uplink_category/martial_arts
 	name = "Martial Arts"
+
+/datum/uplink_category/bioweapons
+	name = "Chemical, Biological & Radiological Weaponry"

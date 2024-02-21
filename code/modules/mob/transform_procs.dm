@@ -10,7 +10,7 @@
 	canmove = 0
 	stunned = 1
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
@@ -22,7 +22,7 @@
 	transforming = 0
 	stunned = 0
 	update_canmove()
-	invisibility = initial(invisibility)
+	set_invisibility(initial(invisibility))
 
 	if(!species.primitive_form) //If the creature in question has no primitive set, this is going to be messy.
 		gib()
@@ -49,7 +49,7 @@
 	canmove = 0
 	stunned = 1
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
@@ -60,7 +60,7 @@
 	transforming = 0
 	stunned = 0
 	update_canmove()
-	invisibility = initial(invisibility)
+	set_invisibility(initial(invisibility))
 
 	if(!species.greater_form) //If the creature in question has no greater form set, this is going to be messy.
 		gib()
@@ -100,14 +100,42 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	return ..()
 
 /mob/proc/AIize(move=1)
 	if(client)
 		src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jams for AIs)
-	var/mob/living/silicon/ai/O = new (loc, base_law_type,,1)//No MMI but safety is in effect.
-	O.invisibility = 0
+
+	//The destination the mob will be spawned at
+	var/final_destination = loc
+
+	//If it's requested to move, select a location to spawn/move the mob to
+	if(move)
+		var/obj/loc_landmark
+		for(var/obj/effect/landmark/start/sloc in GLOB.landmarks_list)
+			if (sloc.name != "AI")
+				continue
+			if ((locate(/mob/living) in sloc.loc) || (locate(/obj/structure/AIcore) in sloc.loc))
+				continue
+			loc_landmark = sloc
+		if (!loc_landmark)
+			for(var/obj/effect/landmark/tripai in GLOB.landmarks_list)
+				if (tripai.name == "tripai")
+					if((locate(/mob/living) in tripai.loc) || (locate(/obj/structure/AIcore) in tripai.loc))
+						continue
+					loc_landmark = tripai
+		if (!loc_landmark)
+			for(var/obj/effect/landmark/start/sloc in GLOB.landmarks_list)
+				if (sloc.name == "AI")
+					loc_landmark = sloc
+
+		if(loc_landmark.loc)
+			final_destination = loc_landmark.loc
+
+
+	var/mob/living/silicon/ai/O = new (final_destination, base_law_type,,1)//No MMI but safety is in effect.
+	O.set_invisibility(0)
 	O.ai_restore_power_routine = 0
 
 	if(mind)
@@ -116,33 +144,13 @@
 	else
 		O.key = key
 
-	if(move)
-		var/obj/loc_landmark
-		for(var/obj/effect/landmark/start/sloc in landmarks_list)
-			if (sloc.name != "AI")
-				continue
-			if ((locate(/mob/living) in sloc.loc) || (locate(/obj/structure/AIcore) in sloc.loc))
-				continue
-			loc_landmark = sloc
-		if (!loc_landmark)
-			for(var/obj/effect/landmark/tripai in landmarks_list)
-				if (tripai.name == "tripai")
-					if((locate(/mob/living) in tripai.loc) || (locate(/obj/structure/AIcore) in tripai.loc))
-						continue
-					loc_landmark = tripai
-		if (!loc_landmark)
-			to_chat(O, "Oh god sorry we can't find an unoccupied AI spawn location, so we're spawning you on top of someone.")
-			for(var/obj/effect/landmark/start/sloc in landmarks_list)
-				if (sloc.name == "AI")
-					loc_landmark = sloc
-
-		O.forceMove(loc_landmark.loc)
-
 	O.on_mob_init()
 
 	O.add_ai_verbs()
 
 	O.rename_self("ai",1)
+
+	O.client.init_verbs()
 	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
 		qdel(src)
 	return O
@@ -157,7 +165,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	for(var/t in organs)
 		qdel(t)
 
@@ -169,8 +177,8 @@
 	O.cell.charge = 7500
 
 	O.gender = gender
-	O.invisibility = 0
-	
+	O.set_invisibility(0)
+
 	if(mind)		//TODO
 		mind.transfer_to(O)
 		if(O.mind.assigned_role == "Cyborg")
@@ -194,6 +202,8 @@
 
 	callHook("borgify", list(O))
 	O.Namepick()
+	if(O.client)
+		O.client.init_verbs()
 
 	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
 		qdel(src)
@@ -210,7 +220,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	for(var/t in organs)
 		qdel(t)
 
@@ -228,7 +238,7 @@
 		new_slime = new /mob/living/carbon/slime(loc)
 		if(adult)
 			new_slime.is_adult = 1
-		else
+
 	new_slime.key = key
 
 	to_chat(new_slime, "<B>You are now a slime. Skreee!</B>")
@@ -244,7 +254,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	for(var/t in organs)	//this really should not be necessary
 		qdel(t)
 
@@ -274,7 +284,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 
 	for(var/t in organs)
 		qdel(t)

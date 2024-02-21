@@ -6,7 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 	unacidable = TRUE
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	var/health = 30
 	var/obj/held_obj
 	var/open = FALSE
@@ -50,7 +50,7 @@
 		density = FALSE
 		destroyed = TRUE
 		new /obj/item/material/shard(loc)
-		playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+		playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 		update_icon()
 
 /obj/structure/displaycase/update_icon()
@@ -65,13 +65,13 @@
 		var/image/I = image(held_obj.icon, src, held_obj.icon_state)
 		underlays += I
 
-/obj/structure/displaycase/attackby(obj/item/W, mob/user)
+/obj/structure/displaycase/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(istype(W, /obj/item/card/id))
+	if(istype(attacking_item, /obj/item/card/id))
 		if(destroyed)
 			to_chat(user, SPAN_WARNING("\The [src] has been destroyed and cannot be unlocked."))
 			return
-		var/obj/item/card/id/ID = W
+		var/obj/item/card/id/ID = attacking_item
 		if(check_access(ID))
 			user.visible_message("<b>[user]</b> presses their ID against \the [src], [open ? "closing" : "opening"] it.", SPAN_NOTICE("You press your ID against \the [src], [open ? "closing" : "opening"] it."))
 			open = !open
@@ -79,15 +79,15 @@
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 	else if(!held_obj && (destroyed || open))
-		to_chat(user, SPAN_NOTICE("You set \the [W] down on \the [src]."))
-		user.drop_from_inventory(W, src)
-		held_obj = W
+		to_chat(user, SPAN_NOTICE("You set \the [attacking_item] down on \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		held_obj = attacking_item
 		update_icon()
 	else
 		if(destroyed)
 			to_chat(user, SPAN_WARNING("\The [src] has already been destroyed."))
 			return
-		health -= W.force
+		health -= attacking_item.force
 		health_check()
 		return ..()
 
@@ -114,3 +114,9 @@
 
 /obj/structure/displaycase/captain_laser
 	spawn_contained_type = /obj/item/gun/energy/captain
+
+/obj/structure/displaycase/captain_revolver
+	spawn_contained_type = /obj/item/gun/projectile/revolver/mateba/captain
+
+/obj/structure/displaycase/adhomai_map
+	spawn_contained_type = /obj/item/toy/adhomian_map

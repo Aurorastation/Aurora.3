@@ -125,7 +125,7 @@
 		E.nymph = new /mob/living/carbon/alien/diona
 
 	E.status |= (ORGAN_PLANT | ORGAN_NYMPH)
-	E.species = all_species["Nymph Limb"]
+	E.species = GLOB.all_species["Nymph Limb"]
 	E.fingerprints = null
 	if(!E.dna)
 		E.blood_DNA = list()
@@ -148,10 +148,10 @@
 		nymph_out(E, limb_nymph, forced = TRUE)
 		return FALSE
 
-	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /decl/reagent/blood))
+	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /singleton/reagent/blood))
 	if(blood_volume)
-		if(REAGENT_DATA(E.owner.vessel, /decl/reagent/blood))
-			E.owner.vessel.remove_reagent(/decl/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
+		if(REAGENT_DATA(E.owner.vessel, /singleton/reagent/blood))
+			E.owner.vessel.remove_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
 	if(blood_volume <= 0)
 		nymph_out(E, limb_nymph, forced = TRUE)
 
@@ -183,10 +183,10 @@
 	var/obj/item/organ/external/E = input(src, "Select a limb to detach:", "Nymph Limb Detach") as null|anything in my_nymph_limbs
 	if(!istype(E))
 		return
-	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
+	if(!do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 	if(E.detach_nymph_limb() && my_nymph_limbs.len == 1)
-		verbs -= /mob/living/carbon/human/proc/detach_nymph_limb
+		remove_verb(src, /mob/living/carbon/human/proc/detach_nymph_limb)
 
 	regenerate_icons()
 
@@ -199,7 +199,7 @@
 	if(istype(E))
 		to_chat(src, "You start to detach from your host.")
 		to_chat(E.owner, "The nymph acting as your [E.name] starts to unattach itself.")
-		if(do_after(src, delay = 3 SECONDS, needhand = FALSE))
+		if(do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			E.detach_nymph_limb()
 
 // Organ detach
@@ -210,8 +210,8 @@
 
 	if(nymph)
 		N.nymph_out(src, nymph)
-		to_chat(nymph_owner, span("warning", "The nymph attached to you as \a [name] unlatches its tendrils from your body and drops to \the [get_turf(owner)]."))
-		to_chat(nymph, span("notice", "You tear your tendrils free of your host and drop to \the [get_turf(owner)]."))
+		to_chat(nymph_owner, SPAN_WARNING("The nymph attached to you as \a [name] unlatches its tendrils from your body."))
+		to_chat(nymph, SPAN_NOTICE("You tear your tendrils free of your host and drop to the ground."))
 
 	return TRUE
 
@@ -237,11 +237,11 @@
 		H.client && H.stat == CONSCIOUS)
 			mob_list += H
 
-	if(!LAZYLEN(mob_list))
+	if(!LAZYLEN(GLOB.mob_list))
 		to_chat(src, span("warning", "There are no valid hosts to bond to."))
 		return FALSE
 
-	var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in mob_list
+	var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in GLOB.mob_list
 	var/mob/living/carbon/human/target = choice
 	if(!Adjacent(target) || target.stat || !target.client)
 		return
@@ -261,7 +261,7 @@
 		if(!limb_choice)
 			return
 
-	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
+	if(!do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 
 	// Make new limb and put it on the host
@@ -321,7 +321,7 @@
 		if(!limb_choice)
 			return
 
-	if(!do_after(target, delay = 3 SECONDS, needhand = TRUE))
+	if(!do_after(target, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 
 	// Make new limb and put it on the host
@@ -329,6 +329,11 @@
 	var/obj/item/organ/external/new_nymph_limb = new limb_choice
 	if(!istype(new_nymph_limb))
 		return
+
+	if(new_nymph_limb.parent_organ && isnull(target.organs_by_name[new_nymph_limb.parent_organ]))
+		to_chat(target, SPAN_NOTICE("You notice that you cannot attach the nymph there because \the [new_nymph_limb.parent_organ] is missing!"))
+		return
+
 	new_nymph_limb.replaced(target)
 
 	if(new_nymph_limb.nymph_child)
@@ -338,7 +343,7 @@
 	target.regenerate_icons()
 
 	N.nymph_in(new_nymph_limb, src)
-	target.visible_message(SPAN_NOTICE("\The [N] attaches to \the [target]'s body!"), SPAN_NOTICE("\The [N] attaches to your body!"))
+	target.visible_message(SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to \the [target]'s body!"), SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to your body!"))
 
 /datum/component/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
 	var/mob/living/carbon/alien/diona/limb_nymph = E.nymph
@@ -361,7 +366,7 @@
 
 	if(forced)
 		nymph.can_attach = FALSE
-		addtimer(CALLBACK(nymph, /datum/component/nymph_limb/.proc/can_attach, nymph), 5 MINUTES, TIMER_UNIQUE)
+		addtimer(CALLBACK(nymph, TYPE_PROC_REF(/datum/component/nymph_limb, can_attach), nymph), 5 MINUTES, TIMER_UNIQUE)
 
 	E.removed(E.owner)
 	qdel(E)
@@ -375,20 +380,30 @@
 /datum/component/nymph_limb/proc/nymphize(var/mob/living/carbon/human/H, var/organ_name, var/forced = FALSE)
 	if(!H.should_have_limb(organ_name))
 		return
+
+	var/list/organ_names_to_create = list(organ_name)
+
 	if(H.organs_by_name[organ_name])
 		if(forced) // Do we wish to remove any limbs currently occupying that spot?
 			var/obj/item/organ/external/O = H.get_organ(organ_name)
+
+			for(var/obj/item/organ/external/children in O?.children)
+				if(H.should_have_limb(children?.limb_name))
+					organ_names_to_create |= children.limb_name
+
 			qdel(O)
 			H.organs_by_name[organ_name] = null
 		else
 			return
-	// Create and attach our new nymph limb
-	var/nymph_limb_type = nymph_limb_types_by_name[organ_name]
-	var/obj/item/organ/external/E = new nymph_limb_type
-	E.replaced(H)
-	for(var/obj/item/organ/external/child in E.children)
-		nymphize(H, child.organ_tag, TRUE)
-	H.verbs |= /mob/living/carbon/human/proc/detach_nymph_limb
+
+	// Create and attach our new nymph limb(s)
+	for(var/organ_to_create in organ_names_to_create)
+		var/nymph_limb_type = nymph_limb_types_by_name[organ_to_create]
+		var/obj/item/organ/external/E = new nymph_limb_type
+		E.replaced(H)
+		for(var/obj/item/organ/external/child in E.children)
+			nymphize(H, child.organ_tag, TRUE)
+		add_verb(H, /mob/living/carbon/human/proc/detach_nymph_limb)
 
 /datum/species/diona/nymph_limb // For use on nymph-limb organs only
 	name = "Nymph Limb"

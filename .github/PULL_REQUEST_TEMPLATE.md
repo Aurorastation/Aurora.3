@@ -9,4 +9,4 @@ The following assets that **have not** been created by myself are included in th
 
 | Path | Original Author | License |
 | --- | --- | --- |
-| icon/example.dmi | ExamplePerson (Example Station) | CC0 |
+| icons/example.dmi | ExamplePerson (Example Station) | CC0 |

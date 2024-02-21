@@ -6,7 +6,7 @@
 	anchored = TRUE
 	density = FALSE
 	layer = ABOVE_CABLE_LAYER
-	var/decl/reagent/reagent_id
+	var/singleton/reagent/reagent_id
 	var/state = 0
 	var/health = 100
 	var/mine_rate = 1 // how fast you can mine it
@@ -16,7 +16,7 @@
 /obj/structure/reagent_crystal/Initialize(mapload, var/reagent_i = null, var/our_creator = null)
 	. = ..()
 	if(!reagent_i)
-		var/list/chems = list(/decl/reagent/acetone, /decl/reagent/aluminum, /decl/reagent/ammonia, /decl/reagent/carbon, /decl/reagent/copper, /decl/reagent/iron, /decl/reagent/lithium, /decl/reagent/mercury, /decl/reagent/potassium, /decl/reagent/radium, /decl/reagent/sodium)
+		var/list/chems = list(/singleton/reagent/acetone, /singleton/reagent/aluminum, /singleton/reagent/ammonia, /singleton/reagent/carbon, /singleton/reagent/copper, /singleton/reagent/iron, /singleton/reagent/lithium, /singleton/reagent/mercury, /singleton/reagent/potassium, /singleton/reagent/radium, /singleton/reagent/sodium)
 		reagent_i = pick(chems)
 	reagent_id = reagent_i
 	name = replacetext(name, "chemical", lowertext(initial(reagent_id.name)))
@@ -27,7 +27,7 @@
 	if(our_creator)
 		creator = our_creator
 
-/obj/structure/reagent_crystal/examine(mob/user)
+/obj/structure/reagent_crystal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/state
 	var/current_damage = health / initial(health)
@@ -40,7 +40,7 @@
 			state = SPAN_WARNING("The crystal has scratches and deeper grooves on its surface.")
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The crystal looks structurally sound.")
-	to_chat(user, state)
+	. += state
 
 /obj/structure/reagent_crystal/proc/take_damage(var/damage)
 	health -= damage
@@ -49,36 +49,36 @@
 		harvest()
 
 /obj/structure/reagent_crystal/attack_hand(mob/user)
-	if(HULK in user.mutations)
+	if((user.mutations & HULK))
 		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] apart!"), SPAN_WARNING("You smash \the [src] apart!"))
 		harvest()
 		return
 	return ..()
 
-/obj/structure/reagent_crystal/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/gun/energy/plasmacutter))
-		mine_crystal(user, 30 / W.toolspeed, W.usesound)
+/obj/structure/reagent_crystal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/energy/plasmacutter))
+		mine_crystal(user, 30 / attacking_item.toolspeed, attacking_item.usesound)
 
-	else if(istype(W, /obj/item/melee/energy))
-		var/obj/item/melee/energy/WT = W
+	else if(istype(attacking_item, /obj/item/melee/energy))
+		var/obj/item/melee/energy/WT = attacking_item
 		if(WT.active)
-			mine_crystal(user, 30 / W.toolspeed, W.usesound)
+			mine_crystal(user, 30 / attacking_item.toolspeed, attacking_item.usesound)
 		else
-			to_chat(user, SPAN_NOTICE("You need to activate \the [W] to do that!"))
+			to_chat(user, SPAN_NOTICE("You need to activate \the [attacking_item] to do that!"))
 			return
 
-	else if(istype(W, /obj/item/melee/energy/blade))
-		mine_crystal(user, 30 / W.toolspeed, W.usesound)
+	else if(istype(attacking_item, /obj/item/melee/energy/blade))
+		mine_crystal(user, 30 / attacking_item.toolspeed, attacking_item.usesound)
 
-	else if(istype(W, /obj/item/pickaxe))
-		var/obj/item/pickaxe/P = W
-		mine_crystal(user, P.digspeed, W.usesound)
+	else if(istype(attacking_item, /obj/item/pickaxe))
+		var/obj/item/pickaxe/P = attacking_item
+		mine_crystal(user, P.digspeed, attacking_item.usesound)
 
-	else if(W.force > 5)
+	else if(attacking_item.force > 5)
 		user.do_attack_animation(src)
 		playsound(get_turf(src), 'sound/weapons/smash.ogg', 50)
-		visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]."))
-		take_damage(W.force * 4)
+		visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]."))
+		take_damage(attacking_item.force * 4)
 
 /obj/structure/reagent_crystal/proc/mine_crystal(var/mob/user, var/time_to_dig, var/use_sound)
 	if(!user)
@@ -86,7 +86,7 @@
 	if(!time_to_dig)
 		time_to_dig = 50
 
-	if(do_after(user, time_to_dig * mine_rate, act_target = src))
+	if(do_after(user, time_to_dig * mine_rate, src))
 		if(!src)
 			return
 		harvest()
@@ -114,7 +114,7 @@
 				return
 			else
 				health -= rand(40,80)
-		else
+
 	if(health <= 0)
 		harvest()
 	return
@@ -160,7 +160,7 @@
 	. = ..()
 	create_reagents(max(5, amount))
 	reagents.add_reagent(reagent_i, amount)
-	var/decl/reagent/R = decls_repository.get_decl(reagent_i)
+	var/singleton/reagent/R = GET_SINGLETON(reagent_i)
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
 	desc_info = "This crystal can be ground to obtain the chemical material locked within."

@@ -92,7 +92,8 @@
 			suffered_revelation = TRUE
 
 /obj/item/organ/internal/anchor/emp_act(severity)
-	..()
+	. = ..()
+
 	revelation()
 
 /obj/item/organ/internal/anchor/proc/revelation()
@@ -106,7 +107,7 @@
 	parent_organ = BP_GROIN
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
-	owner.apply_damage(1, BRUTE, BP_GROIN, armor_pen = 100)
+	owner.apply_damage(1, DAMAGE_BRUTE, BP_GROIN, armor_pen = 100)
 
 /obj/item/organ/internal/augment/protein_valve
 	name = "protein breakdown valve"
@@ -117,6 +118,7 @@
 	action_button_name = "Activate Protein Breakdown Valve"
 	cooldown = 300
 	activable = TRUE
+	var/expended = FALSE
 
 /obj/item/organ/internal/augment/protein_valve/attack_self(var/mob/user)
 	. = ..()
@@ -124,20 +126,14 @@
 	if(!.)
 		return FALSE
 
+	if(expended)
+		to_chat(owner, SPAN_WARNING("\The [src] has already been used up!"))
+		return
+
 	if(owner.reagents)
-		var/obj/item/organ/F = owner.internal_organs_by_name[BP_STOMACH]
-
-		if(isnull(F))
-			return FALSE
-
-		if(F.is_broken())
-			return FALSE
-
-		F.take_damage(10)
-
-		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
-
-		owner.reagents.add_reagent(/decl/reagent/adrenaline, 15)
+		to_chat(owner, SPAN_NOTICE("\The [src] activates, releasing a stream of chemicals into your veins!"))
+		owner.reagents.add_reagent(/singleton/reagent/adrenaline, 15)
+		expended = TRUE
 
 /obj/item/organ/internal/augment/venomous_rest
 	name = "venomous rest implant"
@@ -148,6 +144,7 @@
 	action_button_icon = "stabilizer"
 	cooldown = 300
 	activable = TRUE
+	var/expended = FALSE
 
 /obj/item/organ/internal/augment/venomous_rest/attack_self(var/mob/user)
 	. = ..()
@@ -155,12 +152,16 @@
 	if(!.)
 		return FALSE
 
+	if(expended)
+		to_chat(owner, SPAN_WARNING("\The [src] has already been used up!"))
+		return
+
 	if(owner.reagents)
-		owner.reagents.add_reagent(/decl/reagent/inaprovaline, 10)
-		owner.reagents.add_reagent(/decl/reagent/tricordrazine, 10)
-		owner.reagents.add_reagent(/decl/reagent/soporific, 15)
-		take_damage(15)
-		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
+		owner.reagents.add_reagent(/singleton/reagent/inaprovaline, 10)
+		owner.reagents.add_reagent(/singleton/reagent/tricordrazine, 10)
+		owner.reagents.add_reagent(/singleton/reagent/soporific, 15)
+		to_chat(owner, SPAN_NOTICE("\The [src] activates, releasing a stream of chemicals into your veins!"))
+		expended = TRUE
 
 /obj/item/organ/internal/augment/farseer_eye
 	name = "farseer eye"
@@ -178,9 +179,15 @@
 	if(!.)
 		return FALSE
 
-	owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as they focus ahead.")
-	take_damage(1)
-	zoom(owner,7,7, FALSE)
+	if(zoom)
+		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses retract.", range = 3)
+	else
+		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses begin sliding into place...", range = 3)
+		if(!do_after(user, 1.5 SECONDS))
+			return
+		owner.visible_message("<b>[user]'s</b> eyes clicks loudly as they focus ahead.", range = 3)
+
+	zoom(owner, 7, 7, FALSE, FALSE)
 
 /obj/item/organ/internal/augment/eye_flashlight
 	name = "eye flashlight"
@@ -205,8 +212,8 @@
 		owner.change_eye_color(250, 130, 130)
 		owner.update_eyes()
 		online = TRUE
-		addtimer(CALLBACK(src, .proc/add_warning), 5 MINUTES)
-		addtimer(CALLBACK(src, .proc/add_warning), 6 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(add_warning)), 5 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(add_warning)), 6 MINUTES)
 	else
 		turn_off()
 
@@ -219,7 +226,8 @@
 	warning_level = 0
 
 /obj/item/organ/internal/augment/eye_flashlight/emp_act(severity)
-	..()
+	. = ..()
+
 	turn_off()
 
 /obj/item/organ/internal/augment/eye_flashlight/proc/add_warning()
@@ -303,6 +311,7 @@
 	usr.drop_from_inventory(src)
 
 /obj/item/combitool/robotic/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 
@@ -328,6 +337,7 @@
 	usr.drop_from_inventory(src)
 
 /obj/item/pickaxe/drill/integrated/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 

@@ -1,0 +1,1517 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/flora/tree/jungle,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"ab" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"ac" = (
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"ad" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"ae" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/mob/living/simple_animal/tindalos,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"af" = (
+/turf/simulated/mineral/random/exoplanet,
+/area/template_noop)
+"ag" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"ah" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"ai" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"aj" = (
+/mob/living/simple_animal/yithian,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"ak" = (
+/mob/living/simple_animal/tindalos,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"al" = (
+/turf/simulated/floor/exoplanet/water,
+/area/template_noop)
+"am" = (
+/turf/simulated/wall/shuttle/raider,
+/area/template_noop)
+"an" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
+"ao" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/water,
+/area/template_noop)
+"ap" = (
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor/exoplanet/water,
+/area/template_noop)
+"aq" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ar" = (
+/obj/item/pipe{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/template_noop)
+"as" = (
+/obj/item/pipe{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/toolcloset,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"at" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 1298.5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/random/gift,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"au" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/field_ration,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"av" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/floodlight{
+	dir = 1
+	},
+/obj/random/powercell,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"ax" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"ay" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"az" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	pixel_y = 3;
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/portables_connector{
+	pixel_y = -4;
+	pixel_x = 16;
+	dir = 8
+	},
+/obj/item/storage/field_ration,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/coin,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/shovel/gadpathur,
+/obj/item/spacecash/c10,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aH" = (
+/obj/effect/decal/remains/human,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"aI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c100,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/grille/broken{
+	pixel_y = 23
+	},
+/obj/structure/grille/diagonal{
+	pixel_y = 9;
+	dir = 4
+	},
+/obj/structure/grille/broken,
+/obj/item/material/shard{
+	pixel_y = -3;
+	pixel_x = 16
+	},
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_y = -10;
+	pixel_x = -14
+	},
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_x = -2;
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1;
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aL" = (
+/obj/machinery/atmospherics/portables_connector{
+	pixel_y = -4;
+	pixel_x = 16;
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c10,
+/obj/effect/decal/remains/human,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/coin,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/coin,
+/obj/item/spacecash/c10,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c100,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/grille/broken,
+/obj/structure/grille/diagonal,
+/obj/item/material/shard{
+	pixel_y = -7;
+	pixel_x = 9
+	},
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aS" = (
+/obj/item/pipe{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 2965.7
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aX" = (
+/mob/living/simple_animal/hostile/scarybat,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"aY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"aZ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"ba" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/water,
+/area/template_noop)
+"bb" = (
+/obj/structure/flora/rock,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"bc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/remains/human,
+/turf/simulated/floor/tiled/white/airless,
+/area/template_noop)
+"bd" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"be" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+
+(1,1,1) = {"
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+"}
+(2,1,1) = {"
+be
+be
+ab
+be
+be
+be
+af
+af
+be
+be
+be
+be
+be
+ap
+be
+be
+be
+be
+be
+af
+af
+be
+be
+be
+bb
+be
+be
+aa
+be
+be
+be
+be
+"}
+(3,1,1) = {"
+be
+be
+ab
+be
+be
+af
+af
+af
+be
+be
+ai
+be
+al
+bd
+al
+be
+al
+be
+be
+be
+af
+af
+be
+be
+be
+be
+ak
+be
+ab
+ab
+be
+be
+"}
+(4,1,1) = {"
+be
+aa
+ab
+be
+af
+af
+af
+be
+be
+be
+be
+be
+be
+be
+al
+ap
+bd
+be
+be
+be
+be
+af
+af
+af
+be
+be
+be
+ad
+be
+ab
+ab
+be
+"}
+(5,1,1) = {"
+be
+ab
+ab
+be
+af
+af
+be
+be
+ab
+ab
+be
+be
+al
+ap
+be
+be
+be
+be
+ab
+be
+be
+be
+be
+af
+af
+be
+be
+be
+ad
+be
+ab
+be
+"}
+(6,1,1) = {"
+be
+ab
+be
+be
+af
+af
+be
+be
+ab
+be
+be
+bd
+be
+bd
+al
+al
+be
+be
+ab
+be
+be
+ab
+ab
+be
+be
+be
+ai
+be
+be
+be
+be
+be
+"}
+(7,1,1) = {"
+be
+be
+be
+af
+af
+be
+be
+ab
+ab
+be
+be
+al
+ap
+al
+al
+bd
+ap
+be
+be
+be
+be
+ag
+ab
+ab
+be
+be
+be
+be
+be
+be
+aa
+be
+"}
+(8,1,1) = {"
+be
+ac
+be
+af
+af
+be
+ad
+ab
+aX
+be
+be
+am
+aq
+aq
+aq
+aq
+am
+be
+be
+be
+aa
+be
+be
+ab
+be
+be
+be
+af
+af
+be
+be
+be
+"}
+(9,1,1) = {"
+be
+be
+be
+af
+af
+be
+ad
+aj
+be
+be
+be
+am
+ar
+ar
+ar
+ar
+am
+al
+be
+be
+be
+be
+be
+be
+be
+be
+af
+af
+af
+be
+be
+be
+"}
+(10,1,1) = {"
+be
+ad
+af
+af
+af
+be
+be
+ag
+be
+be
+al
+am
+as
+aB
+aK
+aS
+am
+al
+be
+be
+be
+aj
+be
+be
+be
+be
+af
+af
+be
+be
+ab
+be
+"}
+(11,1,1) = {"
+be
+ad
+af
+af
+af
+be
+be
+be
+be
+aH
+al
+am
+at
+aC
+aL
+aT
+am
+be
+aH
+aX
+be
+be
+ad
+be
+ag
+be
+af
+af
+be
+be
+ab
+be
+"}
+(12,1,1) = {"
+be
+be
+be
+af
+af
+af
+be
+be
+ah
+be
+be
+an
+au
+aD
+bc
+aU
+am
+al
+be
+be
+be
+be
+ad
+be
+be
+be
+af
+af
+af
+be
+be
+be
+"}
+(13,1,1) = {"
+be
+be
+be
+af
+af
+af
+af
+be
+be
+be
+be
+an
+av
+aE
+aF
+aV
+am
+be
+be
+be
+ai
+be
+be
+be
+be
+be
+af
+af
+af
+be
+aa
+be
+"}
+(14,1,1) = {"
+be
+be
+be
+af
+af
+af
+af
+be
+be
+aX
+al
+am
+aw
+aF
+aN
+aW
+am
+be
+be
+be
+be
+be
+be
+ab
+ab
+be
+be
+af
+af
+be
+be
+be
+"}
+(15,1,1) = {"
+be
+ab
+be
+be
+af
+af
+af
+af
+be
+be
+be
+am
+ax
+aG
+aO
+aW
+am
+be
+be
+be
+be
+be
+ab
+ab
+be
+be
+af
+af
+be
+be
+ab
+be
+"}
+(16,1,1) = {"
+be
+ab
+ae
+be
+be
+be
+af
+af
+be
+be
+al
+am
+ay
+aM
+aP
+aY
+am
+al
+be
+be
+be
+be
+be
+be
+be
+af
+af
+af
+be
+be
+ab
+be
+"}
+(17,1,1) = {"
+be
+be
+ab
+ah
+be
+be
+be
+af
+af
+be
+al
+am
+az
+aI
+aQ
+aZ
+am
+al
+be
+aX
+be
+be
+be
+be
+be
+af
+af
+af
+be
+be
+ab
+be
+"}
+(18,1,1) = {"
+be
+be
+ab
+ab
+be
+be
+be
+be
+be
+be
+be
+ao
+aA
+aJ
+aR
+aZ
+ba
+be
+be
+be
+be
+af
+be
+be
+be
+be
+af
+af
+be
+be
+be
+be
+"}
+(19,1,1) = {"
+be
+be
+be
+ab
+be
+be
+ag
+be
+be
+ai
+be
+be
+al
+al
+al
+al
+be
+be
+be
+be
+be
+af
+af
+be
+ag
+be
+be
+af
+af
+be
+be
+be
+"}
+(20,1,1) = {"
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+af
+af
+af
+be
+be
+be
+be
+be
+af
+af
+be
+be
+be
+"}
+(21,1,1) = {"
+be
+be
+be
+ai
+be
+be
+be
+ac
+be
+be
+be
+ad
+be
+be
+be
+be
+be
+be
+af
+af
+af
+be
+be
+be
+aa
+be
+af
+af
+af
+be
+be
+be
+"}
+(22,1,1) = {"
+be
+be
+be
+be
+be
+ac
+be
+be
+be
+ag
+be
+ad
+be
+be
+be
+be
+be
+af
+af
+af
+af
+be
+be
+be
+be
+be
+af
+af
+af
+be
+be
+be
+"}
+(23,1,1) = {"
+be
+be
+ag
+be
+be
+be
+be
+be
+be
+be
+be
+ab
+be
+be
+be
+af
+af
+af
+af
+af
+be
+be
+be
+ac
+be
+af
+af
+be
+be
+be
+be
+be
+"}
+(24,1,1) = {"
+be
+be
+be
+ad
+ad
+be
+be
+be
+be
+be
+be
+ab
+be
+be
+be
+af
+af
+af
+be
+be
+be
+be
+ad
+be
+be
+af
+be
+be
+be
+be
+aa
+be
+"}
+(25,1,1) = {"
+be
+be
+be
+ad
+be
+ab
+ab
+be
+af
+be
+be
+ab
+ab
+be
+af
+af
+be
+be
+be
+be
+be
+ak
+be
+ad
+be
+be
+be
+be
+be
+be
+be
+be
+"}
+(26,1,1) = {"
+be
+be
+be
+ab
+ab
+ab
+be
+af
+af
+af
+be
+be
+ab
+be
+af
+af
+be
+ah
+be
+be
+be
+be
+ai
+be
+ab
+be
+be
+be
+be
+ab
+ab
+be
+"}
+(27,1,1) = {"
+be
+be
+be
+ab
+be
+be
+af
+af
+af
+af
+af
+be
+ab
+ab
+be
+af
+be
+be
+be
+ab
+ab
+be
+be
+be
+ab
+be
+be
+be
+ab
+ab
+be
+be
+"}
+(28,1,1) = {"
+be
+be
+ab
+ab
+be
+be
+af
+af
+af
+af
+af
+be
+be
+ab
+be
+be
+be
+be
+ab
+ab
+aj
+be
+be
+be
+ab
+ab
+be
+be
+ab
+be
+be
+be
+"}
+(29,1,1) = {"
+be
+be
+be
+be
+be
+af
+af
+af
+af
+af
+be
+be
+be
+be
+be
+be
+be
+ab
+ab
+be
+be
+be
+be
+be
+ab
+be
+be
+be
+be
+be
+be
+be
+"}
+(30,1,1) = {"
+be
+be
+be
+be
+be
+af
+af
+af
+af
+af
+be
+be
+ah
+be
+be
+ag
+be
+ab
+be
+be
+be
+be
+be
+ab
+ab
+be
+be
+be
+be
+be
+be
+be
+"}
+(31,1,1) = {"
+be
+be
+ah
+be
+be
+be
+af
+af
+af
+af
+be
+be
+be
+ac
+be
+be
+be
+be
+be
+be
+ah
+be
+be
+ab
+ab
+be
+be
+be
+be
+be
+be
+be
+"}
+(32,1,1) = {"
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+"}

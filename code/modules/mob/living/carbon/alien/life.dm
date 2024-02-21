@@ -55,7 +55,7 @@
 		if(paralysis && paralysis > 0)
 			handle_paralysed()
 			blinded = 1
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
@@ -65,13 +65,13 @@
 				if(mind.active && client != null)
 					sleeping = max(sleeping-1, 0)
 			blinded = 1
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 		else if(resting)
 			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		else
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 			if(getHalLoss() > 0)
 				adjustHalLoss(-1)
 
@@ -94,16 +94,14 @@
 	if(!..())
 		return // Returns if no client.
 
-	if(stat == DEAD || (XRAY in src.mutations))
+	if(stat == DEAD || (mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if(stat != DEAD && is_ventcrawling == FALSE)
 		if(species && species.vision_flags)
 			sight = species.vision_flags
 		else
 			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(2)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (healths)

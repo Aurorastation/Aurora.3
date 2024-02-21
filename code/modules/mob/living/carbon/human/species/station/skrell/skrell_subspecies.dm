@@ -12,7 +12,9 @@
 	brute_mod = 0.9
 	oxy_mod = 0.9
 	hydration_loss_factor = 1.1
-	tail = "axiori_tail"
+	tail = "Tail"
+	tail_animation = 'icons/mob/species/skrell/tail.dmi'
+	selectable_tails = list("No Tail", "Short Tail", "Tail", "Long Tail", "Short Fish Tail", "Fish Tail", "Long Fish Tail", "Short Fringed Tail", "Fringed Tail", "Long Fringed Tail")
 	eyes = "skrell_axiori_eyes_s"
 
 	sprint_speed_factor = 0.7 // Species default 0.8

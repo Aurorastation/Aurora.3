@@ -15,9 +15,9 @@
 	. = ..()
 	pick_constellation()
 
-/obj/item/stellascope/examine(mob/user)
-	..(user)
-	to_chat(user, "\The [src] displays the \"[selected_constellation]\".")
+/obj/item/stellascope/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "\The [src] displays the \"[selected_constellation]\"."
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
@@ -32,7 +32,7 @@
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
 				projection_ready = FALSE
-				addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 
 /obj/item/stellascope/proc/rearm()
@@ -62,7 +62,7 @@
 		glow_state = make_screen_overlay(icon, icon_state)
 	add_overlay(glow_state)
 
-/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/temp_visual/constellation/attackby(obj/item/attacking_item, mob/user)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
 	qdel(src)
 	return TRUE
@@ -83,7 +83,7 @@
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
-	var/list/worlds_selection = list("Nralakk", "Qerrbalak", "Qerr'Malic", "Aliose", "Aweiji", "Xrim", "the Traverse", "Europa", "New Gibson", "Mictlan", "the Starlight Zone")
+	var/list/worlds_selection = list("Nralakk", "Qerrbalak", "Qerr'Malic", "Aliose", "Aweiji", "Xrim", "the Traverse", "Europa", "New Gibson", "Mictlan", "the Starlight Zone", "Diulszi")
 	var/selected_world
 	var/working = FALSE
 	var/message_frequency = 10
@@ -92,16 +92,16 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/skrell_projector/examine(mob/user)
-	..(user)
+/obj/item/skrell_projector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(selected_world && working)
-		to_chat(user, "\The [src] displays a hologram of [selected_world].")
+		. += "\The [src] displays a hologram of [selected_world]."
 
 /obj/item/skrell_projector/attack_self(mob/user as mob)
 	working = !working
 
 	if(working)
-		var/choice = input("You change the projector's hologram to display:","Change the projector's hologram.") as null|anything in worlds_selection
+		var/choice = tgui_input_list(user, "You change the projector's hologram to display:","Change the projector's hologram.", worlds_selection)
 		apply_world(choice)
 		START_PROCESSING(SSprocessing, src)
 	else
@@ -140,6 +140,8 @@
 			light_color = "#FF1C1C"
 		if("the Starlight Zone")
 			light_color = "#00D6FF"
+		if("Diulszi")
+			light_color = "#002373"
 		else
 			brightness = 0
 			working = FALSE
@@ -205,6 +207,11 @@
 				hologram_message = pick("You see a holographic projection of the Weishiin sanctuaries around Severson's Rift.",
 										"You see the homes of Lekan Village projected on the ceiling, and beneath them the deep waters that would contain Severson City.",
 										"You hear the bubbling of water, as the projector briefly changes to a hologram of the Starlight Zone's underwater city.")
+			if("Diulszi")
+				hologram_message = pick("Projected on the ceiling is a vista of the Kervasii World Amusement Park's floating islands.",
+										"You see massive resort buildings looming high over a crystal-clear ocean.",
+										"You hear light chittering as the projector switches to a depiction of a C'thuric research lab.")
+
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
@@ -250,7 +257,7 @@
 	canremove = FALSE
 	icon_state = "[initial(icon_state)]_active"
 	to_chat(wearer, SPAN_WARNING("\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
-	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
+	addtimer(CALLBACK(src, PROC_REF(do_loyalty), wearer), 15)
 
 /obj/item/nralakktag/proc/unclamp()
 	if(fried)
@@ -262,6 +269,8 @@
 		fried = TRUE
 
 /obj/item/nralakktag/emp_act(severity)
+	. = ..()
+
 	unclamp()
 
 /obj/item/nralakktag/emag_act(var/remaining_charges, var/mob/user)
@@ -281,3 +290,43 @@
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null
+
+/obj/item/storage/box/fancy/cigarettes/federation
+	name = "\improper Eriuyushi Sunset cigarette packet"
+	desc = "A short, wide packet of cigarettes with the Nralakk Federation's flag printed on the front. The label says that they are 'regular' flavour."
+	desc_extended = "Meticulously grown and machine rolled in the Nralakk Federation, these cigarettes are the Federation's attempt at entering the tobacco market. They use tobacco hydroponically grown in the underwater town of Eriyushi on Qerrbalak."
+	icon_state = "nfpacket"
+	item_state = "nfpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/sweet
+
+/obj/item/storage/box/fancy/cigarettes/dyn
+	name = "\improper Xaqixal Dyn Fields cigarette packet"
+	desc = "A short, wide packet of cigarettes with the Nralakk Federation's flag printed on the front. The label says that they are 'dyn menthol' flavour."
+	desc_extended = "Meticulously grown and machine rolled in the Nralakk Federation, these cigarettes are the Federation's attempt at entering the tobacco market. Dyn leaves grown on Xaqixal are used to add the refreshing menthol flavour."
+	icon_state = "dynpacket"
+	item_state = "dynpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dyn
+
+/obj/item/storage/box/fancy/cigarettes/wulu
+	name = "wulumunusha joint pouch"
+	desc = "A leather pouch of pre-rolled wulumunusha joints. A common sight in Federation space, they can be smoked for recreational or religious purposes."
+	desc_extended = "Wulumunusha holds a cultural and religious importance for Skrell throughout the Spur. While disposable pouches of wulumunusha are readily available in Federation space, many Skrell choose to refill a reusable pouch like this one when away from home, typically decorated with unique colours and designs."
+	icon_state = "wulupacket"
+	item_state = "wulupacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/wulu
+
+/obj/item/storage/chewables/tobacco/federation
+	name = "tin of Leviathan Chew"
+	desc = "A sweet-smelling tin of saltwater taffy flavoured chewing tobacco, made using finely aged tobacco from the Nralakk Federation. The tin has a Vru'qos on the label, a whale-like creature common throughout Federation space."
+	desc_extended = "Imported from the Nralakk Federation, this brand of chewing tobacco is noticeably sweeter than usual to accommodate Skrellian tastes."
+	icon_state = "chew_fed"
+	item_state = "chew_fed"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/sweet = 6)
+
+/obj/item/storage/chewables/tobacco/dyn
+	name = "tin of Weibi's Breeze"
+	desc = "A sweet-smelling tin of menthol flavoured chewing tobacco, made using finely aged tobacco from the Nralakk Federation. The tin has a dyn leaf on the label."
+	desc_extended = "Imported from the Nralakk Federation, this brand of chewing tobacco is noticeably sweeter than usual to accommodate Skrellian tastes."
+	icon_state = "chew_dyn"
+	item_state = "chew_dyn"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/dyn = 6)

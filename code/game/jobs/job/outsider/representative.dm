@@ -1,11 +1,78 @@
+/datum/job/journalist
+	title = "Corporate Reporter"
+	flag = JOURNALIST
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
+	department_flag = SERVICE
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "company officials"
+	selection_color = "#6186cf"
+
+	minimum_character_age = list(
+		SPECIES_HUMAN = 20,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
+
+	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
+	alt_titles = list("Freelance Journalist")
+	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
+	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
+	outfit = /datum/outfit/job/journalist
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+
+/datum/outfit/job/journalist
+	name = "Corporate Reporter"
+	jobtype = /datum/job/journalist
+
+	uniform = /obj/item/clothing/under/suit_jacket/red
+	shoes = /obj/item/clothing/shoes/sneakers/black
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
+
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
+
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
+
+	backpack_contents = list(
+		/obj/item/clothing/accessory/badge/press = 1,
+		/obj/item/device/tvcamera = 1
+	)
+
+/datum/outfit/job/journalistf
+	name = "Freelance Journalist"
+	jobtype = /datum/job/journalist
+
+	uniform = /obj/item/clothing/under/suit_jacket/red
+	shoes = /obj/item/clothing/shoes/sneakers/black
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
+
+	backpack_contents = list(
+		/obj/item/clothing/accessory/badge/press/independent = 1,
+		/obj/item/device/tvcamera = 1
+	)
+
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "company officials"
 	selection_color = "#6186cf"
 	economic_modifier = 15
@@ -16,8 +83,8 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(access_lawyer, access_maint_tunnels)
-	minimal_access = list(access_lawyer)
+	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_LAWYER)
 	alt_titles = list(
 		"Workplace Liaison",
 		"Corporate Representative",
@@ -25,6 +92,18 @@
 		)
 	outfit = /datum/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+
+/datum/job/consular/pre_spawn(mob/abstract/new_player/player)
+	var/datum/faction/faction = SSjobs.name_factions[player.client.prefs.faction]
+	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+
+/datum/job/representative/after_spawn(mob/living/carbon/human/H)
+	var/datum/faction/faction = SSjobs.GetFaction(H)
+	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+
+/datum/job/representative/on_despawn(mob/living/carbon/human/H)
+	var/datum/faction/faction = SSjobs.GetFaction(H)
+	LAZYDISTINCTADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
@@ -54,7 +133,7 @@
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
-		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
@@ -94,8 +173,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "your embassy"
 	selection_color = "#6186cf"
 	economic_modifier = 15
@@ -112,10 +191,11 @@
 		SPECIES_SKRELL_AXIORI = 170
 	)
 
-	access = list(access_consular, access_maint_tunnels)
-	minimal_access = list(access_consular)
+	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /datum/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_citizenship = list(CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -142,3 +222,15 @@
 	if(citizenship)
 		rep_objectives = citizenship.get_objectives(mission_level, H)
 	return rep_objectives
+
+/datum/job/consular/pre_spawn(mob/abstract/new_player/player)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[player.client.prefs.citizenship]
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
+
+/datum/job/consular/after_spawn(mob/living/carbon/human/H)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
+
+/datum/job/consular/on_despawn(mob/living/carbon/human/H)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	LAZYREMOVE(blacklisted_citizenship, citizenship.name)

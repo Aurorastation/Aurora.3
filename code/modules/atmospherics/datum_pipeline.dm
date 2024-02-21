@@ -21,6 +21,7 @@
 		thing.parent = null
 
 	members = null
+	edges = null
 
 	return ..()
 
@@ -131,7 +132,7 @@
 
 		target.zone.air.merge(turf_copy)
 
-	else
+	else if(target)
 		var/datum/gas_mixture/turf_air = target.return_air()
 
 		equalize_gases(list(air_sample, turf_air))
@@ -205,16 +206,16 @@
 /datum/pipeline/proc/radiate_heat_to_space(surface, thermal_conductivity)
 	var/gas_density = air.total_moles/air.volume
 	thermal_conductivity *= min(gas_density / ( RADIATOR_OPTIMUM_PRESSURE/(R_IDEAL_GAS_EQUATION*GAS_CRITICAL_TEMPERATURE) ), 1) //mult by density ratio
-	
+
 	// We only get heat from the star on the exposed surface area.
 	// If the HE pipes gain more energy from AVERAGE_SOLAR_RADIATION than they can radiate, then they have a net heat increase.
 	var/heat_gain = AVERAGE_SOLAR_RADIATION * (RADIATOR_EXPOSED_SURFACE_AREA_RATIO * surface) * thermal_conductivity
-	
+
 	// Previously, the temperature would enter equilibrium at 26C or 294K.
 	// Only would happen if both sides (all 2 square meters of surface area) were exposed to sunlight.  We now assume it aligned edge on.
 	// It currently should stabilise at 129.6K or -143.6C
 	heat_gain -= surface * STEFAN_BOLTZMANN_CONSTANT * thermal_conductivity * (air.temperature - COSMIC_RADIATION_TEMPERATURE) ** 4
-	
+
 	air.add_thermal_energy(heat_gain)
 	if(network)
 		network.update = 1

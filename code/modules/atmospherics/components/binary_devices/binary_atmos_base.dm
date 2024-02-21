@@ -133,7 +133,10 @@
 	return null
 
 /obj/machinery/atmospherics/binary/AltClick(var/mob/user)
-	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
-		return
-	Topic(src, list("power" = "1"))
+	if(src.anchored)
+		if(!allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return
+		Topic(src, list("power" = "1"))
+	else
+		. = ..()

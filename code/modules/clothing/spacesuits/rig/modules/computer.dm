@@ -23,7 +23,7 @@
 		to_chat(usr, SPAN_WARNING("Your module is not installed in a hardsuit."))
 		return
 
-	module.holder.ui_interact(usr, nano_state = contained_state)
+	module.holder.ui_interact(usr, nano_state = GLOB.contained_state)
 
 /mob
 	var/get_rig_stats = 0
@@ -66,13 +66,6 @@
 			integrated_ai.get_rig_stats = 1
 		else
 			integrated_ai.get_rig_stats = 0
-
-/mob/living/Stat()
-	. = ..()
-	if(. && get_rig_stats)
-		var/obj/item/rig/rig = get_rig()
-		if(rig)
-			SetupStat(rig)
 
 /obj/item/rig_module/ai_container/proc/update_verb_holder()
 	if(!verb_holder)
@@ -153,7 +146,7 @@
 	if(!target)
 		if(ai_card)
 			if(istype(ai_card, /obj/item/aicard))
-				ai_card.ui_interact(H, state = deep_inventory_state)
+				ai_card.ui_interact(H)
 			else
 				eject_ai(H)
 		update_verb_holder()

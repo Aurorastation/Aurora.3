@@ -14,13 +14,6 @@
 	var/obj/item/cell/cell
 	var/obj/effect/suspension_field/suspension_field
 
-	var/static/list/field_types = list(
-		"carbon" = "Diffracted Carbon Dioxide Laser",
-		"potassium" = "Potassium Refrigerant Cloud",
-		"nitrogen" = "Nitrogen Tracer Field",
-		"mercury" = "Mercury Dispersion Wave",
-		"iron" = "Iron Wafer Conduction Field"
-	)
 
 /obj/machinery/suspension_gen/Initialize()
 	. = ..()
@@ -45,8 +38,8 @@
 
 	ui_interact(user)
 
-/obj/machinery/suspension_gen/attackby(obj/item/I, mob/user)
-	if(I.isscrewdriver())
+/obj/machinery/suspension_gen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!open)
 			screwed = !screwed
 			to_chat(user, SPAN_NOTICE("You [screwed ? "screw" : "unscrew"] the battery panel."))
@@ -54,7 +47,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open!"))
 		return
-	else if (I.iscrowbar())
+	else if (attacking_item.iscrowbar())
 		if(!screwed)
 			if(!suspension_field)
 				open = !open
@@ -64,7 +57,7 @@
 				to_chat(user, SPAN_WARNING("[src]'s safety locks are engaged, shut it down first."))
 		else
 			to_chat(user, SPAN_WARNING("Unscrew [src]'s battery panel first."))
-	else if (I.iswrench())
+	else if (attacking_item.iswrench())
 		if(!suspension_field)
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You wrench the stabilising bolts [anchored ? "into place" : "loose"]."))
@@ -76,44 +69,50 @@
 			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("You are unable to secure [src] while it is active!"))
-	else if (istype(I, /obj/item/cell))
+	else if (istype(attacking_item, /obj/item/cell))
 		if(open)
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else
-				user.drop_from_inventory(I, src)
-				cell = I
+				user.drop_from_inventory(attacking_item, src)
+				cell = attacking_item
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
 				update_icon()
 
-/obj/machinery/suspension_gen/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/suspension_gen/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "machinery-xenoarchaeology-suspensiongenerator", 400, 500, "Suspension Field Generator")
-		ui.auto_update_content = TRUE
-	ui.open()
+		ui = new(user, src, "SuspensionGenerator", "Suspension Field Generator", 400, 500)
+		ui.open()
 
-/obj/machinery/suspension_gen/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/machinery/suspension_gen/ui_data(mob/user)
+	var/list/data = list()
 
 	data["charge"] = 0
 	if(cell)
 		data["charge"] = round(cell.percent())
 
 	data["fieldtype"] = field_type
-	data["fieldtypes"] = field_types.Copy()
+
+	data["fieldtypes"] = list(
+		list("name" = "Diffracted Carbon Dioxide Laser", "type" = "carbon"),
+		list("name" = "Potassium Refrigerant Cloud", "type" = "potassium"),
+		list("name" = "Nitrogen Tracer Field", "type" = "nitrogen"),
+		list("name" = "Mercury Dispersion Wave", "type" = "mercury"),
+		list("name" = "Iron Wafer Conduction Field", "type" = "iron")
+	)
 
 	data["active"] = !!suspension_field
 	data["anchored"] = anchored
 
 	return data
 
-/obj/machinery/suspension_gen/Topic(href, href_list)
-	if(..())
-		return TRUE
+/obj/machinery/suspension_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["togglefield"])
+	if(action == "togglefield")
 		if(!anchored)
 			return
 
@@ -124,13 +123,13 @@
 					activate()
 		else
 			deactivate()
+		. = TRUE
 
-	if(href_list["fieldtype"])
-		field_type = href_list["fieldtype"]
+	if(action == "fieldtype")
+		field_type = params["fieldtype"]
 		if(suspension_field)
 			suspension_field.field_type = field_type
-
-	SSvueui.check_uis_for_change(src)
+			. = TRUE
 
 //checks for whether the machine can be activated or not should already have occurred by this point
 /obj/machinery/suspension_gen/proc/activate()
@@ -168,11 +167,10 @@
 	var/field_type = "chlorine"
 	var/victim_number  //number of mobs it affected, needed for generator powerdraw calc
 
-/obj/effect/suspension_field/examine(mob/user)
+/obj/effect/suspension_field/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(.)
-		to_chat(user, SPAN_NOTICE("You can see something floating inside it:"))
-		to_chat(user, SPAN_NOTICE(english_list(contents)))
+	. += SPAN_NOTICE("You can see something floating inside it:")
+	. += SPAN_NOTICE(english_list(contents))
 
 /obj/effect/suspension_field/Initialize()
 	. = ..()

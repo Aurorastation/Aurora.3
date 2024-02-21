@@ -5,17 +5,25 @@
 #define ATM_INPUT	1
 #define ATM_OUTPUT	2
 
-#define ATM_O2		3
-#define ATM_N2		4
-#define ATM_CO2		5
+#define ATM_O2		3	//Oxygen
+#define ATM_N2		4	//Nitrogen
+#define ATM_CO2		5	//Carbon Dioxide
 #define ATM_P		6	//Phoron
-#define ATM_N2O		7
-#define ATM_H2		8	//Hydrogen
+#define ATM_N2O		7	//Nitrous Oxide
+#define ATM_H		8	//Hydrogen
+#define ATM_2H		9	//Deuterium
+#define ATM_3H		10	//Tritium
+#define ATM_HE		11	//Helium
+#define ATM_B		12	//Boron
+#define ATM_SO2		13	//Sulfur Dioxide
+#define ATM_NO2		14	//Nitrogen Dioxide
+#define ATM_CL2		15	//Chlorine
+#define ATM_H2O 	16	//Steam
 
 //--------------------------------------------
 // Omni port datum
 //
-// Used by omni devices to manage connections 
+// Used by omni devices to manage connections
 //  to other atmospheric objects.
 //--------------------------------------------
 /datum/omni_port
@@ -71,10 +79,10 @@
 			string = "East"
 		if(WEST)
 			string = "West"
-	
+
 	if(!capitalize && string)
 		string = lowertext(string)
-	
+
 	return string
 
 //returns a direction flag based on the string passed to it
@@ -105,7 +113,23 @@
 			return GAS_PHORON
 		if(ATM_N2O)
 			return GAS_N2O
-		if(ATM_H2)
+		if(ATM_H)
 			return GAS_HYDROGEN
+		if(ATM_2H)
+			return GAS_DEUTERIUM
+		if(ATM_3H)
+			return GAS_TRITIUM
+		if(ATM_HE)
+			return GAS_HELIUM
+		if(ATM_B)
+			return GAS_BORON
+		if(ATM_SO2)
+			return GAS_SULFUR
+		if(ATM_NO2)
+			return GAS_NO2
+		if(ATM_CL2)
+			return GAS_CHLORINE
+		if(ATM_H2O)
+			return GAS_STEAM
 		else
 			return null

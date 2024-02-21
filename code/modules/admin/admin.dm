@@ -6,14 +6,14 @@ var/global/enabled_spooking = 0
 ////////////////////////////////
 /proc/message_admins(var/msg)
 	msg = "<span class=\"log_message\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message\">[msg]</span></span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			to_chat(C, msg)
 
 /proc/message_cciaa(var/msg)
 	msg = "<span class=\"log_message\"><span class=\"prefix\">CCIA LOG:</span> <span class=\"message\">[msg]</span></span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(R_CCIAA & C.holder.rights)
 			to_chat(C, msg)
@@ -21,21 +21,21 @@ var/global/enabled_spooking = 0
 /proc/msg_admin_attack(var/text,var/ckey="",var/ckey_target="") //Toggleable Attack Messages
 	log_attack(text,ckey=ckey,ckey_target=ckey_target)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			if(C.prefs.toggles & CHAT_ATTACKLOGS)
 				var/msg = rendered
 				to_chat(C, msg)
 
-proc/admin_notice(var/message, var/rights)
-	for(var/mob/M in mob_list)
+/proc/admin_notice(var/message, var/rights)
+	for(var/mob/M in GLOB.mob_list)
 		if(check_rights(rights, 0, M))
 			to_chat(M, message)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
-/datum/admins/proc/show_player_panel(var/mob/M in mob_list)
+/datum/admins/proc/show_player_panel(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
@@ -106,18 +106,16 @@ proc/admin_notice(var/message, var/rights)
 		var/mob/living/psyker = M
 		if(psyker.psi)
 			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
-			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
 		body += "<table width = '100%'>"
-		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
-			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
-			var/faculty_rank = psyker.psi ? psyker.psi.get_rank(faculty) : 0
-			body += "<tr><td><b>[faculty_decl.name]</b></td>"
-			for(var/i = 1 to LAZYLEN(psychic_ranks_to_strings))
-				var/psi_title = psychic_ranks_to_strings[i]
-				if(i == faculty_rank)
-					psi_title = "<b>[psi_title]</b>"
-				body += "<td><a href='?src=\ref[psyker.mind];set_psi_faculty_rank=[i];set_psi_faculty=[faculty]'>[psi_title]</a></td>"
-			body += "</tr>"
+		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX, PSI_RANK_LIMITLESS))
+			var/owner_rank = psyker.psi ? psyker.psi.get_rank() : 0
+			var/psi_title = psychic_ranks_to_strings[psi_rank]
+			if(psi_rank == owner_rank)
+				psi_title = "<b>[psi_title]</b>"
+			if(psi_rank != PSI_RANK_LIMITLESS)
+				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
+			else
+				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></tr>"
 		body += "</table>"
 
 	if (M.client)
@@ -208,8 +206,8 @@ proc/admin_notice(var/message, var/rights)
 	// language toggles
 	body += "<br><br><b>Languages:</b><br>"
 	var/f = 1
-	for(var/k in all_languages)
-		var/datum/language/L = all_languages[k]
+	for(var/k in GLOB.all_languages)
+		var/datum/language/L = GLOB.all_languages[k]
 		if(!(L.flags & INNATE))
 			if(!f) body += " | "
 			else f = 0
@@ -242,7 +240,7 @@ proc/admin_notice(var/message, var/rights)
 		return
 	if (!check_rights(R_ADMIN|R_MOD))
 		return
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		PlayerNotesPage(1)
 	else
 		show_notes_sql()
@@ -304,12 +302,12 @@ proc/admin_notice(var/message, var/rights)
 		to_chat(usr, "Error: you are not an admin!")
 		return
 
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		var/dat = "<html><head><title>Info on [key]</title></head>"
 		dat += "<body>"
 
 		var/p_age = "unknown"
-		for(var/client/C in clients)
+		for(var/client/C in GLOB.clients)
 			if(C.ckey == key)
 				p_age = C.player_age
 				break
@@ -383,7 +381,7 @@ proc/admin_notice(var/message, var/rights)
 			dat+={"<HR><B>Feed Security functions:</B><BR>
 				<BR><A href='?src=\ref[src];ac_menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>
 				<BR><A href='?src=\ref[src];ac_menu_censor_story=1'>Censor Feed Stories</A>
-				<BR><A href='?src=\ref[src];ac_menu_censor_channel=1'>Mark Feed Channel with [current_map.company_name] D-Notice (disables and locks the channel.</A>
+				<BR><A href='?src=\ref[src];ac_menu_censor_channel=1'>Mark Feed Channel with [SSatlas.current_map.company_name] D-Notice (disables and locks the channel.</A>
 				<BR><HR><A href='?src=\ref[src];ac_set_signature=1'>The newscaster recognises you as:<BR> <FONT COLOR='green'>[src.admincaster_signature]</FONT></A>
 			"}
 		if(1)
@@ -451,7 +449,7 @@ proc/admin_notice(var/message, var/rights)
 			dat+="<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.author]</FONT>\]</FONT><HR>"
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
-					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the station, and marked with a [current_map.company_name] D-Notice.<BR>
+					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>
 					No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>
 				"}
 			else
@@ -473,7 +471,7 @@ proc/admin_notice(var/message, var/rights)
 			"}
 		if(10)
 			dat+={"
-				<B>[current_map.company_name] Feed Censorship Tool</B><BR>
+				<B>[SSatlas.current_map.company_name] Feed Censorship Tool</B><BR>
 				<FONT SIZE=1>NOTE: Due to the nature of news Feeds, total deletion of a Feed Story is not possible.<BR>
 				Keep in mind that users attempting to view a censored feed will instead see the \[REDACTED\] tag above it.</FONT>
 				<HR>Select Feed channel to get Stories from:<BR>
@@ -487,7 +485,7 @@ proc/admin_notice(var/message, var/rights)
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+={"
-				<B>[current_map.company_name] D-Notice Handler</B><HR>
+				<B>[SSatlas.current_map.company_name] D-Notice Handler</B><HR>
 				<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station's
 				morale, integrity or disciplinary behaviour. A D-Notice will render a channel unable to be updated by anyone, without deleting any feed
 				stories it might contain at the time. You can lift a D-Notice if you have the required access at any time.</FONT><HR>
@@ -521,7 +519,7 @@ proc/admin_notice(var/message, var/rights)
 			"}
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
-					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the station, and marked with a [current_map.company_name] D-Notice.<BR>
+					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>
 					No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>
 				"}
 			else
@@ -600,8 +598,8 @@ proc/admin_notice(var/message, var/rights)
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."
 
-	send_theme_resources(usr)
-	usr << browse(enable_ui_theme(usr, dat), "window=admincaster_main;size=400x600")
+
+	usr << browse(dat, "window=admincaster_main;size=400x600")
 	onclose(usr, "admincaster_main")
 
 
@@ -630,7 +628,7 @@ proc/admin_notice(var/message, var/rights)
 		<center><B>Game Panel</B></center><hr>\n
 		<A href='?src=\ref[src];c_mode=1'>Change Game Mode</A><br>
 		"}
-	if(master_mode == ROUNDTYPE_STR_SECRET || master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET || GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		dat += "<A href='?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
 
 	dat += {"
@@ -698,7 +696,7 @@ proc/admin_notice(var/message, var/rights)
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = input("Global message to send:", "Admin Announce", null, null) as message
+	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE)
 	if(message)
 		if(!check_rights(R_SERVER, 0))
 			message = sanitize(message, 500, extra = 0)
@@ -715,8 +713,8 @@ proc/admin_notice(var/message, var/rights)
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.ooc_allowed = !(config.ooc_allowed)
-	if (config.ooc_allowed)
+	GLOB.config.ooc_allowed = !(GLOB.config.ooc_allowed)
+	if (GLOB.config.ooc_allowed)
 		to_world("<B>The OOC channel has been globally enabled!</B>")
 	else
 		to_world("<B>The OOC channel has been globally disabled!</B>")
@@ -731,8 +729,8 @@ proc/admin_notice(var/message, var/rights)
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.looc_allowed = !(config.looc_allowed)
-	if (config.looc_allowed)
+	GLOB.config.looc_allowed = !(GLOB.config.looc_allowed)
+	if (GLOB.config.looc_allowed)
 		to_world("<B>The LOOC channel has been globally enabled!</B>")
 	else
 		to_world("<B>The LOOC channel has been globally disabled!</B>")
@@ -748,8 +746,8 @@ proc/admin_notice(var/message, var/rights)
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.dsay_allowed = !(config.dsay_allowed)
-	if (config.dsay_allowed)
+	GLOB.config.dsay_allowed = !(GLOB.config.dsay_allowed)
+	if (GLOB.config.dsay_allowed)
 		to_world("<B>Deadchat has been globally enabled!</B>")
 	else
 		to_world("<B>Deadchat has been globally disabled!</B>")
@@ -765,8 +763,8 @@ proc/admin_notice(var/message, var/rights)
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.dooc_allowed = !( config.dooc_allowed )
-	log_and_message_admins("toggled dead (global) OOC. (New state: [config.dooc_allowed])")
+	GLOB.config.dooc_allowed = !( GLOB.config.dooc_allowed )
+	log_and_message_admins("toggled dead (global) OOC. (New state: [GLOB.config.dooc_allowed])")
 	feedback_add_details("admin_verb","TDOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggle_dead_looc()
@@ -777,8 +775,8 @@ proc/admin_notice(var/message, var/rights)
 	if (!check_rights(R_ADMIN))
 		return
 
-	config.dead_looc_allowed = !config.dead_looc_allowed
-	log_and_message_admins("toggled dead LOOC. (New state: [config.dead_looc_allowed])")
+	GLOB.config.dead_looc_allowed = !GLOB.config.dead_looc_allowed
+	log_and_message_admins("toggled dead LOOC. (New state: [GLOB.config.dead_looc_allowed])")
 
 /datum/admins/proc/togglehubvisibility()
 	set category = "Server"
@@ -791,8 +789,8 @@ proc/admin_notice(var/message, var/rights)
 	world.visibility = !(world.visibility)
 	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
-	post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
-	discord_bot.send_to_admins("[key_name(src)]" + long_message)
+	SSdiscord.post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
+	SSdiscord.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)
 	log_admin("[key_name(usr)] toggled hub visibility.")
 	feedback_add_details("admin_verb","THUB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
@@ -801,16 +799,16 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Server"
 	set desc="Toggle traitor scaling"
 	set name="Toggle Traitor Scaling"
-	config.traitor_scaling = !config.traitor_scaling
-	log_admin("[key_name(usr)] toggled Traitor Scaling to [config.traitor_scaling].")
-	message_admins("[key_name_admin(usr)] toggled Traitor Scaling [config.traitor_scaling ? "on" : "off"].", 1)
+	GLOB.config.traitor_scaling = !GLOB.config.traitor_scaling
+	log_admin("[key_name(usr)] toggled Traitor Scaling to [GLOB.config.traitor_scaling].")
+	message_admins("[key_name_admin(usr)] toggled Traitor Scaling [GLOB.config.traitor_scaling ? "on" : "off"].", 1)
 	feedback_add_details("admin_verb","TTS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/startnow()
 	set category = "Server"
 	set desc="Start the round RIGHT NOW"
 	set name="Start Now"
-	if(Master.initializing)
+	if(!MC_RUNNING())
 		alert("Unable to start the game as it is not set up.")
 		return
 	if(SSticker.current_state == GAME_STATE_PREGAME)
@@ -827,8 +825,8 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Server"
 	set desc="People can't enter"
 	set name="Toggle Entering"
-	config.enter_allowed = !(config.enter_allowed)
-	if (!(config.enter_allowed))
+	GLOB.config.enter_allowed = !(GLOB.config.enter_allowed)
+	if (!(GLOB.config.enter_allowed))
 		to_world("<B>New players may no longer enter the game.</B>")
 	else
 		to_world("<B>New players may now enter the game.</B>")
@@ -841,8 +839,8 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Server"
 	set desc="People can't be AI"
 	set name="Toggle AI"
-	config.allow_ai = !( config.allow_ai )
-	if (!( config.allow_ai ))
+	GLOB.config.allow_ai = !( GLOB.config.allow_ai )
+	if (!( GLOB.config.allow_ai ))
 		to_world("<B>The AI job is no longer chooseable.</B>")
 	else
 		to_world("<B>The AI job is chooseable now.</B>")
@@ -854,32 +852,23 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Server"
 	set desc="Respawn basically"
 	set name="Toggle Respawn"
-	config.abandon_allowed = !(config.abandon_allowed)
-	if(config.abandon_allowed)
+	GLOB.config.abandon_allowed = !(GLOB.config.abandon_allowed)
+	if(GLOB.config.abandon_allowed)
 		to_world("<B>You may now respawn.</B>")
 	else
 		to_world("<B>You may no longer respawn :(</B>")
-	message_admins("<span class='notice'>[key_name_admin(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].</span>", 1)
-	log_admin("[key_name(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].")
+	message_admins("<span class='notice'>[key_name_admin(usr)] toggled respawn to [GLOB.config.abandon_allowed ? "On" : "Off"].</span>", 1)
+	log_admin("[key_name(usr)] toggled respawn to [GLOB.config.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
 	feedback_add_details("admin_verb","TR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/datum/admins/proc/toggle_aliens()
-	set category = "Server"
-	set desc="Toggle alien mobs"
-	set name="Toggle Aliens"
-	config.aliens_allowed = !config.aliens_allowed
-	log_admin("[key_name(usr)] toggled Aliens to [config.aliens_allowed].")
-	message_admins("[key_name_admin(usr)] toggled Aliens [config.aliens_allowed ? "on" : "off"].", 1)
-	feedback_add_details("admin_verb","TA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggle_space_ninja()
 	set category = "Server"
 	set desc="Toggle space ninjas spawning."
 	set name="Toggle Space Ninjas"
-	config.ninjas_allowed = !config.ninjas_allowed
-	log_admin("[key_name(usr)] toggled Space Ninjas to [config.ninjas_allowed].")
-	message_admins("[key_name_admin(usr)] toggled Space Ninjas [config.ninjas_allowed ? "on" : "off"].", 1)
+	GLOB.config.ninjas_allowed = !GLOB.config.ninjas_allowed
+	log_admin("[key_name(usr)] toggled Space Ninjas to [GLOB.config.ninjas_allowed].")
+	message_admins("[key_name_admin(usr)] toggled Space Ninjas [GLOB.config.ninjas_allowed ? "on" : "off"].", 1)
 	feedback_add_details("admin_verb","TSN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delay()
@@ -893,8 +882,8 @@ proc/admin_notice(var/message, var/rights)
 		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
 		message_admins("<span class='notice'>[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].</span>", 1)
 		return //alert("Round end delayed", null, null, null, null, null)
-	round_progressing = !round_progressing
-	if (!round_progressing)
+	GLOB.round_progressing = !GLOB.round_progressing
+	if (!GLOB.round_progressing)
 		to_world("<b>The game start has been delayed.</b>")
 		log_admin("[key_name(usr)] delayed the game.")
 	else
@@ -906,24 +895,24 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Server"
 	set desc="Toggle admin jumping"
 	set name="Toggle Jump"
-	config.allow_admin_jump = !(config.allow_admin_jump)
-	message_admins("<span class='notice'>Toggled admin jumping to [config.allow_admin_jump].</span>")
+	GLOB.config.allow_admin_jump = !(GLOB.config.allow_admin_jump)
+	message_admins("<span class='notice'>Toggled admin jumping to [GLOB.config.allow_admin_jump].</span>")
 	feedback_add_details("admin_verb","TJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/adspawn()
 	set category = "Server"
 	set desc="Toggle admin spawning"
 	set name="Toggle Spawn"
-	config.allow_admin_spawning = !(config.allow_admin_spawning)
-	message_admins("<span class='notice'>Toggled admin item spawning to [config.allow_admin_spawning].</span>")
+	GLOB.config.allow_admin_spawning = !(GLOB.config.allow_admin_spawning)
+	message_admins("<span class='notice'>Toggled admin item spawning to [GLOB.config.allow_admin_spawning].</span>")
 	feedback_add_details("admin_verb","TAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/adrev()
 	set category = "Server"
 	set desc="Toggle admin revives"
 	set name="Toggle Revive"
-	config.allow_admin_rev = !(config.allow_admin_rev)
-	message_admins("<span class='notice'>Toggled reviving to [config.allow_admin_rev].</span>")
+	GLOB.config.allow_admin_rev = !(GLOB.config.allow_admin_rev)
+	message_admins("<span class='notice'>Toggled reviving to [GLOB.config.allow_admin_rev].</span>")
 	feedback_add_details("admin_verb","TAR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/immreboot()
@@ -941,12 +930,12 @@ proc/admin_notice(var/message, var/rights)
 
 	world.Reboot()
 
-/datum/admins/proc/unprison(var/mob/M in mob_list)
+/datum/admins/proc/unprison(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Unprison"
 	if (M.z == 2)
-		if (config.allow_admin_jump)
-			M.forceMove(pick(latejoin))
+		if (GLOB.config.allow_admin_jump)
+			M.forceMove(pick(GLOB.latejoin))
 			message_admins("[key_name_admin(usr)] has unprisoned [key_name_admin(M)]", 1)
 			log_admin("[key_name(usr)] has unprisoned [key_name(M)]")
 		else
@@ -957,7 +946,7 @@ proc/admin_notice(var/message, var/rights)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 
-/proc/is_special_character(mob/M as mob) // returns 1 for specail characters and 2 for heroes of gamemode
+/proc/is_special_character(var/mob/M) // returns 1 for specail characters and 2 for heroes of gamemode
 	if(!SSticker.mode)
 		return 0
 	if (!istype(M))
@@ -1057,7 +1046,7 @@ proc/admin_notice(var/message, var/rights)
 	feedback_add_details("admin_verb","SA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/datum/admins/proc/show_traitor_panel(var/mob/M in mob_list)
+/datum/admins/proc/show_traitor_panel(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set desc = "Edit mobs's memory and role"
 	set name = "Show Traitor Panel"
@@ -1150,8 +1139,8 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Debug"
 	set desc="Reduces view range when wearing welding helmets"
 	set name="Toggle tinted welding helmets."
-	config.welder_vision = !( config.welder_vision )
-	if (config.welder_vision)
+	GLOB.config.welder_vision = !( GLOB.config.welder_vision )
+	if (GLOB.config.welder_vision)
 		to_world("<B>Reduced welder vision has been enabled!</B>")
 	else
 		to_world("<B>Reduced welder vision has been disabled!</B>")
@@ -1163,18 +1152,18 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Server"
 	set desc="Guests can't enter"
 	set name="Toggle guests"
-	config.guests_allowed = !(config.guests_allowed)
-	if (!(config.guests_allowed))
+	GLOB.config.guests_allowed = !(GLOB.config.guests_allowed)
+	if (!(GLOB.config.guests_allowed))
 		to_world("<B>Guests may no longer enter the game.</B>")
 	else
 		to_world("<B>Guests may now enter the game.</B>")
-	log_admin("[key_name(usr)] toggled guests game entering [config.guests_allowed?"":"dis"]allowed.")
-	message_admins("<span class='notice'>[key_name_admin(usr)] toggled guests game entering [config.guests_allowed?"":"dis"]allowed.</span>", 1)
+	log_admin("[key_name(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed.")
+	message_admins("<span class='notice'>[key_name_admin(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed.</span>", 1)
 	feedback_add_details("admin_verb","TGU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/output_ai_laws()
 	var/ai_number = 0
-	for(var/mob/living/silicon/S in mob_list)
+	for(var/mob/living/silicon/S in GLOB.mob_list)
 		ai_number++
 		if(isAI(S))
 			to_chat(usr, "<b>AI [key_name(S, usr)]'s laws:</b>")
@@ -1192,23 +1181,6 @@ proc/admin_notice(var/message, var/rights)
 			S.laws.show_laws(usr)
 	if(!ai_number)
 		to_chat(usr, "<b>No AIs located</b>") //Just so you know the thing is actually working and not just ignoring you.)
-
-/datum/admins/proc/show_skills()
-	set category = "Admin"
-	set name = "Show Skills"
-
-	if (!istype(src,/datum/admins))
-		src = usr.client.holder
-	if (!istype(src,/datum/admins))
-		to_chat(usr, "Error: you are not an admin!")
-		return
-
-	var/mob/living/carbon/human/M = input("Select mob.", "Select mob.") as null|anything in human_mob_list
-	if(!M) return
-
-	show_skill_window(usr, M)
-
-	return
 
 /client/proc/update_mob_sprite(mob/living/carbon/human/H as mob)
 	set category = "Admin"
@@ -1286,6 +1258,7 @@ proc/admin_notice(var/message, var/rights)
 	log_admin("[key_name(usr)] stuffed [frommob.ckey] into [tomob.name].")
 	feedback_add_details("admin_verb","CGD")
 	tomob.ckey = frommob.ckey
+	tomob.client.init_verbs()
 	qdel(frommob)
 	return 1
 
@@ -1304,12 +1277,12 @@ proc/admin_notice(var/message, var/rights)
 		to_chat(usr, "Mode has not started.")
 		return
 
-	var/antag_type = input("Choose a template.","Force Latespawn") as null|anything in all_antag_types
-	if(!antag_type || !all_antag_types[antag_type])
+	var/antag_type = tgui_input_list(usr, "Choose a template.", "Force Latespawn", GLOB.all_antag_types)
+	if(!antag_type || !GLOB.all_antag_types[antag_type])
 		to_chat(usr, "Aborting.")
 		return
 
-	var/datum/antagonist/antag = all_antag_types[antag_type]
+	var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 	message_admins("[key_name(usr)] attempting to force latespawn with template [antag.id].")
 	antag.attempt_auto_spawn()
 
@@ -1367,28 +1340,28 @@ proc/admin_notice(var/message, var/rights)
 /datum/admins/proc/ccannoucment()
 	set category = "Special Verbs"
 	set name = "Custom sound Command Announcment"
-	set desc = "Emulate announcement that looks and sounds like the real one"
+	set desc = "Emulate announcement that looks and sounds like the real one."
 	if(!check_rights(R_FUN))
 		return
 
-	var/title = input("Announcement TITLE:", "CAnnounce", null, null) as text
+	var/title = tgui_input_text(usr, "Input the announcement's title.", "Custom Announcement")
 	if(!title)
 		return
 	if(!check_rights(R_SERVER,0))
 		title = sanitize(title, 255, extra = 0)
-	var/message = input("Announcement content:", "CAnnounce", null, null) as message
+	var/message = tgui_input_text("Input the announcement's content.", "CAnnounce", multiline = TRUE)
 	if(!message)
 		return
 	if(!check_rights(R_SERVER,0))
 		message = sanitize(message, 500, extra = 0)
 
 
-	var/list/sounds = file2list("sound/serversound_list.txt");
+	var/list/sounds = file2list('sound/serversound_list.txt');
 	sounds += "--CANCEL--"
 	sounds += "--LOCAL--"
 	sounds += sounds_cache
 
-	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
+	var/melody = tgui_input_list(usr, "Select a sound from the server to play.", "Sound Selection", sounds)
 
 	if(melody == "--CANCEL--")
 		return
@@ -1400,3 +1373,7 @@ proc/admin_notice(var/message, var/rights)
 	command_announcement.Announce(message, title, new_sound = melody)
 	log_and_message_admins("made custom announcement with custom sound", usr)
 	feedback_add_details("admin_verb","ACS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/atom/proc/Admin_Coordinates_Readable(area_name, admin_jump_ref)
+	var/turf/T = get_turf(src)
+	return T ? "[area_name ? "[get_area_name(T, TRUE)] " : " "]([T.x],[T.y],[T.z])[admin_jump_ref ? " [ADMIN_JMP(T)]" : ""]" : "nonexistent location"

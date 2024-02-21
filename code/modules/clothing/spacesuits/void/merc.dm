@@ -1,7 +1,7 @@
 //Syndicate rig
 /obj/item/clothing/head/helmet/space/void/merc
 	name = "blood-red voidsuit helmet"
-	desc = "An advanced helmet designed for work in special operations. Property of Gorlex Marauders."
+	desc = "An advanced helmet designed for work in special operations. Property of Hammertail Smiths."
 	icon_state = "rig0-syndie"
 	item_state = "syndie_helm"
 	item_state_slots = list(
@@ -26,7 +26,7 @@
 
 /obj/item/clothing/suit/space/void/merc
 	name = "blood-red voidsuit"
-	desc = "An advanced suit that protects against injuries during special operations. Property of Gorlex Marauders."
+	desc = "An advanced suit that protects against injuries during special operations. Property of Hammertail Smiths."
 	icon_state = "rig-syndie"
 	item_state = "rig-syndie"
 	item_state_slots = list(
@@ -47,3 +47,11 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+/obj/item/clothing/head/helmet/space/void/merc/unathi/Initialize()
+	. = ..()
+	refit_for_species(BODYTYPE_UNATHI)
+
+/obj/item/clothing/suit/space/void/merc/unathi/Initialize()
+	. = ..()
+	refit_for_species(BODYTYPE_UNATHI)

@@ -44,7 +44,7 @@
 		pixel_y = 0
 		if(istype(src,/turf/simulated/floor))
 			var/turf/simulated/floor/F = src
-			F.set_flooring(decls_repository.get_decl(/decl/flooring/reinforced/cult))
+			F.set_flooring(GET_SINGLETON(/singleton/flooring/reinforced/cult))
 
 /turf/proc/cultify_wall()
 	ChangeTurf(/turf/unsimulated/wall/cult)

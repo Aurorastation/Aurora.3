@@ -1,4 +1,4 @@
-proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam,var/p_range,var/can_cover=TRUE,var/shard_range = 50)
+/proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam,var/p_range,var/can_cover=TRUE,var/shard_range = 50)
 	var/turf/O = get_turf(source)
 	var/fragger = rand(fragx,fragy)
 	explosion(O, -1, -1, light_dam, flash_dam)
@@ -36,7 +36,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
 	spread_step = 20
 
-	silenced = 1 //embedding messages are still produced so it's kind of weird when enabled.
+	suppressed = TRUE //embedding messages are still produced so it's kind of weird when enabled.
 	no_attack_log = 1
 	muzzle_type = null
 

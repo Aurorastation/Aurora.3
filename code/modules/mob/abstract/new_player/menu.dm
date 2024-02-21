@@ -1,7 +1,7 @@
 //MENU SYSTEM BY BIGRAGE, some awful code, some awful design, all as you love //Code edits/additions by AshtonFox
 /mob/abstract/new_player/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
-	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
 	HUD.mymob = src
+	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
 
 /datum/hud/new_player
 	hud_shown = TRUE
@@ -9,6 +9,8 @@
 	hotkey_ui_hidden = FALSE
 
 /datum/hud/proc/new_player_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	adding = list()
 	var/obj/screen/using
 
@@ -51,66 +53,118 @@
 	src.adding += using
 
 /obj/screen/new_player
-	icon = 'icons/misc/hudmenu.dmi'
+	icon = 'icons/misc/hudmenu/hudmenu.dmi'
 	layer = HUD_LAYER
+
+/obj/screen/new_player/Initialize()
+	set_sector_things()
+	. = ..()
+
+/obj/screen/new_player/proc/set_sector_things()
+	if(SSatlas.current_sector.sector_hud_menu)
+		icon = SSatlas.current_sector.sector_hud_menu
 
 /obj/screen/new_player/title
 	name = "Title"
 	screen_loc = "WEST,SOUTH"
 	var/lobby_index = 1
+	var/refresh_timer_id = null
+
+/obj/screen/new_player/title/Destroy(force)
+	if(refresh_timer_id)
+		deltimer(refresh_timer_id)
+		refresh_timer_id = null
+	. = ..()
+
 
 /obj/screen/new_player/title/Initialize()
-	if(!current_map.lobby_icon)
-		current_map.lobby_icon = pick(current_map.lobby_icons)
-	if(!length(current_map.lobby_screens))
-		var/list/known_icon_states = icon_states(current_map.lobby_icon)
-		for(var/screen in known_icon_states)
-			if(!(screen in current_map.lobby_screens))
-				current_map.lobby_screens += screen
-	icon = current_map.lobby_icon
+	if(SSatlas.current_sector.sector_lobby_art)
+		SSatlas.current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
+	else if(!SSatlas.current_map.lobby_icon)
+		SSatlas.current_map.lobby_icon = pick(SSatlas.current_map.lobby_icons)
 
-	if(length(current_map.lobby_screens))
-		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
-			icon_state = current_map.lobby_screens[lobby_index]
-			if(Master.initializing)
-				spawn(current_map.lobby_transitions)
+	if(!length(SSatlas.current_map.lobby_screens))
+		var/list/known_icon_states = icon_states(SSatlas.current_map.lobby_icon)
+		for(var/screen in known_icon_states)
+			if(!(screen in SSatlas.current_map.lobby_screens))
+				SSatlas.current_map.lobby_screens += screen
+	icon = SSatlas.current_map.lobby_icon
+
+	if(length(SSatlas.current_map.lobby_screens))
+		if(SSatlas.current_map.lobby_transitions && isnum(SSatlas.current_map.lobby_transitions))
+			icon_state = SSatlas.current_map.lobby_screens[lobby_index]
+			if(!MC_RUNNING())
+				spawn(SSatlas.current_map.lobby_transitions)
 					Update()
 			else
-				addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 		else
-			icon_state = pick(current_map.lobby_screens)
+			icon_state = pick(SSatlas.current_map.lobby_screens)
 	else //This should basically never happen.
 		crash_with("No lobby screens found!")
 
 	. = ..()
 
+/obj/screen/new_player/title/set_sector_things()
+	return
+
 /obj/screen/new_player/title/proc/Update()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(QDELETED(src))
+		return
+
+	if(!SSatlas.current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
+		return
 	if(!istype(hud) || !isnewplayer(hud.mymob))
 		return
 	lobby_index += 1
-	if (lobby_index > length(current_map.lobby_screens))
+	if (lobby_index > length(SSatlas.current_map.lobby_screens))
 		lobby_index = 1
 	animate(src, alpha = 0, time = 1 SECOND)
-	animate(alpha = 255, icon_state = current_map.lobby_screens[lobby_index], time = 1 SECOND)
-	if(Master.initializing)
-		spawn(current_map.lobby_transitions)
-			Update()
-	else
-		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+	animate(alpha = 255, icon_state = SSatlas.current_map.lobby_screens[lobby_index], time = 1 SECOND)
+	refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
-/obj/screen/new_player/selection/New(var/datum/hud/H)
+/obj/screen/new_player/selection
+	var/click_sound = 'sound/effects/menu_click.ogg'
+	var/hud_arrow
+
+/obj/screen/new_player/selection/New(datum/hud/H)
 	color = null
 	hud = H
 	..()
 
+/obj/screen/new_player/selection/Initialize()
+	. = ..()
+	set_sector_things()
+
+/obj/screen/new_player/selection/Destroy(force)
+	hud = null
+	. = ..()
+
+/obj/screen/new_player/selection/set_sector_things()
+	. = ..()
+	if(SSatlas.current_sector.sector_hud_menu_sound)
+		click_sound = SSatlas.current_sector.sector_hud_menu_sound
+	if(SSatlas.current_sector.sector_hud_arrow)
+		hud_arrow = SSatlas.current_sector.sector_hud_arrow
+		// We'll reset the animation just so it doesn't get stuck
+		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+
 /obj/screen/new_player/selection/MouseEntered(location, control, params)
-	var/matrix/M = matrix()
-	M.Scale(1.1, 1)
-	animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
+	if(hud_arrow)
+		add_overlay(hud_arrow, force_compile = TRUE)
+	else
+		var/matrix/M = matrix()
+		M.Scale(1.1, 1)
+		animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /obj/screen/new_player/selection/MouseExited(location,control,params)
-	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	if(hud_arrow)
+		cut_overlays(force_compile = TRUE)
+	else
+		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /obj/screen/new_player/selection/join_game
@@ -155,7 +209,7 @@
 
 /obj/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
 			player.ready(FALSE)
@@ -176,7 +230,7 @@
 
 /obj/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	if(SSticker.current_state < GAME_STATE_PLAYING)
 		to_chat(player, SPAN_WARNING("The game hasn't started yet!"))
 		return
@@ -184,25 +238,25 @@
 
 /obj/screen/new_player/selection/observe/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.new_player_observe()
 
 /obj/screen/new_player/selection/settings/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.setupcharacter()
 
 /obj/screen/new_player/selection/changelog/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.client.changes()
 
 /obj/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	if(establish_db_connection(dbcon))
+	if(establish_db_connection(GLOB.dbcon))
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
-		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
 		query.Execute()
 		var/newpoll = query.NextRow()
 
@@ -211,12 +265,12 @@
 
 /obj/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.handle_player_polling()
 
 /obj/screen/new_player/selection/lore_summary/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.show_lore_summary()
 
 /mob/abstract/new_player/proc/setupcharacter()
@@ -226,7 +280,7 @@
 /mob/abstract/new_player/proc/ready(var/readying = TRUE)
 	if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 		// Cannot join without a saved character, if we're on SQL saves.
-		if (config.sql_saves && !client.prefs.current_character)
+		if (GLOB.config.sql_saves && !client.prefs.current_character)
 			alert(src, "You have not saved your character yet. Please do so before readying up.")
 			return
 		if(client.unacked_warning_count > 0)
@@ -258,7 +312,7 @@
 	// Only display the warning if it's a /new/ new player,
 	// if they've died and gone back to menu they probably already know their respawn time (and it won't be reset anymore)
 	if(!get_death_time(CREW))
-		if(alert(src, "Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
+		if(alert(src, "Are you sure you wish to observe? You will have to wait [GLOB.config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
 			return FALSE
 
 	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
@@ -267,7 +321,7 @@
 
 	observer.started_as_observer = 1
 	close_spawn_windows()
-	var/obj/O = locate("landmark*Observer-Start") in landmarks_list
+	var/obj/O = locate("landmark*Observer-Start") in GLOB.landmarks_list
 	if(istype(O))
 		to_chat(src, "<span class='notice'>Now teleporting.</span>")
 		observer.forceMove(O.loc)
@@ -282,19 +336,20 @@
 	observer.appearance_flags = KEEP_TOGETHER
 	observer.alpha = 127
 	observer.layer = initial(observer.layer)
-	observer.invisibility = initial(observer.invisibility)
+	observer.set_invisibility(initial(observer.invisibility))
 	observer.desc = initial(observer.desc)
 
 	observer.real_name = client.prefs.real_name
 	observer.name = observer.real_name
-	if(!client.holder && !config.antag_hud_allowed)
-		observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
+	if(!client.holder && !GLOB.config.antag_hud_allowed)
+		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()
+	observer.client.init_verbs()
 	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()
-	if(config.lore_summary)
+	if(GLOB.config.lore_summary)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
-		output += "<i>[config.lore_summary]</i><hr>"
+		output += "<i>[GLOB.config.lore_summary]</i><hr>"
 		to_chat(src, output)

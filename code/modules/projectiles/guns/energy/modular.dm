@@ -30,22 +30,22 @@
 	var/named = 0
 	var/described = 0
 
-/obj/item/gun/energy/laser/prototype/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance > 1)
 		return
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			to_chat(user, "You can see \the [modifier] attached.")
+			. += "You can see \a [modifier] attached."
 	if(capacitor)
-		to_chat(user, "You can see \the [capacitor] attached.")
+		. += "You can see \a [capacitor] attached."
 	if(focusing_lens)
-		to_chat(user, "You can see \the [focusing_lens] attached.")
+		. += "You can see \a [focusing_lens] attached."
 	if(modulator)
-		to_chat(user, "You can see \the [modulator] attached.")
+		. += "You can see \a [modulator] attached."
 
-/obj/item/gun/energy/laser/prototype/attackby(var/obj/item/D, var/mob/user)
-	if(!D.isscrewdriver())
+/obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.isscrewdriver())
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
@@ -144,7 +144,7 @@
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		switch(modifier.mod_type)
 			if(MOD_SILENCE)
-				silenced = 1
+				suppressed = TRUE
 			if(MOD_NUCLEAR_CHARGE)
 				self_recharge = 1
 				criticality *= 2
@@ -170,7 +170,7 @@
 	if(!capacitor)
 		return null
 	if (self_recharge)
-		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	var/obj/item/projectile/beam/A = new projectile_type(src)
 	A.damage = capacitor.damage
 	var/damage_coeff = 1
@@ -255,7 +255,7 @@
 /obj/item/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(zoomdevicename)
 		if(wielded)
@@ -295,6 +295,7 @@
 	set name = "Name Prototype"
 	set category = "Object"
 	set desc = "Name your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)
@@ -312,6 +313,7 @@
 	set name = "Describe Prototype"
 	set category = "Object"
 	set desc = "Describe your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)

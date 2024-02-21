@@ -10,33 +10,33 @@
 // BEGIN RESEARCH DATUMS
 
 /datum/malf_research_ability/manipulation/hack_holopad
-	ability = new/datum/game_mode/malfunction/verb/hack_holopad()
+	ability = /datum/game_mode/malfunction/verb/hack_holopad
 	price = 50
-	next = new/datum/malf_research_ability/manipulation/hack_camera()
+	next = /datum/malf_research_ability/manipulation/hack_camera
 	name = "Hack Holopad"
 
 
 /datum/malf_research_ability/manipulation/hack_camera
-	ability = new/datum/game_mode/malfunction/verb/hack_camera()
+	ability = /datum/game_mode/malfunction/verb/hack_camera
 	price = 1200
-	next = new/datum/malf_research_ability/manipulation/emergency_forcefield()
+	next = /datum/malf_research_ability/manipulation/emergency_forcefield
 	name = "Hack Camera"
 
 
 /datum/malf_research_ability/manipulation/emergency_forcefield
-	ability = new/datum/game_mode/malfunction/verb/emergency_forcefield()
+	ability = /datum/game_mode/malfunction/verb/emergency_forcefield
 	price = 1750
-	next = new/datum/malf_research_ability/manipulation/gravity_malfunction()
+	next = /datum/malf_research_ability/manipulation/gravity_malfunction
 	name = "Emergency Forcefield"
 
 /datum/malf_research_ability/manipulation/gravity_malfunction
-	ability = new/datum/game_mode/malfunction/verb/gravity_malfunction()
+	ability = /datum/game_mode/malfunction/verb/gravity_malfunction
 	price = 2500
-	next = new/datum/malf_research_ability/manipulation/machine_overload()
+	next = /datum/malf_research_ability/manipulation/machine_overload
 	name = "Gravity Malfunction"
 
 /datum/malf_research_ability/manipulation/machine_overload
-	ability = new/datum/game_mode/malfunction/verb/machine_overload()
+	ability = /datum/game_mode/malfunction/verb/machine_overload
 	price = 5000
 	name = "Machine Overload"
 
@@ -64,7 +64,7 @@
 	to_chat(user, "Holopad hacked.")
 	user.hacking = 0
 
-/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in cameranet.cameras)
+/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in GLOB.cameranet.cameras)
 	set name = "Hack Camera"
 	set desc = "100 CPU - Hacks existing camera, allowing you to add upgrade of your choice to it. Alternatively it lets you reactivate broken camera."
 	set category = "Software"
@@ -129,7 +129,7 @@
 		to_chat(user, "Please pick a suitable camera.")
 
 
-/datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T as turf in turfs)
+/datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T in world)
 	set name = "Emergency Forcefield"
 	set desc = "275 CPU - Uses station's emergency shielding system to create temporary barrier which lasts for few minutes, but won't resist gunfire."
 	set category = "Software"
@@ -215,7 +215,7 @@
 		if(temp_apc && temp_apc.terminal && temp_apc.terminal.powernet)
 			temp_apc.terminal.powernet.trigger_warning(50) // Long alarm
 		if(temp_apc)
-			temp_apc.emp_act(3) // Such power surges are not good for APC electronics/cell in general.
+			temp_apc.emp_act(EMP_LIGHT) // Such power surges are not good for APC electronics/cell in general.
 			if(prob(explosion_intensity))
 				temp_apc.set_broken()
 

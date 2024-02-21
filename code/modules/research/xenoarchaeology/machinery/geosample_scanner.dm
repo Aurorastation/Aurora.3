@@ -4,7 +4,7 @@
 	desc = "A specialised, complex scanner for gleaning information on all manner of small things."
 	anchored = 1
 	density = 1
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "spectrometer"
 
@@ -47,45 +47,45 @@
 /obj/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
 	create_reagents(500)
-	coolant_reagents_purity[/decl/reagent/water] = 0.5
-	coolant_reagents_purity[/decl/reagent/drink/coffee/icecoffee] = 0.6
-	coolant_reagents_purity[/decl/reagent/drink/icetea] = 0.6
-	coolant_reagents_purity[/decl/reagent/drink/milkshake] = 0.6
-	coolant_reagents_purity[/decl/reagent/leporazine] = 0.7
-	coolant_reagents_purity[/decl/reagent/kelotane] = 0.7
-	coolant_reagents_purity[/decl/reagent/sterilizine] = 0.7
-	coolant_reagents_purity[/decl/reagent/dermaline] = 0.7
-	coolant_reagents_purity[/decl/reagent/hyperzine] = 0.8
-	coolant_reagents_purity[/decl/reagent/cryoxadone] = 0.9
-	coolant_reagents_purity[/decl/reagent/coolant] = 1
-	coolant_reagents_purity[/decl/reagent/adminordrazine] = 2
+	coolant_reagents_purity[/singleton/reagent/water] = 0.5
+	coolant_reagents_purity[/singleton/reagent/drink/coffee/icecoffee] = 0.6
+	coolant_reagents_purity[/singleton/reagent/drink/icetea] = 0.6
+	coolant_reagents_purity[/singleton/reagent/drink/milkshake] = 0.6
+	coolant_reagents_purity[/singleton/reagent/leporazine] = 0.7
+	coolant_reagents_purity[/singleton/reagent/kelotane] = 0.7
+	coolant_reagents_purity[/singleton/reagent/sterilizine] = 0.7
+	coolant_reagents_purity[/singleton/reagent/dermaline] = 0.7
+	coolant_reagents_purity[/singleton/reagent/hyperzine] = 0.8
+	coolant_reagents_purity[/singleton/reagent/cryoxadone] = 0.9
+	coolant_reagents_purity[/singleton/reagent/coolant] = 1
+	coolant_reagents_purity[/singleton/reagent/adminordrazine] = 2
 
 /obj/machinery/radiocarbon_spectrometer/attack_hand(var/mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/radiocarbon_spectrometer/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/machinery/radiocarbon_spectrometer/attackby(obj/item/attacking_item, mob/user)
 	if(scanning)
 		to_chat(user, "<span class='warning'>You can't do that while [src] is scanning!</span>")
 	else
-		if(istype(I, /obj/item/stack/nanopaste))
+		if(istype(attacking_item, /obj/item/stack/nanopaste))
 			var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
 			if(choice == "Fix seal integrity")
-				var/obj/item/stack/nanopaste/N = I
+				var/obj/item/stack/nanopaste/N = attacking_item
 				var/amount_used = min(N.get_amount(), 10 - scanner_seal_integrity / 10)
 				N.use(amount_used)
 				scanner_seal_integrity = round(scanner_seal_integrity + amount_used * 10)
 				return
-		if(istype(I, /obj/item/reagent_containers/glass))
+		if(istype(attacking_item, /obj/item/reagent_containers/glass))
 			var/choice = alert("What do you want to do with the container?","Radiometric Scanner","Add coolant","Empty coolant","Scan container")
 			if(choice == "Add coolant")
-				var/obj/item/reagent_containers/glass/G = I
+				var/obj/item/reagent_containers/glass/G = attacking_item
 				var/amount_transferred = min(src.reagents.maximum_volume - src.reagents.total_volume, G.reagents.total_volume)
 				G.reagents.trans_to(src, amount_transferred)
 				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
 				update_coolant()
 				return
 			else if(choice == "Empty coolant")
-				var/obj/item/reagent_containers/glass/G = I
+				var/obj/item/reagent_containers/glass/G = attacking_item
 				var/amount_transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, src.reagents.total_volume)
 				src.reagents.trans_to(G, amount_transferred)
 				to_chat(user, "<span class='info'>You remove [amount_transferred]u of coolant from [src].</span>")
@@ -94,9 +94,9 @@
 		if(scanned_item)
 			to_chat(user, "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>")
 			return
-		user.drop_from_inventory(I,src)
-		scanned_item = I
-		to_chat(user, "<span class=notice>You put \the [I] into \the [src].</span>")
+		user.drop_from_inventory(attacking_item, src)
+		scanned_item = attacking_item
+		to_chat(user, "<span class=notice>You put \the [attacking_item] into \the [src].</span>")
 
 /obj/machinery/radiocarbon_spectrometer/proc/update_coolant()
 	var/total_purity = 0
@@ -104,7 +104,7 @@
 	coolant_purity = 0
 	var/num_reagent_types = 0
 	for (var/_current_reagent in reagents.reagent_volumes)
-		var/decl/reagent/current_reagent = decls_repository.get_decl(_current_reagent)
+		var/singleton/reagent/current_reagent = GET_SINGLETON(_current_reagent)
 		if (!current_reagent)
 			continue
 		var/cur_purity = coolant_reagents_purity[_current_reagent]
@@ -153,7 +153,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "geoscanner.tmpl", "High Res Radiocarbon Spectrometer", 900, 825)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
@@ -199,7 +199,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_damage(radiation / 25, IRRADIATE, damage_flags = DAM_DISPERSED)
+							M.apply_damage(radiation / 25, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 				else
 					t_left_radspike = pick(10,15,25)
 

@@ -33,7 +33,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	speed = -10
-	see_in_dark = 8
 	destroy_surroundings = 0
 	var/bot_type
 	var/bot_amt = 160 //Number of total bots that are spawned before the beacon disappears completely.
@@ -63,10 +62,10 @@
 		S.start()
 		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
-		addtimer(CALLBACK(src, .proc/activate_beacon), 450)
+		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
-	generate_warp_destinations()
+	addtimer(CALLBACK(src, PROC_REF(generate_warp_destinations)), 10) //So we don't sleep during init
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
@@ -99,7 +98,7 @@
 	new /obj/effect/decal/cleanable/greenglow(src.loc)
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	qdel(src)
 	return
 
@@ -154,13 +153,15 @@
 	else
 		..(Proj)
 
-/mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
+/mob/living/simple_animal/hostile/hivebotbeacon/emp_act(severity)
+	. = ..()
+
 	if(activated != -1)
 		LoseTarget()
-		stance = HOSTILE_STANCE_TIRED
+		change_stance(HOSTILE_STANCE_TIRED)
 		icon_state = "hivebotbeacon_off"
 		activated = -1
-		addtimer(CALLBACK(src, .proc/wakeup), 900)
+		addtimer(CALLBACK(src, PROC_REF(wakeup)), 900)
 
 	var/area/random_area = random_station_area(TRUE)
 	var/turf/random_turf = random_area.random_space()
@@ -174,7 +175,7 @@
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	activated = 0
 	activate_beacon()
 
@@ -230,7 +231,7 @@
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/bomber(Destination, src)
 			if(GUARDIAN)
 				Destination = null
-				for(var/check_dir in cardinal)
+				for(var/check_dir in GLOB.cardinal)
 					var/turf/T = get_step(src, check_dir)
 					if(turf_clear(T))
 						Destination = T
@@ -248,7 +249,7 @@
 
 	if(bot_amt>0 && linked_bots.len < max_bots)
 		calc_spawn_delay()
-		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
+		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
 	else
 		max_bots_reached = 1
 
@@ -264,7 +265,7 @@
 	if(max_bots_reached && activated == 1 && linked_bots.len < max_bots)
 		max_bots_reached = 0
 		calc_spawn_delay()
-		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
+		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
 
 #undef NORMAL
 #undef RANGED

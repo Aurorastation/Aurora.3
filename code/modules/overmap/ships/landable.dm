@@ -9,9 +9,10 @@
 	var/status = SHIP_STATUS_LANDED
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	layer = OVERMAP_SHUTTLE_LAYER
 
 /obj/effect/overmap/visitable/ship/landable/Destroy()
-	shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
+	GLOB.shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
 	return ..()
 
 /obj/effect/overmap/visitable/ship/landable/can_burn()
@@ -62,13 +63,19 @@
 /obj/effect/overmap/visitable/ship/landable/populate_sector_objects()
 	..()
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
-	shuttle_moved_event.register(shuttle_datum, src, .proc/on_shuttle_jump)
+	GLOB.shuttle_moved_event.register(shuttle_datum, src, PROC_REF(on_shuttle_jump))
 	on_landing(landmark, shuttle_datum.current_location) // We "land" at round start to properly place ourselves on the overmap.
+
+	var/obj/effect/overmap/visitable/mothership = GLOB.map_sectors["[shuttle_datum.current_location.z]"]
+	if(mothership)
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in consoles)
+			sensor_console.datalink_add_ship_datalink(mothership)
+			break
 
 /obj/effect/shuttle_landmark/ship
 	name = "Open Space"
 	landmark_tag = "ship"
-	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	landmark_flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
 	base_turf = /turf/space
 	var/shuttle_name
 	var/list/visitors // landmark -> visiting shuttle stationed there
@@ -79,7 +86,7 @@
 	. = ..()
 
 /obj/effect/shuttle_landmark/ship/Destroy()
-	var/obj/effect/overmap/visitable/ship/landable/ship = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/ship/landable/ship = GLOB.map_sectors["[z]"]
 	if(istype(ship) && ship.landmark == src)
 		ship.landmark = null
 	. = ..()
@@ -89,18 +96,18 @@
 		return "Grappled by other shuttle; cannot manouver."
 
 /obj/effect/shuttle_landmark/visiting_shuttle
-	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	landmark_flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
 	var/obj/effect/shuttle_landmark/ship/core_landmark
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Initialize(mapload, obj/effect/shuttle_landmark/ship/master, _name)
 	core_landmark = master
 	name = _name
 	landmark_tag = master.shuttle_name + _name
-	destroyed_event.register(master, src, /proc/qdel)
+	GLOB.destroyed_event.register(master, src, GLOBAL_PROC_REF(qdel))
 	. = ..()
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Destroy()
-	destroyed_event.unregister(core_landmark, src)
+	GLOB.destroyed_event.unregister(core_landmark, src)
 	LAZYREMOVE(core_landmark.visitors, src)
 	core_landmark = null
 	. = ..()
@@ -116,12 +123,13 @@
 		return FALSE
 
 /obj/effect/shuttle_landmark/visiting_shuttle/shuttle_arrived(datum/shuttle/shuttle)
+	..()
 	LAZYSET(core_landmark.visitors, src, shuttle)
-	shuttle_moved_event.register(shuttle, src, .proc/shuttle_left)
+	GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(shuttle_left))
 
 /obj/effect/shuttle_landmark/visiting_shuttle/proc/shuttle_left(datum/shuttle/shuttle, obj/effect/shuttle_landmark/old_landmark, obj/effect/shuttle_landmark/new_landmark)
 	if(old_landmark == src)
-		shuttle_moved_event.unregister(shuttle, src)
+		GLOB.shuttle_moved_event.unregister(shuttle, src)
 		LAZYREMOVE(core_landmark.visitors, src)
 
 /obj/effect/overmap/visitable/ship/landable/proc/on_shuttle_jump(datum/shuttle/given_shuttle, obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)
@@ -140,7 +148,7 @@
 	on_landing(from, into)
 
 /obj/effect/overmap/visitable/ship/landable/proc/on_landing(obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)
-	var/obj/effect/overmap/visitable/target = map_sectors["[into.z]"]
+	var/obj/effect/overmap/visitable/target = GLOB.map_sectors["[into.z]"]
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
 	if(into.landmark_tag == shuttle_datum.motherdock) // If our motherdock is a landable ship, it won't be found properly here so we need to find it manually.
 		for(var/obj/effect/overmap/visitable/ship/landable/landable in SSshuttle.ships)

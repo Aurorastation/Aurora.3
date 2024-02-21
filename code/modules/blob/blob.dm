@@ -8,7 +8,7 @@
 	light_color = BLOB_COLOR_PULS
 	density = TRUE
 	anchored = TRUE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 	layer = BLOB_SHIELD_LAYER
 
@@ -178,7 +178,7 @@
 /obj/effect/blob/proc/attack_living(var/mob/living/L)
 	if(!L)
 		return
-	var/blob_damage = pick(BRUTE, BURN)
+	var/blob_damage = pick(DAMAGE_BRUTE, DAMAGE_BURN)
 	attack_msg(L)
 	L.apply_damage(rand(damage_min, damage_max), blob_damage, used_weapon = "blob tendril")
 
@@ -195,17 +195,17 @@
 		return
 
 	switch(Proj.damage_type)
-		if(BRUTE)
+		if(DAMAGE_BRUTE)
 			take_damage(Proj.damage / brute_resist)
-		if(BURN)
+		if(DAMAGE_BURN)
 			take_damage((Proj.damage / laser_resist) / fire_resist)
 	return FALSE
 
-/obj/effect/blob/attackby(obj/item/W, mob/user)
+/obj/effect/blob/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	playsound(get_turf(src), 'sound/effects/attackblob.ogg', 50, TRUE)
-	if(W.iswirecutter())
+	if(attacking_item.iswirecutter())
 		if(!pruned)
 			to_chat(user, SPAN_NOTICE("You collect a sample from \the [src]."))
 			var/obj/P = new product(get_turf(user))
@@ -217,13 +217,13 @@
 			return
 
 	var/damage = 0
-	switch(W.damtype)
-		if(BURN)
-			damage = (W.force / fire_resist)
-			if(W.iswelder())
+	switch(attacking_item.damtype)
+		if(DAMAGE_BURN)
+			damage = (attacking_item.force / fire_resist)
+			if(attacking_item.iswelder())
 				playsound(get_turf(src), 'sound/items/Welder.ogg', 100, TRUE)
-		if(BRUTE)
-			damage = (W.force / brute_resist)
+		if(DAMAGE_BRUTE)
+			damage = (attacking_item.force / brute_resist)
 
 	take_damage(damage)
 
@@ -290,7 +290,7 @@
 	process_core_health()
 	regen()
 	for(var/i = 1 to times_to_pulse)
-		pulse(pulse_power, global.cardinal.Copy())
+		pulse(pulse_power, GLOB.cardinal.Copy())
 	blob_may_process = TRUE
 	if(world.time < (attack_time + attack_cooldown))
 		return
@@ -391,7 +391,7 @@
 			origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2)
 		if(TENDRIL_FIRE)
 			desc = "A tendril removed from an asteroclast. It's hot to the touch."
-			damtype = BURN
+			damtype = DAMAGE_BURN
 			force = 15
 			color = COLOR_AMBER
 			origin_tech = list(TECH_POWER = 2, TECH_BIO = 2)

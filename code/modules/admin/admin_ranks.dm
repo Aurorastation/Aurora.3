@@ -57,6 +57,10 @@ var/list/forum_groupids_to_ranks = list()
 	admin_ranks.Cut()
 	forum_groupids_to_ranks.Cut()
 
+	if(!(rustg_file_exists(rank_file) == "true"))
+		log_config("The file [rank_file] does not exist, unable to load the admin ranks.")
+		return
+
 	var/list/data = json_decode(file2text(rank_file))
 
 	for (var/list/group in data)
@@ -72,7 +76,7 @@ var/list/forum_groupids_to_ranks = list()
 /proc/load_admins()
 	clear_admins()
 
-	if(config.admin_legacy_system)
+	if(GLOB.config.admin_legacy_system)
 		//load text from file
 		var/list/Lines = file2list("config/admins.txt")
 
@@ -100,27 +104,27 @@ var/list/forum_groupids_to_ranks = list()
 			var/datum/admin_rank/rank_object = admin_ranks[rank]
 
 			if (!rank_object)
-				error("Unrecognized rank in admins.txt: \"[rank]\"")
+				log_world("ERROR: Unrecognized rank in admins.txt: \"[rank]\"")
 				continue
 
 			//create the admin datum and store it for later use
 			var/datum/admins/D = new /datum/admins(rank, rank_object?.rights || 0, ckey)
 
 			//find the client for a ckey if they are connected and associate them with the new admin datum
-			D.associate(directory[ckey])
+			D.associate(GLOB.directory[ckey])
 
-			log_debug("AdminRanks: Updated Admins from Legacy System")
+			LOG_DEBUG("AdminRanks: Updated Admins from Legacy System")
 
 	else
 		//The current admin system uses SQL
-		if(!establish_db_connection(dbcon))
-			error("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
+		if(!establish_db_connection(GLOB.dbcon))
+			log_world("ERROR: AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
-			config.admin_legacy_system = 1
+			GLOB.config.admin_legacy_system = 1
 			load_admins()
 			return
 
-		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, `rank`, flags FROM ss13_admins;")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT ckey, `rank`, flags FROM ss13_admins;")
 		query.Execute()
 		while(query.NextRow())
 			var/ckey = query.item[1]
@@ -131,12 +135,12 @@ var/list/forum_groupids_to_ranks = list()
 
 			var/datum/admins/D = new /datum/admins(rank, rights, ckey)
 			//find the client for a ckey if they are connected and associate them with the new admin datum
-			D.associate(directory[ckey])
+			D.associate(GLOB.directory[ckey])
 
 		if(!admin_datums)
-			error("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
+			log_world("ERROR: AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
 			log_misc("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
-			config.admin_legacy_system = 1
+			GLOB.config.admin_legacy_system = 1
 			load_admins()
 			return
 
@@ -153,11 +157,11 @@ var/list/forum_groupids_to_ranks = list()
 /proc/clear_admins()
 	//clear the datums references
 	admin_datums.Cut()
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		C.remove_admin_verbs()
 		C.holder = null
-	staff.Cut()
+	GLOB.staff.Cut()
 
 	// Clears admins from the world config.
 	for (var/A in world.GetConfig("admin"))
@@ -166,7 +170,7 @@ var/list/forum_groupids_to_ranks = list()
 /proc/update_admins_from_api(reload_once_done=FALSE)
 	set background = TRUE
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
 		return FALSE
 
@@ -191,28 +195,28 @@ var/list/forum_groupids_to_ranks = list()
 		for (var/datum/forum_user/user in resp.body)
 			admins_to_push += user
 
-	var/DBQuery/prep_query = dbcon.NewQuery("UPDATE ss13_admins SET status = 0")
+	var/DBQuery/prep_query = GLOB.dbcon.NewQuery("UPDATE ss13_admins SET status = 0")
 	prep_query.Execute()
 
 	for (var/user in admins_to_push)
 		insert_user_to_admins_table(user)
 
-	var/DBQuery/del_query = dbcon.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
+	var/DBQuery/del_query = GLOB.dbcon.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
 	del_query.Execute()
 
 	if (reload_once_done)
 		load_admins()
 
-	log_debug("AdminRanks: Updated Admins from ForumUserAPI")
+	LOG_DEBUG("AdminRanks: Updated Admins from ForumUserAPI")
 
 	return TRUE
 
 /proc/insert_user_to_admins_table(datum/forum_user/user)
 	if(isnull(user.ckey))
-		log_debug("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
+		LOG_DEBUG("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
 		return
 	if(user.psync_game_disabled)
-		log_debug("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
+		LOG_DEBUG("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
 		return
 	var/rights = 0
 
@@ -227,5 +231,5 @@ var/list/forum_groupids_to_ranks = list()
 		var/datum/admin_rank/r = forum_groupids_to_ranks["[user.forum_primary_group]"]
 		primary_rank = r.rank_name
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:, 1) ON DUPLICATE KEY UPDATE rank = :rank:, flags = :flags:, status = 1")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:, 1) ON DUPLICATE KEY UPDATE rank = :rank:, flags = :flags:, status = 1")
 	query.Execute(list("ckey" = ckey(user.ckey), "rank" = primary_rank, "flags" = rights))

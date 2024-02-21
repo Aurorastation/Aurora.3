@@ -99,7 +99,7 @@ Command - Requires "Bridge" access on ID card (all heads)
 	//Emergency Shuttle Control Console - Allows calling/recalling the emergency shuttle.
 	//Shuttle Control Console - Allows control of various shuttles around the station (mining, research, engineering)
 
-	ID Card modifier - Allows modifying access cards. Requires access_change_ids
+	ID Card modifier - Allows modifying access cards. Requires ACCESS_CHANGE_IDS
 
 *REDACTED* - Can be downloaded from SyndiCorp servers, only via emagged devices. These files are very large and limited to laptops/consoles only.
 	//SYSCRACK - Allows cracking of secure network terminals, such as, NTNet administration. The sysadmin will probably notice this.

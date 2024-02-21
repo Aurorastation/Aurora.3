@@ -24,7 +24,7 @@
 			return
 		if(H.resting)
 			return
-		if(H.shoes?.item_flags & LIGHTSTEP)
+		if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 
 		to_chat(H, SPAN_DANGER("You step on \the [src]!"))
@@ -49,7 +49,7 @@
 					damage_coef -= 0.2
 					return
 
-				if(H.apply_damage(25 * damage_coef, BRUTE, affecting))
+				if(H.apply_damage(25 * damage_coef, DAMAGE_BRUTE, affecting))
 					H.updatehealth()
 
 					if(H.can_feel_pain())

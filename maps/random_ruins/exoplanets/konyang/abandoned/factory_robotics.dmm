@@ -1,0 +1,2687 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aO" = (
+/obj/random/junk,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"bi" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"bs" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"bY" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"cq" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"cB" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/foundation,
+/area/exoplanet/grass/konyang)
+"cD" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"cF" = (
+/obj/structure/parking_meter,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"cL" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"cP" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"cU" = (
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"dj" = (
+/obj/machinery/door/urban/glass_sliding/double,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"ek" = (
+/obj/random/dirt_75,
+/obj/structure/table,
+/obj/item/device/t_scanner,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"ep" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"eI" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"eM" = (
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"fb" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"fi" = (
+/obj/effect/decal/remains/lizard,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"fJ" = (
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"fL" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"fZ" = (
+/obj/structure/parking_meter,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"gH" = (
+/obj/machinery/mech_recharger/automobile,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"gZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/foundation,
+/area/exoplanet/grass/konyang)
+"hm" = (
+/obj/structure/road_sign/yield{
+	pixel_x = -16
+	},
+/obj/structure/hydrant,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"hD" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/device/healthanalyzer,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"hJ" = (
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"hP" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang/robotics_factory)
+"if" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"ir" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang/robotics_factory)
+"is" = (
+/obj/random/dirt_75,
+/obj/item/mecha_equipment/drill_mover,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"iv" = (
+/obj/effect/decal/road_marking/center,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"iB" = (
+/obj/machinery/smartfridge,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"jm" = (
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"jA" = (
+/obj/item/oreportal,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"jB" = (
+/obj/structure/flora/rock/random,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"jL" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"jW" = (
+/obj/structure/table/glass,
+/obj/item/device/flashlight/lamp/off,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"jZ" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"kf" = (
+/turf/simulated/wall,
+/area/exoplanet/grass/konyang)
+"kg" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"ki" = (
+/obj/random/dirt_75,
+/mob/living/simple_animal/thinbug,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"km" = (
+/obj/machinery/shield_capacitor,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"kr" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"kZ" = (
+/obj/random/dirt_75,
+/obj/item/mecha_equipment/shield,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"lo" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"lp" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang/robotics_factory)
+"lN" = (
+/obj/random/dirt_75,
+/obj/random/tech_supply,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"lT" = (
+/obj/structure/table,
+/obj/machinery/microscope,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"lZ" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"mb" = (
+/obj/random/junk,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"mH" = (
+/obj/effect/decal/road_marking,
+/obj/structure/structural_support,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"mP" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang/robotics_factory)
+"mV" = (
+/obj/random/dirt_75,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"nh" = (
+/obj/effect/decal/curb,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"nm" = (
+/obj/structure/firedoor_assembly,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"nn" = (
+/obj/item/material/shard,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"np" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/random/junk,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"nL" = (
+/obj/random/dirt_75,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"nP" = (
+/turf/simulated/floor/foundation,
+/area/exoplanet/grass/konyang)
+"ox" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"oF" = (
+/obj/structure/table/glass,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"oG" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/konyang/robotics_factory)
+"oH" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"pj" = (
+/obj/random/dirt_75,
+/obj/structure/table/glass,
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"pH" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"pK" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"qg" = (
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"qw" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"qB" = (
+/obj/item/cell/crap,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"re" = (
+/obj/effect/decal/curb/corner,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"rh" = (
+/obj/random/dirt_75,
+/obj/machinery/reagentgrinder,
+/obj/structure/table/glass,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"rl" = (
+/obj/random/dirt_75,
+/obj/structure/table,
+/obj/item/mecha_equipment/drill,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"rq" = (
+/obj/random/dirt_75,
+/mob/living/simple_animal/thinbug,
+/obj/machinery/light/broken,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"rT" = (
+/obj/item/mecha_equipment/mounted_system/rfd,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"se" = (
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"sg" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/photocopier,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"sY" = (
+/obj/structure/urban/pylon,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"tf" = (
+/obj/structure/bed/stool/chair,
+/obj/item/ore_radar,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"tS" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"tU" = (
+/obj/structure/window/reinforced{
+	dir = 2
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"uk" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods,
+/obj/machinery/light/broken,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"um" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/foundation,
+/area/exoplanet/grass/konyang)
+"uq" = (
+/obj/random/dirt_75,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/papershredder,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"uv" = (
+/obj/effect/decal/road_marking/crosswalk,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"uL" = (
+/obj/random/dirt_75,
+/obj/item/ipc_overloader/rainbow,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"uN" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"vd" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"vl" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/robotics_factory)
+"vo" = (
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"vP" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"vQ" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"wf" = (
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/konyang/robotics_factory)
+"wj" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"wF" = (
+/obj/random/dirt_75,
+/obj/structure/table/glass,
+/obj/random/tech_supply,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"wM" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/foundation,
+/area/exoplanet/grass/konyang)
+"wU" = (
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"xg" = (
+/obj/item/device/geiger,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"xo" = (
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"xw" = (
+/obj/structure/table,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"xH" = (
+/obj/random/dirt_75,
+/obj/structure/table/glass,
+/obj/random/tech_supply,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"xM" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"xP" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"yf" = (
+/obj/structure/flora/rock/pile/random,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"yk" = (
+/obj/item/mecha_equipment/clamp,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"yn" = (
+/obj/random/dirt_75,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"zb" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"zC" = (
+/obj/random/dirt_75,
+/obj/item/mecha_equipment/mounted_system/combat/smg,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Aj" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Ay" = (
+/obj/random/dirt_75,
+/obj/structure/table/glass,
+/obj/machinery/recharger,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"AB" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"BH" = (
+/obj/random/dirt_75,
+/obj/item/mecha_equipment/autolathe,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"BP" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"CF" = (
+/obj/random/dirt_75,
+/obj/item/cell/crap,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Dq" = (
+/obj/structure/closet/crate/bin/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"DH" = (
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Ed" = (
+/obj/random/dirt_75,
+/obj/item/material/shard,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"EF" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/material/knife/tacknife,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"EK" = (
+/obj/effect/decal/curb/corner,
+/turf/simulated/floor/foundation,
+/area/exoplanet/grass/konyang)
+"ER" = (
+/obj/structure/extinguisher_cabinet/east,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"FI" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Go" = (
+/obj/structure/window/reinforced{
+	dir = 2
+	},
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"GU" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"He" = (
+/turf/simulated/floor/sidewalk/dark,
+/area/exoplanet/grass/konyang)
+"Hh" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Hq" = (
+/obj/random/junk,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"HA" = (
+/obj/structure/closet/crate/bin/urban/compact,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"HB" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"HE" = (
+/obj/random/dirt_75,
+/obj/machinery/suit_storage_unit,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"HQ" = (
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"HY" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"HZ" = (
+/obj/structure/table/glass,
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"Im" = (
+/obj/machinery/optable,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Iu" = (
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Iv" = (
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Ix" = (
+/obj/machinery/recharge_station,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"ID" = (
+/obj/structure/table/glass,
+/obj/item/mecha_equipment/light,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"IL" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"IM" = (
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"IR" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"IS" = (
+/obj/random/dirt_75,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Jv" = (
+/obj/random/tech_supply,
+/obj/item/material/shard,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"JR" = (
+/obj/item/mech_component/propulsion/spider/heavy,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"JS" = (
+/obj/effect/decal/road_marking,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 9
+	},
+/obj/structure/closet/crate/bin/urban/compact,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"JX" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"Kc" = (
+/obj/item/mech_component/chassis/heavy,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Kk" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Ku" = (
+/obj/machinery/mecha_part_fabricator,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"KC" = (
+/obj/random/dirt_75,
+/obj/item/mech_component/sensors,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"KP" = (
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"La" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/foundation,
+/area/exoplanet/grass/konyang)
+"Lb" = (
+/obj/structure/girder,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"LU" = (
+/obj/item/hammer,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"MT" = (
+/obj/item/stack/material/steel/full,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"MU" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Nc" = (
+/obj/effect/decal/road_marking/center,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"NP" = (
+/obj/random/tech_supply,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Ob" = (
+/obj/item/pickaxe/hammer,
+/obj/item/material/shard,
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang/robotics_factory)
+"Oi" = (
+/obj/random/dirt_75,
+/obj/structure/table/glass,
+/obj/item/storage/box/folders/blue{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Oy" = (
+/obj/machinery/suit_storage_unit,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"OT" = (
+/turf/simulated/floor/sidewalk/dark/detail,
+/area/konyang/robotics_factory)
+"OY" = (
+/obj/structure/table/steel,
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/robotics_factory)
+"Po" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"PB" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"PC" = (
+/obj/structure/table/glass,
+/obj/item/mirror,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"PL" = (
+/obj/structure/table/glass,
+/obj/item/device/multitool,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"PZ" = (
+/obj/random/tech_supply,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Qk" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"RC" = (
+/obj/structure/filingcabinet,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"RH" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"RJ" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"Sb" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/machinery/light/broken,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"SC" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"SD" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"SM" = (
+/obj/structure/structural_support,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"SY" = (
+/turf/simulated/wall,
+/area/konyang/robotics_factory)
+"Td" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"Tn" = (
+/obj/structure/table/glass,
+/obj/random/tech_supply,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"TC" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Ui" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/dark/detail,
+/area/konyang/robotics_factory)
+"Uk" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/item/stack/rods,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Us" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"Uv" = (
+/obj/structure/table/rack,
+/obj/item/pipewrench,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"UL" = (
+/obj/machinery/papershredder,
+/obj/machinery/light/broken,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Vd" = (
+/obj/structure/firedoor_assembly,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang/robotics_factory)
+"Vq" = (
+/obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Vx" = (
+/obj/structure/urban_grate,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"Wv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"WG" = (
+/obj/item/ladder_mobile,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"WP" = (
+/obj/random/dirt_75,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"WT" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"Xo" = (
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"XD" = (
+/obj/random/dirt_75,
+/obj/machinery/mecha_part_fabricator,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"XI" = (
+/obj/structure/girder,
+/turf/simulated/floor/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"Yb" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/device/measuring_tape,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
+"Yc" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"Yd" = (
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"Yq" = (
+/obj/structure/flora/rock/random,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"YB" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"YJ" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"Zb" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/structure/structural_support,
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"Zl" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/grass/konyang)
+"Zz" = (
+/obj/structure/flora/pottedplant/dead,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"ZG" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/dark,
+/area/exoplanet/grass/konyang)
+"ZL" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"ZP" = (
+/obj/item/mecha_equipment/quick_enter,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+
+(1,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(2,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(3,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+yf
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+IL
+vQ
+"}
+(4,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vo
+vo
+vo
+vo
+bi
+vo
+vo
+bi
+bi
+vo
+vo
+bi
+vo
+vo
+bi
+bi
+bi
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vQ
+vQ
+vQ
+vo
+vo
+vQ
+vQ
+vQ
+vQ
+"}
+(5,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vQ
+vQ
+"}
+(6,1,1) = {"
+vQ
+vQ
+vo
+vQ
+vQ
+vo
+vQ
+vo
+iv
+iv
+iv
+iv
+iv
+Nc
+Nc
+iv
+iv
+iv
+Nc
+Nc
+Nc
+Nc
+iv
+iv
+iv
+Nc
+Nc
+Nc
+iv
+iv
+iv
+iv
+iv
+iv
+iv
+vo
+vo
+Po
+vQ
+vQ
+"}
+(7,1,1) = {"
+vQ
+vQ
+vQ
+Td
+vQ
+vQ
+vQ
+vQ
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+eI
+eI
+eI
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+kg
+vo
+Po
+vQ
+vQ
+"}
+(8,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vo
+vQ
+vo
+vo
+vo
+vo
+bY
+bY
+bY
+vo
+vo
+vo
+vo
+bY
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+HB
+HB
+HB
+HB
+HB
+vo
+vo
+vo
+vo
+kg
+vo
+vo
+se
+vQ
+"}
+(9,1,1) = {"
+vQ
+vQ
+se
+vQ
+se
+se
+vQ
+vQ
+se
+se
+se
+se
+se
+vQ
+vQ
+vQ
+xP
+xP
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+HB
+HB
+HB
+fL
+fL
+HB
+HB
+se
+hm
+uv
+uv
+uv
+uv
+uv
+Vx
+vQ
+"}
+(10,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+IL
+vQ
+vQ
+vQ
+vQ
+vQ
+ep
+se
+HY
+HY
+HY
+se
+vQ
+vQ
+HB
+HB
+ZL
+HB
+fL
+fL
+fL
+fL
+HB
+HB
+se
+Yd
+vo
+kg
+vo
+vo
+se
+vQ
+"}
+(11,1,1) = {"
+vQ
+vQ
+vQ
+se
+se
+se
+vQ
+vQ
+se
+se
+se
+se
+vQ
+se
+se
+se
+se
+se
+se
+se
+se
+se
+se
+pH
+HB
+HB
+fL
+fL
+fL
+fL
+SD
+HB
+se
+Yd
+vo
+GU
+vo
+Po
+se
+vQ
+"}
+(12,1,1) = {"
+vQ
+vQ
+se
+hJ
+hJ
+hJ
+YJ
+hJ
+hJ
+hJ
+lZ
+lZ
+lZ
+hJ
+hJ
+hJ
+hJ
+hJ
+hJ
+hJ
+se
+hJ
+hJ
+hJ
+hJ
+HB
+ZL
+jB
+fL
+fL
+fL
+HB
+se
+Yd
+vo
+GU
+vo
+vo
+vQ
+vQ
+"}
+(13,1,1) = {"
+vQ
+hJ
+hJ
+hJ
+hJ
+hJ
+hJ
+hJ
+lZ
+lZ
+lZ
+SY
+SY
+Lb
+SY
+SY
+Lb
+Lb
+eM
+SY
+Lb
+SY
+SY
+se
+se
+se
+se
+HB
+HB
+fL
+fL
+HB
+HB
+Yd
+eI
+GU
+vo
+vo
+vQ
+vQ
+"}
+(14,1,1) = {"
+vQ
+hJ
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+xg
+fJ
+tU
+RC
+fJ
+fJ
+fJ
+fJ
+Iv
+Iv
+SY
+SY
+SY
+SY
+se
+nP
+HB
+HB
+HB
+HB
+se
+Yd
+eI
+GU
+vo
+vo
+vQ
+vQ
+"}
+(15,1,1) = {"
+vQ
+hJ
+SY
+hD
+Xo
+lT
+xw
+Uv
+HQ
+rT
+PL
+nm
+IM
+eM
+Go
+wU
+Us
+fJ
+Jv
+eM
+eM
+Ui
+SY
+fJ
+uk
+SY
+se
+se
+se
+vP
+HB
+HB
+se
+vo
+eI
+kg
+vo
+vQ
+vQ
+vQ
+"}
+(16,1,1) = {"
+vQ
+hJ
+SY
+Yb
+JR
+rl
+cU
+WP
+WP
+tS
+fJ
+nm
+IM
+eM
+SY
+Ay
+xH
+fJ
+fJ
+UL
+Lb
+Ui
+Lb
+xo
+Aj
+dj
+nP
+nP
+He
+vQ
+HB
+HB
+se
+vo
+vo
+kg
+vo
+vQ
+vQ
+vQ
+"}
+(17,1,1) = {"
+vQ
+hJ
+Lb
+KP
+tS
+WP
+ki
+WP
+yn
+uq
+sg
+Lb
+fJ
+eM
+eM
+Oi
+TC
+fJ
+mb
+wj
+PC
+OT
+eM
+nn
+eM
+qg
+La
+nP
+nP
+HB
+HB
+He
+se
+vo
+vo
+kg
+vo
+vQ
+vQ
+vQ
+"}
+(18,1,1) = {"
+vQ
+vQ
+eM
+KP
+Us
+ek
+tS
+tS
+IM
+IM
+Yc
+SY
+DH
+eM
+Lb
+wF
+TC
+Us
+eM
+Vq
+oF
+fJ
+eM
+NP
+YB
+SY
+ZG
+nP
+vQ
+nP
+HB
+yf
+hJ
+vo
+vo
+kg
+vo
+vQ
+vQ
+IL
+"}
+(19,1,1) = {"
+vQ
+vQ
+SY
+EF
+qB
+nL
+PB
+qw
+nL
+is
+HZ
+SY
+fJ
+FI
+eM
+eM
+OT
+fJ
+Lb
+jW
+Tn
+SC
+SY
+Oy
+HE
+SY
+mV
+HY
+vQ
+vQ
+vQ
+vQ
+nP
+Yd
+eI
+GU
+vo
+vQ
+vQ
+vQ
+"}
+(20,1,1) = {"
+vQ
+vQ
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+SY
+ER
+fJ
+fJ
+Hq
+fJ
+fJ
+fJ
+jm
+Hq
+Zz
+SY
+SY
+SY
+SY
+RH
+vQ
+vQ
+vQ
+ZL
+vQ
+nP
+vo
+eI
+GU
+vo
+vQ
+vQ
+vQ
+"}
+(21,1,1) = {"
+vQ
+vQ
+IL
+vQ
+kr
+hP
+fJ
+fJ
+YB
+YB
+kZ
+SY
+SY
+SY
+fJ
+eM
+SY
+SY
+SY
+SY
+Lb
+SY
+SY
+se
+se
+se
+se
+vQ
+vQ
+vQ
+HB
+vQ
+se
+vo
+eI
+GU
+vo
+vo
+vQ
+vQ
+"}
+(22,1,1) = {"
+vQ
+vQ
+vQ
+He
+vQ
+Us
+Us
+lp
+mP
+Us
+Us
+eM
+SY
+tf
+BH
+Us
+CF
+SY
+cP
+se
+se
+se
+se
+se
+vQ
+pH
+pH
+vQ
+vQ
+vQ
+vQ
+vQ
+hJ
+Yd
+eI
+GU
+vo
+Po
+vQ
+vQ
+"}
+(23,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+SY
+SY
+SY
+SY
+SY
+SY
+eM
+SY
+LU
+XD
+zC
+rq
+SY
+Dq
+RH
+RH
+RH
+kf
+SM
+se
+se
+se
+nP
+vQ
+vQ
+xP
+xP
+cF
+Yd
+eI
+GU
+vo
+Po
+vQ
+vQ
+"}
+(24,1,1) = {"
+vQ
+vQ
+He
+vQ
+He
+SY
+ZP
+Kc
+Im
+fi
+Us
+eM
+iB
+fJ
+Ed
+Us
+lN
+SY
+se
+RH
+RH
+gZ
+se
+se
+se
+nP
+nP
+nP
+vQ
+Yq
+xP
+xP
+Vx
+vo
+eI
+GU
+vo
+vo
+vQ
+vQ
+"}
+(25,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+He
+SY
+km
+IR
+fb
+Wv
+IR
+eM
+eM
+fJ
+XD
+uL
+KC
+SY
+se
+RH
+RH
+RH
+kf
+se
+nP
+gZ
+gZ
+se
+se
+vQ
+vQ
+vQ
+fZ
+vo
+eI
+GU
+vo
+vo
+vQ
+vQ
+"}
+(26,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+He
+SY
+ID
+Wv
+fb
+IR
+Uk
+eM
+eM
+fJ
+fJ
+fJ
+jZ
+SY
+se
+gZ
+RH
+RH
+XI
+se
+se
+gZ
+RH
+pK
+se
+vQ
+vQ
+vQ
+nP
+vo
+vo
+kg
+vo
+vo
+vQ
+vQ
+"}
+(27,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+SY
+Iu
+rh
+pj
+IS
+WG
+jA
+SY
+eM
+Ku
+eM
+jZ
+SY
+mV
+mV
+RH
+RH
+kf
+Zb
+xM
+xM
+xM
+re
+BP
+bs
+xM
+xM
+EK
+vQ
+vo
+kg
+vo
+vQ
+vQ
+vQ
+"}
+(28,1,1) = {"
+vQ
+yf
+vQ
+vQ
+vQ
+SY
+SY
+SY
+SY
+SY
+Us
+SY
+SY
+eM
+eM
+Hh
+fJ
+SY
+mV
+HY
+HA
+pK
+ep
+Qk
+if
+if
+if
+JX
+wM
+if
+if
+if
+nh
+vQ
+vQ
+vo
+vo
+vQ
+vQ
+vQ
+"}
+(29,1,1) = {"
+vQ
+vQ
+vQ
+IL
+vQ
+se
+vo
+vo
+SY
+OY
+oG
+SY
+Ix
+NP
+fJ
+Hh
+Sb
+SY
+RH
+se
+se
+se
+kf
+um
+cB
+lo
+uN
+WT
+Zl
+lo
+cL
+cL
+RJ
+vQ
+vo
+vo
+vo
+vQ
+vQ
+vQ
+"}
+(30,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+vo
+vo
+SY
+wf
+vl
+SY
+Kk
+eM
+PZ
+Hh
+vd
+Ob
+se
+se
+HY
+HY
+vQ
+se
+vQ
+bi
+bi
+bi
+bi
+vo
+bi
+vo
+vo
+vQ
+vo
+vQ
+vo
+vQ
+vQ
+vQ
+"}
+(31,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+vo
+eI
+SY
+SY
+SY
+SY
+SY
+MT
+eM
+fJ
+fJ
+SY
+se
+RH
+np
+HY
+kf
+JS
+vo
+sY
+vo
+vo
+eI
+eI
+eI
+vo
+vo
+vo
+vo
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(32,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+cD
+eI
+eI
+vo
+vo
+vQ
+SY
+zb
+eM
+MU
+yk
+ir
+se
+se
+se
+se
+vQ
+Yd
+vo
+gH
+vo
+vo
+eI
+eI
+eI
+vo
+vo
+vo
+vo
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(33,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vo
+eI
+jL
+vo
+vo
+vQ
+SY
+SY
+Vd
+SY
+SY
+SY
+AB
+pK
+se
+se
+kf
+mH
+vo
+vo
+vo
+vo
+eI
+eI
+eI
+vo
+vo
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(34,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+RH
+se
+vQ
+vo
+vo
+se
+se
+se
+se
+se
+se
+se
+se
+se
+se
+se
+vQ
+Yd
+vo
+vo
+eI
+vo
+vo
+vo
+vo
+vo
+vo
+vQ
+vQ
+vQ
+vQ
+Td
+vQ
+vQ
+"}
+(35,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+ep
+se
+RH
+se
+se
+vo
+vo
+cD
+vo
+vQ
+vQ
+vo
+vo
+vQ
+se
+se
+vQ
+vQ
+Yd
+eI
+gH
+eI
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(36,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+RH
+RH
+RH
+yf
+vo
+vo
+aO
+ox
+vo
+eI
+se
+Td
+vQ
+vQ
+se
+se
+vo
+vo
+sY
+vo
+vo
+vo
+vo
+vo
+vo
+vo
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(37,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+se
+oH
+RH
+cq
+vQ
+vQ
+vQ
+vo
+eI
+vo
+vQ
+vQ
+se
+vQ
+vQ
+se
+se
+bY
+bY
+bY
+vo
+bY
+vo
+bY
+bY
+vo
+vQ
+vQ
+vQ
+yf
+vQ
+vQ
+vQ
+"}
+(38,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+se
+se
+se
+vQ
+se
+se
+RH
+se
+vQ
+se
+vQ
+se
+se
+se
+se
+se
+se
+se
+vQ
+se
+Vx
+se
+se
+vQ
+se
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(39,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+se
+se
+se
+se
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+yf
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(40,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}

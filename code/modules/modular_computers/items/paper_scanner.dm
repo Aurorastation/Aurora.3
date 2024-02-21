@@ -33,14 +33,14 @@
 	else
 		to_chat(user, SPAN_WARNING("You must be holding \the [src] in one of your hands before you can eject a drive."))
 
-/obj/item/paper_scanner/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/computer_hardware/hard_drive/portable))
+/obj/item/paper_scanner/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/computer_hardware/hard_drive/portable))
 		if(drive)
 			to_chat(user, SPAN_WARNING("\The [src] already has a drive installed!"))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
-		user.drop_from_inventory(W, src)
-		drive = W
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		drive = attacking_item
 		update_icon()
 		return TRUE
 	else
@@ -78,7 +78,7 @@
 		return
 
 	user.visible_message("<b>[user]</b> starts making a scan of \the [target]...", SPAN_NOTICE("You start making a scan of \the [target]..."), range = 3)
-	if(do_after(user, 30 * length(pages_to_scan), TRUE, target))
+	if(do_after(user, 30 * length(pages_to_scan), target))
 		if(!drive)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a drive installed."))
 			return

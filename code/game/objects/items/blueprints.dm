@@ -93,10 +93,10 @@
 			vending_wires.get_wire_diagram(usr)
 
 /obj/item/blueprints/interact()
-	var/area/A = get_area()
+	var/area/A = get_area(src)
 	var/text = {"<HTML><head><title>[src]</title></head><BODY>
 				<h2>[station_name()] blueprints</h2>
-				<small>Property of [current_map.company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
+				<small>Property of [SSatlas.current_map.company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
 				"}
 	switch (get_area_type())
 		if (AREA_SPACE)
@@ -124,13 +124,7 @@
 	blueprints_win.set_content(text)
 	blueprints_win.open()
 
-
-/obj/item/blueprints/proc/get_area()
-	var/turf/T = get_turf(usr)
-	var/area/A = T.loc
-	return A
-
-/obj/item/blueprints/proc/get_area_type(var/area/A = get_area())
+/obj/item/blueprints/proc/get_area_type(var/area/A = get_area(src))
 	if(istype(A, /area/space) || istype(A, /area/mine/unexplored))
 		return AREA_SPACE
 	var/list/SPECIALS = list(
@@ -176,7 +170,7 @@
 
 	sorted_add_area(A)
 
-	addtimer(CALLBACK(src, .proc/interact), 5)
+	addtimer(CALLBACK(src, PROC_REF(interact)), 5)
 	return
 
 
@@ -187,7 +181,7 @@
 
 
 /obj/item/blueprints/proc/edit_area()
-	var/area/A = get_area()
+	var/area/A = get_area(src)
 	var/prevname = "[A.name]"
 	var/str = sanitizeSafe(input("New area name:","Blueprint Editing", prevname), MAX_NAME_LEN)
 	if(!str || !length(str) || str==prevname) //cancel
@@ -195,9 +189,9 @@
 	if(length(str) > 50)
 		to_chat(usr, "<span class='warning'>Text too long.</span>")
 		return
-	INVOKE_ASYNC(src, .proc/set_area_machinery_title, A, str, prevname)
+	INVOKE_ASYNC(src, PROC_REF(set_area_machinery_title), A, str, prevname)
 	A.name = str
-	sortTim(all_areas, /proc/cmp_text_asc)
+	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_text_asc))
 	to_chat(usr, "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>")
 	interact()
 	return
@@ -253,7 +247,7 @@
 			return ROOM_ERR_TOOLARGE
 		var/turf/T = pending[1] //why byond havent list::pop()?
 		pending -= T
-		for (var/dir in cardinal)
+		for (var/dir in GLOB.cardinal)
 			var/skip = 0
 			for (var/obj/structure/window/W in T)
 				if(dir == W.dir || (W.dir in list(NORTHEAST,SOUTHEAST,NORTHWEST,SOUTHWEST)))
@@ -268,14 +262,14 @@
 			if (!isturf(NT) || (NT in found) || (NT in pending))
 				continue
 
-			switch(check_tile_is_border(NT,dir))
-				if(BORDER_NONE)
-					pending+=NT
-				if(BORDER_BETWEEN)
-					//do nothing, may be later i'll add 'rejected' list as optimization
-				if(BORDER_2NDTILE)
-					found+=NT //tile included to new area, but we dont seek more
-				if(BORDER_SPACE)
-					return ROOM_ERR_SPACE
+			var/tile_is_border = check_tile_is_border(NT,dir)
+			if(tile_is_border != BORDER_BETWEEN)
+				switch(tile_is_border)
+					if(BORDER_NONE)
+						pending+=NT
+					if(BORDER_2NDTILE)
+						found+=NT //tile included to new area, but we dont seek more
+					if(BORDER_SPACE)
+						return ROOM_ERR_SPACE
 		found+=T
 	return found

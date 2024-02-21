@@ -47,7 +47,7 @@ Quick and easy list of all the occupations for farther expansion and addition.
 /* //An example of how to set it up.
 /datum/uplink_item/item/specialty/crossbow
 	name = "Eneree Crossbow"
-	item_cost = 6
+	telecrystal_cost = 6
 	path = /obj/item/gun/energy/crossbow
 	antag_job = "assistant"
 */

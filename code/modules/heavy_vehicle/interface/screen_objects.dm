@@ -26,8 +26,12 @@
 	. = ..()
 	var/mob/living/heavy_vehicle/newowner = loc
 	if(!istype(newowner))
-		return qdel(src)
+		return INITIALIZE_HINT_QDEL
 	owner = newowner
+
+/obj/screen/mecha/Destroy(force)
+	owner = null
+	. = ..()
 
 /obj/screen/mecha/Click()
 	return (!owner || !usr.incapacitated() && (usr == owner || usr.loc == owner))
@@ -42,8 +46,8 @@
 	maptext_width = 120
 
 /obj/screen/mecha/hardpoint/Destroy()
-	owner = null
 	holding = null
+	hardpoint_tag = null
 	. = ..()
 
 /obj/screen/mecha/hardpoint/MouseDrop()
@@ -113,7 +117,7 @@
 	else
 		value = min(value, BAR_CAP)
 		// Draw statbar.
-		if(!LAZYLEN(hardpoint_bar_cache))
+		if(!LAZYLEN(GLOB.hardpoint_bar_cache))
 			for(var/i=0;i<BAR_CAP;i++)
 				var/image/bar = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar")
 				bar.pixel_x = 24+(i*2)
@@ -123,9 +127,9 @@
 					bar.color = "#ffff00"
 				else
 					bar.color = "#ff0000"
-				hardpoint_bar_cache += bar
+				GLOB.hardpoint_bar_cache += bar
 		for(var/i = 1; i <= value; i++)
-			new_overlays += hardpoint_bar_cache[i]
+			new_overlays += GLOB.hardpoint_bar_cache[i]
 	overlays = new_overlays
 
 /obj/screen/mecha/hardpoint/Initialize(mapload, var/newtag)

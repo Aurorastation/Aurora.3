@@ -1,23 +1,19 @@
-var/datum/controller/subsystem/orbit/SSorbit
-
-/datum/controller/subsystem/orbit
+SUBSYSTEM_DEF(orbit)
 	name = "Orbits"
 	priority = SS_PRIORITY_ORBIT
 	wait = 2
 	flags = SS_NO_INIT|SS_TICKER
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/currentrun = list()
 	var/list/processing = list()
 
-/datum/controller/subsystem/orbit/New()
-	NEW_SS_GLOBAL(SSorbit)
-
 /datum/controller/subsystem/orbit/Recover()
 	src.processing = SSorbit.processing
 
-/datum/controller/subsystem/orbit/stat_entry()
-	..("P:[processing.len]")
-
+/datum/controller/subsystem/orbit/stat_entry(msg)
+	msg = "P:[processing.len]"
+	return ..()
 
 /datum/controller/subsystem/orbit/fire(resumed = 0)
 	if (!resumed)

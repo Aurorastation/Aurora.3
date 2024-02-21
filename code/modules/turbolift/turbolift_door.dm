@@ -1,12 +1,13 @@
 /obj/machinery/door/airlock/lift
-	name = "Elevator Door"
+	name = "elevator door"
 	desc = "Ding."
-	req_access = list(access_maint_tunnels)
+	airlock_type = "Lift"
+	door_color = COLOR_GRAY20
+	door_frame_color = COLOR_GRAY20
+	req_access = list(ACCESS_MAINT_TUNNELS)
+	glass = TRUE
 	opacity = FALSE
 	autoclose = FALSE
-	glass = TRUE
-	icon = 'icons/obj/doors/doorlift.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_lift
 	hashatch = FALSE
 	panel_visible_while_open = TRUE
 	insecure = FALSE
@@ -32,7 +33,7 @@
 		for(var/mob/living/LM in turf)
 			if(LM.mob_size <= MOB_TINY)
 				var/moved = 0
-				for(dir in shuffle(cardinal.Copy()))
+				for(dir in shuffle(GLOB.cardinal.Copy()))
 					var/dest = get_step(LM,dir)
 					if(!(locate(/obj/machinery/door/airlock/lift) in dest))
 						if(LM.Move(dest))

@@ -21,7 +21,7 @@
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
-	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/base_name
 	var/unwielded_force_divisor = 0.25
@@ -33,8 +33,8 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/material/twohanded/proc/wield()
@@ -67,20 +67,24 @@
 	. = ..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
-	//Cannot equip wielded items.
+/obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE)
 	if(wielded)
-		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
-		return 0
-
+		unwield()
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/can_swap_hands(mob/user)
 	if(wielded)
-		return FALSE
+		unwield()
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/dropped(mob/user as mob)
+	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/material/twohanded/O = user.get_inactive_hand()
@@ -92,7 +96,7 @@
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, /decl/sound_category/punchmiss_sound, 50, 1)
+		playsound(user.loc, /singleton/sound_category/punchmiss_sound, 50, 1)
 		return PROJECTILE_STOPPED
 	return FALSE
 
@@ -130,6 +134,9 @@
 			O.unwield()
 
 	else //Trying to wield it
+		var/obj/item/offhand_item = user.get_inactive_hand()
+		if(offhand_item)
+			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
 			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
@@ -228,6 +235,9 @@
 		cleave(user, target)
 	..()
 
+/obj/item/material/twohanded/fireaxe/can_woodcut()
+	return TRUE
+
 //spears, bay edition
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
@@ -253,31 +263,31 @@
 		QDEL_NULL(explosive)
 	return ..()
 
-/obj/item/material/twohanded/spear/examine(mob/user)
-	..(user)
+/obj/item/material/twohanded/spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(explosive)
-		to_chat(user, "It has \the [explosive] strapped to it.")
+		. += "It has \the [explosive] strapped to it."
 
-/obj/item/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
-	if(istype(I, /obj/item/organ/external/head))
+/obj/item/material/twohanded/spear/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/organ/external/head))
 		to_chat(user, "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>")
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
-		I.transform = M
-		usr.drop_from_inventory(I,HS)
-		var/mutable_appearance/MA = new(I)
+		attacking_item.transform = M
+		usr.drop_from_inventory(attacking_item, HS)
+		var/mutable_appearance/MA = new(attacking_item)
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)
-		HS.name = "[I.name] on a spear"
+		HS.name = "[attacking_item.name] on a spear"
 		HS.material = material.name
 		qdel(src)
 		return
 
-	if(istype(I, /obj/item/grenade))
-		to_chat(user, "<span class='notice'>You strap \the [I] to \the [src].</span>")
-		user.unEquip(I)
-		I.forceMove(src)
-		explosive = I
+	if(istype(attacking_item, /obj/item/grenade))
+		to_chat(user, "<span class='notice'>You strap \the [attacking_item] to \the [src].</span>")
+		user.unEquip(attacking_item)
+		attacking_item.forceMove(src)
+		explosive = attacking_item
 		update_icon()
 		return
 	return ..()
@@ -318,6 +328,9 @@
 /obj/item/material/twohanded/spear/diamond/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_DIAMOND)
 
+/obj/item/material/twohanded/spear/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/structure/headspear
 	name = "head on a spear"
 	desc = "How barbaric."
@@ -338,7 +351,7 @@
 	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants that grow on the station."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	force_unwielded = 10
 	force_wielded = 20
@@ -352,7 +365,7 @@
 	applies_material_colour = FALSE
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = /decl/reagent/fuel
+	var/fuel_type = /singleton/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -371,6 +384,12 @@
 	. = ..()
 	reagents.add_reagent(fuel_type, max_fuel)
 
+/obj/item/material/twohanded/chainsaw/can_woodcut()
+	if(powered)
+		return TRUE
+	else
+		return ..()
+
 /obj/item/material/twohanded/chainsaw/op //For events or whatever
 	opendelay = 5
 	max_fuel = 1000
@@ -386,7 +405,7 @@
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
-	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
+	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 25, 0, 30)
 	force_unwielded = 30
 	force = force_unwielded
 	force_wielded = 60
@@ -444,24 +463,26 @@
 		FuelToRemove = 1
 		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
-			spark(src, 3, alldirs)
-			if(prob(25))
-				eyecheck(2,loc)
+			spark(src, 3, GLOB.alldirs)
+			if(prob(25) && isliving(loc))
+				if(loc.flash_act())
+					to_chat(loc, SPAN_DANGER("Some stray sparks fly into your eyes!"))
 	else
 		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 25, 0, 30)
 
 	RemoveFuel(FuelToRemove)
 
-/obj/item/material/twohanded/chainsaw/examine(mob/user)
-	if(..(user, 1))
-		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel.")
+/obj/item/material/twohanded/chainsaw/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel."
 		if(powered)
-			to_chat(user, SPAN_NOTICE("It is currently powered on."))
+			. += SPAN_NOTICE("It is currently powered on.")
 
 /obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
 	if(powered)
-		playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 		RemoveFuel(3)
 
 /obj/item/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
@@ -475,30 +496,16 @@
 		if(!istype(O))
 			user.visible_message(SPAN_DANGER("[user] revs the chainsaw!"), SPAN_WARNING("You rev the chainsaw!"), SPAN_WARNING("You hear a chainsaw rev!"))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+			playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 			RemoveFuel(3)
 	. = ..()
-
-/obj/item/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
-
-	if (!istype(H) || H.status_flags & GODMODE)
-		return
-
-	var/obj/item/organ/internal/eyes/E = H.get_eyes()
-	if(!istype(E))
-		return
-
-	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
-	E.damage += eye_damage
-	if(eye_damage > 0)
-		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
 
 /obj/item/material/twohanded/chainsaw/AltClick(mob/user)
 	if(powered)
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, SPAN_WARNING("You need to hold this with two hands to turn this on."))
-	else if(REAGENT_VOLUME(reagents, /decl/reagent/fuel) <= 0)
+	else if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) <= 0)
 		user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src], but nothing happens."), SPAN_WARNING("You pull the cord on \the [src], but nothing happens."), SPAN_NOTICE("You hear a cord being pulled."))
 	else
 		var/max = rand(3,6)
@@ -508,7 +515,7 @@
 				PowerUp(user)
 			else
 				playsound(loc, 'sound/weapons/saw/chainsawpull.ogg', 50, 0, 15)
-				if(!do_after(user, 2 SECONDS, act_target = user))
+				if(!do_after(user, 2 SECONDS))
 					break
 
 /obj/item/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)
@@ -557,6 +564,12 @@
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
+/obj/item/material/twohanded/pike/halberd/can_woodcut()
+	if(wielded)
+		return TRUE
+	else
+		return ..()
+
 /obj/item/material/twohanded/pike/pitchfork
 	icon_state = "pitchfork0"
 	base_icon = "pitchfork"
@@ -580,6 +593,7 @@
 /obj/item/material/twohanded/pike/flag/verb/plant()
 	set name = "Plant Flag"
 	set category = "Object"
+	set src in usr
 
 	if(ishuman(usr))
 		var/mob/living/user = usr
@@ -615,7 +629,10 @@
 	icon_state = "flag_hegemony0"
 	base_icon = "flag_hegemony"
 	contained_sprite = TRUE
-	damtype = BURN
+	damtype = DAMAGE_BURN
+
+/obj/item/material/twohanded/pike/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
 
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"

@@ -1,22 +1,29 @@
 //Weapons and items used exclusively by the Vaurcae, typically only for event shenanigans, and possibly random finds in the future. All items here should have
 //"Vaurca" in the item path at some point, so they can be easily spawned in-game.
 
-/obj/item/clothing/mask/breath/vaurca
+/obj/item/clothing/mask/gas/vaurca
 	desc = "A Vaurcae mandible garment with an attached gas filter and air-tube."
 	name = "mandible garment"
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
+	w_class = ITEMSIZE_SMALL
+	flags_inv = null
+	body_parts_covered = null
+	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	contained_sprite = 1
 
-/obj/item/clothing/mask/breath/vaurca/adjust_mask(mob/user)
+/obj/item/clothing/mask/gas/vaurca/adjust_mask(mob/user)
 	to_chat(user, "This mask is too tight to adjust.")
 	return
 
-/obj/item/clothing/mask/breath/vaurca/filter
+/obj/item/clothing/mask/gas/vaurca/filter
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
+	w_class = ITEMSIZE_SMALL
+	flags_inv = null
+	body_parts_covered = null
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
 	item_state = 0
 
@@ -39,13 +46,21 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "human_helmet"
 	item_state = "human_helmet"
+	build_from_parts = TRUE
+	worn_overlay = "face"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+
+/obj/item/clothing/head/expression/unathi
+	name = "unathi expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
+	icon_state = "unathi_helmet"
+	item_state = "unathi_helmet"
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -97,7 +112,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_TINY
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE
@@ -207,8 +223,7 @@
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		for(var/mob/living/carbon/human/M in viewers(T, null))
-			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-				M.flash_eyes()
+			M.flash_act(ignore_inherent = TRUE)
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
@@ -257,12 +272,32 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi'
+		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
 
 	action_button_name = "Toggle the magclaws"
+
+/obj/item/clothing/shoes/magboots/vaurca/aug
+	name = "integrated mag-claws"
+	desc = "A magnetic-grip system similar to a set of magboots integrated into a Vaurca's leg chitin."
+	magpulse = 1
+	slowdown = 3
+	action_button_name = null
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT|ITEM_FLAG_NO_SLIP
+	canremove = FALSE
+
+/obj/item/clothing/shoes/magboots/vaurca/aug/throw_at()
+	usr.drop_from_inventory(src)
+
+/obj/item/clothing/shoes/magboots/vaurca/aug/dropped()
+	. = ..()
+	qdel(src)
+
+/obj/item/clothing/shoes/magboots/vaurca/aug/negates_gravity()
+	return TRUE
 
 /obj/item/clothing/suit/space/void/scout
 	name = "scout armor"
@@ -306,7 +341,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "commando"
 	item_state = "commando"
-	desc = "A design perfected by the Zo'ra, this armor is commonly used by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this armor is commonly used by frontline warriors of a Hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
@@ -319,7 +354,7 @@
 	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
-	desc = "A design perfected by the Zo'ra, this helmet is commonly used by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this helmet is commonly used by frontline warriors of a Hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "helm_commando"
@@ -338,10 +373,10 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/clothing/mask/gas/vaurca
+/obj/item/clothing/mask/gas/vaurca/tactical
 	name = "tactical garment"
 	desc = "A tactical mandible garment with state of the art air filtration."
-	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | FLEXIBLEMATERIAL | THICKMATERIAL
+	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_FLEXIBLE_MATERIAL | ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
@@ -374,7 +409,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_LARGE
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE
@@ -421,7 +457,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = /decl/sound_category/gauss_fire_sound
+	fire_sound = /singleton/sound_category/gauss_fire_sound
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK
@@ -488,11 +524,11 @@
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
-/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/arrow))
-		load(I, user)
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
+/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/arrow))
+		load(attacking_item, user)
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			var/obj/item/arrow/rod/ROD = new /obj/item/arrow/rod(src)
 			load(ROD, user)

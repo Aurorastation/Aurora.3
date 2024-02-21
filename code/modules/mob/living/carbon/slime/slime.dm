@@ -6,7 +6,7 @@
 	var/is_adult = 0
 	speak_emote = list("chirps")
 	mob_size = 4
-	composition_reagent = /decl/reagent/slimejelly
+	composition_reagent = /singleton/reagent/slimejelly
 	layer = 5
 	maxHealth = 150
 	health = 150
@@ -17,7 +17,6 @@
 	nutrition = 700
 	max_nutrition = 1200
 
-	see_in_dark = 8
 	update_slimes = 0
 
 	// canstun and canweaken don't affect slimes because they ignore stun and weakened variables
@@ -72,10 +71,10 @@
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
 
-	verbs += /mob/living/proc/ventcrawl
+	add_verb(src, /mob/living/proc/ventcrawl)
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(all_languages[LANGUAGE_TCB])
+	src.default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 	src.colour = colour
 	number = rand(1, 1000)
@@ -91,55 +90,55 @@
 	regenerate_icons()
 
 /mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/metal/Initialize(mapload, colour = "metal")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/orange/Initialize(mapload, colour = "orange")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/blue/Initialize(mapload, colour = "blue")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/dark_blue/Initialize(mapload, colour = "dark blue")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/dark_purple/Initialize(mapload, colour = "dark purple")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/yellow/Initialize(mapload, colour = "yellow")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/silver/Initialize(mapload, colour = "silver")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/pink/Initialize(mapload, colour = "pink")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/red/Initialize(mapload, colour = "red")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/gold/Initialize(mapload, colour = "gold")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/green/Initialize(mapload, colour = "green")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/oil/Initialize(mapload, colour = "oil")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/adamantine/Initialize(mapload, colour = "adamantine")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/cerulean/Initialize(mapload, colour = "cerulean")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/pyrite/Initialize(mapload, colour = "pyrite")
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/getToxLoss()
 	return toxloss
@@ -164,15 +163,15 @@
 		tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	if(reagents)
-		if(reagents.has_reagent(/decl/reagent/hyperzine)) // Hyperzine slows slimes down
+		if(reagents.has_reagent(/singleton/reagent/hyperzine)) // Hyperzine slows slimes down
 			tally *= 2
-		if(reagents.has_reagent(/decl/reagent/frostoil)) // Frostoil also makes them move VEEERRYYYYY slow
+		if(reagents.has_reagent(/singleton/reagent/frostoil)) // Frostoil also makes them move VEEERRYYYYY slow
 			tally *= 5
 
 	if(health <= 0) // if damaged, the slime moves twice as slow
 		tally *= 2
 
-	return tally + config.slime_delay
+	return tally + GLOB.config.slime_delay
 
 /mob/living/carbon/slime/proc/reset_atkcooldown()
 	Atkcool = FALSE
@@ -204,7 +203,7 @@
 					if(is_adult || prob(5))
 						UnarmedAttack(AM)
 						Atkcool = TRUE
-						addtimer(CALLBACK(src, .proc/reset_atkcooldown), 45)
+						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45)
 
 	if(ismob(AM))
 		var/mob/tmob = AM
@@ -226,22 +225,21 @@
 /mob/living/carbon/slime/Allow_Spacemove()
 	return TRUE
 
-/mob/living/carbon/slime/Stat()
-	..()
+/mob/living/carbon/slime/get_status_tab_items()
+	. = ..()
 
-	statpanel("Status")
-	stat(null, "Health: [round((health / maxHealth) * 100)]%")
-	stat(null, "Intent: [a_intent]")
+	. += "Health: [round((health / maxHealth) * 100)]%"
+	. += "Intent: [a_intent]"
 
 	if(client.statpanel == "Status")
-		stat(null, "Nutrition: [nutrition]/[get_max_nutrition()]")
+		. += "Nutrition: [nutrition]/[get_max_nutrition()]"
 		if(amount_grown >= 5)
 			if(is_adult)
-				stat(null, "You can reproduce!")
+				. += "You can reproduce!"
 			else
-				stat(null, "You can evolve!")
+				. += "You can evolve!"
 
-		stat(null,"Power Level: [powerlevel]")
+		. += "Power Level: [powerlevel]"
 
 /mob/living/carbon/slime/adjustFireLoss(amount)
 	..(-abs(amount)) // Heals them
@@ -253,8 +251,9 @@
 	return FALSE
 
 /mob/living/carbon/slime/emp_act(severity)
+	. = ..()
+
 	powerlevel = 0 // oh no, the power!
-	..()
 
 /mob/living/carbon/slime/ex_act(severity)
 	..()
@@ -291,7 +290,7 @@
 		if(victim == M)
 			if(prob(60))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"))
-				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -312,7 +311,7 @@
 		else
 			if(prob(30))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"))
-				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -358,7 +357,7 @@
 
 			attacked += 10
 			if(prob(90))
-				if(HULK in M.mutations)
+				if((M.mutations & HULK))
 					damage += 5
 					if(victim || target)
 						victim = null
@@ -371,25 +370,25 @@
 						sleep(3)
 						step_away(src,M,15)
 
-				playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
+				playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
 						SPAN_DANGER("[M] has punched [src]!"))
 
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
-				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
 	return
 
-/mob/living/carbon/slime/attackby(obj/item/W, mob/user)
-	if(W.force > 0)
+/mob/living/carbon/slime/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.force > 0)
 		attacked += 10
 		if(discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			discipline = FALSE
-	if(W.force >= 3)
+	if(attacking_item.force >= 3)
 		if(is_adult)
-			if(prob(5 + round(W.force/2)))
+			if(prob(5 + round(attacking_item.force/2)))
 				if(victim || target)
 					if(prob(80) && !client)
 						discipline++
@@ -406,14 +405,14 @@
 						if(user)
 							canmove = FALSE
 							step_away(src, user)
-							if(prob(25 + W.force))
+							if(prob(25 + attacking_item.force))
 								sleep(2)
 								if(user)
 									step_away(src, user)
 								canmove = TRUE
 
 		else
-			if(prob(10 + W.force*2))
+			if(prob(10 + attacking_item.force*2))
 				if(victim || target)
 					if(prob(80) && !client)
 						discipline++
@@ -431,7 +430,7 @@
 						if(user)
 							canmove = FALSE
 							step_away(src, user)
-							if(prob(25 + W.force*4))
+							if(prob(25 + attacking_item.force*4))
 								sleep(2)
 								if(user)
 									step_away(src, user)

@@ -21,7 +21,7 @@
 	name = "Mining Jack Miner"
 
 	uniform = list(
-				/obj/item/clothing/under/serviceoveralls,
+				/obj/item/clothing/under/service_overalls,
 				/obj/item/clothing/under/tajaran/mechanic,
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/overalls
@@ -29,9 +29,9 @@
 
 	shoes = list(
 				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots,
-				/obj/item/clothing/shoes/tajara/workboots,
-				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+				/obj/item/clothing/shoes/jackboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	)
 
 	back = list(
@@ -49,4 +49,4 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 /datum/outfit/admin/tajara_mining_jack/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)

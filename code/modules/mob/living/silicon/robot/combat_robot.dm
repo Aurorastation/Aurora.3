@@ -24,14 +24,14 @@
 	braintype = "Android" // Posibrain.
 
 	// ID and Access
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	id_card_type = /obj/item/card/id/syndicate
 	key_type = /obj/item/device/encryptionkey/syndicate
 	var/datum/antagonist/assigned_antagonist
 
 /mob/living/silicon/robot/combat/Initialize()
 	. = ..()
-	verbs += /mob/living/silicon/robot/proc/choose_icon
+	add_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 	var/datum/robot_component/C = components["surge"]
 	C.installed = TRUE
 	C.wrapped = new C.external_type
@@ -45,9 +45,13 @@
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
-			radio.recalculateChannels()
+			INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
+	client.init_verbs()
 	say("Boot sequence complete!")
 	return src
+
+/mob/living/silicon/robot/combat/get_speech_bubble_state_modifier()
+	return "syndibot"
 
 // Syndicate Borg Gear
 /obj/item/gun/energy/mountedsmg

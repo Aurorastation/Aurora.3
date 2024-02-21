@@ -19,7 +19,7 @@
 		return
 	if(!in_range(user, A))
 		return
-	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/vent, /obj/machinery/atmospherics/pipe/simple/heat_exchanging, /obj/machinery/atmospherics/pipe/simple/insulated)))
+	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/simple/heat_exchanging)))
 		return
 	else if(istype(A,/obj/machinery/atmospherics/pipe))
 		var/obj/machinery/atmospherics/pipe/P = A
@@ -29,8 +29,8 @@
 		P.color = pipe_colors[mode]
 
 /obj/item/device/pipe_painter/attack_self(var/mob/user)
-	mode = input("Which colour do you want to use?", "Pipe painter", mode) in modes
+	mode = tgui_input_list(user, "Which colour do you want to use?", "Pipe Painter", modes, mode)
 
-/obj/item/device/pipe_painter/examine(var/mob/user)
-	..(user)
-	to_chat(user, "It is in [mode] mode.")
+/obj/item/device/pipe_painter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. +=  "It is in [mode] mode."

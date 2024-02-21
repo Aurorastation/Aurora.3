@@ -1,4 +1,3 @@
-#define EMITTER_DAMAGE_POWER_TRANSFER 450 //used to transfer power to containment field generators
 #define EMITTER_LOOSE 0
 #define EMITTER_BOLTED 1
 #define EMITTER_WELDED 2
@@ -6,11 +5,11 @@
 /obj/machinery/power/emitter
 	name = "emitter"
 	desc = "It is a heavy duty industrial laser."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'icons/obj/emitter.dmi'
 	icon_state = "emitter"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
 
@@ -36,17 +35,17 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/examine(mob/user)
-	..()
+/obj/machinery/power/emitter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	switch(state)
 		if(EMITTER_LOOSE)
-			to_chat(user, SPAN_NOTICE("\The [src] isn't attached to anything and is not ready to fire."))
+			. += SPAN_NOTICE("\The [src] isn't attached to anything and is not ready to fire.")
 		if(EMITTER_BOLTED)
-			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire."))
+			. += SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire.")
 		if(EMITTER_WELDED)
-			to_chat(user, SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire."))
-	if(Adjacent(user))
-		to_chat(user, SPAN_NOTICE("The shot counter display reads: [shot_counter]"))
+			. += SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire.")
+	if(is_adjacent)
+		. += SPAN_NOTICE("The shot counter display reads: [shot_counter] shots.")
 
 /obj/machinery/power/emitter/Destroy()
 	if(special_emitter)
@@ -60,7 +59,7 @@
 
 /obj/machinery/power/emitter/Initialize()
 	. = ..()
-	spark_system = bind_spark(src, 5, alldirs)
+	spark_system = bind_spark(src, 5, GLOB.alldirs)
 	if(state == EMITTER_WELDED && anchored)
 		connect_to_network()
 		if(_wifi_id)
@@ -112,7 +111,9 @@
 		return TRUE
 
 
-/obj/machinery/power/emitter/emp_act()
+/obj/machinery/power/emitter/emp_act(severity)
+	. = ..()
+
 	activate(null)
 	return TRUE
 
@@ -140,11 +141,11 @@
 			return
 
 		last_shot = world.time
-		if(shot_number < burst_shots)
-			fire_delay = 2
+		if (shot_number < burst_shots)
+			fire_delay = get_burst_delay()
 			shot_number++
 		else
-			fire_delay = rand(min_burst_delay, max_burst_delay)
+			fire_delay = get_rand_burst_delay()
 			shot_number = 0
 
 		//need to calculate the power per shot as the emitter doesn't fire continuously.
@@ -155,27 +156,27 @@
 		if(prob(35))
 			spark_system.queue()
 
-		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter(get_turf(src))
+		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch_projectile(get_step(src, dir))
 		shot_counter++
 
-/obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/power/emitter/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		if(active)
 			to_chat(user, SPAN_WARNING("You cannot unbolt \the [src] while it's active."))
 			return
 		switch(state)
 			if(EMITTER_LOOSE)
 				state = EMITTER_BOLTED
-				playsound(get_turf(src), W.usesound, 75, TRUE)
+				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(EMITTER_BOLTED)
 				state = EMITTER_LOOSE
-				playsound(get_turf(src), W.usesound, 75, TRUE)
+				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
@@ -184,8 +185,8 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
 		return
 
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(active)
 			to_chat(user, SPAN_NOTICE("You cannot unweld \the [src] while it's active."))
 			return
@@ -198,7 +199,7 @@
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
 						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(W.use_tool(src, user, 20, volume = 50))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = EMITTER_WELDED
@@ -212,7 +213,7 @@
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
 						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(W.use_tool(src, user, 20, volume = 50))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = EMITTER_BOLTED
@@ -222,7 +223,7 @@
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return
 
-	if(W.GetID())
+	if(attacking_item.GetID())
 		if(emagged)
 			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
 			return
@@ -258,3 +259,19 @@
 		activate(null)
 	else
 		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")
+
+/obj/machinery/power/emitter/proc/get_initial_fire_delay()
+	return 10 SECONDS
+
+/obj/machinery/power/emitter/proc/get_rand_burst_delay()
+	return rand(min_burst_delay, max_burst_delay)
+
+/obj/machinery/power/emitter/proc/get_burst_delay()
+	return 0.2 SECONDS // This value doesn't really affect normal emitters, but *does* affect subtypes like the gyrotron that can have very long delays
+
+/obj/machinery/power/emitter/proc/get_emitter_beam()
+	return new /obj/item/projectile/beam/emitter(get_turf(src))
+
+#undef EMITTER_LOOSE
+#undef EMITTER_BOLTED
+#undef EMITTER_WELDED

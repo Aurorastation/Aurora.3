@@ -142,7 +142,7 @@
 	push_data()
 	activate_pin(2)
 
-obj/item/integrated_circuit/list/len
+/obj/item/integrated_circuit/list/len
 	name = "len circuit"
 	desc = "This circuit will give length of the list."
 	inputs = list(

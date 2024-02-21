@@ -19,7 +19,6 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
-	see_in_dark = 5
 	mob_size = 3.5
 	max_nutrition = 70	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 8
@@ -61,7 +60,7 @@
 	if(!stat && !resting && !buckled_to)
 		if(prob(1))
 			visible_emote(pick("dances around.","chases their tail."),0)
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
 /mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())
 	for(var/i in directions)
@@ -72,19 +71,19 @@
 	name = "Corgi meat"
 	desc = "Tastes like... well you know..."
 
-/mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
-	if(istype(O, /obj/item/newspaper))
+/mob/living/simple_animal/corgi/attackby(obj/item/attacking_item, mob/user)  //Marker -Agouri
+	if(istype(attacking_item, /obj/item/newspaper))
 		if(!stat)
 			visible_message(
-				"<span class='notice'>[user] baps [src] on the nose with the rolled up [O.name].</span>",
-				"<span class='alert'>[user] baps you on the nose with the rolled up [O.name]!</span>"
+				"<span class='notice'>[user] baps [src] on the nose with the rolled up [attacking_item.name].</span>",
+				"<span class='alert'>[user] baps you on the nose with the rolled up [attacking_item.name]!</span>"
 			)
 			scan_interval = max_scan_interval
 			movement_target = null
 			stop_automated_movement = 0
 			turns_since_scan = 0
 
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2))
+			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2))
 	else
 		..()
 
@@ -177,4 +176,4 @@
 
 	if (!stat && !resting && !buckled_to && prob(1))
 		visible_emote(pick("dances around","chases her tail"),0)
-		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+		INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

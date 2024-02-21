@@ -17,7 +17,7 @@ Exercise Verbs
 	visible_message(SPAN_NOTICE("[src] gets down and prepares to do some pushups."), SPAN_NOTICE("You get down for some pushups."), SPAN_NOTICE("You hear rustling."))
 
 	switch(alert(src, "Regular pushups or on your knees?", "Pushups", "Regular", "On Knees"))
-		if("Proper Ones")
+		if("Regular")
 			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] hands and feet."), SPAN_NOTICE("You move your weight onto your hands and feet."), SPAN_NOTICE("You hear rustling."))
 			execute_pushups(on_knees = FALSE)
 		if("On Knees")
@@ -41,13 +41,13 @@ Exercise Verbs
 			stop_pushups()
 			return
 		animate(src, pixel_y = target_y, time = 0.8 SECONDS, easing = QUAD_EASING) //down to the floor
-		if(!lying || !do_after(src, 0.6 SECONDS, needhand = TRUE, display_progress = FALSE))
+		if(!lying || !do_after(src, 0.6 SECONDS, do_flags = DO_EXERCISE, incapacitation_flags = (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_KNOCKOUT)))
 			visible_message(SPAN_NOTICE("[src] stops doing pushups."), SPAN_NOTICE("You stop doing pushups."), SPAN_NOTICE("You hear movements."))
 			animate(src, pixel_y = 0, time = 0.2 SECONDS, easing = QUAD_EASING)
 			stop_pushups()
 			return
 		animate(src, pixel_y = 0, time = 0.8 SECONDS, easing = QUAD_EASING) //back up
-		if(!lying || !do_after(src, 0.6 SECONDS, needhand = TRUE, display_progress = FALSE))
+		if(!lying || !do_after(src, 0.6 SECONDS, do_flags = DO_EXERCISE, incapacitation_flags = (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_KNOCKOUT)))
 			visible_message(SPAN_NOTICE("[src] stops doing pushups."), SPAN_NOTICE("You stop doing pushups."), SPAN_NOTICE("You hear movements."))
 			animate(src, pixel_y = 0, time = 0.2 SECONDS, easing = QUAD_EASING)
 			stop_pushups()

@@ -1,5 +1,5 @@
 
-/* 
+/*
 
 Just some quick documentation about how this works
 
@@ -25,10 +25,15 @@ paiicon is the pai icon sprite name
 
 /proc/loadsynths_from_json()
 	var/list/customsynthsprites = list()
+
+	if(!(rustg_file_exists("config/customsynths.json") == "true"))
+		log_config("The file config/customsynths.json was not found, custom synth config will not be loaded.")
+		return
+
 	try
 		customsynthsprites = json_decode(return_file_text("config/customsynths.json"))
 	catch(var/exception/ej)
-		log_debug("Error: Warning: Could not load custom synth config, as customsynths.json is missing - [ej]")
+		LOG_DEBUG("Error: Warning: Could not load custom synth config, as customsynths.json is missing - [ej]")
 		return
 
 	robot_custom_icons = list()
@@ -44,20 +49,20 @@ paiicon is the pai icon sprite name
 		robot_custom_icons[synthsprite] = synth
 
 /proc/loadsynths_from_sql()
-	if(!config.sql_enabled)
-		log_debug("Synthsprites: SQL Disabled - Falling back to JSON")
+	if(!GLOB.config.sql_enabled)
+		LOG_DEBUG("Synthsprites: SQL Disabled - Falling back to JSON")
 		loadsynths_from_json()
 		return
-	if(!establish_db_connection(dbcon))
-		log_debug("Synthsprites: SQL ERROR - Failed to connect. - Falling back to JSON")
+	if(!establish_db_connection(GLOB.dbcon))
+		LOG_DEBUG("Synthsprites: SQL ERROR - Failed to connect. - Falling back to JSON")
 		loadsynths_from_json()
 		return
 
-	var/DBQuery/customsynthsprites = dbcon.NewQuery("SELECT synthname, synthckey, synthicon, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths ORDER BY synthckey ASC")
+	var/DBQuery/customsynthsprites = GLOB.dbcon.NewQuery("SELECT synthname, synthckey, synthicon, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths ORDER BY synthckey ASC")
 	customsynthsprites.Execute()
 	while(customsynthsprites.NextRow())
 		CHECK_TICK
-			
+
 		var/datum/custom_synth/synth = new()
 		synth.synthname = customsynthsprites.item[1]
 		synth.synthckey = customsynthsprites.item[2]

@@ -55,39 +55,39 @@
 /obj/structure/dispenser/attack_hand(mob/user)
 	user.set_machine(src)
 	var/dat = "<br>"
-	dat += "Oxygen Tanks: [oxygen_tanks] - [oxygen_tanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
-	dat += "Phoron Tanks: [phoron_tanks] - [phoron_tanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
+	dat += "Oxygen Tanks: [oxygen_tanks] - [oxygen_tanks ? "<a href='?src=\ref[src];oxygen=1'>Dispense</a>" : "empty"]<br>"
+	dat += "Phoron Tanks: [phoron_tanks] - [phoron_tanks ? "<a href='?src=\ref[src];phoron=1'>Dispense</a>" : "empty"]"
 	
 	var/datum/browser/dispenser_win = new(user, "dispenser", capitalize_first_letters(name), 300, 250)
 	dispenser_win.set_content(dat)
 	dispenser_win.open()
 
-/obj/structure/dispenser/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/tank/oxygen))
+/obj/structure/dispenser/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/tank/oxygen) || istype(attacking_item, /obj/item/tank/air) || istype(attacking_item, /obj/item/tank/anesthetic))
 		if(oxygen_tanks < max_tanks)
-			user.drop_from_inventory(I, src)
-			held_oxygen_tanks.Add(I)
+			user.drop_from_inventory(attacking_item, src)
+			oxytanks.Add(attacking_item)
 			oxygen_tanks++
-			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
-			if(oxygen_tanks <= 5)
+			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
+			if(oxygen_tanks < 5)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
-	if(istype(I, /obj/item/tank/phoron))
-		if(phoron_tanks < max_tanks)
-			user.drop_from_inventory(I, src)
-			held_phoron_tanks.Add(I)
-			phoron_tanks++
-			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
-			if(oxygen_tanks <= 5)
+	if(istype(attacking_item, /obj/item/tank/phoron))
+		if(phorontanks < max_tanks)
+			user.drop_from_inventory(attacking_item, src)
+			platanks.Add(attacking_item)
+			phorontanks++
+			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
+			if(oxygentanks < 6)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
-	if(I.iswrench())
+	if(attacking_item.iswrench())
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You lean down and unwrench \the [src]."))
 			anchored = FALSE

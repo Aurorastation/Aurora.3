@@ -13,8 +13,9 @@
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
 /obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-	qdel(holding)
+	disconnect()
+	QDEL_NULL(air_contents)
+	QDEL_NULL(holding)
 	return ..()
 
 /obj/machinery/portable_atmospherics/Initialize()
@@ -41,12 +42,7 @@
 		air_contents.react()
 	else
 		update_icon()
-		SSvueui.check_uis_for_change(src)
-
-/obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-
-	return ..()
+		SStgui.update_uis(src)
 
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
@@ -71,7 +67,7 @@
 	//Perform the connection
 	connected_port = new_port
 	connected_port.connected_device = src
-	connected_port.on = 1 //Activate port updates
+	connected_port.toggle_process()
 
 	anchored = 1 //Prevent movement
 
@@ -92,8 +88,10 @@
 		network.gases -= air_contents
 
 	anchored = 0
+	if(connected_port)
+		connected_port.connected_device = null
+		connected_port.toggle_process()
 
-	connected_port.connected_device = null
 	connected_port = null
 
 	return 1
@@ -106,33 +104,33 @@
 	if (network)
 		network.update = 1
 
-/obj/machinery/portable_atmospherics/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if ((istype(W, /obj/item/tank) && !( src.destroyed )))
+/obj/machinery/portable_atmospherics/attackby(obj/item/attacking_item, mob/user)
+	if ((istype(attacking_item, /obj/item/tank) && !( src.destroyed )))
 		if (src.holding)
 			return TRUE
-		var/obj/item/tank/T = W
+		var/obj/item/tank/T = attacking_item
 		user.drop_from_inventory(T,src)
 		src.holding = T
 		update_icon()
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return TRUE
 
-	else if (W.iswrench())
+	else if (attacking_item.iswrench())
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
-			playsound(get_turf(src), W.usesound, 50, 1)
+			playsound(get_turf(src), attacking_item.usesound, 50, 1)
 			update_icon()
-			SSvueui.check_uis_for_change(src)
+			SStgui.update_uis(src)
 			return TRUE
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
-					playsound(get_turf(src), W.usesound, 50, 1)
+					playsound(get_turf(src), attacking_item.usesound, 50, 1)
 					update_icon()
-					SSvueui.check_uis_for_change(src)
+					SStgui.update_uis(src)
 					return TRUE
 				else
 					to_chat(user, "<span class='notice'>\The [src] failed to connect to the port.</span>")
@@ -141,8 +139,8 @@
 				to_chat(user, "<span class='notice'>Nothing happens.</span>")
 				return TRUE
 
-	else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
-		var/obj/item/device/analyzer/A = W
+	else if ((istype(attacking_item, /obj/item/device/analyzer)) && Adjacent(user))
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 
@@ -162,23 +160,23 @@
 		return 1
 	return 0
 
-/obj/machinery/portable_atmospherics/powered/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/cell))
+/obj/machinery/portable_atmospherics/powered/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(cell)
 			to_chat(user, "There is already a power cell installed.")
 			return TRUE
 
-		var/obj/item/cell/C = I
+		var/obj/item/cell/C = attacking_item
 
 		user.drop_from_inventory(C,src)
 		C.add_fingerprint(user)
 		cell = C
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return TRUE
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(!cell)
 			to_chat(user, "<span class='warning'>There is no power cell installed.</span>")
 			return TRUE
@@ -188,7 +186,7 @@
 		cell.forceMove(src.loc)
 		cell = null
 		power_change()
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return TRUE
 	return ..()
 

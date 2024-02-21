@@ -3,7 +3,7 @@
 	desc = "Should anything ever go wrong..."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 3.0
 	throwforce = 2.0
 	throw_speed = 1
@@ -50,7 +50,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	throwforce = 7.0
 	w_class = ITEMSIZE_LARGE
@@ -73,19 +73,19 @@
 	var/armorpercent = 0
 	var/wasblocked = 0
 	var/shoulddisarm = 0
-	var/damagetype = PAIN
+	var/damagetype = DAMAGE_PAIN
 	var/chargedelay = 4 // 4 half frames = 2 seconds
 
 	if(targetIsHuman && targetashuman == user)
 		wasselfattack = 1
 
-	if (user.intent == I_HURT)
+	if (user.a_intent == I_HURT)
 		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
-		damagetype = BRUTE
+		damagetype = DAMAGE_BRUTE
 
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.get_blocked_ratio(target_zone, BRUTE, damage = force)*100
+		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
 		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
 
 	var/damageamount = force
@@ -263,13 +263,14 @@
 	else
 		..()
 
-/obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
-	if(!src.concealed_blade && istype(W))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [W] into \the [src].")
+/obj/item/cane/concealed/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/canesword/attacking_canesword = attacking_item
+	if(!src.concealed_blade && istype(attacking_canesword))
+		user.visible_message("<span class='warning'>[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [attacking_canesword] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
-		user.drop_from_inventory(W)
-		W.forceMove(src)
-		src.concealed_blade = W
+		user.drop_from_inventory(attacking_canesword)
+		attacking_canesword.forceMove(src)
+		src.concealed_blade = attacking_canesword
 		update_icon()
 		return TRUE
 	else
@@ -361,7 +362,7 @@
 /obj/item/gift
 	name = "gift"
 	desc = "A wrapped item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift3"
 	var/size = 3.0
 	var/obj/item/gift = null
@@ -369,12 +370,13 @@
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/gift/random_pixel/Initialize()
+	. = ..()
 	pixel_x = rand(-16,16)
 	pixel_y = rand(-16,16)
 
 /obj/item/SWF_uplink
 	name = "station-bounced radio"
-	desc = "used to comunicate it appears."
+	desc = "Used to communicate, it appears."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	var/temp = null
@@ -382,7 +384,7 @@
 	var/selfdestruct = 0.0
 	var/traitor_frequency = 0.0
 	var/obj/item/device/radio/origradio = null
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	item_state = "radio"
 	throwforce = 5
@@ -434,7 +436,7 @@
 	icon_state = "std_mod"
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	usesound = 'sound/items/Deconstruct.ogg'
 	var/mtype = 1						// 1=electronic 2=hardware
 
@@ -449,8 +451,8 @@
 	desc = "Heavy-duty switching circuits for power control."
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-/obj/item/module/power_control/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
+/obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
@@ -483,7 +485,7 @@
 
 /obj/item/camera_bug/attack_self(mob/usr as mob)
 	var/list/cameras = new/list()
-	for (var/obj/machinery/camera/C in cameranet.cameras)
+	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
@@ -495,7 +497,7 @@
 	for (var/obj/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
-	var/target = input("Select the camera to observe", null) as null|anything in friendly_cameras
+	var/target = tgui_input_list(usr, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
 	for (var/obj/machinery/camera/C in cameras)
@@ -520,10 +522,10 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 
-/obj/item/neuralbroke/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, W.usesound, 50, 1)
+		playsound(src.loc, attacking_item.usesound, 50, 1)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
@@ -534,10 +536,7 @@
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi'
-		)
+	icon = 'icons/obj/storage/misc.dmi'
 	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50

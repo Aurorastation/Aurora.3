@@ -11,7 +11,7 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 	produces_heat = FALSE
-	overmap_range = 2 // AIOs aren't true relays
+	overmap_range = 3
 
 	var/away_aio = FALSE
 	var/list/recent_broadcasts
@@ -43,7 +43,7 @@
 	LAZYADD(recent_broadcasts, signal_message)
 
 	if(signal.data["slow"] > 0)
-		addtimer(CALLBACK(signal, /datum/signal/subspace/proc/broadcast), signal.data["slow"]) // network lag
+		addtimer(TYPE_PROC_REF(/datum/signal/subspace, broadcast), signal.data["slow"]) // network lag
 	else
 		signal.broadcast()
 
@@ -66,6 +66,14 @@
 			assign_away_freq(linked.name)
 		)
 
+/obj/machinery/telecomms/allinone/ship/coalition_navy
+	name = "coalition navy telecommunications mainframe"
+	desc = "A compact machine used for portable subspace telecommuniations processing. This one also has encryption codes for Coalition navy vessels."
+
+/obj/machinery/telecomms/allinone/ship/coalition_navy/LateInitialize()
+	. = ..()
+	freq_listening += COAL_FREQ
+
 //This goes on the station map so away ships can maintain radio contact.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
@@ -80,7 +88,10 @@
 
 /obj/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
 	. = ..()
-	desc = replacetext(desc, "%STATIONNAME", current_map.station_name)
-	freq_listening |= AWAY_FREQS_ASSIGNED
+	desc = replacetext(desc, "%STATIONNAME", SSatlas.current_map.station_name)
+	for(var/ch in AWAY_FREQS_ASSIGNED)
+		freq_listening |= AWAY_FREQS_ASSIGNED[ch]
 	freq_listening |= AWAY_FREQS_UNASSIGNED
 	freq_listening |= ANTAG_FREQS
+
+/obj/machinery/telecomms/allinone/ship

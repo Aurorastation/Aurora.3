@@ -5,6 +5,16 @@
 	pixel_y = -8
 	center_of_mass = list("x"=24, "y"=20)
 
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_RESISTANT,
+		rad = ARMOR_RAD_MINOR
+	)
+
 	var/mech_health = 600
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/cell/cell
@@ -21,14 +31,9 @@
 	var/hide_pilot = TRUE
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
-/obj/item/mech_component/chassis/update_components()
-	diagnostics = locate() in src
-	cell =        locate() in src
-	mech_armor =  locate() in src
-	air_supply =  locate() in src
-
-/obj/item/mech_component/chassis/New()
-	..()
+/obj/item/mech_component/chassis/Initialize()
+	. = ..()
+	AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_EXOSUIT)
 	if(isnull(pilot_positions))
 		pilot_positions = list(
 			list(
@@ -38,6 +43,12 @@
 				"[WEST]"  = list("x" = 8, "y" = 0)
 			)
 		)
+
+/obj/item/mech_component/chassis/update_components()
+	diagnostics = locate() in src
+	cell =        locate() in src
+	mech_armor =  locate() in src
+	air_supply =  locate() in src
 
 /obj/item/mech_component/chassis/Destroy()
 	QDEL_NULL(cell)
@@ -112,23 +123,25 @@
 	cell = new /obj/item/cell/mecha(src)
 	cell.charge = cell.maxcharge
 
-/obj/item/mech_component/chassis/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing,/obj/item/robot_parts/robot_component/diagnosis_unit))
+/obj/item/mech_component/chassis/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/robot_parts/robot_component/diagnosis_unit))
 		if(diagnostics)
 			to_chat(user, SPAN_WARNING("\The [src] already has a diagnostic system installed."))
 			return
-		if(install_component(thing, user)) diagnostics = thing
-	else if(istype(thing, /obj/item/cell))
+		if(install_component(attacking_item, user))
+			diagnostics = attacking_item
+	else if(istype(attacking_item, /obj/item/cell))
 		if(cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
 			return
-		if(install_component(thing,user)) cell = thing
-	else if(istype(thing, /obj/item/robot_parts/robot_component/armor/mech))
+		if(install_component(attacking_item,user))
+			cell = attacking_item
+	else if(istype(attacking_item, /obj/item/robot_parts/robot_component/armor/mech))
 		if(mech_armor)
-			to_chat(user, SPAN_WARNING("\The [src] already has mech_armor installed."))
+			to_chat(user, SPAN_WARNING("\The [src] already has mech armor installed."))
 			return
-		if(install_component(thing, user))
-			mech_armor = thing
+		if(install_component(attacking_item, user))
+			mech_armor = attacking_item
 	else
 		return ..()
 

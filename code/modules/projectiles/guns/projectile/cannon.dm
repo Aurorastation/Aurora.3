@@ -12,7 +12,7 @@
 	slot_flags = SLOT_BACK
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/cannon
-	fire_delay = 25
+	fire_delay = ROF_SPECIAL
 	fire_sound = 'sound/weapons/gunshot/cannon.ogg'
 	recoil = 4
 
@@ -42,7 +42,7 @@
 	slot_flags = SLOT_BACK
 	magazine_type = /obj/item/ammo_magazine/nuke
 	allowed_magazines = list(/obj/item/ammo_magazine/nuke)
-	fire_delay = 40
+	fire_delay = ROF_SPECIAL
 	fire_sound = 'sound/weapons/mortar.ogg'
 	recoil = 4
 
@@ -124,7 +124,7 @@
 	ammo_type = /obj/item/ammo_casing/peac
 	accuracy_wielded = 4
 
-	fire_delay = 20
+	fire_delay = ROF_UNWIELDY
 
 	recoil = 0
 

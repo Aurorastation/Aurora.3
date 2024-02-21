@@ -1,11 +1,15 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
-	desc = "A strange shotgun that doesn't seem to belong anywhere. You feel like you shouldn't be able to see this and should... submit an issue?"
+	desc = DESC_PARENT
+	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
+	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
+	into the shotgun, then pump the shotgun to chamber a fresh round."
+	accuracy = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
 
-/obj/item/gun/projectile/shotgun/attackby(obj/item/A, mob/user)
+/obj/item/gun/projectile/shotgun/attackby(obj/item/attacking_item, mob/user)
 	if (!can_sawoff || sawing_in_progress)
 		return ..()
 
@@ -14,7 +18,7 @@
 		/obj/item/melee/energy,
 		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))
-	if(is_type_in_typecache(A, barrel_cutting_tools) && w_class != 3)
+	if(is_type_in_typecache(attacking_item, barrel_cutting_tools) && w_class != 3)
 		to_chat(user, "<span class='notice'>You begin to [sawnoff_workmsg] of \the [src].</span>")
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
@@ -23,9 +27,9 @@
 			return
 
 		sawing_in_progress = TRUE
-		if(A.use_tool(src, user, 30, volume = 50))	//SHIT IS STEALTHY EYYYYY
+		if(attacking_item.use_tool(src, user, 30, volume = 50))	//SHIT IS STEALTHY EYYYYY
 			sawing_in_progress = FALSE
-			saw_off(user, A)
+			saw_off(user, attacking_item)
 		else
 			sawing_in_progress = FALSE
 	else
@@ -34,7 +38,7 @@
 // called on a SUCCESSFUL saw-off.
 /obj/item/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
 	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
-	log_debug("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
+	LOG_DEBUG("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
@@ -48,7 +52,7 @@
 	max_shells = 4
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
@@ -58,8 +62,10 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
-	var/rack_sound = /decl/sound_category/shotgun_pump
+	var/rack_sound = /singleton/sound_category/shotgun_pump
 	var/rack_verb = "pump"
+	///Whether the item icon has a cycling animation
+	var/cycle_anim = TRUE
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -76,11 +82,13 @@
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	if(!wielded)
-		if(!do_after(M, 20, TRUE)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
+		if(!do_after(M, 2 SECONDS)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
 			return
 
 	playsound(M, rack_sound, 60, FALSE)
 	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
+	if(cycle_anim)
+		flick("[icon_state]-cycling", src)
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src)) //Eject casing
@@ -105,9 +113,11 @@
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	accuracy = 2
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
+	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
 	name = "solarian combat shotgun"
@@ -117,11 +127,11 @@
 	item_state = "malella"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
-	desc_info = "Use in hand to unload, alt click to change firemodes."
 	icon = 'icons/obj/guns/dshotgun.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
@@ -132,7 +142,7 @@
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
 	var/has_wield_state = TRUE
 	slot_flags = SLOT_BACK
@@ -140,6 +150,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	fire_delay = ROF_INTERMEDIATE
 
 	burst_delay = 0
 	firemodes = list(
@@ -174,6 +185,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	w_class = ITEMSIZE_NORMAL
 	force = 5
@@ -189,6 +201,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -241,3 +254,25 @@
 		toggle_folded(user)
 		return FALSE
 	return ..()
+
+/obj/item/gun/projectile/shotgun/foldable/cameragun
+	name = "camera"
+	desc = "A polaroid camera"
+	icon = 'icons/obj/guns/cameragun.dmi'
+	icon_state = "cameragun"
+	item_state = "cameragun"
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	magazine_type = /obj/item/ammo_magazine/mc9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
+	fire_delay = ROF_PISTOL
+	load_method = MAGAZINE
+	max_shells = 12
+	caliber = "9mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
+
+/obj/item/gun/projectile/shotgun/foldable/cameragun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")

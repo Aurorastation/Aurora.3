@@ -29,7 +29,7 @@
 	desc = "Suit for a cyborg costume."
 	icon_state = "death"
 	item_state = "death"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fire_resist = T0C+5200
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
@@ -62,7 +62,7 @@
 	name = "red space suit replica"
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
-	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
+	desc = "A crimson red plastic replica of a space suit. This is a toy, it is not made for use in space!"
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
@@ -106,10 +106,10 @@
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/trinary_robes
-    name = "trinary perfection robe"
-    desc = "Robes worn by those who serve The Trinary Perfection."
-    icon_state = "trinary_robes"
-    item_state = "trinary_robes"
+	name = "trinary perfection robe"
+	desc = "Robes worn by those who serve The Trinary Perfection."
+	icon_state = "trinary_robes"
+	item_state = "trinary_robes"
 
 /*
  * Misc
@@ -191,6 +191,14 @@
 	desc = "A thick, black leather jacket with silver zippers and buttons, crafted to evoke the image of rebellious space-biker gangs."
 	icon_state = "biker"
 	item_state = "biker"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
+	name = "cropped leather jacket"
+	icon = 'icons/clothing/suits/coats/cropped_leather_jacket.dmi'
+	desc = "A thick leather jacket that doesn't actually cover the waist. Rebel against what's expected of your jacket!"
+	icon_state = "mid"
+	item_state = "mid"
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
 	name = "designer leather jacket"
@@ -340,8 +348,10 @@
 /obj/item/clothing/suit/storage/toggle/trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/trenchcoat.dmi'
 	icon_state = "trench"
 	item_state = "trench"
+	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
@@ -353,31 +363,36 @@
 
 /obj/item/clothing/suit/storage/toggle/trench/alt
 	name = "brown trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_brown"
 	item_state = "trenchcoat_brown"
 
 /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	name = "grey trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
 
 /obj/item/clothing/suit/storage/toggle/trench/green
 	name = "green trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_green"
 	item_state = "trenchcoat_green"
 
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trench_colorable"
 	item_state = "trench_colorable"
 
 /obj/item/clothing/suit/storage/toggle/trench/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(lower = 150)
+
+/obj/item/clothing/suit/storage/toggle/trench/colorable/alt
+	icon_state = "trench_colorable2"
+	item_state = "trench_colorable2"
+	has_accents = TRUE
 
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
@@ -514,42 +529,69 @@
 	desc = "A cozy jacket in engineering's colors, featuring spacious pockets you won't even use."
 	icon_state = "engi_dep_jacket"
 	item_state = "engi_dep_jacket"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
 	name = "operations department jacket"
 	desc = "A cozy jacket in operations' colors, perfect for folding up and forgetting bounty lists."
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
 	name = "science department jacket"
 	desc = "A cozy jacket in science's colors, offering the latest in a complete lack of protection against chemical spills."
 	icon_state = "sci_dep_jacket"
 	item_state = "sci_dep_jacket"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 	name = "medical department jacket"
 	desc = "A cozy jacket in medical's colors, guaranteed not to leak the latest gossip."
 	icon_state = "med_dep_jacket"
 	item_state = "med_dep_jacket"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 	name = "security department jacket"
 	desc = "A cozy jacket in security's colors, luckily able to be easily cleaned of blood stains"
 	icon_state = "sec_dep_jacket"
 	item_state = "sec_dep_jacket"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	name = "service department jacket"
 	desc = "A cozy jacket in service's colors, reminding many employees that even service has colors."
 	icon_state = "serv_dep_jacket"
 	item_state = "serv_dep_jacket"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/fib
-	name = "\improper FIB agent jacket"
-	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
-	icon_state = "fib_jacket"
-	item_state = "fib_jacket"
+/obj/item/clothing/suit/storage/toggle/bssb
+	name = "\improper BSSB agent jacket"
+	desc = "A jacket used by Biesel Security Services Bureau agents while on the field."
+	icon_state = "bssb_jacket"
+	item_state = "bssb_jacket"
+	icon = 'icons/clothing/suits/coats/bssb_jacket.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/bssb/armor
+	name = "\improper BSSB agent armored jacket"
+	desc = "A jacket used by Biesel Security Services Bureau agents while on the field. This one has armored lining."
+	icon_state = "bssb_jacket_armored"
+	item_state = "bssb_jacket_armored"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 
 // Cardigans.
 

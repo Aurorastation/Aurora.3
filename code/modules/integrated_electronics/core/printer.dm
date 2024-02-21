@@ -16,9 +16,9 @@
 	upgraded = TRUE
 	can_clone = TRUE
 
-/obj/item/device/integrated_circuit_printer/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O,/obj/item/stack/material))
-		var/obj/item/stack/material/stack = O
+/obj/item/device/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/stack/material))
+		var/obj/item/stack/material/stack = attacking_item
 		if(stack.material.name == DEFAULT_WALL_MATERIAL)
 			var/num = min((max_metal - metal) / metal_per_sheet, stack.amount)
 			if(num < 1)
@@ -27,77 +27,75 @@
 			if(stack.use(num))
 				to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
 				metal += num * metal_per_sheet
-				SSvueui.check_uis_for_change(src)
 				return TRUE
 
-	if(istype(O,/obj/item/integrated_circuit))
+	if(istype(attacking_item,/obj/item/integrated_circuit))
 		to_chat(user, "<span class='notice'>You insert the circuit into \the [src]. </span>")
-		user.unEquip(O)
-		metal = min(metal + O.w_class, max_metal)
-		qdel(O)
-		SSvueui.check_uis_for_change(src)
+		user.unEquip(attacking_item)
+		metal = min(metal + attacking_item.w_class, max_metal)
+		qdel(attacking_item)
 		return TRUE
 
-	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/advanced))
+	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
 		upgraded = TRUE
-		SSvueui.check_uis_for_change(src)
 		return TRUE
 
-	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/clone))
+	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/clone))
 		if(can_clone)
 			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
 		can_clone = TRUE
-		SSvueui.check_uis_for_change(src)
 		return TRUE
 
 	return ..()
 
 /obj/item/device/integrated_circuit_printer/attack_self(var/mob/user)
-	interact(user)
+	ui_interact(user)
 
-/obj/item/device/integrated_circuit_printer/interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "devices-circuit-printer", 600, 500, "Integrated Circuit Printer")
-	ui.open()
+/obj/item/device/integrated_circuit_printer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CircuitPrinter", "Integrated Circuit Printer", 600, 500)
+		ui.open()
 
-/obj/item/device/integrated_circuit_printer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
+/obj/item/device/integrated_circuit_printer/ui_data(mob/user)
+	var/list/data = list()
 
 	data["metal"] = metal / metal_per_sheet
 	data["metal_max"] = max_metal / metal_per_sheet
 	data["upgraded"] = upgraded
 	data["can_clone"] = can_clone
-	data["assembly_to_clone"] = assembly_to_clone ? assembly_to_clone.name : FALSE
-	
+	data["assembly_to_clone"] = assembly_to_clone ? assembly_to_clone.name : "None"
+
 	if(upgraded)
 		data["circuits"] = SSelectronics.printer_recipe_list_upgraded
 	else
 		data["circuits"] = SSelectronics.printer_recipe_list_basic
 
+	data["categories"] = SSelectronics.found_categories
+
 	return data
 
-/obj/item/device/integrated_circuit_printer/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/item/device/integrated_circuit_printer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
 	add_fingerprint(usr)
 
-	if(href_list["build"])
-		var/build_type = text2path(href_list["build"])
+	if(action == "build")
+		var/build_type = text2path(params["build"])
 		if(!build_type || !ispath(build_type))
-			return 1
+			return FALSE
 
 		if (!can_print(build_type))
-			to_chat(usr, "<span class='danger'>[src] buzzes angrily at you!</span>")
-			return 1
+			to_chat(usr, SPAN_WARNING("[src] buzzes angrily at you!"))
+			return FALSE
 
 		var/cost = 1
 		var/is_asm = FALSE
@@ -110,15 +108,14 @@
 			cost = initial(IC.w_class)
 
 		if(metal - cost < 0)
-			to_chat(usr, "<span class='warning'>You need [cost] metal to build that!.</span>")
-			return 1
+			to_chat(usr, SPAN_WARNING("You need [cost] metal to build that!"))
+			return FALSE
 		metal -= cost
 		if (is_asm)
 			new build_type(get_turf(loc), TRUE)
 		else
 			new build_type(get_turf(loc))
-
-	SSvueui.check_uis_for_change(src)
+		. = TRUE
 
 /obj/item/device/integrated_circuit_printer/proc/can_print(build_type)
 	for(var/category in SSelectronics.printer_recipe_list)

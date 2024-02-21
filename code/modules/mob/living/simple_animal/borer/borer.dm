@@ -55,8 +55,8 @@
 
 	add_language(LANGUAGE_BORER)
 	add_language(LANGUAGE_BORER_HIVEMIND)
-	verbs += /mob/living/proc/ventcrawl
-	verbs += /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/proc/hide)
 	var/number = rand(1000,9999)
 	truename = "[pick("Primary","Secondary","Tertiary","Quaternary")]-[number]"
 	if(request_player && !ckey && !client)
@@ -100,17 +100,9 @@
 	if(chem_hud)
 		chem_hud.maptext = SMALL_FONTS(7, chemicals)
 
-/mob/living/simple_animal/borer/Stat()
-	..()
-	statpanel("Status")
-
-	if(evacuation_controller)
-		var/eta_status = evacuation_controller.get_status_panel_eta()
-		if(eta_status)
-			stat(null, eta_status)
-
-	if(client.statpanel == "Status")
-		stat("Chemicals", chemicals)
+/mob/living/simple_animal/borer/get_status_tab_items()
+	. = ..()
+	. += "Chemicals: [chemicals]"
 
 /mob/living/simple_animal/borer/proc/detach()
 	if(!host || !controlling)
@@ -129,9 +121,9 @@
 	host.remove_language(LANGUAGE_BORER)
 	host.remove_language(LANGUAGE_BORER_HIVEMIND)
 
-	host.verbs -= /mob/living/carbon/proc/release_control
-	host.verbs -= /mob/living/carbon/proc/punish_host
-	host.verbs -= /mob/living/carbon/proc/spawn_larvae
+	remove_verb(host, /mob/living/carbon/proc/release_control)
+	remove_verb(host, /mob/living/carbon/proc/punish_host)
+	remove_verb(host, /mob/living/carbon/proc/spawn_larvae)
 
 	if(host_brain)
 		to_chat(host_brain, FONT_LARGE(SPAN_NOTICE("You feel your nerves again as your control over your own body is restored.")))

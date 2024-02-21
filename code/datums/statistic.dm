@@ -123,7 +123,7 @@
 	return FALSE
 
 /datum/statistic/grouped/most_deaths/get_roundend_lines()
-	sortTim(values, /proc/cmp_numeric_dsc, TRUE)
+	sortTim(values, GLOBAL_PROC_REF(cmp_numeric_dsc), TRUE)
 	var/ckey = values[1]
 	. = "[ckey], with [values[ckey]] deaths."
 
@@ -132,13 +132,13 @@
 	if (!H.ckey)
 		return
 
-	SSfeedback.IncrementGroupedStat("ckey_deaths", H.ckey)
+	SSstatistics.IncrementGroupedStat("ckey_deaths", H.ckey)
 	if (gibbed)
-		SSfeedback.IncrementSimpleStat("gibs")
+		SSstatistics.IncrementSimpleStat("gibs")
 
 /hook/clone/proc/increment_statistics(mob/living/carbon/human/H)
 	. = TRUE
 	if (!H.ckey)
 		return
 
-	SSfeedback.IncrementSimpleStat("clones")
+	SSstatistics.IncrementSimpleStat("clones")

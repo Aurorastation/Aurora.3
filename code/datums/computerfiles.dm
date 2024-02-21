@@ -1,7 +1,7 @@
-datum
-	computer
-		var/name
-		folder
-			var/list/datum/computer/contents = list()
+/datum/computer
+	var/name
 
-		file
+/datum/computer/folder
+	var/list/datum/computer/contents = list()
+
+/datum/computer/folder/file

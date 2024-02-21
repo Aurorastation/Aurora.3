@@ -20,12 +20,12 @@
 	if(!owned_scanner)
 		owned_scanner = locate(/obj/machinery/artifact_scanpad) in orange(1, src)
 
-/obj/machinery/artifact_harvester/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I,/obj/item/anobattery))
+/obj/machinery/artifact_harvester/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/anobattery))
 		if(!inserted_battery)
-			to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
-			user.drop_from_inventory(I,src)
-			src.inserted_battery = I
+			to_chat(user, "<span class='notice'>You insert [attacking_item] into [src].</span>")
+			user.drop_from_inventory(attacking_item, src)
+			src.inserted_battery = attacking_item
 			updateDialog()
 		else
 			to_chat(user, "<span class='warning'>There is already a battery in [src].</span>")
@@ -87,7 +87,7 @@
 			cur_artifact.being_used = 0
 			cur_artifact = null
 			src.visible_message("<b>[name]</b> states, \"Battery is full.\"")
-			icon_state = "incubator"
+			icon_state = "harvester"
 
 	else if(harvesting < 0)
 		//dump some charge
@@ -112,7 +112,7 @@
 			if(inserted_battery.battery_effect && inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate()
 			src.visible_message("<b>[name]</b> states, \"Battery dump completed.\"")
-			icon_state = "incubator"
+			icon_state = "harvester"
 
 /obj/machinery/artifact_harvester/Topic(href, href_list)
 
@@ -195,7 +195,7 @@
 							update_use_power(POWER_USE_ACTIVE)
 							cur_artifact.anchored = 1
 							cur_artifact.being_used = 1
-							icon_state = "incubator_on"
+							icon_state = "harvester_on"
 							var/message = "<b>[src]</b> states, \"Beginning energy harvesting.\""
 							src.visible_message(message)
 							last_process = world.time
@@ -222,7 +222,7 @@
 			cur_artifact.being_used = 0
 			cur_artifact = null
 			src.visible_message("<b>[name]</b> states, \"Energy harvesting interrupted.\"")
-			icon_state = "incubator"
+			icon_state = "harvester"
 
 	if (href_list["ejectbattery"])
 		src.inserted_battery.forceMove(src.loc)
@@ -237,7 +237,7 @@
 					last_process = world.time
 					harvesting = -1
 					update_use_power(POWER_USE_ACTIVE)
-					icon_state = "incubator_on"
+					icon_state = "harvester_on"
 					var/message = "<b>[src]</b> states, \"Warning, battery charge dump commencing.\""
 					src.visible_message(message)
 			else

@@ -32,9 +32,9 @@
 			if(prob(current_size*5) && hand.w_class >= ((11-current_size)/2) && u_equip(hand))
 				step_towards(hand, src)
 				to_chat(src, "<span class = 'warning'>The [S] pulls \the [hand] from your grip!</span>")
-	apply_damage(current_size * 3, IRRADIATE, damage_flags = DAM_DISPERSED)
+	apply_damage(current_size * 3, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	if(shoes)
-		if(shoes.item_flags & NOSLIP) return 0
+		if(shoes.item_flags & ITEM_FLAG_NO_SLIP) return 0
 	..()
 
 /obj/singularity_act()
@@ -147,3 +147,5 @@
 *******************/
 /atom/proc/singuloCanEat()
 	return 1
+
+#undef I_SINGULO

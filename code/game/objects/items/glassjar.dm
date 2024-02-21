@@ -15,12 +15,12 @@
 	name = "glass jar"
 	desc = "A glass jar. Does not contain brain submerged in formaldehyde."
 	desc_info = "Can be used to hold money, small animals, and gumballs. You can remove the lid and use it as a reagent container."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "jar_lid"
 	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/contains = JAR_NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling, 4 = gumballs, 5 = holder
 	var/list/contained = list()
 	drop_sound = 'sound/items/drop/glass.ogg'
@@ -110,9 +110,9 @@
 				usr.put_in_hands(contained[1])
 				contained -= contained[1]
 
-/obj/item/glass_jar/attackby(var/atom/A, var/mob/user, var/proximity)
-	if(istype(A, /obj/item/spacecash))
-		var/obj/item/spacecash/S = A
+/obj/item/glass_jar/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/spacecash))
+		var/obj/item/spacecash/S = attacking_item
 		if(contains == JAR_NOTHING)
 			contains = JAR_MONEY
 		if(contains != JAR_MONEY)
@@ -120,8 +120,8 @@
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S.worth] credit\s into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
-	if(istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
-		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = A
+	if(istype(attacking_item, /obj/item/clothing/mask/chewable/candy/gum/gumball))
+		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = attacking_item
 		if(length(contained) < GUMBALL_MAX)
 			contained += G
 			user.drop_from_inventory(G)
@@ -133,8 +133,8 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [name] is full!"))
 		return TRUE
-	if(istype(A, /obj/item/holder))
-		var/obj/item/holder/H = A
+	if(istype(attacking_item, /obj/item/holder))
+		var/obj/item/holder/H = attacking_item
 		if(H.w_class <= ITEMSIZE_SMALL)
 			contains = JAR_HOLDER
 			user.drop_from_inventory(H)

@@ -54,7 +54,7 @@
 	log.parameters["name"] = signal.data["name"]
 	log.parameters["job"] = signal.data["job"]
 	log.parameters["message"] = signal.data["message"]
-	log.parameters["language"] = signal.language || all_languages[LANGUAGE_TCB]
+	log.parameters["language"] = signal.language || GLOB.all_languages[LANGUAGE_TCB]
 
 	var/race = "Unidentifiable"
 	if(ishuman(speaker) || isbrain(speaker))
@@ -86,12 +86,12 @@
 	log_entries.Add(log)
 
 	if(istype(Program))
-		Program.process_message(signal, CALLBACK(src, .proc/program_receive_information, signal))
+		Program.process_message(signal, CALLBACK(src, PROC_REF(program_receive_information), signal))
 
 	finish_receive_information(signal)
 
 /obj/machinery/telecomms/server/proc/program_receive_information(datum/signal/signal)
-	Program.retrieve_messages(CALLBACK(src, .proc/finish_receive_information, signal))
+	Program.retrieve_messages(CALLBACK(src, PROC_REF(finish_receive_information), signal))
 
 /obj/machinery/telecomms/server/proc/finish_receive_information(datum/signal/signal)
 	var/can_send = relay_information(signal, /obj/machinery/telecomms/hub)

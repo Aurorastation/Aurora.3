@@ -1,0 +1,75 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to fill out this bug report!
+
+- type: checkboxes
+  id: checks
+  attributes:
+    label: Checks
+    description: Verify that all of the following is true.
+    options:
+      - label: I have searched the bug with a few keywords, and I confirm this bug was not yet reported.
+        required: true
+
+- type: dropdown
+  id: location
+  attributes:
+    label: Location
+    multiple: true
+    description: Where did the bug happen?
+    options:
+      - Horizon
+      - Intrepid
+      - Spark
+      - Away Site
+      - Third party ship
+      - Overmap
+      - Event / Other
+  validations:
+    required: true
+
+- type: textarea
+  id: what-happened
+  attributes:
+    label: Describe the issue
+    description: Please detail, as objectively and specifically as possible, what happened that you considered to be a bug.
+    placeholder: Remember to be specific.
+  validations:
+    required: true
+
+- type: textarea
+  id: howtoreproduce
+  attributes:
+    label: How to reproduce
+    description: Describe how to reproduce the issue or, if unable to reproduce it, what steps you did that you believe might have caused the bug.
+    placeholder: |
+      Tell us the steps required to trigger your bug. Example:
+      1. Open the PDA
+      2. Click the "Crew Manifest" program
+      3. Byond crashes
+  validations:
+    required: false
+
+- type: input
+  id: rounddetails
+  attributes:
+    label: Round ID
+    description: If you have the round ID where the bug occurred, please supply it here.
+    placeholder: Round ID
+  validations:
+    required: false
+
+- type: input
+  id: staffdetails
+  attributes:
+    label: Staff ckey
+    description: If you talked with a staff member to have the bug resolved in-round please add their ckey here.
+    placeholder: Staff ckey
+  validations:
+    required: false

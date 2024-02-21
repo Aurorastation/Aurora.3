@@ -5,7 +5,7 @@
 /datum/rune/armor/do_rune_action(mob/living/user, atom/movable/A)
 	user.say("N'ath reth sh'yro eth d'raggathnor!")
 	user.visible_message(SPAN_DANGER("A flash of red light appears around [user], as a set of armor envelops their body!"),
-						 SPAN_CULT("A refreshing feeling envelops you; the armor of the Dark One is once again protecting you."))
+							SPAN_CULT("A refreshing feeling envelops you; the armor of the Dark One is once again protecting you."))
 
 	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user
@@ -16,10 +16,10 @@
 			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Artificer")
 
 		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armored,
-											   "Wraith"     = /mob/living/simple_animal/construct/wraith,
-											   "Artificer"  = /mob/living/simple_animal/construct/builder,
-											   "Harvester"  = /mob/living/simple_animal/construct/harvester)
-		
+												"Wraith"     = /mob/living/simple_animal/construct/wraith,
+												"Artificer"  = /mob/living/simple_animal/construct/builder,
+												"Harvester"  = /mob/living/simple_animal/construct/harvester)
+
 		var/construct_path = construct_types[construct_class]
 		var/mob/living/simple_animal/construct/Z = new construct_path(get_turf(C))
 		Z.health = Z.health * (C.health / C.maxHealth)
@@ -29,7 +29,7 @@
 		C.death()
 		construct_msg(Z, construct_class)
 		Z.cancel_camera()
-	
+
 	else if(ishuman(user))
 		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)
 		user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit)

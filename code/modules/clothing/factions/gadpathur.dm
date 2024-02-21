@@ -149,30 +149,24 @@
 	They can be easily ripped in half in the event of the wearer's death."
 	icon_state = "gadpathur_dogtags"
 	item_state = "gadpathur_dogtags"
-	var/separated = FALSE
+	can_be_broken = TRUE
+	tag_type = /obj/item/dogtag/gadpathur_tag
 
-/obj/item/clothing/accessory/dogtags/gadpathur/attack_self(mob/user)
-	if(!separated)
-		if (user.a_intent == I_HURT)
-			user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
-			separated = TRUE
-			var/obj/item/gadpathur_tag/tag = new(get_turf(user))
-			user.put_in_hands(tag)
-			separated = TRUE
-			update_icon()
-
-/obj/item/clothing/accessory/dogtags/gadpathur/update_icon()
-	if(separated)
-		icon_state = "[icon_state]_single"
-		item_state = "[item_state]_single"
-	else
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
-
-/obj/item/gadpathur_tag
+/obj/item/dogtag/gadpathur_tag
 	name = "gadpathurian dogtag"
 	desc = "Gadpathurian dogtags are issued to every non-exiled member of the planet's highly-militarized society and list their wearer's name, cadre, cadre ID, religion, and blood type. \
 	They can be easily ripped in half in the event of the wearer's death."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "gadpathur_tag"
 	w_class = ITEMSIZE_SMALL
+
+/obj/item/clothing/mask/breath/gadpathur
+	name = "gadpathurian rebreather"
+	desc = "A sturdy-looking rebreather with a canvas scarf wrapped around it. Boring, but sturdy-looking."
+	desc_extended = "A common sight on Gadpathur, the Type 2308 (its year of creation) rebreather is typically worn with an oxygen tank or filtration\
+	module to combat more minor contaminants found on Gadpathur. Not intended for use in seriously contaminated zones."
+	icon = 'icons/clothing/masks/gadpathur_breath.dmi'
+	icon_state = "gadpathur_breath"
+	item_state = "gadpathur_breath"
+	adjustable = FALSE
+	contained_sprite = TRUE

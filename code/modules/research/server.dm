@@ -13,7 +13,7 @@
 	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
-	req_access = list(access_rd) //Only the R&D can change server settings.
+	req_access = list(ACCESS_RD) //Only the R&D can change server settings.
 
 	var/list/linked_processors
 
@@ -59,6 +59,7 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	switch(environment.temperature)
 		if(0 to T0C)
@@ -95,8 +96,9 @@
 			TP.processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
+	. = ..()
+
 	griefProtection()
-	..()
 
 /obj/machinery/r_n_d/server/ex_act(severity)
 	griefProtection()
@@ -133,20 +135,20 @@
 
 			env.merge(removed)
 
-/obj/machinery/r_n_d/server/attackby(obj/item/O, mob/user)
-	if(O.ismultitool())
-		var/obj/item/device/multitool/MT = O
+/obj/machinery/r_n_d/server/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
+		var/obj/item/device/multitool/MT = attacking_item
 		var/obj/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/machinery/r_n_d/tech_processor)
 		if(TP)
 			TP.set_server(src)
 			MT.unregister_buffer(TP)
 		to_chat(user, SPAN_NOTICE("You link \the [TP] to \the [src]."))
 		return
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return
 
 /obj/machinery/r_n_d/server/centcom
@@ -224,12 +226,12 @@
 	if(href_list["main"])
 		screen = 0
 
-	else if(href_list["access"] || href_list["data"] || href_list["transfer"])
+	else if(href_list["access"] || href_list["data"] || href_list[TRANSFER_CREW])
 		temp_server = null
 		consoles = list()
 		servers = list()
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
-			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list["transfer"]))
+			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list[TRANSFER_CREW]))
 				temp_server = S
 				break
 		if(href_list["access"])
@@ -239,7 +241,7 @@
 					consoles += C
 		else if(href_list["data"])
 			screen = 2
-		else if(href_list["transfer"])
+		else if(href_list[TRANSFER_CREW])
 			screen = 3
 			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 				if(S == src)

@@ -42,7 +42,7 @@
 		pickup_sound = material.pickup_sound
 
 	if(material.conductive)
-		flags |= CONDUCT
+		obj_flags |= OBJ_FLAG_CONDUCTABLE
 
 	matter = material.get_matter()
 
@@ -90,12 +90,12 @@
 	if(!material.build_windows(user, src))
 		..()
 
-/obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(iscoil(W))
-		material.build_wired_product(user, W, src)
+/obj/item/stack/material/attackby(obj/item/attacking_item, mob/user)
+	if(iscoil(attacking_item))
+		material.build_wired_product(user, attacking_item, src)
 		return
-	else if(istype(W, /obj/item/stack/rods))
-		material.build_rod_product(user, W, src)
+	else if(istype(attacking_item, /obj/item/stack/rods))
+		material.build_rod_product(user, attacking_item, src)
 		return
 	return ..()
 
@@ -135,6 +135,7 @@
 	name = "diamond"
 	icon_state = "sheet-diamond"
 	default_type = MATERIAL_DIAMOND
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/diamond/full/Initialize()
 	. = ..()
@@ -145,6 +146,7 @@
 	name = "uranium"
 	icon_state = "sheet-uranium"
 	default_type = MATERIAL_URANIUM
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/uranium/full/Initialize()
 	. = ..()
@@ -221,7 +223,7 @@
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
 	name = "metallic hydrogen"
-	icon_state = "sheet-mythril"
+	icon_state = "sheet-metalhydrogen"
 	default_type = MATERIAL_HYDROGEN_METALLIC
 
 /obj/item/stack/material/mhydrogen/full/Initialize()
@@ -235,6 +237,11 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_TRITIUM
 	apply_colour = TRUE
+
+/obj/item/stack/material/tritium/ten/Initialize()
+	. = ..()
+	amount = 10
+	update_icon()
 
 /obj/item/stack/material/tritium/full/Initialize()
 	. = ..()
@@ -258,9 +265,9 @@
 	default_type = DEFAULT_WALL_MATERIAL
 	icon_has_variants = TRUE
 
-/obj/item/stack/material/steel/attackby(obj/item/W, mob/user)
+/obj/item/stack/material/steel/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(is_sharp(W))
+	if(is_sharp(attacking_item))
 		if(amount < 5)
 			to_chat(user, SPAN_WARNING("You need at least five sheets of steel to do this!"))
 			return
@@ -285,6 +292,10 @@
 	default_type = MATERIAL_PLASTEEL
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/plasteel/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()
 	amount = max_amount
@@ -306,6 +317,7 @@
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/wood/full/Initialize()
 	. = ..()
@@ -340,7 +352,7 @@
 	update_icon()
 
 /obj/item/stack/material/wood/coloured/bamboo
-	color = WOOD_COLOR_PALE2
+	icon_state = "sheet-bamboo"
 
 /obj/item/stack/material/wood/coloured/bamboo/Initialize()
 	. = ..()
@@ -371,22 +383,44 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/woodlog
+/obj/item/stack/material/wood/log
 	name = "log"
-	icon_state = "sheet-wood"
+	icon_state = "sheet-log"
 	default_type = MATERIAL_WOOD_LOG
+	max_amount = 25
+	icon_has_variants = TRUE
+	var/chopping
 
-/obj/item/stack/material/woodlog/full/Initialize()
+/obj/item/stack/material/wood/log/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/woodbranch
-	name = "branch"
-	icon_state = "sheet-wood"
-	default_type = MATERIAL_WOOD_BRANCH
+/obj/item/stack/material/wood/log/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.can_woodcut() && isturf(loc) && !chopping)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		chopping = TRUE
+		visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into planks."),
+				SPAN_NOTICE("You begin chopping \the [src] into planks."))
+		playsound(get_turf(src), 'sound/effects/woodcutting.ogg', 50, 1)
+		if(do_after(user, 70))
+			if(amount && Adjacent(user))
+				use(1)
+				var/obj/item/stack/material/wood/W = new(get_turf(user))
+				W.amount = rand(2,3)
+		chopping = FALSE
+		return
+	else
+		..()
 
-/obj/item/stack/material/woodbranch/full/Initialize()
+/obj/item/stack/material/wood/branch
+	name = "branch"
+	icon_state = "sheet-branch"
+	default_type = MATERIAL_WOOD_BRANCH
+	max_amount = 25
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/wood/branch/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
@@ -404,10 +438,11 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
-	if(is_sharp(I))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
-		if(I.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
+/obj/item/stack/material/cloth/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item))
+		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [attacking_item].</span>",
+							"<span class='notice'>You begin cutting up [src] with [attacking_item].</span>")
+		if(attacking_item.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
 			for(var/i in 1 to rand(1,3)) // average of 2 per
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))
@@ -419,6 +454,7 @@
 	name = "cardboard"
 	icon_state = "sheet-card"
 	default_type = MATERIAL_CARDBOARD
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/cardboard/full/Initialize()
 	. = ..()
@@ -455,7 +491,7 @@
 
 /obj/item/stack/material/glass/wired
 	name = "wired glass"
-	icon = 'icons/obj/stacks/tiles.dmi'
+	icon = 'icons/obj/item/stacks/tiles.dmi'
 	icon_state = "glass_wire"
 	default_type = MATERIAL_GLASS_WIRED
 
@@ -479,7 +515,7 @@
 	name = "borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
-	icon_state = "sheet-phoronglass"
+	icon_state = "sheet-pglass"
 	item_state = "sheet-pglass"
 	default_type = MATERIAL_GLASS_PHORON
 
@@ -492,7 +528,7 @@
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
-	icon_state = "sheet-phoronrglass"
+	icon_state = "sheet-prglass"
 	item_state = "sheet-prglass"
 	default_type = MATERIAL_GLASS_REINFORCED_PHORON
 
@@ -530,6 +566,30 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/graphite/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+// Fusion fuel.
+/obj/item/stack/material/deuterium
+	name = "deuterium"
+	icon_state = "puck"
+	default_type = MATERIAL_DEUTERIUM
+
+/obj/item/stack/material/deuterium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/supermatter
+	name = "stable supermatter cluster"
+	icon_state = "sheet-supermatter"
+	max_amount = 5
+	default_type = MATERIAL_SUPERMATTER
+	color = COLOR_YELLOW
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/supermatter/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

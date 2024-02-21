@@ -21,8 +21,8 @@
 
 	selection_color = "#c9ad12"
 
-	access = list(access_merchant)
-	minimal_access = list(access_merchant)
+	access = list(ACCESS_MERCHANT)
+	minimal_access = list(ACCESS_MERCHANT)
 
 	latejoin_at_spawnpoints = TRUE
 
@@ -34,7 +34,7 @@
 
 /datum/job/merchant/New()
 	..()
-	if(prob(config.merchant_chance))
+	if(prob(GLOB.config.merchant_chance))
 		spawn_positions = 1
 		total_positions = 1
 
@@ -67,7 +67,7 @@
 		/obj/item/clothing/shoes/laceup/brown,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/shoes/workboots,
-		/obj/item/clothing/shoes/black,
+		/obj/item/clothing/shoes/sneakers/black,
 		/obj/item/clothing/shoes/cowboy
 		)
 	head = list(
@@ -94,4 +94,4 @@
 	return "Merchant's Assistant"
 
 /datum/outfit/merchant_assistant/get_id_access()
-	return list(access_merchant)
+	return list(ACCESS_MERCHANT)

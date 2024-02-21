@@ -1,0 +1,174 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+"c" = (
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+"m" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+"x" = (
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+"C" = (
+/obj/effect/decal/remains/robot,
+/obj/effect/gibspawner/robot,
+/obj/item/clothing/head/helmet/space/void/mining{
+	pixel_x = 10;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+"F" = (
+/obj/item/organ/internal/ipc_tag,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+"O" = (
+/obj/item/ore/diamond,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+"X" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
+
+(1,1,1) = {"
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+"}
+(2,1,1) = {"
+x
+x
+m
+x
+x
+X
+x
+x
+x
+x
+"}
+(3,1,1) = {"
+x
+X
+x
+x
+x
+x
+O
+x
+x
+x
+"}
+(4,1,1) = {"
+x
+x
+c
+x
+x
+x
+x
+x
+x
+x
+"}
+(5,1,1) = {"
+x
+x
+x
+x
+C
+b
+x
+x
+x
+x
+"}
+(6,1,1) = {"
+x
+x
+O
+x
+x
+F
+x
+x
+x
+x
+"}
+(7,1,1) = {"
+x
+x
+x
+x
+x
+x
+x
+x
+m
+x
+"}
+(8,1,1) = {"
+x
+X
+x
+x
+x
+x
+c
+x
+x
+x
+"}
+(9,1,1) = {"
+x
+x
+x
+m
+x
+x
+x
+x
+X
+x
+"}
+(10,1,1) = {"
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+"}

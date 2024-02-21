@@ -3,14 +3,14 @@
 	name = "breath mask"
 	icon_state = "breath"
 	item_state = "breath"
-	item_flags = AIRTIGHT|FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_FLEXIBLE_MATERIAL
 	body_parts_covered = FACE
 	w_class = ITEMSIZE_SMALL
 	gas_transfer_coefficient = 0.10
 	permeability_coefficient = 0.50
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
-	down_item_flags = FLEXIBLEMATERIAL
+	down_item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	adjustable = TRUE
 
 /obj/item/clothing/mask/breath/medical
@@ -23,14 +23,16 @@
 /obj/item/clothing/mask/breath/offworlder
 	name = "overmask"
 	desc = "A large breath mask with cushioning."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "breathcover"
-	item_state = "cloth"
+	item_state = "breathcover"
 
 /obj/item/clothing/mask/breath/offworlder/jagmask
 	name = "jagmask"
 	desc = "A two-piece, jagged filtering mask meant to conform to one's face comfortably."
 	icon_state = "jagmask"
-	item_state = "muzzle"
+	item_state = "jagmask"
 
 /obj/item/clothing/mask/breath/skrell
 	name = "skrellian gill cover"

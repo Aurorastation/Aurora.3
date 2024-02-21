@@ -1,6 +1,11 @@
 /material
 	var/value = 1
 
+/material/Destroy(force)
+	stack_trace("Someone tried to delete a /material.")
+	. = ..()
+	return QDEL_HINT_LETMELIVE //Materials cannot be deleted, as you cannot poof the concept out of existence
+
 /material/uranium
 	value = 100
 
@@ -75,9 +80,6 @@
 
 /material/hide
 	value = 5
-
-/material/hide/xeno
-	value = 35
 
 /material/hide/human
 	value = 35

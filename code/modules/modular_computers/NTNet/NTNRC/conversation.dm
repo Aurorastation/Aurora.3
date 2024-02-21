@@ -13,8 +13,8 @@ var/global/ntnrc_uid = 0
 	ntnrc_uid++
 	if(name)
 		title = name
-	if(ntnet_global)
-		ntnet_global.chat_channels.Add(src)
+	if(GLOB.ntnet_global)
+		GLOB.ntnet_global.chat_channels.Add(src)
 	if(no_operator)
 		operator = "NanoTrasen Information Technology Division" // assign a fake operator
 	..()
@@ -22,7 +22,7 @@ var/global/ntnrc_uid = 0
 /datum/ntnet_conversation/proc/process_message(var/datum/ntnet_message/message, var/update_ui = TRUE)
 	var/admin_log = message.format_admin_log()
 	if (admin_log)
-		log_ntirc("[message.user.client.ckey] ([message.user.client.mob.real_name])|([message.nuser.username]) -> ([title]): [admin_log]", ckey=key_name(message.user), conversation=title)
+		log_ntirc("[message.user.client.ckey] ([message.user.client.mob.real_name])|([message.nuser.username]) -> ([title]): [GLOB.admin_log]", ckey=key_name(message.user), conversation=title)
 
 	for(var/datum/ntnet_user/U in users)
 		for(var/datum/computer_file/program/chat_client/Cl in U.clients)
@@ -35,17 +35,17 @@ var/global/ntnrc_uid = 0
 
 	var/ntnet_log = message.format_ntnet_log(src)
 	if(ntnet_log)
-		ntnet_global.add_log(ntnet_log, message.client.computer.network_card, TRUE)
+		GLOB.ntnet_global.add_log(ntnet_log, message.client.computer.network_card, TRUE)
 
 	var/chat_log = message.format_chat_log(src)
 	if(chat_log)
 		messages.Add(chat_log)
 		trim_message_list()
-	
+
 	if(update_ui)
 		for(var/datum/ntnet_user/U in users)
 			for(var/datum/computer_file/program/chat_client/Cl in U.clients)
-				SSvueui.check_uis_for_change(Cl)
+				SStgui.update_uis(Cl)
 
 /datum/ntnet_conversation/proc/trim_message_list()
 	if(messages.len <= 50)
@@ -111,6 +111,8 @@ var/global/ntnrc_uid = 0
 
 /datum/ntnet_conversation/proc/cl_join(var/datum/computer_file/program/chat_client/Cl)
 	if(!istype(Cl) || !can_see(Cl) || direct)
+		return
+	if(Cl.my_user in users)
 		return
 	var/datum/ntnet_message/join/msg = new(Cl)
 	Cl.my_user.channels.Add(src)

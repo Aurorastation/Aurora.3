@@ -16,6 +16,8 @@
 	buckle_movable = 1
 	buckle_lying = 0
 
+	var/buckling_sound = 'sound/effects/metal_close.ogg'
+
 	var/attack_log = null
 	var/on = 0
 	var/health = 0	//do not forget to set health for your vehicle!
@@ -38,6 +40,8 @@
 	var/load_offset_y = 0		//pixel_y offset for item overlay
 	var/mob_offset_y = 0		//pixel_y offset for mob overlay
 	var/flying = FALSE
+	var/organic = FALSE
+	var/corpse = null
 
 //-------------------------------------------
 // Standard procs
@@ -52,7 +56,7 @@
 /obj/vehicle/Move()
 	if(world.time > l_move_time + move_delay)
 		var/old_loc = get_turf(src)
-		if(on && powered && cell.charge < charge_use)
+		if(on && powered && cell.charge < charge_use  && !organic)
 			turn_off()
 
 		var/init_anc = anchored
@@ -64,7 +68,7 @@
 		set_dir(get_dir(old_loc, loc))
 		anchored = init_anc
 
-		if(on && powered)
+		if(on && powered && !organic)
 			cell.use(charge_use)
 
 		//Dummy loads do not have to be moved as they are just an overlay
@@ -80,21 +84,21 @@
 /obj/vehicle/proc/create_vehicle_overlay()
 	return
 
-/obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/hand_labeler))
+/obj/vehicle/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/hand_labeler))
 		return
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver() && !organic)
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
-	else if(W.iscrowbar() && cell && open)
+	else if(attacking_item.iscrowbar() && cell && open && !organic)
 		remove_cell(user)
 
-	else if(istype(W, /obj/item/cell) && !cell && open)
-		insert_cell(W, user)
-	else if(W.iswelder())
-		var/obj/item/weldingtool/T = W
+	else if(istype(attacking_item, /obj/item/cell) && !cell && open && !organic)
+		insert_cell(attacking_item, user)
+	else if(attacking_item.iswelder() && !organic)
+		var/obj/item/weldingtool/T = attacking_item
 		if(T.welding)
 			if(health < maxhealth)
 				if(open)
@@ -107,13 +111,13 @@
 				to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
 		else
 			to_chat(user, "<span class='notice'>Unable to repair while [src] is off.</span>")
-	else if(hasvar(W,"force") && hasvar(W,"damtype"))
+	else if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if("fire")
-				health -= W.force * fire_dam_coeff
+				health -= attacking_item.force * fire_dam_coeff
 			if("brute")
-				health -= W.force * brute_dam_coeff
+				health -= attacking_item.force * brute_dam_coeff
 		..()
 		healthcheck()
 	else
@@ -123,8 +127,8 @@
 	health -= Proj.get_structure_damage()
 	..()
 
-	if (prob(20))
-		spark(src, 5, alldirs)
+	if (prob(20) && !organic)
+		spark(src, 5, GLOB.alldirs)
 
 	healthcheck()
 
@@ -147,6 +151,11 @@
 	return
 
 /obj/vehicle/emp_act(severity)
+	. = ..()
+
+	if(organic)
+		return
+
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)
@@ -154,15 +163,17 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(cardinal))
+	pulse2.set_dir(pick(GLOB.cardinal))
 
 	QDEL_IN(pulse2, 10)
 	if(on)
 		turn_off()
 
-	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
 /obj/vehicle/proc/post_emp(was_on)
+	if(organic)
+		return
 	stat &= ~EMPED
 	if(was_on)
 		turn_on()
@@ -180,7 +191,7 @@
 /obj/vehicle/proc/turn_on()
 	if(stat)
 		return 0
-	if(powered && cell.charge < charge_use)
+	if(powered && cell.charge < charge_use && !organic)
 		return 0
 	on = 1
 	set_light(initial(light_range))
@@ -193,36 +204,45 @@
 	update_icon()
 
 /obj/vehicle/emag_act(var/remaining_charges, mob/user as mob)
+	if(organic)
+		return FALSE
 	if(!emagged)
 		emagged = 1
 		if(locked)
 			locked = 0
-			to_chat(user, "<span class='warning'>You bypass [src]'s controls.</span>")
+			to_chat(user, "<span class='warning'>You bypass \the [src]'s controls.</span>")
 		return 1
 
 /obj/vehicle/proc/explode()
-	visible_message("<span class='danger'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
+	if(organic)
+		visible_message(SPAN_WARNING("\The [src] dies!"))
+		var/body = new corpse(Tsec)
+		if(isliving(body))
+			var/mob/living/M = body
+			M.death()
+	else
+		visible_message(SPAN_WARNING("\The [src] blows apart!"))
 
-	new /obj/item/stack/rods(Tsec)
-	new /obj/item/stack/rods(Tsec)
-	new /obj/item/stack/cable_coil/cut(Tsec)
+		new /obj/item/stack/rods(Tsec)
+		new /obj/item/stack/rods(Tsec)
+		new /obj/item/stack/cable_coil/cut(Tsec)
 
-	if(cell)
-		cell.forceMove(Tsec)
-		cell.update_icon()
-		cell = null
+		if(cell)
+			cell.forceMove(Tsec)
+			cell.update_icon()
+			cell = null
 
-	//stuns people who are thrown off a train that has been blown up
+		//stuns people who are thrown off a train that has been blown up
+
+
+		new /obj/effect/gibspawner/robot(Tsec)
+		new /obj/effect/decal/cleanable/blood/oil(src.loc)
+
 	if(istype(load, /mob/living))
 		var/mob/living/M = load
 		M.apply_effects(5, 5)
-
 	unload()
-
-	new /obj/effect/gibspawner/robot(Tsec)
-	new /obj/effect/decal/cleanable/blood/oil(src.loc)
-
 	qdel(src)
 
 /obj/vehicle/proc/healthcheck()
@@ -284,10 +304,10 @@
 	if(load || C.anchored)
 		return 0
 
-	// if a create/closet, close before loading
-	var/obj/structure/closet/crate = C
-	if(istype(crate))
-		crate.close()
+	// if a crate/closet, close before loading
+	var/obj/structure/closet/closet = C
+	if(istype(closet))
+		closet.close()
 
 	C.forceMove(loc)
 	C.set_dir(dir)
@@ -295,20 +315,30 @@
 
 	load = C
 
+	C.layer = src.layer + 0.1
 	if(load_item_visible)
 		C.pixel_x += load_offset_x
 		if(ismob(C))
 			C.pixel_y += mob_offset_y
 		else
-			C.pixel_y += load_offset_y
+			if(istype(C, /obj/structure/closet/crate))
+				C.pixel_y += load_offset_y
+			else
+				C.pixel_y += 10
 
 	if(ismob(C))
-		buckle(C)
+		buckle(C, C)
 
 	return 1
 
-/obj/vehicle/user_unbuckle(var/mob/user)
-	unload(user)
+/obj/vehicle/buckle(var/atom/movable/C, mob/user)
+	. = ..()
+	if(. && buckling_sound)
+		playsound(src, buckling_sound, 20)
+
+/obj/vehicle/user_unbuckle(var/mob/user, var/direction)
+	..()
+	unload(user, direction)
 	return
 
 /obj/vehicle/proc/unload(var/mob/user, var/direction)
@@ -331,7 +361,7 @@
 	if(!dest || dest == v_turf || dest.is_hole)
 		var/list/options = new()
 		var/list/safe_options = new()
-		for(var/test_dir in alldirs)
+		for(var/test_dir in GLOB.alldirs)
 			var/turf/T = get_step_to(src, get_step(src, test_dir))
 			if(istype(T) && load.Adjacent(T))
 				options += T
@@ -358,7 +388,7 @@
 	load.layer = initial(load.layer)
 
 	if(ismob(load))
-		unbuckle(load)
+		unbuckle(user)
 
 	load = null
 
@@ -369,7 +399,7 @@
 // Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
 /obj/vehicle/post_buckle(var/mob/M)
 	if (M.client)
-		M.client.move_delay = M.movement_delay() + config.walk_speed
+		M.client.move_delay = M.movement_delay() + GLOB.config.walk_speed
 
 //-------------------------------------------------------
 // Stat update procs

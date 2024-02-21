@@ -13,7 +13,7 @@
 	var/sharp = 0		// whether this object cuts
 	var/edge = FALSE	// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
-	var/damtype = BRUTE
+	var/damtype = DAMAGE_BRUTE
 	var/force = 0
 	var/armor_penetration = 0
 	var/noslice = 0 // To make it not able to slice things.
@@ -30,11 +30,13 @@
 	var/usesound
 	var/toolspeed = 1
 
+	var/surgerysound
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/Topic(href, href_list, var/datum/topic_state/state = default_state)
+/obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
@@ -47,7 +49,7 @@
 	CouldNotUseTopic(usr)
 	return 1
 
-/obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
+/obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
 	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
@@ -101,8 +103,6 @@
 /obj/return_air()
 	if(loc)
 		return loc.return_air()
-	else
-		return null
 
 /obj/proc/updateUsrDialog()
 	if(in_use)
@@ -156,7 +156,7 @@
 		src.attack_self(M)
 
 /obj/proc/hide(var/hide)
-	invisibility = hide ? INVISIBILITY_MAXIMUM : initial(invisibility)
+	set_invisibility(hide ? INVISIBILITY_MAXIMUM : initial(invisibility))
 	level = hide ? 1 : initial(level)
 
 /obj/proc/hides_under_flooring()
@@ -178,7 +178,7 @@
 	being_shocked = 1
 	var/power_bounced = power / 2
 	tesla_zap(src, 3, power_bounced)
-	addtimer(CALLBACK(src, .proc/reset_shocked), 10)
+	addtimer(CALLBACK(src, PROC_REF(reset_shocked)), 10)
 
 /obj/proc/reset_shocked()
 	being_shocked = 0
@@ -202,7 +202,7 @@
 /obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
 	if(icon_auto_adapt)
 		icon_species_tag = ""
-		if (loc == wearer && icon_supported_species_tags.len)
+		if (wearer && icon_supported_species_tags.len)
 			if (wearer.species.short_name in icon_supported_species_tags)
 				icon_species_tag = wearer.species.short_name
 				return 1
@@ -239,12 +239,12 @@
 		return
 	..()
 
-/obj/examine(mob/user)
+/obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
-		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+		. +=  SPAN_SUBTLE("Can be rotated with alt-click.")
 	if(contaminated)
-		to_chat(user, SPAN_ALIEN("\The [src] has been contaminated with phoron!"))
+		. += SPAN_ALIEN("\The [src] has been contaminated!")
 
 // whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()
@@ -253,8 +253,11 @@
 /obj/proc/damage_flags()
 	. = 0
 	if(has_edge(src))
-		. |= DAM_EDGE
+		. |= DAMAGE_FLAG_EDGE
 	if(is_sharp(src))
-		. |= DAM_SHARP
-		if(damtype == BURN)
-			. |= DAM_LASER
+		. |= DAMAGE_FLAG_SHARP
+		if(damtype == DAMAGE_BURN)
+			. |= DAMAGE_FLAG_LASER
+
+/obj/proc/set_pixel_offsets()
+	return

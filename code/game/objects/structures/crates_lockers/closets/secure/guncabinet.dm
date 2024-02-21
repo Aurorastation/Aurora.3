@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/guncabinet
 	name = "gun cabinet"
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
 	icon = 'icons/obj/guncabinet.dmi'
 	icon_state = "base"
 	anchored = TRUE
@@ -44,5 +44,13 @@
 
 /obj/structure/closet/secure_closet/guncabinet/sci
 	name = "science gun cabinet"
-	req_access = list(access_tox_storage)
+	req_access = list(ACCESS_TOX_STORAGE)
 	icon_state = "sci"
+
+/obj/structure/closet/secure_closet/guncabinet/peac
+	name = "anti-materiel weapons platform cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/peac/fill()
+	new /obj/item/gun/projectile/peac(src)
+	for(var/i = 1 to 3)
+		new /obj/item/ammo_casing/peac(src)

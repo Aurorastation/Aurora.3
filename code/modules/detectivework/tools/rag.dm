@@ -23,7 +23,8 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	can_be_placed_into = null
-	flags = OPENCONTAINER | NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	unacidable = FALSE
 	fragile = FALSE
 	drop_sound = 'sound/items/drop/cloth.ogg'
@@ -52,11 +53,11 @@
 	else
 		remove_contents(user)
 
-/obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && W.isFlameSource())
+/obj/item/reagent_containers/glass/rag/attackby(obj/item/attacking_item, mob/user)
+	if(!on_fire && attacking_item.isFlameSource())
 		ignite()
 		if(on_fire)
-			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."))
 		else
 			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 		return TRUE
@@ -143,10 +144,10 @@
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 						return
 					for(var/_R in reagents.reagent_volumes)
-						var/decl/reagent/R = decls_repository.get_decl(_R)
+						var/singleton/reagent/R = GET_SINGLETON(_R)
 						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
-						if(ispath(_R, /decl/reagent/alcohol))
-							var/decl/reagent/alcohol/A = R
+						if(ispath(_R, /singleton/reagent/alcohol))
+							var/singleton/reagent/alcohol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)
@@ -155,12 +156,12 @@
 					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
 					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
 					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), \
-					                     SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
+											SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
 					W.bandage()
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					return // we can only do one at a time
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message(
 						SPAN_DANGER("\The [user] smothers [target] with [src]!"),
@@ -217,7 +218,7 @@
 /obj/item/reagent_containers/glass/rag/proc/can_ignite()
 	var/fuel = 0
 	for(var/fuel_type in reagents.reagent_volumes)
-		if(ispath(fuel_type, /decl/reagent/fuel) || ispath(fuel_type, /decl/reagent/alcohol))
+		if(ispath(fuel_type, /singleton/reagent/fuel) || ispath(fuel_type, /singleton/reagent/alcohol))
 			fuel += reagents.reagent_volumes[fuel_type]
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
@@ -228,10 +229,10 @@
 		return
 
 	//also copied from matches
-	if(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
+	if(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"))
 		var/datum/effect/effect/system/reagents_explosion/e = new()
-		e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
+		e.set_up(round(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
 		qdel(src)
 		return
@@ -285,7 +286,7 @@
 		return
 
 	for(var/fuel_type in reagents.reagent_volumes)
-		if(ispath(fuel_type, /decl/reagent/fuel) || ispath(fuel_type, /decl/reagent/alcohol))
+		if(ispath(fuel_type, /singleton/reagent/fuel) || ispath(fuel_type, /singleton/reagent/alcohol))
 			reagents.remove_reagent(reagents.reagent_volumes[fuel_type], reagents.maximum_volume/25)
 			break
 	update_name()

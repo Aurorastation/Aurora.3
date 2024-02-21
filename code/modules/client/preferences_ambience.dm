@@ -17,14 +17,19 @@
 	/client/proc/toggle_instrumentsounds
 )
 
+/client/var/has_sfx_verbs = FALSE
 // ASFX Tab Toggle
 /client/verb/toggle_asfx_tab()
 	set name = "Toggle SFX Preferences Tab"
 	set category = "Preferences"
 	set desc = "Toggle the SFX preferences tab"
 
-	verbs ^= sfx_toggles
-	return
+	if(!has_sfx_verbs)
+		add_verb(src, sfx_toggles)
+		has_sfx_verbs = TRUE
+	else
+		remove_verb(src, sfx_toggles)
+		has_sfx_verbs = FALSE
 
 // Ambience Toggle
 /client/verb/toggle_asfx()
@@ -65,6 +70,17 @@
 	src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 4) // Music plays on channel 4.
 	to_chat(src, SPAN_INFO("You will [(prefs.sfx_toggles & ASFX_MUSIC) ? "now" : "no longer"] hear music (such as from jukeboxes)."))
 
+/client/verb/toggle_asfx_console()
+	set name = "Toggle Console Ambience SFX"
+	set category = "Preferences"
+	set desc = "Toggles hearing ambient sound effects from consoles"
+
+	prefs.sfx_toggles ^= ASFX_CONSOLE_AMBIENCE
+	prefs.save_preferences()
+	if(prefs.sfx_toggles & ASFX_CONSOLE_AMBIENCE)
+		to_chat(src, SPAN_INFO("You will now hear ambient sounds from consoles."))
+	else
+		to_chat(src, SPAN_INFO("You will no longer hear ambient sounds from consoles."))
 //
 // SFX Toggles
 //

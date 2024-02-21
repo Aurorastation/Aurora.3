@@ -40,24 +40,32 @@
 	if (is_drowsy())
 		tally += 6
 
-	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
-		if(FAT in src.mutations)
+	if (!(species.flags & NO_COLD_SLOWDOWN))	// Bugs and machines don't move slower when cold.
+		if((mutations & FAT))
 			tally += 1.5
 		if (bodytemperature < 283.222)
 			tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
-	if(mRun in mutations)
+	if((mutations & mRun))
 		tally = 0
 
-	tally += move_delay_mod
+	tally = max(-2, tally + move_delay_mod)
 
-	var/obj/item/I = get_active_hand()
-	if(istype(I))
-		tally += I.slowdown
+	var/obj/item/AH = get_active_hand()
+	if(istype(AH))
+		tally += AH.slowdown
+
+	var/obj/item/IH = get_inactive_hand()
+	if(istype(IH))
+		tally += IH.slowdown
+
+	if(isitem(pulling))
+		var/obj/item/P = pulling
+		tally += P.slowdown
 
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
-		tally = max(0, tally-3)
+		tally = max(-2, tally - 3)
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
@@ -67,7 +75,7 @@
 		if(!changeling)
 			tally += T.movement_cost
 
-	tally += config.human_delay
+	tally += GLOB.config.human_delay
 
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3
@@ -106,17 +114,21 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
+	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
-	if(. && species.tail)
+	if(. && tail_style)
 		update_tail_showing(1)
+	if(lying)
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/Move()
 	. = ..()
+	if(.) //We moved
+		handle_leg_damage()
 
 	var/turf/T = loc
 	var/footsound
@@ -149,6 +161,21 @@
 			footstep++
 			if (footstep % 2)
 				playsound(src, is_noisy ? footsound : species.footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+
+/mob/living/carbon/human/proc/handle_leg_damage()
+	if(!can_feel_pain())
+		return
+	var/crutches = 0
+	for (var/obj/item/cane/C as anything in get_type_in_hands(/obj/item/cane))
+		if(istype(C) && (C?.can_support))
+			crutches++
+	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
+		var/obj/item/organ/external/E = get_organ(organ_name)
+		if(E && (ORGAN_IS_DISLOCATED(E)|| E.is_broken()))
+			if(crutches)
+				crutches--
+			else
+				E.add_pain(10)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

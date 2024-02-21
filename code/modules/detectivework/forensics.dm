@@ -2,15 +2,31 @@
 	icon = 'icons/obj/forensics.dmi'
 	w_class = ITEMSIZE_TINY
 
-//This is the output of the stringpercent(print) proc, and means about 80% of
-//the print must be there for it to be complete.  (Prints are 32 digits)
-var/const/FINGERPRINT_COMPLETE = 6
-proc/is_complete_print(var/print)
-	return stringpercent(print) <= FINGERPRINT_COMPLETE
+/**
+ * The maximum percentage of unknown points in a fingerprint string (represented as asterisks)
+ * before the fingerprint is considered incomplete enough (and thus not recognisable)
+ *
+ * A fingerprint is 32 characters long and every unknown point of it is "*"
+ */
+#define MAX_UNKNOWN_POINTS_FOR_KNOWN_FINGERPRINT_PERCENTAGE 98
 
-atom/var/list/suit_fibers
+/**
+ * Returns `TRUE` if the fingerprint is complete (above `FINGERPRINT_COMPLETE`), `FALSE` otherwise
+ *
+ * * print - The fingerprint (a string)
+ */
+/proc/is_complete_print(var/print)
+	var/unknown_points_percentage = stringpercent(print)
+	if(unknown_points_percentage <= MAX_UNKNOWN_POINTS_FOR_KNOWN_FINGERPRINT_PERCENTAGE)
+		return TRUE
+	else
+		return FALSE
 
-atom/proc/add_fibers(mob/living/carbon/human/M)
+#undef MAX_UNKNOWN_POINTS_FOR_KNOWN_FINGERPRINT_PERCENTAGE
+
+/atom/var/list/suit_fibers
+
+/atom/proc/add_fibers(mob/living/carbon/human/M)
 	if(M.gloves && istype(M.gloves,/obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = M.gloves
 		if(G.transfer_blood && G.bloody_hands_mob?.resolve()) //bloodied gloves transfer blood to touched objects

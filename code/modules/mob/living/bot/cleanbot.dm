@@ -14,8 +14,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	name = "Cleanbot"
 	desc = "A little cleaning robot, consisting of a bucket, a proximity sensor, and a prosthetic arm. It looks excited to clean!"
 	icon_state = "cleanbot0"
-	req_one_access = list(access_janitor, access_robotics)
-	botcard_access = list(access_janitor, access_maint_tunnels)
+	req_one_access = list(ACCESS_JANITOR, ACCESS_ROBOTICS)
+	botcard_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
 
 	locked = FALSE // Start unlocked so roboticist can set them to patrol.
 
@@ -53,7 +53,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	listener = new /obj/cleanbot_listener(src)
 	listener.cleanbot = src
 
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
@@ -62,8 +62,12 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	patrol_path = null
 	target = null
 	ignorelist = null
+	next_dest_loc = null
+
 	QDEL_NULL(listener)
-	global.janitorial_supplies -= src
+	SSradio.remove_object(listener, beacon_freq)
+
+	GLOB.janitorial_supplies -= src
 	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()
@@ -119,7 +123,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		visible_message(SPAN_WARNING("Some bloody gibs fall out of [src]..."))
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 		ignorelist += gib
-		addtimer(CALLBACK(src, .proc/remove_from_ignore, gib), 600)
+		addtimer(CALLBACK(src, PROC_REF(remove_from_ignore), gib), 600)
 
 /mob/living/bot/cleanbot/think()
 	..()
@@ -213,7 +217,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	D.being_cleaned = TRUE
 	update_icon()
 	var/clean_time = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	INVOKE_ASYNC(src, .proc/do_clean, D, clean_time)
+	INVOKE_ASYNC(src, PROC_REF(do_clean), D, clean_time)
 
 /mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D, var/clean_time)
 	if(D && do_after(src, clean_time))
@@ -238,7 +242,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	new /obj/item/device/assembly/prox_sensor(T)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	qdel(src)
 	return
 
@@ -327,7 +331,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		// This just generates the global list if it hasn't been done already, quick process.
 		cleanbot_types = typesof(/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/vomit,\
 						/obj/effect/decal/cleanable/crayon,/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/mucus,/obj/effect/decal/cleanable/dirt)
-						 // I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
+						// I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
 	target_types = cleanbot_types.Copy()
 	if(!cleans_blood)
 		target_types -= typesof(/obj/effect/decal/cleanable/blood)-typesof(/obj/effect/decal/cleanable/blood/oil)
@@ -353,6 +357,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /obj/cleanbot_listener/Destroy()
 	cleanbot = null
+	SSradio.remove_object_all(src)
 	return ..()
 
 /* Assembly */
@@ -360,7 +365,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /obj/item/bucket_sensor
 	name = "proxy bucket"
 	desc = "It's a bucket. With a sensor attached."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "bucket_proxy"
 	force = 3
 	throwforce = 10
@@ -368,18 +373,18 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	throw_range = 5
 	var/created_name = "Cleanbot"
 
-/obj/item/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
+/obj/item/bucket_sensor/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm))
-		user.drop_from_inventory(O, get_turf(src))
-		qdel(O)
+	if(istype(attacking_item, /obj/item/robot_parts/l_arm) || istype(attacking_item, /obj/item/robot_parts/r_arm))
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		qdel(attacking_item)
 		var/turf/T = get_turf(src)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
 		to_chat(user, SPAN_NOTICE("You add the robot arm to the bucket and sensor assembly. Beep boop!"))
 		qdel(src)
-	else if(O.ispen())
-		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
+	else if(attacking_item.ispen())
+		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
 		if(!in_range(src, usr) && src.loc != usr)

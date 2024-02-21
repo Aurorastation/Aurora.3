@@ -1,6 +1,6 @@
 /obj/machinery/ship_weapon
 	name = "ship weapon"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
 	idle_power_usage = 1500
 	active_power_usage = 50000
@@ -12,10 +12,10 @@
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
 	var/projectile_type = /obj/item/projectile/ship_ammo
 	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
-	var/charging_sound //The sound played when the gun is charging up.
+	var/charging_sound					 //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
-	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED!
-							  //This just skips the initial check for ammunition.
+	var/use_ammunition = TRUE	//If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED!
+								//This just skips the initial check for ammunition.
 	var/list/obj/item/ship_ammunition/ammunition = list()
 	var/ammo_per_shot = 1
 	var/max_ammo = 1
@@ -36,7 +36,7 @@
 
 /obj/machinery/ship_weapon/LateInitialize()
 	SSshuttle.weapons_to_initialize += src
-	if(SSshuttle.init_state == SS_INITSTATE_DONE)
+	if(SSshuttle.initialized)
 		SSshuttle.initialize_ship_weapons()
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		SD.connect(src)
@@ -49,6 +49,7 @@
 	destroy_dummies()
 	ammunition.Cut()
 	barrel = null
+	LAZYREMOVE(linked?.ship_weapons, src)
 	return ..()
 
 /obj/machinery/ship_weapon/ex_act(severity)
@@ -87,12 +88,12 @@
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
 			return "It looks to be in tip top shape and not damaged at all."
 
-/obj/machinery/ship_weapon/examine(mob/user)
+/obj/machinery/ship_weapon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, get_damage_description())
+	. += get_damage_description()
 
-/obj/machinery/ship_weapon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/device/multitool))
+/obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/multitool))
 		to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
 		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id) as text|null
 		if(length(new_id) && !use_check_and_message(user))
@@ -105,8 +106,8 @@
 				weapon_id = new_id
 				to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
 				return TRUE
-	if(istype(W, /obj/item/weldingtool) && damage)
-		var/obj/item/weldingtool/WT = W
+	if(istype(attacking_item, /obj/item/weldingtool) && damage)
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.get_fuel() >= 20)
 			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."),
 								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
@@ -137,19 +138,19 @@
 /obj/machinery/ship_weapon/proc/on_fire() //We just fired! Cool effects!
 	if(firing_effects & FIRING_EFFECT_FLAG_EXTREMELY_LOUD)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/living/carbon/human/H in player_list)
+		for(var/mob/living/carbon/human/H in GLOB.player_list)
 			if(H.z in connected_z_levels)
 				sound_to(H, sound(heavy_firing_sound, volume = 50))
 				if(H.is_listening())
 					H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else if(firing_effects & FIRING_EFFECT_FLAG_SILENT)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(get_area(H) == get_area(src))
 				sound_to(H, sound(heavy_firing_sound, volume = 50))
 				if(H.is_listening())
 					H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			var/list/connected_z_levels = GetConnectedZlevels(z)
 			if(get_area(H) == get_area(src))
 				sound_to(H, sound(heavy_firing_sound, volume = 50))
@@ -160,21 +161,21 @@
 					sound_to(H, sound(light_firing_sound, volume = 50))
 	if(screenshake_type == SHIP_GUN_SCREENSHAKE_ALL_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(H.z in connected_z_levels)
 				to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
 				shake_camera(H, 10, 5)
 	else if(screenshake_type == SHIP_GUN_SCREENSHAKE_SCREEN)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(get_area(H) == get_area(src))
 				if(!H.buckled_to)
 					to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
 					shake_camera(H, 10, 5)
 	if(firing_effects & FIRING_EFFECT_FLAG_THROW_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/M in living_mob_list)
+		for(var/mob/M in GLOB.living_mob_list)
 			if(M.z in connected_z_levels)
-				if(!M.Check_Shoegrip() && !M.buckled_to)
+				if(!M.Check_Shoegrip() && !M.buckled_to && !M.anchored)
 					M.throw_at_random(FALSE, 7, 10)
 	flick("weapon_firing", src)
 	return TRUE
@@ -260,7 +261,7 @@
 	name = "ship weapon dummy"
 	icon = 'icons/obj/machinery/ship_guns/ship_weapon_dummy.dmi'
 	icon_state = "dummy"
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	layer = OBJ_LAYER+0.1 //Higher than the gun itself.
 	anchored = TRUE
 	density = TRUE
@@ -274,16 +275,22 @@
 	. = ..()
 
 /obj/structure/ship_weapon_dummy/examine(mob/user)
-	connected.examine(user)
+	if(connected)
+		return connected.examine(user)
+	else
+		return TRUE
 
 /obj/structure/ship_weapon_dummy/attack_hand(mob/user)
-	connected.attack_hand(user)
+	if(connected)
+		connected.attack_hand(user)
 
-/obj/structure/ship_weapon_dummy/attackby(obj/item/W, mob/user)
-	connected.attackby(W, user)
+/obj/structure/ship_weapon_dummy/attackby(obj/item/attacking_item, mob/user)
+	if(connected)
+		connected.attackby(attacking_item, user)
 
 /obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
-	connected.hitby(AM)
+	if(connected)
+		connected.hitby(AM)
 	if(ismob(AM))
 		if(isliving(AM))
 			var/mob/living/M = AM
@@ -319,160 +326,13 @@
 	is_barrel = TRUE
 
 // ^^
-// Cardinal variants of the "ship weapon barrel dummy" intentionally left out since ship guns only face south and thus only fire south.
+//Cardinal variants of the "ship weapon barrel dummy" intentionally left out since ship guns only face south and thus only fire south.
 
-/obj/machinery/computer/ship/targeting
-	name = "targeting systems console"
-	desc = "A targeting systems console using Zavodskoi software."
-	icon_screen = "teleport"
-	icon_keyboard = "teal_key"
-	light_color = LIGHT_COLOR_CYAN
-	var/obj/machinery/ship_weapon/cannon
-	var/selected_entrypoint
-	var/platform_direction
-	var/list/names_to_guns = list()
-	var/list/names_to_entries = list()
+/obj/machinery/computer/ship/targeting/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "left"
+	icon_screen = "targeting"
+	icon_keyboard = null
+	circuit = null
 
-/obj/machinery/computer/ship/targeting/Initialize()
-	..()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/machinery/computer/ship/targeting/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable))
-			attempt_hook_up(my_sector)
-
-/obj/machinery/computer/ship/targeting/Destroy()
-	cannon = null
-	names_to_guns.Cut()
-	names_to_entries.Cut()
-	return ..()
-
-/obj/machinery/computer/ship/targeting/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if(!ui)
-		ui = new(user, src, "machinery-gunnery", 400, 400, "Ajax Targeting Systems")
-		ui.auto_update_content = TRUE
-	ui.open()
-
-/obj/machinery/computer/ship/targeting/proc/build_gun_lists()
-	for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
-		if(!SW.special_firing_mechanism)
-			var/gun_name = capitalize_first_letters(SW.weapon_id)
-			names_to_guns[gun_name] = SW
-
-/obj/machinery/computer/ship/targeting/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	build_gun_lists()
-	if(!data)
-		data = list()
-		if(!cannon)
-			var/cannon_name = names_to_guns[1]
-			cannon = names_to_guns[cannon_name]
-			data["status"] = cannon.stat ? "MALFUNCTIONING" : "OK"
-			data["ammunition"] = length(cannon.ammunition) ? "Loaded, [length(cannon.ammunition)] shots" : "Unloaded"
-			data["caliber"] = cannon.caliber
-		data["new_ship_weapon"] = capitalize_first_letters(cannon.weapon_id)
-		data["entry_points"] = list()
-		data["entry_point"] = null
-		data["show_z_list"] = FALSE
-		data["mobile_platform"] = FALSE
-		data["platform_direction"] = 0
-		data["selected_z"] = 0
-	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
-	data["linked"] = linked ? TRUE : FALSE
-
-	if(linked)
-		data["is_targeting"] = linked.targeting ? TRUE : FALSE
-		data["ship_weapons"] = list()
-		for(var/name in names_to_guns)
-			data["ship_weapons"] += name //Literally do not even ask me why the FUCK this is needed. I have ZERO, **ZERO** FUCKING CLUE why
-										 //this piece of shit UI takes a linked list and AUTOMATICALLY decides it wants to read the fucking linked objects
-										 //instead of the actual elements of the list.
-		if(data["new_ship_weapon"])
-			var/new_cannon = data["new_ship_weapon"]
-			cannon = names_to_guns[new_cannon]
-		if(cannon)
-			data["status"] = cannon.stat ? "Unresponsive" : "OK"
-			var/ammunition_type = null
-			if(length(cannon.ammunition))
-				var/obj/item/ship_ammunition/SA = cannon.ammunition[1]
-				ammunition_type = capitalize_first_letters(SA.impact_type)
-			data["ammunition"] = length(cannon.ammunition) ? "[ammunition_type] Loaded, [length(cannon.ammunition)] shot(s) left" : "Unloaded"
-			data["caliber"] = cannon.caliber
-			if(cannon.mobile_platform)
-				data["mobile_platform"] = TRUE
-				data["directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")
-				platform_direction = data["platform_direction"]
-		if(linked.targeting)
-			data["target"] = ""
-			if(istype(linked.targeting, /obj/effect/overmap/visitable))
-				var/obj/effect/overmap/visitable/V = linked.targeting
-				if(V.class && V.designation)
-					data["target"] = "[V.class] [V.designation]"
-				else
-					data["target"] = capitalize_first_letters(linked.targeting.name)
-				if(length(V.map_z) > 1)
-					data["show_z_list"] = TRUE
-					data["z_levels"] = V.map_z.Copy()
-				else
-					data["selected_z"] = 0
-			else
-				data["target"] = capitalize_first_letters(linked.targeting.name)
-			data["dist"] = get_dist(linked, linked.targeting)
-			data["entry_points"] = copy_entrypoints(data["selected_z"])
-			if(data["entry_point"])
-				selected_entrypoint = data["entry_point"]
-	return data
-
-/obj/machinery/computer/ship/targeting/Topic(href, href_list)
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
-		return
-	if(..())
-		return
-
-	playsound(src, clicksound, clickvol)
-
-	if(href_list["fire"])
-		var/obj/effect/landmark/LM
-		if(!selected_entrypoint)
-			return
-		if(!istype(linked.loc, /turf/unsimulated/map))
-			to_chat(usr, SPAN_WARNING("The safeties are engaged! You need to be undocked in order to fire."))
-			return
-		if(selected_entrypoint == SHIP_HAZARD_TARGET || !selected_entrypoint)
-			LM = null
-		else
-			LM = names_to_entries[selected_entrypoint]
-		var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
-		if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
-			visible_message(SPAN_WARNING("[usr] presses the fire button!"))
-			playsound(src, 'sound/machines/compbeep1.ogg')
-		switch(result)
-			if(SHIP_GUN_ERROR_NO_AMMO)
-				to_chat(usr, SPAN_WARNING("The console shows an error screen: the weapon isn't loaded!"))
-			if(SHIP_GUN_FIRING_SUCCESSFUL)
-				to_chat(usr, SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
-				log_and_message_admins("[usr] has fired [cannon] with target [linked.targeting] and entry point [LM]!", location = get_turf(usr))
-
-	if(href_list["viewing"])
-		if(usr)
-			viewing_overmap(usr) ? unlook(usr) : look(usr)
-
-/obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
-	. = list()
-	if(istype(linked.targeting, /obj/effect/overmap/visitable))
-		var/obj/effect/overmap/visitable/V = linked.targeting
-		if(V.targeting_flags & TARGETING_FLAG_ENTRYPOINTS)
-			for(var/obj/effect/O in V.entry_points)
-				if(!z_level_filter || (z_level_filter && O.z == z_level_filter))
-					. += capitalize_first_letters(O.name)
-					names_to_entries[capitalize_first_letters(O.name)] = O
-		if(V.targeting_flags & TARGETING_FLAG_GENERIC_WAYPOINTS)
-			for(var/obj/effect/O in V.generic_waypoints)
-				. += capitalize_first_letters(O.name)
-				names_to_entries[capitalize_first_letters(O.name)] = O
-		. = sortList(.)
-	if(!length(.))
-		. += SHIP_HAZARD_TARGET //No entrypoints == hazard

@@ -1,4 +1,4 @@
-var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and SERVICE
+var/const/NUM_JOB_DEPTS     = 4 //ENGSEC, MEDSCI, SERVICE and EVENTDEPT
 
 // ENGSEC
 var/const/ENGSEC			=(1<<0)
@@ -58,6 +58,17 @@ var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
 
+//EVENTDEPT
+//This is needed because there are just not enough bitflags available across the other departments
+var/const/EVENTDEPT			=(1<<3)
+
+var/const/EVENTSEC			=(1<<0)
+var/const/EVENTENG			=(1<<1)
+var/const/EVENTMED			=(1<<2)
+var/const/EVENTSCI			=(1<<3)
+var/const/EVENTOPS			=(1<<4)
+
+
 // Positions Lists
 var/list/command_positions = list(
 	"Captain",
@@ -80,7 +91,8 @@ var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Engineer",
 	"Atmospheric Technician",
-	"Engineering Apprentice"
+	"Engineering Apprentice",
+	"Engineering Personnel"
 )
 
 var/list/medical_positions = list(
@@ -90,7 +102,8 @@ var/list/medical_positions = list(
 	"Psychiatrist",
 	"Pharmacist",
 	"First Responder",
-	"Medical Intern"
+	"Medical Intern",
+	"Medical Personnel"
 )
 
 var/list/science_positions = list(
@@ -99,14 +112,16 @@ var/list/science_positions = list(
 	"Xenoarchaeologist",
 	"Xenobiologist",
 	"Xenobotanist",
-	"Lab Assistant"
+	"Lab Assistant",
+	"Science Personnel"
 )
 
 var/list/cargo_positions = list(
 	"Operations Manager",
 	"Hangar Technician",
 	"Shaft Miner",
-	"Machinist"
+	"Machinist",
+	"Operations Personnel"
 )
 
 var/list/service_positions = list(
@@ -116,7 +131,6 @@ var/list/service_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Corporate Reporter",
 	"Chaplain"
 )
 
@@ -124,7 +138,8 @@ var/list/civilian_positions = list(
 	"Assistant",
 	"Off-Duty Crew Member",
 	"Passenger",
-	"Merchant"
+	"Merchant",
+	"Corporate Reporter"
 )
 
 var/list/security_positions = list(
@@ -132,13 +147,26 @@ var/list/security_positions = list(
 	"Warden",
 	"Investigator",
 	"Security Officer",
-	"Security Cadet"
+	"Security Cadet",
+	"Security Personnel"
 )
 
 var/list/nonhuman_positions = list(
 	"AI",
 	"Cyborg",
 	"pAI"
+)
+
+var/list/armory_positions = list(
+	"AI",
+	"Warden",
+	"Captain",
+	"Executive Officer",
+	"Head of Security",
+	"Chief Engineer",
+	"Research Director",
+	"Chief Medical Officer",
+	"Operations Manager"
 )
 
 /proc/guest_jobbans(var/job)

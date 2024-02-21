@@ -50,36 +50,6 @@
 	icon_has_variants = FALSE
 	hide_type = "scales"
 
-/obj/item/stack/material/animalhide/xeno
-	name = "alien hide"
-	desc = "The skin of a terrible creature."
-	singular_name = "alien hide piece"
-	icon_state = "sheet-xeno"
-	default_type = "alien hide"
-	icon_has_variants = FALSE
-	hide_type = "carapace"
-
-//don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
-/obj/item/stack/material/xenochitin
-	name = "alien chitin"
-	desc = "A piece of the hide of a terrible creature."
-	singular_name = "alien hide piece"
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "chitin"
-	default_type = "alien hide"
-
-/obj/item/xenos_claw
-	name = "alien claw"
-	desc = "The claw of a terrible creature."
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "claw"
-
-/obj/item/weed_extract
-	name = "weed extract"
-	desc = "A piece of slimy, purplish weed."
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "weed_extract"
-
 /obj/item/stack/material/animalhide/barehide
 	name = "bare hide"
 	desc = "A hide without fur or scales. Can be tanned into leather."
@@ -110,8 +80,8 @@
 
 //Animal Hide to leather steps
 //Step one - dehairing.
-/obj/item/stack/material/animalhide/attackby(obj/item/W, mob/user)
-	if(is_sharp(W) && !W.noslice && !W.iswirecutter()) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
+/obj/item/stack/material/animalhide/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item) && !attacking_item.noslice && !attacking_item.iswirecutter()) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
 		if(bare)
 			to_chat(user, SPAN_WARNING("There's nothing left to remove from \the [src]!"))
 			return
@@ -119,7 +89,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] starts slicing the [hide_type] from \the [src]."),
 				SPAN_NOTICE("You start slicing the [hide_type] from \the [src]"),
 				SPAN_NOTICE("You hear the sound of a knife scraping against flesh."))
-		if(do_after(user,50, act_target = src))
+		if(do_after(user, 5 SECONDS, src))
 			if(amount <= 0) //Ensures we don't get multiple products from queuing clicks.
 				return
 			use(1)
@@ -151,16 +121,16 @@
 		if(wetness <= 0)
 			make_leather()
 
-/obj/item/stack/material/animalhide/wetleather/attackby(obj/item/I, mob/user)
-	if(I.iswelder())
-		var/obj/item/weldingtool/WT = I
+/obj/item/stack/material/animalhide/wetleather/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			if(being_dried)
 				to_chat(user, SPAN_WARNING("\The [src] are already being dried"))
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [src] with \the [WT]."), SPAN_NOTICE("You start drying the wet leather with \the [WT]..."))
 			being_dried = TRUE
-			while(do_after(user, 20, act_target = src) && wetness > 0)
+			while(do_after(user, 2 SECONDS, src) && wetness > 0)
 				if(!WT.use(1) || !WT.isOn())
 					break
 				if(prob(5))

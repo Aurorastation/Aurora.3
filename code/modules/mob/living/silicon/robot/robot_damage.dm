@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		return
 	health = maxHealth - (getBruteLoss() + getFireLoss())
 	return
@@ -74,7 +74,7 @@
 	if(!length(components))
 		return
 
-	 //Combat shielding absorbs a percentage of damage directly into the cell.
+	//Combat shielding absorbs a percentage of damage directly into the cell.
 	if(module_active && istype(module_active, /obj/item/borg/combat/shield))
 		var/obj/item/borg/combat/shield/shield = module_active
 		//Shields absorb a certain percentage of damage based on their power setting.
@@ -121,7 +121,7 @@
 		return
 
 	var/list/datum/robot_component/parts = get_damageable_components()
-	 //Combat shielding absorbs a percentage of damage directly into the cell.
+	//Combat shielding absorbs a percentage of damage directly into the cell.
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
 		var/obj/item/borg/combat/shield/shield = module_active
 		//Shields absorb a certain percentage of damage based on their power setting.
@@ -157,6 +157,8 @@
 		parts -= picked
 
 /mob/living/silicon/robot/emp_act(severity)
+	. = ..()
+
 	var/datum/robot_component/surge/C = components["surge"]
 	if(C?.installed)
 		if(C.surge_left >= 1)
@@ -175,4 +177,6 @@
 			return
 		else
 			to_chat(src, SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement!"))
-	..()
+
+/mob/living/silicon/robot/get_flash_protection(ignore_inherent)
+	return (flash_resistant || overclocked) ? FLASH_PROTECTION_MODERATE : FLASH_PROTECTION_NONE

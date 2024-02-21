@@ -2,7 +2,7 @@
 	var/const/enterBelt		= 45
 	var/const/radIntervall 	= 5	// 20 ticks
 	var/const/leaveBelt		= 145
-	var/const/revokeAccess	= 200
+	var/const/revokeAccess	= 220
 	has_skybox_image = TRUE
 	startWhen				= 2
 	announceWhen			= 1
@@ -18,7 +18,7 @@
 		return res
 
 /datum/event/radiation_storm/announce()
-	command_announcement.Announce(current_map.radiation_detected_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_detected_message.ogg', zlevels = affecting_z)
+	command_announcement.Announce(SSatlas.current_map.radiation_detected_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_detected_message.ogg', zlevels = affecting_z)
 
 /datum/event/radiation_storm/start()
 	..()
@@ -27,7 +27,7 @@
 
 /datum/event/radiation_storm/tick()
 	if(activeFor == enterBelt)
-		command_announcement.Announce(current_map.radiation_contact_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_contact_message.ogg', zlevels = affecting_z)
+		command_announcement.Announce(SSatlas.current_map.radiation_contact_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_contact_message.ogg', zlevels = affecting_z)
 		radiate()
 
 	if(activeFor >= enterBelt && activeFor <= leaveBelt)
@@ -38,12 +38,13 @@
 		radiate()
 
 	else if(activeFor == leaveBelt)
-		command_announcement.Announce(current_map.radiation_end_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_end_message.ogg', zlevels = affecting_z)
+		command_announcement.Announce(SSatlas.current_map.radiation_end_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_end_message.ogg', zlevels = affecting_z)
 		lights()
 
 /datum/event/radiation_storm/proc/radiate()
-	for(var/mob/living/C in living_mob_list)
-		C.apply_radiation_effects()
+	var/radiation_level = rand(20, 40)
+	for(var/z in affecting_z)
+		SSradiation.z_radiate(locate(1, 1, z), radiation_level, TRUE)
 
 /datum/event/radiation_storm/end(var/faked)
 	..()
@@ -56,8 +57,8 @@
 	return
 
 /datum/event/radiation_storm/proc/lights(var/turnOn = FALSE)
-	for(var/area/A in all_areas)
-		if(A.flags & RAD_SHIELDED)
+	for(var/area/A in GLOB.all_areas)
+		if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 			continue
 		if(turnOn)
 			A.radiation_active = TRUE

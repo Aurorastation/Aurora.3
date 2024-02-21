@@ -9,7 +9,8 @@
 	icon_state = "cleaner"
 	item_state = "cleaner"
 	center_of_mass = list("x" = 16,"y" = 10)
-	flags = OPENCONTAINER|NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = ITEMSIZE_SMALL
@@ -36,6 +37,8 @@
 
 
 /obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+	if(A.loc == user) // don't spray yourself
+		return
 
 	if(istype(A, /obj/item/reagent_containers))
 		. = ..()
@@ -69,13 +72,13 @@
 
 	playsound(src.loc, spray_sound, 50, 1, -6)
 
-	if(reagents.has_reagent(/decl/reagent/acid))
+	if(reagents.has_reagent(/singleton/reagent/acid))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
 		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent(/decl/reagent/acid/polyacid))
+	if(reagents.has_reagent(/singleton/reagent/acid/polyacid))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
 		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent(/decl/reagent/lube))
+	if(reagents.has_reagent(/singleton/reagent/lube))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
 		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
 	return
@@ -108,12 +111,12 @@
 		return
 	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, possible_transfer_amounts)
 	spray_size = next_in_list(spray_size, spray_sizes)
-	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this * spray_size] units per spray, with a [spray_size] lane spray."))
+	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
-/obj/item/reagent_containers/spray/examine(mob/user)
-	if(..(user, 0) && loc == user)
-		to_chat(user, "[round(reagents.total_volume)] units left.")
-	return
+/obj/item/reagent_containers/spray/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
+		. += "[round(reagents.total_volume)] units left."
 
 /obj/item/reagent_containers/spray/verb/empty()
 
@@ -139,7 +142,7 @@
 
 /obj/item/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/spacecleaner, volume)
+	reagents.add_reagent(/singleton/reagent/spacecleaner, volume)
 
 /obj/item/reagent_containers/spray/sterilizine
 	name = "sterilizine"
@@ -154,7 +157,7 @@
 
 /obj/item/reagent_containers/spray/sterilizine/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/sterilizine, volume)
+	reagents.add_reagent(/singleton/reagent/sterilizine, volume)
 
 /obj/item/reagent_containers/spray/pepper
 	name = "pepperspray"
@@ -166,11 +169,12 @@
 	possible_transfer_amounts = null
 	volume = 40
 	safety = 1
-	reagents_to_add = list(/decl/reagent/capsaicin/condensed = 40)
+	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
 
-/obj/item/reagent_containers/spray/pepper/examine(mob/user)
-	if(..(user, 1))
-		to_chat(user, "The safety is [safety ? "on" : "off"].")
+/obj/item/reagent_containers/spray/pepper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
+		. += "The safety is [safety ? "on" : "off"]."
 
 /obj/item/reagent_containers/spray/pepper/AltClick()
 	return //No altclick functionality for pepper spray
@@ -196,7 +200,7 @@
 	possible_transfer_amounts = null
 	volume = 10
 
-	reagents_to_add = list(/decl/reagent/water = 10)
+	reagents_to_add = list(/singleton/reagent/water = 10)
 
 /obj/item/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
@@ -212,6 +216,13 @@
 	volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 
+/obj/item/reagent_containers/spray/chem_sprayer/attack_self(var/mob/user)
+	if(!possible_transfer_amounts)
+		return
+	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, possible_transfer_amounts)
+	spray_size = next_in_list(spray_size, spray_sizes)
+	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this*spray_size] units per spray, with a [spray_size] lane spray."))
+
 /obj/item/reagent_containers/spray/chemsprayer/Spray_at(atom/target, mob/user)
 	var/direction = get_dir(src, target)
 	var/turf/our_turf = get_turf(target)
@@ -223,7 +234,7 @@
 	for(var/spray_index = 1 to spray_size)
 		if(reagents.total_volume < 1)
 			break
-		INVOKE_ASYNC(src, .proc/handle_spray, the_targets[spray_index])
+		INVOKE_ASYNC(src, PROC_REF(handle_spray), the_targets[spray_index])
 
 	if(reagents_after_spray <= 0)
 		to_chat(user, SPAN_WARNING("\The [src] is <b>empty</b>!"))
@@ -266,7 +277,7 @@
 	item_state = "plantbgone"
 	volume = 100
 
-	reagents_to_add = list(/decl/reagent/toxin/plantbgone = 100)
+	reagents_to_add = list(/singleton/reagent/toxin/plantbgone = 100)
 
 /obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return

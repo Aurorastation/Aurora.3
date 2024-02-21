@@ -1,12 +1,17 @@
 #define NEXT_PAGE_ID "__next__"
 #define DEFAULT_CHECK_DELAY 20
 
-var/global/list/radial_menus = list()
+GLOBAL_LIST_EMPTY(radial_menus)
 
 /obj/screen/radial
 	icon = 'icons/mob/screen/radial.dmi'
 	layer = HUD_LAYER
 	var/datum/radial_menu/parent
+
+/obj/screen/radial/Destroy()
+	QDEL_NULL(parent)
+
+	return ..()
 
 /obj/screen/radial/slice
 	icon_state = "radial_slice"
@@ -164,7 +169,7 @@ var/global/list/radial_menus = list()
 	E.alpha = 0
 	E.name = "None"
 	E.maptext = null
-	E.mouse_opacity = 0
+	E.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	E.choice = null
 	E.next_page = FALSE
 
@@ -185,7 +190,7 @@ var/global/list/radial_menus = list()
 
 	//Visuals
 	E.alpha = 255
-	E.mouse_opacity = 1
+	E.mouse_opacity = MOUSE_OPACITY_ICON
 	E.overlays.Cut()
 	if(choice_id == NEXT_PAGE_ID)
 		E.name = "Next Page"
@@ -276,28 +281,46 @@ var/global/list/radial_menus = list()
 /datum/radial_menu/Destroy()
 	Reset()
 	hide()
+	close_button.parent = null
+	menu_holder.vis_contents = null
+	elements -= src
+
+	for(var/obj/screen/radial/slice/possibly_our_child in elements)
+		if(possibly_our_child.parent == src)
+			possibly_our_child.parent = null
+
+	QDEL_NULL(menu_holder)
+	QDEL_NULL(close_button)
 	QDEL_NULL(custom_check_callback)
 	return ..()
 
-/*
-	Presents radial menu to user anchored to anchor (or user if the anchor is currently in users screen)
-	Choices should be a list where list keys are movables or text used for element names and return value
-	and list values are movables/icons/images used for element icons
-*/
+/**
+ * Presents a radial menu to an user, over an anchor point
+ *
+ * * user - A `/mob` whose user to show the radial menu to
+ * * anchor - An `/atom` to where to overlay the radial menu to
+ * * choices - A list of choices, where the list keys are movables or text used for element names and return value, and values are movables/icons/images used for element icons
+ * * uniqueid - An unique ID to identify the radial menu with
+ * * radius - A radius, aka how big the radial menu is
+ * * custom_check - A `/datum/callback` to invoke, to validate that the menu should still be waited on
+ * * require_near - Boolean, if the menu should disappear when the user is not in range anymore
+ * * tooltips - Boolean, if to show tooltips to the user
+ * * no_repeat_close - Boolean, if an unique ID is used and this is set, close the menu instead of repeating the displaying of it
+ */
 /proc/show_radial_menu(mob/user, atom/anchor, list/choices, uniqueid, radius, datum/callback/custom_check, require_near = FALSE, tooltips = FALSE, no_repeat_close = FALSE)
 	if(!user || !anchor || !length(choices))
 		return
 	if(!uniqueid)
 		uniqueid = "defmenu_[SOFTREF(user)]_[SOFTREF(anchor)]"
 
-	if(radial_menus[uniqueid])
+	if(GLOB.radial_menus[uniqueid])
 		if(!no_repeat_close)
-			var/datum/radial_menu/menu = radial_menus[uniqueid]
+			var/datum/radial_menu/menu = GLOB.radial_menus[uniqueid]
 			menu.finished = TRUE
 		return
 
 	var/datum/radial_menu/menu = new
-	radial_menus[uniqueid] = menu
+	GLOB.radial_menus[uniqueid] = menu
 	if(radius)
 		menu.radius = radius
 	if(istype(custom_check))
@@ -309,7 +332,8 @@ var/global/list/radial_menus = list()
 	menu.wait(user, anchor, require_near)
 	var/answer = menu.selected_choice
 	qdel(menu)
-	radial_menus -= uniqueid
+	GLOB.radial_menus -= uniqueid
 	return answer
 
-#define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)
+#undef NEXT_PAGE_ID
+#undef DEFAULT_CHECK_DELAY

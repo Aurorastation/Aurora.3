@@ -2,18 +2,24 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
+
 /mob/living/carbon/human/dummy/mannequin
 	mob_thinks = FALSE
 
 INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
+
 /mob/living/carbon/human/dummy/mannequin/Initialize()
 	. = ..()
-	mob_list -= src
-	living_mob_list -= src
-	dead_mob_list -= src
-	human_mob_list -= src
+	GLOB.mob_list -= src
+	GLOB.living_mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.human_mob_list -= src
 	delete_inventory()
+
+/mob/living/carbon/human/vatgrown/Initialize(mapload)
+	. = ..(mapload, SPECIES_HUMAN_VATGROWN)
+	mob_thinks = FALSE
 
 /mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Average Tentacles"
@@ -45,6 +51,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_TAJARA)
 
+/mob/living/carbon/human/farwa/adhomai
+	faction = "Adhomai"
+
 /mob/living/carbon/human/neaera/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_SKRELL)
 
@@ -63,7 +72,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_a/cargo/Initialize(mapload)
 	. = ..()
 	// Equip mask to allow the drone to breathe
-	equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(src), slot_wear_mask)
+	equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(src), slot_wear_mask)
 	// Set internals
 	var/obj/item/organ/internal/vaurca/preserve/P = internal_organs_by_name[BP_PHORON_RESERVE]
 	internal = P
@@ -71,11 +80,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	var/list/hive = splittext(name, " ")
 	switch(hive[length(hive)])
 		if("K'lax")
-			change_skin_color(33, 63, 33)
+			change_skin_color(20, 170, 20) // Vedhra does bioresearch.
 		if("C'thur")
-			change_skin_color(10, 35, 55)
+			change_skin_color(10, 35, 55) // Vytel tolerates the SCC the most.
 		if("Zo'ra")
-			change_skin_color(111, 21, 21)
+			change_skin_color(71 ,11, 51) // Scay does bioresearch.
 
 /mob/living/carbon/human/type_b/Initialize(mapload)
 	h_style = "Classic Antennae"
@@ -92,7 +101,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_big/Initialize(mapload)
 	. = ..(mapload, SPECIES_VAURCA_WARFORM)
 	src.gender = NEUTER
-	src.mutations.Add(HULK)
+	src.mutations |= HULK
 
 /mob/living/carbon/human/type_big
 	layer = 5
@@ -116,6 +125,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/zhankhazan_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
 	. = ..(mapload, SPECIES_TAJARA_ZHAN)
+
+/mob/living/carbon/human/tesla_body_tajara/Initialize(mapload)
+	h_style = "Tesla Rejuvenation Suit Ears"
+	. = ..(mapload, SPECIES_TAJARA_TESLA_BODY)
 
 /mob/living/carbon/human/industrial/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC_G1)
@@ -197,7 +210,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	var/obj/item/card/id/ID = new /obj/item/card/id(get_turf(src))
 	ID.assignment = "Overseer"
 	src.set_id_info(ID)
-	ID.access = list(access_armory)
+	ID.access = list(ACCESS_ARMORY)
 	equip_to_slot_or_del(ID, slot_wear_id)
 	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden/remote(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)

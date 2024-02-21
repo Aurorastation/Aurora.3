@@ -24,6 +24,7 @@
 		..()
 
 /obj/item/spell/spawner/pulsar/on_throw_cast(atom/hit_atom, mob/user)
+	. = ..()
 	empulse(hit_atom, 1, 1, 1, 1, log=1)
 
 // Does something every so often. Deletes itself when pulses_remaining hits zero.
@@ -40,7 +41,7 @@
 
 /obj/effect/temporary_effect/pulse/proc/pulse_loop()
 	set waitfor = FALSE
-	
+
 	while(pulses_remaining)
 		sleep(pulse_delay)
 		on_pulse()

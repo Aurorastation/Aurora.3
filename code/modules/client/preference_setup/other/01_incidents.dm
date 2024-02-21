@@ -2,14 +2,14 @@
 	name = "Incidents"
 	sort_order = 7
 
-/datum/category_item/player_setup_item/other/incidents/load_special(var/savefile/S)
+/datum/category_item/player_setup_item/other/incidents/load_character_special(var/savefile/S)
 	pref.incidents = list()
 	pref.ccia_actions = list()
 
 	//Special Aurora Snowflake to load in the ccia actions and persistant incidents
-	if (config.sql_saves) // Doesnt work without db
+	if (GLOB.config.sql_saves) // Doesnt work without db
 		//Load in the CCIA Actions
-		var/DBQuery/ccia_action_query = dbcon.NewQuery({"SELECT
+		var/DBQuery/ccia_action_query = GLOB.dbcon.NewQuery({"SELECT
 			act.title,
 			act.type,
 			act.issuedby,
@@ -25,7 +25,7 @@
 				act.deleted_at IS NULL;
 		"})
 		if (!ccia_action_query.Execute(list("char_id" = pref.current_character)))
-			error("Error CCIA Actions for character #[pref.current_character]. SQL error message: '[ccia_action_query.ErrorMsg()]'.")
+			log_world("ERROR: Error CCIA Actions for character #[pref.current_character]. SQL error message: '[ccia_action_query.ErrorMsg()]'.")
 
 		while(ccia_action_query.NextRow())
 			var/list/action = list(
@@ -39,7 +39,7 @@
 			pref.ccia_actions.Add(list(action))
 
 		//Load in the infractions
-		var/DBQuery/char_infraction_query = dbcon.NewQuery({"SELECT
+		var/DBQuery/char_infraction_query = GLOB.dbcon.NewQuery({"SELECT
 			id, char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony
 		FROM ss13_character_incidents
 		WHERE

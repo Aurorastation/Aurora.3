@@ -5,14 +5,14 @@
 /obj/item/circuitboard/security
 	name = T_BOARD("security camera monitor")
 	build_path = /obj/machinery/computer/security
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	var/list/network
 	var/locked = 1
 	var/emagged = 0
 
 /obj/item/circuitboard/security/Initialize()
 	. = ..()
-	network = current_map.station_networks
+	network = SSatlas.current_map.station_networks
 
 /obj/item/circuitboard/security/engineering
 	name = T_BOARD("engineering camera monitor")
@@ -46,22 +46,23 @@
 	locked = 0
 	return 1
 
-/obj/item/circuitboard/security/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I,/obj/item/card/id))
+/obj/item/circuitboard/security/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
 		if(emagged)
 			to_chat(user, "<span class='warning'>Circuit lock does not respond.</span>")
 			return
-		if(check_access(I))
+		if(check_access(attacking_item))
 			locked = !locked
 			to_chat(user, "<span class='notice'>You [locked ? "" : "un"]lock the circuit controls.</span>")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-	else if(I.ismultitool())
+	else if(attacking_item.ismultitool())
 		if(locked)
 			to_chat(user, "<span class='warning'>Circuit controls are locked.</span>")
 			return
 		var/existing_networks = jointext(network,",")
-		var/input = sanitize(input(usr, "Which networks would you like to connect this camera console circuit to? Seperate networks with a comma. No Spaces!\nFor example: SS13,Security,Secret ", "Multitool-Circuitboard interface", existing_networks))
+		var/input = sanitize( tgui_input_text(user, "Which networks would you like to connect this camera console circuit to? Seperate networks with a comma. No Spaces!\nFor example: SS13,Security,Secret ",
+												"Multitool-Circuitboard interface", existing_networks) )
 		if(!input)
 			to_chat(usr, "No input found please hang up and try your call again.")
 			return

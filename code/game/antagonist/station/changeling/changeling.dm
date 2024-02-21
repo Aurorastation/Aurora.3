@@ -4,7 +4,7 @@
 	role_text_plural = "Changelings"
 	bantype = "changeling"
 	feedback_tag = "changeling_objective"
-	restricted_jobs = list("AI", "Cyborg", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager")
+	restricted_jobs = list("AI", "Cyborg", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager", "Merchant")
 
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	restricted_species = list(
@@ -82,20 +82,20 @@
 				return 1
 			else if(isnewplayer(player.current))
 				if(player.current.client && player.current.client.prefs)
-					var/datum/species/S = all_species[player.current.client.prefs.species]
+					var/datum/species/S = GLOB.all_species[player.current.client.prefs.species]
 					if(S && (S.flags & NO_SCAN))
 						return 0
 					if(player.current.client.prefs.organ_data["torso"] == "cyborg") // Full synthetic.
 						return 0
 					return 1
- 	return 0
+	return 0
 
 /datum/antagonist/changeling/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
 	. = ..()
 	if(.)
-		player.current.verbs -= /datum/changeling/proc/EvolutionMenu
+		remove_verb(player.current, /datum/changeling/proc/EvolutionMenu)
 		for(var/datum/power/changeling/P in powerinstances)
-			player.current.verbs -= P.verbpath
+			remove_verb(player.current, P.verbpath)
 
 /datum/antagonist/changeling/is_obvious_antag(datum/mind/player)
 	if(istype(player.current, /mob/living/simple_animal/hostile/lesser_changeling))

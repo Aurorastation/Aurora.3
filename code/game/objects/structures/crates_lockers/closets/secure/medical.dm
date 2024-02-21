@@ -2,7 +2,7 @@
 	name = "medicine closet"
 	desc = "Filled with medical junk."
 	icon_state = "med"
-	req_access = list(access_medical_equip)
+	req_access = list(ACCESS_MEDICAL_EQUIP)
 
 /obj/structure/closet/secure_closet/medical1/fill()
 	..()
@@ -20,19 +20,20 @@
 	name = "anesthetics closet"
 	desc = "Used to knock people out."
 	icon_state = "med"
-	req_access = list(access_surgery)
+	req_access = list(ACCESS_SURGERY)
 
 /obj/structure/closet/secure_closet/medical2/fill()
 	new /obj/item/tank/anesthetic(src)
 	new /obj/item/tank/anesthetic(src)
 	new /obj/item/tank/anesthetic(src)
+	new /obj/item/tank/oxygen(src)
 	new /obj/item/clothing/mask/breath/medical(src)
 	new /obj/item/clothing/mask/breath/medical(src)
 	new /obj/item/clothing/mask/breath/medical(src)
 
 /obj/structure/closet/secure_closet/medical3
 	name = "medical equipment locker"
-	req_access = list(access_medical_equip)
+	req_access = list(ACCESS_MEDICAL_EQUIP)
 	icon_state = "med"
 
 /obj/structure/closet/secure_closet/medical3/fill()
@@ -62,12 +63,13 @@
 		if ("purple")
 			new /obj/item/clothing/under/rank/medical/surgeon/zeng(src)
 			new /obj/item/clothing/head/surgery/zeng(src)
+	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/pmc(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/idris(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/zeng(src)
 	new /obj/item/clothing/head/headmirror
-	new /obj/item/clothing/shoes/medical(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/device/radio/headset/headset_med/alt(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
@@ -76,7 +78,7 @@
 /obj/structure/closet/secure_closet/medical_fr
 	name = "first responder's locker"
 	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a first responder."
-	req_access = list(access_first_responder)
+	req_access = list(ACCESS_FIRST_RESPONDER)
 	icon_state = "med"
 
 /obj/structure/closet/secure_closet/medical_fr/fill()
@@ -87,6 +89,7 @@
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/clothing/glasses/hud/health(src)
 	new /obj/item/storage/backpack/medic(src)
+	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
 	new /obj/item/clothing/under/rank/medical/first_responder(src)
 	new /obj/item/clothing/under/rank/medical/first_responder/zeng(src)
@@ -110,7 +113,7 @@
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
-	req_access = list(access_cmo)
+	req_access = list(ACCESS_CMO)
 	icon_state = "cmo"
 
 /obj/structure/closet/secure_closet/CMO/fill()
@@ -119,13 +122,14 @@
 	else
 		new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
-	new /obj/item/clothing/shoes/medical(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 	new /obj/item/device/radio/headset/heads/cmo/alt(src)
 	new /obj/item/device/megaphone/med(src)
 	new /obj/item/device/flash(src)
+	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/reagent_containers/hypospray/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
@@ -138,7 +142,7 @@
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
-	req_access = list(access_cmo)
+	req_access = list(ACCESS_CMO)
 	icon_state = "cmo"
 
 /obj/structure/closet/secure_closet/CMO2/fill()
@@ -146,6 +150,7 @@
 	new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/clothing/under/rank/medical/surgeon/pmc(src)
 	new /obj/item/clothing/head/surgery/pmc(src)
+	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/under/rank/medical/surgeon/idris(src)
 	new /obj/item/clothing/under/rank/medical/surgeon/idris(src)
 	new /obj/item/clothing/under/rank/medical/surgeon/zeng(src)
@@ -153,12 +158,12 @@
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
-	new /obj/item/clothing/shoes/brown	(src)
+	new /obj/item/clothing/shoes/sneakers/brown	(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 
 /obj/structure/closet/secure_closet/animal
 	name = "animal control closet"
-	req_access = list(access_surgery)
+	req_access = list(ACCESS_SURGERY)
 
 /obj/structure/closet/secure_closet/animal/fill()
 	..()
@@ -172,7 +177,7 @@
 	desc = "Contains equipment useful to chemists."
 	icon_state = "med"
 	icon_door = "chemical"
-	req_access = list(access_pharmacy)
+	req_access = list(ACCESS_PHARMACY)
 
 /obj/structure/closet/secure_closet/chemical/fill()
 	..()
@@ -194,12 +199,12 @@
 	name = "psychiatric supplies locker"
 	desc = "A psychiatric supplies locker."
 	icon_state = "med"
-	req_access = list(access_psychiatrist)
+	req_access = list(ACCESS_PSYCHIATRIST)
 
 /obj/structure/closet/secure_closet/psychiatric/fill()
 	..()
 	new /obj/item/clothing/suit/straight_jacket(src)
-	new /obj/item/reagent_containers/food/drinks/teapot(src)
+	new /obj/item/reagent_containers/glass/beaker/teapot(src)
 	new /obj/item/toy/plushie/therapy(src)
 	new /obj/item/toy/plushie/slime(src)
 	new /obj/item/toy/plushie/bee(src)

@@ -30,7 +30,6 @@
 	tameable = FALSE
 	flying = 1
 	mob_size = MOB_LARGE
-	see_in_dark = 8
 	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
@@ -42,7 +41,7 @@
 	mob_bump_flag = HEAVY
 	mob_swap_flags = ~HEAVY
 	mob_push_flags = 0
-	
+
 	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
@@ -82,8 +81,10 @@
 		return ..(Proj)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
+	. = ..()
+
 	LoseTarget()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
@@ -94,9 +95,9 @@
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
 			if(last_processed_turf == src.loc)
-				INVOKE_ASYNC(src, .proc/prospect)
+				INVOKE_ASYNC(src, PROC_REF(prospect))
 			else
-				INVOKE_ASYNC(src, .proc/process_turf)
+				INVOKE_ASYNC(src, PROC_REF(process_turf))
 		else if(busy)
 			busy = 0
 			update_icon()
@@ -194,7 +195,7 @@
 				if(do_after(src, 32))
 					src.visible_message(SPAN_WARNING("[src] rips \the [C]."))
 					if(C.powernet && C.powernet.avail)
-						spark(src, 3, alldirs)
+						spark(src, 3, GLOB.alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
 					qdel(C)
 				busy = 0
@@ -209,7 +210,7 @@
 			update_icon()
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
-				playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
+				playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()
@@ -237,7 +238,7 @@
 	var/turf/T
 
 	if((!last_prospect_target) || (last_prospect_loc != src.loc))
-		destination = pick(cardinal)
+		destination = pick(GLOB.cardinal)
 		T = get_step(src, destination)
 		last_prospect_target = T
 		last_prospect_loc = src.loc
@@ -298,7 +299,7 @@
 		if(istype(O, /obj/structure/window))
 			var/dir = get_dir(T,src.loc)
 			var/obj/structure/window/W = O
-			if(W.dir == reverse_dir[dir])
+			if(W.dir == GLOB.reverse_dir[dir])
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)

@@ -33,7 +33,7 @@
 	force = 2.0
 	desc = "A miniature excavation tool for precise digging (2 centimetre excavation depth)."
 	excavation_amount = 1
-	drill_sound = 'sound/items/screwdriver.ogg'
+	drill_sound = 'sound/items/Screwdriver.ogg'
 	drill_verb = "delicately picking"
 	w_class = ITEMSIZE_SMALL
 	can_wield = 0
@@ -52,7 +52,7 @@
 	force = 2.0
 	desc = "A miniature excavation tool for precise digging (4 centimetre excavation depth)."
 	excavation_amount = 2
-	drill_sound = 'sound/items/screwdriver.ogg'
+	drill_sound = 'sound/items/Screwdriver.ogg'
 	drill_verb = "delicately picking"
 	w_class = ITEMSIZE_SMALL
 	can_wield = 0
@@ -71,7 +71,7 @@
 	force = 2.0
 	desc = "A miniature excavation tool for precise digging (6 centimetre excavation depth)."
 	excavation_amount = 3
-	drill_sound = 'sound/items/screwdriver.ogg'
+	drill_sound = 'sound/items/Screwdriver.ogg'
 	drill_verb = "delicately picking"
 	w_class = ITEMSIZE_SMALL
 	can_wield = 0
@@ -90,7 +90,7 @@
 	force = 2.0
 	desc = "A miniature excavation tool for precise digging (8 centimetre excavation depth)."
 	excavation_amount = 4
-	drill_sound = 'sound/items/screwdriver.ogg'
+	drill_sound = 'sound/items/Screwdriver.ogg'
 	drill_verb = "delicately picking"
 	w_class = ITEMSIZE_SMALL
 	can_wield = 0
@@ -109,7 +109,7 @@
 	force = 2.0
 	desc = "A miniature excavation tool for precise digging (10 centimetre excavation depth)."
 	excavation_amount = 5
-	drill_sound = 'sound/items/screwdriver.ogg'
+	drill_sound = 'sound/items/Screwdriver.ogg'
 	drill_verb = "delicately picking"
 	w_class = ITEMSIZE_SMALL
 	can_wield = 0
@@ -128,7 +128,7 @@
 	force = 2.0
 	desc = "A miniature excavation tool for precise digging (12 centimetre excavation depth)."
 	excavation_amount = 6
-	drill_sound = 'sound/items/screwdriver.ogg'
+	drill_sound = 'sound/items/Screwdriver.ogg'
 	drill_verb = "delicately picking"
 	w_class = ITEMSIZE_SMALL
 	can_wield = 0
@@ -146,7 +146,7 @@
 	force = 10.0
 	desc = "A smaller, more precise version of the pickaxe (30 centimetre excavation depth)."
 	excavation_amount = 15
-	drill_sound = /decl/sound_category/pickaxe_sound
+	drill_sound = /singleton/sound_category/pickaxe_sound
 	drill_verb = "clearing"
 	w_class = ITEMSIZE_NORMAL
 	can_wield = 0

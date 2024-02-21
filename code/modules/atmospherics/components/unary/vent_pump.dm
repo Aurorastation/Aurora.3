@@ -81,6 +81,11 @@
 	pressure_checks = 2
 	pressure_checks_default = 2
 
+/obj/machinery/atmospherics/unary/vent_pump/aux
+	icon_state = "map_vent_aux"
+	icon_connect_type = "-aux"
+	connect_types = CONNECT_TYPE_AUX //connects to aux pipes
+
 /obj/machinery/atmospherics/unary/vent_pump/Initialize(mapload)
 	if(mapload)
 		var/turf/T = loc
@@ -125,6 +130,11 @@
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux
+	icon_state = "map_vent_aux"
+	icon_connect_type = "-aux"
+	connect_types = CONNECT_TYPE_AUX //connects to aux pipes
+
 /obj/machinery/atmospherics/unary/vent_pump/engine
 	name = "Reactor Core Vent"
 	power_channel = ENVIRON
@@ -134,18 +144,11 @@
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
-/obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
+/obj/machinery/atmospherics/unary/vent_pump/update_icon(safety = 0)
 	if (!node)
 		update_use_power(POWER_USE_OFF)
 
 	var/vent_icon = ""
-
-	var/turf/T = get_turf(src)
-	if(!istype(T))
-		return
-
-	if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
-		vent_icon += "h"
 
 	if(welded)
 		vent_icon += "weld"
@@ -171,6 +174,7 @@
 				add_underlay(T, node, dir, node.icon_connect_type)
 			else
 				add_underlay(T,, dir)
+			underlays += "frame"
 
 /obj/machinery/atmospherics/unary/vent_pump/hide()
 	queue_icon_update()
@@ -184,7 +188,7 @@
 		return 0
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_pump/process()
+/obj/machinery/atmospherics/unary/vent_pump/process(seconds_per_tick)
 	..()
 
 	if (broadcast_status_next_process)
@@ -198,6 +202,8 @@
 		update_use_power(POWER_USE_OFF)
 	if(!can_pump())
 		return 0
+
+	if(!loc) return FALSE
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
@@ -216,7 +222,7 @@
 
 			//limit flow rate from turfs
 			transfer_moles = min(transfer_moles, environment.total_moles*air_contents.volume/environment.volume)	//group_multiplier gets divided out here
-			power_draw = pump_gas(src, environment, air_contents, transfer_moles, power_rating)
+			power_draw = pump_gas(src, environment, air_contents, transfer_moles * seconds_per_tick, power_rating)
 
 	else
 		//If we're in an area that is fucking ideal, and we don't have to do anything, chances are we won't next tick either so why redo these calculations?
@@ -227,7 +233,7 @@
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw
-		use_power_oneoff(power_draw)
+		use_power_oneoff(power_draw * seconds_per_tick)
 		if(network)
 			network.update = 1
 
@@ -290,7 +296,7 @@
 
 	hibernate = 0
 
-	//log_debug("DEBUG \[[world.timeofday]\]: /obj/machinery/atmospherics/unary/vent_pump/receive_signal([signal.debug_print()])")
+	//LOG_DEBUG("DEBUG \[[world.timeofday]\]: /obj/machinery/atmospherics/unary/vent_pump/receive_signal([signal.debug_print()])")
 	if(!signal.data["tag"] || (signal.data["tag"] != id_tag) || (signal.data["sigtype"]!="command"))
 		return 0
 
@@ -367,56 +373,57 @@
 	broadcast_status_next_process = TRUE
 	update_icon()
 
-/obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+/obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
 			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 		else if (WT.use(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding the vent."))
-			if(W.use_tool(src, user, 30, volume = 50))
+			if(attacking_item.use_tool(src, user, 30, volume = 50))
 				if(!src || !WT.isOn())
 					return TRUE
 				welded = !welded
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-									 "You hear welding.")
+										SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+										"You hear welding.")
 			else
 				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return TRUE
-	else if(istype(W, /obj/item/melee/arm_blade))
+	else if(istype(attacking_item, /obj/item/melee/arm_blade))
 		if(!welded)
-			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded air vents!"))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded air vents!"))
 			return TRUE
-		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
-		user.do_attack_animation(src, W)
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
+		user.do_attack_animation(src, attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
-			if(!W || !do_after(user, 30, src))
+			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
-			user.do_attack_animation(src, W)
-			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
+			user.do_attack_animation(src, attacking_item)
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
 				welded = FALSE
-				spark(get_turf(src), 3, alldirs)
+				spark(get_turf(src), 3, GLOB.alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
 	else
 		return ..()
 
-/obj/machinery/atmospherics/unary/vent_pump/examine(mob/user)
-	if(..(user, 1))
-		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
+/obj/machinery/atmospherics/unary/vent_pump/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
 	else
-		to_chat(user, "You are too far away to read the gauge.")
+		. += "You are too far away to read the gauge."
 	if(welded)
-		to_chat(user, "It seems welded shut.")
+		. += "It seems welded shut."
 
 /obj/machinery/atmospherics/unary/vent_pump/power_change()
 	var/old_stat = stat
@@ -424,8 +431,8 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+/obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/attacking_item, mob/user)
+	if (!attacking_item.iswrench())
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
@@ -435,13 +442,14 @@
 		to_chat(user, SPAN_WARNING("You must remove the plating first."))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \

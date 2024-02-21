@@ -1,4 +1,4 @@
-/obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
+/obj/item/clothing/gloves/attackby(obj/item/attacking_item, mob/user)
 	if(istype(src, /obj/item/clothing/gloves/boxing))			//quick fix for stunglove overlay not working nicely with boxing gloves.
 		to_chat(user, "<span class='notice'>That won't work.</span>")	//i'm not putting my lips on that!)
 		..()
@@ -9,8 +9,8 @@
 		return
 
 	//add wires
-	if(W.iscoil())
-		var/obj/item/stack/cable_coil/C = W
+	if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if (clipped)
 			to_chat(user, "<span class='notice'>The [src] are too badly mangled for wiring.</span>")
 			return
@@ -31,23 +31,23 @@
 		return
 
 	//add cell
-	else if(wired && istype(W, /obj/item/cell))
+	else if(wired && istype(attacking_item, /obj/item/cell))
 		if(cell)
-			to_chat(user, "<span class='notice'>A [cell] is already attached to the [src].</span>")
+			to_chat(user, "<span class='notice'>\A [cell] is already attached to the [src].</span>")
 			return
-		user.drop_from_inventory(W,src)
-		cell = W
+		user.drop_from_inventory(attacking_item, src)
+		cell = attacking_item
 		w_class = ITEMSIZE_NORMAL
-		to_chat(user, "<span class='notice'>You attach the [cell] to the [src].</span>")
+		to_chat(user, "<span class='notice'>You attach \the [cell] to the [src].</span>")
 		update_icon()
 		return
 
-	else if((cell || wired) && (W.iswirecutter() || istype(W, /obj/item/surgery/scalpel)))
+	else if((cell || wired) && (attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)))
 
 		//stunglove stuff
 		if(cell)
 			cell.update_icon()
-			to_chat(user, "<span class='notice'>You cut the [cell] away from the [src].</span>")
+			to_chat(user, "<span class='notice'>You cut \the [cell] away from the [src].</span>")
 			cell.forceMove(get_turf(src.loc))
 			cell = null
 			w_class = ITEMSIZE_SMALL

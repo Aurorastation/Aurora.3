@@ -23,7 +23,7 @@
 		for(var/area/A in shuttle_area)
 			for(var/mob/living/M in A)
 				M.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), 2,
-							   SPAN_WARNING("The shuttle shakes but fails to take off."), 1)
+								SPAN_WARNING("The shuttle shakes but fails to take off."), 1)
 				return 0 //failure!
 	return 1 //sucess, continue with launch
 
@@ -114,6 +114,7 @@
 	icon_state = "fuel_port"
 	density = 0
 	anchored = 1
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/icon_closed = "fuel_port"
 	var/icon_empty = "fuel_port_empty"
 	var/icon_full = "fuel_port_full"
@@ -138,8 +139,8 @@
 	else
 		icon_state = icon_closed
 
-/obj/structure/fuel_port/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/fuel_port/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		if(opened)
 			to_chat(user, SPAN_NOTICE("You close \the [src]."))
 			playsound(src.loc, 'sound/effects/closet_close.ogg', 25, 0, -3)
@@ -148,12 +149,12 @@
 			to_chat(user, SPAN_NOTICE("You pry \the [src] open."))
 			playsound(src.loc, 'sound/effects/closet_open.ogg', 15, 1, -3)
 			opened = 1
-	else if(istype(W,/obj/item/tank))
+	else if(istype(attacking_item, /obj/item/tank))
 		if(!opened)
 			to_chat(user, SPAN_NOTICE("\The [src] isn't open!"))
 			return
 		if(contents.len == 0)
-			user.unEquip(W, TRUE, src)
+			user.unEquip(attacking_item, TRUE, src)
 	update_icon()
 
 // Walls hide stuff inside them, but we want to be visible.
@@ -162,14 +163,17 @@
 
 /obj/structure/fuel_port/phoron // The best and most expensive fuel. Likely to be in the hands of corporate forces, though the well-off along with military forces throughout the Spur also have a good chance of using it.
 
+/obj/structure/fuel_port/phoron/scc
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
+
 /obj/structure/fuel_port/phoron/Initialize()
 	. = ..()
-	new /obj/item/tank/phoron/shuttle(src) 
+	new /obj/item/tank/phoron/shuttle(src)
 
 /obj/structure/fuel_port/hydrogen // The most common and serviceable fuel for a shuttle. It's not as good as phoron, but it will still get you places. It's also not scarce! Used by practically everyone.
 
 /obj/structure/fuel_port/hydrogen/Initialize()
 	. = ..()
-	new /obj/item/tank/hydrogen/shuttle(src) 
+	new /obj/item/tank/hydrogen/shuttle(src)
 
 #undef waypoint_sector

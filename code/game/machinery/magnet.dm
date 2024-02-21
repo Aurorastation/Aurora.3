@@ -34,7 +34,7 @@
 	hide(!T.is_plating())
 	center = T
 
-	addtimer(CALLBACK(src, .proc/magnetic_process), 0, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(magnetic_process)), 0, TIMER_UNIQUE)
 
 /obj/machinery/magnetic_module/LateInitialize()
 	if(SSradio)
@@ -42,7 +42,7 @@
 
 	// update the invisibility and icon
 /obj/machinery/magnetic_module/hide(var/intact)
-	invisibility = intact ? 101 : 0
+	set_invisibility(intact ? 101 : 0)
 	update_icon()
 
 /obj/machinery/magnetic_module/update_icon()
@@ -169,7 +169,7 @@
 		center = locate(x+center_x, y+center_y, z)
 		if(center)
 			for(var/obj/M in orange(magnetic_field, center))
-				if(!M.anchored && (M.flags & CONDUCT))
+				if(!M.anchored && (M.obj_flags & OBJ_FLAG_CONDUCTABLE))
 					step_towards(M, center)
 
 			for(var/mob/living/silicon/S in orange(magnetic_field, center))

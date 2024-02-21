@@ -1,11 +1,10 @@
-/var/datum/controller/subsystem/plants/SSplants
-
-/datum/controller/subsystem/plants
+SUBSYSTEM_DEF(plants)
 	name = "Seeds & Plants"
 	flags = 0	// Override parent's flags.
 	wait = 75
-	init_order = SS_INIT_SEEDS
+	init_order = INIT_ORDER_SEEDS
 	priority = SS_PRIORITY_PLANTS
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/product_descs = list()         // Stores generated fruit descs.
 	var/list/seeds = list()                 // All seed data stored here.
@@ -20,11 +19,9 @@
 	var/list/processing = list()
 	var/list/current = list()
 
-/datum/controller/subsystem/plants/New()
-	NEW_SS_GLOBAL(SSplants)
-
-/datum/controller/subsystem/plants/stat_entry()
-	..("P:[processing.len]")
+/datum/controller/subsystem/plants/stat_entry(msg)
+	msg = "P:[processing.len]"
+	return ..()
 
 /datum/controller/subsystem/plants/Initialize(timeofday)
 	// Build the icon lists.
@@ -57,7 +54,7 @@
 		S.roundstart = 1
 
 	//Might as well mask the gene types while we're at it.
-	var/list/gene_datums = list()
+	var/list/gene_datums = GET_SINGLETON_TYPE_MAP(/singleton/plantgene)
 	var/list/used_masks = list()
 	var/list/plant_traits = ALL_GENES
 	while(plant_traits && plant_traits.len)
@@ -67,10 +64,10 @@
 		while(gene_mask in used_masks)
 			gene_mask = "[uppertext(num2hex(rand(0,255), 0))]"
 
-		var/decl/plantgene/G
+		var/singleton/plantgene/G
 
 		for(var/D in gene_datums)
-			var/decl/plantgene/P = gene_datums[D]
+			var/singleton/plantgene/P = gene_datums[D]
 			if(gene_tag == P.gene_tag)
 				G = P
 				gene_datums -=D
@@ -81,7 +78,7 @@
 		plant_gene_datums[gene_mask] = G
 		gene_masked_list += (list(list("tag" = gene_tag, "mask" = gene_mask)))
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/plants/Recover()
 	if (istype(SSplants))
@@ -129,8 +126,8 @@
 		if(seed.consume_gasses)
 			seed.consume_gasses[GAS_PHORON] = null
 			seed.consume_gasses[GAS_CO2] = null
-		if(seed.chems && !isnull(seed.chems[/decl/reagent/acid/polyacid]))
-			seed.chems[/decl/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
+		if(seed.chems && !isnull(seed.chems[/singleton/reagent/acid/polyacid]))
+			seed.chems[/singleton/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
 			seed.chems -= null // Setting to null does not actually remove the entry, which is weird.
 		seed.set_trait(TRAIT_IDEAL_HEAT,293)
 		seed.set_trait(TRAIT_HEAT_TOLERANCE,20)

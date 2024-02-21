@@ -5,7 +5,7 @@
 	icon_state = "hydrotray3"
 	density = 1
 	anchored = 1
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	volume = 100
 
 	var/mechanical = 1         // Set to 0 to stop it from drawing the alert lights.
@@ -52,86 +52,86 @@
 	// Reagent information for process(), consider moving this to a controller along
 	// with cycle information under 'mechanical concerns' at some point.
 	var/global/list/toxic_reagents = list(
-		/decl/reagent/dylovene =			 -2,
-		/decl/reagent/toxin =				  2,
-		/decl/reagent/hydrazine =			2.5,
-		/decl/reagent/acetone =			  1,
-		/decl/reagent/acid =				1.5,
-		/decl/reagent/acid/hydrochloric =	1.5,
-		/decl/reagent/acid/polyacid =		  3,
-		/decl/reagent/toxin/plantbgone =	  3,
-		/decl/reagent/cryoxadone =			 -3,
-		/decl/reagent/radium =				  2,
-		/decl/reagent/raskara_dust =		2.5
+		/singleton/reagent/dylovene =			 -2,
+		/singleton/reagent/toxin =				  2,
+		/singleton/reagent/hydrazine =			2.5,
+		/singleton/reagent/acetone =			  1,
+		/singleton/reagent/acid =				1.5,
+		/singleton/reagent/acid/hydrochloric =	1.5,
+		/singleton/reagent/acid/polyacid =		  3,
+		/singleton/reagent/toxin/plantbgone =	  3,
+		/singleton/reagent/cryoxadone =			 -3,
+		/singleton/reagent/radium =				  2,
+		/singleton/reagent/drugs/raskara_dust =		2.5
 		)
 	var/global/list/nutrient_reagents = list(
-		/decl/reagent/drink/milk =				 0.1,
-		/decl/reagent/alcohol/beer =	0.25,
-		/decl/reagent/phosphorus =				 0.1,
-		/decl/reagent/sugar =					 0.1,
-		/decl/reagent/drink/sodawater =		 0.1,
-		/decl/reagent/ammonia =				   1,
-		/decl/reagent/diethylamine =			   2,
-		/decl/reagent/nutriment =				   1,
-		/decl/reagent/adminordrazine =			   1,
+		/singleton/reagent/drink/milk =				 0.1,
+		/singleton/reagent/alcohol/beer =	0.25,
+		/singleton/reagent/phosphorus =				 0.1,
+		/singleton/reagent/sugar =					 0.1,
+		/singleton/reagent/drink/sodawater =		 0.1,
+		/singleton/reagent/ammonia =				   1,
+		/singleton/reagent/diethylamine =			   2,
+		/singleton/reagent/nutriment =				   1,
+		/singleton/reagent/adminordrazine =			   1,
 		// Fertilizers
-		/decl/reagent/toxin/fertilizer/eznutrient =			1,
-		/decl/reagent/toxin/fertilizer/robustharvest =			1,
-		/decl/reagent/toxin/fertilizer/left4zed =				1,
-		/decl/reagent/toxin/fertilizer/monoammoniumphosphate =	1
+		/singleton/reagent/toxin/fertilizer/eznutrient =			1,
+		/singleton/reagent/toxin/fertilizer/robustharvest =			1,
+		/singleton/reagent/toxin/fertilizer/left4zed =				1,
+		/singleton/reagent/toxin/fertilizer/monoammoniumphosphate =	1
 		)
 	var/global/list/weedkiller_reagents = list(
-		/decl/reagent/hydrazine =			-4,
-		/decl/reagent/phosphorus =			-2,
-		/decl/reagent/sugar =				 2,
-		/decl/reagent/acid =				-2,
-		/decl/reagent/acid/hydrochloric =	-2,
-		/decl/reagent/acid/polyacid =		-4,
-		/decl/reagent/toxin/plantbgone =	-8,
-		/decl/reagent/adminordrazine =		-5
+		/singleton/reagent/hydrazine =			-4,
+		/singleton/reagent/phosphorus =			-2,
+		/singleton/reagent/sugar =				 2,
+		/singleton/reagent/acid =				-2,
+		/singleton/reagent/acid/hydrochloric =	-2,
+		/singleton/reagent/acid/polyacid =		-4,
+		/singleton/reagent/toxin/plantbgone =	-8,
+		/singleton/reagent/adminordrazine =		-5
 		)
 	var/global/list/pestkiller_reagents = list(
-		/decl/reagent/sugar =           2,
-		/decl/reagent/diethylamine =   -2,
-		/decl/reagent/adminordrazine = -5
+		/singleton/reagent/sugar =           2,
+		/singleton/reagent/diethylamine =   -2,
+		/singleton/reagent/adminordrazine = -5
 		)
 	var/global/list/water_reagents = list(
-		/decl/reagent/water =					  1,
-		/decl/reagent/adminordrazine =			  1,
-		/decl/reagent/drink/milk =				0.9,
-		/decl/reagent/alcohol/beer =	0.7,
-		/decl/reagent/hydrazine =				 -2,
-		/decl/reagent/phosphorus =			   -0.5,
-		/decl/reagent/water =					  1,
-		/decl/reagent/drink/sodawater =		  1
+		/singleton/reagent/water =					  1,
+		/singleton/reagent/adminordrazine =			  1,
+		/singleton/reagent/drink/milk =				0.9,
+		/singleton/reagent/alcohol/beer =	0.7,
+		/singleton/reagent/hydrazine =				 -2,
+		/singleton/reagent/phosphorus =			   -0.5,
+		/singleton/reagent/water =					  1,
+		/singleton/reagent/drink/sodawater =		  1
 		)
 
 	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
 	var/global/list/beneficial_reagents = list(
-		/decl/reagent/alcohol/beer=list( -0.05, 0,   0  ),
-		/decl/reagent/hydrazine =			list( -2,    0,   0  ),
-		/decl/reagent/phosphorus =			list( -0.75, 0,   0  ),
-		/decl/reagent/drink/sodawater =	list(  0.1,  0,   0  ),
-		/decl/reagent/acid =		  		list( -1,    0,   0  ),
-		/decl/reagent/acid/hydrochloric =	list( -1,    0,   0  ),
-		/decl/reagent/acid/polyacid =		list( -2,    0,   0  ),
-		/decl/reagent/toxin/plantbgone =	list( -2,    0,   0.2),
-		/decl/reagent/cryoxadone =	 		list(  3,    0,   0  ),
-		/decl/reagent/ammonia =			list(  0.5,  0,   0  ),
-		/decl/reagent/diethylamine =		list(  1,    0,   0  ),
-		/decl/reagent/nutriment =			list(  0.5,  0.1, 0  ),
-		/decl/reagent/radium =				list( -1.5,  0,   0.2),
-		/decl/reagent/adminordrazine =		list(  1,    1,   1  ),
+		/singleton/reagent/alcohol/beer=list( -0.05, 0,   0  ),
+		/singleton/reagent/hydrazine =			list( -2,    0,   0  ),
+		/singleton/reagent/phosphorus =			list( -0.75, 0,   0  ),
+		/singleton/reagent/drink/sodawater =	list(  0.1,  0,   0  ),
+		/singleton/reagent/acid =		  		list( -1,    0,   0  ),
+		/singleton/reagent/acid/hydrochloric =	list( -1,    0,   0  ),
+		/singleton/reagent/acid/polyacid =		list( -2,    0,   0  ),
+		/singleton/reagent/toxin/plantbgone =	list( -2,    0,   0.2),
+		/singleton/reagent/cryoxadone =	 		list(  3,    0,   0  ),
+		/singleton/reagent/ammonia =			list(  0.5,  0,   0  ),
+		/singleton/reagent/diethylamine =		list(  1,    0,   0  ),
+		/singleton/reagent/nutriment =			list(  0.5,  0.1, 0  ),
+		/singleton/reagent/radium =				list( -1.5,  0,   0.2),
+		/singleton/reagent/adminordrazine =		list(  1,    1,   1  ),
 		// Fertilizers
-		/decl/reagent/toxin/fertilizer/robustharvest =	list(  0,	0.2, 0  ),
-		/decl/reagent/toxin/fertilizer/left4zed =		list(  0,	0,   0.2)
+		/singleton/reagent/toxin/fertilizer/robustharvest =	list(  0,	0.2, 0  ),
+		/singleton/reagent/toxin/fertilizer/left4zed =		list(  0,	0,   0.2)
 		)
 
 	// Mutagen list specifies minimum value for the mutation to take place, rather
 	// than a bound as the lists above specify.
 	var/global/list/mutagenic_reagents = list(
-		/decl/reagent/radium =   8,
-		/decl/reagent/mutagen = 15
+		/singleton/reagent/radium =   8,
+		/singleton/reagent/mutagen = 15
 		)
 
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
@@ -178,12 +178,12 @@
 		if(nymph.stat == DEAD || nymph.paralysis || nymph.weakened || nymph.stunned || nymph.restrained())
 			return
 		if(weedlevel > 0)
-			nymph.ingested.add_reagent(/decl/reagent/nutriment, weedlevel/6)
+			nymph.ingested.add_reagent(/singleton/reagent/nutriment, weedlevel/6)
 			weedlevel = 0
 			nymph.visible_message("<span class='notice'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</span>","<span class='notice'>You root through [src], ripping out weeds and eating them noisily.</span>")
 			return
 		if (dead)//Let nymphs eat dead plants
-			nymph.ingested.add_reagent(/decl/reagent/nutriment, 1)
+			nymph.ingested.add_reagent(/singleton/reagent/nutriment, 1)
 			nymph.visible_message("<span class='notice'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</span>","<span class='notice'>You root out the dead plants in [src], eating them with loud chewing sounds.</span>")
 			remove_dead(user)
 			return
@@ -198,7 +198,7 @@
 	..()
 	temp_chem_holder = new()
 	temp_chem_holder.create_reagents(10)
-	temp_chem_holder.flags |= OPENCONTAINER
+	temp_chem_holder.atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	create_reagents(200)
 	if(mechanical)
 		connect()
@@ -231,7 +231,7 @@
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return TRUE
 	else
-		return FALSE
+		return !density
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_health()
 	if(seed && !dead && health <= 0)
@@ -411,7 +411,7 @@
 	if(usr.incapacitated())
 		return
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		var/new_light = input("Specify a light level.") as null|anything in list(0,1,2,3,4,5,6,7,8,9,10)
+		var/new_light = tgui_input_list(usr, "Specify a light level.", "Set Light", list(0,1,2,3,4,5,6,7,8,9,10))
 		if(new_light)
 			tray_light = new_light
 			to_chat(usr, "You set the tray to a light level of [tray_light] lumens.")
@@ -454,29 +454,29 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attackby(obj/item/attacking_item, mob/user)
 
 	//A special case for if the container has only water, for manual watering with buckets
-	if (istype(O,/obj/item/reagent_containers))
-		var/obj/item/reagent_containers/RC = O
+	if (istype(attacking_item, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/RC = attacking_item
 		if(!RC.is_open_container())
 			to_chat(user, SPAN_WARNING("You need to open \the [RC] first!"))
 			return
 		if (LAZYLEN(RC.reagents.reagent_volumes) == 1)
-			if (RC.reagents.has_reagent(/decl/reagent/water, 1))
+			if (RC.reagents.has_reagent(/singleton/reagent/water, 1))
 				if (waterlevel < maxWaterLevel)
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
-					RC.reagents.remove_reagent(/decl/reagent/water, amountToRemove, 1)
+					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
 				else
 					to_chat(user, SPAN_WARNING("This tray is full of water already."))
 				return TRUE
 
-	if (O.is_open_container())
+	if (attacking_item.is_open_container())
 		return FALSE
 
-	if(O.iswirecutter() || istype(O, /obj/item/surgery/scalpel))
+	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
@@ -504,9 +504,9 @@
 
 		return
 
-	else if(istype(O, /obj/item/reagent_containers/syringe))
+	else if(istype(attacking_item, /obj/item/reagent_containers/syringe))
 
-		var/obj/item/reagent_containers/syringe/S = O
+		var/obj/item/reagent_containers/syringe/S = attacking_item
 
 		if (S.mode == 1)
 			if(seed)
@@ -522,16 +522,16 @@
 				to_chat(user, "There's nothing to draw something from.")
 			return TRUE
 
-	else if (istype(O, /obj/item/seeds))
+	else if (istype(attacking_item, /obj/item/seeds))
 
 		if(!seed)
 
-			var/obj/item/seeds/S = O
-			user.remove_from_mob(O)
+			var/obj/item/seeds/S = attacking_item
+			user.remove_from_mob(attacking_item)
 
 			if(!S.seed)
 				to_chat(user, "The packet seems to be empty. You throw it away.")
-				qdel(O)
+				qdel(attacking_item)
 				return
 
 			if(S.seed.hydrotray_only && !mechanical)
@@ -547,14 +547,14 @@
 			health = (istype(S, /obj/item/seeds/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
 			lastcycle = world.time
 
-			qdel(O)
+			qdel(attacking_item)
 
 			check_health()
 
 		else
 			to_chat(user, "<span class='danger'>\The [src] already has seeds in it!</span>")
 
-	else if (istype(O, /obj/item/material/minihoe))  // The minihoe
+	else if (istype(attacking_item, /obj/item/material/minihoe))  // The minihoe
 
 		if(weedlevel > 0)
 			user.visible_message("<span class='danger'>[user] starts uprooting the weeds.</span>", "<span class='danger'>You remove the weeds from the [src].</span>")
@@ -563,45 +563,45 @@
 		else
 			to_chat(user, "<span class='danger'>This plot is completely devoid of weeds. It doesn't need uprooting.</span>")
 
-	else if (istype(O, /obj/item/storage/bag/plants))
+	else if (istype(attacking_item, /obj/item/storage/bag/plants))
 
 		attack_hand(user)
 
-		var/obj/item/storage/bag/plants/S = O
+		var/obj/item/storage/bag/plants/S = attacking_item
 		for (var/obj/item/reagent_containers/food/snacks/grown/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G))
 				return
 			S.handle_item_insertion(G, 1)
 
-	else if ( istype(O, /obj/item/plantspray) )
+	else if ( istype(attacking_item, /obj/item/plantspray) )
 
-		var/obj/item/plantspray/spray = O
-		user.remove_from_mob(O)
+		var/obj/item/plantspray/spray = attacking_item
+		user.remove_from_mob(attacking_item)
 		toxins += spray.toxicity
 		pestlevel -= spray.pest_kill_str
 		weedlevel -= spray.weed_kill_str
-		to_chat(user, "You spray [src] with [O].")
+		to_chat(user, "You spray [src] with [attacking_item].")
 		playsound(loc, 'sound/effects/spray3.ogg', 50, 1, -6)
-		qdel(O)
+		qdel(attacking_item)
 		check_health()
 
-	else if(mechanical && O.iswrench())
+	else if(mechanical && attacking_item.iswrench())
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
 			return ..()
 
-		playsound(loc, O.usesound, 50, 1)
+		playsound(loc, attacking_item.usesound, 50, 1)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
-	else if(O.force && seed)
+	else if(attacking_item.force && seed)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.visible_message("<span class='danger'>\The [seed.display_name] has been attacked by [user] with \the [O]!</span>")
+		user.visible_message("<span class='danger'>\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!</span>")
 		if(!dead)
-			var/total_damage = O.force
-			if ((O.sharp) || (O.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
-				total_damage = 2*O.force
+			var/total_damage = attacking_item.force
+			if ((attacking_item.sharp) || (attacking_item.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
+				total_damage = 2*attacking_item.force
 			health -= total_damage
 			check_health()
 	return
@@ -622,31 +622,29 @@
 	else if(dead)
 		remove_dead(user)
 
-/obj/machinery/portable_atmospherics/hydroponics/examine()
-
-	..()
-
+/obj/machinery/portable_atmospherics/hydroponics/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(!seed)
-		to_chat(usr, "[src] is empty.")
+		. += "[src] is empty."
 		return
 
-	to_chat(usr, "<span class='notice'>[seed.display_name] are growing here.</span>")
+	. += "<span class='notice'>[seed.display_name] are growing here.</span>"
 
-	if(!Adjacent(usr))
+	if(!is_adjacent)
 		return
 
-	to_chat(usr, "Water: [round(waterlevel,0.1)]/100")
-	to_chat(usr, "Nutrient: [round(nutrilevel,0.1)]/10")
+	. += "The water gauge displays [round(waterlevel,0.1)]/100."
+	. += "The nutrient gauge displays [round(nutrilevel,0.1)]/10."
 
 	if(weedlevel >= 5)
-		to_chat(usr, "\The [src] is <span class='danger'>infested with weeds</span>!")
+		. += "\The [src] is <span class='danger'>infested with weeds</span>!"
 	if(pestlevel >= 5)
-		to_chat(usr, "\The [src] is <span class='danger'>infested with tiny worms</span>!")
+		. += "\The [src] is <span class='danger'>infested with tiny worms</span>!"
 
 	if(dead)
-		to_chat(usr, "<span class='danger'>The plant is dead.</span>")
+		. += "<span class='danger'>The plant is dead.</span>"
 	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
-		to_chat(usr, "The plant looks <span class='danger'>unhealthy</span>.")
+		. += "The plant looks <span class='danger'>unhealthy</span>."
 
 	if(mechanical)
 		var/turf/T = loc
@@ -674,7 +672,7 @@
 
 			light_string = "a light level of [light_available] lumens"
 
-		to_chat(usr, "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K.")
+		. += "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."
 
 /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
 	set name = "Toggle Tray Lid"

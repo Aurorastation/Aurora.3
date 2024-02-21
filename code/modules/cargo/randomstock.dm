@@ -77,7 +77,7 @@ STOCK_ITEM_COMMON(bees, 2)
 		var/datum/cargo_master/def = new type()
 		def.register_spawner()
 		i++
-	log_debug("Registered [i] cargo spawners.")
+	LOG_DEBUG("Registered [i] cargo spawners.")
 
 // These lists are populated by the files in `./random_stock` using the above procs.
 var/list/global/random_stock_common = list()
@@ -97,13 +97,6 @@ var/list/global/random_stock_large = list()
 	var/area/warehouse
 	var/list/warehouseturfs = list()
 
-	var/list/infest_mobs_minor = list(
-		/mob/living/simple_animal/rat = 1,
-		/mob/living/simple_animal/lizard = 0.5,
-		/mob/living/simple_animal/yithian = 0.7,
-		/mob/living/simple_animal/tindalos = 0.6,
-		/mob/living/bot/secbot = 0.1)
-
 	var/list/infest_mobs_moderate = list(
 		/mob/living/simple_animal/bee/standalone = 1,
 		/mob/living/simple_animal/hostile/retaliate/diyaab = 1,
@@ -113,15 +106,12 @@ var/list/global/random_stock_large = list()
 	var/list/infest_mobs_severe = list(
 		/mob/living/simple_animal/hostile/giant_spider/hunter = 1,
 		/mob/living/simple_animal/hostile/retaliate/shantak = 0.7,
-		/mob/living/simple_animal/hostile/bear = 0.5,
 		/mob/living/simple_animal/hostile/carp = 1.5,
-		/mob/living/simple_animal/hostile/carp/russian = 0.3,
-		"cratey" = 1
 	)
 
 /datum/cargospawner/New()
 	//First lets get the reference to our warehouse
-	for(var/areapath in typesof(current_map.warehouse_basearea))
+	for(var/areapath in typesof(SSatlas.current_map.warehouse_basearea))
 		warehouse = locate(areapath)
 		if (warehouse)
 			for (var/turf/simulated/floor/T in warehouse)
@@ -134,7 +124,7 @@ var/list/global/random_stock_large = list()
 				tables |= B
 
 /datum/cargospawner/proc/start()
-	if (!current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
+	if (!SSatlas.current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
 		return
@@ -206,19 +196,14 @@ var/list/global/random_stock_large = list()
 		if ("3")
 			return pickweight(random_stock_common)
 
-//Minor and moderate mobs are checked per crate
-#define INFEST_PROB_MINOR	6
+// Moderate mobs are checked per crate
 #define INFEST_PROB_MODERATE	3
 
 #define INFEST_PROB_SEVERE	3//Severe is once per round, not per crate
 
 /datum/cargospawner/proc/handle_infestation()
 	for (var/obj/O in containers)
-		if (prob(INFEST_PROB_MINOR))
-	//No admin message for the minor mobs, because they are friendly and harmless
-			var/ctype = pickweight(infest_mobs_minor)
-			new ctype(O)
-		else if	 (prob(INFEST_PROB_MODERATE))
+		if(prob(INFEST_PROB_MODERATE))
 			var/ctype = pickweight(infest_mobs_moderate)
 			new ctype(O)
 			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [O.name] coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>)")
@@ -236,28 +221,8 @@ var/list/global/random_stock_large = list()
 		if (turfs.len)
 			T = pick(turfs)
 
-		var/ctype = pickweight(infest_mobs_severe)
+			var/ctype = pickweight(infest_mobs_severe)
 
-		if (ctype == "cratey")
-			var/obj/C = pick(containers)
-
-			var/mob/living/simple_animal/hostile/mimic/copy/cratey
-
-			cratey = new /mob/living/simple_animal/hostile/mimic/copy(C.loc, C, null)
-
-
-			//Cratey is kinda tough but slow, easy to run away from
-			cratey.name = "Cratey"
-			cratey.health = 150
-			cratey.maxHealth = 150
-			cratey.melee_damage_lower = 7
-			cratey.melee_damage_upper = 18
-			cratey.knockdown_people = 1
-			cratey.move_to_delay = 12
-
-			msg_admin_attack("Cratey spawned coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[cratey.x];Y=[cratey.y];Z=[cratey.z]'>JMP</a>)")
-
-		else
 			new ctype(T)
 			msg_admin_attack("Rare cargo warehouse critter [ctype] spawned coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)")
 			return

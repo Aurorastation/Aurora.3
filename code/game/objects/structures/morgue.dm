@@ -18,6 +18,7 @@
 	dir = EAST
 	density = TRUE
 	anchored = TRUE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/locked = FALSE
 	var/obj/structure/m_tray/connected = null
 	var/tray = /obj/structure/m_tray
@@ -91,14 +92,13 @@
 		return attack_hand(user)
 	else return ..()
 
-/obj/structure/morgue/attackby(obj/P, mob/user)
-	if(P.ispen())
-		var/t = input(user, "What would you like the label to be?", name) as text
-		if(user.get_active_hand() != P)
+/obj/structure/morgue/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
+		var/t = tgui_input_text(user, "What would you like the label to be?", "Morgue", "", MAX_NAME_LEN)
+		if(user.get_active_hand() != attacking_item)
 			return
 		if((!in_range(src, usr) > 1 && src.loc != user))
 			return
-		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if(t)
 			name = "[initial(name)] - '[t]'"
 		else
@@ -143,6 +143,7 @@
 	anchored = TRUE
 	throwpass = TRUE
 	layer = TURF_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
 
 /obj/structure/m_tray/Destroy()
@@ -273,9 +274,9 @@
 						desperation = rand(1,5)
 						switch(desperation) //This is messy. A better solution would probably be to make more sounds, but...
 							if(1)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'sound/weapons/Genhit.ogg', 45, 1)
 								shake_animation(2)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'sound/weapons/Genhit.ogg', 45, 1)
 							if(2)
 								playsound(src.loc, 'sound/effects/grillehit.ogg', 45, 1)
 								shake_animation(3)
@@ -341,7 +342,7 @@
 /obj/machinery/button/switch/crematorium
 	name = "crematorium igniter"
 	desc = "Burn baby burn!"
-	req_access = list(access_crematorium)
+	req_access = list(ACCESS_CREMATORIUM)
 	id = 1
 	var/cremate_dir // something for mappers, setting will make a crematorium in one step in this direction toggle
 

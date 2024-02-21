@@ -45,12 +45,12 @@
 /obj/vehicle/droppod/Move()
 	return
 
-/obj/vehicle/droppod/attackby(obj/item/I as obj, mob/user as mob)
-	if(I.iswelder() && status == USED && !humanload && !passenger)
-		var/obj/item/weldingtool/W = I
+/obj/vehicle/droppod/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder() && status == USED && !humanload && !passenger)
+		var/obj/item/weldingtool/W = attacking_item
 		if(W.welding)
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
-			if(I.use_tool(src, user, 200, volume = 50))
+			if(attacking_item.use_tool(src, user, 200, volume = 50))
 				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
@@ -113,7 +113,7 @@
 
 	if(!dest || dest == get_turf(src))
 		var/list/options = new()
-		for(var/test_dir in alldirs)
+		for(var/test_dir in GLOB.alldirs)
 			var/new_dir = get_step_to(src, get_step(src, test_dir))
 			if(new_dir && user.Adjacent(new_dir))
 				options += new_dir
@@ -146,6 +146,8 @@
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
+	if(isobserver(user))
+		return
 	if(user == humanload || user == passenger)
 		if(status != USED)
 			launchinterface()
@@ -155,28 +157,36 @@
 		load(user)
 		launchinterface()
 
-/obj/vehicle/droppod/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "vehicles-droppod", 400, 400, "Drop Pod", state = default_state)
-		ui.data = vueui_data_change(null, user, ui)
+/obj/vehicle/droppod/attack_ghost(mob/user)
+	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
+		..()
+	else // normal ghosts cannot use this
+		return
 
-	ui.open()
+/obj/vehicle/droppod/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DropPod", "Drop Pod", 400, 400)
+		ui.open()
 
-/obj/vehicle/droppod/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+/obj/vehicle/droppod/ui_state(mob/user)
+	return GLOB.always_state
+
+/obj/vehicle/droppod/ui_data(mob/user)
+	var/list/data = list()
 
 	data["status"] = status
 
 	return data
 
-/obj/vehicle/droppod/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/vehicle/droppod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["fire"])
+	if(action == "fire")
 		var/area/A = null
-		var/target = href_list["fire"]
+		var/target = params["fire"]
 		switch(target)
 			if("recreational_areas")
 				var/list/recreational_areas_list = list(
@@ -209,8 +219,7 @@
 					return
 			status = LAUNCHING
 
-			var/datum/vueui/ui = href_list["vueui"]
-			ui?.close()
+			SStgui.close_uis(src)
 
 			if(connected_blastdoor)
 				blastdoor_interact()

@@ -1,4 +1,7 @@
 /mob/living/carbon/human
+	// Tail Style
+	var/tail_style = null
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
@@ -33,7 +36,7 @@
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place
 
-	var/lip_style = null	//no lipstick by default- arguably misleading, as it could be used for general makeup
+	var/lipstick_color = null	//no lipstick by default
 
 	var/age = 30		//Player's age (pure fluff)
 	var/b_type = "A+"	//Player's bloodtype
@@ -71,10 +74,6 @@
 	var/obj/item/s_store = null
 	var/obj/item/wrists = null
 
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list()
-
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null
 
@@ -111,8 +110,8 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
-	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
-	var/footsound = /decl/sound_category/blank_footsteps
+	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	var/footsound = /singleton/sound_category/blank_footsteps
 
 	var/last_x = 0
 	var/last_y = 0
@@ -127,3 +126,5 @@
 	var/list/datum/martial_art/known_martial_arts = null
 
 	var/triage_tag = TRIAGE_NONE
+
+	var/lobotomized = FALSE //additional check for isAdvancedToolUser that can be set manually by things

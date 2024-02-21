@@ -1,11 +1,19 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass
 	name = "lush exoplanet"
-	desc = "Planet with abundant flora and fauna."
+	desc = "An exoplanet with abundant flora and fauna."
 	color = "#407c40"
+	scanimage = "jungle.png"
+	geology = "High-energy geothermal signature, tectonic activity non-obstructive to surface environment"
+	weather = "Global full-atmosphere hydrological weather system. Dangerous meteorological activity not present"
+	surfacewater = "63% surface water, majority readings not visibly potable. Expected mineral toxicity or salt presence in water bodies"
 	planetary_area = /area/exoplanet/grass
+	flora_diversity = 7
+	has_trees = TRUE
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
-	plant_colors = list("#0e1e14","#1a3e38","#5a7467","#9eab88","#6e7248", "RANDOM")
-	map_generators = list(/datum/random_map/noise/exoplanet/grass)
+	plant_colors = list("#3c772e","#27614b","#3f8d35","#185f18","#799628", "RANDOM")
+	possible_themes = list(/datum/exoplanet_theme/grass)
+	ruin_planet_type = PLANET_GRASS
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_map()
 	if(prob(40))
@@ -20,6 +28,27 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/get_surface_color()
 	return grass_color
+
+/obj/effect/overmap/visitable/sector/exoplanet/grass/generate_ground_survey_result()
+	..()
+	if(prob(40))
+		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+	if(prob(40))
+		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	if(prob(40))
+		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+	if(prob(40))
+		ground_survey_result += "<br>Muddy dirt rich in organic material"
+	if(prob(40))
+		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+	if(prob(40))
+		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	if(prob(10))
+		ground_survey_result += "<br>Traces of fissile material"
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/adapt_seed(var/datum/seed/S)
 	..()
@@ -39,21 +68,8 @@
 	if(prob(30))
 		S.set_trait(TRAIT_PARASITE,1)
 
-/area/exoplanet/grass
-	base_turf = /turf/simulated/floor/exoplanet/grass
-	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/ambience/eeriejungle2.ogg','sound/ambience/eeriejungle1.ogg')
-
-/area/exoplanet/grass/play_ambience(var/mob/living/L)
-	..()
-	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
-		L.playsound_to(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = 1))
-
-/datum/random_map/noise/exoplanet/grass
-	descriptor = "grass exoplanet"
-	smoothing_iterations = 2
-	land_type = /turf/simulated/floor/exoplanet/grass
-	water_type = /turf/simulated/floor/exoplanet/water/shallow
-
-	flora_prob = 10
-	flora_diversity = 6
-	fauna_types = list(/mob/living/simple_animal/yithian, /mob/living/simple_animal/tindalos, /mob/living/simple_animal/cosmozoan)
+/obj/effect/overmap/visitable/sector/exoplanet/grass/marsh
+	name = "marsh exoplanet"
+	desc = "A swampy planet, home to exotic creatures and flora."
+	possible_themes = list(/datum/exoplanet_theme/grass/marsh)
+	ruin_planet_type = PLANET_MARSH

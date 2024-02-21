@@ -13,7 +13,7 @@
 /obj/structure/droppod_door/Initialize(mapload, var/autoopen)
 	. = ..(mapload)
 	if(autoopen)
-		addtimer(CALLBACK(src, .proc/deploy), 100)
+		addtimer(CALLBACK(src, PROC_REF(deploy)), 100)
 
 /obj/structure/droppod_door/attack_ai(var/mob/user)
 	if(!Adjacent(user))
@@ -29,10 +29,10 @@
 	sleep(30)
 	deploy()
 
-/obj/structure/droppod_door/attackby(obj/item/W, mob/user)
+/obj/structure/droppod_door/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
 				SPAN_NOTICE("[user] begins cutting \the [src]'s safety bolts."),

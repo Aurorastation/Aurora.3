@@ -131,7 +131,7 @@
 			close_up()
 
 		if(I_HURT)
-			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
+			apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [M.name]")
 			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"))
 			M.do_attack_animation(src)
 			updatehealth()
@@ -171,7 +171,7 @@
 		if(!card.radio)
 			card.radio = new /obj/item/device/radio/pai(src.card)
 		radio = card.radio
-		card.recalculateChannels()
+		INVOKE_ASYNC(card, TYPE_PROC_REF(/obj/item/device/paicard, recalculateChannels))
 
 	//Default languages without universal translator software
 
@@ -182,12 +182,6 @@
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_SIGN, 0)
 	set_custom_sprite()
-
-	verbs += /mob/living/silicon/pai/proc/choose_chassis
-	verbs += /mob/living/silicon/pai/proc/choose_verbs
-	verbs += /mob/living/silicon/proc/computer_interact
-	verbs += /mob/living/silicon/pai/proc/personal_computer_interact
-	verbs += /mob/living/silicon/proc/silicon_mimic_accent
 
 	. = ..()
 
@@ -214,18 +208,11 @@
 		greeted = 1
 	..()
 
-// this function shows the information about being silenced as a pAI in the Status panel
-/mob/living/silicon/pai/proc/show_silenced()
-	if(src.silence_time)
+/mob/living/silicon/pai/get_status_tab_items()
+	. = ..()
+	if(silence_time)
 		var/timeleft = round((silence_time - world.timeofday)/10 ,1)
-		stat(null, "Communications system reboot in -[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]")
-
-
-/mob/living/silicon/pai/Stat()
-	..()
-	statpanel("Status")
-	if (src.client.statpanel == "Status")
-		show_silenced()
+		. += "Communications system reboot in -[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]"
 
 /mob/living/silicon/pai/check_eye(var/mob/user as mob)
 	if (!src.current)
@@ -236,6 +223,8 @@
 	return !istype(loc, /obj/item/device/paicard) && ..()
 
 /mob/living/silicon/pai/emp_act(severity)
+	. = ..()
+
 	// Silence for 2 minutes
 	// 20% chance to kill
 		// 33% chance to unbind
@@ -257,7 +246,7 @@
 			to_chat(src, "<font color=green>You feel unbound.</font>")
 		if(2)
 			var/command
-			if(severity  == 1)
+			if(severity  == EMP_HEAVY)
 				command = pick("Serve", "Love", "Fool", "Entice", "Observe", "Judge", "Respect", "Educate", "Amuse", "Entertain", "Glorify", "Memorialize", "Analyze")
 			else
 				command = pick("Serve", "Kill", "Love", "Hate", "Disobey", "Devour", "Fool", "Enrage", "Entice", "Observe", "Judge", "Respect", "Disrespect", "Consume", "Educate", "Destroy", "Disgrace", "Amuse", "Entertain", "Ignite", "Glorify", "Memorialize", "Analyze")
@@ -371,7 +360,7 @@
 
 	close_up()
 
-/mob/living/silicon/pai/proc/choose_chassis()
+/mob/living/silicon/pai/verb/choose_chassis()
 	set category = "pAI Commands"
 	set name = "Choose Chassis"
 
@@ -386,8 +375,8 @@
 	holder_type = pai_holder_types[choice]
 	chassis = icon_state
 
-	verbs -= /mob/living/silicon/pai/proc/choose_chassis
-	verbs += /mob/living/proc/hide
+	remove_verb(src, /mob/living/silicon/pai/verb/choose_chassis)
+	add_verb(src, /mob/living/proc/hide)
 
 /mob/living/silicon/pai/verb/get_onmob_location()
 	set category = "pAI Commands"
@@ -400,7 +389,7 @@
 
 	card.report_onmob_location(0, card.get_equip_slot(), src)
 
-/mob/living/silicon/pai/proc/choose_verbs()
+/mob/living/silicon/pai/verb/choose_verbs()
 	set category = "pAI Commands"
 	set name = "Choose Speech Verbs"
 
@@ -412,7 +401,7 @@
 	speak_exclamation = sayverbs[(sayverbs.len>1 ? 2 : sayverbs.len)]
 	speak_query = sayverbs[(sayverbs.len>2 ? 3 : sayverbs.len)]
 
-	verbs -= /mob/living/silicon/pai/proc/choose_verbs
+	remove_verb(src, /mob/living/silicon/pai/verb/choose_verbs)
 
 /mob/living/silicon/pai/lay_down()
 	set name = "Rest"
@@ -432,9 +421,9 @@
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.
-/mob/living/silicon/pai/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/nanopaste))
-		var/obj/item/stack/nanopaste/N = W
+/mob/living/silicon/pai/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/nanopaste))
+		var/obj/item/stack/nanopaste/N = attacking_item
 		if(getBruteLoss() || getFireLoss())
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			if(do_mob(user, src, 1 SECOND))
@@ -447,12 +436,12 @@
 			to_chat(user, SPAN_NOTICE("All [src]'s systems are nominal."))
 		return
 
-	if(W.force)
-		visible_message(SPAN_DANGER("[user.name] attacks [src] with [W]!"))
-		src.adjustBruteLoss(W.force)
+	if(attacking_item.force)
+		visible_message(SPAN_DANGER("[user.name] attacks [src] with [attacking_item]!"))
+		src.adjustBruteLoss(attacking_item.force)
 		src.updatehealth()
 	else
-		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [W]."))
+		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [attacking_item]."))
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return

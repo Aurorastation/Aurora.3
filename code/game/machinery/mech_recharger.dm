@@ -129,3 +129,9 @@
 		/obj/item/stock_parts/scanning_module = 2,
 		/obj/item/stock_parts/manipulator = 3
 	)
+
+/obj/machinery/mech_recharger/automobile
+	name = "vehicle charging port"
+	desc = "A vehicle battery recharger, built into the ground."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "chargeport"

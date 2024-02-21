@@ -98,7 +98,7 @@
 	head = null
 	suit = null
 	gloves = null
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/combat
 	mask = /obj/item/clothing/mask/gas/tactical
 	back = /obj/item/rig/elyran
 	l_pocket = /obj/item/plastique

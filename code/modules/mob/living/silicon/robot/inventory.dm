@@ -68,7 +68,8 @@
 		module_state_3 = null
 		inv3.icon_state = "inv3"
 	update_icon()
-	hud_used.update_robot_modules_display()
+	if(hud_used)
+		hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
 	update_icon()
@@ -265,7 +266,7 @@
 	uneq_active()
 
 /mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	var/do_feedback = target ? FALSE : TRUE //Do not do feedback messages if dropping to a target, to avoid duplicate "You release X" messages. 
+	var/do_feedback = target ? FALSE : TRUE //Do not do feedback messages if dropping to a target, to avoid duplicate "You release X" messages.
 	if(W)
 		if(!target)
 			target = loc
@@ -286,14 +287,13 @@
 	var/list/index_module = list(module_state_1,module_state_2,module_state_3)
 	var/result = "   Hardpoint [slot] holds "
 	result += (index_module[slot]) ? "[icon2html(index_module[slot], viewers(get_turf(src)))] [index_module[slot]]." : "nothing."
-	result += "\n"
 	return result
 
 /mob/living/silicon/robot/proc/describe_all_modules()
-	var/result="It has three tool hardpoints.\n"
+	var/result="It has three tool hardpoints."
 	for (var/x = 1; x <=3; x++)
 		result += describe_module(x)
 	var/selected = get_selected_module()
 	if (selected)
-		result += "\nThe activity light on hardpoint [selected] is on.\n"
+		result += "The activity light on hardpoint [selected] is on."
 	return result

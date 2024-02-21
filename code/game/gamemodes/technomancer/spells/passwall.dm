@@ -17,6 +17,7 @@
 	var/busy = 0
 
 /obj/item/spell/passwall/on_melee_cast(atom/hit_atom, mob/user)
+	. = ..()
 	if(busy)	//Prevent someone from trying to get two uses of the spell from one instance.
 		return 0
 	if(!allowed_to_teleport())
@@ -39,7 +40,7 @@
 	visible_message("<span class='info'>[user] rests a hand on \the [hit_atom].</span>")
 	busy = 1
 
-	spark(our_turf, 3, cardinal)
+	spark(our_turf, 3, GLOB.cardinal)
 
 	while(i)
 		checked_turf = get_step(checked_turf, direction) //Advance in the given direction

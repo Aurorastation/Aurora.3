@@ -1,6 +1,6 @@
 /datum/technomancer/spell/reflect
 	name = "Reflect"
-	desc = "Emits a protective shield fron your hand in front of you, which will reflect one attack back at the attacker."
+	desc = "Emits a protective shield from your hand in front of you, which will reflect one attack back at the attacker."
 	cost = 100
 	obj_path = /obj/item/spell/reflect
 	ability_icon_state = "tech_reflect"
@@ -75,7 +75,7 @@
 				to_chat(attacker, "<span class='danger'>Your [damage_source.name] goes through \the [src] in one location, comes out \
 				on the same side, and hits you!</span>")
 
-				spark(src, 5, cardinal)
+				spark(src, 5, GLOB.cardinal)
 				playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 				log_and_message_admins("[user] reflected [attacker]'s attack back at them.")

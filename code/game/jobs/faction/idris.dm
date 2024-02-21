@@ -24,9 +24,18 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_SHELL,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
@@ -38,7 +47,8 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/idris,
 		"Warden" = /datum/outfit/job/warden/idris,
-		"Security Cadet" = /datum/outfit/job/intern_sec/idris,
+		"Security Cadet" = /datum/outfit/job/intern_sec/officer/idris,
+		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/idris,
 		"Investigator" =/datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
@@ -48,7 +58,11 @@
 		"Librarian" = /datum/outfit/job/librarian/idris,
 		"Curator" = /datum/outfit/job/librarian/idris/curator,
 		"Tech Support" = /datum/outfit/job/librarian/idris/tech_support,
-		"Corporate Liaison" = /datum/outfit/job/representative/idris
+		"Corporate Reporter" = /datum/outfit/job/journalist/idris,
+		"Chaplain" = /datum/outfit/job/chaplain/idris,
+		"Corporate Liaison" = /datum/outfit/job/representative/idris,
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/idris,
+		"Security Personnel" = /datum/outfit/job/officer/idris
 	)
 
 /datum/outfit/job/officer/idris
@@ -88,8 +102,19 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
 	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
-/datum/outfit/job/intern_sec/idris
+/datum/outfit/job/intern_sec/officer/idris
 	name = "Security Cadet - Idris"
+
+	uniform = /obj/item/clothing/under/rank/cadet/idris
+	id = /obj/item/card/id/idris/sec
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/datum/outfit/job/intern_sec/forensics/idris
+	name = "Investigator Intern - Idris"
 
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
@@ -116,7 +141,7 @@
 	name = "Chef - Idris"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = /obj/item/clothing/suit/chef/idris
+	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
 	id = /obj/item/card/id/idris
 
@@ -177,6 +202,27 @@
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
+/datum/outfit/job/chaplain/idris
+	name = "Chaplain - Idris"
+
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/datum/outfit/job/journalist/idris
+	name = "Corporate Reporter - Idris"
+
+	uniform = /obj/item/clothing/under/librarian/idris
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"
 
@@ -197,3 +243,13 @@
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/idris = 1
 	)
+
+/datum/outfit/job/visitor/idris
+	name = "Off-Duty Crew Member - Idris"
+
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris

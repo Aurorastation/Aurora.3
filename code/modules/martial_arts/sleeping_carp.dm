@@ -41,7 +41,7 @@
 		D.visible_message("<span class='warning'>[A] grabs [D]'s wrist and wrenches it sideways!</span>")
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		D.drop_item()
-		D.apply_damage(5, BRUTE, pick(BP_L_ARM, BP_R_ARM))
+		D.apply_damage(5, DAMAGE_BRUTE, pick(BP_L_ARM, BP_R_ARM))
 		D.Stun(3)
 		return 1
 	return basic_hit(A,D)
@@ -61,7 +61,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] knees [D] in the stomach!</span>", \
-						  "<span class='danger'>[A] winds you with a knee in the stomach!</span>")
+							"<span class='danger'>[A] winds you with a knee in the stomach!</span>")
 		D.audible_message("<b>[D]</b> gags!")
 		if (!(D.species.flags & NO_BREATHE))
 			D.losebreath += 3
@@ -75,8 +75,8 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] kicks [D] in the head!</span>", \
-						  "<span class='danger'>[A] kicks you in the jaw!</span>")
-		D.apply_damage(20, BRUTE, BP_HEAD)
+							"<span class='danger'>[A] kicks you in the jaw!</span>")
+		D.apply_damage(20, DAMAGE_BRUTE, BP_HEAD)
 		D.drop_item()
 		playsound(get_turf(D), "punch", 50, 1, -1)
 
@@ -90,7 +90,7 @@
 		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>")
 		if(D.shock_stage >= 60)
 			D.death() //FINISH HIM!
-		D.apply_damage(50, BRUTE, BP_CHEST)
+		D.apply_damage(50, DAMAGE_BRUTE, BP_CHEST)
 		playsound(get_turf(D), "punch", 75, 1, -1)
 		return 1
 	return basic_hit(A,D)

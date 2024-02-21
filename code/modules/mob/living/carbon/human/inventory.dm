@@ -110,6 +110,13 @@ This saves us from having to call add_fingerprint() any time something is put in
 			if(!can_keep_s_store)
 				drop_from_inventory(s_store)
 		wear_suit = null
+		if(istype(W, /obj/item))
+			var/obj/item/I = W
+			if(I.flags_inv & (HIDEMASK|BLOCKHAIR|BLOCKHEADHAIR))
+				update_hair(0)	// testing region
+				update_inv_l_ear(0)
+				update_inv_r_ear(0)
+				update_inv_wear_mask(0)
 		update_inv_wear_suit()
 		if (update_uniform)
 			update_inv_w_uniform(0)
@@ -142,6 +149,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 				update_inv_l_ear(0)
 				update_inv_r_ear(0)
 				update_inv_wear_mask(0)
+		if(internal && internals && !internals.has_internals_mask(src))
+			internals.lose_internals(src)
 		update_inv_head()
 	else if (W == l_ear)
 		l_ear = null
@@ -176,10 +185,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 				update_hair(0)	//rebuild hair
 				update_inv_l_ear(0)
 				update_inv_r_ear(0)
-		if(internal)
-			if(internals)
-				internals.icon_state = "internal0"
-			internal = null
+		if(internal && internals && !internals.has_internals_mask(src))
+			internals.lose_internals(src)
 		update_inv_wear_mask()
 	else if (W == wear_id)
 		wear_id = null

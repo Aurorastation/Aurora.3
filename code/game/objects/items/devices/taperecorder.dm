@@ -16,7 +16,7 @@
 	var/list/timestamp = list()
 	var/can_print = TRUE
 	var/obj/item/computer_hardware/hard_drive/portable/portable_drive
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 2
 	throw_speed = 4
 	throw_range = 20
@@ -27,7 +27,7 @@
 	portable_drive = new /obj/item/computer_hardware/hard_drive/portable(src)
 
 /obj/item/device/taperecorder/Destroy()
-	listening_objects -= src
+	GLOB.listening_objects -= src
 	if(portable_drive)
 		QDEL_NULL(portable_drive)
 	return ..()
@@ -88,11 +88,13 @@
 /obj/item/device/taperecorder/verb/record()
 	set name = "Start Recording"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
 	icon_state = "taperecorderrecording"
 	if(time_recorded < 3600 && !playing)
@@ -114,13 +116,14 @@
 /obj/item/device/taperecorder/verb/stop()
 	set name = "Stop Recording"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
-
 	if(recording)
 		recording = FALSE
 		timestamp += time_recorded
@@ -137,11 +140,13 @@
 /obj/item/device/taperecorder/verb/clear_memory()
 	set name = "Clear Memory"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
 	if(recording || playing)
 		to_chat(usr, SPAN_WARNING("You can't clear the memory while playing or recording!"))
@@ -158,6 +163,7 @@
 /obj/item/device/taperecorder/verb/playback_memory()
 	set name = "Playback Memory"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -208,14 +214,16 @@
 /obj/item/device/taperecorder/verb/print_transcript()
 	set name = "Print Transcript"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
 	if(!can_print)
-		to_chat(usr, SPAN_WARNING("The recorder can't print that fast!"))
+		to_chat(usr, SPAN_WARNING("\The [src] can't print that fast!"))
 		return
 	if(recording || playing)
 		to_chat(usr, SPAN_WARNING("You can't print the transcript while playing or recording!"))
@@ -232,7 +240,7 @@
 	P.name = "Transcript"
 	usr.put_in_hands(P)
 	can_print = FALSE
-	addtimer(CALLBACK(src, .proc/set_can_print, 1), 150)
+	addtimer(CALLBACK(src, PROC_REF(set_can_print), 1), 150)
 
 /obj/item/device/taperecorder/proc/set_can_print(var/set_state = TRUE)
 	can_print = set_state
@@ -240,6 +248,7 @@
 /obj/item/device/taperecorder/verb/eject_usb()
 	set name = "Eject Portable Storage"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -270,8 +279,9 @@
 	if(!recording && !playing)
 		if(use_check_and_message(usr))
 			return
+		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 		if(emagged)
-			to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
+			src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 			return
 		icon_state = "taperecorderrecording"
 		if(time_recorded < 3600 && !playing)
@@ -288,10 +298,11 @@
 			icon_state = "taperecorderidle"
 			return
 		else
-			to_chat(usr, SPAN_WARNING("Either your tape recorder's memory is full, or it is currently playing back its memory."))
+			to_chat(usr, SPAN_WARNING("Either \the [src]'s memory is full, or it is currently playing back its memory."))
 	else
 		if(use_check_and_message(usr))
 			return
+		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 		if(recording)
 			recording = FALSE
 			timestamp += time_recorded
@@ -300,7 +311,7 @@
 			icon_state = "taperecorderidle"
 			return
 		else if(emagged)
-			to_chat(usr, SPAN_WARNING("The tape recorder's buttons doesn't react!"))
+			to_chat(usr, SPAN_WARNING("\The [src]'s buttons doesn't react!"))
 			return
 		else if(playing)
 			playing = FALSE
@@ -308,12 +319,12 @@
 			icon_state = "taperecorderidle"
 			return
 
-/obj/item/device/taperecorder/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/computer_hardware/hard_drive/portable))
+/obj/item/device/taperecorder/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/computer_hardware/hard_drive/portable))
 		if(portable_drive)
 			to_chat(user, SPAN_WARNING("\The [src] already has a portable drive!"))
 			return
-		user.drop_from_inventory(W, src)
-		portable_drive = W
+		user.drop_from_inventory(attacking_item, src)
+		portable_drive = attacking_item
 	else
 		..()

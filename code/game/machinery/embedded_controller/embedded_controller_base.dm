@@ -10,10 +10,11 @@
 
 	var/on = 1
 
-obj/machinery/embedded_controller/radio/Destroy()
+/obj/machinery/embedded_controller/radio/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/embedded_controller/proc/post_signal(datum/signal/signal, comm_line)
 	return 0

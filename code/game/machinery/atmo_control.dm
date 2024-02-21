@@ -3,6 +3,15 @@
 #define SIGNAL_NITROGEN 4
 #define SIGNAL_CARBON_DIOXIDE 8
 #define SIGNAL_HYDROGEN 16
+#define SIGNAL_N2O 32
+#define SIGNAL_HELIUM 64
+#define SIGNAL_DEUTERIUM 128
+#define SIGNAL_TRITIUM 256
+#define SIGNAL_BORON 512
+#define SIGNAL_SULFUR_DIOXIDE 1024
+#define SIGNAL_NITROGEN_DIOXIDE 2048
+#define SIGNAL_CHLORINE 4096
+#define SIGNAL_STEAM 8192
 
 /obj/machinery/air_sensor
 	name = "gas sensor"
@@ -26,6 +35,15 @@
 	// 4 for nitrogen concentration
 	// 8 for carbon dioxide concentration
 	// 16 for hydrogen concentration
+	// 32 for nitrous oxide concentration
+	// 64 for helium concentration
+	// 128 for deuterium concentration
+	// 256 for tritium concentration
+	// 512 for boron concentration
+	// 1024 for sulfur dioxide concentration
+	// 2048 for nitrogen dioxide concentration
+	// 4096 for chlorine concentration
+	// 8192 for steam concentration
 
 	var/datum/radio_frequency/radio_connection
 
@@ -59,12 +77,39 @@
 					signal.data[GAS_CO2] = round(100*air_sample.gas[GAS_CO2]/total_moles,0.1)
 				if(output&SIGNAL_HYDROGEN)
 					signal.data[GAS_HYDROGEN] = round(100*air_sample.gas[GAS_HYDROGEN]/total_moles,0.1)
+				if(output&SIGNAL_N2O)
+					signal.data[GAS_N2O] = round(100*air_sample.gas[GAS_N2O]/total_moles,0.1)
+				if(output&SIGNAL_HELIUM)
+					signal.data[GAS_HELIUM] = round(100*air_sample.gas[GAS_HELIUM]/total_moles,0.1)
+				if(output&SIGNAL_DEUTERIUM)
+					signal.data[GAS_DEUTERIUM] = round(100*air_sample.gas[GAS_DEUTERIUM]/total_moles,0.1)
+				if(output&SIGNAL_TRITIUM)
+					signal.data[GAS_TRITIUM] = round(100*air_sample.gas[GAS_TRITIUM]/total_moles,0.1)
+				if(output&SIGNAL_BORON)
+					signal.data[GAS_BORON] = round(100*air_sample.gas[GAS_BORON]/total_moles,0.1)
+				if(output&SIGNAL_SULFUR_DIOXIDE)
+					signal.data[GAS_SULFUR] = round(100*air_sample.gas[GAS_SULFUR]/total_moles,0.1)
+				if(output&SIGNAL_NITROGEN_DIOXIDE)
+					signal.data[GAS_NO2] = round(100*air_sample.gas[GAS_NO2]/total_moles,0.1)
+				if(output&SIGNAL_CHLORINE)
+					signal.data[GAS_CHLORINE] = round(100*air_sample.gas[GAS_CHLORINE]/total_moles,0.1)
+				if(output&SIGNAL_STEAM)
+					signal.data[GAS_STEAM] = round(100*air_sample.gas[GAS_STEAM]/total_moles,0.1)
 			else
 				signal.data[GAS_OXYGEN] = 0
 				signal.data[GAS_PHORON] = 0
 				signal.data[GAS_NITROGEN] = 0
 				signal.data[GAS_CO2] = 0
 				signal.data[GAS_HYDROGEN] = 0
+				signal.data[GAS_N2O] = 0
+				signal.data[GAS_HELIUM] = 0
+				signal.data[GAS_DEUTERIUM] = 0
+				signal.data[GAS_TRITIUM] = 0
+				signal.data[GAS_BORON] = 0
+				signal.data[GAS_SULFUR] = 0
+				signal.data[GAS_NO2] = 0
+				signal.data[GAS_CHLORINE] = 0
+				signal.data[GAS_STEAM]= 0
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
@@ -78,7 +123,7 @@
 	. = ..()
 	set_frequency(frequency)
 
-obj/machinery/air_sensor/Destroy()
+/obj/machinery/air_sensor/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
 	return ..()
@@ -95,34 +140,43 @@ obj/machinery/air_sensor/Destroy()
 
 	var/list/sensor_information = list()
 	var/datum/radio_frequency/radio_connection
+	var/ui_type = "AtmosControl"
 	circuit = /obj/item/circuitboard/air_management
 
-obj/machinery/computer/general_air_control/Destroy()
+/obj/machinery/computer/general_air_control/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src, frequency)
 	return ..()
 
-/obj/machinery/computer/general_air_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = data = list("sensors" = list())
+/obj/machinery/computer/general_air_control/ui_data(mob/user)
+	var/list/data = list("sensors" = list())
 	data["control"] = null
 	for(var/id_tag in sensors)
 		var/long_name = sensors[id_tag]
 		var/list/sdata = sensor_information[id_tag]
-		LAZYINITLIST(data["sensors"][id_tag])
-		VUEUI_SET_CHECK(data["sensors"][id_tag]["name"], long_name, ., data)
-		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
-			VUEUI_SET_CHECK(data["sensors"][id_tag][datapoint], sdata[datapoint], ., data)
+		var/list/sensor_data = list("id_tag" = id_tag, "name" = long_name)
+		sensor_data["datapoints"] = list()
+		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN, GAS_N2O, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_STEAM))
+			var/unit
+			if(datapoint == "pressure")
+				unit = "kPa"
+			else if(datapoint == "temperature")
+				unit = "K"
+			else
+				unit = "%"
+			sensor_data["datapoints"] += list(list("datapoint" = datapoint, "data" = sdata[datapoint], "unit" = unit))
+		data["sensors"] += list(sensor_data)
+		sensor_data = list()
+	return data
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/computer/general_air_control/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "console-atmocontrol-main", 460, 470, capitalize(src.name))
-		ui.auto_update_content = TRUE
-	ui.open()
+/obj/machinery/computer/general_air_control/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, ui_type, "Atmospherics Control", 460, 470)
+		ui.open()
 
 /obj/machinery/computer/general_air_control/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
@@ -143,7 +197,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 
 /obj/machinery/computer/general_air_control/large_tank_control
-
+	ui_type = "AtmosControlTank"
 	frequency = 1441
 	var/input_tag
 	var/output_tag
@@ -157,30 +211,47 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/max_pressure_setting = MAX_VENT_PRESSURE
 	circuit = /obj/item/circuitboard/air_management/tank_control
 
+/obj/machinery/computer/general_air_control/large_tank_control/terminal
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "tank"
+	icon_keyboard = "atmos_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/general_air_control/large_tank_control/wall
 	icon = 'icons/obj/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "engi"
 	density = FALSE
 
-/obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/obj/machinery/computer/general_air_control/large_tank_control/terminal
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "tank"
+	icon_keyboard = "atmos_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+/obj/machinery/computer/general_air_control/large_tank_control/ui_data(mob/user)
 	. = ..()
-	data = . || data
-	data["control"] = "tank"
+	var/list/data = .
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
 	if(input_info)
 		LAZYINITLIST(data["input"])
-		VUEUI_SET_CHECK(data["input"]["power"], input_info["power"], ., data)
-		VUEUI_SET_CHECK(data["input"]["rate"], input_info["volume_rate"], ., data)
-		VUEUI_SET_CHECK_IFNOTSET(data["input"]["setrate"], default_input_flow_setting, ., data)
+		data["input"]["power"] = input_info["power"]
+		data["input"]["rate"] = input_info["volume_rate"]
+		data["input"]["setrate"] = default_input_flow_setting
 
 	if(output_info)
 		LAZYINITLIST(data["output"])
-		VUEUI_SET_CHECK(data["output"]["power"], output_info["power"], ., data)
-		VUEUI_SET_CHECK(data["output"]["pressure"], output_info["internal"], ., data)
-		VUEUI_SET_CHECK_IFNOTSET(data["output"]["setpressure"], default_pressure_setting, ., data)
-
+		data["output"]["power"] = output_info["power"]
+		data["output"]["pressure"] = output_info["internal"]
+		data["output"]["setpressure"] = default_pressure_setting
+	return data
 
 /obj/machinery/computer/general_air_control/large_tank_control/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
@@ -194,48 +265,63 @@ obj/machinery/computer/general_air_control/Destroy()
 	else
 		..(signal)
 
-/obj/machinery/computer/general_air_control/large_tank_control/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/computer/general_air_control/large_tank_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
 	if(!radio_connection)
-		return 0
+		return FALSE
 	var/datum/signal/signal = new
 	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
-	if(href_list["in_refresh_status"])
-		input_info = null
-		signal.data = list ("tag" = input_tag, "status" = 1)
+	switch(action)
+		if("in_refresh_status")
+			input_info = null
+			signal.data = list("tag" = input_tag, "status" = 1)
+			. = TRUE
 
-	if(href_list["in_toggle_injector"])
-		input_info = null
-		signal.data = list ("tag" = input_tag, "power_toggle" = 1)
+		if("in_toggle_injector")
+			input_info = null
+			signal.data = list("tag" = input_tag, "power_toggle" = 1)
+			. = TRUE
 
-	if(href_list["in_set_flowrate"] != null)
-		var/setrate = between(0, text2num(href_list["in_set_flowrate"]), max_input_flow_setting)
-		input_info = null
-		signal.data = list ("tag" = input_tag, "set_volume_rate" = "[setrate]")
+		if("in_set_flowrate")
+			if(params["in_set_flowrate"] != null)
+				var/setrate = between(0, text2num(params["in_set_flowrate"]), max_input_flow_setting)
+				input_info = null
+				signal.data = list ("tag" = input_tag, "set_volume_rate" = "[setrate]")
+				. = TRUE
 
-	if(href_list["out_refresh_status"])
-		output_info = null
-		signal.data = list ("tag" = output_tag, "status" = 1)
+		if("out_refresh_status")
+			output_info = null
+			signal.data = list ("tag" = output_tag, "status" = 1)
+			. = TRUE
 
-	if(href_list["out_toggle_power"])
-		output_info = null
-		signal.data = list ("tag" = output_tag, "power_toggle" = 1)
+		if("out_toggle_power")
+			output_info = null
+			signal.data = list ("tag" = output_tag, "power_toggle" = 1)
+			. = TRUE
 
-	if(href_list["out_set_pressure"] != null)
-		var/setpressure = between(0, text2num(href_list["out_set_pressure"]), max_pressure_setting)
-		output_info = null
-		signal.data = list ("tag" = output_tag, "set_internal_pressure" = "[setpressure]")
+		if("out_set_pressure")
+			if(params["out_set_pressure"] != null)
+				var/setpressure = between(0, text2num(params["out_set_pressure"]), max_pressure_setting)
+				output_info = null
+				signal.data = list ("tag" = output_tag, "set_internal_pressure" = "[setpressure]")
+				. = TRUE
 
 	signal.data["sigtype"] = "command"
-	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
-
-	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
+	INVOKE_ASYNC(radio_connection, TYPE_PROC_REF(/datum/radio_frequency, post_signal), src, signal, filter = RADIO_ATMOSIA)
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "tank"
+	icon_keyboard = "atmos_key"
+	ui_type = "AtmosControlSupermatter"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 	frequency = 1438
 	var/input_tag
@@ -250,23 +336,23 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/max_pressure_setting = PRESSURE_ONE_THOUSAND
 	circuit = /obj/item/circuitboard/air_management/supermatter_core
 
-/obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/obj/machinery/computer/general_air_control/supermatter_core/ui_data(mob/user)
 	. = ..()
-	data = . || data
-	data["control"] = "supermatter"
+	var/list/data = .
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
 	if(input_info)
 		LAZYINITLIST(data["input"])
-		VUEUI_SET_CHECK(data["input"]["power"], input_info["power"], ., data)
-		VUEUI_SET_CHECK(data["input"]["rate"], input_info["volume_rate"], ., data)
-		VUEUI_SET_CHECK_IFNOTSET(data["input"]["setrate"], default_input_flow_setting, ., data)
+		data["input"]["power"] = input_info["power"]
+		data["input"]["rate"] = input_info["volume_rate"]
+		data["input"]["setrate"] = default_input_flow_setting
 
 	if(output_info)
 		LAZYINITLIST(data["output"])
-		VUEUI_SET_CHECK(data["output"]["power"], output_info["power"], ., data)
-		VUEUI_SET_CHECK(data["output"]["pressure"], output_info["external"], ., data)
-		VUEUI_SET_CHECK_IFNOTSET(data["output"]["setpressure"], default_pressure_setting, ., data)
+		data["output"]["power"] = output_info["power"]
+		data["output"]["pressure"] = output_info["external"]
+		data["output"]["setpressure"] = default_pressure_setting
+	return data
 
 /obj/machinery/computer/general_air_control/supermatter_core/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
@@ -280,8 +366,9 @@ obj/machinery/computer/general_air_control/Destroy()
 	else
 		..(signal)
 
-/obj/machinery/computer/general_air_control/supermatter_core/Topic(href, href_list)
-	if(..())
+/obj/machinery/computer/general_air_control/supermatter_core/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
 	if(!radio_connection)
@@ -289,41 +376,49 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/datum/signal/signal = new
 	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
-	if(href_list["in_refresh_status"])
-		input_info = null
-		signal.data = list ("tag" = input_tag, "status" = 1)
+	switch(action)
+		if("in_refresh_status")
+			input_info = null
+			signal.data = list ("tag" = input_tag, "status" = 1)
+			. = TRUE
 
-	if(href_list["in_toggle_injector"])
-		input_info = null
-		signal.data = list ("tag" = input_tag, "power_toggle" = 1)
+		if("in_toggle_injector")
+			input_info = null
+			signal.data = list ("tag" = input_tag, "power_toggle" = 1)
+			. = TRUE
 
-	if(href_list["in_set_flowrate"] != null)
-		var/setrate = between(0, text2num(href_list["in_set_flowrate"]), max_input_flow_setting)
-		input_info = null
-		signal.data = list ("tag" = input_tag, "set_volume_rate" = "[setrate]")
+		if("in_set_flowrate")
+			if(params["in_set_flowrate"] != null)
+				var/setrate = between(0, text2num(params["in_set_flowrate"]), max_input_flow_setting)
+				input_info = null
+				signal.data = list ("tag" = input_tag, "set_volume_rate" = "[setrate]")
+				. = TRUE
 
-	if(href_list["out_refresh_status"])
-		output_info = null
-		signal.data = list ("tag" = output_tag, "status" = 1)
+		if("out_refresh_status")
+			output_info = null
+			signal.data = list ("tag" = output_tag, "status" = 1)
+			. = TRUE
 
-	if(href_list["out_toggle_power"])
-		output_info = null
-		signal.data = list ("tag" = output_tag, "power_toggle" = 1)
+		if("out_toggle_power")
+			output_info = null
+			signal.data = list ("tag" = output_tag, "power_toggle" = 1)
+			. = TRUE
 
-	if(href_list["out_set_pressure"] != null)
-		var/setpressure = between(0, text2num(href_list["out_set_pressure"]), max_pressure_setting)
-		output_info = null
-		signal.data = list ("tag" = output_tag, "set_external_pressure" = "[setpressure]", "checks" = 1)
+		if("out_set_pressure")
+			if(params["out_set_pressure"] != null)
+				var/setpressure = between(0, text2num(params["out_set_pressure"]), max_pressure_setting)
+				output_info = null
+				signal.data = list ("tag" = output_tag, "set_external_pressure" = "[setpressure]", "checks" = 1)
+				. = TRUE
 
 	signal.data["sigtype"]="command"
 	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
-
-	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/fuel_injection
 	icon_screen = "alert:0"
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
+	ui_type = "AtmosControlInjector"
 
 	var/device_tag
 	var/list/device_info
@@ -363,15 +458,15 @@ obj/machinery/computer/general_air_control/Destroy()
 
 	..()
 
-/obj/machinery/computer/general_air_control/fuel_injection/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/obj/machinery/computer/general_air_control/fuel_injection/ui_data(mob/user)
 	. = ..()
-	data = . || data
-	data["control"] = "injector"
+	var/list/data = .
 	if(device_info)
 		LAZYINITLIST(data["device"])
-		VUEUI_SET_CHECK(data["device"]["power"], device_info["power"], ., data)
-		VUEUI_SET_CHECK(data["device"]["rate"], device_info["volume_rate"], ., data)
-		VUEUI_SET_CHECK(data["device"]["automation"], automation, ., data)
+		data["device"]["power"] = device_info["power"]
+		data["device"]["rate"] = device_info["volume_rate"]
+		data["device"]["automation"] = automation
+	return data
 
 /obj/machinery/computer/general_air_control/fuel_injection/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
@@ -383,62 +478,76 @@ obj/machinery/computer/general_air_control/Destroy()
 	else
 		..(signal)
 
-/obj/machinery/computer/general_air_control/fuel_injection/Topic(href, href_list)
-	if(..())
+/obj/machinery/computer/general_air_control/fuel_injection/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
-	if(href_list["refresh_status"])
-		device_info = null
-		if(!radio_connection)
-			return 0
+	switch(action)
+		if("refresh_status")
+			device_info = null
+			if(!radio_connection)
+				return 0
 
-		var/datum/signal/signal = new
-		signal.transmission_method = TRANSMISSION_RADIO
-		signal.source = src
-		signal.data = list(
-			"tag" = device_tag,
-			"status" = 1,
-			"sigtype"="command"
-		)
-		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+			var/datum/signal/signal = new
+			signal.transmission_method = TRANSMISSION_RADIO
+			signal.source = src
+			signal.data = list(
+				"tag" = device_tag,
+				"status" = 1,
+				"sigtype"="command"
+			)
+			radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+			. = TRUE
 
-	if(href_list["toggle_automation"])
-		automation = !automation
-		SSvueui.check_uis_for_change(src)
+		if("toggle_automation")
+			automation = !automation
+			. = TRUE
 
-	if(href_list["toggle_injector"])
-		device_info = null
-		if(!radio_connection)
-			return 0
+		if("toggle_injector")
+			device_info = null
+			if(!radio_connection)
+				return 0
 
-		var/datum/signal/signal = new
-		signal.transmission_method = TRANSMISSION_RADIO
-		signal.source = src
-		signal.data = list(
-			"tag" = device_tag,
-			"power_toggle" = 1,
-			"sigtype"="command"
-		)
+			var/datum/signal/signal = new
+			signal.transmission_method = TRANSMISSION_RADIO
+			signal.source = src
+			signal.data = list(
+				"tag" = device_tag,
+				"power_toggle" = 1,
+				"sigtype"="command"
+			)
 
-		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+			radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+			. = TRUE
 
-	if(href_list["injection"])
-		if(!radio_connection)
-			return 0
+		if("injection")
+			if(!radio_connection)
+				return 0
 
-		var/datum/signal/signal = new
-		signal.transmission_method = TRANSMISSION_RADIO
-		signal.source = src
-		signal.data = list(
-			"tag" = device_tag,
-			"inject" = 1,
-			"sigtype"="command"
-		)
+			var/datum/signal/signal = new
+			signal.transmission_method = TRANSMISSION_RADIO
+			signal.source = src
+			signal.data = list(
+				"tag" = device_tag,
+				"inject" = 1,
+				"sigtype"="command"
+			)
 
-		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+			radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+			. = TRUE
 
 #undef SIGNAL_OXYGEN
 #undef SIGNAL_PHORON
 #undef SIGNAL_NITROGEN
 #undef SIGNAL_CARBON_DIOXIDE
 #undef SIGNAL_HYDROGEN
+#undef SIGNAL_N2O
+#undef SIGNAL_HELIUM
+#undef SIGNAL_DEUTERIUM
+#undef SIGNAL_TRITIUM
+#undef SIGNAL_BORON
+#undef SIGNAL_SULFUR_DIOXIDE
+#undef SIGNAL_NITROGEN_DIOXIDE
+#undef SIGNAL_CHLORINE
+#undef SIGNAL_STEAM

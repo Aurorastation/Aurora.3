@@ -11,7 +11,7 @@
 		icon = 'icons/mob/mob.dmi'
 		icon_state = "ghost-narsie"
 		overlays = 0
-		invisibility = 0
+		set_invisibility(0)
 		to_chat(src, "<span class='danger'>Even as a non-corporal being, you can feel Nar-Sie's presence altering you. You are now visible to everyone.</span>")
 
 /mob/living/cultify()
@@ -25,7 +25,7 @@
 		G.icon = 'icons/mob/mob.dmi'
 		G.icon_state = "ghost-narsie"
 		G.overlays = 0
-		G.invisibility = 0
+		G.set_invisibility(0)
 		to_chat(G, "<span class='danger'>You feel relieved as what's left of your soul finally escapes its prison of flesh.</span>")
 
 		cult.harvested += G.mind
@@ -41,10 +41,10 @@
 	if((N.z == src.z)&&(get_dist(N,src) <= (N.consume_range+10)) && !(N in view(src)))
 		if(!narsimage) //Create narsimage
 			narsimage = image('icons/obj/narsie.dmi',src.loc,"narsie",9,1)
-			narsimage.mouse_opacity = 0
+			narsimage.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		if(!narglow) //Create narglow
 			narglow = image('icons/obj/narsie.dmi',narsimage.loc,"glow-narsie",12,1)
-			narglow.mouse_opacity = 0
+			narglow.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		//Else if no dir is given, simply send them the image of narsie
 		var/new_x = 32 * (N.x - src.x) + N.pixel_x
 		var/new_y = 32 * (N.y - src.y) + N.pixel_y

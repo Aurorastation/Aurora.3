@@ -15,7 +15,7 @@
 
 /obj/item/clothing/ring/reagent
 	icon_state = "material"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
 
 /obj/item/clothing/ring/reagent/Initialize()
@@ -41,7 +41,7 @@
 	desc_antag = "This ring has a hidden injector that will activate when worn, administering a strong sedative. It is safe to hold in your hands."
 	icon_state = "material"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/polysomnine = 10)
+	reagents_to_add = list(/singleton/reagent/polysomnine = 10)
 
 //Seals and Signet Rings
 

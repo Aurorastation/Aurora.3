@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/espresso
 	name = "jar of coffee beans"
 	desc = "This goes into a coffee maker!"
-	label = "Ganymede Dark Blend"
+	label = "Ganymede Dark Espresso"
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "coffeejar"
 
@@ -12,4 +12,4 @@
 	possible_transfer_amounts = list(20, 40)
 	unacidable = 1
 
-	spawn_reagent = /decl/reagent/drink/coffee/espresso
+	spawn_reagent = /singleton/reagent/drink/coffee/espresso

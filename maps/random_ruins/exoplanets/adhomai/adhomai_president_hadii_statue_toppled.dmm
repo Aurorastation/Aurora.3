@@ -1,0 +1,125 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"i" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"o" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"s" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"u" = (
+/obj/structure/hadii_statue/stone{
+	already_toppled = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"x" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"J" = (
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"K" = (
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"N" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"P" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"T" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+N
+N
+N
+N
+N
+N
+N
+"}
+(2,1,1) = {"
+N
+P
+c
+c
+c
+K
+N
+"}
+(3,1,1) = {"
+N
+o
+J
+J
+J
+s
+N
+"}
+(4,1,1) = {"
+N
+o
+J
+u
+J
+s
+N
+"}
+(5,1,1) = {"
+N
+o
+J
+J
+J
+s
+N
+"}
+(6,1,1) = {"
+N
+i
+x
+x
+x
+T
+N
+"}
+(7,1,1) = {"
+N
+N
+N
+N
+N
+N
+N
+"}

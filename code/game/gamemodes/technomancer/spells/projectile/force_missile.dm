@@ -25,4 +25,4 @@
 	icon_state = "plasma_bolt"
 	damage = 25
 	armor_penetration = 15
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE

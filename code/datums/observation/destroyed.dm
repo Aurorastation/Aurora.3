@@ -1,4 +1,4 @@
-var/datum/observ/destroyed/destroyed_event = new()
+GLOBAL_DATUM_INIT(destroyed_event, /singleton/observ/destroyed, new)
 
-/datum/observ/destroyed
+/singleton/observ/destroyed
 	name = "Destroyed"

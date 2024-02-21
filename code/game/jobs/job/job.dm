@@ -42,9 +42,16 @@
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
+	var/list/blacklisted_citizenship = list() //A blacklist of citizenships that can't be this job
 
 //Only override this proc
+/datum/job/proc/pre_spawn(mob/abstract/new_player/player)
+	return
+
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
+
+/datum/job/proc/on_despawn(mob/living/carbon/human/H)
+	return
 
 /datum/job/proc/announce(mob/living/carbon/human/H)
 
@@ -96,11 +103,12 @@
 			if(ECONOMICALLY_UNDERPAID)		econ_status = 0.75
 			if(ECONOMICALLY_POOR)			econ_status = 0.50
 			if(ECONOMICALLY_DESTITUTE)		econ_status = 0.25
+			if(ECONOMICALLY_RUINED)			econ_status = 0.01
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
 	if (!species_modifier)
-		var/datum/species/human_species = global.all_species[SPECIES_HUMAN]
+		var/datum/species/human_species = GLOB.all_species[SPECIES_HUMAN]
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
@@ -109,7 +117,7 @@
 		var/remembered_info = ""
 		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
 		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
-		remembered_info += "<b>Your account funds are:</b> $[M.money]<br>"
+		remembered_info += "<b>Your account funds are:</b> [M.money]电<br>"
 
 		if(M.transactions.len)
 			var/datum/transaction/T = M.transactions[1]
@@ -137,7 +145,9 @@
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 
 /datum/job/proc/get_access(selected_title)
-	if(!config || config.jobs_have_minimal_access)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(!GLOB.config || GLOB.config.jobs_have_minimal_access)
 		. = minimal_access.Copy()
 	else
 		. = access.Copy()
@@ -186,11 +196,11 @@
 	return ideal_character_age[species]
 
 /datum/job/proc/fetch_age_restriction()
-	if (!config.age_restrictions_from_file)
+	if (!GLOB.config.age_restrictions_from_file)
 		return
 
-	if (config.age_restrictions[lowertext(title)])
-		minimal_player_age = config.age_restrictions[lowertext(title)]
+	if (GLOB.config.age_restrictions[lowertext(title)])
+		minimal_player_age = GLOB.config.age_restrictions[lowertext(title)]
 	else
 		minimal_player_age = 0
 
@@ -211,7 +221,7 @@
 	uniform = /obj/item/clothing/under/color/grey
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	headset = /obj/item/device/radio/headset
 	bowman = /obj/item/device/radio/headset/alt
@@ -239,7 +249,7 @@
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)
-	return J.get_access(get_id_assignment(H))
+	return J.get_access(get_id_assignment(H, TRUE))
 
 /datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)

@@ -17,17 +17,17 @@
 
 /obj/machinery/floodlight/Initialize()
 	. = ..()
-	cell = new /obj/item/cell/device(src) // 41minutes @ 200W
+	cell = new /obj/item/cell(src)
 
-/obj/machinery/floodlight/examine(mob/user)
+/obj/machinery/floodlight/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(cell)
 		if(!cell.charge)
-			to_chat(user, SPAN_WARNING("The installed [cell.name] is completely flat!"))
+			. += SPAN_WARNING("The installed [cell.name] is completely flat!")
 			return
-		to_chat(user, SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining."))
+		. += SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining.")
 	else
-		to_chat(user, SPAN_WARNING("\The [src] has no cell installed!"))
+		. += SPAN_WARNING("\The [src] has no cell installed!")
 
 /obj/machinery/floodlight/update_icon()
 	cut_overlays()
@@ -44,7 +44,7 @@
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
 		set_light(brightness_on/3, 0.5)
-		addtimer(CALLBACK(src, .proc/stop_flicker), 5, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(stop_flicker)), 5, TIMER_UNIQUE)
 
 	cell.use(use*CELLRATE)
 
@@ -106,8 +106,8 @@
 	update_icon()
 
 
-/obj/machinery/floodlight/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/machinery/floodlight/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!open)
 			unlocked = !unlocked
 			var/msg = unlocked ? "You unscrew the battery panel." : "You screw the battery panel into place."
@@ -115,7 +115,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open and cannot be screwed down!"))
 		return TRUE
-	if(W.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(unlocked)
 			open = !open
 			var/msg = open ? "You remove the battery panel." : "You crowbar the battery panel into place."
@@ -123,14 +123,14 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is still screwed shut!"))
 		return TRUE
-	if(istype(W, /obj/item/cell))
+	if(istype(attacking_item, /obj/item/cell))
 		if(open)
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 				return
 			else
-				user.drop_from_inventory(W, src)
-				cell = W
+				user.drop_from_inventory(attacking_item, src)
+				cell = attacking_item
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
 		return TRUE
 	update_icon()

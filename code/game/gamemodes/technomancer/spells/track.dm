@@ -27,6 +27,7 @@ var/list/technomancer_belongings = list()
 	return ..()
 
 /obj/item/spell/track/on_use_cast(mob/user)
+	. = ..()
 	if(tracking)
 		tracking = 0
 		to_chat(user, "<span class='notice'>You stop tracking for \the [tracked]'s whereabouts.</span>")
@@ -38,13 +39,16 @@ var/list/technomancer_belongings = list()
 	if(check_for_scepter())
 		can_track_non_allies = 1
 	var/list/mob_choices = list()
-	for(var/mob/living/L in mob_list)
+	for(var/mob/living/L in GLOB.mob_list)
 		if(!is_ally(L) && !can_track_non_allies)
 			continue
 		if(L == user)
 			continue
 		mob_choices += L
-	var/choice = input(user,"Decide what or who to track.","Tracking") as null|anything in object_choices + mob_choices
+
+	var/list/all_choices = object_choices + mob_choices
+
+	var/choice = tgui_input_list(user, "Decide what or who to track.", "Tracking", all_choices)
 	if(choice)
 		tracked = choice
 		tracking = 1

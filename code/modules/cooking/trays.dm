@@ -1,13 +1,13 @@
 /*
- * Trays - Nanako, ported by Jade
- */
- //Use tray on an item to load it.
- //To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
- //Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
+* Trays - Nanako, ported by Jade
+*/
+//Use tray on an item to load it.
+//To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
+//Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
 
 /obj/item/tray
 	name = "tray"
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
@@ -15,11 +15,11 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
 	recyclable = TRUE
-	hitsound = /decl/sound_category/bottle_hit_broken
-	drop_sound = /decl/sound_category/bottle_hit_broken
+	hitsound = /singleton/sound_category/bottle_hit_broken
+	drop_sound = /singleton/sound_category/bottle_hit_broken
 	var/max_carry = 20
 	var/current_weight = 0
 	var/cooldown = 0	//shield bash cooldown. based on world.time
@@ -32,17 +32,17 @@
 		return
 	spill(user, target.loc)
 
-/obj/item/tray/attackby(obj/item/I, mob/user, var/click_params)
-	if (isrobot(I.loc))//safety to stop robots losing their items
+/obj/item/tray/attackby(obj/item/attacking_item, mob/user, params)
+	if (isrobot(attacking_item.loc))//safety to stop robots losing their items
 		return TRUE
 
-	if(istype(I, /obj/item/material/kitchen/rollingpin))
+	if(istype(attacking_item, /obj/item/material/kitchen/rollingpin))
 		if(cooldown < world.time - 25)
-			user.visible_message(SPAN_DANGER("[user] bashes [src] with [I]!"))
+			user.visible_message(SPAN_DANGER("[user] bashes [src] with [attacking_item]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 		return TRUE
-	attempt_load_item(I, user, click_params=click_params)
+	attempt_load_item(attacking_item, user, click_params=params)
 
 /*
 ============~~~~~======================~~~~~=============
@@ -106,8 +106,8 @@
 	current_weight += I.w_class
 	vis_contents += I
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	item_equipped_event.register(I, src, /obj/item/tray/proc/pick_up)
-	destroyed_event.register(I, src, /obj/item/tray/proc/unload_item)
+	item_equipped_event.register(I, src, PROC_REF(pick_up))
+	GLOB.destroyed_event.register(I, src, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"
@@ -177,12 +177,12 @@
 
 	for(var/obj/item/I in contents)
 		unload_item(I, dropspot)
-		I.throw_at(get_edge_target_turf(src, pick(alldirs)), rand(0, 2), 10)
+		I.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(0, 2), 10)
 	if (user)
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
 		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
-	playsound(dropspot, /decl/sound_category/tray_hit_sound, 50, 1)
+	playsound(dropspot, /singleton/sound_category/tray_hit_sound, 50, 1)
 
 /obj/item/tray/throw_impact(atom/hit_atom)
 	spill(null, loc)
@@ -192,6 +192,7 @@
 	..()
 
 /obj/item/tray/dropped(mob/user)
+	. = ..()
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
 		if (ismob(loc))
 			//If this is true, then the tray has just switched hands and is still held by a mob
@@ -206,3 +207,27 @@
 	if(istype(A,/obj/structure/table))
 		safedrop = TRUE
 	return ..(A, user, click_parameters)
+
+/obj/item/tray/plate
+	name = "serving plate"
+	desc = "A large plate for serving meals on."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "l_plate"
+	throwforce = 4
+	force = 3
+	atom_flags = 0
+	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
+	recyclable = TRUE
+	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass
+
+/obj/item/tray/tea
+	name = "tea tray"
+	desc = "A tray for serving tea."
+	icon_state = "teatray"
+	force = 3
+	throwforce = 3
+	atom_flags = 0
+	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
+	recyclable = TRUE
+	max_carry = 6
+	contained_sprite = TRUE

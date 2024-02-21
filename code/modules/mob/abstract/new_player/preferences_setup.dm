@@ -1,12 +1,12 @@
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
 
-/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H,var/random_gender=TRUE)
+/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H, var/random_gender=TRUE, var/list/culture_restriction = list(), var/list/origin_restriction = list())
 	if(random_gender)
 		gender = pick(MALE, FEMALE)
 	else
 		gender = H.gender
-	var/datum/species/current_species = all_species[species]
+	var/datum/species/current_species = GLOB.all_species[species]
 
 	if(current_species)
 		if(current_species.appearance_flags & HAS_SKIN_TONE)
@@ -16,6 +16,7 @@
 		if(current_species.appearance_flags & HAS_SKIN_COLOR)
 			randomize_skin_color(current_species)
 
+	tail_style = length(current_species.selectable_tails) ? pick(current_species.selectable_tails) : null
 	h_style = random_hair_style(gender, species)
 	f_style = random_facial_hair_style(gender, species)
 	randomize_hair_color("hair")
@@ -24,9 +25,17 @@
 	backbag = 2
 	pda_choice = 2
 	age = rand(getMinAge(),getMaxAge())
+	if(length(culture_restriction))
+		H.set_culture(GET_SINGLETON(pick(culture_restriction)))
+	if(length(origin_restriction))
+		for(var/O in origin_restriction)
+			if(O in culture_restriction)
+				H.set_origin(GET_SINGLETON(O))
+				break
+		if(!H.origin)
+			crash_with("Invalid origin restrictions [english_list(origin_restriction)] for culture restrictions [english_list(culture_restriction)]!")
 	if(H)
 		copy_to(H,1)
-
 
 /datum/preferences/proc/randomize_hair_color(var/target = "hair")
 	if(prob (75) && target == "facial") // Chance to inherit hair color
@@ -218,14 +227,14 @@
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
-			SSatoms.ForceInitializeContents(mannequin)
+			SSatoms.CreateAtoms(list(mannequin))
 			mannequin.regenerate_icons()
 		else
 			mannequin.update_icon()
 
 /datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
 	var/datum/job/chosenJob
-	if(SSjobs.init_state < SS_INITSTATE_DONE)
+	if(!SSjobs.initialized)
 		return
 
 	if(job_civilian_low & ASSISTANT)
@@ -237,13 +246,15 @@
 		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
 	else if(job_engsec_high)
 		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
+	else if(job_event_high)
+		chosenJob = SSjobs.bitflag_to_job["[EVENTDEPT]"]["[job_event_high]"]
 
 	if(istype(chosenJob) && title)
 		return chosenJob.title
 	return chosenJob
 
 /datum/preferences/proc/update_mannequin()
-	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
+	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmobs.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
 	mannequin.species.create_organs(mannequin)
 	if(gender)
@@ -252,5 +263,14 @@
 	return mannequin
 
 /datum/preferences/proc/update_preview_icon()
-	var/mannequin = update_mannequin()
-	update_character_previews(new /mutable_appearance(mannequin))
+	var/mob/living/carbon/human/dummy/mannequin/mannequin = update_mannequin()
+	var/mutable_appearance/MA = new /mutable_appearance(mannequin)
+	MA.appearance_flags = PIXEL_SCALE
+	if(mannequin.species?.icon_x_offset)
+		MA.pixel_x = mannequin.species.icon_x_offset
+	if(mannequin.species?.icon_y_offset)
+		MA.pixel_y = mannequin.species.icon_y_offset
+	var/matrix/M = matrix()
+	M.Scale(scale_x, scale_y)
+	MA.transform = M
+	update_character_previews(MA, (MA.pixel_x != 0 || MA.pixel_y != 0))

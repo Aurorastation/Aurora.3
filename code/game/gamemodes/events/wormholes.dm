@@ -1,9 +1,10 @@
 /proc/wormhole_event()
 	spawn()
 		var/list/pick_turfs = list()
-		for(var/turf/simulated/floor/T in turfs)
-			if(isStationLevel(T.z))
-				pick_turfs += T
+		for(var/turf/T in world)
+			var/turf/simulated/floor/F = T
+			if(istype(F) && isStationLevel(F.z))
+				pick_turfs += F
 
 		if(pick_turfs.len)
 			//All ready. Announce that bad juju is afoot.

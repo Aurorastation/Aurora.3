@@ -4,11 +4,11 @@
 /turf/simulated/floor/fixed
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "steel"
+	icon_state = "tiled_preview"
 	initial_flooring = null
 
-/turf/simulated/floor/fixed/attackby(var/obj/item/C, var/mob/user)
-	if(istype(C, /obj/item/stack) && !C.iscoil())
+/turf/simulated/floor/fixed/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack) && !attacking_item.iscoil())
 		return
 	return ..()
 
@@ -20,4 +20,3 @@
 
 /turf/simulated/floor/fixed/set_flooring()
 	return
-

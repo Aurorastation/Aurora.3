@@ -12,6 +12,7 @@
 	var/instability_cost = 0
 
 /obj/item/spell/summon/on_ranged_cast(atom/hit_atom, mob/living/user)
+	. = ..()
 	var/turf/T = get_turf(hit_atom)
 	if(summoned_mob_type && core.summoned_mobs.len < core.max_summons && within_range(hit_atom) && pay_energy(energy_cost))
 		var/obj/effect/E = new(T)
@@ -30,8 +31,9 @@
 			user.adjust_instability(instability_cost)
 
 /obj/item/spell/summon/on_use_cast(mob/living/user)
+	. = ..()
 	if(summon_options.len)
-		var/choice = input(user, "Choose a creature to kidnap from somewhere!", "Summon") as null|anything in summon_options
+		var/choice = tgui_input_list(user, "Choose a creature to kidnap from somewhere.", "Summon", summon_options)
 		if(choice)
 			summoned_mob_type = summon_options[choice]
 

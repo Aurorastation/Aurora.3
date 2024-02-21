@@ -8,7 +8,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|FEET|HANDS
 	allowed = list(/obj/item/tank)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -62,7 +62,7 @@
 
 /obj/item/clothing/head/technomancer/apprentice
 	name = "apprentice's hat"
-	desc = "It's a somewhat silly looking blue pointed hat.  This one has a silver colored metalic feather strapped to it."
+	desc = "It's a somewhat silly looking blue pointed hat.  This one has a silver colored metallic feather strapped to it."
 	icon_state = "apprentice_hat"
 	item_state = "apprentice_hat"
 	icon = 'icons/obj/clothing/technomancer.dmi'
@@ -70,7 +70,7 @@
 
 /obj/item/clothing/head/technomancer/master
 	name = "master's hat"
-	desc = "It's a somewhat silly looking blue pointed hat.  This one has a gold colored metalic feather strapped to it."
+	desc = "It's a somewhat silly looking blue pointed hat.  This one has a gold colored metallic feather strapped to it."
 	icon_state = "technomancer_hat"
 	item_state = "technomancer_hat"
 	icon = 'icons/obj/clothing/technomancer.dmi'
@@ -78,7 +78,7 @@
 
 /obj/item/clothing/under/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -88,7 +88,7 @@
 
 /obj/item/clothing/head/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -98,7 +98,7 @@
 
 /obj/item/clothing/shoes/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -108,7 +108,7 @@
 
 /obj/item/clothing/suit/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,

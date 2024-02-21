@@ -19,10 +19,9 @@
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		if (flash)
 			for(var/mob/living/carbon/human/M in viewers(T, null))
-				if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-					M.flash_eyes()
+				M.flash_act(ignore_inherent = TRUE)
 		else
-			spark(T, 3, alldirs) //give spawning some flair if there's no flash
+			spark(T, 3, GLOB.alldirs) //give spawning some flair if there's no flash
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/atom/movable/x = new spawner_type
@@ -43,7 +42,7 @@
 	name = "viscerator delivery grenade"
 	desc = "It is set to detonate in 5 seconds. It will unleash a swarm of deadly manhack robots that will attack everyone but you and your allies."
 	spawner_type = /mob/living/simple_animal/hostile/viscerator
-	deliveryamt = 5 //Five seems a bit much, but we'll keep it as-is.
+	deliveryamt = 3
 	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
 	flash = FALSE
 

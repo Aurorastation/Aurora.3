@@ -61,33 +61,33 @@
 	var/list/stat_rig_module/stat_modules = new()
 	var/category	// Use for restricting modules for specific suits, to specialize
 
-/obj/item/rig_module/examine(mob/user)
-	..()
+/obj/item/rig_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	switch(damage)
 		if(0)
-			to_chat(user, SPAN_NOTICE("It is undamaged."))
+			. += SPAN_NOTICE("It is undamaged.")
 		if(1)
-			to_chat(user, SPAN_WARNING("It is badly damaged."))
+			. += SPAN_WARNING("It is badly damaged.")
 		if(2)
-			to_chat(user, SPAN_DANGER("It is almost completely destroyed."))
+			. += SPAN_DANGER("It is almost completely destroyed.")
 
-/obj/item/rig_module/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/nanopaste))
+/obj/item/rig_module/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/nanopaste))
 		if(damage == 0)
 			to_chat(user, SPAN_WARNING("There is no damage to mend."))
 			return
 
 		to_chat(user, SPAN_NOTICE("You start mending the damaged portions of \the [src]..."))
-		if(!do_after(user,30) || !W || !src)
+		if(!do_after(user,30) || !attacking_item || !src)
 			return
 
-		var/obj/item/stack/nanopaste/paste = W
+		var/obj/item/stack/nanopaste/paste = attacking_item
 		damage = 0
-		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src] with \the [W]."))
+		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src] with \the [attacking_item]."))
 		paste.use(1)
 		return
 
-	else if(W.iscoil())
+	else if(attacking_item.iscoil())
 		switch(damage)
 			if(0)
 				to_chat(user, SPAN_WARNING("There is no damage to mend."))
@@ -96,17 +96,17 @@
 				to_chat(user, SPAN_WARNING("\The [src] is too damaged to repair with cable coil, it needs nanopaste."))
 				return
 
-		var/obj/item/stack/cable_coil/cable = W
+		var/obj/item/stack/cable_coil/cable = attacking_item
 		if(!cable.amount >= 5)
 			to_chat(user, SPAN_WARNING("You need five units of cable to repair \the [src]."))
 			return
 
 		to_chat(user, SPAN_NOTICE("You start mending the damaged portions of \the [src]..."))
-		if(!do_after(user, 30) || !W || !src)
+		if(!do_after(user, 30) || !attacking_item || !src)
 			return
 
 		damage = 1
-		to_chat(user, SPAN_NOTICE("You mend some of damage to \the [src] with \the [W], but you will need more advanced tools to fix it completely."))
+		to_chat(user, SPAN_NOTICE("You mend some of damage to \the [src] with \the [attacking_item], but you will need more advanced tools to fix it completely."))
 		cable.use(5)
 		return
 	..()
@@ -182,7 +182,7 @@
 		to_chat(user, SPAN_WARNING("The suit cannot function while the wearer is prone."))
 		return FALSE
 
-	if(holder.security_check_enabled && !holder.check_suit_access(user))
+	if(holder.security_check_enabled && holder.locked && !holder.check_suit_access(user))
 		to_chat(user, SPAN_DANGER("Access denied."))
 		return FALSE
 
@@ -261,21 +261,24 @@
 		to_chat(holder.wearer, wearer_text)
 		return
 
-/mob/living/carbon/human/Stat()
+/mob/living/carbon/human/get_status_tab_items()
 	. = ..()
 
 	if(. && istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
-		SetupStat(R)
+		if(R && !R.canremove && R.installed_modules.len)
+			var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
+			. += "Suit Charge: [cell_status]"
 
-/mob/proc/SetupStat(var/obj/item/rig/R)
-	if(R && !R.canremove && R.installed_modules.len && statpanel("Hardsuit Modules"))
-		var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
-		stat("Suit charge", cell_status)
+/mob/living/carbon/human/get_actions_for_statpanel()
+	var/list/data = ..()
+	if(istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
 		for(var/obj/item/rig_module/module in R.installed_modules)
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
-					stat(SRM.module.interface_name,SRM)
+					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", ref(SRM)))
+	return data
 
 /stat_rig_module
 	parent_type = /atom/movable
@@ -299,9 +302,9 @@
 /stat_rig_module/Click()
 	if(CanUse())
 		var/list/href_list = list(
-							"interact_module" = module.holder.installed_modules.Find(module),
-							"module_mode" = module_mode
-							)
+			"interact_module" = module.holder.installed_modules.Find(module),
+			"module_mode" = module_mode
+			)
 		AddHref(href_list)
 		module.holder.Topic(usr, href_list)
 

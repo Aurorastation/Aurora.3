@@ -7,7 +7,7 @@
 		if(stored_charge >= cell_increase)
 			to_chat(user, SPAN_WARNING("The pump on \the [src] refuses to move."))
 		else
-			if(!pump_delay || do_after(user, pump_delay, use_user_turf = -1))
+			if(!pump_delay || do_after(user, pump_delay, do_flags = (DO_SHOW_PROGRESS|DO_USER_CAN_MOVE|DO_USER_CAN_TURN)))
 				if(last_pump < world.time)
 					if(isturf(src.loc))
 						to_chat(user, SPAN_NOTICE("You pump \the [src]."))
@@ -18,7 +18,7 @@
 				playsound(src, 'sound/weapons/kinetic_reload.ogg', 50, FALSE)
 
 		is_pumping = FALSE
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 
 /obj/item/custom_ka_upgrade/cells/cell01
 	//Pump Action
@@ -204,28 +204,28 @@
 	var/type_to_take = "phoron"
 	var/charge_per_sheet = 100
 
-/obj/item/custom_ka_upgrade/cells/loader/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/custom_ka_upgrade/cells/loader/attackby(obj/item/attacking_item, mob/user)
 
-	var/obj/item/stack/material/the_sheet = I
+	var/obj/item/stack/material/the_sheet = attacking_item
 
 	if(istype(the_sheet) && the_sheet.default_type == type_to_take)
 
 		var/amount_to_take = 1
 		if(stored_charge + charge_per_sheet > cell_increase)
-			to_chat(user,"<span class='notice'>You can't put any more [I] into \the [src].</span>")
+			to_chat(user,"<span class='notice'>You can't put any more [attacking_item] into \the [src].</span>")
 			return
 
 		amount_to_take = min(amount_to_take,the_sheet.amount)
 		the_sheet.amount -= amount_to_take
 		stored_charge += amount_to_take*charge_per_sheet
 
-		user.visible_message("<span class='notice'>\The [user] inserts a sheet [I] into \the [src].</span>", \
-			"<span class='notice'>You insert a sheet of [I]s into \the [src].</span>", \
+		user.visible_message("<span class='notice'>\The [user] inserts a sheet [attacking_item] into \the [src].</span>", \
+			"<span class='notice'>You insert a sheet of [attacking_item]s into \the [src].</span>", \
 			"<span class='notice'>You hear mechanical whirring.</span>")
 
 
 		if(the_sheet.amount <= 0)
-			qdel(I)
+			qdel(attacking_item)
 
 /obj/item/custom_ka_upgrade/cells/loader/uranium
 	name = "uranium loading KA cell"
@@ -234,7 +234,7 @@
 	icon_state = "cell_uraniumloader"
 	cell_increase = 300
 	capacity_increase = -5
-
+	firedelay_increase = 0.5 SECONDS
 	pump_restore = 0
 	pump_delay = 0
 

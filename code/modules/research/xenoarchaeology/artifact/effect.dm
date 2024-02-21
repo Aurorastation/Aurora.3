@@ -45,6 +45,11 @@
 			chargelevelmax = rand(20, 60)
 			effectrange = rand(15, 20)
 
+/datum/artifact_effect/Destroy(force)
+	holder = null
+
+	. = ..()
+
 /datum/artifact_effect/proc/ToggleActivate(var/reveal_toggle = 1)
 	//so that other stuff happens first
 	spawn(0)
@@ -83,7 +88,7 @@
 			DoEffectPulse()
 
 //returns 0..1, with 1 being no protection and 0 being fully protected
-proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
+/proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 	if(!H || !istype(H))
 		return 1
 

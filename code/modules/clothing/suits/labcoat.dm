@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat
 	name = "labcoat"
 	desc = "A suit that protects against minor chemical spills."
-	icon = 'icons/mob/clothing/suit/labcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat"
 	item_state = "labcoat" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
@@ -16,7 +16,7 @@
 /obj/item/clothing/suit/storage/toggle/longcoat
 	name = "long labcoat"
 	desc = "A long, victorian styled labcoat that protects against minor chemical spills."
-	icon = 'icons/mob/clothing/suit/labcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat_long"
 	item_state = "labcoat_long" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
@@ -51,6 +51,9 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	name = "nanotrasen labcoat"
 	icon_state = "labcoat_nt"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/nt/letterman
+	icon_state = "labcoat_letterman_nt"
 
 /obj/item/clothing/suit/storage/toggle/longcoat/nt
 	name = "nanotrasen long labcoat"
@@ -151,7 +154,46 @@
 	icon_state = "labcoat_long_idris"
 	item_state = "labcoat_long_idris"
 
+//Orion
+/obj/item/clothing/suit/storage/toggle/labcoat/orion
+	name = "orion labcoat"
+	icon_state = "labcoat_orion"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/orion/letterman
+	icon_state = "labcoat_letterman_orion"
+
+/obj/item/clothing/suit/storage/toggle/longcoat/orion
+	name = "orion long labcoat"
+	icon_state = "labcoat_long_orion"
+	item_state = "labcoat_long_orion"
+
 //IAC
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"
 	icon_state = "labcoat_iac"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/accent
+	has_accents = TRUE
+	icon_state = "labcoat_accent"
+	item_state = "labcoat_accent"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt
+	icon_state = "labcoat_accent_alt"
+	item_state = "labcoat_accent_alt"
+
+/obj/item/clothing/suit/storage/galatea_labcoat
+	name = "\improper Galatean labcoat"
+	desc = "A style of labcoat commonly worn by Galatean researchers which is intended to resemble labcoats commonly used throughout the Alliance prior to the Interstellar War’s outbreak in the late 2200s."
+	icon = 'icons/clothing/suits/coats/galatea.dmi'
+	icon_state = "labcoat1"
+	item_state = "labcoat1"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/dnainjector,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/device/breath_analyzer)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
+
+/obj/item/clothing/suit/storage/galatea_labcoat/alt
+	icon_state = "labcoat2"
+	item_state = "labcoat2"

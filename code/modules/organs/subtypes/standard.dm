@@ -1,5 +1,5 @@
 /****************************************************
-			   ORGAN DEFINES
+					ORGAN DEFINES
 ****************************************************/
 
 /obj/item/organ/external/chest
@@ -25,7 +25,7 @@
 	return UPPER_TORSO
 
 /obj/item/organ/external/chest/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their thighs!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] thighs!"
 
 /obj/item/organ/external/groin
 	name = "lower body"
@@ -43,11 +43,29 @@
 	gendered_icon = 1
 	augment_limit = 3
 
+	var/obj/item/storage/internal/tail/tail_storage
+
+/obj/item/organ/external/groin/Initialize()
+	. = ..()
+	if(owner.species.tail)
+		tail_storage = new /obj/item/storage/internal/tail(src)
+
+/obj/item/organ/external/groin/Destroy()
+	if(owner?.species.tail)
+		QDEL_NULL(tail_storage)
+	return ..()
+
+/obj/item/organ/external/groin/removed()
+	. = ..()
+	if(owner?.species.tail)
+		for(var/thing in tail_storage)
+			tail_storage.remove_from_storage(thing, get_turf(src))
+
 /obj/item/organ/external/groin/body_part_class()
 	return UPPER_TORSO
 
 /obj/item/organ/external/groin/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their thighs!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] thighs!"
 
 /obj/item/organ/external/arm
 	limb_name = BP_L_ARM
@@ -70,7 +88,7 @@
 	return ARMS
 
 /obj/item/organ/external/arm/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] sleeves!"
 
 /obj/item/organ/external/arm/right
 	limb_name = BP_R_ARM
@@ -104,7 +122,7 @@
 	return LEGS
 
 /obj/item/organ/external/leg/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] pooling at their feet!"
+	return "[owner.get_pronoun("has")] [blood_type] pooling at [owner.get_pronoun("his")] feet!"
 
 /obj/item/organ/external/leg/right
 	limb_name = BP_R_LEG
@@ -135,7 +153,7 @@
 	return LEGS
 
 /obj/item/organ/external/foot/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] pooling at their feet!"
+	return "[owner.get_pronoun("has")] [blood_type] pooling at [owner.get_pronoun("his")] feet!"
 
 /obj/item/organ/external/foot/removed()
 	if(owner)
@@ -172,11 +190,12 @@
 	return ARMS
 
 /obj/item/organ/external/hand/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] sleeves!"
 
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
 	. = ..()
-	owner.update_hud_hands()
+	if(owner)
+		owner.update_hud_hands()
 
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
@@ -218,7 +237,7 @@
 	return HEAD
 
 /obj/item/organ/external/head/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their neck!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] neck!"
 
 /obj/item/organ/external/head/removed()
 	if(owner)

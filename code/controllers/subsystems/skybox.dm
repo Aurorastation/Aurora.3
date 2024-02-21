@@ -1,8 +1,6 @@
-var/datum/controller/subsystem/skybox/SSskybox
-
-/datum/controller/subsystem/skybox
+SUBSYSTEM_DEF(skybox)
 	name = "Space skybox"
-	init_order = SS_INIT_PARALLAX
+	init_order = INIT_ORDER_PARALLAX
 	flags = SS_NO_FIRE
 	var/background_color
 	var/skybox_icon = 'icons/skybox/skybox.dmi' //Path to our background. Lets us use anything we damn well please. Skyboxes need to be 736x736
@@ -12,7 +10,8 @@ var/datum/controller/subsystem/skybox/SSskybox
 	var/star_path = 'icons/skybox/skybox.dmi'
 	var/star_state = "stars"
 	var/list/skybox_cache = list()
-	var/list/space_appearance_cache	
+	var/list/space_appearance_cache
+
 
 /datum/controller/subsystem/skybox/proc/build_space_appearances()
 	space_appearance_cache = new(26)
@@ -28,13 +27,12 @@ var/datum/controller/subsystem/skybox/SSskybox
 		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance
-
-/datum/controller/subsystem/skybox/New()
-	NEW_SS_GLOBAL(SSskybox)
+		background_color = SSatlas.current_sector.starlight_color
 
 /datum/controller/subsystem/skybox/Initialize()
-	. = ..()
 	build_space_appearances()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/skybox/Recover()
 	skybox_cache = SSskybox.skybox_cache
@@ -42,8 +40,8 @@ var/datum/controller/subsystem/skybox/SSskybox
 /datum/controller/subsystem/skybox/proc/get_skybox(z)
 	if(!skybox_cache["[z]"])
 		skybox_cache["[z]"] = generate_skybox(z)
-		if(current_map.use_overmap)
-			var/obj/effect/overmap/visitable/O = map_sectors["[z]"]
+		if(SSatlas.current_map.use_overmap)
+			var/obj/effect/overmap/visitable/O = GLOB.map_sectors["[z]"]
 			if(istype(O))
 				for(var/zlevel in O.map_z)
 					skybox_cache["[zlevel]"] = skybox_cache["[z]"]
@@ -54,7 +52,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	res.appearance_flags = KEEP_TOGETHER
 
 	var/sector_icon = SSatlas.current_sector.skybox_icon
-	var/image/base = overlay_image(skybox_icon, sector_icon, background_color)
+	var/image/base = overlay_image(skybox_icon, sector_icon)
 
 	if(use_stars)
 		var/image/stars = overlay_image(skybox_icon, star_state, flags = RESET_COLOR)
@@ -62,8 +60,8 @@ var/datum/controller/subsystem/skybox/SSskybox
 
 	res.overlays += base
 
-	if(current_map.use_overmap && use_overmap_details)
-		var/obj/effect/overmap/visitable/O = map_sectors["[z]"]
+	if(SSatlas.current_map.use_overmap && use_overmap_details)
+		var/obj/effect/overmap/visitable/O = GLOB.map_sectors["[z]"]
 		if(istype(O))
 			var/image/overmap = image(skybox_icon)
 			overmap.overlays += O.generate_skybox()
@@ -84,7 +82,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	for(var/z in zlevels)
 		skybox_cache["[z]"] = generate_skybox(z)
 
-	for(var/client/C in clients)
+	for(var/client/C in GLOB.clients)
 		C.update_skybox(1)
 
 //Update skyboxes. Called by universes, for now.
