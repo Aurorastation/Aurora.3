@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed the divider when examining some things, as it is no longer required."
+  - rscadd: "Added a description to slimes."
