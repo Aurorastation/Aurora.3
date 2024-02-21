@@ -1,6 +1,6 @@
 /obj/structure/dispenser
 	name = "gas tank storage unit"
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen and phoron tanks."
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen tanks and 10 phoron tanks."
 	icon = 'icons/obj/tank_dispenser.dmi'
 	icon_state = "dispenser"
 	density = TRUE
@@ -8,24 +8,28 @@
 	w_class = ITEMSIZE_HUGE
 	var/oxygen_tanks = 10
 	var/phoron_tanks = 10
-	var/max_tanks = 10
+	var/max_tanks = 20
 	var/list/held_oxygen_tanks = list()
 	var/list/held_phoron_tanks = list()
 
+// Oxygen
 /obj/structure/dispenser/oxygen
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen tanks."
 	phoron_tanks = 0
+	max_tanks = 10
 
+// Oxygen (20 tanks)
 /obj/structure/dispenser/oxygen/large
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 oxygen tanks."
 	oxygen_tanks = 20
-	max_tanks = 20
 
+// Phoron
 /obj/structure/dispenser/phoron
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 phoron tanks."
 	oxygen_tanks = 0
 
-/obj/structure/dispenser/oxygen/large
+// Oxygen (20 tanks)
+/obj/structure/dispenser/phoron/large
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 phoron tanks."
 	phoron_tanks = 20
 	max_tanks = 20
@@ -66,7 +70,7 @@
 	if(istype(attacking_item, /obj/item/tank/oxygen) || istype(attacking_item, /obj/item/tank/air) || istype(attacking_item, /obj/item/tank/anesthetic))
 		if(oxygen_tanks < max_tanks)
 			user.drop_from_inventory(attacking_item, src)
-			oxytanks.Add(attacking_item)
+			held_oxygen_tanks.Add(attacking_item)
 			oxygen_tanks++
 			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 			if(oxygen_tanks < 5)
@@ -76,10 +80,10 @@
 		updateUsrDialog()
 		return
 	if(istype(attacking_item, /obj/item/tank/phoron))
-		if(phorontanks < max_tanks)
+		if(phoron_tanks < max_tanks)
 			user.drop_from_inventory(attacking_item, src)
 			platanks.Add(attacking_item)
-			phorontanks++
+			phoron_tanks++
 			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 			if(oxygentanks < 6)
 				update_icon()
