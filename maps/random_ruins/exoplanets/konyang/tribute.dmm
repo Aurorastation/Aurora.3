@@ -956,8 +956,8 @@
 /obj/structure/sign/painting_frame/martyr{
 	pixel_y = 9;
 	pixel_x = -16;
-	name = "photo of a martyr";
-	desc = "a small portrait, with a plate reading 'Rest in Peace Kei Nakai' on the bottom of the frame.";
+	name = "photo of a person";
+	desc = "a small portrait, with a plate reading 'Rest in Peace' on the bottom of the frame.";
 	desc_extended = null
 	},
 /obj/item/flag/trinaryperfection{
