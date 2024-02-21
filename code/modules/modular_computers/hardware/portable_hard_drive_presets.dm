@@ -33,11 +33,11 @@
 	if(!program)
 		qdel(src) //Delete itself it no matching program is found
 		return
-	max_capacity = program.size // Set the capacity of the backup disk to the capacity of the program
 	var/datum/computer_file/program/program_cloned = program.clone()
+	max_capacity = program_cloned.size // Set the capacity of the backup disk to the capacity of the program
 	store_file(program_cloned)
 	read_only = TRUE
-	desc = "A read-only backup storage crystal containing a backup of the following software: [PRG.filedesc]"
+	desc = "A read-only backup storage crystal containing a backup of the following software: [program_cloned.filedesc]"
 	name = "[program_cloned.filedesc] backup crystal"
 
 /obj/structure/closet/crate/software_backup
