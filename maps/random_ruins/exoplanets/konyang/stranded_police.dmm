@@ -1,0 +1,51 @@
+"a" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"b" = (/obj/item/device/flashlight/maglight,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"c" = (/obj/item/gun/projectile/revolver/konyang/police,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"d" = (/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"f" = (/turf/simulated/wall/wood,/area/exoplanet/grass/konyang)
+"h" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"l" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"m" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"n" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"q" = (/obj/item/gun/projectile/revolver/konyang/police,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"s" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"u" = (/obj/item/device/flashlight/maglight,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"v" = (/obj/effect/decal/cleanable/blood/splatter,/mob/living/simple_animal/hostile/ipc_zombie,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"w" = (/obj/structure/automobile/police,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"x" = (/obj/machinery/door/urban,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"A" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"B" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"D" = (/obj/item/ammo_magazine/c45/revolver,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"E" = (/obj/effect/decal/cleanable/blood/gibs/robot,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"F" = (/obj/effect/landmark/corpse/konyang_villager,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"G" = (/obj/effect/decal/cleanable/blood/gibs/robot,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"I" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"J" = (/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"N" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"P" = (/obj/structure/flora/tree/konyang/spring,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"R" = (/obj/effect/ghostspawpoint{name = "igs - lost_cop"; identifier = konyang_lost_cop},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"U" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"V" = (/obj/structure/flora/tree/konyang/spring,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+
+(1,1,1) = {"
+JJJJJJJJJJJJJJJJJJJJ
+JJnnnJaaJaJaJJfffJJJ
+aJnBnJJJJJJJJJfFfJJJ
+JJnnBJJPJJJahhfvfJJJ
+JJJhhhJJJaJJJhfxfJhJ
+JaJJJJaJJJJsJJJIJJhJ
+JJJBAhJJJJJJJJJJNJhh
+JJJnnhJJRJJqJaJaJaJJ
+JJJJhhJEdDJbJJJaaaNJ
+JJsJJJJJlllEJJJJJnJN
+JJJJhaJJwllmcJJJJnJJ
+JJJJhaJuElRlGJJPJnJJ
+JJJJhJJJJDJGJsJJJnJJ
+JJJPJJJJJJJJJJhhhJJJ
+JJhhhhJJJJsJJJJJJJJJ
+JJJJJJaJJJJJJJJJnUJJ
+JJJaJhaJJJJAnAnVnaaJ
+JJJaJJJJJPJhhnnnnJJJ
+JJJaJhhJJJJhhJJJJJJJ
+JJJJJJhJJJJhhJJJJJJJ
+"}
