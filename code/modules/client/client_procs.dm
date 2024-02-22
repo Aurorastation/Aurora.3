@@ -398,23 +398,32 @@ var/list/localhost_addresses = list(
 		src.InitPrefs()
 		mob.LateLogin()
 
-	/// This spawn is the only thing keeping the stat panels and chat working. By removing this spawn, there will be black screens when loading the game.
-	/// It seems to be affected by the order of statpanel init: if it happens before send_resources(), then the statpanels won't load, but the game won't
-	/// blackscreen.
-	spawn(0)
-		// Initialize stat panel
-		stat_panel.initialize(
-			inline_html = file("html/statbrowser.html"),
-			inline_js = file("html/statbrowser.js"),
-			inline_css = file("html/statbrowser.css"),
-		)
-		addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 	// Initialize tgui panel
 	tgui_panel.initialize()
+
 	tgui_say.initialize()
 
+	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
+	winset(src, null, "command=\".configure graphics-hwmode on\"")
+
+	send_resources()
+
+	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
+		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
+
+	Master.UpdateTickRate()
+
 /client/proc/InitPrefs()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
 	if(!prefs)
@@ -432,7 +441,9 @@ var/list/localhost_addresses = list(
 		toggle_fullscreen(TRUE)
 
 /client/proc/InitClient()
-	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+	SHOULD_NOT_SLEEP(TRUE)
+
+	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
 	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
@@ -450,13 +461,13 @@ var/list/localhost_addresses = list(
 	log_client_to_db()
 
 	if (byond_version < GLOB.config.client_error_version)
-		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
-		to_chat(src, GLOB.config.client_error_message)
-		to_chat(src, "Your version: [byond_version].")
-		to_chat(src, "Required version: [GLOB.config.client_error_version] or later.")
-		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
+		to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
+		to_chat_immediate(src, GLOB.config.client_error_message)
+		to_chat_immediate(src, "Your version: [byond_version].")
+		to_chat_immediate(src, "Required version: [GLOB.config.client_error_version] or later.")
+		to_chat_immediate(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
 		if (holder)
-			to_chat(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
+			to_chat_immediate(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
 		else
 			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
 			del(src)
@@ -467,7 +478,7 @@ var/list/localhost_addresses = list(
 		if (GLOB.config.access_deny_new_players && player_age == -1)
 			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
-			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
+			to_chat_immediate(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
 			del(src)
 			return 0
 
@@ -475,7 +486,7 @@ var/list/localhost_addresses = list(
 		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= GLOB.config.access_deny_new_accounts)
 			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
-			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
+			to_chat_immediate(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
 			del(src)
 			return 0
 
@@ -484,11 +495,6 @@ var/list/localhost_addresses = list(
 
 	if(holder)
 		add_admin_verbs()
-
-	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
-	winset(src, null, "command=\".configure graphics-hwmode on\"")
-
-	send_resources()
 
 	check_ip_intel()
 
@@ -500,14 +506,30 @@ var/list/localhost_addresses = list(
 //DISCONNECT//
 //////////////
 /client/Del()
+	if(!gc_destroyed)
+		gc_destroyed = world.time
+		if (!QDELING(src))
+			stack_trace("Client does not purport to be QDELING, this is going to cause bugs in other places!")
+
+		Destroy()
+	return ..()
+
+/client/Destroy(force)
 	GLOB.ticket_panels -= src
-	if(holder)
-		holder.owner = null
 	GLOB.staff -= src
 	GLOB.directory -= ckey
 	GLOB.clients -= src
-	return ..()
+	if(holder)
+		holder.owner = null
+		GLOB.staff -= src
 
+	SSping.currentrun -= src
+
+	QDEL_NULL(tooltips)
+
+	Master.UpdateTickRate()
+	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
+	return QDEL_HINT_HARDDEL_NOW
 
 // here because it's similar to below
 
@@ -526,6 +548,8 @@ var/list/localhost_addresses = list(
 		return -1
 
 /client/proc/log_client_to_db()
+	set waitfor = FALSE
+
 	if (IsGuestKey(src.key))
 		return
 

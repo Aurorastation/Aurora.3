@@ -94,7 +94,7 @@
 	closed = TRUE
 
 /datum/tgui_alert/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/tgui_alert/ui_static_data(mob/user)
 	var/list/data = list()

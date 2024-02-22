@@ -339,13 +339,13 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+/obj/item/weldingtool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
-		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
+		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
 
-/obj/item/weldingtool/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/weldingtool/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(isrobot(loc))
 			to_chat(user, SPAN_ALERT("You cannot modify your own welder!"))
 			return TRUE
@@ -360,8 +360,8 @@
 		add_fingerprint(user)
 		return TRUE
 
-	if(!status && (istype(W, /obj/item/stack/rods)))
-		var/obj/item/stack/rods/R = W
+	if(!status && (istype(attacking_item, /obj/item/stack/rods)))
+		var/obj/item/stack/rods/R = attacking_item
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
@@ -576,28 +576,28 @@
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
 
-/obj/item/weldingtool/experimental/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/eyeshield))
+/obj/item/weldingtool/experimental/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/eyeshield))
 		if(eyeshield)
 			to_chat(user, SPAN_WARNING("\The [src] already has an eye shield installed!"))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
-		eyeshield = I
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
+		eyeshield = attacking_item
 		produces_flash = FALSE
 		add_overlay("eyeshield_attached", TRUE)
 		return TRUE
-	if(istype(I, /obj/item/overcapacitor))
+	if(istype(attacking_item, /obj/item/overcapacitor))
 		if(overcap)
 			to_chat(user, SPAN_WARNING("\The [src] already has an overcapacitor installed!"))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
-		overcap = I
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
+		overcap = attacking_item
 		add_overlay("overcap_attached", TRUE)
 		toolspeed *= 2
 		return TRUE
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(!eyeshield && !overcap)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
 			return TRUE
@@ -795,10 +795,10 @@
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
-/obj/item/combitool/examine(var/mob/user)
+/obj/item/combitool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
+		. += "It has the following fittings: <b>[english_list(tools)]</b>."
 
 /obj/item/combitool/iswrench()
 	return current_tool == "wrench"
@@ -854,12 +854,12 @@
 /obj/item/powerdrill/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "S")
 
-/obj/item/powerdrill/examine(var/mob/user)
+/obj/item/powerdrill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings:")
+		. += "It has the following fittings:"
 		for(var/tool in tools)
-			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+			. += "- [tool][tools[current_tool] == tool ? " (selected)" : ""]"
 
 /obj/item/powerdrill/MouseEntered(location, control, params)
 	. = ..()
@@ -916,14 +916,14 @@
 /obj/item/steelwool/isFlameSource()
 	return lit
 
-/obj/item/steelwool/attackby(obj/item/W, mob/user)
-	if(W.isFlameSource())
-		ignite(W, user)
+/obj/item/steelwool/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isFlameSource())
+		ignite(attacking_item, user)
 		return TRUE
-	else if(istype(W, /obj/item/cell))
-		var/obj/item/cell/S = W
+	else if(istype(attacking_item, /obj/item/cell))
+		var/obj/item/cell/S = attacking_item
 		if(S.charge)
-			ignite(W, user)
+			ignite(attacking_item, user)
 		else
 			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
 		return TRUE

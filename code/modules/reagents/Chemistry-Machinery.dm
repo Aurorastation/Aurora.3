@@ -64,38 +64,38 @@
 	if(!use_check_and_message(usr))
 		eject()
 
-/obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
+/obj/machinery/chem_master/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(B, /obj/item/reagent_containers/glass))
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 
 		if(src.beaker)
 			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return
-		if(is_type_in_list(B, forbidden_containers))
-			to_chat(user, SPAN_WARNING("There's no way to fit [B] into \the [src]!"))
+		if(is_type_in_list(attacking_item, forbidden_containers))
+			to_chat(user, SPAN_WARNING("There's no way to fit [attacking_item] into \the [src]!"))
 			return
-		src.beaker = B
-		user.drop_from_inventory(B,src)
+		src.beaker = attacking_item
+		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
 		CHEMMASTER_BOTTLE_SOUND
 
-	else if(istype(B, /obj/item/storage/pill_bottle))
+	else if(istype(attacking_item, /obj/item/storage/pill_bottle))
 		if(condi)
 			return
 		if(src.loaded_pill_bottle)
 			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
 
-		src.loaded_pill_bottle = B
-		user.drop_from_inventory(B,src)
+		src.loaded_pill_bottle = attacking_item
+		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
-	else if(B.iswrench())
+	else if(attacking_item.iswrench())
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
-		playsound(src.loc, B.usesound, 75, 1)
+		playsound(src.loc, attacking_item.usesound, 75, 1)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 
@@ -366,13 +366,13 @@
 	icon_state = "juicer"+num2text(!isnull(beaker))
 	return
 
-/obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if (is_type_in_list(O, beaker_types))
+/obj/machinery/reagentgrinder/attackby(obj/item/attacking_item, mob/user)
+	if (is_type_in_list(attacking_item, beaker_types))
 		if (beaker)
 			return 1
 		else
-			src.beaker =  O
-			user.drop_from_inventory(O,src)
+			src.beaker =  attacking_item
+			user.drop_from_inventory(attacking_item,src)
 			update_icon()
 			src.updateUsrDialog()
 			return 0
@@ -381,12 +381,12 @@
 		to_chat(usr, "The machine cannot hold anymore items.")
 		return 1
 
-	if(!istype(O))
+	if(!istype(attacking_item))
 		return
 
-	if(istype(O,/obj/item/storage/bag/plants) || istype(O,/obj/item/storage/pill_bottle))
+	if(istype(attacking_item,/obj/item/storage/bag/plants) || istype(attacking_item,/obj/item/storage/pill_bottle))
 		var/failed = 1
-		var/obj/item/storage/P = O
+		var/obj/item/storage/P = attacking_item
 		for(var/obj/item/G in P.contents)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue
@@ -400,21 +400,21 @@
 			to_chat(user, "Nothing in the plant bag is usable.")
 			return 1
 
-		if(!O.contents.len)
-			to_chat(user, "You empty \the [O] into \the [src].")
+		if(!attacking_item.contents.len)
+			to_chat(user, "You empty \the [attacking_item] into \the [src].")
 		else
-			to_chat(user, "You fill \the [src] from \the [O].")
+			to_chat(user, "You fill \the [src] from \the [attacking_item].")
 
 		src.updateUsrDialog()
 		return 0
 
-	if(!sheet_reagents[O.type] && (!O.reagents || !O.reagents.total_volume))
-		to_chat(user, "\The [O] is not suitable for blending.")
+	if(!sheet_reagents[attacking_item.type] && (!attacking_item.reagents || !attacking_item.reagents.total_volume))
+		to_chat(user, "\The [attacking_item] is not suitable for blending.")
 		return 0
 
-	user.remove_from_mob(O)
-	O.forceMove(src)
-	holdingitems += O
+	user.remove_from_mob(attacking_item)
+	attacking_item.forceMove(src)
+	holdingitems += attacking_item
 	src.updateUsrDialog()
 	return 0
 

@@ -19,10 +19,10 @@
 	stored_walls = max_walls
 	stored_doors = max_doors
 
-/obj/item/inflatable_dispenser/examine(mob/user)
+/obj/item/inflatable_dispenser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored."))
-	to_chat(user, SPAN_NOTICE("It is set to deploy [mode ? "doors" : "walls"]"))
+	. += SPAN_NOTICE("It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored.")
+	. += SPAN_NOTICE("It is set to deploy [mode ? "doors" : "walls"]")
 
 /obj/item/inflatable_dispenser/attack_self(mob/user)
 	if(!deploying)

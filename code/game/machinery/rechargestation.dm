@@ -110,9 +110,9 @@
 			D.upgrade_cooldown = world.time + 1 MINUTE
 			D.master_matrix.apply_upgrades(D)
 
-/obj/machinery/recharge_station/examine(mob/user)
+/obj/machinery/recharge_station/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "The charge meter reads: [round(chargepercentage())]%.")
+	. += "The charge meter reads: [round(chargepercentage())]%."
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
@@ -133,17 +133,17 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
 	if(!occupant)
-		if(default_deconstruction_screwdriver(user, O))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return TRUE
-		else if(default_deconstruction_crowbar(user, O))
+		else if(default_deconstruction_crowbar(user, attacking_item))
 			return TRUE
-		else if(default_part_replacement(user, O))
+		else if(default_part_replacement(user, attacking_item))
 			return TRUE
 
-	if(istype(O, /obj/item/grab))
-		var/obj/item/grab/grab = O
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/grab = attacking_item
 		var/mob/living/L = grab.affecting
 		if(!L.isSynthetic())
 			return TRUE
@@ -153,7 +153,7 @@
 			return TRUE
 
 		move_ipc(grab.affecting)
-		qdel(O)
+		qdel(attacking_item)
 	return ..()
 
 /obj/machinery/recharge_station/RefreshParts()

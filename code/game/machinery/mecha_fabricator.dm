@@ -147,21 +147,21 @@
 
 	return 1
 
-/obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(busy)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
 		return TRUE
-	if(default_deconstruction_screwdriver(user, I))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-	if(!istype(I, /obj/item/stack/material))
+	if(!istype(attacking_item, /obj/item/stack/material))
 		return ..()
 
-	var/obj/item/stack/material/M = I
+	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
 	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))

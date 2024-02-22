@@ -196,18 +196,47 @@
 // Subsystems shutdown in the reverse of the order they initialize in
 // The numbers just define the ordering, they are meaningless otherwise.
 
+#define INIT_ORDER_PERSISTENT_CONFIGURATION 101 //Aurora snowflake conflg handling
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
+#define INIT_ORDER_DISCORD 78
+#define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
+#define INIT_ORDER_TICKER 55
+#define INIT_ORDER_SEEDS 52 // More aurora snowflake, needs to load before the atoms init as it generates images for seeds that are used
+#define INIT_ORDER_MISC_FIRST 51 //Another aurora snowflake system? Who would have guessed... Anyways, need to load before mapping or global HUDs are not ready when atoms request them
+#define INIT_ORDER_MAPPING 50 //This is the ATLAS subsystem
+#define INIT_ORDER_PARALLAX 49 // Parallax image cache generation. Must run before ghosts are able to join. Another aurora snowflake code, run after mapping or it runtimes
+#define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
+#define INIT_ORDER_ECONOMY 40
+#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_ATOMS 30
+#define INIT_ORDER_MACHINES 20
+#define INIT_ORDER_DEFAULT 0
+#define INIT_ORDER_AIR -1
+#define INIT_ORDER_AWAY_MAPS -2 //Loading away sites and exoplanets, should start after air, must initialize before ghost roles in order for their spawnpoints to work
+#define INIT_ORDER_GHOSTROLES -2.1 //Ghost roles must initialize before SS_INIT_MISC due to some roles (matriarch drones) relying on the assumption that this SS is initialized.
+#define INIT_ORDER_MISC -2.2 //Aurora snowflake, Subsystems without an explicitly set initialization order start here
 #define INIT_ORDER_CODEX -3 // Codex subsystem. Should be initialized after chemistry and cooking recipes.
+#define INIT_ORDER_VOTE -4
+#define INIT_ORDER_ASSETS -5
+#define INIT_ORDER_ICON_UPDATE -5.5 //Yet another aurora snowflake, Icon update queue flush. Should run before overlays, probably before smoothing the icon too
+#define INIT_ORDER_ICON_SMOOTHING -6
+#define INIT_ORDER_OVERLAY -7
+#define INIT_ORDER_LIGHTING -20
+#define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define INIT_ORDER_STATPANELS -97
+#define INIT_ORDER_CHAT -100 //Should be last to ensure chat remains smooth during init.
 
 // Subsystem fire priority, from lowest to highest priority
 // If the subsystem isn't listed here it's either DEFAULT or PROCESS (if it's a processing subsystem child)
 
+#define FIRE_PRIORITY_PING 10
 #define FIRE_PRIORITY_GARBAGE 15
+#define FIRE_PRIORITY_ASSETS 20
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_STATPANEL 390
+#define FIRE_PRIORITY_CHAT 400
 
 
 /* AURORA SHIT */

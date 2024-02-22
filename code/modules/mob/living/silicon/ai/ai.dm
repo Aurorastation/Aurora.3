@@ -726,16 +726,16 @@ var/list/ai_verbs_default = list(
 		camera_light_on = world.timeofday + 1 * 20 // Update the light every 2 seconds.
 
 
-/mob/living/silicon/ai/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/aicard))
+/mob/living/silicon/ai/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/aicard))
 
-		var/obj/item/aicard/card = W
+		var/obj/item/aicard/card = attacking_item
 		card.grab_ai(src, user)
 
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!W.use_tool(src, user, 40, volume = 50))
+			if(!attacking_item.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
@@ -744,7 +744,7 @@ var/list/ai_verbs_default = list(
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
-			if(!W.use_tool(src, user, 40, volume = 50))
+			if(!attacking_item.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")

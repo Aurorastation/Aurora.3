@@ -284,3 +284,15 @@
 
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/brown
 	reagents_to_add = list(/singleton/reagent/crayon_dust/brown = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/toothpaste
+	name = "toothpaste packet"
+	desc = "Contains 5u of toothpaste."
+	icon_state = "packet_small_white"
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/phoron
+	name = "phoron packet"
+	desc = "Contains 5u of phoron."
+	icon_state = "packet_small_yellow"
+	reagents_to_add = list(/singleton/reagent/toxin/phoron = 5)

@@ -84,20 +84,20 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return 1
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (distance > 1)
 		return
 	if(!reagents || reagents.total_volume == 0)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		. += "<span class='notice'>\The [src] is empty!</span>"
 	else if (reagents.total_volume <= volume * 0.25)
-		to_chat(user, "<span class='notice'>\The [src] is almost empty!</span>")
+		. += "<span class='notice'>\The [src] is almost empty!</span>"
 	else if (reagents.total_volume <= volume * 0.66)
-		to_chat(user, "<span class='notice'>\The [src] is half full!</span>")
+		. += "<span class='notice'>\The [src] is half full!</span>"
 	else if (reagents.total_volume <= volume * 0.90)
-		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
+		. += "<span class='notice'>\The [src] is almost full!</span>"
 	else
-		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
+		. += "<span class='notice'>\The [src] is full!</span>"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -366,33 +366,33 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	src.add_fingerprint(user)
 	return
 
-/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/food/drinks/shaker_cup))
+/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/drinks/shaker_cup))
 		if(cap)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [cap]."))
 			return TRUE
-		if(W.reagents.total_volume > 0)
-			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = W
+		if(attacking_item.reagents.total_volume > 0)
+			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = attacking_item
 			C.standard_pour_into(user, src)
 			return TRUE
 		if(!top)
-			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [W] on."))
+			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [attacking_item] on."))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You put \the [W] onto \the [src]."))
-		user.drop_from_inventory(W, src)
+		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] onto \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
-		cap = W
+		cap = attacking_item
 		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/shaker_top))
+	if(istype(attacking_item, /obj/item/shaker_top))
 		if(top)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [top]."))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You fit \the [W] onto \the [src]."))
+		to_chat(user, SPAN_NOTICE("You fit \the [attacking_item] onto \the [src]."))
 		amount_per_transfer_from_this = 10
-		user.drop_from_inventory(W, src)
-		top = W
+		user.drop_from_inventory(attacking_item, src)
+		top = attacking_item
 		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE

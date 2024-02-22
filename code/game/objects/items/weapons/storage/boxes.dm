@@ -90,13 +90,13 @@
 			damage(damage)
 	..()
 
-/obj/item/storage/box/examine(var/mob/user)
+/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, SPAN_WARNING("It is slightly torn."))
+			. += SPAN_WARNING("It is slightly torn.")
 		else
-			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
+			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -131,13 +131,13 @@
 			qdel(src)
 			user.put_in_hands(trash)
 
-/obj/item/storage/box/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/packageWrap))
-		var/total_storage_space = W.get_storage_cost()
+/obj/item/storage/box/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/packageWrap))
+		var/total_storage_space = attacking_item.get_storage_cost()
 		for(var/obj/item/I in contents)
 			total_storage_space += I.get_storage_cost()
 		if(total_storage_space <= max_storage_space)
-			var/question = alert(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", "Wrap", "Store")
+			var/question = tgui_input_list(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", list("Wrap", "Store"))
 			if(question == "Wrap")
 				return
 			else if(question == "Store")
@@ -1118,8 +1118,8 @@
 	else if(length(contents) < 8)
 		icon_state = "paperbag_[choice]-food"
 
-/obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
-	if(O.ispen())
+/obj/item/storage/box/papersack/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
@@ -1150,10 +1150,10 @@
 		update_icon()
 		return
 
-	else if(O.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
-			if(O.use_tool(src, user, 30))
+			if(attacking_item.use_tool(src, user, 30))
 				if(choice == "SmileyFace")
 					var/obj/item/clothing/head/papersack/smiley/S = new()
 					user.put_in_hands(S)

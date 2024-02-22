@@ -1,4 +1,4 @@
-//burzsia
+// --------------------------------- Burzsia I
 /obj/effect/overmap/visitable/sector/exoplanet/burzsia
 	name = "Burzsia I"
 	desc = "An important Hephaestus Industries mining planet. Burzsia is inhospitable, toxic and dangerous to life."
@@ -56,6 +56,14 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 
+/obj/effect/overmap/visitable/sector/exoplanet/burzsia/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Burzsia II
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsia
 	name = "Burzsia II"
 	generated_name = FALSE
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsia/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results

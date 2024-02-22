@@ -386,7 +386,7 @@
 	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
-/obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
+/obj/machinery/door/airlock/centcom/attackby(obj/item/attacking_item, mob/user)
 	if (operating)
 		return TRUE
 
@@ -426,7 +426,7 @@
 	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
-/obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
+/obj/machinery/door/airlock/glass_centcom/attackby(obj/item/attacking_item, mob/user)
 	if (operating)
 		return TRUE
 
@@ -1640,28 +1640,28 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
-/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
+/obj/machinery/door/airlock/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
 				return TRUE
-	if(istype(C, /obj/item/taperoll) || istype(C, /obj/item/rfd))
+	if(istype(attacking_item, /obj/item/taperoll) || istype(attacking_item, /obj/item/rfd))
 		return
-	if(!istype(C, /obj/item/forensics))
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 	if (!repairing && (stat & BROKEN) && src.locked) //bolted and broken
-		if (!cut_bolts(C,user))
+		if (!cut_bolts(attacking_item,user))
 			return ..()
 		return TRUE
-	if (istype(C, /obj/item/device/magnetic_lock))
+	if (istype(attacking_item, /obj/item/device/magnetic_lock))
 		if (bracer)
 			to_chat(user, SPAN_NOTICE("There is already a [bracer] on [src]!"))
 			return TRUE
-		var/obj/item/device/magnetic_lock/newbracer = C
+		var/obj/item/device/magnetic_lock/newbracer = attacking_item
 		newbracer.attachto(src, user)
 		return TRUE
-	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
-		var/obj/item/weldingtool/WT = C
+	if(!repairing && (attacking_item.iswelder() && !( src.operating > 0 ) && src.density))
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
 				SPAN_WARNING("[user] begins welding [src] [welded ? "open" : "shut"]."),
@@ -1678,7 +1678,7 @@ About the new airlock wires panel:
 			welded = !welded
 			update_icon()
 		return TRUE
-	else if(C.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if (src.p_open)
 			if (stat & BROKEN)
 				to_chat(user, SPAN_WARNING("The panel is broken and cannot be closed."))
@@ -1690,20 +1690,20 @@ About the new airlock wires panel:
 			to_chat(user, SPAN_NOTICE("You carefully unscrew the panel on \the [src]"))
 		src.update_icon()
 		return TRUE
-	else if(C.iswirecutter())
+	else if(attacking_item.iswirecutter())
 		return src.attack_hand(user)
-	else if(C.ismultitool())
+	else if(attacking_item.ismultitool())
 		return src.attack_hand(user)
-	else if(istype(C, /obj/item/device/assembly/signaler))
+	else if(istype(attacking_item, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
-	else if(istype(C, /obj/item/device/paint_sprayer))
+	else if(istype(attacking_item, /obj/item/device/paint_sprayer))
 		return FALSE
-	else if(istype(C, /obj/item/pai_cable))	// -- TLE
-		var/obj/item/pai_cable/cable = C
+	else if(istype(attacking_item, /obj/item/pai_cable))	// -- TLE
+		var/obj/item/pai_cable/cable = attacking_item
 		cable.plugin(src, user)
 		return TRUE
-	else if(!repairing && C.iscrowbar())
-		if(istype(C, /obj/item/melee/arm_blade))
+	else if(!repairing && attacking_item.iscrowbar())
+		if(istype(attacking_item, /obj/item/melee/arm_blade))
 			if(arePowerSystemsOn() &&!(stat & BROKEN))
 				..()
 				return
@@ -1712,15 +1712,15 @@ About the new airlock wires panel:
 				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to raise them before you can reach them."))
 				return
 			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
-			if(C.use_tool(src, user, 40, volume = 50))
+			if(attacking_item.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<b>[user]</b> removes the electronics from the airlock assembly.", SPAN_NOTICE("You remove the electronics from the airlock assembly."))
 				CreateAssembly()
 				return
 		else if(arePowerSystemsOn())
 			to_chat(user, SPAN_NOTICE("The airlock's motors resist your efforts to force it."))
 		else if(locked)
-			if (istype(C, /obj/item/crowbar/robotic/jawsoflife))
-				cut_bolts(C, user)
+			if (istype(attacking_item, /obj/item/crowbar/robotic/jawsoflife))
+				cut_bolts(attacking_item, user)
 			else
 				to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
 		else
@@ -1729,26 +1729,26 @@ About the new airlock wires panel:
 			else
 				close(1)
 		return TRUE
-	else if(istype(C, /obj/item/material/twohanded/fireaxe) && !arePowerSystemsOn())
+	else if(istype(attacking_item, /obj/item/material/twohanded/fireaxe) && !arePowerSystemsOn())
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
 		else if(locked && user.a_intent == I_HURT)
 			..()
 		else if(!welded && !operating)
 			if(density)
-				var/obj/item/material/twohanded/fireaxe/F = C
+				var/obj/item/material/twohanded/fireaxe/F = attacking_item
 				if(F.wielded)
 					open(1)
 				else
-					to_chat(user, SPAN_WARNING("You need to be wielding \the [C] to do that."))
+					to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
 			else
-				var/obj/item/material/twohanded/fireaxe/F = C
+				var/obj/item/material/twohanded/fireaxe/F = attacking_item
 				if(F.wielded)
 					close(1)
 				else
-					to_chat(user, SPAN_WARNING("You need to be wielding \the [C] to do that."))
+					to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
 		return TRUE
-	else if(C.ishammer() && !arePowerSystemsOn())
+	else if(attacking_item.ishammer() && !arePowerSystemsOn())
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
 		else if(locked && user.a_intent == I_HURT)
@@ -1759,26 +1759,26 @@ About the new airlock wires panel:
 			else
 				close(1)
 		return TRUE
-	else if(density && istype(C, /obj/item/material/twohanded/chainsaw))
-		var/obj/item/material/twohanded/chainsaw/ChainSawVar = C
+	else if(density && istype(attacking_item, /obj/item/material/twohanded/chainsaw))
+		var/obj/item/material/twohanded/chainsaw/ChainSawVar = attacking_item
 		if(!ChainSawVar.wielded)
 			to_chat(user, SPAN_NOTICE("Cutting the airlock requires the strength of two hands."))
 		else if(ChainSawVar.cutting)
 			to_chat(user, SPAN_NOTICE("You are already cutting an airlock open."))
 		else if(!ChainSawVar.powered)
-			to_chat(user, SPAN_NOTICE("The [C] needs to be on in order to open this door."))
+			to_chat(user, SPAN_NOTICE("The [attacking_item] needs to be on in order to open this door."))
 		else if(bracer) //Has a magnetic lock
 			to_chat(user, SPAN_NOTICE("The bracer needs to be removed in order to cut through this door."))
 		else if(!arePowerSystemsOn())
 			ChainSawVar.cutting = 1
 			user.visible_message(\
-				SPAN_DANGER("[user.name] starts cutting the control pannel of the airlock with the [C]!"),\
+				SPAN_DANGER("[user.name] starts cutting the control pannel of the airlock with the [attacking_item]!"),\
 				SPAN_WARNING("You start cutting the airlock control panel..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
-					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with the [C]."),\
+					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with the [attacking_item]."),\
 					SPAN_WARNING("You finish cutting the airlock control panel."),\
 					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
@@ -1790,13 +1790,13 @@ About the new airlock wires panel:
 		else if(locked)
 			ChainSawVar.cutting = 1
 			user.visible_message(\
-				SPAN_DANGER("[user.name] starts cutting below the airlock with the [C]!"),\
+				SPAN_DANGER("[user.name] starts cutting below the airlock with the [attacking_item]!"),\
 				SPAN_WARNING("You start cutting below the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
-					SPAN_WARNING("[user.name] finishes cutting below the airlock with the [C]."),\
+					SPAN_WARNING("[user.name] finishes cutting below the airlock with the [attacking_item]."),\
 					SPAN_NOTICE("You finish cutting below the airlock."),\
 					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
@@ -1806,11 +1806,11 @@ About the new airlock wires panel:
 		else
 			ChainSawVar.cutting = 1
 			user.visible_message(\
-				SPAN_DANGER("[user.name] starts cutting between the airlock with the [C]!"),\
+				SPAN_DANGER("[user.name] starts cutting between the airlock with the [attacking_item]!"),\
 				SPAN_WARNING("You start cutting between the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting between the airlock."),\
 					SPAN_WARNING("You finish cutting between the airlock."),\
@@ -1823,9 +1823,9 @@ About the new airlock wires panel:
 	else
 		return ..()
 
-/obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
-	if(C)
-		ignite(is_hot(C))
+/obj/machinery/door/airlock/phoron/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item)
+		ignite(is_hot(attacking_item))
 	return ..()
 
 /obj/machinery/door/airlock/set_broken()
@@ -2060,19 +2060,19 @@ About the new airlock wires panel:
 		src.lock()
 	return
 
-/obj/machinery/door/airlock/examine(mob/user)
+/obj/machinery/door/airlock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (bolt_cut_state == BOLTS_EXPOSED)
-		to_chat(user, "The bolt cover has been cut open.")
+		. += SPAN_WARNING("The bolt cover has been cut open.")
 	if (bolt_cut_state == BOLTS_CUT)
-		to_chat(user, "The door bolts have been cut.")
+		. += SPAN_WARNING("The door bolts have been cut.")
 	if(bracer)
-		to_chat(user, "\The [bracer] is installed on \the [src], preventing it from opening.")
-		to_chat(user, bracer.health)
+		. += SPAN_WARNING("\The [bracer] is installed on \the [src], preventing it from opening.")
+		. +=  bracer.health
 	if(p_open)
-		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
+		. += SPAN_NOTICE("\The [src]'s maintenance panel has been unscrewed and is hanging open.")
 	if(islist(access_by_level) || islist(req_one_access_by_level))
-		to_chat(user, SPAN_NOTICE("This airlock changes access requirements depending on the level."))
+		. +=  SPAN_NOTICE("This airlock changes access requirements depending on the level.")
 
 /obj/machinery/door/airlock/emag_act(var/remaining_charges)
 	. = ..()

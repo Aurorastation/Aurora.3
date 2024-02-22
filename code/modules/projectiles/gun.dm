@@ -664,24 +664,23 @@
 	suppressor = null
 	update_icon()
 
-/obj/item/gun/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	if(markings)
-		to_chat(user, SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock."))
+		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
 	if(needspin)
 		if(pin)
-			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
+			. += "\The [pin] is installed in the trigger mechanism."
 			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
 		else
-			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
+			. += "It doesn't have a firing pin installed, and won't fire."
 	if(firemodes.len > 1)
 		var/datum/firemode/current_mode = firemodes[sel_mode]
-		to_chat(user, "The fire selector is set to [current_mode.name].")
+		. += "The fire selector is set to [current_mode.name]."
 	if(has_safety)
-		to_chat(user, "The safety is [safety() ? "on" : "off"].")
-	return TRUE
+		. += "The safety is [safety() ? "on" : "off"]."
 
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
@@ -930,40 +929,40 @@
 /obj/item/gun/proc/critical_fail(var/mob/user)
 	return
 
-/obj/item/gun/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/material/knife/bayonet))
+/obj/item/gun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
-			balloon_alert(user, "\the [I.name] doesn't fit")
+			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
 			return ..()
 
 		if(bayonet)
 			balloon_alert(user, "\the [src] already has a bayonet")
 			return TRUE
 
-		if(user.l_hand != I && user.r_hand != I)
+		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
 			balloon_alert(user, "not in hand")
 			return
 
-		user.drop_from_inventory(I,src)
-		bayonet = I
-		balloon_alert(user, "[I.name] attached")
-		w_class += I.w_class
+		user.drop_from_inventory(attacking_item,src)
+		bayonet = attacking_item
+		balloon_alert(user, "[attacking_item.name] attached")
+		w_class += attacking_item.w_class
 		update_icon()
 		return TRUE
 
-	if(istype(pin) && pin.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
+	if(istype(pin) && pin.attackby(attacking_item, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
 		return TRUE
 
-	if(istype(I, /obj/item/ammo_display))
+	if(istype(attacking_item, /obj/item/ammo_display))
 		if(!can_ammo_display)
-			balloon_alert(user, "\the [I.name] doesn't fit")
+			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
 			return TRUE
 
 		if(ammo_display)
 			balloon_alert(user, "\the [src] already has an ammo display")
 			return TRUE
 
-		if(user.l_hand != I && user.r_hand != I)
+		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
 			balloon_alert(user, "not in hand")
 			return
 
@@ -971,14 +970,14 @@
 			balloon_alert(user, "\the [src] is already displaying its ammo count")
 			return TRUE
 
-		user.drop_from_inventory(I, src)
-		ammo_display = I
+		user.drop_from_inventory(attacking_item, src)
+		ammo_display = attacking_item
 		displays_maptext = TRUE
-		balloon_alert(user, "[I.name] attached")
-		w_class += I.w_class
+		balloon_alert(user, "[attacking_item.name] attached")
+		w_class += attacking_item.w_class
 		return TRUE
 
-	if(I.iscrowbar() && bayonet)
+	if(attacking_item.iscrowbar() && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
 		bayonet.forceMove(get_turf(src))
 		user.put_in_hands(bayonet)
@@ -987,7 +986,7 @@
 		update_icon()
 		return TRUE
 
-	if(I.iswrench() && ammo_display)
+	if(attacking_item.iswrench() && ammo_display)
 		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
 		ammo_display.forceMove(get_turf(src))
 		user.put_in_hands(ammo_display)
@@ -997,9 +996,9 @@
 		maptext = ""
 		return TRUE
 
-	if(pin && I.isscrewdriver())
+	if(pin && attacking_item.isscrewdriver())
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
-		if(I.use_tool(src, user, 45, volume = 50))
+		if(attacking_item.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))
 				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
 				pin.forceMove(get_turf(src))
@@ -1014,7 +1013,7 @@
 				pin = null
 		return TRUE
 
-	if(is_sharp(I))
+	if(is_sharp(attacking_item))
 		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", SPAN_NOTICE("You carve a notched mark into \the [src]."))
 		markings++
 		return TRUE

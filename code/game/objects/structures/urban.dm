@@ -68,22 +68,54 @@
 	desc = "This sign indicates this crossing street is called [street_name]."
 
 /obj/structure/stairs/urban
+	abstract_type = /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
 	opacity = 1
+
+/obj/structure/stairs/urban/right
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+
+/obj/structure/stairs/urban/left
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/stairs/urban/road_ramp
 	name = "inclined asphalt ramp"
 	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
 	icon_state = "road-ramp-center"
 	layer = 2.02
+	abstract_type = /obj/structure/stairs/urban/road_ramp
 
 /obj/structure/stairs/urban/road_ramp/right
-	icon_state = "road-ramp-right"
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
 
 /obj/structure/stairs/urban/road_ramp/left
-	icon_state = "road-ramp-left"
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/road_ramp/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/road_ramp/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/closet/crate/bin/urban
 	name = "tall garbage can"
@@ -131,8 +163,8 @@
 	anchored = TRUE
 	var/open = 0
 
-/obj/structure/manhole/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iscrowbar())
+/obj/structure/manhole/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
@@ -455,10 +487,10 @@
 		menu_text = pencode2html(new_text)
 		update_icon()
 
-/obj/structure/restaurant_menu/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper))
-		var/obj/item/paper/P = I
-		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+/obj/structure/restaurant_menu/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/P = attacking_item
+		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		icon_state = "menu_active"
@@ -648,11 +680,11 @@
 				flick("[base_icon]c1", src)
 	return
 
-/obj/machinery/door/urban/attackby(obj/item/I, mob/user)
+/obj/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(I, /obj/item/key/door_key))
+	if(istype(attacking_item, /obj/item/key/door_key))
 
-		if(check_access(I))
+		if(check_access(attacking_item))
 			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
 
 				//Only say that it's unlocked if there actually was an access list that did the locking

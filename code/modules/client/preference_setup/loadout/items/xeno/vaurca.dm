@@ -230,6 +230,9 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 
+/datum/gear/ears/vaurca
+	abstract_type = /datum/gear/ears/vaurca
+
 /datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"
 	description = "Rings worn by Bulwarks to decorate their horns."
@@ -280,7 +283,7 @@
 	path = /obj/item/organ/external/hand/right/vaurca/medical
 	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist", "Medical Personnel")
+	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamag

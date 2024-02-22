@@ -515,18 +515,18 @@ var/global/list/default_interrogation_channels = list(
 	return get_hearers_in_view(canhear_range, src)
 
 
-/obj/item/device/radio/examine(mob/user, distance, is_adjacent)
+/obj/item/device/radio/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
-			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
+			. += SPAN_NOTICE("\The [src] can be attached and modified!")
 		else
-			user.show_message("<span class='notice'>\The [src] can not be modified or attached!</span>")
+			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
 
-/obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/attackby(obj/item/attacking_item, mob/user)
 	..()
 	user.set_machine(src)
-	if (!( W.isscrewdriver() ))
+	if (!( attacking_item.isscrewdriver() ))
 		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
@@ -578,13 +578,13 @@ var/global/list/default_interrogation_channels = list(
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
 
-/obj/item/device/radio/borg/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/borg/attackby(obj/item/attacking_item, mob/user)
 //	..()
 	user.set_machine(src)
-	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( attacking_item.isscrewdriver() || (istype(attacking_item, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(keyslot)
 
 
@@ -605,14 +605,14 @@ var/global/list/default_interrogation_channels = list(
 		else
 			to_chat(user, "This radio doesn't have any encryption keys!")
 
-	if(istype(W, /obj/item/device/encryptionkey/))
+	if(istype(attacking_item, /obj/item/device/encryptionkey/))
 		if(keyslot)
 			to_chat(user, "The radio can't hold another key!")
 			return
 
 		if(!keyslot)
-			user.drop_from_inventory(W,src)
-			keyslot = W
+			user.drop_from_inventory(attacking_item,src)
+			keyslot = attacking_item
 
 		recalculateChannels()
 

@@ -50,19 +50,19 @@
 	to_add += "clipboard_over"
 	add_overlay(to_add)
 
-/obj/item/clipboard/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clipboard/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
-		user.drop_from_inventory(W,src)
-		if(istype(W, /obj/item/paper))
-			toppaper = W
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo))
+		user.drop_from_inventory(attacking_item, src)
+		if(istype(attacking_item, /obj/item/paper))
+			toppaper = attacking_item
 		r_contents = reverselist(contents)
-		to_chat(user, "<span class='notice'>You clip the [W] onto \the [src].</span>")
+		to_chat(user, "<span class='notice'>You clip the [attacking_item] onto \the [src].</span>")
 
-	else if(istype(toppaper) && W.ispen())
-		toppaper.attackby(W, user)
+	else if(istype(toppaper) && attacking_item.ispen())
+		toppaper.attackby(attacking_item, user)
 
-	else if(W.ispen())
+	else if(attacking_item.ispen())
 		add_pen(user)
 
 	if(ui_open)

@@ -12,15 +12,15 @@
 	..()
 	has_tranq = new/obj/item/gun/projectile/heavysniper/tranq(src)
 
-/obj/structure/tranqcabinet/attackby(obj/item/O, mob/user)
+/obj/structure/tranqcabinet/attackby(obj/item/attacking_item, mob/user)
 	if(isrobot(user))
 		return
-	if(istype(O, /obj/item/gun/projectile/heavysniper/tranq))
+	if(istype(attacking_item, /obj/item/gun/projectile/heavysniper/tranq))
 		if(!has_tranq && opened)
-			user.remove_from_mob(O)
-			contents += O
-			has_tranq = O
-			to_chat(user, "<span class='notice'>You place [O] in [src].</span>")
+			user.remove_from_mob(attacking_item)
+			contents += attacking_item
+			has_tranq = attacking_item
+			to_chat(user, "<span class='notice'>You place [attacking_item] in [src].</span>")
 		else
 			opened = !opened
 	else

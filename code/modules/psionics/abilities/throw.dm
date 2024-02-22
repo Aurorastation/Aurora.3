@@ -18,14 +18,14 @@
 	psi_cost = 20
 	var/obj/item_to_throw
 
-/obj/item/spell/projectile/throw_item/attackby(obj/item/W, mob/user)
+/obj/item/spell/projectile/throw_item/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(!item_to_throw)
-		owner.drop_item(W)
-		W.forceMove(src)
-		to_chat(user, SPAN_NOTICE("You imbue [W] with psionic energy!"))
+		owner.drop_item(attacking_item)
+		attacking_item.forceMove(src)
+		to_chat(user, SPAN_NOTICE("You imbue [attacking_item] with psionic energy!"))
 		add_overlay("controlled")
-		item_to_throw = W
+		item_to_throw = attacking_item
 
 /obj/item/spell/projectile/throw_item/Destroy()
 	if(item_to_throw)

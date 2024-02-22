@@ -42,24 +42,24 @@
 	original_projectile = null
 	return ..()
 
-/obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
-	if(I.ispen())
-		var/obj/item/pen/P = I
+/obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
+		var/obj/item/pen/P = attacking_item
 		if(!use_check_and_message(user))
-			var/friendly_message = sanitizeSafe(input(user, "What do you want to write on \the [src]?", "Personal Message"), 32)
+			var/friendly_message = sanitizeSafe( tgui_input_text(user, "What do you want to write on \the [src]?", "Personal Message", "", 32), 32 )
 			if(friendly_message)
 				written_message = friendly_message
 			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), SPAN_NOTICE("You leave a nice message on \the [src]!"))
 			return
 	return ..()
 
-/obj/item/ship_ammunition/examine(mob/user, distance, is_adjacent)
+/obj/item/ship_ammunition/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(written_message)
 		if(distance > 3)
-			to_chat(user, "It has something written on it, but you'd need to get closer to tell what the writing says.")
+			. += "It has something written on it, but you'd need to get closer to tell what the writing says."
 		else
-			to_chat(user, "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>")
+			. += "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>."
 
 /obj/item/ship_ammunition/do_additional_pickup_checks(var/mob/user)
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)
@@ -97,10 +97,10 @@
 	if(prob(50) && ((ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE) || (ammunition_flags & SHIP_AMMO_FLAG_VULNERABLE)))
 		cookoff(FALSE)
 
-/obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
+/obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(I.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
-		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [I]!", user)
+	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
 		cookoff(FALSE)
 
 /obj/item/ship_ammunition/ex_act(severity)

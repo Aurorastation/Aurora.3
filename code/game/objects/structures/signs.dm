@@ -16,10 +16,10 @@
 /obj/structure/sign/ex_act(severity)
 	qdel(src)
 
-/obj/structure/sign/attackby(obj/item/tool, mob/user) // Deconstruction.
-	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+/obj/structure/sign/attackby(obj/item/attacking_item, mob/user) // Deconstruction.
+	if(attacking_item.isscrewdriver() && !istype(src, /obj/structure/sign/double))
 		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), SPAN_NOTICE("You start to unfasten \the [src]."))
-		if(tool.use_tool(src, user, 0, volume = 50))
+		if(attacking_item.use_tool(src, user, 0, volume = 50))
 			unfasten(user)
 	else ..()
 
@@ -39,8 +39,8 @@
 	w_class = ITEMSIZE_HUGE
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool, mob/user) // Construction.
-	if(tool.isscrewdriver() && isturf(user.loc))
+/obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
+	if(attacking_item.isscrewdriver() && isturf(user.loc))
 		var/direction = tgui_input_list(user, "In which direction?", "Select Direction", list("North", "East", "South", "West", "Cancel"))
 		if(direction == "Cancel") return
 		if(QDELETED(src)) //Prevents spawning multiple new signs with queued dialogues
@@ -59,7 +59,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		to_chat(user, "You fasten \the [S] with your [tool].")
+		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
 	else ..()
 

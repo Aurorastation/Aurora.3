@@ -136,7 +136,8 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/G, mob/user)
+/obj/machinery/bodyscanner/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
 	if (occupant)
@@ -877,7 +878,7 @@
 	return ..()
 
 /obj/machinery/body_scanconsole/embedded/ui_state(mob/user)
-	return human_adjacent_loc_state
+	return GLOB.human_adjacent_loc_state
 
 /obj/machinery/body_scanconsole/embedded/get_connected()
 	if(monitor_console)

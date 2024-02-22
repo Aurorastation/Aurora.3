@@ -2,7 +2,7 @@
 	name = "Kazhkz Privateer Ship"
 	description = "Dominian Unathi pirates"
 	suffixes = list("ships/dominia/dominian_unathi_privateer/dominian_unathi_privateer.dmm")
-	sectors = list(SECTOR_BADLANDS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "dominian_unathi"

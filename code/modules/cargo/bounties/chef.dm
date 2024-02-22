@@ -234,7 +234,9 @@
 			/obj/item/reagent_containers/food/snacks/sliceable/grilled_carp,
 			/obj/item/reagent_containers/food/snacks/sliceable/sushi_roll,
 			/obj/item/reagent_containers/food/snacks/stuffed_meatball,
-			/obj/item/reagent_containers/food/snacks/chilied_eggs)
+			/obj/item/reagent_containers/food/snacks/chilied_eggs,
+			/obj/item/reagent_containers/food/snacks/sliceable/eyebowl,
+			/obj/item/reagent_containers/food/snacks/hatchbowl)
 
 /datum/bounty/item/chef/tajara
 	name = "Adhomai Delicacies"

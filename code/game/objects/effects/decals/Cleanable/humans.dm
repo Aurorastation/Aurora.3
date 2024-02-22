@@ -58,14 +58,14 @@
 	if (dries)
 		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
 
-/obj/effect/decal/cleanable/blood/examine()
+/obj/effect/decal/cleanable/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	if(dries && world.time > (bleed_time + drytime))
 		name = dryname
 		desc = drydesc
 	. = ..()
 
-/obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/gun/energy/rifle/cult))
+/obj/effect/decal/cleanable/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/energy/rifle/cult))
 		return TRUE
 	return ..()
 
@@ -189,9 +189,9 @@
 	else
 		icon_state = "writing1"
 
-/obj/effect/decal/cleanable/blood/writing/examine(mob/user)
+/obj/effect/decal/cleanable/blood/writing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It reads: <font color='[basecolor]'>\"[message]\"</font>")
+	. +=  "It reads: <font color='[basecolor]'>\"[message]\"</font>"
 
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"

@@ -48,11 +48,11 @@
 			icon_state = "pinonfar"
 	return TRUE
 
-/obj/item/pinpointer/examine(mob/user)
+/obj/item/pinpointer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
 		if(bomb.timing)
-			to_chat(user, "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]")
+			. += "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
 
 /obj/item/pinpointer/Destroy()
 	active = 0

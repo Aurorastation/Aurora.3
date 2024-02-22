@@ -76,7 +76,7 @@ var/list/admin_departments
 		ui = new(user, src, "Fax", "Fax Machine", 400, 500)
 		ui.open()
 
-/obj/machinery/photocopier/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/photocopier/faxmachine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	SStgui.update_uis(src)
 

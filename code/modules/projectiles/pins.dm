@@ -346,9 +346,9 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 
 	return
 
-/obj/item/device/firing_pin/wireless/attackby(obj/item/C, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
-	if(istype(C, /obj/item/card/id))
-		var/obj/item/card/id/idcard = C
+/obj/item/device/firing_pin/wireless/attackby(obj/item/attacking_item, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
+	if(istype(attacking_item, /obj/item/card/id))
+		var/obj/item/card/id/idcard = attacking_item
 		if(idcard.registered_name == registered_user)
 			to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it deregisters your identity."))
 			registered_user = null
