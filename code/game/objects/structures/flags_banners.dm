@@ -3154,7 +3154,7 @@
 
 /obj/item/flag/venus
 	name = "\improper Venusian flag"
-	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
+	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
 	flag_path = "venus"
 	flag_structure = /obj/structure/sign/flag/venus
 
