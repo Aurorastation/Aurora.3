@@ -39,6 +39,7 @@
 	landmark_tag = "xanufrigate_hangar"
 	docking_controller = "xanufrigate_hangar"
 	base_turf = /turf/simulated/floor/plating
+	base_area = /area/ship/xanu_frigate/hangar
 
 /obj/effect/shuttle_landmark/xanu_frigate/aft
 	name = "Aft Dock"

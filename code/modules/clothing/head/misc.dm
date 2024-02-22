@@ -691,3 +691,17 @@
 	desc = "A white colored helmet made from advanced ceramic."
 	icon_state = "helmet_pilot"
 	item_state = "helmet_pilot"
+
+/obj/item/clothing/head/xanu
+	name = "xanu spacefleet utility cap"
+	desc = "A blue utility cap fielded by enlisted personnel of the All-Xanu Spacefleet."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu_fleet_utility"
+	item_state = "xanu_fleet_utility"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/xanu/officer
+	name = "xanu spacefleet officer cap"
+	desc = "A peaked khaki cap used by officers of the All-Xanu Spacefleet."
+	icon_state = "xanu_fleet_utility_o"
+	item_state = "xanu_fleet_utility_o"

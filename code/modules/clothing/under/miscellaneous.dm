@@ -733,3 +733,20 @@
 	icon_state = "underglove"
 	item_state = "underglove"
 	contained_sprite = TRUE
+
+//Xanu
+
+/obj/item/clothing/under/xanu
+	name = "xanu spacefleet fatigues"
+	desc = "Blue fireproof coveralls used by enlisted sailors of the All-Xanu Spacefleet, the navy of Xanu Prime and the largest contributor to the combined Coalition Navy."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu_fleet"
+	item_state = "xanu_fleet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/xanu/officer
+	name = "xanu spacefleet officer fatigues"
+	desc = "Khaki fireproof coveralls used by officers of the All-Xanu Spacefleet, the navy of Xanu Prime and the largest contributor to the combined Coalition Navy."
+	icon_state = "xanu_fleet_o"
+	item_state = "xanu_fleet_o"
+	contained_sprite = TRUE
