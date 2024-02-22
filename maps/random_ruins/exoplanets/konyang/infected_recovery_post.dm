@@ -18,9 +18,8 @@
 	short_name = "konyang_infected_recovery_cop"
 	name = "KRC Infected Recovery Police Patrolman"
 	desc = "Recover any infected IPCs in the area alive (if possible) and assist the researcher in examining them.
-	tags = list("External")
 	welcome_message = "You are a Infected Recovery Police Patrolman."
-
+	tags = list("External")
 	spawnpoints = list("konyang_infected_recovery_cop")
 	max_count = 2
 
