@@ -68,22 +68,54 @@
 	desc = "This sign indicates this crossing street is called [street_name]."
 
 /obj/structure/stairs/urban
+	abstract_type = /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
 	opacity = 1
+
+/obj/structure/stairs/urban/right
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+
+/obj/structure/stairs/urban/left
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/stairs/urban/road_ramp
 	name = "inclined asphalt ramp"
 	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
 	icon_state = "road-ramp-center"
 	layer = 2.02
+	abstract_type = /obj/structure/stairs/urban/road_ramp
 
 /obj/structure/stairs/urban/road_ramp/right
-	icon_state = "road-ramp-right"
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
 
 /obj/structure/stairs/urban/road_ramp/left
-	icon_state = "road-ramp-left"
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/road_ramp/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/road_ramp/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/closet/crate/bin/urban
 	name = "tall garbage can"

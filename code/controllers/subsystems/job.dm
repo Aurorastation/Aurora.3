@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(jobs)
 	// Subsystem stuff.
 	name = "Jobs"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_JOBS
+	init_order = INIT_ORDER_JOBS
 
 	// Vars.
 	var/list/datum/job/occupations = list()

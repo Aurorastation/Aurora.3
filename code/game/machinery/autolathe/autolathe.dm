@@ -43,15 +43,6 @@
 		/obj/item/stock_parts/console_screen
 	)
 
-/obj/machinery/autolathe/mounted
-	name = "\improper mounted autolathe"
-	density = FALSE
-	anchored = FALSE
-	idle_power_usage = FALSE
-	active_power_usage = FALSE
-	interact_offline = TRUE
-	does_flick = FALSE
-
 /obj/machinery/autolathe/Initialize()
 	..()
 	wires = new(src)
@@ -380,6 +371,18 @@
 	else
 		user.remove_from_mob(O)
 		qdel(O)
+
+/obj/machinery/autolathe/mounted
+	name = "\improper mounted autolathe"
+	density = FALSE
+	anchored = FALSE
+	idle_power_usage = FALSE
+	active_power_usage = FALSE
+	interact_offline = TRUE
+	does_flick = FALSE
+
+/obj/machinery/autolathe/mounted/ui_state(mob/user)
+	return GLOB.heavy_vehicle_state
 
 /// Queue items are needed so that the queue knows exactly what it's doing.
 /datum/autolathe_queue_item

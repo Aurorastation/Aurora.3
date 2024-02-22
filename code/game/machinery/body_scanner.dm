@@ -878,7 +878,7 @@
 	return ..()
 
 /obj/machinery/body_scanconsole/embedded/ui_state(mob/user)
-	return human_adjacent_loc_state
+	return GLOB.human_adjacent_loc_state
 
 /obj/machinery/body_scanconsole/embedded/get_connected()
 	if(monitor_console)

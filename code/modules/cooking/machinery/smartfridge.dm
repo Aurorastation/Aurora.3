@@ -508,4 +508,4 @@
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = "[initial(icon_state)]"
 	else
-		icon_state = "[initial(icon_state)]-[contents_path]"
+		icon_state = "[initial(icon_state)][contents_path]"

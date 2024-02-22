@@ -43,7 +43,7 @@
 		ui.open()
 
 /obj/screen/psi/hub/ui_state(mob/user)
-	return conscious_state
+	return GLOB.conscious_state
 
 /obj/screen/psi/hub/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE

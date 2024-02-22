@@ -256,14 +256,14 @@
 	if(sensors)
 		if (action == "range")
 			var/nrange = tgui_input_number("Set new sensors range", "Sensor range", sensors.range, sensors.max_range, 1)
-			if(!CanInteract(usr, default_state))
+			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if (nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if(action == "range_choice")
 			var/nrange = text2num(params["range_choice"])
-			if(!CanInteract(usr, default_state))
+			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if(nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))

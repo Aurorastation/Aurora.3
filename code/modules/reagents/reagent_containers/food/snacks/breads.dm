@@ -395,7 +395,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/NTellabread
+/obj/item/reagent_containers/food/snacks/ntella_bread
 	name = "NTella bread slice"
 	desc = "A slice of bread covered with delicious chocolate-hazelnut spread."
 	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
