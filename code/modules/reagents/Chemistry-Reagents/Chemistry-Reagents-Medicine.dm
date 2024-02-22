@@ -701,7 +701,7 @@
 	var/mob/living/carbon/human/H = M
 	var/tumour_chance = 5
 	for(var/obj/item/organ/internal/parasite/benign_tumour/T in M.internal_organs)
-		tumour_chance = min(tumour_chance-2, 0) //no more than 3 tumours
+		tumour_chance = max(tumour_chance-2, 0) //no more than 3 tumours
 	if(prob(tumour_chance))
 		var/obj/item/organ/external/affected = pick(H.organs)
 		if(BP_IS_ROBOTIC(affected))
@@ -1618,6 +1618,18 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & TENDON_CUT && prob(10))
 				E.status &= ~TENDON_CUT
+
+	var/tumour_chance = 5
+	for(var/obj/item/organ/internal/parasite/malignant_tumour/T in M.internal_organs)
+		tumour_chance = max(tumour_chance-2, 0) //no more than 3 tumours
+	if(prob(tumour_chance))
+		var/obj/item/organ/external/affected = (pick(H.organs))
+		if(BP_IS_ROBOTIC(affected))
+			return
+		var/obj/item/organ/internal/parasite/malignant_tumour/infest = new()
+		infest.parent_organ = affected
+		infest.replaced(H, affected)
+
 
 /singleton/reagent/sanasomnum/final_effect(mob/living/carbon/M)
 	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
