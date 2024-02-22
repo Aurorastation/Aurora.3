@@ -89,8 +89,8 @@
 	if((M.bodytemperature < 192) && M.chem_effects[CE_CRYO])
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
-		if(head.disfigured && prob(20))
-			to_chat(M, SPAN_DANGER("You feel a truly disgusting sensation as the skin and muscles of your face twist, crawl and turn."))
+		if(head.disfigured && prob(10))
+			M.visible_message("<b>[M]</b>'s face begins to contort back into it's original shape.", SPAN_DANGER("You feel a truly disgusting sensation as the skin and muscles of your face twist, crawl and turn."))
 			head.disfigured = FALSE
 
 /singleton/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -239,7 +239,10 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			for(var/obj/item/organ/internal/I in H.internal_organs)
-				if(!BP_IS_ROBOTIC(I) && !(I.organ_tag == BP_BRAIN))
+				if(!BP_IS_ROBOTIC(I))
+					if(I.organ_tag == BP_BRAIN)
+						if(I.damage > I.max_damage/2) //will only treat brain activity above 50% brain activity
+							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
 		M.adjustFireLoss(5 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
@@ -268,7 +271,10 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			for(var/obj/item/organ/internal/I in H.internal_organs)
-				if(!BP_IS_ROBOTIC(I) && !(I.organ_tag == BP_BRAIN))
+				if(!BP_IS_ROBOTIC(I))
+					if(I.organ_tag == BP_BRAIN)
+						if(I.damage > I.max_damage/2) //will only treat brain activity above 50% brain activity
+							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
 		M.adjustFireLoss(15 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
@@ -665,23 +671,48 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.add_chemical_effect(CE_CLUMSY, 1)
+
 		for(var/obj/item/organ/internal/I in H.internal_organs)
 			if(I.organ_tag == BP_BRAIN)
 				if(I.damage >= I.min_bruised_damage)
 					continue
 			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
-				I.damage = max(I.damage - removed, 0)
+				var/damage_healed = ((M.bodytemperature < 186) && M.chem_effects[CE_CRYO]) ? 2 : 1 //2x effective if administered in cryogenic conditions
+				I.damage = max(I.damage - damage_healed*removed, 0)
+
+		if((M.bodytemperature < 153) && M.chem_effects[CE_CRYO] && M.chem_effects[CE_ANTIBIOTIC]) //peridaxon in extracool cryogenic conditions alongside antibiotics will have a chance to de-nercotise liver and kidneys, though will incur overdose symptoms
+			overdose(M, alien, removed, holder)
+			for(var/obj/item/organ/internal/O in H.internal_organs)
+				if((O.organ_tag == BP_LIVER) || (O.organ_tag == BP_KIDNEYS))
+					if(O.damage && prob(5))
+						if((O.status & ORGAN_DEAD) && !BP_IS_ROBOTIC(O))
+							if(O.can_recover())
+								O.status &= ~ORGAN_DEAD
+								O.heal_damage(5)
+								M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
 
 /singleton/reagent/peridaxon/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
-	if(prob(M.chem_doses[type] / 2))
-		to_chat(M, SPAN_DANGER("You feel your insides twisting and burning."))
-		M.adjustHalLoss(5)
+
+	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/ryetalyn))
+		return
+
+	var/mob/living/carbon/human/H = M
+	var/tumour_chance = 5
+	for(var/obj/item/organ/internal/parasite/benign_tumour/T in M.internal_organs)
+		tumour_chance = min(tumour_chance-2, 0) //no more than 3 tumours
+	if(prob(tumour_chance))
+		var/obj/item/organ/external/affected = pick(H.organs)
+		if(BP_IS_ROBOTIC(affected))
+			return
+		var/obj/item/organ/internal/parasite/benign_tumour/infest = new()
+		infest.parent_organ = affected
+		infest.replaced(H, affected)
 
 /singleton/reagent/ryetalyn
 	name = "Ryetalyn"
-	description = "Ryetalyn is a novel, highly advanced, broad-spectrum medication, developed by Dominian scientists, which has varying clinical uses in treating genetic abnormalities including certain cancers, autoimmune conditions, and Hulk Syndrome."
+	description = "Ryetalyn is a highly advanced, broad-spectrum medication developed by Dominian scientists, which has varying clinical uses in treating genetic abnormalities including certain cancers, autoimmune conditions, and Hulk Syndrome."
 	reagent_state = SOLID
 	color = "#004000"
 	overdose = REAGENTS_OVERDOSE
@@ -690,6 +721,8 @@
 	metabolism_min = 0.25
 
 /singleton/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	holder.remove_reagent(/singleton/reagent/toxin/malignant_tumour_cells, 2)
+
 	var/needs_mutation_update = M.mutations > 0
 	M.mutations = 0
 	M.disabilities = 0
@@ -1362,11 +1395,11 @@
 	if((M.bodytemperature < 179) && (M.chem_effects[CE_CRYO])) //best use in cryogenics, experiment with Balanced or Prioritising Metabolisation settings, aiming for a gas cooler temperature target that minimises the cryostasis multiplier. remember the cryotube heats slowly when someone is inside.
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC])) //skips the oxygenation check under brain.dm
-				brain.damage = max(brain.damage - 12*removed, 0) //high number, as cryo slows metabolism.
+				brain.damage = max(brain.damage - 16*removed, 0) //high number, as cryo slows metabolism. also needs to slightly outpace rough injuries to actually make it worthwhile to use.
 	else //without cryogenics. skips the oxygen check, however has large downsides if not pushed thorugh an IV to moderate volume in blood.
 		if(brain)
 			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC]) && prob(75))
-				brain.damage = max(brain.damage - 4, 0) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2% brain activity per tick. only really useful during apocalyptic scenarios.
+				brain.damage = max(brain.damage - 8*removed, 0) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2.5% brain activity per tick. only really useful during apocalyptic scenarios.
 		M.dizziness = max(200, M.dizziness + 15)
 		M.hallucination = max(M.hallucination, 100)
 		M.add_chemical_effect(CE_BLOODTHIN, 40) //treat (arterial) bleeding first
