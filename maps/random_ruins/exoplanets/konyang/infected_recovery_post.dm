@@ -42,6 +42,7 @@
 	short_name = "konyang_infected_recovery_researcher"
 	name = "KRC Infected Recovery Researcher"
 	desc = "Reserach and cure the infected on behalf of the Konyang Robotics Corporation, help out your police colleagues, help stop the apocalypse."
+	welcome_message = "You are a Infected Recovery Researcher."
 	max_count = 1
 	tags = list("External")
 	spawnpoints = list("konyang_infected_recovery_researcher")
