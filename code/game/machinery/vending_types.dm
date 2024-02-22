@@ -1656,24 +1656,28 @@
 	restock_items = FALSE
 	random_itemcount = FALSE
 	light_color = COLOR_BABY_BLUE
+
 	/// List of strings.
 	/// Vended out keys will be filled with these key data (== bike reg plates) strings.
 	/// Also based on this list is filled the products assoc list.
 	var/list/key_data_mopeds = list()
+
 	/// Same as the list for mopeds, except for sports bikes.
 	var/list/key_data_sports = list()
 
 /obj/machinery/vending/rental_bikes/build_products()
-	products[/obj/item/key/bike/moped] = key_data_mopeds.len
-	products[/obj/item/key/bike/sport] = key_data_sports.len
+	products[/obj/item/key/bike/moped] = length(key_data_mopeds)
+	products[/obj/item/key/bike/sport] = length(key_data_sports)
 
 /obj/machinery/vending/rental_bikes/vended_product_post(var/obj/vended)
 	var/obj/item/key/key = vended
 	if(!istype(key))
 		return
+
 	// expires the next day
 	var/rental_expiry = "[GLOB.game_year]-[time2text(world.realtime + 1 DAY, "MM-DD")] [worldtime2text()]"
 	key.desc += " Property of Idris Incorporated. Rental expires on [rental_expiry]. Return fully charged."
+
 	if(key_data_mopeds && istype(key, /obj/item/key/bike/moped))
 		key.key_data = key_data_mopeds[1]
 		key_data_mopeds.Cut(1,2)

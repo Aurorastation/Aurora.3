@@ -175,6 +175,7 @@
  *  To be overriden if building the products list is dynamic at runtime or needs any complex logic
  */
 /obj/machinery/vending/proc/build_products()
+	SHOULD_NOT_SLEEP(TRUE)
 	return
 
 /**
@@ -745,7 +746,9 @@
 				if(1)
 					use_power_oneoff(RC.reagents.set_temperature(heating_temperature))
 
-/// To be overriden if vended out products need any post-processing.
+/// To be overriden if vended out products need any post-processing, setting its vars.
+/// Called by `vend_product`.
+/// `vended` is the item that is being vended out.
 /obj/machinery/vending/proc/vended_product_post(var/obj/vended)
 	return
 
