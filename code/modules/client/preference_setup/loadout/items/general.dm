@@ -248,6 +248,7 @@
 	banners["banner, Empyrean"] = /obj/item/flag/empyrean
 	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
 	banners["banner, Callisto"] = /obj/item/flag/callisto
+	banners["banner, Venus"] = /obj/item/flag/venus
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -333,6 +334,7 @@
 	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
 	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
 	flags["flag, Callisto"] = /obj/item/flag/callisto/l
+	flags["flag, Venus"] = /obj/item/flag/venus/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
