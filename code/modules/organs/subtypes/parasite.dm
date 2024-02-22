@@ -576,7 +576,6 @@
 		owner.adjustNutritionLoss(5)
 		if(prob(5))
 			owner.adjustHalLoss((10*stage)/2)
-			to_world("HALLOSS APPLIED")
 	if(stage >= 2)  //after ~5 minutes
 		switch(parent_organ)
 			if(BP_HEAD)
