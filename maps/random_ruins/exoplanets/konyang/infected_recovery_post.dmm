@@ -1,19 +1,27 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"b" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "c" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "d" = (
 /obj/item/trap/animal/large,
 /turf/simulated/floor/wood,
 /area/konyang/infected_recovery_post)
+"e" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "f" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/template_noop,
-/area/konyang)
+/area/exoplanet/grass/konyang)
 "g" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -27,16 +35,34 @@
 /obj/machinery/power/portgen/basic,
 /turf/simulated/floor/wood,
 /area/konyang/infected_recovery_post)
+"i" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
+"j" = (
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
 "k" = (
 /obj/effect/decal/cleanable/blood,
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"l" = (
+/obj/structure/flora/tree/konyang/blossom,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
 "m" = (
 /obj/structure/window_frame/wood,
 /obj/item/material/shard,
 /obj/item/material/shard,
 /turf/template_noop,
-/area/konyang)
+/area/exoplanet/grass/konyang)
+"n" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "o" = (
 /obj/machinery/light{
 	dir = 1;
@@ -45,6 +71,10 @@
 /obj/item/trap/animal/large,
 /turf/simulated/floor/wood,
 /area/konyang/infected_recovery_post)
+"p" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "q" = (
 /obj/structure/closet{
 	name = "KRC Researcher Gear"
@@ -57,6 +87,9 @@
 /obj/item/device/camera_film,
 /turf/simulated/floor/wood,
 /area/konyang/infected_recovery_post)
+"t" = (
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "u" = (
 /obj/structure/chainlink_fence{
 	dir = 1
@@ -83,7 +116,7 @@
 /area/konyang)
 "y" = (
 /turf/simulated/floor/wood,
-/area/konyang)
+/area/exoplanet/grass/konyang)
 "z" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -98,6 +131,14 @@
 "A" = (
 /turf/simulated/floor/wood,
 /area/konyang/infected_recovery_post)
+"B" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"C" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "D" = (
 /obj/structure/closet{
 	name = "Infected Recovery Policeman Gear"
@@ -129,7 +170,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/wood,
-/area/konyang)
+/area/exoplanet/grass/konyang)
 "G" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/adv{
@@ -163,14 +204,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang/infected_recovery_post)
+"K" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "L" = (
 /obj/effect/landmark/corpse/konyang_villager,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/wood,
-/area/konyang)
+/area/exoplanet/grass/konyang)
 "M" = (
 /turf/simulated/wall/wood,
-/area/konyang)
+/area/exoplanet/grass/konyang)
 "N" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 33;
@@ -196,7 +241,7 @@
 "S" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/wood,
-/area/konyang)
+/area/exoplanet/grass/konyang)
 "U" = (
 /obj/structure/automobile/police,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -208,10 +253,18 @@
 "W" = (
 /turf/simulated/wall/wood,
 /area/konyang/infected_recovery_post)
+"X" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "Y" = (
 /mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/wood,
-/area/konyang)
+/area/exoplanet/grass/konyang)
+"Z" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
 
 (1,1,1) = {"
 a
@@ -252,9 +305,9 @@ a
 a
 a
 a
-a
-a
-a
+t
+t
+t
 a
 a
 a
@@ -280,27 +333,27 @@ a
 (3,1,1) = {"
 a
 a
+n
+a
+a
+a
+t
+e
+t
+a
+C
+p
+p
+p
+p
+C
 a
 a
 a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+n
 a
 a
 a
@@ -316,15 +369,15 @@ a
 a
 a
 a
+t
+t
+t
 a
-a
-a
-a
-a
-a
-a
-a
-a
+C
+p
+t
+t
+t
 a
 a
 a
@@ -345,6 +398,10 @@ a
 a
 a
 a
+B
+a
+a
+C
 a
 a
 a
@@ -355,27 +412,36 @@ a
 a
 a
 a
+C
 a
 a
 a
 a
+B
 a
 a
+C
 a
-a
-a
-a
-a
-a
-a
-a
-a
+t
 a
 a
 "}
 (6,1,1) = {"
 a
 a
+B
+B
+a
+a
+C
+a
+a
+a
+a
+B
+B
+B
+B
 a
 a
 a
@@ -383,30 +449,19 @@ a
 a
 a
 a
+B
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+C
+C
 a
 a
 a
 "}
 (7,1,1) = {"
 a
+t
+t
 a
 a
 a
@@ -423,12 +478,10 @@ a
 a
 a
 a
+Z
 a
 a
-a
-a
-a
-a
+B
 a
 a
 a
@@ -439,11 +492,11 @@ a
 "}
 (8,1,1) = {"
 a
+X
+X
 a
 a
-a
-a
-a
+t
 a
 a
 a
@@ -457,8 +510,8 @@ W
 W
 a
 a
-a
-a
+Z
+i
 a
 a
 a
@@ -471,8 +524,8 @@ a
 "}
 (9,1,1) = {"
 a
-a
-a
+t
+t
 a
 a
 a
@@ -489,14 +542,14 @@ q
 W
 a
 a
+Z
+Z
+j
 a
 a
 a
 a
-a
-a
-a
-a
+n
 a
 a
 a
@@ -509,7 +562,7 @@ a
 a
 a
 a
-a
+B
 a
 W
 A
@@ -520,10 +573,10 @@ A
 A
 W
 a
-a
-a
-a
-a
+Z
+Z
+Z
+Z
 a
 a
 a
@@ -541,7 +594,7 @@ a
 a
 a
 a
-a
+B
 a
 W
 o
@@ -553,10 +606,10 @@ V
 W
 a
 a
-a
-a
-a
-a
+Z
+l
+Z
+i
 a
 a
 a
@@ -585,25 +638,25 @@ h
 W
 a
 a
+Z
+Z
+Z
+Z
+a
+C
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
+B
 a
 "}
 (13,1,1) = {"
 a
 a
 a
+n
 a
-a
-a
+p
 a
 a
 a
@@ -618,16 +671,16 @@ W
 a
 a
 a
+Z
+Z
+Z
+a
+C
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
+X
+t
 "}
 (14,1,1) = {"
 a
@@ -635,10 +688,10 @@ a
 a
 a
 a
+C
 a
 a
 a
-M
 W
 W
 W
@@ -650,16 +703,16 @@ W
 a
 a
 a
+Z
+Z
+a
+K
 a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+t
+X
 "}
 (15,1,1) = {"
 a
@@ -689,9 +742,9 @@ a
 a
 a
 a
-a
-a
-a
+C
+t
+X
 "}
 (16,1,1) = {"
 a
@@ -720,17 +773,17 @@ a
 a
 a
 a
-a
-a
-a
-a
+C
+C
+t
+X
 "}
 (17,1,1) = {"
 a
 a
-a
-a
-a
+C
+C
+t
 a
 a
 a
@@ -754,16 +807,16 @@ a
 a
 a
 a
-a
-a
+t
+X
 "}
 (18,1,1) = {"
 a
 a
+C
+C
 a
-a
-a
-a
+C
 a
 a
 a
@@ -779,15 +832,15 @@ a
 a
 a
 a
+C
 a
 a
 a
 a
 a
 a
-a
-a
-a
+t
+X
 "}
 (19,1,1) = {"
 a
@@ -795,7 +848,7 @@ a
 a
 a
 a
-a
+C
 a
 a
 a
@@ -809,9 +862,9 @@ P
 I
 a
 a
+B
 a
-a
-a
+C
 M
 f
 f
@@ -819,15 +872,15 @@ M
 M
 a
 a
-a
+B
 "}
 (20,1,1) = {"
 a
 a
 a
 a
-a
-a
+t
+p
 a
 a
 a
@@ -841,7 +894,7 @@ P
 I
 a
 a
-a
+B
 a
 a
 f
@@ -858,8 +911,8 @@ a
 a
 a
 a
-a
-a
+t
+p
 a
 a
 a
@@ -872,10 +925,10 @@ P
 P
 I
 a
+B
+B
 a
-a
-a
-c
+b
 F
 y
 Y
@@ -904,7 +957,7 @@ P
 P
 I
 a
-a
+B
 a
 a
 a
@@ -918,10 +971,10 @@ a
 a
 "}
 (23,1,1) = {"
+C
 a
-a
-a
-a
+C
+C
 a
 a
 a
@@ -936,9 +989,9 @@ P
 P
 w
 a
+B
 a
-a
-c
+b
 a
 M
 m
@@ -946,10 +999,23 @@ m
 M
 M
 a
-a
+C
 a
 "}
 (24,1,1) = {"
+C
+a
+a
+C
+a
+a
+t
+t
+a
+a
+a
+a
+B
 a
 a
 a
@@ -965,20 +1031,7 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+C
 a
 "}
 (25,1,1) = {"
@@ -986,17 +1039,17 @@ a
 a
 a
 a
+n
+a
+t
+t
 a
 a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+B
+B
 a
 a
 a
@@ -1009,8 +1062,8 @@ a
 a
 a
 a
-a
-a
+t
+t
 a
 "}
 (26,1,1) = {"
@@ -1023,6 +1076,16 @@ a
 a
 a
 a
+n
+a
+B
+B
+B
+B
+B
+a
+a
+C
 a
 a
 a
@@ -1031,18 +1094,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+t
+t
 a
 "}
 (27,1,1) = {"
@@ -1063,19 +1116,19 @@ a
 a
 a
 a
-a
+C
 a
 c
+t
+a
+B
 a
 a
+n
 a
 a
-a
-a
-a
-a
-a
-a
+B
+B
 "}
 (28,1,1) = {"
 a
@@ -1089,18 +1142,18 @@ a
 a
 a
 a
+C
+C
 a
 a
 a
+C
 a
 a
+t
+t
 a
-a
-a
-a
-a
-a
-a
+B
 a
 a
 a
@@ -1119,6 +1172,8 @@ a
 a
 a
 a
+C
+C
 a
 a
 a
@@ -1126,19 +1181,17 @@ a
 a
 a
 a
-a
-a
-c
-a
+b
 a
 a
 a
+B
 a
 a
 a
-a
-a
-a
+C
+C
+C
 a
 "}
 (30,1,1) = {"
@@ -1154,21 +1207,21 @@ a
 a
 a
 a
+t
+t
+t
 a
 a
 a
 a
 a
 a
+B
+B
 a
 a
-a
-a
-a
-a
-a
-a
-a
+C
+C
 a
 a
 a

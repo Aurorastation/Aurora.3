@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ar" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
 "aH" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
@@ -7,6 +11,10 @@
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/space,
 /area/konyang/rural_clinic)
+"bY" = (
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "cd" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -18,8 +26,8 @@
 /area/konyang/rural_clinic)
 "cj" = (
 /obj/effect/landmark/corpse/konyang_villager,
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "et" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/green/diagonal{
@@ -69,6 +77,15 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"gI" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
+"io" = (
+/obj/structure/flora/rock/konyang/moss,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "iW" = (
 /obj/machinery/door/urban{
 	dir = 1
@@ -86,6 +103,11 @@
 /obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"kb" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "md" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -120,6 +142,10 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"oN" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "pl" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -146,6 +172,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"qc" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "qj" = (
 /obj/structure/window_frame/wood,
 /obj/item/material/shard,
@@ -195,6 +225,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"uN" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
+"vj" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "vO" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -268,6 +306,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"zB" = (
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "Bf" = (
 /obj/effect/landmark/corpse/konyang_villager,
 /turf/simulated/floor/tiled/white,
@@ -290,6 +331,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"DD" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "DO" = (
 /obj/item/material/shard,
 /obj/effect/landmark/corpse/konyang_villager,
@@ -326,6 +372,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"Jx" = (
+/obj/structure/flora/tree/konyang/blossom,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
 "JK" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/storage/firstaid/regular{
@@ -350,6 +403,15 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"Nm" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"Nr" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "NZ" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/stack/medical/advanced/bruise_pack/full{
@@ -373,8 +435,13 @@
 /area/konyang/rural_clinic)
 "Pi" = (
 /mob/living/simple_animal/hostile/ipc_zombie,
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"PK" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
 "Qv" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -415,6 +482,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"Tt" = (
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
 "TB" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/cleaner{
@@ -424,6 +495,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"Uq" = (
+/mob/living/simple_animal/aquatic/fish,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
 "Vq" = (
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
@@ -445,8 +521,8 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "Xe" = (
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "XG" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -454,6 +530,13 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
+"Zf" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"Zg" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "ZK" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -498,30 +581,30 @@ Xe
 Xe
 Xe
 Xe
+gI
+gI
+gI
+Xe
+Xe
+Xe
+qc
+qc
+uN
+qc
+qc
+qc
+qc
 Xe
 Xe
 Xe
 Xe
+Zf
+Zf
+Zf
+Zf
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+Zg
 Xe
 Xe
 Xe
@@ -529,29 +612,29 @@ Xe
 (3,1,1) = {"
 Xe
 Xe
+gI
+gI
+gI
+gI
+Xe
+Nm
+Xe
+qc
+qc
+qc
+zB
+zB
+zB
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+zB
+qc
+ar
+ar
+Uq
+ar
+Zf
 Xe
 Xe
 Xe
@@ -561,6 +644,11 @@ Xe
 (4,1,1) = {"
 Xe
 Xe
+gI
+gI
+gI
+gI
+gI
 Xe
 Xe
 Xe
@@ -570,19 +658,14 @@ Xe
 Xe
 Xe
 Xe
+oN
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
+ar
+ar
+ar
 Xe
 Xe
 Xe
@@ -594,6 +677,11 @@ Xe
 Xe
 Xe
 Xe
+gI
+gI
+Jx
+gI
+gI
 Xe
 Xe
 Xe
@@ -605,16 +693,11 @@ Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
+qc
+ar
+qc
 Xe
 Xe
 Xe
@@ -627,27 +710,27 @@ Xe
 Xe
 Xe
 Xe
+gI
+gI
+PK
+gI
+Xe
+Xe
+Xe
+qc
+qc
+io
+Xe
+Zg
 Xe
 Xe
 Xe
 Xe
+bY
+qc
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+Zg
 Xe
 Xe
 Xe
@@ -659,6 +742,16 @@ Xe
 Xe
 Xe
 Xe
+gI
+gI
+gI
+gI
+Xe
+kb
+qc
+qc
+qc
+qc
 Xe
 Xe
 Xe
@@ -666,22 +759,12 @@ Xe
 Xe
 Xe
 Xe
+qc
 Xe
 Xe
+Zg
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+bY
 Xe
 Xe
 Xe
@@ -696,22 +779,22 @@ Xe
 Pi
 Xe
 Xe
+qc
+qc
 Xe
 Xe
 Xe
 Xe
+qc
+qc
+qc
 Xe
+Zg
 Xe
+qc
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+Nr
 Xe
 Xe
 Xe
@@ -728,22 +811,22 @@ Xe
 Xe
 Xe
 Xe
+qc
+qc
 Xe
 Xe
 Xe
 Xe
+qc
+qc
+qc
+Xe
+Zg
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
 Xe
 Xe
 Xe
@@ -753,14 +836,14 @@ Xe
 (10,1,1) = {"
 Xe
 Xe
+zB
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
+zB
+zB
+zB
 Xe
 Xe
 Xe
@@ -786,7 +869,7 @@ Xe
 Xe
 Xe
 Xe
-Xe
+Zg
 Xe
 Xe
 Xe
@@ -802,14 +885,14 @@ Xe
 Xe
 Xe
 Xe
+oN
 Xe
 Xe
 Xe
 Xe
 Xe
 Xe
-Xe
-Xe
+oN
 Xe
 Xe
 Xe
@@ -818,7 +901,7 @@ Xe
 Xe
 Xe
 Xe
-Xe
+Zg
 Xe
 Xe
 Xe
@@ -836,21 +919,21 @@ Xe
 Xe
 Xe
 Xe
+qc
+DD
+qc
 Xe
 Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
+qc
 "}
 (13,1,1) = {"
 Xe
 Xe
 Xe
-Xe
+Zg
 GS
 GS
 GS
@@ -869,14 +952,14 @@ Xe
 Xe
 Xe
 Xe
+qc
+qc
 Xe
 Xe
 Xe
+Zg
 Xe
-Xe
-Xe
-Xe
-Xe
+qc
 "}
 (14,1,1) = {"
 Xe
@@ -908,7 +991,7 @@ Xe
 Xe
 Xe
 Xe
-Xe
+qc
 "}
 (15,1,1) = {"
 Xe
@@ -934,18 +1017,18 @@ Xe
 Xe
 Xe
 Xe
+bY
 Xe
 Xe
 Xe
 Xe
 Xe
-Xe
-Xe
+qc
 "}
 (16,1,1) = {"
 Xe
 Xe
-Xe
+zB
 Xe
 GS
 qH
@@ -969,10 +1052,10 @@ Xe
 Xe
 Xe
 Xe
+Zg
 Xe
 Xe
-Xe
-Xe
+qc
 "}
 (17,1,1) = {"
 Xe
@@ -999,9 +1082,9 @@ Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
+zB
+zB
+zB
 Xe
 Xe
 Xe
@@ -1027,8 +1110,8 @@ GS
 Xe
 Xe
 Xe
-Xe
-Xe
+Zg
+Zg
 Xe
 Xe
 Xe
@@ -1059,8 +1142,8 @@ qj
 Xe
 Xe
 Xe
-Xe
-Xe
+Zg
+Zg
 Xe
 Xe
 Xe
@@ -1072,8 +1155,8 @@ Xe
 "}
 (20,1,1) = {"
 Xe
-Xe
-Xe
+qc
+qc
 Xe
 GS
 jS
@@ -1094,7 +1177,7 @@ Xe
 Xe
 Xe
 Xe
-Xe
+oN
 Xe
 Xe
 Xe
@@ -1104,8 +1187,8 @@ Xe
 "}
 (21,1,1) = {"
 Xe
-Xe
-Xe
+qc
+uN
 Xe
 GS
 GS
@@ -1126,9 +1209,9 @@ Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
+zB
+vj
+Zg
 Xe
 Xe
 Xe
@@ -1136,8 +1219,8 @@ Xe
 "}
 (22,1,1) = {"
 Xe
-Xe
-Xe
+qc
+uN
 Xe
 Xe
 Xe
@@ -1156,11 +1239,11 @@ Xe
 Xe
 Xe
 Xe
+zB
+zB
 Xe
-Xe
-Xe
-Xe
-Xe
+Zg
+Zg
 Xe
 Xe
 Xe
@@ -1168,9 +1251,9 @@ Xe
 "}
 (23,1,1) = {"
 Xe
-Xe
-Xe
-Xe
+qc
+uN
+zB
 Xe
 Xe
 Xe
@@ -1186,13 +1269,13 @@ Xe
 Xe
 Xe
 Xe
+oN
 Xe
+zB
+zB
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+Zg
+Zg
 Xe
 Xe
 Xe
@@ -1201,8 +1284,8 @@ Xe
 (24,1,1) = {"
 Xe
 Xe
-Xe
-Xe
+uN
+uN
 Xe
 Xe
 Xe
@@ -1220,12 +1303,12 @@ Xe
 Xe
 Xe
 Xe
+zB
+zB
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+Zg
+Zg
+bY
 Xe
 Xe
 Xe
@@ -1248,11 +1331,11 @@ vO
 GS
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+zB
+zB
+uN
+qc
+qc
 Xe
 Xe
 Xe
@@ -1266,7 +1349,7 @@ Xe
 Xe
 Xe
 Xe
-Xe
+bY
 Xe
 Xe
 Xe
@@ -1298,6 +1381,8 @@ Xe
 Xe
 Xe
 Xe
+Zg
+Zg
 Xe
 Xe
 Xe
@@ -1309,20 +1394,18 @@ Xe
 Xe
 Xe
 Xe
+zB
+zB
+Tt
 Xe
 Xe
+Zg
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
+qc
+qc
+qc
 Xe
 Xe
 "}
@@ -1330,6 +1413,14 @@ Xe
 Xe
 Xe
 Xe
+Zg
+Zg
+Xe
+Xe
+Xe
+zB
+zB
+zB
 Xe
 Xe
 Xe
@@ -1342,19 +1433,11 @@ Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
+qc
+qc
+qc
 Xe
 Xe
 "}
@@ -1367,16 +1450,16 @@ Xe
 Xe
 Xe
 Xe
+oN
 Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
+qc
+qc
+qc
 Xe
 Xe
 Xe
@@ -1404,11 +1487,11 @@ Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+qc
+qc
+qc
+qc
+qc
 Xe
 Xe
 Xe

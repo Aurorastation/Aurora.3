@@ -50,7 +50,10 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "w" = (
-/obj/structure/automobile/police,
+/obj/structure/automobile/police{
+	name = "broken police cruiser";
+	desc = "A police vehicle with all the bells and whistles you'd expect from a decently-funded agency. This one seems to be broken beyond repair."
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "x" = (

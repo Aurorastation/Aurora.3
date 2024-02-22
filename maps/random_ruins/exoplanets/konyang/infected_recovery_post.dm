@@ -17,7 +17,7 @@
 /datum/ghostspawner/human/konyang_infected_recovery_cop
 	short_name = "konyang_infected_recovery_cop"
 	name = "KRC Infected Recovery Police Patrolman"
-	desc = "Clear the local area of any Infected and recover their bodies to be examined by the KRC researcher, survive the apocalypse."
+	desc = "Recover any infected IPCs in the area alive (if possible) and assist the researcher in examining them.
 	tags = list("External")
 	welcome_message = "You are a Infected Recovery Police Patrolman."
 
