@@ -2465,7 +2465,7 @@
 	glass_name = "mug of apple cider juice"
 	glass_desc = "It's just spiced up apple juice. Sometimes the barista can't work miracles."
 
-/singleton/reagent/drink/NTellamilkshake
+/singleton/reagent/drink/ntella_milkshake
 	name = "NTella Milkshake"
 	description = "An intensely sweet chocolatey concoction with whipped cream on top."
 	color = "#6d4124"
@@ -2586,7 +2586,7 @@
 	glass_desc = "For everyone who liked to eat their toothpaste as a kid and never grew out of it."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
-/singleton/reagent/drink/NTellahotchocolate
+/singleton/reagent/drink/ntella_hot_chocolate
 	name = "NTella Hot Chocolate"
 	description = "It's like a cup of hot chocolate except... More everything."
 	color = "#63432e"

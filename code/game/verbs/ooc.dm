@@ -54,7 +54,7 @@
 	msg = process_chat_markup(msg, list("*"))
 
 	for(var/client/target in GLOB.clients)
-		if(target.prefs.toggles & CHAT_OOC)
+		if(target.prefs?.toggles & CHAT_OOC)
 			var/display_name = src.key
 			if(holder)
 				if(holder.fakekey)
