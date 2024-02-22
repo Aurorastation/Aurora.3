@@ -14,14 +14,16 @@
 	hitsound = 'sound/weapons/heavysmash.ogg'
 	can_suppress = FALSE
 	has_safety = FALSE
+	has_item_ratio = FALSE
 
 	max_shots = 20
 	self_recharge = 1
 	reliability = 100
+	projectile_type = /obj/item/projectile/bullet/flechette
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, projectile_type=/obj/item/projectile/bullet/flechette),
-		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 10, 15), projectile_type=/obj/item/projectile/bullet/flechette),
+		list(mode_name="3-round bursts", burst=3, burst_delay=ROF_SUPERHEAVY, burst_accuracy=list(2,1,1), dispersion=list(0, 10, 15), projectile_type=/obj/item/projectile/bullet/flechette),
 		list(mode_name="explosive", burst=1, projectile_type=/obj/item/projectile/bullet/flechette/explosive)
 		)
 
@@ -46,18 +48,19 @@
 	if(!istype(terminator.species, /datum/species/machine/hunter_killer))
 		to_chat(terminator, SPAN_WARNING("You can't interface with this weapon's systems at all. It feels entirely alien."))
 		return FALSE
+
 	. = ..()
 
 /obj/item/gun/energy/scythe/verb/scope()
 	set category = "Object"
-	set name = "Use Integrated Sensor Array"
+	set name = "Use Scope"
 	set src in usr
 
 	if(!ishuman(usr))
 		return
 
 	var/mob/living/carbon/human/terminator = usr
-	if(terminator.use_check_and_message())
+	if(!terminator.use_check_and_message())
 		return
 
 	if(!isipc(terminator))
