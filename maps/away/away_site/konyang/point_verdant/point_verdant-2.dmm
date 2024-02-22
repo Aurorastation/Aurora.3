@@ -27,7 +27,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "ae" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "af" = (
@@ -77,12 +77,13 @@
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "am" = (
-/obj/structure/sign/urban{
+/obj/structure/sign/exit{
 	dir = 8;
 	pixel_x = -6;
 	pixel_y = 7
@@ -110,8 +111,8 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/outdoors)
 "as" = (
-/obj/structure/utility_pole/street/on{
-	pixel_y = -3
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
@@ -195,7 +196,8 @@
 "aB" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -245,7 +247,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -371,7 +374,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -636,8 +640,9 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -697,8 +702,8 @@
 /turf/simulated/wall,
 /area/point_verdant/outdoors)
 "bV" = (
-/obj/structure/utility_pole/street/on{
-	pixel_y = -3
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -860,7 +865,8 @@
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -977,7 +983,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "cP" = (
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 22;
 	pixel_y = -15
 	},
@@ -1046,8 +1052,9 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1
@@ -1481,14 +1488,16 @@
 /area/point_verdant/outdoors)
 "eg" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/rod_railing,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "eh" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -1514,7 +1523,8 @@
 "ek" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -1830,8 +1840,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "ff" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /obj/structure/ledge/corner{
 	dir = 8
@@ -1907,8 +1918,9 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/shallow)
 "ft" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
@@ -2081,8 +2093,9 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
@@ -2128,7 +2141,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/water)
 "fY" = (
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 36;
 	layer = 9;
 	pixel_x = -33
@@ -2154,7 +2167,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "gc" = (
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 31;
 	pixel_y = 10
 	},
@@ -2245,14 +2258,16 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "gr" = (
-/obj/structure/konyang_cliff{
-	icon_state = "cliff-top1"
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1;
+	pixel_y = 32
 	},
-/obj/structure/chainlink_fence,
-/obj/structure/utility_pole/street/on{
+/obj/effect/decal/curb,
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "gt" = (
 /obj/structure/konyang_cliff{
@@ -2723,8 +2738,9 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "hG" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -2871,7 +2887,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "ie" = (
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "if" = (
@@ -3077,8 +3095,9 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -3151,7 +3170,8 @@
 /area/point_verdant/outdoors)
 "iS" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
@@ -3175,7 +3195,8 @@
 "iV" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/effect/step_trigger/thrower{
@@ -3211,7 +3232,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "je" = (
@@ -3300,7 +3321,8 @@
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
@@ -3429,7 +3451,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/road_sign/turn{
+/obj/structure/street_sign/directional{
 	dir = 8;
 	pixel_x = 15;
 	pixel_y = -7
@@ -3510,8 +3532,9 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
@@ -3623,7 +3646,7 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "kf" = (
-/obj/structure/sign/urban/konyang/arcade{
+/obj/structure/sign/double/arcade{
 	pixel_y = 32;
 	layer = 4.6
 	},
@@ -3916,11 +3939,11 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "kU" = (
-/obj/structure/road_sign{
+/obj/structure/street_sign/stop_konyang{
 	pixel_x = -12;
 	pixel_y = 30
 	},
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = 15;
 	street_name = "Spaceport Avenue";
 	pixel_y = 30
@@ -4036,8 +4059,9 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
@@ -4070,7 +4094,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "lm" = (
-/obj/structure/sign/urban/drive_thru,
+/obj/structure/street_sign/drive_thru,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "ln" = (
@@ -4092,8 +4116,9 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -4329,10 +4354,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "lW" = (
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = -16;
 	pixel_y = 28;
-	icon_state = "street_right";
 	street_name = "Chainlink Boulevard"
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -4355,7 +4379,9 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "lZ" = (
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/interior/shallow)
 "ma" = (
@@ -4394,7 +4420,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},
@@ -4619,7 +4645,9 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "mM" = (
@@ -4631,7 +4659,8 @@
 "mN" = (
 /obj/structure/rod_railing,
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner5"
@@ -4769,7 +4798,7 @@
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
 	},
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 37;
 	pixel_x = -1;
 	layer = 9
@@ -5127,7 +5156,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},
@@ -5296,9 +5325,10 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},
@@ -5550,7 +5580,8 @@
 "oX" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/item/material/stool/chair/folding,
 /obj/item/material/stool/chair/folding{
@@ -5560,7 +5591,8 @@
 	pixel_y = 10
 	},
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -5641,10 +5673,14 @@
 "pj" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/decal/curb{
 	dir = 6
+	},
+/obj/structure/utility_pole/street/konyang/on{
+	layer = 9.2
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -5669,7 +5705,7 @@
 /area/point_verdant/outdoors)
 "pn" = (
 /obj/effect/decal/curb,
-/obj/structure/sign/urban/konyang/bar{
+/obj/structure/sign/double/bar{
 	pixel_y = 32;
 	pixel_x = 1
 	},
@@ -5708,7 +5744,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic/on{
 	pixel_y = -6
 	},
 /turf/simulated/floor/asphalt,
@@ -5724,7 +5760,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "pu" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
 "pv" = (
@@ -5911,15 +5947,16 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
 "pU" = (
-/obj/structure/road_sign/turn/left{
+/obj/structure/street_sign/directional{
 	pixel_x = -14;
 	layer = 9.1
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "pV" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /obj/structure/ledge/corner{
 	dir = 8
@@ -6088,7 +6125,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/effect/decal/road_marking/thin{
 	dir = 1
@@ -6146,7 +6184,8 @@
 	icon_state = "innercorner6"
 	},
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
@@ -6162,7 +6201,8 @@
 	},
 /obj/structure/automobile_filler,
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -6182,7 +6222,8 @@
 /obj/structure/hydrant{
 	pixel_x = -15
 	},
-/obj/structure/road_sign/pedestrian{
+/obj/structure/street_sign/warnings{
+	dir = 4;
 	pixel_y = 30;
 	pixel_x = -16
 	},
@@ -6299,7 +6340,8 @@
 "re" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/sidewalk,
@@ -6373,8 +6415,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/obj/structure/road_sign/turn{
-	dir = 1;
+/obj/structure/street_sign/directional{
 	pixel_x = -11
 	},
 /obj/effect/decal/curb{
@@ -6389,7 +6430,8 @@
 "rp" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east"
@@ -6421,7 +6463,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "ru" = (
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 40;
 	layer = 9
 	},
@@ -6453,12 +6495,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "ry" = (
-/obj/structure/utility_pole/street/crosswalk,
-/obj/structure/utility_pole/street/traffic/base{
-	pixel_x = 12;
-	dir = 1;
-	pixel_y = -1
-	},
+/obj/structure/utility_pole/street/crosswalk/konyang,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "rA" = (
@@ -6491,8 +6528,9 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
@@ -6501,7 +6539,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner3"
@@ -6765,15 +6804,13 @@
 /obj/structure/hydrant{
 	pixel_x = 15
 	},
-/obj/structure/road_sign{
+/obj/structure/street_sign/stop_konyang{
 	pixel_y = 30;
-	pixel_x = -10;
-	dir = 8
+	pixel_x = -10
 	},
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = 1;
 	pixel_y = 30;
-	icon_state = "street_right";
 	street_name = "Spaceport Avenue"
 	},
 /turf/simulated/floor/sidewalk,
@@ -6830,19 +6867,21 @@
 /obj/effect/decal/curb/corner,
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "sA" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "sD" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	layer = 9.1
@@ -6969,7 +7008,8 @@
 	dir = 8
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west";
@@ -7198,8 +7238,9 @@
 /obj/structure/ledge{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -7333,7 +7374,8 @@
 "tP" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -7461,8 +7503,9 @@
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -7535,7 +7578,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "uo" = (
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 40;
 	layer = 9
 	},
@@ -7575,8 +7618,9 @@
 /obj/structure/chainlink_fence{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
@@ -7608,8 +7652,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "ux" = (
-/obj/structure/utility_pole/street/on{
-	pixel_y = -3
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
@@ -7776,9 +7820,9 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
-	pixel_x = -6
+	pixel_x = -24
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -7942,14 +7986,17 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "vu" = (
-/obj/effect/decal/road_marking{
-	dir = 4
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1;
+	pixel_y = 32
 	},
-/obj/effect/decal/curb{
+/obj/effect/decal/road_marking/thin{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/effect/decal/curb,
+/obj/structure/utility_pole/street/konyang/on{
+	layer = 9.2
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -8006,13 +8053,15 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "vF" = (
-/obj/structure/konyang_cliff{
-	icon_state = "cliff-top1"
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1;
+	pixel_y = 32
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "vG" = (
 /obj/structure/table/rack/retail_shelf,
@@ -8039,7 +8088,7 @@
 "vH" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/southleft{
-	req_access = list(218)
+	req_access = list(217)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -8210,8 +8259,9 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -8243,19 +8293,12 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "wf" = (
-/obj/structure/road_sign/turn/left{
-	pixel_x = -16;
-	dir = 8;
-	pixel_y = -9
+/obj/structure/street_sign/directional{
+	pixel_x = -14;
+	layer = 9.1;
+	dir = 4
 	},
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/obj/structure/road_barrier,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "wg" = (
 /obj/machinery/vending/robotics,
@@ -8424,8 +8467,9 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -8747,8 +8791,9 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -8772,7 +8817,8 @@
 	icon_state = "cliff-top1"
 	},
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -8782,7 +8828,7 @@
 "xF" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/machinery/door/window/northright,
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 35;
 	pixel_x = 25;
 	layer = 9
@@ -8790,16 +8836,12 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "xG" = (
-/obj/structure/konyang_cliff{
-	icon_state = "cliff-top1"
+/obj/structure/road_barrier,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16;
+	layer = 4.6
 	},
-/obj/structure/ledge{
-	dir = 4
-	},
-/obj/structure/utility_pole/street/on{
-	layer = 9.2
-	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "xH" = (
 /obj/effect/decal/road_marking/center{
@@ -9000,8 +9042,8 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/interior/shallow)
 "yh" = (
-/obj/structure/utility_pole/street/crosswalk,
-/obj/structure/utility_pole/street/traffic/base{
+/obj/structure/utility_pole/street/crosswalk/konyang,
+/obj/structure/utility_pole/street/traffic/konyang{
 	pixel_y = 18;
 	pixel_x = -14
 	},
@@ -9084,14 +9126,13 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "yq" = (
-/obj/structure/utility_pole/street/traffic/inverted{
+/obj/structure/utility_pole/street/traffic/konyang{
 	dir = 4;
 	pixel_y = -1;
 	pixel_x = 1
 	},
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = 3;
-	icon_state = "street_left";
 	street_name = "Spaceport Avenue"
 	},
 /turf/simulated/floor/sidewalk/detail,
@@ -9112,7 +9153,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "yt" = (
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /obj/structure/hydrant{
 	pixel_x = -15
 	},
@@ -9135,7 +9178,7 @@
 /turf/simulated/open,
 /area/point_verdant/outdoors)
 "yx" = (
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "yy" = (
@@ -9162,7 +9205,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "yC" = (
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 5;
 	pixel_x = -11;
 	layer = 9
@@ -9310,7 +9353,7 @@
 /obj/structure/ledge/quarter{
 	dir = 1
 	},
-/obj/structure/sign/urban{
+/obj/structure/sign/exit{
 	pixel_x = 6;
 	pixel_y = 1
 	},
@@ -9457,7 +9500,9 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "zp" = (
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /obj/structure/ledge{
 	dir = 1
 	},
@@ -9473,7 +9518,8 @@
 "zr" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/decal/road_marking/thin{
 	dir = 8
@@ -9645,7 +9691,8 @@
 "zI" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
@@ -9839,7 +9886,8 @@
 "Ag" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -9951,7 +9999,7 @@
 "Ax" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/desk/southright{
-	req_access = list(219)
+	req_access = list(218)
 	},
 /obj/item/device/flashlight/lamp/box{
 	pixel_y = 5
@@ -10119,7 +10167,7 @@
 /obj/structure/road_barrier/bot_end{
 	dir = 1
 	},
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16
 	},
 /obj/effect/decal/road_marking/thin{
@@ -10241,8 +10289,8 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
 "Bh" = (
-/obj/structure/utility_pole/street/on{
-	pixel_y = -3
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -10614,7 +10662,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	layer = 9.1
@@ -10642,7 +10690,8 @@
 /area/point_verdant/outdoors)
 "Cq" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
@@ -10781,7 +10830,9 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "CL" = (
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/water)
 "CM" = (
@@ -10791,8 +10842,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "CN" = (
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -10887,8 +10939,9 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/effect/decal/road_marking/reflector,
 /turf/simulated/floor/asphalt,
@@ -10896,7 +10949,8 @@
 "Db" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -10940,8 +10994,9 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "Dh" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/structure/rod_railing{
 	dir = 8
@@ -10987,9 +11042,8 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
 "Dl" = (
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = -12;
-	icon_state = "street_left";
 	street_name = "Spaceport Avenue"
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -11011,6 +11065,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/cafe)
+"Dp" = (
+/obj/structure/utility_pole/street/traffic/konyang{
+	dir = 1;
+	layer = 4.6
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/point_verdant/outdoors)
 "Dr" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
@@ -11131,7 +11192,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -11182,7 +11243,8 @@
 "DM" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/decal/curb{
 	dir = 10
@@ -11376,7 +11438,8 @@
 	dir = 6
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
@@ -11395,7 +11458,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior/laundromat)
 "Er" = (
-/obj/structure/sign/urban/konyang/pharmacy,
+/obj/structure/sign/double/pharmacy,
 /turf/simulated/wall,
 /area/point_verdant/interior/pharmacy)
 "Et" = (
@@ -11463,8 +11526,9 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "EC" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/structure/ledge{
 	dir = 8
@@ -11573,7 +11637,8 @@
 "EL" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
-/obj/structure/road_sign/pedestrian{
+/obj/structure/street_sign/warnings{
+	dir = 4;
 	pixel_y = 28;
 	pixel_x = -10
 	},
@@ -11626,8 +11691,9 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -11678,9 +11744,8 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4;
-	pixel_x = 19
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
@@ -11866,7 +11931,8 @@
 "FD" = (
 /obj/structure/trash_pile,
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
@@ -12021,7 +12087,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west";
@@ -12201,8 +12268,9 @@
 /obj/structure/road_barrier{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -12266,7 +12334,7 @@
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior/robotics)
 "GD" = (
-/obj/structure/sign/urban/konyang/robotics,
+/obj/structure/sign/double/robotics,
 /turf/simulated/wall,
 /area/point_verdant/interior/robotics)
 "GE" = (
@@ -12344,7 +12412,10 @@
 /area/point_verdant/outdoors)
 "GO" = (
 /obj/structure/road_barrier,
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16;
+	layer = 4.6
+	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
 "GP" = (
@@ -12373,8 +12444,9 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -12491,7 +12563,8 @@
 /area/point_verdant/interior/pharmacy)
 "Hi" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -12513,7 +12586,7 @@
 /area/point_verdant/interior/shallow)
 "Hm" = (
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic/on{
 	pixel_x = 11
 	},
 /turf/simulated/floor/sidewalk,
@@ -12538,9 +12611,8 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4;
-	pixel_x = 19
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4
 	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -12719,7 +12791,8 @@
 "HL" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/decal/curb,
 /obj/effect/decal/road_marking/turn_left,
@@ -12732,8 +12805,9 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /obj/structure/road_barrier{
 	layer = 9.1
@@ -12767,8 +12841,9 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/police)
 "HR" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -12847,8 +12922,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Ie" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -13011,17 +13087,6 @@
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/shallow)
-"ID" = (
-/obj/structure/road_sign/pedestrian{
-	pixel_x = -1;
-	dir = 8;
-	pixel_y = 7
-	},
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/konyang/no_edge,
-/area/point_verdant/outdoors)
 "IE" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/sidewalk,
@@ -13114,8 +13179,9 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
 "IT" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/structure/rod_railing{
 	dir = 8
@@ -13128,7 +13194,9 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "IU" = (
-/obj/structure/road_sign/turn,
+/obj/structure/street_sign/directional{
+	dir = 4
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "IV" = (
@@ -13142,8 +13210,9 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
@@ -13222,7 +13291,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Jq" = (
-/obj/structure/sign/urban{
+/obj/structure/sign/exit{
 	dir = 8;
 	pixel_x = -6;
 	pixel_y = 7
@@ -13234,7 +13303,7 @@
 	id = "konyang_clinic";
 	name = "Clinic Shutters";
 	pixel_y = 32;
-	req_access = list(219)
+	req_access = list(218)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
@@ -13253,8 +13322,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "Jt" = (
-/obj/structure/road_sign{
-	dir = 4;
+/obj/structure/street_sign/stop_konyang{
 	pixel_y = -4;
 	pixel_x = -13
 	},
@@ -13435,7 +13503,7 @@
 	id = "konyang_clinic";
 	name = "Clinic Shutters";
 	pixel_y = 32;
-	req_access = list(219)
+	req_access = list(218)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
@@ -13450,7 +13518,7 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
 "JW" = (
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield_konyang{
 	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk,
@@ -13650,7 +13718,7 @@
 "Kv" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half,
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 31;
 	pixel_y = 10
 	},
@@ -13722,7 +13790,7 @@
 /area/point_verdant/outdoors)
 "KB" = (
 /obj/machinery/door/urban,
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 19;
 	pixel_x = -1;
 	layer = 9
@@ -13833,8 +13901,9 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
@@ -13949,7 +14018,8 @@
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
@@ -14052,8 +14122,9 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "Lz" = (
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /obj/effect/decal/curb{
 	dir = 1
@@ -14089,7 +14160,8 @@
 /area/point_verdant/outdoors)
 "LF" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
@@ -14117,7 +14189,7 @@
 /area/point_verdant/outdoors)
 "LK" = (
 /obj/machinery/door/window/eastright{
-	req_access = list(219)
+	req_access = list(218)
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
@@ -14372,8 +14444,9 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Mz" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/structure/rod_railing{
 	dir = 8
@@ -14486,7 +14559,7 @@
 "MO" = (
 /obj/structure/lattice/catwalk/indoor/planks/opaque,
 /obj/machinery/door/urban,
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 19;
 	pixel_x = -1;
 	layer = 9
@@ -14542,7 +14615,8 @@
 /area/point_verdant/interior/police)
 "MU" = (
 /obj/structure/road_barrier/bot_in,
-/obj/structure/road_sign/pedestrian{
+/obj/structure/street_sign/warnings{
+	dir = 4;
 	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk,
@@ -14752,7 +14826,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner4"
@@ -14949,14 +15024,16 @@
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "NW" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -14977,6 +15054,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/robotics)
+"Oa" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/structure/rod_railing{
+	name = "imposing rod railing"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/outdoors)
 "Ob" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
@@ -15219,7 +15303,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/structure/automobile_filler,
 /turf/simulated/floor/asphalt,
@@ -15267,7 +15352,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/spaceport)
 "OE" = (
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 40;
 	layer = 9
 	},
@@ -15337,7 +15422,7 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/robotics)
 "OQ" = (
-/obj/structure/sign/urban/konyang{
+/obj/structure/sign/double/convenience{
 	layer = 4.6;
 	pixel_y = 32
 	},
@@ -15408,15 +15493,15 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "OZ" = (
-/obj/structure/utility_pole/street/traffic/inverted{
+/obj/structure/utility_pole/street/traffic/konyang{
 	dir = 8;
 	pixel_y = 12
 	},
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = -11;
 	pixel_y = 28;
-	icon_state = "street_right";
-	street_name = "Spaceport Avenue"
+	street_name = "Spaceport Avenue";
+	layer = 4.4
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -15440,7 +15525,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "Pd" = (
-/obj/structure/sign/urban/restroom{
+/obj/structure/sign/restroom{
 	pixel_x = 31;
 	pixel_y = 6
 	},
@@ -15489,7 +15574,8 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
@@ -15543,7 +15629,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic/on{
 	pixel_x = -7;
 	pixel_y = 12
 	},
@@ -15714,7 +15800,9 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "PG" = (
@@ -15762,7 +15850,9 @@
 /area/point_verdant/interior/streetvendor)
 "PN" = (
 /obj/structure/road_barrier,
-/obj/structure/utility_pole/street/on,
+/obj/structure/utility_pole/street/konyang/on{
+	pixel_y = -16
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "PO" = (
@@ -15834,7 +15924,8 @@
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -15858,8 +15949,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Qa" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -15986,7 +16078,7 @@
 "Qu" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/desk/southleft{
-	req_access = list(219)
+	req_access = list(218)
 	},
 /obj/item/toy/desk/fan{
 	pixel_y = 7;
@@ -16005,8 +16097,9 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -16125,7 +16218,8 @@
 "QK" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/structure/bed/stool/chair/plastic{
 	dir = 8
@@ -16176,7 +16270,8 @@
 /area/point_verdant/interior/bar)
 "QQ" = (
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east"
@@ -16330,9 +16425,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/road_sign{
-	dir = 4
-	},
+/obj/structure/street_sign/stop_konyang,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Ru" = (
@@ -16394,8 +16487,9 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "RB" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /obj/structure/ledge{
 	dir = 4
@@ -16445,8 +16539,7 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/cafe)
 "RH" = (
-/obj/structure/road_sign{
-	dir = 4;
+/obj/structure/street_sign/stop_konyang{
 	pixel_y = -4;
 	pixel_x = -13
 	},
@@ -16517,9 +16610,8 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "RR" = (
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = 3;
-	icon_state = "street_left";
 	street_name = "Noella-Brookes Road"
 	},
 /turf/simulated/floor/sidewalk,
@@ -16534,7 +16626,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "RT" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "RU" = (
@@ -16547,7 +16639,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "RW" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
@@ -16661,8 +16753,9 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "Sn" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 4;
+	pixel_x = -40
 	},
 /obj/structure/ledge{
 	dir = 8
@@ -16677,9 +16770,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "So" = (
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = -15;
-	icon_state = "street_left";
 	street_name = "Listor Bend Street";
 	pixel_y = -1;
 	layer = 9.1
@@ -16803,14 +16895,16 @@
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "SJ" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -16976,7 +17070,7 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/outdoors)
 "Ti" = (
-/obj/structure/sign/urban/konyang/police{
+/obj/structure/sign/double/police{
 	pixel_y = 40
 	},
 /turf/simulated/floor/sidewalk,
@@ -16988,7 +17082,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/obj/structure/sign/urban{
+/obj/structure/sign/exit{
 	dir = 4;
 	pixel_x = 6;
 	pixel_y = 7
@@ -17002,7 +17096,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "Tm" = (
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 40;
 	layer = 9
 	},
@@ -17176,7 +17270,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	layer = 9.2
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -17309,14 +17403,16 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "Ua" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 8;
+	pixel_x = -24
 	},
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/sidewalk,
@@ -17885,7 +17981,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "VM" = (
-/obj/structure/road_sign/pedestrian{
+/obj/structure/street_sign/warnings{
+	dir = 4;
 	pixel_y = 30;
 	pixel_x = -16
 	},
@@ -17906,9 +18003,7 @@
 /obj/structure/road_barrier/bot_end{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/crosswalk{
-	pixel_x = 10
-	},
+/obj/structure/utility_pole/street/crosswalk/konyang,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "VP" = (
@@ -17991,7 +18086,7 @@
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
 	},
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 37;
 	pixel_x = -1;
 	layer = 9
@@ -18084,7 +18179,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/police)
 "Wo" = (
-/obj/structure/urban/pylon,
+/obj/structure/pylon,
 /obj/effect/decal/road_marking/no_pass{
 	dir = 8
 	},
@@ -18330,8 +18425,9 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -18430,7 +18526,7 @@
 "Xe" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	req_access = list(218)
+	req_access = list(217)
 	},
 /obj/machinery/door/blast/shutters/open{
 	id = "konyang_police";
@@ -18462,7 +18558,8 @@
 	icon_state = "topcorner_east"
 	},
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
@@ -18565,8 +18662,9 @@
 /obj/structure/road_barrier{
 	layer = 9.1
 	},
-/obj/structure/utility_pole/street/on{
-	dir = 1
+/obj/structure/utility_pole/street/konyang/on{
+	dir = 1;
+	pixel_y = -8
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/water)
@@ -18806,7 +18904,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/shallow)
 "XY" = (
-/obj/structure/road_sign/turn{
+/obj/structure/street_sign/directional{
 	pixel_x = 13
 	},
 /turf/simulated/floor/sidewalk/paved,
@@ -18914,7 +19012,8 @@
 "Yt" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -18930,14 +19029,11 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
 "Yy" = (
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = -12;
-	icon_state = "street_left";
 	street_name = "Spaceport Avenue"
 	},
-/obj/structure/road_sign{
-	dir = 4
-	},
+/obj/structure/street_sign/stop_konyang,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Yz" = (
@@ -18950,9 +19046,8 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/restaurant)
 "YA" = (
-/obj/structure/road_sign/street{
+/obj/structure/street_sign/street{
 	pixel_x = -15;
-	icon_state = "street_right";
 	street_name = "Listor Bend Street";
 	pixel_y = 30;
 	layer = 9.1
@@ -19056,7 +19151,8 @@
 	icon_state = "innercorner2"
 	},
 /obj/structure/chainlink_fence{
-	dir = 8
+	dir = 8;
+	pixel_x = -16
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
@@ -19138,7 +19234,8 @@
 	},
 /obj/structure/chainlink_fence{
 	layer = 9.1;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
@@ -19258,7 +19355,7 @@
 /area/point_verdant/interior/minimart)
 "Zs" = (
 /obj/machinery/door/urban,
-/obj/structure/sign/urban/staff{
+/obj/structure/sign/staff{
 	pixel_y = 19;
 	pixel_x = -1;
 	layer = 9
@@ -19375,6 +19472,7 @@
 /area/point_verdant/outdoors)
 "ZM" = (
 /obj/machinery/door/airlock/multi_tile/glass{
+	dir = 4;
 	req_access = list(218)
 	},
 /turf/simulated/floor/tiled,
@@ -19454,9 +19552,10 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence{
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
-/obj/structure/utility_pole/street/on{
+/obj/structure/utility_pole/street/konyang/on{
 	dir = 8;
 	pixel_x = -6
 	},
@@ -35555,7 +35654,7 @@ bb
 Qf
 bu
 bu
-vu
+uU
 bu
 bu
 bu
@@ -35767,7 +35866,7 @@ az
 MA
 az
 lL
-xM
+Oa
 BT
 PN
 LN
@@ -38156,7 +38255,7 @@ CY
 HX
 oy
 BT
-PN
+xG
 LN
 iL
 vX
@@ -39441,7 +39540,7 @@ CY
 HX
 oy
 BT
-PN
+xG
 LN
 bb
 Cp
@@ -39960,8 +40059,8 @@ LN
 bb
 NE
 iL
-wf
-ID
+ij
+KX
 Al
 hd
 cJ
@@ -40726,7 +40825,7 @@ lN
 HX
 oy
 BT
-PN
+xG
 LN
 iL
 PQ
@@ -42486,7 +42585,7 @@ bh
 BT
 BT
 ry
-bh
+Dp
 ve
 iL
 uf
@@ -43762,12 +43861,12 @@ kn
 bu
 bu
 bu
-vu
+uU
 bu
 bu
 bu
 bu
-vu
+uU
 bu
 bu
 xs
@@ -44485,7 +44584,7 @@ Di
 MA
 Mw
 az
-gr
+Zp
 pj
 kM
 iL
@@ -46027,8 +46126,8 @@ Di
 MA
 wK
 az
+Zp
 gr
-zI
 iL
 up
 zc
@@ -47826,8 +47925,8 @@ Di
 MA
 az
 eT
+Zp
 gr
-zI
 ui
 JY
 Wq
@@ -47857,24 +47956,24 @@ bu
 bu
 bu
 bu
-vu
+uU
 bu
 bu
 bu
-vu
+uU
 bu
 bu
 bu
 bu
 bu
 bu
-vu
+uU
 iY
 iL
 iL
 Wf
 bu
-vu
+uU
 bu
 bu
 bu
@@ -47882,7 +47981,7 @@ bu
 bu
 bu
 bu
-vu
+uU
 cC
 iY
 iL
@@ -48136,7 +48235,7 @@ mo
 Ir
 Ir
 Ir
-pU
+wf
 Ir
 Ir
 Ir
@@ -49625,8 +49724,8 @@ Di
 MA
 MA
 az
-DC
-zr
+wL
+vu
 ui
 kO
 Ha
@@ -53524,8 +53623,8 @@ az
 lL
 wK
 wK
+YD
 vF
-sA
 od
 xb
 SS
@@ -54809,8 +54908,8 @@ az
 wK
 wK
 wK
-xG
-sA
+iK
+vF
 WR
 WR
 BJ

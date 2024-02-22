@@ -157,7 +157,7 @@
 	spawn_types = list(
 		LARGE_FLORA = list(
 			/obj/structure/utility_pole = 2,
-			/obj/structure/utility_pole/street = 1,
+			/obj/structure/utility_pole/street/konyang = 1,
 			/obj/structure/utility_pole/power/central = 1
 		),
 		SMALL_FLORA = list(
