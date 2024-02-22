@@ -244,8 +244,8 @@
 	edge = TRUE
 	shield_power = 75
 	can_block_bullets = TRUE
-	base_reflectchance = 60
-	base_block_chance = 60
+	base_reflectchance = 30
+	base_block_chance = 30
 	var/blade_color
 
 /obj/item/melee/energy/sword/New()
@@ -312,6 +312,8 @@
 	icon_state = "cutlass0"
 
 	slot_flags = SLOT_BELT
+	base_reflectchance = 60
+	base_block_chance = 60
 
 /obj/item/melee/energy/sword/pirate/activate(mob/living/user)
 	..()
