@@ -912,6 +912,12 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
+"gj" = (
+/obj/structure/automobile/random{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "gn" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -1802,6 +1808,10 @@
 /area/point_verdant/interior/police)
 "oe" = (
 /obj/effect/decal/road_marking,
+/obj/vehicle/bike/motor/moped/red{
+	dir = 8;
+	spawns_with_key = 0
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "of" = (
@@ -6637,7 +6647,15 @@
 /area/point_verdant/outdoors)
 "ZG" = (
 /obj/structure/table/wood,
-/obj/item/towel,
+/obj/item/towel{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/key/bike/moped{
+	pixel_x = 6;
+	pixel_y = -11;
+	key_data = "M99-7614"
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "ZH" = (
@@ -21412,7 +21430,7 @@ pe
 hw
 hw
 UV
-DD
+gj
 DD
 AV
 rg
