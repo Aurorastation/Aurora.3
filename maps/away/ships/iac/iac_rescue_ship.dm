@@ -44,17 +44,41 @@
 /area/ship/iac_rescue_ship/surgery
 	name = "IAC Rescue Ship Surgery Room"
 
+/area/ship/iac_rescue_ship/machinist
+	name = "IAC Rescue Ship Machinist Bay"
+
 /area/ship/iac_rescue_ship/pharmacy
 	name = "IAC Rescue Ship Pharmacy"
 
 /area/ship/iac_rescue_ship/dorms
 	name = "IAC Rescue Ship Dorms"
 
+/area/ship/iac_rescue_ship/hydro
+	name = "IAC Rescue Ship Hydroponics"
+
+/area/ship/iac_rescue_ship/kitchen
+	name = "IAC Rescue Ship Kitchen"
+
+/area/ship/iac_rescue_ship/custodial
+	name = "IAC Rescue Ship Custodial Closet"
+
+/area/ship/iac_rescue_ship/evaprep
+	name = "IAC Rescue Ship EVA Prep"
+
+/area/ship/iac_rescue_ship/portdocking
+	name = "IAC Rescue Ship Port Docking Arm"
+
+/area/ship/iac_rescue_ship/starboarddocking
+	name = "IAC Rescue Ship Starboard Docking Arm"
+
 /area/ship/iac_rescue_ship/coord
 	name = "IAC Rescue Ship Coordinator's Office"
 
-/area/ship/iac_rescue_ship/hallway
-	name = "IAC Rescue Ship Hallway"
+/area/ship/iac_rescue_ship/forehallway
+	name = "IAC Rescue Ship Fore Hallway"
+
+/area/ship/iac_rescue_ship/afthallway
+	name = "IAC Rescue Ship Aft Hallway"
 
 /area/shuttle/iac_shuttle
 	name = "IAC Ambulance Shuttle"
