@@ -8,7 +8,6 @@
 	height_min = 140
 	height_max = 230
 	default_genders = list(MALE, FEMALE)
-	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
 	burn_mod = 1.2
 	grab_mod = 1
