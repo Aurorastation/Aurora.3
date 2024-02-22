@@ -73,7 +73,7 @@
 	slowdown = 1
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
-/obj/item/clothing/mask/exclusionists
+/obj/item/clothing/mask/exclusionist
 	name = "exclusionist mask"
 	desc = "A fearsome steel mask, worn by those who follow the Exclusionist heresy of the Trinary Perfection."
 	icon = 'icons/clothing/suits/exclusionist_robes.dmi'
