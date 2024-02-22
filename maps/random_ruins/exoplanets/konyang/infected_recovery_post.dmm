@@ -1,37 +1,37 @@
 "a" = (/turf/template_noop,/area/space)
-"b" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/konyang)
-"d" = (/obj/structure/cable/green{icon_state = "0-4"},/obj/machinery/power/portgen/basic,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
-"e" = (/turf/simulated/floor/wood,/area/konyang)
-"f" = (/obj/effect/map_effect/window_spawner/full/wood,/turf/template_noop,/area/konyang)
 "g" = (/obj/machinery/door/urban{dir = 4},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
-"l" = (/obj/effect/landmark/corpse/konyang_villager,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/konyang)
-"m" = (/mob/living/simple_animal/hostile/ipc_zombie,/turf/simulated/floor/wood,/area/konyang)
-"n" = (/obj/machinery/power/apc{dir = 4; pixel_y = 0; pixel_x = 11},/obj/structure/cable/green{icon_state = "0-8"},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"h" = (/turf/simulated/floor/wood,/area/konyang)
+"j" = (/obj/machinery/recharger/wallcharger{pixel_x = 32; pixel_y = -3},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"l" = (/obj/effect/decal/cleanable/blood/drip,/turf/template_noop,/area/space)
+"n" = (/obj/structure/cable/green{icon_state = "0-4"},/obj/machinery/power/portgen/basic,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"p" = (/mob/living/simple_animal/hostile/ipc_zombie,/turf/simulated/floor/wood,/area/konyang)
 "q" = (/obj/structure/closet{name = "KRC Researcher Gear"},/obj/item/stack/nanopaste,/obj/item/stack/nanopaste,/obj/item/clothing/suit/storage/toggle/labcoat,/obj/item/device/taperecorder,/obj/item/device/camera,/obj/item/device/camera_film,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"t" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/konyang)
 "u" = (/obj/structure/chainlink_fence{dir = 1},/obj/structure/chainlink_fence{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang)
-"v" = (/obj/item/bedsheet,/obj/structure/bed/padded,/obj/effect/ghostspawpoint{identifier = konyang_infected_researcher; name = "igs - infected_recovery_researcher"},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"v" = (/obj/item/bedsheet,/obj/structure/bed/padded,/obj/effect/ghostspawpoint{identifier = konyang_infected_recovery_researcher; name = "igs - infected_recovery_researcher"},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "w" = (/obj/structure/chainlink_fence{dir = 2},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang)
-"y" = (/obj/effect/decal/cleanable/blood,/turf/template_noop,/area/space)
-"A" = (/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
-"C" = (/obj/effect/decal/cleanable/blood/drip,/turf/template_noop,/area/space)
+"x" = (/obj/effect/decal/cleanable/blood,/turf/template_noop,/area/space)
+"A" = (/obj/machinery/light,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"B" = (/obj/machinery/recharger/wallcharger{pixel_x = 33; pixel_y = 4},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "D" = (/obj/structure/closet{name = "Infected Recovery Policeman Gear"},/obj/item/gun/projectile/revolver/konyang/police,/obj/item/ammo_magazine/c45/revolver,/obj/item/ammo_magazine/c45/revolver,/obj/item/ammo_magazine/c45/revolver,/obj/item/clothing/head/helmet/riot,/obj/item/clothing/suit/armor/carrier/riot,/obj/item/shield/riot,/obj/item/melee/baton/stunrod,/obj/item/reagent_containers/spray/pepper,/obj/item/handcuffs,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "E" = (/obj/item/bedsheet,/obj/structure/bed/padded,/obj/effect/ghostspawpoint{name = "igs - infected_recovery_cop"; identifier = konyang_infected_recovery_cop},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "G" = (/obj/structure/table/steel,/obj/item/storage/firstaid/adv{pixel_x = 5; pixel_y = -1},/obj/item/storage/firstaid/regular{pixel_y = 8; pixel_x = -4},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"H" = (/obj/structure/window_frame/wood,/obj/item/material/shard,/obj/item/material/shard,/turf/template_noop,/area/konyang)
 "I" = (/obj/structure/chainlink_fence,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang)
 "J" = (/obj/structure/table/steel,/obj/item/storage/box/bodybags,/obj/item/storage/box/bodybags,/obj/item/stack/material/graphite/full{pixel_y = 7; pixel_x = 7},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "K" = (/obj/machinery/door/urban{dir = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/konyang)
-"L" = (/obj/machinery/recharger/wallcharger{pixel_x = 32; pixel_y = -3},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"L" = (/obj/item/trap/animal/large,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "M" = (/turf/simulated/wall/wood,/area/konyang)
-"N" = (/obj/machinery/light,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "O" = (/obj/structure/chainlink_fence{dir = 1},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang)
 "P" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang)
 "Q" = (/obj/structure/chainlink_fence{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang)
-"R" = (/obj/structure/window_frame/wood,/obj/item/material/shard,/obj/item/material/shard,/turf/template_noop,/area/konyang)
+"R" = (/obj/effect/landmark/corpse/konyang_villager,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/konyang)
+"T" = (/obj/machinery/light{dir = 1; pixel_y = 4},/obj/item/trap/animal/large,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "U" = (/obj/structure/automobile/police,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang)
-"V" = (/obj/item/trap/animal/large,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"V" = (/obj/machinery/power/apc{dir = 4; pixel_y = 0; pixel_x = 11},/obj/structure/cable/green{icon_state = "0-8"},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
 "W" = (/turf/simulated/wall/wood,/area/konyang/infected_recovery_post)
-"X" = (/obj/machinery/recharger/wallcharger{pixel_x = 33; pixel_y = 4},/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
-"Y" = (/obj/machinery/light{dir = 1; pixel_y = 4},/obj/item/trap/animal/large,/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"X" = (/turf/simulated/floor/wood,/area/konyang/infected_recovery_post)
+"Y" = (/obj/effect/map_effect/window_spawner/full/wood,/turf/template_noop,/area/konyang)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -44,22 +44,22 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaMaaaaaaaaaaaaaaaa
 aaaaaaaWWWWWWWOOOOOOOOuaaaaaaa
-aaaaaaaWEAYVVWPPPPPPPPQaaaaaaa
-aaaaaaaWDAAAAWPPPPPPPPQaaaaaaa
-aaaaaaaWEAAJAgPPPPPPPPQaaaaaaa
-aaaaaaaWDAAGLWPPPPPPPPPaaaaaaa
-aaaaaaaWvAAAXWPPPPPPPPPaaaaaaa
-aaaaaaaWqANdnWPUPPPPPPPaaaaaaa
+aaaaaaaWEXTLLWPPPPPPPPQaaaaaaa
+aaaaaaaWDXXXXWPPPPPPPPQaaaaaaa
+aaaaaaaWEXXJXgPPPPPPPPQaaaaaaa
+aaaaaaaWDXXGjWPPPPPPPPPaaaaaaa
+aaaaaaaWvXXXBWPPPPPPPPPaaaaaaa
+aaaaaaaWqXAnVWPUPPPPPPPaaaaaaa
 aaaaaaaWWWWWWWIIIIIIIIwaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaCa
-aaaaaaaaaaaaaaaaaaaaaaaaaaCaaa
-aaaaaaaaaaaaaaaaaaaaaaCayaaaaa
-aaaaaaaaaaaaaaaaaaaaCaaaaaaaaa
-aaaaaaaaaaaaaaaaaaMfKRMaaaaaaa
-aaaaaaaaaaaaaaaaaafeeeRaaaaaaa
-aaaaaaaaaaaaaaaaaafemeRaaaaaaa
-aaaaaaaaaaaaaaaaaaMelbMaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaala
+aaaaaaaaaaaaaaaaaaaaaaaaaalaaa
+aaaaaaaaaaaaaaaaaaaaaalaxaaaaa
+aaaaaaaaaaaaaaaaaaaalaaaaaaaaa
+aaaaaaaaaaaaaaaaaaMYKHMaaaaaaa
+aaaaaaaaaaaaaaaaaaYhhhHaaaaaaa
+aaaaaaaaaaaaaaaaaaYhphHaaaaaaa
+aaaaaaaaaaaaaaaaaaMhRtMaaaaaaa
 aaaaaaaaaaaaaaaaaaMMMMMaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
