@@ -42,11 +42,18 @@
 	short_name = "konyang_infected_recovery_researcher"
 	name = "KRC Infected Recovery Researcher"
 	desc = "Reserach and cure the infected on behalf of the Konyang Robotics Corporation, help out your police colleagues, help stop the apocalypse."
-	max_count = 2
+	max_count = 1
 	tags = list("External")
 	spawnpoints = list("konyang_infected_recovery_researcher")
+	extra_languages = list(LANGUAGE_SOL_COMMON)
 	outfit = /datum/outfit/admin/konyang_clinic
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Konyang Infected Recovery Researcher"
 	special_role = "Konyang Infected Recovery Researcher"
+	respawn_flag = null
+
+	uses_species_whitelist = FALSE
+
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
+	origin_restriction = list(/singleton/origin_item/origin/konyang)
