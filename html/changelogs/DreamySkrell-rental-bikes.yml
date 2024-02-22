@@ -1,9 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds rental bike self-service vendor and rental bike mechanics."
-  - rscadd: "Maps in bikes, keys, and rental bikes, onto Point Verdant."
-  - bugfix: "Fixes hard drive stored files hard dell error."
