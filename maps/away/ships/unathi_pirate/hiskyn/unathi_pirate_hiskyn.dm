@@ -48,6 +48,10 @@
 	)
 	invisible_until_ghostrole_spawn = TRUE
 
+/obj/effect/overmap/visitable/ship/hiskyn/New()
+	designation = "[pick("Red-Taloned Vengeance", "Fer'is' Fury", "Storms of Ha'zana", "Knees Unbent", "Seryo's Honor", "Traveller Returning", "Roaring Skrazi", "Heartseeker", "Winds of Travakh", "Charging Eskazal", "No Surrender")]"
+	..()
+
 //Navpoints
 /obj/effect/shuttle_landmark/hiskyn/nav1
 	name = "Fore"
@@ -86,12 +90,13 @@
 /obj/effect/overmap/visitable/ship/landable/hiskyn_shuttle
 	name = "Hiskyn Revanchist Shuttle"
 	class = "ICV"
-	designation = "yeah"
-	desc = ""
+	designation = "Stalker"
+	desc = "A heavily modified Yupmi-class transport shuttle, a common cargo transport in the Dominian Imperial Fleet."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#9c0101")
 	shuttle = "Hiskyn Revanchist Shuttle"
+	sizeclass = "Yupmi-class shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
