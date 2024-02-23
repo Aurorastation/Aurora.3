@@ -352,14 +352,13 @@
 		return
 	if(istype(buckled, /mob/living))
 		M = buckled
-	if(M.a_intent == I_HURT)
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
-		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
-		H.apply_damage(30, DAMAGE_BRUTE)
-		H.apply_effect(4, WEAKEN)
-		return TRUE
+	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
+	M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
+	msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+	src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
+	H.apply_damage(15, DAMAGE_BRUTE)
+	H.apply_effect(4, WEAKEN)
+	return TRUE
 
 /obj/vehicle/bike/monowheel/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))

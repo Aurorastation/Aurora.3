@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - tweak: "Crashing into someone while on a bike, hurts them irregardless of intent."
+  - tweak: "Halves the damage from crashing into someone while on a bike."
