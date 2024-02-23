@@ -4322,9 +4322,10 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
 "mA" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/black,
-/turf/simulated/floor/carpet/green,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "mB" = (
 /obj/effect/decal/road_marking{
@@ -5566,11 +5567,13 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
 "qC" = (
-/obj/random/dirt_75,
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/green,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "qD" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -12531,7 +12534,8 @@
 /area/point_verdant/interior/offices/kaf)
 "Lt" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/carpet/green,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "Lu" = (
 /obj/effect/step_trigger/thrower{
@@ -14927,7 +14931,14 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices/basement)
 "RU" = (
-/turf/simulated/floor/carpet/green,
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "RV" = (
 /obj/structure/shipping_container{
@@ -15135,13 +15146,12 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "Su" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 7;
-	pixel_x = 7
+/obj/machinery/cryopod{
+	dir = 4
 	},
-/obj/item/pen,
-/turf/simulated/floor/carpet/green,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "Sv" = (
 /obj/effect/decal/road_marking{
@@ -15349,10 +15359,13 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "Tb" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
-/obj/item/storage/box/toothpaste,
-/obj/item/towel/random,
-/turf/simulated/floor/carpet/green,
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "Te" = (
 /obj/structure/closet/crate/bin/filled,
@@ -31034,7 +31047,7 @@ kQ
 wm
 Kp
 Tb
-RU
+Tb
 Su
 Kp
 lP
@@ -31547,7 +31560,7 @@ BG
 Kp
 Kp
 Kp
-BG
+RU
 Kp
 Kp
 Kp
