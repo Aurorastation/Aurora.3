@@ -8,6 +8,11 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/space)
+"aT" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "aW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -54,11 +59,22 @@
 "cL" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/space)
+"dq" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "dw" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
 	name = "Canister to Thrusters";
 	target_pressure = 15000
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"eg" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -82,6 +98,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"eI" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "fy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -96,7 +116,19 @@
 /turf/simulated/floor/airless,
 /area/space)
 "fP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/plating,
+/area/space)
+"fZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "gh" = (
@@ -109,10 +141,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"gV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "hg" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#90C1DB"
 	},
+/area/space)
+"hn" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/reinforced,
 /area/space)
 "ht" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -131,13 +177,23 @@
 /area/space)
 "ig" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 9
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/space)
 "jL" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"jS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -157,6 +213,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering"
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/space)
 "mx" = (
@@ -173,6 +230,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"mR" = (
+/turf/simulated/floor/reinforced,
 /area/space)
 "mS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -207,7 +267,11 @@
 	dir = 8;
 	name = "Fuel to Canisters"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pe" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "qA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -216,10 +280,24 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"qD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/plating,
+/area/space)
 "qZ" = (
 /obj/machinery/door/airlock/external{
 	name = "Habitation Module";
 	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"rb" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "scrubbers to waste"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -249,6 +327,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"rP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "rW" = (
 /obj/structure/bed/roller,
@@ -281,6 +365,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"tq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ub" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -309,6 +399,45 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"ws" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"xn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"yf" = (
+/obj/machinery/door/airlock/external{
+	name = "Battle Bridge";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/plating,
+/area/space)
+"yt" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Ag" = (
 /obj/structure/table/glass,
@@ -349,6 +478,18 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"Br" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "Bz" = (
 /obj/machinery/door/airlock/medical{
 	name = "Medical Bay";
@@ -378,10 +519,26 @@
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"CE" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "CQ" = (
 /obj/machinery/door/airlock/command{
 	name = "Francisca";
 	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"CS" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -464,12 +621,48 @@
 	},
 /turf/template_noop,
 /area/space)
+"Gv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Gx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Hf" = (
 /obj/machinery/door/airlock/external{
 	name = "Gunnery";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"Ho" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Hs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"HI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "ID" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
@@ -494,7 +687,34 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/space)
+"JG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "JT" = (
+/turf/simulated/floor/plating,
+/area/space)
+"KV" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ls" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "ME" = (
@@ -545,6 +765,10 @@
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"OE" = (
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/reinforced,
+/area/space)
 "OI" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -563,8 +787,24 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"Pk" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Pt" = (
 /turf/simulated/wall/r_wall,
+/area/space)
+"Pv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "PB" = (
 /obj/structure/lattice/catwalk,
@@ -575,6 +815,12 @@
 /area/space)
 "PW" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/space)
+"Qh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Qp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -608,6 +854,7 @@
 /area/space)
 "Sb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Sl" = (
@@ -624,6 +871,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Sz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "SF" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -637,6 +890,12 @@
 	dir = 4
 	},
 /turf/template_noop,
+/area/space)
+"Tb" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor"
+	},
+/turf/simulated/floor/reinforced,
 /area/space)
 "To" = (
 /obj/machinery/ship_weapon/francisca{
@@ -691,10 +950,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"VW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "VY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "WB" = (
@@ -746,6 +1010,11 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"YO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/plating,
 /area/space)
 "YP" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -22982,7 +23251,7 @@ JT
 JT
 JT
 JT
-ht
+Ls
 JT
 PW
 ns
@@ -23239,7 +23508,7 @@ JT
 JT
 JT
 JT
-ht
+ws
 JT
 PW
 ns
@@ -23496,7 +23765,7 @@ PW
 JT
 JT
 JT
-ht
+JG
 JT
 PW
 ns
@@ -23753,7 +24022,7 @@ PW
 PW
 PW
 PW
-ht
+JG
 PW
 PW
 ns
@@ -24010,7 +24279,7 @@ Or
 PW
 cd
 cd
-ht
+JG
 cd
 PW
 PW
@@ -24031,7 +24300,7 @@ QX
 WD
 WD
 WD
-WD
+Pk
 WD
 WD
 WD
@@ -24267,7 +24536,7 @@ Or
 PW
 cd
 cd
-ht
+JG
 WB
 DP
 PW
@@ -24288,7 +24557,7 @@ QX
 QX
 QX
 QX
-WD
+Pk
 JT
 QX
 QX
@@ -24522,9 +24791,9 @@ Or
 Or
 Or
 PW
-cd
-cd
-ht
+pe
+KV
+JG
 ID
 DP
 PW
@@ -24545,7 +24814,7 @@ ns
 ns
 ns
 QX
-IE
+yf
 IE
 QX
 ns
@@ -24781,7 +25050,7 @@ PW
 PW
 PW
 PW
-ht
+JG
 pd
 cd
 PW
@@ -24802,7 +25071,7 @@ PW
 PW
 PW
 PW
-JT
+fP
 JT
 PW
 PW
@@ -25035,10 +25304,10 @@ Or
 Or
 Or
 PW
-JT
-JT
-JT
-ht
+mR
+mR
+hn
+JG
 fy
 cd
 PW
@@ -25059,7 +25328,7 @@ cd
 cd
 cd
 cd
-cd
+CE
 cd
 cd
 cd
@@ -25292,33 +25561,33 @@ Or
 Or
 Or
 PW
-JT
-JT
-JT
-uR
+OE
+mR
+Tb
+CS
 VY
 Sb
 lk
-mx
-mx
-mx
-mx
-mx
+YO
+YO
+YO
+YO
+qD
 fP
 ig
-JT
-JT
-JT
-JT
-JT
-JT
-JT
-JT
-JT
-JT
-JT
-JT
-JT
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
 JT
 JT
 JT
@@ -25549,10 +25818,10 @@ Or
 Or
 Or
 PW
-JT
-JT
-JT
-ht
+mR
+mR
+hn
+fZ
 cd
 cd
 PW
@@ -25560,9 +25829,9 @@ cd
 cd
 cd
 cd
-cd
-cd
-cd
+HI
+VW
+rP
 cd
 PW
 IN
@@ -25809,9 +26078,9 @@ PW
 PW
 PW
 PW
-ht
-cd
-cd
+Br
+Gx
+Sz
 PW
 PW
 PW
@@ -26064,11 +26333,11 @@ Or
 Or
 Or
 PW
-cd
-cd
-ht
-cd
-cd
+eI
+yt
+xn
+dq
+Qh
 PW
 ns
 ns
@@ -26321,10 +26590,10 @@ Or
 Or
 Or
 PW
-cd
-cd
-ht
-cd
+aT
+Gv
+Pv
+Ho
 cd
 PW
 ns
@@ -26578,10 +26847,10 @@ Or
 Or
 Or
 PW
-cd
-cd
-ht
-cd
+eg
+rb
+gV
+tq
 PW
 PW
 ns
@@ -26837,7 +27106,7 @@ PW
 PW
 PW
 PW
-ht
+JG
 PW
 PW
 ns
@@ -27094,7 +27363,7 @@ PW
 JT
 JT
 JT
-ht
+JG
 JT
 PW
 ns
@@ -27351,7 +27620,7 @@ JT
 JT
 JT
 JT
-ht
+Hs
 JT
 PW
 ns
@@ -27608,7 +27877,7 @@ JT
 JT
 JT
 JT
-ht
+jS
 JT
 PW
 ns
