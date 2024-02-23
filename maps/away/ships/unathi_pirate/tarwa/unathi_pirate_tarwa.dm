@@ -10,7 +10,7 @@
 
 	unit_test_groups = list(2)
 
-/singleton/submap_archetype/tramp_freighter
+/singleton/submap_archetype/tarwa_conglomerate
 	map = "Tarwa Conglomerate Ship"
 	descriptor = "Ship with pirate lizards, pirate plants"
 

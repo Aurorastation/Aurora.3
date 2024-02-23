@@ -3149,3 +3149,22 @@
 
 /obj/structure/sign/flag/callisto/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+//Hiskyn
+/obj/item/flag/hiskyn
+	name = "\improper Hiskyn's Revanchists flag"
+	desc = "This crimson and black banner depicts an Unathi skull with a thin-bladed knife hanging above it. Anyone familiar with the pirate fleets of the southern Spur would recognise it as the banner of Hiskyn's Revanchists."
+	desc_extended = "The Hiskyn clan was once part of the clan Kazhkz, prior to their oaths of fealty to the Empire of Dominia. The Kazhkz-Han'san fleet split over the schism, with those who refused to bend their knees to a human power taking the name of Hiskyn. This fleet is known to target Dominian vessels with a vengeance, and particularly vessels carrying Dominian Unathi, whom they bear a deep hatred for."
+	flag_path = "hiskyn"
+	flag_structure = /obj/structure/sign/flag/hiskyn
+
+/obj/structure/sign/flag/hiskyn
+	name = "\improper Hiskyn's Revanchists flag"
+	desc = "This crimson and black banner depicts an Unathi skull with a thin-bladed knife hanging above it. Anyone familiar with the pirate fleets of the southern Spur would recognise it as the banner of Hiskyn's Revanchists."
+	desc_extended = "The Hiskyn clan was once part of the clan Kazhkz, prior to their oaths of fealty to the Empire of Dominia. The Kazhkz-Han'san fleet split over the schism, with those who refused to bend their knees to a human power taking the name of Hiskyn. This fleet is known to target Dominian vessels with a vengeance, and particularly vessels carrying Dominian Unathi, whom they bear a deep hatred for."
+	flag_path = "hiskyn"
+	icon_state = "hiskyn"
+	flag_item = /obj/item/flag/hiskyn
+
+/obj/structure/sign/flag/hiskyn/unmovable
+	unmovable = TRUE
