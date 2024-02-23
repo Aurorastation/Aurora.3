@@ -493,17 +493,6 @@
 /obj/structure/bed/stool/chair/sofa/left/blue,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/restaurant)
-"bo" = (
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/machinery/atm{
-	dir = 4;
-	pixel_y = 4;
-	pixel_x = 16
-	},
-/turf/simulated/floor/concrete,
-/area/point_verdant/interior/shallow)
 "bp" = (
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/restaurant)
@@ -3433,13 +3422,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
-"jH" = (
-/obj/machinery/atm{
-	dir = 1;
-	pixel_y = 28
-	},
-/turf/simulated/floor/concrete,
-/area/point_verdant/interior/shallow)
 "jI" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 1
@@ -6184,13 +6166,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"qH" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/obj/item/device/radio/intercom/south,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/police)
 "qI" = (
 /obj/structure/table/wood,
 /obj/structure/cash_register{
@@ -34537,7 +34512,7 @@ wL
 TG
 oQ
 Ys
-qH
+OI
 vH
 Yf
 Yf
@@ -49205,7 +49180,7 @@ KH
 Bz
 ad
 KH
-bo
+Bz
 ad
 KH
 Bz
@@ -50502,7 +50477,7 @@ XF
 hQ
 hQ
 jN
-jH
+su
 su
 HC
 QZ
