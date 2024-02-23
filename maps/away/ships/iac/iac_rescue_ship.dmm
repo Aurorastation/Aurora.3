@@ -226,11 +226,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
-"aqo" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/kitchen)
 "atj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -4653,7 +4648,6 @@
 	dir = 1
 	},
 /obj/random/pottedplant,
-/obj/machinery/power/apc/super/east,
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -6298,7 +6292,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "prY" = (
@@ -39448,7 +39441,7 @@ dtu
 dtu
 iGi
 iGi
-aqo
+iGi
 iGi
 wjC
 wjC
