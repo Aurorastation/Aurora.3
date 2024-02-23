@@ -3,7 +3,7 @@
 SUBSYSTEM_DEF(atlas)
 	name = "Atlas"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MAPLOAD
+	init_order = INIT_ORDER_MAPPING
 	init_stage = INITSTAGE_EARLY
 
 	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
@@ -209,6 +209,8 @@ SUBSYSTEM_DEF(atlas)
 		log_subsystem_atlas("Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
 	else
 		current_sector = selected_sector
+
+	current_sector.setup_current_sector()
 
 	return SS_INIT_SUCCESS
 

@@ -201,7 +201,27 @@
 /obj/structure/ladder/away //a ladder that just looks like it's going down
 	icon_state = "ladderawaydown"
 
-/// Note that stairs facing left/right may need the stairs_lower structure if they're not placed against walls.
+/**
+ * #Stairs
+ *
+ * Stairs allow you to traverse up and down between Z-levels
+ *
+ * They _MUST_ follow this bound rules:
+ *
+ * -If facing NORTH: `bound_height` to 64 and `bound_y` to -32
+ *
+ * -If facing SOUTH: `bound_height` to 64
+ *
+ * -If facing EAST: `bound_width` to 64 and `bound_x` to -32
+ *
+ * -If facing WEST: `bound_width` to 64
+ *
+ * No other bounds should be set on them except the ones described above
+ *
+ * A subtype must be defined, and those bounds set in code. DO NOT SET IT ON THE MAP ITSELF!
+ *
+ * Note that stairs facing left/right may need the stairs_lower structure if they're not placed against walls
+ */
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
@@ -297,9 +317,6 @@
 /obj/structure/stairs/west
 	dir = WEST
 	bound_width = 64
-
-/obj/structure/stairs/flat
-	icon_state = "stairs_flat"
 
 /// Snowflake railing object for 64x64 stairs.
 /obj/structure/stairs_railing

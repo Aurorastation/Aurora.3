@@ -70,7 +70,7 @@
 	return implant
 
 /obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
-	if(!CanInteract(user, physical_state))
+	if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 

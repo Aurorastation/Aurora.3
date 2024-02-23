@@ -1990,11 +1990,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/closet/secure_closet/freezer/kois,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/sign/biohazard{
 	pixel_x = -32
 	},
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -15110,6 +15110,10 @@
 	dir = 1;
 	id = "Bar_Private_Lounge";
 	pixel_y = 24
+	},
+/obj/item/lore_radio{
+	pixel_x = 9;
+	pixel_y = 2
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/bar)

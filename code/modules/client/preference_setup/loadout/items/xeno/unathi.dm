@@ -230,7 +230,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_security

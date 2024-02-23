@@ -2191,7 +2191,7 @@
 	description = "A simple syrup that tastes strongly of mint."
 	color = "#539830"
 	taste_description = "mint"
-
+	taste_mult = 5
 	glass_icon_state = "mint_syrupglass"
 	glass_name = "glass of mint syrup"
 	glass_desc = "Pure mint syrup. Prepare your tastebuds."
@@ -2465,7 +2465,7 @@
 	glass_name = "mug of apple cider juice"
 	glass_desc = "It's just spiced up apple juice. Sometimes the barista can't work miracles."
 
-/singleton/reagent/drink/NTellamilkshake
+/singleton/reagent/drink/ntella_milkshake
 	name = "NTella Milkshake"
 	description = "An intensely sweet chocolatey concoction with whipped cream on top."
 	color = "#6d4124"
@@ -2586,7 +2586,7 @@
 	glass_desc = "For everyone who liked to eat their toothpaste as a kid and never grew out of it."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
-/singleton/reagent/drink/NTellahotchocolate
+/singleton/reagent/drink/ntella_hot_chocolate
 	name = "NTella Hot Chocolate"
 	description = "It's like a cup of hot chocolate except... More everything."
 	color = "#63432e"
@@ -5814,6 +5814,7 @@
 	color = "#542a0c"
 	glass_name = "chocolate syrup"
 	glass_desc = "Thick chocolate syrup used to flavor drinks."
+	taste_mult = 5
 
 /singleton/reagent/drink/syrup_caramel
 	name = "Caramel Syrup"
@@ -5822,6 +5823,7 @@
 	color = "#85461e"
 	glass_name = "caramel syrup"
 	glass_desc = "Thick caramel syrup used to flavor drinks."
+	taste_mult = 5
 
 /singleton/reagent/drink/syrup_vanilla
 	name = "Vanilla Syrup"
@@ -5830,6 +5832,7 @@
 	color = "#f3e5ab"
 	glass_name = "vanilla syrup"
 	glass_desc = "Thick vanilla syrup used to flavor drinks."
+	taste_mult = 5
 
 /singleton/reagent/drink/syrup_pumpkin
 	name = "Pumpkin Spice Syrup"
@@ -5838,6 +5841,8 @@
 	color = "#d88b4c"
 	glass_name = "pumpkin spice syrup"
 	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+	taste_mult = 5
+
 //berry
 /singleton/reagent/drink/syrup_berry
 	name = "Berry Syrup"
@@ -5846,6 +5851,8 @@
 	color = "#c00726"
 	glass_name = "berry syrup"
 	glass_desc = "Thick berry syrup used to flavor drinks."
+	taste_mult = 5
+
 //strawberry
 /singleton/reagent/drink/syrup_strawberry
 	name = "Strawberry Syrup"
@@ -5854,6 +5861,8 @@
 	color = "#b40000"
 	glass_name = "strawberry syrup"
 	glass_desc = "Thick strawberry syrup used to flavor drinks."
+	taste_mult = 5
+
 //blueberry
 /singleton/reagent/drink/syrup_blueberry
 	name = "Blueberry Syrup"
@@ -5862,6 +5871,8 @@
 	color = "#0a0094"
 	glass_name = "blueberry syrup"
 	glass_desc = "Thick blueberry syrup used to flavor drinks."
+	taste_mult = 5
+
 //rasp
 /singleton/reagent/drink/syrup_raspberry
 	name = "Raspberry Syrup"
@@ -5870,6 +5881,8 @@
 	color = "#ad0042"
 	glass_name = "raspberry syrup"
 	glass_desc = "Thick raspberry syrup used to flavor drinks."
+	taste_mult = 5
+
 //black rasp
 /singleton/reagent/drink/syrup_blackraspberry
 	name = "Black Raspberry Syrup"
@@ -5878,6 +5891,8 @@
 	color = "#1b1618"
 	glass_name = "black raspberry syrup"
 	glass_desc = "Thick black raspberry syrup used to flavor drinks."
+	taste_mult = 5
+
 //blue rasp
 /singleton/reagent/drink/syrup_blueraspberry
 	name = "Blue Raspberry Syrup"
@@ -5886,6 +5901,8 @@
 	color = "#21154d"
 	glass_name = "blue raspberry syrup"
 	glass_desc = "Thick blue raspberry syrup used to flavor drinks."
+	taste_mult = 5
+
 //glow
 /singleton/reagent/drink/syrup_glowberry
 	name = "Glowberry Syrup"
@@ -5894,6 +5911,8 @@
 	color = "#f3e5ab"
 	glass_name = "glowberry syrup"
 	glass_desc = "Thick glowberry syrup used to flavor drinks."
+	taste_mult = 5
+
 //poison
 /singleton/reagent/drink/syrup_poisonberry
 	name = "Poison Berry Syrup"
@@ -5902,6 +5921,8 @@
 	color = "#f3e5ab"
 	glass_name = "poison berry syrup"
 	glass_desc = "Thick poison berry syrup used to flavor drinks."
+	taste_mult = 5
+
 //death
 /singleton/reagent/drink/syrup_deathberry
 	name = "Death Berry Syrup"
@@ -5910,6 +5931,8 @@
 	color = "#f3e5ab"
 	glass_name = "death berry syrup"
 	glass_desc = "Thick death berry syrup used to flavor drinks."
+	taste_mult = 5
+
 //ylpha
 /singleton/reagent/drink/syrup_ylphaberry
 	name = "Ylpha Berry Syrup"
@@ -5918,6 +5941,8 @@
 	color = "#790042"
 	glass_name = "ylpha berry syrup"
 	glass_desc = "Thick ylpha berry syrup used to flavor drinks."
+	taste_mult = 5
+
 //dirt
 /singleton/reagent/drink/syrup_dirtberry
 	name = "Dirt Berry Syrup"
@@ -5926,7 +5951,7 @@
 	color = "#85572c"
 	glass_name = "dirt berry syrup"
 	glass_desc = "Thick dirt berry syrup used to flavor drinks."
-
+	taste_mult = 5
 
 /singleton/reagent/drink/syrup_simple
 	name = "Simple Syrup"
@@ -5947,6 +5972,7 @@
 	reagent_state = LIQUID
 	description = "A caramel-based sauce. Now you're caramel dancin'."
 	taste_description = "toasty sweet cream"
+	taste_mult = 2
 
 /singleton/reagent/diona_powder
 	name = "Dionae Powder"

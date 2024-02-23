@@ -12,7 +12,7 @@
 
 /datum/gear/eyes/glasses
 	display_name = "glasses selection"
-	description = "A selection of glasses."
+	description = "A selection of prescription glasses."
 	path = /obj/item/clothing/glasses/regular
 
 /datum/gear/eyes/glasses/New()
@@ -23,8 +23,10 @@
 	glasses["glasses, circle"] = /obj/item/clothing/glasses/regular/circle
 	glasses["glasses, jamjar"] = /obj/item/clothing/glasses/regular/jamjar
 	glasses["glasses, monocle"] = /obj/item/clothing/glasses/monocle
-	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety
-	glasses["glasses, safety (prescription)"] = /obj/item/clothing/glasses/safety/prescription
+	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety/prescription
+	glasses["glasses, pince-nez"] = /obj/item/clothing/glasses/regular/pincenez
+	glasses["glasses, panto"] = /obj/item/clothing/glasses/regular/panto
+	glasses["contact lenses"] = /obj/item/clothing/glasses/regular/contacts
 	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/fakesunglasses
@@ -87,6 +89,8 @@
 	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
 	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
 	medhud["visor sunglasses, medical"] = /obj/item/clothing/glasses/hud/health/aviator/visor
+	medhud["pincenez, medical"] = /obj/item/clothing/glasses/hud/health/aviator/pincenez
+	medhud["panto, medical"] = /obj/item/clothing/glasses/hud/health/aviator/panto
 	gear_tweaks += new /datum/gear_tweak/path(medhud)
 
 /datum/gear/eyes/sechuds
@@ -105,6 +109,8 @@
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
 	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
 	sechud["visor sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+	sechud["pincenez, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pincenez
+	sechud["panto, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/panto
 	gear_tweaks += new /datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch

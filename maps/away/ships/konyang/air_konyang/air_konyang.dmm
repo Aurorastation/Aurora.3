@@ -114,7 +114,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "dI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
@@ -132,7 +132,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "dL" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 0663;
@@ -145,6 +145,13 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
+"ei" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/air_konyang/atmos)
 "ep" = (
 /obj/machinery/airlock_sensor/airlock_interior{
 	dir = 4;
@@ -160,7 +167,7 @@
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "eH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -261,7 +268,7 @@
 /area/shuttle/air_konyang/engineering)
 "hj" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "hk" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -335,7 +342,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "iq" = (
 /obj/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/tiled/dark,
@@ -381,7 +388,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "kG" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "air_konyang_1";
@@ -417,7 +424,7 @@
 "kX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "lR" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/carpet/brown,
@@ -492,7 +499,7 @@
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "nG" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 8
@@ -642,7 +649,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "rk" = (
 /obj/machinery/light{
 	dir = 8
@@ -677,7 +684,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "sA" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
@@ -717,7 +724,7 @@
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "uc" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -728,7 +735,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "up" = (
 /obj/machinery/vending/snack/konyang{
 	prices = list()
@@ -781,7 +788,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "vs" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
@@ -860,6 +867,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
+"wu" = (
+/obj/structure/closet/crate,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/turf/simulated/floor/plating,
+/area/shuttle/air_konyang/atmos)
 "wy" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/engineering)
@@ -1042,10 +1056,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ah" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Aq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -1151,7 +1165,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "CU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -1241,7 +1255,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "FT" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
@@ -1270,7 +1284,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "GG" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, passenger compartment"
@@ -1323,7 +1337,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Iu" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -1393,7 +1407,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ka" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1469,7 +1483,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "MB" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -1486,7 +1500,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ne" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -1515,7 +1529,7 @@
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Nw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -1543,7 +1557,7 @@
 	name = "Engineering"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "NT" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1572,7 +1586,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Oc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/effect/landmark/entry_point/aft{
@@ -1639,7 +1653,7 @@
 	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ql" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
@@ -1671,7 +1685,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Rd" = (
 /obj/machinery/light{
 	dir = 1
@@ -1711,7 +1725,7 @@
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
@@ -1726,7 +1740,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Sv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1855,7 +1869,7 @@
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Xb" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1877,7 +1891,7 @@
 	name = "Atmospherics"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "XA" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1928,7 +1942,7 @@
 "YI" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "YX" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light{
@@ -16927,9 +16941,9 @@ VJ
 VJ
 ze
 KO
-kP
+wu
 PZ
-mY
+ei
 CU
 Pa
 oY

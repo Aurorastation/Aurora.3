@@ -13,10 +13,8 @@
 		mind.active = 1
 		mind.current = src
 
-	loc = null
-
 	my_client = client
-	set_sight(sight|SEE_TURFS)
+	set_sight(BLIND)
 	GLOB.player_list |= src
 
 	client.playtitlemusic()

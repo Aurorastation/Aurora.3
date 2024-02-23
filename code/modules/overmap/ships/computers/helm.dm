@@ -194,7 +194,7 @@
 	if(action == "add")
 		var/datum/computer_file/data/waypoint/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return FALSE
 		if(!sec_name)
 			sec_name = "Sector #[known_sectors.len]"
@@ -208,10 +208,10 @@
 				R.fields["y"] = connected.y
 			if("new")
 				var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
-				if(!CanInteract(usr, physical_state))
+				if(!CanInteract(usr, GLOB.physical_state))
 					return TRUE
 				var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
-				if(!CanInteract(usr, physical_state))
+				if(!CanInteract(usr, GLOB.physical_state))
 					return FALSE
 				R.fields["x"] = Clamp(newx, 1, world.maxx)
 				R.fields["y"] = Clamp(newy, 1, world.maxy)
@@ -225,14 +225,14 @@
 
 	if (action == "setx")
 		var/newx = input("Input new destination x coordinate", "Coordinate input", dx) as num|null
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newx)
 			dx = Clamp(newx, 1, world.maxx)
 
 	if (action == "sety")
 		var/newy = input("Input new destination y coordinate", "Coordinate input", dy) as num|null
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newy)
 			dy = Clamp(newy, 1, world.maxy)

@@ -135,7 +135,7 @@
 /singleton/reagent/drink/milkshake
 	value = 0.12
 
-/singleton/reagent/drink/NTellamilkshake
+/singleton/reagent/drink/ntella_milkshake
 	value = 0.14
 
 /singleton/reagent/drink/shake_caramel
@@ -168,7 +168,7 @@
 /singleton/reagent/drink/shake_choco_mint
 	value = 0.13
 
-/singleton/reagent/drink/NTellahotchocolate
+/singleton/reagent/drink/ntella_hot_chocolate
 	value = 0.13
 
 /singleton/reagent/drink/rewriter

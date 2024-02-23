@@ -4450,7 +4450,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Investigator"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -6760,7 +6760,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/power/apc/low/west,
 /obj/structure/cable/green,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -6768,6 +6767,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/power/apc/west,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "feb" = (
@@ -7215,11 +7215,11 @@
 /turf/simulated/floor/tiled/full,
 /area/bridge/cciaroom)
 "frA" = (
-/obj/effect/landmark/start{
-	name = "Security Cadet"
-	},
 /obj/structure/bed/stool/chair{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Warden"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -7285,6 +7285,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/item/device/radio/microphone,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "ftA" = (
@@ -7467,7 +7468,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Investigator"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -11093,11 +11094,11 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/effect/landmark/start{
-	name = "Security Officer"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/effect/landmark/start{
+	name = "Security Cadet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -30890,10 +30891,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "Security Officer"
-	},
 /obj/machinery/firealarm/south,
+/obj/effect/landmark/start{
+	name = "Security Cadet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "vED" = (
@@ -33826,12 +33827,6 @@
 "xJq" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
-	},
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Security Officer"
 	},
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
@@ -61935,7 +61930,7 @@ lnI
 vTI
 pms
 fyZ
-xSX
+frA
 gTO
 xJq
 tGG
@@ -62137,7 +62132,7 @@ lnI
 mVs
 rhT
 fyZ
-frA
+xSX
 kxs
 vEh
 oIR
@@ -62339,7 +62334,7 @@ lnI
 kMa
 muO
 xPv
-frA
+xSX
 kxs
 hOi
 oIR

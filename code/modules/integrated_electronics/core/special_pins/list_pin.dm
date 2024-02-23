@@ -132,7 +132,7 @@
 /datum/integrated_io/list/display_pin_type()
 	return IC_FORMAT_LIST
 
-/datum/integrated_io/list/Topic(href, href_list, state = always_state)
+/datum/integrated_io/list/Topic(href, href_list, state = GLOB.always_state)
 	if(!holder.check_interactivity(usr))
 		return
 	if(..())
