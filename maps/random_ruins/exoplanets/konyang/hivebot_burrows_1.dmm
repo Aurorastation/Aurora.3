@@ -524,13 +524,6 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
-"jo" = (
-/obj/structure/ladder/mining{
-	pixel_y = 16
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/dirt_konyang/cave,
-/area/hivebot_burrows_1)
 "jt" = (
 /obj/structure/rope_post{
 	dir = 1
@@ -647,18 +640,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
-"lT" = (
-/obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
-	name = "duckboard"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/ladder/mining{
-	pixel_y = 16
-	},
-/turf/simulated/floor/exoplanet/dirt_konyang/cave,
-/area/hivebot_burrows_1)
 "lX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -695,14 +676,6 @@
 /obj/effect/landmark/corpse/miner/hivebot_burrows,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
-"me" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/ladder/mining{
-	pixel_y = 16
-	},
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_1)
 "my" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
@@ -1585,7 +1558,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "Du" = (
-/turf/simulated/abyss,
+/turf/simulated/floor/exoplanet/abyss,
 /area/hivebot_burrows_1)
 "Dz" = (
 /obj/random/dirt_75,
@@ -2012,9 +1985,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/ladder/mining{
-	pixel_y = 16
-	},
 /obj/structure/rope_post{
 	dir = 4
 	},
@@ -2078,18 +2048,6 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/barren/cave,
-/area/hivebot_burrows_1)
-"No" = (
-/obj/structure/ladder/mining{
-	pixel_y = 16
-	},
-/obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
-	name = "duckboard"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "NB" = (
 /obj/item/device/radio,
@@ -2742,9 +2700,6 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "ZH" = (
-/obj/structure/ladder/mining{
-	pixel_y = 16
-	},
 /obj/random/dirt_75,
 /obj/item/trash/broken_electronics{
 	pixel_x = -4;
@@ -3946,7 +3901,7 @@ eb
 Cn
 xf
 xf
-No
+hb
 Wd
 ED
 zN
@@ -3976,7 +3931,7 @@ Gh
 no
 xf
 xf
-me
+Wd
 xf
 xf
 xf
@@ -4004,7 +3959,7 @@ De
 zN
 xf
 xf
-lT
+hb
 YM
 CH
 xf
@@ -4534,7 +4489,7 @@ KN
 xf
 xf
 xf
-jo
+NY
 Zf
 ac
 xe

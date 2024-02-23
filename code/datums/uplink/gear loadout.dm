@@ -160,12 +160,12 @@
 
 /datum/uplink_item/item/gear_loadout/hammertail
 	name = "Hammertail Smiths Assets (Group)"
-	desc = "A crate containing gear for a group. The voidsuits are are only usable by humans."
+	desc = "A crate containing gear for a group. The voidsuits are are only usable by Unathi."
 	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail
 
 /datum/uplink_item/item/gear_loadout/hammertail_single
 	name = "Hammertail Smiths Assets (Single)"
-	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
 	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail/single
 	telecrystal_cost = 10
 
@@ -196,6 +196,7 @@
 	name = "Tau Ceti Armed Forces Assets (Group)"
 	desc = "A crate containing gear for a group."
 	path = /obj/structure/closet/crate/secure/gear_loadout/tcaf
+	telecrystal_cost = 50
 
 /datum/uplink_item/item/gear_loadout/tcaf_single
 	name = "Tau Ceti Armed Forces Assets (Single)"

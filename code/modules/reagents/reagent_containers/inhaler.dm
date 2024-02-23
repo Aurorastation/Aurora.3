@@ -43,7 +43,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
+	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
@@ -123,9 +123,9 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/reagent_containers/inhaler/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
+/obj/item/reagent_containers/inhaler/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [attacking_item], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 		return TRUE
@@ -146,12 +146,12 @@
 		add_overlay(reagent_overlay)
 	update_held_icon()
 
-/obj/item/reagent_containers/inhaler/examine(mob/user)
+/obj/item/reagent_containers/inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
+		. += "<span class='notice'>It is currently loaded.</span>"
 	else
-		to_chat(user, "<span class='notice'>It is spent.</span>")
+		. += "<span class='notice'>It is spent.</span>"
 
 /obj/item/reagent_containers/inhaler/dexalin
 	name_label = "dexalin"

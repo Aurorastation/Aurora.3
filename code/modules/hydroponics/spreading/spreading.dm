@@ -1,13 +1,12 @@
 #define DEFAULT_SEED "glowshroom"
 #define VINE_GROWTH_STAGES 5
 
-/proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=5, var/maturation_max=15)
-	set waitfor = FALSE
-
+/proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=1, var/maturation_max=3)
 	var/turf/T = pick_subarea_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
-		var/datum/seed/seed = SSplants.create_random_seed(1)
+		var/datum/seed/seed = SSplants.create_random_seed(TRUE, SEED_NOUN_PITS)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
+		seed.growth_stages = VINE_GROWTH_STAGES
 		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 70-100 potency will help guarantee a wide spread and powerful effects.
 		seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
 
@@ -53,6 +52,8 @@
 	var/max_health = 100
 	var/growth_threshold = 0
 	var/growth_type = 0
+
+	///The maximum growth of this plant effect, aka the maximum stage
 	var/max_growth = 0
 	var/list/neighbors = list()
 	var/obj/effect/plant/parent
@@ -118,10 +119,11 @@
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
 	spread_distance = (growth_type ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
-	addtimer(CALLBACK(src, PROC_REF(post_initialize)), 1)
+	return INITIALIZE_HINT_LATELOAD
 
 // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
-/obj/effect/plant/proc/post_initialize()
+/obj/effect/plant/LateInitialize()
+	. = ..()
 	set_dir(calc_dir())
 	update_icon()
 	SSplants.add_plant(src)
@@ -165,16 +167,25 @@
 			last_biolum = null
 
 /obj/effect/plant/proc/refresh_icon()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	overlays.Cut()
 	var/growth = 0
 	if(growth_threshold)
-		growth = min(max_growth,round(health/growth_threshold))
+		growth = min(max_growth, round(health/growth_threshold))
 	var/at_fringe = get_dist(src,parent)
 	if(spread_distance > 5)
 		if(at_fringe >= (spread_distance-3))
 			max_growth--
 		if(at_fringe >= (spread_distance-2))
 			max_growth--
+
+	var/image/our_icon = seed.get_icon(growth)
+
+	if(!istype(our_icon))
+		crash_with("The plant didn't return an icon!")
+
+	add_overlay(our_icon)
 
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
@@ -226,12 +237,12 @@
 	floor = 1
 	return 1
 
-/obj/effect/plant/attackby(var/obj/item/W, var/mob/user)
+/obj/effect/plant/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	SSplants.add_plant(src)
 
-	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
+	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 		if(sampled)
 			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
 			return
@@ -251,8 +262,8 @@
 		sampled = 1
 	else
 		playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
-		var/damage = W.force ? W.force : 1 //always do at least a little damage
-		if(W.edge || W.sharp)
+		var/damage = attacking_item.force ? attacking_item.force : 1 //always do at least a little damage
+		if(attacking_item.edge || attacking_item.sharp)
 			damage *= 2
 		health -= damage
 	check_health()

@@ -69,9 +69,9 @@
 		user.drop_from_inventory(src,O)
 		qdel(src)
 
-/obj/item/device/modkit/examine(mob/user)
+/obj/item/device/modkit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It looks as though it modifies voidsuits to fit [target_species] users.")
+	. += "It looks as though it modifies voidsuits to fit [target_species] users."
 
 /obj/item/device/modkit/tajaran
 	name = "tajaran voidsuit modification kit"

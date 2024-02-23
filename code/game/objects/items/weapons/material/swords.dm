@@ -189,9 +189,9 @@
 	force_divisor = 0.05
 	thrown_force_divisor = 0.2
 
-/obj/item/material/sword_hilt/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/material/sword_blade))
-		var/obj/item/material/sword_blade/blade = O
+/obj/item/material/sword_hilt/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/sword_blade))
+		var/obj/item/material/sword_blade/blade = attacking_item
 		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, blade.material.name)
 		new_sword.hilt = src
 		user.drop_from_inventory(src,new_sword)
@@ -212,9 +212,9 @@
 	force_divisor = 0.20
 	thrown_force_divisor = 0.3
 
-/obj/item/material/sword_blade/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/material/sword_hilt))
-		var/obj/item/material/sword_hilt/hilt = O
+/obj/item/material/sword_blade/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/sword_hilt))
+		var/obj/item/material/sword_hilt/hilt = attacking_item
 		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
 		new_sword.hilt = hilt.material
 		new_sword.assignDescription()

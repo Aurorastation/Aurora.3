@@ -87,12 +87,12 @@
 			P.connected = src
 			P.name = "[initial(P.name)] #[num++]"
 
-/obj/machinery/computer/cloning/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/disk/data)) //INSERT SOME DISKETTES
+/obj/machinery/computer/cloning/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/disk/data)) //INSERT SOME DISKETTES
 		if (!src.diskette)
-			user.drop_from_inventory(W,src)
-			src.diskette = W
-			to_chat(user, "You insert [W].")
+			user.drop_from_inventory(attacking_item,src)
+			src.diskette = attacking_item
+			to_chat(user, "You insert [attacking_item].")
 			src.updateUsrDialog()
 			return TRUE
 	else
@@ -384,7 +384,7 @@
 	if ((!subject.ckey) || (!subject.client))
 		scantemp = "Error: Mental interface failure."
 		return
-	if (HAS_FLAG(subject.mutations, NOCLONE))
+	if ((subject.mutations & NOCLONE))
 		scantemp = "Error: Mental interface failure."
 		return
 	if (subject.species && subject.species.flags & NO_SCAN)

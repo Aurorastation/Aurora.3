@@ -332,6 +332,7 @@
 /obj/item/gun/projectile/automatic/rifle/dominia/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
@@ -376,9 +377,9 @@
 
 	. = ..()
 
-/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
+/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/attacking_item, mob/user)
+	if((istype(attacking_item, /obj/item/grenade)))
+		launcher.load(attacking_item, user)
 	else
 		..()
 
@@ -403,12 +404,12 @@
 	else
 		icon_state = "carbine-empty"
 
-/obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
+/obj/item/gun/projectile/automatic/rifle/z8/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(launcher.chambered)
-		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
+		. += "\The [launcher] has \a [launcher.chambered] loaded."
 	else
-		to_chat(user, "\The [launcher] is empty.")
+		. += "\The [launcher] is empty."
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
@@ -634,6 +635,8 @@
 	caliber = "6mm"
 	suppressed = TRUE
 	can_unsuppress = FALSE
+	suppressor_x_offset = null
+	suppressor_y_offset = null
 	handle_casings = DELETE_CASINGS
 	max_shells = 30
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
@@ -832,6 +835,7 @@
 /obj/item/gun/projectile/automatic/rifle/dominia_lmg/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"

@@ -188,7 +188,7 @@ SUBSYSTEM_DEF(records)
 	update_static_data_for_all_viewers()
 
 /datum/controller/subsystem/records/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
 	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
@@ -338,7 +338,7 @@ SUBSYSTEM_DEF(records)
 		religions[religion.name] = religion
 
 	if (!religions.len)
-		crash_with("No citizenships located in SSrecords.")
+		crash_with("No religions located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/InitializeAccents()
 	for (var/type in subtypesof(/datum/accent))

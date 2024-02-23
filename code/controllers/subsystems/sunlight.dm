@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(sunlight)
 
 	var/thing
 	var/turf/T
-	for (thing in Z_ALL_TURFS(GLOB.config.sun_target_z))
+	for (thing in Z_TURFS(GLOB.config.sun_target_z))
 		T = thing
 		if (!(T.x % GLOB.config.sun_accuracy) && !(T.y % GLOB.config.sun_accuracy))
 			light_points += new /atom/movable/sunobj(thing)

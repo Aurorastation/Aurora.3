@@ -2,7 +2,7 @@
 	name = "Kazhkz Privateer Ship"
 	description = "Dominian Unathi pirates"
 	suffixes = list("ships/dominia/dominian_unathi_privateer/dominian_unathi_privateer.dmm")
-	sectors = list(SECTOR_BADLANDS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "dominian_unathi"
@@ -47,25 +47,25 @@
 	..()
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav1
-	name = "Kazhkz Privateer Ship - Fore"
+	name = "Fore"
 	landmark_tag = "nav_dominian_unathi_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav2
-	name = "Kazhkz Privateer Ship - Starboard"
+	name = "Starboard"
 	landmark_tag = "nav_dominian_unathi_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav3
-	name = "Kazhkz Privateer Ship - Port"
+	name = "Port"
 	landmark_tag = "nav_dominian_unathi_3"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav4
-	name = "Kazhkz Privateer Ship - Aft"
+	name = "Aft"
 	landmark_tag = "nav_dominian_unathi_4"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
@@ -97,6 +97,7 @@
 	shuttle_area = list(/area/shuttle/dominian_unathi)
 	current_location = "nav_hangar_kazhkz"
 	landmark_transition = "nav_transit_kazhkz_shuttle"
+	dock_target = "airlock_kazhkz_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_kazhkz"
@@ -105,6 +106,7 @@
 /obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar
 	name = "Kazhkz Privateer Ship - Fighter Bay"
 	landmark_tag = "nav_hangar_kazhkz"
+	docking_controller = "kazhkz_shuttle_dock"
 	base_area = /area/ship/dominian_unathi/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

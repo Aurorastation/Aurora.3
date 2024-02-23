@@ -317,9 +317,9 @@ There are several things that need to be remembered:
 
 	var/husk_color_mod = rgb(96,88,80)
 
-	var/husk = HAS_FLAG(mutations, HUSK)
-	var/fat = HAS_FLAG(mutations, FAT)
-	var/skeleton = HAS_FLAG(mutations, SKELETON)
+	var/husk = (mutations & HUSK)
+	var/fat = (mutations & FAT)
+	var/skeleton = (mutations & SKELETON)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -516,7 +516,7 @@ There are several things that need to be remembered:
 		return
 
 	var/fat
-	if(HAS_FLAG(mutations, FAT))
+	if((mutations & FAT))
 		fat = "fat"
 
 	var/image/standing	= image("icon" = 'icons/effects/genetics.dmi')
@@ -532,7 +532,7 @@ There are several things that need to be remembered:
 			if(underlay)
 				standing.underlays += underlay
 				add_image = 1
-	if(HAS_FLAG(mutations, LASER_EYES))
+	if((mutations & LASER_EYES))
 		standing.overlays += "lasereyes_s"
 		add_image = 1
 	if(add_image)
@@ -1300,7 +1300,7 @@ There are several things that need to be remembered:
 
 	var/tail_layer = GET_TAIL_LAYER
 
-	if(species.tail && NOT_FLAG(mutations, HUSK) && NOT_FLAG(mutations, SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(species.tail && !(mutations & HUSK) && !(mutations & SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
 		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
 		animate_tail_reset()

@@ -70,10 +70,12 @@
 /obj/effect/shuttle_landmark/water_barge/dock
 	name = "PACHROM Water Barge - Port Dock"
 	landmark_tag = "water_barge_dock"
+	docking_controller = "airlock_barge_portdock"
 
 /obj/effect/shuttle_landmark/water_barge/starboarddock
 	name = "PACHROM Water Barge - Starboard Dock"
 	landmark_tag = "water_barge_dock_s"
+	docking_controller = "airlock_barge_stbddock"
 
 //Shuttle Stuff
 
@@ -97,7 +99,7 @@
 	shuttle_area = list(/area/shuttle/water_barge)
 	current_location = "nav_water_barge_hangar"
 	landmark_transition = "nav_water_barge_transit"
-	dock_target = "water_barge_shuttle"
+	dock_target = "airlock_waterbarge_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_water_barge_hangar"

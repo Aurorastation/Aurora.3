@@ -40,7 +40,7 @@
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
-		if(HAS_FLAG(user.mutations, HULK))
+		if((user.mutations & HULK))
 			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
 			attack_generic(user,1,"smashes")
 		else if(istype(user,/mob/living/carbon/human))

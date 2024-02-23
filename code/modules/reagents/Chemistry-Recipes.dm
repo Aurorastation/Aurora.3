@@ -1259,7 +1259,7 @@
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
-		/mob/living/simple_animal/hostile/spider_queen,
+		/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen,
 		/mob/living/simple_animal/hostile/tree,
 		/mob/living/simple_animal/hostile/mimic,
 		/mob/living/simple_animal/hostile/cavern_geist,
@@ -2011,22 +2011,22 @@
 	name = "Sencha"
 	id = "sencha"
 	result = /singleton/reagent/drink/tea/sencha
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 9)
+	result_amount = 10
 
 /datum/chemical_reaction/drink/tieguanyin
 	name = "Tieguanyin"
 	id = "tieguanyin"
 	result = /singleton/reagent/drink/tea/tieguanyin
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 9)
+	result_amount = 10
 
 /datum/chemical_reaction/drink/jaekseol
 	name = "jaekseol"
 	id = "jaekseol"
 	result = /singleton/reagent/drink/tea/jaekseol
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 9)
+	result_amount = 10
 
 /datum/chemical_reaction/drink/cocatea
 	name = "Mate de Coca"
@@ -3041,10 +3041,10 @@
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 1
 
-/datum/chemical_reaction/drink/NTellashake
+/datum/chemical_reaction/drink/ntella_shake
 	name = "NTella milkshake"
 	id = "NTellamilkshake"
-	result = /singleton/reagent/drink/NTellamilkshake
+	result = /singleton/reagent/drink/ntella_milkshake
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/nutriment/choconutspread = 1)
 	result_amount = 6
 
@@ -3118,10 +3118,10 @@
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/mintsyrup = 1)
 	result_amount = 6
 
-/datum/chemical_reaction/drink/NTellahotchocolate
+/datum/chemical_reaction/drink/ntella_hot_chocolate
 	name = "NTella hot chocolate"
 	id = "NTellahotchocolate"
-	result = /singleton/reagent/drink/NTellahotchocolate
+	result = /singleton/reagent/drink/ntella_hot_chocolate
 	required_reagents = list(/singleton/reagent/drink/milk = 1, /singleton/reagent/nutriment/choconutspread = 1, /singleton/reagent/drink/milk/cream = 1)
 	result_amount = 3
 

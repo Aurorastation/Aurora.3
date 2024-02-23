@@ -9,47 +9,47 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("bun" = 3))
 
-/obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/reagent_containers/food/snacks/result = null
 	// Bun + meatball = burger
-	if(istype(W,/obj/item/reagent_containers/food/snacks/meatball))
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/meatball))
 		result = new /obj/item/reagent_containers/food/snacks/burger(src)
 		to_chat(user, "You make a burger.")
 
 	// Bun + cutlet = hamburger
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/cutlet))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/cutlet))
 		result = new /obj/item/reagent_containers/food/snacks/burger(src)
 		to_chat(user, "You make a burger.")
 
 	//Bun + katsu = chickenfillet
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/chickenkatsu))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/chickenkatsu))
 		result = new /obj/item/reagent_containers/food/snacks/chickenfillet(src)
 		to_chat(user, "You make a chicken fillet sandwich.")
 
 	// Bun + sausage = hotdog
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/sausage))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sausage))
 		result = new /obj/item/reagent_containers/food/snacks/hotdog(src)
 		to_chat(user, "You make a hotdog.")
 
-	else if(istype(W,/obj/item/reagent_containers/food/snacks/variable/mob))
-		var/obj/item/reagent_containers/food/snacks/variable/mob/MF = W
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/variable/mob))
+		var/obj/item/reagent_containers/food/snacks/variable/mob/MF = attacking_item
 
 		switch (MF.kitchen_tag)
 			if ("rodent")
 				result = new /obj/item/reagent_containers/food/snacks/burger/mouse(src)
 				to_chat(user, "You make a ratburger!")
 
-	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/roll/R = new(get_turf(src))
-		R.attackby(W,user)
+		R.attackby(attacking_item, user)
 		qdel(src)
 
 	if (result)
-		if (W.reagents)
+		if (attacking_item.reagents)
 			//Reagents of reuslt objects will be the sum total of both.  Except in special cases where nonfood items are used
 			//Eg robot head
 			result.reagents.clear_reagents()
-			W.reagents.trans_to(result, W.reagents.total_volume)
+			attacking_item.reagents.trans_to(result, attacking_item.reagents.total_volume)
 			reagents.trans_to(result, reagents.total_volume)
 
 		//If the bun was in your hands, the result will be too
@@ -57,7 +57,7 @@
 			user.drop_from_inventory(src) //This has to be here in order to put the pun in the proper place
 			user.put_in_hands(result)
 
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/bunbun
@@ -322,6 +322,17 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("dryness" = 2, "bread" = 2))
 	bitesize = 1
 
+/obj/item/reagent_containers/food/snacks/angry_bread
+	name = "angry bread"
+	desc = "Slices of flatbread with strips of grilled or ground xenomeat lying on top of thinly sliced grilled carrots, topped with walnuts, spices and/or grated cheddar. This recipe was created by a miner from New Gibson who runs a food blog."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "angrybread"
+	bitesize = 5
+	trash = /obj/item/trash/plate
+	filling_color = "#1d5a25"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 9)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 10, "carrot" = 6), /singleton/reagent/nutriment/protein = list("nutty umami meat" = 10,  "cheese" = 5))
+
 //================================
 // Toasts and Toasted Sandwiches
 //================================
@@ -384,7 +395,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/NTellabread
+/obj/item/reagent_containers/food/snacks/ntella_bread
 	name = "NTella bread slice"
 	desc = "A slice of bread covered with delicious chocolate-hazelnut spread."
 	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'

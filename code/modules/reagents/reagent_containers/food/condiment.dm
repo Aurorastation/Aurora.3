@@ -111,16 +111,42 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/flour = 200)
 
 /obj/item/reagent_containers/food/condiment/barbecue
+	icon_state = "barbecue"
 	fixed_state = TRUE
 	reagents_to_add = list(/singleton/reagent/nutriment/barbecue = 20)
 
 /obj/item/reagent_containers/food/condiment/garlicsauce
+	icon_state = "garlic_sauce"
 	fixed_state = TRUE
 	reagents_to_add = list(/singleton/reagent/nutriment/garlicsauce = 50)
 
 /obj/item/reagent_containers/food/condiment/pacid
 	name = "culinary acid"
 	reagents_to_add = list(/singleton/reagent/acid/polyacid = 50)
+
+/obj/item/reagent_containers/food/condiment/honey
+	icon_state = "honey"
+	fixed_state = TRUE
+	name = "honey"
+	reagents_to_add = list(/singleton/reagent/nutriment/honey = 50)
+
+/obj/item/reagent_containers/food/condiment/soysauce
+	icon_state = "soysauce"
+	fixed_state = TRUE
+	name = "soy sauce"
+	reagents_to_add = list(/singleton/reagent/nutriment/soysauce = 50)
+
+/obj/item/reagent_containers/food/condiment/ketchup
+	icon_state = "ketchup"
+	fixed_state = TRUE
+	name = "ketchup"
+	reagents_to_add = list(/singleton/reagent/nutriment/ketchup = 50)
+
+/obj/item/reagent_containers/food/condiment/mayonnaise
+	icon_state = "mayonnaise"
+	fixed_state = TRUE
+	name = "mayonnaise"
+	reagents_to_add = list(/singleton/reagent/nutriment/mayonnaise = 50)
 
 //MRE condiments and drinks.
 
@@ -258,3 +284,15 @@
 
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/brown
 	reagents_to_add = list(/singleton/reagent/crayon_dust/brown = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/toothpaste
+	name = "toothpaste packet"
+	desc = "Contains 5u of toothpaste."
+	icon_state = "packet_small_white"
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/phoron
+	name = "phoron packet"
+	desc = "Contains 5u of phoron."
+	icon_state = "packet_small_yellow"
+	reagents_to_add = list(/singleton/reagent/toxin/phoron = 5)

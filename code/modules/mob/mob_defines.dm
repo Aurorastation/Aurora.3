@@ -5,6 +5,7 @@
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	sight = DEFAULT_SIGHT
 	var/datum/mind/mind
+	var/static/next_mob_id = 0
 
 	// we never want to hide a turf because it's not lit
 	// We can rely on the lighting plane to handle that for us

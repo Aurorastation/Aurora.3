@@ -17,40 +17,37 @@
 			/obj/item/stock_parts/console_screen = 1
 		)
 
-/obj/machinery/weapons_analyzer/examine(mob/user)
+/obj/machinery/weapons_analyzer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	var/name_of_thing = ""
-	if(item)
-		name_of_thing = item.name
-	to_chat(user, SPAN_NOTICE("It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
+	. += SPAN_NOTICE("It has [item ? "[item.name]" : "nothing"] attached.")
 
-/obj/machinery/weapons_analyzer/attackby(var/obj/item/I, var/mob/user as mob)
-	if(!I || !user || !ishuman(user))
+/obj/machinery/weapons_analyzer/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item || !user || !ishuman(user))
 		return
 
 	var/mob/living/carbon/human/H = user
 
-	if(istype(I, /obj/item/gun))
-		check_swap(user, I)
-		item = I
-		H.drop_from_inventory(I)
-		I.forceMove(src)
+	if(istype(attacking_item, /obj/item/gun))
+		check_swap(user, attacking_item)
+		item = attacking_item
+		H.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(src)
 		update_icon()
-	else if(istype(I, /obj/item/device/laser_assembly))
-		check_swap(user, I)
-		var/obj/item/device/laser_assembly/A = I
+	else if(istype(attacking_item, /obj/item/device/laser_assembly))
+		check_swap(user, attacking_item)
+		var/obj/item/device/laser_assembly/A = attacking_item
 		A.ready_to_craft = TRUE
 		item = A
-		H.drop_from_inventory(I)
-		I.forceMove(src)
+		H.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(src)
 		A.analyzer = WEAKREF(src)
 		update_icon()
-	else if(istype(I, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
+	else if(istype(attacking_item, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
 		if(process)
 			to_chat(user, SPAN_WARNING("\The [src] is busy installing a component already."))
 			return
 		var/obj/item/device/laser_assembly/A = item
-		var/success = A.attackby(I, user)
+		var/success = A.attackby(attacking_item, user)
 		if(!success)
 			return
 
@@ -62,11 +59,11 @@
 			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
 		process = TRUE
 		update_icon()
-	else if(I)
-		check_swap(user, I)
-		item = I
-		H.drop_from_inventory(I)
-		I.forceMove(src)
+	else if(attacking_item)
+		check_swap(user, attacking_item)
+		item = attacking_item
+		H.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(src)
 		update_icon()
 
 /obj/machinery/weapons_analyzer/attack_hand(mob/user)

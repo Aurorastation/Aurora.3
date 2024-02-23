@@ -2,7 +2,7 @@
 
 SUBSYSTEM_DEF(misc_late)
 	name = "Late Miscellaneous Init"
-	init_order = SS_INIT_MISC
+	init_order = INIT_ORDER_MISC
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 	/// this is a list of things that fire when late misc init is called
@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(misc_late)
 		if (area_turfs.len) // Check the area is mapped
 			GLOB.ghostteleportlocs += AR.name
 			GLOB.ghostteleportlocs[AR.name] = AR
-	if(current_map.use_overmap && map_overmap)
+	if(SSatlas.current_map.use_overmap && map_overmap)
 		GLOB.ghostteleportlocs[map_overmap.name] = map_overmap
 
 	sortTim(GLOB.ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))

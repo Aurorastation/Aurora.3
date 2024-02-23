@@ -30,6 +30,9 @@
 
 #define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
 
+/// Adds a generic box around whatever message you're sending in chat. Really makes things stand out.
+#define EXAMINE_BLOCK(str) ("<div class='examine_block'>" + str + "</div>")
+
 #define FONT_SIZE_SMALL "10px"
 #define FONT_SIZE_NORMAL "13px"
 #define FONT_SIZE_LARGE "16px"

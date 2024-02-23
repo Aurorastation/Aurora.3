@@ -54,6 +54,10 @@
 
 	var/last_clean //for clean log spam.
 
+	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
+	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
+	var/mob/oranges_ear/assigned_oranges_ear
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -90,7 +94,7 @@
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
@@ -316,12 +320,12 @@ var/const/enterloopsanity = 100
 /turf/proc/can_lay_cable()
 	return can_have_cabling()
 
-/turf/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/grab))
-		var/obj/item/grab/grab = C
+/turf/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/grab = attacking_item
 		step(grab.affecting, get_dir(grab.affecting, src))
-	if (can_lay_cable() && C.iscoil())
-		var/obj/item/stack/cable_coil/coil = C
+	if (can_lay_cable() && attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
 		..()
@@ -394,27 +398,25 @@ var/const/enterloopsanity = 100
 /turf/proc/clean(atom/source, mob/user)
 	if(source.reagents.has_reagent(/singleton/reagent/water, 1) || source.reagents.has_reagent(/singleton/reagent/spacecleaner, 1))
 		clean_blood()
-		if(istype(src, /turf/simulated))
-			var/turf/simulated/T = src
-			T.dirt = 0
-			if(istype(src, /turf/simulated/floor))
-				var/turf/simulated/floor/F = src
-				if(F.flooring)
-					F.color = F.flooring.color
-				else
-					F.color = null
-			else
-				T.color = null
+
 		for(var/obj/effect/O in src)
-			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+			if(istype(O, /obj/effect/decal/cleanable))
 				qdel(O)
-			if(istype(O,/obj/effect/rune))
+
+			if(istype(O, /obj/effect/overlay))
+				var/obj/effect/overlay/OV = O
+				if(OV.no_clean)
+					continue
+				else
+					qdel(OV)
+
+			if(istype(O, /obj/effect/rune))
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
 	else
-		if( !(last_clean && world.time < last_clean + 100) )
+		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
 			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.

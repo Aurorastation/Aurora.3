@@ -37,20 +37,35 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/miners_guild/nav1
-	name = "Miners' Guild Outpost - Fore"
+	name = "Fore"
 	landmark_tag = "miners_guild_nav1"
 
 /obj/effect/shuttle_landmark/miners_guild/nav2
-	name = "Miners' Guild Outpost - Port"
+	name = "Port"
 	landmark_tag = "miners_guild_nav2"
 
 /obj/effect/shuttle_landmark/miners_guild/nav3
-	name = "Miners' Guild Outpost - Starboard"
+	name = "Starboard"
 	landmark_tag = "miners_guild_nav3"
 
 /obj/effect/shuttle_landmark/miners_guild/nav4
-	name = "Miners' Guild Outpost - Aft"
+	name = "Aft"
 	landmark_tag = "miners_guild_nav4"
+
+/obj/effect/shuttle_landmark/miners_guild/dock1
+	name = "Aft Docking Bay"
+	landmark_tag = "miners_guild_dock1"
+	docking_controller = "airlock_minersguild_dock1"
+
+/obj/effect/shuttle_landmark/miners_guild/dock2
+	name = "Port Docking Bay"
+	landmark_tag = "miners_guild_dock2"
+	docking_controller = "airlock_minersguild_dock2"
+
+/obj/effect/shuttle_landmark/miners_guild/dock3
+	name = "Starboard Docking Bay"
+	landmark_tag = "miners_guild_dock3"
+	docking_controller = "airlock_minersguild_dock3"
 
 /obj/effect/overmap/visitable/sector/miners_guild_station/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "guild_station")
@@ -92,14 +107,16 @@
 	shuttle_area = list(/area/shuttle/miners_guild)
 	current_location = "miners_guild_navhangar"
 	landmark_transition = "miners_guild_navtransit"
+	dock_target = "airlock_guild_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "miners_guild_navhangar"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/miners_guild/hangar
-	name = "Miners' Guild Outpost - Hangar"
+	name = "Hangar"
 	landmark_tag = "miners_guild_navhangar"
+	docking_controller = "guild_shuttle_dock"
 	base_area = /area/miners_guild/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
