@@ -5386,6 +5386,30 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"qa" = (
+/obj/structure/closet/secure_closet{
+	req_access = list(217)
+	},
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/konyang/police,
+/obj/item/clothing/under/rank/konyang/police,
+/obj/item/clothing/under/rank/konyang/police,
+/obj/item/clothing/head/konyang/police,
+/obj/item/clothing/head/konyang/police,
+/obj/item/clothing/head/konyang/police,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "qb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
@@ -27930,7 +27954,7 @@ rf
 Ir
 FD
 RX
-AN
+qa
 lC
 lC
 AN

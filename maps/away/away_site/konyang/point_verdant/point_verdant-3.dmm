@@ -1914,6 +1914,22 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/clothing/accessory/konyang,
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
+/obj/item/clothing/suit/storage/toggle/konyang/akira,
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket,
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket/blue,
+/obj/item/clothing/under/konyang/male,
+/obj/item/clothing/under/konyang/male,
+/obj/item/clothing/under/konyang/blue,
+/obj/item/clothing/under/konyang/male/sleeveless,
+/obj/item/clothing/under/konyang/pink,
+/obj/item/clothing/under/konyangdresstraditional/green,
+/obj/item/clothing/under/konyangdresstraditional/red,
+/obj/item/clothing/under/konyangdresstraditional/national/vest,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "oY" = (
