@@ -108,7 +108,7 @@
 	desc = "Guard the hideout. Sell illicit goods and ingratiate yourself with the local community. Try not to get caught doing anything illegal."
 	tags = list("External")
 	spawnpoints = list("konyang_goon")
-	max_count = 2
+	max_count = 3
 	outfit = /datum/outfit/admin/konyang_goon
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -148,7 +148,7 @@
 	short_name = "konyang_vendor"
 	name = "Point Verdant Vendor"
 	desc = "Man the stores around Point Verdant. Sell goods to the visiting crewmembers. Try not to get shaken down by the local 5-Cheung thugs."
-	max_count = 4
+	max_count = 6
 	tags = list("External")
 	spawnpoints = list("konyang_vendor")
 	outfit = /datum/outfit/admin/konyang_vendor
@@ -266,7 +266,7 @@
 	short_name = "konyang_gwok"
 	name = "UP! Burger Employee"
 	desc = "Sell fast food and other Gwok-brand merchandise! Explain why the soft-serve machine is broken again."
-	max_count = 1
+	max_count = 2
 	tags = list("External")
 	spawnpoints = list("konyang_gwok")
 	outfit = /datum/outfit/admin/konyang_gwok
