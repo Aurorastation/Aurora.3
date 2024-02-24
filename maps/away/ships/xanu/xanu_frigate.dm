@@ -6,6 +6,7 @@
 	to return the favor in a gunfight."
 	suffixes = list("ships/xanu/xanu_frigate.dmm")
 	sectors = list(ALL_COALITION_SECTORS)
+	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "xanu_frigate"

@@ -21,7 +21,7 @@
 
 /datum/ghostspawner/human/xanufrigate_crewman/officer
 	name = "All-Xanu Spacefleet Frigate Officer"
-	short_name = "Xanufrigate_captain"
+	short_name = "Xanufrigate_officer"
 	desc = "Serve as an officer aboard a naval frigate of the All-Xanu Spacefleet, the navy of Xanu Prime and one of the largest component navies of the Coalition of Colonies."
 	welcome_message = "You're an officer of an All-Xanu Spacefleet vessel, representing Xanu Prime and protecting the Coalition of Colonies. You are a military officer, and are trained extensively in combat, survival, and damage control, as well as \
 	leadership and tactical strategy."
