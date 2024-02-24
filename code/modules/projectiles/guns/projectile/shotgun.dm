@@ -49,7 +49,6 @@
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
-	accuracy = 0
 	max_shells = 4
 	w_class = ITEMSIZE_LARGE
 	force = 10

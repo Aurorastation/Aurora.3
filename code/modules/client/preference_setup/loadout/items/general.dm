@@ -247,6 +247,7 @@
 	banners["banner, Svarog"] = /obj/item/flag/svarog
 	banners["banner, Empyrean"] = /obj/item/flag/empyrean
 	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
+	banners["banner, Callisto"] = /obj/item/flag/callisto
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -331,6 +332,7 @@
 	flags["flag, Svarog"] = /obj/item/flag/svarog/l
 	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
 	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
+	flags["flag, Callisto"] = /obj/item/flag/callisto/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -424,3 +426,7 @@
 	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
 	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
 	gear_tweaks += new /datum/gear_tweak/path(instruments)
+
+/datum/gear/lore_radio
+	display_name = "analog radio"
+	path = /obj/item/lore_radio

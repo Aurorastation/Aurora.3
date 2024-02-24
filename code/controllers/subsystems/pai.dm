@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(pai)
 	name = "pAI"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE | SS_NO_INIT
 
 	var/list/pai_software_by_key
@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(pai)
 	default_pai_software = SSpai.default_pai_software
 
 /datum/controller/subsystem/pai/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/pai/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE

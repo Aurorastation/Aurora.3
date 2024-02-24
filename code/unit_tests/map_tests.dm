@@ -341,5 +341,36 @@
 
 	return 1
 
+/datum/unit_test/map_test/stairs_mapped
+	name = "MAP: Stairs"
+
+/datum/unit_test/map_test/stairs_mapped/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	//Loop through all the stairs in the map
+	for(var/obj/structure/stairs/a_stair in world)
+
+		//See if there is any other stair in the same turf
+		for(var/obj/structure/stairs/possibly_another_stair in get_turf(a_stair))
+			if(a_stair != possibly_another_stair)
+				test_status = TEST_FAIL("Duplicate stairs located in [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z! \
+											Only one stair should exist inside a turf.")
+
+		if(is_abstract(a_stair))
+			test_status = TEST_FAIL("The stairs located in [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z are of an abstract type ([a_stair.type]) that should never be mapped!")
+
+		//Check that noone changed the bounds in the map editor
+		if(a_stair.bound_height != initial(a_stair.bound_height) || a_stair.bound_width != initial(a_stair.bound_width) || \
+			a_stair.bound_x != initial(a_stair.bound_x) || a_stair.bound_y != initial(a_stair.bound_y))
+
+			test_status = TEST_FAIL("The stairs at [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z have map-defined bounds!")
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All the mapped stairs are valid.")
+	else
+		TEST_FAIL("Some mapped stairs are invalid!")
+
+	return test_status
+
 #undef SUCCESS
 #undef FAILURE

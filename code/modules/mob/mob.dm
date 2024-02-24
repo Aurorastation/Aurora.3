@@ -45,6 +45,10 @@
 
 	return ..()
 
+/mob/New()
+	// This needs to happen IMMEDIATELY. I'm sorry :(
+	GenerateTag()
+	return ..()
 
 /mob/proc/remove_screen_obj_references()
 	flash = null
@@ -86,6 +90,15 @@
 		MOB_START_THINKING(src)
 
 	become_hearing_sensitive()
+
+/**
+ * Generate the tag for this mob
+ *
+ * This is simply "mob_"+ a global incrementing counter that goes up for every mob
+ */
+/mob/GenerateTag()
+	. = ..()
+	tag = "mob_[next_mob_id++]"
 
 /mob/verb/say_wrapper()
 	set name = ".Say"

@@ -3111,3 +3111,41 @@
 
 /obj/structure/sign/flag/scarab/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+// Callisto
+
+/obj/item/flag/callisto
+	name = "\improper Callistean flag"
+	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
+	flag_path = "callisto"
+	flag_structure = /obj/structure/sign/flag/callisto
+
+/obj/structure/sign/flag/callisto
+	name = "\improper Callistean flag"
+	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
+	flag_path = "callisto"
+	icon_state = "callisto"
+	flag_item = /obj/item/flag/callisto
+
+/obj/item/flag/callisto/l
+	name = "large Callistean flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/callisto/large
+
+/obj/structure/sign/flag/callisto/large
+	icon_state = "callisto_l"
+	flag_path = "callisto"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/callisto/l
+
+/obj/structure/sign/flag/callisto/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/callisto/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/callisto/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/callisto/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)

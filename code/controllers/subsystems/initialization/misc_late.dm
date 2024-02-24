@@ -2,7 +2,7 @@
 
 SUBSYSTEM_DEF(misc_late)
 	name = "Late Miscellaneous Init"
-	init_order = SS_INIT_MISC
+	init_order = INIT_ORDER_MISC
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 	/// this is a list of things that fire when late misc init is called

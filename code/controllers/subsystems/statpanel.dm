@@ -125,7 +125,7 @@ SUBSYSTEM_DEF(statpanels)
 
 /datum/controller/subsystem/statpanels/proc/set_SDQL2_tab(client/target)
 	var/list/sdql2A = list()
-	sdql2A[++sdql2A.len] = list("", "Access Global SDQL2 List", ref(GLOB.sdql2_vv_statobj))
+	sdql2A[++sdql2A.len] = list("", "Access Global SDQL2 List", REF(GLOB.sdql2_vv_statobj))
 	var/list/sdql2B = list()
 	for(var/datum/sdql2_query/query as anything in GLOB.sdql2_queries)
 		sdql2B = query.generate_stat()
@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(statpanels)
 			continue
 		// We already have it. Success!
 		if(existing_image)
-			turf_items[++turf_items.len] = list("[turf_item.name]", ref(turf_item), existing_image)
+			turf_items[++turf_items.len] = list("[turf_item.name]", REF(turf_item), existing_image)
 			continue
 		// Now, we're gonna queue image generation out of those refs
 		to_make += turf_item

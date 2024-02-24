@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(ghostroles)
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_GHOSTROLES
+	init_order = INIT_ORDER_GHOSTROLES
 
 	var/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1
@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(ghostroles)
 			return get_turf(P)
 
 /datum/controller/subsystem/ghostroles/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/ghostroles/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE

@@ -6,7 +6,7 @@
 
 SUBSYSTEM_DEF(alarm)
 	name = "Alarms"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	priority = SS_PRIORITY_ALARMS
 	runlevels = RUNLEVELS_PLAYING
 

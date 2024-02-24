@@ -4,7 +4,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 PROCESSING_SUBSYSTEM_DEF(ntsl2)
 	name = "NTSL2"
 	flags = 0
-	init_order = SS_INIT_MISC
+	init_order = INIT_ORDER_MISC
 	// priority = SS_PRIORITY_PROCESSING
 	var/connected = FALSE
 	var/list/programs = list()

@@ -159,7 +159,7 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
+/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time
@@ -294,7 +294,7 @@ Just a object used in constructing fire alarms
 	A.partyreset()
 	return
 
-/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
+/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time
