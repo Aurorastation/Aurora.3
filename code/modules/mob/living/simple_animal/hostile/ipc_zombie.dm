@@ -7,9 +7,9 @@
 	blood_type = COLOR_OIL
 	health = 100
 	maxHealth = 100
-	melee_damage_lower = 20
+	melee_damage_lower = 15
 	melee_damage_upper = 20
-	armor_penetration = 40
+	armor_penetration = 20
 	attack_sound = 'sound/weapons/smash.ogg'
 	attacktext = "smashed"
 	faction = "hivebot"
