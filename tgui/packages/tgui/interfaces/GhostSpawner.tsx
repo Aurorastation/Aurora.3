@@ -87,7 +87,7 @@ export const GhostSpawner = (props, context) => {
     ``
   );
 
-  const spawners = data.spawners.filter(
+  const spawners = data.spawners?.filter(
     (S) => S.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
   );
 
@@ -155,7 +155,7 @@ export const GhostSpawner = (props, context) => {
               <Table.Cell>Available Slots</Table.Cell>
               <Table.Cell>Actions</Table.Cell>
             </Table.Row>
-            {spawners.map(
+            {spawners?.map(
               (spawner) =>
                 (spawner.tags.indexOf(tab) > -1 || tab === 'All') && (
                   <Table.Row

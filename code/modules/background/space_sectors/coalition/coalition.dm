@@ -79,3 +79,11 @@
 		'sound/music/lobby/konyang/konyang-3.ogg',
 		'sound/music/lobby/konyang/konyang-4.ogg'
 	)
+
+	lore_radio_stations = list(
+		"73.2 Navy Broadcasting Service" = "config/lore_radio/konyang/73.2_Navy_Broadcasting_Service.txt",
+		"122 Great Blue Dot" = "config/lore_radio/konyang//122_Great_Blue_Dot.txt",
+		"75.4 PBA" = "config/lore_radio/konyang/75.4_PBA.txt",
+		"77.7 SoulFM" = "config/lore_radio/konyang/77.7_SoulFM.txt",
+		"78.1 RealFM" = "config/lore_radio/konyang/78.1_RealFM.txt"
+	)
