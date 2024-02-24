@@ -83,20 +83,20 @@
 	landmark_tag = "scarab_dock2"
 
 /obj/effect/shuttle_landmark/coc_scarab/dock3
-	name = "Scarab Salvage Vessel - Starboard Dock #1"
+	name = "Scarab Salvage Vessel - Port Dock #3"
 	landmark_tag = "scarab_dock3"
 
 /obj/effect/shuttle_landmark/coc_scarab/dock4
+	name = "Scarab Salvage Vessel - Starboard Dock #1"
+	landmark_tag = "scarab_dock3"
+
+/obj/effect/shuttle_landmark/coc_scarab/dock5
 	name = "Scarab Salvage Vessel - Starboard Dock #2"
 	landmark_tag = "scarab_dock4"
 
-/obj/effect/shuttle_landmark/coc_scarab/dock5
+/obj/effect/shuttle_landmark/coc_scarab/dock6
 	name = "Scarab Salvage Vessel - Starboard Dock #3"
 	landmark_tag = "scarab_dock5"
-
-/obj/effect/shuttle_landmark/coc_scarab/dock6
-	name = "Scarab Salvage Vessel - Port Dock #3"
-	landmark_tag = "scarab_dock6"
 
 //Shuttles
 /obj/effect/overmap/visitable/ship/landable/scarab_gas_harvester

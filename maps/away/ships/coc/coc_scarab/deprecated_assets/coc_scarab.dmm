@@ -22,8 +22,7 @@
 	id = "scarabdriver_out"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/reinforced,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/reinforced)
 "an" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -107,8 +106,7 @@
 /obj/item/storage/box/gloves{
 	pixel_x = 7
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/tiled/white)
 "aT" = (
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_start{
 	dir = 1
@@ -206,8 +204,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "bj" = (
 /obj/machinery/air_sensor{
 	frequency = 1442;
@@ -240,8 +237,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
 	id = "scarab_salvager_or"
 	},
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/plating)
 "bu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
@@ -354,8 +350,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, medical"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/wall/shuttle/space_ship/mercenary)
 "cn" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped,
@@ -440,8 +435,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/plating)
 "cB" = (
 /turf/template_noop,
 /area/space)
@@ -553,8 +547,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/white,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/tiled/white)
 "dg" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform{
@@ -580,8 +573,7 @@
 /obj/item/storage/box/sharps{
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/tiled/white)
 "dn" = (
 /obj/machinery/atmospherics/valve{
 	dir = 8;
@@ -1447,8 +1439,7 @@
 /obj/machinery/light/floor{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "hr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1735,8 +1726,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/tiled/dark/full)
 "iI" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -2015,8 +2005,7 @@
 	name = "table handrail";
 	buckle_dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/tiled/white)
 "ka" = (
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/structure/closet{
@@ -2116,9 +2105,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
-"kd" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/coc_scarab/surgery)
 "kf" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2542,8 +2528,7 @@
 /obj/structure/closet/secure_closet/custodial/offship,
 /obj/item/mop,
 /obj/item/clothing/head/bandana/janitor,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/tiled/dark/full)
 "mK" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -2579,8 +2564,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/extinguisher_cabinet/east,
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/plating)
 "mY" = (
 /obj/effect/shuttle_landmark/coc_scarab/harvester_transit{
 	dir = 8
@@ -2628,8 +2612,7 @@
 	name = "Internal Blast Door";
 	id = "scarabdriver_in"
 	},
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/plating)
 "ni" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -2847,8 +2830,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "pa" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -3010,8 +2992,7 @@
 /obj/machinery/power/apc/high/north{
 	req_access = null
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/tiled/white)
 "pQ" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -3309,8 +3290,7 @@
 	pixel_x = -32;
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/plating)
 "rk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/binary/circulator{
@@ -3347,8 +3327,7 @@
 /obj/machinery/light/floor{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "ru" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3381,8 +3360,7 @@
 /area/ship/coc_scarab/exterior)
 "rJ" = (
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/ship/coc_scarab/solars)
+/turf/space/dynamic)
 "rK" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -3493,8 +3471,7 @@
 /obj/machinery/light/floor{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "si" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -3754,8 +3731,7 @@
 "ty" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/tiled/dark/full)
 "tE" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/steel,
@@ -4027,8 +4003,7 @@
 	name = "Mass Driver Interior Windoor";
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/reinforced)
 "uL" = (
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
@@ -4073,8 +4048,7 @@
 	name = "table handrail";
 	buckle_dir = 2
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/tiled/white)
 "uO" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -4519,8 +4493,7 @@
 /obj/machinery/door/blast/regular{
 	id = "scarabdriver_in"
 	},
-/turf/simulated/floor/reinforced,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/reinforced)
 "xI" = (
 /obj/machinery/computer/cryopod{
 	pixel_x = -28
@@ -4605,8 +4578,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "yg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -4692,8 +4664,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "yR" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -5303,8 +5274,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/tiled/dark/full)
 "BV" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/armory)
@@ -5346,8 +5316,7 @@
 /obj/machinery/power/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "Cq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5390,8 +5359,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/plating)
 "Cs" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -5668,8 +5636,7 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "DJ" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/wall/shuttle/space_ship/mercenary)
 "DN" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -5782,8 +5749,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/tiled/dark/full)
 "Ew" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -6210,8 +6176,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/solar,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "Go" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
@@ -6362,8 +6327,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/tiled/dark/full)
 "GR" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/effect/floor_decal/industrial/outline,
@@ -6426,8 +6390,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, solars"
 	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "Hp" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/engine)
@@ -7894,8 +7857,7 @@
 /obj/item/storage/box/bodybags{
 	pixel_x = 7
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/tiled/dark/full)
 "Ov" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/mining,
@@ -8269,8 +8231,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/tiled/dark/full)
 "Qd" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -8285,8 +8246,7 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "Qh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 4
@@ -8654,8 +8614,7 @@
 	pixel_x = -12;
 	pixel_y = 6
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/coc_scarab/surgery)
+/turf/simulated/floor/tiled/white)
 "RI" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8672,8 +8631,7 @@
 	pixel_x = -32
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/plating)
 "RL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -8836,9 +8794,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/ship/coc_scarab/hydroponics)
-"Sw" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/coc_scarab/massdriver)
 "Sy" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
@@ -8999,8 +8954,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/alarm/west,
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/hallway)
+/turf/simulated/floor/plating)
 "Tw" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -9349,8 +9303,7 @@
 /obj/machinery/power/solar,
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "UP" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -9396,8 +9349,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/massdriver)
+/turf/simulated/floor/plating)
 "Ve" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -9486,8 +9438,7 @@
 /obj/machinery/light/floor{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "Vv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -9792,8 +9743,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/solar,
 /obj/structure/cable/yellow,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "Xe" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -10145,8 +10095,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/turf/simulated/floor/airless)
 "YK" = (
 /obj/structure/grille,
 /obj/structure/sign/securearea{
@@ -39089,9 +39038,9 @@ XA
 Jw
 Jw
 Jw
-Sw
+DJ
 ak
-Sw
+DJ
 mM
 Uv
 jp
@@ -39346,9 +39295,9 @@ zz
 Jw
 Jw
 Jw
-Sw
+DJ
 uK
-Sw
+DJ
 mM
 RU
 tM
@@ -39602,10 +39551,10 @@ KF
 ny
 ny
 Jw
-Sw
-Sw
+DJ
+DJ
 xC
-Sw
+DJ
 mM
 gu
 Ql
@@ -39859,7 +39808,7 @@ oa
 yi
 ny
 Jw
-Sw
+DJ
 Ou
 ty
 nd
@@ -40116,7 +40065,7 @@ GB
 sX
 ny
 Jw
-Sw
+DJ
 mJ
 GQ
 Vb
@@ -40372,9 +40321,9 @@ Ve
 hA
 ny
 ny
-kd
+DJ
 cl
-kd
+DJ
 Up
 EI
 Up
