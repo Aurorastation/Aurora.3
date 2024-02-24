@@ -17,7 +17,7 @@
 	has_item_ratio = FALSE
 
 	max_shots = 20
-	self_recharge = 1
+	self_recharge = TRUE
 	reliability = 100
 	projectile_type = /obj/item/projectile/bullet/flechette
 
