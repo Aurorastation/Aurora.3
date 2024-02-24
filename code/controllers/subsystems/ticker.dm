@@ -49,11 +49,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	//Now we have a general cinematic centrally held within the gameticker....far more efficient!
 	var/obj/screen/cinematic = null
 
-	var/list/possible_lobby_tracks = list(
-		'sound/music/space.ogg',
-		'sound/music/traitor.ogg',
-		'sound/music/title2.ogg',
-		'sound/music/clouds.s3m'
+	var/list/default_lobby_tracks = list(
+		'sound/music/lobby/space.ogg',
+		'sound/music/lobby/traitor.ogg',
+		'sound/music/lobby/title2.ogg',
+		'sound/music/lobby/clouds.s3m'
 	)
 
 	var/lobby_ready = FALSE
@@ -417,8 +417,11 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/proc/pregame()
 	set waitfor = FALSE
 	sleep(1)	// Sleep so the MC has a chance to update its init time.
-	if (!login_music)
-		login_music = pick(possible_lobby_tracks)
+	if(!login_music)
+		if(SSatlas.current_sector && SSatlas.current_sector.lobby_tracks)
+			login_music = pick(SSatlas.current_sector.lobby_tracks)
+		else
+			login_music = pick(default_lobby_tracks)
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME

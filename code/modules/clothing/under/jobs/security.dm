@@ -108,6 +108,14 @@
 	item_state = "heph_security"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/rank/security/einstein
+	name = "einstein security officer's uniform"
+	desc_extended = "Even the Chainlink's hated enemy puts their security officers in drab officewear. Rumors that these are woven \
+	from Skrellian supermaterials are likely false."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_officer"
+	item_state = "ee_officer"
+
 /obj/item/clothing/under/rank/warden
 	name = "warden's uniform"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection."
