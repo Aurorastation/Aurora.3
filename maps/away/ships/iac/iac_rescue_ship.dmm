@@ -5168,6 +5168,13 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/lore_radio{
+	pixel_y = 5;
+	pixel_x = -3;
+	name = "brand-new analog radio";
+	desc = "A portable radio capable of receiving radio waves from nearby space systems. This particular unit looks hot off the assembly line, with a Hephaestus Industries stamp on the back of the model, indicating it was manufactured and shipped from Valkyrie, Tau Ceti."
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/bridge)
 "lgd" = (
@@ -7211,6 +7218,18 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/glass/beaker/pitcher{
+	pixel_x = -5;
+	reagents_to_add = list(/singleton/reagent/drink/coffee=30)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/bridge)
 "qIk" = (
@@ -8048,16 +8067,11 @@
 /area/ship/iac_rescue_ship/bridge)
 "sLT" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass{
-	pixel_x = 5
-	},
-/obj/item/reagent_containers/glass/beaker/pitcher{
-	pixel_x = -5;
-	reagents_to_add = list(/singleton/reagent/drink/coffee=30)
+/obj/item/lore_radio{
+	pixel_y = 16;
+	pixel_x = -8;
+	name = "old analog radio";
+	desc = "A portable radio capable of receiving radio waves from nearby space systems. A particularly old, beat-up model - it's a miracle this one still works. Script in small font on the unit's underside indicates that this radio in particular was made and distributed from Kaltir, in the New Kingdom of Adhomai."
 	},
 /turf/simulated/floor/wood,
 /area/ship/iac_rescue_ship/afthallway)
@@ -43617,8 +43631,8 @@ jVQ
 jTd
 ado
 fHS
-qjc
 sLT
+qjc
 ofI
 pJc
 hLk
