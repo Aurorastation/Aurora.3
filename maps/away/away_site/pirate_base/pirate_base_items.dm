@@ -1,8 +1,8 @@
 
-/obj/item/paper/goon_base
+/obj/item/paper/pirate_base
 	name = "parent/base object"
 
-/obj/item/paper/goon_base/secret_base_note
+/obj/item/paper/pirate_base/secret_base_note
 	name = "note"
 	info = "\
 		there is secret entrances to gear equipment room with guns and stuff in fake walls you can just move by over. <br>\
@@ -13,7 +13,7 @@
 		~jake\
 		"
 
-/obj/item/paper/goon_base/secret_back_exit_note
+/obj/item/paper/pirate_base/secret_back_exit_note
 	name = "note"
 	info = "\
 		this is for emergency time exit when everything is fucked. \
