@@ -75,4 +75,4 @@
 		playsound(terminator, 'sound/items/goggles_charge.ogg')
 		toggle_scope(2, terminator)
 	else
-		to_chat(terminator, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(terminator, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
