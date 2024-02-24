@@ -83,4 +83,4 @@
 		return fizzle(user, A)
 
 /obj/effect/rune/teleport/Initialize(mapload)
-	. = ..(mapload, SScult.runes_by_name["teleportation rune"])
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/teleport::name])

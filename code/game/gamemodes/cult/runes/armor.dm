@@ -51,3 +51,6 @@
 		if("Harvester")
 			to_chat(construct, SPAN_CULT("You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer."))
 	to_chat(construct, SPAN_CULT("You are still bound to serve your creator, follow their orders and help them complete their goals at all costs."))
+
+/obj/effect/rune/armor/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/armor::name])

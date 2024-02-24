@@ -104,3 +104,6 @@
 	announce_ghost_joinleave(shade)
 	shade.ghostize(FALSE)
 	target.dust()
+
+/obj/effect/rune/convert/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/convert::name])
