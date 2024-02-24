@@ -1,7 +1,0 @@
-author: Alberyk, Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added an analog radio that can display lore related radio station to the system the ship is currently in."
-
