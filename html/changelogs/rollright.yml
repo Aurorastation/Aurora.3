@@ -1,6 +1,0 @@
-author: Pirouette
-
-delete-after: True
-
-changes:
-  - spellcheck: "Fixed a roll to starboard being listed as a roll to the left on the helm."
