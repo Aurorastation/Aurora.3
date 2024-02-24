@@ -50,7 +50,7 @@
 	var/dat = "<br>"
 	dat += "Oxygen Tanks: [oxygen_tanks] - [oxygen_tanks ? "<a href='?src=\ref[src];oxygen=1'>Dispense</a>" : "empty"]<br>"
 	dat += "Phoron Tanks: [phoron_tanks] - [phoron_tanks ? "<a href='?src=\ref[src];phoron=1'>Dispense</a>" : "empty"]"
-	
+
 	var/datum/browser/dispenser_win = new(user, "dispenser", capitalize_first_letters(name), 300, 250)
 	dispenser_win.set_content(dat)
 	dispenser_win.open()
