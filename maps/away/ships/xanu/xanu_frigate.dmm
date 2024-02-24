@@ -669,22 +669,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_port)
-"cM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/port)
 "cR" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -803,6 +787,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/port)
+"dk" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Shutters";
+	id = "xanufrigate_exterior_blast"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/cargo_bay)
 "dl" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -1592,12 +1588,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
-"fH" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/cargo_bay)
 "fI" = (
 /obj/machinery/power/portgen/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2914,6 +2904,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/fore)
+"kq" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/cargo_bay)
 "ku" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -2927,7 +2923,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/random/dirt_75,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "ky" = (
@@ -3164,10 +3162,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "lv" = (
-/obj/structure/reagent_dispensers/coolanttank{
-	amount_per_transfer_from_this = 300
-	},
 /obj/machinery/alarm/north,
+/obj/machinery/power/portgen/basic/fusion,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "lw" = (
@@ -4826,13 +4826,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow)
-"ri" = (
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/rec_room)
 "rj" = (
 /obj/machinery/door/airlock/glass_command{
 	req_access = list(222);
@@ -4999,21 +4992,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
-"rN" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Shutters";
-	id = "xanufrigate_exterior_blast"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/cargo_bay)
 "rO" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
@@ -5174,6 +5152,13 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow)
+"sH" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/rec_room)
 "sI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -5748,15 +5733,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "uy" = (
-/obj/machinery/power/portgen/basic/fusion{
-	desc = "The RT7-5, an enhanced industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses tritium as a fuel source and relies on coolant to keep the reactor cool. Rated for 1000 kW max safe output.";
-	name = "military-grade minature fusion reactor";
-	max_safe_output = 10;
-	max_power_output = 14;
-	max_sheets = 70;
-	max_temperature = 700;
-	temperature_gain = 15
-	},
+/obj/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
@@ -5963,6 +5940,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
+"vi" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Shutters";
+	id = "xanuboarder_ext"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder/main)
 "vl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -6553,6 +6545,14 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/longbow)
+"xI" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/ship/xanu_frigate/engineering/port)
 "xK" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light,
@@ -8244,14 +8244,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
-"Dy" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/structure/disposalpipe/trunk,
-/obj/machinery/disposal/small/south,
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/corridor/port)
 "DA" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8856,6 +8848,22 @@
 	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
+"Fv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/port)
 "Fy" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8877,6 +8885,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
+"FC" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/hullbeacon/green,
+/turf/simulated/floor/reinforced/airless,
+/area/ship/xanu_frigate/engineering/starboard)
 "FD" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
@@ -9029,6 +9045,9 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "Gl" = (
@@ -9416,6 +9435,9 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/coolanttank{
+	amount_per_transfer_from_this = 300
+	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "Hy" = (
@@ -9723,14 +9745,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/hangar)
-"IF" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/item/hullbeacon/green,
-/turf/simulated/floor/reinforced/airless,
-/area/ship/xanu_frigate/engineering/starboard)
 "IK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/machinery/door/airlock/external{
@@ -10729,6 +10743,14 @@
 /obj/structure/platform/dark,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/bridge)
+"LL" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal/small/south,
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/port)
 "LM" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8
@@ -11651,21 +11673,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
-"Pd" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Safety Shutters";
-	id = "xanuboarder_ext"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/xanu_boarder/main)
 "Pg" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -12484,18 +12491,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_boarder/main)
-"Sa" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Safety Shutters";
-	id = "xanuboarder_ext"
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/xanu_boarder/engineering)
 "Sg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -13441,14 +13436,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
-"Vp" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced/airless,
-/area/ship/xanu_frigate/engineering/port)
 "Vq" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -13577,7 +13564,10 @@
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "VK" = (
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -13611,6 +13601,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/starboard)
+"VO" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Shutters";
+	id = "xanuboarder_ext"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/xanu_boarder/engineering)
 "VP" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
@@ -31538,8 +31540,8 @@ lS
 lS
 xT
 xT
+dk
 VK
-rN
 xT
 xT
 gg
@@ -31943,7 +31945,7 @@ Zv
 xT
 YA
 tQ
-fH
+kq
 jM
 WG
 XO
@@ -32145,7 +32147,7 @@ Zv
 xT
 dQ
 ac
-fH
+kq
 kV
 tQ
 oY
@@ -33187,7 +33189,7 @@ aM
 aM
 aM
 lo
-ri
+sH
 AQ
 lo
 Zm
@@ -34149,7 +34151,7 @@ Va
 HJ
 ZJ
 ni
-Sa
+VO
 VQ
 xY
 xY
@@ -34756,7 +34758,7 @@ rW
 pa
 Rl
 pK
-IF
+FC
 xY
 xY
 xY
@@ -35765,8 +35767,8 @@ RJ
 gI
 cH
 sU
-Pd
-Vp
+vi
+xI
 Ta
 PF
 gw
@@ -38022,8 +38024,8 @@ Zm
 Zm
 gg
 gZ
-Dy
-cM
+LL
+Fv
 bP
 bP
 bP
