@@ -1,9 +1,8 @@
 /datum/map_template/ruin/away_site/xanu_frigate
 	name = "Xanu Spacefleet Frigate"
-	description = "The Shrike-class frigate is a formidable warship in use by the All-Xanu Spacefleet and forms a ubiquitous part of its naval force. \
-	Despite it making up a large portion of the planet's navy, no expense was spared in engineering this warship, with thick hull plating and redundant\
-	power, engines, and life support systems making this craft notoriously survivable even when taking massive blows, leaving it intact enough \
-	to return the favor in a gunfight."
+	description = "The Rapier-class Frigate is a formidable warship in widespread use by the All-Xanu Spacefleet throughout its expeditionary fleets. \
+	Originating as a robust upgrade package to the venerable Estoc class, the Rapier upgrade program has spared no expense, with thick hull plating, redundant power, life support, and engines, making the Rapier class notoriously survivable. \
+	These same redundancies, designed for greater survivability in a peer-on-peer conflict, make the Rapier an expensive investment, one which has seen the Estoc survive in the navies of other Coalition states."
 	suffixes = list("ships/xanu/xanu_frigate.dmm")
 	sectors = list(ALL_COALITION_SECTORS)
 	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3)
@@ -16,20 +15,18 @@
 
 /singleton/submap_archetype/xanu_frigate
 	map = "Xanu Spacefleet Frigate"
-	descriptor = "The Shrike-class frigate is a formidable warship in use by the All-Xanu Spacefleet and forms a ubiquitous part of its naval force. \
-	Despite it making up a large portion of the planet's navy, no expense was spared in engineering this warship, with thick hull plating and redundant\
-	power, engines, and life support systems making this craft notoriously survivable even when taking massive blows, leaving it intact enough \
-	to return the favor in a gunfight."
+	descriptor = "The Rapier-class Frigate is a formidable warship in widespread use by the All-Xanu Spacefleet throughout its expeditionary fleets. \
+	Originating as a robust upgrade package to the venerable Estoc class, the Rapier upgrade program has spared no expense, with thick hull plating, redundant power, life support, and engines, making the Rapier class notoriously survivable. \
+	These same redundancies, designed for greater survivability in a peer-on-peer conflict, make the Rapier an expensive investment, one which has seen the Estoc survive in the navies of other Coalition states."
 
 // ship
 
 /obj/effect/overmap/visitable/ship/xanu_frigate
 	name = "Xanu Spacefleet Frigate"
 	class = "AXSV"
-	desc = "The Shrike-class frigate is a formidable warship in use by the All-Xanu Spacefleet and forms a ubiquitous part of its naval force. \
-	Despite it making up a large portion of the planet's navy, no expense was spared in engineering this warship, with thick hull plating and redundant\
-	power, engines, and life support systems making this craft notoriously survivable even when taking massive blows, leaving it intact enough \
-	to return the favor in a gunfight."
+	desc = "The Rapier-class Frigate is a formidable warship in widespread use by the All-Xanu Spacefleet throughout its expeditionary fleets. \
+	Originating as a robust upgrade package to the venerable Estoc class, the Rapier upgrade program has spared no expense, with thick hull plating, redundant power, life support, and engines, making the Rapier class notoriously survivable. \
+	These same redundancies, designed for greater survivability in a peer-on-peer conflict, make the Rapier an expensive investment, one which has seen the Estoc survive in the navies of other Coalition states."
 	icon_state = "xanu_frigate"
 	moving_state = "xanu_frigate_moving"
 	colors = "#899997"
