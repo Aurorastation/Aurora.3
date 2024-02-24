@@ -59,20 +59,36 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/coc_scarab/nav1
-	name = "Scarab Salvage Vessel - Fore"
+	name = "Scarab Salvage Vessel - Deck Two Fore"
 	landmark_tag = "scarab_nav1"
 
 /obj/effect/shuttle_landmark/coc_scarab/nav2
-	name = "Scarab Salvage Vessel - Aft"
+	name = "Scarab Salvage Vessel - Deck Two Aft"
 	landmark_tag = "scarab_nav2"
 
 /obj/effect/shuttle_landmark/coc_scarab/nav3
-	name = "Scarab Salvage Vessel - Port"
+	name = "Scarab Salvage Vessel - Deck Two Port"
 	landmark_tag = "scarab_nav3"
 
 /obj/effect/shuttle_landmark/coc_scarab/nav4
-	name = "Scarab Salvage Vessel - Starboard"
+	name = "Scarab Salvage Vessel - Deck Two Starboard"
 	landmark_tag = "scarab_nav4"
+
+/obj/effect/shuttle_landmark/coc_scarab/nav5
+	name = "Scarab Salvage Vessel - Deck One Fore"
+	landmark_tag = "scarab_nav5"
+
+/obj/effect/shuttle_landmark/coc_scarab/nav6
+	name = "Scarab Salvage Vessel - Deck One Aft"
+	landmark_tag = "scarab_nav6"
+
+/obj/effect/shuttle_landmark/coc_scarab/nav7
+	name = "Scarab Salvage Vessel - Deck One Port"
+	landmark_tag = "scarab_nav7"
+
+/obj/effect/shuttle_landmark/coc_scarab/nav8
+	name = "Scarab Salvage Vessel - Deck One Fore"
+	landmark_tag = "scarab_nav8"
 
 /obj/effect/shuttle_landmark/coc_scarab/dock1
 	name = "Scarab Salvage Vessel - Port Dock #1"
@@ -98,50 +114,7 @@
 	name = "Scarab Salvage Vessel - Starboard Dock #3"
 	landmark_tag = "scarab_dock5"
 
-//Shuttles
-/obj/effect/overmap/visitable/ship/landable/scarab_gas_harvester
-	name = "Scarab Gas Harvester"
-	desc = "An absolutely archaic skiff, the Triton-class is a highly specialised tool designed to harvest precious elements by sifting through the atmospheres of gas giants. While ubiquitous throughout human space some centuries ago, it dropped off sharply in popularity following the Interstellar War. This one appears to have been extensively modified, with abnormal internal readings that may imply particularly complex atmospheric systems."
-	class = "SFV"
-	designation = "Rubedo"
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
-	shuttle = "Scarab Gas Harvester"
-	colors = list("#a400c1", "#4d61fc")
-	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
-	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
-	vessel_size = SHIP_SIZE_TINY
-	designer = "Einstein Engines"
-	volume = "13 meters length, 11 meters beam/width, 6 meters vertical height"
-	sizeclass = "Triton-class Gas Harvesting Shuttle"
-	shiptype = "Gas mining operations"
-
-/obj/machinery/computer/shuttle_control/explore/terminal/scarab_gas_harvester
-	name = "shuttle control terminal"
-	shuttle_tag = "Scarab Gas Harvester"
-
-/datum/shuttle/autodock/overmap/scarab_gas_harvester
-	name = "Scarab Gas Harvester"
-	move_time = 20
-	shuttle_area = list(/area/shuttle/scarab_harvester)
-	current_location = "nav_scarab_harvester_start"
-	landmark_transition = "nav_scarab_harvester_transit"
-	range = 1
-	fuel_consumption = 2
-	logging_home_tag = "nav_scarab_harvester_start"
-	defer_initialisation = TRUE
-
-/obj/effect/shuttle_landmark/coc_scarab/harvester_start
-	name = "Scarab Salvage Vessel - Harvester Dock"
-	landmark_tag = "nav_scarab_harvester_start"
-
-/obj/effect/shuttle_landmark/coc_scarab/harvester_transit
-	name = "In transit"
-	landmark_tag = "nav_scarab_harvester_transit"
-	base_turf = /turf/space/transit/north
-
+//Shuttle
 /obj/effect/overmap/visitable/ship/landable/scarab_shuttle
 	name = "Scarab Shuttle"
 	desc = "An extremely early predecessor to the modern Pickaxe-class, the Mattock-class mining shuttle was a common sight throughout human space some centuries ago, prized for its reliability and simplicity. By the extremely irregular hull composition of this one, this appears to be a real-life Ship of Theseus - it is hard to determine how much of the original ship is even left."
