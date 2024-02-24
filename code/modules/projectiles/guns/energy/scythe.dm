@@ -25,7 +25,7 @@
 		list(mode_name="semiauto", burst=1, projectile_type=/obj/item/projectile/bullet/flechette),
 		list(mode_name="3-round bursts", burst=3, burst_delay=ROF_SUPERHEAVY, burst_accuracy=list(2,1,1), dispersion=list(0, 10, 15), projectile_type=/obj/item/projectile/bullet/flechette),
 		list(mode_name="explosive", burst=1, projectile_type=/obj/item/projectile/bullet/flechette/explosive)
-		)
+	)
 
 
 	fire_delay = ROF_UNWIELDY
