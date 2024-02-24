@@ -8982,7 +8982,9 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/power/portgen/basic,
+/obj/machinery/power/portgen/basic{
+	anchored = 1
+	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/engineering)
 "vbD" = (
