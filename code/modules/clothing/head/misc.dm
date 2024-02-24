@@ -693,15 +693,21 @@
 	item_state = "helmet_pilot"
 
 /obj/item/clothing/head/xanu
-	name = "xanu spacefleet utility cap"
-	desc = "A blue utility cap fielded by enlisted personnel of the All-Xanu Spacefleet."
+	name = "xanu armed forces garrison cap"
+	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
 	icon = 'icons/clothing/under/uniforms/xanu.dmi'
-	icon_state = "xanu_fleet_utility"
-	item_state = "xanu_fleet_utility"
+	icon_state = "xanu_garrison_enlisted"
+	item_state = "xanu_garrison_enlisted"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/xanu/officer
-	name = "xanu spacefleet officer cap"
-	desc = "A peaked khaki cap used by officers of the All-Xanu Spacefleet."
-	icon_state = "xanu_fleet_utility_o"
-	item_state = "xanu_fleet_utility_o"
+	name = "xanu armed forces officer garrison cap"
+	desc = "A garrison cap belonging to an officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_comm"
+	item_state = "xanu_garrison_comm"
+
+/obj/item/clothing/head/xanu/senior
+	name = "xanu armed forces senior officer garrison cap"
+	desc = "A garrison cap belonging to a high-ranking officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_cap"
+	item_state = "xanu_garrison_cap"
