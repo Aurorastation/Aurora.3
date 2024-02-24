@@ -4,9 +4,10 @@
 	id = "cult_ship"
 	suffixes = list("away_site/cult_ship/cult_ship.dmm")
 	spawn_cost = 1
-	spawn_weight = 1
+	spawn_weight = 0.5
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(1)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/cult_ship//Arbitrary duplicates of the above name/desc
 	map = "Cult Ship"

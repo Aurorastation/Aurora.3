@@ -109,7 +109,7 @@
 /datum/hallucination/mirage/carnage/generate_mirage()
 	if(prob(50))
 		var/image/I = image('icons/effects/blood.dmi', pick("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7"), layer = TURF_LAYER)
-		var/list/blood_picks = list("#1D2CBF" = 0.1, "#E6E600" = 0.1, "#A10808" = 0.8)	//skrell, vaurca, human. most likely to pick regular red
+		var/list/blood_picks = list(COLOR_SKRELL_BLOOD = 0.1, COLOR_VAURCA_BLOOD = 0.1, COLOR_HUMAN_BLOOD = 0.8)	//skrell, vaurca, human. most likely to pick regular red
 		I.color = pickweight(blood_picks)
 		return I
 	else

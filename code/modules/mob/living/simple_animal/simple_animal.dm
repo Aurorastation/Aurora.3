@@ -24,7 +24,7 @@
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
 
 	appearance_flags = KEEP_TOGETHER
-	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_type = COLOR_HUMAN_BLOOD //Blood colour for impact visuals.
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay

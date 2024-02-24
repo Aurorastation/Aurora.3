@@ -271,7 +271,7 @@
 /turf/simulated/open/is_plating()
 	return TRUE
 
-/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor=COLOR_HUMAN_BLOOD)
 	return
 
 //Returns the roof type of the turf below

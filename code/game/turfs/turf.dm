@@ -295,7 +295,7 @@ var/const/enterloopsanity = 100
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				AM.proximity_callback(oAM)
 
-/turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
+/turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color=COLOR_HUMAN_BLOOD)
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
 	if(!tracks)
 		tracks = new typepath(src)

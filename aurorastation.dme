@@ -3614,7 +3614,6 @@
 #include "maps\away\away_site\cult_ship\cult_ship_.dm"
 #include "maps\away\away_site\cult_ship\cult_ship_areas.dm"
 #include "maps\away\away_site\cult_ship\cult_ship_landmarks.dm"
-#include "maps\away\away_site\cult_ship\cult_ship.dmm"
 #include "maps\away\away_site\first_aurora\first_aurora.dm"
 #include "maps\away\away_site\goon_base\goon_base.dm"
 #include "maps\away\away_site\goon_base\goon_base_areas.dm"
