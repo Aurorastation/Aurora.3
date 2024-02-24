@@ -1,5 +1,5 @@
 /obj/item/rig/hunter_killer
-	name = "\improper purpose combat layer"
+	name = "\improper Purpose combat layer"
 	desc = "An unknown, sleek mechanical construction that doesn't conform to any technology, culture, or even creature you know. \
 			It seems largely impervious to any wear and tear."
 	icon = 'icons/clothing/rig/hunter_killer.dmi'
