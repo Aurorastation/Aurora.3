@@ -54,7 +54,6 @@
 	var/static/list/blacklist_typecache = typecacheof(list(/obj/screen, /obj/singularity, /mob/living/simple_animal/hostile/morph, /obj/effect, /obj/structure/gore))
 
 
-
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 
