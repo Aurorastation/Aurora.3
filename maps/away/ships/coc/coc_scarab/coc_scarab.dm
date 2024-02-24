@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_scarab"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scarab_gas_harvester, /datum/shuttle/autodock/overmap/scarab_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scarab_shuttle)
 
 	unit_test_groups = list(1)
 
