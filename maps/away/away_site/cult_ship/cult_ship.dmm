@@ -31,6 +31,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"cE" = (
+/obj/effect/rune/ethereal,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "cX" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -80,6 +85,11 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"eR" = (
+/obj/effect/rune/teleport,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
 /area/space)
 "eU" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/red,
@@ -305,6 +315,11 @@
 /obj/item/bedsheet/black,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"mM" = (
+/obj/effect/rune/armor,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "mW" = (
 /obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/dark,
@@ -438,6 +453,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"rA" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/rune/ethereal,
+/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "rT" = (
 /obj/effect/floor_decal/corner/grey{
@@ -588,6 +609,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"xC" = (
+/obj/effect/rune/sacrifice,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "ym" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
@@ -723,6 +749,11 @@
 "DI" = (
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"DW" = (
+/obj/effect/rune/teleport,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "Ej" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -1065,6 +1096,12 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/curtain/open/medical,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Qo" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/rune/teleport,
+/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "Qq" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -36208,8 +36245,8 @@ Ff
 Iy
 hJ
 IA
-IA
-IA
+HS
+eR
 hJ
 qX
 zO
@@ -36464,9 +36501,9 @@ hJ
 fr
 hJ
 hJ
-IA
-IA
-IA
+HS
+cE
+IZ
 hJ
 OM
 om
@@ -38290,8 +38327,8 @@ ND
 Ju
 Gn
 hJ
-IA
-IA
+HS
+xC
 IA
 hJ
 VE
@@ -38547,9 +38584,9 @@ ND
 Lk
 hJ
 hJ
-IA
-IA
-IA
+DW
+IZ
+IZ
 hJ
 Iy
 Iy
@@ -43415,7 +43452,7 @@ sg
 uo
 hJ
 IA
-IA
+cE
 hJ
 aY
 Iy
@@ -43671,8 +43708,8 @@ wx
 Zi
 uo
 hJ
-IA
-IA
+HS
+IZ
 hJ
 Im
 Iy
@@ -43928,8 +43965,8 @@ uS
 Zi
 uo
 hJ
-IA
-IA
+eR
+IZ
 hJ
 Im
 Im
@@ -44717,9 +44754,9 @@ An
 Iy
 sG
 hJ
-IA
-IA
-IA
+IZ
+HS
+mM
 IA
 IA
 hJ
@@ -44974,8 +45011,8 @@ hJ
 Iy
 sG
 IA
-IA
-IA
+eR
+HS
 IA
 IA
 IA
@@ -45231,7 +45268,7 @@ hJ
 VE
 tp
 hJ
-IA
+HS
 IA
 IA
 IA
@@ -48814,9 +48851,9 @@ IA
 IA
 IA
 IA
-IA
-IA
-IA
+Qo
+IZ
+IZ
 IA
 IA
 IA
@@ -49072,8 +49109,8 @@ IA
 IA
 IA
 IA
-IA
-IA
+HS
+HS
 IA
 IA
 IA
@@ -49329,7 +49366,7 @@ IA
 IA
 IA
 IA
-IA
+rA
 IA
 IA
 IA
