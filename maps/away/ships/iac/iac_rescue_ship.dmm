@@ -63,23 +63,20 @@
 /area/ship/iac_rescue_ship/machinist)
 "ado" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
+	dir = 1;
+	layer = 2.71
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/machinist)
+/area/ship/iac_rescue_ship/hangar)
 "adW" = (
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Blast Doors";
+	id = "iac_windows_blast"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/afthallway)
 "aea" = (
@@ -259,12 +256,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/kitchen)
-"arx" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/atmospherics)
 "atj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -769,15 +760,14 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/atmospherics)
 "bkE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/hangar)
+/area/ship/iac_rescue_ship/machinist)
 "bnp" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engine"
@@ -788,7 +778,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -915,13 +905,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
 "bHc" = (
-/obj/machinery/alarm/west{
-	req_one_access = list(211)
+/obj/machinery/button/remote/blast_door{
+	id = "loungeIAC";
+	name = "Window Shutter Control";
+	req_access = list(211);
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/machinist)
+/turf/simulated/floor/wood,
+/area/ship/iac_rescue_ship/dorms)
 "bHV" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -1233,7 +1226,7 @@
 	},
 /obj/machinery/light_switch{
 	pixel_y = -20;
-	pixel_x = 6
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/centralhallway)
@@ -1683,7 +1676,7 @@
 	},
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small/emergency,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/engineering)
 "dgo" = (
@@ -1962,15 +1955,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
-"ebc" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/iac_rescue_ship/hydro)
 "ebN" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
@@ -2103,14 +2087,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
 "ekU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/hangar)
+/area/ship/iac_rescue_ship/engineering)
 "ekY" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -2167,11 +2151,11 @@
 /area/ship/iac_rescue_ship/kitchen)
 "eor" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window/northright{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -2688,7 +2672,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -2706,6 +2690,11 @@
 /area/ship/iac_rescue_ship/portdocking)
 "fxJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/machinist)
+"fzR" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/machinist)
 "fBA" = (
@@ -2852,6 +2841,14 @@
 /obj/item/reagent_containers/glass/bottle/perconol,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/iac_shuttle)
+"fNL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light_switch{
+	pixel_y = -20;
+	pixel_x = 6
+	},
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/hangar)
 "fON" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -3296,17 +3293,6 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/engineering)
-"gOJ" = (
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 10
-	},
-/obj/machinery/vending/medical{
-	density = 0;
-	req_access = list(211);
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/iac_rescue_ship/pharmacy)
 "gOM" = (
 /obj/machinery/vending/snack{
 	pixel_y = 24
@@ -3454,7 +3440,7 @@
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 10
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3645,35 +3631,13 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "chemdeskIAC";
-	name = "Desk Shutter Control";
-	pixel_x = -6;
-	pixel_y = -20;
-	req_access = list(211)
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "chemwindowIAC";
-	name = "Window Shutter Control";
-	pixel_x = 6;
-	pixel_y = -20;
-	req_access = list(211)
+/obj/machinery/vending/medical{
+	density = 0;
+	req_access = list(211);
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
-"hER" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/iac_rescue_ship/hydro)
 "hGD" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -4147,13 +4111,11 @@
 /turf/simulated/floor/wood,
 /area/ship/iac_rescue_ship/dorms)
 "iGi" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/floodlight,
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/hangar)
+/area/ship/iac_rescue_ship/machinist)
 "iGY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -4677,6 +4639,15 @@
 /obj/structure/railing/mapped,
 /turf/template_noop,
 /area/space)
+"jRr" = (
+/obj/machinery/firealarm/north,
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/iac_rescue_ship/bridge)
 "jSp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4725,7 +4696,7 @@
 	pixel_y = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/light/small/emergency,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/machinist)
 "jUl" = (
@@ -5499,14 +5470,25 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/iac_shuttle)
 "miQ" = (
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/engineering)
+/obj/machinery/button/remote/blast_door{
+	id = "chemdeskIAC";
+	name = "Desk Shutter Control";
+	pixel_x = -6;
+	pixel_y = -20;
+	req_access = list(211)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "chemwindowIAC";
+	name = "Window Shutter Control";
+	pixel_x = 6;
+	pixel_y = -20;
+	req_access = list(211)
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/iac_rescue_ship/pharmacy)
 "mkv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5703,14 +5685,16 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/starboarddocking)
 "mPB" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/northright{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/machinist)
+/area/ship/iac_rescue_ship/centralhallway)
 "mQn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -5763,10 +5747,20 @@
 /turf/simulated/floor/wood,
 /area/ship/iac_rescue_ship/dorms)
 "nbZ" = (
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/floor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/machinist)
+/area/ship/iac_rescue_ship/hydro)
 "ncU" = (
 /obj/structure/sink{
 	dir = 4;
@@ -6306,6 +6300,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
+"oBC" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/iac_rescue_ship/hydro)
 "oCG" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/power/smes/buildable/third_party_shuttle,
@@ -6471,16 +6478,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
-"oWO" = (
-/obj/machinery/power/apc/north{
-	req_access = list(211)
-	},
-/obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/iac_rescue_ship/bridge)
 "oXT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner_wide/blue{
@@ -6811,6 +6808,29 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/portdocking)
+"pJc" = (
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/afthallway)
+"pKG" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/floodlight,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/hangar)
 "pPY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -7035,14 +7055,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/engineering)
 "qsP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Blast Doors";
-	id = "iac_windows_blast"
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
 	},
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/afthallway)
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/iac_rescue_ship/hydro)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -7200,14 +7220,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
-"qLn" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light_switch{
-	pixel_y = -20;
-	pixel_x = 6
-	},
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/hangar)
 "qMU" = (
 /obj/machinery/door/airlock/glass_service{
 	dir = 4;
@@ -7906,6 +7918,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
+"svK" = (
+/obj/machinery/alarm/west{
+	req_one_access = list(211)
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/machinist)
 "svQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8008,27 +8028,6 @@
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
-"sNy" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 4
-	},
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/light_switch{
-	pixel_y = -20;
-	pixel_x = -6
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/iac_rescue_ship/centralhallway)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -8134,6 +8133,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/surgery)
+"tgV" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/recharge_station,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/machinist)
 "thd" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -8205,7 +8212,7 @@
 	pixel_y = -20;
 	pixel_x = 6
 	},
-/obj/machinery/light/small/emergency,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/engineering)
 "tns" = (
@@ -8213,15 +8220,6 @@
 /obj/structure/bed/stool/chair/fancy,
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/iac_rescue_ship/portdocking)
-"tpc" = (
-/obj/machinery/firealarm/north,
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/iac_rescue_ship/bridge)
 "tqH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -8263,6 +8261,33 @@
 /obj/machinery/papershredder,
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/iac_rescue_ship/coord)
+"twn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/atmospherics)
+"txY" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 4
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_y = -20;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/iac_rescue_ship/centralhallway)
 "tyb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
@@ -8307,16 +8332,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/hydro)
 "tCo" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/northright{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/smartfridge/secure,
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/centralhallway)
+/area/ship/iac_rescue_ship/hydro)
 "tEC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
@@ -8372,6 +8390,16 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/atmospherics)
+"tPk" = (
+/obj/machinery/power/apc/north{
+	req_access = list(211)
+	},
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/iac_rescue_ship/bridge)
 "tQC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -8508,21 +8536,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/iac_shuttle)
-"ufJ" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/floor,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/hydro)
 "uhj" = (
 /obj/machinery/light{
 	dir = 1;
@@ -8853,10 +8866,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
-"uTT" = (
-/obj/machinery/smartfridge/secure,
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/hydro)
 "uVJ" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/reagentgrinder{
@@ -8930,7 +8939,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9067,7 +9076,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -9403,7 +9412,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9504,17 +9513,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
-"wRs" = (
-/obj/machinery/button/remote/blast_door{
-	id = "loungeIAC";
-	name = "Window Shutter Control";
-	req_access = list(211);
-	dir = 4;
-	pixel_x = 22;
-	pixel_y = 6
-	},
-/turf/simulated/floor/wood,
-/area/ship/iac_rescue_ship/dorms)
 "wSG" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -9749,13 +9747,15 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "xzk" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/recharge_station,
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor,
-/area/ship/iac_rescue_ship/machinist)
+/area/ship/iac_rescue_ship/hangar)
 "xBq" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8
@@ -39912,8 +39912,8 @@ xRX
 xRX
 xRX
 dGm
-nbZ
-bHc
+fzR
+svK
 qpf
 vla
 rMI
@@ -40169,8 +40169,8 @@ xRX
 xRX
 xRX
 dGm
-mPB
-ado
+bkE
+iGi
 mXp
 uei
 lPm
@@ -40216,7 +40216,7 @@ qfd
 kGD
 bVq
 sXB
-eor
+mPB
 bVq
 lgv
 utA
@@ -40462,7 +40462,7 @@ sKg
 rlT
 mpi
 wjC
-hER
+oBC
 bzz
 sXO
 mtm
@@ -40685,14 +40685,14 @@ xRX
 dGm
 xto
 dGm
-xzk
+tgV
 aaI
 nhn
 bxG
 wVP
 kVk
 dGm
-iGi
+pKG
 pfE
 fkn
 fZv
@@ -40711,7 +40711,7 @@ fZv
 fZv
 fZv
 qDQ
-bkE
+xzk
 dtu
 iBR
 xrQ
@@ -40729,7 +40729,7 @@ wjC
 tzl
 dbx
 bVq
-tCo
+eor
 pEB
 bVq
 rbr
@@ -40968,7 +40968,7 @@ tGD
 tGD
 xeT
 aab
-ekU
+ado
 dtu
 kHO
 xrQ
@@ -40977,7 +40977,7 @@ xeu
 kCi
 vWE
 aim
-ufJ
+nbZ
 hpp
 aSJ
 hvh
@@ -41232,8 +41232,8 @@ wnA
 wsL
 mpi
 mpi
-uTT
-ebc
+tCo
+qsP
 cLf
 gvy
 ubM
@@ -41514,7 +41514,7 @@ dJD
 jMF
 fBH
 qfF
-wRs
+bHc
 hgm
 dJD
 jqJ
@@ -41755,7 +41755,7 @@ vWE
 wjC
 wjC
 sva
-clz
+txY
 bVq
 xqw
 kSj
@@ -41996,7 +41996,7 @@ aIx
 ttf
 aAY
 aab
-qLn
+fNL
 bwt
 vMb
 iLl
@@ -42739,9 +42739,9 @@ xRX
 xRX
 wrJ
 fwm
-miQ
+ekU
 fuA
-miQ
+ekU
 uLa
 ker
 ker
@@ -42783,7 +42783,7 @@ aXh
 okx
 okx
 lGR
-sNy
+clz
 bVq
 fkv
 aHt
@@ -42803,7 +42803,7 @@ aLo
 qGN
 qGN
 qGN
-tpc
+jRr
 eBV
 lfg
 ucV
@@ -43047,7 +43047,7 @@ nDO
 qcQ
 uJC
 tMN
-hEw
+miQ
 jVS
 iHx
 hPg
@@ -43060,7 +43060,7 @@ uba
 qPm
 rmz
 qGN
-oWO
+tPk
 ibU
 ktN
 rIW
@@ -43286,7 +43286,7 @@ fHS
 jYy
 hYB
 kPj
-adW
+pJc
 hLk
 hMP
 rNe
@@ -43538,12 +43538,12 @@ phz
 phz
 jVQ
 jTd
-ekU
+ado
 fHS
 qjc
 sLT
 ofI
-adW
+pJc
 hLk
 jeT
 ncU
@@ -43776,7 +43776,7 @@ pvy
 pvy
 hBP
 bja
-iGi
+pKG
 eRf
 hWh
 hWh
@@ -43795,12 +43795,12 @@ hWh
 hWh
 hWh
 xsG
-bkE
+xzk
 fHS
 ieD
 oza
 vcQ
-adW
+pJc
 jMA
 jMA
 jMA
@@ -43814,11 +43814,11 @@ tzl
 jGj
 bVq
 sXB
-eor
+mPB
 bVq
 gAS
 gKg
-gOJ
+hEw
 jVS
 vTl
 rVH
@@ -44028,7 +44028,7 @@ mth
 oeu
 izD
 jlL
-arx
+twn
 sJm
 fEe
 fEe
@@ -44327,7 +44327,7 @@ okx
 tzl
 ahU
 bVq
-tCo
+eor
 pEB
 bVq
 aac
@@ -44569,9 +44569,9 @@ fHY
 bwt
 fHS
 hoH
-qsP
-qsP
-qsP
+adW
+adW
+adW
 jMA
 pPY
 pPY
