@@ -252,7 +252,7 @@
 	name = "machete sheath"
 	desc = "A handsome synthetic leather sheath with matching belt."
 	icon_state = "holster_machete"
-	item_state = "thigh_brown"
+	item_state = "holster_machete"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	allowed_items = list(
 		/obj/item/material/hatchet/machete,
