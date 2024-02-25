@@ -3144,6 +3144,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
+"zd" = (
+/obj/structure/cargo_receptacle,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/offices)
 "zi" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb{
@@ -17884,7 +17888,7 @@ Zq
 Jy
 Hc
 bf
-HS
+zd
 HS
 HS
 HS
