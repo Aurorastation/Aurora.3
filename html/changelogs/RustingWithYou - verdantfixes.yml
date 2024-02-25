@@ -39,4 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Fixes incorrect accesses on Point Verdant"
+  - bugfix: "Fixes motorbikes being unable to go upstairs."
   - maptweak: "Point Verdant exterior areas will now be automatically lit."
