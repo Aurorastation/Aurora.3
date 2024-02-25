@@ -5859,6 +5859,9 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 30
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
 "pq" = (
