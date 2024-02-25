@@ -2728,6 +2728,17 @@
 	glass_name = "glass of applejack"
 	glass_desc = "Hard apple cider that has been distilled. The result is much more flavorful and alcoholic."
 
+/singleton/reagent/alcohol/snakebite
+	name = "Snakebite"
+	description = "An alcoholic beverage made of equal parts beer and alcoholic cider."
+	color = "#ceab4a"
+	strength = 9
+	taste_description = "sweet apple-flavoured beer"
+
+	glass_icon_state = "snakebite"
+	glass_name = "glass of snakebite"
+	glass_desc = "A glass of half-and-half beer and alcoholic cider."
+
 /singleton/reagent/alcohol/beer
 	name = "Beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water."
