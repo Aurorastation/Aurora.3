@@ -218,6 +218,7 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_generate_lag,
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
@@ -390,6 +391,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,
 	/client/proc/toggledebuglogs,
 	/client/proc/getserverlog,
@@ -476,6 +478,7 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_generate_lag,
 	/client/proc/create_poll, //Allows to create polls
 	/client/proc/profiler_start,
 	/client/proc/rustg_send_udp
