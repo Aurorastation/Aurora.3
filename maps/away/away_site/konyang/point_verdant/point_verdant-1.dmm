@@ -5718,6 +5718,11 @@
 /obj/structure/closet/crate/bin/filled,
 /obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "qV" = (
