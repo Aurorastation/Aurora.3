@@ -42,17 +42,13 @@
 	name = "Chief's Quarters"
 	icon_state = "crew_quarters"
 
-/area/cult_base/gym
-	name = "Gym"
-	icon_state = "fitness_gym"
+/area/cult_base/lounge
+	name = "Lounge"
+	icon_state = "crew_quarters"
 
 /area/cult_base/medbay
 	name = "Medbay"
 	icon_state = "medbay"
-
-/area/cult_base/kitchen
-	name = "Kitchen"
-	icon_state = "kitchen"
 
 /area/cult_base/mess
 	name = "Mess"
@@ -64,50 +60,47 @@
 	name = "Engineering"
 	icon_state = "engineering"
 
-/area/cult_base/reactor
-	name = "Reactor"
-	icon_state = "engine"
 
-/area/cult_base/atmos_air
-	name = "Atmos/Air"
+/area/cult_base/atmos_supply
+	name = "Atmos, Supply"
 	icon_state = "atmos"
 
-/area/cult_base/atmos_propellant
-	name = "Atmos/Propellant"
+/area/cult_base/atmos_waste
+	name = "Atmos, Waste"
 	icon_state = "atmos"
 
-/area/cult_base/propellant_tanks
-	name = "Exterior Propellant Tanks"
-	icon_state = "exterior"
+/area/cult_base/maint_north
+	name = "Maintenance, North"
+	icon_state = "maintenance"
 
-/area/cult_base/atmos_air_aux_fill
-	name = "Atmos/Air Aux Fill"
-	icon_state = "atmos"
+/area/cult_base/maint_south
+	name = "Maintenance, South"
+	icon_state = "maintenance"
+
+/area/cult_base/maint_mid
+	name = "Maintenance, Mid"
+	icon_state = "maintenance"
 
 // --- other
-
-/area/cult_base/maint
-	name = "Maintenance"
-	icon_state = "maintenance"
 
 /area/cult_base/bridge
 	name = "Bridge"
 	icon_state = "bridge"
 
-/area/cult_base/maint_storage
-	name = "Maint Storage"
+/area/cult_base/storage_one
+	name = "Storage, One"
 	icon_state = "storage"
 
-/area/cult_base/security
-	name = "Security"
-	icon_state = "security"
+/area/cult_base/storage_two
+	name = "Storage, Two"
+	icon_state = "storage"
 
 /area/cult_base/eva
 	name = "EVA Storage"
 	icon_state = "eva"
 
-/area/cult_base/exterior_catwalks
-	name = "Exterior/Catwalks"
+/area/cult_base/asteroid
+	name = "Asteroid"
 	icon_state = "exterior"
 
 // -------------------------
