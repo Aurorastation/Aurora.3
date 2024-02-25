@@ -135,7 +135,7 @@
 	designer = "Einstein Engines"
 	volume = "16 meters length, 13 meters beam/width, 8 meters vertical height"
 	sizeclass = "Mattock-class Mining Shuttle"
-	shiptype = "Mineral exploitation and salvage operations"
+	shiptype = "Mineral exploitation and salvage scarab"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
@@ -206,3 +206,32 @@
 
 /obj/item/clothing/mask/offworlder/drab
 	color = "#724e6f"
+
+// Lift shenanigans
+/datum/shuttle/autodock/multi/lift/scarab
+	name = "scarab Lift"
+	current_location = "nav_scarab_lift_first_deck"
+	shuttle_area = /area/turbolift/scc_ship/scarab_lift
+	destination_tags = list(
+		"nav_scarab_lift_first_deck",
+		"nav_scarab_lift_second_deck",
+		)
+
+/obj/effect/shuttle_landmark/lift/scarab_first_deck
+	name = "scarab Lift - First Deck"
+	landmark_tag = "nav_scarab_lift_first_deck"
+	base_area = /area/scarab/storage
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/lift/scarab_second_deck
+	name = "Scarab Salvager Lift - Second Deck"
+	landmark_tag = "nav_scarab_lift_second_deck"
+	base_area = /area/scarab/office
+	base_turf = /turf/simulated/open
+
+/obj/machinery/computer/shuttle_control/multi/lift/scarab
+	shuttle_tag = "scarab Lift"
+
+/area/turbolift/scc_ship/scarab_lift
+	name = "Scarab Lift"
+	sound_env = TUNNEL_ENCLOSED
