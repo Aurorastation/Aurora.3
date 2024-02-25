@@ -46,29 +46,30 @@
 	designation = "[pick("Old Grudges", "Redhorn", "Seryo's Revenge", "Spiritbound", "Hammer of the Goddess", "Come Try Me", "Beating Wardrum", "Grudgetaker", "Our Lady's Talon", "Hunter", "Bloodied Claws", "Steelscale")]"
 	..()
 
+/obj/effect/shuttle_landmark/dominian_unathi
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
 /obj/effect/shuttle_landmark/dominian_unathi/nav1
 	name = "Fore"
 	landmark_tag = "nav_dominian_unathi_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav2
 	name = "Starboard"
 	landmark_tag = "nav_dominian_unathi_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav3
 	name = "Port"
 	landmark_tag = "nav_dominian_unathi_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav4
 	name = "Aft"
 	landmark_tag = "nav_dominian_unathi_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
+
+/obj/effect/shuttle_landmark/dominian_unathi/dock
+	name = "Port Docking Bay"
+	landmark_tag = "nav_dominian_unathi_dock"
+	docking_controller = "airlock_dominian_unathi_dock"
 
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/dominian_unathi_shuttle
