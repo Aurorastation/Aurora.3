@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Point Verdant Sakae Tower now takes cargo packages."
   - bugfix: "Cryo Computers added to Point Verdant at most areas with a cryopod"
+  - bugfix: "Konyang Police lockers now have proper access"
