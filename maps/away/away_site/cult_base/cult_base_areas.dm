@@ -6,117 +6,108 @@
 
 // --- docks
 
-/area/cult_base/docks_north_east
-	name = "Cult Ship Docks North-East"
+/area/cult_base/docks_south
+	name = "Docks South"
 	icon_state = "arrivals_dock"
 
-/area/cult_base/docks_north_west
-	name = "Cult Ship Docks North-West"
-	icon_state = "arrivals_dock"
-
-/area/cult_base/docks_south_east
-	name = "Cult Ship Docks South-East"
-	icon_state = "arrivals_dock"
-
-/area/cult_base/docks_south_west
-	name = "Cult Ship Docks South-West"
+/area/cult_base/docks_west
+	name = "Docks West"
 	icon_state = "arrivals_dock"
 
 // --- hallways
 
 /area/cult_base/hallways_north
-	name = "Cult Ship Hallways North"
+	name = "Hallways North"
 	icon_state = "hallC"
 
 /area/cult_base/hallways_south
-	name = "Cult Ship Hallways South"
+	name = "Hallways South"
 	icon_state = "hallC"
 
 /area/cult_base/hallways_east
-	name = "Cult Ship Hallways East"
+	name = "Hallways East"
 	icon_state = "hallC"
 
 /area/cult_base/hallways_west
-	name = "Cult Ship Hallways West"
+	name = "Hallways West"
 	icon_state = "hallC"
-
 
 // --- living
 
 /area/cult_base/crew_quarters
-	name = "Cult Ship Crew Quarters"
+	name = "Crew Quarters"
 	icon_state = "crew_quarters"
 
 /area/cult_base/chiefs_quarters
-	name = "Cult Ship Chief's Quarters"
+	name = "Chief's Quarters"
 	icon_state = "crew_quarters"
 
 /area/cult_base/gym
-	name = "Cult Ship Gym"
+	name = "Gym"
 	icon_state = "fitness_gym"
 
 /area/cult_base/medbay
-	name = "Cult Ship Medbay"
+	name = "Medbay"
 	icon_state = "medbay"
 
 /area/cult_base/kitchen
-	name = "Cult Ship Kitchen"
+	name = "Kitchen"
 	icon_state = "kitchen"
 
 /area/cult_base/mess
-	name = "Cult Ship Mess"
+	name = "Mess"
 	icon_state = "courtroom"
 
 // --- engineering
 
 /area/cult_base/engineering
-	name = "Cult Ship Engineering"
+	name = "Engineering"
 	icon_state = "engineering"
 
 /area/cult_base/reactor
-	name = "Cult Ship Reactor"
+	name = "Reactor"
 	icon_state = "engine"
 
 /area/cult_base/atmos_air
-	name = "Cult Ship Atmos/Air"
+	name = "Atmos/Air"
 	icon_state = "atmos"
 
 /area/cult_base/atmos_propellant
-	name = "Cult Ship Atmos/Propellant"
+	name = "Atmos/Propellant"
 	icon_state = "atmos"
 
 /area/cult_base/propellant_tanks
-	name = "Cult Ship Exterior Propellant Tanks"
+	name = "Exterior Propellant Tanks"
 	icon_state = "exterior"
 
 /area/cult_base/atmos_air_aux_fill
-	name = "Cult Ship Atmos/Air Aux Fill"
+	name = "Atmos/Air Aux Fill"
 	icon_state = "atmos"
 
 // --- other
 
 /area/cult_base/maint
-	name = "Cult Ship Maintenance"
+	name = "Maintenance"
 	icon_state = "maintenance"
 
 /area/cult_base/bridge
-	name = "Cult Ship Bridge"
+	name = "Bridge"
 	icon_state = "bridge"
 
 /area/cult_base/maint_storage
-	name = "Cult Ship Maint Storage"
+	name = "Maint Storage"
 	icon_state = "storage"
 
 /area/cult_base/security
-	name = "Cult Ship Security"
+	name = "Security"
 	icon_state = "security"
 
 /area/cult_base/eva
-	name = "Cult Ship EVA Storage"
+	name = "EVA Storage"
 	icon_state = "eva"
 
 /area/cult_base/exterior_catwalks
-	name = "Cult Ship Exterior/Catwalks"
+	name = "Exterior/Catwalks"
 	icon_state = "exterior"
 
 // -------------------------
