@@ -759,20 +759,20 @@
 /obj/item/clothing/under/xanu/engi
 	name = "xanu armed forces engineer fatigues"
 	desc = "Fireproof, kevlar-reinforced combat fatigues used by engineers of the All-Xanu Armed Forces."
-	icon_state = "xanu_med"
-	item_state = "xanu_med"
+	icon_state = "xanu_engi"
+	item_state = "xanu_engi"
 
 /obj/item/clothing/under/xanu/maa
 	name = "xanu armed forces master-at-arms fatigues"
 	desc = "Fireproof, kevlar-reinforced combat fatigues used by masters-at-arms of the All-Xanu Armed Forces."
-	icon_state = "xanu_med"
-	item_state = "xanu_med"
+	icon_state = "xanu_maa"
+	item_state = "xanu_maa"
 
 /obj/item/clothing/under/xanu/pilot
 	name = "xanu armed forces pilot fatigues"
 	desc = "Fireproof, kevlar-reinforced combat fatigues used by pilots of the All-Xanu Armed Forces."
-	icon_state = "xanu_med"
-	item_state = "xanu_med"
+	icon_state = "xanu_pilot"
+	item_state = "xanu_pilot"
 
 /obj/item/clothing/under/xanu/officer
 	name = "xanu armed forces officer coat"

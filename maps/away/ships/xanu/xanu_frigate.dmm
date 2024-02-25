@@ -279,6 +279,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_boarder/engineering)
 "bp" = (
@@ -364,6 +365,8 @@
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/under/xanu/engi,
+/obj/item/clothing/under/xanu/engi,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "bz" = (
@@ -1002,6 +1005,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "dQ" = (
@@ -1088,6 +1092,13 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/structure/closet/walllocker/secure{
+	pixel_x = 32;
+	name = "maa uniform locker";
+	req_access = list(222)
+	},
+/obj/item/clothing/under/xanu/maa,
+/obj/item/clothing/under/xanu/maa,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "ej" = (
@@ -2467,6 +2478,9 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
+/obj/machinery/door/window/brigdoor/westright{
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "iO" = (
@@ -2618,9 +2632,6 @@
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
@@ -3359,6 +3370,9 @@
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/item/storage/bag/inflatable,
+/obj/structure/window{
+	layer = 3.19
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "mp" = (
@@ -3923,6 +3937,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"nT" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/cargo_bay)
 "nU" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -4322,6 +4344,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,
+/obj/machinery/door/window/brigdoor/westleft{
+	layer = 3.21;
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "pn" = (
@@ -4439,6 +4465,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /turf/simulated/floor,
@@ -6206,6 +6233,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/xanu_boarder/cockpit)
+"wn" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/xanu_boarder/cockpit)
 "wo" = (
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/eva)
@@ -6228,9 +6267,6 @@
 /area/shuttle/xanu_boarder/engineering)
 "wr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
 "ws" = (
@@ -8392,6 +8428,8 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/stack/nanopaste,
+/obj/item/clothing/under/xanu/med,
+/obj/item/clothing/under/xanu/med,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "DP" = (
@@ -8629,6 +8667,9 @@
 	dir = 5
 	},
 /obj/structure/closet/crate/elec,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/cargo_bay)
 "EF" = (
@@ -8900,6 +8941,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
+"Fx" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/cargo_bay)
 "Fy" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -9273,13 +9320,16 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/structure/closet/crate{
-	name = "damage control crate"
+/obj/structure/closet/crate/secure{
+	name = "damage control crate";
+	req_access = list(222)
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
 /obj/item/device/oxycandle,
 /obj/item/device/oxycandle,
+/obj/item/clothing/under/xanu/pilot,
+/obj/item/clothing/under/xanu/pilot,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_fighter)
 "Ha" = (
@@ -10396,8 +10446,9 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "Ku" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate{
-	name = "damage control crate"
+/obj/structure/closet/crate/secure{
+	name = "damage control crate";
+	req_access = list(222)
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/grenade/chem_grenade/metalfoam,
@@ -10506,6 +10557,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/random/dirt_75,
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_boarder/engineering)
 "KH" = (
@@ -11517,6 +11569,9 @@
 	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/corner/brown,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/cargo_bay)
 "Or" = (
@@ -12379,6 +12434,12 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/tool,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/disposals)
 "RC" = (
@@ -13981,8 +14042,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/closet/crate{
-	name = "damage control crate"
+/obj/structure/closet/crate/secure{
+	name = "damage control crate";
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/steel/full,
@@ -32223,8 +32285,8 @@ Zv
 xT
 dQ
 ac
-lm
-kV
+Fx
+nT
 tQ
 oY
 Zu
@@ -36851,7 +36913,7 @@ xb
 wm
 cB
 ui
-xb
+wn
 bH
 vM
 Ce
