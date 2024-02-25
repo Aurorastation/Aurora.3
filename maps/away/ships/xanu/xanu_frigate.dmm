@@ -2426,6 +2426,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/disposals)
+"iz" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/cargo_bay)
 "iA" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -3799,7 +3805,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/structure/fireaxecabinet/east,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/eva)
 "nA" = (
@@ -3937,14 +3942,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
-"nT" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/full,
-/area/ship/xanu_frigate/cargo_bay)
 "nU" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -4663,6 +4660,18 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
+"qo" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/xanu_boarder/cockpit)
 "qp" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
@@ -6232,18 +6241,6 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/xanu_boarder/cockpit)
-"wn" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/obj/item/pen{
-	pixel_y = 3;
-	pixel_x = 5
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_boarder/cockpit)
 "wo" = (
 /turf/simulated/floor/carpet/rubber,
@@ -8941,12 +8938,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
-"Fx" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/xanu_frigate/cargo_bay)
 "Fy" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -9000,6 +8991,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_starboard)
+"FM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/xanu_frigate/cargo_bay)
 "FQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -32285,8 +32284,8 @@ Zv
 xT
 dQ
 ac
-Fx
-nT
+iz
+FM
 tQ
 oY
 Zu
@@ -36913,7 +36912,7 @@ xb
 wm
 cB
 ui
-wn
+qo
 bH
 vM
 Ce
