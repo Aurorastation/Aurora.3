@@ -3613,6 +3613,7 @@
 #include "maps\away\away_site\crystal_planet_outpost\crystal_planet_outpost_landmarks.dm"
 #include "maps\away\away_site\cult_base\cult_base_.dm"
 #include "maps\away\away_site\cult_base\cult_base_areas.dm"
+#include "maps\away\away_site\cult_base\cult_base_ghostroles.dm"
 #include "maps\away\away_site\cult_base\cult_base_landmarks.dm"
 #include "maps\away\away_site\first_aurora\first_aurora.dm"
 #include "maps\away\away_site\goon_base\goon_base.dm"

@@ -44,8 +44,6 @@
 	teleport(user, A, TRUE)
 
 /datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A, is_rune = FALSE)
-	var/turf/T = get_turf(user)
-
 	var/list/datum/rune/teleport/possible_runes = list()
 	for(var/datum/rune/teleport/R in SScult.teleport_runes)
 		if(R == src)
