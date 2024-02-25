@@ -292,8 +292,9 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	return ..()
 
 /obj/machinery/cryopod/Initialize()
-	. = ..()
+	..()
 	update_icon()
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/cryopod/LateInitialize()
 	. = ..()
