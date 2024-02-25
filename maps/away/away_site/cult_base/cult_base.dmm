@@ -4,6 +4,12 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "ar" = (
@@ -22,6 +28,13 @@
 /area/space)
 "aY" = (
 /obj/structure/bed/stool/chair/sofa/left/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bg" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/barricade/wooden,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bK" = (
@@ -44,6 +57,17 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/space)
+"cc" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/barricade/wooden{
+	dir = 1;
+	pixel_y = 21
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ck" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -54,6 +78,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"cx" = (
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
+/obj/random/medical,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "cE" = (
 /obj/effect/rune/ethereal,
@@ -100,6 +131,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/barricade/wooden{
+	dir = 1;
+	pixel_y = 21
+	},
+/obj/structure/barricade/wooden,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "ef" = (
@@ -125,6 +161,13 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/space)
+"fd" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/blocker,
 /turf/simulated/floor/plating,
 /area/space)
 "fl" = (
@@ -258,7 +301,9 @@
 /area/space)
 "jg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/rack,
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "jm" = (
@@ -516,6 +561,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"qW" = (
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/space)
 "qX" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -609,6 +664,16 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"tQ" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/blocker,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "tU" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -690,6 +755,10 @@
 /obj/item/bedsheet/ian,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"vt" = (
+/obj/structure/blocker,
+/turf/simulated/floor/plating,
+/area/space)
 "wg" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -699,6 +768,13 @@
 "wl" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"wv" = (
+/obj/structure/barricade/wooden{
+	dir = 1;
+	pixel_y = 15
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "wx" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -838,6 +914,15 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"AT" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/rack,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Bx" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -981,6 +1066,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"GE" = (
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "GK" = (
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1028,6 +1117,10 @@
 "Hz" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
+/area/space)
+"HA" = (
+/obj/effect/rune/armor,
+/turf/simulated/floor/cult,
 /area/space)
 "HH" = (
 /obj/structure/bed/padded,
@@ -1177,6 +1270,14 @@
 "Lk" = (
 /obj/effect/floor_decal/corner/grey/full,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Lx" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/barricade/wooden{
+	dir = 1;
+	pixel_y = 21
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "LQ" = (
 /obj/structure/cable/yellow{
@@ -1419,6 +1520,16 @@
 /obj/item/bedsheet/mime,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Sx" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/barricade/wooden{
+	dir = 1;
+	pixel_y = 21
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "Tc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -1502,7 +1613,7 @@
 /area/space)
 "Vn" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/iv_drip,
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Vs" = (
@@ -1604,8 +1715,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "XR" = (
-/obj/effect/rune/armor,
-/turf/simulated/floor/cult,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/crate/medical,
+/obj/item/roller,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Ye" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -1618,6 +1736,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/blocker,
 /turf/simulated/floor/plating,
 /area/space)
 "Yj" = (
@@ -37316,7 +37435,7 @@ ND
 wV
 EC
 MC
-ZK
+AT
 hJ
 IA
 hJ
@@ -37570,10 +37689,10 @@ hJ
 lm
 MC
 ND
-wV
+cx
 wV
 MC
-ZK
+XR
 hJ
 IA
 hJ
@@ -39345,7 +39464,7 @@ hJ
 Iy
 Gw
 Iy
-Iy
+qW
 hJ
 hJ
 hJ
@@ -45003,18 +45122,18 @@ Iy
 ND
 ND
 ND
-ND
+GE
 Hz
-Iy
-Iy
+vt
+vt
 Hz
 Hz
-iE
+Lx
 bP
-yt
+cc
 ul
-Iy
-Iy
+vt
+wv
 Im
 Im
 Im
@@ -45260,17 +45379,17 @@ CJ
 Iy
 ND
 ND
-qJ
+bg
 Sl
-ZZ
-ZZ
+Sx
+fd
 Sl
 Sl
 Yf
 HK
 ee
-ef
-ef
+tQ
+tQ
 ZZ
 ZZ
 ZZ
@@ -46285,7 +46404,7 @@ hJ
 Im
 Iy
 Iy
-XR
+HA
 hJ
 UF
 dF
