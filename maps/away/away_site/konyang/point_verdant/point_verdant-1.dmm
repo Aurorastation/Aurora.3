@@ -10511,7 +10511,7 @@
 /area/point_verdant/interior)
 "FD" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
@@ -11396,6 +11396,19 @@
 /obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/bar)
+"HM" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(218)
+	},
+/obj/random/dirt_75,
+/obj/item/gun/projectile/revolver/konyang/police,
+/obj/item/gun/projectile/revolver/konyang/police,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior/police)
 "HN" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -11492,7 +11505,7 @@
 /area/point_verdant/interior/offices/kaf)
 "Ib" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
@@ -27181,7 +27194,7 @@ rf
 rf
 rf
 Ir
-tS
+HM
 ch
 EQ
 eV
