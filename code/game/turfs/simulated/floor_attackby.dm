@@ -90,7 +90,7 @@
 		// Repairs and deconstruction
 		else if(attacking_item.iscrowbar())
 			var/area/A = get_area(src)
-			if(A && A.area_flags & AREA_FLAG_INDESTRUCTIBLE_TURFS)
+			if(A && (A.area_flags & AREA_FLAG_INDESTRUCTIBLE_TURFS))
 				return
 			if(broken || burnt)
 				playsound(src, 'sound/items/crowbar_tile.ogg', 80, 1)
