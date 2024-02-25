@@ -9,6 +9,7 @@
 	item_state = "holster"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY
+	slot_flags = SLOT_BELT | SLOT_TIE
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
