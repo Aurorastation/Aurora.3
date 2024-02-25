@@ -1926,6 +1926,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
+"fp" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_gwok";
+	identifier = "konyang_gwok"
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "fr" = (
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/white,
@@ -10559,6 +10568,10 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
+	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/streetvendor)
 "Bk" = (
@@ -16449,6 +16462,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/restaurant)
+"Qk" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/streetvendor)
 "Ql" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -17449,6 +17473,10 @@
 	pixel_y = 26;
 	pixel_x = -21
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon_boss";
+	identifier = "konyang_goon_boss"
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/streetvendor)
 "ST" = (
@@ -18034,6 +18062,10 @@
 "Uu" = (
 /obj/structure/rod_railing{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/streetvendor)
@@ -18643,6 +18675,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Wb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_gwok";
+	identifier = "konyang_gwok"
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "Wc" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -48791,7 +48831,7 @@ zk
 zk
 BE
 BE
-BE
+Wb
 la
 YS
 Sw
@@ -50331,7 +50371,7 @@ xn
 dm
 zk
 zk
-zk
+fp
 zk
 Qy
 Gf
@@ -54482,7 +54522,7 @@ gU
 tQ
 KL
 aM
-XR
+Qk
 Lr
 uu
 xb

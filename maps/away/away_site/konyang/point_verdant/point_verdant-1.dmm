@@ -743,10 +743,6 @@
 /area/point_verdant/interior)
 "cf" = (
 /obj/structure/weightlifter,
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon_boss";
-	identifier = "konyang_goon_boss"
-	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
 "cg" = (
@@ -1936,6 +1932,8 @@
 /obj/item/storage/bag/trash,
 /obj/item/hammer,
 /obj/random/dirt_75,
+/obj/random/civgun,
+/obj/random/civgun,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/streetvendor)
 "fK" = (
@@ -2663,7 +2661,7 @@
 /area/point_verdant/interior)
 "hW" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/ammo_magazine/c45/revolver,
 /obj/item/ammo_magazine/c45/revolver,
@@ -4498,10 +4496,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon";
-	identifier = "konyang_goon"
-	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
 "ni" = (
@@ -5388,7 +5382,7 @@
 /area/point_verdant/outdoors)
 "qa" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
@@ -6719,7 +6713,7 @@
 /area/point_verdant/interior)
 "tS" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/random/dirt_75,
 /obj/item/gun/projectile/revolver/konyang/police,
@@ -6900,10 +6894,6 @@
 "uy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair/office/dark,
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon";
-	identifier = "konyang_goon"
-	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
 "uz" = (
@@ -7837,10 +7827,6 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8;
 	pixel_x = -10
-	},
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon";
-	identifier = "konyang_goon"
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
@@ -10511,7 +10497,7 @@
 /area/point_verdant/interior)
 "FD" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
@@ -10522,10 +10508,9 @@
 /obj/item/clothing/under/rank/konyang/police,
 /obj/item/clothing/under/rank/konyang/police,
 /obj/item/clothing/under/rank/konyang/police,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/suit/storage/vest/konyang,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "FE" = (
@@ -11492,7 +11477,7 @@
 /area/point_verdant/interior/offices/kaf)
 "Ib" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
@@ -11885,8 +11870,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/random/civgun,
-/obj/random/civgun,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
 "Jj" = (

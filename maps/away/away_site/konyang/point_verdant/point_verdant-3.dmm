@@ -94,7 +94,9 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/minimart)
 "aE" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	req_access = list(219)
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
@@ -3382,7 +3384,9 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "Bf" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	req_access = list(219)
+	},
 /obj/machinery/light{
 	dir = 8
 	},
