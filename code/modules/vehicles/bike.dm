@@ -438,6 +438,13 @@
 	can_hover = FALSE
 	key_type = /obj/item/key/bike/sport
 
+/obj/vehicle/bike/motor/check_destination(turf/destination)
+	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/floor/exoplanet/water))
+	if(is_type_in_typecache(destination,types) || pulledby)
+		return TRUE
+	else
+		return FALSE
+
 /obj/vehicle/bike/motor/generate_registration_plate()
 	registration_plate = "[rand(10,99)]S-[rand(1000,9999)]"
 
