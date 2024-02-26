@@ -2809,13 +2809,6 @@
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
-"it" = (
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
-/obj/effect/map_effect/particle_emitter/bar_smoke,
-/turf/simulated/floor/lino,
-/area/point_verdant/interior/bar)
 "iu" = (
 /obj/structure/table/wood,
 /obj/item/device/taperecorder{
@@ -3196,6 +3189,10 @@
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
+"jC" = (
+/obj/item/storage/box/fancy/yoke/ebisu,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/bar)
 "jD" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/light{
@@ -3388,6 +3385,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/point_verdant/interior/offices)
+"jZ" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/clothing/accessory/holster/hip/brown,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/police)
 "ka" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -3582,10 +3586,6 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
 "kC" = (
-/obj/machinery/light/colored/decayed{
-	dir = 8;
-	pixel_x = -10
-	},
 /obj/structure/toilet{
 	dir = 4
 	},
@@ -3941,6 +3941,7 @@
 /obj/item/device/flashlight/lamp/green{
 	pixel_y = 14
 	},
+/obj/item/clothing/accessory/holster/thigh/brown,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
 "lx" = (
@@ -5402,6 +5403,8 @@
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/clothing/accessory/holster/armpit,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "qb" = (
@@ -5944,6 +5947,14 @@
 /obj/item/storage/box/folders{
 	pixel_y = 5
 	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -7;
+	pixel_x = -2
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -7;
+	pixel_x = -2
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "rM" = (
@@ -6479,6 +6490,17 @@
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices)
+"te" = (
+/obj/structure/closet,
+/obj/item/device/quikpay,
+/obj/item/clothing/under/konyang,
+/obj/item/clothing/under/konyang/blue,
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket,
+/obj/item/clothing/under/pants/black,
+/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/bar)
 "tg" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
@@ -8452,6 +8474,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"zr" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/bar)
 "zs" = (
 /obj/item/stack/tile/wood,
 /obj/structure/ledge/quarter{
@@ -9733,6 +9759,7 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
+/obj/item/holomenu,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)
 "Dq" = (
@@ -10516,6 +10543,8 @@
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/clothing/accessory/holster/armpit,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "FE" = (
@@ -12249,6 +12278,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"Ky" = (
+/obj/effect/map_effect/particle_emitter/bar_smoke,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/bar)
 "Kz" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -13901,14 +13934,6 @@
 	icon_state = "black"
 	},
 /area/point_verdant/interior)
-"Pg" = (
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 12;
-	pixel_y = 8
-	},
-/turf/simulated/floor/lino,
-/area/point_verdant/interior/bar)
 "Ph" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -14231,10 +14256,6 @@
 	pixel_x = 12;
 	pixel_y = 8
 	},
-/obj/machinery/vending/boozeomat{
-	req_access = null;
-	layer = 2.89
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_bar";
 	name = "Store Shutters";
@@ -14243,7 +14264,11 @@
 	req_access = list(219);
 	pixel_x = 20
 	},
-/turf/simulated/floor/lino,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)
 "Qa" = (
 /obj/random/dirt_75,
@@ -15041,6 +15066,7 @@
 	pixel_x = -3;
 	pixel_y = -2
 	},
+/obj/item/clothing/accessory/holster/hip,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "Si" = (
@@ -15152,6 +15178,7 @@
 	pixel_x = 7;
 	pixel_y = 5
 	},
+/obj/item/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/bar)
 "St" = (
@@ -17385,6 +17412,13 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"YI" = (
+/obj/machinery/vending/boozeomat{
+	req_access = null;
+	layer = 2.89
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/bar)
 "YJ" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/trash_pile,
@@ -26668,7 +26702,7 @@ wr
 fR
 SF
 hb
-AR
+jZ
 kT
 lC
 Ue
@@ -43594,7 +43628,7 @@ AV
 AV
 bk
 sZ
-tg
+zr
 tg
 cE
 iw
@@ -44110,7 +44144,7 @@ bk
 bk
 Od
 HL
-Tq
+Ky
 jm
 iw
 sZ
@@ -44368,7 +44402,7 @@ bk
 Od
 GT
 Tq
-it
+jm
 iw
 sZ
 mj
@@ -45140,7 +45174,7 @@ bk
 bk
 sZ
 di
-iw
+YI
 sZ
 hP
 sZ
@@ -45397,7 +45431,7 @@ bk
 bk
 sZ
 IE
-Pg
+iw
 iw
 iw
 sZ
@@ -45653,10 +45687,10 @@ AV
 AV
 bk
 sZ
-sZ
-sZ
-sZ
-sZ
+te
+iw
+jC
+jC
 sZ
 Sx
 Sx
@@ -45909,16 +45943,16 @@ AV
 AV
 AV
 bk
-bk
-Fn
-Fn
-bk
-LE
-OC
+sZ
+sZ
+sZ
+sZ
+sZ
+sZ
 Sx
 Sx
 Sx
-OC
+ud
 nk
 Fn
 rf
@@ -46166,7 +46200,7 @@ AV
 AV
 AV
 AV
-AV
+bk
 Fn
 Fn
 bk
@@ -46423,7 +46457,7 @@ AV
 AV
 AV
 AV
-AV
+bk
 bk
 Fn
 Fn
@@ -46680,8 +46714,8 @@ ZZ
 AV
 AV
 AV
-AV
-AV
+bk
+bk
 bk
 Fn
 LE

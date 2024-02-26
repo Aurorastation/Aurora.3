@@ -106,6 +106,26 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"ap" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "aq" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/outdoors)
@@ -2555,6 +2575,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/clothing/under/pants/black,
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/dress,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/tailor)
 "gY" = (
@@ -2682,8 +2705,21 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "hp" = (
-/obj/structure/extinguisher_cabinet/north,
+/obj/structure/stairs_lower{
+	dir = 4;
+	pixel_y = 6
+	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "hs" = (
@@ -3343,6 +3379,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "ji" = (
@@ -3546,6 +3586,12 @@
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/streetvendor)
+"jM" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/random/dirt_75,
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "jN" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/spaceport)
@@ -8027,6 +8073,7 @@
 	pixel_y = 6
 	},
 /obj/item/clothing/under/dress/sailordress,
+/obj/item/clothing/under/suit_jacket/nt_skirtsuit,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
 "uT" = (
@@ -8565,16 +8612,11 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "wl" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/ringer_button{
+	id = "medbay_ringer";
+	pixel_y = 17
+	},
+/turf/simulated/wall/wood,
 /area/point_verdant/interior/restaurant)
 "wm" = (
 /obj/effect/decal/road_marking{
@@ -8786,13 +8828,26 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "wS" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 6;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/random/dirt_75,
+/obj/item/reagent_containers/cooking_container/board{
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "wT" = (
@@ -12472,8 +12527,10 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "Gf" = (
-/obj/structure/closet/secure_closet/freezer/chicken_and_fish,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "Gg" = (
@@ -12574,6 +12631,9 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/tailor)
 "Gs" = (
@@ -12611,7 +12671,7 @@
 /area/point_verdant/outdoors)
 "Gw" = (
 /obj/machinery/door/window/southright{
-	req_access = list(218)
+	req_access = list(219)
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
@@ -12676,27 +12736,21 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "GH" = (
-/obj/structure/table/stone/marble,
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = -7;
-	pixel_y = 3
-	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = -25;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = 6;
-	pixel_y = 13
-	},
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "GI" = (
@@ -15381,6 +15435,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
+"NI" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/machinery/chem_master/condimaster,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "NJ" = (
 /obj/structure/road_barrier/bot_in{
 	dir = 8
@@ -16699,18 +16759,12 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "QM" = (
-/obj/item/reagent_containers/cooking_container/board{
-	pixel_x = 8
-	},
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = -6;
-	pixel_y = 8
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "QN" = (
@@ -19756,13 +19810,12 @@
 /obj/machinery/space_heater/stationary{
 	pixel_y = 29
 	},
-/obj/structure/closet/crate/bin/urban/compact{
-	pixel_y = 9
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "YN" = (
@@ -48572,7 +48625,7 @@ xH
 Ja
 bP
 dX
-wl
+yH
 wS
 sd
 jh
@@ -48830,8 +48883,8 @@ Zm
 bP
 cA
 zk
-zk
-zk
+BE
+BE
 BE
 BE
 Wb
@@ -49087,7 +49140,7 @@ bp
 OB
 kF
 qg
-yH
+hp
 BE
 eN
 FN
@@ -49601,8 +49654,8 @@ OB
 no
 OB
 OB
-OB
-hp
+ap
+BE
 OB
 WH
 BE
@@ -50111,8 +50164,8 @@ Wq
 zS
 YV
 CT
-OB
-xm
+wl
+jM
 xn
 No
 eH
@@ -50372,7 +50425,7 @@ vl
 xm
 xn
 dm
-zk
+NI
 zk
 fp
 zk
