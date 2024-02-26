@@ -16805,7 +16805,7 @@
 /area/point_verdant/interior/offices)
 "Rb" = (
 /obj/machinery/door/window/southright{
-	req_access = list(218)
+	req_access = list(219)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
