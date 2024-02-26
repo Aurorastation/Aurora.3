@@ -104,9 +104,6 @@
 
 	M.set_species(picked_species)
 
-	if(M.species.character_creation_psi_points && M.has_psionics)
-		M.psi.psi_points = M.species.character_creation_psi_points
-
 	//Prepare the mob
 	M.check_dna(M)
 	M.dna.ready_dna(M)
