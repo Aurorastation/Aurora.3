@@ -3100,16 +3100,16 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/traditionalist/l
 
-/obj/structure/sign/flag/scarab/large/north/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/north/Initialize(mapload)
 	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/scarab/large/south/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/south/Initialize(mapload)
 	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/scarab/large/east/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/east/Initialize(mapload)
 	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/scarab/large/west/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 // Callisto
@@ -3148,6 +3148,44 @@
 	. = ..(mapload, EAST)
 
 /obj/structure/sign/flag/callisto/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Venus
+
+/obj/item/flag/venus
+	name = "\improper Venusian flag"
+	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	flag_path = "venus"
+	flag_structure = /obj/structure/sign/flag/venus
+
+/obj/structure/sign/flag/venus
+	name = "\improper Venusian flag"
+	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	flag_path = "venus"
+	icon_state = "venus"
+	flag_item = /obj/item/flag/venus
+
+/obj/item/flag/venus/l
+	name = "large Venusian flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/venus/large
+
+/obj/structure/sign/flag/venus/large
+	icon_state = "venus_l"
+	flag_path = "venus"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/venus/l
+
+/obj/structure/sign/flag/venus/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/venus/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/venus/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/venus/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 //Hiskyn
