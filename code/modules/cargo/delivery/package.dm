@@ -13,6 +13,7 @@
 
 	var/delivery_point_id = ""
 	var/datum/weakref/delivery_point_sector
+	var/delivery_site = "Unknown"
 	var/delivery_point_coordinates = ""
 
 	var/datum/weakref/associated_delivery_point
@@ -25,6 +26,7 @@
 	pay_amount = rand(4, 7) * 1000
 	if(prob(3))
 		pay_amount = rand(12, 17) * 1000
+	pay_amount = pay_amount * delivery_point.payment_modifier
 	if(delivery_point)
 		setup_delivery_point(delivery_point)
 	color = pick("#FFFFFF", "#EEEEEE", "#DDDDDD", "#CCCCCC", "#BBBBBB", "#FFDDDD", "#DDDDFF", "#FFFFDD", "#886600")
@@ -33,16 +35,19 @@
 	associated_delivery_point = WEAKREF(delivery_point)
 	delivery_point_id = delivery_point.delivery_id
 	delivery_point_sector = delivery_point.delivery_sector
+	if(delivery_point.override_name)
+		delivery_site = delivery_point.override_name
 	delivery_point_coordinates = "[delivery_point.x]-[delivery_point.y]"
 
 /obj/item/cargo_package/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(delivery_point_id)
-		var/delivery_site = "Unknown"
-		if(delivery_point_sector)
-			var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
-			if(delivery_sector)
-				delivery_site = delivery_sector.name
+		// if name not already set by cargo receptacle, acquire the sector name instead
+		if(delivery_site == "Unknown")
+			if(delivery_point_sector)
+				var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
+				if(delivery_sector)
+					delivery_site = delivery_sector.name
 		. += SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_site]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>")
 		. += SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>.")
 

@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - maptweak: "Additional cargo delivery points added to Point Verdant, examples include Up!Burger, Corporate Docks, and the Hotel."
   - maptweak: "Long range holopad added to Point Verdant near the holding cells."
+  - refactor: "Added naming and payment functionality to cargo receptacles, to allow for specific site names and adjustment of pay for inbound cargo packages. Only utilized by Point Verdant at the moment."

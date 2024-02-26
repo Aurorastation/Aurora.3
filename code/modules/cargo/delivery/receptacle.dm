@@ -9,6 +9,11 @@ var/global/list/all_cargo_receptacles = list()
 
 	var/delivery_id = ""
 	var/datum/weakref/delivery_sector
+	/// If set, will have this variable display as the site name on inbound packages.
+	var/override_name = ""
+
+	/// Used to adjust the reward for delivering to this point
+	var/payment_modifier = 1.0
 
 	var/spawns_packages = TRUE
 
