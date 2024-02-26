@@ -247,6 +247,10 @@
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id
 
+/datum/outfit/admin/konyang_bar/get_id_access()
+	return list(ACCESS_KONYANG_VENDORS)
+
+
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"
 	name = "Point Verdant Utility Worker"
