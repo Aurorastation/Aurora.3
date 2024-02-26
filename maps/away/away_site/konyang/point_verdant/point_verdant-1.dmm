@@ -3094,13 +3094,6 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
-"jg" = (
-/obj/effect/decal/exterior_stairs/left{
-	dir = 8;
-	icon_state = "stairs-left-top"
-	},
-/turf/simulated/floor/concrete,
-/area/point_verdant/outdoors)
 "ji" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
@@ -15397,14 +15390,6 @@
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
-"Tf" = (
-/obj/effect/decal/exterior_stairs/left{
-	dir = 4;
-	layer = 2.01;
-	icon_state = "stairs-left-bot"
-	},
-/turf/simulated/floor/concrete,
-/area/point_verdant/outdoors)
 "Tg" = (
 /obj/structure/stairs/urban/left{
 	icon_state = "stairs-left-top"
@@ -54886,8 +54871,8 @@ IJ
 vR
 uU
 uU
-jg
-Tf
+LD
+LD
 rf
 rf
 rf
