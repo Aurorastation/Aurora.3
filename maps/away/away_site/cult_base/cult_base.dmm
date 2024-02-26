@@ -2608,10 +2608,8 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "yG" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
 /obj/structure/lattice,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
 "yI" = (
@@ -3228,14 +3226,8 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/obj/machinery/shipsensors/weak,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/airless,
-/area/space)
+/turf/simulated/wall/r_wall,
+/area/cult_base/hallways_north)
 "EM" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -3430,6 +3422,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "Hc" = (
@@ -4150,8 +4145,7 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/r_wall,
 /area/cult_base/maint_north)
 "Np" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -4204,12 +4198,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/engineering)
 "NT" = (
+/obj/structure/lattice,
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/turf/simulated/floor/plating,
-/area/cult_base/hallways_north)
+/turf/template_noop,
+/area/space)
 "NU" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -36015,6 +36009,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -36035,8 +36030,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -36786,6 +36780,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -36806,8 +36801,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -37302,24 +37296,24 @@ Do
 Do
 Zi
 Zi
+kI
+Zi
+Zi
+kI
+Zi
+Zi
+kI
 Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -46289,35 +46283,35 @@ Zi
 Zi
 Zi
 Zi
+Zi
 kI
 Zi
-Zi
-mB
 IA
+mB
 hJ
-yG
+uo
+NT
 uo
 uo
-yG
-VU
-kL
 Nn
-VU
+kL
+Na
+Nn
+Zi
 Zi
 kI
 Zi
-Zi
-yG
+uo
+NT
+uo
+SF
+GX
 uo
 uo
 EJ
-GX
-uo
-yG
-Gp
 bl
-NT
-Gp
+qP
+EJ
 Zi
 Zi
 hJ
@@ -46801,8 +46795,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 Zi
 Zi
 Zi
@@ -46832,8 +46826,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 hJ
 IA
 IA
@@ -47572,8 +47566,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 Zi
 Zi
 Zi
@@ -47603,8 +47597,8 @@ wx
 wx
 Zi
 Zi
-sg
-uo
+Zi
+yG
 hJ
 IA
 gG
@@ -48343,8 +48337,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 Zi
 Zi
 Zi
@@ -48374,8 +48368,8 @@ uV
 hK
 UR
 uS
-sg
-uo
+Zi
+yG
 hJ
 hJ
 hJ
@@ -49628,8 +49622,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 Zi
 Zi
 Zi
@@ -49659,8 +49653,8 @@ Iy
 Iy
 UR
 uS
-sg
-uo
+Zi
+yG
 KN
 DW
 Xq
@@ -50399,8 +50393,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 Zi
 Zi
 Zi
@@ -50430,8 +50424,8 @@ wx
 wx
 Zi
 Zi
-sg
-uo
+Zi
+yG
 KN
 KN
 KN
@@ -51170,8 +51164,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 Zi
 Zi
 Zi
@@ -51201,8 +51195,8 @@ Zi
 Zi
 Zi
 Zi
-sg
 Zi
+sg
 KN
 mD
 eq
@@ -51686,13 +51680,8 @@ Zi
 Zi
 Zi
 Zi
-kI
 Zi
-IA
-mB
-IA
-IA
-mB
+kI
 IA
 IA
 mB
@@ -51715,6 +51704,11 @@ IA
 IA
 mB
 IA
+IA
+mB
+IA
+IA
+mB
 IA
 Ne
 Tt
