@@ -18,8 +18,8 @@
 		You live and breathe for the Dark One, but your death may not be in vain. \
 		<br>\
 		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
-		You are expected to try to generate an interesting encounter with whoever has docked on the away site. \
-		You may try to blend in with the visitors, befriend or trick them, but you you are not 'normal', you follow Nar-Sie. \
+		You are expected to try to generate an interesting encounter with whoever has docked to the away site. \
+		You may try to blend in with the visitors, try to trick them, but you you are not 'normal', you follow Nar-Sie. \
 		Remember to follow basic escalation rules, and have fun!)\
 		"
 
@@ -87,8 +87,10 @@
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/shoes/workboots,
 		/obj/item/clothing/shoes/workboots/dark,
+		/obj/item/clothing/shoes/winter,
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/clothing/shoes/sneakers/blue,
+		/obj/item/clothing/shoes/sneakers/brown,
 		/obj/item/clothing/shoes/sneakers/hitops/brown,
 	)
 	belt = list(
@@ -110,10 +112,10 @@
 		/obj/item/storage/backpack/cultpack,
 	)
 	r_hand = list(
+		/obj/item/device/flashlight/on,
 		/obj/item/device/flashlight/lantern/on,
 		/obj/item/device/flashlight/maglight/on,
 		/obj/item/device/flashlight/heavy/on,
-		/obj/item/device/flashlight/lamp,
 	)
 	l_hand = list(
 		/obj/item/melee/cultblade,
@@ -127,7 +129,8 @@
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/device/flashlight/flare/glowstick/random = 1,
+		/obj/random/junk = 1,
 		/obj/item/material/knife/ritual = 1,
 	)
 	species_shoes = list(
@@ -135,6 +138,12 @@
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
+	)
+	species_gloves = list(
+		SPECIES_UNATHI = /obj/item/clothing/gloves/fingerless,
+		SPECIES_TAJARA = /obj/item/clothing/gloves/fingerless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/fingerless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/fingerless,
 	)
 
 /datum/outfit/admin/cult_base_cultist/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)

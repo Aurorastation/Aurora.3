@@ -298,6 +298,9 @@
 /obj/item/device/flashlight/empty
 	starts_with_cell = FALSE
 
+/obj/item/device/flashlight/on
+	on = TRUE
+
 /obj/item/device/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
