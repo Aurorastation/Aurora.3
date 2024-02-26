@@ -82,8 +82,11 @@
 		w_class = initial(w_class)
 		clear_holster()
 
-/obj/item/clothing/accessory/holster/attack_hand(mob/user)
-	if (has_suit) // If we are part of a suit.
+/obj/item/clothing/accessory/holster/attack_hand(mob/living/carbon/human/user)
+	if (!ishuman(user))
+		return ..()
+
+	if (has_suit || user.belt == src) // If we are part of a suit.
 		if (holstered)
 			unholster(user)
 		return
