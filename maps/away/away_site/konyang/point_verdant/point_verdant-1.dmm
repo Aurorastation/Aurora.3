@@ -10707,7 +10707,7 @@
 /obj/structure/cargo_receptacle{
 	override_name = "Konyang - Point Verdant - Corporate District Docks";
 	payment_modifier = 0.5;
-	min_spawn = 0
+	min_spawn = 1
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior)

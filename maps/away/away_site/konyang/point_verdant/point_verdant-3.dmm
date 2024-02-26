@@ -3150,7 +3150,7 @@
 /obj/structure/cargo_receptacle{
 	override_name = "Konyang - Point Verdant - Sakae Towers";
 	payment_modifier = 0.6;
-	min_spawn = 0;
+	min_spawn = 1;
 	max_spawn = 3
 	},
 /turf/simulated/floor/wood,
