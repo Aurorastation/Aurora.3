@@ -496,6 +496,8 @@ SUBSYSTEM_DEF(timer)
 	bucket_pos = -1
 	bucket_joined = FALSE
 
+//Opendream does not support operator overloading yet
+#if !defined(OPENDREAM)
 /datum/timedevent/proc/operator""()
 	if(!length(timer_info))
 		return "Event not filled"
@@ -510,6 +512,7 @@ SUBSYSTEM_DEF(timer)
 		callBack: [text_ref(timer_info[5])], callBack.object: [timer_info[6]]([timer_info[7]]), \
 		callBack.delegate:[timer_info[8]], source: [timer_info[9]]"
 #endif
+#endif //OPENDREAM
 
 /**
  * Attempts to add this timed event to a bucket, will enter the secondary queue
