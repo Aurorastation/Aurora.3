@@ -292,6 +292,7 @@
 /datum/outfit/admin/konyang_gwok
 	name = "UP! Burger Employee"
 	uniform = /obj/item/clothing/under/rank/konyang/burger
+	shoes = /obj/item/clothing/shoes/workboots/dark
 	suit = /obj/item/clothing/accessory/apron/chef
 	head = /obj/item/clothing/head/konyang/burger
 	id = /obj/item/card/id
