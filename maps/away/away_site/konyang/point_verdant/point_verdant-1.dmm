@@ -12475,6 +12475,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
+"Lj" = (
+/obj/random/dirt_75,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/police)
 "Lk" = (
 /obj/structure/table/glass,
 /obj/item/device/healthanalyzer{
@@ -30004,7 +30009,7 @@ lC
 lC
 wp
 mO
-wr
+Lj
 mO
 mO
 Yn
