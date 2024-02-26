@@ -13,33 +13,48 @@
 	machine.processing_flags &= ~flag;\
 	if(machine.processing_flags == 0) STOP_PROCESSING(SSmachinery, machine)
 
-// -- SStimer stuff --
-//Don't run if there is an identical unique timer active
-#define TIMER_UNIQUE		(1<<0)
+//! ## Timing subsystem
+/**
+ * Don't run if there is an identical unique timer active
+ *
+ * if the arguments to addtimer are the same as an existing timer, it doesn't create a new timer,
+ * and returns the id of the existing timer
+ */
+#define TIMER_UNIQUE (1<<0)
 
-//For unique timers: Replace the old timer rather then not start this one
-#define TIMER_OVERRIDE		(1<<1)
+///For unique timers: Replace the old timer rather then not start this one
+#define TIMER_OVERRIDE (1<<1)
 
-//Timing should be based on how timing progresses on clients, not the sever.
-//	tracking this is more expensive,
-//	should only be used in conjuction with things that have to progress client side, such as animate() or sound()
-#define TIMER_CLIENT_TIME	(1<<2)
+/**
+ * Timing should be based on how timing progresses on clients, not the server.
+ *
+ * Tracking this is more expensive,
+ * should only be used in conjuction with things that have to progress client side, such as
+ * animate() or sound()
+ */
+#define TIMER_CLIENT_TIME (1<<2)
 
-//Timer can be stopped using deltimer()
-#define TIMER_STOPPABLE		(1<<3)
+///Timer can be stopped using deltimer()
+#define TIMER_STOPPABLE (1<<3)
 
-//To be used with TIMER_UNIQUE
-//prevents distinguishing identical timers with the wait variable
-#define TIMER_NO_HASH_WAIT  (1<<4)
+///prevents distinguishing identical timers with the wait variable
+///
+///To be used with TIMER_UNIQUE
+#define TIMER_NO_HASH_WAIT (1<<4)
 
-//Loops the timer repeatedly until qdeleted
-//In most cases you want a subsystem instead
-#define TIMER_LOOP			(1<<5)
+///Loops the timer repeatedly until qdeleted
+///
+///In most cases you want a subsystem instead, so don't use this unless you have a good reason
+#define TIMER_LOOP (1<<5)
 
-//number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
-#define TIMER_NO_INVOKE_WARNING 600
+///Delete the timer on parent datum Destroy() and when deltimer'd
+#define TIMER_DELETE_ME (1<<6)
 
+///Empty ID define
 #define TIMER_ID_NULL -1
+
+/// Used to trigger object removal from a processing list
+#define PROCESS_KILL 26
 
 // -- SSatoms stuff --
 // Technically this check will fail if someone loads a map mid-round, but that's not enabled right now.
@@ -213,6 +228,7 @@
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_DEFAULT 0
+#define INIT_ORDER_TIMER 1
 #define INIT_ORDER_AIR -1
 #define INIT_ORDER_AWAY_MAPS -2 //Loading away sites and exoplanets, should start after air, must initialize before ghost roles in order for their spawnpoints to work
 #define INIT_ORDER_GHOSTROLES -2.1 //Ghost roles must initialize before SS_INIT_MISC due to some roles (matriarch drones) relying on the assumption that this SS is initialized.
@@ -237,7 +253,17 @@
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
+#define FIRE_PRIORITY_TIMER 700
 
+/**
+	Create a new timer and add it to the queue.
+	* Arguments:
+	* * callback the callback to call on timer finish
+	* * wait deciseconds to run the timer for
+	* * flags flags for this timer, see: code\__DEFINES\subsystems.dm
+	* * timer_subsystem the subsystem to insert this timer into
+*/
+#define addtimer(args...) _addtimer(args, file = __FILE__, line = __LINE__)
 
 /* AURORA SHIT */
 
