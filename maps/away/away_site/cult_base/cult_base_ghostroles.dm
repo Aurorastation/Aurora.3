@@ -40,6 +40,17 @@
 	special_role = "Cult Base Cultist"
 	respawn_flag = null
 
+/datum/ghostspawner/human/cult_base_cultist/more
+	short_name = "cult_base_cultist_more"
+	name = "Cult Base Cultist, More"
+	desc = "\
+		(OOC Note: This is enabled by staff if more cultists are desired.) \
+		You are a follower of the Geometer of Blood. Others have already left the material plane, but you were told to stay. \
+		You were part of some archeological expedition, but that is important no more. \
+		You wake up, visitors are coming, and they do not know the word of Nar-Sie yet. \
+		(OOC Note: This is an antagonist role.)\
+		"
+
 // ---------------------- outfits
 
 /datum/outfit/admin/cult_base_cultist
@@ -57,8 +68,9 @@
 		/obj/item/clothing/under/offworlder/drab,
 	)
 	suit = list(
-		/obj/item/clothing/suit/cultrobes,
 		/obj/item/clothing/suit/cultrobes/alt,
+		/obj/item/clothing/suit/cultrobes/alt,
+		/obj/item/clothing/suit/space/cult
 		/obj/item/clothing/suit/storage/hooded/wintercoat,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 		/obj/item/clothing/suit/storage/toggle/labcoat,
@@ -149,20 +161,41 @@
 /datum/outfit/admin/cult_base_cultist/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
 	. = ..()
 
-	// add other equipment
+	// add species equipment
 	if(isoffworlder(human))
 		human.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+
+	// add matching matching head items
+	if(istype(human.wear_suit, /obj/item/clothing/suit/cultrobes/alt))
+		human.equip_or_collect(new /obj/item/clothing/head/culthood/alt, slot_head)
+	if(istype(human.wear_suit, /obj/item/clothing/suit/space/cult))
+		human.equip_or_collect(new /obj/item/clothing/head/helmet/space/cult, slot_head)
+
+	// add other random equipment
+	if(prob(10))
+		human.equip_or_collect(new /obj/item/gun/projectile/revolver/detective, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/ammo_magazine/c38, slot_in_backpack)
+	if(prob(10))
+		human.equip_or_collect(new /obj/random/firstaid, slot_in_backpack)
+	if(prob(20))
+		human.equip_or_collect(new /obj/random/medical, slot_in_backpack)
+	if(prob(20))
+		human.equip_or_collect(new /obj/random/loot, slot_in_backpack)
+	if(prob(20))
+		human.equip_or_collect(new /obj/random/tool, slot_in_backpack)
+	if(prob(25))
+		human.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack)
 
 	// make into a cultist
 	if(human.mind)
 		cult.add_antagonist(human.mind)
 
 	// add blood
-	human.w_uniform?.add_blood(human)
-	human.wear_suit?.add_blood(human)
-	human.gloves?.add_blood(human)
-	human.shoes?.add_blood(human)
+	if(prob(75))
+		human.w_uniform?.add_blood(human)
+		human.wear_suit?.add_blood(human)
+		human.gloves?.add_blood(human)
+		human.shoes?.add_blood(human)
 
-
-/datum/outfit/admin/goon/get_id_access()
+/datum/outfit/admin/cult_base_cultist/get_id_access()
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)

@@ -97,7 +97,7 @@
 	return UI_INTERACTIVE
 
 /obj/effect/ghostspawpoint/proc/is_available()
-	return TRUE
+	return state == STATE_AVAILABLE
 
 /obj/effect/ghostspawpoint/proc/set_spawned()
 	if(recharge_time) //If we are available again after a certain time -> being processing
