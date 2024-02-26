@@ -357,7 +357,7 @@
 
 //Mousedrop so that constructs can drag rats out of maintenance to make turrets
 /obj/structure/cult/pylon/MouseDrop_T(atom/dropping, mob/user)
-	if(istype(, /mob/living))
+	if(istype(dropping, /mob/living))
 		present_sacrifice(user, dropping)
 		return
 	return ..()
