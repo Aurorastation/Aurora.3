@@ -19,7 +19,7 @@
 		<br>\
 		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
 		You are expected to try to generate an interesting encounter with whoever has docked to the away site. \
-		You may try to blend in with the visitors, try to trick them, but you you are not 'normal', you follow Nar-Sie. \
+		You may try to blend in with the visitors, try to trick them, but you are not 'normal', you follow Nar-Sie. \
 		Remember to follow basic escalation rules, and have fun!)\
 		"
 
@@ -148,10 +148,21 @@
 
 /datum/outfit/admin/cult_base_cultist/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
 	. = ..()
+
+	// add other equipment
 	if(isoffworlder(human))
 		human.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+
+	// make into a cultist
 	if(human.mind)
 		cult.add_antagonist(human.mind)
+
+	// add blood
+	human.w_uniform?.add_blood(human)
+	human.wear_suit?.add_blood(human)
+	human.gloves?.add_blood(human)
+	human.shoes?.add_blood(human)
+
 
 /datum/outfit/admin/goon/get_id_access()
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
