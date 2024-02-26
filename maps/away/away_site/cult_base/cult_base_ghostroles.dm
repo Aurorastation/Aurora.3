@@ -6,23 +6,25 @@
 	name = "Cult Base Cultist"
 	tags = list("External")
 	desc = "\
-		You are part of a pirate gang residing in your own base, having just scored a hit and captured a hostage, \
-		trying to wait out a bounty that was placed on your ship and its crew. \
-		Just now a unknown ship has landed outside your asteroid base, they'd best buckle up, they're on your turf now. \
+		You are a follower of the Geometer of Blood. Others have already left the material plane, but you were told to stay. \
+		You were part of some archeological expedition, but that is important no more. \
+		You wake up, visitors are coming, and they do not know the word of Nar-Sie yet. \
 		(OOC Note: This is an antagonist role.)\
 		"
 	welcome_message = "\
-		You awake to the sound of an alarm signifying that a ship has landed nearby! \
-		Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. \
-		You have a shuttle, but it is completely unpowered. Better deal with the intruders before you go fix your shuttle. \
-		There is a secret equipment room, north from the living room, read the note on the floor of your crew quarters on how to access it. \
+		You were part of an archeological expedition, hired by some independent scientist, to look for artifacts in a asteroid belt. \
+		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay. \
+		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, and spread it to others as well. \
+		You live and breathe for the Dark One, but your death may not be in vain. \
+		<br>\
 		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
-		You're expected to try to generate an interesting encounter with whoever has docked on the away site. \
+		You are expected to try to generate an interesting encounter with whoever has docked on the away site. \
+		You may try to blend in with the visitors, befriend or trick them, but you you are not 'normal', you follow Nar-Sie. \
 		Remember to follow basic escalation rules, and have fun!)\
 		"
 
 	spawnpoints = list("cult_base_cultist")
-	max_count = 3
+	max_count = 4
 	enabled = FALSE
 
 	outfit = /datum/outfit/admin/cult_base_cultist
@@ -125,7 +127,6 @@
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/book/tome = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/material/knife/ritual = 1,
 	)

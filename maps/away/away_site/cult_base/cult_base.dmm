@@ -17,19 +17,14 @@
 /turf/simulated/floor/plating,
 /area/space)
 "ah" = (
-/obj/structure/closet/crate/trashcart,
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
+/obj/structure/table/steel,
+/obj/random/soap{
+	pixel_x = 2;
+	pixel_y = 6
 	},
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/cult_base/hallways_south)
 "ai" = (
 /turf/simulated/wall/r_wall{
 	can_open = 1;
@@ -110,6 +105,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
+"aP" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/storage/box/produce,
+/obj/item/reagent_containers/food/drinks/carton/applejuice,
+/turf/simulated/floor/tiled/white,
+/area/cult_base/mess)
 "aX" = (
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
@@ -117,6 +123,18 @@
 /obj/structure/bed/stool/chair/sofa/left/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
+"aZ" = (
+/obj/structure/table/steel,
+/obj/random/tool{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/engineering)
+"bb" = (
+/obj/structure/closet/crate/rad/gear,
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "bc" = (
 /obj/machinery/light/small/broken{
 	dir = 1
@@ -200,8 +218,9 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/cult_base/asteroid)
 "bK" = (
-/turf/simulated/wall/r_wall,
-/area/cult_base/lounge)
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "bM" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -278,6 +297,10 @@
 	table_reinf = "glass"
 	},
 /obj/random/medical,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 8;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/medbay)
 "cA" = (
@@ -375,8 +398,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "di" = (
-/turf/simulated/floor/cult,
-/area/cult_base/lounge)
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_waste)
 "dj" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -481,10 +505,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
-"em" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_north)
 "ep" = (
 /obj/item/clothing/suit/space/emergency{
 	pixel_x = -4;
@@ -512,6 +532,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"eB" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "eI" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -564,6 +588,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"fg" = (
+/obj/effect/rune/teleport,
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
 "fj" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -619,6 +647,21 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_south)
+"fC" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 7;
+	pixel_y = -8
+	},
+/obj/item/trash/plate{
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/mess)
 "fD" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/paleblue{
@@ -753,6 +796,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"gY" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/space)
 "ha" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -856,19 +904,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
+"hT" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/suit/storage/toggle/highvis,
+/obj/item/clothing/suit/storage/toggle/himeo,
+/obj/random/gloves,
+/obj/random/spacecash,
+/obj/random/loot,
+/obj/random/colored_jumpsuit,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "hU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
-"ib" = (
-/obj/structure/table/steel,
-/obj/item/trash/plate{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "ic" = (
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -878,10 +929,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
-"is" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
 "iw" = (
 /obj/structure/table/steel,
 /obj/machinery/light/broken{
@@ -989,11 +1036,12 @@
 "jt" = (
 /obj/structure/closet,
 /obj/item/clothing/shoes/workboots/dark,
-/obj/item/clothing/suit/storage/toggle/flannel/purple,
-/obj/random/medical,
+/obj/item/clothing/suit/storage/toggle/bomber,
+/obj/random/gloves,
+/obj/random/spacecash,
 /obj/random/loot,
-/obj/item/clothing/suit/storage/medical_chest_rig,
-/obj/item/clothing/under/pants/track,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/under/pants/jeansblack,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "jB" = (
@@ -1057,10 +1105,9 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "jY" = (
-/obj/machinery/light/broken,
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
 "jZ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
@@ -1209,17 +1256,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
-"lA" = (
-/obj/effect/floor_decal/corner/mauve/diagonal{
-	dir = 4
-	},
-/obj/structure/closet,
-/obj/item/clothing/shoes/workboots,
-/obj/item/clothing/suit/storage/toggle/flannel,
-/obj/random/loot,
-/obj/random/suit,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "lD" = (
 /obj/random/dirt_75,
 /obj/machinery/light/colored/dying{
@@ -1427,6 +1463,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
+"ny" = (
+/obj/structure/closet/crate/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/engineering)
 "nG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
@@ -1506,13 +1556,6 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"oo" = (
-/obj/item/storage/box/lights/mixed{
-	pixel_x = -13;
-	pixel_y = 3
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
 "oq" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -1556,16 +1599,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
 "oI" = (
-/obj/structure/closet,
-/obj/item/clothing/shoes/workboots/dark,
-/obj/item/clothing/suit/storage/toggle/bomber,
-/obj/random/gloves,
-/obj/random/spacecash,
-/obj/random/loot,
-/obj/random/colored_jumpsuit,
-/obj/item/clothing/under/pants/jeansblack,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/obj/item/book/tome{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/turf/simulated/floor/cult,
+/area/space)
 "oN" = (
 /obj/machinery/light/broken{
 	dir = 4
@@ -1710,6 +1749,10 @@
 /obj/effect/rune/summon_tome,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
+"qn" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/airless,
+/area/cult_base/lounge)
 "qq" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -1739,6 +1782,11 @@
 	},
 /obj/item/storage/belt/utility/ce,
 /turf/simulated/floor/tiled/dark,
+/area/cult_base/engineering)
+"qH" = (
+/obj/structure/closet/toolcloset,
+/obj/item/storage/belt/utility/full,
+/turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "qJ" = (
 /obj/structure/cable{
@@ -1794,6 +1842,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
+"rf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/storage_one)
 "rn" = (
 /obj/machinery/light/small/broken,
 /turf/simulated/floor/plating,
@@ -1852,6 +1905,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
+"rI" = (
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
 "rJ" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/cable{
@@ -1859,12 +1915,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
-"rP" = (
-/obj/machinery/light/broken{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/lounge)
 "rQ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/closet/crate/trashcart,
@@ -1887,6 +1937,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"rX" = (
+/obj/machinery/light/broken,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "rY" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/computer/ship/navigation/terminal{
@@ -1916,9 +1971,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
-"sj" = (
-/turf/simulated/floor/plating,
-/area/cult_base/lounge)
 "sr" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -1929,6 +1981,13 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
+"sE" = (
+/obj/structure/table/steel,
+/obj/random/tech_supply{
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "sF" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux,
@@ -2096,6 +2155,14 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
+"tV" = (
+/obj/item/towel/random{
+	pixel_x = -10;
+	pixel_y = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "tX" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
@@ -2110,12 +2177,6 @@
 "uc" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/bridge)
-"ud" = (
-/obj/item/device/flashlight/flare{
-	pixel_x = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "ul" = (
@@ -2152,6 +2213,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
+"uw" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "uA" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -2189,27 +2254,15 @@
 /turf/simulated/floor/airless,
 /area/space)
 "uV" = (
-/obj/structure/closet,
-/obj/item/clothing/shoes/workboots/dark,
-/obj/item/clothing/suit/storage/toggle/konyang/blue,
-/obj/random/spacecash,
-/obj/random/loot,
-/obj/random/colored_jumpsuit,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "uX" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/red,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
-"vd" = (
-/obj/structure/closet,
-/obj/item/clothing/shoes/workboots/grey,
-/obj/item/clothing/suit/storage/toggle/longcoat,
-/obj/item/clothing/suit/storage/toggle/varsity/brown,
-/obj/random/medical,
-/obj/random/loot,
-/obj/item/clothing/under/pants/striped,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "ve" = (
@@ -2219,6 +2272,17 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
+"vg" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/random/tech_supply{
+	pixel_y = 9
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "vh" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -2287,6 +2351,14 @@
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid)
+"vy" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/flask/flask_cup{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "vz" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -2300,9 +2372,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
-"vI" = (
-/obj/effect/rune/teleport,
-/turf/simulated/floor/cult,
+"vL" = (
+/turf/simulated/wall/r_wall{
+	can_open = 1;
+	color = "#CCDDFF"
+	},
 /area/cult_base/lounge)
 "vP" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2354,17 +2428,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
-"wh" = (
-/obj/structure/closet,
-/obj/item/clothing/shoes/winter/tajara,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
-/obj/random/spacecash,
-/obj/random/loot,
-/obj/random/colored_jumpsuit,
-/obj/random/suit,
-/obj/item/clothing/under/pants/mustang,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "wl" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
@@ -2421,16 +2484,10 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "wT" = (
-/obj/structure/table/steel,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 5;
-	pixel_y = 7
-	},
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
+/obj/structure/reagent_dispensers/watertank,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/cult_base/hallways_south)
 "wU" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -2450,6 +2507,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/medbay)
+"wX" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/random/spacecash,
+/obj/random/loot,
+/obj/random/colored_jumpsuit,
+/obj/random/suit,
+/obj/item/clothing/under/pants/mustang,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "wY" = (
 /obj/structure/table/steel,
 /obj/random/plushie{
@@ -2457,10 +2525,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
-"xb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/airless,
-/area/cult_base/lounge)
 "xi" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
@@ -2488,6 +2552,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
+"xn" = (
+/obj/item/clothing/shoes/workboots{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "xp" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
@@ -2537,17 +2608,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
-"xX" = (
-/obj/effect/floor_decal/corner/mauve/diagonal{
-	dir = 4
-	},
-/obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask{
-	pixel_x = 4;
-	pixel_y = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "yc" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
@@ -2562,6 +2622,10 @@
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 8;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "yn" = (
@@ -2627,6 +2691,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
+"yX" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
+"yY" = (
+/obj/item/device/flashlight/flare{
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/bridge)
 "za" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -2667,13 +2747,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
-"zs" = (
-/obj/structure/table/steel,
-/obj/item/modular_computer/handheld/pda/civilian{
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/bridge)
 "zt" = (
 /obj/machinery/power/rtg,
 /obj/structure/cable/yellow,
@@ -2806,6 +2879,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
+"AK" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/darkblue,
+/area/cult_base/chiefs_quarters)
 "AM" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -2822,6 +2899,9 @@
 	dir = 10
 	},
 /obj/machinery/light/colored/dying,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = 11
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "AT" = (
@@ -2841,10 +2921,6 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
-"Bb" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet/darkblue,
-/area/cult_base/chiefs_quarters)
 "Bh" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -2919,6 +2995,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
+"BF" = (
+/turf/simulated/floor/plating,
+/area/cult_base/lounge)
 "BH" = (
 /obj/item/material/stool/chair/folding{
 	pixel_x = 9;
@@ -2935,6 +3014,16 @@
 /area/cult_base/docks_south)
 "BL" = (
 /obj/structure/closet/cabinet,
+/obj/random/suit,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup/brown{
+	pixel_y = -9
+	},
+/obj/random/suit,
+/obj/item/clothing/under/suit_jacket/tan,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat/science,
+/obj/item/clothing/glasses/science,
 /turf/simulated/floor/carpet/darkblue,
 /area/cult_base/chiefs_quarters)
 "BQ" = (
@@ -2957,6 +3046,11 @@
 "Cb" = (
 /turf/simulated/mineral/surface,
 /area/cult_base/asteroid)
+"Cc" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/item/clothing/accessory/apron/chef,
+/turf/simulated/floor/tiled/white,
+/area/cult_base/mess)
 "Ct" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -3006,10 +3100,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/cult,
 /area/space)
-"CP" = (
-/obj/effect/rune/sacrifice,
-/turf/simulated/floor/cult,
-/area/cult_base/lounge)
 "CR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -3034,6 +3124,13 @@
 /obj/effect/rune/armor,
 /turf/simulated/floor/plating/asteroid,
 /area/space)
+"Dc" = (
+/obj/item/storage/box/lights/mixed{
+	pixel_x = -13;
+	pixel_y = 3
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "Dj" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -3074,6 +3171,7 @@
 /area/cult_base/docks_south)
 "DI" = (
 /obj/effect/floor_decal/corner/green/full,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "DM" = (
@@ -3082,10 +3180,6 @@
 	color = "#CCDDFF"
 	},
 /area/cult_base/medbay)
-"DN" = (
-/obj/structure/closet/crate/rad/gear,
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
 "DO" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -3106,6 +3200,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
+"DY" = (
+/obj/structure/table/steel,
+/obj/random/toolbox{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/engineering)
 "DZ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -3113,6 +3215,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
+"Ed" = (
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/structure/closet,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/suit/storage/toggle/flannel,
+/obj/random/loot,
+/obj/random/suit,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "Eh" = (
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/chiefs_quarters)
@@ -3173,21 +3286,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"EH" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = 7;
-	pixel_y = -8
-	},
-/obj/item/trash/plate{
-	pixel_x = -2;
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/mess)
 "EI" = (
 /obj/structure/table/steel,
 /obj/machinery/light/broken,
@@ -3236,6 +3334,13 @@
 	color = "#CCDDFF"
 	},
 /area/cult_base/engineering)
+"EY" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "Ff" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -3262,6 +3367,10 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
+"FD" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
 "FM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -3275,33 +3384,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "FW" = (
-/obj/structure/closet,
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/shower{
+	pixel_y = 15
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/item/bikehorn/rubberducky{
+	pixel_x = -5;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/cult_base/hallways_south)
 "Gb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
-"Gc" = (
-/obj/structure/closet,
-/obj/item/clothing/shoes/workboots,
-/obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/suit/storage/toggle/himeo,
-/obj/random/gloves,
-/obj/random/spacecash,
-/obj/random/loot,
-/obj/random/colored_jumpsuit,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
-"Gg" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/plating,
-/area/space)
 "Gh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/dying{
@@ -3322,23 +3421,13 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/structure/mopbucket,
+/obj/item/mop,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "Gp" = (
 /turf/simulated/wall/r_wall,
 /area/cult_base/hallways_north)
-"Gr" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/blue{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
-"Gv" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1;
-	color = "#CCDDFF"
-	},
-/area/cult_base/lounge)
 "Gw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -3351,6 +3440,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
+"GD" = (
+/obj/effect/rune/sacrifice,
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
 "GE" = (
 /obj/structure/barricade/wooden,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
@@ -3418,6 +3511,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/space)
+"Ha" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/off{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "Hc" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/bed/stool/chair/office/light{
@@ -3431,13 +3532,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
-"He" = (
-/obj/item/clothing/shoes/workboots{
-	pixel_x = 5;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "Hg" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
@@ -3445,26 +3539,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
-"Hh" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
-"Hj" = (
-/obj/structure/closet/crate,
-/obj/item/stack/material/steel/full{
-	pixel_x = -3
-	},
-/obj/item/stack/material/plasteel/full{
-	pixel_x = 3
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = -3
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/engineering)
 "Hk" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -3587,13 +3661,6 @@
 "Im" = (
 /turf/simulated/floor/cult,
 /area/space)
-"In" = (
-/obj/structure/table/steel,
-/obj/random/tech_supply{
-	pixel_y = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "Is" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -3675,10 +3742,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/space)
-"Jn" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
 "Js" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
@@ -3690,13 +3753,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "Jv" = (
-/obj/structure/mopbucket,
-/obj/item/mop,
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/toilet{
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/white,
+/area/cult_base/hallways_south)
+"Jz" = (
+/obj/structure/table/steel,
+/obj/item/modular_computer/handheld/pda/civilian{
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/cult_base/bridge)
 "JJ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -3711,6 +3781,12 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
+"JW" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/blue{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "JZ" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
@@ -3742,6 +3818,10 @@
 /obj/random/contraband,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
+"Km" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "Kp" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -3795,14 +3875,6 @@
 /obj/random/medical,
 /turf/simulated/floor/plating/asteroid,
 /area/space)
-"KG" = (
-/obj/structure/table/steel,
-/obj/random/toolbox{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/engineering)
 "KJ" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -3819,11 +3891,16 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "KM" = (
-/obj/item/clothing/gloves/janitor,
 /obj/structure/table/steel,
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/towel/random{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/toothbrush/green{
+	pixel_x = 14
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/cult_base/hallways_south)
 "KN" = (
 /turf/simulated/wall/r_wall,
 /area/cult_base/crew_quarters)
@@ -3850,6 +3927,7 @@
 /area/cult_base/hallways_north)
 "Le" = (
 /obj/effect/floor_decal/corner/yellow,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "Lf" = (
@@ -3978,8 +4056,9 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/random/tool{
-	pixel_y = 3
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask{
+	pixel_x = 4;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -4021,6 +4100,16 @@
 "MN" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/closet,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/bottle/fireball,
+/obj/random/spacecash,
+/obj/item/spacecash/ewallet/c5000,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c500,
+/obj/random/spacecash,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/chiefs_quarters)
 "MP" = (
@@ -4258,17 +4347,13 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
+"OV" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/plating,
+/area/space)
 "OW" = (
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
-"OY" = (
-/obj/structure/table/steel,
-/obj/random/tool{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/engineering)
 "Pa" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -4316,13 +4401,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
-"Py" = (
-/obj/structure/table/steel,
-/obj/item/clothing/head/helmet/tank/tan{
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "PA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
@@ -4357,6 +4435,13 @@
 "Qa" = (
 /turf/simulated/wall/r_wall,
 /area/cult_base/eva)
+"Qb" = (
+/obj/structure/table/steel,
+/obj/item/clothing/head/helmet/tank/tan{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "Qf" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4411,17 +4496,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
-"QD" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/random/tech_supply{
-	pixel_y = 9
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
 "QH" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -4486,20 +4560,6 @@
 /obj/machinery/light/broken,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Rg" = (
-/obj/structure/closet/crate/tool,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tool,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/engineering)
 "Rm" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
@@ -4568,11 +4628,6 @@
 	color = "#CCDDFF"
 	},
 /area/space)
-"RO" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/item/clothing/accessory/apron/chef,
-/turf/simulated/floor/tiled/white,
-/area/cult_base/mess)
 "RP" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -4655,6 +4710,10 @@
 "Sr" = (
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black{
+	pixel_x = -3;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "Su" = (
@@ -4728,16 +4787,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
 "Tb" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/broken{
-	dir = 1
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/sink{
+	pixel_y = 21
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/floor/tiled/white,
+/area/cult_base/hallways_south)
 "Tc" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/wall/r_wall,
+/area/cult_base/lounge)
 "Td" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
@@ -4749,6 +4808,16 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
+"Tm" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/workboots/grey,
+/obj/item/clothing/suit/storage/toggle/longcoat,
+/obj/item/clothing/suit/storage/toggle/varsity/brown,
+/obj/random/medical,
+/obj/random/loot,
+/obj/item/clothing/under/pants/striped,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "Tn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -4806,10 +4875,29 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
+"TN" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/suit/storage/toggle/konyang/blue,
+/obj/random/spacecash,
+/obj/random/loot,
+/obj/random/colored_jumpsuit,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "TO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/space)
+"TU" = (
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/obj/random/tool{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "TV" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4908,6 +4996,16 @@
 /obj/effect/rune/armor,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
+"UU" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/suit/storage/toggle/flannel/purple,
+/obj/random/medical,
+/obj/random/loot,
+/obj/item/clothing/suit/storage/medical_chest_rig,
+/obj/item/clothing/under/pants/track,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "UV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -4975,11 +5073,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/portgen/basic,
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
-"Vp" = (
-/obj/structure/closet/toolcloset,
-/obj/item/storage/belt/utility/full,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "Vs" = (
@@ -5051,15 +5144,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
-"VT" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
 "VU" = (
 /turf/simulated/wall/r_wall,
 /area/cult_base/maint_north)
+"Wd" = (
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/lounge)
 "We" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -5091,29 +5184,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "Wu" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
-"Wv" = (
-/obj/structure/closet/secure_closet/freezer,
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
-/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
-/turf/simulated/floor/tiled/white,
-/area/cult_base/mess)
-"Ww" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full{
+	pixel_x = -3
 	},
-/obj/machinery/light/broken{
-	dir = 8
+/obj/item/stack/material/plasteel/full{
+	pixel_x = 3
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -3
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/cult_base/engineering)
+"Ww" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "Wy" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -5174,10 +5260,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/maint_north)
-"Xb" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
 "Xc" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -5203,6 +5285,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/airless,
 /area/cult_base/docks_south)
+"Xl" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "Xn" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -5243,14 +5331,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
-"Xw" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "XE" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -5334,12 +5414,12 @@
 "Yj" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/storage/box/produce,
-/obj/item/reagent_containers/food/drinks/carton/applejuice,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
 /turf/simulated/floor/tiled/white,
 /area/cult_base/mess)
 "Ym" = (
@@ -5362,10 +5442,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
-"Yu" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
 "Yx" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -5462,9 +5538,13 @@
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "Zb" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/towel_flat{
+	pixel_x = -8;
+	pixel_y = 1
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/cult_base/hallways_south)
 "Zc" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -5577,11 +5657,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_east)
-"ZS" = (
+"ZT" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/flask/flask_cup{
-	pixel_x = 7;
-	pixel_y = 2
+/obj/item/trash/plate{
+	pixel_x = 1;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -40900,7 +40980,7 @@ NB
 Wy
 XK
 sG
-is
+Km
 ol
 Cb
 Fm
@@ -41152,10 +41232,10 @@ IA
 IA
 Nz
 Nl
-KK
+uV
 Sm
 XK
-oo
+Dc
 Vt
 eM
 Nz
@@ -41179,7 +41259,7 @@ AD
 Gb
 Ii
 vz
-qX
+rf
 at
 ZQ
 gu
@@ -41411,7 +41491,7 @@ Nz
 md
 NR
 NR
-Hj
+Wu
 XK
 Yb
 Pd
@@ -41665,13 +41745,13 @@ IA
 IA
 IA
 ol
-OY
+aZ
 EC
 NR
 NR
 XK
-QD
-DN
+vg
+bb
 ol
 Cb
 pX
@@ -41922,13 +42002,13 @@ IA
 IA
 IA
 Nz
-KG
+DY
 iX
 Vx
-Rg
+ny
 qC
 Nw
-Vp
+qH
 Nz
 Cb
 pX
@@ -42189,7 +42269,7 @@ Nz
 Nz
 Cb
 pX
-Wu
+di
 KZ
 Mq
 An
@@ -43254,7 +43334,7 @@ dR
 eL
 eL
 eL
-Yu
+FD
 lx
 IA
 IA
@@ -43481,12 +43561,12 @@ hH
 Mq
 Mq
 bM
-Wu
+di
 pX
 Lc
 YR
 bm
-Jn
+uw
 aX
 bm
 bm
@@ -43495,7 +43575,7 @@ bm
 bm
 aX
 zR
-Jn
+uw
 vm
 oC
 Pa
@@ -43504,7 +43584,7 @@ bm
 RP
 NP
 lx
-Yu
+FD
 eL
 eL
 eL
@@ -43979,7 +44059,7 @@ Zk
 Im
 Im
 VU
-em
+jY
 LT
 MT
 MT
@@ -43989,7 +44069,7 @@ MT
 VU
 Mq
 Mq
-Wu
+di
 Mm
 Ej
 Mm
@@ -44017,11 +44097,11 @@ nb
 nb
 cT
 NP
-hJ
-hJ
-hJ
-hJ
-hJ
+Ar
+Ar
+Ar
+Ar
+Ar
 tp
 vP
 lx
@@ -44267,18 +44347,18 @@ bm
 bm
 nb
 We
-Wv
 Yj
+aP
 Ye
 Rn
 nb
 Zc
 Aw
-hJ
+Ar
 FW
 Ww
 wT
-hJ
+Ar
 UW
 eL
 lx
@@ -44506,7 +44586,7 @@ Lb
 xk
 Ig
 EE
-zs
+Jz
 Ez
 ei
 Ig
@@ -44525,17 +44605,17 @@ IA
 nb
 cX
 yn
-RO
+Cc
 hL
 aH
 oF
 mw
 zM
-hJ
+Ar
 Tb
 Zb
 KM
-hJ
+Ar
 UW
 JK
 lx
@@ -44752,7 +44832,7 @@ IA
 VU
 wb
 Og
-em
+jY
 MT
 qQ
 UK
@@ -44764,7 +44844,7 @@ CT
 Ig
 vU
 Hc
-ud
+yY
 uc
 PR
 wf
@@ -44788,11 +44868,11 @@ tU
 nb
 Hd
 NP
-hJ
+Ar
 Jv
-ND
+tV
 ah
-hJ
+Ar
 UW
 eL
 Ar
@@ -45038,18 +45118,18 @@ IA
 IA
 nb
 nM
-EH
+fC
 fD
 yr
 Qq
 nb
 gt
 gt
-hJ
-hJ
-Mb
-hJ
-hJ
+Ar
+Ar
+yX
+Ar
+Ar
 fy
 lx
 Ar
@@ -45528,7 +45608,7 @@ rn
 Na
 VU
 VU
-Bb
+AK
 Eh
 xF
 Eh
@@ -46074,7 +46154,7 @@ hJ
 RP
 NP
 Ae
-Xb
+bK
 cG
 OC
 gh
@@ -47089,23 +47169,23 @@ Zi
 hJ
 IA
 IA
-bK
-xb
-xb
-xb
-bK
-bK
+Tc
+qn
+qn
+qn
+Tc
+Tc
 IA
 IA
-bK
-bK
+Tc
+Tc
 RP
 NP
 oA
 Td
 Ae
 pb
-Hh
+EY
 Js
 gK
 Ae
@@ -47327,9 +47407,9 @@ wx
 wx
 wx
 wx
-Gg
+OV
 oq
-Gg
+OV
 wx
 wx
 wx
@@ -47346,23 +47426,23 @@ uo
 hJ
 IA
 IA
-bK
+Tc
 Ad
 GN
 RS
-bK
-bK
-bK
-bK
-bK
-bK
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
 me
 za
 Bz
 gX
 Ae
 TV
-VT
+Xl
 yy
 xz
 Ae
@@ -47603,23 +47683,23 @@ uo
 hJ
 IA
 cE
-bK
+Tc
 aY
-sj
+BF
 Kh
-rP
+Wd
 VL
 aO
 qN
-sj
-bK
+BF
+Tc
 qB
 WM
 By
 Aw
 Ae
 pb
-Gr
+JW
 rE
 BW
 gS
@@ -47840,11 +47920,11 @@ ND
 ND
 ND
 hJ
-Gg
+OV
 Iy
 Iy
 Iy
-Gg
+OV
 hJ
 Jh
 Iy
@@ -47860,11 +47940,11 @@ uo
 hJ
 bN
 IZ
-Gv
+vL
 cJ
-sj
-sj
-sj
+BF
+BF
+BF
 Ey
 cr
 MW
@@ -48105,7 +48185,7 @@ hJ
 hJ
 jC
 Iy
-nG
+gY
 hJ
 Ym
 xt
@@ -48117,16 +48197,16 @@ uo
 hJ
 eR
 uD
-bK
-di
-di
-CP
-sj
+Tc
+rI
+rI
+GD
+BF
 kB
 Lm
-sj
-di
-bK
+BF
+rI
+Tc
 cT
 NP
 Ae
@@ -48374,20 +48454,20 @@ uo
 hJ
 hJ
 hJ
-bK
-vI
-di
-di
+Tc
+fg
+rI
+rI
 oN
 jS
 Aa
-di
-di
-bK
+rI
+rI
+Tc
 je
 pa
 Ae
-Xb
+bK
 OC
 hG
 yc
@@ -48602,7 +48682,7 @@ Zi
 Zi
 wx
 wx
-Tc
+eB
 Ul
 tZ
 hJ
@@ -48631,16 +48711,16 @@ DQ
 DQ
 DQ
 OR
-bK
-bK
-xb
-xb
-bK
-bK
-xb
-xb
-bK
-bK
+Tc
+Tc
+qn
+qn
+Tc
+Tc
+qn
+qn
+Tc
+Tc
 QA
 gt
 Ae
@@ -49375,7 +49455,7 @@ wx
 wx
 TY
 TY
-jY
+rX
 hJ
 kp
 kp
@@ -49386,7 +49466,7 @@ oT
 fq
 Im
 Im
-Im
+oI
 Im
 Im
 pw
@@ -49657,16 +49737,16 @@ uS
 sg
 uo
 KN
-oI
-lA
-Xw
+jt
+Ed
+Ha
 KN
 Oz
 uA
 wB
 Vs
 Ae
-Xb
+bK
 xG
 Oa
 ly
@@ -50172,7 +50252,7 @@ Zi
 uo
 KN
 uX
-In
+sE
 HH
 KN
 bX
@@ -50438,8 +50518,8 @@ bo
 zY
 zo
 KN
-Gc
-Py
+hT
+Qb
 KN
 IZ
 bN
@@ -50685,7 +50765,7 @@ uo
 uo
 uo
 KN
-vd
+Tm
 Zw
 KN
 BH
@@ -50952,7 +51032,7 @@ lk
 zb
 mq
 KN
-xX
+Mr
 HH
 KN
 IA
@@ -51200,7 +51280,7 @@ sg
 Zi
 KN
 mD
-ZS
+vy
 KN
 cP
 Vs
@@ -51714,7 +51794,7 @@ IA
 Ne
 Tt
 KN
-wh
+wX
 QO
 ic
 KN
@@ -51722,7 +51802,7 @@ KN
 jB
 KN
 ic
-Mr
+TU
 ke
 OJ
 bN
@@ -51973,13 +52053,13 @@ IZ
 KN
 Xq
 ic
-ib
+ZT
 KN
 QO
 ic
 KN
 Lg
-jt
+UU
 KN
 Qo
 IA
@@ -52230,10 +52310,10 @@ IZ
 ke
 ic
 qf
-He
+xn
 KN
 cP
-uV
+TN
 KN
 vs
 eq
