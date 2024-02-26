@@ -1,72 +1,34 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aab" = (
-/obj/machinery/atmospherics/pipe/tank,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/space)
-"aag" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "aaI" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
+/obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/dominian_corvette/cryo)
 "adr" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
-"aep" = (
-/obj/structure/bed/chair,
-/obj/structure/curtain/open/bed,
-/obj/item/bedsheet/rd,
-/turf/simulated/floor/wood,
-/area/shuttle/dominian_shuttle)
-"aeN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
-"ahw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"ajL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+"aeN" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/infirmary)
 "amn" = (
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/obj/item/pen/black,
-/obj/item/pen/blue{
-	pixel_x = -1;
-	pixel_y = -2
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/shoes/magboots,
+/obj/machinery/firealarm/north,
+/obj/item/clothing/suit/space/void/dominia/voidsman,
+/obj/item/clothing/head/helmet/space/void/dominia/voidsman,
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
-/obj/item/pen/red{
-	pixel_x = -3;
-	pixel_y = -3
-	},
-/obj/effect/floor_decal/corner/red/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/item/device/gps,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "ans" = (
 /obj/structure/table/wood,
@@ -77,29 +39,25 @@
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/hangar)
 "aou" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Dominian Francisca Rotary Gun"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
-	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"aoH" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/hangar)
+"aqS" = (
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"aqS" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+"asL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/carpet/red,
 /area/space)
 "atj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -112,30 +70,133 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "aue" = (
+/obj/machinery/door/airlock/command{
+	name = "Ensign's Quarters";
+	req_access = list(204)
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/armory)
+/area/shuttle/dominian_shuttle)
 "auV" = (
-/turf/simulated/floor/carpet/rubber,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, captain's office"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/space)
 "awG" = (
-/obj/structure/bed/chair,
-/obj/structure/bed/chair{
-	pixel_y = 12
-	},
-/obj/item/bedsheet/red,
-/obj/item/bedsheet/red{
-	pixel_y = 12
-	},
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/bridge)
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
 "axT" = (
-/obj/structure/bed/stool/chair/sofa/left/brown{
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red,
-/area/ship/dominian_corvette/bridge)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "aAX" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aBD" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/space)
+"aBE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"aCd" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aCZ" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"aDM" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aEq" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/exterior)
+"aEB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"aHs" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"aHv" = (
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 8
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_x = -32
+	},
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aJd" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aMY" = (
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
+"aOU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aPB" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/crescent,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor,
+/area/space)
+"aSc" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -147,13 +208,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"aCd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"aCZ" = (
+"aWi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
@@ -161,160 +216,50 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
-"aEq" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/simulated/floor,
-/area/space)
-"aHs" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/bridge)
-"aHt" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"aJd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/fuel_port/phoron{
-	pixel_y = 32
-	},
-/turf/simulated/floor,
-/area/space)
-"aMc" = (
+"bac" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"aMY" = (
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
-"aOU" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
-"aPB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"aSc" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
-	},
-/obj/structure/table/steel,
-/obj/item/pen/drafting/blue,
-/obj/structure/sign/flag/dominia/large/west,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"aSm" = (
-/obj/effect/floor_decal/corner{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner{
-	dir = 4
-	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"aSN" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
-"bac" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"bcf" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
 "bgV" = (
-/turf/simulated/floor/plating,
-/area/space)
-"bik" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
+/obj/effect/floor_decal/spline/plain/corner/black,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 9
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bnp" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(212);
+	name = "gun cabinet (SMGs)"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
-"bos" = (
-/obj/structure/closet/firecloset/full,
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/dominian_corvette/bridge)
 "bot" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/bridge)
-"bsE" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/turf/template_noop,
-/area/space)
 "buA" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -325,14 +270,17 @@
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "buK" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/floor/plating,
 /area/space)
 "buM" = (
-/turf/simulated/wall/shuttle/space_ship,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "bCq" = (
 /obj/structure/table/wood,
@@ -346,91 +294,63 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/bridge)
-"bDg" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Tribunal Chapel";
-	req_access = list(203);
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
 "bDu" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/quarters)
-"bNV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"bQR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"bTi" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, engineering"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
+"bPE" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/quarters)
 "bTU" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = list(212);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bYr" = (
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = -3
-	},
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 10
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/plating,
 /area/space)
 "cjb" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"cmp" = (
+/obj/effect/floor_decal/corner{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
 "cnh" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"cnH" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/lammergeier,
-/obj/item/ship_ammunition/lammergeier{
-	pixel_y = 10
-	},
-/obj/item/ship_ammunition/lammergeier{
-	pixel_y = 5
-	},
-/obj/item/ship_ammunition/lammergeier,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall,
 /area/space)
 "coM" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cic)
+"cpa" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	dir = 8;
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
 "cpy" = (
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/hangar)
@@ -442,27 +362,144 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
-"cFv" = (
-/obj/machinery/atmospherics/binary/pump/on{
+"cwi" = (
+/obj/effect/floor_decal/corner{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"cFv" = (
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"cHM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cKY" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "cMo" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
-"cQs" = (
-/obj/structure/window/shuttle/crescent,
-/obj/structure/grille,
-/turf/simulated/floor,
-/area/space)
-"cXH" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
+"cTq" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/item/storage/bag/inflatable,
+/obj/structure/closet/walllocker{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"cXH" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
 /area/space)
 "cYw" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/closet/walllocker{
+	pixel_x = 32
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -3
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cZb" = (
+/obj/machinery/door/airlock/medical{
+	name = "Surgical Suite";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"cZM" = (
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ddL" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor,
+/area/space)
+"deZ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"dfe" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Secondary Ship Armament";
+	req_access = list(212);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"dhb" = (
+/turf/simulated/floor/carpet/red,
+/area/ship/dominian_corvette/bridge)
+"dhS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"dhW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"diE" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/cic)
+"dnW" = (
 /obj/effect/floor_decal/corner{
 	dir = 4
 	},
@@ -471,51 +508,88 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/dominian_shuttle)
-"cYy" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"cZb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+"doI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
+/obj/machinery/firealarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"cZM" = (
-/mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/mech_recharger,
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/space)
-"ddL" = (
+"dqJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"deZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+"drI" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor,
 /area/space)
-"dfe" = (
+"dsC" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav2,
+/turf/template_noop,
+/area/space)
+"dvU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/red,
+/area/space)
+"dBq" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette)
+"dEo" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, church"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/space)
+"dHA" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/meter,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
 /area/space)
-"dfw" = (
+"dIe" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/armory)
+"dMj" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/space)
+"dQZ" = (
+/obj/effect/floor_decal/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"dTw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
@@ -528,155 +602,119 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
 /area/space)
-"dhb" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+"dYJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/alarm/south{
-	req_one_access = null
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"dhW" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/turf/template_noop,
-/area/space)
-"diE" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/cic)
-"doI" = (
-/obj/structure/extinguisher_cabinet/east,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/space)
-"dqJ" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
-	},
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Lammergeier-class vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"dsC" = (
-/obj/effect/shuttle_landmark/dominian_corvette/nav2,
-/turf/template_noop,
-/area/space)
-"dvU" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, church"
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/space)
-"dBq" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette)
-"dIe" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/armory)
-"dMj" = (
+"dZr" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"dOA" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"dQZ" = (
-/obj/machinery/ammunition_loader/francisca{
-	weapon_id = "Dominian Francisca Rotary Gun"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"dTw" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "edF" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/mech_recharger,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "ehr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "eiR" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/floor_decal/corner{
+	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/item/sign/painting_frame/goddess/scholar{
+	pixel_x = -32
 	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Primary Ship Armament";
-	req_access = list(212);
-	dir = 4
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"ejW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"ekH" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "elb" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "elq" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "epw" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "epB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
-"eqS" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
+"eqL" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	layer = 3.01;
+	pixel_x = -5;
+	pixel_y = 6
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom{
+	pixel_y = 9;
+	pixel_x = 9
+	},
+/turf/simulated/floor/wood,
+/area/shuttle/dominian_shuttle)
+"eqS" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "surgical sink";
+	pixel_x = -20
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/hangar)
 "erT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, suit storage"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"etL" = (
+/turf/space/transit/north,
+/area/space)
+"eur" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/dominia/voidsman,
+/obj/item/clothing/head/helmet/space/void/dominia/voidsman,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/device/gps,
+/obj/item/tank/jetpack/carbondioxide,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"ewL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"exg" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 8
 	},
@@ -687,537 +725,127 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"etL" = (
-/turf/space/transit/north,
-/area/space)
-"eur" = (
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"euz" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, starboard edge"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"ewL" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"exg" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
 "eze" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ezu" = (
-/obj/item/sign/painting_frame/goddess/soldier{
-	pixel_x = 32
-	},
-/turf/simulated/floor/wood,
-/area/shuttle/dominian_shuttle)
-"eBK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/hangar)
-"eIb" = (
-/obj/machinery/papershredder{
-	pixel_x = -8
-	},
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = 8
-	},
-/obj/item/toy/desk/fan{
-	pixel_y = 11;
-	pixel_x = 7
-	},
-/turf/simulated/floor/carpet/red,
-/area/space)
-"eMs" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/cryo)
-"eTH" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ffY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/space)
-"fgc" = (
-/obj/machinery/vending/wallmed1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"fnE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/hangar)
-"foh" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/cryo)
-"fpW" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/firealarm/west,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"fte" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"fvv" = (
-/obj/structure/bookcase/libraryspawn/fiction,
-/turf/simulated/floor/carpet/red,
-/area/ship/dominian_corvette/bridge)
-"fDv" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass_atmos{
-	name = "Atmospherics Section";
-	req_access = list(212);
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"fNZ" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/bridge)
-"fQq" = (
-/obj/effect/floor_decal/corner/full,
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"fRD" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"fSC" = (
-/obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/armory)
-"fUQ" = (
-/obj/effect/landmark/entry_point/port{
-	name = "starboard"
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/space)
-"fWW" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, captain's office"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"fZl" = (
+"ezu" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette)
+"ezV" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/ship_ammunition/lammergeier,
-/obj/item/ship_ammunition/lammergeier,
-/obj/item/ship_ammunition/lammergeier{
-	pixel_y = 5
-	},
 /obj/item/ship_ammunition/lammergeier{
 	pixel_y = 10
 	},
+/obj/item/ship_ammunition/lammergeier{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/lammergeier,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"fZq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
+"eBK" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
-"gcq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+"eFo" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"gdk" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "dom_gunshroud";
-	name = "blast door"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, secondary gun"
-	},
-/turf/simulated/floor/airless,
-/area/space)
-"giY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/carpet/red,
-/area/space)
-"gxt" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/red/full,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"gyl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"gAS" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	name = "Propulsion";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor,
-/area/space)
-"gII" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"gJx" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
-"gLO" = (
-/obj/machinery/alarm/north{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10
-	},
-/turf/simulated/floor/wood,
-/area/shuttle/dominian_shuttle)
-"gNT" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/brig)
-"gSY" = (
-/turf/unsimulated/wall/fakepdoor{
-	dir = 4
-	},
-/area/space)
-"gTU" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/officer)
-"gXv" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/quarters)
-"hdB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"hgF" = (
-/obj/structure/toilet{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/quarters)
-"hjP" = (
-/obj/structure/closet/walllocker/emerglocker/east,
+"eIb" = (
+/obj/structure/extinguisher_cabinet/east,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
-"hlT" = (
-/obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/armory)
-"hqL" = (
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted reinforced window"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/table/standard,
-/obj/item/clothing/ears/earmuffs,
-/obj/item/device/binoculars,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"hri" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
+"eKs" = (
+/obj/machinery/atmospherics/pipe/tank,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/space)
-"hru" = (
-/obj/machinery/door/airlock/service{
-	name = "Dormitory";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/hangar)
-"huE" = (
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 5
-	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"huX" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/space)
-"hzD" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"hBd" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/plating,
-/area/space)
-"hCs" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"hDH" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/closet/crate/drop/grey,
-/turf/simulated/floor,
-/area/space)
-"hFX" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"hTj" = (
-/obj/structure/table/stone/marble,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/device/versebook/tribunal,
-/obj/item/flame/candle,
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"hWr" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"hZH" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"iaK" = (
-/obj/effect/floor_decal/corner/full{
-	dir = 8
-	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"ibY" = (
-/obj/structure/bed/chair,
-/obj/structure/bed/chair,
-/obj/structure/bed/chair{
-	pixel_y = 12
-	},
-/obj/item/bedsheet/red,
-/obj/item/bedsheet/red{
-	pixel_y = 12
-	},
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/bridge)
-"ihv" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"inf" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
-	},
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
-"ioR" = (
-/obj/machinery/door/airlock/freezer{
+"eMs" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/cryo)
+"eMT" = (
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/machinery/mech_recharger,
+/obj/machinery/light{
 	dir = 1;
-	id_tag = "main_unit_2";
-	name = "Unit 2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/quarters)
-"iCn" = (
-/obj/structure/shuttle/window,
-/obj/structure/grille,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"iGK" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, port"
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/space)
-"iJi" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/clothing/accessory/flagpatch/dominia,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/dominia/voidsman,
-/obj/item/clothing/head/helmet/space/void/dominia/voidsman,
-/obj/item/device/gps,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"iJz" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/crescent,
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor,
-/area/space)
-"iNt" = (
-/obj/effect/floor_decal/corner{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner{
-	dir = 1
-	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"iPH" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+"ePS" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
 /area/space)
-"iRD" = (
-/obj/structure/window/reinforced{
+"eYR" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 8;
+	target_pressure = 250
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/space)
+"faF" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ffY" = (
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
-"iWe" = (
+"fgc" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fgx" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/black,
@@ -1237,155 +865,48 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/space)
-"iWi" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 8
-	},
-/obj/structure/table/standard,
-/obj/item/hoist_kit,
-/obj/item/device/multitool,
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jhH" = (
-/obj/machinery/vending/engineering{
-	req_access = null
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jhJ" = (
-/obj/structure/filingcabinet/filingcabinet{
-	pixel_x = -7
-	},
-/turf/simulated/floor/wood,
-/area/ship/dominian_corvette/hangar)
-"jkY" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
+"fif" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
+"fnE" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jmV" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/space)
-"joO" = (
-/obj/effect/floor_decal/corner{
 	dir = 10
 	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"jpO" = (
-/turf/simulated/floor/airless,
-/area/space)
-"juM" = (
-/obj/effect/floor_decal/corner{
-	dir = 6
-	},
-/obj/structure/bed/stool/chair/sofa/pew/left{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"jvZ" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/iff_beacon/name_change,
-/turf/simulated/floor,
-/area/space)
-"jFQ" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/closet/walllocker{
-	pixel_x = 32
-	},
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = -3
-	},
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 10
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"jGb" = (
+"foh" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/cryo)
+"fpO" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass_engineering{
-	name = "EVA Storage";
+/obj/machinery/door/airlock/glass_security{
+	name = "Cell";
 	req_access = list(212);
-	dir = 1
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"jHZ" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "port"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/space)
-"jTb" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"jXM" = (
-/obj/machinery/door/airlock/freezer{
-	dir = 1;
-	id_tag = "main_unit_1";
-	name = "Unit 1"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/quarters)
-"jXR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jZv" = (
+"fpW" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/officer)
+"frC" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/bed,
+/obj/item/bedsheet/black,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"kaR" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
-/obj/machinery/meter,
-/turf/simulated/floor/plating,
-/area/space)
-"kfX" = (
+"fte" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/walllocker/firecloset{
@@ -1395,544 +916,11 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"kjg" = (
-/obj/structure/closet/cabinet,
-/obj/item/reagent_containers/toothpaste{
-	pixel_x = -2
-	},
-/obj/item/reagent_containers/toothbrush/red{
-	name = "disposable toothbrush";
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/toothbrush/red{
-	name = "disposable toothbrush";
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/toothpaste{
-	pixel_x = -2
-	},
-/obj/item/reagent_containers/toothpaste{
-	pixel_x = -2
-	},
-/obj/item/reagent_containers/toothbrush/red{
-	name = "disposable toothbrush";
-	pixel_y = 8
-	},
-/obj/random/soap,
-/obj/random/soap,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/hangar)
-"klE" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/crescent,
-/turf/simulated/floor,
-/area/space)
-"kqx" = (
-/obj/structure/bed/chair,
-/obj/structure/bed/chair{
-	pixel_y = 12
-	},
-/obj/item/bedsheet/red,
-/obj/item/bedsheet/red{
-	pixel_y = 12
-	},
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
-"krq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/machinery/firealarm/north,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
-"krH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
+"fvv" = (
+/obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet/red,
-/area/space)
-"kyc" = (
-/obj/machinery/shower{
-	pixel_y = 21
-	},
-/obj/structure/curtain/open/shower,
-/obj/random/soap,
-/obj/item/bikehorn/rubberducky,
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/hangar)
-"kzm" = (
-/obj/effect/floor_decal/corner/full{
-	dir = 1
-	},
-/obj/machinery/power/apc/north,
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"kAt" = (
-/obj/effect/floor_decal/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner{
-	dir = 8
-	},
-/obj/structure/bed/stool/chair/sofa/pew/right{
-	dir = 8
-	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"kAE" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/airlock/command{
-	name = "Commanding Officer's Quarters";
-	req_access = list(212);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"kDV" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"kPs" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/cannon)
-"kRG" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/temple)
-"kTZ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"kUR" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Recreation";
-	req_access = list(203)
-	},
-/turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
-"kZr" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"lhk" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/infirmary)
-"lme" = (
-/obj/effect/shuttle_landmark/dominian_corvette/nav4,
-/turf/template_noop,
-/area/space)
-"lpe" = (
-/obj/structure/table/steel,
-/obj/structure/sign/flag/zhao{
-	pixel_y = -32
-	},
-/obj/item/book/manual/dominia_honor,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/coin/gold{
-	name = "His Imperial Majesty's First Battle Fleet challenge coin";
-	desc = "A flat disc or piece of metal with an official stamp. Never go to the Bar without it, who knows when you might get challenged."
-	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/carpet/red,
-/area/space)
-"lri" = (
-/obj/structure/toilet{
-	pixel_y = 21
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/hangar)
-"lsx" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/space)
-"lvo" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
-/obj/machinery/light{
-	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"lwX" = (
-/turf/template_noop,
-/area/ship/dominian_corvette)
-"lFg" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/structure/bed,
-/obj/item/bedsheet/black,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"lGk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor,
-/area/space)
-"lGZ" = (
-/obj/structure/railing/mapped{
-	dir = 4;
-	pixel_x = 6
-	},
-/obj/structure/bed{
-	name = "bottom bunk"
-	},
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/item/device/versebook/tribunal,
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/furniture.dmi';
-	icon_state = "bed";
-	pixel_y = 13;
-	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"lMt" = (
-/obj/structure/table/standard,
-/obj/item/clothing/ears/earmuffs,
-/obj/item/device/binoculars,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"lOi" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, port edge"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"lPG" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"mgC" = (
-/obj/machinery/media/jukebox/gramophone,
-/turf/simulated/floor/carpet/red,
-/area/ship/dominian_corvette/hangar)
-"mit" = (
-/obj/effect/shuttle_landmark/dominian_corvette/nav1,
-/turf/template_noop,
-/area/space)
-"mjR" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor,
-/area/space)
-"mlI" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor,
-/area/space)
-"mot" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"mpK" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/franny)
-"mqS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor,
-/area/space)
-"mwP" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/firealarm/east,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"mys" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, suit storage"
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
-	},
-/area/space)
-"mDu" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/exterior)
-"mET" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
-	},
-/area/shuttle/dominian_shuttle)
-"mFl" = (
-/obj/machinery/cryopod,
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/quarters)
-"mIF" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"mIY" = (
-/obj/structure/bed/stool/chair/padded/black,
-/turf/simulated/floor/wood,
-/area/ship/dominian_corvette/hangar)
-"mJZ" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/hangar)
-"mLS" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/space)
-"mZy" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 8;
-	target_pressure = 250
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/space)
-"ncl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/turf/simulated/floor/plating,
-/area/space)
-"ncB" = (
-/obj/effect/floor_decal/corner{
-	dir = 6
-	},
-/obj/structure/bed/stool/chair/sofa/pew/right{
-	dir = 8
-	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"nke" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/plating,
-/area/space)
-"nmS" = (
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/quarters)
-"noq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor,
-/area/space)
-"nqt" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ntt" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ntu" = (
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/armory)
-"ntA" = (
-/obj/effect/floor_decal/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner,
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"nuE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor,
-/area/space)
-"nuI" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/armory)
-"nuJ" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
-	},
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
-"nwx" = (
-/obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/alarm/south{
-	req_one_access = null
-	},
-/obj/machinery/firealarm/west,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"nwV" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/exterior)
-"nzc" = (
-/obj/effect/floor_decal/corner/orange/full{
-	dir = 8
-	},
-/obj/machinery/alarm/west{
-	req_one_access = null
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"nDY" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/cic)
-"nKK" = (
-/obj/item/hullbeacon/red,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, main gun"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
-"nXd" = (
-/obj/structure/sink{
-	pixel_y = 21
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/quarters)
-"ocx" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ora" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"owG" = (
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted reinforced window"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/computer/ship/navigation,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"oyu" = (
-/obj/effect/floor_decal/industrial/outline/custodial,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"oAQ" = (
-/obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/francisca{
-	pixel_x = -64;
-	pixel_y = -162;
-	weapon_id = "Dominian Francisca Rotary Gun"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/space)
-"oBX" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
-"oDq" = (
+"fws" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1947,40 +935,381 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"oHv" = (
-/obj/machinery/computer/shuttle_control/explore/dominian_shuttle,
-/turf/simulated/floor/tiled/dark,
+"fyC" = (
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Dominian Francisca Rotary Gun"
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/space)
-"oMl" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, starboard"
+"fBb" = (
+/obj/structure/janitorialcart/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"fDv" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"fEZ" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/armory)
+"fNZ" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/bridge)
+"fQq" = (
+/obj/effect/floor_decal/corner/full,
+/obj/structure/sign/flag/dominia{
+	pixel_x = -32
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"fRD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/space)
-"oNi" = (
-/obj/machinery/door/firedoor/noid,
+"fSC" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/armory)
+"fZl" = (
+/obj/item/reagent_containers/glass/bucket{
+	desc = "A blue plastic bucket, best not to ask what it's for.";
+	pixel_x = -10;
+	pixel_y = 12
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fZq" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"giY" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"grx" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/structure/table/standard,
+/obj/item/hoist_kit,
+/obj/item/device/multitool,
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"gxt" = (
+/obj/item/sign/painting_frame/goddess/soldier{
+	pixel_x = 32
+	},
+/turf/simulated/floor/wood,
+/area/shuttle/dominian_shuttle)
+"gFJ" = (
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/cryo)
+"gHC" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
+"gII" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
+"gJx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/space)
+"gLO" = (
+/obj/machinery/alarm/north{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 10
+	},
+/turf/simulated/floor/wood,
+/area/shuttle/dominian_shuttle)
+"gNT" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/brig)
+"gRw" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/armory)
+"gTU" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
+/obj/machinery/light{
+	dir = 8;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"gXv" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/quarters)
+"gXW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/space)
+"hgF" = (
+/obj/machinery/door/airlock/freezer{
+	dir = 1;
+	id_tag = "main_unit_1";
+	name = "Unit 1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"hjP" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, main armament"
+	},
+/turf/template_noop,
+/area/space)
+"hlT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"hqL" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"hri" = (
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hru" = (
+/obj/machinery/door/airlock/service{
+	name = "Dormitory";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/hangar)
+"htD" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
+/area/space)
+"huX" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	layer = 2.8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/space)
+"hzD" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/firealarm/north,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hBd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/space)
+"hCs" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hGR" = (
+/obj/structure/table/stone/marble,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/device/versebook/tribunal,
+/obj/item/flame/candle,
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"hWr" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hZg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Secondary Ship Armament";
-	req_access = list(212);
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor,
 /area/space)
-"oNR" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, brig"
+"hZH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/space)
+"iaK" = (
+/obj/effect/floor_decal/corner/full{
+	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/obj/item/sign/painting_frame/goddess/soldier{
+	pixel_x = -32
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"ibY" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/temple)
+"ihv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
 /area/space)
-"oXc" = (
+"inf" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/hangar)
+"ioR" = (
+/obj/machinery/door/airlock/freezer{
+	dir = 1;
+	id_tag = "main_unit_2";
+	name = "Unit 2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"irX" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/lammergeier,
+/obj/item/ship_ammunition/lammergeier,
+/obj/item/ship_ammunition/lammergeier{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/lammergeier{
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"itD" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/orange/full,
+/obj/item/broken_device,
+/obj/item/screwdriver{
+	pixel_y = 10
+	},
+/obj/item/stack/cable_coil{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ive" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/pen/drafting/blue,
+/obj/structure/sign/flag/dominia/large/west,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"iyN" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, suit storage"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/space)
+"iEC" = (
+/obj/structure/bed/roller,
+/obj/machinery/iv_drip,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"iGK" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -1993,39 +1322,39 @@
 /obj/item/melee/energy/sword/pirate/generic,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"oYG" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
+"iJi" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor,
 /area/space)
-"pdm" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/temple)
-"pfE" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+"iJz" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"piw" = (
-/obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/dominian_shuttle)
-"pub" = (
-/obj/machinery/computer/ship/helm{
-	req_access = list(212)
+"iNt" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/engineering)
+"iUc" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
+"iVM" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/closet/crate/drop/grey,
+/turf/simulated/floor,
+/area/space)
+"iWi" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/red/full{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"pwl" = (
+"iXb" = (
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/lammergeier{
 	pixel_y = -224;
@@ -2034,79 +1363,640 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
-"pAh" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/effect/floor_decal/industrial/warning{
+"jfa" = (
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jhH" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/space)
+"jhJ" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -7
+	},
+/turf/simulated/floor/wood,
+/area/ship/dominian_corvette/hangar)
+"jkY" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jmV" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/crescent,
+/turf/simulated/floor,
+/area/space)
+"joO" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/armory)
+"jpO" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/space)
+"juM" = (
+/obj/effect/floor_decal/corner{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"jvZ" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jGb" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"jHZ" = (
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/armory)
+"jPp" = (
+/obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jXM" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"kaR" = (
+/obj/machinery/door/airlock/glass_service{
+	dir = 4;
+	name = "Recreation Area";
+	req_access = list(28)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/hangar)
+"kjg" = (
+/obj/structure/closet,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/hangar)
+"kkj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor,
+/area/space)
+"klE" = (
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_y = -32
+	},
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"kpq" = (
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
+/area/space)
+"kpR" = (
+/turf/simulated/floor,
+/area/space)
+"kqx" = (
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
+"krH" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"kyc" = (
+/obj/machinery/shower{
+	pixel_y = 21
+	},
+/obj/structure/curtain/open/shower,
+/obj/random/soap,
+/obj/item/bikehorn/rubberducky,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/hangar)
+"kyi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/space)
+"kzm" = (
+/obj/effect/floor_decal/corner/full{
+	dir = 1
+	},
+/obj/machinery/power/apc/north,
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"kAa" = (
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"kAt" = (
+/obj/machinery/door/airlock/medical{
+	name = "Medbay";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/dominian_shuttle)
+"kIy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/fuel_port/phoron{
+	pixel_y = 32
+	},
+/turf/simulated/floor,
+/area/space)
+"kUR" = (
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 8
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"kXm" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/space)
+"laT" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port edge"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"lhk" = (
+/obj/machinery/door/airlock{
+	name = "Central Hall";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lhC" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor,
+/area/space)
+"llL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor,
+/area/space)
+"lme" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav4,
+/turf/template_noop,
+/area/space)
+"lmk" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"lpF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"lri" = (
+/obj/structure/toilet{
+	pixel_y = 21
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/hangar)
+"lsu" = (
+/turf/simulated/floor/airless,
+/area/space)
+"lsx" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/item/hoist_kit,
+/obj/item/device/multitool,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lvo" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/hangar)
+"lwj" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lwX" = (
+/turf/template_noop,
+/area/ship/dominian_corvette)
+"lxU" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"lKG" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lNZ" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lPG" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Secondary Ship Armament Munitions Storage";
+	req_access = list(212);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"mcE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/overmap/visitable/ship/landable/dominian_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mcJ" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
+	dir = 8;
+	layer = 2.8
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor,
+/area/space)
+"mgC" = (
+/obj/machinery/media/jukebox/gramophone,
+/turf/simulated/floor/carpet/red,
+/area/ship/dominian_corvette/hangar)
+"mit" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav1,
+/turf/template_noop,
+/area/space)
+"mot" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/firealarm/west,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mpK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
+"mqx" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_atmos{
+	name = "Atmospherics Section";
+	req_access = list(212);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"mqS" = (
+/obj/structure/bed/chair,
+/obj/structure/bed/chair,
+/obj/structure/bed/chair{
+	pixel_y = 12
+	},
+/obj/item/bedsheet/red,
+/obj/item/bedsheet/red{
+	pixel_y = 12
+	},
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"mwP" = (
+/obj/structure/closet/walllocker/medical/secure{
+	name = "O- Blood Locker";
+	pixel_x = 32;
+	req_access = null
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/clothing/mask/breath/medical,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"mAg" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"mDu" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/exterior)
+"mET" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 4
+	},
+/area/shuttle/dominian_shuttle)
+"mFl" = (
+/obj/structure/table/steel,
+/obj/machinery/vending/wallmed1{
+	pixel_y = 27
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -1
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 1
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 2
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 5
+	},
+/obj/item/storage/firstaid/large/adv,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"mIY" = (
+/obj/structure/bed/stool/chair/padded/black,
+/turf/simulated/floor/wood,
+/area/ship/dominian_corvette/hangar)
+"mJZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mLa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mLi" = (
+/obj/machinery/sleeper,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"mLS" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mSp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mXF" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mZy" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/space)
+"ncl" = (
+/obj/machinery/door/airlock/service{
+	name = "Custodial Closet";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"ncB" = (
+/obj/effect/floor_decal/corner{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"nke" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/temple)
+"nmS" = (
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/toothbrush/red{
+	name = "disposable toothbrush";
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/toothbrush/red{
+	name = "disposable toothbrush";
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/toothbrush/red{
+	name = "disposable toothbrush";
+	pixel_y = 8
+	},
+/obj/random/soap,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/structure/closet/walllocker{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"noq" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ntt" = (
+/obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"pDZ" = (
-/obj/structure/closet,
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/bridge)
-"pIf" = (
-/obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/armory)
-"pIS" = (
-/turf/simulated/wall,
-/area/space)
-"pIZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+"ntA" = (
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"pJj" = (
-/turf/simulated/floor/wood,
-/area/shuttle/dominian_shuttle)
-"pJV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+"nuE" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor,
 /area/space)
-"pRf" = (
-/obj/effect/step_trigger/teleporter,
-/turf/template_noop,
-/area/space)
-"pUo" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+"nuI" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/armory)
+"nva" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"pWs" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette)
-"pYB" = (
-/obj/structure/table/stone/marble,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
+"nvs" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, engineering"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"nwV" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"nDY" = (
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/flame/candle,
-/obj/item/nullrod/dominia,
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"qdL" = (
-/obj/machinery/door/airlock/service{
-	name = "Private Bathroom";
-	req_access = list(203);
-	dir = 1
+/obj/structure/table/standard,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/device/binoculars,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"nEY" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/hangar)
-"qha" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"nKv" = (
+/obj/machinery/papershredder{
+	pixel_x = -8
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 8
+	},
+/obj/item/toy/desk/fan{
+	pixel_y = 11;
+	pixel_x = 7
+	},
+/turf/simulated/floor/carpet/red,
+/area/space)
+"nMr" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
@@ -2133,76 +2023,347 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/armory)
-"qlg" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
+"nTU" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(212);
+	name = "gun cabinet (rifles)"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/rifle/dominia,
+/obj/item/gun/projectile/automatic/rifle/dominia,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"nXd" = (
+/obj/structure/sink{
+	pixel_y = 21
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"nZv" = (
+/obj/machinery/door/airlock/security{
+	name = "Armory";
+	req_access = list(212);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"ocx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"ocM" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"qpo" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
+"one" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, main armament"
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"ora" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ovq" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch{
+	name = "Propulsion";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/space)
+"oyu" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/template_noop,
 /area/space)
-"qqr" = (
-/obj/item/reagent_containers/glass/bucket{
-	desc = "A blue plastic bucket, best not to ask what it's for.";
-	pixel_x = -10;
-	pixel_y = 12
-	},
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"que" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
-/area/space)
-"qyg" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "fore, cockpit"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"qEa" = (
+"oBB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"qFI" = (
-/obj/effect/floor_decal/corner/orange/full{
+"oFS" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_x = -32
-	},
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"oKf" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"oMl" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"oNi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"oNR" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"oVO" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pgn" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/command{
+	name = "Commanding Officer's Quarters";
+	req_access = list(212);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"piw" = (
+/obj/effect/map_effect/airlock/long/square,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/dominian_shuttle)
+"pku" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Tribunal Chapel";
+	req_access = list(203);
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
+"pub" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, brig"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"pvH" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pwl" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/firealarm/east,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pAh" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"pBl" = (
+/obj/structure/railing/mapped{
+	dir = 4;
+	pixel_x = 6
+	},
+/obj/structure/bed{
+	name = "bottom bunk"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/item/device/versebook/tribunal,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/furniture.dmi';
+	icon_state = "bed";
+	pixel_y = 13;
+	name = "top bunk";
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pIf" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/armory)
+"pIS" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/cic)
+"pIZ" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/dominia/voidsman,
+/obj/item/clothing/head/helmet/space/void/dominia/voidsman,
+/obj/item/device/gps,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"pJj" = (
+/turf/simulated/floor/wood,
+/area/shuttle/dominian_shuttle)
+"pJV" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pRf" = (
+/obj/effect/step_trigger/teleporter,
+/turf/template_noop,
+/area/space)
+"pRO" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/space)
+"pUo" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -3
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pVk" = (
+/obj/structure/sign/flag/dominia{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/hangar)
+"pYB" = (
+/obj/structure/table/stone/marble,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/flame/candle,
+/obj/item/nullrod/dominia,
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"qdL" = (
+/obj/machinery/door/airlock/service{
+	name = "Private Bathroom";
+	req_access = list(203);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/hangar)
+"qfg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/turf/simulated/floor/carpet/red,
+/area/space)
+"qgN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"qiY" = (
+/obj/structure/table/rack,
+/obj/item/inflatable_dispenser,
+/obj/item/pipewrench,
+/turf/simulated/floor/plating,
+/area/space)
+"que" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
+/area/space)
+"qFI" = (
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "qHm" = (
 /obj/effect/floor_decal/corner{
@@ -2218,45 +2379,23 @@
 /turf/space/transit/north,
 /area/space)
 "qIu" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/shipsensors/weak,
+/obj/machinery/atmospherics/unary/engine,
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/space)
-"qIP" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "qJb" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 8
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/plating,
 /area/space)
 "qMS" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/clothing/accessory/flagpatch/dominia,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/machinery/firealarm/north,
-/obj/item/clothing/suit/space/void/dominia/voidsman,
-/obj/item/clothing/head/helmet/space/void/dominia/voidsman,
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
-/obj/item/device/gps,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "qOX" = (
 /obj/structure/closet/cabinet,
@@ -2267,57 +2406,43 @@
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/material/sword/rapier,
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/hangar)
-"qRq" = (
-/obj/effect/floor_decal/spline/plain/corner/black,
-/obj/structure/closet/walllocker/firecloset{
-	pixel_y = 32
+"qQq" = (
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_x = -32
 	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/reagent_containers/hypospray,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
 "qTV" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/effect/floor_decal/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner,
+/obj/structure/bed/stool/chair/sofa/pew/left{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"qXR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/effect/overmap/visitable/ship/landable/dominian_shuttle,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"rax" = (
 /turf/simulated/floor/marble/dark,
 /area/shuttle/dominian_shuttle)
+"raf" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor,
+/area/space)
 "rdJ" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cryo)
-"res" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
+"ret" = (
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/hangar)
 "reZ" = (
-/obj/machinery/ammunition_loader/lammergeier{
-	weapon_id = "Lammergeier Cannon"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "rnD" = (
 /obj/effect/floor_decal/corner{
@@ -2326,233 +2451,37 @@
 /obj/effect/floor_decal/corner,
 /turf/simulated/floor/marble/dark,
 /area/shuttle/dominian_shuttle)
+"rpY" = (
+/obj/machinery/ammunition_loader/lammergeier{
+	weapon_id = "Lammergeier Cannon"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"rqE" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/space)
 "rtf" = (
 /obj/effect/floor_decal/corner/full{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/dominian_shuttle)
-"rxI" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ryV" = (
-/obj/machinery/door/airlock{
-	name = "Central Hall";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"rLK" = (
-/obj/structure/ship_weapon_dummy,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/space)
-"rUU" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
-"ssO" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ssT" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/machinery/firealarm/north,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"stk" = (
-/turf/simulated/floor/carpet/red,
-/area/ship/dominian_corvette/hangar)
-"svf" = (
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
-"szI" = (
-/obj/structure/table/rack,
-/obj/item/inflatable_dispenser,
-/obj/item/pipewrench,
-/turf/simulated/floor/plating,
-/area/space)
-"sLx" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/closet/walllocker{
-	pixel_x = -32
-	},
-/obj/item/hoist_kit,
-/obj/item/device/multitool,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"sNA" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+"rGx" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
-"sOb" = (
-/obj/effect/step_trigger/teleporter,
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
-/area/space)
-"tca" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/space)
-"tcL" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/orange/full,
-/obj/item/broken_device,
-/obj/item/screwdriver{
-	pixel_y = 10
-	},
-/obj/item/stack/cable_coil{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"tcV" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/engineering)
-"tra" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"trc" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/quarters)
-"tsC" = (
-/obj/structure/table/wood,
-/obj/structure/television{
-	pixel_y = 13
-	},
-/turf/simulated/floor/carpet/red,
-/area/ship/dominian_corvette/hangar)
-"tuF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"tGm" = (
-/obj/structure/curtain/open/shower,
-/obj/machinery/shower{
-	dir = 8;
-	pixel_x = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/quarters)
-"tJz" = (
-/obj/structure/ship_weapon_dummy,
-/turf/template_noop,
-/area/space)
-"tSP" = (
+"rLG" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/template_noop,
 /area/space)
-"tYz" = (
-/obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 8
-	},
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"tYX" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, suit storage"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"tZX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 6
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"ucC" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/hangar)
-"udI" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Secondary Ship Armament Munitions Storage";
-	req_access = list(212);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"ueS" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, secondary gun"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"upC" = (
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
-	},
-/area/shuttle/dominian_shuttle)
-"urz" = (
-/obj/effect/shuttle_landmark/dominian_corvette/nav3,
-/turf/template_noop,
-/area/space)
-"uBl" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"uCl" = (
-/obj/machinery/power/apc/north{
-	is_critical = 1;
-	pixel_y = 0;
-	dir = 4;
-	pixel_x = 15
-	},
-/turf/simulated/floor/wood,
-/area/shuttle/dominian_shuttle)
-"uCA" = (
+"rUU" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "dom_gunshroud";
@@ -2560,76 +2489,82 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
-"uCS" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
+"srr" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
 	},
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/walllocker{
-	pixel_x = 32
+/turf/simulated/floor,
+/area/space)
+"ssT" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/franny)
+"stk" = (
+/turf/simulated/floor/carpet/red,
+/area/ship/dominian_corvette/hangar)
+"sts" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "fore, cockpit"
 	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"svf" = (
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
-"uHl" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/security{
-	name = "Brig";
-	req_access = list(212);
-	dir = 1
+"szI" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard edge"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"uJF" = (
-/obj/machinery/meter,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"uLg" = (
-/obj/structure/table/wood,
-/obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom{
-	pixel_y = 9;
-	pixel_x = 9
-	},
-/turf/simulated/floor/wood,
-/area/shuttle/dominian_shuttle)
-"uNg" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/engineering)
-"uNN" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/area/space)
+"szY" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"sBA" = (
+/obj/machinery/computer/shuttle_control/explore/dominian_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"uYh" = (
-/obj/machinery/atmospherics/portables_connector{
+"sFI" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor,
-/area/space)
-"uYP" = (
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
-"vlF" = (
-/obj/effect/floor_decal/corner{
-	dir = 9
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"vmX" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"sGi" = (
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"sLx" = (
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"sNA" = (
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/computer/ship/navigation,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"sOb" = (
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
+/area/space)
+"sSn" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/infirmary)
+"tcL" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/black,
@@ -2646,162 +2581,89 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"vtt" = (
-/turf/simulated/floor,
-/area/space)
-"vwC" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 4
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"vCu" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"vFn" = (
-/obj/effect/floor_decal/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner,
-/obj/structure/bed/stool/chair/sofa/pew/left{
-	dir = 8
-	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"vGe" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/infirmary)
-"vXj" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"vXs" = (
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"vZS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor,
-/area/space)
-"waL" = (
+"tdw" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/glass_security{
-	name = "Cell";
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Primary Ship Armament";
 	req_access = list(212);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"tsC" = (
+/obj/structure/table/wood,
+/obj/structure/television{
+	pixel_y = 13
+	},
+/turf/simulated/floor/carpet/red,
+/area/ship/dominian_corvette/hangar)
+"tCv" = (
+/obj/structure/table/standard,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/device/binoculars,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"tCH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor,
+/area/space)
+"tGm" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, secondary gun"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"tJz" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"tSP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"wfy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+"tYz" = (
+/obj/structure/shuttle/window,
+/obj/structure/grille,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"tYX" = (
+/obj/structure/table/steel,
+/obj/structure/sign/flag/zhao{
+	pixel_y = -32
+	},
+/obj/item/book/manual/dominia_honor,
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/coin/gold{
+	name = "His Imperial Majesty's First Battle Fleet challenge coin";
+	desc = "A flat disc or piece of metal with an official stamp. Never go to the Bar without it, who knows when you might get challenged."
+	},
+/obj/machinery/light{
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/red,
 /area/space)
-"wrJ" = (
-/obj/effect/shuttle_landmark/dominian_shuttle/transit,
-/turf/space/transit/north,
-/area/space)
-"wxN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"wBq" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"wBt" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"wGu" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/exterior)
-"wOq" = (
-/obj/machinery/door/airlock/command{
-	name = "Ensign's Quarters";
-	req_access = list(204)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
-"wQA" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"wVD" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/airless,
-/area/space)
-"wWj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
-/area/space)
-"wXi" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"wZf" = (
-/obj/effect/floor_decal/corner{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner{
-	dir = 8
-	},
-/turf/simulated/floor/marble/dark,
-/area/shuttle/dominian_shuttle)
-"xbd" = (
+"ucC" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -2813,11 +2675,340 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
-"xbK" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+"umF" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/pen/blue{
+	pixel_x = -1;
+	pixel_y = -2
+	},
+/obj/item/pen/red{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"unS" = (
+/obj/structure/bed/chair,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/rd,
+/turf/simulated/floor/wood,
+/area/shuttle/dominian_shuttle)
+"upC" = (
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 4
+	},
+/area/shuttle/dominian_shuttle)
+"urz" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav3,
+/turf/template_noop,
+/area/space)
+"uuh" = (
+/turf/simulated/floor/plating,
+/area/space)
+"uxh" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uCl" = (
+/obj/machinery/power/apc/north{
+	is_critical = 1;
+	pixel_y = 0;
+	dir = 4;
+	pixel_x = 15
+	},
+/turf/simulated/floor/wood,
+/area/shuttle/dominian_shuttle)
+"uCA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uCK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uCS" = (
+/obj/effect/floor_decal/corner{
+	dir = 10
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"uFI" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/quarters)
+"uGj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/space)
+"uHl" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/hangar)
+"uJi" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uJF" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"uLg" = (
+/obj/structure/bed/chair,
+/obj/structure/bed/chair{
+	pixel_y = 12
+	},
+/obj/item/bedsheet/red,
+/obj/item/bedsheet/red{
+	pixel_y = 12
+	},
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"uNg" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/engineering)
+"uOY" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uYh" = (
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uYP" = (
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
+"vdX" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/cannon)
+"vlF" = (
+/obj/effect/floor_decal/corner{
+	dir = 9
+	},
+/obj/item/sign/painting_frame/goddess/artisan{
+	pixel_x = -32
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"vtt" = (
+/turf/template_noop,
+/area/ship/dominian_corvette/temple)
+"vwF" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vBe" = (
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	layer = 3.01;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"vBm" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(212);
+	name = "gun cabinet (sidearms)"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"vCu" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/hangar)
+"vGe" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/infirmary)
+"vUu" = (
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_corvette/quarters)
+"vXs" = (
+/obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, main gun"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"waL" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/space)
+"wrJ" = (
+/obj/effect/shuttle_landmark/dominian_shuttle/transit,
+/turf/space/transit/north,
+/area/space)
+"wub" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wzs" = (
+/obj/structure/closet/walllocker{
+	pixel_y = -32
+	},
+/obj/item/storage/box/mousetraps,
+/obj/item/storage/box/mousetraps,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
+"wBt" = (
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wCU" = (
+/obj/machinery/computer/ship/helm{
+	req_access = list(212)
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wGu" = (
+/obj/structure/window/shuttle/crescent,
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/space)
+"wIx" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"wOq" = (
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"wQA" = (
+/obj/effect/floor_decal/corner/orange/full,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wWj" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wXi" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/temple)
+"wZf" = (
+/obj/effect/floor_decal/corner{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
+"xbd" = (
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/full,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"xbK" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_engineering{
+	name = "EVA Storage";
+	req_access = list(212);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "xkK" = (
 /obj/effect/landmark/entry_point/fore{
@@ -2825,24 +3016,55 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
-"xwX" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/temple)
+"xsn" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/item/book/manual/wiki/engineering_construction{
+	desc = "Blueprints for a Lammergeier-class vessel.";
+	icon = 'icons/obj/items.dmi';
+	icon_state = "blueprints";
+	item_icons = null;
+	item_state = null;
+	name = "ship blueprints"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"xwj" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "dom_gunshroud";
+	name = "blast door"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, secondary gun"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "xNk" = (
-/turf/template_noop,
-/area/ship/dominian_corvette/armory)
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor,
+/area/space)
+"xPN" = (
+/obj/effect/floor_decal/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner,
+/turf/simulated/floor/marble/dark,
+/area/shuttle/dominian_shuttle)
 "xRk" = (
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/bridge)
 "xRX" = (
 /turf/template_noop,
-/area/space)
-"xSa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
 /area/space)
 "xTT" = (
 /obj/structure/table/stone/marble,
@@ -2852,6 +3074,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/armory)
+"xTW" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/bridge)
 "xVK" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -2859,9 +3085,24 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/armory)
-"ygs" = (
+"ybQ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/dominian_corvette/infirmary)
+/area/space)
+"ygs" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/space)
 "ygQ" = (
 /obj/structure/curtain/open/shower,
 /obj/structure/bed/handrail{
@@ -2873,6 +3114,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/quarters)
+"yhK" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"yjk" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	layer = 2.8
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
 
 (1,1,1) = {"
 xRX
@@ -25569,7 +25823,7 @@ xRX
 xRX
 xRX
 xRX
-tcV
+iNt
 xRX
 xRX
 xRX
@@ -25826,8 +26080,8 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -26083,9 +26337,9 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
+iNt
+iNt
+vdX
 xRX
 xRX
 xRX
@@ -26340,10 +26594,10 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
+iNt
+iNt
+vdX
+vdX
 xRX
 xRX
 xRX
@@ -26597,11 +26851,11 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
-kPs
+iNt
+iNt
+vdX
+vdX
+vdX
 xRX
 xRX
 xRX
@@ -26854,23 +27108,23 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
-kPs
-kPs
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
+iNt
+iNt
+vdX
+vdX
+vdX
+vdX
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
 xRX
 xRX
 xRX
@@ -27111,23 +27365,23 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
-kPs
-kPs
-kPs
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
+iNt
+iNt
+vdX
+vdX
+vdX
+vdX
+vdX
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
 xRX
 xRX
 xRX
@@ -27368,23 +27622,23 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
-kPs
-kPs
-kPs
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
+iNt
+iNt
+vdX
+vdX
+vdX
+vdX
+vdX
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
 xRX
 xRX
 xRX
@@ -27625,23 +27879,23 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
-kPs
-kPs
-kPs
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
-nwV
+iNt
+iNt
+vdX
+vdX
+vdX
+vdX
+vdX
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
+fif
 xRX
 xRX
 xRX
@@ -27882,18 +28136,18 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
-kPs
-kPs
-kPs
-nwV
-kPs
-kPs
-nwV
-nwV
+iNt
+iNt
+vdX
+vdX
+vdX
+vdX
+vdX
+fif
+vdX
+vdX
+fif
+fif
 xRX
 xRX
 xRX
@@ -28139,17 +28393,17 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-kPs
-kPs
-kPs
-kPs
-kPs
-kPs
-kPs
-kPs
-kPs
+iNt
+iNt
+vdX
+vdX
+vdX
+vdX
+vdX
+vdX
+vdX
+vdX
+vdX
 xRX
 xRX
 xRX
@@ -28396,18 +28650,18 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -28653,19 +28907,19 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -28910,20 +29164,20 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -29167,21 +29421,21 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -29424,22 +29678,22 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -29681,23 +29935,23 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -29938,24 +30192,24 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -30195,25 +30449,25 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
 xRX
 xRX
 xRX
@@ -30453,31 +30707,31 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
 xRX
 xRX
-buM
-buM
-buM
-buM
+nwV
+nwV
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -30711,29 +30965,29 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
 xRX
-buM
-ddL
-ddL
+nwV
+ehr
+ehr
 xRX
 xRX
 xRX
@@ -30969,28 +31223,28 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-tcV
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xNk
-xNk
-buM
-ddL
-ddL
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+iNt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+fSC
+fSC
+nwV
+ehr
+ehr
 xRX
 xRX
 xRX
@@ -31227,28 +31481,28 @@ xRX
 xRX
 xRX
 xRX
-tcV
-tcV
-tcV
+iNt
+iNt
+iNt
 foh
 foh
 foh
 foh
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xwX
-xNk
-xNk
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+vtt
+fSC
+fSC
 nuI
-ddL
-ddL
-buM
+ehr
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -31485,27 +31739,27 @@ xRX
 xRX
 xRX
 xRX
-tcV
+iNt
 uNg
 eMs
 eMs
 eMs
 eMs
-kRG
-kRG
-kRG
-kRG
-kRG
-kRG
-kRG
-kRG
-kRG
-xNk
-xNk
+wXi
+wXi
+wXi
+wXi
+wXi
+wXi
+wXi
+wXi
+wXi
+fSC
+fSC
 nuI
-aue
-ddL
-buM
+gRw
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -31742,27 +31996,27 @@ xRX
 xRX
 xRX
 xRX
-buM
+nwV
 uNg
 rdJ
 rdJ
 eMs
-rdJ
-pdm
-pdm
-pdm
-kRG
-pdm
-pdm
-pdm
-pdm
-kRG
+gFJ
+nke
+nke
+ibY
+wXi
+nke
+nke
+nke
+nke
+wXi
 nuI
 nuI
 nuI
-aue
-aue
-buM
+gRw
+gRw
+nwV
 xRX
 xRX
 xRX
@@ -31999,26 +32253,26 @@ xRX
 xRX
 xRX
 xRX
-mLS
-ddL
+rqE
+ehr
 rdJ
 rdJ
 eMs
-rdJ
-pdm
-pdm
-pdm
-kRG
-pdm
-pdm
-pdm
-pdm
-pdm
-aue
-aue
-aue
-aue
-aue
+eMs
+wXi
+nke
+nke
+wXi
+nke
+nke
+nke
+nke
+nke
+gRw
+gRw
+gRw
+gRw
+gRw
 nuI
 xRX
 xRX
@@ -32256,28 +32510,28 @@ xRX
 xRX
 xRX
 xRX
-mLS
-ddL
-ddL
+rqE
+ehr
+ehr
 rdJ
 rdJ
 rdJ
-pdm
-pdm
-pdm
-pdm
-pdm
-pdm
-pdm
-pdm
-kRG
-aue
-aue
-aue
-aue
-aue
+nke
+nke
+nke
+nke
+nke
+nke
+nke
+nke
+wXi
+gRw
+gRw
+gRw
+gRw
+gRw
 nuI
-xNk
+fSC
 xRX
 xRX
 xRX
@@ -32513,37 +32767,37 @@ xRX
 xRX
 xRX
 xRX
-mLS
-ddL
-ddL
-ddL
+rqE
+ehr
+ehr
+ehr
 eMs
-rdJ
-pdm
-pdm
-pdm
-kRG
-pdm
-pdm
-pdm
-pdm
-kRG
-fSC
-ntu
+eMs
+wXi
+nke
+nke
+wXi
+nke
+nke
+nke
+nke
+wXi
+joO
+jHZ
 dIe
-aue
-aue
+gRw
+gRw
 nuI
-xNk
-xNk
+fSC
+fSC
 xRX
 xRX
-buM
-buM
-buM
-buM
-buM
-buM
+nwV
+nwV
+nwV
+nwV
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -32770,37 +33024,37 @@ xRX
 xRX
 xRX
 xRX
-buM
-buM
-ddL
-ddL
-buM
-rdJ
-pdm
-pdm
-pdm
-kRG
-pdm
-pdm
-pdm
-pdm
-kRG
-hlT
-ntu
+nwV
+nwV
+ehr
+ehr
+nwV
+aaI
+nke
+nke
+nke
+wXi
+nke
+nke
+nke
+nke
+wXi
+fEZ
+jHZ
 pIf
-aue
-aue
+gRw
+gRw
 nuI
-xNk
-xNk
+fSC
+fSC
 lwX
 xRX
-buM
-ddL
-ddL
-ddL
-ddL
-buM
+nwV
+ehr
+ehr
+ehr
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -33028,36 +33282,36 @@ xRX
 xRX
 xRX
 xRX
-buM
-buM
-buM
-buM
+nwV
+nwV
+nwV
+nwV
 eMs
-kRG
-kRG
-kRG
-kRG
-kRG
-pdm
-pdm
-pdm
-kRG
-qha
+wXi
+nke
+wXi
+wXi
+wXi
+nke
+nke
+nke
+wXi
+nMr
 xVK
 xTT
-aue
-aue
+gRw
+gRw
 nuI
 nuI
-xNk
+fSC
 lwX
 lwX
-buM
-ddL
-ddL
-ddL
-ddL
-buM
+nwV
+ehr
+ehr
+ehr
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -33286,35 +33540,35 @@ xRX
 xRX
 xRX
 xRX
-buM
-ddL
-ddL
-mJZ
-mJZ
-mJZ
-mJZ
-mJZ
-ucC
-ucC
-ucC
-ucC
-ucC
-ucC
-ucC
-ucC
+nwV
+ehr
+ehr
+uHl
+uHl
+uHl
+uHl
+uHl
+inf
+inf
+inf
+inf
+inf
+inf
+inf
+inf
 mgC
+dhb
 xRk
-axT
 fNZ
 fNZ
 fNZ
 dBq
 dBq
-ddL
-buM
-buM
-buM
-buM
+ehr
+nwV
+nwV
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -33536,39 +33790,39 @@ xRX
 xRX
 xRX
 xRX
-buM
-buM
-buM
-buM
-buM
-buM
-buM
-buM
-ddL
-ddL
-mJZ
-mJZ
-mJZ
-mJZ
-mJZ
-ucC
+nwV
+nwV
+nwV
+nwV
+nwV
+nwV
+nwV
+nwV
+ehr
+ehr
+uHl
+uHl
+uHl
+uHl
+uHl
+inf
 kyc
-ucC
+inf
 qOX
 mIY
 ans
 jhJ
-ucC
+inf
 tsC
-xRk
+dhb
 bot
 fNZ
-aHs
+xTW
 fNZ
 aHs
-pWs
-pWs
-buM
+ezu
+ezu
+nwV
 xRX
 xRX
 xRX
@@ -33793,42 +34047,42 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-dMj
-aaI
-aaI
-aaI
-epw
-dMj
-jTb
-huX
-ucC
-ucC
-ucC
-mJZ
-mJZ
-ucC
+kpq
+ehr
+dZr
+reZ
+reZ
+reZ
+faF
+dZr
+ejW
+jhH
+inf
+inf
+inf
+uHl
+uHl
+inf
 lri
 qdL
 cpy
 pJj
-uLg
+eqL
 pJj
-wOq
+aue
 stk
-xRk
+dhb
 bCq
 fNZ
-aHs
+wzs
 fNZ
 aHs
-pWs
-pWs
+ezu
+ezu
 dBq
 dBq
 mDu
-buM
+nwV
 xRX
 xRX
 xRX
@@ -34050,41 +34304,41 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-qIu
-klE
-klE
-buM
-fRD
-jTb
-huX
-huX
-aOU
+kpq
+ehr
+raf
+jmV
+jmV
+nwV
+mSp
+ejW
+jhH
+jhH
+fZq
 atj
 buA
 aMY
 aMY
 cMo
-ucC
-ucC
-aep
-ezu
+inf
+inf
+unS
+gxt
 uCl
 gLO
 cMo
 stk
-xRk
+dhb
 fvv
 fNZ
-aHs
+fBb
 fNZ
 aHs
-pWs
-pWs
+ezu
+ezu
 dBq
-pWs
-wGu
+ezu
+aEq
 mDu
 mDu
 xRX
@@ -34307,18 +34561,18 @@ xRX
 xRX
 xRX
 xRX
-gSY
+kpq
+ehr
+jmV
+jmV
+aCd
+nwV
+nwV
+eze
+jhH
 ddL
-klE
-klE
-nqt
-buM
-buM
-jHZ
-huX
-uYh
-nuJ
-rUU
+yjk
+fDv
 buA
 aMY
 aMY
@@ -34330,19 +34584,19 @@ cMo
 cMo
 cMo
 cMo
-mJZ
-kUR
+kaR
 fNZ
+fNZ
+fNZ
+ncl
 fNZ
 aHs
-fNZ
-aHs
-pWs
-pWs
+ezu
+ezu
 dBq
-pWs
-wGu
-wGu
+ezu
+aEq
+aEq
 mDu
 mDu
 xRX
@@ -34564,18 +34818,18 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-klE
-oHv
-vXj
-gxt
-buM
-jXR
-ffY
-vZS
-uCS
-adr
+kpq
+ehr
+jmV
+sBA
+rGx
+xbd
+nwV
+mLa
+fRD
+uGj
+cTq
+eBK
 cMo
 aMY
 aMY
@@ -34583,26 +34837,26 @@ aMY
 aMY
 cMo
 iaK
-vlF
+eiR
 vlF
 fQq
 cMo
-mJZ
-aHs
-aHs
-aHs
-aHs
-fNZ
-fNZ
+uHl
+lxU
+eur
+eur
 aHs
 fNZ
 fNZ
 aHs
-wGu
-wGu
-wGu
+fNZ
+fNZ
+aHs
+aEq
+aEq
+aEq
 mDu
-buM
+nwV
 xRX
 xRX
 xRX
@@ -34821,18 +35075,18 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-klE
-pub
-ddL
-rxI
-ryV
-ajL
-tZX
-cnh
-fnE
-eBK
+kpq
+ehr
+jmV
+wCU
+ehr
+hCs
+lhk
+aOU
+ewL
+awG
+lvo
+vCu
 piw
 aMY
 aMY
@@ -34840,11 +35094,11 @@ aMY
 aMY
 cMo
 mET
-hTj
+hGR
 pYB
 upC
 cMo
-mJZ
+pVk
 aHs
 aHs
 aHs
@@ -34853,14 +35107,14 @@ fNZ
 aHs
 aHs
 aHs
+fNZ
 aHs
-aHs
-wGu
-wGu
-wGu
-wGu
-buM
-buM
+aEq
+aEq
+aEq
+aEq
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -35078,16 +35332,16 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-qyg
-klE
-klE
-buM
-buM
-qXR
-aCZ
-vtt
+kpq
+ehr
+sts
+jmV
+jmV
+nwV
+nwV
+mcE
+aWi
+kpR
 svf
 svf
 xkK
@@ -35097,11 +35351,11 @@ aMY
 aMY
 aMY
 rnD
-cYw
-ntA
-aSm
-bDg
-mJZ
+dnW
+xPN
+cwi
+pku
+uHl
 aHs
 aHs
 aHs
@@ -35112,12 +35366,12 @@ aHs
 aHs
 aHs
 aHs
-wGu
-wGu
-wGu
-wGu
-ddL
-buM
+aEq
+aEq
+aEq
+aEq
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -35335,16 +35589,16 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-buM
-dOA
-bik
-jkY
-bac
-ddL
-jmV
-vtt
+kpq
+ehr
+nwV
+ntA
+lNZ
+jvZ
+cKY
+ehr
+dHA
+kpR
 svf
 svf
 uYP
@@ -35354,11 +35608,11 @@ aMY
 aMY
 aMY
 wZf
-vFn
-kAt
-iNt
+qTV
+dQZ
+cmp
 aMY
-mJZ
+uHl
 aHs
 aHs
 aHs
@@ -35369,12 +35623,12 @@ aHs
 aHs
 aHs
 aHs
-wGu
-wGu
-wGu
-wGu
-ddL
-buM
+aEq
+aEq
+aEq
+aEq
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -35592,18 +35846,18 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-buM
-fgc
-vXs
-doI
-hjP
-ddL
-aCd
-buM
-ucC
-ucC
+kpq
+ehr
+nwV
+elb
+mLS
+eIb
+pRO
+ehr
+lpF
+nwV
+inf
+inf
 cMo
 aMY
 aMY
@@ -35611,11 +35865,11 @@ aMY
 aMY
 cMo
 qHm
-rax
-rax
-joO
+wOq
+wOq
+uCS
 cMo
-mJZ
+pVk
 aHs
 aHs
 aHs
@@ -35624,14 +35878,14 @@ fNZ
 aHs
 aHs
 aHs
+fNZ
 aHs
-aHs
-wGu
-wGu
-wGu
-wGu
-buM
-buM
+aEq
+aEq
+aEq
+aEq
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -35849,18 +36103,18 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-buM
-buM
-qTV
-buM
-buM
-fUQ
-lsx
-hDH
-fZq
-sNA
+kpq
+ehr
+nwV
+nwV
+jfa
+nwV
+nwV
+aBD
+kXm
+iVM
+aEB
+jGb
 buA
 aMY
 aMY
@@ -35872,22 +36126,22 @@ juM
 ncB
 rtf
 cMo
-mJZ
-aHs
-aHs
-aHs
+uHl
+szY
+eur
+eur
 aHs
 fNZ
 fNZ
-pWs
+ezu
 dBq
 dBq
-pWs
-wGu
-wGu
-wGu
+ezu
+aEq
+aEq
+aEq
 mDu
-buM
+nwV
 xRX
 xRX
 xRX
@@ -36106,26 +36360,26 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-jvZ
-buM
-buM
-buM
-mIF
-qEa
-huX
-huX
-elb
-inf
+kpq
+ehr
+nuE
+nwV
+nwV
+nwV
+uCK
+oBB
+jhH
+jhH
+mpK
+aBE
 buA
 aMY
 aMY
 aMY
-mJZ
-ucC
-aMY
-aMY
+uHl
+inf
+wOq
+wOq
 cMo
 cMo
 cMo
@@ -36133,17 +36387,17 @@ hru
 fNZ
 fNZ
 fNZ
-aHs
+nZv
 fNZ
 aHs
-pWs
-pWs
+ezu
+ezu
 dBq
-pWs
-wGu
-wGu
+ezu
+aEq
+aEq
 mDu
-buM
+nwV
 xRX
 xRX
 xRX
@@ -36363,43 +36617,43 @@ xRX
 xRX
 xRX
 xRX
-gSY
-ddL
-eqS
-kDV
-kDV
-kDV
-ddL
-eqS
-qEa
-huX
-ucC
-bcf
-ucC
-mJZ
-mJZ
-ucC
-ucC
-ucC
-mJZ
-aMY
+kpq
+ehr
+giY
+uYh
+uYh
+uYh
+ehr
+giY
+oBB
+jhH
+inf
+hqL
+inf
+uHl
+uHl
+inf
+inf
+inf
+inf
+kAt
 cMo
 kqx
 aMY
-mJZ
-awG
+uHl
+uLg
+fNZ
+vBm
+aHs
 fNZ
 aHs
-aHs
-fNZ
-aHs
-pWs
-pWs
+ezu
+ezu
 dBq
-pWs
-wGu
-buM
-buM
+ezu
+aEq
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -36620,42 +36874,42 @@ xRX
 xRX
 xRX
 xRX
-buM
-buM
-buM
-buM
-buM
-buM
-buM
-buM
-ddL
-ddL
-mJZ
-mJZ
-mJZ
-mJZ
-mJZ
-ucC
-mJZ
-mJZ
-mJZ
-mJZ
-ucC
+nwV
+nwV
+nwV
+nwV
+nwV
+nwV
+nwV
+nwV
+ehr
+ehr
+uHl
+uHl
+uHl
+uHl
+uHl
+inf
+aoH
+eqS
+inf
+ret
+inf
 kjg
-mJZ
-mJZ
-pDZ
+uHl
+uHl
+uLg
+fNZ
+nTU
+aHs
 fNZ
 aHs
-aHs
-fNZ
-aHs
-pWs
-pWs
-buM
-buM
-buM
-buM
+ezu
+ezu
+nwV
+nwV
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -36884,32 +37138,32 @@ xRX
 xRX
 xRX
 xRX
-buM
-ddL
-ddL
-ygs
-ygs
-ygs
-ygs
-ygs
+nwV
+ehr
+ehr
+sSn
+sSn
+sSn
+sSn
+sSn
 vGe
-gXv
-gXv
-gXv
-gXv
+kAa
+cFv
+cZb
+cFv
 bDu
-mFl
+bPE
 gXv
 gXv
-ibY
+mqS
 fNZ
-aHs
+bnp
 aHs
 fNZ
-pWs
-pWs
-ddL
-buM
+ezu
+ezu
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -37140,20 +37394,20 @@ xRX
 xRX
 xRX
 xRX
-buM
-buM
-buM
-buM
+nwV
+nwV
+nwV
+nwV
+vGe
+vGe
+sSn
 vGe
 vGe
 vGe
-vGe
-vGe
-vGe
-gXv
-gXv
-gXv
-gXv
+jXM
+mwP
+bDu
+cFv
 bDu
 bDu
 cqW
@@ -37164,10 +37418,10 @@ bDu
 bDu
 dBq
 dBq
-ddL
-buM
-buM
-buM
+ehr
+nwV
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -37396,35 +37650,35 @@ xRX
 xRX
 xRX
 xRX
-buM
-buM
-ddL
-ddL
-buM
-ygs
-ygs
-ygs
-ygs
-ygs
+nwV
+nwV
+ehr
+ehr
+nwV
+sSn
+sSn
+sSn
+sSn
+sSn
 vGe
-gXv
-gXv
-gXv
-gXv
+bDu
+bDu
+bDu
+cFv
 bDu
 nXd
-nmS
-nmS
-jXM
+cFv
+cFv
 hgF
+aCZ
 bDu
-trc
+uFI
 lwX
-buM
-ddL
-ddL
-ddL
-buM
+nwV
+ehr
+ehr
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -37653,35 +37907,35 @@ xRX
 xRX
 xRX
 xRX
-mLS
-ddL
-ddL
-ddL
+rqE
+ehr
+ehr
+ehr
 diE
-ygs
-ygs
-ygs
-ygs
-ygs
-ygs
-gXv
-gXv
-gXv
-gXv
+sSn
+sSn
+sSn
+sSn
+sSn
+sSn
+cFv
+qQq
+cFv
+cFv
 bDu
 nXd
-nmS
-nmS
+cFv
+cFv
 bDu
 bDu
 bDu
-trc
+uFI
 xRX
-buM
-ddL
-ddL
-ddL
-buM
+nwV
+ehr
+ehr
+ehr
+nwV
 xRX
 xRX
 xRX
@@ -37910,35 +38164,35 @@ xRX
 xRX
 xRX
 xRX
-mLS
-ddL
-ddL
+rqE
+ehr
+ehr
 coM
 coM
-ygs
-ygs
-ygs
-ygs
-ygs
-ygs
-gXv
-gXv
-gXv
-gXv
+sSn
+sSn
+sSn
+sSn
+sSn
+vGe
+mFl
+cFv
+cFv
+iEC
 bDu
 ygQ
-tGm
+cpa
 nmS
 ioR
-hgF
+aCZ
 bDu
 xRX
 xRX
-buM
-buM
-buM
-buM
-buM
+nwV
+nwV
+nwV
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -38167,28 +38421,28 @@ xRX
 xRX
 xRX
 xRX
-mLS
-ddL
+rqE
+ehr
 coM
 coM
 diE
-ygs
-ygs
-ygs
-ygs
-ygs
+sSn
+sSn
+sSn
+sSn
+sSn
 vGe
-gXv
-gXv
-gXv
-gXv
+mLi
+cFv
+cFv
+iEC
 bDu
 bDu
 bDu
 bDu
 bDu
 bDu
-buM
+nwV
 xRX
 xRX
 xRX
@@ -38424,26 +38678,26 @@ xRX
 xRX
 xRX
 xRX
-buM
+nwV
 diE
 coM
 coM
 diE
-ygs
-ygs
-ygs
-ygs
-ygs
+sSn
+sSn
+sSn
+sSn
+sSn
 vGe
-gXv
-gXv
-gXv
-gXv
+vUu
+vBe
+cFv
+klE
 bDu
-trc
-trc
-trc
-trc
+uFI
+uFI
+uFI
+uFI
 xRX
 xRX
 xRX
@@ -38681,7 +38935,7 @@ xRX
 xRX
 xRX
 xRX
-nDY
+pIS
 diE
 diE
 diE
@@ -38697,9 +38951,9 @@ gXv
 gXv
 bDu
 bDu
-trc
-trc
-trc
+uFI
+uFI
+uFI
 xRX
 xRX
 xRX
@@ -38937,25 +39191,25 @@ xRX
 xRX
 xRX
 xRX
-nDY
-nDY
-nDY
-nDY
-nDY
-nDY
-lhk
-lhk
-lhk
-lhk
-lhk
-lhk
+pIS
+pIS
+pIS
+pIS
+pIS
+pIS
+aeN
+aeN
+aeN
+aeN
+aeN
+aeN
 bDu
 gXv
 gXv
 bDu
-trc
-trc
-trc
+uFI
+uFI
+uFI
 xRX
 xRX
 xRX
@@ -39193,25 +39447,25 @@ xRX
 xRX
 xRX
 xRX
-gTU
-gTU
-gTU
-nDY
-nDY
-nDY
-nDY
-lhk
-lhk
-lhk
-lhk
-lhk
-lhk
+fpW
+fpW
+fpW
+pIS
+pIS
+pIS
+pIS
+aeN
+aeN
+aeN
+aeN
+aeN
+aeN
 bDu
 gXv
 gXv
 bDu
-trc
-trc
+uFI
+uFI
 xRX
 xRX
 xRX
@@ -39449,23 +39703,23 @@ xRX
 xRX
 xRX
 xRX
-gTU
-gTU
-gTU
-gTU
-nDY
-nDY
-nDY
-nDY
-lhk
-lhk
-lhk
-lhk
-lhk
-lhk
+fpW
+fpW
+fpW
+fpW
+pIS
+pIS
+pIS
+pIS
+aeN
+aeN
+aeN
+aeN
+aeN
+aeN
 dBq
-pWs
-pWs
+ezu
+ezu
 dBq
 lwX
 xRX
@@ -39705,24 +39959,24 @@ xRX
 xRX
 xRX
 xRX
-mpK
-gTU
-gTU
-gTU
-gTU
-nDY
-nDY
-nDY
-nDY
-lhk
-lhk
-lhk
-lhk
-lhk
-lhk
+ssT
+fpW
+fpW
+fpW
+fpW
+pIS
+pIS
+pIS
+pIS
+aeN
+aeN
+aeN
+aeN
+aeN
+aeN
 dBq
-pWs
-pWs
+ezu
+ezu
 dBq
 xRX
 xRX
@@ -39961,26 +40215,26 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
 gNT
 gNT
 gNT
 gNT
 dBq
-pWs
-pWs
-buM
+ezu
+ezu
+nwV
 xRX
 xRX
 xRX
@@ -40218,18 +40472,18 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
 gNT
 gNT
 gNT
@@ -40475,17 +40729,17 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
 gNT
 gNT
 gNT
@@ -40732,17 +40986,17 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
 gNT
 gNT
 gNT
@@ -40989,17 +41243,17 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
 gNT
 gNT
 gNT
@@ -41007,7 +41261,7 @@ gNT
 xRX
 xRX
 xRX
-huX
+jhH
 xRX
 xRX
 xRX
@@ -41246,17 +41500,17 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
 gNT
 gNT
 gNT
@@ -41264,8 +41518,8 @@ xRX
 xRX
 xRX
 xRX
-huX
-huX
+jhH
+jhH
 xRX
 xRX
 xRX
@@ -41503,27 +41757,27 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
 xRX
 xRX
 xRX
 xRX
 xRX
-buM
-huX
-huX
+nwV
+jhH
+jhH
 xRX
 xRX
 xRX
@@ -41760,28 +42014,28 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-gTU
-gTU
-gTU
-gTU
-gTU
-gTU
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+fpW
+fpW
+fpW
+fpW
+fpW
+fpW
 xRX
 xRX
 xRX
 xRX
 xRX
 xRX
-tca
-nuE
-huX
-huX
+waL
+tCH
+jhH
+jhH
 xRX
 xRX
 xRX
@@ -42017,16 +42271,16 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -42035,11 +42289,11 @@ xRX
 xRX
 xRX
 xRX
-tca
-mlI
-pIS
-buM
-buM
+waL
+iJi
+cnh
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -42274,15 +42528,15 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -42292,23 +42546,23 @@ xRX
 xRX
 xRX
 xRX
-elq
-mlI
-pIS
-pIS
-buM
-buM
-aSN
-aSN
-qpo
-aSN
-aSN
-res
-aSN
-aSN
-aSN
-aSN
-xbd
+qIu
+iJi
+cnh
+cnh
+nwV
+nwV
+ihv
+ihv
+hjP
+ihv
+ihv
+gHC
+ihv
+ihv
+ihv
+ihv
+ucC
 xRX
 xRX
 xRX
@@ -42531,14 +42785,14 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -42549,23 +42803,23 @@ xRX
 xRX
 xRX
 xRX
-euz
-bQR
-pIS
-iWi
-kfX
-buM
-buM
-ekH
-ekH
-ekH
-ekH
-tJz
-tJz
-tJz
-tJz
-tJz
-tJz
+szI
+kyi
+cnh
+grx
+fte
+nwV
+nwV
+lmk
+lmk
+lmk
+lmk
+iUc
+iUc
+iUc
+iUc
+iUc
+iUc
 xRX
 xRX
 xRX
@@ -42788,14 +43042,14 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -42806,23 +43060,23 @@ xRX
 xRX
 xRX
 xRX
-buM
-aJd
-pIS
-bYr
-uBl
-cYy
-owG
-ekH
-ekH
-ekH
-pwl
-tJz
-tJz
-tJz
-tJz
-tJz
-dhW
+nwV
+kIy
+cnh
+pUo
+vwF
+epB
+sNA
+lmk
+lmk
+lmk
+iXb
+iUc
+iUc
+iUc
+iUc
+iUc
+dMj
 xRX
 xRX
 xRX
@@ -43045,13 +43299,13 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -43063,23 +43317,23 @@ xRX
 xRX
 xRX
 xRX
-tca
-aeN
-pIS
-cnH
-aqS
-auV
-hqL
-ekH
-ekH
-ekH
-tJz
-oBX
-tSP
-tSP
-tSP
-tSP
-nKK
+waL
+ocx
+cnh
+ezV
+aAX
+sGi
+nDY
+lmk
+lmk
+lmk
+iUc
+gII
+oyu
+oyu
+oyu
+oyu
+vXs
 xRX
 xRX
 xRX
@@ -43302,12 +43556,12 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -43320,18 +43574,18 @@ xRX
 xRX
 xRX
 xRX
-tca
-aeN
-pIS
-fZl
-hzD
-auV
-oYG
-reZ
-tra
-iCn
-tSP
-bsE
+waL
+ocx
+cnh
+irX
+mXF
+sGi
+pAh
+rpY
+wIx
+tYz
+oyu
+rLG
 xRX
 xRX
 xRX
@@ -43559,11 +43813,11 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -43577,17 +43831,17 @@ xRX
 xRX
 xRX
 xRX
-tca
-wWj
-pIS
-cZM
-aHt
-eur
-auV
-vCu
-auV
-iRD
-iJz
+waL
+ygs
+cnh
+eMT
+iWi
+sLx
+sGi
+krH
+sGi
+yhK
+aPB
 xRX
 xRX
 xRX
@@ -43816,10 +44070,10 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -43834,18 +44088,18 @@ xRX
 xRX
 xRX
 xRX
-buM
-dfw
-pIS
-pIS
-eiR
-pIS
-pIS
-pIS
-pIS
-pIS
-buM
-buM
+nwV
+dTw
+cnh
+cnh
+tdw
+cnh
+cnh
+cnh
+cnh
+cnh
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -44073,9 +44327,9 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
-mpK
+ssT
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -44091,19 +44345,19 @@ xRX
 xRX
 xRX
 xRX
-buM
-krq
-pIS
-qFI
-aPB
-nwx
-pIS
-nzc
-aSc
-dqJ
-tcL
-buM
-tYX
+nwV
+doI
+cnh
+aHv
+dhW
+wQA
+cnh
+kUR
+ive
+xsn
+itD
+nwV
+erT
 xRX
 xRX
 xRX
@@ -44330,8 +44584,8 @@ xRX
 xRX
 xRX
 xRX
-mpK
-mpK
+ssT
+ssT
 xRX
 xRX
 xRX
@@ -44348,20 +44602,20 @@ xRX
 xRX
 xRX
 xRX
-tca
-lGk
-gAS
-gyl
-lPG
-ahw
-fDv
-hCs
-epB
-wBt
-vmX
-pIS
-buM
-bTi
+waL
+lhC
+ovq
+mJZ
+nva
+wub
+mqx
+aJd
+cHM
+ffY
+tcL
+cnh
+nwV
+nvs
 xRX
 xRX
 xRX
@@ -44587,39 +44841,39 @@ xRX
 xRX
 xRX
 xRX
-mpK
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-oMl
-mlI
-pIS
 ssT
-aPB
-ocx
-pIS
-pIS
-ora
-gcq
-bos
-pIS
-pIS
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+srr
+iJi
+cnh
+hzD
+dhW
 buM
-buM
+cnh
+cnh
+uOY
+oMl
+jPp
+cnh
+cnh
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -44862,22 +45116,22 @@ xRX
 xRX
 xRX
 xRX
-tca
-mlI
-pIS
-pAh
-fte
-uJF
-hri
-pIS
-ihv
-aPB
-oyu
-pIS
-dTw
-mot
-buM
-buM
+waL
+iJi
+cnh
+one
+oNi
+qFI
+elq
+cnh
+ora
+dhW
+aqS
+cnh
+pJV
+oKf
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -45119,23 +45373,23 @@ xRX
 xRX
 xRX
 xRX
-buM
-exg
-pIS
-xbK
-bNV
-xSa
-nke
-pIS
-pIS
-oDq
-pIS
-pIS
+nwV
+drI
+cnh
+qJb
+hlT
+gXW
+cXH
+cnh
+cnh
+fws
+cnh
+cnh
+amn
 qMS
-hZH
-iJi
-buM
-huX
+pIZ
+nwV
+jhH
 xRX
 xRX
 xRX
@@ -45376,24 +45630,24 @@ xRX
 xRX
 xRX
 xRX
-buM
-iPH
-pIS
-szI
-bgV
-cFv
-dfe
+nwV
+mcJ
+cnh
+qiY
+uuh
+ntt
 hBd
+bYr
+wBt
+dYJ
+cHM
+xbK
+noq
+ocM
+lwj
+pIZ
 jhH
-tuF
-epB
-jGb
-uNN
-kZr
-buK
-iJi
-huX
-dvU
+dEo
 xRX
 xRX
 xRX
@@ -45633,25 +45887,25 @@ xRX
 xRX
 xRX
 xRX
-huX
-huX
-pIS
-aab
-ncl
-kaR
-mZy
-hBd
-huE
+jhH
+jhH
+cnh
+eKs
+buK
+hZH
+eYR
+bYr
+oNR
+dhS
+aSc
+cnh
 pIZ
-aAX
-pIS
-iJi
-iJi
-wBq
-pUo
-iJi
-huX
-mys
+pIZ
+hWr
+oVO
+pIZ
+jhH
+iyN
 xRX
 xRX
 xRX
@@ -45891,24 +46145,24 @@ xRX
 xRX
 xRX
 xRX
-buM
-mjR
-pIS
-eze
-lvo
+nwV
+ePS
+cnh
+qgN
+gTU
+tJz
+mJZ
+nva
+epw
 cjb
-gyl
-lPG
-qlg
-jZv
-ssO
-wxN
-uHl
-kTZ
-aMc
-amn
-huX
-huX
+ybQ
+nEY
+bTU
+adr
+uxh
+umF
+jhH
+jhH
 xRX
 xRX
 xRX
@@ -46148,23 +46402,23 @@ xRX
 xRX
 xRX
 xRX
-buM
-aEq
-gAS
-wQA
-ehr
-pfE
-pIS
-kAE
-pIS
-pIS
-pIS
-pIS
-pIS
-waL
-pIS
-buM
+nwV
 huX
+ovq
+edF
+iJz
+fnE
+cnh
+pgn
+cnh
+cnh
+cnh
+cnh
+cnh
+fpO
+cnh
+nwV
+jhH
 xRX
 xRX
 xRX
@@ -46405,22 +46659,22 @@ xRX
 xRX
 xRX
 xRX
-tca
-pJV
-pIS
-deZ
-mwP
-vwC
-pIS
-cZb
-fpW
-oXc
-aag
-pIS
-qqr
-hWr
-buM
-buM
+waL
+hZg
+cnh
+tSP
+pwl
+wWj
+cnh
+uCA
+mot
+iGK
+uJi
+cnh
+fZl
+cZM
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -46662,21 +46916,21 @@ xRX
 xRX
 xRX
 xRX
-iGK
-bnp
-pIS
-udI
-pIS
-pIS
-pIS
-wfy
-giY
-krH
-bTU
-pIS
-lGZ
-buM
-oNR
+xNk
+uJF
+cnh
+lPG
+cnh
+cnh
+cnh
+qfg
+asL
+dvU
+bac
+cnh
+pBl
+nwV
+pub
 xRX
 xRX
 xRX
@@ -46919,20 +47173,20 @@ xRX
 xRX
 xRX
 xRX
-tca
-gII
-pIS
-ewL
-sLx
-eTH
-pIS
-eIb
-qJb
-wfy
-dhb
-pIS
-buM
-fWW
+waL
+mZy
+cnh
+jkY
+lsx
+eFo
+cnh
+nKv
+htD
+qfg
+dqJ
+cnh
+nwV
+auV
 xRX
 xRX
 xRX
@@ -47176,19 +47430,19 @@ xRX
 xRX
 xRX
 xRX
-buM
-krq
-pIS
-qIP
-jFQ
-hFX
-pIS
-iWe
-lpe
-pIS
-lFg
-buM
-buM
+nwV
+doI
+cnh
+axT
+cYw
+pvH
+cnh
+fgx
+tYX
+cnh
+frC
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -47433,18 +47687,18 @@ xRX
 xRX
 xRX
 xRX
-buM
-noq
-pIS
-oNi
-pIS
-pIS
-pIS
-pIS
-pIS
-pIS
-buM
-buM
+nwV
+llL
+cnh
+dfe
+cnh
+cnh
+cnh
+cnh
+cnh
+cnh
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -47690,16 +47944,16 @@ xRX
 xRX
 xRX
 xRX
-tca
-gJx
-pIS
-aou
-rLK
-wVD
-wVD
-wVD
-wVD
-uCA
+waL
+deZ
+cnh
+lKG
+mAg
+jpO
+jpO
+jpO
+jpO
+rUU
 xRX
 xRX
 xRX
@@ -47947,15 +48201,15 @@ xRX
 xRX
 xRX
 xRX
-tca
-aeN
-pIS
-ntt
-oAQ
-wVD
+waL
+ocx
+cnh
+sFI
+fyC
 jpO
-jpO
-gdk
+lsu
+lsu
+xwj
 xRX
 xRX
 xRX
@@ -48204,14 +48458,14 @@ xRX
 xRX
 xRX
 xRX
-tca
-hdB
-pIS
-qRq
-dQZ
-lMt
-cQs
-uCA
+waL
+gJx
+cnh
+bgV
+aou
+tCv
+wGu
+rUU
 xRX
 xRX
 xRX
@@ -48461,14 +48715,14 @@ xRX
 xRX
 xRX
 xRX
-buM
-bQR
-pIS
-wXi
-cXH
-auV
-buM
-buM
+nwV
+kyi
+cnh
+fgc
+oFS
+sGi
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -48718,13 +48972,13 @@ xRX
 xRX
 xRX
 xRX
-lOi
-bQR
-pIS
-tYz
-edF
-buM
-ueS
+laT
+kyi
+cnh
+hri
+aDM
+nwV
+tGm
 xRX
 xRX
 xRX
@@ -48975,12 +49229,12 @@ xRX
 xRX
 xRX
 xRX
-tca
-mlI
-pIS
-erT
-buM
-buM
+waL
+iJi
+cnh
+exg
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -49232,11 +49486,11 @@ xRX
 xRX
 xRX
 xRX
-tca
-mlI
-pIS
-buM
-buM
+waL
+iJi
+cnh
+nwV
+nwV
 xRX
 xRX
 xRX
@@ -49489,10 +49743,10 @@ xRX
 xRX
 xRX
 xRX
-tca
-mqS
-pIS
-buM
+waL
+kkj
+cnh
+nwV
 xRX
 xRX
 xRX
@@ -49746,9 +50000,9 @@ xRX
 xRX
 xRX
 xRX
-buM
-huX
-huX
+nwV
+jhH
+jhH
 xRX
 xRX
 xRX
@@ -50003,8 +50257,8 @@ xRX
 xRX
 xRX
 xRX
-huX
-huX
+jhH
+jhH
 xRX
 xRX
 xRX
@@ -50260,7 +50514,7 @@ xRX
 xRX
 xRX
 xRX
-huX
+jhH
 xRX
 xRX
 xRX
