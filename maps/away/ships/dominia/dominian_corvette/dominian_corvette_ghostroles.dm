@@ -26,6 +26,7 @@
 	head = /obj/item/clothing/head/dominia/fleet
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
+	accessory = obj/item/clothing/accessory/dominia
 
 	id = /obj/item/card/id/imperial_fleet
 
@@ -56,7 +57,7 @@
 	head = /obj/item/clothing/head/dominia/fleet/officer
 	uniform = /obj/item/clothing/under/dominia/fleet/officer
 	suit = /obj/item/clothing/suit/storage/dominia/fleet
-
+	accessory = obj/item/clothing/accessory/dominia
 
 /datum/ghostspawner/human/imperial_fleet_voidsman/armsman
 	short_name = "imperial_fleet_armsman"
@@ -77,6 +78,7 @@
 	head = /obj/item/clothing/head/dominia/fleet/armsman
 	uniform = /obj/item/clothing/under/dominia/fleet/armsman
 	accessory = /obj/item/clothing/accessory/poncho/dominia_cape/mantle
+	accessory = obj/item/clothing/accessory/dominia
 
 /datum/ghostspawner/human/imperial_fleet_voidsman/priest
 	short_name = "imperial_fleet_priest"
@@ -97,6 +99,7 @@
 	head = /obj/item/clothing/head/beret/dominia/priest
 	uniform = /obj/item/clothing/under/dominia/priest
 	accessory = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
+	accessory = obj/item/clothing/accessory/dominia
 
 //items
 
