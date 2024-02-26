@@ -99,7 +99,8 @@
 	//everything else is visible, so doesn't need to be mentioned
 
 
-/obj/structure/janitorialcart/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/structure/janitorialcart/MouseDrop_T(atom/dropping, mob/user)
+	var/atom/movable/O = dropping
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
 		O.forceMove(src)
 		mybucket = O
