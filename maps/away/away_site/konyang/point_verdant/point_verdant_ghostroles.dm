@@ -290,6 +290,7 @@
 	name = "UP! Burger Employee"
 	uniform = /obj/item/clothing/under/rank/konyang/burger
 	suit = /obj/item/clothing/accessory/apron/chef
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	head = /obj/item/clothing/head/konyang/burger
 	id = /obj/item/card/id
 	l_pocket = /obj/item/storage/wallet/random
