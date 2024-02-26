@@ -27,6 +27,9 @@
 	var/sector_hud_menu_sound = null //if this is set, it will override the hud menu click sound
 	var/sector_hud_arrow = null //if this is set, it will use an overlay instead of the animation that makes the button bigger
 
+	/// Lobby music overrides.
+	var/list/lobby_tracks
+
 	//vars used by the meteor random event
 
 	var/list/meteors_minor = list(

@@ -73,6 +73,13 @@
 	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
+	lobby_tracks = list(
+		'sound/music/lobby/konyang/konyang-1.ogg',
+		'sound/music/lobby/konyang/konyang-2.ogg',
+		'sound/music/lobby/konyang/konyang-3.ogg',
+		'sound/music/lobby/konyang/konyang-4.ogg'
+	)
+
 	lore_radio_stations = list(
 		"73.2 Navy Broadcasting Service" = "config/lore_radio/konyang/73.2_Navy_Broadcasting_Service.txt",
 		"122 Great Blue Dot" = "config/lore_radio/konyang//122_Great_Blue_Dot.txt",

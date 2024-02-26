@@ -15,11 +15,6 @@
 	if(.)
 		updateVisibility(src, FALSE)
 
-/atom/movable/Move()
-	. = ..()
-	if(opacity && .)
-		updateVisibility(src)
-
 /atom/movable/forceMove()
 	. = ..()
 	if(opacity && .)

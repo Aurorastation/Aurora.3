@@ -132,6 +132,11 @@
 
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
 /atom/movable/Move(newloc, direct)
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
+		return
+
+	var/old_loc = loc
+
 	if (direct & (direct - 1))
 		if (direct & 1)
 			if (direct & 4)
@@ -167,6 +172,38 @@
 
 		var/olddir = dir //we can't override this without sacrificing the rest of movable/New()
 		. = ..()
+
+		if(.)
+			// Events.
+			if(GLOB.moved_event.global_listeners[src])
+				GLOB.moved_event.raise_event(src, old_loc, loc)
+
+			// Lighting.
+			if(light_sources)
+				var/datum/light_source/L
+				var/thing
+				for(thing in light_sources)
+					L = thing
+					L.source_atom.update_light()
+
+			// Openturf.
+			if(bound_overlay)
+				// The overlay will handle cleaning itself up on non-openspace turfs.
+				bound_overlay.forceMove(get_step(src, UP))
+				if(bound_overlay.dir != dir)
+					bound_overlay.set_dir(dir)
+
+			if(opacity)
+				updateVisibility(src)
+
+			//Mimics
+			if(bound_overlay)
+				bound_overlay.forceMove(get_step(src, UP))
+				if(bound_overlay.dir != dir)
+					bound_overlay.set_dir(dir)
+
+			Moved(old_loc, FALSE)
+
 		if(direct != olddir)
 			dir = olddir
 			set_dir(direct)
@@ -187,7 +224,17 @@
 	return
 
 
-/client/Move(n, direct)
+/**
+ * Move a client in a direction
+ *
+ * This is called when a client tries to move, usually it dispatches the moving request to the mob it's controlling
+ */
+/client/Move(new_loc, direct)
+	if(world.time < move_delay) //do not move anything ahead of this check please
+		return FALSE
+
+	var/old_move_delay = move_delay
+
 	if(!mob)
 		return // Moved here to avoid nullrefs below
 
@@ -201,27 +248,21 @@
 	if(moving || world.time < move_delay)
 		return 0
 
-	//This compensates for the inaccuracy of move ticks
-	//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
-	//The overshoot value is subtracted from our next delay, farther down where move delay is set.
-	//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
-	//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
-	var/leftover = world.time - move_delay
-	if (leftover > 1)
-		leftover = 0
-
 	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
 		return
 
 	// handle possible Eye movement
 	if(mob.eyeobj)
-		return mob.EyeMove(n,direct)
+		return mob.EyeMove(new_loc,direct)
 
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
 
 	if(isliving(mob))
+		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
+			return FALSE
+
 		var/mob/living/L = mob
 		if(L.incorporeal_move && isturf(mob.loc))//Move though walls
 			Process_Incorpmove(direct, mob)
@@ -275,22 +316,29 @@
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
 						to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
-						return 0
+						return FALSE
 					else
 						M.stop_pulling()
 
 		if(mob.pinned.len)
 			to_chat(src, SPAN_WARNING("You're pinned to a wall by [mob.pinned[1]]!"))
 			move_delay = world.time + 1 SECOND // prevent spam
-			return 0
+			return FALSE
 
-		move_delay = world.time - leftover//set move delay
+		//If the move was recent, count using old_move_delay
+		//We want fractional behavior and all
+		if(old_move_delay + world.tick_lag > world.time)
+			//Yes this makes smooth movement stutter if add_delay is too fractional
+			//Yes this is better then the alternative
+			move_delay = old_move_delay
+		else
+			move_delay = world.time
 
-		if (mob.buckled_to)
+		if(mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
 				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-				move_delay = world.time
+				move_delay = (old_move_delay + world.tick_lag > world.time) ? old_move_delay : world.time
 				//drunk driving
 				if(mob.confused && prob(25))
 					direct = pick(GLOB.cardinal)
@@ -366,7 +414,7 @@
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(GLOB.cardinal))
 		else
-			. = mob.SelfMove(n, direct)
+			. = mob.SelfMove(new_loc, direct)
 
 		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
