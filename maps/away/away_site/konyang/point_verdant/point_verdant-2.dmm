@@ -426,6 +426,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
+"be" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/cargo_receptacle,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "bf" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -11838,6 +11845,13 @@
 "EA" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
+"EB" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/structure/cargo_receptacle,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "EC" = (
 /obj/structure/utility_pole/street/on{
@@ -32216,7 +32230,7 @@ bi
 ex
 zN
 Aw
-xU
+EB
 kI
 Fs
 Oq
@@ -51403,7 +51417,7 @@ sJ
 ai
 ai
 vD
-sJ
+be
 MK
 Os
 BT

@@ -10704,8 +10704,7 @@
 "Gj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/closet/crate/bin/urban,
-/obj/random/junk,
+/obj/structure/cargo_receptacle,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior)
 "Gk" = (
