@@ -49,7 +49,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/hiskyn/New()
-	designation = "[pick("Red-Taloned Vengeance", "Fer'is' Fury", "Storms of Ha'zana", "Knees Unbent", "Seryo's Honor", "Traveller Returning", "Roaring Skrazi", "Heartseeker", "Winds of Travakh", "Charging Eskazal", "No Surrender")]"
+	designation = "[pick("Red-Taloned Vengeance", "Fer'is' Fury", "Storms of Ha'zana", "Knees Unbent", "Seryo's Honor", "Traveller Returning", "Roaring Skrazi", "Heartseeker", "Winds of Travakh", "Charging Eskazal", "No Surrender", "Red Reprisal", "Retribution Incarnadine", "Betrayer's Bane", "Eye for an Eye", "Vengeful Dagger")]"
 	..()
 
 //Navpoints
