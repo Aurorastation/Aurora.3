@@ -10704,7 +10704,10 @@
 "Gj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/cargo_receptacle,
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - Corporate District Docks";
+	payment_modifier = 0.5
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior)
 "Gk" = (

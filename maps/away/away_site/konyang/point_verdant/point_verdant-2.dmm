@@ -430,7 +430,10 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/cargo_receptacle,
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - Up!Burger";
+	payment_modifier = 0.4
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "bf" = (
@@ -11848,9 +11851,12 @@
 /area/point_verdant/outdoors)
 "EB" = (
 /obj/structure/ledge/quarter{
-	dir = 1
+	dir = 8
 	},
-/obj/structure/cargo_receptacle,
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - The One Aoyama Lodging";
+	payment_modifier = 0.4
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "EC" = (
@@ -32230,7 +32236,7 @@ bi
 ex
 zN
 Aw
-EB
+xU
 kI
 Fs
 Oq
@@ -35033,7 +35039,7 @@ Ga
 Ga
 sT
 mN
-Fx
+EB
 Fx
 We
 cG
