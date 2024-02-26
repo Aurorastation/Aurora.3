@@ -102,6 +102,11 @@
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/peaked_beret_colour
+	display_name = "beret, peaked (colourable)"
+	path = /obj/item/clothing/head/beret/peaked/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/sidecap
 	display_name = "side cap"
 	path = /obj/item/clothing/head/sidecap
