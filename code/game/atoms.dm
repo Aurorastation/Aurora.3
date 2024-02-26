@@ -721,9 +721,15 @@
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
 
-// This proc is used by ghost spawners to assign a player to a specific atom.
-// It receives the current mob of the player's argument and MUST return the mob the player has been assigned.
-/atom/proc/assign_player(var/mob/user)
+/**
+ * This proc is used by ghost spawners to assign a player to a specific atom
+ *
+ * It receives the current mob of the player's argument and MUST return the mob the player has been assigned
+ *
+ * Returns the `/mob` the player was assigned to
+ */
+/atom/proc/assign_player(mob/user)
+	RETURN_TYPE(/mob)
 	return
 
 /atom/proc/get_contained_external_atoms()

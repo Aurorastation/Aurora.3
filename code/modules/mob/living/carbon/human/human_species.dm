@@ -17,6 +17,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	GLOB.human_mob_list -= src
 	delete_inventory()
 
+/mob/living/carbon/human/dummy/mannequin/Destroy()
+	SSmobs.free_mannequin(src)
+	. = ..()
+
 /mob/living/carbon/human/vatgrown/Initialize(mapload)
 	. = ..(mapload, SPECIES_HUMAN_VATGROWN)
 	mob_thinks = FALSE
