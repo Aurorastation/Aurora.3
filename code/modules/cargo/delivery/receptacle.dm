@@ -15,7 +15,12 @@ var/global/list/all_cargo_receptacles = list()
 	/// Used to adjust the reward for delivering to this point
 	var/payment_modifier = 1.0
 
+	/// Set to true to have a chance for packages to spawn with
 	var/spawns_packages = TRUE
+	/// Minimum amount of packages that can spawn for this receptacle. INTEGER
+	var/min_spawn = 2
+	/// Maximum amount of packages that can spawn for this receptacle. INTEGER
+	var/max_spawn = 4
 
 /obj/structure/cargo_receptacle/Initialize(mapload)
 	..()
@@ -46,7 +51,7 @@ var/global/list/all_cargo_receptacles = list()
 					if(!turf_contains_dense_objects(T))
 						warehouse_turfs += T
 
-		var/package_amount = rand(2, 4)
+		var/package_amount = rand(min_spawn, max_spawn)
 		for(var/i = 1 to package_amount)
 			var/turf/random_turf = pick_n_take(warehouse_turfs)
 			if(random_turf)

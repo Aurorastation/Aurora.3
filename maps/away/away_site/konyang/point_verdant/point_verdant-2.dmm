@@ -432,7 +432,9 @@
 	},
 /obj/structure/cargo_receptacle{
 	override_name = "Konyang - Point Verdant - Up!Burger";
-	payment_modifier = 0.4
+	payment_modifier = 0.4;
+	min_spawn = 0;
+	max_spawn = 2
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -11855,7 +11857,9 @@
 	},
 /obj/structure/cargo_receptacle{
 	override_name = "Konyang - Point Verdant - The One Aoyama Lodging";
-	payment_modifier = 0.4
+	payment_modifier = 0.4;
+	max_spawn = 2;
+	min_spawn = 0
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
