@@ -7221,7 +7221,7 @@
 	dir = 9
 	},
 /obj/machinery/photocopier/faxmachine{
-	department = "Konyang National Police - Point Verdant Corporate District Precinct 302";
+	department = "Konyang, Point Verdant Corporate District, National Police Precinct 302";
 	pixel_y = 4;
 	req_one_access = list(218)
 	},
