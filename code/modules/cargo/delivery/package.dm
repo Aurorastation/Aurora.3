@@ -13,7 +13,7 @@
 
 	var/delivery_point_id = ""
 	var/datum/weakref/delivery_point_sector
-	/// Site name displayed to player when examining the package. This should clearly state where the player should go, and be lore accurate
+	/// Site name displayed to player when examining the package. This should clearly state where the player should go, and be lore accurate. This is typically overridden by either sectorname or one set by receptacle
 	var/delivery_site = "Unknown"
 	var/delivery_point_coordinates = ""
 
