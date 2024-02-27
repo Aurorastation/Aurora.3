@@ -41,4 +41,4 @@ changes:
   - rscadd: "Point Verdant has a new bounced radio, with a private frequency for police and removal of common and entertainment channels."
   - maptweak: "A bounced radio with only hailing frequency added to Point Verdant Shuttleport"
   - refactor: "Radio code modified to allow for custom frequency names."
-  - bugfix: "Map preset bounced radios now work as intended (maybe)."
+  - bugfix: "Map preset bounced radios, such as the ones from the IPC Refugee ship, now work as intended (maybe)."
