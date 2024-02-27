@@ -18676,6 +18676,10 @@
 /area/point_verdant/interior/hotel)
 "UX" = (
 /obj/machinery/door/urban/glass_sliding,
+/obj/machinery/door/blast/shutters{
+	id = "konyang_clinic";
+	dir = 2
+	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/clinic)
 "UY" = (
@@ -19278,6 +19282,10 @@
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/splint/full,
+/obj/structure/sign/urban/konyang/clinic{
+	pixel_y = 37;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Wz" = (
