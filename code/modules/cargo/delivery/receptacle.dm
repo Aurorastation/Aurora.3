@@ -11,10 +11,8 @@ var/global/list/all_cargo_receptacles = list()
 	var/datum/weakref/delivery_sector
 	/// If set, will be displayed as the site name on inbound packages.
 	var/override_name = ""
-
 	/// Used to adjust the reward for delivering to this point
 	var/payment_modifier = 1.0
-
 	/// Set to true to have a chance for packages to spawn with
 	var/spawns_packages = TRUE
 	/// Minimum amount of packages that can spawn for this receptacle. INTEGER
