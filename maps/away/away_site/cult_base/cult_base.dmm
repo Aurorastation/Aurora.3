@@ -336,9 +336,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "cE" = (
-/obj/machinery/light/broken{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
 "cG" = (
@@ -459,6 +456,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "dw" = (
@@ -500,6 +498,10 @@
 "dR" = (
 /turf/simulated/mineral/surface,
 /area/cult_base/maint_south)
+"dW" = (
+/obj/structure/closet,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/lounge)
 "dX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/broken{
@@ -669,6 +671,10 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
+"fp" = (
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
 "fq" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
@@ -725,11 +731,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_east)
 "fH" = (
-/obj/machinery/light/broken{
-	dir = 4
-	},
-/turf/simulated/floor/cult,
-/area/cult_base/lounge)
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "fM" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -768,6 +772,7 @@
 "gi" = (
 /obj/structure/closet/crate/rad/gear,
 /obj/random/junk,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "gl" = (
@@ -916,6 +921,12 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/cult_base/crew_quarters)
+"hk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/loot,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "hq" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -1058,6 +1069,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
+/obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/engineering)
 "ja" = (
@@ -1127,6 +1139,7 @@
 /obj/random/loot,
 /obj/item/clothing/suit/storage/medical_chest_rig,
 /obj/item/clothing/under/pants/track,
+/obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "jB" = (
@@ -1194,6 +1207,9 @@
 "jS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/machinery/light/broken{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
@@ -2003,6 +2019,7 @@
 /area/cult_base/hallways_north)
 "qQ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "qT" = (
@@ -2030,6 +2047,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/junk,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "qX" = (
@@ -2136,6 +2154,7 @@
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
 /obj/random/junk,
+/obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "rT" = (
@@ -3038,6 +3057,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
+"zZ" = (
+/obj/random/dirt_75,
+/obj/random/loot,
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "Aa" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -3048,6 +3072,12 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
+"Ac" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/loot,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "Ad" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/yellow{
 	dir = 4
@@ -3115,6 +3145,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
+"AI" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_waste)
 "AM" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -3273,12 +3310,19 @@
 /obj/item/clothing/under/suit_jacket/tan,
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /obj/item/clothing/suit/storage/toggle/labcoat/science,
-/obj/item/clothing/glasses/science,
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/random/loot,
+/obj/item/clothing/glasses/science,
 /turf/simulated/floor/carpet/darkblue,
 /area/cult_base/chiefs_quarters)
+"BN" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/contraband,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "BQ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -3976,16 +4020,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
-"IX" = (
-/obj/item/material/stool/chair/folding{
-	pixel_y = 16
-	},
-/obj/item/material/stool/chair/folding{
-	pixel_y = 20
-	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "IY" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -4221,6 +4255,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
+"KL" = (
+/obj/random/dirt_75,
+/obj/random/loot,
+/turf/simulated/floor/plating/asteroid,
+/area/cult_base/asteroid)
 "KM" = (
 /obj/structure/table/steel,
 /obj/item/towel/random{
@@ -5015,6 +5054,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/junk,
+/obj/random/loot,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "Rr" = (
@@ -5277,6 +5317,7 @@
 /obj/structure/sink{
 	pixel_y = 21
 	},
+/obj/random/loot,
 /turf/simulated/floor/tiled/white,
 /area/cult_base/hallways_south)
 "Tc" = (
@@ -5410,6 +5451,11 @@
 /obj/item/grenade/stinger{
 	pixel_y = 7
 	},
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"Ue" = (
+/obj/random/dirt_75,
+/obj/random/loot,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "Ug" = (
@@ -5611,6 +5657,9 @@
 	pixel_y = 20
 	},
 /obj/random/junk,
+/obj/machinery/light/broken{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
 "VO" = (
@@ -40195,7 +40244,7 @@ bJ
 Cb
 Cb
 Cb
-xk
+zZ
 CT
 Qa
 Lf
@@ -40207,7 +40256,7 @@ GM
 kP
 tt
 QI
-IZ
+Ac
 IA
 IA
 IA
@@ -40424,7 +40473,7 @@ IA
 IA
 IA
 IA
-HS
+hk
 xk
 Cb
 Cb
@@ -40959,7 +41008,7 @@ la
 pX
 Cb
 Lb
-Ug
+KL
 pZ
 Ui
 zO
@@ -41982,7 +42031,7 @@ Nz
 Cb
 GK
 JT
-Ff
+AI
 Fm
 pX
 JD
@@ -43302,7 +43351,7 @@ GQ
 IZ
 HD
 eL
-eL
+fp
 eL
 lx
 IA
@@ -44276,7 +44325,7 @@ Zi
 Eo
 IA
 IA
-gG
+Ue
 bN
 IA
 hJ
@@ -45066,7 +45115,7 @@ Cb
 Cb
 Cb
 Lb
-xk
+zZ
 Ig
 EE
 Fg
@@ -46110,13 +46159,13 @@ TZ
 IA
 hJ
 hJ
-HS
+hk
 HS
 HS
 Az
 HS
 gG
-gG
+Ue
 IA
 IA
 hJ
@@ -47913,7 +47962,7 @@ ne
 Ad
 GN
 RS
-ne
+dW
 ne
 ne
 ne
@@ -47926,7 +47975,7 @@ gX
 Ae
 Bs
 oI
-yy
+fH
 xz
 Ae
 IA
@@ -48941,7 +48990,7 @@ ne
 Qo
 Qo
 Qo
-fH
+Qo
 jS
 Aa
 Qo
@@ -50233,7 +50282,7 @@ qf
 xG
 Oa
 ly
-yy
+fH
 yy
 yy
 pb
@@ -51004,7 +51053,7 @@ KN
 ql
 Mi
 KN
-IZ
+BN
 bN
 gG
 IA
@@ -51767,7 +51816,7 @@ eq
 KN
 cP
 Vs
-IX
+te
 te
 rQ
 ic
@@ -52786,7 +52835,7 @@ IA
 IA
 IA
 IA
-gG
+Ue
 HS
 IA
 IZ
