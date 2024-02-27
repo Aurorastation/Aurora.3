@@ -479,12 +479,7 @@
 	short_name = "pv_corporate_solutions_eng"
 	desc = "You are a corporate engineering agent working for Einstein Engines, responding to a crisis in Point Verdant in cooperation with Zeng-Hu Pharmaceuticals personnel."
 	max_count = 1
-	outfit = /datum/outfit/admin/corporate_solutions/engineer
-
-/datum/outfit/admin/corporate_solutions/engineer
 	outfit = /datum/outfit/admin/corporate_solutions/einstein/engineer
-	assigned_role = "Solutions Agent (Einstein)"
-	special_role = "Solutions Agent (Einstein)"
 
 /datum/outfit/admin/corporate_solutions/einstein/engineer
 	uniform = /obj/item/clothing/under/rank/engineer/einstein
