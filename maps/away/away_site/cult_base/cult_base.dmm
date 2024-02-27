@@ -610,7 +610,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "eU" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/red,
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "eW" = (
@@ -897,9 +899,10 @@
 /turf/simulated/floor/airless,
 /area/space)
 "hd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 10
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "he" = (
@@ -988,8 +991,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "hP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 9
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
@@ -6081,13 +6085,6 @@
 "Ze" = (
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
-"Zf" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
 "Zi" = (
 /turf/template_noop,
 /area/space)
@@ -43314,8 +43311,8 @@ Pk
 Qp
 Cb
 Cb
-Cb
 Zv
+EV
 eU
 EV
 Nf
@@ -43572,12 +43569,12 @@ VU
 Cb
 Cb
 Cb
-Zv
 hP
+Mq
 fO
 Mq
 hd
-Zf
+Cb
 Cb
 Cb
 Gp
