@@ -51,7 +51,10 @@ var/global/list/default_interrogation_channels = list(
 	suffix = "\[3\]"
 	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
+	/// Automatically set on initialize, only update if bypass_default_internal is set to TRUE
 	var/list/internal_channels
+	/// If TRUE, skips automatically replacing internal_channels on init()
+	var/bypass_default_internal = FALSE
 	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
@@ -106,7 +109,8 @@ var/global/list/default_interrogation_channels = list(
 	. = ..()
 
 	wires = new(src)
-	internal_channels = default_internal_channels.Copy()
+	if(!bypass_default_internal)
+		internal_channels = default_internal_channels.Copy()
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
@@ -735,6 +739,7 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/map_preset
 	channels = list()
+	bypass_default_internal = TRUE
 
 /obj/item/device/radio/map_preset/Initialize()
 	if(!SSatlas.current_map.use_overmap)
@@ -743,14 +748,35 @@ var/global/list/default_interrogation_channels = list(
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
-		frequency = assign_away_freq(V.name)
+		var/freq_name = V.name
+		if(V.freq_name)
+			freq_name = V.freq_name
+		frequency = assign_away_freq(freq_name)
+		default_frequency = frequency
 		channels += list(
-			V.name = TRUE,
+			freq_name = TRUE,
 			CHANNEL_HAILING = TRUE
+		)
+		internal_channels += list(
+			num2text(frequency),
+			num2text(HAIL_FREQ)
 		)
 		if(V.comms_name)
 			name = "[V.comms_name] shortwave radio"
 
+	return ..()
+
+/obj/item/device/radio/hailing
+	bypass_default_internal = TRUE
+	default_frequency = HAIL_FREQ
+
+/obj/item/device/radio/hailing/Initialize()
+	channels = list(
+		CHANNEL_HAILING = TRUE
+	)
+	internal_channels += list(
+		num2text(HAIL_FREQ),
+	)
 	return ..()
 
 // Radio (Off)
