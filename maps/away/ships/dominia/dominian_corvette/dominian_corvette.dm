@@ -20,15 +20,24 @@
 
 /area/ship/dominian_corvette/hangar
 	name = "Dominian Corvette Hangar"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
 
 /area/ship/dominian_corvette/infirmary
 	name = "Dominian Corvette Infirmary"
+	icon_state = "medbay"
 
 /area/ship/dominian_corvette/quarters
 	name = "Dominian Corvette Crew Quarters"
+	icon_state = "Sleep"
 
-/area/ship/dominian_corvette/brig
-	name = "Dominian Corvette Brig"
+/area/ship/dominian_corvette/head
+	name = "Dominian Corvette Head"
+	icon_state = "washroom"
+
+/area/ship/dominian_corvette/quarters
+	name = "Dominian Corvette Recreation Room"
+	icon_state = "lounge"
 
 /area/ship/dominian_corvette/cic
 	name = "Dominian Corvette CIC"
@@ -38,24 +47,52 @@
 
 /area/ship/dominian_corvette/franny
 	name = "Dominian Corvette Francisca Compartment"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/officer
-	name = "Dominian Corvette Officer Compartment"
+	name = "Dominian Corvette Officer Quarters"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/ship/dominian_corvette/armory
 	name = "Dominian Corvette Armory"
+	icon_state = "security"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/temple
 	name = "Dominian Corvette Temple"
-
-/area/ship/dominian_corvette/cryo
-	name = "Dominian Corvette Cryogenics"
+	icon_state = "chapel"
+	ambience = AMBIENCE_CHAPEL
 
 /area/ship/dominian_corvette/engineering
 	name = "Dominian Corvette Engineering"
+	ambience = AMBIENCE_ENGINEERING
+
+/area/ship/dominian_corvette/engineering/reactor
+	name = "Dominian Corvette Reactor Room"
+	ambience = AMBIENCE_SINGULARITY
+
+/area/ship/dominian_corvette/engineering/atmos
+	name = "Dominian Corvette Atmospherics"
+	icon_state = "atmos"
+
+/area/ship/dominian_corvette/propulsion
+	name = "Dominian Corvette Starboard Propulsion"
+
+/area/ship/dominian_corvette/propulsion/port
+	name = "Dominian Corvette Port Propulsion"
+
+/area/ship/dominian_corvette/docking
+	name = "Dominian Corvette Starboard Docking Arm"
+
+/area/ship/dominian_corvette/docking/port
+	name = "Dominian Corvette Port Docking Arm"
 
 /area/ship/dominian_corvette/cannon
 	name = "Dominian Corvette Cannon Compartment"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/exterior
 	name = "Dominian Corvette Exterior"
