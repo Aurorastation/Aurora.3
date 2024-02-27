@@ -42,4 +42,4 @@ changes:
   - maptweak: "Long range holopad added to Point Verdant near the holding cells."
   - maptweak: "Fax machine added to Point Verdant Superintendent Office."
   - refactor: "Added naming, spawn limits, and payment functionality to cargo receptacles, to allow for specific adjustments for inbound cargo packages by receptacle. Only utilized by Point Verdant at the moment."
-  - bugfix: "Konyang Service Revolver speedloader now was properly set ammo count."
+  - bugfix: "Konyang Service Revolver speedloader now has properly set ammo count."
