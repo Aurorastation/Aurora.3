@@ -35,7 +35,7 @@
 	name = "Dominian Corvette Head"
 	icon_state = "washroom"
 
-/area/ship/dominian_corvette/quarters
+/area/ship/dominian_corvette/recroom
 	name = "Dominian Corvette Recreation Room"
 	icon_state = "lounge"
 
