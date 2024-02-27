@@ -42,10 +42,8 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "aag" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/space)
 "aah" = (
 /obj/structure/table/steel,
@@ -149,7 +147,7 @@
 "aat" = (
 /turf/simulated/wall/r_wall,
 /area/cult_base/storage_one)
-"aau" = (
+"aav" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -265,14 +263,11 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "abb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/medbay)
+/area/cult_base/docks_west)
 "abc" = (
 /obj/machinery/light/small/broken{
 	dir = 1
@@ -289,6 +284,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
+"abf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/medbay)
 "abg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -373,12 +377,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
-"abu" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
 "abv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
@@ -580,6 +578,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
+"ach" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "aci" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -589,18 +599,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
-"acj" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
@@ -902,6 +900,15 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
+"adf" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "adg" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -947,24 +954,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
-"adk" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
-"adl" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
 "adm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -990,7 +979,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "adq" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/space)
 "adr" = (
@@ -1028,6 +1019,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"adv" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "adw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1044,14 +1041,17 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "adx" = (
-/obj/effect/floor_decal/corner/grey{
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "ady" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
@@ -1185,11 +1185,11 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
-"ael" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+"aem" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/space)
 "aen" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -32361,8 +32361,8 @@ aZi
 aZi
 aOD
 aUm
-adl
-abu
+abb
+adv
 aOD
 aZi
 aZi
@@ -32618,7 +32618,7 @@ aZi
 asg
 aOD
 aNh
-adx
+adf
 ahN
 aOD
 aZi
@@ -35960,7 +35960,7 @@ aZi
 aZi
 aOD
 agr
-aau
+aav
 aOD
 aZi
 aZi
@@ -37759,7 +37759,7 @@ aZi
 aOD
 aGZ
 abB
-aau
+aav
 aOD
 auo
 aZi
@@ -39301,7 +39301,7 @@ aZi
 auo
 aOD
 agr
-aau
+aav
 aOD
 auo
 aZi
@@ -43162,7 +43162,7 @@ aIA
 aUw
 aVn
 aZK
-abb
+abf
 aIC
 awp
 aMC
@@ -43419,7 +43419,7 @@ aIA
 aUw
 ajN
 aMC
-abb
+abf
 acx
 awV
 arw
@@ -45721,7 +45721,7 @@ aDu
 aDu
 acf
 acg
-acj
+ach
 aDu
 aDu
 aDu
@@ -45729,7 +45729,7 @@ akU
 aDu
 aci
 avi
-acj
+ach
 aDu
 aVa
 aNy
@@ -48564,7 +48564,7 @@ apa
 aAe
 ayy
 aGC
-adk
+adx
 aAe
 aJs
 aLZ
@@ -50083,7 +50083,7 @@ atv
 ahJ
 aYm
 aeu
-aag
+aem
 aUR
 auS
 aZi
@@ -50106,7 +50106,7 @@ aNP
 aAe
 aAe
 aAe
-adk
+adx
 ats
 aKw
 arz
@@ -50341,7 +50341,7 @@ ahJ
 auV
 adp
 ahK
-adq
+aag
 auS
 aZi
 ayG
@@ -50619,7 +50619,7 @@ aQA
 agt
 aAe
 aTj
-adk
+adx
 aAe
 aai
 agS
@@ -51133,7 +51133,7 @@ aDk
 aqM
 aAe
 amz
-adk
+adx
 agS
 aQI
 abN
@@ -51626,7 +51626,7 @@ ahJ
 aIy
 aIy
 aIy
-ael
+adq
 auS
 aZi
 ayG
@@ -51647,7 +51647,7 @@ aly
 afH
 ayy
 ayy
-adk
+adx
 agS
 aIA
 aIA
