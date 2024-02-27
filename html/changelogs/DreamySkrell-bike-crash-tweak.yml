@@ -1,8 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - tweak: "Speed on a bike depends on move intent. Walk intent to ride slowly, run intent to ride faster."
-  - tweak: "Crashing into someone while on a bike, happens only while riding with run intent."
