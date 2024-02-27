@@ -37,6 +37,7 @@
 	sound_env = SEWER_PIPE
 	area_blurb = "Tainted water flows through these dark and grimy sewers, it smells utterly horrible down here. It's best not to think what you are breathing in, or touching."
 	area_blurb_category = "verdant_sewers"
+
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior
 	name = "Point Verdant - Indoors"
@@ -89,6 +90,24 @@
 	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mould."
 	area_blurb_category = "verdant_decrepit_apartment"
 
+// Clinic
+/area/point_verdant/interior/clinic
+	name = "Point Verdant - Clinic"
+	sound_env = MEDIUM_SOFTFLOOR
+	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
+
+// Clinic - Toilet
+/area/point_verdant/interior/clinic/toilet // lmao.
+	name = "Point Verdant - Clinic - Toilet"
+	sound_env = SMALL_ENCLOSED
+
+// Clinic - Basement
+/area/point_verdant/interior/clinic/basement
+	name = "Point Verdant - Clinic - Basement"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_CHAPEL
+
+// Pharmacy
 /area/point_verdant/interior/pharmacy
 	name = "Point Verdant - Pharmacy"
 

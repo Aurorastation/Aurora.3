@@ -524,6 +524,11 @@
 	desc = "A sign labeling the structure as a very cool arcade."
 	icon_state = "arcade_sign"
 
+/obj/structure/sign/urban/konyang/clinic
+	name = "clinic sign"
+	desc = "A sign labeling the structure as a Konyang clinic."
+	icon_state = "clinic_sign"
+
 /obj/structure/sign/urban/konyang/pharmacy
 	name = "pharmacy sign"
 	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
