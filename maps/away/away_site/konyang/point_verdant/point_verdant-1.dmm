@@ -14816,7 +14816,8 @@
 /area/point_verdant/interior/pharmacy)
 "Rx" = (
 /obj/machinery/door/blast/shutters{
-	dir = 4
+	dir = 4;
+	id = "konyang_police_garage"
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/police)
