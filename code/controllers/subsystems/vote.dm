@@ -262,7 +262,7 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/ui_data(mob/user)
 	var/list/data = list()
 
-	var/is_lower_admin = !!user.client?.holder
+	var/is_lower_admin = (user.client?.holder?.rights & (R_ADMIN | R_MOD))
 	var/is_upper_admin = (user.client?.holder?.rights & (R_ADMIN)) // Used "check_rights_for(user.client, R_ADMIN)" but we don't have that
 
 	data["user"] = list(
@@ -321,7 +321,7 @@ SUBSYSTEM_DEF(vote)
 
 	switch(action)
 		if("cancel")
-			if(!voter.client?.holder)
+			if(!(user.client?.holder?.rights & (R_ADMIN | R_MOD)))
 				return
 
 			message_admins("[key_name_admin(voter)] has cancelled the current vote.")

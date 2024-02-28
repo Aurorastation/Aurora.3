@@ -48,16 +48,10 @@ GLOBAL_VAR(last_transfer_vote)
 	//Calculate the factor based on the duration in minutes
 	var/factor = 0.5
 	switch(get_round_duration() / (10 * 60)) // minutes
-		if(0 to 60)
-			factor = 0.5
-		if(61 to 120)
-			factor = 0.8
-		if(121 to 240)
-			factor = 1
-		if(241 to 300)
-			factor = 1.2
+		if(0 to 180) //Up to 3 hours
+			factor = 0.66 //2/3rd
 		else
-			factor = 1.4
+			factor = 1.0 //Equal weight
 
 	var/list/result = null
 	if((choices["Initiate Crew Transfer"]*factor) >= (choices["Continue The Round"]))
