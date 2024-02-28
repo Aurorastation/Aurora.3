@@ -6,4 +6,5 @@ changes:
   - rscadd: "Added the Point Verdant Clinic and an accompanying physician ghost spawner role."
   - rscdel: "Combined the pharmacist role into the new physician role."
   - rscdel: "Removed 1 KRC doctor role and 1 KRC surgery room."
+  - tweak: "Balanced the amount of supplies available in the clinic and pharmacy. Removed 1 pharmacy chemistry workstation."
   - imageadd: "Added a clinic sign to the Konyang signs."
