@@ -181,7 +181,7 @@ SUBSYSTEM_DEF(vote)
 	// Check if we have unlimited voting power.
 	// Admin started (or forced) voted will go through even if there's an ongoing vote,
 	// if voting is on cooldown, or regardless if a vote is config disabled (in some cases)
-	var/unlimited_vote_power = forced || !!(vote_initiator.client.holder.rights & (R_ADMIN)) //Used GLOB.admin_datum
+	var/unlimited_vote_power = forced || !!(vote_initiator.client?.holder?.rights & (R_ADMIN)) //Used GLOB.admin_datum
 
 	if(current_vote && !unlimited_vote_power)
 		if(vote_initiator)
@@ -263,7 +263,7 @@ SUBSYSTEM_DEF(vote)
 	var/list/data = list()
 
 	var/is_lower_admin = !!user.client?.holder
-	var/is_upper_admin = user.client.holder && (user.client.holder.rights & (R_ADMIN)) // Used "check_rights_for(user.client, R_ADMIN)" but we don't have that
+	var/is_upper_admin = (user.client?.holder?.rights & (R_ADMIN)) // Used "check_rights_for(user.client, R_ADMIN)" but we don't have that
 
 	data["user"] = list(
 		"ckey" = user.client?.ckey,
