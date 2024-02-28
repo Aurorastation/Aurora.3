@@ -6580,15 +6580,6 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/point_verdant/outdoors)
-"Wp" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/random/dirt_75,
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_clinic";
-	identifier = "konyang_clinic"
-	},
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/robotics)
 "Wq" = (
 /obj/structure/ledge/roof{
 	dir = 5
@@ -28617,7 +28608,7 @@ jV
 jV
 jV
 it
-Wp
+ux
 ad
 hZ
 Ey

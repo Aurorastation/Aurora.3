@@ -10709,10 +10709,6 @@
 /area/point_verdant/interior/police)
 "FE" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_pharm";
-	identifier = "konyang_pharm"
-	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "FG" = (

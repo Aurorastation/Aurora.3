@@ -4,4 +4,6 @@ delete-after: True
 
 changes:
   - rscadd: "Added the Point Verdant Clinic and an accompanying physician ghost spawner role."
+  - rscdel: "Combined the pharmacist role into the new physician role."
+  - rscdel: "Removed 1 KRC doctor role."
   - imageadd: "Added a clinic sign to the Konyang signs."
