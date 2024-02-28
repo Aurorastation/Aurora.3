@@ -30,6 +30,17 @@
 	/// Lobby music overrides.
 	var/list/lobby_tracks
 
+	/// A list of the major ports in this sector.
+	/// Note that these are supposed to be visitable by the Horizon and its crew, so only put those there.
+	var/list/ports_of_call
+	/// The day of the next port visit. If null, port visits are disabled.
+	/// Must be a day found in the all_days list.
+	var/scheduled_port_visit = "Sundays"
+	/// This variable holds the calculated time (integer) until port visit. Do not edit manually.
+	var/next_port_visit
+	/// This variable holds the string of time until port visit. Will be "in 1 day", "in 2 days", "today", etc. Do not edit manually.
+	var/next_port_visit_string
+
 	//vars used by the meteor random event
 
 	var/list/meteors_minor = list(
@@ -125,6 +136,12 @@
 /datum/space_sector/proc/setup_current_sector()
 	SHOULD_CALL_PARENT(TRUE)
 
+	if(SSatlas.current_map.ports_of_call && scheduled_port_visit)
+		var/current_day = time2text(world.realtime, "Day")
+		var/day_difference = FLOOR(GLOB.all_days.Find(scheduled_port_visit) - GLOB.all_days.Find(current_day))
+		next_port_visit = day_difference
+		next_port_visit_string = day_difference == 0 ? "today" : day_difference == 1 ? "in [day_difference] day" : "in [day_difference] days"
+
 	// For now, i've put processing to only happen if the sector has a radio station
 	// but if, in the future, you add more stuff for the processor to handle, feel free to move it out of the if block
 	if(length(lore_radio_stations))
@@ -177,12 +194,6 @@
 
 /datum/space_sector/proc/get_chat_description()
 	return "<hr><div align='center'><hr1><B>Current Sector: [name]!</B></hr1><br><i>[description]</i><hr></div>"
-
-/datum/space_sector/proc/get_port_travel_time()
-	return "[rand(1, 3)] days"
-
-/datum/space_sector/proc/generate_system_name()
-	return "[pick("Miranda", "BNM", "Xavier", "GJ", "HD", "TC", "Melissa", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"
 
 /// Returns a flat list of all possible away sites that can spawn in this sector.
 /datum/space_sector/proc/possible_sites_in_sector()

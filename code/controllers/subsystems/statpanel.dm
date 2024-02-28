@@ -35,6 +35,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",
+			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]",
 			"Last Transfer Vote: [SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never"]"
 		)
 		if(eta_status)
