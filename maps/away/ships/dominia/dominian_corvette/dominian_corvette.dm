@@ -18,10 +18,16 @@
 /area/ship/dominian_corvette
 	name = "Dominian Corvette"
 
+/area/ship/dominian_corvette/janitor
+	name = "Dominian Corvette Custodial Closet"
+	sound_env = SMALL_ENCLOSED
+
 /area/ship/dominian_corvette/hangar
 	name = "Dominian Corvette Hangar"
 	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
+
+/area/ship/dominian_corvette/eva
+	name = "Dominian Corvette EVA Preparation"
 
 /area/ship/dominian_corvette/infirmary
 	name = "Dominian Corvette Infirmary"
