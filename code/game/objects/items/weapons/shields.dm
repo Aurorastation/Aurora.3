@@ -245,7 +245,7 @@
 	if (!active)
 		QDEL_NULL(sound_token)
 		return
-	sound_token = sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
+	sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
 
 /obj/item/shield/energy/hegemony
 	name = "hegemony barrier"
