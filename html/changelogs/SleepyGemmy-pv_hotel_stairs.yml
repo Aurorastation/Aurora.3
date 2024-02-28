@@ -1,8 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the Point Verdant hotel basement stairs being the wrong direction and thus unusable."
-  - bugfix: "Fixed the Point Verdant hotel basement lights being off as people who spawned in were unable to see anything."
-  - bugfix: "Fixed the Point Verdant waterfront stairs using the wrong icon state."
