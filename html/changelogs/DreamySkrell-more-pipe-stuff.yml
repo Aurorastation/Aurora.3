@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds atmos connectors for supply and scrubber pipes."
+  - rscadd: "Adds pumps for supply and scrubber pipes."
