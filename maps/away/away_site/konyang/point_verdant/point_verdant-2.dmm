@@ -3256,11 +3256,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "iJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/reinforced,
-/area/point_verdant/interior/robotics)
+/obj/structure/closet/crate/bin/urban/dumpster,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "iK" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
@@ -7032,12 +7030,11 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "rV" = (
-/obj/machinery/vending/overloaders{
-	pixel_y = 16;
-	density = 0
+/obj/structure/neon_sign{
+	icon_state = "lime_electronics";
+	pixel_y = 8
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "rW" = (
 /obj/effect/decal/road_marking/center,
@@ -8588,11 +8585,16 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior/restaurant)
 "vO" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
+/obj/structure/neon_sign{
+	icon_state = "koramak_records";
+	pixel_y = 8
 	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/robotics)
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "vP" = (
 /obj/effect/decal/road_marking/crosswalk,
 /obj/effect/decal/road_marking{
@@ -10207,13 +10209,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
-"zK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/reinforced,
-/area/point_verdant/interior/robotics)
 "zL" = (
 /obj/structure/closet/crate/bin/urban/compact{
 	pixel_y = 24
@@ -13405,9 +13400,12 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "HF" = (
-/obj/machinery/door/window/eastright,
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/robotics)
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "HG" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -15543,11 +15541,11 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
 "Nn" = (
-/obj/structure/neon_sign{
-	icon_state = "lime_electronics";
-	pixel_y = 8
+/obj/machinery/vending/overloaders{
+	pixel_y = 16;
+	density = 0
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "No" = (
 /obj/structure/table/stone/marble,
@@ -16199,13 +16197,6 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
-"OO" = (
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/robotics)
 "OQ" = (
 /obj/structure/sign/urban/konyang{
 	layer = 4.6;
@@ -17836,13 +17827,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
-"SP" = (
-/obj/structure/neon_sign{
-	icon_state = "koramak_records";
-	pixel_y = 8
-	},
-/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "SQ" = (
 /obj/structure/stairs/urban/south,
@@ -39810,11 +39794,11 @@ gK
 gK
 gK
 gK
-gK
-gK
-gK
-gK
-SP
+vO
+HF
+HF
+BT
+BT
 BT
 BT
 IL
@@ -40067,10 +40051,10 @@ VE
 fP
 GB
 gK
-VE
-fP
-GB
-gK
+BT
+BT
+BT
+BT
 TO
 od
 od
@@ -40324,11 +40308,11 @@ wg
 Ux
 ix
 gK
-wg
-Ux
-ix
-gK
+rV
+BT
 eb
+BT
+od
 od
 od
 uO
@@ -40581,11 +40565,11 @@ Hv
 sF
 kA
 gK
-OO
-iJ
-zK
-gK
+BT
+BT
 eb
+BT
+od
 od
 od
 uO
@@ -40838,11 +40822,11 @@ ja
 NY
 xk
 gK
-xk
-vO
-ja
-gK
-qQ
+iJ
+BT
+BT
+BT
+od
 fG
 od
 uO
@@ -41095,13 +41079,13 @@ jX
 Hk
 IG
 gK
-IG
-Hk
-jX
-gK
-Nn
-fG
+iJ
 BT
+BT
+BT
+od
+fG
+od
 uO
 sm
 hl
@@ -41352,13 +41336,13 @@ gK
 gK
 fr
 gK
-HF
+dT
+dT
 gK
-gK
-gK
+Nn
 od
 od
-BT
+od
 uO
 oi
 hl
@@ -41612,10 +41596,10 @@ gP
 ct
 mB
 gK
-rV
+fG
 RI
 od
-BT
+od
 uO
 oF
 zt
