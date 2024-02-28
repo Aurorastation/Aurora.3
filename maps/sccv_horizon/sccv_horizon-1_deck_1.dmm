@@ -384,13 +384,12 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("co2_sensor"="Tank");
 	output_tag = "CO2_out_fuelbay";
 	name = "Carbon Dioxide - Fuel Bay"
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "apQ" = (
@@ -2162,17 +2161,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bBR" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("ph_sensor"="Tank");
 	output_tag = "ph_out";
 	name = "Phoron Supply Console";
 	input_tag = "ph_in"
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "bCi" = (
@@ -11837,16 +11835,6 @@
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
-"ifg" = (
-/obj/effect/floor_decal/corner_wide/black{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
 "ifu" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/bucket{
@@ -14629,18 +14617,16 @@
 	},
 /area/shuttle/intrepid/crew_compartment)
 "keQ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("co2_sensor"="Tank");
 	output_tag = "co2_out";
 	name = "Carbon Dioxide Supply Console";
 	input_tag = "co2_in"
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "keZ" = (
@@ -16350,7 +16336,6 @@
 /area/engineering/atmos/air)
 "lqh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -16360,7 +16345,6 @@
 	name = "Hydrogen Supply Console";
 	input_tag = "h_in"
 	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "lqr" = (
@@ -16612,6 +16596,16 @@
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"lAc" = (
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "lAU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -29796,6 +29790,12 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"uym" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/lattice,
+/obj/machinery/meter,
+/turf/space/dynamic,
+/area/horizon/exterior)
 "uza" = (
 /obj/machinery/door/blast/regular{
 	_wifi_id = "waste";
@@ -30554,14 +30554,13 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("ph_sensor"="Tank");
 	output_tag = "Ph_out_FuelBay";
 	name = "Phoron Supply - Fuel Bay";
 	max_pressure_setting = 2000
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "uYW" = (
@@ -56362,7 +56361,7 @@ dKY
 nRZ
 pOp
 fFm
-qEq
+uym
 lQF
 aZd
 gaC
@@ -59611,7 +59610,7 @@ uVL
 oWe
 xMk
 aQE
-ifg
+lAc
 uVL
 lUr
 rSW
