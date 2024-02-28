@@ -26,7 +26,7 @@
 "af" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "ah" = (
 /obj/machinery/light/small/emergency{
@@ -833,9 +833,6 @@
 /obj/machinery/door/urban{
 	dir = 4
 	},
-/obj/effect/decal/exterior_stairs/half/center{
-	dir = 8
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -886,12 +883,19 @@
 /area/point_verdant/interior/maint_janitorial)
 "cG" = (
 /obj/structure/table/standard,
-/obj/machinery/reagentgrinder{
-	pixel_y = 7
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 9;
+	pixel_y = 2
 	},
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/structure/extinguisher_cabinet/west,
-/turf/simulated/floor/tiled/white,
+/obj/item/book/manual/materials_chemistry_analysis{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/clothing/glasses/safety/goggles{
+	pixel_y = 8
+	},
+/obj/item/clothing/glasses/safety/goggles,
+/turf/simulated/floor/carpet/rubber,
 /area/point_verdant/interior/pharmacy)
 "cH" = (
 /obj/structure/table/steel,
@@ -982,10 +986,6 @@
 /obj/item/reagent_containers/glass/bottle/mortaphenyl{
 	pixel_x = -2;
 	pixel_y = 7
-	},
-/obj/item/storage/pill_bottle/mortaphenyl{
-	pixel_x = 9;
-	pixel_y = 2
 	},
 /obj/structure/sign/pharmacy{
 	pixel_y = 32
@@ -1554,9 +1554,12 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "eC" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/extinguisher_cabinet/east,
 /obj/random/dirt_75,
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "eD" = (
@@ -1857,25 +1860,10 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "fy" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/pillbottles{
-	pixel_x = -13;
-	pixel_y = 12
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 4
 	},
-/obj/item/storage/box/pillbottles{
-	pixel_x = -13;
-	pixel_y = 4
-	},
-/obj/item/storage/box/pillbottles{
-	pixel_x = 4;
-	pixel_y = 12
-	},
-/obj/item/storage/box/pillbottles{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "fz" = (
 /obj/structure/stairs_lower/stairs_upper{
@@ -2046,21 +2034,6 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/hotel/basement)
-"ge" = (
-/obj/structure/table/standard,
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/obj/item/book/manual/materials_chemistry_analysis{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "gf" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled/white,
@@ -3211,9 +3184,6 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
-"jr" = (
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior/pharmacy)
 "jt" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -4024,7 +3994,7 @@
 "lx" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "ly" = (
 /obj/structure/sign/billboard{
@@ -4208,9 +4178,6 @@
 /area/point_verdant/interior)
 "lZ" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
 /obj/item/device/reagent_scanner{
 	pixel_x = 9;
 	pixel_y = 6
@@ -4656,12 +4623,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "nu" = (
-/obj/structure/table/standard,
-/obj/item/clothing/glasses/safety/goggles{
-	pixel_y = 8
-	},
-/obj/item/clothing/glasses/safety/goggles,
-/turf/simulated/floor/carpet/rubber,
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "nv" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
@@ -5087,10 +5050,6 @@
 /obj/item/storage/pill_bottle/assorted{
 	pixel_x = -4;
 	pixel_y = 15
-	},
-/obj/item/storage/pill_bottle/assorted{
-	pixel_x = 4;
-	pixel_y = 9
 	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/inhaler/dexalin{
@@ -6755,13 +6714,6 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
-"tD" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "tF" = (
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices/basement)
@@ -7191,12 +7143,6 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/carpet/rubber,
 /area/point_verdant/interior/offices)
-"uT" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/gloves,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/pharmacy)
 "uU" = (
 /obj/structure/dam{
 	icon_state = "dam3";
@@ -8415,10 +8361,6 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/offices/kaf)
-"yN" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior/pharmacy)
 "yO" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/toxin{
@@ -8721,9 +8663,6 @@
 /turf/simulated/floor/bluegrid,
 /area/point_verdant/interior/offices)
 "zN" = (
-/obj/item/storage/pill_bottle/assorted{
-	pixel_x = 5
-	},
 /obj/item/device/flashlight/lamp{
 	pixel_x = -8;
 	pixel_y = 5
@@ -9311,9 +9250,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "BB" = (
@@ -9638,24 +9575,6 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
-"CF" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/dropper/electronic_pipette{
-	pixel_x = -8
-	},
-/obj/item/storage/box/fancy/vials{
-	pixel_x = 5;
-	pixel_y = 10
-	},
-/obj/item/storage/box/fancy/vials{
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "CG" = (
 /obj/effect/decal/road_marking/center{
 	dir = 4
@@ -9714,11 +9633,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"CN" = (
-/obj/structure/closet/crate/trashcart,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior/pharmacy)
 "CO" = (
 /obj/structure/rod_railing,
 /obj/structure/ledge/quarter,
@@ -10681,6 +10595,19 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/item/reagent_containers/dropper/electronic_pipette{
+	pixel_x = -8
+	},
+/obj/item/storage/box/fancy/vials{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/storage/box/fancy/vials{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "FC" = (
@@ -12005,7 +11932,7 @@
 /obj/item/device/hand_labeler{
 	pixel_y = 10
 	},
-/obj/item/pen/reagent/hyperzine,
+/obj/item/screwdriver,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "IX" = (
@@ -12016,10 +11943,24 @@
 /area/point_verdant/interior/clinic/basement)
 "IY" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 8
+/obj/item/storage/box/pillbottles{
+	pixel_x = -13;
+	pixel_y = 12
 	},
-/turf/simulated/floor/tiled/white,
+/obj/item/storage/box/pillbottles{
+	pixel_x = -13;
+	pixel_y = 4
+	},
+/obj/item/storage/box/pillbottles{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/storage/box/pillbottles{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "IZ" = (
 /obj/structure/sink/kitchen{
@@ -12630,8 +12571,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "Lc" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Le" = (
@@ -13120,14 +13060,6 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/inhaler/hyperzine{
-	pixel_x = 11;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine{
-	pixel_x = 12;
-	pixel_y = -4
-	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Ms" = (
@@ -13232,14 +13164,6 @@
 	pixel_y = -6;
 	pixel_x = -7
 	},
-/obj/item/auto_cpr{
-	pixel_x = 6;
-	pixel_y = 10
-	},
-/obj/item/defibrillator/loaded{
-	pixel_x = 6;
-	pixel_y = -5
-	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "MA" = (
@@ -13336,6 +13260,9 @@
 /area/point_verdant/interior/hotel/basement)
 "MK" = (
 /obj/machinery/chem_master,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/point_verdant/interior/pharmacy)
 "ML" = (
@@ -14027,13 +13954,21 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
 "OP" = (
-/obj/structure/bed/stool/chair/office/light{
-	dir = 4
+/obj/structure/table/standard,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = 14
 	},
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
+/obj/random/dirt_75,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -8;
+	pixel_y = 3
 	},
-/turf/simulated/floor/tiled/white,
+/obj/item/storage/box/inhalers_auto{
+	pixel_x = 5;
+	pixel_y = -14
+	},
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "OR" = (
 /obj/machinery/door/urban,
@@ -14155,8 +14090,8 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outdoors)
 "Pk" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Pl" = (
@@ -14741,7 +14676,7 @@
 	pixel_y = -6
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "QJ" = (
 /obj/structure/bed/stool/chair{
@@ -16025,22 +15960,8 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "Uq" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 5;
-	pixel_y = 14
-	},
-/obj/random/dirt_75,
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -8;
-	pixel_y = 3
-	},
 /obj/machinery/light/colored/decayed{
 	dir = 8
-	},
-/obj/item/storage/box/inhalers_auto{
-	pixel_x = 5;
-	pixel_y = -14
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
@@ -17804,11 +17725,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
-"Za" = (
-/obj/structure/table/standard,
-/obj/item/screwdriver,
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "Zc" = (
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -36442,7 +36358,7 @@ Li
 GL
 oA
 ZJ
-ZJ
+Le
 GL
 tm
 tm
@@ -36699,12 +36615,12 @@ AW
 Ns
 ZJ
 ZJ
-Le
+ZJ
 GL
-tm
-uT
-Uq
+OP
 kj
+Uq
+nu
 tm
 dV
 BX
@@ -36958,8 +36874,8 @@ Ya
 ip
 WB
 GL
-tm
 ga
+Qx
 zX
 lQ
 tm
@@ -37215,10 +37131,10 @@ DK
 PL
 Bv
 GL
-tm
-fy
+IY
+Qx
 lx
-tm
+Qx
 tm
 tm
 Qq
@@ -37475,8 +37391,8 @@ GL
 tm
 OM
 zX
+zX
 GX
-CN
 gw
 pG
 Ro
@@ -37724,16 +37640,16 @@ rf
 rf
 rf
 rf
-tm
-tm
-tm
-tm
-tm
+rf
+rf
+rf
+rf
+rf
 tm
 JK
 zX
+zX
 re
-yN
 ta
 zX
 qW
@@ -37981,16 +37897,16 @@ rf
 rf
 rf
 rf
-tm
-Lc
-IY
-cG
-Za
+rf
+rf
+rf
+rf
+rf
 tm
 nG
 Qx
+Qx
 Dn
-yN
 Md
 zX
 aS
@@ -38238,18 +38154,18 @@ rf
 rf
 rf
 rf
-tm
-CF
-OP
-tD
-ge
+rf
+rf
+rf
+rf
+rf
 tm
 af
-jr
-jr
-jr
-yN
-yN
+Qx
+Qx
+Qx
+zX
+zX
 QI
 qb
 iU
@@ -38496,15 +38412,15 @@ rf
 rf
 rf
 tm
-MK
-Rw
-wV
-nu
+tm
+tm
+tm
+tm
 tm
 EP
 Qx
+fy
 Qx
-jr
 hw
 jW
 JC
@@ -38755,8 +38671,8 @@ rf
 tm
 Rw
 MK
-wV
 pS
+cG
 tm
 tm
 tm
@@ -39012,8 +38928,8 @@ rf
 tm
 lZ
 BA
-tD
-Lz
+Lc
+rn
 tm
 tY
 Lz

@@ -1283,10 +1283,6 @@
 	dir = 8
 	},
 /obj/item/paper_scanner,
-/obj/item/storage/pill_bottle/corophenidate{
-	pixel_x = 11;
-	pixel_y = 12
-	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "dD" = (
@@ -3764,48 +3760,12 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
 "ke" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 6;
-	pixel_y = 7
+/obj/structure/table/standard,
+/obj/item/device/healthanalyzer{
+	pixel_y = 5
 	},
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 6
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 6
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = -7
-	},
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = -7
-	},
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = -7
+/obj/item/device/healthanalyzer{
+	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -4317,35 +4277,7 @@
 "lt" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
-	pixel_y = -6
-	},
-/obj/item/stack/medical/ointment/full{
 	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
-	pixel_y = -6
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
-	pixel_y = -6
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
 	pixel_y = 4
 	},
 /obj/item/stack/medical/ointment/full{
@@ -4354,11 +4286,11 @@
 	},
 /obj/item/stack/medical/ointment/full{
 	pixel_x = 8;
-	pixel_y = 4
+	pixel_y = -6
 	},
 /obj/item/stack/medical/ointment/full{
-	pixel_x = 8;
-	pixel_y = 4
+	pixel_x = -4;
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -10536,18 +10468,17 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "AF" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/stack/medical/advanced/bruise_pack/full{
-	pixel_y = 9
+/obj/structure/table/standard,
+/obj/item/storage/pill_bottle/dylovene{
+	pixel_x = -8;
+	pixel_y = 11
 	},
-/obj/item/stack/medical/advanced/bruise_pack/full{
-	pixel_y = 9
+/obj/item/storage/pill_bottle/dylovene{
+	pixel_y = 11;
+	pixel_x = 8
 	},
-/obj/item/stack/medical/advanced/bruise_pack/full{
-	pixel_y = -5
-	},
-/obj/item/stack/medical/advanced/bruise_pack/full{
-	pixel_y = -5
+/obj/item/storage/pill_bottle/dylovene{
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -11027,24 +10958,14 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "BO" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/stack/medical/bruise_pack/full{
-	pixel_y = 12
-	},
 /obj/item/stack/medical/bruise_pack/full{
 	pixel_y = -2
 	},
 /obj/item/stack/medical/bruise_pack/full{
-	pixel_y = 12
+	pixel_y = 5
 	},
 /obj/item/stack/medical/bruise_pack/full{
 	pixel_y = 12
-	},
-/obj/item/stack/medical/bruise_pack/full{
-	pixel_y = -2
-	},
-/obj/item/stack/medical/bruise_pack/full{
-	pixel_y = -2
 	},
 /obj/item/stack/medical/bruise_pack/full{
 	pixel_y = -2
@@ -11272,10 +11193,7 @@
 "CA" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/adv{
-	pixel_y = 8;
-	pixel_x = 10
-	},
-/obj/item/storage/firstaid/adv{
+	pixel_y = 6;
 	pixel_x = 10
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -11873,17 +11791,17 @@
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/light{
 	pixel_y = 8;
-	pixel_x = 7
-	},
-/obj/item/storage/firstaid/light{
-	pixel_x = 7
+	pixel_x = -7
 	},
 /obj/item/storage/firstaid/light{
 	pixel_y = 8;
-	pixel_x = -7
+	pixel_x = 7
 	},
 /obj/item/storage/firstaid/light{
 	pixel_x = -7
+	},
+/obj/item/storage/firstaid/light{
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -12142,43 +12060,19 @@
 /area/point_verdant/outdoors)
 "EF" = (
 /obj/structure/table/standard,
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = 5
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = 6;
+	pixel_y = 7
 	},
 /obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = -5
+	pixel_x = -7;
+	pixel_y = 7
 	},
 /obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = -5
+	pixel_x = 6
 	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = -15
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2;
-	pixel_x = -9
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2;
-	pixel_x = -9
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -15339,9 +15233,8 @@
 "MS" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery{
-	pixel_y = 8
+	pixel_y = 6
 	},
-/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "MT" = (
@@ -16223,9 +16116,6 @@
 /obj/item/device/flashlight/pen{
 	pixel_y = 6;
 	pixel_x = 9
-	},
-/obj/item/storage/pill_bottle/assorted{
-	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -19231,11 +19121,6 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/outdoors)
 "Wy" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/stack/medical/splint/full,
-/obj/item/stack/medical/splint/full,
-/obj/item/stack/medical/splint/full,
-/obj/item/stack/medical/splint/full,
 /obj/structure/sign/urban/konyang/clinic{
 	pixel_y = 37;
 	pixel_x = 5
@@ -19682,29 +19567,14 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "Xx" = (
-/obj/structure/table/standard,
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_y = 11;
-	pixel_x = 8
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
 	},
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_x = -8;
-	pixel_y = 11
-	},
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_y = 1
-	},
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_y = 11;
-	pixel_x = 8
-	},
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_y = 1
-	},
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_x = -8;
-	pixel_y = 11
-	},
+/obj/structure/table/rack/retail_shelf,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Xy" = (
@@ -19858,16 +19728,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/streetvendor)
 "XS" = (
-/obj/structure/table/standard,
-/obj/item/device/healthanalyzer{
-	pixel_y = 5
-	},
-/obj/item/device/healthanalyzer{
-	pixel_y = -1
-	},
-/obj/item/device/healthanalyzer{
-	pixel_y = -8
-	},
+/obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "XT" = (
@@ -39994,12 +39855,12 @@ QW
 be
 Ak
 QW
-ke
+Hh
 EI
-XS
-DV
+Hh
 Nb
-Xx
+AF
+Hh
 EI
 PR
 Vp
@@ -40254,8 +40115,8 @@ QW
 Wy
 ak
 Hh
-Hh
-Hh
+DV
+ke
 Hh
 ak
 IV
@@ -40515,7 +40376,7 @@ xN
 xN
 xN
 Vs
-xN
+Xx
 fF
 BT
 LN
@@ -40765,14 +40626,14 @@ Zb
 UG
 tO
 QW
-AF
+Hh
 ak
 Hh
 Wz
 lt
 Hh
 ak
-Hh
+XS
 fF
 pf
 LN
