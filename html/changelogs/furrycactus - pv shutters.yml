@@ -40,4 +40,5 @@ delete-after: True
 changes:
   - maptweak: "Fixed the access on the Point Verdant Pharmacy and Solei shutters and windoors."
   - maptweak: "Put some non-jumpsuit clothing in the PV Pharmacist closet."
+  - maptweak: "Added a box of empty autoinjectors to the PV Pharmacist basement."
   - maptweak: "Swapped the basic windoors at the front of some PV establishments for the cool new sliding doors."
