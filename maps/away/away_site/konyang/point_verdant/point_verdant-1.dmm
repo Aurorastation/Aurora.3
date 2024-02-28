@@ -2196,6 +2196,18 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
+"gC" = (
+/obj/structure/table/steel,
+/obj/item/material/urn{
+	pixel_y = 16;
+	pixel_x = -8
+	},
+/obj/item/material/urn{
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/point_verdant/interior/clinic/basement)
 "gD" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
@@ -2562,6 +2574,17 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
+"hz" = (
+/obj/random/dirt_75,
+/obj/structure/morgue/crematorium{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/point_verdant/interior/clinic/basement)
 "hB" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
@@ -2735,6 +2758,24 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel/basement)
+"id" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "support tool shelves"
+	},
+/obj/item/cane/crutch{
+	pixel_y = 6
+	},
+/obj/item/cane/crutch{
+	pixel_y = 2
+	},
+/obj/item/cane{
+	pixel_y = 2
+	},
+/obj/item/cane{
+	pixel_y = -2
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/clinic/basement)
 "ie" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 10;
@@ -2962,7 +3003,28 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "iI" = (
-)
+/obj/structure/table/wood,
+/obj/item/flame/candle{
+	pixel_x = -10
+	},
+/obj/item/flame/candle{
+	pixel_x = 11;
+	pixel_y = 16
+	},
+/obj/item/flame/lighter/zippo{
+	pixel_x = -7;
+	pixel_y = 18
+	},
+/obj/item/storage/box/fancy/candle_box{
+	pixel_y = 4;
+	pixel_x = 5
+	},
+/obj/item/storage/box/fancy/candle_box{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/clinic/basement)
 "iK" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang,
@@ -5165,6 +5227,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"pg" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/point_verdant/interior/clinic/basement)
 "pi" = (
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/wood,
@@ -9949,6 +10017,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/maint_janitorial)
+"DI" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/clinic/basement)
 "DJ" = (
 /obj/structure/automobile_filler,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -35344,8 +35416,8 @@ mX
 mE
 MX
 GL
-iI
-iI
+gC
+hz
 rJ
 GL
 rf
@@ -35603,7 +35675,7 @@ yh
 rN
 PH
 PH
-iI
+pg
 GL
 rf
 rf
@@ -36115,9 +36187,9 @@ GL
 GL
 GL
 GL
-iI
+DI
 KY
-iI
+DI
 GL
 rf
 rf
@@ -36884,7 +36956,7 @@ rf
 GL
 Yt
 AW
-iI
+id
 GL
 Ya
 ip
