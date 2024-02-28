@@ -18,8 +18,19 @@
 	w_class = ITEMSIZE_SMALL
 	var/can_change_form = TRUE // For holodeck check.
 	var/cooldown = 0 // Floor tap cooldown.
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm,
-									"Mata'ke Sword" = /obj/item/nullrod/matake, "Rredouane Sword" = /obj/item/nullrod/rredouane, "Shumaila Hammer" = /obj/item/nullrod/shumaila, "Zhukamir Ladle" = /obj/item/nullrod/zhukamir, "Azubarre Torch" = /obj/item/nullrod/azubarre)
+	var/static/list/nullchoices = list(
+		"Null Rod" = /obj/item/nullrod,
+		"Null Staff" = /obj/item/nullrod/staff,
+		"Null Orb" = /obj/item/nullrod/orb,
+		"Null Athame" = /obj/item/nullrod/athame,
+		"Tribunal Rod" = /obj/item/nullrod/dominia,
+		"Tajaran charm" = /obj/item/nullrod/charm,
+		"Mata'ke Sword" = /obj/item/nullrod/matake,
+		"Rredouane Sword" = /obj/item/nullrod/rredouane,
+		"Shumaila Hammer" = /obj/item/nullrod/shumaila,
+		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
+		"Azubarre Torch" = /obj/item/nullrod/azubarre,
+		"Shaman Staff" = /obj/item/nullrod/shaman)
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -145,7 +156,16 @@
 /obj/item/nullrod/azubarre/isFlameSource()
 	return lit
 
-/obj/item/nullrod/verb/change(mob/user)
+/obj/item/nullrod/shaman
+	name = "shaman staff"
+	desc = "A seven foot staff traditionally carried by Unathi shamans both as a symbol of authority and to aid them in walking. It is made out of dark, polished wood and is curved at the end."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "shaman_staff"
+	item_state = "shaman_staff"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_LARGE
+
+/obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
 	set src in usr
