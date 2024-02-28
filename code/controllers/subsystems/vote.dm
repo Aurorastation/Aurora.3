@@ -321,7 +321,7 @@ SUBSYSTEM_DEF(vote)
 
 	switch(action)
 		if("cancel")
-			if(!(user.client?.holder?.rights & (R_ADMIN | R_MOD)))
+			if(!(voter.client?.holder?.rights & (R_ADMIN | R_MOD)))
 				return
 
 			message_admins("[key_name_admin(voter)] has cancelled the current vote.")
