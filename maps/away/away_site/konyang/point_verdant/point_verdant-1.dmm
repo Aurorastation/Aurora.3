@@ -2961,6 +2961,8 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"iI" = (
+)
 "iK" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang,
@@ -35342,8 +35344,8 @@ mX
 mE
 MX
 GL
-jh
-CA
+iI
+iI
 rJ
 GL
 rf
@@ -35601,7 +35603,7 @@ yh
 rN
 PH
 PH
-Iz
+iI
 GL
 rf
 rf
@@ -35858,7 +35860,7 @@ yj
 GL
 Rs
 ZJ
-pN
+iI
 GL
 rf
 rf
@@ -36113,9 +36115,9 @@ GL
 GL
 GL
 GL
-vl
+iI
 KY
-vl
+iI
 GL
 rf
 rf
@@ -36882,7 +36884,7 @@ rf
 GL
 Yt
 AW
-cV
+iI
 GL
 Ya
 ip
