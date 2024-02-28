@@ -879,6 +879,20 @@
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
+"cGL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/external{
+	frequency = 1441;
+	icon_state = "door_locked";
+	id_tag = "ssmd_shuttle_out";
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "cJO" = (
 /obj/structure/railing/mapped{
 	icon_state = "railing0-0";
@@ -1688,11 +1702,8 @@
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "fZq" = (
-/obj/effect/overmap/visitable/ship/landable/ssmd_shuttle,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "gcq" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -1724,6 +1735,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
+"gjc" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/external{
+	frequency = 1441;
+	icon_state = "door_locked";
+	id_tag = "ssmd_shuttle_out";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "gmO" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2505,6 +2527,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
+"jea" = (
+/obj/effect/overmap/visitable/ship/landable/dominian_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "jfa" = (
 /obj/structure/railing/mapped{
 	icon_state = "railing0-0";
@@ -3775,6 +3801,12 @@
 "nOX" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/propulsion)
+"nQm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "nQE" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -5068,6 +5100,11 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"sOx" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "sRv" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/structure/cable{
@@ -5423,9 +5460,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "uCS" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "uFI" = (
@@ -6029,16 +6065,15 @@
 	},
 /area/ship/dominian_corvette/docking)
 "xkK" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/external{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
 	frequency = 1441;
-	icon_state = "door_locked";
-	id_tag = "ssmd_shuttle_out";
-	dir = 1
+	id_tag = "ssmd_shuttle_pump"
 	},
-/obj/effect/landmark/entry_point/fore{
-	name = "aft"
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "xmH" = (
@@ -6251,13 +6286,17 @@
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "yjk" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/external{
+/obj/machinery/airlock_sensor{
 	frequency = 1441;
-	icon_state = "door_locked";
-	id_tag = "ssmd_shuttle_out";
-	dir = 1
+	id_tag = "ssmd_shuttle_sensor";
+	pixel_x = -32
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1441;
+	id_tag = "ssmd_shuttle_pump"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "ylE" = (
@@ -37451,11 +37490,11 @@ xRX
 xRX
 xRX
 xRX
+cMo
+cMo
+cMo
+cMo
 xRX
-xRX
-cMo
-cMo
-cMo
 xRX
 elw
 lpl
@@ -37699,8 +37738,6 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 fpW
 cMo
 cMo
@@ -37711,8 +37748,10 @@ iCK
 iCK
 cMo
 cMo
+fZq
 eBK
-uCS
+buA
+xRX
 xRX
 hcm
 nSs
@@ -37956,8 +37995,6 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 iCK
 iCK
 paP
@@ -37968,8 +38005,10 @@ xPN
 fZl
 tYz
 dMj
+sOx
 iNt
 buA
+xRX
 xRX
 ucC
 exm
@@ -38213,8 +38252,6 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 mqx
 cFv
 sFI
@@ -38226,7 +38263,9 @@ ndQ
 yhK
 cMo
 cMo
+cMo
 vwF
+ucC
 ucC
 ucC
 exm
@@ -38470,19 +38509,19 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 lGZ
 orm
-aMY
+jea
 aow
 asL
-fZq
+nQm
 oAQ
 elq
 wDu
 jim
 uYP
+uCS
+cGL
 xkK
 ibs
 qvK
@@ -38727,8 +38766,6 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 mqx
 dhp
 rLK
@@ -38740,6 +38777,8 @@ aMY
 flC
 qZm
 dHA
+uCS
+gjc
 yjk
 fGW
 kLY
@@ -38984,8 +39023,6 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 iCK
 iCK
 qIu
@@ -38998,6 +39035,8 @@ noq
 wxN
 vwK
 vwK
+vwK
+ucC
 kII
 byV
 pvH
@@ -39241,8 +39280,6 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 vGn
 cMo
 cMo
@@ -39253,8 +39290,10 @@ iCK
 iCK
 tuF
 dMj
+sOx
 aCd
 buA
+xRX
 xRX
 diE
 ebu
@@ -39505,13 +39544,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
 iCK
 cMo
 cMo
+fZq
 inf
 buA
+xRX
 xRX
 diE
 lhk
@@ -39764,11 +39803,11 @@ xRX
 xRX
 xRX
 xRX
+cMo
+cMo
+cMo
+cMo
 xRX
-xRX
-cMo
-cMo
-cMo
 xRX
 lhK
 kAa
