@@ -94,7 +94,9 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/minimart)
 "aE" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	req_access = list(219)
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
@@ -1834,6 +1836,15 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"oi" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/obj/structure/road_barrier{
+	layer = 9.1
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "or" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1995,6 +2006,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"pI" = (
+/obj/effect/decal/curb,
+/obj/machinery/light/small/floor,
+/obj/structure/road_barrier/bot_end{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "pL" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
@@ -2590,6 +2609,12 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"ur" = (
+/obj/structure/road_barrier/bot_end{
+	layer = 9.1
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "uv" = (
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/robotics)
@@ -3144,6 +3169,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
+"zd" = (
+/obj/structure/cargo_receptacle,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/offices)
 "zi" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb{
@@ -3382,7 +3411,9 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "Bf" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	req_access = list(219)
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -5537,6 +5568,9 @@
 /area/point_verdant/outdoors)
 "Ql" = (
 /obj/structure/urban_grate,
+/obj/structure/road_barrier{
+	layer = 9.1
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Qn" = (
@@ -17884,7 +17918,7 @@ Zq
 Jy
 Hc
 bf
-HS
+zd
 HS
 HS
 HS
@@ -19186,7 +19220,7 @@ GV
 bH
 cH
 wU
-ru
+pI
 rx
 DD
 Ni
@@ -19443,7 +19477,7 @@ VF
 Ht
 dq
 vL
-tC
+oi
 rx
 DD
 Ni
@@ -19700,7 +19734,7 @@ VF
 MG
 jo
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -19957,7 +19991,7 @@ VF
 MG
 jo
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -20214,7 +20248,7 @@ VF
 Wn
 SF
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -20728,7 +20762,7 @@ HB
 HB
 HB
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -20985,7 +21019,7 @@ SK
 SK
 SK
 tC
-hw
+ur
 rx
 DD
 Ni
@@ -21756,7 +21790,7 @@ oe
 aS
 Jx
 hw
-hw
+Jx
 rx
 DD
 Ni
@@ -22013,7 +22047,7 @@ Sy
 uT
 xh
 hw
-hw
+Fz
 rx
 DD
 Ni

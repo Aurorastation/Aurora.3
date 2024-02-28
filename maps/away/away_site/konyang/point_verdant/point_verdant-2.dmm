@@ -1547,10 +1547,10 @@
 /area/point_verdant/outdoors)
 "em" = (
 /obj/effect/decal/road_marking/incline{
-	pixel_y = -5
+	pixel_y = -2
 	},
-/obj/structure/stairs/urban/left{
-	icon_state = "stairs-left-bot"
+/obj/structure/stairs/urban/road_ramp/left{
+	icon_state = "road-ramp-left-top"
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -1926,6 +1926,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
+"fp" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_gwok";
+	identifier = "konyang_gwok"
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "fr" = (
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/white,
@@ -2355,15 +2364,14 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "gB" = (
-/obj/effect/decal/road_marking/incline{
-	pixel_y = 26;
-	dir = 1
-	},
 /obj/structure/stairs/urban/road_ramp/right{
-	icon_state = "road-ramp-right-top";
-	pixel_y = 30
+	icon_state = "road-ramp-right-top"
 	},
-/turf/simulated/floor/asphalt,
+/obj/effect/decal/road_marking/incline{
+	dir = 1;
+	pixel_y = -2
+	},
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "gC" = (
 /obj/structure/konyang_cliff{
@@ -3822,12 +3830,13 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "kx" = (
-/obj/structure/stairs/urban/road_ramp/left{
-	icon_state = "road-ramp-left-top";
-	pixel_y = 29
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
 	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/water)
 "ky" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -4368,6 +4377,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"lJ" = (
+/obj/structure/utility_pole/street/on{
+	pixel_y = 24
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/point_verdant/outdoors)
 "lL" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -5858,6 +5873,9 @@
 "pp" = (
 /obj/machinery/cryopod{
 	dir = 4
+	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 30
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
@@ -9126,12 +9144,10 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "xM" = (
-/obj/structure/flora/bush/konyang_reeds/water,
-/obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+/obj/structure/stairs/urban/left{
+	icon_state = "stairs-left-bot"
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "xN" = (
 /obj/effect/floor_decal/corner/green/diagonal{
@@ -10559,6 +10575,10 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
+	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/streetvendor)
 "Bk" = (
@@ -16449,6 +16469,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/restaurant)
+"Qk" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/streetvendor)
 "Ql" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -16778,7 +16809,7 @@
 /area/point_verdant/interior/offices)
 "Rb" = (
 /obj/machinery/door/window/southright{
-	req_access = list(218)
+	req_access = list(219)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
@@ -17449,6 +17480,10 @@
 	pixel_y = 26;
 	pixel_x = -21
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon_boss";
+	identifier = "konyang_goon_boss"
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/streetvendor)
 "ST" = (
@@ -18034,6 +18069,10 @@
 "Uu" = (
 /obj/structure/rod_railing{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/streetvendor)
@@ -18643,6 +18682,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Wb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_gwok";
+	identifier = "konyang_gwok"
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "Wc" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -29521,9 +29568,9 @@ AQ
 gy
 ci
 ci
-bh
+lJ
 BT
-BT
+Of
 Jx
 yA
 iy
@@ -29778,10 +29825,10 @@ AQ
 gy
 ci
 oP
-BT
 ws
 Za
 gB
+iN
 ML
 iN
 iN
@@ -35687,12 +35734,12 @@ Zx
 Zx
 Zx
 LQ
-LQ
 GJ
 ll
 Tb
+xM
 em
-kx
+qn
 Zg
 qn
 qn
@@ -35945,10 +35992,10 @@ Sf
 Sf
 xy
 xy
-xy
 mw
 BT
 BT
+iz
 LN
 iL
 zv
@@ -36202,10 +36249,10 @@ MA
 MA
 MA
 MA
-wK
-xM
+kx
+BT
 bh
-Of
+iz
 LN
 iL
 zv
@@ -36459,8 +36506,8 @@ az
 az
 MA
 az
-lL
-xM
+kx
+BT
 BT
 PN
 LN
@@ -36716,8 +36763,8 @@ MA
 MA
 MA
 MA
-wK
-xM
+kx
+BT
 BT
 iz
 LN
@@ -36973,10 +37020,10 @@ lG
 lG
 lG
 lG
-lG
 Ob
 BT
-iz
+BT
+SM
 lF
 bb
 Hz
@@ -37230,10 +37277,10 @@ vA
 lp
 vA
 vA
-vA
 lp
 BT
-SM
+BT
+BT
 LN
 iL
 Hz
@@ -48791,7 +48838,7 @@ zk
 zk
 BE
 BE
-BE
+Wb
 la
 YS
 Sw
@@ -50331,7 +50378,7 @@ xn
 dm
 zk
 zk
-zk
+fp
 zk
 Qy
 Gf
@@ -54482,7 +54529,7 @@ gU
 tQ
 KL
 aM
-XR
+Qk
 Lr
 uu
 xb
