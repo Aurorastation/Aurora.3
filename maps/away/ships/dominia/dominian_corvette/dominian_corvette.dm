@@ -173,6 +173,20 @@
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
+/obj/effect/shuttle_landmark/dominian_corvette/dock/port
+	name = "Port Dock"
+	landmark_tag = "nav_dominian_corvette_dock_port"
+	docking_controller = "airlock_dominian_corvette_dock_port"
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/dominian_corvette/dock/port
+	name = "Starboard Dock"
+	landmark_tag = "nav_dominian_corvette_starboard_port"
+	docking_controller = "airlock_dominian_corvette_starboard_port"
+	base_turf = /turf/space
+	base_area = /area/space
+
 /obj/effect/shuttle_landmark/dominian_corvette/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_dominian_corvette"
