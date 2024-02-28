@@ -2359,19 +2359,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"gp" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/table/rack,
-/obj/item/clothing/head/surgery/generic,
-/obj/item/clothing/accessory/apron/surgery,
-/obj/item/clothing/mask/surgical,
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = 7;
-	pixel_y = 15
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/clinic)
 "gr" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
@@ -2675,13 +2662,7 @@
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/point_verdant/outdoors)
 "he" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/sink{
-	pixel_x = 13;
-	dir = 4;
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/clinic)
 "hf" = (
 /obj/vehicle/bike/motor/moped{
@@ -6237,12 +6218,6 @@
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
-"pR" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/medical/dark_green,
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/clinic)
 "pS" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -7401,10 +7376,9 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/hotel)
 "sS" = (
-/obj/machinery/optable,
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/industrial/outline/medical/dark_green,
-/turf/simulated/floor/tiled/white,
+/obj/structure/curtain/open/privacy,
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/clinic)
 "sT" = (
 /obj/structure/ledge/quarter/corner{
@@ -8890,10 +8864,6 @@
 /obj/structure/manhole,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"ww" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/clinic)
 "wx" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/sidewalk/flat,
@@ -11156,9 +11126,10 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "Cb" = (
-/obj/machinery/door/window/eastright,
-/obj/structure/curtain/open/medical,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/clinic)
 "Cc" = (
 /obj/machinery/recharge_station,
@@ -16802,10 +16773,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Qi" = (
-/obj/structure/table/standard,
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/item/storage/box/fancy/tray,
-/turf/simulated/floor/tiled/white,
+/obj/structure/bed/padded,
+/obj/item/bedsheet,
+/turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/clinic)
 "Qj" = (
 /obj/structure/bed/stool/chair/sofa/right/blue{
@@ -39246,9 +39216,9 @@ Ne
 bx
 eJ
 QW
+QW
 Nd
-Nd
-Nd
+QW
 QW
 QW
 QW
@@ -39503,7 +39473,7 @@ ve
 bx
 Ja
 El
-pR
+Qi
 sS
 Qi
 QW
@@ -39761,8 +39731,8 @@ xH
 Ja
 El
 he
-ww
-gp
+he
+he
 QW
 pO
 Zl
