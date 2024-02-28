@@ -88,7 +88,7 @@
 	throwforce = 2
 	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
 	w_class = ITEMSIZE_TINY
-	religion_restriction = RELIGIONS_ADHOMAI
+	religion_restriction = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA)
 
 /obj/item/nullrod/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
