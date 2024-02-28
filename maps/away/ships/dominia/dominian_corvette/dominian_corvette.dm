@@ -17,6 +17,7 @@
 //areas
 /area/ship/dominian_corvette
 	name = "Dominian Corvette"
+	requires_power = TRUE
 
 /area/ship/dominian_corvette/janitor
 	name = "Dominian Corvette Custodial Closet"
