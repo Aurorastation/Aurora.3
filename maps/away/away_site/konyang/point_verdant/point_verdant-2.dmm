@@ -11487,6 +11487,10 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
+"Dk" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/clinic)
 "Dl" = (
 /obj/structure/road_sign/street{
 	pixel_x = -12;
@@ -19886,6 +19890,7 @@
 	pixel_x = -29;
 	pixel_y = 12
 	},
+/obj/structure/bed/roller,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/clinic)
 "Yq" = (
@@ -40107,7 +40112,7 @@ Ja
 El
 DN
 UG
-UG
+Dk
 Yp
 UG
 cR
