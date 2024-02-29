@@ -247,6 +247,9 @@
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id
 
+/datum/outfit/admin/konyang_bar/get_id_access()
+	return list(ACCESS_KONYANG_VENDORS)
+
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"
 	name = "Point Verdant Utility Worker"
@@ -289,6 +292,7 @@
 /datum/outfit/admin/konyang_gwok
 	name = "UP! Burger Employee"
 	uniform = /obj/item/clothing/under/rank/konyang/burger
+	shoes = /obj/item/clothing/shoes/workboots/dark
 	suit = /obj/item/clothing/accessory/apron/chef
 	head = /obj/item/clothing/head/konyang/burger
 	id = /obj/item/card/id

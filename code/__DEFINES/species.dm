@@ -33,7 +33,7 @@
 #define SPECIES_IPC_XION_REMOTE		"Remote Xion Industrial Frame"
 #define SPECIES_IPC_UNBRANDED		"Unbranded Frame"
 #define SPECIES_IPC_UNBRANDED_REMOTE	"Remote Unbranded Frame"
-#define SPECIES_IPC_TERMINATOR		"Military Frame"
+#define SPECIES_IPC_PURPOSE_HK		"Hunter-Killer"
 
 #define SPECIES_SLIMEPERSON			"Slime"
 

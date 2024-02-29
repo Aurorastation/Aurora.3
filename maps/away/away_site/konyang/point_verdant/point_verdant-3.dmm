@@ -1836,6 +1836,15 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"oi" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/obj/structure/road_barrier{
+	layer = 9.1
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "or" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1997,6 +2006,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"pI" = (
+/obj/effect/decal/curb,
+/obj/machinery/light/small/floor,
+/obj/structure/road_barrier/bot_end{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "pL" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
@@ -2589,6 +2606,12 @@
 	dir = 8;
 	pixel_x = 12;
 	pixel_y = 0
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
+"ur" = (
+/obj/structure/road_barrier/bot_end{
+	layer = 9.1
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -5545,6 +5568,9 @@
 /area/point_verdant/outdoors)
 "Ql" = (
 /obj/structure/urban_grate,
+/obj/structure/road_barrier{
+	layer = 9.1
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Qn" = (
@@ -19194,7 +19220,7 @@ GV
 bH
 cH
 wU
-ru
+pI
 rx
 DD
 Ni
@@ -19451,7 +19477,7 @@ VF
 Ht
 dq
 vL
-tC
+oi
 rx
 DD
 Ni
@@ -19708,7 +19734,7 @@ VF
 MG
 jo
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -19965,7 +19991,7 @@ VF
 MG
 jo
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -20222,7 +20248,7 @@ VF
 Wn
 SF
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -20736,7 +20762,7 @@ HB
 HB
 HB
 XZ
-hw
+Fz
 rx
 DD
 Ni
@@ -20993,7 +21019,7 @@ SK
 SK
 SK
 tC
-hw
+ur
 rx
 DD
 Ni
@@ -21764,7 +21790,7 @@ oe
 aS
 Jx
 hw
-hw
+Jx
 rx
 DD
 Ni
@@ -22021,7 +22047,7 @@ Sy
 uT
 xh
 hw
-hw
+Fz
 rx
 DD
 Ni
