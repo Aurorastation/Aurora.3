@@ -30,7 +30,11 @@
 		"Shumaila Hammer" = /obj/item/nullrod/shumaila,
 		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
 		"Azubarre Torch" = /obj/item/nullrod/azubarre,
-		"Shaman Staff" = /obj/item/nullrod/shaman)
+		"Shaman Staff" = /obj/item/nullrod/shaman,
+		"Warrior's Sword" = /obj/item/nullrod/skakh_warrior,
+		"Healer's Staff" = /obj/item/nullrod/skakh_healer,
+		"Fisher's Sickle" = /obj/item/nullrod/skakh_fisher)
+
 	var/list/religion_restriction //which religions can pick this item
 
 /obj/item/nullrod/obsidianshards
@@ -172,7 +176,55 @@
 	item_state = "shaman_staff"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
+	slot_flags = null
 	religion_restriction = RELIGIONS_UNATHI
+
+/obj/item/nullrod/skakh_warrior
+	name = "\improper Sk'akh sword"
+	desc = "A silver-bladed ceremonial sword, made in the image of the Warrior Mukari's holy weapon. These blades are often carried by Sk'akh Priests of the Warrior in representation of His strength, though they are of little use in practical combat."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "skakh_sword"
+	item_state = "skakh_sword"
+	slot_flags = SLOT_BACK|SLOT_BELT
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_LARGE
+	religion_restriction = list(RELIGION_SKAKH)
+
+/obj/item/nullrod/skakh_healer
+	name = "\improper Sk'akh staff"
+	desc = "A long staff topped with a green gemstone set in silver, made in the image of the Healer Simi's holy item. These staves are often carried by Sk'akh Priestesses of the Healer, in representation of Her wisdom."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "skakh_staff"
+	item_state = "skakh_staff"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_LARGE
+	slot_flags = null
+	religion_restriction = list(RELIGION_SKAKH)
+
+/obj/item/nullrod/skakh_fisher
+	name = "\improper Sk'akh sickle"
+	desc = "A silver-bladed ceremonial sickle, made in the image of the Fisher Verrix's holy item. These sickles are often carried by Sk'akh Priests of the Fisher, in representation of Their benevolence."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "skakh_sickle"
+	item_state = "skakh_sickle"
+	contained_sprite = TRUE
+	religion_restriction = list(RELIGION_SKAKH)
+
+/obj/item/nullrod/autakh //not included in the list as it's meant to be an augment
+	name = "blessed cybernetic claw"
+	icon = 'icons/obj/organs/augments.dmi'
+	icon_state = "anchor"
+	item_state = "anchor" //won't appear in-hand and looks suitably aut'akh spiritual
+	desc = "A prosthetic limb etched in Sinta'Mador runes and inlayed with obsidian."
+	can_change_form = FALSE //this is integrated so we dont want anything silly with it
+
+/obj/item/nullrod/autakh/throw_at()
+	usr.drop_from_inventory(src)
+
+/obj/item/nullrod/autakh/dropped()
+	. = ..()
+	loc = null
+	qdel(src)
 
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
@@ -181,7 +233,7 @@
 
 	// Holodeck Check
 	if(!can_change_form)
-		to_chat(user, SPAN_NOTICE("You can't change a holographic item's form..."))
+		to_chat(user, SPAN_NOTICE("You can't change this item's form!"))
 		return
 
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))

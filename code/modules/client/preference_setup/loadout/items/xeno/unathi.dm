@@ -369,6 +369,13 @@
 	augs["eye flashlight"] = /obj/item/organ/internal/augment/eye_flashlight
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
+/datum/gear/augment/autakh/nullrod
+	display_name = "blessed prosthesis"
+	description = "A prosthetic limb, blessed with sacred Aut'akh rituals and ancient Mador runes. This augment can act as a chaplain's nullrod."
+	path = /obj/item/organ/external/hand/right/autakh/tool/nullrod
+	allowed_roles = list("Chaplain")
+	cost = 2
+
 /datum/gear/suit/maxtlatl
 	display_name = "Thakhist maxtlatl"
 	path = /obj/item/clothing/accessory/poncho/maxtlatl
