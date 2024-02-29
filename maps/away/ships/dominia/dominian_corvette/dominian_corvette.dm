@@ -135,10 +135,10 @@
 
 	initial_generic_waypoints = list(
 		"nav_dominian_corvette_1",
-		"nav_dominian_corvette_2"
-		"nav_dominian_corvette_3"
-		"nav_dominian_corvette_4"
-		"nav_dominian_corvette_starboard_dock"
+		"nav_dominian_corvette_2",
+		"nav_dominian_corvette_3",
+		"nav_dominian_corvette_4",
+		"nav_dominian_corvette_starboard_dock",
 		"nav_dominian_corvette_dock_port"
 	)
 
