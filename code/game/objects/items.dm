@@ -454,14 +454,27 @@
 		playsound(src, drop_sound, THROW_SOUND_VOLUME)
 	return ..()
 
-//Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
-//It is called after loc is set, so if placed in a container its loc will be that container.
-/obj/item/proc/dropped(var/mob/user)
+/**
+ * Called when an item is removed from a `/mob` inventory (including hands and whatnot),
+ * for whatever reason (dropped on the floor, thrown, put in a container, etc.)
+ *
+ * This is called after the _new_ location (`loc`) is set on the object, so if it's eg. put in a container,
+ * the loc inside here would point to the container, not the mob that had it in hand
+ *
+ * * user - The `/mob` that dropped the object
+ */
+/obj/item/proc/dropped(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
+
 	remove_item_verbs(user)
+
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
+		check_maptext()
+
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -1146,11 +1159,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		maptext = ""
 
 /obj/item/throw_at()
-	..()
-	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
-		check_maptext()
-
-/obj/item/dropped(var/mob/user)
 	..()
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
