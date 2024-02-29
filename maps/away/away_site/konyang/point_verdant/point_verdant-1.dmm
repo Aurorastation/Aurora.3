@@ -132,7 +132,11 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "at" = (
-/turf/simulated/wall/wood,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon_boss";
+	identifier = "konyang_goon_boss"
+	},
+/turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "au" = (
 /obj/structure/flora/rock/konyang/small,
@@ -786,6 +790,9 @@
 "cs" = (
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 14
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
@@ -1541,7 +1548,26 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/basement)
 "eJ" = (
-/obj/effect/decal/cleanable/flour,
+/obj/structure/table/reinforced/wood,
+/obj/item/key/bike/sport{
+	pixel_x = 2;
+	pixel_y = 2;
+	key_data = "S58-2165"
+	},
+/obj/item/key/bike/sport{
+	pixel_x = -5;
+	key_data = "S17-3906"
+	},
+/obj/item/key/bike/sport{
+	pixel_x = -9;
+	pixel_y = 5;
+	key_data = "2KA-N3DA"
+	},
+/obj/item/key/bike/moped{
+	pixel_x = 8;
+	pixel_y = -1;
+	key_data = "T3T-5U01"
+	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "eK" = (
@@ -1728,6 +1754,7 @@
 	pixel_y = 8;
 	pixel_x = 5
 	},
+/obj/item/storage/briefcase/black,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
 "fn" = (
@@ -3859,6 +3886,10 @@
 /obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/decrepit)
 "lB" = (
@@ -5500,6 +5531,16 @@
 /area/point_verdant/interior/tunnels)
 "qI" = (
 /obj/structure/table/wood,
+/obj/item/key/bike/sport{
+	pixel_x = 4;
+	pixel_y = -2;
+	key_data = "S58-2165"
+	},
+/obj/item/key/bike/sport{
+	pixel_x = -4;
+	pixel_y = 2;
+	key_data = "S58-2165"
+	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
 "qJ" = (
@@ -7023,6 +7064,13 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel/basement)
+"vj" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_goon";
+	identifier = "konyang_goon"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/decrepit)
 "vn" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -10043,10 +10091,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/bar)
-"EJ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/decrepit)
 "EK" = (
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/wood,
@@ -37256,7 +37300,7 @@ Ze
 lA
 Kl
 wW
-Kl
+vj
 Kl
 WD
 Cg
@@ -37768,7 +37812,7 @@ Az
 Cg
 Ll
 qV
-Kl
+at
 hy
 Kl
 SB
@@ -38281,7 +38325,7 @@ SS
 MO
 Cg
 Cg
-Kl
+vj
 Kl
 Cg
 Cg
@@ -39565,7 +39609,7 @@ Vm
 SS
 jc
 Pe
-at
+Cg
 BJ
 ML
 Wu
@@ -39822,10 +39866,10 @@ fN
 SS
 LP
 zL
-at
+Cg
 ML
 ML
-at
+Cg
 in
 uy
 ML
@@ -40082,7 +40126,7 @@ IF
 Rd
 ML
 ML
-at
+Cg
 Ji
 sb
 wR
@@ -40336,12 +40380,12 @@ kk
 pk
 jJ
 Pe
-at
+Cg
 pE
 ML
-at
-at
-at
+Cg
+Cg
+Cg
 VY
 kf
 Cg
@@ -40593,12 +40637,12 @@ kk
 tv
 BK
 Pe
-at
-at
+Cg
+Cg
 ML
 nK
 hk
-at
+Cg
 Cg
 Cg
 Cg
@@ -40851,7 +40895,7 @@ zB
 MO
 Pe
 Pe
-at
+Cg
 ML
 ML
 VD
@@ -41108,9 +41152,9 @@ AV
 bH
 Pe
 Pe
-at
-at
-EJ
+Cg
+Cg
+Cg
 Cg
 Cg
 Cg

@@ -1297,13 +1297,8 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
 "dL" = (
-/obj/item/stack/rods,
 /obj/machinery/light/small{
 	dir = 4
-	},
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon";
-	identifier = "konyang_goon"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
@@ -5313,10 +5308,6 @@
 	dir = 1;
 	pixel_y = 26
 	},
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon";
-	identifier = "konyang_goon"
-	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "or" = (
@@ -7067,10 +7058,6 @@
 /area/point_verdant/outdoors)
 "sM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_gwok";
-	identifier = "konyang_gwok"
-	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/streetvendor)
 "sN" = (
@@ -7447,10 +7434,6 @@
 "tI" = (
 /obj/machinery/light/small{
 	dir = 1
-	},
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon";
-	identifier = "konyang_goon"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
@@ -13743,10 +13726,6 @@
 /area/point_verdant/interior/offices)
 "Ke" = (
 /obj/structure/flora/pottedplant/dead,
-/obj/effect/ghostspawpoint{
-	name = "igs - konyang_goon_boss";
-	identifier = "konyang_goon_boss"
-	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "Kf" = (
