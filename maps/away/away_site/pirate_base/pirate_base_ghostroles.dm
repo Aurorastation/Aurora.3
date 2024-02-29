@@ -1,5 +1,5 @@
-/datum/ghostspawner/human/goon
-	short_name = "goon"
+/datum/ghostspawner/human/pirate
+	short_name = "pirate"
 	name = "Pirate Gang Member"
 	tags = list("External")
 	desc = "\
@@ -18,11 +18,11 @@
 		Remember to follow basic escalation rules, and have fun!)\
 		"
 
-	spawnpoints = list("goon")
+	spawnpoints = list("pirate")
 	max_count = 4
 	enabled = FALSE
 
-	outfit = /datum/outfit/admin/goon
+	outfit = /datum/outfit/admin/pirate
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -31,7 +31,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/goon
+/datum/outfit/admin/pirate
 	name = "Pirate Gang Member"
 
 	uniform = /obj/item/clothing/under/syndicate/tracksuit
@@ -52,7 +52,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/datum/outfit/admin/goon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/pirate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -74,11 +74,11 @@
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
-/datum/outfit/admin/goon/get_id_access()
+/datum/outfit/admin/pirate/get_id_access()
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/ghostspawner/human/goon/boss
-	short_name = "goon_boss"
+/datum/ghostspawner/human/pirate/boss
+	short_name = "pirate_boss"
 	name = "Pirate Gang Boss"
 	tags = list("External")
 	desc = "\
@@ -97,11 +97,11 @@
 		Remember to follow basic escalation rules, and have fun!)\
 		"
 
-	spawnpoints = list("goon_boss")
+	spawnpoints = list("pirate_boss")
 	max_count = 1
 	enabled = FALSE
 
-	outfit = /datum/outfit/admin/goon
+	outfit = /datum/outfit/admin/pirate
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -110,7 +110,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/goon
+/datum/outfit/admin/pirate
 	name = "Pirate Gang Boss"
 
 	species_shoes = list(
@@ -122,8 +122,8 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/datum/ghostspawner/human/goon/prisoner
-	short_name = "goon_prisoner"
+/datum/ghostspawner/human/pirate/prisoner
+	short_name = "pirate_prisoner"
 	name = "Pirate Gang Captive"
 	tags = list("External")
 	desc = "\
@@ -136,11 +136,11 @@
 		It is up to you if you decide it's worth the risk to attempt an escape with what you got, or lie low and hope someone sweeps in and saves you.\
 		"
 
-	spawnpoints = list("goon_prisoner")
+	spawnpoints = list("pirate_prisoner")
 	max_count = 1
 	enabled = FALSE
 
-	outfit = /datum/outfit/admin/goon_prisoner
+	outfit = /datum/outfit/admin/pirate_prisoner
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -149,7 +149,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/goon_prisoner
+/datum/outfit/admin/pirate_prisoner
 	name = "Pirate Gang Captive"
 
 	uniform = /obj/item/clothing/under/color/brown

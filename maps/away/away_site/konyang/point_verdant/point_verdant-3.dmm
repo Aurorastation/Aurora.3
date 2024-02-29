@@ -3398,7 +3398,12 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
 "zd" = (
-/obj/structure/cargo_receptacle,
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - Sakae Towers";
+	payment_modifier = 0.6;
+	min_spawn = 1;
+	max_spawn = 3
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "zf" = (

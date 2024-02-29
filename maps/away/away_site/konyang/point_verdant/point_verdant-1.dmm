@@ -6478,6 +6478,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = 5;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "sK" = (
@@ -7298,12 +7302,13 @@
 /area/point_verdant/interior/tunnels)
 "vx" = (
 /obj/structure/table/wood,
-/obj/item/storage/secure/briefcase{
-	pixel_x = -1;
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
+	},
+/obj/machinery/photocopier/faxmachine{
+	department = "Konyang, Point Verdant Corporate District, National Police Precinct 302";
+	pixel_y = 4;
+	req_one_access = list(218)
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
@@ -8804,6 +8809,10 @@
 /obj/structure/table/wood,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/item/storage/secure/briefcase{
+	pixel_x = -1;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
@@ -10391,6 +10400,10 @@
 /obj/item/mop,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "EV" = (
@@ -10632,6 +10645,10 @@
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
+/obj/item/taperoll/police,
+/obj/item/taperoll/police,
+/obj/item/taperoll/police,
+/obj/item/taperoll/police,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "FE" = (
@@ -10685,6 +10702,12 @@
 "FP" = (
 /obj/structure/table/rack,
 /obj/item/device/camera_film,
+/obj/item/device/camera_film,
+/obj/item/device/camera{
+	desc = "A one use - polaroid camera. 30 photos left.";
+	name = "detectives camera";
+	pictures_left = 30
+	},
 /obj/item/device/camera{
 	desc = "A one use - polaroid camera. 30 photos left.";
 	name = "detectives camera";
@@ -10816,8 +10839,11 @@
 "Gj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/closet/crate/bin/urban,
-/obj/random/junk,
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - Corporate District Docks";
+	payment_modifier = 0.5;
+	min_spawn = 1
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior)
 "Gk" = (
@@ -30240,7 +30266,7 @@ lC
 lC
 wp
 mO
-wr
+Lj
 mO
 mO
 Yn

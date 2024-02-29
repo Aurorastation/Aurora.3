@@ -2156,6 +2156,13 @@
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
 
+/datum/chemical_reaction/snakebite
+	name = "Snakebite"
+	id = "snakebite"
+	result = /singleton/reagent/alcohol/snakebite
+	required_reagents = list(/singleton/reagent/alcohol/beer = 5, /singleton/reagent/alcohol/applejack = 5)
+	result_amount = 10
+
 /datum/chemical_reaction/light_beer
 	name = "Light Beer"
 	id = "spacebeer"
