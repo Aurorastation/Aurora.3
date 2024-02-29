@@ -6741,6 +6741,11 @@
 /obj/structure/dock_structure,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"tJ" = (
+/obj/random/dirt_75,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/police)
 "tK" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/random/dirt_75,
@@ -30266,7 +30271,7 @@ lC
 lC
 wp
 mO
-mO
+tJ
 mO
 mO
 Yn

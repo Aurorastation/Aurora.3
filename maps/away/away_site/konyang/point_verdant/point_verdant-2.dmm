@@ -20125,6 +20125,18 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"YX" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - Up!Burger";
+	payment_modifier = 0.4;
+	min_spawn = 1;
+	max_spawn = 2
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "YY" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -51695,7 +51707,7 @@ sJ
 ai
 ai
 vD
-be
+YX
 MK
 Os
 BT
