@@ -108,15 +108,15 @@
 
 /obj/effect/shuttle_landmark/coc_scarab/dock4
 	name = "Scarab Salvage Vessel - Starboard Dock #1"
-	landmark_tag = "scarab_dock3"
+	landmark_tag = "scarab_dock4"
 
 /obj/effect/shuttle_landmark/coc_scarab/dock5
 	name = "Scarab Salvage Vessel - Starboard Dock #2"
-	landmark_tag = "scarab_dock4"
+	landmark_tag = "scarab_dock5"
 
 /obj/effect/shuttle_landmark/coc_scarab/dock6
 	name = "Scarab Salvage Vessel - Starboard Dock #3"
-	landmark_tag = "scarab_dock5"
+	landmark_tag = "scarab_dock6"
 
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/scarab_shuttle
@@ -136,7 +136,7 @@
 	designer = "Einstein Engines"
 	volume = "16 meters length, 13 meters beam/width, 8 meters vertical height"
 	sizeclass = "Mattock-class Mining Shuttle"
-	shiptype = "Mineral exploitation and salvage shuttle"
+	shiptype = "Mineral exploitation and salvage operations"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
