@@ -5534,12 +5534,12 @@
 /obj/item/key/bike/sport{
 	pixel_x = 4;
 	pixel_y = -2;
-	key_data = "S58-2165"
+	key_data = "S71-3614"
 	},
 /obj/item/key/bike/sport{
 	pixel_x = -4;
 	pixel_y = 2;
-	key_data = "S58-2165"
+	key_data = "S62-4394"
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
