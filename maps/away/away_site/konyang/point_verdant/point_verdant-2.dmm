@@ -426,6 +426,18 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
+"be" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - Up!Burger";
+	payment_modifier = 0.4;
+	min_spawn = 1;
+	max_spawn = 2
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "bf" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -11842,6 +11854,18 @@
 "EA" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
+"EB" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - The One Aoyama Lodging";
+	payment_modifier = 0.4;
+	max_spawn = 2;
+	min_spawn = 1
+	},
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "EC" = (
 /obj/structure/utility_pole/street/on{
@@ -35023,7 +35047,7 @@ Ga
 Ga
 sT
 mN
-Fx
+EB
 Fx
 We
 cG
@@ -51407,7 +51431,7 @@ sJ
 ai
 ai
 vD
-sJ
+be
 MK
 Os
 BT
