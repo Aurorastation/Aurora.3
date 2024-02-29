@@ -248,8 +248,8 @@
 /area/cult_base/maint_mid)
 "aaY" = (
 /obj/structure/bed/stool/chair/sofa/left/yellow,
-/obj/machinery/power/apc/north{
-	req_access = null
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
@@ -365,6 +365,11 @@
 "abr" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/material/knife/trench/bloody{
+	pixel_x = 6;
+	pixel_y = -6
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/crew_quarters)
@@ -485,7 +490,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "abX" = (
-/obj/machinery/light/broken{
+/obj/machinery/light/colored/dying{
 	dir = 1
 	},
 /turf/simulated/floor/cult,
@@ -1056,6 +1061,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 7;
+	pixel_y = 22
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "adA" = (
@@ -1459,6 +1468,10 @@
 "afX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2069,7 +2082,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/gibspawner/human,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
 "akD" = (
@@ -2878,6 +2890,18 @@
 "aqE" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/item/clothing/accessory/apron/chef,
+/obj/item/material/knife/bloody{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 7;
+	pixel_y = 20
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 10;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/cult_base/mess)
 "aqJ" = (
@@ -3077,6 +3101,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "arV" = (
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/cult,
 /area/cult_base/hallways_east)
 "arW" = (
@@ -3411,6 +3436,13 @@
 "auA" = (
 /obj/machinery/light/broken{
 	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 18
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/crew_quarters)
@@ -4085,6 +4117,9 @@
 /obj/structure/bed/stool/chair/sofa/corner/concave/yellow{
 	dir = 4
 	},
+/obj/machinery/light/broken{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
 "aAe" = (
@@ -4429,6 +4464,10 @@
 "aCJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
 	},
 /turf/simulated/floor/cult,
 /area/space)
@@ -4831,6 +4870,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 3;
+	pixel_y = 5
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aGH" = (
@@ -4977,10 +5020,6 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/space)
-"aHA" = (
-/obj/effect/gibspawner/human,
-/turf/simulated/floor/cult,
-/area/space)
 "aHC" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -5121,10 +5160,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/medbay)
-"aIP" = (
-/obj/effect/gibspawner/human,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "aIT" = (
 /obj/structure/table/steel,
 /obj/random/toolbox{
@@ -5435,6 +5470,10 @@
 	pixel_x = -2;
 	pixel_y = 8
 	},
+/obj/item/clothing/mask/chewable/candy/gum/gumball/medical{
+	pixel_x = -1;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
 "aKZ" = (
@@ -5520,6 +5559,7 @@
 	pixel_x = 2;
 	pixel_y = 3
 	},
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/cult,
 /area/space)
 "aLx" = (
@@ -5528,6 +5568,7 @@
 	dir = 1;
 	pixel_y = 21
 	},
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aLE" = (
@@ -5568,6 +5609,14 @@
 	dir = 9
 	},
 /obj/random/junk,
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 9;
+	pixel_y = 0
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -10;
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_east)
 "aLX" = (
@@ -5806,8 +5855,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "aNs" = (
-/obj/item/clothing/mask/chewable/candy/gum/gumball/medical,
-/turf/template_noop,
+/obj/item/material/knife/trench/bloody{
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/turf/simulated/floor/cult,
 /area/space)
 "aNw" = (
 /obj/structure/cable{
@@ -5952,6 +6004,10 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "aOz" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
 /turf/simulated/floor/cult,
 /area/cult_base/crew_quarters)
 "aOB" = (
@@ -6032,12 +6088,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
-"aPi" = (
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/cult,
-/area/cult_base/lounge)
 "aPk" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6431,6 +6481,10 @@
 /obj/machinery/light/colored/dying{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aSi" = (
@@ -6501,6 +6555,7 @@
 	dir = 1;
 	pixel_y = 21
 	},
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating,
 /area/space)
 "aSD" = (
@@ -7488,6 +7543,10 @@
 /obj/machinery/light/broken{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aZz" = (
@@ -7571,6 +7630,263 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
+"bXL" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/gibspawner/robot,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"cij" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
+"eQN" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -12;
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -1;
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fow" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -3;
+	pixel_y = 17
+	},
+/turf/simulated/floor/cult,
+/area/space)
+"fRC" = (
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
+"gET" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 11;
+	pixel_y = 23
+	},
+/turf/simulated/floor/cult,
+/area/space)
+"gMj" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jvw" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jBg" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/cult,
+/area/space)
+"mnT" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"nfG" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/material/knife/bloody{
+	pixel_x = -7;
+	pixel_y = -9
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"nnM" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/simulated/floor/cult,
+/area/space)
+"nWD" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -13;
+	pixel_y = 23
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/crew_quarters)
+"ogB" = (
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
+"pYT" = (
+/obj/effect/gibspawner/robot,
+/turf/simulated/floor/plating,
+/area/space)
+"qut" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
+"qYC" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 5;
+	pixel_y = 18
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/maint_north)
+"rfy" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/hallways_east)
+"rww" = (
+/obj/item/material/knife/trench/bloody{
+	pixel_x = 17;
+	pixel_y = -6
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"sjM" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"sku" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/hallways_east)
+"sWV" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"tqS" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"txV" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/hallways_east)
+"tyf" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -12;
+	pixel_y = -4
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
+"tzD" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
+"uwx" = (
+/obj/random/dirt_75,
+/obj/random/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"uxc" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
+"uOY" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -12;
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -3;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vRw" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -12;
+	pixel_y = -4
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/maint_north)
+"vSK" = (
+/obj/effect/landmark/corpse/cult_base_cultist,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/cult,
+/area/space)
+"xmz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/landmark/corpse/cult_base_cultist,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"xnv" = (
+/obj/item/material/knife/ritual/bloody{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"xHt" = (
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/obj/effect/gibspawner/human,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"xOb" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
+"ygX" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -14;
+	pixel_y = 14
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/turf/simulated/floor/cult,
+/area/space)
 
 (1,1,1) = {"
 aZi
@@ -39525,8 +39841,8 @@ aIA
 aIA
 aIA
 aIA
-aDo
-aDo
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -39782,9 +40098,9 @@ aIA
 aIA
 aIA
 aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -39822,7 +40138,7 @@ aZi
 aIA
 aZi
 aZi
-aNs
+aZi
 aZi
 aZi
 aZi
@@ -44673,7 +44989,7 @@ aIA
 aQp
 aMT
 aPk
-aQp
+aVU
 aCb
 aCb
 aZv
@@ -45692,8 +46008,8 @@ abN
 aIA
 ahJ
 aZk
-aHA
-aIm
+ygX
+fow
 aIA
 aVU
 aVU
@@ -45948,17 +46264,17 @@ aIA
 abE
 aIZ
 aRN
-aIm
-aIm
+nnM
+aNs
 aOB
-aIm
+gET
 aVU
 aSH
 aLT
 aMT
 aMT
 avv
-aOg
+qut
 aMT
 aVU
 aMq
@@ -46205,15 +46521,15 @@ aIA
 aIA
 aIA
 ahJ
-aHS
-aIm
+xmz
+jBg
 aIA
-aIm
-awb
-awb
-aMT
+fow
+vRw
+qYC
+uxc
 aAC
-aMT
+xOb
 amh
 aVU
 aVU
@@ -48038,7 +48354,7 @@ aIA
 aIA
 aIA
 alH
-aHS
+bXL
 agG
 aBw
 aaq
@@ -48295,7 +48611,7 @@ aIA
 aIA
 agG
 agG
-aRo
+agG
 agG
 aaj
 aWj
@@ -48807,7 +49123,7 @@ ahJ
 aIA
 aIA
 aHS
-aHS
+aRo
 aHS
 agG
 alH
@@ -49558,7 +49874,7 @@ awU
 aND
 ahJ
 awu
-aIy
+pYT
 aIy
 aIy
 awu
@@ -49835,7 +50151,7 @@ ahJ
 abN
 aIZ
 ane
-acJ
+ogB
 aXJ
 aXJ
 aXJ
@@ -50092,9 +50408,9 @@ ahJ
 aQI
 auD
 awr
-aPi
+tzD
 ajY
-aQo
+cij
 aXJ
 akB
 aLm
@@ -50332,9 +50648,9 @@ aIy
 aad
 aND
 aND
-awU
+xHt
 aIy
-abK
+xnv
 afX
 aMg
 ahJ
@@ -50349,8 +50665,8 @@ ahJ
 ahJ
 ahJ
 ane
-aQo
-aQo
+acJ
+tyf
 aQo
 aQo
 ajS
@@ -50586,11 +50902,11 @@ aND
 aEG
 ahJ
 aig
-aHA
 aIm
+vSK
+eQN
 aND
-aND
-aIy
+tqS
 aND
 adu
 ahJ
@@ -50839,16 +51155,16 @@ aIu
 ahJ
 aoT
 aND
-aND
-aND
+sWV
+gMj
 aQH
-aND
+mnT
 aND
 auF
 aIm
 aIm
 aIy
-aIy
+sjM
 apw
 aaA
 aby
@@ -50865,9 +51181,9 @@ acc
 aLW
 avt
 awv
+txV
 arV
-arV
-arV
+sku
 aGG
 aMJ
 aea
@@ -51091,11 +51407,11 @@ aZi
 aVI
 amW
 anI
-aND
-aND
+uOY
+jvw
 aQH
-aND
-aND
+gMj
+sWV
 aND
 aRf
 ahJ
@@ -51109,7 +51425,7 @@ aOB
 aCJ
 abS
 aSg
-aND
+jvw
 abg
 aTC
 aSx
@@ -51123,7 +51439,7 @@ atQ
 afG
 aZy
 aZZ
-aZZ
+rfy
 akd
 aQf
 aEN
@@ -51637,7 +51953,7 @@ arD
 aKN
 abr
 auA
-awB
+nWD
 aVs
 aAe
 aqf
@@ -51877,7 +52193,7 @@ aIy
 aIm
 aIm
 aIm
-aIm
+vSK
 aIm
 ahJ
 ars
@@ -52128,14 +52444,14 @@ aND
 aND
 ahJ
 aGh
-aND
+abK
 aND
 aIy
 ahJ
 aZk
 aIy
-anG
-aHA
+nfG
+aIm
 ahJ
 aIy
 aIy
@@ -52385,12 +52701,12 @@ aSu
 akp
 ahJ
 anG
-abK
-aIy
-aIm
+aND
+rww
+vSK
 ahJ
 aeX
-aIm
+vSK
 aac
 akt
 awx
@@ -52407,7 +52723,7 @@ aKN
 aKN
 aKN
 aUA
-aIP
+aic
 abo
 azY
 azo
@@ -54197,7 +54513,7 @@ aIA
 aIA
 aIA
 aIA
-aUe
+uwx
 aHS
 aIA
 aIZ
@@ -54206,7 +54522,7 @@ aic
 aNS
 aUJ
 aKN
-acP
+fRC
 adi
 aKN
 avs

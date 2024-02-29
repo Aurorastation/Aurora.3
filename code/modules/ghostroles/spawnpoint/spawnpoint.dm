@@ -6,8 +6,8 @@
 /obj/effect/ghostspawpoint
 	name = "invisible ghost spawner - single"
 	desc = "A Invisible ghost spawner"
-	icon = 'icons/mob/screen/generic.dmi'
-	icon_state = "x2"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "ghostspawpoint"
 
 	anchored = 1
 	unacidable = 1

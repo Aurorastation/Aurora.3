@@ -535,6 +535,17 @@
 		/obj/item/ore_detector
 		)
 
+/obj/item/storage/belt/mining/full
+	starts_with = list(
+		/obj/item/crowbar = 1,
+		/obj/item/pickaxe = 1,
+		/obj/item/shovel = 1,
+		/obj/item/device/analyzer = 1,
+		/obj/item/stack/flag/red = 1,
+		/obj/item/ore_radar = 1,
+		/obj/item/storage/bag/ore = 1,
+	)
+
 /obj/item/storage/belt/hydro
 	name = "hydrobelt"
 	desc = "A utility belt to store and provide easy access to your floral utilities."

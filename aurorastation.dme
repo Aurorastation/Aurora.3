@@ -452,6 +452,7 @@
 #include "code\datums\outfits\event\outfit_generic\_generic.dm"
 #include "code\datums\outfits\event\outfit_generic\engineering.dm"
 #include "code\datums\outfits\event\outfit_generic\medical.dm"
+#include "code\datums\outfits\event\outfit_generic\science.dm"
 #include "code\datums\outfits\event\outfit_generic\security.dm"
 #include "code\datums\radio\frequency.dm"
 #include "code\datums\radio\signal.dm"

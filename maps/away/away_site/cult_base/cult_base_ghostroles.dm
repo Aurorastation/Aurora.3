@@ -17,9 +17,11 @@
 		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, and spread it to others as well. \
 		You live and breathe for the Dark One, but your death may not be in vain. \
 		<br>\
-		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
+		<br>\
+		(OOC Notes: This is an antagonist role which places typical antagonist expectations on you. \
 		You are expected to try to generate an interesting encounter with whoever has docked to the away site. \
 		You may try to blend in with the visitors, try to trick them, but you are not 'normal', you follow Nar-Sie. \
+		You may click a plasteel wall to push on it, and open a hidden door. \
 		Remember to follow basic escalation rules, and have fun!)\
 		"
 
@@ -27,12 +29,8 @@
 	max_count = 4
 	enabled = FALSE
 
-	//outfit = /datum/outfit/admin/cult_base_cultist
-	outfit = list(
-		/datum/outfit/admin/generic/engineer,
-		/datum/outfit/admin/generic/security,
-		/datum/outfit/admin/generic/medical,
-	)
+	outfit = /datum/outfit/admin/cult_base_cultist
+
 	possible_species = list(
 		SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD,
 		SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN,
@@ -56,12 +54,37 @@
 		(OOC Note: This is an antagonist role.)\
 		"
 
+// ---------------------- corpses
+
+/obj/effect/landmark/corpse/cult_base_cultist
+	name = "Cult Base Cultist Corpse"
+	species = list(SPECIES_HUMAN, SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_UNATHI)
+	outfit = list(
+		/datum/outfit/admin/cult_base_cultist_corpse,
+		/datum/outfit/admin/generic,
+		/datum/outfit/admin/generic/engineer,
+		/datum/outfit/admin/generic/security,
+		/datum/outfit/admin/generic/medical,
+	)
+
+/obj/effect/landmark/corpse/cult_base_cultist/do_extra_customization(var/mob/living/carbon/human/human)
+	// slit throat
+	var/obj/item/organ/external/head = human.get_organ(BP_HEAD)
+	if(head)
+		head.sever_artery()
+	human.take_overall_damage(150, 100)
+
+	// add blood
+	human.w_uniform?.add_blood(human)
+	human.wear_suit?.add_blood(human)
+	human.gloves?.add_blood(human)
+	human.shoes?.add_blood(human)
+
 // ---------------------- outfits
 
 /datum/outfit/admin/cult_base_cultist
 	name = "Cult Base Cultist"
 
-	id = /obj/item/card/id/away_site
 	uniform = list(
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/syndicate/combat,
@@ -111,12 +134,12 @@
 		/obj/item/clothing/shoes/sneakers/hitops/brown,
 	)
 	belt = list(
-		/obj/item/storage/belt/utility/full,
 		/obj/item/storage/belt/fannypack,
-		/obj/item/storage/belt/medical/first_responder,
-		/obj/item/storage/belt/military,
-		/obj/item/storage/belt/mining,
-		/obj/item/storage/belt/security/full,
+		/obj/item/storage/belt/utility/full,
+		/obj/item/storage/belt/medical/first_responder/full,
+		/obj/item/storage/belt/mining/full,
+		/obj/item/storage/belt/security/full/alt,
+		/obj/item/storage/belt/security/full/pistol45,
 		/obj/item/storage/belt/soulstone/full
 	)
 	back = list(
@@ -135,6 +158,7 @@
 		/obj/item/device/flashlight/heavy/on,
 	)
 	l_hand = list(
+		/obj/item/melee/cultblade,
 		/obj/item/melee/cultblade,
 		/obj/item/melee/telebaton,
 		/obj/item/melee/baton/stunrod,
@@ -199,8 +223,46 @@
 	if(prob(75))
 		human.w_uniform?.add_blood(human)
 		human.wear_suit?.add_blood(human)
+		human.l_hand?.add_blood(human)
 		human.gloves?.add_blood(human)
 		human.shoes?.add_blood(human)
 
-/datum/outfit/admin/cult_base_cultist/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+/datum/outfit/admin/cult_base_cultist_corpse
+	name = "Cult Base Cultist Corpse"
+
+	uniform = list(
+		/obj/item/clothing/under/syndicate/tracksuit,
+		/obj/item/clothing/under/syndicate/combat,
+		/obj/item/clothing/under/color/black,
+		/obj/item/clothing/under/color/brown,
+		/obj/item/clothing/under/service_overalls,
+		/obj/item/clothing/under/overalls,
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/offworlder/drab,
+	)
+	suit = list(
+		/obj/item/clothing/suit/cultrobes/alt,
+	)
+	head = list(
+		/obj/item/clothing/head/culthood/alt
+	)
+	gloves = list(
+		/obj/item/clothing/gloves/fingerless,
+		/obj/item/clothing/gloves/brown,
+		/obj/item/clothing/gloves/black,
+		/obj/item/clothing/gloves/black_leather,
+		/obj/item/clothing/gloves/botanic_leather,
+		/obj/item/clothing/gloves/force,
+	)
+	shoes = list(
+		/obj/item/clothing/shoes/cult,
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/shoes/workboots,
+		/obj/item/clothing/shoes/workboots/dark,
+	)
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
+	)
