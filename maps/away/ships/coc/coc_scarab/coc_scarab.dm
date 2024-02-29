@@ -6,7 +6,8 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_scarab"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scarab_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scarab_shuttle, /datum/shuttle/autodock/multi/lift/scarab)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 
@@ -22,9 +23,9 @@
 	moving_state = "freighter_moving"
 	colors = list("#a400c1", "#4d61fc")
 	designer = "Einstein Engines"
-	volume = "57 meters length, 48 meters beam/width, 12 meters vertical height"
+	volume = "56 meters length, 24 meters beam/width, 12 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Starboard fore ballistic armament, dual port flight craft."
+	weapons = "Starboard fore ballistic armament, underside flight craft."
 	sizeclass = "Modified Burrow-class Transport."
 	shiptype = "Salvage, fuel extraction and mineral exploitation."
 	max_speed = 1/(2 SECONDS)
@@ -90,7 +91,7 @@
 	landmark_tag = "scarab_nav7"
 
 /obj/effect/shuttle_landmark/coc_scarab/nav8
-	name = "Scarab Salvage Vessel - Deck One Fore"
+	name = "Scarab Salvage Vessel - Deck One Starboard"
 	landmark_tag = "scarab_nav8"
 
 /obj/effect/shuttle_landmark/coc_scarab/dock1
@@ -120,7 +121,7 @@
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/scarab_shuttle
 	name = "Scarab Shuttle"
-	desc = "An extremely early predecessor to the modern Pickaxe-class, the Mattock-class mining shuttle was a common sight throughout human space some centuries ago, prized for its reliability and simplicity. By the extremely irregular hull composition of this one, this appears to be a real-life Ship of Theseus - it is hard to determine how much of the original ship is even left."
+	desc = "An extremely early predecessor to the modern Pickaxe-class, the Mattock-class mining shuttle was a common sight throughout human space some centuries ago, prized for its reliability and simplicity. By the extremely irregular hull composition of this one, this appears to be a real-life Ship of Theseus - it is hard to determine how much of the original ship is even left. Abnormal internal readings suggest the presence of complex atmospheric systems inside."
 	class = "SFV"
 	designation = "Bazaar"
 	icon_state = "shuttle"
@@ -135,7 +136,7 @@
 	designer = "Einstein Engines"
 	volume = "16 meters length, 13 meters beam/width, 8 meters vertical height"
 	sizeclass = "Mattock-class Mining Shuttle"
-	shiptype = "Mineral exploitation and salvage scarab"
+	shiptype = "Mineral exploitation and salvage shuttle"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
@@ -144,7 +145,8 @@
 /datum/shuttle/autodock/overmap/scarab_shuttle
 	name = "Scarab Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/coc_scarab)
+	shuttle_area = list(/area/shuttle/coc_scarab/central, /area/shuttle/coc_scarab/port, /area/shuttle/coc_scarab/starboard)
+	dock_target = "airlock_scarab_shuttle"
 	current_location = "nav_scarab_start"
 	landmark_transition = "nav_scarab_transit"
 	range = 1
@@ -155,11 +157,37 @@
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_start
 	name = "Scarab Salvage Vessel - Shuttle Dock"
 	landmark_tag = "nav_scarab_start"
+	docking_controller = "scarab_shuttle_dock"
 
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_scarab_transit"
 	base_turf = /turf/space/transit/north
+
+// Lift
+/datum/shuttle/autodock/multi/lift/scarab
+	name = "Scarab Lift"
+	current_location = "nav_scarab_lift_first_deck"
+	shuttle_area = /area/turbolift/coc_scarab/scarab_lift
+	destination_tags = list(
+		"nav_scarab_lift_first_deck",
+		"nav_scarab_lift_second_deck",
+		)
+
+/obj/effect/shuttle_landmark/lift/scarab_first_deck
+	name = "Scarab Salvager Lift - First Deck"
+	landmark_tag = "nav_scarab_lift_first_deck"
+	base_area = /area/ship/coc_scarab/hangar
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/lift/scarab_second_deck
+	name = "Scarab Salvager Lift - Second Deck"
+	landmark_tag = "nav_scarab_lift_second_deck"
+	base_area = /area/ship/coc_scarab/cargobay
+	base_turf = /turf/simulated/open
+
+/obj/machinery/computer/shuttle_control/multi/lift/scarab
+	shuttle_tag = "Scarab Lift"
 
 // CUSTOM STUFF
 // Dimmed yellow lights
@@ -206,32 +234,3 @@
 
 /obj/item/clothing/mask/offworlder/drab
 	color = "#724e6f"
-
-// Lift shenanigans
-/datum/shuttle/autodock/multi/lift/scarab
-	name = "scarab Lift"
-	current_location = "nav_scarab_lift_first_deck"
-	shuttle_area = /area/turbolift/scc_ship/scarab_lift
-	destination_tags = list(
-		"nav_scarab_lift_first_deck",
-		"nav_scarab_lift_second_deck",
-		)
-
-/obj/effect/shuttle_landmark/lift/scarab_first_deck
-	name = "scarab Lift - First Deck"
-	landmark_tag = "nav_scarab_lift_first_deck"
-	base_area = /area/scarab/storage
-	base_turf = /turf/simulated/floor/plating
-
-/obj/effect/shuttle_landmark/lift/scarab_second_deck
-	name = "Scarab Salvager Lift - Second Deck"
-	landmark_tag = "nav_scarab_lift_second_deck"
-	base_area = /area/scarab/office
-	base_turf = /turf/simulated/open
-
-/obj/machinery/computer/shuttle_control/multi/lift/scarab
-	shuttle_tag = "scarab Lift"
-
-/area/turbolift/scc_ship/scarab_lift
-	name = "Scarab Lift"
-	sound_env = TUNNEL_ENCLOSED

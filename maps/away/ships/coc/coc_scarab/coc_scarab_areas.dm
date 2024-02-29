@@ -116,22 +116,34 @@
 /area/ship/coc_scarab/thrust1
 	name = "Scarab Salvage Vessel - Starboard Thruster"
 	icon_state = "blue-red2"
+	ambience = AMBIENCE_ATMOS
 
 /area/ship/coc_scarab/thrust2
 	name = "Scarab Salvage Vessel - Port Thruster"
 	icon_state = "blue2"
+	ambience = AMBIENCE_ATMOS
 
 /area/ship/coc_scarab/exterior
 	name = "Scarab Salvage Vessel - Exterior"
 	requires_power = FALSE
 	icon_state = "exterior"
 
-/area/shuttle/scarab_harvester
-	name = "Scarab Gas Harvester"
-	requires_power = TRUE
-	has_gravity = FALSE
-
+// Shuttle
 /area/shuttle/coc_scarab
 	name = "Scarab Shuttle"
 	requires_power = TRUE
 	has_gravity = FALSE
+
+/area/shuttle/coc_scarab/central
+	name = "Scarab Shuttle Central Compartment"
+
+/area/shuttle/coc_scarab/port
+	name = "Scarab Shuttle Port Nacelle"
+
+/area/shuttle/coc_scarab/starboard
+	name = "Scarab Shuttle Starboard Nacelle"
+
+// Lift
+/area/turbolift/coc_scarab/scarab_lift
+	name = "Scarab Salvager Lift"
+
