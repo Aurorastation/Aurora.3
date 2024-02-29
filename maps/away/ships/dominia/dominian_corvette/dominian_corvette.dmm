@@ -395,13 +395,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
-"aZa" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/vacuum{
-	pixel_x = -32
-	},
-/turf/simulated/floor,
-/area/ship/dominian_corvette/hangar)
 "bam" = (
 /turf/simulated/wall,
 /area/ship/dominian_corvette/propulsion/port)
@@ -2690,6 +2683,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/docking)
+"jKA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/hangar)
 "jLX" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
@@ -5153,6 +5153,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
+"sKi" = (
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
+/turf/template_noop,
+/area/space)
 "sKj" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
@@ -37915,7 +37921,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+sKi
 xRX
 xRX
 xRX
@@ -38648,7 +38654,7 @@ jim
 uYP
 xkK
 ibs
-aZa
+jKA
 qvK
 oXP
 fQd
