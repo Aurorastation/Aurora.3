@@ -27,7 +27,12 @@
 	max_count = 4
 	enabled = FALSE
 
-	outfit = /datum/outfit/admin/cult_base_cultist
+	//outfit = /datum/outfit/admin/cult_base_cultist
+	outfit = list(
+		/datum/outfit/admin/generic/engineer,
+		/datum/outfit/admin/generic/security,
+		/datum/outfit/admin/generic/medical,
+	)
 	possible_species = list(
 		SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD,
 		SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN,
@@ -70,7 +75,7 @@
 	suit = list(
 		/obj/item/clothing/suit/cultrobes/alt,
 		/obj/item/clothing/suit/cultrobes/alt,
-		/obj/item/clothing/suit/space/cult
+		/obj/item/clothing/suit/space/cult,
 		/obj/item/clothing/suit/storage/hooded/wintercoat,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 		/obj/item/clothing/suit/storage/toggle/labcoat,
