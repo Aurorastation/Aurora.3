@@ -68,7 +68,7 @@
 /area/ship/dominian_corvette/armory)
 "aeN" = (
 /obj/machinery/alarm/south{
-	pixel_y = 0
+	req_one_access = list(212)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -103,13 +103,15 @@
 /obj/item/clothing/accessory/flagpatch/dominia,
 /obj/item/device/gps,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/eva)
 "alw" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(212)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -168,7 +170,9 @@
 /obj/structure/table/steel,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/gloves,
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -207,18 +211,24 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "asL" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
+"atj" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4;
+	target_pressure = 250
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
-"atj" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
@@ -252,7 +262,9 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/bridge)
 "aBD" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(212)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -342,14 +354,22 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/franny)
 "aSc" = (
-/obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	id_tag = "ssmd_shuttle_in";
+	dir = 1;
+	frequency = 1441
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	landmark_tag = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -492,7 +512,9 @@
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/recroom)
 "bra" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
@@ -559,7 +581,9 @@
 /obj/item/clothing/accessory/flagpatch/dominia,
 /obj/item/device/gps,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
 /obj/structure/cable,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -574,11 +598,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "byV" = (
-/obj/structure/cable{
-	icon_state = "1-8"
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/cic)
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "bBK" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -599,7 +624,8 @@
 /obj/structure/table/rack,
 /obj/item/storage/box/lights/mixed,
 /obj/machinery/alarm/south{
-	pixel_y = 0
+	pixel_y = 0;
+	req_one_access = list(212)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -755,7 +781,9 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
 "cnH" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(212)
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -830,14 +858,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/quarters)
 "ctK" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/structure/table/steel,
+/obj/machinery/light/colored/blue{
 	dir = 8
 	},
-/obj/machinery/light/colored/blue{
-	dir = 4
+/obj/machinery/alarm/north{
+	req_one_access = list(212)
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/power/apc/high/west{
+	req_access = list(212)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
@@ -922,7 +954,7 @@
 /area/ship/dominian_corvette/head)
 "cUE" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(212)
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -974,21 +1006,28 @@
 /turf/simulated/wall,
 /area/ship/dominian_corvette/propulsion)
 "dhp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1441;
+	id_tag = "ssmd_shuttle_pump"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/external{
-	frequency = 1441;
-	icon_state = "door_locked";
-	id_tag = "ssmd_shuttle_in";
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_dominian_shuttle";
 	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -1078,19 +1117,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "dHA" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/external{
-	frequency = 1441;
-	icon_state = "door_locked";
-	id_tag = "ssmd_shuttle_out";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -1194,7 +1222,9 @@
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
 /obj/item/clothing/ears/earmuffs,
-/obj/machinery/power/apc/high/south,
+/obj/machinery/power/apc/high/south{
+	req_access = list(212)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -1246,7 +1276,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/propulsion)
 "eqq" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -1279,7 +1311,9 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
@@ -1358,7 +1392,8 @@
 /area/ship/dominian_corvette/bridge)
 "eKs" = (
 /obj/machinery/alarm/south{
-	pixel_y = 0
+	pixel_y = 0;
+	req_one_access = list(212)
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -1378,7 +1413,8 @@
 /area/ship/dominian_corvette/engineering/reactor)
 "eMT" = (
 /obj/machinery/alarm/south{
-	pixel_y = 0
+	pixel_y = 0;
+	req_one_access = list(212)
 	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -1451,7 +1487,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/propulsion/port)
 "fek" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -1477,7 +1515,8 @@
 /obj/machinery/button/toggle/door{
 	pixel_x = -4;
 	pixel_y = 2;
-	name = "Midship Shutters"
+	name = "Midship Shutters";
+	id = "dominian_corvette_midship"
 	},
 /obj/machinery/button/toggle/door{
 	pixel_y = 9;
@@ -1650,10 +1689,15 @@
 	pixel_y = -21;
 	pixel_x = 20
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/hangar)
 "fKE" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
 /obj/structure/cable,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1722,6 +1766,9 @@
 /area/ship/dominian_corvette/bridge)
 "fZl" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/sign/flag/dominia{
+	pixel_x = -32
+	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "fZq" = (
@@ -1776,7 +1823,9 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/propulsion/port)
 "grG" = (
-/obj/machinery/power/apc/high/west,
+/obj/machinery/power/apc/high/west{
+	req_access = list(212)
+	},
 /obj/structure/cable,
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 1
@@ -1870,7 +1919,8 @@
 /obj/machinery/alarm/north{
 	dir = 4;
 	pixel_y = 0;
-	pixel_x = 10
+	pixel_x = 10;
+	req_one_access = list(212)
 	},
 /obj/machinery/light_switch{
 	pixel_y = -14;
@@ -1887,8 +1937,8 @@
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/officer)
 "gNT" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
@@ -1931,6 +1981,7 @@
 	master_tag = "airlock_dominian_corvette_dock_starboard";
 	landmark_tag = "airlock_dominian_corvette_dock_starboard"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/docking)
 "hcl" = (
@@ -2035,8 +2086,8 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/light/colored/blue{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
@@ -2205,6 +2256,22 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
+"iaR" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	landmark_tag = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "ibs" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark/dominian_shuttle/hangar,
@@ -2349,7 +2416,7 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/docking)
 "iCK" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -2579,17 +2646,31 @@
 /area/ship/dominian_corvette/officer)
 "jim" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/door/airlock/external{
+	frequency = 1441;
+	icon_state = "door_locked";
+	id_tag = "ssmd_shuttle_out";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_dominian_shuttle";
 	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "jpw" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(212)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2629,7 +2710,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/docking/port)
 "jxG" = (
 /obj/effect/floor_decal/corner{
@@ -2655,6 +2736,22 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
+"jHf" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	landmark_tag = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "jHZ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2929,7 +3026,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cic)
 "kzm" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(212)
+	},
 /obj/effect/floor_decal/corner{
 	dir = 5
 	},
@@ -2996,24 +3095,14 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
 "kGF" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1441;
-	id_tag = "ssmd_shuttle_sensor";
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1441;
-	id_tag = "ssmd_shuttle_pump"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_dominian_shuttle";
 	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -3032,11 +3121,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "kII" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/hangar)
+/area/shuttle/dominian_shuttle)
 "kJL" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3056,10 +3145,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/recroom)
 "kLY" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "kOL" = (
@@ -3494,7 +3583,7 @@
 /obj/effect/shuttle_landmark/dominian_corvette/dock/port{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/simulated/floor,
 /area/ship/dominian_corvette/docking/port)
 "mEE" = (
 /obj/structure/cable{
@@ -3541,13 +3630,36 @@
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/officer)
 "mJZ" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/external{
+	frequency = 1441;
+	icon_state = "door_locked";
+	id_tag = "ssmd_shuttle_out";
+	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
 	},
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	landmark_tag = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	name = "exterior access button";
+	pixel_x = -26;
+	pixel_y = -5
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1441;
+	pixel_x = -27
+	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "mLa" = (
@@ -3622,10 +3734,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/armory)
+"mVH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "mZy" = (
-/obj/machinery/power/smes,
-/obj/structure/cable/green,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/terminal{
+	dir = 1;
+	icon_state = "term"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "nbQ" = (
 /obj/machinery/light{
@@ -3654,18 +3786,17 @@
 	density = 0;
 	pixel_y = -10
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/effect/floor_decal/spline/plain/white,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 "ndQ" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "niu" = (
 /turf/simulated/wall,
@@ -3779,7 +3910,9 @@
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/recroom)
 "nwx" = (
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(212)
+	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -3845,7 +3978,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering/atmos)
 "nMr" = (
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = list(212)
+	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -3973,13 +4108,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "oAQ" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "oBB" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply{
@@ -4056,7 +4186,9 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "oNi" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(212)
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -4163,17 +4295,8 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette)
 "paP" = (
-/obj/structure/table/steel,
-/obj/machinery/light/colored/blue{
-	dir = 8
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/obj/machinery/power/apc/west,
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "pcl" = (
@@ -4268,7 +4391,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
 "pCa" = (
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = list(212)
+	},
 /obj/structure/railing/mapped,
 /obj/structure/sign/flag/caladius{
 	pixel_x = 32
@@ -4352,6 +4477,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/docking/port)
 "pLQ" = (
@@ -4455,21 +4581,24 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
 "qbw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+/obj/machinery/airlock_sensor{
+	frequency = 1441;
+	pixel_x = -32
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1441;
+	id_tag = "ssmd_shuttle_pump"
+	},
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/external{
-	frequency = 1441;
-	icon_state = "door_locked";
-	id_tag = "ssmd_shuttle_in";
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_dominian_shuttle";
 	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -4580,7 +4709,9 @@
 /obj/structure/sink{
 	pixel_y = 21
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/structure/mirror{
 	pixel_y = 32
 	},
@@ -4606,6 +4737,7 @@
 	dir = 8;
 	pixel_y = 5
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/docking)
 "qHm" = (
@@ -4613,7 +4745,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(212)
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -4680,7 +4812,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
 /obj/structure/cable,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -4716,7 +4850,7 @@
 	landmark_tag = "airlock_dominian_corvette_dock_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/docking)
 "qTV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4818,6 +4952,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/hangar)
+"rhE" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "rkP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4847,7 +4992,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering/atmos)
 "rqE" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
 /obj/structure/cable,
 /obj/machinery/light/small{
 	dir = 8
@@ -4869,7 +5016,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/head)
 "rsA" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(212)
+	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -4909,10 +5058,8 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/franny)
 "rxI" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
@@ -4947,7 +5094,9 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering/atmos)
 "rLG" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(212)
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -5032,7 +5181,7 @@
 	master_tag = "airlock_dominian_corvette_dock_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/template_noop,
+/turf/simulated/floor,
 /area/ship/dominian_corvette/docking/port)
 "sdV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5051,7 +5200,9 @@
 /turf/template_noop,
 /area/ship/dominian_corvette/exterior)
 "shi" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -5108,7 +5259,9 @@
 	pixel_y = 10
 	},
 /obj/item/hoist_kit,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(212)
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -5140,7 +5293,9 @@
 	},
 /obj/item/hoist_kit,
 /obj/machinery/light/small/emergency,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(212)
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -5154,11 +5309,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "sKi" = (
-/obj/structure/sign/vacuum{
-	pixel_x = -32
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
 	},
-/turf/template_noop,
-/area/space)
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "sKj" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
@@ -5243,6 +5399,7 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/docking/port)
 "trX" = (
@@ -5291,6 +5448,7 @@
 	landmark_tag = "airlock_dominian_corvette_dock_port";
 	master_tag = "airlock_dominian_corvette_dock_port"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/docking/port)
 "txu" = (
@@ -5305,7 +5463,9 @@
 	dir = 4;
 	id = "dominian_corvette_temple"
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(212)
+	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
@@ -5443,7 +5603,9 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/hangar)
 "ueS" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(212)
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -5451,17 +5613,15 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/propulsion/port)
 "ugF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/turf/simulated/wall{
+	req_one_access = list(212)
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
+/area/ship/dominian_corvette/bridge)
 "umF" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/machinery/power/apc/high/south,
+/obj/machinery/power/apc/high/south{
+	req_access = list(212)
+	},
 /obj/structure/cable,
 /obj/machinery/light{
 	dir = 8;
@@ -5518,7 +5678,8 @@
 	is_critical = 1;
 	pixel_y = 0;
 	dir = 4;
-	pixel_x = 15
+	pixel_x = 15;
+	req_access = list(212)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -5582,7 +5743,7 @@
 	pixel_y = -19;
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/docking/port)
 "uNg" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -5686,24 +5847,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/eva)
 "uYP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/external{
-	frequency = 1441;
-	icon_state = "door_locked";
-	id_tag = "ssmd_shuttle_out";
-	dir = 1
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "aft"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
-	},
-/turf/simulated/floor,
+/turf/template_noop,
 /area/shuttle/dominian_shuttle)
 "vaL" = (
 /obj/machinery/door/airlock/engineering{
@@ -5748,18 +5892,38 @@
 /turf/template_noop,
 /area/ship/dominian_corvette/exterior)
 "vwF" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	name = "exterior access button"
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/dominian_shuttle)
-"vwK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/external{
+	frequency = 1441;
+	icon_state = "door_locked";
+	id_tag = "ssmd_shuttle_in";
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	landmark_tag = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	name = "interior access button";
+	pixel_x = 32;
+	pixel_y = 9;
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
+"vwK" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
 "vyg" = (
 /obj/machinery/computer/ship/targeting,
 /obj/machinery/light{
@@ -5934,14 +6098,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette)
 "wxN" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	name = "interior access button"
-	},
 /obj/structure/cable{
-	icon_state = "1-2"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "wzs" = (
 /obj/structure/closet/walllocker{
@@ -5949,7 +6114,9 @@
 	},
 /obj/item/storage/box/mousetraps,
 /obj/item/storage/box/mousetraps,
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(212)
+	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -6045,15 +6212,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/engineering/atmos)
 "wQu" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "wQA" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -6152,23 +6312,8 @@
 	},
 /area/ship/dominian_corvette/docking)
 "xkK" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1441;
-	id_tag = "ssmd_shuttle_pump"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
-	},
 /turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
+/area/space)
 "xmH" = (
 /turf/simulated/wall,
 /area/ship/dominian_corvette/recroom)
@@ -6232,28 +6377,17 @@
 /turf/simulated/wall,
 /area/ship/dominian_corvette/infirmary)
 "xGB" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1441;
-	id_tag = "ssmd_shuttle_airlock";
-	pixel_x = 32;
-	tag_airpump = "ssmd_shuttle_pump";
-	tag_chamber_sensor = "ssmd_shuttle_sensor";
-	tag_exterior_door = "ssmd_shuttle_out";
-	tag_interior_door = "ssmd_shuttle_in"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1441;
-	id_tag = "ssmd_shuttle_pump"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_dominian_shuttle";
 	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -6366,7 +6500,9 @@
 /area/ship/dominian_corvette/recroom)
 "xXX" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/hangar)
@@ -6410,25 +6546,11 @@
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "yjk" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1441;
-	id_tag = "ssmd_shuttle_sensor";
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1441;
-	id_tag = "ssmd_shuttle_pump"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	landmark_tag = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle"
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
+/area/space)
 "ylE" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/sign/flag/zhao{
@@ -37362,10 +37484,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+cMo
+cMo
+cMo
+cMo
 xRX
 xRX
 xRX
@@ -37613,17 +37735,17 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+cMo
+iCK
+eze
+iCK
+iCK
 cMo
 cMo
-cMo
-cMo
+qZm
+eBK
+buA
+xRX
 xRX
 xRX
 elw
@@ -37867,20 +37989,20 @@ xRX
 xRX
 xRX
 xRX
-xRX
 fpW
 cMo
 cMo
 cMo
-iCK
-eze
-iCK
-iCK
-cMo
-cMo
-qZm
-eBK
+sKi
+auV
+xPN
+fZl
+tYz
+dMj
+flP
+iNt
 buA
+xRX
 xRX
 xRX
 hcm
@@ -37921,7 +38043,7 @@ xRX
 xRX
 xRX
 xRX
-sKi
+xRX
 xRX
 xRX
 xRX
@@ -38124,20 +38246,20 @@ xRX
 xRX
 xRX
 xRX
-xRX
 iCK
 iCK
+ctK
 paP
 mZy
-aSc
-auV
-xPN
-fZl
-tYz
-dMj
-flP
-iNt
-buA
+hiw
+rhE
+byV
+yhK
+cMo
+qZm
+qZm
+jHf
+xRX
 xRX
 xRX
 ucC
@@ -38381,20 +38503,20 @@ xRX
 xRX
 xRX
 xRX
-xRX
 mqx
 cFv
 sFI
 aMY
+wxN
 rxI
-hiw
-mJZ
-ndQ
-yhK
+asL
+aMY
+flC
 cMo
 cMo
 cMo
-vwF
+kII
+xRX
 ucC
 ucC
 ucC
@@ -38638,19 +38760,19 @@ xRX
 xRX
 xRX
 xRX
-xRX
 lGZ
 orm
 fZq
 aow
-asL
+atj
 lug
-oAQ
 elq
+oAQ
 wDu
+aSc
 qbw
 kGF
-jim
+mJZ
 uYP
 xkK
 ibs
@@ -38895,16 +39017,16 @@ xRX
 xRX
 xRX
 xRX
-xRX
 mqx
 uCS
 rLK
 nva
-ugF
+mVH
 gNT
-atj
-aMY
-flC
+gNT
+gNT
+noq
+vwF
 dhp
 xGB
 jim
@@ -39152,23 +39274,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
 iCK
 iCK
 qIu
 kIy
+aMY
 wQu
-ctK
-hlT
-hlT
-noq
-wxN
-vwK
-vwK
-vwK
+aMY
+aMY
+flC
+cMo
+cMo
+cMo
 kII
-kII
-byV
+vwK
+ucC
+ucC
+diE
 pvH
 pvH
 gHC
@@ -39409,20 +39531,20 @@ xRX
 xRX
 xRX
 xRX
-xRX
 vGn
 cMo
 cMo
 cMo
-iCK
-fNZ
-iCK
-iCK
-tuF
-dMj
-flP
-aCd
-buA
+ndQ
+hlT
+ndQ
+ndQ
+flC
+cMo
+qZm
+qZm
+iaR
+xRX
 xRX
 xRX
 diE
@@ -39669,17 +39791,17 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+cMo
 iCK
-cMo
-cMo
-qZm
-inf
+fNZ
+iCK
+iCK
+tuF
+dMj
+flP
+aCd
 buA
+xRX
 xRX
 xRX
 diE
@@ -39706,7 +39828,7 @@ kAt
 vqn
 szY
 hcl
-kni
+ugF
 aSN
 oZv
 aWi
@@ -39930,13 +40052,13 @@ xRX
 xRX
 xRX
 xRX
+iCK
+cMo
+cMo
+qZm
+inf
+buA
 xRX
-xRX
-xRX
-cMo
-cMo
-cMo
-cMo
 xRX
 xRX
 lhK
@@ -40189,10 +40311,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+cMo
+cMo
+cMo
+cMo
 xRX
 xRX
 xRX
