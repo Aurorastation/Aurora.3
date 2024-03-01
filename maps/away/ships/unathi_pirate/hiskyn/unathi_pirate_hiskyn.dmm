@@ -2920,6 +2920,8 @@
 	req_access = list(210)
 	},
 /obj/random/dirt_75,
+/obj/structure/table/reinforced/steel,
+/obj/random/tool,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "fmj" = (
@@ -3485,6 +3487,7 @@
 /area/hiskyn_ship/thrusts)
 "hHw" = (
 /obj/random/dirt_75,
+/obj/item/trash/meatsnack,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "hIu" = (
@@ -3716,6 +3719,24 @@
 "jfm" = (
 /turf/simulated/floor/carpet/brown,
 /area/hiskyn_ship/captain)
+"jkb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hiskyn_ship/hallc)
 "jkH" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -4186,6 +4207,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/blaster)
+"lUu" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/hallc)
 "lXF" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5514,6 +5544,15 @@
 "tQs" = (
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
+"tUH" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/hallc)
 "tVN" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -5673,9 +5712,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/hiskyn/dock/fore_port{
-	dir = 8
-	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hiskyn_aft_port";
 	master_tag = "airlock_hiskyn_dock4";
@@ -5686,6 +5722,9 @@
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
+	},
+/obj/effect/shuttle_landmark/hiskyn/dock/aft_port{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
@@ -5903,6 +5942,7 @@
 	req_one_access = list(210)
 	},
 /obj/random/dirt_75,
+/obj/item/trash/meatsnack,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
 "wBg" = (
@@ -38180,7 +38220,7 @@ aCg
 aCg
 aCg
 aCg
-aCg
+lUu
 oUs
 aCg
 aCg
@@ -38191,7 +38231,7 @@ tHh
 qvt
 gRC
 aCg
-aCg
+lUu
 aCg
 aCg
 oUs
@@ -38437,7 +38477,7 @@ aah
 abu
 abu
 abu
-abu
+jkb
 aba
 abu
 abu
@@ -38448,7 +38488,7 @@ abb
 abu
 abu
 abu
-abu
+jkb
 abg
 abh
 aba
@@ -38694,7 +38734,7 @@ cDq
 jUH
 dXJ
 eqD
-nSn
+tUH
 gXv
 nSn
 nSn
@@ -38705,7 +38745,7 @@ tVN
 nSn
 aqD
 nSn
-nSn
+tUH
 wkn
 cVa
 aay
