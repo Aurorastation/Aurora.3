@@ -178,8 +178,8 @@
 /datum/ghostspawner/human/konyang_clinic
 	short_name = "konyang_clinic"
 	name = "Konyang Robotics Company Doctor"
-	desc = "Man the KRC clinic. Offer repairs and assistance to any IPC that requires it. Call an actual doctor when the shell turns out to be a human"
-	max_count = 2
+	desc = "Man the KRC clinic. Offer repairs and assistance to any IPC that requires it. Call an actual doctor when the shell turns out to be a human."
+	max_count = 1
 	tags = list("External")
 	spawnpoints = list("konyang_clinic")
 	outfit = /datum/outfit/admin/konyang_clinic
@@ -200,30 +200,38 @@
 /datum/outfit/admin/konyang_clinic/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
 
-/datum/ghostspawner/human/konyang_pharm
-	short_name = "konyang_pharm"
-	name = "Point Verdant Pharmacist"
-	desc = "Sell medicine out of the pharmacy. Forget to check for prescriptions. Negotiate with Zeng-Hu for your latest batch of supplies."
+// Physician
+/datum/ghostspawner/human/konyang_phys
+	short_name = "konyang_phys"
+	name = "Point Verdant Physician"
+	desc = "Be the Point Verdant Clinic's sole physician. Give people medical treatment, and perform surgery if needed. Sell medicine out of the pharmacy. Manage the clinic and the pharmacy.\nNOTE: Do not play this role unless you have a good grasp of medical and surgery."
+	welcome_message = "<span style=\"font-size: 16px\"><span class='danger'>NOTE: Do not play this role unless you have a good grasp of medical and surgery.</span></span>\nYou are a <b>physician</b> on <b>Point Verdant</b> on <b>Konyang</b>.\nYour job is to give people medical treatment, and perform surgery if needed. You can also sell medicine out of the pharmacy.\nCurrently, you are located in your office. Next door is a break room. Downstairs is the lobby, toilet, and operating room. In the basement is your medical supplies, morgue, and crematory. You can also find cleaning supplies where the medical supplies are.\nYou have access to the pharmacy, but <b>don't take anything from the store</b>, as it is for selling.\n<b>Have fun!</b>" // The spans are intentional. Using the macros returns a "constant expression" error when compiling.
 	max_count = 1
 	tags = list("External")
-	spawnpoints = list("konyang_pharm")
-	outfit = /datum/outfit/admin/konyang_pharm
+	spawnpoints = list("konyang_phys")
+	outfit = /datum/outfit/admin/konyang_phys
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Pharmacist"
-	special_role = "Pharmacist"
+	assigned_role = "Physician"
+	special_role = "Physician"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_pharm
-	name = "Konyang Pharmacist"
-	uniform = /obj/item/clothing/under/color/white
-	shoes = /obj/item/clothing/shoes/sneakers/medsci
-	back = /obj/item/storage/backpack/satchel/pharm
-	l_pocket = /obj/item/storage/wallet/random
+/datum/outfit/admin/konyang_phys
+	name = "Konyang Physician"
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	uniform = /obj/item/clothing/under/suit_jacket
+	shoes = /obj/item/clothing/shoes/laceup
+	back = /obj/item/storage/backpack/satchel/med
+	r_pocket = /obj/item/storage/wallet/random
 	id = /obj/item/card/id
 
-/datum/outfit/admin/konyang_pharm/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	backpack_contents = list(
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/reagent_containers/hypospray = 1
+	)
+
+/datum/outfit/admin/konyang_phys/get_id_access()
+	return list(ACCESS_KONYANG_CLINIC, ACCESS_KONYANG_PHARMACY)
 
 /datum/ghostspawner/human/konyang_bar
 	short_name = "konyang_bar"
