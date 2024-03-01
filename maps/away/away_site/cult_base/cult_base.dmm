@@ -7676,36 +7676,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
-"bFK" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/cult_base/dock/west_2,
-/turf/simulated/floor/plating,
-/area/cult_base/docks_west)
-"bIp" = (
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = 2;
-	pixel_y = 0
-	},
-/turf/simulated/floor/cult,
-/area/space)
-"bTM" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/shuttle_landmark/cult_base/dock/south_2,
-/turf/simulated/floor/plating,
-/area/cult_base/docks_south)
 "bXL" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
-"bYu" = (
-/obj/machinery/alarm/west{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "cij" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -7718,17 +7693,14 @@
 /obj/effect/shuttle_landmark/cult_base/space/south_far,
 /turf/template_noop,
 /area/space)
+"ejh" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark/cult_base/dock/south_1,
+/turf/simulated/floor/plating,
+/area/cult_base/docks_south)
 "emp" = (
 /obj/effect/shuttle_landmark/cult_base/space/south_west_far,
 /turf/template_noop,
-/area/space)
-"enx" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/plating,
 /area/space)
 "euR" = (
 /obj/machinery/light/colored/dying{
@@ -7761,6 +7733,11 @@
 	},
 /turf/simulated/floor/cult,
 /area/space)
+"fSk" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/plating,
+/area/space)
 "gET" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 11;
@@ -7780,21 +7757,7 @@
 /obj/effect/shuttle_landmark/cult_base/space/south_close,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
-"htI" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/plating,
-/area/space)
-"jqN" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/cult_base/dock/west_3,
-/turf/simulated/floor/plating,
-/area/cult_base/docks_west)
-"jvw" = (
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jvO" = (
+"hkd" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
@@ -7804,17 +7767,38 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"jvw" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "jBg" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/cult,
 /area/space)
-"lwy" = (
-/obj/random/dirt_75,
-/obj/machinery/alarm/west{
+"lai" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/space)
+"lhI" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/alarm/east{
 	req_one_access = null
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/tiled/dark,
 /area/space)
+"mhz" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/cult_base/dock/west_1,
+/turf/simulated/floor/plating,
+/area/cult_base/docks_west)
 "mnT" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip{
@@ -7851,12 +7835,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
+"odd" = (
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ogB" = (
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
+"pAq" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/cult_base/dock/south_2,
+/turf/simulated/floor/plating,
+/area/cult_base/docks_south)
+"pJF" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark/cult_base/dock/west_2,
+/turf/simulated/floor/plating,
+/area/cult_base/docks_west)
 "pYT" = (
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/plating,
@@ -7866,12 +7868,6 @@
 /obj/random/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
-"qRL" = (
-/obj/machinery/alarm/west{
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
 /area/space)
 "qYC" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -7890,13 +7886,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
-"rpD" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+"rjO" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/alarm/east{
+	req_one_access = null
 	},
-/obj/effect/shuttle_landmark/cult_base/dock/west_1,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
-/area/cult_base/docks_west)
+/area/space)
 "rww" = (
 /obj/item/material/knife/trench/bloody{
 	pixel_x = 17;
@@ -7922,16 +7919,19 @@
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/hallways_east)
-"slI" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/closet/crate,
+"skG" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/cult,
+/area/space)
+"sEq" = (
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/space)
-"sWc" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/cult_base/dock/south_1,
-/turf/simulated/floor/plating,
-/area/cult_base/docks_south)
 "sWV" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -7993,18 +7993,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"vwl" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+"vHe" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark/cult_base/dock/west_3,
+/turf/simulated/floor/plating,
+/area/cult_base/docks_west)
 "vRw" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -12;
@@ -8016,6 +8009,13 @@
 /obj/effect/landmark/corpse/cult_base_cultist,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/cult,
+/area/space)
+"wEh" = (
+/obj/random/dirt_75,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "xmz" = (
 /obj/random/dirt_75,
@@ -31041,7 +31041,7 @@ aZi
 akI
 aab
 aRU
-rpD
+mhz
 aab
 akI
 aZi
@@ -35149,7 +35149,7 @@ aZi
 aZi
 aZi
 aZi
-bFK
+pJF
 amv
 azp
 aun
@@ -37213,7 +37213,7 @@ aHg
 aam
 aan
 aap
-jqN
+vHe
 aZi
 aZi
 aZi
@@ -46968,7 +46968,7 @@ aAg
 afm
 aQI
 aAz
-lwy
+wEh
 agG
 aIA
 aIA
@@ -48036,7 +48036,7 @@ aYU
 avT
 acy
 aYr
-sWc
+ejh
 aZi
 aZi
 aZi
@@ -49781,7 +49781,7 @@ awx
 awx
 aDT
 aoq
-htI
+fSk
 awx
 awx
 awx
@@ -50033,13 +50033,13 @@ awx
 awx
 aND
 awU
-bYu
+odd
 ahJ
 awu
 pYT
 aIy
 aIy
-slI
+lai
 ahJ
 adh
 aad
@@ -50292,7 +50292,7 @@ aND
 aND
 aND
 ahJ
-enx
+rjO
 aIy
 aIy
 aIy
@@ -50814,7 +50814,7 @@ xHt
 aIy
 evo
 afX
-jvO
+hkd
 ahJ
 auV
 adp
@@ -52102,7 +52102,7 @@ aej
 aMg
 ahJ
 aIy
-qRL
+sEq
 aIy
 adq
 auS
@@ -52353,7 +52353,7 @@ aND
 aIy
 aIy
 aIm
-bIp
+skG
 aIm
 vSK
 aIm
@@ -52860,7 +52860,7 @@ awx
 awx
 akp
 aSu
-vwl
+lhI
 ahJ
 anG
 aND
@@ -52915,7 +52915,7 @@ aZi
 aZi
 akI
 aRy
-bTM
+pAq
 avw
 aRy
 akI
