@@ -68,6 +68,9 @@
 	)
 
 /obj/effect/landmark/corpse/cult_base_cultist/do_extra_customization(var/mob/living/carbon/human/human)
+	// turn to random dir
+	human.dir = pick(NORTH, SOUTH, EAST, WEST)
+
 	// slit throat
 	var/obj/item/organ/external/head = human.get_organ(BP_HEAD)
 	if(head)

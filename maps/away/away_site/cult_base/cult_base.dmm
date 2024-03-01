@@ -7643,6 +7643,19 @@
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
+"euR" = (
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
+"evo" = (
+/obj/item/material/knife/ritual/bloody{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "eQN" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -12;
@@ -7661,12 +7674,6 @@
 	},
 /turf/simulated/floor/cult,
 /area/space)
-"fRC" = (
-/obj/machinery/light/colored/dying{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
 "gET" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 11;
@@ -7719,6 +7726,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/crew_quarters)
+"ocg" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
 "ogB" = (
 /obj/machinery/power/apc/north{
 	req_access = null
@@ -7730,11 +7743,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "qut" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_north)
+/obj/random/dirt_75,
+/obj/random/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "qYC" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 5;
@@ -7812,12 +7825,6 @@
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
-"uwx" = (
-/obj/random/dirt_75,
-/obj/random/loot,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
-/area/space)
 "uxc" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -7854,13 +7861,6 @@
 /obj/effect/landmark/corpse/cult_base_cultist,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
-"xnv" = (
-/obj/item/material/knife/ritual/bloody{
-	pixel_x = 8;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "xHt" = (
 /obj/machinery/light/colored/dying{
@@ -46274,7 +46274,7 @@ aLT
 aMT
 aMT
 avv
-qut
+ocg
 aMT
 aVU
 aMq
@@ -50650,7 +50650,7 @@ aND
 aND
 xHt
 aIy
-xnv
+evo
 afX
 aMg
 ahJ
@@ -54513,7 +54513,7 @@ aIA
 aIA
 aIA
 aIA
-uwx
+qut
 aHS
 aIA
 aIZ
@@ -54522,7 +54522,7 @@ aic
 aNS
 aUJ
 aKN
-fRC
+euR
 adi
 aKN
 avs
