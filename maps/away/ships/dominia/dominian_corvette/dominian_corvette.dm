@@ -211,7 +211,7 @@
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
-	vessel_size = SHIP_SIZE_TINY
+	vessel_size = SHIP_SIZE_SMALL
 
 /obj/machinery/computer/shuttle_control/explore/dominian_shuttle
 	name = "shuttle control console"
@@ -235,7 +235,7 @@
 	landmark_tag = "nav_hangar_dominia"
 	docking_controller = "dominian_shuttle_dock"
 	base_area = /area/ship/dominian_corvette
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/dominian_shuttle/transit
