@@ -13614,6 +13614,11 @@
 	},
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/under/sl_suit,
+/obj/item/clothing/accessory/tie/darkgreen,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/under/sundress,
+/obj/item/clothing/shoes/flats,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Od" = (
@@ -15811,6 +15816,7 @@
 	pixel_x = 5;
 	pixel_y = -14
 	},
+/obj/item/storage/box/autoinjectors,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "Ur" = (
