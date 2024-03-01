@@ -307,12 +307,32 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"bt" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/aft)
 "bu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/access_button{
-	pixel_x = -28
+	pixel_x = -28;
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -560,7 +580,8 @@
 /obj/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
-	pixel_y = -28
+	pixel_y = -28;
+	req_access = list(222)
 	},
 /obj/effect/shuttle_landmark/xanu_frigate/fore_starboard{
 	dir = 4
@@ -980,6 +1001,9 @@
 	pixel_y = -24;
 	name = "Ammo Storage Turret Control";
 	control_area = "Xanu Frigate - Longbow Ammunition Storage"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
@@ -1613,7 +1637,6 @@
 /area/ship/xanu_frigate/brig)
 "fI" = (
 /obj/machinery/power/portgen/basic,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/graphite/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2336,7 +2359,8 @@
 	dir = 5
 	},
 /obj/machinery/button/distress{
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
@@ -3045,7 +3069,8 @@
 /obj/machinery/access_button{
 	dir = 8;
 	pixel_x = 22;
-	pixel_y = 28
+	pixel_y = 28;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker/airlock{
 	name = "xanufrigate_eng_airlock";
@@ -3456,7 +3481,8 @@
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12
+	pixel_y = 12;
+	req_access = list(222)
 	},
 /obj/effect/shuttle_landmark/xanu_frigate/aft,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -4310,6 +4336,9 @@
 	pixel_y = -21;
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "pd" = (
@@ -4325,7 +4354,7 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
 	},
-/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/mess_hall)
 "pi" = (
@@ -5699,7 +5728,8 @@
 /area/shuttle/xanu_boarder/cockpit)
 "uk" = (
 /obj/machinery/access_button{
-	pixel_x = 28
+	pixel_x = 28;
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
@@ -5906,7 +5936,8 @@
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12
+	pixel_y = 12;
+	req_access = list(222)
 	},
 /obj/effect/shuttle_landmark/xanu_frigate/mid_starboard,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5987,6 +6018,7 @@
 	name = "Airlock Tank Port"
 	},
 /obj/effect/floor_decal/industrial/outline,
+/obj/machinery/door/window/northleft,
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "uV" = (
@@ -6079,7 +6111,8 @@
 /obj/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
-	pixel_y = 28
+	pixel_y = 28;
+	req_access = list(222)
 	},
 /obj/effect/shuttle_landmark/xanu_frigate/fore_port{
 	dir = 8
@@ -6172,6 +6205,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft_port)
+"vJ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/aft)
 "vK" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
@@ -6370,14 +6422,17 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -5
+	pixel_y = -5;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "xanu_fighter";
-	name = "xanu_fighter"
+	name = "xanu_fighter";
+	shuttle_tag = "Xanu Fighter"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_fighter)
 "wG" = (
@@ -8674,6 +8729,10 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/brigdoor/eastleft{
+	req_access = list(222);
+	name = "Fuel Access"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "EA" = (
@@ -9199,9 +9258,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/closet/firecloset,
-/obj/item/grenade/chem_grenade/metalfoam,
-/obj/item/grenade/chem_grenade/metalfoam,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "Gq" = (
@@ -9573,7 +9629,8 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = 28
+	pixel_y = 28;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "xanufrigate_fore_stbd";
@@ -9697,6 +9754,10 @@
 	name = "Airlock Tank Port"
 	},
 /obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/door/window/northright,
+/obj/structure/window{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "HW" = (
@@ -9892,7 +9953,8 @@
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
-	pixel_y = -21
+	pixel_y = -21;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "xanufrigate_fore_port";
@@ -10147,7 +10209,8 @@
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12
+	pixel_y = 12;
+	req_access = list(222)
 	},
 /obj/effect/shuttle_landmark/xanu_frigate/mid_starboard,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -10287,7 +10350,8 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "xanu_fighter";
-	name = "xanu_fighter"
+	name = "xanu_fighter";
+	shuttle_tag = "Xanu Fighter"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -10764,7 +10828,6 @@
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
 "Lo" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10775,6 +10838,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "Lp" = (
@@ -11875,6 +11940,11 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/brigdoor/eastright{
+	layer = 3.21;
+	req_access = list(222);
+	name = "Fuel Access"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/aft)
 "Pj" = (
@@ -11948,7 +12018,8 @@
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12
+	pixel_y = 12;
+	req_access = list(222)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -12069,6 +12140,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/crowbar/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/longbow)
 "Qb" = (
@@ -12147,7 +12219,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "xanu_fighter";
-	name = "xanu_fighter"
+	name = "xanu_fighter";
+	shuttle_tag = "Xanu Fighter"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/reinforced,
@@ -12195,7 +12268,8 @@
 /obj/machinery/access_button{
 	dir = 8;
 	pixel_x = 22;
-	pixel_y = 28
+	pixel_y = 28;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "xanufrigate_fore_bow";
@@ -12339,6 +12413,19 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/ship/xanu_frigate/corridor/fore)
+"QX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/ship/xanu_frigate/corridor/aft)
 "QY" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -12790,6 +12877,9 @@
 /obj/machinery/power/portgen/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/graphite/full,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/longbow)
 "Sv" = (
@@ -12819,7 +12909,8 @@
 	id = "xanufrigate_dockinglock"
 	},
 /obj/machinery/access_button{
-	pixel_x = 28
+	pixel_x = 28;
+	req_access = list(222)
 	},
 /obj/effect/shuttle_landmark/xanu_frigate/fore_bow{
 	dir = 1
@@ -12892,7 +12983,8 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/access_button{
-	pixel_x = 28
+	pixel_x = 28;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker/airlock{
 	name = "xanufrigate_eng_airlock";
@@ -12920,7 +13012,8 @@
 /obj/machinery/access_button{
 	dir = 8;
 	pixel_x = 22;
-	pixel_y = -28
+	pixel_y = -28;
+	req_access = list(222)
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
@@ -13013,9 +13106,6 @@
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/xanu_frigate/corridor/central)
@@ -13917,14 +14007,17 @@
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12
+	pixel_y = 12;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "xanu_fighter";
-	name = "xanu_fighter"
+	name = "xanu_fighter";
+	shuttle_tag = "Xanu Fighter"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_fighter)
 "Wf" = (
@@ -14121,6 +14214,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
+"WN" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/starboard)
 "WR" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -14465,7 +14565,8 @@
 /area/ship/xanu_frigate/weapon/grauwolf)
 "XZ" = (
 /obj/machinery/access_button{
-	pixel_x = 28
+	pixel_x = 28;
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -14917,7 +15018,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_x = -20
+	pixel_x = -20;
+	req_access = list(222)
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -15011,6 +15113,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
@@ -32332,7 +32437,7 @@ Nv
 ZM
 Vg
 ED
-XQ
+WN
 IR
 Te
 Zv
@@ -34149,8 +34254,8 @@ xY
 Ft
 VZ
 xY
-Kq
-JP
+bt
+QX
 gl
 gl
 Bb
@@ -34351,7 +34456,7 @@ lv
 Gg
 uK
 xY
-Kq
+vJ
 pc
 gl
 qe
