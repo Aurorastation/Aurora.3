@@ -1,31 +1,36 @@
 /datum/map_template/ruin/away_site/cult_base
-	name = "Cult Ship"
-	description = "Cult Ship."
+	name = "Cult Base"
+	description = "Cult Base."
 	id = "cult_base"
 	suffixes = list("away_site/cult_base/cult_base.dmm")
 	spawn_cost = 1
-	spawn_weight = 0.5
+	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: REMOVE THIS
 
 /singleton/submap_archetype/cult_base//Arbitrary duplicates of the above name/desc
-	map = "Cult Ship"
-	descriptor = "Cult Ship."
+	map = "Cult Base"
+	descriptor = "Cult Base."
 
 /obj/effect/overmap/visitable/sector/cult_base
-	name = "Cult Ship"
-	desc = "Industrial propellant depot of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
-	icon_state = "outpost"
+	name = "Cult Base"
+	desc = "\
+		Scans reveal a small station built into a asteroid, registered in the official and public databases as an independent research outpost. \
+		It appears to be pressurized, powered, and with a functioning transponder. There is a hangar for a small shuttle. \
+		Database query reveals that it was active and has seen traffic up until a few days ago, and no communications in or out since then. \
+		Caution is advised.\
+		"
 	static_vessel = TRUE
 	generic_object = FALSE
-	icon = 'icons/obj/overmap/overmap_stationary.dmi'
-	icon_state = "outpost2"
-	color = "#bbb186"
+	icon = 'icons/obj/overmap/overmap_ships.dmi'
+	icon_state = "asteroid_cluster"
+	color = "#aa673b"
+
 	designer = "Unknown"
-	volume = "92 meters length, 99 meters beam/width, 27 meters vertical height"
+	volume = "90 meters length, 90 meters beam/width, 42 meters vertical height"
 	weapons = "Not apparent"
-	sizeclass = "Industrial Station"
+	sizeclass = "Asteroid Base"
 
 	initial_generic_waypoints = list(
 		// docks

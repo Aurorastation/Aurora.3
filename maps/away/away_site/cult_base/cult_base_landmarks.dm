@@ -7,100 +7,59 @@
 
 // --------------------- docks
 
-/obj/effect/shuttle_landmark/cult_base/dock/north_east
-	name = "Dock, North, East"
-	landmark_tag = "nav_cult_base_dock_north_east"
-	docking_controller = "airlock_cult_base_dock_north_east"
-	dir = SOUTH
-
-/obj/effect/shuttle_landmark/cult_base/dock/north_west
-	name = "Dock, North, West"
-	landmark_tag = "nav_cult_base_dock_north_west"
-	docking_controller = "airlock_cult_base_dock_north_west"
-	dir = SOUTH
-
-/obj/effect/shuttle_landmark/cult_base/dock/west
+/obj/effect/shuttle_landmark/cult_base/dock/west_1
 	name = "Dock, West"
-	landmark_tag = "nav_cult_base_dock_west"
-	docking_controller = "airlock_cult_base_dock_west"
+	landmark_tag = "nav_cult_base_dock_west_1"
+	docking_controller = "airlock_cult_base_dock_west_1"
 	dir = EAST
 
-/obj/effect/shuttle_landmark/cult_base/dock/east_north
-	name = "Dock, East, North"
-	landmark_tag = "nav_cult_base_dock_east_north"
-	docking_controller = "airlock_cult_base_dock_east_north"
-	dir = WEST
-
-/obj/effect/shuttle_landmark/cult_base/dock/east_south
-	name = "Dock, East, South"
-	landmark_tag = "nav_cult_base_dock_east_south"
-	docking_controller = "airlock_cult_base_dock_east_south"
-	dir = WEST
-
-/obj/effect/shuttle_landmark/cult_base/dock/south_east
-	name = "Dock, South, East"
-	landmark_tag = "nav_cult_base_dock_south_east"
-	docking_controller = "airlock_cult_base_dock_south_east"
-	dir = NORTH
-
-/obj/effect/shuttle_landmark/cult_base/dock/south_mid
-	name = "Dock, South, Mid"
-	landmark_tag = "nav_cult_base_dock_south_mid"
-	docking_controller = "airlock_cult_base_dock_south_mid"
-	dir = NORTH
-
-/obj/effect/shuttle_landmark/cult_base/dock/south_west
-	name = "Dock, South, West"
-	landmark_tag = "nav_cult_base_dock_south_west"
-	docking_controller = "airlock_cult_base_dock_south_west"
-	dir = NORTH
-
-// --------------------- catwalk
-
-/obj/effect/shuttle_landmark/cult_base/catwalk/north
-	name = "Catwalk, North"
-	landmark_tag = "nav_cult_base_catwalk_north"
+/obj/effect/shuttle_landmark/cult_base/dock/west_2
+	name = "Dock, West 2"
+	landmark_tag = "nav_cult_base_dock_west_2"
+	docking_controller = "airlock_cult_base_dock_west_2"
 	dir = SOUTH
 
-/obj/effect/shuttle_landmark/cult_base/catwalk/west
-	name = "Catwalk, West"
-	landmark_tag = "nav_cult_base_catwalk_west"
-	dir = EAST
+/obj/effect/shuttle_landmark/cult_base/dock/west_3
+	name = "Dock, West 3"
+	landmark_tag = "nav_cult_base_dock_west_3"
+	docking_controller = "airlock_cult_base_dock_west_3"
+	dir = NORTH
 
-/obj/effect/shuttle_landmark/cult_base/catwalk/south_1
-	name = "Catwalk, South 1"
-	landmark_tag = "nav_cult_base_catwalk_south_1"
+/obj/effect/shuttle_landmark/cult_base/dock/south_1
+	name = "Dock, South 1"
+	landmark_tag = "nav_cult_base_dock_south_1"
+	docking_controller = "airlock_cult_base_dock_south_1"
+	dir = NORTH
 
-/obj/effect/shuttle_landmark/cult_base/catwalk/south_2
-	name = "Catwalk, South 2"
-	landmark_tag = "nav_cult_base_catwalk_south_2"
-
-/obj/effect/shuttle_landmark/cult_base/catwalk/south_3
-	name = "Catwalk, South 3"
-	landmark_tag = "nav_cult_base_catwalk_south_3"
-
-/obj/effect/shuttle_landmark/cult_base/catwalk/south_4
-	name = "Catwalk, South 4"
-	landmark_tag = "nav_cult_base_catwalk_south_4"
+/obj/effect/shuttle_landmark/cult_base/dock/south_2
+	name = "Dock, South 2"
+	landmark_tag = "nav_cult_base_dock_south_2"
+	docking_controller = "airlock_cult_base_dock_south_2"
+	dir = WEST
 
 // --------------------- space
 
-/obj/effect/shuttle_landmark/cult_base/space/south_west
-	name = "Space, South West"
-	landmark_tag = "nav_cult_base_space_south_west"
+/obj/effect/shuttle_landmark/cult_base/space/south_close
+	name = "Space, South, Close"
+	landmark_tag = "nav_cult_base_space_south_close"
 	dir = NORTH
 
-/obj/effect/shuttle_landmark/cult_base/space/south_east
-	name = "Space, South East"
-	landmark_tag = "nav_cult_base_space_south_east"
+/obj/effect/shuttle_landmark/cult_base/space/west_close
+	name = "Space, West, Far"
+	landmark_tag = "nav_cult_base_space_west_close"
+	dir = EAST
+
+/obj/effect/shuttle_landmark/cult_base/space/south_far
+	name = "Space, South, Far"
+	landmark_tag = "nav_cult_base_space_south_far"
 	dir = NORTH
 
-/obj/effect/shuttle_landmark/cult_base/space/north_west
-	name = "Space, North West"
-	landmark_tag = "nav_cult_base_space_north_west"
-	dir = SOUTH
+/obj/effect/shuttle_landmark/cult_base/space/west_far
+	name = "Space, West, Far"
+	landmark_tag = "nav_cult_base_space_west_far"
+	dir = EAST
 
-/obj/effect/shuttle_landmark/cult_base/space/north_east
-	name = "Space, North East"
-	landmark_tag = "nav_cult_base_space_north_east"
-	dir = SOUTH
+/obj/effect/shuttle_landmark/cult_base/space/south_west_far
+	name = "Space, South West, Far"
+	landmark_tag = "nav_cult_base_space_south_west_far"
+	dir = NORTH
