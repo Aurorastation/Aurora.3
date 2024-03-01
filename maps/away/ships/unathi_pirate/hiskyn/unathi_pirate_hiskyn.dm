@@ -37,14 +37,14 @@
 		"Hiskyn Revanchist Shuttle" = list("nav_dock_hiskyn")
 	)
 	initial_generic_waypoints = list(
-		"nav_hiskyn1",
-		"nav_hiskyn2",
-		"nav_hiskyn3",
-		"nav_hiskyn4",
-		"nav_hiskyn_dock1",
-		"nav_hiskyn_dock2",
-		"nav_hiskyn_dock3",
-		"nav_hiskyn_dock4"
+		"nav_hiskyn_fore",
+		"nav_hiskyn_port",
+		"nav_hiskyn_starboard",
+		"nav_hiskyn_aft",
+		"nav_hiskyn_fore_port",
+		"nav_hiskyn_aft_starboard",
+		"nav_hiskyn_fore_starboard",
+		"nav_hiskyn_aft_port"
 	)
 	invisible_until_ghostrole_spawn = TRUE
 
@@ -53,37 +53,37 @@
 	..()
 
 //Navpoints
-/obj/effect/shuttle_landmark/hiskyn/nav1
+/obj/effect/shuttle_landmark/hiskyn/fore
 	name = "Fore"
-	landmark_tag = "nav_hiskyn1"
+	landmark_tag = "nav_hiskyn_fore"
 
-/obj/effect/shuttle_landmark/hiskyn/nav2
+/obj/effect/shuttle_landmark/hiskyn/port
 	name = "Port"
-	landmark_tag = "nav_hiskyn2"
+	landmark_tag = "nav_hiskyn_port"
 
-/obj/effect/shuttle_landmark/hiskyn/nav3
+/obj/effect/shuttle_landmark/hiskyn/starboard
 	name = "Starboard"
-	landmark_tag = "nav_hiskyn3"
+	landmark_tag = "nav_hiskyn_starboard"
 
-/obj/effect/shuttle_landmark/hiskyn/nav4
+/obj/effect/shuttle_landmark/hiskyn/aft
 	name = "Aft"
-	landmark_tag = "nav_hiskyn4"
+	landmark_tag = "nav_hiskyn_aft"
 
-/obj/effect/shuttle_landmark/hiskyn/dock1
+/obj/effect/shuttle_landmark/hiskyn/dock/fore_port
 	name = "Fore Port Dock"
-	landmark_tag = "nav_hiskyn_dock1"
+	landmark_tag = "nav_hiskyn_fore_port"
 
-/obj/effect/shuttle_landmark/hiskyn/dock2
+/obj/effect/shuttle_landmark/hiskyn/dock/aft_starboard
 	name = "Aft Starboard Dock"
-	landmark_tag = "nav_hiskyn_dock2"
+	landmark_tag = "nav_hiskyn_aft_starboard"
 
-/obj/effect/shuttle_landmark/hiskyn/dock3
+/obj/effect/shuttle_landmark/hiskyn/dock/fore_starboard
 	name = "Fore Starboard Dock"
-	landmark_tag = "nav_hiskyn_dock3"
+	landmark_tag = "nav_hiskyn_fore_starboard"
 
-/obj/effect/shuttle_landmark/hiskyn/dock4
+/obj/effect/shuttle_landmark/hiskyn/dock/aft_port
 	name = "Aft Port Dock"
-	landmark_tag = "nav_hiskyn_dock4"
+	landmark_tag = "nav_hiskyn_aft_port"
 
 //Shuttle stuff
 
@@ -123,8 +123,6 @@
 /obj/effect/shuttle_landmark/hiskyn_shuttle/dock
 	name = "Primary Docking Port"
 	landmark_tag = "nav_dock_hiskyn"
-	base_area = /area/space
-	base_turf = /turf/space
 	docking_controller = "hiskyn_shuttle_dock"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 

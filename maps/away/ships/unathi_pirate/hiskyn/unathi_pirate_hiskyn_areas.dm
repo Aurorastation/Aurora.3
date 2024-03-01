@@ -15,7 +15,7 @@
 	name = "Revanchist Ship - Fore Hall"
 	icon_state = "hallF"
 
-/area/hiskyn_ship/hallC
+/area/hiskyn_ship/hallc
 	name = "Revanchist Ship - Main Hall"
 	icon_state = "hallC"
 

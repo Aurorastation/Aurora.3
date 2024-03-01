@@ -3,6 +3,7 @@
 	name = "Hiskyn's Revanchist Crewman"
 	desc = "Serve aboard a ship of the pirate fleet Hiskyn's Revanchists - former Kazhkz-Han'san Unathi who refused to join the Empire of Dominia. Obey your captain, defend your ship and crew, and keep an eye out for opportunities to shed some Kazhkz-Han'san blood! NOT AN ANTAGONIST! Do not act as such."
 	tags = list("External")
+	welcome_message = "You are a pirate of Hiskyn's Revanchists, a fleet of former Kazhkz and Han'san Unathi who refused to join the Empire of Dominia. Obey your captain, search for opportunities to raid and plunder, and remember your fleet's deep hatred for Dominian Unathi. Though you are a pirate, remember that you are not an antagonist and should not be attacking the SCCV Horizon directly without a very good reason - though the Spark, Intrepid, Canary and any other ghostroles you might encounter are fair game."
 
 	spawnpoints = list("hiskyn")
 	max_count = 4
