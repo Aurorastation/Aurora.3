@@ -1987,8 +1987,8 @@
 /turf/simulated/floor/airless,
 /area/hiskyn_ship/hallc)
 "aOe" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/hiskyn_revanchists)
 "aOr" = (
 /turf/template_noop,
@@ -2093,12 +2093,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/glass/full,
 /obj/machinery/light,
+/obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "aQp" = (
@@ -2114,6 +2110,11 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(210)
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "aQX" = (
@@ -2409,7 +2410,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thruster"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/thrustp)
 "bwe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -3510,6 +3511,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hiskyn_revanchists)
 "hRS" = (
@@ -3977,10 +3981,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
-"laX" = (
-/obj/machinery/autolathe,
-/turf/simulated/floor/tiled/dark,
-/area/hiskyn_ship/engineering)
 "lbu" = (
 /obj/machinery/light{
 	dir = 8
@@ -4064,7 +4064,7 @@
 /area/hiskyn_ship/bridge)
 "lqb" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/thrusts)
 "lsz" = (
 /obj/structure/table/steel,
@@ -4797,12 +4797,9 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "pgR" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/hiskyn_revanchists)
 "prp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4943,7 +4940,7 @@
 /area/hiskyn_ship/bridge)
 "qoq" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/thrustp)
 "qqD" = (
 /turf/simulated/wall,
@@ -5068,8 +5065,11 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
 "qZu" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hiskyn_revanchists)
@@ -5228,8 +5228,11 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "srL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
 /obj/machinery/light{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hiskyn_revanchists)
@@ -5853,12 +5856,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
-"vGL" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/hiskyn_revanchists)
 "vIY" = (
 /turf/simulated/wall/shuttle/space_ship{
 	can_open = 1;
@@ -6115,7 +6112,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/thrusts)
 "xsr" = (
 /obj/random/dirt_75,
@@ -39490,12 +39487,12 @@ fnw
 aGv
 aPv
 aHo
-laX
+vvG
 vvG
 ans
-aOQ
-aOQ
-aOQ
+ans
+aEu
+aZT
 aZT
 aZT
 aZT
@@ -39748,10 +39745,10 @@ ceM
 agV
 atq
 vvG
-vvG
+ans
 ans
 aOQ
-srL
+aOQ
 aOQ
 aOQ
 aOQ
@@ -40006,7 +40003,7 @@ fBh
 vvG
 vvG
 ans
-ans
+pgR
 aOe
 hKG
 ajL
@@ -40263,7 +40260,7 @@ moQ
 abc
 iBb
 ans
-ans
+pgR
 aOe
 aRA
 auR
@@ -41290,8 +41287,8 @@ mrq
 iBb
 iBb
 aOr
-aOr
 ans
+pgR
 aOe
 aRA
 jWh
@@ -41547,10 +41544,10 @@ iBb
 iBb
 aOr
 aOr
-aOr
 ans
+pgR
 aOe
-aQp
+srL
 qZu
 mOp
 aOQ
@@ -41804,10 +41801,10 @@ iBb
 iBb
 aOr
 aOr
-aOr
+ans
 ans
 aOQ
-vGL
+aOQ
 aOQ
 aOQ
 aOQ
@@ -42063,9 +42060,9 @@ aOr
 aOr
 aOr
 ans
-aOQ
-aOQ
-aOQ
+ans
+ans
+ans
 ans
 ans
 ans
@@ -42319,11 +42316,11 @@ aci
 aOr
 aOr
 aci
-ans
-ans
-pgR
-ans
-ans
+aOr
+aOr
+aci
+aOr
+aOr
 aOr
 aOr
 aOr
