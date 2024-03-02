@@ -29226,7 +29226,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm/west{
-	pixel_y = 14
+	pixel_y = 14;
+	req_one_access = list(24,11,48)
 	},
 /obj/item/storage/firstaid/regular,
 /obj/item/material/hatchet/machete/steel,
