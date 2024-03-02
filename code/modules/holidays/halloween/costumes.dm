@@ -87,7 +87,7 @@
 	item_state = "upburger"
 	contained_sprite = TRUE
 	body_parts_covered = FULL_BODY
-	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEFACE|HIDEEARS|BLOCKHAIR|HIDEEYES|HIDEEARS|HIDESHOES|ALWAYSDRAW
+	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEFACE|HIDEEARS|BLOCKHAIR|HIDEEYES|HIDEEARS|HIDESHOES|ALWAYSDRAW|HIDETAIL
 
 /obj/item/clothing/suit/sumo_costume
 	name = "sumo costume"
