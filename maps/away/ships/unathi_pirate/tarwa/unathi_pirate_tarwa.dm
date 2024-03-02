@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/tarwa
 	name = "Tarwa Conglomerate Ship"
 	description = "Ship with pirate lizards, pirate plants"
-	suffixes = list("away_site/unathi_pirate/tarwa/unathi_pirate_tarwa.dmm")
+	suffixes = list("ships/unathi_pirate/tarwa/unathi_pirate_tarwa.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
@@ -10,7 +10,7 @@
 
 	unit_test_groups = list(2)
 
-/singleton/submap_archetype/tramp_freighter
+/singleton/submap_archetype/tarwa_conglomerate
 	map = "Tarwa Conglomerate Ship"
 	descriptor = "Ship with pirate lizards, pirate plants"
 
