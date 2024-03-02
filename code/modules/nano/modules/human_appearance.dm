@@ -62,10 +62,10 @@
 					. = TRUE
 		if("gender")
 			if(can_change(APPEARANCE_GENDER))
-				if(owner.change_gender(params["gender"]))
+				if(owner.change_gender(params["gender"], TRUE))
 					clear_and_generate_data()
 					. = TRUE
-		if("pronouns")
+		if("pronoun")
 			if(can_change(APPEARANCE_GENDER))
 				owner.pronouns = params["pronouns"]
 				clear_and_generate_data()
