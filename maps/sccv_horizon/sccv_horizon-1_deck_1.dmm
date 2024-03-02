@@ -30136,7 +30136,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/door/window/southright{
-	req_access = list(73,24)
+	req_access = list(73,11)
 	},
 /obj/machinery/light_switch{
 	pixel_x = 21;
