@@ -11,11 +11,12 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Zeng-Hu Pharmaceuticals Corporate Personnel"
 	special_role = "Zeng-Hu Pharmaceuticals Corporate Personnel"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_zh
 	name = "Zeng-Hu Pharmaceuticals Employee"
-	uniform = /obj/item/clothing/under/rank/scientist/zeng
-	shoes = /obj/item/clothing/shoes/sneakers
+	uniform = /obj/item/clothing/under/rank/liaison/zeng
+	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id/zeng_hu
 	back = /obj/item/storage/backpack/satchel/zeng
 	head = /obj/item/clothing/head/beret/corporate/zeng
@@ -37,11 +38,12 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Einstein Engines Corporate Personnel"
 	special_role = "Einstein Engines Corporate Personnel"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_ee
 	name = "Einstein Engines Employee"
-	uniform = /obj/item/clothing/under/rank/einstein
-	shoes = /obj/item/clothing/shoes/sneakers/black
+	uniform = /obj/item/clothing/under/rank/liaison/einstein
+	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id/einstein
 	back = /obj/item/storage/backpack/satchel
 	r_pocket = /obj/item/storage/wallet/random
@@ -62,6 +64,7 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Konyang National Police Patrolman"
 	special_role = "Konyang National Police Patrolman"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_cop
 	name = "Konyang Police Officer"
@@ -108,12 +111,13 @@
 	desc = "Guard the hideout. Sell illicit goods and ingratiate yourself with the local community. Try not to get caught doing anything illegal."
 	tags = list("External")
 	spawnpoints = list("konyang_goon")
-	max_count = 2
+	max_count = 3
 	outfit = /datum/outfit/admin/konyang_goon
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "5-Cheung Thug"
 	special_role = "5-Cheung Thug"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_goon
 	name = "5-Cheung Thug"
@@ -133,6 +137,7 @@
 	outfit = /datum/outfit/admin/konyang_mob_boss
 	assigned_role = "5-Cheung Boss"
 	special_role = "5-Cheung Boss"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_mob_boss
 	name = "5-Cheung Boss"
@@ -148,7 +153,7 @@
 	short_name = "konyang_vendor"
 	name = "Point Verdant Vendor"
 	desc = "Man the stores around Point Verdant. Sell goods to the visiting crewmembers. Try not to get shaken down by the local 5-Cheung thugs."
-	max_count = 4
+	max_count = 6
 	tags = list("External")
 	spawnpoints = list("konyang_vendor")
 	outfit = /datum/outfit/admin/konyang_vendor
@@ -156,6 +161,7 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Point Verdant Vendor"
 	special_role = "Point Verdant Vendor"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_vendor
 	name = "Konyang Vendor"
@@ -181,6 +187,7 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Konyang Robotics Company Doctor"
 	special_role = "Konyang Robotics Company Doctor"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_clinic
 	name = "KRC Doctor"
@@ -205,6 +212,7 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Pharmacist"
 	special_role = "Pharmacist"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_pharm
 	name = "Konyang Pharmacist"
@@ -229,6 +237,7 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Bartender"
 	special_role = "Bartender"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_bar
 	name = "Konyang Bartender"
@@ -237,6 +246,9 @@
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id
+
+/datum/outfit/admin/konyang_bar/get_id_access()
+	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"
@@ -250,6 +262,7 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Point Verdant Utility Worker"
 	special_role = "Point Verdant Utility Worker"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_utility
 	name = "Point Verdant Utility Worker"
@@ -266,7 +279,7 @@
 	short_name = "konyang_gwok"
 	name = "UP! Burger Employee"
 	desc = "Sell fast food and other Gwok-brand merchandise! Explain why the soft-serve machine is broken again."
-	max_count = 1
+	max_count = 2
 	tags = list("External")
 	spawnpoints = list("konyang_gwok")
 	outfit = /datum/outfit/admin/konyang_gwok
@@ -274,10 +287,12 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "UP! Burger Employee"
 	special_role = "UP! Burger Employee"
+	respawn_flag = null
 
 /datum/outfit/admin/konyang_gwok
 	name = "UP! Burger Employee"
 	uniform = /obj/item/clothing/under/rank/konyang/burger
+	shoes = /obj/item/clothing/shoes/workboots/dark
 	suit = /obj/item/clothing/accessory/apron/chef
 	head = /obj/item/clothing/head/konyang/burger
 	id = /obj/item/card/id

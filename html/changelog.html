@@ -35,6 +35,260 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">01 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed OpenDream CI to download the precompiled version of what we need from the OpenDream repo.</li>
+				<li class="backend">Removed compile guards for OpenDream around list removeall() as it was implemented in OpenDream.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixed the access on the Point Verdant Pharmacy and Solei shutters and windoors.</li>
+				<li class="maptweak">Put some non-jumpsuit clothing in the PV Pharmacist closet.</li>
+				<li class="maptweak">Added a box of empty autoinjectors to the PV Pharmacist basement.</li>
+				<li class="maptweak">Swapped the basic windoors at the front of some PV establishments for the cool new sliding doors.</li>
+			</ul>
+			<h3 class="author">Greenjoe12345 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a jeweler cockatoo plushie</li>
+			</ul>
+
+			<h2 class="date">29 February 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Additional cargo delivery points added to Point Verdant, examples include Up!Burger, Corporate Docks, and the Hotel.</li>
+				<li class="maptweak">Long range holopad added to Point Verdant near the holding cells.</li>
+				<li class="maptweak">Fax machine added to Point Verdant Superintendent Office.</li>
+				<li class="refactor">Added naming, spawn limits, and payment functionality to cargo receptacles, to allow for specific adjustments for inbound cargo packages by receptacle. Only utilized by Point Verdant at the moment.</li>
+				<li class="bugfix">Konyang Service Revolver speedloader now has properly set ammo count, and sprite now updates.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed specie autoadapt to not runtime.</li>
+				<li class="backend">Some DMdoc and minor adjustments.</li>
+				<li class="bugfix">Fixed sound tokens still listening to destroy events for the sound source, which was spamming the logs.</li>
+				<li class="backend">Turned the sound player var into a GLOB var.</li>
+				<li class="bugfix">Fixed yet another canspeak runtime.</li>
+				<li class="backend">Added some SDMM markings, DMDoced the proc, added a guard in case the language is not supplied to the proc.</li>
+				<li class="backend">Updated the timer subsystem.</li>
+				<li class="backend">Added message-defining asserts.</li>
+				<li class="backend">Moved some defines in the maths define file, deprecated the old file.</li>
+				<li class="backend">Added STP_PROB defines to allow probability adjustment based on lag/tickrate.</li>
+				<li class="refactor">Refactored MouseDrop_T to not be inside a spawn async and respect the function header.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a drink, snakebite (equal parts beer and alcoholic cider).</li>
+				<li class="tweak">The recolourable glasses can now be renamed and can have their description changed in the loadout.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Ghostspawners for psionic species will now give psi points on spawning.</li>
+				<li class="bugfix">Chainlink fences can no longer be leapt over.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Renames the pirate base files and code to pirate base proper.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Makes augments compatible with spritesheets.</li>
+			</ul>
+			<h3 class="author">greenjoe12345 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Point Verdant Police logo for use in paperwork. Make it with [logo_pvpolice] and the small one with [logo_pvpolice_small].</li>
+			</ul>
+
+			<h2 class="date">28 February 2024</h2>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the Point Verdant hotel basement stairs being the wrong direction and thus unusable.</li>
+				<li class="bugfix">Fixed the Point Verdant hotel basement lights being off as people who spawned in were unable to see anything.</li>
+				<li class="bugfix">Fixed the Point Verdant waterfront stairs using the wrong icon state.</li>
+			</ul>
+
+			<h2 class="date">27 February 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Speed on a bike depends on move intent. Walk intent to ride slowly, run intent to ride faster.</li>
+				<li class="tweak">Crashing into someone while on a bike, happens only while riding with run intent.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Reworked the IAC Rescue Ship to be more in-line with modern mapping standards, and hopefully to be more enjoyable to play.</li>
+				<li class="tweak">Slightly tweaked the descriptions of the IAC Rescue Ship ghost roles to diversify the character concepts a little more.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the body appearance changer not letting you change pronouns and leaving you stuck as a certain gender.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Energy swords now work with the swordsmanship martial art.</li>
+				<li class="tweak">Raises the chance for energy swords to block or deflect projectiles.</li>
+				<li class="tweak">Increases the block chance on the various military-grade energy shields.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the analog lore radio missing a prefix.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a few new konyang ruins and ghostroles.</li>
+			</ul>
+
+			<h2 class="date">26 February 2024</h2>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Makes it so Skrell can only have they/them pronouns, mechanics-wise.</li>
+			</ul>
+			<h3 class="author">MattAtlas (Code), Noble Row (Sprites) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new mob and a weapon for Purpose.</li>
+				<li class="rscadd">Gave flechette ammunition AP.</li>
+			</ul>
+			<h3 class="author">Peppermint96 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes burger employees spawning without shoes.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Replaces decal stairs on Point Verdant with real stairs.</li>
+				<li class="bugfix">Fixes missing bartender access on Point Verdant.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixed a typo in the stargazer Haneuim blurb.</li>
+				<li class="bugfix">Fixed the Point Verdant death trap fall near the hotel.</li>
+				<li class="bugfix">Fixed a rock texture.</li>
+			</ul>
+			<h3 class="author">meep109 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Gives morphs a random naming scheme.</li>
+				<li class="rscadd">Gives morphs access to the Changeling Hivemind.</li>
+			</ul>
+			<h3 class="author">shimmeristaken updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Venusian banner and flag to the loadout!</li>
+				<li class="bugfix">Fixes a path in rusting traditionalist flag to be correct, instead of leading to scarabs. It can now be mapped in!</li>
+			</ul>
+
+			<h2 class="date">25 February 2024</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes lag when cryopods mapped in a large area are missing the control computer.</li>
+			</ul>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Point Verdant Sakae Tower now takes cargo packages.</li>
+				<li class="bugfix">Cryo Computers added to Point Verdant at most areas with a cryopod</li>
+				<li class="bugfix">Konyang Police lockers now have proper access</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds kois MRE to the loadout.</li>
+				<li class="tweak">Adjusts KASF Corvette spawn weight.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Rat ghost roles have been removed, they were using quite a bit of processing power while being disabled, so essentially wasted processing.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes incorrect accesses on Point Verdant</li>
+				<li class="bugfix">Fixes motorbikes being unable to go upstairs.</li>
+				<li class="maptweak">Point Verdant exterior areas will now be automatically lit.</li>
+				<li class="rscadd">Adds an area flag to prevent explosions from destroying turfs.</li>
+			</ul>
+
+			<h2 class="date">24 February 2024</h2>
+			<h3 class="author">Alberyk, Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an analog radio that can display lore related radio station to the system the ship is currently in.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Spider queens and servants now stop thinking as mobs when a player is assigned to it.</li>
+				<li class="bugfix">Resolved a runtime of effect application when the spider lands.</li>
+				<li class="backend">Refactored apply_effect proc, DMdoc, check that the parameters are the correct type.</li>
+				<li class="backend">DMDoc&#x27;d spawn_mob, set SDMM return type.</li>
+				<li class="backend">DMDoc&#x27;d assign_player, set SDMM return type.</li>
+				<li class="bugfix">Attempted fix to mannequins harddeling.</li>
+				<li class="bugfix">Attempted fix to some HUDs harddeling because screens were still referencing them.</li>
+				<li class="bugfix">Fixed ability for VV to edit lists.</li>
+				<li class="backend">Updated how the movement delay for cliented mob is calculated, which should help smooth out movement delays when the MC is loaded. Hopefully.</li>
+				<li class="backend">Living mob movements now emit a signal that can be intercepted and replied to block said movement.</li>
+				<li class="backend">Added a lag generator for local tests to simulate the MC being loaded, FOR LOCAL TEST IS THE KEYWORD HERE.</li>
+				<li class="backend">Consolidated atom/movable/Move in a single proc.</li>
+				<li class="backend">Added a signal for atom/movable/Move that can be intercepted and replied to block said movement.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Remaps the PACHROM water barge to add more facilities and make better use of space.</li>
+			</ul>
+			<h3 class="author">MattAtlas (Code), TheLancer (Sound) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a system to allow space sectors to override lobby music.</li>
+				<li class="rscdel">Added Haneunim (Konyang) lobby music.</li>
+			</ul>
+			<h3 class="author">Pirouette updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixed a roll to starboard being listed as a roll to the left on the helm.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Several QoL improvements to the Kazhkz ship.</li>
+				<li class="tweak">Adds correct ammo for rifles and replaces normal pistols with Dominian ones on the Dominian corvette.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a colourable peaked beret to the loadout.</li>
+				<li class="maptweak">Fixed the Konyang Landing Zone structure being unsecure.</li>
+			</ul>
+
+			<h2 class="date">23 February 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Point Verdant map tweaks and fixes.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Buffs jeweler cockatoo&#x27;s HP to 300.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Nerfs infected IPC damage and armor penetration.</li>
+			</ul>
+			<h3 class="author">Sniblet updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added Einstein recolors for some departmental uniforms (secoff, sci, eng, mch, cap, liaison). Unused. For now?</li>
+				<li class="rscadd">Added a special Einstein Engines Synthetic uniform. Also unused. For now...</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the coalition navy frequency to the KASF ship properly now.</li>
+			</ul>
+
+			<h2 class="date">22 February 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Maintenance Drone console now uses tgui to select a area to call drones to.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds rental bike self-service vendor and rental bike mechanics.</li>
+				<li class="rscadd">Maps in bikes, keys, and rental bikes, onto Point Verdant.</li>
+				<li class="bugfix">Fixes hard drive stored files hard dell error.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Gives the TIC cards an extended description from the wiki. Makes them able to be placed in wallets.</li>
+			</ul>
+			<h3 class="author">shimmeristaken updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Corrects the sprites of the left handed konyang rifles to not longer point backwards when facing west or east.</li>
+			</ul>
+
 			<h2 class="date">21 February 2024</h2>
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">

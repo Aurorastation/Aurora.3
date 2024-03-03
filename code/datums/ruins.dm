@@ -69,10 +69,7 @@
 	// set up sectors
 	sectors = flatten_list(sectors)
 	sectors_blacklist = flatten_list(sectors_blacklist)
-//opendream doesn't have this proc for lists yet so we need this to prevent the linter from shitting itself
-#if !defined(OPENDREAM)
 	sectors.RemoveAll(sectors_blacklist)
-#endif
 
 	// adjust weight from sector dependent override
 	var/datum/space_sector/current_sector = SSatlas.current_sector

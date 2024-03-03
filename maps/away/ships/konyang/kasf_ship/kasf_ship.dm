@@ -2,11 +2,13 @@
 	name = "KASF Corvette"
 	description = "An older design of patrol corvette that saw its fair share of service in its golden days among the Xanu fleets, the Sai-class corvette would be considered obsolete by modern standards were it not retrofitted with newer weaponry, sensors, and other ship systems. In recent decades this class of ship has largely been mothballed by Xanu, but a large number were reactivated and donated when Konyang declared independence from Sol and joined the Coalition of Colonies. Now it serves an important role in the KASF, commonly seen combatting pirates and controlling the flow of refugees from the Wildlands."
 	suffixes = list("ships/konyang/kasf_ship/kasf_ship.dmm")
-	sectors = list(SECTOR_HANEUNIM)
-	spawn_weight = 1
-	ship_cost = 1
 	id = "kasf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kasf_shuttle)
+
+	ship_cost = 1
+	sectors = list(ALL_COALITION_SECTORS)
+	spawn_weight = 1
+	spawn_weight_sector_dependent = list(SECTOR_HANEUNIM=1.5, ALL_COALITION_SECTORS=0.5)
 
 	unit_test_groups = list(3)
 

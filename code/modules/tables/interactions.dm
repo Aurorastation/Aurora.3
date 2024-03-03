@@ -126,24 +126,24 @@
 			throw_things(user)
 	LAZYREMOVE(climbers, user)
 
-/obj/structure/table/MouseDrop_T(obj/O, mob/user, src_location, over_location, src_control, over_control, params)
-	if(ismob(O.loc)) //If placing an item
-		if(!isitem(O) || user.get_active_hand() != O)
+/obj/structure/table/MouseDrop_T(atom/dropping, mob/user, params)
+	if(ismob(dropping.loc)) //If placing an item
+		if(!isitem(dropping) || user.get_active_hand() != dropping)
 			return ..()
 		if(isrobot(user))
 			return
 		user.drop_item()
-		if(O.loc != src.loc)
-			step(O, get_dir(O, src))
+		if(dropping.loc != src.loc)
+			step(dropping, get_dir(dropping, src))
 
-	else if(isturf(O.loc) && isitem(O)) //If pushing an item on the tabletop
-		var/obj/item/I = O
+	else if(isturf(dropping.loc) && isitem(dropping)) //If pushing an item on the tabletop
+		var/obj/item/I = dropping
 		if(I.anchored)
 			return
 
 		if(!use_check_and_message(user))
-			if(O.w_class <= user.can_pull_size)
-				O.forceMove(loc)
+			if(I.w_class <= user.can_pull_size)
+				I.forceMove(loc)
 				auto_align(I, params, TRUE)
 			else
 				to_chat(user, SPAN_WARNING("\The [I] is too big for you to move!"))
