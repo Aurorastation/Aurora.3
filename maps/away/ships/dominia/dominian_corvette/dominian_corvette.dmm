@@ -136,7 +136,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "ans" = (
 /obj/structure/table/wood,
@@ -226,10 +226,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "atj" = (
-/turf/simulated/wall{
-	req_one_access = list(212)
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, thrusters"
 	},
-/area/ship/dominian_corvette/bridge)
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/propulsion)
 "aue" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -253,7 +254,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "awG" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -373,7 +377,8 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(212);
+	department = "Dominian Corvette"
 	},
 /obj/structure/sign/flag/volvalaad{
 	pixel_y = -32
@@ -385,7 +390,7 @@
 /area/ship/dominian_corvette/bridge)
 "aSN" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(212)
 	},
 /obj/structure/railing/mapped,
 /obj/structure/cable{
@@ -418,13 +423,12 @@
 /turf/simulated/wall,
 /area/ship/dominian_corvette/propulsion/port)
 "bfj" = (
-/obj/machinery/atmospherics/pipe/tank{
-	dir = 4;
-	start_pressure = 0
-	},
+/obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/engineering/atmos)
@@ -502,8 +506,7 @@
 	req_access = list(212)
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
@@ -522,9 +525,7 @@
 	req_one_access = list(212)
 	},
 /obj/machinery/light{
-	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -538,7 +539,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/dominian_shuttle)
 "buM" = (
 /obj/structure/bed/chair,
@@ -608,7 +609,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/light/colored/blue{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -676,7 +677,6 @@
 	dir = 4;
 	id = "dominian_corvette_temple"
 	},
-/obj/machinery/power/apc/east,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
@@ -711,7 +711,7 @@
 /area/ship/dominian_corvette/engineering/atmos)
 "bTU" = (
 /obj/structure/ship_weapon_dummy,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/cannon)
 "cbY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -733,10 +733,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/recroom)
 "cgQ" = (
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/machinery/media/jukebox/gramophone,
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 6
@@ -774,8 +771,7 @@
 	name = "Royal Zhurong Brewers machine"
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -907,7 +903,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "cBV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -985,6 +981,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/docking/port)
+"cZv" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/ship/dominian_corvette/cannon)
 "cZD" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/wall,
@@ -1045,7 +1045,10 @@
 	dir = 4;
 	id = "dominian_corvette_bridge"
 	},
-/turf/space,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/bridge)
 "doI" = (
 /obj/structure/ship_weapon_dummy,
@@ -1064,9 +1067,7 @@
 	pixel_x = 7
 	},
 /obj/machinery/light{
-	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark,
@@ -1161,7 +1162,7 @@
 	name = "Propulsion";
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "dTw" = (
 /turf/simulated/floor/tiled/dark,
@@ -1187,6 +1188,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 "ebu" = (
@@ -1196,13 +1198,11 @@
 	pixel_x = 9
 	},
 /obj/item/material/ashtray/bronze,
-/obj/structure/extinguisher_cabinet/north,
 /obj/structure/sign/flag/strelitz{
 	pixel_x = -32
 	},
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
@@ -1211,9 +1211,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/rd,
 /obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -1225,10 +1223,7 @@
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/officer)
 "ehT" = (
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -1366,7 +1361,7 @@
 /area/ship/dominian_corvette/hangar)
 "eze" = (
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, port"
+	name = "starboard, crew compartment"
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
@@ -1466,6 +1461,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/eva)
+"eWQ" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard wing"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/ship/dominian_corvette/recroom)
 "eYR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -1503,6 +1506,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/propulsion/port)
+"fdo" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, reactor room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/engineering/reactor)
 "fek" = (
 /obj/machinery/alarm/west{
 	req_one_access = list(212)
@@ -1559,7 +1568,7 @@
 "flP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "fnj" = (
 /obj/machinery/computer/ship/targeting,
@@ -1594,7 +1603,7 @@
 	dir = 2
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "fte" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1685,7 +1694,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "fDv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -1739,7 +1748,7 @@
 /area/ship/dominian_corvette/propulsion)
 "fNZ" = (
 /obj/effect/landmark/entry_point/port{
-	name = "starboard"
+	name = "port, crew compartment"
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
@@ -1758,7 +1767,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "fQq" = (
 /obj/effect/floor_decal/corner/full,
@@ -1793,14 +1802,14 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "fZl" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "fZq" = (
 /obj/effect/overmap/visitable/ship/landable/dominian_shuttle,
@@ -1846,12 +1855,12 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "grx" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion/port)
 "grG" = (
 /obj/machinery/power/apc/high/west{
@@ -1889,9 +1898,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -1974,9 +1981,7 @@
 	pixel_x = -7
 	},
 /obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -2029,7 +2034,7 @@
 	landmark_tag = "airlock_dominian_corvette_dock_starboard"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking)
 "hcl" = (
 /turf/simulated/wall,
@@ -2172,7 +2177,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "hru" = (
 /obj/machinery/door/airlock/service{
@@ -2202,7 +2207,7 @@
 	name = "Fuel to Thrusters"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion)
 "hzU" = (
 /obj/machinery/cryopod{
@@ -2339,7 +2344,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "ike" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -2362,8 +2367,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -2430,21 +2434,22 @@
 	pixel_x = 7;
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 "ixD" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(212);
+	department = "Dominian Corvette"
 	},
 /obj/structure/sign/flag/volvalaad{
 	pixel_x = -32
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 "iyN" = (
@@ -2474,10 +2479,7 @@
 /obj/structure/bed/roller,
 /obj/machinery/iv_drip,
 /obj/structure/curtain/open/medical,
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -2536,7 +2538,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "iRD" = (
 /obj/machinery/iv_drip,
@@ -2569,6 +2571,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/recroom)
+"iTC" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port docking"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/docking/port)
 "iTW" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
@@ -2732,6 +2740,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/armory)
+"jrv" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard docking"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/docking)
 "juM" = (
 /obj/structure/bed/stool/chair/sofa/pew/left{
 	dir = 8
@@ -2832,6 +2846,12 @@
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/franny)
+"jMx" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, atmospherics"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/engineering/atmos)
 "jTb" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Typhoon Loading";
@@ -2866,9 +2886,7 @@
 /area/ship/dominian_corvette/cic)
 "jXM" = (
 /obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2911,10 +2929,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -3003,7 +3018,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/obj/machinery/alarm/east{
+	req_one_access = list(212)
+	},
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "krt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3018,7 +3036,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "krH" = (
 /obj/machinery/appliance/cooker/stove,
@@ -3048,7 +3066,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion/port)
 "kze" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3184,7 +3202,7 @@
 	req_one_access = list(212)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/dominian_shuttle)
 "kJL" = (
 /obj/structure/cable{
@@ -3227,10 +3245,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/eva)
 "kPs" = (
@@ -3296,6 +3311,14 @@
 	dir = 8
 	},
 /area/ship/dominian_corvette/cic)
+"kTJ" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, port docking"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/ship/dominian_corvette/docking/port)
 "kUR" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3343,8 +3366,7 @@
 /area/ship/dominian_corvette/hangar)
 "liN" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -3448,6 +3470,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering/atmos)
+"lGD" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, secondary armament"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/franny)
 "lGR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -3489,10 +3517,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
@@ -3649,8 +3674,16 @@
 /obj/effect/shuttle_landmark/dominian_corvette/dock/port{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking/port)
+"mCr" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, cell"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/ship/dominian_corvette/armory)
 "mEE" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3742,7 +3775,7 @@
 	landmark_tag = "airlock_dominian_corvette_dock_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking)
 "mRY" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -3779,9 +3812,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "nbQ" = (
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -4017,7 +4048,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "nOX" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -4053,8 +4084,7 @@
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
@@ -4115,6 +4145,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette)
 "orm" = (
@@ -4211,7 +4242,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "oNi" = (
 /obj/machinery/power/apc/south{
@@ -4258,8 +4289,7 @@
 "oVO" = (
 /obj/machinery/sleeper,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/structure/sign/flag/dominia/large/north{
 	pixel_y = 32
@@ -4280,7 +4310,7 @@
 "oXP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "oXW" = (
 /obj/structure/lattice/catwalk,
@@ -4320,11 +4350,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "paP" = (
 /obj/structure/table/steel,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/alarm/north{
@@ -4413,7 +4443,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "pyr" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -4459,14 +4489,21 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
+"pGp" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, primary armament"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
+	},
+/area/ship/dominian_corvette/cannon)
 "pIf" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -4474,15 +4511,6 @@
 /area/ship/dominian_corvette/recroom)
 "pIS" = (
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Sahin-class corvette.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints";
-	pixel_y = 6
-	},
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/yellow/full{
@@ -4502,8 +4530,7 @@
 /area/ship/dominian_corvette/officer)
 "pKp" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -4520,7 +4547,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking/port)
 "pLQ" = (
 /obj/machinery/light/small/emergency{
@@ -4615,10 +4642,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
@@ -4645,7 +4669,7 @@
 "qdL" = (
 /obj/machinery/door/airlock/service{
 	name = "Private Bathroom";
-	req_access = list(203);
+	req_access = list(212);
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -4747,7 +4771,7 @@
 	dir = 9;
 	icon_state = "intact"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "qyg" = (
 /obj/structure/sink{
@@ -4782,7 +4806,7 @@
 	pixel_y = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking)
 "qHm" = (
 /obj/effect/floor_decal/corner{
@@ -4797,9 +4821,11 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "qHO" = (
-/obj/effect/shuttle_landmark/dominian_corvette/transit,
-/turf/space/transit/north,
-/area/space)
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, hangar"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/hangar)
 "qIf" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/wall/shuttle/space_ship,
@@ -4808,14 +4834,17 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/obj/machinery/light/colored/blue{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "qJS" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/space,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, primary armament"
+	},
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/cannon)
 "qLt" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -4913,7 +4942,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "qXR" = (
 /obj/structure/table/rack,
@@ -4934,7 +4963,7 @@
 /area/ship/dominian_corvette/engineering)
 "qZm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "raf" = (
 /obj/effect/floor_decal/corner/red{
@@ -4946,9 +4975,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency{
-	dir = 4
+	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "rde" = (
 /obj/structure/lattice/catwalk,
@@ -4975,7 +5004,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion)
 "rdM" = (
 /obj/effect/floor_decal/corner{
@@ -5005,6 +5034,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/hangar)
+"rkO" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thrusters"
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/propulsion/port)
 "rkP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5061,10 +5097,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/head)
@@ -5077,8 +5110,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -5091,8 +5123,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/eva)
@@ -5146,15 +5177,12 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "rJj" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering/atmos)
 "rLG" = (
-/obj/machinery/alarm/east{
-	req_one_access = list(212)
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -5164,7 +5192,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "rLK" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -5223,7 +5251,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "scv" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -5243,7 +5271,7 @@
 	master_tag = "airlock_dominian_corvette_dock_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking/port)
 "sdV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5273,9 +5301,7 @@
 "srr" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -5309,7 +5335,7 @@
 	weapon_id = "Lammergeier Cannon"
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/exterior)
 "svf" = (
 /obj/structure/table/standard,
@@ -5370,6 +5396,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
+"sGv" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thrusters"
+	},
+/turf/simulated/floor,
+/area/ship/dominian_corvette/propulsion)
 "sKi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -5399,9 +5432,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/head)
 "sOb" = (
-/obj/effect/step_trigger/teleporter,
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
+/turf/space,
 /area/space)
 "sRv" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
@@ -5412,7 +5443,7 @@
 /area/ship/dominian_corvette/engineering/atmos)
 "tca" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion/port)
 "thf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5427,6 +5458,12 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
+"tjd" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, prep room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/engineering)
 "tqI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
@@ -5438,14 +5475,14 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "tqX" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "dominian_corvette_bridge"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/bridge)
 "tra" = (
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5467,7 +5504,7 @@
 	pixel_x = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking/port)
 "trX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -5501,13 +5538,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/emerglocker/east,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/sign/flag/dominia{
 	pixel_y = 32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "tvD" = (
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5516,12 +5553,11 @@
 	master_tag = "airlock_dominian_corvette_dock_port"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking/port)
 "txu" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
@@ -5587,9 +5623,7 @@
 "tCv" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/light{
-	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark,
@@ -5622,8 +5656,16 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
+"tPT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "dominian_corvette_bridge"
+	},
+/turf/simulated/floor/plating,
+/area/ship/dominian_corvette/bridge)
 "tSZ" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
@@ -5643,10 +5685,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/light/colored/blue{
-	dir = 8
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "ubT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5674,7 +5713,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion/port)
 "ugF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5694,8 +5733,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering/atmos)
@@ -5795,7 +5833,7 @@
 "uIz" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion)
 "uJD" = (
 /obj/machinery/door/airlock/external{
@@ -5932,15 +5970,14 @@
 	pixel_x = -28;
 	dir = 2
 	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -29;
-	pixel_y = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
 	icon_state = "intact"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, airlock"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "vaL" = (
@@ -5990,7 +6027,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "vwK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6082,9 +6119,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -6143,17 +6178,17 @@
 /obj/effect/shuttle_landmark/dominian_corvette/dock{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/docking)
 "woN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
-	dir = 8
+	dir = 1
 	},
 /obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "wqT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6192,7 +6227,7 @@
 /obj/structure/sign/flag/dominia{
 	pixel_x = -32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "wzs" = (
 /obj/structure/closet/walllocker{
@@ -6209,6 +6244,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/janitor)
+"wAt" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, starboard docking"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/docking)
 "wBq" = (
 /obj/effect/floor_decal/corner{
 	dir = 1
@@ -6252,7 +6293,7 @@
 "wGu" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion)
 "wGQ" = (
 /obj/structure/extinguisher_cabinet/south,
@@ -6262,7 +6303,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "wHc" = (
 /obj/effect/floor_decal/corner/red{
@@ -6312,7 +6353,11 @@
 	req_one_access = list(212)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
+/obj/machinery/airlock_sensor{
+	pixel_x = 24;
+	pixel_y = 6
+	},
+/turf/simulated/floor/airless,
 /area/shuttle/dominian_shuttle)
 "wQA" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -6322,7 +6367,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette/propulsion/port)
 "wVD" = (
 /obj/machinery/computer/ship/sensors,
@@ -6410,6 +6455,12 @@
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/docking)
+"xfy" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, washroom"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_corvette/head)
 "xkK" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_dominia";
@@ -6466,7 +6517,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/dominian_corvette)
 "xvM" = (
 /obj/structure/railing/mapped,
@@ -6547,9 +6598,7 @@
 /area/ship/dominian_corvette/propulsion)
 "xPJ" = (
 /obj/machinery/light{
-	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -6560,7 +6609,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "xRk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6668,7 +6717,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "yjk" = (
 /obj/effect/map_effect/marker/airlock/docking{
@@ -6695,10 +6744,7 @@
 /obj/structure/sign/flag/zhao{
 	pixel_x = 32
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 
@@ -17959,7 +18005,7 @@ etL
 etL
 etL
 etL
-qHO
+wrJ
 etL
 etL
 etL
@@ -24887,21 +24933,21 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -25139,26 +25185,26 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -25395,33 +25441,33 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -25652,43 +25698,43 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 sOb
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
+sOb
+sOb
+sOb
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 etL
 etL
 etL
@@ -25909,6 +25955,33 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+etL
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -25919,33 +25992,6 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -26166,6 +26212,33 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+etL
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -26176,33 +26249,6 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -26423,6 +26469,33 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+etL
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -26433,33 +26506,6 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -26680,43 +26726,43 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -26937,43 +26983,43 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-wrJ
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -27194,43 +27240,43 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -27451,43 +27497,43 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -27708,43 +27754,43 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
 etL
 etL
 etL
@@ -27971,38 +28017,38 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -28228,38 +28274,38 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
 sOb
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -28485,38 +28531,38 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -28751,29 +28797,29 @@ etL
 etL
 etL
 etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -29008,15 +29054,15 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -29265,15 +29311,15 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -29522,15 +29568,15 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -29779,15 +29825,15 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
+sOb
 etL
 etL
 etL
@@ -33276,7 +33322,7 @@ xRX
 xRX
 xfv
 xfv
-pMz
+wAt
 pMz
 xfv
 xfv
@@ -34562,7 +34608,7 @@ xRX
 pMz
 rog
 fif
-pMz
+jrv
 xRX
 xRX
 xRX
@@ -35316,15 +35362,15 @@ xRX
 xRX
 iOL
 iOL
-nOX
+atj
 eMs
 ike
 ike
-eMs
+fdo
 ike
 tub
 uNg
-uNg
+tjd
 tub
 tub
 uNg
@@ -36105,7 +36151,7 @@ mEE
 dxX
 xbY
 xKg
-xDn
+eWQ
 xRX
 xRX
 xRX
@@ -36340,7 +36386,7 @@ xRX
 xRX
 xRX
 xRX
-oQe
+sGv
 dfw
 kPs
 eKR
@@ -37397,7 +37443,7 @@ xbK
 qgN
 xdJ
 phv
-wCU
+lGD
 xRX
 xRX
 xRX
@@ -38401,7 +38447,7 @@ cMo
 wQu
 xRX
 xRX
-ucC
+qHO
 exm
 lNZ
 krt
@@ -39202,7 +39248,7 @@ rdB
 aHs
 aHs
 qPL
-dnW
+tPT
 xRX
 xRX
 xRX
@@ -39967,7 +40013,7 @@ kAt
 vqn
 szY
 hcl
-atj
+kni
 aSN
 oZv
 aWi
@@ -41480,7 +41526,7 @@ xRX
 xRX
 xRX
 xRX
-dYJ
+rkO
 urn
 tca
 kyi
@@ -41765,7 +41811,7 @@ ogz
 aep
 fyC
 erT
-qJS
+cZv
 qJS
 xRX
 xRX
@@ -42012,13 +42058,13 @@ ret
 iEC
 ked
 mRY
-elH
+xfy
 mRY
 mRY
 elH
 nuI
 rzi
-rzi
+mCr
 nuI
 pLQ
 kDV
@@ -42277,7 +42323,7 @@ xRX
 xRX
 xRX
 nuI
-qLt
+pGp
 qLt
 hDV
 xRX
@@ -42773,7 +42819,7 @@ diE
 rJj
 tSZ
 tSZ
-rJj
+jMx
 rJj
 tSZ
 tSZ
@@ -43294,7 +43340,7 @@ xRX
 eqL
 alw
 hYY
-eqL
+kTJ
 xRX
 xRX
 xRX
@@ -43804,7 +43850,7 @@ xRX
 xRX
 xRX
 xRX
-pfE
+iTC
 tYf
 cZb
 raf
