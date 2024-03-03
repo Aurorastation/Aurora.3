@@ -2560,6 +2560,10 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
+/obj/random/pottedplant_small{
+	pixel_x = -12;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "bMO" = (
@@ -8750,6 +8754,10 @@
 /obj/machinery/newscaster/south,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -3;
+	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/aft)
