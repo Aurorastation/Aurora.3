@@ -141,12 +141,9 @@
 
 /turf/simulated/floor/exoplanet/water/shallow/sewage/process()
 	. = ..()
-	reagents.add_reagent(/singleton/reagent/toxin, 2)
-	for(var/mob/living/carbon/human/H in src)
-		// add toxins
-		H.reagents.add_reagent(/singleton/reagent/ammonia, rand(10,30))
-		H.reagents.add_reagent(/singleton/reagent/acid/hydrochloric, rand(10,30))
-		H.reagents.add_reagent(/singleton/reagent/toxin, rand(10,30))
+	for(var/mob/living/carbon/human/H in src) // Sewage is poisonous.
+		H.reagents.add_reagent(/singleton/reagent/toxin, 1)
+		H.reagents.add_reagent(/singleton/reagent/ammonia, 1)
 		for(var/A in H.organs)
 			var/obj/item/organ/external/E = A
 			if(BP_IS_ROBOTIC(E))
