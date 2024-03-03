@@ -134,14 +134,12 @@
 /area/orion_automated_station/center
 	name = "Central Hallway/Docks"
 	icon_state = "hallC"
-	area_blurb = "\
-	You hear a robotic voice coming from cheap ceiling-mounted speakers: \
-	'Welcome to the Orion Express Automated Station, where you may rest, exchange packages, and use any other of our facilities.' <br><br>\
+	area_blurb = "A female, robotic voice announces from the cheap ceiling-mounted speakers: \
+	\"Welcome to the Orion Express Automated Station, where you may rest, exchange packages, and use any other of our facilities.\" <br><br>\
 	The voice stops, and shortly after played is a short jingle, with the same robotic voice speaking: \
-	'Faster than light. Orion Express. No better choice here or anywhere.' <br><br>\
-	And after a longer pause, once again: \
-	'Any attempt to vandalize this station will have a bounty placed on your ship and crew. Your IFF was logged upon docking.' \
-	"
+	\"Faster than light. Orion Express. No better choice here or anywhere.\" <br><br>\
+	After a longer pause, the voice announces yet again: \
+	\"Please keep in mind that any attempts to vandalize this station WILL have a bounty placed on your ship. Your IFF was logged upon docking.\""
 
 /area/orion_automated_station/east
 	name = "East Hallway/Docks"
@@ -154,21 +152,17 @@
 /area/orion_automated_station/storage
 	name = "Crates/Canisters Storage"
 	icon_state = "storage"
-	area_blurb = "\
-	You hear a robotic voice: \
-	'You may borrow any of the crates or canisters here, and return them later, free of charge. \
-	Any damages will be deducted from your Orion Express account.'\
-	"
+	area_blurb = "A female, robotic voice announces: \
+	\"You may borrow any of the crates or canisters here, and return them later, free of charge. \
+	Any damages will be deducted from your Orion Express account.\""
 
 /area/orion_automated_station/packages
 	name = "Packages Storage"
 	icon_state = "storage"
-	area_blurb = "\
-	You hear a robotic voice: \
-	'You may leave your packages here, or take the packages to deliver elsewhere. \
-	Remember, you get a 2% tip on successful delivery based on the value of the package. \
-	Without you, there is no Orion Express.'\
-	"
+	area_blurb = "A female, robotic voice announces: \
+	\"You may leave your packages here, or take the packages to deliver elsewhere. \
+	Remember, you get a TWO percent tip on successful delivery based on the value of the package. \
+	Without you, there is no Orion Express.\""
 
 /area/orion_automated_station/engineering
 	name = "Engineering"

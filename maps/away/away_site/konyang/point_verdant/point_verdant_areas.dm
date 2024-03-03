@@ -90,7 +90,7 @@
 
 /area/point_verdant/interior/decrepit
 	name = "Point Verdant - Decrepit Apartments"
-	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mould."
+	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mold."
 	area_blurb_category = "verdant_decrepit_apartment"
 
 /area/point_verdant/interior/pharmacy
