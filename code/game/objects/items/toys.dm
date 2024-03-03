@@ -956,6 +956,7 @@
 	drop_sound = 'sound/items/drop/plushie.ogg'
 	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
+	var/poke_sound = 'sound/items/drop/plushie.ogg'
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
 	if(user.a_intent == I_HELP)
@@ -966,7 +967,7 @@
 		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
 	else
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
-		playsound(src, 'sound/items/drop/plushie.ogg', 25, 0)
+		playsound(src, poke_sound, 25, 0)
 		visible_message("[src] says, \"[phrase]\"")
 
 //Large plushies.
@@ -1058,12 +1059,18 @@
 	desc = "A schlorrgo plushie, ready to roll his way into your heart!"
 	icon_state = "schlorrgoplushie"
 	phrase = "Eough!"
+	drop_sound = 'sound/effects/creatures/ough.ogg'
+	pickup_sound = 'sound/effects/creatures/ough.ogg'
+	pokesound = 'sound/effects/creatures/ough.ogg'
 
 /obj/item/toy/plushie/coolschlorrgo
 	name = "Cool Schlorrgo plush"
 	desc = "A plushie of the popular cartoon character, Cool Schlorrgo. Hadii's grace!"
 	icon_state = "coolerschlorrgoplushie"
 	phrase = "Eough!"
+	drop_sound = 'sound/effects/creatures/ough.ogg'
+	pickup_sound = 'sound/effects/creatures/ough.ogg'
+	poke_sound = 'sound/effects/creatures/ough.ogg'
 
 /obj/item/toy/plushie/slime
 	name = "slime plush"
