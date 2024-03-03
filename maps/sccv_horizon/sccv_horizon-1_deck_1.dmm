@@ -3176,7 +3176,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,47,65)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/atmos_compartment)
 "con" = (
@@ -4719,7 +4721,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "dnX" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,47,65)
+	},
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
@@ -4875,7 +4879,9 @@
 "drK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Thruster Compartment";
@@ -5800,7 +5806,10 @@
 /obj/structure/window/shuttle/unique/scc/tall{
 	icon_state = "long2-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -6321,7 +6330,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,47,65)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "euL" = (
@@ -6465,7 +6476,10 @@
 /obj/structure/window/shuttle/unique/scc/tall{
 	icon_state = "long1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, center"
 	},
@@ -7594,7 +7608,10 @@
 /obj/structure/window/shuttle/unique/scc/research/over{
 	icon_state = "0,3"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "fgW" = (
@@ -7730,7 +7747,9 @@
 	pixel_x = -8;
 	pixel_y = 6
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,47,65)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "flw" = (
@@ -7918,7 +7937,10 @@
 /obj/structure/window/shuttle/unique/scc/research/over{
 	icon_state = "4,3"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "fsf" = (
@@ -9306,7 +9328,9 @@
 "gmT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Thruster Compartment";
@@ -10680,7 +10704,9 @@
 /area/outpost/mining_main/refinery)
 "hkM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13114,7 +13140,9 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,47,65)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "jcD" = (
@@ -15184,7 +15212,9 @@
 /obj/structure/window/shuttle/unique/scc/research/over{
 	icon_state = "2,0"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "kzi" = (
@@ -15518,7 +15548,10 @@
 /obj/structure/window/shuttle/unique/scc/research/over{
 	icon_state = "0,4"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "kHT" = (
@@ -18318,7 +18351,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenoarch_atrium)
 "mFo" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
@@ -22063,7 +22098,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -22976,7 +23014,9 @@
 /area/engineering/drone_fabrication)
 "pMz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
@@ -26071,7 +26111,9 @@
 /area/outpost/mining_main/refinery)
 "rRE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "intrepid_inner";
@@ -28258,7 +28300,9 @@
 /area/engineering/atmos/propulsion)
 "twR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "intrepid_inner";
@@ -28660,7 +28704,9 @@
 /area/hangar/auxiliary)
 "tKf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -29069,7 +29115,10 @@
 /obj/structure/window/shuttle/unique/scc/tall{
 	icon_state = "long2-1"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, medbay"
 	},
@@ -29193,7 +29242,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm/west{
-	pixel_y = 14
+	pixel_y = 14;
+	req_one_access = list(24,11,48)
 	},
 /obj/item/storage/firstaid/regular,
 /obj/item/material/hatchet/machete/steel,
@@ -30102,13 +30152,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
 "uJi" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/atmospherics/valve/digital/open{
 	name = "airlock shutoff valve"
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/door/window/southright{
-	req_access = list(73)
+	req_access = list(73,11)
 	},
 /obj/machinery/light_switch{
 	pixel_x = 21;
@@ -30173,7 +30225,9 @@
 	dir = 1;
 	name = "Fuel Tank to Thrusters"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/camera/network/intrepid{
 	c_tag = "Intrepid - Atmos Compartment";
 	dir = 8
@@ -30427,7 +30481,10 @@
 	name = "Crew Quarters and Office"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -30614,7 +30671,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "vab" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
@@ -31655,7 +31714,10 @@
 /obj/structure/window/shuttle/unique/scc/research/over{
 	icon_state = "4,4"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "vKy" = (
@@ -32313,7 +32375,9 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(24,11,47,65)
+	},
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid/quarters)
 "wjW" = (
@@ -32865,11 +32929,14 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Utility and Atmosphere Control";
-	req_access = list(73)
+	req_access = list(73,11)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -32899,7 +32966,10 @@
 	density = 0;
 	icon_state = "4,2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "wFw" = (
@@ -33949,7 +34019,10 @@
 /area/maintenance/wing/port/deck1)
 "xlX" = (
 /obj/structure/window/shuttle/unique/scc/tall,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "xmb" = (
@@ -34033,7 +34106,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -34647,7 +34723,9 @@
 	id_tag = "intrepid_washroom";
 	name = "Washroom Compartment"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/intrepid/crew_compartment)
 "xHs" = (
@@ -35525,7 +35603,10 @@
 /obj/structure/window/shuttle/unique/scc/research/over{
 	icon_state = "0,2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "ykR" = (
