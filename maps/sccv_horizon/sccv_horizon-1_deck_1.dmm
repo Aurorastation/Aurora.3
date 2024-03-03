@@ -384,14 +384,12 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
-	max_pressure_setting = 5000;
-	name = "Carbon Dioxide - Fuel Bay";
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("co2_sensor"="Tank");
 	output_tag = "CO2_out_fuelbay";
-	sensors = list("co2_sensor"="Tank")
+	name = "Carbon Dioxide - Fuel Bay"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "apQ" = (
@@ -1101,11 +1099,11 @@
 	dir = 4
 	},
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -1269,9 +1267,6 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "aWx" = (
@@ -2166,17 +2161,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bBR" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "ph_in";
-	name = "Phoron Supply Monitor";
-	output_tag = "ph_out";
-	sensors = list("ph_sensor"="Tank")
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("ph_sensor"="Tank");
+	output_tag = "ph_out";
+	name = "Phoron Supply Console";
+	input_tag = "ph_in"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "bCi" = (
@@ -4706,8 +4700,7 @@
 	dir = 4;
 	frequency = 1441;
 	id = "mixed_in";
-	name = "mixed gas injector";
-	use_power = 1
+	name = "mixed gas injector"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
@@ -6176,9 +6169,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/binary/passive_gate/on{
-	name = "Reactor Waste to Mix"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
 	},
@@ -6193,6 +6183,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	name = "Reactor Waste to Mix"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -10552,6 +10545,7 @@
 	dir = 4;
 	req_one_access = list(12,26)
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "hgA" = (
@@ -11787,6 +11781,7 @@
 	output_tag = "ph_out_starboardthruster";
 	sensors = list("ph_sensor"="Tank")
 	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "ieu" = (
@@ -12417,6 +12412,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "iES" = (
@@ -12715,9 +12711,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "iNX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 6
-	},
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("port_prop_sensor"="Port Propulsion Sensor");
 	output_tag = "port_prop_out";
@@ -12725,6 +12718,10 @@
 	name = "Port Propulsion Control Console";
 	input_tag = "port_prop_in"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "iOn" = (
@@ -13056,9 +13053,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "jaP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 10
-	},
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("starboard_prop_sensor"="Starboard  Propulsion  Sensor");
 	output_tag = "starboard_prop_out";
@@ -13066,6 +13060,10 @@
 	name = "Starboard Propulsion Control Console";
 	input_tag = "starboard_prop_in"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "jbm" = (
@@ -14619,18 +14617,16 @@
 	},
 /area/shuttle/intrepid/crew_compartment)
 "keQ" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "co2_in";
-	name = "Carbon Dioxide Supply Monitor";
-	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank")
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("co2_sensor"="Tank");
+	output_tag = "co2_out";
+	name = "Carbon Dioxide Supply Console";
+	input_tag = "co2_in"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "keZ" = (
@@ -16339,17 +16335,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "lqh" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "h_in";
-	name = "Hydrogen Supply Monitor";
-	output_tag = "h_out";
-	sensors = list("h_sensor"="Tank")
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("h_sensor"="Tank");
+	output_tag = "h_out";
+	name = "Hydrogen Supply Console";
+	input_tag = "h_in"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
@@ -16602,6 +16596,16 @@
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"lAc" = (
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion)
 "lAU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -16737,9 +16741,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "lFS" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 8
-	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -16747,6 +16748,10 @@
 /obj/machinery/computer/security/engineering/terminal{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/propulsion/starboard)
 "lGb" = (
@@ -17226,8 +17231,7 @@
 	name = "mixed gas vent";
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0;
-	use_power = 1
+	pump_direction = 0
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
@@ -21677,6 +21681,7 @@
 	c_tag = "Engineering - Atmospherics Tanks 1";
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "oXD" = (
@@ -23112,6 +23117,7 @@
 	output_tag = "H2_out_portthruster";
 	sensors = list("h_sensor"="Tank")
 	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "pSx" = (
@@ -26838,7 +26844,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -26849,6 +26855,7 @@
 	output_tag = "ph_out_portthruster";
 	sensors = list("ph_sensor"="Tank")
 	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "sxc" = (
@@ -28426,10 +28433,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "tEV" = (
@@ -29126,12 +29133,13 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "ubq" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "ucs" = (
@@ -29601,6 +29609,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "urv" = (
@@ -29781,6 +29790,12 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"uym" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/lattice,
+/obj/machinery/meter,
+/turf/space/dynamic,
+/area/horizon/exterior)
 "uza" = (
 /obj/machinery/door/blast/regular{
 	_wifi_id = "waste";
@@ -30539,14 +30554,13 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
-	max_pressure_setting = 1000;
-	name = "Phoron Supply - Fuel Bay";
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("ph_sensor"="Tank");
 	output_tag = "Ph_out_FuelBay";
-	sensors = list("ph_sensor"="Tank")
+	name = "Phoron Supply - Fuel Bay";
+	max_pressure_setting = 2000
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "uYW" = (
@@ -31692,11 +31706,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "vOf" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
@@ -32380,6 +32394,7 @@
 	output_tag = "H2_out_starboardthruster";
 	sensors = list("h_sensor"="Tank")
 	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "wmx" = (
@@ -33134,9 +33149,6 @@
 	tag_west_con = 0
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -34018,13 +34030,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "xnS" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/computer/security/engineering/terminal{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/propulsion)
 "xof" = (
@@ -34086,6 +34099,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "xpS" = (
@@ -34644,10 +34658,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "1-4"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "xHW" = (
@@ -56347,7 +56361,7 @@ dKY
 nRZ
 pOp
 fFm
-qEq
+uym
 lQF
 aZd
 gaC
@@ -59596,7 +59610,7 @@ uVL
 oWe
 xMk
 aQE
-uzC
+lAc
 uVL
 lUr
 rSW
