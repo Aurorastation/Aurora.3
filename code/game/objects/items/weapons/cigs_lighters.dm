@@ -94,7 +94,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [attacking_item].", range = 3)
 		light()
 
-/obj/item/flame/match/dropped(mob/user as mob)
+/obj/item/flame/match/dropped(mob/user)
 	if(lit)
 		spawn(0)
 			var/turf/location = src.loc	// Light up the turf we land on.

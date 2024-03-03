@@ -255,7 +255,7 @@
 	if(istype(module_active, /obj/item/gripper))
 		var/obj/item/gripper/G = module_active
 		if(G.wrapped == O)
-			G.drop(get_turf(src), FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
+			G.drop(get_turf(src), src, FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
 
 /mob/living/silicon/robot/drop_item()
 	if(istype(module_active, /obj/item/gripper))
@@ -272,7 +272,7 @@
 			target = loc
 		if (istype(W.loc, /obj/item/gripper))
 			var/obj/item/gripper/G = W.loc
-			G.drop(target, do_feedback)
+			G.drop(target, src, do_feedback)
 			return TRUE
 	return FALSE
 
