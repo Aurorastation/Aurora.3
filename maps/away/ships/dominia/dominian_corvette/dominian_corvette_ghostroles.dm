@@ -43,7 +43,7 @@
 	desc = "You are a Ma’zal (a Dominian citizen not from Moroz) Ensign of the Imperial Fleet assigned to captain a corvette. You are not a noble, but you are better than your fellow Ma’zals. Prove to your sponsor that you are worthy of command and keep your crew, and hull, intact. Goddess protect and keep you. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	mob_name_prefix = "ENS. "
 
-	spawnpoints = list("imperial_fleet_voidsman")
+	spawnpoints = list("imperial_fleet_voidsman", "imperial_fleet_voidsman/officer")
 	max_count = 1
 
 	outfit = /datum/outfit/admin/imperial_fleet_voidsman/officer
