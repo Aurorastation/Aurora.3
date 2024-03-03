@@ -80,7 +80,7 @@
 	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEFACE|HIDEEARS|BLOCKHAIR
 
 /obj/item/clothing/suit/upburger
-	name = "UP!Burger mascot costume"
+	name = "\improper UP!Burger mascot costume"
 	desc = "A costume of Norinori the Onigiri, popular mascot of Up!Burger. Some poor high school student's worst part time job."
 	icon = 'icons/holidays/halloween/costumes.dmi'
 	icon_state = "upburger"
