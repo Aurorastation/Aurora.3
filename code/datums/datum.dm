@@ -8,6 +8,10 @@
 	var/gc_destroyed
 
 	var/tmp/list/active_timers
+
+	/// Active timers with this datum as the target
+	var/list/_active_timers
+
 	var/tmp/isprocessing = 0
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
@@ -23,6 +27,9 @@
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
+
+	/// Datum level flags
+	var/datum_flags = NONE
 
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
@@ -48,17 +55,16 @@
 	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
 
 	tag = null
+	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
 	weak_reference = null //ensure prompt GCing of weakref.
 
-	if(active_timers)
-		var/list/timers = active_timers
-		active_timers = null
-		if (timers)
-			for (var/thing in timers)
-				var/datum/timedevent/timer = thing
-				if (timer.spent)
-					continue
-				qdel(timer)
+	if(_active_timers)
+		var/list/timers = _active_timers
+		_active_timers = null
+		for(var/datum/timedevent/timer as anything in timers)
+			if (timer.spent && !(timer.flags & TIMER_DELETE_ME))
+				continue
+			qdel(timer)
 
 	#ifdef REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING_DEBUG
@@ -138,6 +144,12 @@
 	vars[var_name] = var_value
 	return TRUE
 
+///Generate a tag for this /datum, if it implements one
+///Should be called as early as possible, best would be in New, to avoid weakref mistargets
+///Really just don't use this, you don't need it, global lists will do just fine MOST of the time
+///We really only use it for mobs to make id'ing people easier
+/datum/proc/GenerateTag()
+	datum_flags |= DF_USE_TAG
 
 /// Return text from this proc to provide extra context to hard deletes that happen to it
 /// Optional, you should use this for cases where replication is difficult and extra context is required

@@ -15,6 +15,10 @@ var/list/gear_datums = list()
 	for(var/geartype in subtypesof(/datum/gear))
 		var/datum/gear/G = geartype
 
+		//We do not want placeholders
+		if(G.type == G.abstract_type)
+			continue
+
 		var/use_name = initial(G.display_name)
 		var/use_category = initial(G.sort_category)
 
@@ -406,19 +410,74 @@ var/list/gear_datums = list()
 	return ..()
 
 /datum/gear
-	var/display_name       //Name/index. Must be unique.
-	var/description        //Description of this gear. If left blank will default to the description of the pathed item.
-	var/path               //Path to item.
-	var/cost = 1           //Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
-	var/slot               //Slot to equip to.
-	var/list/allowed_roles //Roles that can spawn with this item.
-	var/whitelisted        //Term to check the whitelist for..
-	var/faction            //Is this item whitelisted for a faction?
-	var/list/culture_restriction //Is this item restricted to certain cultures? The contents are paths.
-	var/list/origin_restriction //Is this item restricted to certain origins? The contents are paths.
+	/**
+	 * Name and index, _must be unique_
+	 *
+	 * Otherwise, if this is just a placeholder, set the `abstract_type` variable to the path of itself
+	 */
+	var/display_name
+
+	/**
+	 * Description of this gear
+	 *
+	 * If left blank will default to the description of the pathed item.
+	 */
+	var/description
+
+	///The path to item to spawn
+	var/path
+
+	///Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
+	var/cost = 1
+
+	/**
+	 * Slot to equip to, one of the `slot_*` defines, see `code\__DEFINES\items_clothing.dm`
+	 *
+	 * If `null`, it will be sent to the storage (eg. backpack)
+	 */
+	var/slot
+
+	/**
+	 * A `/list` of roles that can spawn with this item
+	 *
+	 * If left `null`, any role can spawn with this item
+	 */
+	var/list/allowed_roles
+
+	/**
+	 * A `/list` of `SPECIES_*` that can spawn with this item
+	 *
+	 * If left `null`, any specie can spawn with this item
+	 */
+	var/list/whitelisted
+
+	/**
+	 * A string of the faction that can use this item
+	 *
+	 * If left `null`, any faction can spawn with this item
+	 */
+	var/faction
+
+	/**
+	 * A `/list` of [/singleton/origin_item/culture] paths that can use this item
+	 */
+	var/list/singleton/origin_item/culture/culture_restriction
+
+	/**
+	 * A `/list` of [/singleton/origin_item/origin] paths that can use this item
+	 */
+	var/list/singleton/origin_item/origin/origin_restriction
+
+	///A string of the category this item will be listed in
 	var/sort_category = "General"
-	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+
+	///A `/list` of [/datum/gear_tweak] to apply
+	var/list/datum/gear_tweak/gear_tweaks = list()
+
+	///Bitflag field of `GEAR_*`, see `code\modules\client\preference_setup\loadout\_defines.dm`
 	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+	///Boolean, if this gear is an augment
 	var/augment = FALSE
 
 /datum/gear/New()

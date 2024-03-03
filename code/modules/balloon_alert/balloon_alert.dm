@@ -20,7 +20,7 @@
 	var/list/hearers = UNLINT(get_hearers_in_view(vision_distance, src))
 	hearers -= ignored_mobs
 
-	for(var/mob/hearer as anything in hearers - src)
+	for(var/mob/hearer in hearers - src)
 		if(hearer.is_blind())
 			continue
 		balloon_alert(hearer, message)

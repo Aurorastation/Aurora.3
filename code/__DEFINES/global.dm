@@ -65,6 +65,8 @@ GLOBAL_LIST_EMPTY(reg_dna)
 
 GLOBAL_DATUM(newplayer_start, /turf)
 
+GLOBAL_DATUM(lobby_mobs_location, /turf)
+
 //Spawnpoints.
 GLOBAL_LIST_EMPTY(latejoin)
 GLOBAL_LIST_EMPTY(latejoin_gateway)

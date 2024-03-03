@@ -102,17 +102,17 @@
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
-/obj/item/rig/examine()
+/obj/item/rig/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(wearer)
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)
 				continue
-			to_chat(usr, "[icon2html(piece, usr)] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed.")
+			. += "[icon2html(piece, usr)] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed."
 
 	if(src.loc == usr)
-		to_chat(usr, "The maintenance panel is [open ? "open" : "closed"].")
-		to_chat(usr, "Hardsuit systems are [offline ? "<span class='warning'>offline</span>" : "<span class='good'>online</span>"].")
+		. += "The maintenance panel is [open ? "open" : "closed"]."
+		. += "Hardsuit systems are [offline ? "<span class='warning'>offline</span>" : "<span class='good'>online</span>"]."
 
 /obj/item/rig/Initialize()
 	. = ..()
@@ -489,7 +489,7 @@
 	cell.use(cost*10)
 	return 1
 
-/obj/item/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = inventory_state)
+/obj/item/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = GLOB.inventory_state)
 	if(!user)
 		return
 
@@ -804,7 +804,7 @@
 	..()
 
 	if(user.client)
-		SSstatpanels.set_action_tabs(user.client, user)
+		SSstatpanels.set_action_tabs_RIG(user.client, user)
 
 	null_wearer(user)
 

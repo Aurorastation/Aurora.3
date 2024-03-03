@@ -1,12 +1,13 @@
 // This file controls round-start runtime maploading.
 
-var/datum/map/current_map	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
-
 SUBSYSTEM_DEF(atlas)
 	name = "Atlas"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MAPLOAD
+	init_order = INIT_ORDER_MAPPING
 	init_stage = INITSTAGE_EARLY
+
+	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
+	var/datum/map/current_map
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
@@ -209,6 +210,8 @@ SUBSYSTEM_DEF(atlas)
 	else
 		current_sector = selected_sector
 
+	current_sector.setup_current_sector()
+
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
@@ -307,8 +310,8 @@ SUBSYSTEM_DEF(atlas)
 	world.Reboot()
 
 /proc/station_name()
-	ASSERT(current_map)
-	. = current_map.station_name
+	ASSERT(SSatlas.current_map)
+	. = SSatlas.current_map.station_name
 
 	var/sname
 	if (GLOB.config && GLOB.config.server_name)
@@ -321,5 +324,5 @@ SUBSYSTEM_DEF(atlas)
 		world.log <<  "Set world.name to [sname]."
 
 /proc/commstation_name()
-	ASSERT(current_map)
-	return current_map.dock_name
+	ASSERT(SSatlas.current_map)
+	return SSatlas.current_map.dock_name

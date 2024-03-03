@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(evac)
 
 /datum/controller/subsystem/evac/Initialize()
 	if(!evacuation_controller)
-		evacuation_controller = new current_map.evac_controller_type ()
+		evacuation_controller = new SSatlas.current_map.evac_controller_type ()
 		evacuation_controller.set_up()
 
 	return SS_INIT_SUCCESS

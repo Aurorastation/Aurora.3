@@ -86,12 +86,12 @@
 	qdel(src)
 	return B
 
-/obj/item/reagent_containers/food/drinks/bottle/attackby(obj/item/W, mob/user)
-	if(!rag && istype(W, /obj/item/reagent_containers/glass/rag))
-		insert_rag(W, user)
+/obj/item/reagent_containers/food/drinks/bottle/attackby(obj/item/attacking_item, mob/user)
+	if(!rag && istype(attacking_item, /obj/item/reagent_containers/glass/rag))
+		insert_rag(attacking_item, user)
 		return
-	if(rag && W.isFlameSource())
-		rag.attackby(W, user)
+	if(rag && attacking_item.isFlameSource())
+		rag.attackby(attacking_item, user)
 		return
 	..()
 
@@ -355,16 +355,16 @@
 	if(do_after(user, 1 SECONDS, src))
 		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
-/obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/W, mob/user)
+/obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 
 	if(is_open_container())
 		return ..()
 
-	if(!has_edge(W))
+	if(!has_edge(attacking_item))
 		return
 
-	if(W.force < 5)
+	if(attacking_item.force < 5)
 		balloon_alert(user, "not strong enough!")
 		return
 
@@ -378,7 +378,7 @@
 
 	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
 
-	var/sabrage_chance = (W.force * sabrage_success_percentile) + command_bonus + job_bonus
+	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + command_bonus + job_bonus
 
 	if(prob(sabrage_chance))
 		///Severity of the resulting froth to pass to make_froth()

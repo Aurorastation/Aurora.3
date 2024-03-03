@@ -247,6 +247,8 @@
 	banners["banner, Svarog"] = /obj/item/flag/svarog
 	banners["banner, Empyrean"] = /obj/item/flag/empyrean
 	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
+	banners["banner, Callisto"] = /obj/item/flag/callisto
+	banners["banner, Venus"] = /obj/item/flag/venus
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -331,6 +333,8 @@
 	flags["flag, Svarog"] = /obj/item/flag/svarog/l
 	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
 	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
+	flags["flag, Callisto"] = /obj/item/flag/callisto/l
+	flags["flag, Venus"] = /obj/item/flag/venus/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -409,3 +413,7 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/lore_radio
+	display_name = "analog radio"
+	path = /obj/item/lore_radio

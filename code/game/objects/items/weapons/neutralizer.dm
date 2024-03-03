@@ -34,7 +34,7 @@
 		toggle()
 		return
 	var/turf/our_turf = get_turf(src)
-	if(!(our_turf.z == revenants.revenant_rift.z && get_dist(src, revenants.revenant_rift) < 5 && isInSight(src, revenants.revenant_rift)))
+	if(!(our_turf.z == revenants.revenant_rift.z && get_dist(src, revenants.revenant_rift) < 5 && is_in_sight(src, revenants.revenant_rift)))
 		tethered = FALSE
 		return
 	if(!tethered)

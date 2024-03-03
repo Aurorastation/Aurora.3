@@ -18,12 +18,12 @@
 	dat += "<B>Charge progress: [reload]/180:</B><BR>"
 	dat += "<A href='byond://?src=\ref[src];fireArea=1'>Open Fire - Area</A><BR>"
 	dat += "<A href='byond://?src=\ref[src];fireCords=1'>Open Fire - Coordinates</A><BR>"
-	dat += "Deployment of weapon authorized by <br>[current_map.company_name] Chief Naval Director<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
+	dat += "Deployment of weapon authorized by <br>[SSatlas.current_map.company_name] Chief Naval Director<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 	return
 
-/obj/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/ui_state/state = default_state)
+/obj/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 

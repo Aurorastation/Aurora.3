@@ -120,10 +120,10 @@
 	var/recharge_time = 1 MINUTE
 	var/when_recharge = 0
 
-/obj/item/syndie/teleporter/examine(mob/user, distance)
+/obj/item/syndie/teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!ready_to_use && burglars.is_antagonist(user.mind))
-		to_chat(user, SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]"))
+		. += SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]")
 
 /obj/item/syndie/teleporter/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")

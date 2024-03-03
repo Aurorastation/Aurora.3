@@ -44,10 +44,6 @@ GLOBAL_DATUM_INIT(moved_event, /singleton/observ/moved, new)
 /atom/movable/proc/recursive_move(var/atom/movable/am, var/old_loc, var/new_loc)
 	GLOB.moved_event.raise_event(src, old_loc, new_loc)
 
-/atom/Entered(var/atom/movable/am, atom/old_loc)
-	..()
-	GLOB.moved_event.raise_event(am, old_loc, am.loc)
-
 /atom/movable/Entered(var/atom/movable/am, atom/old_loc)
 	..()
 	if(GLOB.moved_event.has_listeners(am) && !GLOB.moved_event.is_listening(src, am))

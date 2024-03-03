@@ -9,5 +9,5 @@
 	antag_tags = list(MODE_VAMPIRE, MODE_CULTIST)
 
 /datum/game_mode/veilparty/pre_setup()
-	round_description = "Paranormal activities occur on the [current_map.station_type]."
+	round_description = "Paranormal activities occur on the [SSatlas.current_map.station_type]."
 	. = ..()

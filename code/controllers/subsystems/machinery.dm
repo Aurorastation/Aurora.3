@@ -36,7 +36,7 @@ if(Datum.isprocessing) {\
 SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
-	init_order = SS_INIT_MACHINERY
+	init_order = INIT_ORDER_MACHINES
 	flags = SS_POST_FIRE_TIMING
 	wait = 2 SECONDS
 
@@ -204,7 +204,7 @@ SUBSYSTEM_DEF(machinery)
 			processing -= machine
 			continue
 		//process_all was moved here because of calls overhead for no benefits
-		if(HAS_FLAG(machine.processing_flags, MACHINERY_PROCESS_SELF))
+		if((machine.processing_flags & MACHINERY_PROCESS_SELF))
 			if(machine.process(wait * 0.1) == PROCESS_KILL)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine

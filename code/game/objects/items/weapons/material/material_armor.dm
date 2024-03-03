@@ -52,9 +52,9 @@ Protectiveness | Armor %
 	thrown_force_divisor = 0.2
 	var/wired = FALSE
 
-/obj/item/material/armor_plating/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/S = O
+/obj/item/material/armor_plating/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/S = attacking_item
 		if(wired)
 			to_chat(user, "<span class='warning'>This already has enough wires on it.</span>")
 			return
@@ -66,8 +66,8 @@ Protectiveness | Armor %
 		else
 			to_chat(user, "<span class='notice'>You need more wire for that.</span>")
 			return
-	if(istype(O, /obj/item/material/armor_plating))
-		var/obj/item/material/armor_plating/second_plate = O
+	if(istype(attacking_item, /obj/item/material/armor_plating))
+		var/obj/item/material/armor_plating/second_plate = attacking_item
 		if(!wired && !second_plate.wired)
 			to_chat(user, "<span class='warning'>You need something to hold the two pieces of plating together.</span>")
 			return
@@ -111,9 +111,9 @@ Protectiveness | Armor %
 	item_state = "woodbucket"
 	contained_sprite = 1
 
-/obj/item/clothing/head/helmet/bucket/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/stack/material))
-		var/obj/item/stack/material/S = O
+/obj/item/clothing/head/helmet/bucket/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material))
+		var/obj/item/stack/material/S = attacking_item
 		if(S.use(2))
 			to_chat(user, "<span class='notice'>You apply some [S.material.use_name] to \the [src]. </span>")
 			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(null, S.material.name)
@@ -151,9 +151,9 @@ Protectiveness | Armor %
 	icon_state = "material_kelly"
 	item_state = "material_kelly"
 
-/obj/item/clothing/suit/armor/material/makeshift/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/clothing/suit/storage/toggle/trench))
-		var/obj/item/clothing/suit/storage/toggle/trench/kelly = O
+/obj/item/clothing/suit/armor/material/makeshift/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/suit/storage/toggle/trench))
+		var/obj/item/clothing/suit/storage/toggle/trench/kelly = attacking_item
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(kelly)
 		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.name)

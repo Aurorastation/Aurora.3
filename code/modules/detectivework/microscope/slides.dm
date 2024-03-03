@@ -6,20 +6,20 @@
 	var/obj/item/forensics/swab/has_swab
 	var/obj/item/sample/fibers/has_sample
 
-/obj/item/forensics/slide/attackby(var/obj/item/W, var/mob/user)
+/obj/item/forensics/slide/attackby(obj/item/attacking_item, mob/user)
 	if(has_swab || has_sample)
 		to_chat(user, SPAN_WARNING("There is already a sample in the slide."))
 		return
-	if(istype (W, /obj/item/forensics/swab))
-		has_swab = W
-	else if(istype(W, /obj/item/sample/fibers))
-		has_sample = W
+	if(istype (attacking_item, /obj/item/forensics/swab))
+		has_swab = attacking_item
+	else if(istype(attacking_item, /obj/item/sample/fibers))
+		has_sample = attacking_item
 	else
 		to_chat(user, SPAN_WARNING("You don't think this will fit."))
 		return
 	to_chat(user, SPAN_NOTICE("You insert the sample into the slide."))
-	user.unEquip(W)
-	W.forceMove(src)
+	user.unEquip(attacking_item)
+	attacking_item.forceMove(src)
 	update_icon()
 
 /obj/item/forensics/slide/attack_self(var/mob/user)

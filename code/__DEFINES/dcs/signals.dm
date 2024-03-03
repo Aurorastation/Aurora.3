@@ -29,13 +29,6 @@
 	#define HEARING_LANGUAGE 	3
 	#define HEARING_RAW_MESSAGE 4
 
-//spatial grid signals
-
-///Called from base of /datum/controller/subsystem/spatial_grid/proc/enter_cell: (/atom/movable)
-#define SPATIAL_GRID_CELL_ENTERED(contents_type) "spatial_grid_cell_entered_[contents_type]"
-///Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)
-#define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
-
 // /mob signals
 #define COMSIG_MOB_EXAMINATE "mob_examinate"
 #define COMSIG_MOB_FACEDIR "mob_facedir"

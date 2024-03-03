@@ -93,3 +93,21 @@
 	build_from_parts = TRUE
 	worn_overlay = "belt"
 	has_accents = TRUE
+
+/obj/item/clothing/under/unathi/izweski
+	name = "izweski navy uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its insignia indicates it as belonging to a soldier of the Izweski Hegemony's Navy."
+	icon = 'icons/clothing/under/uniforms/izweski.dmi'
+	icon_state = "izweski"
+	item_state = "izweski"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/unathi/izweski/officer
+	name = "izweski navy officer's uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its golden ornamentation indicates it as belonging to an officer of the Izweski Hegemony's Navy."
+	icon_state = "izweski_officer"
+	item_state = "izweski_officer"

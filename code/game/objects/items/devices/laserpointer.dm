@@ -42,18 +42,18 @@
 	laser_act(M, user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-/obj/item/device/laser_pointer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stock_parts/micro_laser))
+/obj/item/device/laser_pointer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stock_parts/micro_laser))
 		if(!diode)
 			user.drop_item()
-			W.forceMove(src)
-			diode = W
+			attacking_item.forceMove(src)
+			diode = attacking_item
 			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
 		return TRUE
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(diode)
 			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>")
 			diode.forceMove(get_turf(user))

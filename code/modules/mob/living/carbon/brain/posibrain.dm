@@ -23,7 +23,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mmi/digital/posibrain/attackby(obj/item/I, mob/user)
+/obj/item/device/mmi/digital/posibrain/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/device/mmi/digital/posibrain/attack_self(mob/user)
@@ -72,27 +72,24 @@
 	visible_message(SPAN_NOTICE("\The [src] chimes quietly."))
 	return ..()
 
-/obj/item/device/mmi/digital/posibrain/examine(mob/user)
-	if(!..(user))
-		return
+/obj/item/device/mmi/digital/posibrain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 
-	var/msg = "<span class='info'>*---------*</span>\nThis is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
-	msg += "<span class='warning'>"
+	. += "This is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
+	. += "<span class='warning'>"
 
 	if(brainmob?.key)
 		switch(brainmob.stat)
 			if(CONSCIOUS)
 				if(!src.brainmob.client)
-					msg += "It appears to be in stand-by mode.\n" //afk
+					. += "It appears to be in stand-by mode.\n" //afk
 			if(UNCONSCIOUS)
-				msg += "<span class='warning'>It doesn't seem to be responsive.</span>\n"
+				. += "<span class='warning'>It doesn't seem to be responsive.</span>\n"
 			if(DEAD)
-				msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
+				. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	else
-		msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
-	msg += "</span><span class='info'>*---------*</span>"
-	to_chat(user, msg)
-	return TRUE
+		. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
+	. += "</span>"
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)
