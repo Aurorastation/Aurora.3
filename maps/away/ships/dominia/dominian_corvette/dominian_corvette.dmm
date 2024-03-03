@@ -6332,7 +6332,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 "wXi" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
