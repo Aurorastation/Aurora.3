@@ -1061,7 +1061,7 @@
 	phrase = "Eough!"
 	drop_sound = 'sound/effects/creatures/ough.ogg'
 	pickup_sound = 'sound/effects/creatures/ough.ogg'
-	pokesound = 'sound/effects/creatures/ough.ogg'
+	poke_sound = 'sound/effects/creatures/ough.ogg'
 
 /obj/item/toy/plushie/coolschlorrgo
 	name = "Cool Schlorrgo plush"
