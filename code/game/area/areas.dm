@@ -6,7 +6,7 @@
 #define VOLUME_AMBIENT_HUM 18
 #define VOLUME_MUSIC 30
 
-/// This list of names is here to make sure we don't state our descriptive blurb to a person more than once.
+/// This list of names is here to make sure we don't state the area blurb to a mob more than once.
 var/global/list/area_blurb_stated_to = list()
 
 /area
@@ -493,11 +493,11 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
 		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
-		to_chat(target_mob, SPAN_NOTICE("[area_blurb]"))
+		to_chat(target_mob, SPAN_COLOR(COLOR_GRAY, "[area_blurb]"))
 
 /// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
 /mob/living/verb/show_area_blurb()
-	set name = "Show area blurb"
+	set name = "Show Area Blurb"
 	set category = "IC"
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT))
@@ -507,7 +507,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 /// A ghost version of the view area blurb verb so you can view it while observing.
 /mob/abstract/observer/verb/ghost_show_area_blurb()
-	set name = "Show area blurb"
+	set name = "Show Area Blurb"
 	set category = "IC"
 
 	var/area/blurb_verb = get_area(src)
