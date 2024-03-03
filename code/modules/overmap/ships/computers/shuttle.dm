@@ -44,7 +44,8 @@
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 			"fuel_usage" = shuttle.fuel_consumption * 100,
 			"remaining_fuel" = round(total_gas, 0.01) * 100,
-			"fuel_span" = fuel_span
+			"fuel_span" = fuel_span,
+			"" = (connected.z),
 		)
 
 /obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/overmap/shuttle, var/action, var/list/params)

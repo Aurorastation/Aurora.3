@@ -21400,8 +21400,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bcb" = (
-/obj/structure/shuttle/engine/heater,
-/turf/simulated/floor/airless,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "bcc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -23441,23 +23443,30 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bfX" = (
-/obj/machinery/computer/security/nuclear,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bfY" = (
-/obj/machinery/computer/shuttle_control/multi/antag/syndicate,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "bfZ" = (
-/obj/item/clothing/accessory/storage/webbingharness/pouches/ert,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table/reinforced/steel,
 /obj/item/clothing/accessory/storage/webbingharness/alt{
 	slots = 5
 	},
 /obj/item/clothing/accessory/storage/webbingharness{
 	slots = 5
 	},
-/obj/item/device/binoculars,
-/obj/structure/table/reinforced,
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bgc" = (
@@ -23854,17 +23863,19 @@
 	},
 /area/centcom/legion/hangar5)
 "bgO" = (
-/obj/machinery/light{
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bgP" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bgQ" = (
-/obj/machinery/light{
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -24200,10 +24211,10 @@
 	},
 /area/centcom/legion/hangar5)
 "bhB" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "bhC" = (
 /turf/simulated/floor/shuttle/black,
@@ -24677,14 +24688,8 @@
 	},
 /area/centcom/legion/hangar5)
 "bis" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/machinery/computer/security/nuclear{
 	dir = 4
-	},
-/obj/item/device/radio/intercom/west{
-	frequency = 1213;
-	name = "Intercom";
-	subspace_transmission = 1;
-	syndie = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
@@ -25068,7 +25073,6 @@
 /turf/unsimulated/wall/fakeairlock,
 /area/antag/raider)
 "bjF" = (
-/obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen{
 	pixel_y = 4
@@ -25081,10 +25085,10 @@
 	pixel_y = 20
 	},
 /obj/item/device/taperecorder,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjG" = (
-/obj/structure/table/reinforced,
 /obj/machinery/newscaster/north{
 	name = "hacked newscaster"
 	},
@@ -25093,6 +25097,7 @@
 	},
 /obj/item/device/megaphone/red,
 /obj/item/stack/material/steel/full,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjH" = (
@@ -25126,7 +25131,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjK" = (
-/obj/structure/table/reinforced,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -25142,10 +25146,10 @@
 /obj/item/crowbar,
 /obj/item/crowbar,
 /obj/item/stack/liquidbags/half_full,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjL" = (
-/obj/structure/table/reinforced,
 /obj/item/storage/firstaid/o2,
 /obj/machinery/light{
 	dir = 4
@@ -25157,6 +25161,7 @@
 /obj/item/roller{
 	pixel_y = -9
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjO" = (
@@ -25360,13 +25365,12 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/distress_prep)
 "bkq" = (
-/obj/structure/table/reinforced,
 /obj/item/device/camera_film,
 /obj/item/device/camera,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bkr" = (
-/obj/structure/table/reinforced,
 /obj/item/airbubble/syndie{
 	pixel_y = 4
 	},
@@ -25376,6 +25380,7 @@
 /obj/item/storage/bag/inflatable{
 	pixel_y = -5
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bkt" = (
@@ -26010,7 +26015,6 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "bmm" = (
-/obj/structure/table/reinforced,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -26018,14 +26022,15 @@
 	pixel_y = 12
 	},
 /obj/item/storage/briefcase/aluminium,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bmn" = (
-/obj/structure/table/reinforced,
 /obj/item/pinpointer/nukeop,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bmr" = (
@@ -26560,7 +26565,7 @@
 	name = "Workshop";
 	req_access = list(150)
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bnR" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -26568,7 +26573,7 @@
 	name = "Crew Cabin";
 	req_access = list(150)
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bnZ" = (
 /obj/structure/lattice,
@@ -27905,12 +27910,12 @@
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop"
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bqr" = (
@@ -28260,7 +28265,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "brk" = (
-/obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop"
@@ -28270,6 +28274,7 @@
 	req_access = list(150)
 	},
 /obj/item/clothing/glasses/meson,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "brm" = (
@@ -28725,7 +28730,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bse" = (
-/obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop"
@@ -28735,6 +28739,7 @@
 /obj/machinery/door/window/brigdoor/eastright{
 	req_access = list(150)
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bsf" = (
@@ -29044,13 +29049,13 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop"
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bsL" = (
@@ -29072,7 +29077,7 @@
 /area/shuttle/mercenary)
 "bsN" = (
 /obj/structure/sign/greencross,
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "bsO" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
@@ -29433,7 +29438,7 @@
 	req_access = list(150)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "btC" = (
 /obj/machinery/door/airlock/hatch{
@@ -29817,15 +29822,14 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "buA" = (
-/obj/machinery/light/small/emergency,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "buB" = (
-/obj/machinery/atmospherics/binary/pump/high_power/on{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
@@ -29835,6 +29839,9 @@
 	},
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
@@ -30374,8 +30381,10 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "bwy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/airless,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "bwC" = (
 /obj/structure/table/rack,
@@ -30620,11 +30629,13 @@
 /area/centcom/distress_prep)
 "bxn" = (
 /obj/effect/overmap/visitable/ship/landable/raskolnikov,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bxv" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/simulated/floor/airless,
+/obj/item/device/binoculars,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bxx" = (
 /obj/machinery/door/blast/odin/open{
@@ -35137,6 +35148,16 @@
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_gym)
+"ckc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/reinforced,
+/area/shuttle/mercenary)
 "ckG" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -36528,12 +36549,24 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
+"hqK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/mercenary)
 "htn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
+"htF" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 2
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/mercenary)
 "hue" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -36600,7 +36633,7 @@
 /turf/space/transit/north,
 /area/template_noop)
 "hzc" = (
-/obj/machinery/computer/ship/engines/terminal,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "hzT" = (
@@ -36673,7 +36706,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
 "hTO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "hWe" = (
@@ -37150,6 +37183,18 @@
 	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
+"jiz" = (
+/obj/item/device/radio/intercom/west{
+	frequency = 1213;
+	name = "Intercom";
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/mercenary)
 "jjH" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
@@ -41053,6 +41098,13 @@
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
+"xNL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/mercenary)
 "xOd" = (
 /obj/effect/floor_decal/corner{
 	dir = 4
@@ -84075,8 +84127,8 @@ bsc
 bsH
 axk
 btV
+xNL
 buz
-axk
 axk
 axk
 aaa
@@ -84333,7 +84385,7 @@ bsI
 axk
 btW
 buA
-bqv
+htF
 bwy
 kMm
 aaa
@@ -84571,8 +84623,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+mXb
+cSu
 axk
 axk
 axk
@@ -84590,9 +84642,9 @@ bpC
 btz
 btX
 buB
-axk
-bcb
-bxv
+hqK
+bfY
+kMm
 aaa
 aaa
 aaa
@@ -84825,11 +84877,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-mXb
-cSu
+axk
+hTO
+hTO
+hTO
+axk
 axk
 bjF
 bkq
@@ -84847,9 +84899,9 @@ bsJ
 axk
 btY
 buC
-axk
-bcb
-bxv
+ckc
+bfY
+kMm
 aaa
 aaa
 aaa
@@ -85082,11 +85134,11 @@ aaa
 aaa
 aaa
 aaa
-axk
 hTO
-hTO
-hTO
-axk
+hzc
+bfX
+bis
+jiz
 axk
 bjG
 bhC
@@ -85106,7 +85158,7 @@ abc
 axk
 axk
 bcb
-bxv
+axk
 aaa
 aaa
 aaa
@@ -85340,16 +85392,16 @@ aaa
 aaa
 aaa
 hTO
-bfX
+cQJ
 bgO
-bhB
-bis
+bhC
+bgO
 axk
 bjH
 bhC
-cQJ
 bhC
-dFL
+bhC
+bhC
 bhC
 axk
 boP
@@ -85363,7 +85415,7 @@ btZ
 buE
 axk
 bcb
-bxv
+axk
 aaa
 aaa
 aaa
@@ -85597,7 +85649,7 @@ aaa
 aaa
 aaa
 hTO
-bfY
+dFL
 bgP
 bhC
 bhC
@@ -85620,7 +85672,7 @@ bua
 buF
 axk
 bcb
-bxv
+axk
 aaa
 aaa
 aaa
@@ -85854,15 +85906,15 @@ aaa
 aaa
 aaa
 hTO
-bfZ
+uoB
 bgQ
-bhD
-bit
+bhC
+bhC
 axk
 bjJ
-hzc
 bhC
-uoB
+bhC
+bhC
 bhC
 bhC
 axk
@@ -85877,7 +85929,7 @@ bub
 buG
 axk
 bcb
-bxv
+axk
 aaa
 aaa
 aaa
@@ -86110,11 +86162,11 @@ aaa
 aaa
 aaa
 aaa
-axk
 hTO
-hTO
-hTO
-axk
+bxv
+bfZ
+bhD
+bit
 axk
 bjK
 bhC
@@ -86134,7 +86186,7 @@ buc
 axk
 axk
 bcb
-bxv
+axk
 aaa
 aaa
 aaa
@@ -86367,11 +86419,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+axk
+hTO
+hTO
+hTO
+axk
 axk
 bjL
 bkr
@@ -86390,8 +86442,8 @@ btE
 bud
 buI
 axk
-bcb
-bxv
+bfY
+kMm
 aaa
 aaa
 aaa
@@ -86647,8 +86699,8 @@ btF
 bue
 buJ
 axk
-bcb
-bxv
+bfY
+kMm
 aaa
 aaa
 aaa
@@ -86904,8 +86956,8 @@ btG
 buf
 buK
 axk
-bcb
-bxv
+bhB
+kMm
 aaa
 aaa
 aaa
