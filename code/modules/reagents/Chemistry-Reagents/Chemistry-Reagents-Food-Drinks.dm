@@ -4342,7 +4342,7 @@
 	strength = 35
 	taste_description = "brandy and lemonade"
 
-	glass_icon_state = "staghunterglass"
+	glass_icon_state = "staghunt"
 	glass_name = "glass of Stag Hunt"
 	glass_desc = "The national drink of the All-Xanu Republic. Brandy, tea, and lemonade, over ice. A perfect pairing with wild game, the setting sun, and a warm breeze."
 
