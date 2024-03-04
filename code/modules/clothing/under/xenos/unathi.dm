@@ -113,25 +113,25 @@
 	item_state = "izweski_officer"
 
 /obj/item/clothing/under/unathi/skakh
-	name = "sk'akh priest robes"
+	name = "\improper Sk'akh priest robes"
 	desc = "A simple brown robe with gilded ornamentation, the standard garment for the clergy of the Sk'akh Church. The ornamentation this one bears identifies its wearer as holding the rank of an ordained priest within the Church hierarchy."
 	icon_state = "skakh"
 	item_state = "skakh"
 
 /obj/item/clothing/under/unathi/skakh/fisher
-	name = "sk'akh fisher robes"
+	name = "\improper Sk'akh fisher robes"
 	desc = "A simple brown and orange robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Fisher."
 	icon_state = "skakh-fisher"
 	item_state = "skakh-fisher"
 
 /obj/item/clothing/under/unathi/skakh/healer
-	name = "sk'akh healer robes"
+	name = "\improper Sk'akh healer robes"
 	desc = "A simple brown and green robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Healer."
 	icon_state = "skakh-healer"
 	item_state = "skakh-healer"
 
 /obj/item/clothing/under/unathi/skakh/warrior
-	name = "sk'akh warrior robes"
+	name = "\improper Sk'akh warrior robes"
 	desc = "A simple brown and red robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Warrior."
 	icon_state = "skakh-warrior"
 	item_state = "skakh-warrior"
