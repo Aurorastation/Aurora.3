@@ -33,7 +33,8 @@
 		"Shaman Staff" = /obj/item/nullrod/shaman,
 		"Warrior's Sword" = /obj/item/nullrod/skakh_warrior,
 		"Healer's Staff" = /obj/item/nullrod/skakh_healer,
-		"Fisher's Sickle" = /obj/item/nullrod/skakh_fisher)
+		"Fisher's Sickle" = /obj/item/nullrod/skakh_fisher
+	)
 
 	var/list/religion_restriction //which religions can pick this item
 
