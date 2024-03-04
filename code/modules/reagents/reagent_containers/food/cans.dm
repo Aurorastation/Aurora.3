@@ -516,9 +516,69 @@
 	icon_state = "moonlabor"
 	item_state = "moonlabor"
 
+/obj/item/reagent_containers/food/drinks/cans/beer/earthmover
+	name = "\improper Inverkeithing Imports Earthmover"
+	desc = "Himeo's second-favorite brand of non-mushroom liquor, according to the 2264 Consumer's Census. Rising prices on the import of Virklunder, which held the top point for several years, are probably to blame. \
+	Luckily for Himeo- and the Coalition, where it is exported under the Inverkeithing Import name- this hydroponically-grown dry stout is of a reasonably high quality."
+	icon_state = "earthmover"
+	item_state = "earthmover"
+
 /obj/item/reagent_containers/food/drinks/cans/melon_soda
 	name = "Kansumi Melon Soda"
 	desc = "Konyang's favourite melon soda, now available in can form!"
 	icon_state = "melon_soda"
 	item_state = "melon_soda"
 	reagents_to_add = list(/singleton/reagent/drink/melon_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/himeokvass
+	name = "Dorshafen Deluxe"
+	desc = "A can of Himean mushroom kvass. Non-alcoholic, unlike its Fisanduhian cousin, which makes it a workday favorite of railyard workers."
+	icon_state = "dorshdeluxe"
+	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/galatea
+	name = "Svarog Presents: Gala-Tea!"
+	desc = "A Galatean energy drink, highly regarded among college students. A warning on the can notes that the maximum dosage of this beverage is forty-five units per cycle."
+	icon_state = "galateadrink"
+	reagents_to_add = list(/singleton/reagent/drink/galatea = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/boch
+	name = "Boch Brew Berry Bounty"
+	desc = "A can of Vysokan energy drink, derived from the digestive sac of the boch-zivir. This one is in the typical berry flavor."
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi' // we're not animals
+	icon_state = "bochbrew"
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
+	reagents_to_add = list(/singleton/reagent/drink/bochbrew = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn
+	name = "Boch Brew Buckthorn Buckwild"
+	desc = "A can of Vysokan energy drink, derived from the digestive sac of the boch-zivir. This one is buckthorn flavored."
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi' // if it looks like a bottle it's a bottle
+	icon_state = "bochbrew_buck"
+	reagents_to_add = list(/singleton/reagent/drink/bochbrew/buckthorn = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai
+	name = "Brown Palace Champion Chai"
+	desc = "A Xanan brand of canned chai tea. This one is the standard chai flavor."
+	icon_state = "xanuchai"
+	reagents_to_add = list(/singleton/reagent/drink/tea/chaitea = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme
+	name = "Brown Palace Champion Chai Creme"
+	desc = "A Xanan brand of canned chai tea. This one is a chai latte flavor."
+	icon_state = "xanucreme"
+	reagents_to_add = list(/singleton/reagent/drink/tea/chaitealatte = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate
+	name = "Brown Palace Champion Chocolate Chai"
+	desc = "A Xanan brand of canned chai tea. This one is a chocolate chai flavor."
+	icon_state = "xanuchoc"
+	reagents_to_add = list(/singleton/reagent/drink/tea/coco_chaitea = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan
+	name = "Brown Palace Champion Chai"
+	desc = "A Xanan brand of canned chai tea. This one is neapolitan flavored; vanilla, chocolate, and strawberry."
+	icon_state = "xanuneap"
+	reagents_to_add = list(/singleton/reagent/drink/tea/chaitea = 30)
+

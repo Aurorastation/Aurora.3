@@ -1644,6 +1644,78 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 100
 	)
 
+/obj/machinery/vending/frontiervend
+	name = "FrontierVend"
+	desc = "A vending machine specialized in snacks from the Coalition of Colonies."
+	desc_extended = "Almost rebranded to the 'Coalition of Snackolonies', the FrontierVend brand is owned by a now-subsidiary of Orion Express specialized in food exports. These machines \
+	are omnipresent throughout the settled regions of human space, forming a sort of Coalition superculture; it's easier to sympathize with someone if you eat the same snacks."
+	icon_state = "frontiervend"
+	icon_vend = "frontiervend-vend"
+	//product_slogans = "At least 85 billion served!;A new frontier of flavors!;Snacking for a free frontier!;WARNING: This machine does not accept Solarian credits."
+	//product_ads = "Kill Solarians.;Behead Solarians.;Roundhouse kick a Solarian into the concrete.;Slam-dunk Solarians into the trashcan.;Launch Solarians into the sun."
+	vend_id = "frontiervend"
+
+	products = list(
+		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 4,
+		/obj/item/reagent_containers/food/drinks/cans/boch = 4,
+		/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn = 4,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai = 6,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 4,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 4,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 4,
+		/obj/item/reagent_containers/food/snacks/fishjerky = 4,
+		/obj/item/reagent_containers/food/snacks/pepperoniroll = 4,
+		/obj/item/reagent_containers/food/snacks/salmiak = 3,
+		/obj/item/reagent_containers/food/snacks/hakhspam = 3,
+		/obj/item/reagent_containers/food/snacks/pemmicanbar = 4,
+		/obj/item/reagent_containers/food/snacks/peanutsnack = 4,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/pepper = 6,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/choc = 6,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/masala = 6,
+		/obj/item/reagent_containers/food/snacks/chana = 4,
+		/obj/item/reagent_containers/food/snacks/chana/wild = 4,
+		/obj/item/reagent_containers/food/snacks/papad = 4,
+		/obj/item/reagent_containers/food/snacks/papad/garlic = 4,
+		/obj/item/reagent_containers/food/snacks/papad/ginger = 4,
+		/obj/item/reagent_containers/food/snacks/papad/apple = 4,
+		/obj/item/storage/box/fancy/foysnack = 2
+	)
+	prices = list(
+		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 20,
+		/obj/item/reagent_containers/food/drinks/cans/boch = 15,
+		/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 15,
+		/obj/item/reagent_containers/food/snacks/fishjerky = 20,
+		/obj/item/reagent_containers/food/snacks/pepperoniroll = 20,
+		/obj/item/reagent_containers/food/snacks/salmiak = 20,
+		/obj/item/reagent_containers/food/snacks/hakhspam = 25,
+		/obj/item/reagent_containers/food/snacks/pemmicanbar = 15,
+		/obj/item/reagent_containers/food/snacks/peanutsnack = 15,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/pepper = 15,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/choc = 15,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/masala = 15,
+		/obj/item/reagent_containers/food/snacks/chana = 18,
+		/obj/item/reagent_containers/food/snacks/chana/wild = 18,
+		/obj/item/reagent_containers/food/snacks/papad = 15,
+		/obj/item/reagent_containers/food/snacks/papad/garlic = 15,
+		/obj/item/reagent_containers/food/snacks/papad/ginger = 15,
+		/obj/item/reagent_containers/food/snacks/papad/apple = 15,
+		/obj/item/storage/box/fancy/foysnack = 25
+	)
+	contraband = list(
+		/obj/item/clothing/head/sol = 1
+	)
+	premium = list(
+		/obj/item/toy/comic/inspector = 2,
+		/obj/item/toy/comic/stormman = 2,
+		/obj/item/toy/plushie/greimorian = 2
+	)
+	light_color = COLOR_BABY_BLUE
+
+
 /obj/machinery/vending/rental_bikes
 	name = "\improper Rental Bikes self-service vendor"
 	desc = "Rent-a-bike, for a day!"
