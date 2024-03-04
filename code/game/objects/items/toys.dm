@@ -956,7 +956,10 @@
 	drop_sound = 'sound/items/drop/plushie.ogg'
 	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
+/// defines what sound is played when poking the plushie (using it inhand on disarm intent).
 	var/poke_sound = 'sound/items/drop/plushie.ogg'
+///A cooldown to stop the poke sound being spammed.
+	var/poke_cooldown = 0
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
 	if(user.a_intent == I_HELP)
@@ -966,6 +969,9 @@
 	else if (user.a_intent == I_GRAB)
 		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
 	else
+		if(poke_cooldown > world.time)
+			return
+		poke_cooldown = world.time + 2 SECONDS
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
 		playsound(src, poke_sound, 25, 0)
 		visible_message("[src] says, \"[phrase]\"")
