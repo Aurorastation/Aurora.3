@@ -566,7 +566,8 @@
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
-					unk += 1
+					if(!istype(I, /obj/item/implant/uplink))
+						unk += 1
 			if (unk)
 				wounds += "unknown objects present"
 			var/friends = length(organic)
