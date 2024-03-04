@@ -26,12 +26,12 @@
 	icon_state = "vacuumflask"
 	volume = 60
 	center_of_mass = list("x"=15, "y"=4)
-
+	var/cup_type = /obj/item/reagent_containers/food/drinks/flask/flask_cup
 	var/obj/item/reagent_containers/food/drinks/flask/flask_cup/cup
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
 	. = ..()
-	cup = new(src)
+	cup = new cup_type(src)
 	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
@@ -60,6 +60,7 @@
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/update_icon()
+	..()
 	icon_state = cup ? initial(icon_state) : "[initial(icon_state)]-nobrim"
 
 /obj/item/reagent_containers/food/drinks/flask/flask_cup
@@ -73,3 +74,16 @@
 	if(istype(target, /obj/item/reagent_containers/food/drinks/flask/vacuumflask))
 		return
 	return ..()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash
+	name = "mouthwash bottle"
+	desc = "..."
+	icon_state = "mouthwash"
+	cup_type = /obj/item/reagent_containers/food/drinks/flask/flask_cup/mouthwash
+	reagents_to_add = list(/singleton/reagent/drink/mouthwash = 60)
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup/mouthwash
+	name = "mouthwash bottle cap"
+	desc = "..."
+	icon_state = "mouthwash_cap"
+	center_of_mass = list("x" = 16, "y" = 16)

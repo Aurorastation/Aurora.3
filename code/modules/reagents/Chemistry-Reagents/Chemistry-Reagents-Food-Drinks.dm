@@ -2611,12 +2611,29 @@
 	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
 	glass_center_of_mass = list("x"=7, "y"=8)
 
-
 /singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-
 	if(!istype(M))
 		return
+	if(alien == IS_VAURCA)
+		M.intoxication += (strength / 100) * removed * 3.5
 
+/singleton/reagent/drink/mouthwash
+	name = "Mouthwash"
+	description = "A fluid commonly used in oral hygiene."
+	reagent_state = LIQUID
+	color = "#9df8ff"
+	taste_description = "mouthwash"
+	overdose = REAGENTS_OVERDOSE
+	var/strength = 50
+
+	glass_icon_state = "mouthwash"
+	glass_name = "glass of mouthwash"
+	glass_desc = "Minty-fresh and enamel-protecting, ensuring a fresh breath."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/mouthwash/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!istype(M))
+		return
 	if(alien == IS_VAURCA)
 		M.intoxication += (strength / 100) * removed * 3.5
 
