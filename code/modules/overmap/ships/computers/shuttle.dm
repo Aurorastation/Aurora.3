@@ -80,7 +80,7 @@
 		// get the target overmap turf to put our shuttle on
 		var/map_low = OVERMAP_EDGE
 		var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
-		var/turf/home = CircularRandomTurfAround(main, 1, map_low, map_low, map_high, map_high)
+		var/turf/home = CircularRandomTurfAround(main, 2, map_low, map_low, map_high, map_high)
 
 		// move the overmap shuttle object to the overmap (it should be on the CC z-level before so)
 		landable.forceMove(home)
