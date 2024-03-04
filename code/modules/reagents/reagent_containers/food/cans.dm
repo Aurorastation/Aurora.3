@@ -559,6 +559,16 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/bochbrew = 30)
 
+/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/M, mob/user, var/target_zone)
+	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+		if(M == user)
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You smack the bottle of [src.name] on your forehead."))
+		else
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [M]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [M]'s forehead."))
+		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
+		return TRUE
+	. = ..()
+
 /obj/item/reagent_containers/food/drinks/cans/boch/buckthorn
 	name = "Boch Brew Buckthorn Buckwild"
 	desc = "A can of Vysokan energy drink, derived from the digestive sac of the boch-zivir. This one is buckthorn flavored."

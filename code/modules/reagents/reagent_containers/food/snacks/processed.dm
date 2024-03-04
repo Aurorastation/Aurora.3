@@ -710,6 +710,7 @@
 	center_of_mass = list("x"=15, "y"=9)
 	trash = /obj/item/trash/peanutsnack
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sodiumchloride = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("peanuts" = 5))
 	bitesize = 4
 
 /obj/item/reagent_containers/food/snacks/peanutsnack/pepper

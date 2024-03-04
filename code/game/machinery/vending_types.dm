@@ -108,6 +108,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/kvass = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/tarasun = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/saintjacques = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
@@ -1664,6 +1666,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 8,
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 8,
 		/obj/item/reagent_containers/food/drinks/cans/galatea = 8,
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend = 6,
 		/obj/item/reagent_containers/food/snacks/fishjerky = 8,
 		/obj/item/reagent_containers/food/snacks/pepperoniroll = 8,
 		/obj/item/reagent_containers/food/snacks/salmiak = 6,
@@ -1691,6 +1694,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 15,
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 15,
 		/obj/item/reagent_containers/food/drinks/cans/galatea = 25,
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend = 20,
 		/obj/item/reagent_containers/food/snacks/fishjerky = 20,
 		/obj/item/reagent_containers/food/snacks/pepperoniroll = 20,
 		/obj/item/reagent_containers/food/snacks/salmiak = 20,
@@ -1717,6 +1721,7 @@
 		/obj/item/toy/comic/stormman = 2,
 		/obj/item/toy/plushie/greimorian = 2
 	)
+	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
 
