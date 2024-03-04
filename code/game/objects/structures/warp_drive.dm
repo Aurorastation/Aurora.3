@@ -8,5 +8,13 @@
 	light_power = 4
 	light_range = 3
 
-/obj/structure/warp_drive/attack_hand(var/mob/user)
+/obj/structure/warp_drive/teleporting/attack_hand(var/mob/user)
 	do_teleport(user, get_turf(user), 8, asoundin = 'sound/effects/phasein.ogg')
+
+/obj/structure/warp_drive/hammer/pirate
+	name = "Modified Suzuki-Zhang Hammer Drive"
+	desc = "\
+		A Suzuki-Zhang Hammer Drive, commonly found on larger interstellar vessels. \
+		This one appears to be heavily however to work with a smaller power supply, \
+		and components from nearly every major megacorporation can be seen making it up.\
+	"

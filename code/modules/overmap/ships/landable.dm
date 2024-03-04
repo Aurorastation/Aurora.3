@@ -178,3 +178,18 @@
 			return "Maneuvering under secondary thrust."
 		if(SHIP_STATUS_OVERMAP)
 			return "In open space."
+
+/// Forcefully moves the shuttle to its open space zlevel, gracefully closing its airlock.
+/// This is to be used for shuttles that start on admin/CC zlevels, that are not connected to the overmap.
+/obj/effect/overmap/visitable/ship/landable/proc/force_move_to_open_space()
+	// get the shuttle
+	var/datum/shuttle/autodock/overmap/shuttle_datum = SSshuttle.shuttles[shuttle]
+	if(!istype(shuttle_datum))
+		return
+
+	// close its airlock
+	if(istype(shuttle_datum.active_docking_controller))
+		shuttle_datum.active_docking_controller.initiate_undocking()
+
+	// actually move the shuttle to its open space
+	shuttle_datum.attempt_move(landmark)

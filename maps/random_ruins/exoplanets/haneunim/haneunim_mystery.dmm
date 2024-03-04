@@ -28,7 +28,7 @@
 /area/haneunim_mystery)
 "l" = (
 /obj/random/dirt_75,
-/obj/structure/warp_drive{
+/obj/structure/warp_drive/teleporting{
 	name = "non-functional bluespace drive";
 	desc = "An ancient bluespace drive, clearly not of human make. Many of its components have long since degraded to the point of inoperability, even if you could figure out how to use it."
 	},

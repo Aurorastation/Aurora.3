@@ -185,11 +185,7 @@
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
-/obj/effect/overmap/visitable/ship/landable/raskolnikov/proc/force_move_to_open_space()
-	// to src.landmark
-	var/datum/shuttle/autodock/overmap/shuttle2 = SSshuttle.shuttles[shuttle]
-	shuttle2.attempt_move(landmark)
-
 /obj/machinery/computer/shuttle_control/explore/terminal/raskolnikov
 	name = "\improper Raskolnikov control console"
 	shuttle_tag = "Raskolnikov"
+	jump_to_overmap_capable = TRUE

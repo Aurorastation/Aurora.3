@@ -4,6 +4,10 @@
 	ui_template = "ShuttleControlConsoleMultiExplore"
 	var/obj/effect/overmap/visitable/ship/connected //Ship we're connected to
 
+	/// If true, gui will show the jump-to-overmap button and warning,
+	/// while the shuttle is on a admin z-level.
+	var/jump_to_overmap_capable = FALSE
+
 /obj/machinery/computer/shuttle_control/explore/Initialize()
 	. = ..()
 	if(istype(linked, /obj/effect/overmap/visitable/ship))
@@ -45,7 +49,9 @@
 			"fuel_usage" = shuttle.fuel_consumption * 100,
 			"remaining_fuel" = round(total_gas, 0.01) * 100,
 			"fuel_span" = fuel_span,
-			"" = (connected.z),
+			"jump_to_overmap_capable" = jump_to_overmap_capable,
+			"can_jump_to_overmap" = (jump_to_overmap_capable && isAdminLevel(connected.z)),
+			"world_time" = world.time,
 		)
 
 /obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/overmap/shuttle, var/action, var/list/params)
@@ -63,6 +69,24 @@
 		if(CanInteract(user, GLOB.physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TRUE
+
+	if(action == "jump_to_overmap" && jump_to_overmap_capable)
+		// get our shuttle
+		var/obj/effect/overmap/visitable/ship/landable/landable = connected
+
+		// get horizon (or whatever other main map)
+		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
+
+		// get the target overmap turf to put our shuttle on
+		var/map_low = OVERMAP_EDGE
+		var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
+		var/turf/home = CircularRandomTurfAround(main, 1, map_low, map_low, map_high, map_high)
+
+		// move the overmap shuttle object to the overmap (it should be on the CC z-level before so)
+		landable.forceMove(home)
+
+		// and finally force-move the actual shuttle turfs/objs/etc to the open space zlevel of the shuttle
+		landable.force_move_to_open_space()
 
 /obj/machinery/computer/shuttle_control/explore/terminal
 	name = "shuttle control terminal"

@@ -92,7 +92,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		start_y = start_y || rand(map_low, map_high)
 		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
 
-	if(!invisible_until_ghostrole_spawn)
+	if(!invisible_until_ghostrole_spawn && isNotAdminLevel(z))
 		forceMove(home)
 
 	update_name()
