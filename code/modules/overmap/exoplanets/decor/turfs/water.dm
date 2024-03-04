@@ -1,10 +1,10 @@
 /turf/simulated/floor/exoplanet/water
 	does_footprint = FALSE
 	footstep_sound = /singleton/sound_category/water_footstep
-	var/deep = TRUE //too deep to keep your head above it?
-	var/obj/effect/water_effect/water_overlay
 	movement_cost = 4
 	var/numobjects = 0
+	var/deep = TRUE //too deep to keep your head above it?
+	var/obj/effect/water_effect/water_overlay
 
 /turf/simulated/floor/exoplanet/water/update_icon()
 	return
@@ -59,14 +59,17 @@
 		return
 	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
+	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
+	if(lattice)
+		return
 	START_PROCESSING(SSprocessing, src)
-	if(istype(AM, /obj))
+	if(isobj(AM))
 		numobjects += 1
-	else if(istype(AM, /mob/living))
+	else if(isliving(AM))
 		numobjects += 1
 		var/mob/living/L = AM
 		if(!istype(oldloc, /turf/simulated/floor/exoplanet/water))
-			to_chat(L, "<span class='warning'>You get drenched in water from entering \the [src]!</span>")
+			to_chat(L, SPAN_WARNING("You get drenched in water from entering \the [src]!"))
 		wash(L)
 	..()
 
@@ -75,21 +78,26 @@
 		return
 	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
-	if(istype(AM, /obj) && numobjects)
+	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
+	if(lattice)
+		return
+	if(isobj(AM) && numobjects)
 		numobjects -= 1
-	else if(istype(AM, /mob/living))
+	else if(isliving(AM))
 		if(numobjects)
 			numobjects -= 1
 		var/mob/living/L = AM
 		if(!istype(newloc, /turf/simulated/floor/exoplanet/water))
-			to_chat(L, "<span class='warning'>You climb out of \the [src].</span>")
+			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
 /turf/simulated/floor/exoplanet/water/process()
 	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
 	for(var/mob/living/L in src)
-		wash(L)
+		var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
+		if(!lattice)
+			wash(L)
 	if(!numobjects)
 		STOP_PROCESSING(SSprocessing, src)
 
@@ -113,7 +121,7 @@
 	var/obj/item/reagent_containers/RG = attacking_item
 	if (reagent_type && istype(RG) && RG.is_open_container() && RG.reagents)
 		RG.reagents.add_reagent(reagent_type, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
-		user.visible_message("<span class='notice'>[user] fills \the [RG] from \the [src].</span>","<span class='notice'>You fill \the [RG] from \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("[user] fills \the [RG] from \the [src]."),SPAN_NOTICE("You fill \the [RG] from \the [src]."))
 	else
 		return ..()
 
@@ -141,6 +149,9 @@
 
 /turf/simulated/floor/exoplanet/water/shallow/sewage/process()
 	. = ..()
+	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src) //you're not gonna get covered in disgusting sewer water if you have a grate/lattice over it
+	if(lattice)
+		return
 	for(var/mob/living/carbon/human/H in src) // Sewage is poisonous.
 		H.reagents.add_reagent(/singleton/reagent/toxin, 1)
 		H.reagents.add_reagent(/singleton/reagent/ammonia, 1)
@@ -161,102 +172,15 @@
 	W.reagents.add_reagent(/singleton/reagent/water, 100)
 	W.set_up(O, 100)
 
-	if(iscarbon(O))
-		var/mob/living/carbon/M = O
-		if(M.r_hand)
-			M.r_hand.clean_blood()
-		if(M.l_hand)
-			M.l_hand.clean_blood()
-		if(M.back)
-			if(M.back.clean_blood())
-				M.update_inv_back(0)
+	if(ishuman(O))
+		var/mob/living/carbon/human/H = O
+		H.wash()
 
-		//flush away reagents on the skin
-		if(M.touching)
-			var/remove_amount = M.touching.maximum_volume * M.reagent_permeability() //take off your suit first
-			M.touching.remove_any(remove_amount)
-
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/washgloves = TRUE
-			var/washshoes = TRUE
-			var/washmask = TRUE
-			var/washears = TRUE
-			var/washglasses = TRUE
-			var/washwrists = TRUE
-
-			if(H.wear_suit)
-				washgloves = !(H.wear_suit.flags_inv & HIDEGLOVES)
-				washshoes = !(H.wear_suit.flags_inv & HIDESHOES)
-				washwrists = !(H.wear_suit.flags_inv & HIDEWRISTS)
-
-			if(H.head)
-				washmask = !(H.head.flags_inv & HIDEMASK)
-				washglasses = !(H.head.flags_inv & HIDEEYES)
-				washears = !(H.head.flags_inv & HIDEEARS)
-
-			if(H.wear_mask)
-				if (washears)
-					washears = !(H.wear_mask.flags_inv & HIDEEARS)
-				if (washglasses)
-					washglasses = !(H.wear_mask.flags_inv & HIDEEYES)
-
-			if(H.head)
-				if(H.head.clean_blood())
-					H.update_inv_head(0)
-			if(H.wear_suit)
-				if(H.wear_suit.clean_blood())
-					H.update_inv_wear_suit(0)
-			else if(H.w_uniform)
-				if(H.w_uniform.clean_blood())
-					H.update_inv_w_uniform(0)
-			if(H.gloves && washgloves)
-				if(H.gloves.clean_blood())
-					H.update_inv_gloves(0)
-			if(H.shoes && washshoes)
-				if(H.shoes.clean_blood())
-					H.update_inv_shoes(0)
-			if(H.wear_mask && washmask)
-				if(H.wear_mask.clean_blood())
-					H.update_inv_wear_mask(0)
-			if(H.glasses && washglasses)
-				if(H.glasses.clean_blood())
-					H.update_inv_glasses(0)
-			if(H.l_ear && washears)
-				if(H.l_ear.clean_blood())
-					H.update_inv_l_ear(0)
-			if(H.r_ear && washears)
-				if(H.r_ear.clean_blood())
-					H.update_inv_r_ear(0)
-			if(H.belt)
-				if(H.belt.clean_blood())
-					H.update_inv_belt(0)
-			if(H.wrists && washwrists)
-				if(H.wrists.clean_blood())
-					H.update_inv_wrists(0)
-			H.clean_blood(washshoes)
-		else
-			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
-				if(M.wear_mask.clean_blood())
-					M.update_inv_wear_mask(0)
-			M.clean_blood()
-	else
-		O.clean_blood()
-
-	if(istype(O, /obj/item/light))
-		var/obj/item/light/L = O
-		L.brightness_color = initial(L.brightness_color)
-		L.update()
-	else if(istype(O, /obj/machinery/light))
-		var/obj/machinery/light/L = O
-		L.brightness_color = initial(L.brightness_color)
-		L.update()
-
-	O.color = initial(O.color)
+	if(isobj(O))
+		var/obj/object = O
+		object.clean()
 
 	if(isturf(loc))
 		var/turf/tile = loc
-		loc.clean_blood()
-		for(var/obj/effect/E in tile)
-			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
-				qdel(E)
+		tile.clean_blood()
+		tile.remove_cleanables()

@@ -443,3 +443,74 @@
 /mob/living/carbon/human/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
 	indicator.pixel_x = species.typing_indicator_x_offset
 	indicator.pixel_y = species.typing_indicator_y_offset
+
+/mob/living/carbon/human/proc/wash()
+	if(r_hand)
+		r_hand.clean_blood()
+	if(l_hand)
+		l_hand.clean_blood()
+	if(back)
+		if(back.clean_blood())
+			update_inv_back(0)
+
+	if(touching)
+		var/remove_amount = touching.maximum_volume * reagent_permeability() //take off your suit first
+		touching.remove_any(remove_amount)
+
+	var/washgloves = TRUE
+	var/washshoes = TRUE
+	var/washmask = TRUE
+	var/washears = TRUE
+	var/washglasses = TRUE
+	var/washwrists = TRUE
+
+	if(wear_suit)
+		washgloves = !(wear_suit.flags_inv & HIDEGLOVES)
+		washshoes = !(wear_suit.flags_inv & HIDESHOES)
+		washwrists = !(wear_suit.flags_inv & HIDEWRISTS)
+
+	if(head)
+		washmask = !(head.flags_inv & HIDEMASK)
+		washglasses = !(head.flags_inv & HIDEEYES)
+		washears = !(head.flags_inv & HIDEEARS)
+
+	if(wear_mask)
+		if (washears)
+			washears = !(wear_mask.flags_inv & HIDEEARS)
+		if (washglasses)
+			washglasses = !(wear_mask.flags_inv & HIDEEYES)
+
+	if(head)
+		if(head.clean_blood())
+			update_inv_head(0)
+	if(wear_suit)
+		if(wear_suit.clean_blood())
+			update_inv_wear_suit(0)
+	else if(w_uniform)
+		if(w_uniform.clean_blood())
+			update_inv_w_uniform(0)
+	if(gloves && washgloves)
+		if(gloves.clean_blood())
+			update_inv_gloves(0)
+	if(shoes && washshoes)
+		if(shoes.clean_blood())
+			update_inv_shoes(0)
+	if(wear_mask && washmask)
+		if(wear_mask.clean_blood())
+			update_inv_wear_mask(0)
+	if(glasses && washglasses)
+		if(glasses.clean_blood())
+			update_inv_glasses(0)
+	if(l_ear && washears)
+		if(l_ear.clean_blood())
+			update_inv_l_ear(0)
+	if(r_ear && washears)
+		if(r_ear.clean_blood())
+			update_inv_r_ear(0)
+	if(belt)
+		if(belt.clean_blood())
+			update_inv_belt(0)
+	if(wrists && washwrists)
+		if(wrists.clean_blood())
+			update_inv_wrists(0)
+	clean_blood(washshoes)
