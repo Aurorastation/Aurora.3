@@ -2,8 +2,11 @@
 	does_footprint = FALSE
 	footstep_sound = /singleton/sound_category/water_footstep
 	movement_cost = 4
+	///How many objects are currently on this turf? Used to stop empty water turfs from processing.
 	var/numobjects = 0
-	var/deep = TRUE //too deep to keep your head above it?
+	///Is this water deep enough to drown in?
+	var/deep = TRUE
+	///The overlay used to make it look like atoms on the turf are underwater.
 	var/obj/effect/water_effect/water_overlay
 
 /turf/simulated/floor/exoplanet/water/update_icon()
