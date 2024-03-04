@@ -170,7 +170,7 @@
 	name = "Raskolnikov"
 	class = "ICV"
 	designation = "Raskolnikov"
-	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
+	desc = "CHANGE THIS"
 	shuttle = "Raskolnikov"
 	icon_state = "intrepid"
 	moving_state = "intrepid_moving"
