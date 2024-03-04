@@ -1255,6 +1255,13 @@
 		icon_state = "herring_gull_lying"
 		item_state = "herring_gull_lying"
 
+//Jeweler cockatoo plushie
+/obj/item/toy/plushie/cockatoo
+	name = "jeweler cockatoo plushie"
+	desc = "A plushie of Konyang's national animal, much smaller than the real thing. This one won't get you arrested for touching it, either."
+	icon_state = "cockatoo"
+	phrase = "Chirp!"
+
 //Toy cult sword
 /obj/item/toy/cultsword
 	name = "foam sword"

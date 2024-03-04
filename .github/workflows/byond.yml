@@ -191,14 +191,7 @@ jobs:
       - name: Set ENV variables
         run: bash dependencies.sh
 
-      #Restores SpacemanDMM from the cache repository
-      - name: Restore OpenDream cache
-        uses: actions/cache@v3
-        with:
-          path: ~/OpenDream/*
-          key: ${{ runner.os }}-opendream
-
-      - name: Install OpenDream
+      - name: Download OpenDream Compiler
         run: |
           bash tools/ci/install_od.sh
 

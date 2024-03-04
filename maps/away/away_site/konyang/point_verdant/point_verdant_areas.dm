@@ -57,6 +57,10 @@
 	name = "Point Verdant - Hotel"
 	icon_state = "crew_quarters"
 
+/area/point_verdant/interior/hotel/basement
+	name = "Point Verdant - Hotel - Basement"
+	icon_state = "crew_quarters"
+
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"
 	area_blurb = "The deafening avalanche of arcade machines begging for your attention fill the air, all promising fantastic gaming experiences for fun and prizes."

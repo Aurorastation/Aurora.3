@@ -426,6 +426,18 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
+"be" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - Up!Burger";
+	payment_modifier = 0.4;
+	min_spawn = 1;
+	max_spawn = 2
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "bf" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -3312,7 +3324,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_pharmacy";
 	name = "Pharmacy Shutters";
-	req_access = list(218);
+	req_access = list(219);
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -3783,10 +3795,10 @@
 /area/point_verdant/interior/parking)
 "kq" = (
 /obj/effect/decal/exterior_stairs/half,
-/obj/machinery/door/window/southleft,
 /obj/machinery/door/blast/shutters{
 	id = "konyang_minimart"
 	},
+/obj/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
 "kr" = (
@@ -3874,10 +3886,10 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/cafe)
 "kD" = (
-/obj/machinery/door/window/southleft,
 /obj/machinery/door/blast/shutters/open{
 	id = "konyang_police"
 	},
+/obj/machinery/door/urban/glass_sliding,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/police)
 "kE" = (
@@ -5391,7 +5403,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_pharmacy";
 	name = "Pharmacy Shutters";
-	req_access = list(218);
+	req_access = list(219);
 	pixel_y = 25;
 	dir = 1;
 	pixel_x = 18
@@ -9706,11 +9718,11 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "zi" = (
-/obj/machinery/door/window/southleft,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "konyang_pharmacy"
 	},
+/obj/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/pharmacy)
 "zj" = (
@@ -10167,10 +10179,10 @@
 /area/point_verdant/outdoors)
 "Aj" = (
 /obj/effect/decal/exterior_stairs/half,
-/obj/machinery/door/window/southleft,
 /obj/machinery/door/blast/shutters{
 	id = "konyang_clinic"
 	},
+/obj/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/robotics)
 "Al" = (
@@ -11843,6 +11855,18 @@
 /obj/structure/lattice/catwalk/indoor/planks,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"EB" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "Konyang - Point Verdant - The One Aoyama Lodging";
+	payment_modifier = 0.4;
+	max_spawn = 2;
+	min_spawn = 1
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/outdoors)
 "EC" = (
 /obj/structure/utility_pole/street/on{
 	dir = 4
@@ -11994,10 +12018,12 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "ER" = (
-/obj/machinery/door/window/southright,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "konyang_pharmacy"
+	},
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/pharmacy)
@@ -12615,7 +12641,7 @@
 /area/point_verdant/outdoors)
 "Gw" = (
 /obj/machinery/door/window/southright{
-	req_access = list(218)
+	req_access = list(219)
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
@@ -13582,9 +13608,11 @@
 /area/point_verdant/water/deep)
 "Jf" = (
 /obj/effect/decal/exterior_stairs/half,
-/obj/machinery/door/window/southright,
 /obj/machinery/door/blast/shutters{
 	id = "konyang_clinic"
+	},
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/robotics)
@@ -17978,13 +18006,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"Uf" = (
-/obj/machinery/door/window/southright,
-/obj/machinery/door/blast/shutters/open{
-	id = "konyang_police"
-	},
-/turf/simulated/floor/lino,
-/area/point_verdant/interior/police)
 "Uh" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 5
@@ -18939,9 +18960,11 @@
 /area/point_verdant/interior/restaurant)
 "WI" = (
 /obj/effect/decal/exterior_stairs/half,
-/obj/machinery/door/window/southright,
 /obj/machinery/door/blast/shutters{
 	id = "konyang_minimart"
+	},
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
@@ -35023,7 +35046,7 @@ Ga
 Ga
 sT
 mN
-Fx
+EB
 Fx
 We
 cG
@@ -35514,7 +35537,7 @@ vH
 Yf
 Yf
 pg
-Uf
+kD
 BT
 iz
 LN
@@ -51407,7 +51430,7 @@ sJ
 ai
 ai
 vD
-sJ
+be
 MK
 Os
 BT

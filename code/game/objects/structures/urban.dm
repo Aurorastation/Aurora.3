@@ -351,16 +351,21 @@
 	can_be_unanchored = FALSE
 	layer = ABOVE_ALL_MOB_LAYER
 
-/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+	if(air_group || (height==0))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover, /obj/item/projectile))
+		var/obj/item/projectile/P = mover
+		if(P.original == src)
+			return FALSE
+		if(P.firer && Adjacent(P.firer))
+			return TRUE
+		return prob(35)
+	if(isliving(mover))
+		return FALSE
+	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return TRUE
-	if(mover.throwing)
-		return TRUE
-	if(get_dir(loc, target) == dir)
-		return !density
-	return TRUE
+	return FALSE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
