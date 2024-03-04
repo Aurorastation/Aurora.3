@@ -773,8 +773,8 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/map_preset/set_internal_channels()
 	return list(
-		num2text(default_frequency),
-		num2text(HAIL_FREQ)
+		num2text(default_frequency) = list(),
+		num2text(HAIL_FREQ) = list()
 	)
 
 /obj/item/device/radio/hailing
@@ -782,7 +782,7 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/hailing/set_internal_channels()
 	return list(
-		num2text(HAIL_FREQ)
+		num2text(HAIL_FREQ) = list()
 	)
 
 /obj/item/device/radio/hailing/Initialize()
