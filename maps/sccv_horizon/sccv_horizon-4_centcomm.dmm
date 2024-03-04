@@ -37685,6 +37685,10 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
+"kWZ" = (
+/obj/effect/overmap/visitable/ship/landable/raskolnikov,
+/turf/unsimulated/mineral/asteroid,
+/area/template_noop)
 "kXD" = (
 /obj/structure/railing/mapped{
 	layer = 6;
@@ -38068,12 +38072,6 @@
 /obj/item/flame/candle,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_adhomai)
-"mjK" = (
-/turf/unsimulated/wall/riveted{
-	opacity = 0;
-	permit_ao = 0
-	},
-/area/template_noop)
 "mjN" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
@@ -40113,10 +40111,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_basketball)
-"uqV" = (
-/obj/effect/overmap/visitable/ship/landable/raskolnikov,
-/turf/unsimulated/mineral/asteroid,
-/area/template_noop)
 "urf" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -40860,6 +40854,12 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/jockey)
+"wOR" = (
+/turf/unsimulated/wall/riveted{
+	opacity = 0;
+	permit_ao = 0
+	},
+/area/template_noop)
 "wUz" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/grass{
@@ -51610,8 +51610,8 @@ aac
 aac
 aac
 aac
-aac
-aac
+bLI
+bLI
 bLI
 aab
 aab
@@ -51864,12 +51864,12 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
 bLI
 bLI
 bLI
+bLI
+aac
+aac
 aac
 aac
 aac
@@ -52122,9 +52122,9 @@ aac
 aac
 aac
 bLI
-bLI
-bLI
-bLI
+aac
+aac
+aac
 aac
 aac
 aac
@@ -53664,11 +53664,11 @@ aac
 aac
 aac
 bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -53920,11 +53920,11 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
+bLJ
+bLJ
+bLJ
+bLJ
+bLJ
 bLJ
 aac
 aac
@@ -82829,7 +82829,7 @@ aaa
 aam
 aam
 aam
-mjK
+wOR
 aam
 aam
 aam
@@ -83341,11 +83341,11 @@ aaa
 aam
 aam
 aam
-mjK
+wOR
 aam
-uqV
+kWZ
 aam
-mjK
+wOR
 aam
 aam
 aam
@@ -83857,7 +83857,7 @@ aam
 aam
 aam
 aam
-mjK
+wOR
 aam
 aam
 aam
