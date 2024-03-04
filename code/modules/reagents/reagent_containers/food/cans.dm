@@ -522,6 +522,14 @@
 	Luckily for Himeo- and the Coalition, where it is exported under the Inverkeithing Import name- this hydroponically-grown dry stout is of a reasonably high quality."
 	icon_state = "earthmover"
 	item_state = "earthmover"
+	reagents_to_add = list(/singleton/reagent/alcohol/ale = 40) // mushroom guinness
+
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest
+	name = "\improper Whistling Forest Pale Ale"
+	desc = "A proud product of the All-Xanu Republic. Canned in Paasstad."
+	desc_extended = "A Markhor Interstellar Logistics Group product. Move Mountains with Markhor!"
+	icon_state = "whistlingforest"
+	item_state = "whistlingforest"
 
 /obj/item/reagent_containers/food/drinks/cans/melon_soda
 	name = "Kansumi Melon Soda"
@@ -577,7 +585,7 @@
 	reagents_to_add = list(/singleton/reagent/drink/tea/coco_chaitea = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan
-	name = "Brown Palace Champion Chai"
+	name = "Brown Palace New Neapolitan"
 	desc = "A Xanan brand of canned chai tea. This one is neapolitan flavored; vanilla, chocolate, and strawberry."
 	icon_state = "xanuneap"
 	reagents_to_add = list(/singleton/reagent/drink/tea/chaitea = 30)

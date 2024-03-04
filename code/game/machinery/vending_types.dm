@@ -1656,29 +1656,31 @@
 	vend_id = "frontiervend"
 
 	products = list(
-		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 4,
-		/obj/item/reagent_containers/food/drinks/cans/boch = 4,
-		/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn = 4,
+		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 8,
+		/obj/item/reagent_containers/food/drinks/cans/boch = 8,
+		/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn = 8,
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai = 6,
-		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 4,
-		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 4,
-		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 4,
-		/obj/item/reagent_containers/food/snacks/fishjerky = 4,
-		/obj/item/reagent_containers/food/snacks/pepperoniroll = 4,
-		/obj/item/reagent_containers/food/snacks/salmiak = 3,
-		/obj/item/reagent_containers/food/snacks/hakhspam = 3,
-		/obj/item/reagent_containers/food/snacks/pemmicanbar = 4,
-		/obj/item/reagent_containers/food/snacks/peanutsnack = 4,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 8,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 8,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 8,
+		/obj/item/reagent_containers/food/drinks/cans/galatea = 8,
+		/obj/item/reagent_containers/food/snacks/fishjerky = 8,
+		/obj/item/reagent_containers/food/snacks/pepperoniroll = 8,
+		/obj/item/reagent_containers/food/snacks/salmiak = 6,
+		/obj/item/reagent_containers/food/snacks/hakhspam = 6,
+		/obj/item/reagent_containers/food/snacks/pemmicanbar = 8,
+		/obj/item/reagent_containers/food/snacks/choctruffles = 6,
+		/obj/item/reagent_containers/food/snacks/peanutsnack = 8,
 		/obj/item/reagent_containers/food/snacks/peanutsnack/pepper = 6,
 		/obj/item/reagent_containers/food/snacks/peanutsnack/choc = 6,
 		/obj/item/reagent_containers/food/snacks/peanutsnack/masala = 6,
-		/obj/item/reagent_containers/food/snacks/chana = 4,
-		/obj/item/reagent_containers/food/snacks/chana/wild = 4,
-		/obj/item/reagent_containers/food/snacks/papad = 4,
-		/obj/item/reagent_containers/food/snacks/papad/garlic = 4,
-		/obj/item/reagent_containers/food/snacks/papad/ginger = 4,
-		/obj/item/reagent_containers/food/snacks/papad/apple = 4,
-		/obj/item/storage/box/fancy/foysnack = 2
+		/obj/item/reagent_containers/food/snacks/chana = 8,
+		/obj/item/reagent_containers/food/snacks/chana/wild = 8,
+		/obj/item/reagent_containers/food/snacks/papad = 8,
+		/obj/item/reagent_containers/food/snacks/papad/garlic = 8,
+		/obj/item/reagent_containers/food/snacks/papad/ginger = 8,
+		/obj/item/reagent_containers/food/snacks/papad/apple = 8,
+		/obj/item/storage/box/fancy/foysnack = 4
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 20,
@@ -1688,11 +1690,13 @@
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 15,
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 15,
 		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 15,
+		/obj/item/reagent_containers/food/drinks/cans/galatea = 25,
 		/obj/item/reagent_containers/food/snacks/fishjerky = 20,
 		/obj/item/reagent_containers/food/snacks/pepperoniroll = 20,
 		/obj/item/reagent_containers/food/snacks/salmiak = 20,
 		/obj/item/reagent_containers/food/snacks/hakhspam = 25,
 		/obj/item/reagent_containers/food/snacks/pemmicanbar = 15,
+		/obj/item/reagent_containers/food/snacks/choctruffles = 20,
 		/obj/item/reagent_containers/food/snacks/peanutsnack = 15,
 		/obj/item/reagent_containers/food/snacks/peanutsnack/pepper = 15,
 		/obj/item/reagent_containers/food/snacks/peanutsnack/choc = 15,
@@ -1706,7 +1710,7 @@
 		/obj/item/storage/box/fancy/foysnack = 25
 	)
 	contraband = list(
-		/obj/item/clothing/head/sol = 1
+		/obj/item/storage/box/fancy/yoke/earthmover = 3 //guys rock
 	)
 	premium = list(
 		/obj/item/toy/comic/inspector = 2,

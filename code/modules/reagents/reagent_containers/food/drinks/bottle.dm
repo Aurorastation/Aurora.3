@@ -973,6 +973,15 @@
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/saintjacques = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/bestblend
+	name = "Mahendru's Best Blend"
+	desc = "A jar of sugarcane juice. Apple flavored!"
+	desc_extended = "Popular in Xanan circles, sugarcane juice competes with tea for the refreshment of choice at summertime gatherings and in the Republic's fridges. Some consider it more 'posh' and 'artisanal', which Mahendru's Best Blend \
+	encourages with a glass 'mason jar' design and a lid of authentic Xanan cork."
+	icon_state = "sugarcanejuice"
+	volume = 45
+	reagents_to_add = list(/singleton/reagent/drink/sugarcane = 45)
+
 /obj/item/reagent_containers/food/drinks/bottle/feni
 	name = "Morale Supplement VII Feni, Standard, Type I"
 	desc = "A bottle of Gadpathurian liquor, issued and manufactured by the United Planetary Defense Council. By nature, this is probably surplus."
@@ -980,7 +989,6 @@
 	relating to celebration, morale improvement, or deployment extension. All non-medical personnel are entitled to one twenty-unit serving of the drink- often regarded as 'Supplement Seven'- per celebratory period. It remains an obscure drink \
 	outside Gadpathur, not by virtue of its rarity- several thousand bottles are sold off as surplus to fund the UPDCG every year- but by being an extremely acquired taste."
 	icon_state = "fenibottle"
-	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/feni = 100)
 /obj/item/reagent_containers/food/drinks/bottle/hooch
 	name = "hooch bottle"

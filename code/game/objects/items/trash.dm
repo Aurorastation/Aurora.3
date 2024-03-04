@@ -359,6 +359,10 @@
 	name = "pemmican bar wrapper"
 	icon_state = "pemmican_trash"
 
+/obj/item/trash/trufflebag
+	name = "truffle bag"
+	icon_state = "trufflebag_trash"
+
 /obj/item/trash/peanutsnack
 	name = "peanut bag"
 	icon_state = "nuts_trash"

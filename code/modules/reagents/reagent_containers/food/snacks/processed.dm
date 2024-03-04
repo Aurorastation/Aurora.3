@@ -664,8 +664,8 @@
 	filling_color = "#1d141f"
 	trash = /obj/item/trash/salmiakpack
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sodiumchloride = 4)
-	bitesize = 8 //little pieces
-	reagent_data = list(/singleton/reagent/nutriment = list("medicine" = 2,"black licorice" = 3))
+	bitesize = 1
+	reagent_data = list(/singleton/reagent/nutriment = list("medicine" = 3,"black licorice" = 3))
 
 /obj/item/reagent_containers/food/snacks/hakhspam
 	name = "maps salty hakhma"
@@ -688,6 +688,18 @@
 	trash = /obj/item/trash/pemmican
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/choctruffles
+	name = "Dalyoni Dimlights"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "choctruffles"
+	desc = "A bag of Assunzionii chocolate truffles. Remarkably unremarkable."
+	filling_color = "#a7633f"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/trufflebag
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sugar = 1)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("rich dark chocolate" = 3, "cocoa powder" = 2))
 
 /obj/item/reagent_containers/food/snacks/peanutsnack
 	name = "Annapurna Classic Munch"
@@ -799,7 +811,7 @@
 	closable = FALSE
 	icon_overlays = FALSE
 
-/obj/item/reagent_containers/food/snacks/foy 
+/obj/item/reagent_containers/food/snacks/foy
 	name = "foy biscuit"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "cookie_foy"
