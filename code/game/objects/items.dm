@@ -1223,7 +1223,15 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
 	return
 
+/**
+ * Determines if the item can be used to cut down wood (trees and the likes)
+ *
+ * Return `TRUE` if it can, `FALSE` otherwise
+ */
 /obj/item/proc/can_woodcut()
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	return FALSE
 
 /obj/item/proc/is_shovel()
