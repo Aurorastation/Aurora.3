@@ -213,10 +213,10 @@
 
 /obj/item/nullrod/autakh //not included in the list as it's meant to be an augment
 	name = "blessed cybernetic claw"
+	desc = "A prosthetic limb etched in Sinta'Mador runes and inlayed with obsidian."
 	icon = 'icons/obj/organs/augments.dmi'
 	icon_state = "anchor"
 	item_state = "anchor" //won't appear in-hand and looks suitably aut'akh spiritual
-	desc = "A prosthetic limb etched in Sinta'Mador runes and inlayed with obsidian."
 	can_change_form = FALSE //this is integrated so we dont want anything silly with it
 
 /obj/item/nullrod/autakh/throw_at()
