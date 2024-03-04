@@ -184,7 +184,7 @@
 #define ACCENT_SUNKENSONG "Sunkensong"
 #define ACCENT_STARSONG "Starsong"
 #define ACCENT_XRIMSONG "Xrimsong"
-#define ACCENT_PESTSONG "Pestsong"
+#define ACCENT_HIVESONG "Hivesong"
 #define ACCENT_MEADOWSONG "Meadowsong"
 #define ACCENT_LABOURSONG "Laboursong"
 
