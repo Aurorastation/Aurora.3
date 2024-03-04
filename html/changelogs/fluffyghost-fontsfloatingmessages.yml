@@ -46,3 +46,7 @@ changes:
   - backend: "Ported various fonts and the /datum/font system."
   - rscadd: "Floating messages for the chat and actions now use a pixel-perfect font with selected sizes."
   - backend: "Reduced the number of spawn()s required to send messages."
+  - bugfix: "Non-ASCII characters are now not mangled anymore in the runechat messages."
+  - refactor: "Consolidated /atom/Destroy in a single proc and moved it in the appropriate file."
+  - refactor: "Moved a bulk of /atom vars in the aforementioned appropriate file."
+  - backend: "/atom/movable/flick_visual now tracks who it was added in the vis_contents of and removes itself from it on destroy, thus avoiding needing an harddel."

@@ -1,7 +1,15 @@
 // Thanks to Burger from Burgerstation for the foundation for this
 var/list/floating_chat_colors = list()
 
+///Compute an unique key that is used to associate an image to the client that received said image
+#define STORED_CHAT_TEXT_HASH(client) "[client.ckey]"
 /atom/movable
+	/**
+	 * A lazy list with the following format:
+	 *
+	 * * K -> The hash function result of STORED_CHAT_TEXT_HASH, a string
+	 * * V -> A `/list` of `/image`, the images are the runetext sent to be shown to the various clients (as per the hash function)
+	 */
 	var/list/stored_chat_text
 
 /atom/movable/proc/get_floating_chat_color()
@@ -24,7 +32,7 @@ var/list/floating_chat_colors = list()
 		style += "font-weight: bold;"
 
 	if(length(message) > limit)
-		message = "[copytext(message, 1, limit)]..."
+		message = "[copytext_char(message, 1, limit)]..."
 
 	if(istype(language, /datum/language/noise))
 		message = "<font color='#7F7F7F'>*</font> " + uncapitalize(message)
@@ -133,14 +141,17 @@ var/list/floating_chat_colors = list()
 
 	animate(I, 1, alpha = 255, pixel_y = I.pixel_y + 23)
 
-	for(var/image/old in holder.stored_chat_text)
-		animate(old, 2, pixel_y = old.pixel_y + 8)
-	LAZYADD(holder.stored_chat_text, I)
+	var/stored_chat_text_hash_cache = STORED_CHAT_TEXT_HASH(show_to)
+
+	for(var/image/old in LAZYACCESS(holder.stored_chat_text, stored_chat_text_hash_cache))
+		animate(old, 2, pixel_y = old.pixel_y + min(I.maptext_height, 45) + 8)
+
+	LAZYADDASSOCLIST(holder.stored_chat_text, stored_chat_text_hash_cache, I)
 
 	//Send the image to the client, takes care to remove it afterwards
 	flick_overlay(I, list(show_to), (duration + 2))
 
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_floating_text), holder, I), duration)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_floating_text), holder, I, stored_chat_text_hash_cache), duration)
 
 	return I
 
@@ -148,16 +159,24 @@ var/list/floating_chat_colors = list()
 /atom/movable/proc/give_floating_text(atom/movable/holder)
 	if(!holder)
 		return
-	for(var/image/I in holder.stored_chat_text)
-		I.loc = src
+	for(var/key in holder.stored_chat_text)
+		for(var/image/I in holder.stored_chat_text[key])
+			I.loc = src
 
 /// Returns floating text to holder upon leaving src
 /atom/movable/proc/return_floating_text(atom/movable/holder)
 	if(!holder)
 		return
-	for(var/image/I in holder.stored_chat_text)
-		I.loc = holder
+	for(var/key in holder.stored_chat_text)
+		for(var/image/I in holder.stored_chat_text[key])
+			I.loc = holder
 
-/proc/remove_floating_text(atom/movable/holder, image/I)
-	animate(I, 2, pixel_y = I.pixel_y + 10, alpha = 0)
-	LAZYREMOVE(holder.stored_chat_text, I)
+/proc/remove_floating_text(atom/movable/holder, image/image_to_remove, stored_chat_text_hash)
+	var/list/image/client_associated_images = LAZYACCESS(holder.stored_chat_text, stored_chat_text_hash)
+	if(!(client_associated_images?.Find(image_to_remove)))
+		crash_with("Trying to remove a floating text image that is not there!")
+
+	animate(image_to_remove, 2, pixel_y = image_to_remove.pixel_y + 10, alpha = 0)
+	LAZYREMOVEASSOC(holder.stored_chat_text, stored_chat_text_hash, image_to_remove)
+
+#undef STORED_CHAT_TEXT_HASH

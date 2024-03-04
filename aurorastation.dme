@@ -532,7 +532,6 @@
 #include "code\defines\procs\sd_Alert.dm"
 #include "code\game\ambience.dm"
 #include "code\game\atoms.dm"
-#include "code\game\atoms_init.dm"
 #include "code\game\atoms_movable.dm"
 #include "code\game\base_turf.dm"
 #include "code\game\periodic_news.dm"

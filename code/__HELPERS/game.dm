@@ -328,6 +328,26 @@
  * Helper atom that copies an appearance and exists for a period
 */
 /atom/movable/flick_visual
+	///A list of `/atom/movable` this visual was or will be added into the `vis_contents` of
+	var/list/atom/movable/owners = null
+
+/atom/movable/flick_visual/New(loc, list/atom/movable/owners)
+	. = ..()
+	if(!islist(owners))
+		stack_trace("/atom/movable/flick_visual requires a list of owners this was or will be beamed to, to avoid harddels!")
+
+	src.owners = owners
+
+
+/atom/movable/flick_visual/Destroy(force)
+
+	//Remove us from the vis_contents of the owners, so we can be garbage collected
+	for(var/atom/movable/an_owner in src.owners)
+		an_owner.vis_contents -= src
+	src.owners = null
+
+	. = ..()
+
 
 ///Flicks a certain overlay onto an atom, handling icon_state strings
 /atom/proc/flick_overlay(image_to_show, list/show_to, duration, layer)
@@ -353,12 +373,14 @@
 	// Because this is vis_contents, we need to set the layer manually (you can just set it as you want on return if this is a problem)
 	if(passed_appearance.layer == FLOAT_LAYER)
 		passed_appearance.layer = layer + 0.1
+
+	var/atom/movable/lies_to_children = src
+
 	// This is faster then pooling. I promise
-	var/atom/movable/flick_visual/visual = new()
+	var/atom/movable/flick_visual/visual = new(null, list(lies_to_children))
 	visual.appearance = passed_appearance
 	visual.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	// I hate /area
-	var/atom/movable/lies_to_children = src
 	lies_to_children.vis_contents += visual
 	QDEL_IN_CLIENT_TIME(visual, duration)
 	return visual
