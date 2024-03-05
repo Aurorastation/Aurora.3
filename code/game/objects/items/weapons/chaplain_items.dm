@@ -18,25 +18,12 @@
 	w_class = ITEMSIZE_SMALL
 	var/can_change_form = TRUE // For holodeck check.
 	var/cooldown = 0 // Floor tap cooldown.
-	var/list/nullchoices = list(
+	var/list/nullchoices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
 		"Null Rod" = /obj/item/nullrod,
 		"Null Staff" = /obj/item/nullrod/staff,
 		"Null Orb" = /obj/item/nullrod/orb,
 		"Null Athame" = /obj/item/nullrod/athame,
-		"Tribunal Rod" = /obj/item/nullrod/dominia,
-		"Tajaran charm" = /obj/item/nullrod/charm,
-		"Mata'ke Sword" = /obj/item/nullrod/matake,
-		"Rredouane Sword" = /obj/item/nullrod/rredouane,
-		"Shumaila Hammer" = /obj/item/nullrod/shumaila,
-		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
-		"Azubarre Torch" = /obj/item/nullrod/azubarre,
-		"Shaman Staff" = /obj/item/nullrod/shaman,
-		"Warrior's Sword" = /obj/item/nullrod/skakh_warrior,
-		"Healer's Staff" = /obj/item/nullrod/skakh_healer,
-		"Fisher's Sickle" = /obj/item/nullrod/skakh_fisher
 	)
-
-	var/list/religion_restriction //which religions can pick this item
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -53,7 +40,6 @@
 	core in the shaft, and is heavier than it seems."
 	icon_state = "tribunalrod"
 	item_state = "tribunalrod"
-	religion_restriction = list(RELIGION_MOROZ)
 
 // Unreassembleable Variant for the Holodeck
 /obj/item/nullrod/dominia/holodeck
@@ -93,7 +79,6 @@
 	throwforce = 2
 	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
 	w_class = ITEMSIZE_TINY
-	religion_restriction = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA)
 
 /obj/item/nullrod/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -107,7 +92,6 @@
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT | SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-	religion_restriction = list(RELIGION_MATAKE)
 
 /obj/item/nullrod/rredouane
 	name = "\improper Rredouane sword"
@@ -116,7 +100,6 @@
 	icon_state = "rredouane_sword"
 	item_state = "rredouane_sword"
 	contained_sprite = TRUE
-	religion_restriction = list(RELIGION_MATAKE)
 
 /obj/item/nullrod/shumaila
 	name = "\improper Shumaila hammer"
@@ -125,7 +108,6 @@
 	icon_state = "shumaila_hammer"
 	item_state = "shumaila_hammer"
 	contained_sprite = TRUE
-	religion_restriction = list(RELIGION_MATAKE)
 
 /obj/item/nullrod/zhukamir
 	name = "\improper Zhukamir ladle"
@@ -133,7 +115,6 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "zhukamir_ladle"
 	item_state = "zhukamir_ladle"
-	religion_restriction = list(RELIGION_MATAKE)
 
 /obj/item/nullrod/azubarre
 	name = "\improper Azubarre torch"
@@ -142,7 +123,6 @@
 	icon_state = "azubarre_torch"
 	item_state = "azubarre_torch"
 	contained_sprite = TRUE
-	religion_restriction = list(RELIGION_MATAKE)
 	var/lit = FALSE
 
 /obj/item/nullrod/azubarre/attack_self(mob/user)
@@ -178,7 +158,6 @@
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
 	slot_flags = null
-	religion_restriction = RELIGIONS_UNATHI
 
 /obj/item/nullrod/skakh_warrior
 	name = "\improper Sk'akh sword"
@@ -189,7 +168,6 @@
 	slot_flags = SLOT_BACK|SLOT_BELT
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
-	religion_restriction = list(RELIGION_SKAKH)
 
 /obj/item/nullrod/skakh_healer
 	name = "\improper Sk'akh staff"
@@ -200,7 +178,6 @@
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
 	slot_flags = null
-	religion_restriction = list(RELIGION_SKAKH)
 
 /obj/item/nullrod/skakh_fisher
 	name = "\improper Sk'akh sickle"
@@ -209,7 +186,6 @@
 	icon_state = "skakh_sickle"
 	item_state = "skakh_sickle"
 	contained_sprite = TRUE
-	religion_restriction = list(RELIGION_SKAKH)
 
 /obj/item/nullrod/autakh //not included in the list as it's meant to be an augment
 	name = "blessed cybernetic claw"
@@ -232,7 +208,7 @@
 	set category = "Object"
 	set src in usr
 
-	// Holodeck Check
+	// Holodeck/Augment Check
 	if(!can_change_form)
 		to_chat(user, SPAN_NOTICE("You can't change this item's form!"))
 		return
@@ -242,11 +218,9 @@
 
 	var/mob/living/carbon/human/H = user
 	if(istype(H))
-		for(var/option in nullchoices)
-			var/nullrodpath = nullchoices[option]
-			var/obj/item/nullrod/nullitem = new nullrodpath
-			if(nullitem.religion_restriction && !(H.religion in nullitem.religion_restriction))
-				nullchoices -= option
+		var/datum/religion/R = SSrecords.religions[H.religion]
+		if(R.nulloptions)
+			nullchoices.Add(R.nulloptions)
 
 	var/picked = tgui_input_list(user, "What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", nullchoices)
 
