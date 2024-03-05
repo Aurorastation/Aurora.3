@@ -5825,7 +5825,10 @@
 	color = "#542a0c"
 	glass_name = "chocolate syrup"
 	glass_desc = "Thick chocolate syrup used to flavor drinks."
+	condiment_desc = "Must... resist... urge... to directly... pour... in mouth..."
+	condiment_icon_state = "syrup_chocolate"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/drink/syrup_caramel
 	name = "Caramel Syrup"
@@ -5834,7 +5837,10 @@
 	color = "#85461e"
 	glass_name = "caramel syrup"
 	glass_desc = "Thick caramel syrup used to flavor drinks."
+	condiment_desc = "There wasn't enough sugar in your sugar so we added sugar to it."
+	condiment_icon_state = "syrup_caramel"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/drink/syrup_vanilla
 	name = "Vanilla Syrup"
@@ -5843,7 +5849,10 @@
 	color = "#f3e5ab"
 	glass_name = "vanilla syrup"
 	glass_desc = "Thick vanilla syrup used to flavor drinks."
+	condiment_desc = "A bottle of vanilla flavored syrup. For pancakes, drinks and... whatever else!"
+	condiment_icon_state = "syrup_vanilla"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/drink/syrup_pumpkin
 	name = "Pumpkin Spice Syrup"
@@ -5852,7 +5861,10 @@
 	color = "#d88b4c"
 	glass_name = "pumpkin spice syrup"
 	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+	condiment_desc = "A concentrated, emergency ration of pumpkin spice to apply in case of cold weather."
+	condiment_icon_state = "syrup_pumpkin"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //berry
 /singleton/reagent/drink/syrup_berry
@@ -5862,7 +5874,10 @@
 	color = "#c00726"
 	glass_name = "berry syrup"
 	glass_desc = "Thick berry syrup used to flavor drinks."
+	condiment_desc = "It's not just berry, it's VERY berry! Which berry? Don't worry about it!"
+	condiment_icon_state = "syrup_berry"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //strawberry
 /singleton/reagent/drink/syrup_strawberry
@@ -5872,7 +5887,10 @@
 	color = "#b40000"
 	glass_name = "strawberry syrup"
 	glass_desc = "Thick strawberry syrup used to flavor drinks."
+	condiment_desc = "Made with real strawberries! Probably! Somewhere in there, I'm sure!"
+	condiment_icon_state = "syrup_strawberry"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //blueberry
 /singleton/reagent/drink/syrup_blueberry
@@ -5882,7 +5900,10 @@
 	color = "#0a0094"
 	glass_name = "blueberry syrup"
 	glass_desc = "Thick blueberry syrup used to flavor drinks."
+	condiment_desc = "Da ba dee da be da."
+	condiment_icon_state = "syrup_blueberry"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //rasp
 /singleton/reagent/drink/syrup_raspberry
@@ -5892,7 +5913,10 @@
 	color = "#ad0042"
 	glass_name = "raspberry syrup"
 	glass_desc = "Thick raspberry syrup used to flavor drinks."
+	condiment_desc = "Ra ra raspberry concentrated flavoring!"
+	condiment_icon_state = "syrup_raspberry"
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //black rasp
 /singleton/reagent/drink/syrup_blackraspberry
@@ -5903,6 +5927,7 @@
 	glass_name = "black raspberry syrup"
 	glass_desc = "Thick black raspberry syrup used to flavor drinks."
 	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //blue rasp
 /singleton/reagent/drink/syrup_blueraspberry
@@ -5913,6 +5938,9 @@
 	glass_name = "blue raspberry syrup"
 	glass_desc = "Thick blue raspberry syrup used to flavor drinks."
 	taste_mult = 5
+	condiment_desc = "Now with extra GMOs!"
+	condiment_icon_state = "syrup_blue_raspberry"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //glow
 /singleton/reagent/drink/syrup_glowberry
@@ -5953,6 +5981,9 @@
 	glass_name = "ylpha berry syrup"
 	glass_desc = "Thick ylpha berry syrup used to flavor drinks."
 	taste_mult = 5
+	condiment_desc = "There's a fun fact sticker on the back that says what Ylpha berries are and where they come from but the ink is all smudged and you can't read it."
+	condiment_icon_state = "syrup_ylpha"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //dirt
 /singleton/reagent/drink/syrup_dirtberry
@@ -5963,6 +5994,9 @@
 	glass_name = "dirt berry syrup"
 	glass_desc = "Thick dirt berry syrup used to flavor drinks."
 	taste_mult = 5
+	condiment_desc = "Concentrrrated flavorrr forrr theirrr desserrrts."
+	condiment_icon_state = "syrup_dirtberry"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/drink/syrup_simple
 	name = "Simple Syrup"
@@ -5971,6 +6005,9 @@
 	color = "#ccccbb"
 	glass_name = "simple syrup"
 	glass_desc = "Thick, unflavored syrup used as a base for drinks or flavorings."
+	condiment_desc = "Thick, flavorless, pointless, joyless syrup. Needs an extra something-something. Unless you're just trying to feed bees."
+	condiment_icon_state = "syrup_simple"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/caramel
 	name = "Caramel Sugar"
