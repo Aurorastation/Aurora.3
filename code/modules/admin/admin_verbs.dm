@@ -1084,6 +1084,20 @@ var/list/admin_verbs_cciaa = list(
 	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
 	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
 
+/client/proc/outbreak_menu()
+	set category = "Event"
+	set name = "Open Outbreak Menu"
+	set desc = "Opens the Outbreak menu."
+
+	if(SSticker.current_state != GAME_STATE_PLAYING)
+		to_chat(usr, SPAN_WARNING("The game hasn't started yet."))
+		return FALSE
+
+	if(!check_rights(R_ADMIN, TRUE, usr))
+		return FALSE
+
+	SSticker.mode.ui_interact(usr)
+
 /client/proc/give_spell(mob/T as mob in GLOB.mob_list) // -- Urist
 	set category = "Fun"
 	set name = "Give Spell"

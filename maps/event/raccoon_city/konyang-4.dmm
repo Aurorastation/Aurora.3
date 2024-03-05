@@ -37314,22 +37314,6 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
-"jpC" = (
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/obj/effect/shuttle_landmark/scc_transport/interim{
-	dir = 1
-	},
-/turf/space/transit/north,
-/area/template_noop)
 "jpK" = (
 /obj/item/towel_flat,
 /obj/effect/decal/fake_object{
@@ -38311,21 +38295,11 @@
 	},
 /area/horizon/holodeck/source_konyang)
 "mzW" = (
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/obj/effect/shuttle_landmark/scc_transport/start{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/landmark/lobby_mobs_location,
+/turf/unsimulated/floor,
+/area/centcom/start{
+	name = "Romanovich Cloud, Tau Ceti"
+	})
 "mAl" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_leftt"
@@ -41640,8 +41614,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aNQ
+aNQ
 aNQ
 aNQ
 aNQ
@@ -41897,8 +41871,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aNQ
+mzW
 aNQ
 aOg
 aOg
@@ -42154,8 +42128,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aNQ
+aNQ
 aNQ
 aOg
 aOg
@@ -58478,7 +58452,7 @@ aac
 aac
 aac
 aac
-jpC
+aab
 aac
 aac
 aac
@@ -70557,7 +70531,7 @@ aaa
 aaa
 aaa
 aaa
-mzW
+aae
 aaa
 aaa
 aaa

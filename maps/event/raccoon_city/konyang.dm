@@ -1,4 +1,4 @@
-/datum/map/event/point_verdant
+/datum/map/event/raccoon_city
 	name = "Point Verdant"
 	full_name = "Point Verdant"
 	path = "event/raccoon_city"
@@ -8,7 +8,7 @@
 	allowed_jobs = list(/datum/job/visitor, /datum/job/passenger)
 
 	station_levels = list(1,2,3)
-	//admin_levels = list(4)
+	admin_levels = list(4)
 	contact_levels = list(1,2,3)
 	player_levels = list(1,2,3)
 	accessible_z_levels = list(1,2,3)

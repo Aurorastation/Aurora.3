@@ -61,6 +61,7 @@
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
 #define MODE_REVENANT "revenant"
+#define MODE_OUTBREAK "outbreak"
 #define MODE_GOLEM "golem"
 #define MODE_JOCKEY "jockey"
 

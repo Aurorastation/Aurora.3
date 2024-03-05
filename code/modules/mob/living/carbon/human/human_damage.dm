@@ -383,15 +383,6 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 ////////////////////////////////////////////
 
 /*
-This function restores the subjects blood to max.
-*/
-/mob/living/carbon/human/proc/restore_blood()
-	if(!(species.flags & NO_BLOOD))
-		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
-		vessel.add_reagent(/singleton/reagent/blood, species.blood_volume - total_blood, temperature = species.body_temperature)
-
-
-/*
 This function restores all organs.
 */
 /mob/living/carbon/human/restore_all_organs()
@@ -508,6 +499,18 @@ This function restores all organs.
 
 	return max(0,traumatic_shock)
 
+/*
+This function restores the subjects blood to max.
+*/
+/mob/living/carbon/human/proc/restore_blood()
+	if(!(species.flags & NO_BLOOD))
+		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
+		vessel.add_reagent(/singleton/reagent/blood, species.blood_volume - total_blood, temperature = species.body_temperature)
+
 /mob/living/carbon/human/remove_blood_simple(var/blood)
 	if(should_have_organ(BP_HEART))
 		vessel.remove_reagent(/singleton/reagent/blood, blood)
+
+/mob/living/carbon/human/proc/add_blood_simple(var/blood)
+	if(should_have_organ(BP_HEART))
+		vessel.add_reagent(/singleton/reagent/blood, blood, temperature = species.body_temperature)

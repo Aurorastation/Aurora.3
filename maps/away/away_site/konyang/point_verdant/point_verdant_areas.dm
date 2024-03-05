@@ -8,12 +8,6 @@
 	sound_env = CITY
 	var/lighting = FALSE //Is this area automatically lit?
 
-/area/point_verdant/Initialize()
-	. = ..()
-	if(lighting)
-		for(var/turf/T in src)
-			T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, 50, COLOR_WHITE) //Same light level as Konyang proper
-
 /area/point_verdant/outer
 	name = "Point Verdant - Outskirts"
 	sound_env = FOREST

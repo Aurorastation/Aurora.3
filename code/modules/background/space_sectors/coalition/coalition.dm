@@ -67,17 +67,14 @@
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder
-	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
+	sector_lobby_art = list('icons/misc/titlescreens/raccoon_city/raccoon_city.dmi')
 	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/welcome_konyang.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 	lobby_tracks = list(
-		'sound/music/lobby/konyang/konyang-1.ogg',
-		'sound/music/lobby/konyang/konyang-2.ogg',
-		'sound/music/lobby/konyang/konyang-3.ogg',
-		'sound/music/lobby/konyang/konyang-4.ogg'
+		'sound/music/lobby/raccoon_city/raccoon_city.ogg',
 	)
 
 	lore_radio_stations = list(
