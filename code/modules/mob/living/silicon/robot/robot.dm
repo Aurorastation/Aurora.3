@@ -326,7 +326,7 @@
 				to_chat(src, SPAN_WARNING("Custom Sprite Sheet does not contain a valid icon_state for [sprite.synthicon]-[mod_type]"))
 		else
 			icontype = module_sprites[1]
-		icon_state = module_sprites[icontype][ROBOT_CHASSIS]
+		icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module(var/set_module)
@@ -1118,8 +1118,8 @@
 	if(!icontype)
 		return
 
-	icon_state = module_sprites[icontype][ROBOT_CHASSIS]
-	if(!module_sprites[icontype][ROBOT_ICON])
+	icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
+	if(!module_sprites?[icontype]?[ROBOT_ICON])
 		icon = initial(icon)
 	icon_selected = TRUE
 
