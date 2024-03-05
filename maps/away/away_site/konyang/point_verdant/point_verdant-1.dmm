@@ -3179,12 +3179,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "jO" = (
-/obj/structure/closet/crate/bin/filled,
-/obj/item/trash/cigbutt,
-/obj/random/junk,
-/obj/random/junk,
-/obj/item/trash/cigbutt,
-/turf/simulated/floor/tiled/full,
+/obj/machinery/telecomms/allinone/ship,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "jP" = (
 /turf/simulated/wall,
@@ -27358,8 +27354,8 @@ cp
 ch
 HF
 lC
-rf
-rf
+lC
+lC
 rf
 rf
 rf
@@ -27613,10 +27609,10 @@ wF
 ch
 FP
 AN
+AN
+ai
 jO
 lC
-rf
-rf
 rf
 rf
 rf
@@ -27872,8 +27868,8 @@ AN
 AN
 VF
 lC
-rf
-rf
+lC
+lC
 rf
 rf
 rf
