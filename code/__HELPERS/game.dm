@@ -329,7 +329,7 @@
 */
 /atom/movable/flick_visual
 	///A list of `/atom/movable` this visual was or will be added into the `vis_contents` of
-	var/list/atom/movable/owners = null
+	VAR_PROTECTED/list/atom/movable/owners = null
 
 /atom/movable/flick_visual/New(loc, list/atom/movable/owners)
 	. = ..()
@@ -342,7 +342,8 @@
 /atom/movable/flick_visual/Destroy(force)
 
 	//Remove us from the vis_contents of the owners, so we can be garbage collected
-	for(var/atom/movable/an_owner in src.owners)
+	//"As anything" is important here, as our "atom/movable" could also be a turf, as per https://secure.byond.com/docs/ref/index.html#/atom/var/vis_contents
+	for(var/atom/movable/an_owner as anything in src.owners)
 		an_owner.vis_contents -= src
 	src.owners = null
 
