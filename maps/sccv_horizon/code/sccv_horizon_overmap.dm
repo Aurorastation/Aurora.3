@@ -170,11 +170,14 @@
 	name = "Raskolnikov"
 	class = "ICV"
 	designation = "Raskolnikov"
-	desc = "CHANGE THIS"
+	desc = "\
+		A standard-sized transport shuttle manufactured by Hephaestus, the Finland-class is commonly used all around the Spur. \
+		It is cheap, easy to maintain, and spare parts can be produced mostly without any specialized machining tools. \
+		"
 	shuttle = "Raskolnikov"
-	icon_state = "intrepid"
-	moving_state = "intrepid_moving"
-	colors = list("#cfd4ff", "#78adf8")
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#dfa935", "#ee6ab2")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -182,8 +185,8 @@
 	vessel_size = SHIP_SIZE_SMALL
 	designer = "Hephaestus Industries"
 	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
-	sizeclass = "Pathfinder Exploration Shuttle"
-	shiptype = "Field expeditions and private research uses"
+	sizeclass = "Finland Transport Shuttle"
+	shiptype = "Transport of people and cargo"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/raskolnikov
 	name = "\improper Raskolnikov control console"
