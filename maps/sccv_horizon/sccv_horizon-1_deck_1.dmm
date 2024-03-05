@@ -4884,8 +4884,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
-	name = "Thruster Compartment";
-	req_access = list(73)
+	name = "Thruster Compartment"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -8918,8 +8917,11 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
-/obj/machinery/power/apc/intrepid/east,
+/obj/machinery/computer/cryopod{
+	pixel_x = 28;
+	pixel_y = 7
+	},
+/obj/machinery/power/apc/intrepid/west,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "fYt" = (
@@ -9334,7 +9336,7 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Thruster Compartment";
-	req_access = list(73)
+	req_one_access = list(73,11,24)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
@@ -10867,10 +10869,10 @@
 /area/shuttle/intrepid/cargo_bay)
 "hqn" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/closet/firecloset/full,
 /obj/machinery/light/small/red{
 	dir = 4
 	},
+/obj/machinery/cryopod,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "hqo" = (
@@ -13356,7 +13358,7 @@
 /area/hallway/primary/aft)
 "jkq" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/cryopod,
+/obj/structure/closet/firecloset/full,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "jks" = (
@@ -27047,10 +27049,6 @@
 "sDd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/computer/cryopod{
-	pixel_x = 28;
-	pixel_y = 7
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -28262,6 +28260,7 @@
 	dir = 1
 	},
 /obj/machinery/recharge_station,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "twq" = (
@@ -30160,7 +30159,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/door/window/southright{
-	req_access = list(73,11)
+	req_one_access = list(73,11,24)
 	},
 /obj/machinery/light_switch{
 	pixel_x = 21;
@@ -32936,7 +32935,7 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Utility and Atmosphere Control";
-	req_access = list(73,11)
+	req_one_access = list(73,11,24)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
