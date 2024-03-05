@@ -518,7 +518,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/beer/earthmover
 	name = "\improper Inverkeithing Imports Earthmover"
-	desc = "Himeo's second-favorite brand of non-mushroom liquor, according to the 2264 Consumer's Census. Rising prices on the import of Virklunder, which held the top point for several years, are probably to blame. \
+	desc = "Himeo's favorite brand of non-mushroom liquor, according to the 2264 Consumer's Census. Rising prices on the import of Virklunder, which held the top point for several years, are probably to blame. \
 	Luckily for Himeo- and the Coalition, where it is exported under the Inverkeithing Import name- this hydroponically-grown dry stout is of a reasonably high quality."
 	icon_state = "earthmover"
 	item_state = "earthmover"
