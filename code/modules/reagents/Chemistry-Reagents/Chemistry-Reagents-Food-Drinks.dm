@@ -3273,7 +3273,7 @@
 	description = "The only liquor manufactured on Gadpathur, feni is a liquor originating in the Goa region of India and typically brewed from coconut sap, palm sap, or cashews. Typically issued as a morale supplement on celebratory occasions, the Planetary Defense Council has yet to disclose what this is precisely made from."
 	taste_description = "fruity biodiesel"
 
-	glass_icon_state = "vodkaglass"
+	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of feni"
 	glass_desc = "A glass of strong-smelling feni."
 
