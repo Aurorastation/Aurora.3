@@ -150,8 +150,12 @@
 	if (horizon) //If the overmap is disabled, it's possible for there to be no Horizon.
 		var/list/space_things = list()
 		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
-		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call)]</b><br><br>"
-		welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br><br>"
+		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call, "none")]</b><br><br>"
+		if(SSatlas.current_sector.next_port_visit)
+			welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br><br>"
+		else
+			welcome_text += "<b>There is no port visit scheduled.</b><br><br>"
+		welcome_text += "<b>It is advised to inform crew of the available port of calls and the ports available to them.</b><br><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
 		for(var/zlevel in GLOB.map_sectors)
@@ -175,13 +179,8 @@
 
 		welcome_text += "<hr>"
 
-	post_comm_message("SCCV Horizon Shift Report", welcome_text)
+	post_comm_message("SCCV Horizon Sensor Report", welcome_text)
 	var/report = "The long-range sensor readings have been printed out at all communication consoles."
-	if(SSatlas.current_sector.next_port_visit == 0)
-		report += "The SCCV Horizon will dock at port today."
-	else
-		report += "The SCCV Horizon will dock [SSatlas.current_sector.next_port_visit_string]."
-	report += "Please make sure to seek information regarding your Visa status if you are intending to visit the port of call."
 	priority_announcement.Announce(message = report)
 
 /datum/map/sccv_horizon/load_holodeck_programs()

@@ -142,7 +142,7 @@
 		// The main problem to consider here is that you have to loop around for two weeks to find all the days, basically.
 		// It could be Thursday with Wednesday as a port of call, for example.
 		while(!next_port_visit)
-			if(!(GLOB.all_days[current_day_index] in SSatlas.current_sector.ports_of_call))
+			if(!(GLOB.all_days[current_day_index] in SSatlas.current_sector.scheduled_port_visits))
 				days_calculated++
 				current_day_index++
 				if(current_day_index > length(GLOB.all_days))
