@@ -75,12 +75,17 @@
 		var/obj/effect/overmap/visitable/ship/landable/landable = connected
 
 		// get horizon (or whatever other main map)
-		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
+		var/main_zlevel = SSatlas.current_map.station_levels[1]
+		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["[main_zlevel]"] ? GLOB.map_sectors["[main_zlevel]"] : GLOB.map_sectors[GLOB.map_sectors[main_zlevel]]
 
 		// get the target overmap turf to put our shuttle on
 		var/map_low = OVERMAP_EDGE
 		var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
-		var/turf/home = CircularRandomTurfAround(main, 2, map_low, map_low, map_high, map_high)
+		var/turf/home = CircularRandomTurfAround(main, 1, map_low, map_low, map_high, map_high)
+
+		// clear the home turf from overmap hazards
+		for(var/obj/effect/overmap/event/hazard in home)
+			qdel(hazard)
 
 		// move the overmap shuttle object to the overmap (it should be on the CC z-level before so)
 		landable.forceMove(home)
