@@ -150,12 +150,12 @@
 	if (horizon) //If the overmap is disabled, it's possible for there to be no Horizon.
 		var/list/space_things = list()
 		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
-		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call, "none")]</b><br><br>"
+		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call, "none")]</b><br>"
 		if(SSatlas.current_sector.next_port_visit)
-			welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br><br>"
+			welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br>"
 		else
 			welcome_text += "<b>There is no port visit scheduled.</b><br><br>"
-		welcome_text += "<b>It is advised to inform crew of the available port of calls and the ports available to them.</b><br><br>"
+		welcome_text += "<b>It is advised to inform crew of the available ports of call and the date of the next port visit.</b><br><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
 		for(var/zlevel in GLOB.map_sectors)
