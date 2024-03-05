@@ -77,13 +77,13 @@
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash
 	name = "mouthwash bottle"
-	desc = "..."
+	desc = "Minty-fresh and enamel-protecting, ensuring a fresh breath."
 	icon_state = "mouthwash"
 	cup_type = /obj/item/reagent_containers/food/drinks/flask/flask_cup/mouthwash
-	reagents_to_add = list(/singleton/reagent/drink/mouthwash = 60)
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste/mouthwash = 60)
 
 /obj/item/reagent_containers/food/drinks/flask/flask_cup/mouthwash
 	name = "mouthwash bottle cap"
-	desc = "..."
+	desc = "The cup that appears in your hands after you unscrew the cap of the bottle and turn it over."
 	icon_state = "mouthwash_cap"
 	center_of_mass = list("x" = 16, "y" = 16)
