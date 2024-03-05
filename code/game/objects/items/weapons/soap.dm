@@ -22,8 +22,8 @@
 	var/capacity = 10
 	drop_sound = 'sound/misc/slip.ogg'
 
-/obj/item/soap/New()
-	..()
+/obj/item/soap/Initialize(mapload, ...)
+	. = ..()
 	create_reagents(capacity)
 	wet()
 
