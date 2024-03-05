@@ -956,9 +956,9 @@
 	drop_sound = 'sound/items/drop/plushie.ogg'
 	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
-/// defines what sound is played when poking the plushie (using it inhand on disarm intent).
+	/// defines what sound is played when poking the plushie (using it inhand on disarm intent).
 	var/poke_sound = 'sound/items/drop/plushie.ogg'
-///A cooldown to stop the poke sound being spammed.
+	///A cooldown to stop the poke sound being spammed.
 	var/poke_cooldown = 0
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
