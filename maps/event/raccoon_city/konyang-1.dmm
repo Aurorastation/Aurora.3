@@ -4076,6 +4076,10 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"eZB" = (
+/obj/structure/flora/pottedplant/drooping,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "eZX" = (
 /obj/item/reagent_containers/food/drinks/bottle,
 /obj/item/reagent_containers/food/drinks/bottle{
@@ -6757,6 +6761,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
 /area/point_verdant/sewer)
+"ieF" = (
+/obj/structure/coatrack{
+	pixel_x = -8;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "ieM" = (
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
@@ -12689,10 +12700,6 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
-"por" = (
-/obj/structure/flora/pottedplant/drooping,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
 "poA" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
@@ -21739,14 +21746,14 @@ orI
 orI
 orI
 orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
 orI
 orI
 orI
@@ -21996,14 +22003,14 @@ orI
 orI
 orI
 orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+muQ
+oJD
+oJD
+tje
+eZB
+oJD
+oJD
+muQ
 orI
 orI
 orI
@@ -22254,13 +22261,13 @@ orI
 orI
 orI
 orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+kxV
+kxV
+kxV
+kxV
+kxV
+kxV
+muQ
 orI
 orI
 orI
@@ -22511,13 +22518,13 @@ orI
 orI
 orI
 orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+jUD
+rAI
+kxV
+kxV
+rAI
+rAI
+muQ
 orI
 orI
 orI
@@ -22768,13 +22775,13 @@ orI
 orI
 orI
 orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+ngD
+oJD
+kxV
+kxV
+oJD
+oJD
+muQ
 orI
 orI
 orI
@@ -23025,13 +23032,13 @@ orI
 orI
 orI
 orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+kxV
+kxV
+kxV
+kxV
+kxV
+mmI
+muQ
 orI
 orI
 orI
@@ -23281,14 +23288,14 @@ orI
 orI
 orI
 orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+muQ
+rAI
+rAI
+kxV
+kxV
+rAI
+rAI
+muQ
 orI
 orI
 orI
@@ -23533,16 +23540,16 @@ muQ
 muQ
 muQ
 muQ
+kxV
+kxV
 muQ
 muQ
 muQ
 muQ
 muQ
 muQ
-muQ
-muQ
-muQ
-muQ
+mWi
+mWi
 muQ
 muQ
 muQ
@@ -23834,7 +23841,7 @@ qfw
 qfw
 dZn
 agd
-imt
+ieF
 muQ
 orI
 orI
@@ -24569,8 +24576,8 @@ mWi
 muQ
 muQ
 muQ
-muQ
-muQ
+mWi
+mWi
 muQ
 muQ
 muQ
@@ -24826,8 +24833,8 @@ mWi
 muQ
 oJD
 oJD
-tje
-por
+kxV
+kxV
 oJD
 oJD
 muQ
@@ -25086,7 +25093,7 @@ kxV
 kxV
 kxV
 kxV
-kxV
+mMB
 muQ
 orI
 orI
@@ -32052,7 +32059,7 @@ mWi
 muQ
 muQ
 imt
-imt
+kxV
 imt
 muQ
 muQ
