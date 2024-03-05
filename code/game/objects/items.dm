@@ -235,6 +235,16 @@
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
+	//TODOMATT: force multiplication experiment
+	switch(force)
+		if(5 to 10)
+			force *= 2
+		if(10 to 20)
+			force *= 1.5
+		if(20 to 30)
+			force *= 1.25
+		if(30 to 40)
+			force *= 1.1
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])

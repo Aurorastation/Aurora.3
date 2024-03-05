@@ -856,29 +856,29 @@
 			return
 
 		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
-			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
+			var/to_infest
+			var/list/possible_organs = list()
+			for(var/organ in list(BP_R_HAND, BP_L_HAND, BP_R_FOOT, BP_L_FOOT))
+				if(H.organs_by_name[organ])
+					possible_organs[organ] = 1
+			if(!length(possible_organs))
+				for(var/organ in list(BP_R_ARM, BP_L_ARM, BP_R_LEG, BP_L_LEG))
+					if(H.organs_by_name[organ])
+						possible_organs[organ] = 2
+			if(!length(possible_organs))
+				if(H.organs_by_name[BP_GROIN])
+					possible_organs[BP_GROIN] = 2
+			if(!length(possible_organs))
+				possible_organs[BP_CHEST] = 3
+			possible_organs = shuffle(possible_organs)
+			for(var/plausible_organ in possible_organs)
+				to_infest = plausible_organ
+				break
+			var/obj/item/organ/external/affected = H.get_organ(to_infest)
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
-
-		if(H.species.zombie_type)
-			if(!H.internal_organs_by_name[BP_BRAIN])	//destroying the brain stops trioxin from bringing the dead back to life
-				return
-
-			if(H && H.stat != DEAD)
-				return
-
-			for(var/datum/language/L in H.languages)
-				H.remove_language(L.name)
-
-			var/r = H.r_skin
-			var/g = H.g_skin
-			var/b = H.b_skin
-
-			H.set_species(H.species.zombie_type, 0, 0, 0)
-			H.revive()
-			H.change_skin_color(r, g, b)
-			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+			infest.stage = possible_organs[to_infest]
+			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
 
 /singleton/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"

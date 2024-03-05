@@ -215,6 +215,10 @@
 
 /singleton/surgery_step/internal/detach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(affected.hidden)
+		to_chat(user, SPAN_WARNING("That mass isn't just a single organ, it's every single cell... and it's spreading towards the head!\
+									There's no way you can remove that!"))
+		return FALSE
 
 	user.visible_message("<b>[user]</b> starts to separate [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		SPAN_NOTICE("You start to separate [target]'s [target.op_stage.current_organ] with \the [tool]." ))

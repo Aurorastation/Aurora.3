@@ -46,7 +46,7 @@
 	if((stage < max_stage) && !recession)
 		stage_ticker = Clamp(stage_ticker+=infection_speed, 0, stage_interval*max_stage)
 		if(stage_ticker >= stage*stage_interval)
-			stage = min(stage+1,max_stage)
+			process_stage()
 			get_infect_speed() //Each stage may progress faster or slower than the previous one
 			stage_effect()
 
@@ -67,6 +67,9 @@
 		if(rejecting)
 			rejecting = 0
 		return
+
+/obj/item/organ/internal/parasite/proc/process_stage()
+	stage = min(stage+1,max_stage)
 
 /obj/item/organ/internal/parasite/proc/stage_effect()
 	return
@@ -318,18 +321,21 @@
 	..()
 
 /obj/item/organ/internal/parasite/zombie
-	name = "black tumour"
+	name = BP_ZOMBIE_PARASITE
 	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "black_tumour"
 	dead_icon = "black_tumour"
 
 	organ_tag = BP_ZOMBIE_PARASITE
-	parent_organ = BP_HEAD
+	parent_organ = BP_L_HAND
 	stage_interval = 110
 	drug_resistance = TRUE
 	relative_size = 0
 
 	egg = /singleton/reagent/toxin/trioxin
+
+	var/old_species
+	var/list/old_skin_color
 
 	var/last_heal = 0
 	var/heal_rate = 5 SECONDS
@@ -337,89 +343,109 @@
 /obj/item/organ/internal/parasite/zombie/process()
 	..()
 
-	if (!owner)
+	if(!owner)
 		return
 
-	if(length(owner.bad_external_organs) && last_heal + heal_rate < world.time && iszombie(owner))
-		var/list/organs_to_heal = owner.bad_external_organs
-		shuffle(organs_to_heal)
-		for(var/thing in organs_to_heal)
-			var/obj/item/organ/external/O = thing
-			if(istype(O, /obj/item/organ/external/head)) // the head is the weak point
-				continue
-			var/healed = FALSE
-			if(O.status & ORGAN_ARTERY_CUT)
-				O.status &= ~ORGAN_ARTERY_CUT
-				owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
-				healed = TRUE
-			else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
-				O.tendon.rejuvenate()
-				owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
-				healed = TRUE
-			else if(O.status & ORGAN_BROKEN)
-				var/list/brute_wounds = list()
-				for(var/wound in O.wounds)
-					var/datum/wound/W = wound
-					if(W.damage_type in list(CUT, BRUISE, PIERCE))
-						brute_wounds += W
-				for(var/wound in brute_wounds)
-					var/datum/wound/W = wound
-					W.damage = max(min(W.damage, (O.min_broken_damage / length(brute_wounds))), 0)
-				O.status &= ~ORGAN_BROKEN
-				owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), SPAN_NOTICE("The shattered bone in your [O] melds back together..."))
-				healed = TRUE
-			if(healed)
-				last_heal = world.time
-				heal_rate += 2 SECONDS
-				O.update_damages()
-				break
+	if(!iszombie(owner))
+		if(stage < 2)
+			if(prob(2))
+				to_chat(owner, SPAN_WARNING("The skin on your [parent_organ] itches a bit."))
 
-	if(prob(10) && (owner.can_feel_pain()))
-		to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")
-		owner.make_jittery(10)
+		if(stage >= 2)
+			if(prob(15))
+				owner.emote("scream")
+				if(!isundead(owner))
+					owner.adjustBrainLoss(2, 55)
 
-	else if(prob(10))
-		owner.emote("moan")
+			else if(prob(10))
+				if(!isundead(owner))
+					to_chat(owner, "<span class='warning'>You feel sick.</span>")
+					owner.adjustToxLoss(5)
+					owner.delayed_vomit()
 
-	if(stage >= 2)
-		if(prob(15))
-			owner.emote("scream")
-			if(!isundead(owner))
-				owner.adjustBrainLoss(2, 55)
-
-		else if(prob(10))
-			if(!isundead(owner))
-				to_chat(owner, "<span class='warning'>You feel sick.</span>")
-				owner.adjustToxLoss(5)
-				owner.delayed_vomit()
-
-	if(stage >= 3)
-		if(prob(10))
-			if(isundead(owner))
-				owner.adjustBruteLoss(-30)
-				owner.adjustFireLoss(-30)
-			else
-				to_chat(owner, "<span class='cult'>You feel an insatiable hunger.</span>")
-				owner.nutrition = -1
-
-	if(stage >= 4)
-		if(prob(10))
-			if(!isundead(owner))
-				if(owner.species.zombie_type)
-					var/r = owner.r_skin
-					var/g = owner.g_skin
-					var/b = owner.b_skin
-
-					for(var/datum/language/L in owner.languages)
-						owner.remove_language(L.name)
-					to_chat(owner, "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>")
-					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-					to_chat(owner, "<font size='3'><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
-					owner.set_species(owner.species.zombie_type, 0, 0, 0)
-					owner.change_skin_color(r, g, b)
-					owner.update_dna()
+		if(stage >= 3)
+			if(prob(10))
+				if(isundead(owner))
+					owner.adjustBruteLoss(-30)
+					owner.adjustFireLoss(-30)
 				else
-					owner.adjustToxLoss(50)
+					to_chat(owner, "<span class='cult'>You feel an insatiable hunger.</span>")
+					owner.nutrition = -1
+
+		if(stage >= 4)
+			if(prob(10))
+				if(!isundead(owner))
+					if(owner.species.zombie_type)
+						var/r = owner.r_skin
+						var/g = owner.g_skin
+						var/b = owner.b_skin
+
+						for(var/datum/language/L in owner.languages)
+							owner.remove_language(L.name)
+						to_chat(owner, "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>")
+						playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
+						to_chat(owner, "<font size=4><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
+						old_species = owner.species.name
+						old_skin_color = list(r, g, b)
+						owner.set_species(owner.species.zombie_type, 0, 0, 0)
+						owner.change_skin_color(r, g, b)
+						owner.update_dna()
+					else
+						owner.adjustToxLoss(50)
+	else
+		if(length(owner.bad_external_organs) && last_heal + heal_rate < world.time)
+			var/list/organs_to_heal = owner.bad_external_organs
+			shuffle(organs_to_heal)
+			for(var/thing in organs_to_heal)
+				var/obj/item/organ/external/O = thing
+				if(istype(O, /obj/item/organ/external/head)) // the head is the weak point
+					continue
+				var/healed = FALSE
+				if(O.status & ORGAN_ARTERY_CUT)
+					O.status &= ~ORGAN_ARTERY_CUT
+					owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
+					healed = TRUE
+				else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
+					O.tendon.rejuvenate()
+					owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
+					healed = TRUE
+				else if(O.status & ORGAN_BROKEN)
+					var/list/brute_wounds = list()
+					for(var/wound in O.wounds)
+						var/datum/wound/W = wound
+						if(W.damage_type in list(CUT, BRUISE, PIERCE))
+							brute_wounds += W
+					for(var/wound in brute_wounds)
+						var/datum/wound/W = wound
+						W.damage = max(min(W.damage, (O.min_broken_damage / length(brute_wounds))), 0)
+					O.status &= ~ORGAN_BROKEN
+					owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), SPAN_NOTICE("The shattered bone in your [O] melds back together..."))
+					healed = TRUE
+				if(healed)
+					last_heal = world.time
+					heal_rate += 2 SECONDS
+					O.update_damages()
+					break
+
+		if(prob(10) && (owner.can_feel_pain()))
+			to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")
+			owner.make_jittery(10)
+
+/obj/item/organ/internal/parasite/zombie/process_stage()
+	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+""	if(E.parent)
+		to_chat(owner, SPAN_WARNING("The veins in your [parent_organ] turn black..."))
+		E.status |= ORGAN_ZOMBIFIED
+		replaced(owner, E.parent)
+		owner.update_body()
+	else
+		if(parent_organ == BP_CHEST)
+			to_chat(owner, SPAN_DANGER("<font size=4>Every vein in your chest turns red. Your heart becomes heavy. Each beat becomes fatigued. \
+									You feel your own breathing. Cold sweat goes down your brows...</span>"))
+			E.status |= ORGAN_ZOMBIFIED
+			var/obj/item/organ/external/head = owner.organs_by_name[BP_HEAD]
+			replaced(owner, head)
+			owner.update_body()
 
 //Parasitic Worms//
 

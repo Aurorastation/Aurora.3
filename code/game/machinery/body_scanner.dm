@@ -587,6 +587,8 @@
 	var/list/organs = list()
 	// Internal Organs. (Duh.)
 	for (var/obj/item/organ/internal/O in H.internal_organs)
+		if(O.hidden)
+			continue
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
 		data["location"] = capitalize_first_letters(parse_zone(O.parent_organ))

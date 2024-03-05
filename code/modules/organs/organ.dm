@@ -46,6 +46,7 @@
 	var/datum/species/species
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 	var/list/species_restricted //used by augments and biomods to see what species can have this augment
+	var/hidden = FALSE
 
 INITIALIZE_IMMEDIATE(/obj/item/organ)
 

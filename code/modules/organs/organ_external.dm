@@ -502,7 +502,7 @@
 
 				var/edge_eligible = FALSE
 				var/blunt_eligible = FALSE
-				var/maim_bonus = 0
+				var/maim_bonus = src.maim_bonus
 				var/dam_flags = 0
 
 				if(isitem(used_weapon))
