@@ -120,8 +120,15 @@
 /singleton/recipe/black_eyed_gumbo
 	appliance = SAUCEPAN | POT
 	fruit = list("onion" = 1, "chili" = 1, "bellpepper" = 1)
-	reagents = list(/singleton/reagent/nutriment/rice = 5)
+	reagents = list(/singleton/reagent/nutriment/rice = 5, /singleton/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/black_eyed_gumbo
+
+/singleton/recipe/black_eyed_gumbo_alt
+	appliance = SAUCEPAN | POT
+	fruit = list("onion" = 1, "chili" = 1, "bellpepper" = 1)
+	reagents = list(/singleton/reagent/nutriment/rice = 5, /singleton/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/fish)
 	result = /obj/item/reagent_containers/food/snacks/black_eyed_gumbo
 
 // Chili

@@ -114,3 +114,8 @@
 	fruit = list("orange" = 1, "lemon" = 1, "lime" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/citrus_delight
 
+/singleton/recipe/spring_salad //ported from tg
+	fruit = list("peas" = 1, "carrot" = 1, "cabbage" = 2)
+	reagents = list(reagents = list(/singleton/reagent/sodiumchloride = 1))
+	result = /obj/item/reagent_containers/food/snacks/salad/spring_salad
+

@@ -166,3 +166,15 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 7, /singleton/reagent/drink/orangejuice = 3, /singleton/reagent/drink/lemonjuice = 3, /singleton/reagent/drink/limejuice = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("tangy sourness"  = 5))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/salad/spring_salad
+	name = "spring salad"
+	desc = "A simple salad of carrots, lettuce and peas drizzled in oil with a pinch of salt."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "tabboulehsalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#5a9c62"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("salad" = 2, "tomato" = 2, "bulgur" = 2, "greens" = 2))
+	bitesize = 3
