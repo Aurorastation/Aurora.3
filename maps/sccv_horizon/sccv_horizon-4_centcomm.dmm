@@ -30629,6 +30629,7 @@
 /area/centcom/distress_prep)
 "bxn" = (
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/raskolnikov,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bxv" = (
@@ -37735,10 +37736,6 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
-"kWZ" = (
-/obj/effect/overmap/visitable/ship/landable/raskolnikov,
-/turf/unsimulated/mineral/asteroid,
-/area/template_noop)
 "kXD" = (
 /obj/structure/railing/mapped{
 	layer = 6;
@@ -83247,7 +83244,7 @@ aaa
 aam
 aam
 aam
-wED
+aam
 aam
 aam
 aam
@@ -83503,9 +83500,9 @@ aaa
 aam
 aam
 aam
-wED
-kWZ
-wED
+aam
+aam
+aam
 aam
 aam
 aam
@@ -83761,7 +83758,7 @@ aam
 aam
 aam
 aam
-wED
+aam
 aam
 aam
 aam
