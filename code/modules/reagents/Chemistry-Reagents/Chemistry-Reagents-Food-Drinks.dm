@@ -6308,3 +6308,78 @@
 
 	glass_name = "glass of ylpha wine"
 	glass_desc = "A low-alcohol content beverage made from fermented ylpha berries. It's considered very sweet."
+
+/singleton/reagent/drink/boba
+	name = "Boba Pearls"
+	description = "Tiny balls made of Tapioca, waiting to be added to a drink or flavored."
+	reagent_state = SOLID
+	nutrition = 13
+	hydration = 0
+	color = "#1c1727"
+	taste_description = "tapioca"
+
+/singleton/reagent/drink/boba_tea
+	name = "Boba Tea"
+	description = "A tall glass of milky tea with tapioca pearls at the bottom."
+	nutrition = 3
+	color = "#caa55f"
+	taste_description = "tapioca tea"
+	glass_icon_state = "boba_tea"
+	glass_name = "boba tea"
+	glass_desc = "A basic drink for a basic you."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/lemon_lime_boba
+	name = "Lemon Lime Boba Tea"
+	description = "A fruit boba drink, this one is lemon-lime flavored"
+	nutrition = 3
+	color = "#95db45"
+	taste_description = "lemon lime tapioca tea"
+	glass_icon_state = "boba_lemonlime"
+	glass_name = "lemon lime boba tea"
+	glass_desc = "Fruit boba with a sour citrusy sweetness."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/boba_strawberry
+	name = "Strawberry Boba Tea"
+	description = "A tall glass of milky strawberry tea with tapioca pearls at the bottom."
+	nutrition = 3
+	color = "#da76b8"
+	taste_description = "strawberry tapioca tea"
+	glass_icon_state = "boba_strawberry"
+	glass_name = "strawberry boba"
+	glass_desc = "Let loose your inner glamazon."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/boba_banana
+	name = "Banana Boba Tea"
+	description = "A tall glass of milky tea-infused banana juice with tapioca pearls at the bottom."
+	nutrition = 3
+	color = "#ffd255"
+	taste_description = "strawberry tapioca tea"
+	glass_icon_state = "boba_banana"
+	glass_name = "banana boba"
+	glass_desc = "Banana boba bo boba, banana fanna fo foba..."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/summertime_boba
+	name = "Summertime Boba Tea"
+	description = "A fruit boba drink, this one is watermelon-lime flavored"
+	nutrition = 3
+	color = "#95db45"
+	taste_description = "watermelon lime tapioca tea"
+	glass_icon_state = "boba_melonlime"
+	glass_name = "summertime boba"
+	glass_desc = "Refreshing, sweet and citrusy fruit boba"
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/lovebug_boba
+	name = "Lovebug Boba Tea"
+	description = "A fruit boba drink, this one is cherry-strawberry flavored"
+	nutrition = 3
+	color = "#941450"
+	taste_description = "cherry and strawberry tapioca tea"
+	glass_icon_state = "boba_lovebug"
+	glass_name = "lovebug boba"
+	glass_desc = "Ancient boba-tea marketing teams believed this cherry-strawberry flavored drink holds magical powers of love! What does that mean? Nobody knows!"
+	glass_center_of_mass = list("x"=15, "y"=10)

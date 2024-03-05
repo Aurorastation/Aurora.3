@@ -384,6 +384,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "meatballpeas"
 	filling_color = "#913b19"
+	trash = /obj/item/trash/plate
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 6)
 	reagent_data = list(/singleton/reagent/nutriment/protein = list("meat" = 5), /singleton/reagent/nutriment = list("tomato sauce" = 4, "peas" = 4))
 	bitesize = 3

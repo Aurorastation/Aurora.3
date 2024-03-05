@@ -349,12 +349,12 @@
 
 //Luna
 /singleton/recipe/traumwurst
-	appliance = SKILLET | OVEN //oh god i'm sorry wiki team
+	appliance = SKILLET | SAUCEPAN
 	reagents = list(/singleton/reagent/drink/milk/cream = 5)
 	fruit = list("eggplant" = 1, "plumphelmet" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sausage,
 		/obj/item/reagent_containers/food/snacks/sausage
-	)
+		)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
 	result = /obj/item/reagent_containers/food/snacks/traumwurst
