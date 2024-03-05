@@ -198,7 +198,7 @@
 
 /// Check if we're still being held. Otherwise... time to qdel.
 /obj/item/spell/proc/check_owner()
-	if(!(loc == owner) && !(cast_methods & CAST_THROW))
+	if(!QDELETED(src) && !(loc == owner) && !(cast_methods & CAST_THROW))
 		qdel_self()
 
 // Proc: unref_spells()
@@ -370,7 +370,8 @@
 // Description: Deletes the spell object immediately.
 /obj/item/spell/dropped()
 	. = ..()
-	qdel_self()
+	if(!QDELETED(src))
+		qdel_self()
 
 
 // Proc: throw_impact()
