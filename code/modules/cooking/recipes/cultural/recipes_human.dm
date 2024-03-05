@@ -403,8 +403,8 @@
 
 /singleton/recipe/xanuvindaloo
 	appliance = SAUCEPAN | POT
-	fruit = list("tomato" = 1, "vanilla" = 1, "chili" = 1)
-	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/drink/milk/cream = 5)
+	fruit = list("tomato" = 1, "chili" = 1)
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/nutriment/vanilla = 3)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/chicken
 	)
