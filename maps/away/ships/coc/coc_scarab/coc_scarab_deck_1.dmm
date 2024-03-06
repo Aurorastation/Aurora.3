@@ -15,7 +15,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mineral/processing_unit_console{
-	pixel_x = 32
+	pixel_x = -32
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/hangar)
@@ -169,6 +169,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/coc_scarab/central)
+"cZ" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mineral/processing_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/coc_scarab/hangar)
 "dc" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -191,12 +199,14 @@
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "dL" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mineral/processing_unit_console{
-	pixel_x = -32
+/obj/effect/decal/cleanable/dirt,
+/obj/item/towel_flat{
+	name = "magnetic rug";
+	accent_color = "#724e6f";
+	color = "#724e6f";
+	desc = "An ornate rug. Magnetic strips have been fitted onto the bottom."
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
 "dT" = (
 /obj/structure/lattice/catwalk,
@@ -489,9 +499,16 @@
 "hY" = (
 /obj/machinery/button/remote/blast_door{
 	name = "Port Blast Shutters";
-	id = "scarab_hangar_starboard";
+	id = "scarab_hangar_port";
 	dir = 1;
 	pixel_y = 28
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/towel_flat{
+	name = "magnetic rug";
+	accent_color = "#724e6f";
+	color = "#724e6f";
+	desc = "An ornate rug. Magnetic strips have been fitted onto the bottom."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
@@ -534,6 +551,11 @@
 	id = "scarab_hangar_starboard";
 	dir = 1;
 	pixel_y = 28
+	},
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#7C7373";
+	pixel_y = 7;
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
@@ -603,6 +625,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/coc_scarab/central)
 "kG" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
 "kP" = (
@@ -1046,6 +1069,13 @@
 /area/shuttle/coc_scarab/central)
 "tV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/coc_scarab/central)
+"ua" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 23
+	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/coc_scarab/central)
 "ur" = (
@@ -1993,16 +2023,6 @@
 /obj/effect/shuttle_landmark/coc_scarab/nav8,
 /turf/template_noop,
 /area/space)
-"Lz" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/machinery/light/colored/decayed/dimmed,
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_x = 32
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/ship/coc_scarab/hangar)
 "LD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
@@ -2129,13 +2149,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
-"Nx" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_x = 23
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/coc_scarab/central)
 "NJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -2638,6 +2651,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
+"WA" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/coc_scarab/hangar)
 "WS" = (
 /obj/structure/sign/vacuum{
 	pixel_x = -32
@@ -34492,7 +34515,7 @@ lW
 WW
 nc
 nc
-dL
+ay
 qC
 ya
 MY
@@ -35791,7 +35814,7 @@ nc
 nc
 qr
 qr
-Nx
+ua
 qr
 qr
 Wm
@@ -36291,14 +36314,14 @@ lW
 WW
 nc
 nc
-ay
+cZ
 ZU
 SR
 MY
 SR
 ck
 hc
-Lz
+WA
 nc
 nc
 WW
@@ -36552,7 +36575,7 @@ nc
 nc
 nc
 hY
-kG
+dL
 nc
 nc
 nc

@@ -146,4 +146,5 @@
 // Lift
 /area/turbolift/coc_scarab/scarab_lift
 	name = "Scarab Salvager Lift"
+	station_area = FALSE
 

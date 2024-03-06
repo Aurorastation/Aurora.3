@@ -3852,10 +3852,6 @@
 "un" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/item/deck/cards{
-	pixel_x = -4;
-	pixel_y = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
 "up" = (
@@ -5040,6 +5036,14 @@
 "Ay" = (
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/structure/table/steel,
+/obj/item/deck/cards{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk{
+	pixel_x = 5;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
 "Az" = (
@@ -9682,10 +9686,6 @@
 /obj/structure/cable/green,
 /obj/machinery/power/apc/west,
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk{
-	pixel_x = 5;
-	pixel_y = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
 "XI" = (
