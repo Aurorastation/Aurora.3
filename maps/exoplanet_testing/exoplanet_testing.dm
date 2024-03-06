@@ -59,7 +59,13 @@
 		all_ruins = build_exoplanets_for_testing(all_ruins, planets_to_spawn)
 
 		if(!planets_to_spawn || (sanity_count > 5))
-			testing("[ascii_red]FAILED SPAWNING RUINS:[ascii_reset] [sanity_count > 5 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] for ruins [english_list(all_ruins)]")
+			//Build a list of types
+			var/list/types_fail_list = list()
+			for(var/datum/map_template/ruin/exoplanet/ruin as anything in all_ruins)
+				types_fail_list += ruin.type
+
+			SSunit_tests_config.UT.fail("**** [ascii_red]FAILED SPAWNING RUINS:[ascii_reset] [sanity_count > 5 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] \
+										for ruins [english_list(types_fail_list)] ****", __FILE__, __LINE__)
 			break
 
 /datum/map/exoplanet_testing/proc/build_exoplanets_for_testing(list/ruins_to_test = list(), list/exoplanet_types = subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
