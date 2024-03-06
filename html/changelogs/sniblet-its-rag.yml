@@ -1,0 +1,6 @@
+author: Sniblet
+
+delete-after: True
+
+changes:
+  - spellcheck: "Grammar/usage fix in the description of the idris advanced service cloth."
