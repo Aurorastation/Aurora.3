@@ -116,6 +116,6 @@
 
 /singleton/recipe/spring_salad //ported from tg
 	fruit = list("peas" = 1, "carrot" = 1, "cabbage" = 2)
-	reagents = list(reagents = list(/singleton/reagent/sodiumchloride = 1))
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/spring_salad
 
