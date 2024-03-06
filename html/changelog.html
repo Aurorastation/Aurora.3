@@ -35,6 +35,107 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">06 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Updated vote subsystem.</li>
+				<li class="backend">Turned some variables into proper globs.</li>
+				<li class="backend">Adapted the ticker and actions to behave properly with the updated subsystem.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a tgchat setting to let players decide how many messages can be stored in chat before they start getting pruned.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds adminspawn ghostroles for the Konyang Army and corporate asset protection on Point Verdant.</li>
+			</ul>
+
+			<h2 class="date">05 March 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Norinori the Onigiri costume, mascot of UP!Burger. Sprite credit to Nautical.</li>
+				<li class="rscadd">Point Verdant has a new bounced radio, with a private frequency for police and removal of common and entertainment channels.</li>
+				<li class="maptweak">A bounced radio with only hailing frequency added to Point Verdant Shuttleport</li>
+				<li class="refactor">Radio code modified to allow for custom frequency names.</li>
+				<li class="bugfix">Map preset bounced radios, such as the ones from the IPC Refugee ship, now work as intended (maybe).</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds small potted plant selection to the loadout.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Miscellaneous runtimes bugfixes.</li>
+				<li class="bugfix">Fixed (some of the reasons of) spell objects looping on destroy.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes an access problem with the Intrepid fueling compartment that unintentionally made most jobs unable to access it.</li>
+				<li class="maptweak">Moved Intrepid cryo to the port thruster compartment instead of starboard and removed access requirements on that airlock, so people can cryo if they&#x27;re on the Intrepid without needing someone to let them in to do it.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the IAC shuttle&#x27;s airlock so it docks and cycles correctly.</li>
+				<li class="bugfix">Added full stacks of glass sheets, not a single sheet.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Lore radio files no longer included in git commits.</li>
+			</ul>
+
+			<h2 class="date">04 March 2024</h2>
+			<h3 class="author">Acetrea updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaked Uplink Implants to not show up on Body Scanners.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds atmos connectors for supply and scrubber pipes.</li>
+				<li class="rscadd">Adds pumps for supply and scrubber pipes.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Gave a feedback message for the Toggle Accent Tag Text verb.</li>
+				<li class="bugfix">Fixed rescue axe ability to chop down trees.</li>
+			</ul>
+
+			<h2 class="date">03 March 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Maps in small potted plants all over Horizon.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a runtime with items dropping.</li>
+				<li class="backend">Added the signal for items dropping specifically.</li>
+				<li class="backend">DMDoc some functions.</li>
+				<li class="backend">Added some guards to the borg gripper to ensure proper vars are passed in.</li>
+				<li class="bugfix">Updated all the functions that call the borg gripper drop to pass in correct parameters.</li>
+				<li class="backend">Consolidated /obj/item/proc/dropped into a single function (it had an overload at the same level).</li>
+				<li class="refactor">Refactored the /obj/item/proc/dropped implementations to respect the parent header.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixed a subgrid and maingrid overlap in Engineering Deck 1 wiring.</li>
+				<li class="maptweak">Configured Reactor Waste to Mix regulator in Atmospherics to start OFF at roundstart, and Mix tank Input and Output as well.</li>
+				<li class="maptweak">Gave Atmos Tech access to the INDRA SMES room, but not to the reactor or control room itself. Removed the access they had to the reactor room itself through the bolted door (likely oversight).</li>
+				<li class="maptweak">Made a tiny handful of stylistic changes with some floor decals and computers.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Edits air alarm access, emergency shutter access, and atmos compartment access on the Intrepid and Spark so Mining, Science, and Engineering can access alarms.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a server crashing bug with reagent transfer going into the negatives if a container ended up with more reagents than its total amount allowed.</li>
+			</ul>
+			<h3 class="author">The Stryker, The Lancer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a ramen vending machine to the code.</li>
+				<li class="tweak">Changes the 5-Cheung hideout and front restaurant to be more formal and in-line with a business district.</li>
+			</ul>
+
 			<h2 class="date">02 March 2024</h2>
 			<h3 class="author">RustingWithYou updated:</h3>
 			<ul class="changes bgimages16">

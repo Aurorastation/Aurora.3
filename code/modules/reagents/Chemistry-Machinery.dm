@@ -97,7 +97,8 @@
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
 		playsound(src.loc, attacking_item.usesound, 75, 1)
 
-	ui = SStgui.try_update_ui(user, src, ui)
+	if(ui?.user)
+		ui = SStgui.try_update_ui(user, src, ui)
 
 
 /obj/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
