@@ -6,14 +6,14 @@
 	tags = list("External")
 	spawnpoints = list("konyang_zh")
 	max_count = 2
-	outfit = /datum/outfit/admin/konyang_zh
+	outfit = /obj/outfit/admin/konyang_zh
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Zeng-Hu Pharmaceuticals Corporate Personnel"
 	special_role = "Zeng-Hu Pharmaceuticals Corporate Personnel"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_zh
+/obj/outfit/admin/konyang_zh
 	name = "Zeng-Hu Pharmaceuticals Employee"
 	uniform = /obj/item/clothing/under/rank/liaison/zeng
 	shoes = /obj/item/clothing/shoes/laceup
@@ -23,7 +23,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/corp/zeng
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/konyang_zh/get_id_access()
+/obj/outfit/admin/konyang_zh/get_id_access()
 	return list(ACCESS_KONYANG_CORPORATE)
 
 /datum/ghostspawner/human/konyang_ee
@@ -33,14 +33,14 @@
 	tags = list("External")
 	spawnpoints = list("konyang_ee")
 	max_count = 2
-	outfit = /datum/outfit/admin/konyang_ee
+	outfit = /obj/outfit/admin/konyang_ee
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Einstein Engines Corporate Personnel"
 	special_role = "Einstein Engines Corporate Personnel"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_ee
+/obj/outfit/admin/konyang_ee
 	name = "Einstein Engines Employee"
 	uniform = /obj/item/clothing/under/rank/liaison/einstein
 	shoes = /obj/item/clothing/shoes/laceup
@@ -48,7 +48,7 @@
 	back = /obj/item/storage/backpack/satchel
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/konyang_ee/get_id_access()
+/obj/outfit/admin/konyang_ee/get_id_access()
 	return list(ACCESS_KONYANG_CORPORATE)
 
 //Police
@@ -59,14 +59,14 @@
 	tags = list("External")
 	spawnpoints = list("konyang_cop")
 	max_count = 2
-	outfit = /datum/outfit/admin/konyang_cop
+	outfit = /obj/outfit/admin/konyang_cop
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Konyang National Police Patrolman"
 	special_role = "Konyang National Police Patrolman"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_cop
+/obj/outfit/admin/konyang_cop
 	name = "Konyang Police Officer"
 	uniform = /obj/item/clothing/under/rank/konyang/police
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -78,7 +78,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
-/datum/outfit/admin/konyang_cop/get_id_access()
+/obj/outfit/admin/konyang_cop/get_id_access()
 	return list(ACCESS_KONYANG_POLICE)
 
 /datum/ghostspawner/human/konyang_cop/senior
@@ -96,9 +96,9 @@
 	max_count = 1
 	assigned_role = "Konyang National Police Superintendent"
 	special_role = "Konyang National Police Superintendent"
-	outfit = /datum/outfit/admin/konyang_cop/superintendent
+	outfit = /obj/outfit/admin/konyang_cop/superintendent
 
-/datum/outfit/admin/konyang_cop/superintendent
+/obj/outfit/admin/konyang_cop/superintendent
 	name = "Konyang Police Superintendent"
 	uniform = /obj/item/clothing/under/rank/konyang/police/lieutenant
 	head = /obj/item/clothing/head/konyang/police/lieutenant
@@ -112,14 +112,14 @@
 	tags = list("External")
 	spawnpoints = list("konyang_goon")
 	max_count = 3
-	outfit = /datum/outfit/admin/konyang_goon
+	outfit = /obj/outfit/admin/konyang_goon
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "5-Cheung Thug"
 	special_role = "5-Cheung Thug"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_goon
+/obj/outfit/admin/konyang_goon
 	name = "5-Cheung Thug"
 	uniform = /obj/item/clothing/under/pants/tan
 	shoes = /obj/item/clothing/shoes/sneakers/black
@@ -134,12 +134,12 @@
 	desc = "Manage the local operations of 5-Cheung. Establish an understanding with the Superintendent. Make yourself a force in the community."
 	max_count = 1
 	spawnpoints = list("konyang_goon_boss")
-	outfit = /datum/outfit/admin/konyang_mob_boss
+	outfit = /obj/outfit/admin/konyang_mob_boss
 	assigned_role = "5-Cheung Boss"
 	special_role = "5-Cheung Boss"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_mob_boss
+/obj/outfit/admin/konyang_mob_boss
 	name = "5-Cheung Boss"
 	uniform = /obj/item/clothing/under/suit_jacket/white
 	shoes = /obj/item/clothing/shoes/laceup
@@ -156,14 +156,14 @@
 	max_count = 6
 	tags = list("External")
 	spawnpoints = list("konyang_vendor")
-	outfit = /datum/outfit/admin/konyang_vendor
+	outfit = /obj/outfit/admin/konyang_vendor
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Point Verdant Vendor"
 	special_role = "Point Verdant Vendor"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_vendor
+/obj/outfit/admin/konyang_vendor
 	name = "Konyang Vendor"
 	uniform = /obj/item/clothing/under/pants/jeans
 	shoes = /obj/item/clothing/shoes/sneakers/black
@@ -172,7 +172,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 	id = /obj/item/card/id
 
-/datum/outfit/admin/konyang_vendor/get_id_access()
+/obj/outfit/admin/konyang_vendor/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_clinic
@@ -182,14 +182,14 @@
 	max_count = 2
 	tags = list("External")
 	spawnpoints = list("konyang_clinic")
-	outfit = /datum/outfit/admin/konyang_clinic
+	outfit = /obj/outfit/admin/konyang_clinic
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Konyang Robotics Company Doctor"
 	special_role = "Konyang Robotics Company Doctor"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_clinic
+/obj/outfit/admin/konyang_clinic
 	name = "KRC Doctor"
 	uniform = /obj/item/clothing/under/rank/konyang/krc
 	shoes = /obj/item/clothing/shoes/laceup/brown
@@ -197,7 +197,7 @@
 	back = /obj/item/storage/backpack/satchel
 	l_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/konyang_clinic/get_id_access()
+/obj/outfit/admin/konyang_clinic/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_pharm
@@ -207,14 +207,14 @@
 	max_count = 1
 	tags = list("External")
 	spawnpoints = list("konyang_pharm")
-	outfit = /datum/outfit/admin/konyang_pharm
+	outfit = /obj/outfit/admin/konyang_pharm
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Pharmacist"
 	special_role = "Pharmacist"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_pharm
+/obj/outfit/admin/konyang_pharm
 	name = "Konyang Pharmacist"
 	uniform = /obj/item/clothing/under/color/white
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
@@ -222,7 +222,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 	id = /obj/item/card/id
 
-/datum/outfit/admin/konyang_pharm/get_id_access()
+/obj/outfit/admin/konyang_pharm/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_bar
@@ -232,14 +232,14 @@
 	max_count = 1
 	tags = list("External")
 	spawnpoints = list("konyang_bar")
-	outfit = /datum/outfit/admin/konyang_bar
+	outfit = /obj/outfit/admin/konyang_bar
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Bartender"
 	special_role = "Bartender"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_bar
+/obj/outfit/admin/konyang_bar
 	name = "Konyang Bartender"
 	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/sneakers/brown
@@ -247,7 +247,7 @@
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id
 
-/datum/outfit/admin/konyang_bar/get_id_access()
+/obj/outfit/admin/konyang_bar/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_utility
@@ -257,14 +257,14 @@
 	max_count = 2
 	tags = list("External")
 	spawnpoints = list("konyang_utility")
-	outfit = /datum/outfit/admin/konyang_utility
+	outfit = /obj/outfit/admin/konyang_utility
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Point Verdant Utility Worker"
 	special_role = "Point Verdant Utility Worker"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_utility
+/obj/outfit/admin/konyang_utility
 	name = "Point Verdant Utility Worker"
 	uniform = /obj/item/clothing/under/color/blue
 	shoes = /obj/item/clothing/shoes/workboots/dark
@@ -282,14 +282,14 @@
 	max_count = 2
 	tags = list("External")
 	spawnpoints = list("konyang_gwok")
-	outfit = /datum/outfit/admin/konyang_gwok
+	outfit = /obj/outfit/admin/konyang_gwok
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "UP! Burger Employee"
 	special_role = "UP! Burger Employee"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_gwok
+/obj/outfit/admin/konyang_gwok
 	name = "UP! Burger Employee"
 	uniform = /obj/item/clothing/under/rank/konyang/burger
 	shoes = /obj/item/clothing/shoes/workboots/dark
@@ -299,5 +299,5 @@
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
-/datum/outfit/admin/konyang_gwok/get_id_access()
+/obj/outfit/admin/konyang_gwok/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
