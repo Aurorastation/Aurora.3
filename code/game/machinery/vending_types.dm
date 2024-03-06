@@ -1698,7 +1698,8 @@
 	product_slogans = "Irasshaimase!"
 	vend_id = "ramen"
 	products = list(
-		/obj/item/reagent_containers/food/snacks/ramenbowl = 30,
+		/obj/item/reagent_containers/food/snacks/ramenbowl = 15,
+		/obj/item/reagent_containers/food/snacks/aoyama_ramen = 15
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/snacks/ramenbowl = 60,
