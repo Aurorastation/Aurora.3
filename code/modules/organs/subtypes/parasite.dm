@@ -434,7 +434,7 @@
 			E.status |= ORGAN_ZOMBIFIED
 			var/obj/item/organ/external/head = owner.organs_by_name[BP_HEAD]
 			move_to(owner, head, E)
-			owner.update_body()
+			owner.update_body(TRUE, TRUE)
 	. = ..()
 
 /obj/item/organ/internal/parasite/zombie/proc/move_to(mob/living/carbon/human/H, obj/item/organ/external/new_organ, obj/item/organ/external/old_organ)

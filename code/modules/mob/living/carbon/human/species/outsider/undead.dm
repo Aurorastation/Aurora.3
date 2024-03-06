@@ -326,7 +326,7 @@
 				var/obj/obstacle = locate(type) in dir
 				if (obstacle)
 					H.face_atom(obstacle)
-					obstacle.attack_generic(H, 10, "smashes")
+					obstacle.attack_generic(H, rand(20, 30), "smashes")
 					break
 
 			walk_to(H, H.target.loc, 1, H.species.slowdown * 1.25)
@@ -346,7 +346,7 @@
 				if (H.Adjacent(H.target)) //Check we're still next to them
 					H.consume()
 
-		for(var/mob/living/M in hearers(H, 15))
+		for(var/mob/living/M in get_hearers_in_LOS(15, H))
 			if (H.target == M) //If our target is still nearby
 				return
 		H.target = null //Target lost

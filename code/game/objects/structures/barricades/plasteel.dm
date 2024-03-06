@@ -167,6 +167,12 @@
 	. = ..()
 
 /obj/structure/barricade/plasteel/attack_hand(mob/user as mob)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(!H.species.has_fine_manipulation)
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do that!"))
+		return
 	if(closed)
 		if(recentlyflipped)
 			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))
