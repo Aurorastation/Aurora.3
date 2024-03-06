@@ -1532,11 +1532,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"ll" = (
-/obj/outfit/job/intern_sec/officer/pmc,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "mn" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1623,25 +1618,10 @@
 /obj/machinery/autolathe,
 /turf/simulated/floor/plating,
 /area/construction)
-"rc" = (
-/obj/outfit/admin/megacorp/zavodskoi_trooper/heavy,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "sf" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"sr" = (
-/obj/outfit/job/intern_sec/officer,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
-"sH" = (
-/obj/outfit/admin/ert/elyran_trooper,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "sT" = (
 /obj/effect/landmark/lobby_mobs_location,
 /turf/unsimulated/floor,
@@ -1808,11 +1788,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"Dy" = (
-/obj/outfit/admin/ert/coalition/medic,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "Eu" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
@@ -1843,11 +1818,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"GX" = (
-/obj/outfit/admin/peoples_station_crew,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1912,11 +1882,6 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"Kp" = (
-/obj/outfit/admin/ert/konyang/leader,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
@@ -2010,11 +1975,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"Rb" = (
-/obj/outfit/admin/merchant_guild/guard,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "Ro" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -2036,11 +1996,6 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"SN" = (
-/obj/outfit/job/hydro,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "Tj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -2105,11 +2060,6 @@
 "Vm" = (
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
-"VD" = (
-/obj/outfit/admin/ert/elyran_trooper/heavy,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "Wa" = (
 /obj/machinery/door/airlock{
 	dir = 4
@@ -2130,11 +2080,6 @@
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
-"Xz" = (
-/obj/outfit/admin/house_volvalaad_armsman,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/plating,
-/area/construction)
 "XQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -6544,8 +6489,8 @@ dA
 dq
 dq
 de
-Dy
-VD
+de
+de
 de
 dx
 cK
@@ -6801,8 +6746,8 @@ dA
 dq
 dq
 de
-Xz
-Kp
+de
+de
 de
 du
 cK
@@ -7315,8 +7260,8 @@ dA
 dq
 dq
 de
-rc
-Rb
+de
+de
 de
 du
 cK
@@ -7572,8 +7517,8 @@ dA
 dq
 dq
 de
-GX
-SN
+de
+de
 de
 du
 cK
@@ -8083,11 +8028,11 @@ de
 de
 dA
 dA
-sH
-Dy
 de
-ll
-sr
+de
+de
+de
+de
 de
 ds
 cK
