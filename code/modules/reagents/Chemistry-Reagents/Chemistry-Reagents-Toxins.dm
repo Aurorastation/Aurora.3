@@ -873,13 +873,11 @@
 					possible_organs[BP_GROIN] = 2
 			if(!length(possible_organs))
 				possible_organs[BP_CHEST] = 3
-			possible_organs = shuffle(possible_organs)
-			for(var/plausible_organ in possible_organs)
-				to_infest = plausible_organ
-				break
-			var/obj/item/organ/external/affected = H.get_organ(to_infest)
+			to_infest = pick(possible_organs)
+			var/obj/item/organ/external/affected = H.organs_by_name[to_infest]
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
-			infest.parent_organ = affected.organ_tag
+			infest.replaced(H, affected)
+			infest.parent_organ = affected.limb_name
 			infest.stage = possible_organs[to_infest]
 			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
 

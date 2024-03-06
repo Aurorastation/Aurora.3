@@ -40,6 +40,8 @@
 
 /obj/structure/largecrate/animal/Initialize()
 	. = ..()
+	if(!held_type)
+		return
 	for(var/i = 1;i<=held_count;i++)
 		new held_type(src)
 

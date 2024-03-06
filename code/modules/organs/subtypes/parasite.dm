@@ -430,7 +430,7 @@
 	if(E.parent)
 		to_chat(owner, SPAN_WARNING("The veins in your [E.name] turn black..."))
 		E.status |= ORGAN_ZOMBIFIED
-		move_to(owner, E.parent)
+		move_to(owner, E.parent, E)
 		owner.update_body(TRUE, TRUE)
 	else
 		if(parent_organ == BP_CHEST)
@@ -438,13 +438,15 @@
 									You feel your own breathing. Cold sweat goes down your brows...</span>"))
 			E.status |= ORGAN_ZOMBIFIED
 			var/obj/item/organ/external/head = owner.organs_by_name[BP_HEAD]
-			move_to(owner, head)
+			move_to(owner, head, E)
 			owner.update_body()
 	. = ..()
 
-/obj/item/organ/internal/parasite/zombie/proc/move_to(mob/living/carbon/human/H, obj/item/organ/external/E)
-	to_chat(H, SPAN_WARNING("The veins in your [E.name] start turning black, bit by bit..."))
-	parent_organ = E.organ_tag
+/obj/item/organ/internal/parasite/zombie/proc/move_to(mob/living/carbon/human/H, obj/item/organ/external/new_organ, obj/item/organ/external/old_organ)
+	to_chat(H, SPAN_WARNING("The veins in your [new_organ.name] start turning black, bit by bit..."))
+	parent_organ = new_organ.organ_tag
+	old_organ.internal_organs -= src
+	replaced(H, new_organ)
 
 /obj/item/organ/internal/parasite/zombie/proc/turn_into_zombie()
 	var/r = owner.r_skin
