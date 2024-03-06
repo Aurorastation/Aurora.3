@@ -1685,3 +1685,17 @@
 		key.key_data = key_data_sports[1]
 		key_data_sports.Cut(1,2)
 
+/obj/machinery/vending/ramen
+	name = "ramen vendor"
+	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
+	icon_state = "ramenvend"
+	icon_vend = "ramenvend"
+	product_slogans = "Irasshaimase!"
+	vend_id = "ramen"
+	products = list(
+		/obj/item/reagent_containers/food/snacks/ramenbowl = 30,
+	)
+	prices = list(
+		/obj/item/reagent_containers/food/snacks/ramenbowl = 60,
+	)
+	light_color = COLOR_GUNMETAL

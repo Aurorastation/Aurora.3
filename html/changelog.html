@@ -35,6 +35,177 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">06 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Updated vote subsystem.</li>
+				<li class="backend">Turned some variables into proper globs.</li>
+				<li class="backend">Adapted the ticker and actions to behave properly with the updated subsystem.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a tgchat setting to let players decide how many messages can be stored in chat before they start getting pruned.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds adminspawn ghostroles for the Konyang Army and corporate asset protection on Point Verdant.</li>
+			</ul>
+
+			<h2 class="date">05 March 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Norinori the Onigiri costume, mascot of UP!Burger. Sprite credit to Nautical.</li>
+				<li class="rscadd">Point Verdant has a new bounced radio, with a private frequency for police and removal of common and entertainment channels.</li>
+				<li class="maptweak">A bounced radio with only hailing frequency added to Point Verdant Shuttleport</li>
+				<li class="refactor">Radio code modified to allow for custom frequency names.</li>
+				<li class="bugfix">Map preset bounced radios, such as the ones from the IPC Refugee ship, now work as intended (maybe).</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds small potted plant selection to the loadout.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Miscellaneous runtimes bugfixes.</li>
+				<li class="bugfix">Fixed (some of the reasons of) spell objects looping on destroy.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes an access problem with the Intrepid fueling compartment that unintentionally made most jobs unable to access it.</li>
+				<li class="maptweak">Moved Intrepid cryo to the port thruster compartment instead of starboard and removed access requirements on that airlock, so people can cryo if they&#x27;re on the Intrepid without needing someone to let them in to do it.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the IAC shuttle&#x27;s airlock so it docks and cycles correctly.</li>
+				<li class="bugfix">Added full stacks of glass sheets, not a single sheet.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Lore radio files no longer included in git commits.</li>
+			</ul>
+
+			<h2 class="date">04 March 2024</h2>
+			<h3 class="author">Acetrea updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaked Uplink Implants to not show up on Body Scanners.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds atmos connectors for supply and scrubber pipes.</li>
+				<li class="rscadd">Adds pumps for supply and scrubber pipes.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Gave a feedback message for the Toggle Accent Tag Text verb.</li>
+				<li class="bugfix">Fixed rescue axe ability to chop down trees.</li>
+			</ul>
+
+			<h2 class="date">03 March 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Maps in small potted plants all over Horizon.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a runtime with items dropping.</li>
+				<li class="backend">Added the signal for items dropping specifically.</li>
+				<li class="backend">DMDoc some functions.</li>
+				<li class="backend">Added some guards to the borg gripper to ensure proper vars are passed in.</li>
+				<li class="bugfix">Updated all the functions that call the borg gripper drop to pass in correct parameters.</li>
+				<li class="backend">Consolidated /obj/item/proc/dropped into a single function (it had an overload at the same level).</li>
+				<li class="refactor">Refactored the /obj/item/proc/dropped implementations to respect the parent header.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixed a subgrid and maingrid overlap in Engineering Deck 1 wiring.</li>
+				<li class="maptweak">Configured Reactor Waste to Mix regulator in Atmospherics to start OFF at roundstart, and Mix tank Input and Output as well.</li>
+				<li class="maptweak">Gave Atmos Tech access to the INDRA SMES room, but not to the reactor or control room itself. Removed the access they had to the reactor room itself through the bolted door (likely oversight).</li>
+				<li class="maptweak">Made a tiny handful of stylistic changes with some floor decals and computers.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Edits air alarm access, emergency shutter access, and atmos compartment access on the Intrepid and Spark so Mining, Science, and Engineering can access alarms.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a server crashing bug with reagent transfer going into the negatives if a container ended up with more reagents than its total amount allowed.</li>
+			</ul>
+			<h3 class="author">The Stryker, The Lancer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a ramen vending machine to the code.</li>
+				<li class="tweak">Changes the 5-Cheung hideout and front restaurant to be more formal and in-line with a business district.</li>
+			</ul>
+
+			<h2 class="date">02 March 2024</h2>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Hiskyn Revanchist pirate ship.</li>
+			</ul>
+
+			<h2 class="date">01 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed OpenDream CI to download the precompiled version of what we need from the OpenDream repo.</li>
+				<li class="backend">Removed compile guards for OpenDream around list removeall() as it was implemented in OpenDream.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixed the access on the Point Verdant Pharmacy and Solei shutters and windoors.</li>
+				<li class="maptweak">Put some non-jumpsuit clothing in the PV Pharmacist closet.</li>
+				<li class="maptweak">Added a box of empty autoinjectors to the PV Pharmacist basement.</li>
+				<li class="maptweak">Swapped the basic windoors at the front of some PV establishments for the cool new sliding doors.</li>
+			</ul>
+			<h3 class="author">Greenjoe12345 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a jeweler cockatoo plushie</li>
+			</ul>
+
+			<h2 class="date">29 February 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Additional cargo delivery points added to Point Verdant, examples include Up!Burger, Corporate Docks, and the Hotel.</li>
+				<li class="maptweak">Long range holopad added to Point Verdant near the holding cells.</li>
+				<li class="maptweak">Fax machine added to Point Verdant Superintendent Office.</li>
+				<li class="refactor">Added naming, spawn limits, and payment functionality to cargo receptacles, to allow for specific adjustments for inbound cargo packages by receptacle. Only utilized by Point Verdant at the moment.</li>
+				<li class="bugfix">Konyang Service Revolver speedloader now has properly set ammo count, and sprite now updates.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed specie autoadapt to not runtime.</li>
+				<li class="backend">Some DMdoc and minor adjustments.</li>
+				<li class="bugfix">Fixed sound tokens still listening to destroy events for the sound source, which was spamming the logs.</li>
+				<li class="backend">Turned the sound player var into a GLOB var.</li>
+				<li class="bugfix">Fixed yet another canspeak runtime.</li>
+				<li class="backend">Added some SDMM markings, DMDoced the proc, added a guard in case the language is not supplied to the proc.</li>
+				<li class="backend">Updated the timer subsystem.</li>
+				<li class="backend">Added message-defining asserts.</li>
+				<li class="backend">Moved some defines in the maths define file, deprecated the old file.</li>
+				<li class="backend">Added STP_PROB defines to allow probability adjustment based on lag/tickrate.</li>
+				<li class="refactor">Refactored MouseDrop_T to not be inside a spawn async and respect the function header.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a drink, snakebite (equal parts beer and alcoholic cider).</li>
+				<li class="tweak">The recolourable glasses can now be renamed and can have their description changed in the loadout.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Ghostspawners for psionic species will now give psi points on spawning.</li>
+				<li class="bugfix">Chainlink fences can no longer be leapt over.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Renames the pirate base files and code to pirate base proper.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Makes augments compatible with spritesheets.</li>
+			</ul>
+			<h3 class="author">greenjoe12345 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Point Verdant Police logo for use in paperwork. Make it with [logo_pvpolice] and the small one with [logo_pvpolice_small].</li>
+			</ul>
+
 			<h2 class="date">28 February 2024</h2>
 			<h3 class="author">SleepyGemmy updated:</h3>
 			<ul class="changes bgimages16">

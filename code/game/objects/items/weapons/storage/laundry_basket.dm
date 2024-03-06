@@ -64,7 +64,7 @@
 	else
 		return ..()
 
-/obj/item/storage/laundry_basket/dropped(mob/user as mob)
+/obj/item/storage/laundry_basket/dropped(mob/user)
 	qdel(linked)
 	return ..()
 
@@ -84,7 +84,7 @@
 	pickup_sound = null
 	equip_sound = null
 
-/obj/item/storage/laundry_basket/offhand/dropped(mob/user as mob)
+/obj/item/storage/laundry_basket/offhand/dropped(mob/user)
 	. = ..()
 	user.drop_from_inventory(linked)
 

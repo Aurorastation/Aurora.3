@@ -97,7 +97,8 @@
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
 		playsound(src.loc, attacking_item.usesound, 75, 1)
 
-	ui = SStgui.try_update_ui(user, src, ui)
+	if(ui?.user)
+		ui = SStgui.try_update_ui(user, src, ui)
 
 
 /obj/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
@@ -572,7 +573,8 @@
 	updateUsrDialog()
 
 
-/obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
+/obj/machinery/reagentgrinder/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/carbon/human/target = dropping
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)

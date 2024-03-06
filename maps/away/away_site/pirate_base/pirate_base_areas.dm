@@ -1,89 +1,87 @@
-// base
-
-/area/goonbase
-	name = "goon base base/abstract area"
+// Base
+/area/piratebase
+	name = "Pirate Base Parent Area"
 	icon_state = "outpost_mine_main"
 	requires_power = TRUE
 
-/area/goonbase/equipment
+/area/piratebase/equipment
 	name = ""
 	icon_state = "eva"
 
-/area/goonbase/living
+/area/piratebase/living
 	name = ""
 	icon_state = "crew_area"
 
-/area/goonbase/kitchen
+/area/piratebase/kitchen
 	name = ""
 	icon_state = "kitchen"
 
-/area/goonbase/quarters
+/area/piratebase/quarters
 	name = ""
 	icon_state = "crew_quarters"
 
-/area/goonbase/atmos
+/area/piratebase/atmos
 	name = ""
 	icon_state = "atmos"
 
-/area/goonbase/power
+/area/piratebase/power
 	name = ""
 	icon_state = "engine"
 
-/area/goonbase/hallway_north
+/area/piratebase/hallway_north
 	name = ""
 	icon_state = "hallC1"
 
-/area/goonbase/hallway_south
+/area/piratebase/hallway_south
 	name = ""
 	icon_state = "hallC1"
 
-/area/goonbase/maint_north
+/area/piratebase/maint_north
 	name = ""
 	icon_state = "maintenance"
 
-/area/goonbase/maint_south
+/area/piratebase/maint_south
 	name = ""
 	icon_state = "maintenance"
 
-/area/goonbase/medbay
+/area/piratebase/medbay
 	name = ""
 	icon_state = "medbay"
 
-/area/goonbase/eva
+/area/piratebase/eva
 	name = ""
 	icon_state = "eva"
 
-/area/goonbase/maint_airlock
+/area/piratebase/maint_airlock
 	name = ""
 	icon_state = "maintenance"
 
-// shuttle
-
-/area/shuttle/goon_shuttle
-	name = "goon shuttle base/abstract area"
+// Shuttle
+/area/shuttle/pirate_shuttle
+	name = "Pirate Shuttle Parent Area"
 	icon_state = "red"
 	requires_power = TRUE
 
-/area/shuttle/goon_shuttle/living
+/area/shuttle/pirate_shuttle/living
 	name = "Wanted Vessel Living Area"
 	icon_state = "hallC1"
 
-/area/shuttle/goon_shuttle/port
+/area/shuttle/pirate_shuttle/port
 	name = "Wanted Vessel Port Thruster"
 	icon_state = "substation"
 
-/area/shuttle/goon_shuttle/starboard
+/area/shuttle/pirate_shuttle/starboard
 	name = "Wanted Vessel Starboard Thruster"
 	icon_state = "substation"
 
-/area/shuttle/goon_shuttle/med
+/area/shuttle/pirate_shuttle/med
 	name = "Wanted Vessel Medical"
 	icon_state = "medbay"
 
-/area/shuttle/goon_shuttle/storage
+/area/shuttle/pirate_shuttle/storage
 	name = "Wanted Vessel Storage"
 	icon_state = "maintcentral"
 
-/area/shuttle/goon_shuttle/bridge
+/area/shuttle/pirate_shuttle/bridge
 	name = "Wanted Vessel Bridge"
 	icon_state = "bridge_helm"
