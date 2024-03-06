@@ -1716,7 +1716,7 @@
 		/obj/item/storage/box/fancy/foysnack = 25
 	)
 	contraband = list(
-		/obj/item/storage/box/fancy/yoke/earthmover = 3 //guys rock
+	//	/obj/item/storage/box/fancy/yoke/earthmover = 2 // guys rocked a little too hard for the GC but we will never forget the cold ones we cracked
 	)
 	premium = list(
 		/obj/item/toy/comic/inspector = 2,

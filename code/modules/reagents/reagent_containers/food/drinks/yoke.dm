@@ -124,7 +124,6 @@
 /obj/item/storage/box/fancy/yoke/whistlingforest
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest = 6)
 
-
 /obj/item/storage/box/fancy/yoke/energy
 	icon_state = "yoke_energy" //energy drinks are 2 pixels taller
 

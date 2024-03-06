@@ -990,6 +990,7 @@
 	outside Gadpathur, not by virtue of its rarity- several thousand bottles are sold off as surplus to fund the UPDCG every year- but by being an extremely acquired taste."
 	icon_state = "fenibottle"
 	reagents_to_add = list(/singleton/reagent/alcohol/feni = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/hooch
 	name = "hooch bottle"
 	desc = "A bottle of rotgut. Its owner has applied some street wisdom to cleverly disguise it as a brown paper bag."
