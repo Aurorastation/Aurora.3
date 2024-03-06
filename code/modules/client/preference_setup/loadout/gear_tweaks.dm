@@ -270,7 +270,7 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	if(valid_custom_names)
 		custom_name_input = tgui_input_list(user, "Choose an item name.", "Character Preference", valid_custom_names, metadata)
 	else
-		custom_name_input = tgui_input_text(user, "Choose an item name.", "Character Preference", metadata, MAX_LNAME_LEN)
+		custom_name_input = strip_html(tgui_input_text(user, "Choose an item name.", "Character Preference", metadata, MAX_LNAME_LEN))
 
 	return custom_name_input
 
@@ -308,7 +308,7 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 	if(valid_custom_desc)
 		input_description = tgui_input_list(user, "Choose an item description.", "Character Preference", valid_custom_desc, metadata)
 	else
-		input_description = tgui_input_text(user, "Choose an item description.", "Character Preference", metadata)
+		input_description = strip_html(tgui_input_text(user, "Choose an item description.", "Character Preference", metadata))
 
 	return input_description
 
@@ -336,7 +336,7 @@ Paper Data
 	return ""
 
 /datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata)
-	return tgui_input_text(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata, MAX_PAPER_MESSAGE_LEN)
+	return strip_html(tgui_input_text(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata, MAX_PAPER_MESSAGE_LEN))
 
 /datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata || !istype(P))
