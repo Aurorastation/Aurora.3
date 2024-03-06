@@ -90,7 +90,7 @@ Alpha adjustment
 	return 255
 
 /datum/gear_tweak/alpha/get_metadata(var/user, var/metadata, var/title = "Character Preference")
-	var/selected_alpha = input(user, "Choose a color.", title, metadata) as num|null
+	var/selected_alpha = tgui_input_number(user, "Choose a color.", title, 255)
 	selected_alpha = Clamp(selected_alpha, 0, 255)
 	return selected_alpha
 
@@ -124,7 +124,7 @@ var/datum/gear_tweak/color_rotation/gear_tweak_color_rotation = new()
 	return 0
 
 /datum/gear_tweak/color_rotation/get_metadata(var/user, var/metadata, var/title = "Color Rotation")
-	return clamp(input(user, "Choose the amount of degrees to rotate the hue around the color wheel. (-180 - 180)", title, metadata) as num, -180, 180)
+	return tgui_input_number(user, "Choose the amount of degrees to rotate the hue around the color wheel. (-180 - 180)", title, 0, 180, -180, round_value = TRUE)
 
 /datum/gear_tweak/color_rotation/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	I.color = color_rotation(metadata)
@@ -192,7 +192,7 @@ Content adjustment
 	for(var/i = metadata.len to (valid_contents.len - 1))
 		metadata += "Random"
 	for(var/i = 1 to valid_contents.len)
-		var/entry = input(user, "Choose an entry.", "Character Preference", metadata[i]) as null|anything in (valid_contents[i] + list("Random", "None"))
+		var/entry = tgui_input_list(user, "Choose an entry.", "Character Preference", (valid_contents[i] + list("Random", "None")), metadata[i])
 		if(entry)
 			. += entry
 		else
@@ -231,7 +231,7 @@ Reagents adjustment
 	return "Random"
 
 /datum/gear_tweak/reagents/get_metadata(var/user, var/list/metadata)
-	. = input(user, "Choose an entry.", "Character Preference", metadata) as null|anything in (valid_reagents + list("Random", "None"))
+	. = tgui_input_list(user, "Choose an entry.", "Character Preference", (valid_reagents + list("Random", "None")), metadata)
 	if(!.)
 		return metadata
 
@@ -266,9 +266,13 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	return ""
 
 /datum/gear_tweak/custom_name/get_metadata(var/user, var/metadata)
+	var/custom_name_input = null
 	if(valid_custom_names)
-		return input(user, "Choose an item name.", "Character Preference", metadata) as null|anything in valid_custom_names
-	return sanitize(input(user, "Choose the item's name. Leave it blank to use the default name.", "Item Name", metadata) as text|null, MAX_LNAME_LEN, extra = 0)
+		custom_name_input = tgui_input_list(user, "Choose an item name.", "Character Preference", valid_custom_names, metadata)
+	else
+		custom_name_input = tgui_input_text(user, "Choose an item name.", "Character Preference", metadata, MAX_LNAME_LEN)
+
+	return custom_name_input
 
 /datum/gear_tweak/custom_name/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata)
@@ -299,14 +303,14 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 	return ""
 
 /datum/gear_tweak/custom_desc/get_metadata(var/user, var/metadata)
-	var/input_description = tgui_input_text(user, "Choose an item description.", "Character Preference", metadata)
+	var/input_description = null
+
 	if(valid_custom_desc)
-		if(input_description in valid_custom_desc)
-			return input_description
-		else
-			return null
+		input_description = tgui_input_list(user, "Choose an item description.", "Character Preference", valid_custom_desc, metadata)
 	else
-		return input_description
+		input_description = tgui_input_text(user, "Choose an item description.", "Character Preference", metadata)
+
+	return input_description
 
 /datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	//Snowflake customization for badges
@@ -332,7 +336,7 @@ Paper Data
 	return ""
 
 /datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata)
-	return sanitize(input(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
+	return tgui_input_text(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata, MAX_PAPER_MESSAGE_LEN)
 
 /datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata || !istype(P))
@@ -349,16 +353,20 @@ Paper Data
 	return list(1, 10, 30)
 
 /datum/gear_tweak/buddy_tag_config/get_metadata(var/user, var/metadata)
-	var/newcode = input("Set new buddy ID number.", "Buddy Tag ID", metadata[1]) as num|null
+	var/newcode = tgui_input_number(user, "Set new buddy ID number.", "Buddy Tag ID", metadata[1])
 	if(isnull(newcode))
 		newcode = metadata[1]
-	var/newdist = input("Set new maximum range.", "Buddy Tag Range", metadata[2]) as num|null
+
+	var/newdist = tgui_input_number(user, "Set new maximum range.", "Buddy Tag Range", metadata[2])
 	if(isnull(newdist))
 		newdist = metadata[2]
-	var/newtime = input("Set new search interval in seconds (minimum 30s).", "Buddy Tag Time Interval", metadata[3]) as num|null
+
+	var/newtime = tgui_input_number(user, "Set new search interval in seconds (minimum 30s).", "Buddy Tag Time Interval", metadata[3])
 	if(isnull(newtime))
 		newtime = metadata[3]
+
 	newtime = max(30, newtime)
+
 	return list(newcode, newdist, newtime)
 
 /datum/gear_tweak/buddy_tag_config/tweak_item(var/obj/item/clothing/accessory/buddytag/BT, var/list/metadata, var/mob/living/carbon/human/H)
