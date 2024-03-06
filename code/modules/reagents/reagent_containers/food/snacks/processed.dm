@@ -644,6 +644,7 @@
 	trash = /obj/item/trash/fishjerky
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/sodiumchloride = 3)
 	bitesize = 3
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("dried fish" = 2, "gwok spices" = 2))
 
 /obj/item/reagent_containers/food/snacks/pepperoniroll
 	name = "Inverkeithing Imports Number-Nine Roll"
@@ -655,6 +656,7 @@
 	trash = /obj/item/trash/pepperoniroll
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/sodiumchloride = 2)
 	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("pepperoni" = 2, "cheese sticks" = 2))
 
 /obj/item/reagent_containers/food/snacks/salmiak
 	name = "Inverkeithing Imports Viipuri Salmiak"
@@ -677,6 +679,7 @@
 	trash = /obj/item/trash/hakhmaps
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/sodiumchloride = 4)
 	bitesize = 3
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("alien meat" = 6))
 
 /obj/item/reagent_containers/food/snacks/pemmicanbar
 	name = "Vedabar"

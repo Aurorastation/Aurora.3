@@ -32,6 +32,8 @@
 		/obj/item/device/vending_refill/coffee = 1,
 		/obj/item/device/vending_refill/snack = 1,
 		/obj/item/device/vending_refill/cola = 1,
+		/obj/item/device/vending_refill/zora = 1,
+		/obj/item/device/vending_refill/frontiervend = 1,
 		/obj/item/device/vending_refill/smokes = 1,
 		/obj/item/device/vending_refill/meds = 1,
 		/obj/item/device/vending_refill/robust = 1,
@@ -1647,7 +1649,7 @@
 	)
 
 /obj/machinery/vending/frontiervend
-	name = "FrontierVend"
+	name = "\improper FrontierVend"
 	desc = "A vending machine specialized in snacks from the Coalition of Colonies."
 	desc_extended = "Almost rebranded to the 'Coalition of Snackolonies', the FrontierVend brand is owned by a now-subsidiary of Orion Express specialized in food exports. These machines \
 	are omnipresent throughout the settled regions of human space, forming a sort of Coalition superculture; it's easier to sympathize with someone if you eat the same snacks."
@@ -1723,6 +1725,11 @@
 	)
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
+
+/obj/machinery/vending/frontiervend/hacked
+	name = "hacked FrontierVend"
+	desc = "A complimentary FrontierVend machine. No money? No worries."
+	prices = list()
 
 
 /obj/machinery/vending/rental_bikes

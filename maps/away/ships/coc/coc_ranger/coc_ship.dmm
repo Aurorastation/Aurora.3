@@ -710,6 +710,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/gunnery)
+"deN" = (
+/obj/machinery/vending/frontiervend/hacked,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "deS" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -38492,7 +38496,7 @@ mFt
 mFt
 fwA
 fwA
-tEO
+deN
 vXi
 pBE
 bxY
