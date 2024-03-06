@@ -433,7 +433,7 @@
 
 /obj/item/organ/internal/parasite/zombie/process_stage()
 	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
-""	if(E.parent)
+	if(E.parent)
 		to_chat(owner, SPAN_WARNING("The veins in your [parent_organ] turn black..."))
 		E.status |= ORGAN_ZOMBIFIED
 		replaced(owner, E.parent)
