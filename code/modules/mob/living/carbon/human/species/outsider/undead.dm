@@ -544,7 +544,7 @@
 			if (iszombie(L))
 				to_chat(src, SPAN_WARNING("\The [L] isn't fresh anymore!"))
 				continue
-			if (!(L.species.name in list(SPECIES_ZOMBIE, SPECIES_ZOMBIE_BULL, SPECIES_ZOMBIE_HUNTER, SPECIES_ZOMBIE_RHINO, SPECIES_ZOMBIE_SKRELL, SPECIES_ZOMBIE_TAJARA, SPECIES_ZOMBIE_UNATHI)) || L.is_diona() || L.isSynthetic())
+			if (!(L.species.zombie_type in list(SPECIES_ZOMBIE, SPECIES_ZOMBIE_BULL, SPECIES_ZOMBIE_HUNTER, SPECIES_ZOMBIE_RHINO, SPECIES_ZOMBIE_SKRELL, SPECIES_ZOMBIE_TAJARA, SPECIES_ZOMBIE_UNATHI)) || L.is_diona() || L.isSynthetic())
 				to_chat(src, SPAN_WARNING("You'd break your teeth on \the [L]!"))
 				continue
 			victims += L
@@ -581,7 +581,7 @@
 		if (!target.lying && target.stat != DEAD) //Check victims are still prone
 			return
 
-		target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 15) //Just in case they haven't been infected already
+		target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 10) //Just in case they haven't been infected already
 		if (target.getBruteLoss() > target.maxHealth * 1.5)
 			if (target.stat != DEAD)
 				to_chat(src,SPAN_WARNING("You've scraped \the [target] down to the bones already!."))
@@ -599,7 +599,11 @@
 
 		target.apply_damage(rand(50, 60), DAMAGE_BRUTE, BP_CHEST)
 		target.adjustBruteLoss(20)
-		target.update_surgery() //Update broken ribcage sprites etc.
+
+		var/obj/item/organ/external/E = target.organs_by_name[BP_CHEST]
+		if(E && E.open < ORGAN_ENCASED_RETRACTED && target.getBruteLoss() > 100)
+			E.open = min(E.open + 1, ORGAN_ENCASED_RETRACTED)
+			target.update_surgery() //Update broken ribcage sprites etc.
 
 		src.adjustBruteLoss(-5)
 		src.adjustFireLoss(-15)

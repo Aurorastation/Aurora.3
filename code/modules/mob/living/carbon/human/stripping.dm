@@ -14,6 +14,9 @@
 		if(!(l_hand && l_hand.is_usable()) && !(r_hand && r_hand.is_usable()))
 			to_chat(user, SPAN_WARNING("You can't do that without working hands!"))
 			return FALSE
+		if(!H.species.has_fine_manipulation)
+			to_chat(user, SPAN_WARNING("You're not smart enough to do that."))
+			return
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
 	if(istype(target_slot, /obj/item/clothing/ears/offear))

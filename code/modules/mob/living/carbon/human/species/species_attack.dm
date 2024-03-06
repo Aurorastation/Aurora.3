@@ -75,8 +75,8 @@
 /datum/unarmed_attack/claws/strong/zombie
 	attack_verb = list("mauled", "slashed", "gored", "stabbed")
 	desc = "These claws are armor-piercing and do a good amount of damage, but do not infect! Use these if you need to take someone with heavy armor down."
-	damage = 25
-	armor_penetration = 35
+	damage = 15
+	armor_penetration = 45
 
 /datum/unarmed_attack/bite/strong
 	attack_verb = list("mauled")
@@ -194,9 +194,10 @@
 
 /datum/unarmed_attack/bite/infectious
 	desc = "This attack infects those you bite, but it is chance-based and depends on their armour. It is not very strong against armoured foes, compared to your claws."
-	damage = 20
-	armor_penetration = 15
+	damage = 12
+	armor_penetration = 30
 	shredding = TRUE
+	attack_sound = 'sound/weapons/zombie_bite.ogg'
 
 /datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
@@ -205,12 +206,12 @@
 	if(target.internal_organs_by_name[BP_ZOMBIE_PARASITE])
 		to_chat(user, SPAN_WARNING("You feel that \the [target] has been already infected!"))
 
-	var/infection_chance = 80
+	var/infection_chance = 40
 	infection_chance -= target.get_blocked_ratio(zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, damage = damage)*100
+	var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
 	if(prob(infection_chance))
 		if(target.reagents)
-			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
-			target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
+			target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN))
 
 /datum/unarmed_attack/bite/infectious/get_unarmed_damage(var/mob/attacker, var/target)
 	if(istype(target, /mob/living/heavy_vehicle))

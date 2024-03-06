@@ -51,6 +51,12 @@
 	equip_to_slot(item_to_equip, slot, redraw_mob, assisted_equip) //This proc should not ever fail.
 	return TRUE
 
+/mob/living/carbon/human/equip_to_slot_if_possible(obj/item/item_to_equip, slot, delete_on_fail, disable_warning, redraw_mob, bypass_blocked_check, assisted_equip)
+	if(species.has_fine_manipulation)
+		. = ..()
+	else
+		return FALSE
+
 //This is an UNSAFE proc. It merely handles the actual job of equipping. All the checks on whether you can or can't eqip need to be done before! Use mob_can_equip() for that task.
 //In most cases you will want to use equip_to_slot_if_possible()
 /**

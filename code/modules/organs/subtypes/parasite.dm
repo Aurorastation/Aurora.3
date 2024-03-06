@@ -353,14 +353,9 @@
 				to_chat(owner, SPAN_WARNING("The skin on your [E.name] itches a bit."))
 
 		if(stage >= 2)
-			if(prob(10))
-				owner.adjustBrainLoss(2)
-
-		 if(stage >= 3)
-		 	if(prob(2))
+			if(prob(2))
 				to_chat(owner, SPAN_WARNING("Your stomach churns, and you feel sick. Something tries to come up your throat, but nothing comes out..."))
 				owner.adjustToxLoss(5)
-				owner.delayed_vomit()
 
 		if(stage >= 3)
 			if(prob(10))
@@ -444,7 +439,7 @@
 
 /obj/item/organ/internal/parasite/zombie/proc/move_to(mob/living/carbon/human/H, obj/item/organ/external/new_organ, obj/item/organ/external/old_organ)
 	to_chat(H, SPAN_WARNING("The veins in your [new_organ.name] start turning black, bit by bit..."))
-	parent_organ = new_organ.organ_tag
+	parent_organ = new_organ.limb_name
 	old_organ.internal_organs -= src
 	replaced(H, new_organ)
 
