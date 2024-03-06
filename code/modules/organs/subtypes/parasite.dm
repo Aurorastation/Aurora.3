@@ -347,49 +347,37 @@
 		return
 
 	if(!iszombie(owner))
+		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
 		if(stage < 2)
 			if(prob(2))
-				to_chat(owner, SPAN_WARNING("The skin on your [parent_organ] itches a bit."))
+				to_chat(owner, SPAN_WARNING("The skin on your [E.name] itches a bit."))
 
 		if(stage >= 2)
-			if(prob(15))
-				owner.emote("scream")
-				if(!isundead(owner))
-					owner.adjustBrainLoss(2, 55)
+			if(prob(10))
+				owner.adjustBrainLoss(2)
 
-			else if(prob(10))
-				if(!isundead(owner))
-					to_chat(owner, "<span class='warning'>You feel sick.</span>")
-					owner.adjustToxLoss(5)
-					owner.delayed_vomit()
+		 if(stage >= 3)
+		 	if(prob(2))
+				to_chat(owner, SPAN_WARNING("Your stomach churns, and you feel sick. Something tries to come up your throat, but nothing comes out..."))
+				owner.adjustToxLoss(5)
+				owner.delayed_vomit()
 
 		if(stage >= 3)
 			if(prob(10))
-				if(isundead(owner))
-					owner.adjustBruteLoss(-30)
-					owner.adjustFireLoss(-30)
-				else
-					to_chat(owner, "<span class='cult'>You feel an insatiable hunger.</span>")
-					owner.nutrition = -1
+				to_chat(SPAN_CULT("Every beat of your heart hurts - an aching, dull pain. Cold sweat continues falling down your brows. You feel like you have a fever..."))
+				owner.nutrition = max(0, owner.nutrition - 10)
+				owner.hydration = max(0, owner.hydration - 10)
+				E.add_pain(20)
 
 		if(stage >= 4)
 			if(prob(10))
 				if(!isundead(owner))
 					if(owner.species.zombie_type)
-						var/r = owner.r_skin
-						var/g = owner.g_skin
-						var/b = owner.b_skin
-
 						for(var/datum/language/L in owner.languages)
 							owner.remove_language(L.name)
-						to_chat(owner, "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>")
-						playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-						to_chat(owner, "<font size=4><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
-						old_species = owner.species.name
-						old_skin_color = list(r, g, b)
-						owner.set_species(owner.species.zombie_type, 0, 0, 0)
-						owner.change_skin_color(r, g, b)
-						owner.update_dna()
+						owner.seizure(FALSE, 5, 10, FALSE)
+						owner.visible_message(SPAN_DANGER("<font size=4>[owner] falls to the ground and begins convulsing, their flesh turning green and rotting!</font>"))
+						addtimer(CALLBACK(src, PROC_REF(turn_into_zombie)), 5 SECONDS, TIMER_UNIQUE)
 					else
 						owner.adjustToxLoss(50)
 	else
@@ -432,20 +420,41 @@
 			owner.make_jittery(10)
 
 /obj/item/organ/internal/parasite/zombie/process_stage()
+	if(iszombie(owner) && stage != 4)
+		if(parent_organ != BP_HEAD)
+			var/obj/item/organ/external/head = owner.organs_by_name[BP_HEAD]
+			move_to(owner, head)
+			stage = 4
+			return
 	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
 	if(E.parent)
-		to_chat(owner, SPAN_WARNING("The veins in your [parent_organ] turn black..."))
+		to_chat(owner, SPAN_WARNING("The veins in your [E.name] turn black..."))
 		E.status |= ORGAN_ZOMBIFIED
-		replaced(owner, E.parent)
-		owner.update_body()
+		move_to(owner, E.parent)
+		owner.update_body(TRUE, TRUE)
 	else
 		if(parent_organ == BP_CHEST)
-			to_chat(owner, SPAN_DANGER("<font size=4>Every vein in your chest turns red. Your heart becomes heavy. Each beat becomes fatigued. \
+			to_chat(owner, SPAN_DANGER("<font size=4>Every vein in your chest turns black. Your heart becomes heavy. Each breath becomes fatigued. \
 									You feel your own breathing. Cold sweat goes down your brows...</span>"))
 			E.status |= ORGAN_ZOMBIFIED
 			var/obj/item/organ/external/head = owner.organs_by_name[BP_HEAD]
-			replaced(owner, head)
+			move_to(owner, head)
 			owner.update_body()
+	. = ..()
+
+/obj/item/organ/internal/parasite/zombie/proc/move_to(mob/living/carbon/human/H, obj/item/organ/external/E)
+	to_chat(H, SPAN_WARNING("The veins in your [E.name] start turning black, bit by bit..."))
+	parent_organ = E.organ_tag
+
+/obj/item/organ/internal/parasite/zombie/proc/turn_into_zombie()
+	var/r = owner.r_skin
+	var/g = owner.g_skin
+	var/b = owner.b_skin
+	to_chat(owner, "<font size=4><span class='warning'>Your head tears apart and bursts as you fall to the ground! You feel your flesh burning as it rots, and your head exploding as the virus reaches it...</font></span>")
+	to_chat(owner, "<font size=4><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
+	owner.set_species(owner.species.zombie_type, 0, 0, 0)
+	owner.change_skin_color(r, g, b)
+	owner.update_dna()
 
 //Parasitic Worms//
 
@@ -494,7 +503,6 @@
 			owner.reagents.add_reagent(/singleton/reagent/toxin/nerveworm_eggs, 2)
 			owner.adjustHalLoss(15)
 			to_chat(owner, SPAN_WARNING("An <b>extreme</b>, nauseating pain erupts from deep within your left arm!"))
-
 
 /obj/item/organ/internal/parasite/heartworm
 	name = "bundle of heart flukes"

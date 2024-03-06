@@ -4,7 +4,6 @@
 	suffixes = list("away_site/sensor_relay/sensor_relay.dmm")
 	sectors = ALL_POSSIBLE_SECTORS
 	id = "sensor_relay"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 

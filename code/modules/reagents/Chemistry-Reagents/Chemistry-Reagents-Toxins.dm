@@ -837,12 +837,15 @@
 		berserked = FALSE
 
 /singleton/reagent/toxin/trioxin
-	name = "Trioxin"
-	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
+	name = "Hylemnomil-Zeta"
+	description = "An extraordinary synthetic compound created at Einstein Engines Research Base Omega-99. This compound is synthetically created to incorporate parts of \
+					the Rampancy Signal on Konyang. It rewrites an organism's DNA at the base and, similarly to rabies, makes the infected organic have an \
+					unstoppable need to feed on anything it sees. Instructions can be conveyed to some degree, such as information on who is an Einstein Engines \
+					employee and to not hurt them. The process of DNA rewriting leads to rapid rotting of the flesh."
 	reagent_state = LIQUID
-	color = "#E7E146"
+	color = "#551A8B"
 	strength = 1
-	taste_description = "old eggs"
+	taste_description = "unknown scientific concoction"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
 	affects_dead = TRUE
@@ -876,7 +879,7 @@
 				break
 			var/obj/item/organ/external/affected = H.get_organ(to_infest)
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
-			infest.replaced(H, affected)
+			infest.parent_organ = affected.organ_tag
 			infest.stage = possible_organs[to_infest]
 			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
 

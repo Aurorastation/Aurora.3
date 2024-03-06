@@ -1086,7 +1086,7 @@ var/list/admin_verbs_cciaa = list(
 	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
 
 /client/proc/outbreak_menu()
-	set category = "Event"
+	set category = "Fun"
 	set name = "Open Outbreak Menu"
 	set desc = "Opens the Outbreak menu."
 

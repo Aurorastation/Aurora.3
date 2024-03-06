@@ -238,7 +238,7 @@
 	//TODOMATT: force multiplication experiment
 	switch(force)
 		if(5 to 10)
-			force *= 2
+			force *= 2.25
 		if(10 to 20)
 			force *= 1.5
 		if(20 to 30)

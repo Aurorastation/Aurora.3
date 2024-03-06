@@ -192,7 +192,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/zombie)
 	)
 
-	total_health = 80
+	total_health = 150
 
 	slowdown = 2
 
@@ -201,7 +201,7 @@
 	reagent_tag = IS_UNDEAD
 
 	rarity_value = 10
-	blurb = "Once a living person, this unholy creature was created either by the power of science or necromancy."
+	blurb = "Once a living person, this unholy creature was created either by the power of science."
 
 	remains_type = /obj/effect/decal/remains/human
 	dust_remains_type = /obj/effect/decal/remains/human/burned
@@ -214,35 +214,143 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
 	spawn_flags = IS_RESTRICTED
 
-	stamina	=	500			  //Tireless automatons
+	stamina	= 500			  //Tireless automatons
 	stamina_recovery = 1
-	sprint_speed_factor = 0.1
+	sprint_speed_factor = 1
 	exhaust_threshold = 10
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/carbon/proc/consume)
 
 	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID
 
 	gluttonous = 1
+	show_ssd = null
+	var/list/obstacles = list(
+		/obj/structure/window,
+		/obj/structure/closet,
+		/obj/machinery/door/airlock,
+		/obj/structure/table,
+		/obj/structure/grille,
+		/obj/structure/barricade,
+		/obj/structure/window_frame,
+		/obj/structure/railing,
+		/obj/structure/girder,
+		/turf/simulated/wall,
+		/obj/machinery/door/blast/shutters,
+		/obj/machinery/door
+	)
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= CLUMSY
 	var/datum/martial_art/zombie/Z = new /datum/martial_art/zombie()
 	Z.teach(H)
 	to_chat(H, "<font size=4><span class='notice'>Use the Check Attacks verb in your IC tab for information on your attacks! They are important! Your bite infects, but is worse at getting through armour than your claws, which have great damage and are armor piercing!</font></span>")
-	H.accent = ACCENT_BLUESPACE
+	H.accent = pick(ACCENT_COC, ACCENT_XANU, ACCENT_SOL, ACCENT_KONYAN)
 	return ..()
+
+/datum/species/zombie/handle_login_special(mob/living/carbon/human/H)
+	. = ..()
+	H.target = null
+	walk(H, 0)
 
 //Zombies do not have oxygen, so we have to handle the sprint this way
 /datum/species/zombie/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	. = ..()
-
 	if(exhaust_threshold && (H.stamina) < (exhaust_threshold * 0.8))
 		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
 		H.flash_pain(H.get_shock())
 		return 0
+
+/mob/living/carbon/human
+	var/mob/living/carbon/human/target = null
+
+/datum/species/zombie/handle_npc(mob/living/carbon/human/H)
+	H.resting = FALSE
+	if (H.client || H.stat != CONSCIOUS)
+		walk(H, 0) //Stop dead-walking
+		return
+
+	if (prob(5))
+		H.custom_emote("wails!")
+	else if (prob(5))
+		H.custom_emote("groans!")
+	if (H.restrained() && prob(8))
+		H.custom_emote("thrashes and writhes!")
+
+	if (H.lying)
+		walk(H, 0)
+		return
+
+	if (H.restrained() || H.buckled_to)
+		H.resist()
+		return
+
+	addtimer(CALLBACK(src, .proc/handle_action, H), rand(10, 20), TIMER_UNIQUE)
+
+/datum/species/zombie/handle_death(mob/living/carbon/human/H, gibbed)
+	. = ..()
+	H.target = null
+	walk(H, 0)
+
+/datum/species/zombie/proc/handle_action(mob/living/carbon/human/H)
+	var/dist = 128
+	for(var/mob/living/M in get_hearers_in_LOS(15, H))
+		if ((ishuman(M) || istype(M, /mob/living/heavy_vehicle)) && !iszombie(M) && !M.is_diona()) //Don't attack fellow zombies, or diona
+			if (istype(M, /mob/living/heavy_vehicle))
+				var/mob/living/heavy_vehicle/MC = M
+				if (!LAZYLEN(MC.pilots))
+					continue //Don't attack empty mechs
+			if (M.stat == DEAD && H.target)
+				continue //Only eat corpses when no living (and able) targets are around
+			var/D = get_dist(M, H)
+			if (D <= dist * 0.5) //Must be significantly closer to change targets
+				H.target = M //For closest target
+				dist = D
+
+	H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2)
+	if (H.target)
+		if (iszombie(H.target))
+			H.target = null
+			return
+
+		if (!H.Adjacent(H.target))
+			var/turf/dir = get_step_towards(H, H.target)
+			for(var/type in obstacles) //Break obstacles
+				var/obj/obstacle = locate(type) in dir
+				if (obstacle)
+					H.face_atom(obstacle)
+					obstacle.attack_generic(H, 10, "smashes")
+					break
+
+			walk_to(H, H.target.loc, 1, H.species.slowdown * 1.25)
+
+		else
+			if (!H.target.lying) //Subdue meals
+				H.face_atom(H.target)
+
+				if (!H.zone_sel)
+					H.zone_sel = new /obj/screen/zone_sel(null)
+				H.zone_sel.selecting = BP_CHEST
+				H.a_intent = I_HURT
+				H.target.attack_hand(H)
+
+			else //Eat said meals
+				walk_to(H, H.target.loc, 0, H.species.slowdown * 2.5) //Move over them
+				if (H.Adjacent(H.target)) //Check we're still next to them
+					H.consume()
+
+		for(var/mob/living/M in hearers(H, 15))
+			if (H.target == M) //If our target is still nearby
+				return
+		H.target = null //Target lost
+
+	else
+		if (!H.lying)
+			walk(H, 0) //Clear walking
+			if (prob(33) && isturf(H.loc) && !H.pulledby)
+				H.SelfMove(pick(GLOB.cardinal))
 
 /datum/species/zombie/tajara
 	name = SPECIES_ZOMBIE_TAJARA
@@ -352,6 +460,7 @@
 	)
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious)
+	show_ssd = TRUE
 
 
 ///A zombie tuned to hunt preys
@@ -382,6 +491,7 @@
 	)
 
 	unarmed_types = list(/datum/unarmed_attack/shocking) //This zombie cannot infect, it's an harrass type of zombie
+	show_ssd = TRUE
 
 ///A zombie tuned for charge attacks
 /datum/species/zombie/rhino
@@ -416,3 +526,134 @@
 	maneuvers = list(/singleton/maneuver/leap/areagrab)
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/golem)
+	show_ssd = TRUE
+
+/mob/living/carbon/proc/consume()
+	set name = "Consume"
+	set desc = "Regain life and infect others by feeding upon them."
+	set category = "Abilities"
+
+	if (last_special > world.time)
+		to_chat(src, SPAN_WARNING("You aren't ready to do that! Wait [round(last_special - world.time) / 10] seconds."))
+		return
+
+	var/mob/living/carbon/human/target
+	var/list/victims = list()
+	for (var/mob/living/carbon/human/L in get_turf(src))
+		if (L != src && (L.lying || L.stat == DEAD))
+			if (iszombie(L))
+				to_chat(src, SPAN_WARNING("\The [L] isn't fresh anymore!"))
+				continue
+			if (!(L.species.name in list(SPECIES_ZOMBIE, SPECIES_ZOMBIE_BULL, SPECIES_ZOMBIE_HUNTER, SPECIES_ZOMBIE_RHINO, SPECIES_ZOMBIE_SKRELL, SPECIES_ZOMBIE_TAJARA, SPECIES_ZOMBIE_UNATHI)) || L.is_diona() || L.isSynthetic())
+				to_chat(src, SPAN_WARNING("You'd break your teeth on \the [L]!"))
+				continue
+			victims += L
+
+	if (!length(victims))
+		to_chat(src, SPAN_WARNING("No valid targets nearby!"))
+		return
+	if (client)
+		if (length(victims) == 1) //No need to choose
+			target = victims[1]
+		else
+			target = tgui_input_list(src, "Who would you like to consume?", "Zombie", victims)
+	else //NPCs
+		if (length(victims) > 0)
+			target = victims[1]
+
+	if (!target)
+		to_chat(src, SPAN_WARNING("You aren't on top of a victim!"))
+		return
+	if (get_turf(src) != get_turf(target) || !(target.lying || target.stat == DEAD))
+		to_chat(src, SPAN_WARNING("You're no longer on top of \the [target]!"))
+		return
+
+	last_special = world.time + 5 SECONDS
+
+	src.visible_message(SPAN_DANGER("\The [src] hunkers down over \the [target], tearing into their flesh."))
+	playsound(loc, 'sound/effects/bonebreak3.ogg', 20, 1)
+
+	target.adjustHalLoss(50)
+
+	if (do_after(src, 5 SECONDS, target, DO_DEFAULT | DO_USER_UNIQUE_ACT, INCAPACITATION_KNOCKOUT))
+		admin_attack_log(src, target, "Consumed their victim.", "Was consumed.", "consumed")
+
+		if (!target.lying && target.stat != DEAD) //Check victims are still prone
+			return
+
+		target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 15) //Just in case they haven't been infected already
+		if (target.getBruteLoss() > target.maxHealth * 1.5)
+			if (target.stat != DEAD)
+				to_chat(src,SPAN_WARNING("You've scraped \the [target] down to the bones already!."))
+			else
+				to_chat(src,SPAN_DANGER("You shred and rip apart \the [target]'s remains!."))
+				target.gib()
+				playsound(loc, 'sound/effects/splat.ogg', 40, 1)
+			return
+
+		to_chat(target,SPAN_DANGER("\The [src] scrapes your flesh from your bones!"))
+		to_chat(src,SPAN_DANGER("You feed hungrily off \the [target]'s flesh."))
+
+		if (iszombie(target)) //Just in case they turn whilst being eaten
+			return
+
+		target.apply_damage(rand(50, 60), DAMAGE_BRUTE, BP_CHEST)
+		target.adjustBruteLoss(20)
+		target.update_surgery() //Update broken ribcage sprites etc.
+
+		src.adjustBruteLoss(-5)
+		src.adjustFireLoss(-15)
+		src.adjustToxLoss(-5)
+		src.adjustBrainLoss(-5)
+		src.nutrition += 40
+
+		playsound(loc, 'sound/effects/splat.ogg', 20, 1)
+		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src), target.species.blood_color)
+		if (target.getBruteLoss() > target.maxHealth*0.75)
+			if (prob(50))
+				gibs(get_turf(src), target.dna)
+				src.visible_message(SPAN_DANGER("\The [src] tears out \the [target]'s insides!"))
+	else
+		src.visible_message(SPAN_WARNING("\The [src] leaves their meal for later."))
+
+/datum/species/human/superhuman
+	name = "Superhuman"
+	unarmed_types = list(
+		/datum/unarmed_attack/claws/strong/zombie,
+		/datum/unarmed_attack/bite/infectious,
+		/datum/unarmed_attack/vaurca_bulwark,
+	)
+	brute_mod = 0.25
+	burn_mod = 0.25
+	blood_volume = 1000
+	flesh_color = "#551A8B"
+	blood_color = "#551A8B"
+	reagent_tag = IS_UNDEAD
+	flags = NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED | NO_CHUBBY
+	slowdown = 1
+	vision_flags = DEFAULT_SIGHT
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/carbon/proc/consume)
+	has_organ = list(
+		BP_ZOMBIE_PARASITE = /obj/item/organ/internal/parasite/zombie,
+		BP_BRAIN =           /obj/item/organ/internal/brain/zombie,
+		BP_EYES =     /obj/item/organ/internal/eyes,
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_APPENDIX = /obj/item/organ/internal/appendix
+	)
+	has_limbs = list(
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
+	)

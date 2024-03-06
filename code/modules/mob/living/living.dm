@@ -988,12 +988,18 @@ default behaviour is:
 /mob/living/proc/get_resist_power()
 	return 1
 
-/mob/living/proc/seizure()
+/mob/living/proc/seizure(var/do_message = TRUE, var/paralyse, var/jittery, var/halloss = TRUE)
+	if(!paralyse)
+		paralyse = rand(16, 24)
+	if(!jittery)
+		jittery = rand(150, 200)
 	if(!paralysis && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(16,24))
-		make_jittery(rand(150,200))
-		adjustHalLoss(rand(50,60))
+		if(do_message)
+			visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
+		Paralyse(paralyse)
+		make_jittery(jittery)
+		if(halloss)
+			adjustHalLoss(rand(50,60))
 
 /mob/living/proc/InStasis()
 	return FALSE

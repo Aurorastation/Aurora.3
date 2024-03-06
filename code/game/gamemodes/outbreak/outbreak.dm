@@ -17,6 +17,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Outbreak", "Outbreak Controller", 330, 720)
+		ui.open()
 
 /datum/game_mode/outbreak/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

@@ -8,7 +8,7 @@
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_HALOGEN
 	light_range = 8
-	light_power = 8
+	light_power = 0.5
 
 /obj/structure/light_pole/r
 	icon_state = "rustlamp_r"
@@ -24,7 +24,7 @@
 	light_color = "#FA644B"
 	light_wedge = LIGHT_OMNI
 	light_range = 6
-	light_power = 1
+	light_power = 0.25
 
 /obj/structure/light_pole/konyang/left
 	icon_state = "left_lamp"
@@ -62,7 +62,7 @@
 	light_wedge = LIGHT_OMNI
 	light_color = "#e8ffeb"
 	light_range = 8
-	light_power = 1.9
+	light_power = 0.5
 
 /obj/structure/utility_pole/street/on/Initialize(mapload)
 	. = ..()
@@ -78,7 +78,7 @@
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_range = 8
-	light_power = 1.9
+	light_power = 0.5
 
 /obj/structure/utility_pole/street/classic/on/Initialize(mapload)
 	. = ..()
@@ -95,7 +95,7 @@
 	icon_state = "crosswalk"
 	light_color = LIGHT_COLOR_GREEN
 	light_range = 3.1
-	light_power = 2.6
+	light_power = 1.25
 
 /obj/structure/utility_pole/street/crosswalk/Initialize(mapload)
 	. = ..()
@@ -115,7 +115,7 @@
 	icon_state = "traffic"
 	light_color = LIGHT_COLOR_HALOGEN
 	light_range = 3.1
-	light_power = 2.6
+	light_power = 0.9
 
 /obj/structure/utility_pole/street/traffic/base/Initialize(mapload)
 	. = ..()
