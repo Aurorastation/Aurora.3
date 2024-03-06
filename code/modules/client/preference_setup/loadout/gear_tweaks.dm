@@ -3,6 +3,8 @@
  * For example: a color tweak might show the user the currently selected color
  */
 /datum/gear_tweak/proc/get_contents(var/metadata)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	return
 
 /**
@@ -17,6 +19,8 @@
  * For example: A alpha tweak might return 255
  */
 /datum/gear_tweak/proc/get_default()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	return
 
 /**
@@ -24,18 +28,22 @@
  * For example: A alpha tweak might return something between 0 and 255
  */
 /datum/gear_tweak/proc/get_random()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	return get_default()
 
 /**
  * Tweaks the gear data (parameter) based on the metadata (parameter)
  */
 /datum/gear_tweak/proc/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
+	SHOULD_NOT_SLEEP(TRUE)
 	return
 
 /**
  * Applies the tweak to the item
  */
 /datum/gear_tweak/proc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	SHOULD_NOT_SLEEP(TRUE)
 	return
 
 /*
@@ -291,20 +299,28 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 	return ""
 
 /datum/gear_tweak/custom_desc/get_metadata(var/user, var/metadata)
+	var/input_description = tgui_input_text(user, "Choose an item description.", "Character Preference", metadata)
 	if(valid_custom_desc)
-		return input(user, "Choose an item description.", "Character Preference", metadata) as null|anything in valid_custom_desc
-	return sanitize(input(user, "Choose the item's description. Leave it blank to use the default description.", "Item Description", metadata) as message|null, extra = 0)
+		if(input_description in valid_custom_desc)
+			return input_description
+		else
+			return null
+	else
+		return input_description
 
 /datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
-	if (!metadata && istype(I, /obj/item/clothing/accessory/badge))
-		var/obj/item/clothing/accessory/badge/B = I
-		B.stored_name = H.real_name
-		return I.desc += "\nThe name [H.real_name] is written on it."
-	if (!metadata)
-		return I.desc
+	//Snowflake customization for badges
+	if(istype(I, /obj/item/clothing/accessory/badge))
+		var/obj/item/clothing/accessory/badge/badge_to_tweak = I
+
+		badge_to_tweak.stored_name = H.real_name
+		badge_to_tweak.desc = "[badge_to_tweak.desc]\nThe name [H.real_name] is written on it."
+
+	//If we don't have any metadata to apply, return
+	if(!metadata)
+		return
+
 	I.desc = metadata
-	if ("stored_name" in I.vars)
-		I.vars["stored_name"] = H.real_name
 
 /*
 Paper Data
