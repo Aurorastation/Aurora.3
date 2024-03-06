@@ -212,7 +212,7 @@
 
 /obj/item/device/encryptionkey/onlyert
 	name = "\improper ERT radio encryption key"
-	channels = list(CHANNEL_RESPONSE_TEAM = TRUE)
+	channels = list(CHANNEL_RESPONSE_TEAM = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/rev
 	name = "standard encryption key"

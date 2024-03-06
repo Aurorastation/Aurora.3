@@ -134,7 +134,7 @@
 	name = "Einstein Engines Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/einstein
-	back = /obj/item/rig/ert/assetprotection/einstein
+	back = /obj/item/rig/ert/einstein
 	belt = /obj/item/storage/belt/security/tactical
 	shoes = null
 	gloves = null
