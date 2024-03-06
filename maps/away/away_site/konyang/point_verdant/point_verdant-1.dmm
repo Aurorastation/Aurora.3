@@ -406,6 +406,10 @@
 	pixel_y = 17
 	},
 /obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_army";
+	identifier = "konyang_army"
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
 "bj" = (
@@ -2248,7 +2252,7 @@
 	dir = 1;
 	pixel_x = 20;
 	pixel_y = 26;
-	req_access = list(218)
+	req_access = list(112)
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
@@ -2372,6 +2376,10 @@
 "hc" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_army_lead";
+	identifier = "konyang_army_lead"
 	},
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/offices/kaf)
@@ -5370,7 +5378,8 @@
 /area/point_verdant/interior/tunnels)
 "qm" = (
 /obj/machinery/power/emitter{
-	dir = 8
+	dir = 8;
+	req_access = list(112)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/sidewalk/dark,
@@ -5402,6 +5411,10 @@
 "qr" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - pv_corporate_solutions";
+	identifier = "pv_corporate_solutions"
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -8166,7 +8179,7 @@
 	dir = 1;
 	pixel_x = 2;
 	pixel_y = 32;
-	req_access = list(218)
+	req_access = list(112)
 	},
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/offices/kaf)
@@ -8950,6 +8963,10 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - pv_corporate_solutions";
+	identifier = "pv_corporate_solutions"
+	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -9526,7 +9543,7 @@
 	name = "Armory Doors";
 	dir = 1;
 	pixel_y = 25;
-	req_access = list(218)
+	req_access = list(112)
 	},
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
@@ -10236,6 +10253,10 @@
 	pixel_y = 17
 	},
 /obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_army";
+	identifier = "konyang_army"
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
 "Fc" = (
@@ -13239,14 +13260,6 @@
 	pixel_x = -3;
 	pixel_y = 16
 	},
-/obj/item/rig/ert/scc/security{
-	pixel_x = 4;
-	pixel_y = 16
-	},
-/obj/item/rig/ert/scc/security{
-	pixel_x = 11;
-	pixel_y = 16
-	},
 /obj/item/melee/telebaton,
 /obj/item/melee/telebaton,
 /obj/item/melee/telebaton,
@@ -14344,7 +14357,7 @@
 	dir = 4;
 	pixel_x = 20;
 	pixel_y = 4;
-	req_access = list(218)
+	req_access = list(112)
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/key/bike/sport{
@@ -14750,7 +14763,8 @@
 /area/point_verdant/interior/pharmacy)
 "Rx" = (
 /obj/machinery/door/blast/shutters{
-	dir = 4
+	dir = 4;
+	id = "konyang_police_garage"
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/police)
@@ -17393,6 +17407,10 @@
 /obj/structure/curtain/open/bed,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_army";
+	identifier = "konyang_army"
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
