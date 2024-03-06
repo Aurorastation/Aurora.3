@@ -232,7 +232,10 @@ var/list/admin_verbs_debug = list(
 	/turf/proc/view_chunk,
 	/turf/proc/update_chunk,
 	/client/proc/profiler_start,
-	/client/proc/rustg_send_udp
+	/client/proc/rustg_send_udp,
+	/datum/admins/proc/force_initialize_weather,
+	/datum/admins/proc/force_weather_state,
+	/datum/admins/proc/force_kill_weather
 	)
 
 var/list/admin_verbs_paranoid_debug = list(

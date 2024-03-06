@@ -550,6 +550,7 @@
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+	var/protects_against_weather = FALSE
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
 	. = ..()
@@ -986,17 +987,18 @@
 	)
 	name = "suit"
 	species_sprite_adaption_type = WORN_SUIT
-	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	allowed = list(/obj/item/tank/emergency_oxygen)
 	armor = null
 	slot_flags = SLOT_OCLOTHING
-	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
-
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
+
+	var/fire_resist = T0C+100
+	var/blood_overlay_type = "suit"
+	var/protects_against_weather = FALSE
 
 /obj/item/clothing/suit/return_own_image()
 	var/image/our_image

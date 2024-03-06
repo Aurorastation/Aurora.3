@@ -52,6 +52,7 @@
 	var/list/old_corners = corners
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
+	var/old_outside = is_outside
 
 	changing_turf = TRUE
 
@@ -104,6 +105,11 @@
 
 	if(tell_universe)
 		GLOB.universe.OnTurfChange(W)
+
+	// we check the var rather than the proc, because area outside values usually shouldn't be set on turfs
+	W.last_outside_check = OUTSIDE_UNCERTAIN
+	if(W.is_outside != old_outside)
+		W.set_outside(old_outside, skip_weather_update = TRUE)
 
 	SSair.mark_for_update(src) //handle the addition of the new turf.
 

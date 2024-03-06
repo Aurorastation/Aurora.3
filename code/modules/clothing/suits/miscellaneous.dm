@@ -354,6 +354,7 @@
 	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
+	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/storage/toggle/trench/grey
 	name = "grey trenchcoat"
