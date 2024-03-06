@@ -152,7 +152,8 @@
 /obj/outfit/proc/spill_item(var/path)
 	if(islist(path))
 		path = pick(path)
-	new path(loc)
+	if(path && ispath(path))
+		new path(loc)
 
 /obj/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
