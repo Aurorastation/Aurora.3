@@ -146,6 +146,7 @@
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
 	. = ..(mapload, SPECIES_ZOMBIE)
+	set_name("undead")
 
 /datum/species/zombie
 	name = SPECIES_ZOMBIE
@@ -166,7 +167,10 @@
 
 	has_fine_manipulation = FALSE
 
-	speech_sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg')
+	speech_sounds = list('sound/effects/zombies/zombie_1.ogg',
+						'sound/effects/zombies/zombie_2.ogg',
+						'sound/effects/zombies/zombie_3.ogg',
+						'sound/effects/zombies/zombie_4.ogg')
 	speech_chance = 50
 
 	ethanol_resistance = -1
@@ -291,8 +295,9 @@
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H, gibbed)
 	. = ..()
-	H.target = null
-	walk(H, 0)
+	if(!gibbed)
+		H.target = null
+		walk(H, 0)
 
 /datum/species/zombie/proc/handle_action(mob/living/carbon/human/H)
 	var/dist = 128
@@ -471,7 +476,7 @@
 	deform = 'icons/mob/human_races/zombie/r_zombie_hunter.dmi'
 	slowdown = 2
 
-	total_health = 90
+	total_health = 180
 
 	stamina = 40
 	sprint_speed_factor = 0.9
@@ -501,7 +506,7 @@
 	deform = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
 	slowdown = 2
 
-	total_health = 120
+	total_health = 240
 
 	stamina = 50
 	sprint_speed_factor = 0.7
@@ -601,8 +606,8 @@
 		target.adjustBruteLoss(20)
 
 		var/obj/item/organ/external/E = target.organs_by_name[BP_CHEST]
-		if(E && E.open < ORGAN_ENCASED_RETRACTED && target.getBruteLoss() > 100)
-			E.open = min(E.open + 1, ORGAN_ENCASED_RETRACTED)
+		if(E && E.open < 3 && target.getBruteLoss() > 100)
+			E.open = min(E.open + 1, 3)
 			target.update_surgery() //Update broken ribcage sprites etc.
 
 		src.adjustBruteLoss(-5)
