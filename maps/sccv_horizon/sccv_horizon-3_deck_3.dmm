@@ -26768,11 +26768,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
-"sDH" = (
-/obj/machinery/vending/frontiervend,
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/starboard)
 "sEe" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -47539,7 +47534,7 @@ oRM
 pwt
 xAc
 xon
-sDH
+mqJ
 vlC
 iEg
 iHj
