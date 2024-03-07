@@ -8,6 +8,3 @@ Spess Font created by MTandi (discord) for /tg/station.
 
 Tiny Unicode created by Jakob Riedle/DuffsDevice. Website indicates free for commercial use.
 (https://fontmeme.com/fonts/tiny-unicode-font/)
-
-VCR OSD Mono created by Riciery Leal/mrmanet. Website indicates 100% free, author confirms it's free for all to use.
-(https://www.dafont.com/font-comment.php?file=vcr_osd_mono)
