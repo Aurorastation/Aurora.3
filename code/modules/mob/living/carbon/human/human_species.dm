@@ -8,6 +8,10 @@
 
 INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
+/mob/living/carbon/human/dummy/mannequin/New(loc, ...)
+	. = ..()
+
+
 
 /mob/living/carbon/human/dummy/mannequin/Initialize()
 	. = ..()

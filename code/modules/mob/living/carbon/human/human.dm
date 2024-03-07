@@ -1448,10 +1448,9 @@
 	maxHealth = species.total_health
 	health = maxHealth
 
-	spawn(0)
-		regenerate_icons()
-		if (vessel)
-			restore_blood()
+	regenerate_icons()
+	if (vessel)
+		restore_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)

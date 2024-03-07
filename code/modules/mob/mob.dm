@@ -3,6 +3,8 @@
 #define FULLY_BUCKLED 2
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
+	MOB_STOP_THINKING(src)
+
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
@@ -41,7 +43,7 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
-	MOB_STOP_THINKING(src)
+	QDEL_NULL(ability_master)
 
 	return ..()
 

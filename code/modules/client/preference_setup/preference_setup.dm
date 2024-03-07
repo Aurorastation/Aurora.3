@@ -322,9 +322,9 @@
 		var/datum/category_group/player_setup_category/cat = category
 		cat.modified = 1
 	if (. & TOPIC_REFRESH)
-		user.client.prefs.ShowChoices(user)
+		user.client?.prefs?.ShowChoices(user)
 	if(. & TOPIC_UPDATE_PREVIEW)
-		user.client.prefs.update_preview_icon()
+		user.client?.prefs?.update_preview_icon()
 
 /datum/category_item/player_setup_item/CanUseTopic(var/mob/user)
 	return 1
