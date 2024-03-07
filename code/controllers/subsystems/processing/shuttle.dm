@@ -15,6 +15,10 @@ SUBSYSTEM_DEF(shuttle)
 	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
 	var/list/shuttle_areas = list()              //All the areas of all shuttles.
 
+	/// Assoc list of shuttle area to shuttle object.
+	/// Key is area type path like `/area/shuttle/...`, value is object of type `/datum/shuttle/...`.
+	var/list/shuttle_area_to_shuttle = list()
+
 	var/list/lonely_shuttle_computers = list()   //shuttle computers that haven't been attached to their shuttles yet
 
 	var/list/landmarks_awaiting_sector = list()  //Stores automatic landmarks that are waiting for a sector to finish loading.
