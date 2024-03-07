@@ -3328,6 +3328,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/forehallway)
+"rI" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/cargobay)
 "rK" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -6206,13 +6214,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bridge)
 "FX" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/small/west,
+/obj/effect/floor_decal/corner/brown,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/cargobay)
 "FZ" = (
@@ -9565,17 +9575,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/armory)
 "Xk" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/north{
-	req_one_access = list()
+/obj/structure/ladder{
+	pixel_y = 16
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice,
+/turf/simulated/open,
 /area/ship/coc_scarab/cargobay)
 "Xl" = (
 /obj/machinery/door/blast/regular{
@@ -9587,6 +9594,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/starboardhallway)
+"Xm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/coc_scarab/cargobay)
 "Xo" = (
 /obj/machinery/button/remote/blast_door{
 	name = "Crew Quarters Blast Shutters";
@@ -9763,6 +9780,7 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
+/obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/cargobay)
 "Ym" = (
@@ -43223,8 +43241,8 @@ dh
 jT
 mW
 Sk
-Tt
-Vg
+Xm
+rI
 yO
 Ki
 UT

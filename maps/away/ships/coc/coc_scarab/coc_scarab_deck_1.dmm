@@ -307,15 +307,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
 "fn" = (
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "scarab_shuttle_dock";
-	master_tag = "scarab_shuttle_dock";
-	landmark_tag = "scarab_shuttle_dock";
-	req_one_access = null;
-	frequency = 1394
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/ladder/up{
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/hangar)
 "fv" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
@@ -20385,7 +20384,7 @@ Eo
 Eo
 Eo
 Eo
-Eo
+eG
 Eo
 Eo
 Eo
@@ -22703,7 +22702,7 @@ Eo
 Eo
 Eo
 Eo
-eG
+Eo
 Eo
 Lx
 Eo
@@ -35505,11 +35504,11 @@ mM
 Eo
 Eo
 Eo
+Eo
+Eo
+Eo
+Eo
 eG
-Eo
-Eo
-Eo
-Eo
 Eo
 Eo
 Eo
@@ -35858,9 +35857,9 @@ Eo
 Eo
 Eo
 Eo
+Eo
+Eo
 eG
-Eo
-Eo
 Eo
 Eo
 Eo
@@ -36058,7 +36057,7 @@ WW
 nc
 Il
 OA
-OP
+fn
 Cd
 RH
 mv
@@ -37870,7 +37869,7 @@ WW
 uC
 DK
 WW
-fn
+Eo
 Eo
 Eo
 Eo
@@ -46091,7 +46090,7 @@ Eo
 Eo
 Eo
 Eo
-eG
+Eo
 Eo
 Eo
 Eo
@@ -50970,7 +50969,7 @@ Eo
 Eo
 Eo
 Eo
-Eo
+eG
 Eo
 Eo
 Eo
