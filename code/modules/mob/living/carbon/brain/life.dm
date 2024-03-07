@@ -34,7 +34,7 @@
 				updatehealth()
 
 
-/mob/living/carbon/brain/handle_gas_environment(datum/gas_mixture/environment)
+/mob/living/carbon/brain/handle_environment(datum/gas_mixture/environment)
 	if(!environment)
 		return
 	var/environment_heat_capacity = environment.heat_capacity()

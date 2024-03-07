@@ -11,6 +11,7 @@ SUBSYSTEM_DEF(vis_contents_update)
 
 /datum/controller/subsystem/vis_contents_update/Initialize()
 	fire(FALSE, TRUE)
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/vis_contents_update/StartLoadingMap()
 	can_fire = FALSE

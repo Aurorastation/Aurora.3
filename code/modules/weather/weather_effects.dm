@@ -38,7 +38,7 @@
 	set waitfor = FALSE
 	animate(lightning_overlay, alpha = 255, time = 2)
 	for(var/client/C)
-		if(!isliving(C.mob) || !(C.prefs.sfx_toggles & ASFX_AMBIENCE))
+		if(!isliving(C.mob))
 			continue
 		var/turf/T = get_turf(C.mob)
 		if(!(T.z in affecting_zs))

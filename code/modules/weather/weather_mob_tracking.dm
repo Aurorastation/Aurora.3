@@ -1,5 +1,5 @@
 
-var/global/list/current_mob_ambience = list()
+GLOBAL_LIST_EMPTY(current_mob_ambience)
 /obj/abstract/weather_system
 
 	// Weakref lists used to track mobs within our weather

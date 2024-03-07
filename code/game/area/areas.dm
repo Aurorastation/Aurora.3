@@ -484,7 +484,6 @@ var/list/mob/living/forced_ambiance_list = new
 	var/outside_changed = T.is_outside() != old_outside
 	if(T.is_outside == OUTSIDE_AREA && outside_changed)
 		T.update_weather()
-		//T.update_external_atmos_participation() todomatt ?
 
 /**
 * Displays an area blurb on a mob's screen.

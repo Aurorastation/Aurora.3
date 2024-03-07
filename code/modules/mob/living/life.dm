@@ -15,7 +15,7 @@
 	var/datum/gas_mixture/gas_environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
 	if(gas_environment)
-		handle_gas_environment(gas_environment)
+		handle_environment(gas_environment)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -57,9 +57,6 @@
 	return
 
 /mob/living/proc/handle_random_events()
-	return
-
-/mob/living/proc/handle_gas_environment(var/datum/gas_mixture/environment)
 	return
 
 /mob/living/proc/update_pulling()
@@ -207,7 +204,7 @@
 	// If we're standing in the rain, use the turf weather.
 	. = istype(actual_loc) && actual_loc.weather
 	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
-		. = SSweather.weather_by_z[my_turf.z]
+		. = SSweather.weather_by_z["[my_turf.z]"]
 
 /mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
 
@@ -223,7 +220,7 @@
 
 	// Refresh weather ambience.
 	// Show messages and play ambience.
-	if(client && client.prefs.sfx_toggles & ASFX_AMBIENCE)
+	if(client)
 
 		// Work out if we need to change or cancel the current ambience sound.
 		var/send_sound
@@ -231,12 +228,12 @@
 		if(istype(weather_state))
 			var/ambient_sounds = !is_outside() ? weather_state.ambient_indoors_sounds : weather_state.ambient_sounds
 			var/ambient_sound = length(ambient_sounds) && pick(ambient_sounds)
-			if(global.current_mob_ambience[mob_ref] == ambient_sound)
+			if(GLOB.current_mob_ambience[mob_ref] == ambient_sound)
 				return
 			send_sound = ambient_sound
-			global.current_mob_ambience[mob_ref] = send_sound
-		else if(mob_ref in global.current_mob_ambience)
-			global.current_mob_ambience -= mob_ref
+			GLOB.current_mob_ambience[mob_ref] = send_sound
+		else if(mob_ref in GLOB.current_mob_ambience)
+			GLOB.current_mob_ambience -= mob_ref
 		else
 			return
 

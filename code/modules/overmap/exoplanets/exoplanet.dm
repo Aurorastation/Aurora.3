@@ -510,7 +510,7 @@
 ///Resets the given weather state to our planet replacing the old one, and trigger updates. Can be a type path or instance.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/reset_weather(var/singleton/state/weather/W)
 	initial_weather_state = W
-	if(!(z in map_z)) //todomatt?
+	if(!(z in map_z))
 		return //It's entire possible the levels weren't initialized yet, so don't bother.
 	//Tells all our levels exposed to the sky to force change the weather.
 	SSweather.setup_weather_system(z, initial_weather_state)
@@ -519,3 +519,4 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()
 	if(ispath(initial_weather_state))
 		initial_weather_state = GET_SINGLETON(initial_weather_state)
+	reset_weather(initial_weather_state)

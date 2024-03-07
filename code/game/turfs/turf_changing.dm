@@ -53,6 +53,7 @@
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
 	var/old_outside = is_outside
+	var/old_is_open = is_open()
 
 	changing_turf = TRUE
 
@@ -124,6 +125,8 @@
 	W.decals = old_decals
 
 	W.post_change(!mapload)
+
+	W.update_weather(force_update_below = W.is_open() != old_is_open)
 
 	. = W
 

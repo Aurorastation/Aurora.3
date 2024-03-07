@@ -1399,7 +1399,7 @@
 		if(brolly.gives_weather_protection())
 			LAZYADD(., brolly)
 	if(!LAZYLEN(.))
-		for(var/turf/T as anything in RANGE_TURFS(loc, 1))
+		for(var/turf/T as anything in RANGE_TURFS(1, loc))
 			for(var/obj/structure/flora/tree in T)
 				if(tree.protects_against_weather)
 					LAZYADD(., tree)

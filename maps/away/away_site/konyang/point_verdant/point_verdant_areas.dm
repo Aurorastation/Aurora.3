@@ -6,6 +6,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_env = CITY
+	is_outside = TRUE
 	var/lighting = FALSE //Is this area automatically lit?
 
 /area/point_verdant/Initialize()
@@ -42,6 +43,7 @@
 	name = "Point Verdant - Indoors"
 	sound_env = LARGE_SOFTFLOOR
 	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
+	is_outside = FALSE
 
 //Main city buildings
 /area/point_verdant/interior/laundromat

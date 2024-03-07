@@ -11,7 +11,7 @@
 		to_chat(usr, SPAN_WARNING("You need to have a turf to use this verb."))
 		return
 
-	var/obj/abstract/weather_system/weather = T.weather || SSweather.weather_by_z[T.z]
+	var/obj/abstract/weather_system/weather = T.weather || SSweather.weather_by_z["[T.z]"]
 	if(!weather)
 		to_chat(usr, SPAN_WARNING("This z-level does not have weather."))
 		return
@@ -34,7 +34,7 @@
 		to_chat(usr, SPAN_WARNING("You need to have a turf to use this verb."))
 		return
 
-	var/obj/abstract/weather_system/weather = T.weather || SSweather.weather_by_z[T.z]
+	var/obj/abstract/weather_system/weather = T.weather || SSweather.weather_by_z["[T.z]"]
 	if(weather)
 		to_chat(usr, SPAN_WARNING("This z-level already has weather."))
 		return
@@ -54,13 +54,13 @@
 		to_chat(usr, SPAN_WARNING("You need to have a turf to use this verb."))
 		return
 
-	var/obj/abstract/weather_system/weather = T.weather || SSweather.weather_by_z[T.z]
+	var/obj/abstract/weather_system/weather = T.weather || SSweather.weather_by_z["[T.z]"]
 	if(!weather)
 		to_chat(usr, SPAN_WARNING("This z-level has no weather. Use <b>Initialize Weather For Level</b> if you want to create it."))
 		return
 
 	var/use_state = input(usr, "Which state do you wish to use?", "Target State") as null|anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/state/weather)
-	if(!use_state || weather != (T.weather || SSweather.weather_by_z[T.z]))
+	if(!use_state || weather != (T.weather || SSweather.weather_by_z["[T.z]"]))
 		return
 	weather.weather_system.set_state(use_state)
 	var/singleton/state/weather/weather_state = GET_SINGLETON(use_state)
