@@ -18,6 +18,7 @@
 		return FALSE
 
 	to_chat(user, SPAN_NOTICE("You consume the contents of the vial!"))
+	playsound(H, 'sound/items/raccoon_city/herb_use.ogg')
 	consume_vial(H)
 	qdel(src)
 

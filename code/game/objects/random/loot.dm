@@ -528,7 +528,7 @@
 		var/mags = pick(0, 1, 2)
 		if(mags)
 			for(var/i = 1 to mags)
-				var/obj/item/ammo_magazine/AG = new G.ammo_magazine(get_turf(G))
+				var/obj/item/ammo_magazine/AG = new G.ammo_magazine.type(get_turf(G))
 				if(prob(50))
 					var/to_delete = rand(1, length(AG.stored_ammo))
 					var/delete_counter = 0
@@ -584,7 +584,6 @@
 	has_postspawn = TRUE
 
 /obj/random/shotgun/post_spawn(obj/thing)
-	. = ..()
 	var/shells = rand(1, 10)
 	var/shell_type = pick("shells", "slugs")
 	for(var/i = 1 to shells)

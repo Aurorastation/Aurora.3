@@ -2620,6 +2620,7 @@
 	dir = 4
 	},
 /obj/structure/bookcase/libraryspawn/religion,
+/obj/item/herb/red,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/streetvendor)
 "gV" = (
@@ -4700,6 +4701,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
+"mg" = (
+/obj/structure/table/standard,
+/obj/item/herb/red,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "mh" = (
 /turf/simulated/wall,
 /area/point_verdant/water)
@@ -4852,6 +4858,7 @@
 	pixel_x = 22;
 	pixel_y = 4
 	},
+/obj/item/herb,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "mz" = (
@@ -7378,6 +7385,7 @@
 	dir = 8;
 	pixel_x = -12
 	},
+/obj/item/herb/mixed,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "sO" = (
@@ -7425,6 +7433,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/splints,
+/obj/item/herb/red,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/hotel)
 "sT" = (
@@ -8993,6 +9002,11 @@
 	spawns_with_key = 0
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"wG" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/ghostspawpoint/zombie,
+/turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "wH" = (
 /obj/structure/konyang_cliff{
@@ -11095,6 +11109,10 @@
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"BW" = (
+/obj/effect/ghostspawpoint/zombie,
+/turf/simulated/floor/sidewalk/paved,
+/area/point_verdant/interior/parking)
 "BX" = (
 /obj/effect/decal/road_marking/thin,
 /obj/effect/decal/road_marking/thin{
@@ -11173,6 +11191,10 @@
 /obj/effect/floor_decal/corner_wide/grey,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"Cj" = (
+/obj/effect/ghostspawpoint/zombie,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
 "Cm" = (
 /obj/structure/rope_post{
 	dir = 8;
@@ -14760,6 +14782,11 @@
 /obj/structure/road_barrier,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/water)
+"Lr" = (
+/obj/structure/table/standard,
+/obj/item/herb/red,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/pharmacy)
 "Ls" = (
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/concrete,
@@ -14778,6 +14805,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Lw" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/item/herb,
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/restaurant)
 "Lx" = (
 /obj/structure/urban_grate,
 /turf/simulated/floor/sidewalk/blocks,
@@ -15324,6 +15361,7 @@
 /obj/item/towel{
 	pixel_y = 9
 	},
+/obj/item/herb,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/police)
 "MU" = (
@@ -15407,6 +15445,7 @@
 /area/point_verdant/outdoors)
 "Nb" = (
 /obj/structure/table/standard,
+/obj/item/herb,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Nc" = (
@@ -16029,6 +16068,13 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Oy" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/item/herb,
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/offices)
 "Oz" = (
 /obj/structure/neon_sign{
 	icon_state = "believe";
@@ -16574,6 +16620,7 @@
 /obj/item/pen/black,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/herb/red,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "PP" = (
@@ -16731,6 +16778,10 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
+"Qk" = (
+/obj/item/herb,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/point_verdant/outdoors)
 "Ql" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -17166,6 +17217,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/outdoors)
+"Rr" = (
+/obj/effect/ghostspawpoint/zombie,
+/turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "Rs" = (
 /obj/structure/konyang_cliff,
@@ -19336,6 +19391,7 @@
 /obj/structure/automobile/random{
 	dir = 8
 	},
+/obj/item/herb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "WX" = (
@@ -19776,6 +19832,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"XT" = (
+/obj/effect/ghostspawpoint/zombie,
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/outdoors)
 "XU" = (
 /obj/effect/konyang_waterfall{
 	pixel_y = -16
@@ -28065,7 +28125,7 @@ Al
 Al
 Al
 Al
-Al
+Cj
 Al
 Al
 Al
@@ -30634,7 +30694,7 @@ ci
 ci
 ci
 pz
-io
+Oy
 ci
 pz
 io
@@ -33045,7 +33105,7 @@ Fs
 Al
 Al
 Al
-Oq
+wG
 qs
 MA
 VR
@@ -35239,7 +35299,7 @@ Oq
 xu
 xu
 xu
-Al
+Cj
 Fs
 TT
 Wh
@@ -35264,7 +35324,7 @@ tx
 FJ
 Yc
 ZI
-wk
+mg
 Mt
 cb
 xp
@@ -35871,7 +35931,7 @@ Oq
 Fs
 kN
 xu
-xu
+Qk
 Gd
 hH
 hH
@@ -39214,7 +39274,7 @@ Al
 Oq
 Al
 BP
-Al
+Cj
 Al
 Al
 Fr
@@ -39893,7 +39953,7 @@ ke
 EI
 XS
 Nb
-Nb
+Lr
 Xx
 EI
 PR
@@ -41410,7 +41470,7 @@ xu
 Oq
 Al
 Al
-Al
+Cj
 Oq
 Al
 ur
@@ -41532,7 +41592,7 @@ ny
 Al
 Al
 Al
-Al
+Cj
 Al
 MA
 MA
@@ -48366,7 +48426,7 @@ iY
 Ft
 iQ
 OB
-Tp
+Lw
 Qd
 OB
 Tp
@@ -49756,7 +49816,7 @@ Al
 Al
 Al
 Al
-Al
+Cj
 MA
 MA
 wK
@@ -56058,7 +56118,7 @@ fG
 fG
 fG
 od
-od
+XT
 od
 od
 wx
@@ -56580,7 +56640,7 @@ cY
 aA
 WC
 FI
-cY
+Rr
 cY
 cY
 cY
@@ -56884,7 +56944,7 @@ cY
 dw
 dw
 cY
-cY
+Rr
 HE
 RE
 od
@@ -57419,7 +57479,7 @@ Ir
 BT
 fW
 od
-od
+XT
 vJ
 vJ
 vJ
@@ -59995,7 +60055,7 @@ vJ
 vJ
 vJ
 vJ
-Eo
+BW
 Eo
 Eo
 Eo
@@ -60015,7 +60075,7 @@ Eo
 Eo
 Eo
 Eo
-Eo
+BW
 Eo
 Eo
 Kl
