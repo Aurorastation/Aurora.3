@@ -170,7 +170,7 @@
 						W.germ_level = INFECTION_LEVEL_ONE
 					W.germ_level += rand(10, 50)
 
-/turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O as obj|mob)
+/turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O)
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(100)
