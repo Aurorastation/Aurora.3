@@ -1114,6 +1114,16 @@
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/restaurant)
+"gV" = (
+/obj/effect/decal/road_marking/thin,
+/obj/structure/closet/crate/secure/large,
+/obj/random/tool_konyang,
+/obj/random/tool_konyang,
+/obj/random/tool_konyang,
+/obj/random/tool_konyang,
+/obj/random/barbed_wire,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/shallow)
 "gX" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
@@ -1355,6 +1365,12 @@
 /obj/item/device/paicard,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
+"iD" = (
+/obj/effect/decal/road_marking/reflector,
+/obj/structure/table/rack,
+/obj/random/barricade_materials,
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "iJ" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/wood,
@@ -2131,6 +2147,7 @@
 /obj/effect/decal/curb,
 /obj/structure/table/steel,
 /obj/item/device/analyzer,
+/obj/random/gloves,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/spaceport)
 "oW" = (
@@ -2440,6 +2457,9 @@
 /area/point_verdant/outdoors)
 "rk" = (
 /obj/structure/table/wood,
+/obj/random/med_stack,
+/obj/random/med_stack,
+/obj/random/med_stack,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "rn" = (
@@ -2543,6 +2563,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/mre,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "rG" = (
@@ -2904,6 +2925,7 @@
 	dir = 10
 	},
 /obj/structure/rod_railing,
+/obj/random/toolbox,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "uC" = (
@@ -4363,6 +4385,7 @@
 	pixel_y = 3
 	},
 /obj/item/device/measuring_tape,
+/obj/random/glowstick,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/spaceport)
 "Em" = (
@@ -4712,6 +4735,19 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"GM" = (
+/obj/structure/ledge,
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/obj/structure/closet,
+/obj/random/splints,
+/obj/random/splints,
+/obj/random/med_stack,
+/obj/random/med_stack,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "GN" = (
@@ -5427,6 +5463,12 @@
 /obj/structure/road_barrier/bot_end,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
+"Md" = (
+/obj/structure/ledge/quarter,
+/obj/structure/rod_railing,
+/obj/random/toolbox,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Mf" = (
 /obj/machinery/door/urban/glass_sliding/double{
 	dir = 1
@@ -5574,6 +5616,7 @@
 	},
 /obj/item/pen,
 /obj/item/device/binoculars,
+/obj/random/konyang_gun/pistols,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "MV" = (
@@ -6152,6 +6195,21 @@
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/hotel)
+"Rj" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/random/tool,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/spaceport)
+"Rt" = (
+/obj/effect/decal/road_marking/reflector,
+/obj/structure/table/rack,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "Ru" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -6751,6 +6809,12 @@
 "VX" = (
 /obj/effect/decal/road_marking/thin,
 /obj/structure/closet/crate/secure/large,
+/obj/random/tool_konyang,
+/obj/random/tool_konyang,
+/obj/random/tool_konyang,
+/obj/random/tool_konyang,
+/obj/random/barbed_wire,
+/obj/random/barbed_wire,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
 "We" = (
@@ -37083,7 +37147,7 @@ oa
 Uw
 CY
 CY
-yS
+Md
 DC
 DC
 tP
@@ -38622,7 +38686,7 @@ DC
 DC
 Wi
 Wi
-Cc
+Rj
 ha
 Cc
 Bq
@@ -42991,8 +43055,8 @@ DC
 DC
 nj
 RA
-Hu
-Hu
+Rt
+iD
 RA
 oR
 DC
@@ -43507,7 +43571,7 @@ Yl
 el
 kl
 VX
-VX
+gV
 za
 DC
 DC
@@ -50994,7 +51058,7 @@ DD
 DD
 DD
 DD
-SU
+GM
 DC
 DC
 DC
