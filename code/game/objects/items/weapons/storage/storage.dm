@@ -432,7 +432,7 @@
 		stored_end.transform = M_end
 
 		storage_screens += list(stored_start, stored_continue, stored_end)
-		storage_start.vis_contents += list(stored_start, stored_continue, stored_end)
+		storage_start.add_vis_contents(list(stored_start, stored_continue, stored_end))
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""

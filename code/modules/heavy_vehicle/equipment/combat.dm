@@ -379,7 +379,7 @@
 
 /obj/aura/mechshield/added_to(mob/living/target)
 	..()
-	target.vis_contents += src
+	target.add_vis_contents(src)
 	dir = target.dir
 
 /obj/aura/mechshield/proc/set_holder(var/obj/item/mecha_equipment/shield/holder)
@@ -387,7 +387,7 @@
 
 /obj/aura/mechshield/Destroy()
 	if(user)
-		user.vis_contents -= src
+		user.remove_vis_contents(src)
 	shields = null
 	. = ..()
 
