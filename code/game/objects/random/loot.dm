@@ -435,7 +435,7 @@
 	M.amount = rand(10, 20)
 	M.update_icon()
 
-/obj/random/tool
+/obj/random/tool_konyang
 	name = "tool"
 	spawnlist = list(
 		/obj/item/screwdriver = 1,

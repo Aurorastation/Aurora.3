@@ -192,7 +192,7 @@
 		var/loot_amount = rand(1, 3)
 		for(var/i = 1 to loot_amount)
 			var/loot_type = pick(possible_loot)
-			var/obj/random/R = new loot_type(back)
+			new loot_type(back)
 	else
 		var/obj/item/I = back
 		drop_from_inventory(back)

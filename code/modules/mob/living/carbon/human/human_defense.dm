@@ -262,7 +262,7 @@ emp_act
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
 					visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
-					apply_effect(20, PARALYZE, blocked)
+					apply_effect(20, PARALYZE)
 
 		//Apply blood
 		if(!(I.atom_flags & ATOM_FLAG_NO_BLOOD))

@@ -1022,6 +1022,10 @@
 /area/point_verdant/interior/laundromat)
 "gj" = (
 /obj/structure/table/standard,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
 /turf/simulated/floor/shuttle/black,
 /area/point_verdant/interior/spaceport)
 "gn" = (
@@ -1171,6 +1175,14 @@
 	pixel_y = 32;
 	name = "k'ois - FOR VAURCA CONSUMPTION ONLY"
 	},
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/point_verdant/interior/spaceport)
 "hw" = (
@@ -4597,6 +4609,14 @@
 "Gf" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/closet/walllocker/emerglocker/north,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/point_verdant/interior/spaceport)
 "Gg" = (
@@ -6491,6 +6511,10 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/black,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
 /turf/simulated/floor/shuttle/black,
 /area/point_verdant/interior/spaceport)
 "Uh" = (

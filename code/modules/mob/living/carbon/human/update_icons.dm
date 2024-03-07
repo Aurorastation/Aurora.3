@@ -1435,7 +1435,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
-	overlays_raw[SURGERY_LAYER] = null
+	overlays_raw[DAMAGE_LAYER + 0.5] = null
 
 	var/image/total = new
 	for(var/obj/item/organ/external/E in organs)
@@ -1469,7 +1469,7 @@ There are several things that need to be remembered:
 			LAZYADD(overlays_to_add, image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER))
 		total.overlays |= overlays_to_add
 
-	overlays_raw[SURGERY_LAYER] = total
+	overlays_raw[DAMAGE_LAYER + 0.5] = total
 
 	if(update_icons)
 		update_icon()
