@@ -18,7 +18,7 @@
 	w_class = ITEMSIZE_SMALL
 	var/can_change_form = TRUE // For holodeck check.
 	var/cooldown = 0 // Floor tap cooldown.
-	var/list/nullchoices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
+	var/list/null_choices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
 		"Null Rod" = /obj/item/nullrod,
 		"Null Staff" = /obj/item/nullrod/staff,
 		"Null Orb" = /obj/item/nullrod/orb,
@@ -220,20 +220,20 @@
 	if(istype(H))
 		var/datum/religion/R = SSrecords.religions[H.religion]
 		if(R.nulloptions)
-			nullchoices.Add(R.nulloptions)
+			null_choices.Add(R.nulloptions)
 
-	var/picked = tgui_input_list(user, "What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", nullchoices)
+	var/picked = tgui_input_list(user, "What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", null_choices)
 
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
-	if(!ispath(nullchoices[picked]))
+	if(!ispath(null_choices[picked]))
 		return
 
 	to_chat(user, SPAN_NOTICE("You start reassembling your obsidian relic."))
 	if(!do_after(user, 2 SECONDS))
 		return
 
-	var/nullrodpath = nullchoices[picked]
+	var/nullrodpath = null_choices[picked]
 	var/obj/item/nullrod/chosenitem = new nullrodpath(get_turf(user))
 	qdel(src)
 	user.put_in_hands(chosenitem)
