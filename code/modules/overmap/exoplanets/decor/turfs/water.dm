@@ -168,7 +168,7 @@
 				for(var/datum/wound/W in E.wounds)
 					if(W.germ_level < INFECTION_LEVEL_ONE)
 						W.germ_level = INFECTION_LEVEL_ONE
-					W.germ_level += rand(10,50)
+					W.germ_level += rand(10, 50)
 
 /turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O as obj|mob)
 
