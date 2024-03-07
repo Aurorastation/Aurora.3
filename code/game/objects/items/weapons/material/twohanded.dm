@@ -83,7 +83,7 @@
 			O.unwield()
 	return ..()
 
-/obj/item/material/twohanded/dropped(mob/user as mob)
+/obj/item/material/twohanded/dropped(mob/user)
 	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)

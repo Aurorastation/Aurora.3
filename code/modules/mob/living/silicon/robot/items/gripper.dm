@@ -107,7 +107,7 @@
 
 /obj/item/gripper/CtrlClick(mob/user)
 	if(wrapped)
-		drop(get_turf(src))
+		drop(get_turf(src), user)
 		return
 	to_chat(user, SPAN_WARNING("\The [src] isn't gripping anything!"))
 
@@ -118,7 +118,21 @@
 
 	drop(get_turf(src), usr)
 
-/obj/item/gripper/proc/drop(var/atom/target, mob/user, var/feedback = TRUE)
+/**
+ * Drop an item from the gripper onto the target
+ *
+ * * target - An `/atom` to drop (move) the item onto
+ * * user - The `/mob` that is dropping it
+ * * feedback - Boolean, if `TRUE` prints a message about the drop
+ */
+/obj/item/gripper/proc/drop(atom/target, mob/user, feedback = TRUE)
+	if(!istype(target))
+		crash_with("The target to drop the item onto is not specified or is incorrect!")
+
+	if(!istype(user))
+		crash_with("The user that is performing the drop is not specified or is incorrect!")
+
+
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
@@ -128,6 +142,7 @@
 			force_holder = null
 		if(feedback)
 			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
+
 	wrapped = null
 	update_icon()
 	return TRUE

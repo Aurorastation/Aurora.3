@@ -39,7 +39,7 @@
 	register_owner(user)
 
 //Handles dropped or thrown cloakers
-/obj/item/cloaking_device/dropped(var/mob/user)
+/obj/item/cloaking_device/dropped(mob/user)
 	..()
 	var/mob/M = get_holding_mob()
 	if(!M)

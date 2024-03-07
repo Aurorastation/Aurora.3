@@ -74,7 +74,7 @@
 	head = /obj/item/clothing/head/konyang/police
 	id = /obj/item/card/id
 	belt = /obj/item/storage/belt/security
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/device/radio/map_preset
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
