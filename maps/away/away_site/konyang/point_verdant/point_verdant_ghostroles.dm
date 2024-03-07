@@ -493,3 +493,19 @@
 		/obj/item/handcuffs = 2,
 		/obj/item/clothing/glasses/welding/superior = 1
 	)
+
+/// Raccoon City zombies
+/datum/ghostspawner/human//zombie
+	name = "Konyanger Zombie"
+	short_name = "kzombie"
+	desc = "You are a Konyanger turned into a Zombie by the Outbreak. ADMIN NOTE: You MUST roleplay like a believable zombie. You're free to take your time and \
+			be spooky without immediately killing people, but you must NOT do anything cheesy, powergamey, metagamey or unbelievable for a zombie."
+	loc_type = GS_LOC_ATOM
+	max_count = 0
+	tags = "Outbreak"
+	spawnpoints = list("kzombie")
+	spawn_mob = /mob/living/carbon/human/zombie
+
+/obj/effect/ghostspawpoint/zombie
+	name = "igs - Generic Zombie"
+	identifier = "kzombie"

@@ -30,6 +30,8 @@
 		/obj/machinery/door
 	)
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	var/health = 100
+	var/maxhealth = 100
 	var/should_check_mapload = TRUE
 	var/has_glass_installed = FALSE
 	var/glass_needed = 4
@@ -123,7 +125,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
 			return
 		var/obj/item/stack/material/G = attacking_item
-		if(do_after(user, 2 SECONDS))
+		if(do_after(user, 3 SECONDS))
 			if(G.use(glass_needed))
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, SPAN_WARNING("You place the [MATERIAL_GLASS_REINFORCED_PHORON] in the window frame."))
@@ -139,6 +141,30 @@
 	var/obj/structure/window/W = locate() in get_turf(src)
 	if(istype(W))
 		W.hitby(AM)
+
+/obj/structure/window_frame/attack_generic(var/mob/user, var/damage, var/attack_verb)
+	visible_message("<span class='danger'>[user] [attack_verb] the [src]!</span>")
+	playsound(src, 'sound/effects/metalhit.ogg', 50, 1)
+	user.do_attack_animation(src)
+	health -= damage
+	check_health()
+	return TRUE
+
+/obj/structure/window_frame/proc/check_health()
+	if(health <= 0)
+		qdel(src)
+		return
+	var/descriptor
+	switch(health)
+		if(1 to 25)
+			descriptor = SPAN_DANGER("It's falling apart!")
+		if(25 to 50)
+			descriptor = SPAN_WARNING("It looks very damaged.")
+		if(50 to 75)
+			descriptor = SPAN_WARNING("It's damaged, but holding on.")
+		if(50 to 100)
+			descriptor = SPAN_NOTICE("It's a little damaged.")
+	desc = initial(desc) + " [descriptor]"
 
 /obj/structure/window_frame/wood
 	color = "#8f5847"
