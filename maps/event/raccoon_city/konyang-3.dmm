@@ -355,6 +355,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/light,
+/obj/random/light,
+/obj/random/light,
+/obj/random/light,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "cf" = (
@@ -837,6 +841,7 @@
 	layer = 9.1
 	},
 /obj/structure/undies_wardrobe,
+/obj/random/survival_weapon,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "fs" = (
@@ -853,6 +858,7 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
+/obj/random/med_stack,
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/tailor)
 "fx" = (
@@ -999,6 +1005,8 @@
 /obj/item/device/flashlight{
 	pixel_y = 12
 	},
+/obj/random/med_stack,
+/obj/random/med_stack,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "ga" = (
@@ -1122,6 +1130,8 @@
 /obj/random/tool_konyang,
 /obj/random/tool_konyang,
 /obj/random/barbed_wire,
+/obj/random/light,
+/obj/random/light,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
 "gX" = (
@@ -1324,16 +1334,8 @@
 	pixel_x = -6;
 	pixel_y = -1
 	},
-/obj/item/stack/material/steel/full{
-	pixel_x = -6;
-	pixel_y = -1
-	},
 /obj/item/stack/material/silver/full{
 	pixel_x = 5;
-	pixel_y = -1
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = -6;
 	pixel_y = -1
 	},
 /turf/simulated/floor/tiled,
@@ -1640,6 +1642,7 @@
 "kT" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/cups,
+/obj/random/splints,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "kX" = (
@@ -2148,6 +2151,8 @@
 /obj/structure/table/steel,
 /obj/item/device/analyzer,
 /obj/random/gloves,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/spaceport)
 "oW" = (
@@ -2346,6 +2351,7 @@
 	dir = 4
 	},
 /obj/structure/undies_wardrobe,
+/obj/random/konyang_gun/automatic,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
 "qI" = (
@@ -2612,6 +2618,8 @@
 /obj/structure/closet/crate/tool,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
+/obj/random/light,
+/obj/random/light,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "sa" = (
@@ -2888,6 +2896,8 @@
 "ug" = (
 /obj/structure/closet/crate/weld,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/light,
+/obj/random/light,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "um" = (
@@ -4003,21 +4013,6 @@
 /obj/item/stack/material/glass/full{
 	pixel_x = -7
 	},
-/obj/item/stack/material/glass/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/glass/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 7
-	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "Ci" = (
@@ -4043,18 +4038,6 @@
 "Cl" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/stack/material/steel/full{
-	pixel_x = -3
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 3
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = -3
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 3
-	},
 /obj/item/reagent_containers/weldpack{
 	pixel_y = 3
 	},
@@ -4116,32 +4099,11 @@
 /area/point_verdant/interior/hotel)
 "CF" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/stack/material/plasteel/full{
-	pixel_x = 7
-	},
 /obj/item/stack/material/steel/full{
 	pixel_x = -7
 	},
 /obj/item/stack/material/steel/full{
 	pixel_x = -7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/plasteel/full{
-	pixel_x = 7
-	},
-/obj/item/stack/material/plasteel/full{
-	pixel_x = 7
-	},
-/obj/item/stack/material/plasteel/full{
-	pixel_x = 7
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
@@ -4867,6 +4829,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/random/splints,
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/tailor)
 "HE" = (
@@ -5073,6 +5036,7 @@
 /obj/structure/toilet{
 	pixel_x = -8
 	},
+/obj/random/konyang_gun/automatic,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/arcade)
 "Jb" = (
@@ -5149,6 +5113,7 @@
 	pixel_x = 8;
 	pixel_y = -14
 	},
+/obj/random/survival_weapon,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "JE" = (
@@ -5963,6 +5928,7 @@
 /obj/item/extinguisher{
 	pixel_x = -7
 	},
+/obj/random/survival_weapon,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
 "PE" = (
@@ -6139,6 +6105,7 @@
 "Qq" = (
 /obj/structure/table/wood,
 /obj/item/device/taperecorder,
+/obj/random/survival_weapon,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "Qu" = (
@@ -6815,6 +6782,8 @@
 /obj/random/tool_konyang,
 /obj/random/barbed_wire,
 /obj/random/barbed_wire,
+/obj/random/light,
+/obj/random/light,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
 "We" = (
