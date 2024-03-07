@@ -143,10 +143,61 @@
 		return TRUE
 	return FALSE
 
+/mob/living/carbon/human/bull/Initialize(mapload, new_species)
+	. = ..(mapload, SPECIES_ZOMBIE_BULL)
+	set_name("zombie bull")
+
+/mob/living/carbon/human/hunter/Initialize(mapload, new_species)
+	. = ..(mapload, SPECIES_ZOMBIE_HUNTER)
+	set_name("zombie hunter")
+
+/mob/living/carbon/human/rhino/Initialize(mapload, new_species)
+	. = ..(mapload, SPECIES_ZOMBIE_RHINO)
+	set_name("zombie rhino")
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
 	. = ..(mapload, SPECIES_ZOMBIE)
-	set_name("undead")
+	set_name("zombie")
+	var/list/possible_outfits = list(
+		/datum/outfit/admin/konyang_cop,
+		/datum/outfit/admin/konyang_clinic,
+		/datum/outfit/admin/konyang_firewatcher,
+		/datum/outfit/admin/konyang_goon,
+		/datum/outfit/admin/konyang_gwok,
+		/datum/outfit/admin/konyang_homesteader,
+		/datum/outfit/admin/konyang_pharm,
+		/datum/outfit/admin/konyang_utility,
+		/datum/outfit/admin/konyang_vendor,
+		/datum/outfit/admin/konyang_villager,
+		/datum/outfit/admin/konyang_zh,
+		/datum/outfit/admin/konyang_army_response/mechpilot,
+		/datum/outfit/admin/konyang_army_response/officer
+	)
+	var/datum/outfit/O = pick(possible_outfits)
+	preEquipOutfit(O, FALSE)
+	equipOutfit(O, FALSE)
+
+	// This zombie will drop loot.
+	if(prob(25))
+		var/list/possible_loot = list(
+			/obj/random/konyang_gun/pistols,
+			/obj/random/splints,
+			/obj/random/med_stack,
+			/obj/random/light,
+			/obj/random/survival_weapon,
+			/obj/random/tool,
+			/obj/random/barbed_wire,
+			/obj/random/barricade_materials
+		)
+		var/loot_amount = rand(1, 3)
+		for(var/i = 1 to loot_amount)
+			var/loot_type = pick(possible_loot)
+			var/obj/random/R = new loot_type(back)
+	else
+		var/obj/item/I = back
+		drop_from_inventory(back)
+		qdel(I)
+	regenerate_icons()
 
 /datum/species/zombie
 	name = SPECIES_ZOMBIE
@@ -241,7 +292,9 @@
 		/obj/structure/girder,
 		/turf/simulated/wall,
 		/obj/machinery/door/blast/shutters,
-		/obj/machinery/door
+		/obj/machinery/door,
+		/obj/structure/chainlink_fence,
+		/obj/structure/railing
 	)
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
@@ -324,9 +377,14 @@
 			var/turf/dir = get_step_towards(H, H.target)
 			for(var/type in obstacles) //Break obstacles
 				var/obj/obstacle = locate(type) in dir
+				if(istype(obstacle, /obj/machinery/door))
+					var/obj/machinery/door/D = obstacle
+					if(D.stat & BROKEN)
+						H.visible_message(SPAN_DANGER("[H] pries \the [D] open!"))
+						D.open(TRUE)
 				if (obstacle)
 					H.face_atom(obstacle)
-					obstacle.attack_generic(H, rand(20, 30), "smashes")
+					obstacle.attack_generic(H, rand(10, 30), "smashes")
 					break
 
 			walk_to(H, H.target.loc, 1, H.species.slowdown * 1.25)
@@ -355,7 +413,8 @@
 		if (!H.lying)
 			walk(H, 0) //Clear walking
 			if (prob(33) && isturf(H.loc) && !H.pulledby)
-				H.SelfMove(pick(GLOB.cardinal))
+				var/turf/T = get_step(H, pick(GLOB.cardinal))
+				H.SelfMove(T, get_dir(H, T))
 
 /datum/species/zombie/tajara
 	name = SPECIES_ZOMBIE_TAJARA
@@ -465,6 +524,7 @@
 	)
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious)
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/carbon/proc/consume, /mob/living/carbon/proc/smash_barricade)
 	show_ssd = TRUE
 
 
@@ -479,7 +539,7 @@
 	total_health = 180
 
 	stamina = 40
-	sprint_speed_factor = 0.9
+	sprint_speed_factor = 2
 	slowdown = -2
 	standing_jump_range = 5
 	natural_climbing = TRUE
@@ -488,9 +548,9 @@
 	hearing_sensitivity = HEARING_VERY_SENSITIVE
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MEDIUM,
+		ballistic = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_PISTOL,
-		melee = ARMOR_MELEE_MAJOR,
+		melee = ARMOR_MELEE_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		energy = ARMOR_ENERGY_SMALL
 	)
@@ -624,6 +684,26 @@
 				src.visible_message(SPAN_DANGER("\The [src] tears out \the [target]'s insides!"))
 	else
 		src.visible_message(SPAN_WARNING("\The [src] leaves their meal for later."))
+
+/mob/living/carbon/proc/smash_barricade()
+	set name = "Destroy Barricade"
+	set desc = "Destroy a barricade in front of you."
+	set category = "Abilities"
+
+	if (last_special > world.time)
+		to_chat(src, SPAN_WARNING("You aren't ready to do that! Wait [round(last_special - world.time) / 10] seconds."))
+		return
+
+	var/obj/structure/barricade/B = locate() in get_turf(get_step(src, dir))
+	if(!B)
+		to_chat(src, SPAN_WARNING("You are not facing a barricade!"))
+		return
+
+	last_special = world.time + 10 SECONDS
+	if(do_after(src, 2 SECONDS, B))
+		visible_message(SPAN_DANGER("<font size=4>\The [src] raises a giant, mutated hand and smashes \the [B]!</font>"))
+		playsound(src, 'sound/weapons/heavysmash.ogg', 100)
+		B.attack_generic(src, 200, "destroys", TRUE)
 
 /datum/species/human/superhuman
 	name = "Superhuman"

@@ -350,6 +350,32 @@
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	layer = ABOVE_ALL_MOB_LAYER
+	var/health = 30
+	var/maxhealth = 30
+
+/obj/structure/chainlink_fence/attack_generic(var/mob/user, var/damage, var/attack_verb)
+	visible_message("<span class='danger'>[user] [attack_verb] the [src]!</span>")
+	playsound(src, 'sound/effects/metalhit.ogg', 50, 1)
+	user.do_attack_animation(src)
+	health -= damage
+	check_health()
+	return TRUE
+
+/obj/structure/chainlink_fence/proc/check_health()
+	if(health <= 0)
+		qdel(src)
+		return
+	var/descriptor
+	switch(health)
+		if(1 to 25)
+			descriptor = SPAN_DANGER("It's falling apart!")
+		if(25 to 50)
+			descriptor = SPAN_WARNING("It looks very damaged.")
+		if(50 to 75)
+			descriptor = SPAN_WARNING("It's damaged, but holding on.")
+		if(50 to 100)
+			descriptor = SPAN_NOTICE("It's a little damaged.")
+	desc = initial(desc) + " [descriptor]"
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
@@ -361,20 +387,18 @@
 		if(P.firer && Adjacent(P.firer))
 			return TRUE
 		return prob(35)
-	if(isliving(mover))
-		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if (get_dir(loc, target) == dir)
+		return !density
+	else
 		return TRUE
-	return FALSE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
-	if(istype(O) && CanPass(O, target))
+	if(istype(O) && O.checkpass(PASSTABLE))
 		return TRUE
-	if(get_dir(O.loc, target) == dir)
-		if(!density)
-			return TRUE
-		return FALSE
-	return TRUE
+	if (get_dir(loc, target) == dir)
+		return !density
+	else
+		return TRUE
 
 /obj/structure/rope_railing
 	name = "wooden rope"

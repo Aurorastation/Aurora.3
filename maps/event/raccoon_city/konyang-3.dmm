@@ -3261,6 +3261,10 @@
 /obj/item/storage/box/cups,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"xs" = (
+/obj/abstract/weather_marker/konyang,
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 "xx" = (
 /obj/structure/ledge/roof,
 /obj/structure/rod_railing,
@@ -12645,7 +12649,7 @@ Cw
 Cw
 Cw
 Cw
-Cw
+xs
 ER
 ER
 ER

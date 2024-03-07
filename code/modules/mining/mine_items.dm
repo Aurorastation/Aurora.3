@@ -183,6 +183,8 @@
 	name = "sledgehammer"
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
 	icon_state = "sledgehammer"
+	force_unwielded = 15
+	force_wielded = 40
 	icon = 'icons/obj/weapons.dmi'
 
 /obj/item/pickaxe/silver

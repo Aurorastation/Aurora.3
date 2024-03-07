@@ -207,7 +207,7 @@
 		to_chat(user, SPAN_WARNING("<font size=4>You feel that \the [target] has been already infected!</font>"))
 		return
 
-	var/infection_chance = 40
+	var/infection_chance = 80
 	infection_chance -= target.get_blocked_ratio(zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, damage = damage)*100
 	var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
 	if(prob(infection_chance))

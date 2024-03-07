@@ -435,6 +435,9 @@ var/datum/controller/subsystem/ticker/SSticker
 		else
 			login_music = pick(default_lobby_tracks)
 
+	for(var/client/C in GLOB.clients)
+		C.playtitlemusic()
+
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
 		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")

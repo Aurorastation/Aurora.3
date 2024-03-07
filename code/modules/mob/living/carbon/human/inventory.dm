@@ -235,7 +235,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		return
 	if(!has_organ_for_slot(slot))
 		return
-	if(!species || !species.hud || !(slot in species.hud.equip_slots) || !species.has_fine_manipulation)
+	if(!species || !species.hud || !(slot in species.hud.equip_slots))
 		return
 	if(!W.check_equipped(src, slot, assisted_equip))
 		return

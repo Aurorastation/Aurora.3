@@ -334,9 +334,6 @@
 
 	egg = /singleton/reagent/toxin/trioxin
 
-	var/old_species
-	var/list/old_skin_color
-
 	var/last_heal = 0
 	var/heal_rate = 5 SECONDS
 
@@ -344,6 +341,9 @@
 	..()
 
 	if(!owner)
+		return
+
+	if(owner.stat >= DEAD)
 		return
 
 	if(!iszombie(owner))
@@ -359,7 +359,7 @@
 
 		if(stage >= 3)
 			if(prob(10))
-				to_chat(SPAN_CULT("Every beat of your heart hurts - an aching, dull pain. Cold sweat continues falling down your brows. You feel like you have a fever..."))
+				to_chat(owner, SPAN_CULT("Every beat of your heart hurts - an aching, dull pain. Cold sweat continues falling down your brows. You feel like you have a fever..."))
 				owner.nutrition = max(0, owner.nutrition - 10)
 				owner.hydration = max(0, owner.hydration - 10)
 				E.add_pain(20)
@@ -415,13 +415,15 @@
 			owner.make_jittery(10)
 
 /obj/item/organ/internal/parasite/zombie/process_stage()
-	if(iszombie(owner) && stage != 4)
+	if(stage >= 4)
+		return
+	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+	if(iszombie(owner))
 		if(parent_organ != BP_HEAD)
 			var/obj/item/organ/external/head = owner.organs_by_name[BP_HEAD]
-			move_to(owner, head)
+			move_to(owner, head, E)
 			stage = 4
 			return
-	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
 	if(E.parent)
 		to_chat(owner, SPAN_WARNING("The veins in your [E.name] turn black..."))
 		E.status |= ORGAN_ZOMBIFIED
