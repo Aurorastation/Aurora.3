@@ -156,9 +156,9 @@
 	if(lattice)
 		return
 	for(var/mob/living/carbon/human/H in src) // Sewage is poisonous.
-		if(!H.reagents.has_reagent(/singleton/reagent/toxin, 30))
+		if(!H.reagents.has_reagent(/singleton/reagent/toxin, 10))
 			H.reagents.add_reagent(/singleton/reagent/toxin, 1)
-		if(!H.reagents.has_reagent(/singleton/reagent/ammonia, 30))
+		if(!H.reagents.has_reagent(/singleton/reagent/ammonia, 10))
 			H.reagents.add_reagent(/singleton/reagent/ammonia, 1)
 		for(var/A in H.organs)
 			var/obj/item/organ/external/E = A
