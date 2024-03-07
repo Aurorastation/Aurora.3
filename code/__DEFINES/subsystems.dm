@@ -237,7 +237,7 @@
 #define INIT_ORDER_VOTE -4
 #define INIT_ORDER_ASSETS -5
 #define INIT_ORDER_ICON_UPDATE -5.5 //Yet another aurora snowflake, Icon update queue flush. Should run before overlays, probably before smoothing the icon too
-#define SS_PRIORITY_VIS_CONTENTS -5.6  // Queued vis_contents updates.
+#define INIT_ORDER_VISCONTENTS -5.6  // Queued vis_contents updates.
 #define INIT_ORDER_ICON_SMOOTHING -6
 #define INIT_ORDER_OVERLAY -7
 #define INIT_ORDER_WEATHER    -9

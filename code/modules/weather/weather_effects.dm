@@ -12,7 +12,7 @@
 		return -(round(current_wind_strength * 0.5))
 
 	// Never spit into the wind.
-	var/reversed_wind = global.reverse_dir[wind_direction]
+	var/reversed_wind = GLOB.reverse_dir[wind_direction]
 	if(reversed_wind == travel_dir)
 		return current_wind_strength
 	if(travel_dir & reversed_wind)
@@ -38,7 +38,7 @@
 	set waitfor = FALSE
 	animate(lightning_overlay, alpha = 255, time = 2)
 	for(var/client/C)
-		if(!isliving(C.mob) || C.mob.get_preference_value(/datum/client_preference/play_ambiance) != PREF_YES)
+		if(!isliving(C.mob) || !(C.prefs.sfx_toggles & ASFX_AMBIENCE))
 			continue
 		var/turf/T = get_turf(C.mob)
 		if(!(T.z in affecting_zs))

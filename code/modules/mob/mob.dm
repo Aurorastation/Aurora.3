@@ -1394,6 +1394,16 @@
 	var/list/data = list()
 	return data
 
+/mob/proc/get_weather_protection()
+	for(var/obj/item/brolly in get_active_hand())
+		if(brolly.gives_weather_protection())
+			LAZYADD(., brolly)
+	if(!LAZYLEN(.))
+		for(var/turf/T as anything in RANGE_TURFS(loc, 1))
+			for(var/obj/structure/flora/tree in T)
+				if(tree.protects_against_weather)
+					LAZYADD(., tree)
+
 /mob/living/carbon/human/get_weather_protection()
 	. = ..()
 	if(!LAZYLEN(.))

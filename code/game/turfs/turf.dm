@@ -562,6 +562,30 @@ var/const/enterloopsanity = 100
 		. = top_of_stack.is_outside()
 	last_outside_check = . // Cache this for later calls.
 
+/turf/proc/set_outside(var/new_outside, var/skip_weather_update = FALSE)
+	if(is_outside == new_outside)
+		return FALSE
+
+	is_outside = new_outside
+	if(!skip_weather_update)
+		update_weather()
+
+	last_outside_check = OUTSIDE_UNCERTAIN
+
+	if(!HasBelow(z))
+		return TRUE
+
+	// Invalidate the outside check cache for turfs below us.
+	var/turf/checking = src
+	while(HasBelow(checking.z))
+		checking = GetBelow(checking)
+		if(!isturf(checking))
+			break
+		checking.last_outside_check = OUTSIDE_UNCERTAIN
+		if(!checking.is_open())
+			break
+	return TRUE
+
 /turf/proc/update_weather(var/obj/abstract/weather_system/new_weather, var/force_update_below = FALSE)
 
 	if(isnull(new_weather))

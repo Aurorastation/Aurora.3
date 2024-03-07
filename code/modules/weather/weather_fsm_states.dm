@@ -33,11 +33,11 @@
 	weather.alpha = alpha
 
 	if(is_liquid && weather.water_material)
-		var/singleton/material/mat = GET_SINGLETON(weather.water_material)
-		weather.color = mat.color
+		var/material/mat = SSmaterials.get_material_by_name(weather.water_material)
+		weather.color = mat.icon_colour
 	else if(is_ice && weather.ice_material)
-		var/singleton/material/mat = GET_SINGLETON(weather.ice_material)
-		weather.color = mat.color
+		var/material/mat = SSmaterials.get_material_by_name(weather.ice_material)
+		weather.color = mat.icon_colour
 	else
 		weather.color = COLOR_WHITE
 

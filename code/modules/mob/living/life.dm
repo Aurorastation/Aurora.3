@@ -12,10 +12,10 @@
 	if(!loc)
 		return
 
-	var/datum/gas_mixture/environment = loc.return_air()
+	var/datum/gas_mixture/gas_environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
-	if(environment)
-		handle_environment(environment)
+	if(gas_environment)
+		handle_gas_environment(gas_environment)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -59,7 +59,7 @@
 /mob/living/proc/handle_random_events()
 	return
 
-/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
+/mob/living/proc/handle_gas_environment(var/datum/gas_mixture/environment)
 	return
 
 /mob/living/proc/update_pulling()
@@ -223,7 +223,7 @@
 
 	// Refresh weather ambience.
 	// Show messages and play ambience.
-	if(client && get_preference_value(/datum/client_preference/play_ambiance) == PREF_YES)
+	if(client && client.prefs.sfx_toggles & ASFX_AMBIENCE)
 
 		// Work out if we need to change or cancel the current ambience sound.
 		var/send_sound
@@ -244,3 +244,4 @@
 		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = sound_channels.weather_channel))
 		if(send_sound)
 			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = sound_channels.weather_channel))
+

@@ -38,7 +38,7 @@
 	if(weather)
 		to_chat(usr, SPAN_WARNING("This z-level already has weather."))
 		return
-	SSweather.setup_weather_system(SSmapping.zl)
+	SSweather.setup_weather_system(T.z)
 	to_chat(usr, SPAN_NOTICE("Weather created for z[T.z]."))
 
 /datum/admins/proc/force_weather_state()
@@ -59,7 +59,7 @@
 		to_chat(usr, SPAN_WARNING("This z-level has no weather. Use <b>Initialize Weather For Level</b> if you want to create it."))
 		return
 
-	var/use_state = input(usr, "Which state do you wish to use?", "Target State") as null|anything in decls_repository.GET_SINGLETON_paths_of_subtype(/singleton/state/weather)
+	var/use_state = input(usr, "Which state do you wish to use?", "Target State") as null|anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/state/weather)
 	if(!use_state || weather != (T.weather || SSweather.weather_by_z[T.z]))
 		return
 	weather.weather_system.set_state(use_state)

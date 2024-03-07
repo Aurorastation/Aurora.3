@@ -72,6 +72,8 @@ var/global/list/area_blurb_stated_to = list()
 	/// Used to filter description showing across subareas.
 	var/area_blurb_category
 
+	var/tmp/is_outside = OUTSIDE_NO
+
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
@@ -482,7 +484,7 @@ var/list/mob/living/forced_ambiance_list = new
 	var/outside_changed = T.is_outside() != old_outside
 	if(T.is_outside == OUTSIDE_AREA && outside_changed)
 		T.update_weather()
-		T.update_external_atmos_participation()
+		//T.update_external_atmos_participation() todomatt ?
 
 /**
 * Displays an area blurb on a mob's screen.

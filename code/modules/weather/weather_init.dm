@@ -4,7 +4,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
 
 	. = ..()
 
-	set_invisibility(INVISIBILITY_NONE)
+	set_invisibility(0)
 
 	// Bookkeeping/rightclick guards.
 	verbs.Cut()
@@ -17,7 +17,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
 	weather_system.set_state(initial_weather || /singleton/state/weather/calm)
 
 	// Track our affected z-levels.
-	affecting_zs = SSmapping.get_connected_levels(target_z)
+	affecting_zs = GetConnectedZlevels(target_z)
 
 	// If we're post-init, init immediately.
 	if(SSweather.initialized)

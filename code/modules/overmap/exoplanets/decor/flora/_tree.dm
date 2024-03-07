@@ -4,14 +4,13 @@
 	density = TRUE
 	layer = 9
 	pixel_x = -16
+	protects_against_weather = TRUE
 	var/max_chop_health = 180
 	var/chop_health = 180 //15 hits with steel hatchet, 5 with wielded fireaxe
 	var/fall_force = 60
 	var/list/contained_objects = list()	//If it has anything except wood. Fruit, pinecones, animals, etc.
 	var/stumptype = /obj/structure/flora/stump //stump to make when chopped
 	var/static/list/fall_forbid = list(/obj/structure/flora, /obj/effect, /obj/structure/bonfire, /obj/structure/pit)
-	/// Whether or not you can shelter under this tree.
-	var/protects_against_weather = TRUE
 
 /obj/structure/flora/tree/proc/update_desc()
 	desc = initial(desc)
@@ -136,7 +135,6 @@
 	name = "big log"
 	desc = "A sideways tree, but dead. Chop this into useable logs!"
 	anchored = FALSE
-	protects_against_weather = FALSE
 	icon_state = "timber"
 
 /obj/structure/flora/stump/log/attackby(obj/item/attacking_item, mob/user)

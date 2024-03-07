@@ -304,7 +304,7 @@
 
 	return breath
 
-/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+/mob/living/carbon/human/handle_gas_environment(datum/gas_mixture/environment)
 	if(!environment)
 		return
 

@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(vis_contents_update)
 	name = "Vis Contents"
 	flags = SS_BACKGROUND
 	wait = 1
-	init_order = SS_INIT_VIS_CONTENTS
+	init_order = INIT_ORDER_VISCONTENTS
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 	var/list/queue_refs = list()
 
@@ -13,15 +13,15 @@ SUBSYSTEM_DEF(vis_contents_update)
 	fire(FALSE, TRUE)
 
 /datum/controller/subsystem/vis_contents_update/StartLoadingMap()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/vis_contents_update/StopLoadingMap()
-	wake()
+	can_fire = TRUE
 
 // Largely copied from SSicon_update.
 /datum/controller/subsystem/vis_contents_update/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if(!queue_refs.len)
-		suspend()
+		can_fire = FALSE
 		return
 	var/i = 0
 	while (i < queue_refs.len)
@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(vis_contents_update)
 		return
 	vis_update_queued = TRUE
 	SSvis_contents_update.queue_refs.Add(src)
-	SSvis_contents_update.wake()
+	SSvis_contents_update.can_fire = TRUE
 
 // Horrible colon syntax below is because vis_contents
 // exists in /atom.vars, but will not compile. No idea why.

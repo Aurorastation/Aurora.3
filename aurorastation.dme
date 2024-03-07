@@ -3532,6 +3532,8 @@
 #include "code\modules\ventcrawl\ventcrawl.dm"
 #include "code\modules\ventcrawl\ventcrawl_atmospherics.dm"
 #include "code\modules\ventcrawl\ventcrawl_verb.dm"
+#include "code\modules\weather\_weather.dm"
+#include "code\modules\weather\weather_debug.dm"
 #include "code\modules\weather\weather_effects.dm"
 #include "code\modules\weather\weather_fsm.dm"
 #include "code\modules\weather\weather_fsm_state_transitions.dm"
