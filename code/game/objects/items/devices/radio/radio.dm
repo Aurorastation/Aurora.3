@@ -51,47 +51,57 @@ var/global/list/default_interrogation_channels = list(
 	suffix = "\[3\]"
 	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
+	/// Automatically set on initialize, only update if bypass_default_internal is set to TRUE
 	var/list/internal_channels
-	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
-	var/clickvol = 10 //volume
+	/// played sound on usage
+	var/clicksound = /singleton/sound_category/button_sound
+	/// volume of clicksound
+	var/clickvol = 10
 
 	var/obj/item/cell/cell = /obj/item/cell/device
 	var/last_radio_sound = -INFINITY
 
-	// If FALSE, broadcasting and listening don't matter and this radio does nothing
+	/// If FALSE, broadcasting and listening don't matter and this radio does nothing
 	VAR_PRIVATE/on = TRUE
 
-	VAR_PRIVATE/frequency = PUB_FREQ // Current frequency the radio is set to
-	var/default_frequency = PUB_FREQ // frequency the radio defaults to on reset / startup
+	/// Current frequency the radio is set to
+	VAR_PRIVATE/frequency = PUB_FREQ
+	/// frequency the radio defaults to on reset / startup
+	var/default_frequency = PUB_FREQ
 
-	// Whether the radio transmits dialogue it hears nearby onto its radio channel
+	/// Whether the radio transmits dialogue it hears nearby onto its radio channel
 	VAR_PRIVATE/broadcasting = FALSE
-	// Whether the radio is currently receiving radio messages from its frequencies
+	/// Whether the radio is currently receiving radio messages from its frequencies
 	VAR_PRIVATE/listening = TRUE
 
 	//the below vars are used to track listening and broadcasting should they be forced off for whatever reason but "supposed" to be active
 	//eg player sets the radio to listening, but an emp or whatever turns it off, its still supposed to be activated but was forced off,
 	//when it wears off it sets listening to should_be_listening
 
-	///used for tracking what broadcasting should be in the absence of things forcing it off, eg its set to broadcast but gets emp'd temporarily
+	/// used for tracking what broadcasting should be in the absence of things forcing it off, eg its set to broadcast but gets emp'd temporarily
 	var/should_be_broadcasting = FALSE
-	///used for tracking what listening should be in the absence of things forcing it off, eg its set to listen but gets emp'd temporarily
+	/// used for tracking what listening should be in the absence of things forcing it off, eg its set to listen but gets emp'd temporarily
 	var/should_be_listening = TRUE
 
 	/// Both the range around the radio in which mobs can hear what it receives and the range the radio can hear
 	var/canhear_range = 3
 
 	var/last_transmission
-	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
-	var/mob/living/announcer/announcer = null // used in autosay, held by the radio for re-use
+	/// tune to frequency to unlock traitor supplies
+	var/traitor_frequency = 0
+	/// used in autosay, held by the radio for re-use
+	var/mob/living/announcer/announcer = null
 	var/datum/wires/radio/wires = null
 	var/show_modify_on_examine = TRUE
 	var/b_stat = 0
 
-	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
+	/// see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
+	var/list/channels = list()
 	var/subspace_transmission = FALSE
-	var/syndie = FALSE //Holder to see if it's a syndicate encrypted radio
-	var/independent = FALSE // if TRUE, can say/hear on the Special Channel!!! (TBD)
+	/// Holder to see if it's a syndicate encrypted radio
+	var/syndie = FALSE
+	/// if TRUE, can say/hear on the Special Channel!!! (TBD)
+	var/independent = FALSE
 
 	var/datum/radio_frequency/radio_connection
 	var/list/datum/radio_frequency/secure_radio_connections = list()
@@ -102,11 +112,15 @@ var/global/list/default_interrogation_channels = list(
 		frequency = new_frequency
 		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
+/// By default copies default_internal_channels. Override on child for radios that need snowflake.
+/obj/item/device/radio/proc/set_internal_channels()
+	return default_internal_channels.Copy()
+
 /obj/item/device/radio/Initialize()
 	. = ..()
 
 	wires = new(src)
-	internal_channels = default_internal_channels.Copy()
+	internal_channels = set_internal_channels()
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
@@ -743,14 +757,38 @@ var/global/list/default_interrogation_channels = list(
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
-		frequency = assign_away_freq(V.name)
+		var/freq_name = V.name
+		if(V.freq_name)
+			freq_name = V.freq_name
+		frequency = assign_away_freq(freq_name)
+		default_frequency = frequency
 		channels += list(
-			V.name = TRUE,
+			freq_name = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
 		if(V.comms_name)
 			name = "[V.comms_name] shortwave radio"
 
+	return ..()
+
+/obj/item/device/radio/map_preset/set_internal_channels()
+	return list(
+		num2text(default_frequency) = list(),
+		num2text(HAIL_FREQ) = list()
+	)
+
+/obj/item/device/radio/hailing
+	default_frequency = HAIL_FREQ
+
+/obj/item/device/radio/hailing/set_internal_channels()
+	return list(
+		num2text(HAIL_FREQ) = list()
+	)
+
+/obj/item/device/radio/hailing/Initialize()
+	channels = list(
+		CHANNEL_HAILING = TRUE
+	)
 	return ..()
 
 // Radio (Off)

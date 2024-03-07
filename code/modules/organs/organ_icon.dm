@@ -150,7 +150,6 @@
 				organ_icon = new /icon(internal_organ_icon, O.item_state || O.icon_state)
 				SSicon_cache.internal_organ_cache[cache_key] = organ_icon
 
-			to_chat(cache_key)
 			add_overlay(organ_icon)
 			mob_icon.Blend(organ_icon, ICON_OVERLAY)
 

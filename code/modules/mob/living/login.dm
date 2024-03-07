@@ -7,4 +7,13 @@
 	//If they're SSD, remove it so they can wake back up.
 	update_antag_icons(mind)
 	reset_death_timers()
+
+	// Clear our cosmetic/sound weather cooldowns.
+	var/obj/abstract/weather_system/weather = get_affecting_weather()
+
+	var/mob_ref = WEAKREF(src)
+	if(istype(weather))
+		weather.mob_shown_weather -= mob_ref
+		weather.mob_shown_wind    -= mob_ref
+	GLOB.current_mob_ambience   -= mob_ref
 	return .

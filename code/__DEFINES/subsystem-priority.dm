@@ -49,6 +49,7 @@
 #define SS_PRIORITY_EFFECTS     20	// New-style effects manager. Timing of effects may be off if this gets too far behind.
 #define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
+#define SS_PRIORITY_WEATHER     10  // Weather processing.
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 #define SS_PRIORITY_ARRIVALS    10	// Centcomm arrivals shuttle auto-launch. Usually asleep.

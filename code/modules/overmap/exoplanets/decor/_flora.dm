@@ -4,6 +4,8 @@
 	anchored = TRUE
 	density = TRUE
 	var/cutting
+	/// Whether or not you can shelter under this.
+	var/protects_against_weather = FALSE
 
 /obj/structure/flora/proc/dig_up(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] begins digging up \the [src]..."))

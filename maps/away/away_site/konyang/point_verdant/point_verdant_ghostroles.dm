@@ -74,7 +74,7 @@
 	head = /obj/item/clothing/head/konyang/police
 	id = /obj/item/card/id
 	belt = /obj/item/storage/belt/security
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/device/radio/map_preset
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
@@ -301,3 +301,195 @@
 
 /datum/outfit/admin/konyang_gwok/get_id_access()
 	return list(ACCESS_KONYANG_VENDORS)
+
+//Konyang Army Personnel - basically a pseudo-ert for if shit's going down on Point Verdant
+/datum/ghostspawner/human/konyang_army
+	short_name = "konyang_army"
+	name = "Konyang Army Soldier"
+	desc = "You are a soldier of the Konyang army, deployed to deal with a crisis in Point Verdant."
+	max_count = 3
+	tags = list("External")
+	spawnpoints = list("konyang_army")
+	outfit = /datum/outfit/admin/konyang_army_response
+	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Konyang Army Soldier"
+	special_role = "Konyang Army Soldier"
+	mob_name_prefix = "Pfc. "
+	respawn_flag = null
+	enabled = FALSE
+
+/datum/outfit/admin/konyang_army_response
+	name = "Konyang Army Responder"
+	uniform = /obj/item/clothing/under/rank/konyang
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/konyang/army
+	l_pocket = /obj/item/storage/wallet/random
+	l_ear = /obj/item/device/radio/headset/distress
+	belt = /obj/item/storage/belt/military
+	back = /obj/item/storage/backpack/rucksack/tan
+	id = /obj/item/card/id
+	gloves = /obj/item/clothing/gloves/swat/ert
+	accessory = /obj/item/clothing/accessory/holster/hip
+	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
+		/obj/item/handcuffs/ziptie = 2,
+		/obj/item/melee/energy/sword/knife/sol = 1
+	)
+
+
+/datum/outfit/admin/konyang_army_response/get_id_access()
+	return list(ACCESS_DISTRESS, ACCESS_KONYANG_POLICE, ACCESS_KONYANG_CORPORATE, ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+
+/datum/ghostspawner/human/konyang_army/medic
+	name = "Konyang Army Medic"
+	short_name = "konyang_army_medic"
+	desc = "You are a medical specialist of the Konyang army, deployed to deal with a crisis in Point Verdant."
+	max_count = 1
+	outfit = /datum/outfit/admin/konyang_army_response/medic
+	mob_name_prefix = "Spc. "
+	assigned_role = "Konyang Army Medic"
+	special_role = "Konyang Army Medic"
+
+/datum/outfit/admin/konyang_army_response/medic
+	back = /obj/item/storage/backpack/satchel/med
+	gloves = /obj/item/clothing/gloves/latex/nitrile
+	glasses = /obj/item/clothing/glasses/hud/health
+	belt = /obj/item/storage/belt/medical/first_responder/combat/full
+	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/storage/firstaid/combat = 1,
+		/obj/item/handcuffs/ziptie = 1,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
+		/obj/item/stack/medical/advanced/ointment = 1,
+		/obj/item/stack/nanopaste = 1,
+	)
+
+/datum/ghostspawner/human/konyang_army/mechpilot
+	name = "Konyang Army Exosuit Pilot"
+	short_name = "konyang_army_mechpilot"
+	desc = "You are an exosuit specialist of the Konyang army's Mechatronic Corps, deployed to deal with a crisis in Point Verdant."
+	max_count = 1
+	outfit = /datum/outfit/admin/konyang_army_response/mechpilot
+	mob_name_prefix = "Spc. "
+	assigned_role = "Konyang Army Exosuit Pilot"
+	special_role = "Konyang Army Exosuit Pilot"
+
+/datum/outfit/admin/konyang_army_response/mechpilot
+	uniform = /obj/item/clothing/under/rank/konyang/mech_pilot
+	head = /obj/item/clothing/head/helmet/konyang/pilot
+	gloves = /obj/item/clothing/gloves/yellow
+	belt = /obj/item/storage/belt/utility/very_full
+	glasses = /obj/item/clothing/glasses/welding/superior
+
+/datum/ghostspawner/human/konyang_army/commander
+	name = "Konyang Army Officer"
+	short_name = "konyang_army_lead"
+	spawnpoints = list("konyang_army_lead")
+	desc = "You are an officer in command of a Konyang army unit deployed to deal with a crisis in Point Verdant."
+	max_count = 1
+	outfit = /datum/outfit/admin/konyang_army_response/officer
+	mob_name_prefix = "Lt. "
+	assigned_role = "Konyang Army Officer"
+	special_role = "Konyang Army Officer"
+
+/datum/outfit/admin/konyang_army_response/officer
+	uniform = /obj/item/clothing/under/rank/konyang/officer
+	head = /obj/item/clothing/head/konyang/army/officer
+
+//Corporate 'Solutions Department' - basically another pseudo-ert for admins to spawn in the event of silliness on PV
+/datum/ghostspawner/human/corporate_solutions
+	name = "Zeng-Hu Corporate Solutions Agent"
+	short_name = "pv_corporate_solutions_zeng"
+	spawnpoints = list("pv_corporate_solutions")
+	desc = "You are a corporate security agent working for Zeng-Hu Pharmaceuticals, responding to a crisis in Point Verdant in cooperation with Einstein Engines personnel."
+	max_count = 2
+	outfit = /datum/outfit/admin/corporate_solutions
+	possible_species = list(SPECIES_HUMAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Solutions Agent (Zeng)"
+	special_role = "Solutions Agent (Zeng)"
+	respawn_flag = null
+	enabled = FALSE
+
+/datum/outfit/admin/corporate_solutions
+	uniform = /obj/item/clothing/under/rank/security/zeng
+	shoes = /obj/item/clothing/shoes/combat
+	belt = /obj/item/storage/belt/military
+	gloves = /obj/item/clothing/gloves/swat/ert
+	glasses = /obj/item/clothing/glasses
+	l_ear = /obj/item/device/radio/headset/ert
+	id = /obj/item/card/id/zeng_hu
+	belt_contents = list(
+		/obj/item/handcuffs = 2,
+		/obj/item/shield/riot/tact = 1
+	)
+	back = null
+
+/datum/outfit/admin/corporate_solutions/get_id_access()
+	return list(ACCESS_CENT_SPECOPS, ACCESS_KONYANG_CORPORATE, ACCESS_EXTERNAL_AIRLOCKS)
+
+/datum/ghostspawner/human/corporate_solutions/einstein
+	name = "Einstein Corporate Solutions Agent"
+	desc = "You are a corporate security agent working for Einstein, responding to a crisis in Point Verdant in cooperation with Zeng-Hu Pharmaceuticals personnel."
+	outfit = /datum/outfit/admin/corporate_solutions/einstein
+	assigned_role = "Solutions Agent (Einstein)"
+	special_role = "Solutions Agent (Einstein)"
+
+/datum/outfit/admin/corporate_solutions/einstein
+	uniform = /obj/item/clothing/under/rank/security/einstein
+	id = /obj/item/card/id/einstein
+
+/datum/ghostspawner/human/corporate_solutions/medic
+	name = "Zeng-Hu Corporate Solutions Medic"
+	short_name = "pv_corporate_solutions_med"
+	desc = "You are a corporate medical agent working for Zeng-Hu Pharmaceuticals, responding to a crisis in Point Verdant in cooperation with Einstein Engines personnel."
+	max_count = 1
+	outfit = /datum/outfit/admin/corporate_solutions/medic
+
+/datum/outfit/admin/corporate_solutions/medic
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
+	gloves = /obj/item/clothing/gloves/latex/nitrile
+	glasses = /obj/item/clothing/glasses/hud/health
+	belt = /obj/item/storage/belt/medical/first_responder/combat
+	backpack = /obj/item/storage/backpack/satchel/zeng
+	belt_contents = list(
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
+	)
+
+	backpack_contents = list(
+		/obj/item/storage/firstaid/combat = 1,
+		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/handcuffs = 1,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
+		/obj/item/stack/medical/advanced/ointment = 1
+	)
+
+/datum/ghostspawner/human/corporate_solutions/engineer
+	name = "Einstein Corporate Solutions Engineer"
+	short_name = "pv_corporate_solutions_eng"
+	desc = "You are a corporate engineering agent working for Einstein Engines, responding to a crisis in Point Verdant in cooperation with Zeng-Hu Pharmaceuticals personnel."
+	max_count = 1
+	outfit = /datum/outfit/admin/corporate_solutions/einstein/engineer
+
+/datum/outfit/admin/corporate_solutions/einstein/engineer
+	uniform = /obj/item/clothing/under/rank/engineer/einstein
+	gloves = /obj/item/clothing/gloves/yellow
+	belt = /obj/item/storage/belt/utility/very_full
+	accessory = /obj/item/clothing/accessory/storage/brown_vest
+	back = /obj/item/storage/backpack/industrial
+	belt_contents = null
+	accessory_contents = list(
+		/obj/item/handcuffs = 2,
+		/obj/item/clothing/glasses/welding/superior = 1
+	)

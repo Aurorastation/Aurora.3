@@ -415,7 +415,7 @@
 			add_overlay(light)
 	if(vitals)
 		vitals.update_monitor()
-		vis_contents += vitals
+		add_vis_contents(vitals)
 
 /obj/structure/bed/roller/attackby(obj/item/attacking_item, mob/user)
 	if(iswrench(attacking_item) || istype(attacking_item, /obj/item/stack) || iswirecutter(attacking_item))
