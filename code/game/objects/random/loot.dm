@@ -525,7 +525,7 @@
 /obj/random/konyang_gun/post_spawn(obj/thing)
 	var/obj/item/gun/projectile/G = thing
 	if(G.ammo_magazine)
-		var/mags = pick(0, 1, 2)
+		var/mags = rand(0, 2)
 		if(mags)
 			for(var/i = 1 to mags)
 				var/obj/item/ammo_magazine/AG = new G.ammo_magazine.type(get_turf(G))
@@ -595,16 +595,23 @@
 /obj/random/semiautos
 	name = "semiautos"
 	problist = list(
-		/obj/item/gun/projectile/shotgun/pump/rifle/scope = 0.25,
+		/obj/item/gun/projectile/shotgun/pump/rifle/scope = 0.05,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
-		/obj/item/gun/projectile/shotgun/pump/rifle/pipegun = 0.5,
-		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 0.05
+		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 0.5,
+		/obj/item/gun/projectile/shotgun/pump/lever_action = 0.5
 	)
 	has_postspawn = TRUE
 
 /obj/random/semiautos/post_spawn(obj/thing)
-	. = ..()
 	var/shells = rand(1, 20)
 	var/obj/item/gun/projectile/shotgun/pump/rifle/R = thing
 	for(var/i = 1 to shells)
 		new R.ammo_type(get_turf(R))
+
+/obj/random/barricade_kit
+	name = "barricade kits"
+	problist = list(
+		/obj/item/stack/barricade/random = 1,
+		/obj/item/stack/barricade/wood/random = 0.5,
+		/obj/item/stack/barricade/plasteel/random = 0.25
+	)

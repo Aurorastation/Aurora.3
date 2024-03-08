@@ -414,6 +414,15 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"cu" = (
+/obj/structure/table/glass,
+/obj/random/semiautos,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/decrepit)
+"cy" = (
+/obj/random/konyang_gun/pistols,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "cz" = (
 /obj/effect/decal/curb{
 	dir = 1;
@@ -1680,6 +1689,7 @@
 /obj/structure/dressing_divider{
 	icon_state = "divider3"
 	},
+/obj/item/herb/mixed,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "ln" = (
@@ -2221,6 +2231,7 @@
 /obj/structure/dressing_divider,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/shotgun,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
 "ps" = (
@@ -2653,6 +2664,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/minimart)
+"sj" = (
+/obj/structure/ledge/roof,
+/obj/random/konyang_gun/pistols,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "sk" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
@@ -2676,6 +2692,13 @@
 /obj/structure/flora/pottedplant/bouquet,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
+"sx" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/barricade_materials,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "sF" = (
 /obj/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/concrete/square,
@@ -2971,6 +2994,13 @@
 "vh" = (
 /turf/simulated/open,
 /area/point_verdant/interior/hotel)
+"vi" = (
+/obj/structure/ledge/roof{
+	dir = 5
+	},
+/obj/random/konyang_gun/automatic,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "vj" = (
 /obj/structure/ledge/quarter,
 /turf/simulated/open,
@@ -3504,6 +3534,19 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/shallow)
+"zj" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1;
+	dir = 8
+	},
+/obj/machinery/light/small/floor,
+/obj/item/herb/red,
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "zp" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -3897,6 +3940,7 @@
 /obj/structure/automobile/random{
 	dir = 8
 	},
+/obj/random/barricade_kit,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "BD" = (
@@ -4449,6 +4493,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/point_verdant/interior/spaceport)
+"EX" = (
+/obj/random/survival_weapon,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "EZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -4698,6 +4746,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"GL" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/random/survival_weapon,
+/turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "GM" = (
 /obj/structure/ledge,
@@ -6039,6 +6092,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Qd" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/item/herb,
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "Qe" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -6108,6 +6168,10 @@
 /obj/random/survival_weapon,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
+"Qr" = (
+/obj/random/survival_weapon,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Qu" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/tiled,
@@ -6255,6 +6319,13 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"RW" = (
+/obj/structure/ledge/roof{
+	dir = 8
+	},
+/obj/random/survival_weapon,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "Sb" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
@@ -6270,6 +6341,7 @@
 /obj/effect/decal/exterior_stairs/half/right{
 	dir = 8
 	},
+/obj/random/survival_weapon,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "Sr" = (
@@ -6429,6 +6501,13 @@
 	},
 /obj/structure/ladder,
 /turf/simulated/open,
+/area/point_verdant/outdoors)
+"TA" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/random/high_grade_weapon,
+/turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "TB" = (
 /obj/random/dirt_75,
@@ -17490,7 +17569,7 @@ Cw
 Cw
 Cw
 me
-Pu
+zj
 bT
 bT
 bT
@@ -22123,7 +22202,7 @@ Cw
 Cw
 Cw
 nf
-TC
+Qd
 DD
 DD
 DD
@@ -22664,7 +22743,7 @@ bf
 hw
 um
 vo
-rg
+sx
 Sy
 uT
 xh
@@ -26534,7 +26613,7 @@ vj
 vY
 zv
 BR
-Ca
+cu
 AJ
 as
 XQ
@@ -26796,7 +26875,7 @@ Wt
 bL
 CO
 OY
-Eu
+TA
 Uj
 Uj
 Uj
@@ -26811,7 +26890,7 @@ OY
 Ey
 Ey
 Ey
-Ey
+EX
 Ey
 Ey
 mB
@@ -29349,7 +29428,7 @@ vj
 OY
 Ey
 Ey
-Ey
+cy
 Ey
 mB
 Ml
@@ -32456,7 +32535,7 @@ Lt
 Ey
 Lt
 Ey
-Lt
+GL
 mB
 Ml
 Cw
@@ -36306,7 +36385,7 @@ wJ
 wJ
 wJ
 wJ
-wJ
+RW
 wJ
 bR
 Ml
@@ -37835,7 +37914,7 @@ Ey
 Ey
 Ey
 Ey
-mB
+sj
 Ml
 Cw
 TX
@@ -41460,7 +41539,7 @@ OY
 Ey
 Ey
 gn
-DD
+Qr
 Xn
 DD
 MN
@@ -43515,7 +43594,7 @@ Cw
 Cw
 Cw
 vj
-ST
+vi
 jf
 jf
 jf

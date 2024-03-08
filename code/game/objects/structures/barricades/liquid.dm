@@ -13,17 +13,9 @@
 	var/build_stage = BARRICADE_LIQUIDBAG_1
 
 /obj/structure/barricade/liquid/Initialize(mapload, mob/user, var/direction, var/amount)
-	if(direction)
-		set_dir(direction)
-
-	if(dir == SOUTH)
-		pixel_y = -7
-	else if(dir == NORTH)
-		pixel_y = 7
-
 	for(var/i = 1 to amount-1)
 		increment_build_stage()
-	. = ..(loc, user)
+	. = ..(loc, user, direction)
 
 /obj/structure/barricade/liquid/update_icon()
 	..()

@@ -1,7 +1,7 @@
 /obj/item/herb
 	name = "pharmaceutical green herb"
 	desc = "A vial of pharmaceutical herbs produced by Zeng-Hu. <span class='notice'>This will heal minor damage of all types, restore some blood, \
-			and restore some organ damage.</span> It can be combined with a red herb to make a stronger herb."
+			and heal some organ damage.</span> It can be combined with a red herb to make a stronger herb."
 	icon = 'icons/obj/raccoon_city/herbs.dmi'
 	icon_state = "green"
 	w_class = ITEMSIZE_TINY
@@ -45,34 +45,40 @@
 /obj/item/herb/proc/consume_vial(mob/living/carbon/human/H)
 	H.bloodstr.add_reagent(/singleton/reagent/bicaridine, 10)
 	H.bloodstr.add_reagent(/singleton/reagent/kelotane, 10)
-	H.bloodstr.add_reagent(/singleton/reagent/peridaxon, 9.5)
+	for(var/obj/item/organ/internal/I in H.internal_organs)
+		if((I.damage > 0) && (I.robotic != 2))
+			I.damage = max(I.damage - 15, 0)
 	H.add_blood_simple(H.bloodstr.total_volume * 0.15)
 	return TRUE
 
 /obj/item/herb/red
 	name = "pharmaceutical red herb"
 	desc = "A vial of pharmaceutical herbs produced by Zeng-Hu. <span class='notice'>This will heal very little damage of all types, restore little blood, \
-			and restore very little organ damage.</span> It can be combined with a green herb to make a stronger herb."
+			and heal very little organ damage.</span> It can be combined with a green herb to make a stronger herb."
 	icon_state = "red"
 	herb_type = "red"
 
 /obj/item/herb/red/consume_vial(mob/living/carbon/human/H)
 	H.bloodstr.add_reagent(/singleton/reagent/bicaridine, 5)
 	H.bloodstr.add_reagent(/singleton/reagent/kelotane, 5)
-	H.bloodstr.add_reagent(/singleton/reagent/peridaxon, 5)
+	for(var/obj/item/organ/internal/I in H.internal_organs)
+		if((I.damage > 0) && (I.robotic != 2))
+			I.damage = max(I.damage - 5, 0)
 	H.add_blood_simple(H.bloodstr.total_volume * 0.10)
 	return TRUE
 
 /obj/item/herb/mixed
 	name = "pharmaceutical green+red herb"
 	desc = "A vial of pharmaceutical herbs produced by Zeng-Hu. <span class='notice'>This will heal a good amount of damage of all types, restore a good amount of blood, \
-			and restore some organ damage.</span>"
+			and heal a good amount of organ damage.</span>"
 	icon_state = "mixed"
 	herb_type = "mixed"
 
-/obj/item/herb/consume_vial(mob/living/carbon/human/H)
+/obj/item/herb/mixed/consume_vial(mob/living/carbon/human/H)
 	H.bloodstr.add_reagent(/singleton/reagent/butazoline, 15)
 	H.bloodstr.add_reagent(/singleton/reagent/dermaline, 15)
-	H.bloodstr.add_reagent(/singleton/reagent/peridaxon, 9.5)
+	for(var/obj/item/organ/internal/I in H.internal_organs)
+		if((I.damage > 0) && (I.robotic != 2))
+			I.damage = max(I.damage - 25, 0)
 	H.bloodstr.add_reagent(/singleton/reagent/adipemcina, 10)
 	H.add_blood_simple(H.bloodstr.total_volume * 0.25)

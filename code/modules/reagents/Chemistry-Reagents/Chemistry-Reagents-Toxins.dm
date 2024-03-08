@@ -858,6 +858,9 @@
 		if(H.reagents.has_reagent(/singleton/reagent/thetamycin, 15))
 			return
 
+		if(H.chem_effects[CE_ANTIBODIES])
+			return
+
 		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
 			var/to_infest
 			var/list/possible_organs = list()

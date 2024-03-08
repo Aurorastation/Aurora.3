@@ -6,6 +6,7 @@
 	round_description = "Your survival is not guaranteed."
 	extended_round_description = "Complete. Global. Saturation."
 	antag_tags = list(MODE_OUTBREAK)
+	votable = 0
 
 /datum/game_mode/outbreak/ui_state(mob/user)
 	return GLOB.admin_state

@@ -26,8 +26,11 @@
 	var/is_wired = FALSE
 	var/metallic = TRUE
 
-/obj/structure/barricade/Initialize(mapload, mob/user)
+/obj/structure/barricade/Initialize(mapload, mob/user, var/direction)
 	. = ..()
+	if(direction)
+		set_dir(direction)
+
 	update_icon()
 	starting_maxhealth = maxhealth
 

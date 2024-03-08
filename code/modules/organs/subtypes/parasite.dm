@@ -334,6 +334,9 @@
 
 	egg = /singleton/reagent/toxin/trioxin
 
+	var/curing = FALSE
+	var/cured = FALSE
+	var/cured_timer = 0
 	var/last_heal = 0
 	var/heal_rate = 5 SECONDS
 
@@ -348,6 +351,31 @@
 
 	if(!iszombie(owner))
 		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+		if(curing && !cured)
+			cured_timer += 5
+			switch(cured_timer)
+				if(10 to 40)
+					if(prob(10))
+						to_chat(owner, SPAN_DANGER("The veins in your [E.name] feel like they're coming apart!"))
+						E.add_pain(10)
+				if(40 to 80)
+					if(prob(10))
+						to_chat(owner, SPAN_DANGER(FONT_HUGE("Your [E.name] is burning as the black veins start retreating!")))
+						E.add_pain(25)
+						if(E.status & ORGAN_ZOMBIFIED)
+							E.add_pain(25)
+							E.status &= ~ORGAN_ZOMBIFIED
+							owner.update_body(TRUE, TRUE)
+				if(90 to INFINITY)
+					to_chat(owner, SPAN_DANGER(FONT_HUGE("Your head, your whole body starts burning up...!")))
+					owner.Paralyse(20)
+					owner.Stun(20)
+					owner.adjustHalLoss(50)
+					cured = TRUE
+					addtimer(CALLBACK(src, PROC_REF(cure_infection)), 10 SECONDS)
+
+			return
+
 		if(stage < 2)
 			if(prob(2))
 				to_chat(owner, SPAN_WARNING("The skin on your [E.name] itches a bit."))
@@ -370,8 +398,8 @@
 					if(owner.species.zombie_type)
 						for(var/datum/language/L in owner.languages)
 							owner.remove_language(L.name)
-						owner.seizure(FALSE, 5, 10, FALSE)
 						owner.visible_message(SPAN_DANGER("<font size=4>[owner] falls to the ground and begins convulsing, their flesh turning green and rotting!</font>"))
+						owner.seizure(FALSE, 5, 10, FALSE)
 						addtimer(CALLBACK(src, PROC_REF(turn_into_zombie)), 5 SECONDS, TIMER_UNIQUE)
 					else
 						owner.adjustToxLoss(50)
@@ -443,17 +471,31 @@
 	to_chat(H, SPAN_WARNING("The veins in your [new_organ.name] start turning black, bit by bit..."))
 	parent_organ = new_organ.limb_name
 	old_organ.internal_organs -= src
+	if(new_organ.limb_name == BP_GROIN)
+		stage = 2
+		stage_interval = 110
 	replaced(H, new_organ)
 
 /obj/item/organ/internal/parasite/zombie/proc/turn_into_zombie()
 	var/r = owner.r_skin
 	var/g = owner.g_skin
 	var/b = owner.b_skin
-	to_chat(owner, "<font size=4><span class='warning'>Your head tears apart and bursts as you fall to the ground! You feel your flesh burning as it rots, and your head exploding as the virus reaches it...</font></span>")
+	to_chat(owner, "<font size=4><span class='warning'>You feel your flesh burning as it rots, and your head exploding as the virus reaches it...</font></span>")
 	to_chat(owner, "<font size=4><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
 	owner.set_species(owner.species.zombie_type, 0, 0, 0)
 	owner.change_skin_color(r, g, b)
 	owner.update_dna()
+
+/obj/item/organ/internal/parasite/zombie/proc/cure_infection()
+	to_chat(owner, SPAN_GOOD(FONT_HUGE("...finally, relief. Your body starts cooling down. All your blackened veins go back to normal. It's over...")))
+	for(var/obj/item/organ/external/E in owner.organs_by_name)
+		if(E.status & ORGAN_ZOMBIFIED)
+			E.status &= ~ORGAN_ZOMBIFIED
+	owner.update_body(TRUE, TRUE)
+	removed(owner)
+	owner.adjustHalLoss(-50)
+	qdel(src)
+
 
 //Parasitic Worms//
 
@@ -550,4 +592,3 @@
 			owner.reagents.add_reagent(/singleton/reagent/toxin/heartworm_eggs, 2)
 			owner.adjustHalLoss(15)
 			to_chat(owner, SPAN_WARNING("An <b>extreme</b>, nauseating pain erupts from the centre of your chest!"))
-

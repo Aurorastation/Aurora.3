@@ -92,6 +92,8 @@
 #define CE_CARDIOTOXIC  "hearttoxic"	// Heart damage
 #define CE_PNEUMOTOXIC  "lungtoxic"		// Lung damage
 
+#define CE_ANTIBODIES "antibodies"
+
 //Alcohol
 #define INTOX_BUZZED     0.01
 #define INTOX_JUDGEIMP   0.03
