@@ -68,6 +68,20 @@
 	name = "Coalition Survey Ship - Fore"
 	landmark_tag = "nav_surveyor_4"
 
+/obj/effect/shuttle_landmark/coc_survey_ship/dock/port
+	name = "Port Dock"
+	landmark_tag = "nav_coc_surveyor_dock_port"
+	docking_controller = "airlock_coc_surveyor_dock_port"
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/coc_survey_ship/dock/starboard
+	name = "Starboard Dock"
+	landmark_tag = "nav_coc_surveyor_dock_starboard"
+	docking_controller = "airlock_coc_surveyor_dock_starboard"
+	base_turf = /turf/space
+	base_area = /area/space
+
 /obj/effect/overmap/visitable/ship/landable/coc_survey_shuttle
 	name = "COC Survey Shuttle"
 	desc = "The Minnow-class is a civilian transport shuttle, often used in the Coalition of Colonies."
