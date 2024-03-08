@@ -28,7 +28,7 @@
 
 	if(!had_speaking)
 		if(speaking)
-			message = copytext_char(message,2+length(speaking.key))
+			message = copytext_char(message, 2 + length(speaking.key))
 		else
 			speaking = get_default_language()
 
