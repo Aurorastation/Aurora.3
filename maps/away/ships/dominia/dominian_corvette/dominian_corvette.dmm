@@ -672,14 +672,6 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/recroom)
-"bKY" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/template_noop,
-/area/ship/dominian_corvette/exterior)
 "bNV" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -718,7 +710,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/engineering/atmos)
 "bTU" = (
-/obj/structure/ship_weapon_dummy/barrel,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/template_noop,
 /area/ship/dominian_corvette/exterior)
 "cbY" = (
@@ -994,12 +989,9 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
 "cZD" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
-/area/ship/dominian_corvette/exterior)
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/wall,
+/area/ship/dominian_corvette/cannon)
 "dez" = (
 /obj/structure/janitorialcart/full{
 	dir = 8
@@ -2864,13 +2856,11 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering/atmos)
 "jTb" = (
-/obj/structure/ship_weapon_dummy,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
 	},
-/turf/simulated/floor/reinforced,
-/area/ship/dominian_corvette/cannon)
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "jTL" = (
 /obj/effect/floor_decal/corner{
 	dir = 8
@@ -2895,6 +2885,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cic)
+"jVI" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced/airless,
+/area/ship/dominian_corvette/exterior)
 "jXM" = (
 /obj/machinery/light{
 	dir = 4
@@ -3411,6 +3405,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/officer)
+"lsj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "lsu" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/propulsion/port)
@@ -3865,7 +3867,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "niu" = (
-/turf/simulated/wall,
+/turf/simulated/wall{
+	can_open = 1
+	},
 /area/ship/dominian_corvette/janitor)
 "nke" = (
 /obj/structure/closet/walllocker{
@@ -3991,6 +3995,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette)
+"nBv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/ship/dominian_corvette/janitor)
 "nDC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4325,14 +4334,12 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
 "oXW" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/item/hullbeacon/red,
-/obj/structure/ship_weapon_dummy,
-/turf/template_noop,
-/area/ship/dominian_corvette/exterior)
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/food/drinks/bottle/dominian_wine,
+/obj/random/contraband,
+/turf/simulated/floor/plating,
+/area/ship/dominian_corvette/janitor)
 "oYG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5164,6 +5171,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
+"rya" = (
+/turf/simulated/floor/airless,
+/area/ship/dominian_corvette/exterior)
 "ryV" = (
 /obj/structure/reagent_dispensers/coolanttank{
 	pixel_x = 5;
@@ -5332,14 +5342,7 @@
 /area/ship/dominian_corvette/temple)
 "ssT" = (
 /obj/structure/ship_weapon_dummy,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/dominian_corvette/cannon)
 "stk" = (
 /obj/effect/floor_decal/spline/plain/yellow{
@@ -5348,13 +5351,13 @@
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/recroom)
 "sts" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/lammergeier{
 	pixel_y = -224;
 	pixel_x = -32;
 	weapon_id = "Lammergeier Cannon"
 	},
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/dominian_corvette/exterior)
 "svf" = (
 /obj/structure/table/standard,
@@ -5875,9 +5878,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/docking/port)
-"uJH" = (
-/turf/simulated/floor/airless,
-/area/ship/dominian_corvette/exterior)
 "uNg" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering)
@@ -36688,16 +36688,16 @@ oFS
 cfL
 uxh
 xDn
-xRX
-xRX
+bja
+wCU
 xRX
 xRX
 sfW
 doI
 doI
 umS
-bKY
-cZD
+lsj
+bTU
 xRX
 xRX
 xRX
@@ -36945,13 +36945,13 @@ oFS
 cfL
 kLr
 xDn
-xRX
-xRX
+nBv
+phv
 jLX
 jLX
 lPG
 qIf
-uJH
+rya
 vwC
 vwC
 rde
@@ -37202,8 +37202,8 @@ mgC
 mbl
 lKG
 xmH
-bja
-wCU
+oXW
+phv
 phv
 phv
 uOY
@@ -41062,15 +41062,15 @@ dTw
 aep
 fyC
 ssT
-cno
-cno
-umS
-umS
-umS
-umS
-umS
-oXW
-bTU
+cZD
+ssT
+jVI
+sfW
+sfW
+sfW
+sfW
+sfW
+sfW
 xRX
 xRX
 xRX
@@ -41318,16 +41318,16 @@ uFI
 iWi
 aep
 fyC
-jTb
-cno
-cno
+ssT
+ssT
+ssT
 sts
 sfW
 sfW
 sfW
 sfW
 sfW
-sfW
+jTb
 xRX
 xRX
 xRX
@@ -41575,7 +41575,7 @@ oDq
 iEY
 aep
 pLQ
-jTb
+cno
 cno
 cno
 hWr
