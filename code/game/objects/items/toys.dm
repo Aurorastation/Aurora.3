@@ -962,6 +962,9 @@
 	var/poke_cooldown = 0
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
+	if(poke_cooldown > world.time)
+		return
+	poke_cooldown = world.time + 2 SECONDS
 	if(user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
 	else if (user.a_intent == I_HURT)
@@ -969,9 +972,6 @@
 	else if (user.a_intent == I_GRAB)
 		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
 	else
-		if(poke_cooldown > world.time)
-			return
-		poke_cooldown = world.time + 2 SECONDS
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
 		playsound(src, poke_sound, 25, 0)
 		visible_message("[src] says, \"[phrase]\"")
