@@ -1843,7 +1843,7 @@
 
 /singleton/reagent/antibodies/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	. = ..()
-	M.add_up_to_chemical_effect(CE_ANTIBODIES, 10)
+	M.add_chemical_effect(CE_ANTIBODIES, 10)
 	var/obj/item/organ/internal/parasite/zombie/Z = M.internal_organs_by_name[BP_ZOMBIE_PARASITE]
 	if(Z && !Z.curing)
 		if(prob(5))

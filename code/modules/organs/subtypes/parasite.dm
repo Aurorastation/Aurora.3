@@ -466,14 +466,15 @@
 			move_to(owner, head, E)
 			owner.update_body(TRUE, TRUE)
 	. = ..()
+	E = owner.organs_by_name[parent_organ]
+	if(E.limb_name == BP_GROIN)
+		stage = 2
+		stage_interval = 110
 
 /obj/item/organ/internal/parasite/zombie/proc/move_to(mob/living/carbon/human/H, obj/item/organ/external/new_organ, obj/item/organ/external/old_organ)
 	to_chat(H, SPAN_WARNING("The veins in your [new_organ.name] start turning black, bit by bit..."))
 	parent_organ = new_organ.limb_name
 	old_organ.internal_organs -= src
-	if(new_organ.limb_name == BP_GROIN)
-		stage = 2
-		stage_interval = 110
 	replaced(H, new_organ)
 
 /obj/item/organ/internal/parasite/zombie/proc/turn_into_zombie()
@@ -483,6 +484,11 @@
 	to_chat(owner, "<font size=4><span class='warning'>You feel your flesh burning as it rots, and your head exploding as the virus reaches it...</font></span>")
 	to_chat(owner, "<font size=4><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
 	owner.set_species(owner.species.zombie_type, 0, 0, 0)
+	var/list/wakeup_sounds = list('sound/effects/zombies/zombie_1.ogg',
+						'sound/effects/zombies/zombie_2.ogg',
+						'sound/effects/zombies/zombie_3.ogg',
+						'sound/effects/zombies/zombie_4.ogg')
+	playsound(owner, pick(wakeup_sounds))
 	owner.change_skin_color(r, g, b)
 	owner.update_dna()
 
