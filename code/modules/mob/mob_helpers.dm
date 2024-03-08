@@ -382,28 +382,35 @@ var/list/global/organ_rel_size = list(
 
 /proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
-	var/leng=length_char(phrase)
-	var/counter=length_char(phrase)
-	var/newphrase=""
-	var/newletter=""
-	while(counter>=1)
-		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2)
-		if(prob(strength))
-			if(rand(1,3)==3)
-				if(lowertext(newletter)=="o")	newletter="u"
-				if(lowertext(newletter)=="s")	newletter="ch"
-				if(lowertext(newletter)=="a")	newletter="ah"
-				if(lowertext(newletter)=="c")	newletter="k"
-			switch(rand(1,15))
-				if(1,3,5,8)
-					newletter="[lowertext(newletter)]"
-				if(2,4,6,15)
-					newletter="[uppertext(newletter)]"
-				if(7)
-					newletter+="'"
+	var/leng = length_char(phrase)
+	var/counter = length_char(phrase)
+	var/newphrase = ""
+	var/newletter = ""
+	while (counter >= 1)
+		newletter = copytext_char(phrase, (leng - counter) + 1, (leng - counter) + 2)
+		if (prob(strength))
+			if (rand(1, 3) == 3)
+				switch (lowertext(newletter))
+					if ("o")
+						newletter = "u"
+					if ("s")
+						newletter = "ch"
+					if ("a")
+						newletter = "ah"
+					if ("c")
+						newletter = "k"
+
+			switch (rand(1, 15))
+				if (1, 3, 5, 8)
+					newletter = "[lowertext(newletter)]"
+				if (2, 4, 6, 15)
+					newletter = "[uppertext(newletter)]"
+				if (7)
+					newletter += "'"
 				else
 					. = null // For dreamchecker, does nothing
-		newphrase+="[newletter]";counter-=1
+		newphrase += "[newletter]"
+		counter -= 1
 	return newphrase
 
 /proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
