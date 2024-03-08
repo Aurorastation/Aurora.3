@@ -1530,6 +1530,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/docking)
+"fjf" = (
+/turf/simulated/floor/airless,
+/area/ship/dominian_corvette/exterior)
 "fjW" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
@@ -3545,8 +3548,13 @@
 	pixel_y = -162;
 	weapon_id = "Dominian Francisca Rotary Gun"
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
+"lSs" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "lXK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled/dark,
@@ -5171,6 +5179,13 @@
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/armory)
+"rFF" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "rGb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable{
@@ -5938,6 +5953,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette)
+"uXv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "uXT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -36670,12 +36693,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
+sfW
 doI
 doI
 umS
-umS
-umS
+uXv
+rFF
 xRX
 xRX
 xRX
@@ -36929,7 +36952,7 @@ jLX
 jLX
 lPG
 qIf
-doI
+fjf
 vwC
 vwC
 rde
@@ -41039,7 +41062,7 @@ gVp
 dTw
 aep
 jTb
-hcl
+cZD
 cZD
 bTU
 umS
@@ -41048,7 +41071,7 @@ umS
 umS
 umS
 oXW
-xRX
+lSs
 xRX
 xRX
 xRX
@@ -41305,7 +41328,7 @@ sfW
 sfW
 sfW
 sfW
-xRX
+sfW
 xRX
 xRX
 xRX
