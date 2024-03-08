@@ -172,9 +172,6 @@
 /obj/structure/table/steel,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/gloves,
-/obj/machinery/power/apc/west{
-	req_access = list(212)
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -189,10 +186,6 @@
 	name = "surgery cleaner";
 	pixel_x = 9;
 	pixel_y = -4
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
@@ -722,9 +715,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1334,9 +1324,6 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/obj/machinery/alarm/west{
-	req_one_access = list(212)
-	},
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
@@ -1840,9 +1827,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -2298,7 +2282,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/ship/dominian_corvette/exterior)
+/area/ship/dominian_corvette/cannon)
 "hYY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2802,16 +2786,6 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/recroom)
-"jIF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/dominian_corvette/infirmary)
 "jJa" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -2883,10 +2857,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cic)
-"jVI" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced/airless,
-/area/ship/dominian_corvette/exterior)
 "jXM" = (
 /obj/machinery/light{
 	dir = 4
@@ -3590,9 +3560,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -4500,11 +4467,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -4655,9 +4617,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -5065,11 +5024,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
@@ -5356,7 +5310,7 @@
 	weapon_id = "Lammergeier Cannon"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/ship/dominian_corvette/exterior)
+/area/ship/dominian_corvette/cannon)
 "svf" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool,
@@ -6126,11 +6080,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/white,
@@ -41062,7 +41011,7 @@ fyC
 ssT
 cZD
 ssT
-jVI
+ssT
 sfW
 sfW
 sfW
@@ -41817,7 +41766,7 @@ nwx
 pCT
 mLa
 cbY
-jIF
+ret
 giu
 xDT
 ygQ
