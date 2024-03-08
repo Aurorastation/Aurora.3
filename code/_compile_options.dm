@@ -31,7 +31,7 @@
 */
 
 // !!! For manual use only, remember to recomment before PRing !!!
-// #define TESTING // Creates debug feedback messages and enables many optional testing procs/checks
+#define TESTING // Creates debug feedback messages and enables many optional testing procs/checks
 // #define UNIT_TEST
 // #define MANUAL_UNIT_TEST
 
@@ -41,7 +41,7 @@
 
 #ifdef TESTING
 	///Used to find the sources of harddels, quite laggy, don't be surpised if it freezes your client for a good while
-	// #define REFERENCE_TRACKING
+	#define REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING
 
 		//Run a lookup on things hard deleting by default.

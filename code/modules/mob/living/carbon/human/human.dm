@@ -127,11 +127,12 @@
 	QDEL_NULL(l_store)
 	QDEL_NULL(s_store)
 	QDEL_NULL(wear_suit)
+	QDEL_NULL(wear_mask)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
+	QDEL_LIST_ASSOC_VAL(hud_list)
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
