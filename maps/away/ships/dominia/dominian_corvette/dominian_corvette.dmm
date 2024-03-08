@@ -672,6 +672,14 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/dominian_corvette/recroom)
+"bKY" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "bNV" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -710,9 +718,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/engineering/atmos)
 "bTU" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/plating,
-/area/ship/dominian_corvette/cannon)
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "cbY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 2
@@ -983,12 +991,15 @@
 /area/ship/dominian_corvette/docking/port)
 "cZv" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
 "cZD" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/wall,
-/area/ship/dominian_corvette/cannon)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/ship/dominian_corvette/exterior)
 "dez" = (
 /obj/structure/janitorialcart/full{
 	dir = 8
@@ -1530,9 +1541,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/docking)
-"fjf" = (
-/turf/simulated/floor/airless,
-/area/ship/dominian_corvette/exterior)
 "fjW" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
@@ -2856,10 +2864,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering/atmos)
 "jTb" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Typhoon Loading";
-	req_access = list(212);
-	dir = 4
+/obj/structure/ship_weapon_dummy,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
@@ -3551,10 +3559,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
-"lSs" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/template_noop,
-/area/ship/dominian_corvette/exterior)
 "lXK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled/dark,
@@ -5179,13 +5183,6 @@
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/armory)
-"rFF" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
-/area/ship/dominian_corvette/exterior)
 "rGb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable{
@@ -5335,7 +5332,14 @@
 /area/ship/dominian_corvette/temple)
 "ssT" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
 "stk" = (
 /obj/effect/floor_decal/spline/plain/yellow{
@@ -5871,6 +5875,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/docking/port)
+"uJH" = (
+/turf/simulated/floor/airless,
+/area/ship/dominian_corvette/exterior)
 "uNg" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering)
@@ -5953,14 +5960,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette)
-"uXv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/template_noop,
-/area/ship/dominian_corvette/exterior)
 "uXT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -36697,8 +36696,8 @@ sfW
 doI
 doI
 umS
-uXv
-rFF
+bKY
+cZD
 xRX
 xRX
 xRX
@@ -36952,7 +36951,7 @@ jLX
 jLX
 lPG
 qIf
-fjf
+uJH
 vwC
 vwC
 rde
@@ -41061,17 +41060,17 @@ aep
 gVp
 dTw
 aep
-jTb
-cZD
-cZD
-bTU
+fyC
+ssT
+cno
+cno
 umS
 umS
 umS
 umS
 umS
 oXW
-lSs
+bTU
 xRX
 xRX
 xRX
@@ -41319,9 +41318,9 @@ uFI
 iWi
 aep
 fyC
+jTb
 cno
 cno
-ssT
 sts
 sfW
 sfW
@@ -41576,9 +41575,9 @@ oDq
 iEY
 aep
 pLQ
+jTb
 cno
 cno
-ssT
 hWr
 vwC
 vwC
