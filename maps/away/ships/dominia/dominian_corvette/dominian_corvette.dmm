@@ -2856,9 +2856,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering/atmos)
 "jTb" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
 /area/ship/dominian_corvette/exterior)
 "jTL" = (
@@ -41070,7 +41068,7 @@ sfW
 sfW
 sfW
 sfW
-sfW
+jTb
 xRX
 xRX
 xRX
