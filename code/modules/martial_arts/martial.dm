@@ -206,6 +206,7 @@
 	icon_state ="cqcmanual"
 	item_state ="book1"
 	var/martial_art = /datum/martial_art/sol_combat
+	///List of species capable of learning this martial art.
 	var/list/species_restriction
 
 /obj/item/martial_manual/attack_self(mob/user as mob)
