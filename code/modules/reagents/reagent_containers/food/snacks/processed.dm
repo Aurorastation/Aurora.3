@@ -656,7 +656,7 @@
 	trash = /obj/item/trash/pepperoniroll
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/sodiumchloride = 2)
 	bitesize = 2
-	reagent_data = list(/singleton/reagent/nutriment/protein = list("pepperoni" = 2, "cheese sticks" = 2))
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("pepperoni" = 2, "cheesy bread" = 2))
 
 /obj/item/reagent_containers/food/snacks/salmiak
 	name = "Inverkeithing Imports Viipuri Salmiak"

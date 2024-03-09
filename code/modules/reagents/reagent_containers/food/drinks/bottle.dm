@@ -986,7 +986,7 @@
 	name = "Morale Supplement VII Feni, Standard, Type I"
 	desc = "A bottle of Gadpathurian liquor, issued and manufactured by the United Planetary Defense Council. By nature, this is probably surplus."
 	desc_extended = "The product of several decades of research by a half-dozen different cadres, Morale Supplement VII- Feni, Standard- was adopted by decree of the United Planetary Defense Councils Board of Quartermasters for use in purposes \
-	relating to celebration, morale improvement, or deployment extension. All non-medical personnel are entitled to one twenty-unit serving of the drink- often regarded as 'Supplement Seven'- per celebratory period. It remains an obscure drink \
+	relating to celebration, morale improvement, or deployment extension. All non-medical personnel are entitled to one twenty-unit serving of the drink, often regarded as 'Supplement Seven', per celebratory period. It remains an obscure drink \
 	outside Gadpathur, not by virtue of its rarity- several thousand bottles are sold off as surplus to fund the UPDCG every year- but by being an extremely acquired taste."
 	icon_state = "fenibottle"
 	reagents_to_add = list(/singleton/reagent/alcohol/feni = 100)

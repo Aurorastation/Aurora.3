@@ -526,7 +526,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest
 	name = "\improper Whistling Forest Pale Ale"
-	desc = "A proud product of the All-Xanu Republic. Canned in Paasstad."
+	desc = "A proud product of the All-Xanu Republic, the Whistling Forest family of pale ales boast a rich history in the coke mines of Himavat City. Tourists take it with ice; locals know better."
 	desc_extended = "A Markhor Interstellar Logistics Group product. Move Mountains with Markhor!"
 	icon_state = "whistlingforest"
 	item_state = "whistlingforest"
@@ -559,13 +559,13 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/bochbrew = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/M, mob/user, var/target_zone)
+/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/M, mob/user, var/target_zone) // modified can reaction; have you ever seen someone crush a plastic bottle on their head?
 	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(M == user)
 			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You smack the bottle of [src.name] on your forehead."))
 		else
 			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [M]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [M]'s forehead."))
-		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
+		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // quoth the copy-paste code, 'ouch.'
 		return TRUE
 	. = ..()
 

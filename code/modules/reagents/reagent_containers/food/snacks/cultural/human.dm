@@ -657,7 +657,7 @@
 	icon_state = "xanucurry"
 	filling_color = "#dacb47"
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/spacespice = 2)
-	bitesize = 6
+	bitesize = 4
 	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 4, "rich spices" = 4))
 
 /obj/item/reagent_containers/food/snacks/bunkerbuster
@@ -667,7 +667,7 @@
 	icon_state = "bunkerbuster"
 	filling_color = "#dacb47"
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein/egg = 2, /singleton/reagent/spacespice = 2)
-	bitesize = 4
+	bitesize = 3
 	reagent_data = list(/singleton/reagent/nutriment = list("dijon mustard" = 2, "cheese" = 2, "fluffy bread" = 2))
 
 /obj/item/reagent_containers/food/snacks/crozets
@@ -675,7 +675,7 @@
 	desc = "The official dish of the Xanusii city of Foy-Nijlen, this is typically a sort of buckwheat pasta served in a spicy tomato-basil sauce alongside the city's usual seafoods, like penguin or shellfish. Tradition dictates this to be served in a stoneware bowl, but it is often an accepted casualty of interstellar travel."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "crozets"
-	bitesize = 6
+	bitesize = 2
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein/seafood = 2, /singleton/reagent/spacespice = 2, )
 	reagent_data = list(/singleton/reagent/nutriment = list("buckwheat pasta" = 3, "spicy tomato bisque" = 3))
 
@@ -685,17 +685,17 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "seafoodplatter"
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein/seafood = 4, /singleton/reagent/nutriment/protein/seafood/mollusc = 4)
-	bitesize = 6
-	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("malted vinegar" = 1, "creamy garlic sauce" = 1))
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("malted vinegar" = 1, "creamy garlic sauce" = 1))
 
 /obj/item/reagent_containers/food/snacks/xanuvindaloo
 	name = "paaskraan vindaloo"
 	desc = "Traditionally made with the meat of the Paaskraan, a waterfowl native to Xanu Prime, this version uses chicken, instead. Unlike a typical vindaloo, paaskraani vindaloo only adds the meat at the end, after pan-frying it to a crunchy crisp in a sweet vanilla sauce. Served over rice, this is the official dish of Paastad."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "xanuvindaloo"
-	bitesize = 6
+	bitesize = 2
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4, /singleton/reagent/spacespice = 2, )
-	reagent_data = list(/singleton/reagent/nutriment = list("vanilla" = 2, "fresh herbss" = 2), /singleton/reagent/nutriment/protein = list("sweet-and-savory chicken" = 4))
+	reagent_data = list(/singleton/reagent/nutriment = list("vanilla" = 2, "fresh herbs" = 2), /singleton/reagent/nutriment/protein = list("sweet-and-savory chicken" = 4))
 // Himeo
 
 /obj/item/reagent_containers/food/snacks/minerpie
@@ -705,7 +705,7 @@
 	icon_state = "minerpie"
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 4)
-	bitesize = 4
+	bitesize = 3
 	reagent_data = list(/singleton/reagent/nutriment = list("savory gravy" = 2, "vegetables" = 2, "pastry" = 2))
 
 /obj/item/reagent_containers/food/snacks/hakhmaparm
@@ -716,8 +716,8 @@
 	filling_color = "#d47d2b"
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 4)
-	bitesize = 4
-	reagent_data = list(/singleton/reagent/nutriment = list("cheese" = 2, "tomato sauce" = 2), /singleton/reagent/nutriment/protein = list("chicken" = 6))
+	bitesize = 3
+	reagent_data = list(/singleton/reagent/nutriment = list("cheese" = 3, "tomato sauce" = 3), /singleton/reagent/nutriment/protein = list("chicken" = 4))
 
 /obj/item/reagent_containers/food/snacks/steelworkersandwich
 	name = "steelworker's sandwich"
@@ -727,7 +727,7 @@
 	filling_color = "#d47d2b"
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 4)
-	bitesize = 4
+	bitesize = 3
 	reagent_data = list(/singleton/reagent/nutriment = list("mustard" = 2, "french fries" = 2, "coleslaw" = 2))
 
 
