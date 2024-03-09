@@ -63,6 +63,7 @@
 #include "code\__DEFINES\ghostspawner.dm"
 #include "code\__DEFINES\global.dm"
 #include "code\__DEFINES\grab.dm"
+#include "code\__DEFINES\gradient.dm"
 #include "code\__DEFINES\guns.dm"
 #include "code\__DEFINES\hallucinations.dm"
 #include "code\__DEFINES\hud.dm"
