@@ -40,3 +40,5 @@ delete-after: True
 changes:
   - bugfix: "Yet another attempt to reduce mannequin harddels."
   - bugfix: "Fixed various bugs found along the way."
+  - backend: "Updated the reftracker to the latest version from TG."
+  - backend: "Removed some unused vars."

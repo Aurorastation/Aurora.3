@@ -256,6 +256,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	LAZYINITLIST(GLOB.force_spawnpoints)
 	LAZYADD(GLOB.force_spawnpoints[job_tag], loc)
 
+/obj/effect/landmark/force_spawnpoint/Destroy()
+	LAZYREMOVE(GLOB.force_spawnpoints[job_tag], loc)
+	. = ..()
+
 var/list/ruin_landmarks = list()
 
 /obj/effect/landmark/ruin

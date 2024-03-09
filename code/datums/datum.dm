@@ -35,8 +35,12 @@
 	var/datum/weakref/weak_reference
 
 #ifdef REFERENCE_TRACKING
-	var/running_find_references
+	/// When was this datum last touched by a reftracker?
+	/// If this value doesn't match with the start of the search
+	/// We know this datum has never been seen before, and we should check it
 	var/last_find_references = 0
+	/// How many references we're trying to find when searching
+	var/references_to_clear = 0
 	#ifdef REFERENCE_TRACKING_DEBUG
 	///Stores info about where refs are found, used for sanity checks and testing
 	var/list/found_refs
@@ -52,7 +56,7 @@
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
-	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
+	SHOULD_NOT_SLEEP(TRUE)
 
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us

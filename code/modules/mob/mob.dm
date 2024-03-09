@@ -12,8 +12,7 @@
 	QDEL_NULL(hud_used)
 	lose_hearing_sensitivity()
 
-	for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
-		qdel(spell_master)
+	QDEL_LIST(spell_masters)
 	remove_screen_obj_references()
 
 	if(client)

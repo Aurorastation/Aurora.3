@@ -55,6 +55,7 @@
 /obj/item/stack/Destroy()
 	if (src && usr && usr.machine == src)
 		usr << browse(null, "window=stack")
+		usr.unset_machine()
 	return ..()
 
 /obj/item/stack/update_icon()

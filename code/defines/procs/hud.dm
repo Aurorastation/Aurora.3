@@ -21,13 +21,6 @@ the HUD updates properly! */
 	if(ismob(loc))
 		owner = loc
 
-/image/hud_overlay/Destroy()
-	if(owner)
-		owner?.client?.images -= src
-		owner = null
-
-	. = ..()
-
 //Medical HUD outputs. Called by the Life() proc of the mob using it, usually.
 /proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
 	if(!can_process_hud(M))

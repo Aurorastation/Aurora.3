@@ -41,7 +41,7 @@ SUBSYSTEM_DEF(virtualreality)
 
 /datum/controller/subsystem/virtualreality/proc/remove_robot(var/mob/living/robot, var/network)
 	if(robot)
-		if(network)
+		if(network in robots) //This is because signals cannot pass parameters, and QDEL passes the force parameter here
 			robots[network].Remove(robot)
 		else
 			for(var/k in robots)
