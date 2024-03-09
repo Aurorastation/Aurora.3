@@ -347,6 +347,18 @@
 	result = /obj/item/reagent_containers/food/snacks/pazillo
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace so it's not full of juice
 
+//Luna
+/singleton/recipe/traumwurst
+	appliance = SKILLET | SAUCEPAN
+	reagents = list(/singleton/reagent/drink/milk/cream = 5)
+	fruit = list("eggplant" = 1, "plumphelmet" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sausage,
+		/obj/item/reagent_containers/food/snacks/sausage
+		)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/traumwurst
+
 /singleton/recipe/steakxanu
 	appliance = SKILLET
 	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/drink/milk/cream = 5)
