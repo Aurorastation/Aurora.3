@@ -316,6 +316,7 @@
 
 /singleton/recipe/clams_casino
 	appliance = SKILLET
+	fruit = list ("bellpepper" = 1)
 	reagents = list(/singleton/reagent/spacespice = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/mollusc,
