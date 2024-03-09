@@ -37,10 +37,15 @@ SUBSYSTEM_DEF(virtualreality)
 /datum/controller/subsystem/virtualreality/proc/add_robot(var/mob/living/robot, var/network)
 	if(robot && network)
 		robots[network] += robot
+		RegisterSignal(robot, COMSIG_QDELETING, PROC_REF(remove_robot), TRUE)
 
 /datum/controller/subsystem/virtualreality/proc/remove_robot(var/mob/living/robot, var/network)
-	if(robot && network)
-		robots[network].Remove(robot)
+	if(robot)
+		if(network)
+			robots[network].Remove(robot)
+		else
+			for(var/k in robots)
+				robots[k].Remove(robot)
 
 /datum/controller/subsystem/virtualreality/proc/add_bound(var/mob/living/silicon/bound, var/network)
 	if(bound && network)

@@ -324,6 +324,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/phoron_golem/Initialize(mapload)
 	. = ..(mapload, SPECIES_GOLEM_PHORON)
 
+/mob/living/carbon/human/mhydrogen_golem/Destroy()
+	. = ..()
+
 /mob/living/carbon/human/mhydrogen_golem/Initialize(mapload)
 	. = ..(mapload, SPECIES_GOLEM_HYDROGEN)
 
