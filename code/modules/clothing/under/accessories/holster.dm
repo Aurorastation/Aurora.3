@@ -92,7 +92,7 @@
 			unholster(human)
 		return
 
-	..(human)
+	return ..(human)
 
 /obj/item/clothing/accessory/holster/attackby(obj/item/attacking_item, mob/user)
 	holster(attacking_item, user)
