@@ -317,7 +317,6 @@
 /singleton/recipe/clams_casino
 	appliance = SKILLET
 	fruit = list ("bellpepper" = 1)
-	reagents = list(/singleton/reagent/spacespice = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/mollusc,
 		/obj/item/reagent_containers/food/snacks/fish/mollusc,
@@ -448,7 +447,7 @@
 
 /singleton/recipe/steelworkersandwich
 	appliance = SKILLET
-	fruit = list("cabbage" = 1)
+	fruit = list("cabbage" = 1, "tomato" = 1)
 	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatsteak,

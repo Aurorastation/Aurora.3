@@ -630,6 +630,16 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 5, "chickpeas" = 3, "onion" = 3, "tomato" = 3))
 
 
+/obj/item/reagent_containers/food/snacks/pazillo/update_icon()
+	var/percent_pazillo = round((reagents.total_volume / 8) * 100)
+	switch(percent_pazillo)
+		if(0 to 50)
+			icon_state = "pazillo_small"
+		if(51 to 95)
+			icon_state = "pazillo_bitten"
+		if(96 to INFINITY)
+			icon_state = "pazillo"
+
 //Luna
 
 /obj/item/reagent_containers/food/snacks/traumwurst
@@ -650,16 +660,6 @@
 			icon_state = "traumwurst_half"
 		if(50 to INFINITY)
 			icon_state = "traumwurst"
-
-/obj/item/reagent_containers/food/snacks/pazillo/update_icon()
-	var/percent_pazillo = round((reagents.total_volume / 8) * 100)
-	switch(percent_pazillo)
-		if(0 to 50)
-			icon_state = "pazillo_small"
-		if(51 to 95)
-			icon_state = "pazillo_bitten"
-		if(96 to INFINITY)
-			icon_state = "pazillo"
 
 // Xanu Prime
 /obj/item/reagent_containers/food/snacks/steakxanu
@@ -718,6 +718,7 @@
 	bitesize = 2
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4, /singleton/reagent/spacespice = 2, )
 	reagent_data = list(/singleton/reagent/nutriment = list("vanilla" = 2, "fresh herbs" = 2), /singleton/reagent/nutriment/protein = list("sweet-and-savory chicken" = 4))
+
 // Himeo
 
 /obj/item/reagent_containers/food/snacks/minerpie
@@ -751,6 +752,3 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 4)
 	bitesize = 3
 	reagent_data = list(/singleton/reagent/nutriment = list("mustard" = 2, "french fries" = 2, "coleslaw" = 2))
-
-
-
