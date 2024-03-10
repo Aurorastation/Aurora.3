@@ -236,6 +236,13 @@
 	required_reagents = list(/singleton/reagent/mercury = 1, /singleton/reagent/sugar = 1, /singleton/reagent/lithium = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/snowflake
+	name = "Snowflake"
+	id = "snowflake"
+	result = /singleton/reagent/drugs/snowflake
+	required_reagents = list(/singleton/reagent/frostoil = 1, /singleton/reagent/fuel = 1, /singleton/reagent/sulfur = 1)
+	result_amount = 1
+
 /datum/chemical_reaction/cocaine
 	name = "Cocaine"
 	id = "cocaine"
