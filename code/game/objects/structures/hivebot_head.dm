@@ -1,5 +1,5 @@
 /obj/structure/hivebot_head
-	name = "Secondary Transmitter Drone Core"
+	name = "\improper Secondary Transmitter Drone core"
 	desc = "The central core of the Hivebot Secondary Transmitter Drone - all that remains after the machine's destruction. Perhaps some data as to the threat can be gleaned from this?"
 	icon = 'icons/obj/structure/hivebot_head.dmi'
 	icon_state = "hivebot_head"
