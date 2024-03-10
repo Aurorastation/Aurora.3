@@ -1,7 +1,7 @@
 /datum/citizenship
 	var/name
 	var/description
-	var/datum/outfit/consular_outfit = /datum/outfit/job/representative/consular
+	var/obj/outfit/consular_outfit = /obj/outfit/job/representative/consular
 	var/demonym
 	var/list/job_species_blacklist = list()
 

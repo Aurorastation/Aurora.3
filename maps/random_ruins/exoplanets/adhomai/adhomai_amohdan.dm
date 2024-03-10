@@ -21,7 +21,7 @@
 	max_count = 1
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/adhomai_amohdan
+	outfit = /obj/outfit/admin/adhomai_amohdan
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -29,7 +29,7 @@
 	special_role = "Amohdan Swordsman"
 	respawn_flag = null
 
-/datum/outfit/admin/adhomai_amohdan
+/obj/outfit/admin/adhomai_amohdan
 	name = "Amohdan Swordsman"
 
 	uniform = /obj/item/clothing/under/pants/tajaran
