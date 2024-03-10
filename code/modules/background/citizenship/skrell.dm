@@ -6,7 +6,7 @@
 	life almost unmatched anywhere else in the Spur. \
 	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of humanity, who has acquired AI technology \
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
-	consular_outfit = /datum/outfit/job/representative/consular/nralakk
+	consular_outfit = /obj/outfit/job/representative/consular/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -67,7 +67,7 @@
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/nralakk
+/obj/outfit/job/representative/consular/nralakk
 	name = "Nralakk Consular Officer"
 
 	uniform = /obj/item/clothing/under/skrell
@@ -75,7 +75,7 @@
 		/obj/item/device/camera = 1
 	)
 
-/datum/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isskrell(H))
 			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol(H), slot_belt)

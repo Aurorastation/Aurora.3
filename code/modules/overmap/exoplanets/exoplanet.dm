@@ -99,6 +99,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/New(loc, max_x, max_y, being_generated_for_unit_test = FALSE)
 
+	#if defined(UNIT_TEST)
+
 	//If we are being generated for unit testing, determine if we actually want to be generated here or not
 	if(being_generated_for_unit_test)
 
@@ -120,6 +122,8 @@
 			SSunit_tests_config.UT.debug("**** The exoplanet --> [src.name] - [src.type] <-- was not loaded as its group is not in the exoplanet_types_unit_test_groups! ****", __FILE__, __LINE__)
 			qdel_self()
 			return FALSE
+
+	#endif //UNIT_TEST
 
 
 	if(!SSatlas.current_map.use_overmap)

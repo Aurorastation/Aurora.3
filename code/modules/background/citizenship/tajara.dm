@@ -5,7 +5,7 @@
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
-	consular_outfit = /datum/outfit/job/representative/consular/pra
+	consular_outfit = /obj/outfit/job/representative/consular/pra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -38,7 +38,7 @@
 		if(REPRESENTATIVE_MISSION_LOW)
 			return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between the [SSatlas.current_map.boss_name] and the People's Republic through diplomacy."
 
-/datum/outfit/job/representative/consular/pra
+/obj/outfit/job/representative/consular/pra
 	name = "PRA Consular Officer"
 
 	glasses = null
@@ -61,7 +61,7 @@
 	nation they were fighting for the Democratic People's Republic of Adhomai. The DPRA is now lead by Purrjar Almrah Harrlala who is struggling to transition what was once a militant \
 	insurgency movement, then an organized military, into a modern, democratic nation. With the help of Nated as a government minister going out to negotiate with ruling Juntas to \
 	voluntarily turn over power to civilian governments, the DPRA's future faces many fundamental changes."
-	consular_outfit = /datum/outfit/job/representative/consular/dpra
+	consular_outfit = /obj/outfit/job/representative/consular/dpra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -94,7 +94,7 @@
 		if(REPRESENTATIVE_MISSION_LOW)
 			return "Ensure that DPRA citizens are following the principles of Al'mariism. Defend the rights of the Tajara through diplomacy."
 
-/datum/outfit/job/representative/consular/dpra
+/obj/outfit/job/representative/consular/dpra
 	name = "DPRA Consular Officer"
 
 	glasses = null
@@ -118,7 +118,7 @@
 	this dynasty should rule as a constitutional monarchy in order to prevent abuses of power. In reality, this has proven very difficult, especially with the realities of war. \
 	The lofty titles of the nobles disguise the fact that most of the nobility of this new kingdom remain in squalor only marginally better than the peasants. Life is difficult, and \
 	the Azunja dynasty finds itself struggling to function with their limited constitutional powers and factional in-fighting between the military and the civilian government."
-	consular_outfit = /datum/outfit/job/representative/consular/nka
+	consular_outfit = /obj/outfit/job/representative/consular/nka
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -151,7 +151,7 @@
 		if(REPRESENTATIVE_MISSION_LOW)
 			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between the [SSatlas.current_map.boss_name] and the New Kingdom through diplomacy."
 
-/datum/outfit/job/representative/consular/nka
+/obj/outfit/job/representative/consular/nka
 	name = "NKA Consular Officer"
 
 	glasses = null
