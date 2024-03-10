@@ -64,6 +64,9 @@
 
 	QDEL_LAZYLIST(contained_mobs)
 
+	if(loc)
+		loc.on_stored_atom_del(src) // things that container need to do when a movable atom inside it is deleted
+
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
 	loc = null

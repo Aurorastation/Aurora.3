@@ -109,67 +109,67 @@
 
 
 ///Pistol pouch.
-/obj/item/storage/pouch/pistol
-	name = "sidearm pouch"
-	desc = "You could carry a pistol in this; more importantly, you could draw it quickly. Useful for emergencies."
-	icon_state = "pistol"
-	use_sound = null
-	max_w_class = ITEMSIZE_NORMAL
-	can_hold = list(/obj/item/gun)
+// /obj/item/storage/pouch/pistol
+// 	name = "sidearm pouch"
+// 	desc = "You could carry a pistol in this; more importantly, you could draw it quickly. Useful for emergencies."
+// 	icon_state = "pistol"
+// 	use_sound = null
+// 	max_w_class = ITEMSIZE_NORMAL
+// 	can_hold = list(/obj/item/gun)
 
-	flap = FALSE
+// 	flap = FALSE
 
-	///Display code pulled from belt.dm gun belt. Can shave quite a lot off because this pouch can only hold one item at a time.
-	var/obj/item/gun/current_gun //The gun it holds, used for referencing later so we can update the icon.
-	var/image/gun_underlay //The underlay we will use.
-	var/sheatheSound = 'sound/weapons/gun_pistol_sheathe.ogg'
-	var/drawSound = 'sound/weapons/gun_pistol_draw.ogg'
-	var/icon_x = 0
-	var/icon_y = -3
+// 	///Display code pulled from belt.dm gun belt. Can shave quite a lot off because this pouch can only hold one item at a time.
+// 	var/obj/item/gun/current_gun //The gun it holds, used for referencing later so we can update the icon.
+// 	var/image/gun_underlay //The underlay we will use.
+// 	var/sheatheSound = 'sound/weapons/gun_pistol_sheathe.ogg'
+// 	var/drawSound = 'sound/weapons/gun_pistol_draw.ogg'
+// 	var/icon_x = 0
+// 	var/icon_y = -3
 
-/obj/item/storage/pouch/pistol/Destroy()
-	gun_underlay = null
-	current_gun = null
-	. = ..()
+// /obj/item/storage/pouch/pistol/Destroy()
+// 	gun_underlay = null
+// 	current_gun = null
+// 	. = ..()
 
-/obj/item/storage/pouch/pistol/on_stored_atom_del(atom/movable/AM)
-	if(AM == current_gun)
-		current_gun = null
-		update_gun_icon()
+// /obj/item/storage/pouch/pistol/on_stored_atom_del(atom/movable/AM)
+// 	if(AM == current_gun)
+// 		current_gun = null
+// 		update_gun_icon()
 
-/obj/item/storage/pouch/pistol/can_be_inserted(obj/item/W, mob/user, stop_messages = FALSE) //A little more detailed than just 'the pouch is full'.
-	. = ..()
-	if(!.)
-		return
-	if(current_gun && isgun(W))
-		if(!stop_messages)
-			to_chat(usr, SPAN_WARNING("[src] already holds a gun."))
-		return FALSE
+// /obj/item/storage/pouch/pistol/can_be_inserted(obj/item/W, mob/user, stop_messages = FALSE) //A little more detailed than just 'the pouch is full'.
+// 	. = ..()
+// 	if(!.)
+// 		return
+// 	if(current_gun && isgun(W))
+// 		if(!stop_messages)
+// 			to_chat(usr, SPAN_WARNING("[src] already holds a gun."))
+// 		return FALSE
 
-/obj/item/storage/pouch/pistol/handle_item_insertion(obj/item/I, prevent_warning = 0, mob/user)
-	if(isgun(I))
-		current_gun = I
-		update_gun_icon()
-	..()
+// /obj/item/storage/pouch/pistol/handle_item_insertion(obj/item/I, prevent_warning = 0, mob/user)
+// 	if(isgun(I))
+// 		current_gun = I
+// 		update_gun_icon()
+// 	..()
 
-/obj/item/storage/pouch/pistol/remove_from_storage(obj/item/I, atom/new_location)
-	if(I == current_gun)
-		current_gun = null
-		update_gun_icon()
-	..()
+// /obj/item/storage/pouch/pistol/remove_from_storage(obj/item/I, atom/new_location)
+// 	if(I == current_gun)
+// 		current_gun = null
+// 		update_gun_icon()
+// 	..()
 
-/obj/item/storage/pouch/pistol/proc/update_gun_icon()
-	// if(current_gun)
-	// 	playsound(src, drawSound, 15, TRUE)
-	// 	gun_underlay = image('icons/obj/items/clothing/belts.dmi', current_gun.base_gun_icon)
-	// 	gun_underlay.pixel_x = icon_x
-	// 	gun_underlay.pixel_y = icon_y
-	// 	gun_underlay.color = current_gun.color
-	// 	underlays += gun_underlay
-	// else
-	// 	playsound(src, sheatheSound, 15, TRUE)
-	// 	underlays -= gun_underlay
-	// 	gun_underlay = null
+// /obj/item/storage/pouch/pistol/proc/update_gun_icon()
+// 	if(current_gun)
+// 		playsound(src, drawSound, 15, TRUE)
+// 		gun_underlay = image('icons/obj/items/clothing/belts.dmi', current_gun.base_gun_icon)
+// 		gun_underlay.pixel_x = icon_x
+// 		gun_underlay.pixel_y = icon_y
+// 		gun_underlay.color = current_gun.color
+// 		underlays += gun_underlay
+// 	else
+// 		playsound(src, sheatheSound, 15, TRUE)
+// 		underlays -= gun_underlay
+// 		gun_underlay = null
 
 //// MAGAZINE POUCHES /////
 
@@ -230,9 +230,9 @@
 	storage_slots = 6
 	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
-		/obj/item/explosive/plastic,
-		/obj/item/explosive/mine,
-		/obj/item/explosive/grenade
+		/obj/item/plastique,
+		/obj/item/landmine,
+		/obj/item/grenade
 	)
 
 /obj/item/storage/pouch/medical
@@ -395,7 +395,7 @@
 	icon_state = "construction"
 	can_hold = list(
 		/obj/item/stack/barbed_wire,
-		/obj/item/stack/sheet,
+		/obj/item/stack/material,
 		/obj/item/stack/rods,
 		/obj/item/stack/cable_coil,
 		/obj/item/stack/tile,
@@ -434,14 +434,13 @@
 		/obj/item/cell,
 		/obj/item/circuitboard,
 		/obj/item/stock_parts,
-		/obj/item/device/demo_scanner,
 		/obj/item/device/reagent_scanner,
 		/obj/item/device/assembly,
 		/obj/item/device/multitool,
 		/obj/item/device/flashlight,
 		/obj/item/device/t_scanner,
 		/obj/item/device/analyzer,
-		/obj/item/explosive/plastic,
+		/obj/item/plastique,
 		/obj/item/device/lightreplacer,
 	)
 
