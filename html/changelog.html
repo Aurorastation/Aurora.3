@@ -35,6 +35,47 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">09 March 2024</h2>
+			<h3 class="author">ClemTheDuck updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the ability to wear holsters on belt slots. Tweaked sprites on Machete Holsters as well.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Updated and added various icon helper procs, from TG; some operations should now also be faster as they are offloaded to the engine.</li>
+				<li class="refactor">Refactored floating messages.</li>
+				<li class="bugfix">Images that carry the floating messages for the chat are now sized according to the message size and generated per-client.</li>
+				<li class="refactor">Refactored overlays management through the procs, ported from TG.</li>
+				<li class="backend">Updated pickup animations to use the new system, minor refactor of it.</li>
+				<li class="backend">Flick overlay visual now uses a /atom/movable/flick_visual carrying object.</li>
+				<li class="backend">Ported various fonts and the /datum/font system.</li>
+				<li class="rscadd">Floating messages for the chat and actions now use a pixel-perfect font with selected sizes.</li>
+				<li class="backend">Reduced the number of spawn()s required to send messages.</li>
+				<li class="bugfix">Non-ASCII characters are now not mangled anymore in the runechat messages.</li>
+				<li class="refactor">Consolidated /atom/Destroy in a single proc and moved it in the appropriate file.</li>
+				<li class="refactor">Moved a bulk of /atom vars in the aforementioned appropriate file.</li>
+				<li class="backend">/atom/movable/flick_visual now tracks who it was added in the vis_contents of and removes itself from it on destroy, thus avoiding needing an harddel.</li>
+				<li class="backend">Added the runechat subsystem to try to compensate for tick overruns caused by waking up pf the rune proc.</li>
+				<li class="backend">Split the processing of the runechat icon to take advantage of the above.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Vaurca can now select robotic speech bubbles.</li>
+			</ul>
+			<h3 class="author">Tomixcomics, tgstation updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new food dishes, both original and ones ported from tgstation</li>
+				<li class="rscadd">Added two new plant types</li>
+				<li class="rscadd">Added boba tea drinks</li>
+				<li class="rscadd">Added syrup bottles for the various syrups in the game</li>
+				<li class="rscadd">Added new varieties of pancakes</li>
+				<li class="rscadd">Added recipe for creating strawberry milk, kind of weird it wasn&#x27;t already in the game after all this time tbh</li>
+				<li class="rscadd">Added premium vending machine item</li>
+				<li class="tweak">Moved Dirtberries so they show up on the right place in the seed vendor</li>
+				<li class="tweak">Gave starcake slices the correct name</li>
+				<li class="tweak">Changed recipe for clams casino to include bell peppers instead of space spice</li>
+			</ul>
+
 			<h2 class="date">07 March 2024</h2>
 			<h3 class="author">Lavillastrangiato updated:</h3>
 			<ul class="changes bgimages16">
