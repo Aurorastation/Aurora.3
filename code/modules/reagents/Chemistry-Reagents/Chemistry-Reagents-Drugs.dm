@@ -141,7 +141,7 @@
 
 /singleton/reagent/drugs/snowflake/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	if(prob(35))
-		M.vomit()
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
 		M.adjustToxLoss(5)
 		M.add_chemical_effect(CE_NEUROTOXIC, 1)
 	..()

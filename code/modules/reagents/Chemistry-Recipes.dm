@@ -909,7 +909,7 @@
 	name = "Colorspace"
 	id = "colorspace"
 	result = /singleton/reagent/drugs/colorspace
-	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/ethanol = 1, /singleton/reagent/silicon = 1)
+	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/silicon = 1)
 	result_amount = 1
 
 /* Solidification */
