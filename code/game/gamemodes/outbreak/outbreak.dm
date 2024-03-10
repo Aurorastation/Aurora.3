@@ -22,6 +22,12 @@
 
 /datum/game_mode/outbreak/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	var/mob/user = usr
+	switch(action)
+		if("group_spawn")
+			for(var/i = 1 to rand(5, 9))
+				var/turf/T = get_random_turf_in_range(user, 7, 0, TRUE, FALSE)
+				new /mob/living/carbon/human/zombie(T)
 
 /obj/effect/landmark/outbreak_zombie
 	name = "Simple Zombie Marker"

@@ -495,14 +495,19 @@
 	)
 
 /// Raccoon City zombies
-/datum/ghostspawner/human//zombie
+/datum/ghostspawner/human/zombie
 	name = "Konyanger Zombie"
 	short_name = "kzombie"
 	desc = "You are a Konyanger turned into a Zombie by the Outbreak. ADMIN NOTE: You MUST roleplay like a believable zombie. You're free to take your time and \
 			be spooky without immediately killing people, but you must NOT do anything cheesy, powergamey, metagamey or unbelievable for a zombie."
 	loc_type = GS_LOC_ATOM
-	max_count = 0
-	tags = "Outbreak"
+	spawn_mob = /mob/living/carbon/human/zombie
+	possible_species = list(SPECIES_ZOMBIE, SPECIES_ZOMBIE_SKRELL)
+	tags = list("Outbreak")
+	respawn_flag = null
+	max_count = 100
+	enabled = FALSE
+	show_on_job_select = FALSE
 	spawnpoints = list("kzombie")
 	spawn_mob = /mob/living/carbon/human/zombie
 

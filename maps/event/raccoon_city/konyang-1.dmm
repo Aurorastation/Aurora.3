@@ -1441,6 +1441,7 @@
 	pixel_x = -10
 	},
 /obj/structure/table/rack/retail_shelf,
+/obj/random/barbed_wire,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/tunnels)
 "bEr" = (
@@ -4137,6 +4138,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
+"eCP" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/random/barricade_kit,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/point_verdant/interior/tunnels)
 "eDb" = (
 /obj/structure/utility_pole/street/on{
 	pixel_y = -3
@@ -7729,6 +7735,10 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"ipg" = (
+/obj/random/barbed_wire,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/point_verdant/interior/tunnels)
 "ipk" = (
 /obj/structure/structural_support,
 /turf/simulated/floor/sidewalk/flat,
@@ -10325,6 +10335,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/barbed_wire,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior/tunnels)
 "ldt" = (
@@ -13023,6 +13034,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/sewer)
+"nWn" = (
+/obj/random/barbed_wire,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/bar)
 "nWV" = (
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
@@ -14847,9 +14862,9 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "qaJ" = (
-/obj/random/konyang_gun/pistols,
-/turf/simulated/wall/wood,
-/area/point_verdant/outdoors)
+/obj/item/herb,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/interior/tunnels)
 "qaT" = (
 /obj/structure/light_pole/konyang/left,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -16821,6 +16836,7 @@
 	pixel_x = 6;
 	pixel_y = 7
 	},
+/obj/random/barbed_wire,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "rYz" = (
@@ -39658,7 +39674,7 @@ wAb
 wAb
 wAb
 wAb
-eRi
+eCP
 bqt
 eRi
 pNx
@@ -41703,7 +41719,7 @@ wAb
 gAG
 wAb
 wAb
-bqt
+ipg
 wNN
 wAb
 wAb
@@ -49980,7 +49996,7 @@ wAb
 wAb
 wAb
 wAb
-wNN
+eHM
 wAb
 bAO
 xpA
@@ -50161,7 +50177,7 @@ rwE
 fkr
 frr
 qbF
-tha
+nWn
 tha
 fkr
 ePx
@@ -59759,7 +59775,7 @@ pcq
 pcq
 hJc
 hJc
-hJc
+qaJ
 wAb
 wAb
 wAb
@@ -71316,7 +71332,7 @@ wuH
 wuH
 rZY
 gzr
-qaJ
+gzr
 gzr
 eui
 wuH

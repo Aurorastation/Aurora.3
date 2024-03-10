@@ -43,6 +43,9 @@
 			attack_verb = list("pokes", "stabs")
 			hitsound = initial(hitsound)
 
+/obj/item/umbrella/gives_weather_protection()
+	return is_open ? TRUE : FALSE
+
 /obj/item/umbrella/red
 	umbrella_color = "red"
 	icon_state = "umbrella_red_closed"

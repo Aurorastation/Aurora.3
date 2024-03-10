@@ -128,6 +128,15 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
 /turf/simulated/floor/shuttle/black,
 /area/point_verdant/interior/spaceport)
 "aS" = (
@@ -1204,14 +1213,6 @@
 	pixel_y = 32;
 	name = "k'ois - FOR VAURCA CONSUMPTION ONLY"
 	},
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/point_verdant/interior/spaceport)
 "hw" = (
@@ -1780,6 +1781,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/point_verdant/interior/spaceport)
 "mb" = (
@@ -3049,6 +3057,11 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"vB" = (
+/obj/structure/table/wood,
+/obj/random/survival_weapon,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/police)
 "vH" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -4028,6 +4041,7 @@
 /area/point_verdant/interior/offices)
 "Ca" = (
 /obj/structure/table/glass,
+/obj/random/high_grade_weapon,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/decrepit)
 "Cc" = (
@@ -4515,6 +4529,13 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
+/obj/item/umbrella,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/point_verdant/interior/spaceport)
 "Fb" = (
@@ -4642,14 +4663,6 @@
 "Gf" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/closet/walllocker/emerglocker/north,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
-/obj/item/umbrella,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/point_verdant/interior/spaceport)
 "Gg" = (
@@ -4980,6 +4993,7 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
+/obj/random/med_stack,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
 "HW" = (
@@ -21246,7 +21260,7 @@ lp
 eV
 tg
 QN
-Ah
+vB
 Gg
 Ml
 Cw
