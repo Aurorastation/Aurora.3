@@ -12975,10 +12975,10 @@
 /obj/item/storage/pouch/tools,
 /obj/item/storage/pouch/tools,
 /obj/item/storage/pouch/construction{
-	pixel_y = 13
+	pixel_y = 9
 	},
 /obj/item/storage/pouch/construction{
-	pixel_y = 13
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -22383,17 +22383,26 @@
 	pixel_x = 6;
 	pixel_y = -2
 	},
-/obj/item/storage/pouch/sling{
-	pixel_x = -7
+/obj/item/storage/pouch/document{
+	pixel_x = -6
 	},
-/obj/item/storage/pouch/sling{
-	pixel_x = -7
+/obj/item/storage/pouch/document{
+	pixel_x = -6
 	},
-/obj/item/storage/pouch/sling{
-	pixel_x = -7
+/obj/item/storage/pouch/document{
+	pixel_x = -6
 	},
-/obj/item/storage/pouch/sling{
-	pixel_x = -7
+/obj/item/storage/pouch/electronics{
+	pixel_y = 11;
+	pixel_x = -2
+	},
+/obj/item/storage/pouch/electronics{
+	pixel_y = 11;
+	pixel_x = -2
+	},
+/obj/item/storage/pouch/electronics{
+	pixel_y = 11;
+	pixel_x = -2
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
