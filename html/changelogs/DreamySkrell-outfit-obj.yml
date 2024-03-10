@@ -1,8 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "Refactored `/datum/outfit` to `/obj/outfit`."
-  - rscadd: "Outfits can be mapped in or spawned manually, to spill all their items on the floor."
