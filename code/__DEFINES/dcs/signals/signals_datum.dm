@@ -20,3 +20,7 @@
 #define COMSIG_ELEMENT_ATTACH "element_attach"
 /// fires on the target datum when an element is attached to it  (/datum/element)
 #define COMSIG_ELEMENT_DETACH_ON_HOST_DESTROY "ELEMENT_DETACH_ON_HOST_DESTROY"
+
+/// From /datum/element/drop_retrieval usage: /obj/item/storage/pouch/sling/can_be_inserted() (/obj/item/I)
+#define COMSIG_DROP_RETRIEVAL_CHECK "drop_retrieval_check"
+	#define COMPONENT_DROP_RETRIEVAL_PRESENT (1<<0)

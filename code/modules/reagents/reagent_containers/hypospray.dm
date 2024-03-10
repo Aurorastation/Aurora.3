@@ -347,3 +347,17 @@
 	volume = 10
 	amount_per_transfer_from_this = 10
 	reagents_to_add = list(/singleton/reagent/peridaxon = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/perconol
+	name = "perconol autoinjector"
+	desc = "An autoinjector loaded with perconol, a chemical used to dull pain."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/perconol = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/tricord
+	name = "tricordrazine autoinjector"
+	desc = "An autoinjector loaded with tricordrazine, a chemical used to treat a variety of ailments."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/tricordrazine = 10)

@@ -112,6 +112,8 @@
 
 #define ismanipulator(A) istype(A, /obj/item/stock_parts/manipulator)
 
+#define isgun(A) istype(A, /obj/item/gun)
+
 #define isclient(A) istype(A, /client)
 
 #define isclothing(A) istype(A, /obj/item/clothing)

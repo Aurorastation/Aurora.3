@@ -70,6 +70,11 @@
 	desc = "Contains pills used to treat minor burns."
 	starts_with = list(/obj/item/reagent_containers/pill/kelotane = 7)
 
+/obj/item/storage/pill_bottle/dexalin
+	name = "bottle of 10u Dexalin pills"
+	desc = "Contains pills used to treat oxygen deprivation."
+	starts_with = list(/obj/item/reagent_containers/pill/dexalin = 7)
+
 /obj/item/storage/pill_bottle/butazoline
 	name = "bottle of 10u Butazoline pills"
 	desc = "Contains pills used to severe injuries and bleeding."
