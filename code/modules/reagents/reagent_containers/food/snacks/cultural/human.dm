@@ -694,7 +694,7 @@
 
 /obj/item/reagent_containers/food/snacks/crozets
 	name = "naya khyber crozets"
-	desc = "The official dish of the Xanusii city of Foy-Nijlen, this is typically a sort of buckwheat pasta served in a spicy tomato-basil sauce alongside the city's usual seafoods, like penguin or shellfish. Tradition dictates this to be served in a stoneware bowl, but it is often an accepted casualty of interstellar travel."
+	desc = "The official dish of the Xanan city of Foy-Nijlen, this is typically a sort of buckwheat pasta served in a spicy tomato-basil sauce alongside the city's usual seafoods, like penguin or shellfish. Tradition dictates this to be served in a stoneware bowl, but it is often an accepted casualty of interstellar travel."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "crozets"
 	bitesize = 2
@@ -703,7 +703,7 @@
 
 /obj/item/reagent_containers/food/snacks/seafoodplatter
 	name = "north sixty sea platter"
-	desc = "While it lacks a traditional 'recipe', the North Sixty Sea Platter is a Xanusii seafood platter focused on fresh, local seafood- fried, grilled, stewed, or raw- caught north of sixty degrees latitude. While there is no ocean on the Horizon, a faithful recreation of the famous side sauce can help adhere a few, more alien ingredients."
+	desc = "While it lacks a traditional 'recipe', the North Sixty Sea Platter is a Xanan seafood platter focused on fresh, local seafood- fried, grilled, stewed, or raw- caught north of sixty degrees latitude. While there is no ocean on the Horizon, a faithful recreation of the famous side sauce can help adhere a few, more alien ingredients."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "seafoodplatter"
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein/seafood = 4, /singleton/reagent/nutriment/protein/seafood/mollusc = 4)
