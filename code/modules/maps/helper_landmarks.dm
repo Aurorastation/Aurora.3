@@ -14,7 +14,8 @@
 
 	var/can_remove_without_causing_active_edge = TRUE
 	for(var/turf/T in range(1, W))
-		if(!(W.air.compare(T.air)))
+		//If one is in vacuum and the other isn't, or the air does not match between the two, no good
+		if((!W.air && T.air) || (W.air && !T.air) || !(W.air.compare(T.air)))
 			can_remove_without_causing_active_edge = FALSE
 			break
 
