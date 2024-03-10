@@ -473,9 +473,9 @@
 	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))
-			H.dna.SetSEState(MONKEYBLOCK,1)
+			H.dna?.SetSEState(MONKEYBLOCK,1)
 		else
-			H.dna.SetSEState(MONKEYBLOCK,0)
+			H.dna?.SetSEState(MONKEYBLOCK,0)
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
 		H.pronouns = H.gender

@@ -202,7 +202,6 @@
 		density = 0
 
 /obj/effect/plant/proc/calc_dir()
-	set background = 1
 	var/turf/T = get_turf(src)
 	if(!istype(T)) return
 
