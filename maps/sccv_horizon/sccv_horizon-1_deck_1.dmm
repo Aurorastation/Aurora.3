@@ -282,6 +282,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"alg" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/magazine/pistol,
+/obj/item/storage/pouch/magazine/pistol,
+/obj/item/storage/pouch/magazine/pistol,
+/obj/item/storage/pouch/pistol{
+	pixel_y = 9
+	},
+/obj/item/storage/pouch/pistol{
+	pixel_y = 9
+	},
+/obj/item/storage/pouch/pistol{
+	pixel_y = 9
+	},
+/obj/item/storage/pouch/pistol{
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "alq" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/industrial/warning{
@@ -2561,8 +2584,7 @@
 	dir = 10
 	},
 /obj/random/pottedplant_small{
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
@@ -4217,6 +4239,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"cTo" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/magazine,
+/obj/item/storage/pouch/magazine,
+/obj/item/storage/pouch/magazine,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "cTs" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -10421,6 +10451,35 @@
 	temperature = 278.15
 	},
 /area/medical/morgue/lower)
+"hbp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/syringe{
+	pixel_y = -4
+	},
+/obj/item/storage/pouch/syringe{
+	pixel_y = -4
+	},
+/obj/item/storage/pouch/syringe{
+	pixel_y = -4
+	},
+/obj/item/storage/pouch/syringe{
+	pixel_y = -4
+	},
+/obj/item/storage/pouch/vials{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/vials{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/vials{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/vials{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "hbU" = (
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/green{
@@ -12908,6 +12967,21 @@
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
+"iSC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/tools,
+/obj/item/storage/pouch/tools,
+/obj/item/storage/pouch/tools,
+/obj/item/storage/pouch/tools,
+/obj/item/storage/pouch/construction{
+	pixel_y = 13
+	},
+/obj/item/storage/pouch/construction{
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "iTq" = (
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -22287,6 +22361,42 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"pnt" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/radio{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/item/storage/pouch/radio{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/item/storage/pouch/radio{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/item/storage/pouch/radio{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/item/storage/pouch/sling{
+	pixel_x = -7
+	},
+/obj/item/storage/pouch/sling{
+	pixel_x = -7
+	},
+/obj/item/storage/pouch/sling{
+	pixel_x = -7
+	},
+/obj/item/storage/pouch/sling{
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "pnH" = (
 /obj/structure/cable/yellow{
 	d2 = 4;
@@ -24655,6 +24765,34 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"qQO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/autoinjector{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/autoinjector{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/autoinjector{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/autoinjector{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/autoinjector{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/autoinjector{
+	pixel_y = 6
+	},
+/obj/item/storage/pouch/chem,
+/obj/item/storage/pouch/chem,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "qQS" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27164,6 +27302,87 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"sJM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/flare{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/flare{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/flare{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/flare{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/storage/pouch/general/medium{
+	pixel_y = 11
+	},
+/obj/item/storage/pouch/general/medium{
+	pixel_y = 11
+	},
+/obj/item/storage/pouch/general/medium{
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "sJN" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -30411,6 +30630,37 @@
 "uTy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
+/obj/structure/table/rack/no_cargo,
+/obj/item/storage/pouch/firstaid{
+	pixel_x = -6
+	},
+/obj/item/storage/pouch/firstaid{
+	pixel_x = -6
+	},
+/obj/item/storage/pouch/firstaid{
+	pixel_x = -6
+	},
+/obj/item/storage/pouch/firstaid{
+	pixel_x = -6
+	},
+/obj/item/storage/pouch/firstaid{
+	pixel_x = -6
+	},
+/obj/item/storage/pouch/firstaid{
+	pixel_x = -6
+	},
+/obj/item/storage/pouch/medical{
+	pixel_x = 5
+	},
+/obj/item/storage/pouch/medical{
+	pixel_x = 5
+	},
+/obj/item/storage/pouch/medical{
+	pixel_x = 5
+	},
+/obj/item/storage/pouch/medical{
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "uTz" = (
@@ -45717,11 +45967,11 @@ hdK
 bmx
 fif
 qdE
-tiV
+qQO
 uTy
 pcv
-giX
-tiV
+iSC
+sJM
 qdE
 tiV
 qQa
@@ -46123,11 +46373,11 @@ fif
 uCB
 fif
 qdE
-iQI
-giX
+pnt
+hbp
 sWr
-giX
-iQI
+cTo
+alg
 qdE
 iQI
 giX

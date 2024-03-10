@@ -40,17 +40,6 @@
 	. = ..()
 	. += "Can be worn by attaching it to a pocket."
 
-
-/obj/item/storage/pouch/equipped(mob/user, slot)
-	if(slot == slot_l_store || slot == slot_r_store)
-		mouse_opacity = MOUSE_OPACITY_OPAQUE //so it's easier to click when properly equipped.
-	..()
-
-/obj/item/storage/pouch/dropped(mob/user)
-	mouse_opacity = initial(mouse_opacity)
-	..()
-
-
 /obj/item/storage/pouch/general
 	name = "light general pouch"
 	desc = "A general-purpose pouch used to carry a small item, or two tiny ones."
@@ -107,69 +96,77 @@
 	new /obj/item/stack/medical/ointment(src)
 	new /obj/item/stack/medical/bruise_pack(src)
 
+/obj/item/storage/pouch/pistol
+	name = "sidearm pouch"
+	desc = "You could carry a pistol in this; more importantly, you could draw it quickly. Useful for emergencies."
+	icon_state = "pistol"
+	use_sound = null
+	max_w_class = ITEMSIZE_NORMAL
+	can_hold = list(/obj/item/gun)
 
-///Pistol pouch.
-// /obj/item/storage/pouch/pistol
-// 	name = "sidearm pouch"
-// 	desc = "You could carry a pistol in this; more importantly, you could draw it quickly. Useful for emergencies."
-// 	icon_state = "pistol"
-// 	use_sound = null
-// 	max_w_class = ITEMSIZE_NORMAL
-// 	can_hold = list(/obj/item/gun)
+	flap = FALSE
 
-// 	flap = FALSE
+	/// The gun it holds, used for referencing later so we can update the icon.
+	var/obj/item/gun/current_gun
 
-// 	///Display code pulled from belt.dm gun belt. Can shave quite a lot off because this pouch can only hold one item at a time.
-// 	var/obj/item/gun/current_gun //The gun it holds, used for referencing later so we can update the icon.
-// 	var/image/gun_underlay //The underlay we will use.
-// 	var/sheatheSound = 'sound/weapons/gun_pistol_sheathe.ogg'
-// 	var/drawSound = 'sound/weapons/gun_pistol_draw.ogg'
-// 	var/icon_x = 0
-// 	var/icon_y = -3
+	/// The underlay we will use for the gun
+	var/image/gun_underlay
 
-// /obj/item/storage/pouch/pistol/Destroy()
-// 	gun_underlay = null
-// 	current_gun = null
-// 	. = ..()
+	/// The X offset of the gun overlay
+	var/icon_x = 0
 
-// /obj/item/storage/pouch/pistol/on_stored_atom_del(atom/movable/AM)
-// 	if(AM == current_gun)
-// 		current_gun = null
-// 		update_gun_icon()
+	/// The Y offset of the gun overlay
+	var/icon_y = -3
 
-// /obj/item/storage/pouch/pistol/can_be_inserted(obj/item/W, mob/user, stop_messages = FALSE) //A little more detailed than just 'the pouch is full'.
-// 	. = ..()
-// 	if(!.)
-// 		return
-// 	if(current_gun && isgun(W))
-// 		if(!stop_messages)
-// 			to_chat(usr, SPAN_WARNING("[src] already holds a gun."))
-// 		return FALSE
+/obj/item/storage/pouch/pistol/Destroy()
+	gun_underlay = null
+	current_gun = null
+	return ..()
 
-// /obj/item/storage/pouch/pistol/handle_item_insertion(obj/item/I, prevent_warning = 0, mob/user)
-// 	if(isgun(I))
-// 		current_gun = I
-// 		update_gun_icon()
-// 	..()
+/obj/item/storage/pouch/pistol/on_stored_atom_del(atom/movable/AM)
+	if(AM == current_gun)
+		current_gun = null
+		update_gun_icon()
 
-// /obj/item/storage/pouch/pistol/remove_from_storage(obj/item/I, atom/new_location)
-// 	if(I == current_gun)
-// 		current_gun = null
-// 		update_gun_icon()
-// 	..()
+/obj/item/storage/pouch/pistol/can_be_inserted(obj/item/item, mob/user, stop_messages = FALSE) //A little more detailed than just 'the pouch is full'.
+	. = ..()
+	if(!.)
+		return
+	if(isgun(item))
+		var/obj/item/gun/pistol = item
+		if(!(pistol.slot_flags & SLOT_HOLSTER))
+			to_chat(user, SPAN_WARNING("\The [pistol] doesn't fit in \the [src]!"))
+			return FALSE
+		if(current_gun)
+			if(!stop_messages)
+				to_chat(usr, SPAN_WARNING("[src] already holds a gun."))
+			return FALSE
 
-// /obj/item/storage/pouch/pistol/proc/update_gun_icon()
-// 	if(current_gun)
-// 		playsound(src, drawSound, 15, TRUE)
-// 		gun_underlay = image('icons/obj/items/clothing/belts.dmi', current_gun.base_gun_icon)
-// 		gun_underlay.pixel_x = icon_x
-// 		gun_underlay.pixel_y = icon_y
-// 		gun_underlay.color = current_gun.color
-// 		underlays += gun_underlay
-// 	else
-// 		playsound(src, sheatheSound, 15, TRUE)
-// 		underlays -= gun_underlay
-// 		gun_underlay = null
+/obj/item/storage/pouch/pistol/handle_item_insertion(obj/item/item, prevent_warning = 0, mob/user)
+	if(isgun(item))
+		current_gun = item
+		update_gun_icon()
+	return ..()
+
+/obj/item/storage/pouch/pistol/remove_from_storage(obj/item/item, atom/new_location)
+	if(item == current_gun)
+		current_gun = null
+		update_gun_icon()
+	return ..()
+
+/obj/item/storage/pouch/pistol/proc/update_gun_icon()
+	if(current_gun)
+		gun_underlay = image(current_gun.icon, current_gun.icon_state)
+		gun_underlay.pixel_x = icon_x
+		gun_underlay.pixel_y = icon_y
+		var/matrix/gun_matrix = matrix()
+		gun_matrix.Turn(90)
+		gun_underlay.transform = gun_matrix
+		gun_underlay.color = current_gun.color
+		underlays += gun_underlay
+	else
+		underlays -= gun_underlay
+		gun_underlay = null
 
 //// MAGAZINE POUCHES /////
 
@@ -471,25 +468,25 @@
 	if(slung && slung.loc != src)
 		. += "\The [slung] is attached to the sling."
 
-/obj/item/storage/pouch/sling/can_be_inserted(obj/item/I, mob/user, stop_messages = FALSE)
+/obj/item/storage/pouch/sling/can_be_inserted(obj/item/item, mob/user, stop_messages = FALSE)
 	if(slung)
-		if(slung != I)
+		if(slung != item)
 			if(!stop_messages)
 				to_chat(usr, SPAN_WARNING("\the [slung] is already attached to the sling."))
 			return FALSE
-	else if(SEND_SIGNAL(I, COMSIG_DROP_RETRIEVAL_CHECK) & COMPONENT_DROP_RETRIEVAL_PRESENT)
+	else if(SEND_SIGNAL(item, COMSIG_DROP_RETRIEVAL_CHECK) & COMPONENT_DROP_RETRIEVAL_PRESENT)
 		if(!stop_messages)
-			to_chat(usr, SPAN_WARNING("[I] is already attached to another sling."))
+			to_chat(usr, SPAN_WARNING("[item] is already attached to another sling."))
 		return FALSE
 	return ..()
 
-/obj/item/storage/pouch/sling/handle_item_insertion(obj/item/I, prevent_warning = FALSE, mob/user)
+/obj/item/storage/pouch/sling/handle_item_insertion(obj/item/item, prevent_warning = FALSE, mob/user)
 	if(!slung)
-		slung = I
+		slung = item
 		slung.AddElement(/datum/element/drop_retrieval/pouch_sling, src)
 		if(!prevent_warning)
-			to_chat(user, SPAN_NOTICE("You attach the sling to [I]."))
-	..()
+			to_chat(user, SPAN_NOTICE("You attach the sling to [item]."))
+	return ..()
 
 /obj/item/storage/pouch/sling/attack_self(mob/user)
 	if(slung)
