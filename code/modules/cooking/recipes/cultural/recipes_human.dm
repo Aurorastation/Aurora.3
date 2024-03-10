@@ -359,6 +359,8 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
 	result = /obj/item/reagent_containers/food/snacks/traumwurst
 
+// Xanu Prime
+
 /singleton/recipe/steakxanu
 	appliance = SKILLET
 	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/drink/milk/cream = 5)
@@ -422,6 +424,8 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/xanuvindaloo
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+// Himeo
 
 /singleton/recipe/minerpie
 	appliance = SKILLET
