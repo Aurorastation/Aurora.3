@@ -73,8 +73,8 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/police
 	id = /obj/item/card/id
+	l_ear = /obj/item/device/radio/headset/ship
 	belt = /obj/item/storage/belt/security
-	l_pocket = /obj/item/device/radio/map_preset
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
