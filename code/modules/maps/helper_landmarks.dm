@@ -11,11 +11,20 @@
 
 /obj/effect/landmark/clear/Initialize()
 	var/turf/simulated/wall/W = get_turf(src)
-	if(istype(W))
-		W.dismantle_wall(TRUE, TRUE)
-	var/turf/simulated/mineral/M = W
-	if(istype(M))
-		M.GetDrilled()
+
+	var/can_remove_without_causing_active_edge = TRUE
+	for(var/turf/T in range(1, W))
+		if(!(W.air.compare(T.air)))
+			can_remove_without_causing_active_edge = FALSE
+			break
+
+	if(can_remove_without_causing_active_edge)
+		if(istype(W))
+			W.dismantle_wall(TRUE, TRUE)
+
+		var/turf/simulated/mineral/M = W
+		if(istype(M))
+			M.GetDrilled()
 	. = ..()
 
 //Applies fire act to the turf
