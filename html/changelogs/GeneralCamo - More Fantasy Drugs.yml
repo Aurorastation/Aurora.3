@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added Snowflake, a recreational drug refined from frost oil, combined with sulfur and welding fuel."
+  - rscadd: "Added Snowflake, a recreational drug refined from frost oil, combined with sulfur and welding fuel. Ported from Polaris."
   - rscadd: "Added S'rendarr's Hand, a special variant of tobacco now found in Adhomian cigarettes."
+  - rscadd: "Added colorspace, a recreational drug that alters perception. Ported from Polaris."

@@ -287,6 +287,29 @@
 		else
 			M.seizure()
 
+/singleton/reagent/drugs/colorspace
+	name = "Colorspace"
+	description = "A psychedelic drug that alters thought and perception."
+	taste_description = "flavorless paste"
+	color = "#a7a6a4"
+	initial_effect_message_list = list("Your skin tickles.", "You seem to leave this world behind...")
+	sober_message_list = list("The world grows still again.", "Colors seem duller.")
+
+/singleton/reagent/drugs/colorspace/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+
+	var/drug_strength = 80 * power
+
+	if(alien == IS_SKRELL)
+		drug_strength *= 0.8
+
+	M.druggy = max(M.druggy, 15)
+	M.hallucination = max(M.hallucination, drug_strength)
+
+	if(prob(15))
+		to_chat(SPAN_GOOD(pick("The floor is melting...", "Everything is so much brighter! Wow!", "Everything is shifting around you.")))
+
+
 /singleton/reagent/drugs/night_juice
 	name = "Nightlife"
 	description = "A liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation. Works as a potent stimulant that causes extreme awakefulness. Lethal in high doses."

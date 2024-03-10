@@ -905,6 +905,13 @@
 	required_temperature_min = T0C + 621 //Mix reactants with 10u salt, then pour 30u of solution in one go into 30u of pyrosilicate. Pyrosilicate will be consumed; salt must be separated.
 	result_amount = 3
 
+/datum/chemical_reaction/colorspace
+	name = "Colorspace"
+	id = "colorspace"
+	result = /singleton/reagent/drugs/colorspace
+	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/ethanol = 1, /singleton/reagent/silicon = 1)
+	result_amount = 1
+
 /* Solidification */
 
 /datum/chemical_reaction/phoronsolidification
