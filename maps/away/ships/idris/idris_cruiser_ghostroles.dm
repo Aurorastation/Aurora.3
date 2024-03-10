@@ -9,7 +9,7 @@
 	spawnpoints = list("idriscrew")
 	max_count = 5
 
-	outfit = /datum/outfit/admin/idris_cruiser_crew
+	outfit = /obj/outfit/admin/idris_cruiser_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -26,14 +26,14 @@
 	welcome_message = "You're the prestigious director for an Idris luxury cruiser! Make sure the ship and its crew are in tip-top shape, and make sure to attract customers to your space getaway."
 	max_count = 1
 
-	outfit = /datum/outfit/admin/idris_cruiser_crew/director
+	outfit = /obj/outfit/admin/idris_cruiser_crew/director
 	possible_species = list(SPECIES_HUMAN)
 
 	assigned_role = "Idris Cruise Director"
 	special_role = "Idris Cruise Director"
 
 //Outfits
-/datum/outfit/admin/idris_cruiser_crew
+/obj/outfit/admin/idris_cruiser_crew
 	name = "Idris Cruise Crew Member"
 	uniform = /obj/item/clothing/under/librarian/idris
 	shoes = /obj/item/clothing/shoes/laceup
@@ -44,7 +44,7 @@
 	wrist = /obj/item/clothing/wrists/watch
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/idris_cruiser_crew/director
+/obj/outfit/admin/idris_cruiser_crew/director
 	name = "Idris Cruise Director"
 	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/liaison/idris
@@ -55,12 +55,12 @@
 	wrist = /obj/item/clothing/wrists/watch/silver
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/idris_cruiser_crew/director/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/idris_cruiser_crew/director/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H && H.w_uniform)
 		var/obj/item/clothing/under/U = H.w_uniform
 		var/obj/item/clothing/accessory/tie/corporate/idris/tie = new()
 		U.attach_accessory(null, tie)
 
-/datum/outfit/admin/idris_cruiser_crew/get_id_access()
+/obj/outfit/admin/idris_cruiser_crew/get_id_access()
 	return list(ACCESS_IDRIS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ENGINE_EQUIP, ACCESS_GUEST_ROOMS, ACCESS_GUEST_ROOM_1, ACCESS_GUEST_ROOM_2, ACCESS_GUEST_ROOM_3, ACCESS_GUEST_ROOM_4)

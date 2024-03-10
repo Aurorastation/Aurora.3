@@ -57,7 +57,7 @@
 	icon_state = "locator"
 	mob_type = /mob/living/carbon/human
 	ghost_role_id = "technoapprentice"
-	var/outfit_type = /datum/outfit/admin/techomancer/apprentice
+	var/outfit_type = /obj/outfit/admin/techomancer/apprentice
 	var/preserve_appearance = FALSE
 
 /obj/item/antag_spawner/technomancer_apprentice/attack_self(var/mob/user)
@@ -97,5 +97,5 @@
 	desc = "A teleportation device, which will bring a powerful synthetic helper to you."
 	mob_type = /mob/living/carbon/human/technomancer_golem
 	ghost_role_id = "technogolem"
-	outfit_type = /datum/outfit/admin/techomancer/golem
+	outfit_type = /obj/outfit/admin/techomancer/golem
 	preserve_appearance = TRUE

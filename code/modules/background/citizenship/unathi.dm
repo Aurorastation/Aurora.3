@@ -4,7 +4,7 @@
 	Under Overlords land on planets are divided between Lords, with the rest of the feudal hierarchy being beneath them. The Clan system is deeply entrenched in Unathi society, \
 	with everything else revolving around it. It forms a major part of their code of honor, which stresses the importance of martial abilities and loyalty to the Clan. Despite an \
 	apocalyptic world war that nearly plunged the species into ruin, the Izweski Hegemony has rebounded and is currently working on making the Hegemony a galactic power."
-	consular_outfit = /datum/outfit/job/representative/consular/izweski
+	consular_outfit = /obj/outfit/job/representative/consular/izweski
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -64,14 +64,14 @@
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/izweski
+/obj/outfit/job/representative/consular/izweski
 	name = "Izweski Hegemony Consular Officer"
 
 	uniform = /obj/item/clothing/under/unathi
 	backpack_contents = list(/obj/item/device/camera = 1)
 	belt = /obj/item/gun/energy/pistol/hegemony
 
-/datum/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
