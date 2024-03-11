@@ -22,7 +22,7 @@
 	max_count = 1
 
 	extra_languages = list(LANGUAGE_DELVAHII)
-	outfit = /datum/outfit/admin/adhomai_sole_rock_nomad
+	outfit = /obj/outfit/admin/adhomai_sole_rock_nomad
 	possible_species = list(SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -33,7 +33,7 @@
 	special_role = "Rock Nomad"
 	respawn_flag = null
 
-/datum/outfit/admin/adhomai_sole_rock_nomad
+/obj/outfit/admin/adhomai_sole_rock_nomad
 	name = "Rock Nomad"
 
 	uniform = /obj/item/clothing/under/pants/tajaran

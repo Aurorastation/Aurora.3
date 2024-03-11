@@ -69,7 +69,7 @@ var/datum/gear_tweak/lipstick_application/gear_tweak_lipstick_application = new(
 	return "No"
 
 /datum/gear_tweak/lipstick_application/get_metadata(var/user, var/metadata, var/title = "Character Preference")
-	var/selected_lipstick = input(user, "Do you want your character to start with lipstick applied?", title, metadata) as null|anything in list("Yes", "No")
+	var/selected_lipstick = tgui_input_list(user, "Do you want your character to start with lipstick applied?", title, list("Yes", "No"), metadata)
 	if(selected_lipstick)
 		return selected_lipstick
 

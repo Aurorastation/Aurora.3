@@ -1,3 +1,5 @@
+#if defined(UNIT_TEST)
+
 /datum/map/exoplanet_testing
 	name = "Exoplanet Testing"
 	full_name = "Exoplanet Testing Map"
@@ -124,3 +126,5 @@
 
 /datum/map/exoplanet_testing/build_away_sites()
 	return
+
+#endif //UNIT_TEST
