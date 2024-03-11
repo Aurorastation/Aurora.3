@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(jobs)
 	// Subsystem stuff.
 	name = "Jobs"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_JOBS
+	init_order = INIT_ORDER_JOBS
 
 	// Vars.
 	var/list/datum/job/occupations = list()
@@ -909,7 +909,7 @@ SUBSYSTEM_DEF(jobs)
 	var/uniform = job.get_outfit(H)
 	if(!uniform) // silicons don't have uniforms or gear
 		return
-	var/datum/outfit/U = new uniform
+	var/obj/outfit/U = new uniform
 	var/spawned_uniform = FALSE
 	var/spawned_suit = FALSE
 	for(var/item in prefs.gear)

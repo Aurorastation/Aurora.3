@@ -21,7 +21,7 @@
 	max_count = 1
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/adhomai_deserter
+	outfit = /obj/outfit/admin/adhomai_deserter
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -29,7 +29,7 @@
 	special_role = "Liberation Army Deserter"
 	respawn_flag = null
 
-/datum/outfit/admin/adhomai_deserter
+/obj/outfit/admin/adhomai_deserter
 	name = "Liberation Army Deserter"
 
 	uniform = /obj/item/clothing/under/tajaran/ala/wraps

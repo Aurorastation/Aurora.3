@@ -53,12 +53,12 @@
 	power_rating *= initial(power_rating)
 	..()
 
-/obj/machinery/atmospherics/binary/oxyregenerator/examine(user)
+/obj/machinery/atmospherics/binary/oxyregenerator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user,"Its outlet port is to the [dir2text(dir)]")
+	. +=  "Its outlet port is to the [dir2text(dir)]."
 
-/obj/machinery/atmospherics/binary/oxyregenerator/attackby(obj/item/O as obj, mob/user as mob)
-	if(O.iswrench())
+/obj/machinery/atmospherics/binary/oxyregenerator/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \

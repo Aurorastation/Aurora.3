@@ -15,10 +15,26 @@
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 	appearance_flags = NO_CLIENT_COLOR
 
+/obj/screen/Initialize(mapload, ...)
+	. = ..()
+	//This is done with signals because the screen code sucks, blame the ancient developers
+	if(hud)
+		RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(handle_hud_destruction))
+
 /obj/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	return ..()
+	hud = null
+	. = ..()
+
+/**
+ * Handles the deletion of the HUD this screen is associated to
+ */
+/obj/screen/proc/handle_hud_destruction()
+	SIGNAL_HANDLER
+
+	UnregisterSignal(hud, COMSIG_QDELETING)
+	qdel(src)
 
 /obj/screen/text
 	icon = null

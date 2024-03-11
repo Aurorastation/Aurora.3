@@ -226,7 +226,7 @@ const ManualSection = function (act, data) {
                     onClick={() => act('move', { move: 1 })}
                   />
                 </Table.Cell>
-                <Table.Cell title="Roll Left / Starboard">
+                <Table.Cell title="Roll Right / Starboard">
                   <Button
                     icon="angle-double-right"
                     color="red"

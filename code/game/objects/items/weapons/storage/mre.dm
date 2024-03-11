@@ -35,9 +35,9 @@ MRE Stuff
 /obj/item/storage/mre/attack_self(mob/user)
 	open(user)
 
-/obj/item/storage/box/fancy/mre/examine(mob/user)
+/obj/item/storage/box/fancy/mre/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, meal_desc)
+	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/menu2
 	name = "\improper MRE, menu 2"
@@ -171,6 +171,20 @@ MRE Stuff
 /obj/item/storage/box/fancy/mre/menu11/special // antag item
 	meal_desc = "This one doesn't have a menu listing. How odd. It has the initials \"A.B.\" written on the back."
 
+/obj/item/storage/box/fancy/mre/menu12
+	name = "k'ois MRE"
+	meal_desc = "This one is menu 12, k'ois. DO NOT CONSUME IF YOU ARE NOT VAURCA."
+	icon_state = "koismre"
+	main_meal = /obj/item/storage/box/fancy/mrebag/menu12
+	starts_with = list(
+		/obj/item/storage/box/fancy/mrebag/dessert/menu12 = 1,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 1,
+		/obj/random/mre/spread = 1,
+		/obj/random/mre/drink = 1,
+		/obj/item/reagent_containers/food/condiment/small/packet/phoron = 1,
+		/obj/item/material/kitchen/utensil/spork/plastic = 1
+	)
+
 /obj/item/storage/box/fancy/mre/random
 	meal_desc = "The menu label is faded out."
 	main_meal = /obj/random/mre/main
@@ -219,6 +233,9 @@ MRE Stuff
 /obj/item/storage/box/fancy/mrebag/menu10
 	starts_with = list(/obj/item/reagent_containers/food/snacks/meatcube = 1)
 
+/obj/item/storage/box/fancy/mrebag/menu12
+	starts_with = list(/obj/item/reagent_containers/food/snacks/koisjelly = 1)
+
 /obj/item/storage/box/fancy/mrebag/dessert
 	name = "dessert"
 	desc = "A vacuum-sealed bag containing a MRE's dessert."
@@ -232,3 +249,6 @@ MRE Stuff
 
 /obj/item/storage/box/fancy/mrebag/dessert/menu11
 	starts_with = list(/obj/item/pen/crayon/rainbow = 1)
+
+/obj/item/storage/box/fancy/mrebag/dessert/menu12
+	starts_with = list(/obj/item/reagent_containers/food/snacks/friedkois = 1)

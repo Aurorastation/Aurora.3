@@ -1119,10 +1119,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "axL" = (
-/obj/machinery/light/small,
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/obj/item/stack/material/wood/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/bronze/full,
+/obj/structure/closet/crate{
+	name = "Cremation Urn Materials"
+	},
+/obj/machinery/light,
+/obj/item/stack/material/glass/full,
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "axS" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -1887,7 +1893,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 1;
 	name = "INDRA Reactor";
-	req_access = list(11)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1984,11 +1990,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/closet/secure_closet/freezer/kois,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/sign/biohazard{
 	pixel_x = -32
 	},
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2359,10 +2365,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "aYI" = (
 /obj/structure/bed/stool/chair/padded/purple{
@@ -4217,6 +4220,10 @@
 	pixel_x = -7;
 	pixel_y = 4
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bPf" = (
@@ -4732,6 +4739,10 @@
 /obj/item/holomenu{
 	pixel_x = 9;
 	pixel_y = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 5;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
@@ -5933,17 +5944,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "cKc" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Chapel Storage";
 	dir = 4
 	},
-/obj/structure/table/wood,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
-/turf/simulated/floor/wood,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "cKg" = (
 /obj/machinery/vending/hydronutrients,
@@ -7236,14 +7245,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "dqs" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
 /obj/structure/closet/crate/coffin,
 /obj/structure/closet/crate/coffin{
 	pixel_y = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "dqy" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -7492,6 +7498,10 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
+/obj/random/pottedplant_small{
+	pixel_x = -1;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "dwZ" = (
@@ -9168,6 +9178,10 @@
 /obj/item/modular_computer/laptop/preset/medical{
 	pixel_y = 4
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 14
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "eqa" = (
@@ -9307,7 +9321,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
 	name = "INDRA Reactor";
-	req_access = list(11)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -9412,6 +9426,10 @@
 "ewk" = (
 /obj/structure/table/wood,
 /obj/item/toy/desk/officetoy,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 9
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "eww" = (
@@ -10553,6 +10571,9 @@
 "eZk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "eZo" = (
@@ -11220,6 +11241,10 @@
 /obj/item/storage/box/tea/tieguanyin{
 	pixel_x = 10;
 	pixel_y = 9
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
@@ -12705,13 +12730,13 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "fVs" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/commissary)
@@ -13514,9 +13539,19 @@
 	name = "Hydroponics Requests Console"
 	},
 /obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/item/paper_bin{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/pen{
+	pixel_x = 6;
+	pixel_y = 2
+	},
 /obj/structure/extinguisher_cabinet/west,
+/obj/random/pottedplant_small{
+	pixel_x = -9;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
 "gmE" = (
@@ -15104,11 +15139,22 @@
 /area/engineering/smes)
 "gUn" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 9;
+	pixel_x = 5
+	},
 /obj/machinery/button/switch/windowtint{
 	dir = 1;
 	id = "Bar_Private_Lounge";
 	pixel_y = 24
+	},
+/obj/item/lore_radio{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -7;
+	pixel_y = 3
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/bar)
@@ -15230,6 +15276,9 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "gYj" = (
@@ -15246,6 +15295,10 @@
 /obj/item/flame/candle{
 	pixel_x = 10;
 	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 3;
+	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
@@ -15572,6 +15625,9 @@
 "hid" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "hik" = (
@@ -17808,9 +17864,6 @@
 "ijL" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -18054,11 +18107,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
 "ioS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "ioW" = (
@@ -18288,6 +18342,10 @@
 	name = "remote shutter control";
 	pixel_x = 6;
 	pixel_y = -2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 3;
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -19074,6 +19132,10 @@
 /obj/item/device/quikpay{
 	destinationact = "Operations"
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iNY" = (
@@ -19278,6 +19340,9 @@
 /obj/effect/landmark/start{
 	name = "Assistant"
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "iUg" = (
@@ -19337,6 +19402,10 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/central_one)
@@ -21432,6 +21501,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "jRO" = (
@@ -21687,7 +21759,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
 	name = "INDRA Reactor Maintenance";
-	req_access = list(11)
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/rust)
@@ -22046,8 +22118,12 @@
 	pixel_y = 16
 	},
 /obj/item/reagent_containers/glass/rag{
-	pixel_x = 2;
+	pixel_x = -3;
 	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 10;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -22740,6 +22816,10 @@
 /obj/item/pen{
 	pixel_x = -4;
 	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 1
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
@@ -25092,15 +25172,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "lMi" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
 /obj/structure/closet/wardrobe/chaplain_black,
 /obj/item/storage/box/fancy/crayons,
 /obj/item/reagent_containers/food/drinks/bottle/holywater,
 /obj/item/reagent_containers/spray/aspergillum,
 /obj/item/nullrod/obsidianshards,
-/turf/simulated/floor/wood,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "lMm" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -25264,10 +25343,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_room/rust)
 "lQn" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "lRe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -25617,6 +25693,12 @@
 	departmentType = 1;
 	name = "Kitchen Requests Console"
 	},
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_y = -2;
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "lYZ" = (
@@ -25884,6 +25966,10 @@
 /area/hallway/primary/central_two)
 "mdB" = (
 /obj/structure/table/reinforced,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "mdR" = (
@@ -26509,6 +26595,10 @@
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -27787,8 +27877,9 @@
 /area/horizon/security/hallway)
 "mVw" = (
 /obj/structure/table/standard,
-/obj/item/stamp/ce,
-/obj/item/paper/monitorkey,
+/obj/item/paper/monitorkey{
+	pixel_x = -8
+	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
 	id = "EngineVent";
@@ -27805,6 +27896,13 @@
 	pixel_y = 10;
 	req_access = list(10);
 	specialfunctions = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/obj/item/stamp/ce{
+	pixel_x = -1
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -28244,21 +28342,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
-"nfL" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/wood,
-/area/chapel/office)
 "nfN" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -29855,20 +29938,20 @@
 	pixel_x = -16;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
-	pixel_x = 9;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
-	pixel_x = 1;
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -15;
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate{
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/glass/bottle/syrup/caramel{
-	pixel_x = -15;
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 9;
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -30452,6 +30535,10 @@
 /area/hallway/medical)
 "oil" = (
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = -4;
+	pixel_y = 6
+	},
 /turf/simulated/floor/carpet,
 /area/hallway/primary/central_two)
 "oiD" = (
@@ -30488,6 +30575,9 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "oiX" = (
@@ -31289,6 +31379,10 @@
 	name = "Library Showcase";
 	req_access = list(37)
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 17
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "oBZ" = (
@@ -31695,6 +31789,12 @@
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_y = -1;
+	pixel_x = -1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "oNy" = (
@@ -31983,6 +32083,10 @@
 "oWC" = (
 /obj/structure/table/wood,
 /obj/machinery/light,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = -2
+	},
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "oWQ" = (
@@ -32024,6 +32128,11 @@
 /area/medical/first_responder)
 "oXu" = (
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_y = -2
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/crew_quarters/lounge/bar)
 "oXv" = (
@@ -32269,7 +32378,7 @@
 	id_tag = "r-ust_electrical_maintenance";
 	locked = 1;
 	name = "INDRA Reactor SMES";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/rust)
@@ -32820,15 +32929,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "pqE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled,
-/area/horizon/commissary)
+/area/operations/lobby)
 "pqH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -33408,6 +33519,10 @@
 	name = "Operations Requests Console"
 	},
 /obj/structure/table/standard,
+/obj/random/pottedplant_small{
+	pixel_x = -7;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pHJ" = (
@@ -33704,16 +33819,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
-"pOl" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/tiled,
-/area/horizon/commissary)
 "pOV" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/plain,
@@ -34183,6 +34288,14 @@
 /obj/machinery/reagentgrinder{
 	pixel_x = 1;
 	pixel_y = 7
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = -15
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics/garden)
@@ -35566,8 +35679,12 @@
 	dir = 5
 	},
 /obj/item/device/flashlight/lamp{
-	pixel_x = 1;
-	pixel_y = 7
+	pixel_x = 3;
+	pixel_y = 10
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -9;
+	pixel_y = 0
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -36211,7 +36328,7 @@
 	RCon_tag = "Supermatter - Containment";
 	charge = 2000000;
 	input_attempt = 1;
-	input_level = 100000;
+	input_level = 200000;
 	is_critical = 1;
 	output_attempt = 1;
 	output_level = 200000
@@ -36633,6 +36750,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "riG" = (
@@ -37107,6 +37225,10 @@
 	pixel_x = -6;
 	pixel_y = 15
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 12;
+	pixel_y = 6
+	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "ruz" = (
@@ -37525,6 +37647,10 @@
 "rFR" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "rGj" = (
@@ -37993,6 +38119,10 @@
 	pixel_y = 7
 	},
 /obj/item/paper_bin,
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = 15
+	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
 "rQJ" = (
@@ -38425,6 +38555,9 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "rZU" = (
@@ -38611,6 +38744,9 @@
 	dir = 4;
 	name = "Emergency Supplies Closet";
 	req_one_access = list(26,29,31,48,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/primary)
@@ -40911,14 +41047,18 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "toe" = (
-/obj/structure/closet/crate/coffin,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+/obj/structure/morgue/crematorium{
+	_wifi_id = "chapel_crema"
 	},
-/obj/structure/closet/crate/coffin{
-	pixel_y = 4
+/obj/machinery/button/switch/crematorium{
+	_wifi_id = "chapel_crema";
+	dir = 4;
+	pixel_x = 20;
+	pixel_y = 8;
+	req_access = null
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/chapel/office)
 "toA" = (
 /obj/structure/table/standard,
@@ -42290,10 +42430,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "tWH" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -42709,6 +42847,12 @@
 	},
 /obj/item/flame/candle{
 	pixel_y = 16
+	},
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_x = -4;
+	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -44058,6 +44202,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "uIa" = (
@@ -47212,9 +47359,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "weh" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
@@ -47940,6 +48084,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -50139,6 +50286,9 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/commissary)
 "xrh" = (
@@ -50709,6 +50859,10 @@
 /obj/item/device/flashlight/lamp/green{
 	pixel_x = -5;
 	pixel_y = 13
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = 0
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
@@ -61884,7 +62038,7 @@ tyq
 tyq
 tyq
 xwo
-jNd
+pqE
 gfI
 tSL
 aRu
@@ -62086,7 +62240,7 @@ efJ
 mkt
 tyq
 uft
-jNd
+pqE
 gfI
 cOU
 rCR
@@ -64109,7 +64263,7 @@ ohc
 uci
 pfB
 qYn
-pqE
+vQQ
 eCD
 eCD
 jSP
@@ -64311,7 +64465,7 @@ het
 dJE
 ldT
 qYn
-pOl
+vQQ
 pxh
 oIo
 yfL
@@ -68758,7 +68912,7 @@ xjH
 oCz
 tDl
 lQn
-nfL
+aYE
 axL
 fol
 fol

@@ -1,3 +1,6 @@
+
+// --------------------------------- Konyang
+
 /obj/effect/overmap/visitable/sector/exoplanet/konyang
 	name = "Konyang"
 	desc = "A Coalition world which was recently Solarian territory, now resting on the fringes of the northern Frontier. It possesses very humid weather and highly developed infrastructure, boasting a population in some billions."
@@ -22,9 +25,10 @@
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine, /datum/map_template/ruin/exoplanet/hivebot_burrows_1, /datum/map_template/ruin/exoplanet/hivebot_burrows_2,
 	/datum/map_template/ruin/exoplanet/konyang_fireoutpost, /datum/map_template/ruin/exoplanet/konyang_homestead, /datum/map_template/ruin/exoplanet/konyang_tribute, /datum/map_template/ruin/exoplanet/konyang_swamp_1, /datum/map_template/ruin/exoplanet/konyang_swamp_2, /datum/map_template/ruin/exoplanet/konyang_swamp_3, /datum/map_template/ruin/exoplanet/konyang_swamp_4, /datum/map_template/ruin/exoplanet/konyang_zombie_outpost, /datum/map_template/ruin/exoplanet/konyang_zombie_village,
-	/datum/map_template/ruin/exoplanet/konyang_zombies)
+	/datum/map_template/ruin/exoplanet/konyang_zombies, /datum/map_template/ruin/exoplanet/konyang_lostcop, /datum/map_template/ruin/exoplanet/rural_clinic, /datum/map_template/ruin/exoplanet/infected_recovery_post)
 	possible_themes = list(/datum/exoplanet_theme/konyang)
 	place_near_main = list(1,0)
+	var/landing_area
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/Initialize()
 	. = ..()
@@ -57,6 +61,24 @@
 		atmosphere.temperature = T20C
 		atmosphere.update_values()
 
+/obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+/obj/effect/overmap/visitable/sector/exoplanet/konyang/pre_ruin_preparation()
+	landing_area = pick("overgrown wilderness within the Yakusoku Jungle.", "abandoned infrastructure in Han'ei Industrial Park, discontinued.")
+	switch(landing_area)
+		if("overgrown wilderness within the Yakusoku Jungle.")
+			possible_themes = list(/datum/exoplanet_theme/konyang)
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine, /datum/map_template/ruin/exoplanet/hivebot_burrows_1, /datum/map_template/ruin/exoplanet/hivebot_burrows_2, /datum/map_template/ruin/exoplanet/konyang_fireoutpost, /datum/map_template/ruin/exoplanet/konyang_homestead, /datum/map_template/ruin/exoplanet/konyang_tribute, /datum/map_template/ruin/exoplanet/konyang_swamp_1, /datum/map_template/ruin/exoplanet/konyang_swamp_2, /datum/map_template/ruin/exoplanet/konyang_swamp_3, /datum/map_template/ruin/exoplanet/konyang_swamp_4, /datum/map_template/ruin/exoplanet/konyang_zombie_outpost, /datum/map_template/ruin/exoplanet/konyang_zombie_village, /datum/map_template/ruin/exoplanet/konyang_zombies)
+
+		if("abandoned infrastructure in Han'ei Industrial Park, discontinued.")
+			possible_themes = list(/datum/exoplanet_theme/konyang/abandoned)
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_abandoned_landing_zone, /datum/map_template/ruin/exoplanet/konyang_office, /datum/map_template/ruin/exoplanet/konyang_house_small, /datum/map_template/ruin/exoplanet/konyang_factory_robotics, /datum/map_template/ruin/exoplanet/konyang_factory_refinery, /datum/map_template/ruin/exoplanet/konyang_factory_arms, /datum/map_template/ruin/exoplanet/konyang_garage)
+
+	desc += " Landing beacon details of [landing_area]"
+
+// --------------------------------- Qixi
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi
 	name = "Qixi"
 	desc = "The small, lifeless, and largely insignificant moon of Konyang."
@@ -81,6 +103,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/update_icon()
 	return
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- ice asteroid
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim
 	desc = "An ice-covered rock from the outlying asteroid belt of Haneunim. Largely unexplored and uninhabited."
 	ruin_planet_type = PLANET_LORE
@@ -89,6 +116,11 @@
 	features_budget = 1
 	ring_chance = 0
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Huozhu
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu
 	name = "Huozhu"
@@ -110,6 +142,11 @@
 	atmosphere.temperature = T20C + rand(600, 1000)
 	atmosphere.update_values()
 
+/obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Hwanung
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung
 	name = "Hwanung"
 	generated_name = FALSE
@@ -124,3 +161,5 @@
 	rock_colors = list(COLOR_GRAY80)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining)
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results

@@ -957,16 +957,17 @@
 			if((species.gluttonous & GLUT_PROJECTILE_VOMIT) && !vomitReceptacle)
 				M.throw_at(get_edge_target_turf(src,dir),7,7,src)
 
-	if(stomach.ingested.total_volume)
-		stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
-	for(var/obj/item/organ/internal/parasite/P in src.internal_organs)
-		if(P)
-			if(P.egg && (P.stage == P.max_stage))
-				splat.reagents.add_reagent(P.egg, 2)
-	handle_additional_vomit_reagents(splat)
-	splat.update_icon()
+	if(istype(splat))
+		if(stomach.ingested.total_volume)
+			stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
+		for(var/obj/item/organ/internal/parasite/P in src.internal_organs)
+			if(P)
+				if(P.egg && (P.stage == P.max_stage))
+					splat.reagents.add_reagent(P.egg, 2)
+		handle_additional_vomit_reagents(splat)
+		splat.update_icon()
 
-	playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
+		playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
 
 /mob/living/carbon/human/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
 
@@ -1003,7 +1004,7 @@
 	lastpuke = FALSE
 
 // A damaged stomach can put blood in your vomit.
-/mob/living/carbon/human/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+/mob/living/carbon/human/handle_additional_vomit_reagents(obj/effect/decal/cleanable/vomit/vomit)
 	..()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
@@ -1504,6 +1505,9 @@
 		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
 	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+
+	if(psi && species.character_creation_psi_points && species.has_psionics)
+		psi.psi_points = max(species.character_creation_psi_points - psi.spent_psi_points, 0) //to prevent species-switching for more points
 
 	if(client)
 		client.init_verbs()

@@ -316,7 +316,7 @@
 
 /singleton/recipe/clams_casino
 	appliance = SKILLET
-	reagents = list(/singleton/reagent/spacespice = 2)
+	fruit = list ("bellpepper" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/mollusc,
 		/obj/item/reagent_containers/food/snacks/fish/mollusc,
@@ -337,3 +337,24 @@
 	reagents = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/drink/ice = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/lady_lulaine
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+
+/singleton/recipe/pazillo
+	appliance = OVEN
+	fruit = list ("tomato" = 1 , "chickpeas" = 1, "onion" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/reagent_containers/food/snacks/pazillo
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace so it's not full of juice
+
+//Luna
+/singleton/recipe/traumwurst
+	appliance = SKILLET | SAUCEPAN
+	reagents = list(/singleton/reagent/drink/milk/cream = 5)
+	fruit = list("eggplant" = 1, "plumphelmet" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sausage,
+		/obj/item/reagent_containers/food/snacks/sausage
+		)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/traumwurst

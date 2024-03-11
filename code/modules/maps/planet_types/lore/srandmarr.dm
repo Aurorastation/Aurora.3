@@ -1,4 +1,5 @@
-//Ae'themir
+// --------------------------------- Ae'themir
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir
 	name = "Ae'themir"
 	desc = "A planet comprised mainly of solid common minerals and silicate."
@@ -25,7 +26,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/update_icon()
 	return
 
-//Az'Mar
+/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Az'Mar
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
@@ -59,7 +64,10 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/update_icon()
 	return
 
-//Sahul
+/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Sahul
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
 	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
@@ -74,7 +82,10 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
 	return
 
-//Raskara
+/obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Raskara
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara
 	name = "Raskara"
 	desc = "A barren moon orbiting Adhomai."
@@ -107,7 +118,10 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 
-//Adhomai
+/obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results
+
+// --------------------------------- Adhomai
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
 	name = "Adhomai"
 	desc = "The Tajaran homeworld. Adhomai is a cold and icy world, suffering from almost perpetual snowfall and extremely low temperatures."
@@ -202,3 +216,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()
 	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_ground_survey_result()
+	ground_survey_result = "" // so it does not get randomly generated survey results

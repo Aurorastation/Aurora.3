@@ -9,7 +9,7 @@
 	spawnpoints = list("hephsec")
 	max_count = 4
 
-	outfit = /datum/outfit/admin/heph_security
+	outfit = /obj/outfit/admin/heph_security
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -18,7 +18,7 @@
 	special_role = "Hephaestus Asset Protection Agent"
 	respawn_flag = null
 
-/datum/outfit/admin/heph_security
+/obj/outfit/admin/heph_security
 	name = "Hephaestus Asset Protection"
 	uniform = /obj/item/clothing/under/rank/security/heph
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -36,7 +36,7 @@
 		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	)
 
-/datum/outfit/admin/heph_security/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/heph_security/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
@@ -53,7 +53,7 @@
 	if(H?.wear_suit)
 		H.wear_suit.color = pick("#4f3911", "#292826")
 
-/datum/outfit/admin/heph_security/get_id_access()
+/obj/outfit/admin/heph_security/get_id_access()
 	return list(ACCESS_HEPHAESTUS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/heph_security/captain
@@ -63,12 +63,12 @@
 	welcome_message = "You are the leader of a Hephaestus Industries asset protection squad, assigned to keeping the company's assets in this sector in one piece. Keep your team in line, and make sure nothing impacts the bottom line. Remember, you are not SCC/Horizon crew. While you can help them with problems if they ask you are under no obligation to, and you hsoud not be showing up uncalled for to act as Security+ for the Horizon."
 	spawnpoints = list("hephsec_boss")
 
-	outfit = /datum/outfit/admin/heph_security/captain
+	outfit = /obj/outfit/admin/heph_security/captain
 	max_count = 1
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_UNATHI)
 	assigned_role = "Hephaestus Asset Protection Squad Leader"
 	special_role = "Hephaestus Asset Protection Squad Leader"
 
-/datum/outfit/admin/heph_security/captain
+/obj/outfit/admin/heph_security/captain
 	name = "Hephaestus Asset Protection Squad Leader"
 	uniform = /obj/item/clothing/under/rank/captain/hephaestus

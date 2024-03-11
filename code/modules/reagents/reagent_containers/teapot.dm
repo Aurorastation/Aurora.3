@@ -36,11 +36,11 @@
 		..()
 		icon_state = initial(icon_state)
 
-/obj/item/reagent_containers/glass/beaker/teapot/lidded/attackby(obj/item/W, mob/user)
+/obj/item/reagent_containers/glass/beaker/teapot/lidded/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(istype(W, lid_type) && !lid)
-		user.drop_from_inventory(W, src)
-		lid = W
+	if(istype(attacking_item, lid_type) && !lid)
+		user.drop_from_inventory(attacking_item, src)
+		lid = attacking_item
 		to_chat(user, SPAN_NOTICE("You slide the lid onto \the [src]."))
 		update_icon()
 		return TRUE

@@ -50,14 +50,14 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	if(!reagents.total_volume)
 		to_chat(R, SPAN_WARNING("You hear a faint *click*."))
 
-/obj/item/implant/chem/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/syringe))
+/obj/item/implant/chem/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/syringe))
 		if(reagents.total_volume >= reagents.maximum_volume)
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		else
 			if(do_after(user, 0.5 SECONDS, src))
-				I.reagents.trans_to_obj(src, 5)
-				to_chat(user, SPAN_NOTICE("You inject 5 units of the solution. The syringe now contains [I.reagents.total_volume] units."))
+				attacking_item.reagents.trans_to_obj(src, 5)
+				to_chat(user, SPAN_NOTICE("You inject 5 units of the solution. The syringe now contains [attacking_item.reagents.total_volume] units."))
 	else
 		..()
 

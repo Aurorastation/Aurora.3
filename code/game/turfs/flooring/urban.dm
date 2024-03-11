@@ -37,6 +37,25 @@
 	. = ..()
 	icon_state = "blocks[rand(1,3)]"
 
+/turf/simulated/floor/sidewalk/dark
+	icon_state = "sidewalk_alt"
+
+/turf/simulated/floor/sidewalk/dark/detail
+	icon_state = "sidewalk_alt_detail"
+
+/turf/simulated/floor/sidewalk/dark/grid
+	icon_state = "sidewalk_alt_grid"
+
+/turf/simulated/floor/foundation
+	name = "foundation"
+	desc = "The unclean but highly compacted solid foundation for a building or structure."
+	icon = 'icons/turf/flooring/urban_turfs.dmi'
+	icon_state = "rust"
+
+/turf/simulated/floor/foundation/Initialize(mapload)
+	. = ..()
+	icon_state = "rust[rand(1,12)]"
+
 /turf/simulated/floor/roofing_tiles
 	name = "roofing tiles"
 	desc = "You're on top of the world!"

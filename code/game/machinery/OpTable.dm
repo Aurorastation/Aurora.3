@@ -118,9 +118,9 @@
 
 	patient.reset_view(null)
 
-/obj/machinery/optable/examine(var/mob/user)
+/obj/machinery/optable/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The neural suppressors are switched [suppressing ? "on" : "off"]."))
+	. += SPAN_NOTICE("The neural suppressors are switched [suppressing ? "on" : "off"].")
 
 /obj/machinery/optable/ex_act(severity)
 	switch(severity)
@@ -168,9 +168,9 @@
 
 	return istype(mover) && mover.checkpass(PASSTABLE)
 
-/obj/machinery/optable/MouseDrop_T(obj/O, mob/user)
-	if(istype(O, /obj/item))
-		user.drop_from_inventory(O,get_turf(src))
+/obj/machinery/optable/MouseDrop_T(atom/dropping, mob/user)
+	if(istype(dropping, /obj/item))
+		user.drop_from_inventory(dropping, get_turf(src))
 	..()
 
 /**

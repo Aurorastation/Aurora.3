@@ -71,12 +71,12 @@
 	name = "Corgi meat"
 	desc = "Tastes like... well you know..."
 
-/mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
-	if(istype(O, /obj/item/newspaper))
+/mob/living/simple_animal/corgi/attackby(obj/item/attacking_item, mob/user)  //Marker -Agouri
+	if(istype(attacking_item, /obj/item/newspaper))
 		if(!stat)
 			visible_message(
-				"<span class='notice'>[user] baps [src] on the nose with the rolled up [O.name].</span>",
-				"<span class='alert'>[user] baps you on the nose with the rolled up [O.name]!</span>"
+				"<span class='notice'>[user] baps [src] on the nose with the rolled up [attacking_item.name].</span>",
+				"<span class='alert'>[user] baps you on the nose with the rolled up [attacking_item.name]!</span>"
 			)
 			scan_interval = max_scan_interval
 			movement_target = null
