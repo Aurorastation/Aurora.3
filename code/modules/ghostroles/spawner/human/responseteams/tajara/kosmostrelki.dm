@@ -8,7 +8,7 @@
 
 	welcome_message = "You are part of the People's Republic of Adhomai Kosmostrelki. Listen to the commander, but do not ignore the Commissar as they are the Party's eyes."
 
-	outfit = /datum/outfit/admin/ert/pra_cosmonaut
+	outfit = /obj/outfit/admin/ert/pra_cosmonaut
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
@@ -22,7 +22,7 @@
 	mob_name_prefix = "Alm."
 
 	max_count = 1
-	outfit = /datum/outfit/admin/ert/pra_cosmonaut/commissar
+	outfit = /obj/outfit/admin/ert/pra_cosmonaut/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 
@@ -34,7 +34,7 @@
 	max_count = 1
 	mob_name_prefix = "Akh."
 
-	outfit = /datum/outfit/admin/ert/pra_cosmonaut/commander
+	outfit = /obj/outfit/admin/ert/pra_cosmonaut/commander
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 /datum/ghostspawner/human/ert/pra_cosmonaut/tesla
@@ -45,7 +45,7 @@
 
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ert/pra_cosmonaut/tesla
+	outfit = /obj/outfit/admin/ert/pra_cosmonaut/tesla
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 
 /datum/ghostspawner/human/ert/pra_cosmonaut/medic
@@ -56,7 +56,7 @@
 
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ert/pra_cosmonaut/medic
+	outfit = /obj/outfit/admin/ert/pra_cosmonaut/medic
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 
 /datum/ghostspawner/human/ert/pra_cosmonaut/engineer
@@ -67,5 +67,5 @@
 
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ert/pra_cosmonaut/engineer
+	outfit = /obj/outfit/admin/ert/pra_cosmonaut/engineer
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
