@@ -3,7 +3,7 @@
 	desc = "Warp through objects."
 	icon_state = "tech_blink"
 	point_cost = 4
-	ability_flags = PSI_FLAG_ANTAG
+	ability_flags = PSI_FLAG_LONER
 	spell_path = /obj/item/spell/warp
 
 /obj/item/spell/warp
