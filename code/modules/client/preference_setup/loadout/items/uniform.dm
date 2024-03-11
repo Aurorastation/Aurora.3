@@ -434,6 +434,24 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 
+/datum/gear/uniform/miscellaneous/dress_recolorable
+	display_name = "dress selection (recolorable)"
+	path = /obj/item/clothing/under/dress/recolorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/miscellaneous/dress_recolorable/New()
+	..()
+	var/list/dress_recolorable = list()
+	dress_recolorable["strapless midi dress"] = /obj/item/clothing/under/dress/recolorable
+	dress_recolorable["sleeveless A-line dress"] = /obj/item/clothing/under/dress/recolorable/sleeveless
+	dress_recolorable["longsleeve A-line dress"] = /obj/item/clothing/under/dress/recolorable/longsleeve
+	dress_recolorable["evening gown"] = /obj/item/clothing/under/dress/recolorable/evening_gown
+	dress_recolorable["tea-length dress"] = /obj/item/clothing/under/dress/recolorable/tea_dress
+	dress_recolorable["open-shoulder dress"] = /obj/item/clothing/under/dress/recolorable/open_shoulder
+	dress_recolorable["asymmetric dress"] = /obj/item/clothing/under/dress/recolorable/asymmetric
+
+	gear_tweaks += new /datum/gear_tweak/path(dress_recolorable)
+
 /*
 	Uniform Rolled State Adjustment
 */
