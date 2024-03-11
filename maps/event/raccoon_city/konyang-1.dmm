@@ -38,6 +38,10 @@
 /area/point_verdant/interior)
 "aas" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "aaw" = (
@@ -47,6 +51,14 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
+"abx" = (
+/obj/structure/closet/hazmat/general,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "abA" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken1,
 /turf/simulated/floor/wood,
@@ -233,6 +245,12 @@
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"akD" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/interior)
 "amh" = (
 /obj/machinery/artifact_analyser{
 	pixel_y = 8
@@ -316,6 +334,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"aqw" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "arr" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(218)
@@ -399,6 +423,10 @@
 /obj/random/barricade_kit,
 /obj/random/barricade_kit,
 /obj/structure/closet/crate,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
 "avO" = (
@@ -508,6 +536,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
+"aDK" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "aDM" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -557,6 +592,14 @@
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/light{
 	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
+"aHk" = (
+/obj/structure/flora/pottedplant/fern,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -1119,6 +1162,25 @@
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"bmA" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
+"bmF" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "bnf" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/bush/konyang_reeds,
@@ -1147,6 +1209,16 @@
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
+"bnT" = (
+/obj/machinery/papershredder{
+	pixel_x = -6
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "bnV" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -1201,6 +1273,10 @@
 	pixel_y = 21
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "bpx" = (
@@ -1212,6 +1288,14 @@
 "bqt" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"bri" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "bsq" = (
 /obj/structure/closet/crate/trashcart,
 /obj/effect/floor_decal/corner_wide/black{
@@ -1230,6 +1314,10 @@
 	pixel_y = 3
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "bvh" = (
@@ -1409,6 +1497,25 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"bBy" = (
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior)
+"bBz" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "bCl" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -1601,6 +1708,13 @@
 /obj/machinery/media/jukebox/audioconsole/wall,
 /turf/simulated/wall,
 /area/point_verdant/interior/decrepit)
+"bLh" = (
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/interior)
 "bLC" = (
 /obj/structure/tank_wall/air{
 	icon_state = "air7"
@@ -1614,6 +1728,16 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
+"bOJ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "bPe" = (
 /obj/structure/closet/crate/bin/urban/compact{
 	pixel_y = 24
@@ -1725,6 +1849,13 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
+"bVZ" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/interior)
 "bWf" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -2048,6 +2179,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"crE" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 16
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior)
 "crQ" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -2118,6 +2259,14 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
+"cvv" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "cvV" = (
 /obj/structure/flora/rock/konyang,
 /obj/random/dirt_75,
@@ -2158,6 +2307,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/water)
+"cyh" = (
+/obj/structure/table/steel,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "czz" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2173,6 +2329,10 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/point_verdant/interior)
 "cAX" = (
@@ -2219,6 +2379,10 @@
 /area/point_verdant/interior/tunnels)
 "cDT" = (
 /obj/machinery/floodlight/randomcharge,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
 "cEz" = (
@@ -2415,6 +2579,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"cLE" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "cLG" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -2523,6 +2697,14 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
 /area/point_verdant/sewer)
+"cQR" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "cRm" = (
 /obj/structure/flora/pottedplant/shoot,
 /turf/simulated/floor/tiled,
@@ -2766,6 +2948,10 @@
 "dco" = (
 /obj/machinery/computer/operating/terminal,
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "dcE" = (
@@ -2962,6 +3148,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"doT" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "dpI" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -3500,6 +3692,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
+"dTW" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/point_verdant/interior)
+"dTZ" = (
+/obj/structure/closet,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "dUf" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3820,6 +4028,15 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"eij" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "eiE" = (
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -4124,6 +4341,10 @@
 /area/point_verdant/interior)
 "eCd" = (
 /obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "eCe" = (
@@ -4269,6 +4490,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/police)
+"eJl" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/structure/curtain/open/medical,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "eKh" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -4839,6 +5069,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
+"fsA" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "fsE" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -4951,6 +5187,15 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
+/area/point_verdant/interior)
+"fzu" = (
+/obj/structure/closet,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "fzv" = (
 /obj/structure/extinguisher_cabinet/north,
@@ -5137,6 +5382,10 @@
 	pixel_y = -4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "fJA" = (
@@ -6400,6 +6649,16 @@
 "gTS" = (
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"gUj" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/point_verdant/interior)
 "gUE" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -6888,6 +7147,14 @@
 /obj/structure/reagent_dispensers/keg/beerkeg/rice,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
+"hrZ" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "hsd" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -7041,6 +7308,21 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
+"hzH" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "hAi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -7391,6 +7673,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
+"iac" = (
+/obj/structure/closet/hazmat/general,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "iad" = (
 /obj/effect/decal/curb,
 /obj/structure/shipping_container{
@@ -7541,6 +7830,10 @@
 	pixel_x = -4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "ifc" = (
@@ -7587,6 +7880,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
+/area/point_verdant/interior)
+"ihw" = (
+/obj/structure/morgue,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
 /area/point_verdant/interior)
 "iik" = (
 /obj/machinery/light,
@@ -7646,6 +7950,16 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/point_verdant/interior)
+"ikI" = (
+/obj/structure/sink{
+	pixel_y = 24
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior)
 "ikU" = (
 /obj/machinery/door/urban,
@@ -8015,6 +8329,16 @@
 /obj/random/coin,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
+"iCX" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "iDK" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -8168,6 +8492,14 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
+"iQr" = (
+/obj/structure/closet/hazmat/general,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "iQz" = (
 /obj/machinery/atmospherics/unary/heater{
 	dir = 4
@@ -8884,6 +9216,10 @@
 "jDi" = (
 /obj/structure/closet/crate,
 /obj/random/konyang_gun/pistols,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "jDm" = (
@@ -9145,6 +9481,10 @@
 /obj/structure/table/standard,
 /obj/item/device/integrated_electronics/wirer{
 	pixel_x = -4
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
@@ -9538,6 +9878,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"kop" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "kou" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
@@ -9586,6 +9933,15 @@
 /obj/item/pen/reagent/hyperzine,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"kqM" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "kqQ" = (
 /obj/structure/flora/pottedplant/mysterious,
 /turf/simulated/floor/tiled,
@@ -9752,11 +10108,26 @@
 /obj/item/herb,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"kys" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "kyA" = (
 /obj/structure/table/wood,
 /obj/item/device/megaphone,
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
+"kyE" = (
+/obj/structure/flora/pottedplant/ferntrim,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "kyJ" = (
 /obj/random/dirt_75,
 /obj/structure/closet/hazmat/custodial,
@@ -9822,6 +10193,16 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
+"kCC" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "kCJ" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -10211,6 +10592,15 @@
 /area/point_verdant/interior)
 "kWa" = (
 /obj/structure/table/wood,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
+"kWA" = (
+/obj/structure/table/steel,
+/obj/random/barricade_kit,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "kWX" = (
@@ -10686,6 +11076,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"lrX" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "lsj" = (
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 8
@@ -10732,6 +11129,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"ltH" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "ltO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
@@ -10824,6 +11231,9 @@
 "lAh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate/animal/corgi,
+/obj/machinery/light{
+	pixel_y = -2
+	},
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
 "lAv" = (
@@ -11023,6 +11433,19 @@
 /obj/random/dirt_75,
 /turf/unsimulated/floor/plating,
 /area/point_verdant/interior)
+"lUQ" = (
+/obj/structure/morgue{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
+/area/point_verdant/interior)
 "lVg" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -11066,6 +11489,13 @@
 "lXw" = (
 /obj/machinery/seed_storage/xenobotany,
 /turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
+"lYG" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/plating,
 /area/point_verdant/interior)
 "lYL" = (
 /obj/structure/ladder/up{
@@ -11323,6 +11753,10 @@
 /obj/item/flame/lighter/zippo/black/cross{
 	pixel_x = 7;
 	pixel_y = -4
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -11585,6 +12019,10 @@
 "mvX" = (
 /obj/structure/table/standard,
 /obj/item/defibrillator/compact/loaded,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "mws" = (
@@ -11859,6 +12297,14 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"mMa" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "mMB" = (
 /obj/structure/flora/pottedplant/floorleaf,
 /turf/simulated/floor/tiled,
@@ -12004,6 +12450,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"mSj" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "mSs" = (
 /obj/machinery/light/colored/decayed{
 	dir = 4;
@@ -12030,6 +12486,14 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
+"mSP" = (
+/obj/machinery/pipedispenser,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "mTb" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze{
@@ -12257,6 +12721,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
+"nfE" = (
+/obj/machinery/shower{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 8
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior)
 "nfQ" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 5
@@ -12265,10 +12740,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/urban/staff{
-	pixel_y = 40;
-	layer = 9
-	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "ngf" = (
@@ -12320,6 +12791,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
+"njo" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/interior)
 "njy" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/filingcabinet/chestdrawer{
@@ -12590,6 +13068,13 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"nvt" = (
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "nvv" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -12767,8 +13252,25 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"nFS" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/point_verdant/interior)
 "nGg" = (
 /obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
+"nHD" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "nIc" = (
@@ -12796,6 +13298,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
+"nJv" = (
+/obj/structure/bed/stool/padded/black{
+	dir = 2
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "nKk" = (
 /obj/structure/ledge{
 	dir = 8
@@ -13221,6 +13733,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"ogR" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "oho" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -13332,6 +13853,16 @@
 "omo" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/streetvendor)
+"omr" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "omv" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -13552,6 +14083,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
+"oyv" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
+"ozC" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "ozZ" = (
 /obj/random/dirt_75,
 /obj/structure/flora/bush/konyang_reeds,
@@ -13692,6 +14239,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"oIy" = (
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "oIK" = (
 /obj/effect/decal/exterior_stairs/half/right{
 	dir = 4
@@ -13820,6 +14374,14 @@
 /obj/random/junk,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"oTT" = (
+/mob/living/carbon/human/monkey,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/interior)
 "oUP" = (
 /obj/machinery/light{
 	pixel_y = -2
@@ -13955,6 +14517,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/point_verdant/interior)
 "pfv" = (
@@ -13966,22 +14532,32 @@
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/point_verdant/interior)
+"phO" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "phY" = (
 /obj/effect/decal/curb{
 	dir = 9
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"piJ" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "piK" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
-	},
-/obj/structure/sign/urban/staff{
-	pixel_y = 40;
-	layer = 9
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
@@ -14283,6 +14859,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"pvE" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "pvG" = (
 /obj/random/dirt_75,
 /obj/random/junk{
@@ -14374,6 +14960,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/police)
+"pBp" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "pBE" = (
 /obj/item/storage/box/mousetraps{
 	pixel_x = 7;
@@ -14620,6 +15213,16 @@
 /obj/structure/ledge/quarter,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"pMc" = (
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior)
 "pMx" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/floor_decal/corner/green/diagonal{
@@ -15112,6 +15715,10 @@
 	pixel_y = 14
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "qpf" = (
@@ -15308,6 +15915,10 @@
 "qyG" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/plating,
 /area/point_verdant/interior)
 "qze" = (
@@ -15512,6 +16123,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/point_verdant/interior)
+"qJk" = (
+/obj/structure/table/steel,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "qKi" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
@@ -15521,6 +16140,10 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/point_verdant/interior)
 "qKr" = (
@@ -15747,6 +16370,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"qWL" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/point_verdant/interior)
 "qWN" = (
 /obj/structure/barricade/wooden{
 	dir = 1;
@@ -15957,6 +16586,13 @@
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
+"rfl" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "rfw" = (
 /obj/machinery/vending/snack/konyang,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -16002,6 +16638,16 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
+/area/point_verdant/interior)
+"rgw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "rhs" = (
 /obj/structure/structural_support,
@@ -16231,6 +16877,10 @@
 "ruV" = (
 /obj/machinery/optable,
 /obj/effect/landmark/corpse/ipc_zombie,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 278.15
@@ -16333,6 +16983,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"rAZ" = (
+/obj/structure/closet/hazmat/general,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "rCC" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half{
@@ -16409,6 +17067,16 @@
 "rEo" = (
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/interior/tunnels)
+"rEw" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "rEI" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/cigpaper{
@@ -16425,6 +17093,14 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet/rubber,
 /area/point_verdant/interior)
+"rFz" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "rFY" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil,
@@ -16434,6 +17110,12 @@
 /obj/random/konyang_gun/pistols,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"rHd" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "rHg" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/freezer,
@@ -16984,6 +17666,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
+"seg" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "sew" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/asphalt,
@@ -17162,6 +17851,13 @@
 /obj/random/junk,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"soq" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/point_verdant/interior)
 "sor" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_y = 14;
@@ -17265,6 +17961,13 @@
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"svN" = (
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "swb" = (
 /obj/structure/ledge,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -17780,6 +18483,14 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"sSB" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "sSE" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -17968,6 +18679,14 @@
 /obj/item/pipewrench,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/maint_janitorial)
+"tbv" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "tbR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -17989,6 +18708,16 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/point_verdant/interior/offices)
+"tcR" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "tdk" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -18208,6 +18937,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
+"trf" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "trP" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/storage/box/folders{
@@ -18481,6 +19220,24 @@
 /area/point_verdant/interior)
 "tDD" = (
 /obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
+"tEb" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
+"tEx" = (
+/obj/machinery/photocopier,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "tEO" = (
@@ -18845,6 +19602,16 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
+"tZq" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "tZF" = (
 /obj/structure/undies_wardrobe,
 /obj/item/gun/projectile/pistol/sol,
@@ -18895,6 +19662,10 @@
 /obj/machinery/recharger{
 	pixel_x = -6;
 	pixel_y = 2
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
@@ -18947,6 +19718,17 @@
 /obj/random/barricade_kit,
 /obj/random/barricade_kit,
 /turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
+"ufH" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "ufI" = (
 /obj/machinery/door/urban{
@@ -19250,6 +20032,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
+"uAF" = (
+/mob/living/carbon/human/monkey,
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/interior)
 "uAO" = (
 /obj/structure/table/reinforced/wood,
@@ -19714,6 +20503,9 @@
 "vhQ" = (
 /obj/structure/closet/crate,
 /obj/random/konyang_gun/automatic,
+/obj/machinery/light{
+	pixel_y = -2
+	},
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
 "viI" = (
@@ -19833,6 +20625,13 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"vqO" = (
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "vrl" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/standard,
@@ -19898,6 +20697,14 @@
 "vuT" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
+"vvm" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "vwY" = (
 /obj/effect/step_trigger/thrower{
@@ -20433,6 +21240,10 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "vVF" = (
@@ -20635,6 +21446,15 @@
 /obj/random/high_grade_weapon,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"wgd" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "wgI" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -21224,6 +22044,10 @@
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "wEZ" = (
@@ -21716,6 +22540,9 @@
 /area/point_verdant/interior/maint_janitorial)
 "xdN" = (
 /obj/structure/flora/pottedplant/thinbush,
+/obj/machinery/light{
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "xec" = (
@@ -22058,6 +22885,16 @@
 "xze" = (
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
+"xzg" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "xzr" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -22137,6 +22974,14 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
+"xDS" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "xDV" = (
 /obj/structure/ledge/quarter{
@@ -23421,7 +24266,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -24192,7 +25037,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -24963,7 +25808,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -25432,7 +26277,7 @@ qEC
 muQ
 rfw
 kxV
-kxV
+xFT
 fTW
 muQ
 kxV
@@ -25734,7 +26579,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -25988,14 +26833,14 @@ muQ
 muQ
 muQ
 kxV
-kxV
+xFT
 kxV
 muQ
 mWi
 mWi
 muQ
 kxV
-kxV
+xFT
 kxV
 muQ
 muQ
@@ -26209,6 +27054,38 @@ muQ
 mWi
 mWi
 mWi
+sPe
+mWi
+wIW
+sPe
+mWi
+mWi
+mWi
+mWi
+mWi
+mWi
+sPe
+mWi
+mWi
+sPe
+mWi
+mWi
+mWi
+mWi
+wIW
+sPe
+mWi
+mWi
+sPe
+mWi
+mWi
+sPe
+mWi
+mWi
+sPe
+mWi
+mWi
+sPe
 mWi
 mWi
 wIW
@@ -26223,39 +27100,7 @@ mWi
 mWi
 mWi
 mWi
-mWi
-mWi
-mWi
-mWi
-wIW
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-wIW
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
+sPe
 qfw
 ddC
 qfw
@@ -26444,17 +27289,17 @@ muQ
 mWi
 mWi
 mWi
-mWi
+sPe
 mWi
 wIW
 mWi
+sPe
 mWi
 mWi
 mWi
 mWi
 mWi
-mWi
-mWi
+sPe
 mWi
 mWi
 wIW
@@ -26701,72 +27546,72 @@ muQ
 mWi
 mWi
 mWi
+dTW
+mWi
+wIW
+mWi
+dTW
+mWi
+mWi
+mWi
+mWi
+mWi
+dTW
 mWi
 mWi
 wIW
 mWi
 mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-wIW
-mWi
-mWi
-mWi
+dTW
 mWi
 ste
 mWi
 mWi
 mWi
-mWi
-mWi
-wIW
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
+dTW
 mWi
 wIW
+dTW
 mWi
 mWi
 mWi
 mWi
 mWi
 mWi
+dTW
 mWi
 mWi
-mWi
-mWi
-mWi
+dTW
 mWi
 mWi
 mWi
 mWi
 wIW
+dTW
+mWi
+mWi
+dTW
 mWi
 mWi
 mWi
 mWi
 mWi
 mWi
+dTW
 mWi
 mWi
 mWi
+mWi
+wIW
+mWi
+dTW
+mWi
+mWi
+mWi
+mWi
+mWi
+mWi
+dTW
 mWi
 mWi
 mWi
@@ -27247,19 +28092,19 @@ kxV
 kxV
 kxV
 muQ
-ttZ
+bnT
 pdL
 kxV
-mmI
+aHk
 muQ
-mWi
+whJ
 mWi
 muQ
 oJD
-oJD
+kCC
 kxV
 kxV
-oJD
+kCC
 oJD
 muQ
 orI
@@ -28532,19 +29377,19 @@ orI
 orI
 orI
 muQ
-kFw
+hzH
 kxV
 kxV
-iEf
+kyE
 muQ
-mWi
+whJ
 mWi
 muQ
 rAI
-rAI
+tcR
 kxV
 kxV
-rAI
+tcR
 rAI
 muQ
 abH
@@ -28566,9 +29411,9 @@ agd
 pth
 jPP
 muQ
+whJ
 mWi
-mWi
-mWi
+sqf
 muQ
 muQ
 muQ
@@ -29055,10 +29900,10 @@ mWi
 mWi
 mWi
 mWi
+sPe
 mWi
 mWi
-mWi
-mWi
+sPe
 lpo
 gdy
 kbQ
@@ -29569,10 +30414,10 @@ mWi
 mWi
 muQ
 muQ
-kxV
+aal
 mWi
 mWi
-kxV
+aal
 muQ
 muQ
 abH
@@ -29817,12 +30662,12 @@ orI
 orI
 orI
 muQ
+xFT
 kxV
 kxV
-kxV
-kxV
+xFT
 muQ
-mWi
+whJ
 mWi
 muQ
 muQ
@@ -29851,9 +30696,9 @@ muQ
 muQ
 muQ
 muQ
+whJ
 mWi
-mWi
-mWi
+sqf
 muQ
 muQ
 muQ
@@ -30588,7 +31433,7 @@ orI
 orI
 orI
 muQ
-kxV
+pvt
 kxV
 kxV
 kxV
@@ -30879,9 +31724,9 @@ muQ
 muQ
 muQ
 muQ
-mWi
+whJ
 rRG
-mWi
+sqf
 muQ
 muQ
 muQ
@@ -31359,10 +32204,10 @@ orI
 orI
 orI
 muQ
+aal
 kxV
 kxV
-kxV
-kxV
+aal
 muQ
 orI
 orI
@@ -32364,7 +33209,7 @@ orI
 muQ
 vOu
 xZm
-vOu
+eij
 lWy
 vOu
 muQ
@@ -32421,7 +33266,7 @@ orI
 orI
 orI
 muQ
-mWi
+whJ
 rRG
 mWi
 chE
@@ -32612,21 +33457,21 @@ muQ
 mUD
 xZm
 mUD
-bdJ
+xDS
 mUD
 xZm
 mUD
 muQ
 orI
 muQ
-sMi
+nHD
 xZm
 sMi
 sMi
 sMi
 muQ
 scj
-sMi
+svN
 sMi
 muQ
 orI
@@ -32635,13 +33480,13 @@ cDT
 xze
 xze
 xze
-xze
+doT
 muQ
+kop
 xze
 xze
 xze
-xze
-xze
+doT
 muQ
 muQ
 muQ
@@ -32866,7 +33711,7 @@ orI
 orI
 orI
 muQ
-sMi
+nHD
 xZm
 sMi
 sMi
@@ -33141,7 +33986,7 @@ aPz
 muQ
 ykP
 ykP
-ykP
+piJ
 muQ
 orI
 muQ
@@ -33384,7 +34229,7 @@ ovB
 ovB
 ovB
 ovB
-ovB
+bOJ
 ovB
 ovB
 ovB
@@ -33419,7 +34264,7 @@ mWi
 muQ
 qvA
 aYv
-xze
+nvt
 aNh
 qvA
 muQ
@@ -33650,7 +34495,7 @@ muQ
 iRo
 wst
 vOu
-lWy
+ozC
 vOu
 muQ
 jgI
@@ -33706,9 +34551,9 @@ muQ
 muQ
 muQ
 muQ
-mWi
+whJ
 rRG
-mWi
+sqf
 muQ
 muQ
 kxV
@@ -33894,15 +34739,15 @@ orI
 muQ
 kKQ
 oBi
-qCZ
+vqO
 sMi
 xZm
-vOu
+eij
 muQ
 eCd
 euY
 xZm
-vOu
+eij
 muQ
 srl
 omA
@@ -34166,7 +35011,7 @@ wst
 muQ
 bdJ
 bdJ
-bdJ
+xDS
 lij
 oFN
 muQ
@@ -34447,7 +35292,7 @@ mWi
 muQ
 fgk
 tYO
-xze
+pBp
 gaT
 gBp
 muQ
@@ -34682,7 +35527,7 @@ sMi
 sMi
 sMi
 tDD
-bdJ
+lrX
 muQ
 orI
 orI
@@ -34734,9 +35579,9 @@ muQ
 muQ
 muQ
 muQ
-mWi
+whJ
 rRG
-mWi
+sqf
 muQ
 muQ
 muQ
@@ -34961,7 +35806,7 @@ mWi
 muQ
 qvA
 nRs
-xze
+nvt
 aNh
 nRs
 muQ
@@ -35693,15 +36538,15 @@ orI
 muQ
 kKQ
 ejp
-qCZ
+lYG
 sMi
 ykP
 vVA
 muQ
-bdJ
+hrZ
 ykP
 euY
-eCd
+mMa
 muQ
 iRo
 wst
@@ -35967,7 +36812,7 @@ muQ
 ocK
 kxV
 kxV
-chE
+kqM
 muQ
 orI
 orI
@@ -35980,7 +36825,7 @@ fgk
 muQ
 clM
 clM
-clM
+kWA
 fcn
 cqQ
 muQ
@@ -35989,7 +36834,7 @@ mWi
 muQ
 aNh
 fgk
-xze
+pBp
 tYO
 qvA
 muQ
@@ -36211,7 +37056,7 @@ kpQ
 kpQ
 kpQ
 kpQ
-kpQ
+iCX
 kpQ
 kpQ
 kpQ
@@ -36269,7 +37114,7 @@ mWi
 mWi
 muQ
 muQ
-kxV
+xFT
 kxV
 muQ
 kxV
@@ -36281,7 +37126,7 @@ rRG
 mWi
 kxV
 kxV
-kxV
+xFT
 kxV
 kxV
 muQ
@@ -36465,13 +37310,13 @@ orI
 orI
 muQ
 jLY
+rgw
 jLY
 jLY
+rgw
 jLY
 jLY
-jLY
-jLY
-jLY
+rgw
 jLY
 rmj
 jLY
@@ -36503,35 +37348,35 @@ mWi
 mWi
 mWi
 mWi
+sPe
+mWi
+mWi
+wIW
+mWi
+sPe
+mWi
+mWi
+mWi
+mWi
+mWi
+mWi
+sPe
+mWi
+wIW
+mWi
+sPe
+mWi
+mWi
+mWi
+mWi
+mWi
 mWi
 mWi
 mWi
 wIW
 mWi
 mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-wIW
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-wIW
-mWi
-mWi
-mWi
+sPe
 mWi
 mWi
 rRG
@@ -36738,7 +37583,7 @@ muQ
 iEf
 kxV
 kxV
-chE
+kqM
 muQ
 orI
 orI
@@ -36755,7 +37600,7 @@ orI
 orI
 orI
 muQ
-mWi
+whJ
 rRG
 sGT
 sGT
@@ -36799,7 +37644,7 @@ mWi
 mWi
 mWi
 mWi
-mWi
+sPe
 mWi
 mWi
 mWi
@@ -37022,43 +37867,43 @@ mWi
 mWi
 wIW
 mWi
+dTW
 mWi
 mWi
 mWi
 mWi
 mWi
 mWi
+dTW
+mWi
+wIW
+mWi
+dTW
 mWi
 mWi
+mWi
+mWi
+mWi
+mWi
+dTW
 mWi
 wIW
 mWi
 mWi
 mWi
 mWi
+dTW
+mWi
+mWi
+mWi
+mWi
+dTW
 mWi
 mWi
 mWi
 mWi
 mWi
-mWi
-wIW
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
-mWi
+dTW
 mWi
 muQ
 wAb
@@ -37234,12 +38079,12 @@ orI
 orI
 orI
 muQ
-fNf
+rCS
 kdy
 gzo
 kxV
 qtk
-vUJ
+eJl
 muQ
 kxV
 eca
@@ -37512,18 +38357,18 @@ kxV
 kxV
 vFj
 kxV
+xFT
 kxV
 kxV
 kxV
+xFT
+kxV
+kxV
+xFT
 kxV
 kxV
 kxV
-kxV
-kxV
-kxV
-kxV
-kxV
-kxV
+xFT
 kxV
 vFj
 kxV
@@ -37760,7 +38605,7 @@ eca
 qtk
 qtk
 qtk
-qtk
+phO
 muQ
 orI
 muQ
@@ -37788,7 +38633,7 @@ cxD
 kxV
 fKb
 fKb
-fKb
+pvE
 fKb
 fKb
 muQ
@@ -38008,7 +38853,7 @@ muQ
 muQ
 muQ
 xhA
-bCN
+swk
 xhA
 bCN
 muQ
@@ -38026,18 +38871,18 @@ cxD
 kxV
 vFj
 kxV
+aal
 kxV
 kxV
 kxV
+aal
+kxV
+kxV
+aal
 kxV
 kxV
 kxV
-kxV
-kxV
-kxV
-kxV
-kxV
-kxV
+aal
 kxV
 vFj
 kxV
@@ -38522,15 +39367,15 @@ orI
 orI
 muQ
 bdJ
-bdJ
+xDS
 dZp
 kxV
-kxV
+xFT
 kxV
 muQ
 uMc
 ned
-uMc
+bLh
 uMc
 uMc
 muQ
@@ -38791,11 +39636,11 @@ uMc
 ned
 uMc
 muQ
-kxV
+pvt
 kxV
 cxD
 kxV
-kxV
+iRz
 muQ
 xAc
 dhf
@@ -39546,7 +40391,7 @@ orI
 (67,1,1) = {"
 orI
 muQ
-uMc
+njo
 uMc
 akw
 kxV
@@ -39562,11 +40407,11 @@ uMc
 uMc
 uMc
 muQ
-kxV
+pvt
 kxV
 cxD
 kxV
-kxV
+iRz
 muQ
 xAc
 tkQ
@@ -39810,12 +40655,12 @@ kxV
 kxV
 kxV
 fBo
-kxV
+aal
 kxV
 muQ
 uMc
 uMc
-uMc
+bVZ
 uMc
 uMc
 muQ
@@ -40060,7 +40905,7 @@ orI
 (69,1,1) = {"
 orI
 muQ
-ned
+oTT
 uMc
 wzA
 kxV
@@ -40329,7 +41174,7 @@ kxV
 kxV
 kxV
 kxV
-kxV
+xFT
 kxV
 kxV
 vFj
@@ -40577,7 +41422,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 vFj
 kxV
@@ -40843,7 +41688,7 @@ muQ
 muQ
 kxV
 kxV
-kxV
+aal
 kxV
 muQ
 muQ
@@ -41088,14 +41933,14 @@ orI
 (73,1,1) = {"
 orI
 muQ
-uMc
+njo
 uMc
 akw
 kxV
 kxV
 sMi
 sMi
-bdJ
+xDS
 bdJ
 muQ
 muQ
@@ -41602,7 +42447,7 @@ orI
 (75,1,1) = {"
 orI
 muQ
-uMc
+njo
 uMc
 wzA
 kxV
@@ -41619,9 +42464,9 @@ orI
 orI
 orI
 muQ
-kxV
+pvt
 cxD
-kxV
+iRz
 muQ
 kxV
 sMi
@@ -41866,7 +42711,7 @@ kxV
 kxV
 bdJ
 bdJ
-bdJ
+hrZ
 oFN
 muQ
 orI
@@ -42119,7 +42964,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -42145,13 +42990,13 @@ sMi
 bdJ
 kxV
 muQ
+pvt
 kxV
 kxV
 kxV
 kxV
 kxV
-kxV
-kxV
+iRz
 muQ
 orI
 uSN
@@ -42630,14 +43475,14 @@ orI
 (79,1,1) = {"
 orI
 muQ
-uMc
+njo
 uMc
 akw
 kxV
 kxV
 iAl
 uMc
-ned
+uAF
 muQ
 mMH
 rpu
@@ -42647,9 +43492,9 @@ rwr
 muQ
 orI
 muQ
-kxV
+pvt
 cxD
-kxV
+iRz
 muQ
 muQ
 muQ
@@ -42661,7 +43506,7 @@ muQ
 muQ
 muQ
 kxV
-kxV
+iRz
 muQ
 muQ
 muQ
@@ -42915,7 +43760,7 @@ orI
 muQ
 bdJ
 dZp
-oFN
+tEx
 iZb
 kxV
 kxV
@@ -43144,14 +43989,14 @@ orI
 (81,1,1) = {"
 orI
 muQ
-uMc
+njo
 uMc
 wzA
 kxV
 kxV
 qVd
 uMc
-uMc
+akD
 muQ
 ikH
 lhd
@@ -43170,7 +44015,7 @@ orI
 orI
 orI
 muQ
-bdJ
+cQR
 cBQ
 sMi
 sMi
@@ -43179,7 +44024,7 @@ kxV
 kxV
 kxV
 kxV
-kxV
+iRz
 muQ
 orI
 uSN
@@ -43661,7 +44506,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -43675,7 +44520,7 @@ czz
 czz
 czz
 muQ
-kxV
+pvt
 iGM
 kxV
 kxV
@@ -43946,7 +44791,7 @@ kxV
 kxV
 kxV
 kxV
-kxV
+iRz
 muQ
 muQ
 muQ
@@ -44172,14 +45017,14 @@ orI
 (85,1,1) = {"
 orI
 muQ
-uMc
+njo
 uMc
 akw
 kxV
 kxV
 iAl
 uMc
-uMc
+akD
 muQ
 muQ
 muQ
@@ -44455,7 +45300,7 @@ tbR
 tbR
 tbR
 muQ
-bdJ
+cQR
 tDD
 sMi
 sMi
@@ -44686,14 +45531,14 @@ orI
 (87,1,1) = {"
 orI
 muQ
-uMc
+njo
 uMc
 wzA
 kxV
 kxV
 qVd
 pyz
-uMc
+akD
 muQ
 aSD
 euY
@@ -44703,14 +45548,14 @@ czz
 czz
 czz
 muQ
-kxV
+pvt
 iGM
 iGM
 xDB
 ukz
 xDB
 ukz
-xDB
+bri
 muQ
 sMi
 sMi
@@ -44721,7 +45566,7 @@ kxV
 kxV
 kxV
 kxV
-kxV
+iRz
 muQ
 orI
 uSN
@@ -44969,7 +45814,7 @@ fKb
 fKb
 fKb
 muQ
-sMi
+nHD
 sMi
 veK
 sMi
@@ -45228,10 +46073,10 @@ muQ
 muQ
 sMi
 bdJ
-bdJ
+hrZ
 bdJ
 kxV
-kxV
+iRz
 muQ
 muQ
 muQ
@@ -45731,25 +46576,25 @@ kxV
 kxV
 pnR
 muQ
-kxV
+pvt
 iGM
-kxV
+iRz
 muQ
 orI
 orI
 orI
 muQ
+pvt
+kxV
+kxV
+xFT
 kxV
 kxV
 kxV
 kxV
 kxV
 kxV
-kxV
-kxV
-kxV
-kxV
-kxV
+iRz
 muQ
 orI
 uSN
@@ -45973,14 +46818,14 @@ orI
 orI
 muQ
 pAC
-pAC
+dTZ
 pAC
 pAC
 nod
 nod
 pAC
 pAC
-pAC
+dTZ
 pAC
 muQ
 aWI
@@ -46498,7 +47343,7 @@ kxV
 jWa
 muQ
 rfw
-kxV
+xFT
 kxV
 fTW
 muQ
@@ -46744,14 +47589,14 @@ orI
 orI
 muQ
 pAC
-pAC
+fzu
 pAC
 pAC
 kxV
 kxV
 pAC
 pAC
-pAC
+fzu
 pAC
 muQ
 mZa
@@ -46759,9 +47604,9 @@ kxV
 kxV
 mZa
 muQ
-aFA
+xzg
 iGM
-kRw
+ogR
 muQ
 orI
 orI
@@ -46808,14 +47653,14 @@ qRL
 pbP
 qZM
 muQ
+oyv
 qCZ
 qCZ
 qCZ
 qCZ
 qCZ
 qCZ
-qCZ
-qCZ
+fsA
 muQ
 orI
 wAb
@@ -47004,7 +47849,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -47285,13 +48130,13 @@ nvs
 kxV
 luL
 muQ
-eXr
+ikI
 fMd
 muQ
-ddg
+pMc
 pFn
 fKy
-vff
+bBy
 muQ
 orI
 uSN
@@ -47310,15 +48155,15 @@ bAO
 orI
 orI
 muQ
-xze
+kop
 xze
 xze
 muQ
-xze
+kop
 xze
 pyQ
 muQ
-xze
+kop
 xze
 xze
 muQ
@@ -47535,12 +48380,12 @@ iGM
 kRw
 muQ
 tQl
-kxV
+xFT
 muQ
-luL
+abx
 kxV
 nvs
-luL
+iac
 muQ
 qAF
 cNQ
@@ -47775,7 +48620,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 muQ
 muQ
@@ -47784,7 +48629,7 @@ muQ
 muQ
 kxV
 kxV
-kxV
+aal
 kxV
 muQ
 aFA
@@ -47839,7 +48684,7 @@ muQ
 kou
 qCZ
 qCZ
-qFA
+wgd
 muQ
 orI
 orI
@@ -48036,7 +48881,7 @@ kxV
 kxV
 pAC
 pAC
-pAC
+dTZ
 pAC
 muQ
 muQ
@@ -48062,7 +48907,7 @@ nvs
 nvs
 bgS
 kaI
-bgS
+nfE
 muQ
 orI
 muQ
@@ -48078,17 +48923,17 @@ orI
 muQ
 xgn
 xze
-xze
+nvt
 tfB
 lAv
 wFM
 qKi
 xeQ
-qKi
+rFz
 xeQ
 qKi
 xeQ
-qKi
+rFz
 xeQ
 qKi
 xeQ
@@ -48301,7 +49146,7 @@ qCZ
 qCZ
 qCZ
 muQ
-aFA
+xzg
 iGM
 bTm
 rOo
@@ -48546,14 +49391,14 @@ muQ
 muQ
 muQ
 muQ
-mtb
+nJv
 kxV
 kxV
 kxV
 kxV
 kxV
 muQ
-kxV
+pvt
 kxV
 iGM
 iGM
@@ -48610,7 +49455,7 @@ qKi
 otF
 xeQ
 wFM
-klR
+seg
 muQ
 orI
 orI
@@ -48816,11 +49661,11 @@ iGM
 kxV
 kxV
 xJr
-nzZ
+tZq
 nzZ
 wUQ
 nzZ
-nzZ
+tZq
 vFj
 nzZ
 nzZ
@@ -48833,7 +49678,7 @@ kRw
 nvs
 tfW
 kaI
-tfW
+crE
 muQ
 orI
 muQ
@@ -48852,7 +49697,7 @@ muQ
 muQ
 muQ
 muQ
-ulz
+omr
 qCZ
 dHN
 wLq
@@ -49106,7 +49951,7 @@ orI
 muQ
 xgn
 xze
-xze
+nvt
 tfB
 lAv
 klR
@@ -49121,7 +49966,7 @@ fYI
 glg
 euY
 euY
-euY
+rHd
 muQ
 muQ
 muQ
@@ -49317,7 +50162,7 @@ muQ
 muQ
 muQ
 muQ
-kxV
+pvt
 kxV
 kxV
 kxV
@@ -49341,9 +50186,9 @@ kxV
 nvs
 luL
 muQ
-aFA
+xzg
 iGM
-kRw
+ogR
 muQ
 orI
 orI
@@ -49581,10 +50426,10 @@ kxV
 kxV
 jWa
 muQ
-kxV
+pvt
 kxV
 ukz
-euY
+rHd
 muQ
 bAO
 pFd
@@ -49593,10 +50438,10 @@ rNC
 kpu
 bAO
 muQ
-luL
+abx
 nvs
 kxV
-luL
+iac
 muQ
 aFA
 iGM
@@ -49611,7 +50456,7 @@ muQ
 xZm
 xZm
 xZm
-xZm
+tbv
 xZm
 xZm
 xZm
@@ -49835,7 +50680,7 @@ kxV
 kxV
 pAC
 pAC
-pAC
+fzu
 pAC
 muQ
 kxV
@@ -49880,7 +50725,7 @@ muQ
 muQ
 muQ
 muQ
-ulz
+omr
 qCZ
 jGs
 sMi
@@ -49889,9 +50734,9 @@ uue
 euY
 euY
 vuT
-vuT
+cyh
 muQ
-euY
+kys
 euY
 muQ
 bAO
@@ -50134,7 +50979,7 @@ orI
 muQ
 xgn
 xze
-pyQ
+cvv
 tfB
 lAv
 klR
@@ -50352,7 +51197,7 @@ rXN
 qyG
 ukz
 ukz
-ukz
+mSj
 ukz
 ukz
 euY
@@ -50403,9 +51248,9 @@ uue
 tbR
 tbR
 euY
-euY
+rHd
 muQ
-euY
+kys
 euY
 gWy
 gdy
@@ -50603,7 +51448,7 @@ orI
 orI
 muQ
 vda
-wUx
+mSP
 qCZ
 rXN
 dOx
@@ -50612,7 +51457,7 @@ euY
 euY
 euY
 euY
-euY
+rHd
 muQ
 bAO
 bAO
@@ -50621,10 +51466,10 @@ bAO
 bAO
 bAO
 muQ
-luL
+abx
 nvs
 kxV
-luL
+iac
 muQ
 nbF
 jXS
@@ -50641,7 +51486,7 @@ euY
 sMi
 sMi
 sMi
-sMi
+rfl
 sMi
 muQ
 orI
@@ -50893,13 +51738,13 @@ muQ
 muQ
 muQ
 muQ
-xZm
+sSB
 sMi
 sMi
 sMi
-sMi
-sMi
-sMi
+muQ
+muQ
+muQ
 muQ
 orI
 muQ
@@ -50908,7 +51753,7 @@ muQ
 muQ
 muQ
 muQ
-ulz
+omr
 qCZ
 jGs
 sMi
@@ -50917,7 +51762,7 @@ uue
 fKb
 fKb
 euY
-vuT
+cyh
 muQ
 fps
 igQ
@@ -51140,11 +51985,11 @@ muQ
 muQ
 muQ
 muQ
-nbF
+ltH
 jXS
 tKI
 kxV
-kxV
+iRz
 muQ
 euY
 lTy
@@ -51155,14 +52000,14 @@ qCZ
 sMi
 sMi
 aSD
-aSD
+rAZ
 aSD
 muQ
 orI
 muQ
 xgn
 xze
-xze
+nvt
 tfB
 lAv
 klR
@@ -51385,10 +52230,10 @@ euY
 euY
 euY
 muQ
+soq
 gcN
 gcN
-gcN
-gcN
+qWL
 muQ
 orI
 orI
@@ -51403,7 +52248,7 @@ tKI
 aTR
 tQl
 muQ
-euY
+kys
 euY
 tfB
 tUH
@@ -51436,7 +52281,7 @@ euY
 euY
 euY
 aSD
-aSD
+rAZ
 aSD
 muQ
 orI
@@ -51634,13 +52479,13 @@ qCZ
 wTV
 qCZ
 qCZ
+lYG
 qCZ
 qCZ
-qCZ
 euY
 euY
 euY
-euY
+rHd
 muQ
 oHt
 gcN
@@ -51679,16 +52524,16 @@ xze
 xze
 tfB
 lAv
-ejp
+trf
 qCZ
 jGs
 jXS
 tUV
 muQ
+qJk
 vuT
 vuT
-vuT
-euY
+aDK
 muQ
 euY
 euY
@@ -51899,10 +52744,10 @@ qCZ
 qCZ
 qCZ
 muQ
+soq
 gcN
 gcN
-gcN
-gcN
+qWL
 muQ
 muQ
 muQ
@@ -51917,7 +52762,7 @@ tKI
 muQ
 orI
 muQ
-euY
+kys
 wUd
 tfB
 lAv
@@ -52183,7 +53028,7 @@ qCZ
 sMi
 sMi
 aSD
-aSD
+iQr
 aSD
 muQ
 orI
@@ -52409,7 +53254,7 @@ orI
 orI
 muQ
 wUx
-qCZ
+lYG
 qCZ
 qCZ
 muQ
@@ -52418,7 +53263,7 @@ bdP
 bdP
 muQ
 muQ
-euY
+kys
 euY
 euY
 euY
@@ -52435,7 +53280,7 @@ muQ
 muQ
 muQ
 muQ
-qCZ
+oyv
 qCZ
 sMi
 sMi
@@ -52448,9 +53293,9 @@ orI
 orI
 orI
 orI
-muQ
-muQ
-muQ
+orI
+orI
+orI
 muQ
 vPj
 rsL
@@ -52462,9 +53307,9 @@ orI
 orI
 muQ
 euY
-euY
+aDK
 aSD
-aSD
+iQr
 aSD
 muQ
 orI
@@ -52678,13 +53523,13 @@ muQ
 euY
 euY
 euY
-euY
+rHd
 muQ
-sMi
+nHD
 sMi
 nbF
 jXS
-tKI
+bBz
 muQ
 orI
 muQ
@@ -52708,7 +53553,7 @@ orI
 orI
 orI
 orI
-orI
+muQ
 sMi
 jXS
 sMi
@@ -52923,11 +53768,11 @@ orI
 muQ
 fdW
 fdW
-fdW
+ufH
 fdW
 fdW
 muQ
-ulz
+omr
 euY
 euY
 ulz
@@ -52945,7 +53790,7 @@ tKI
 muQ
 orI
 muQ
-euY
+kys
 euY
 tfB
 lAv
@@ -52965,7 +53810,7 @@ orI
 orI
 orI
 orI
-orI
+muQ
 sMi
 jXS
 sMi
@@ -53192,7 +54037,7 @@ wut
 wut
 ifV
 euY
-euY
+rHd
 muQ
 cJM
 sMi
@@ -53222,15 +54067,15 @@ orI
 orI
 orI
 orI
-orI
-sMi
+muQ
+nHD
 jXS
 sMi
 xDB
 ukz
 xDB
 ukz
-xDB
+bri
 muQ
 orI
 orI
@@ -53437,7 +54282,7 @@ orI
 muQ
 vtl
 euY
-euY
+aDK
 euY
 vtl
 muQ
@@ -53459,7 +54304,7 @@ tKI
 muQ
 orI
 muQ
-euY
+kys
 euY
 tfB
 tUH
@@ -53479,7 +54324,7 @@ orI
 orI
 orI
 orI
-orI
+muQ
 sMi
 jXS
 sMi
@@ -53698,7 +54543,7 @@ muQ
 muQ
 muQ
 muQ
-bdJ
+cQR
 wLq
 sMi
 sMi
@@ -53706,7 +54551,7 @@ cOX
 glg
 glg
 euY
-euY
+rHd
 muQ
 orI
 muQ
@@ -53736,7 +54581,7 @@ orI
 orI
 orI
 orI
-orI
+muQ
 sMi
 jXS
 sMi
@@ -53951,7 +54796,7 @@ orI
 muQ
 vtl
 euY
-euY
+oIy
 euY
 vtl
 muQ
@@ -53967,9 +54812,9 @@ okX
 muQ
 orI
 muQ
-nbF
+ltH
 jXS
-tKI
+bBz
 muQ
 orI
 muQ
@@ -53993,7 +54838,7 @@ orI
 orI
 orI
 orI
-orI
+muQ
 sMi
 jXS
 sMi
@@ -54220,7 +55065,7 @@ opK
 ukz
 bhE
 euY
-euY
+rHd
 muQ
 orI
 muQ
@@ -54250,10 +55095,10 @@ orI
 orI
 orI
 orI
-orI
-sMi
+muQ
+nHD
 jXS
-sMi
+aqw
 muQ
 orI
 orI
@@ -54465,16 +55310,16 @@ orI
 muQ
 dmK
 dmK
-dmK
+bmA
 dmK
 dmK
 muQ
-qFA
+rEw
 sMi
 jXS
 kou
 muQ
-euY
+kys
 euY
 euY
 euY
@@ -54498,16 +55343,16 @@ sMi
 muQ
 muQ
 muQ
-orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
-orI
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
+muQ
 sMi
 jXS
 sMi
@@ -54743,27 +55588,27 @@ jXS
 sMi
 sMi
 sMi
+svN
+sMi
+sMi
+nGg
+sMi
+svN
+sMi
 sMi
 sMi
 sMi
 nGg
 sMi
+svN
+sMi
+sMi
+svN
 sMi
 sMi
 sMi
 sMi
-sMi
-nGg
-sMi
-sMi
-sMi
-sMi
-sMi
-sMi
-sMi
-sMi
-sMi
-sMi
+svN
 sMi
 sMi
 jXS
@@ -54981,7 +55826,7 @@ orI
 orI
 muQ
 hqK
-sMi
+svN
 muQ
 muQ
 hsd
@@ -55245,7 +56090,7 @@ sMi
 jXS
 euY
 sMi
-sMi
+svN
 dJu
 muQ
 orI
@@ -55262,25 +56107,25 @@ sMi
 sMi
 nGg
 sMi
+rfl
 sMi
 sMi
-sMi
-sMi
+rfl
 sMi
 nGg
 sMi
+rfl
+sMi
+sMi
+rfl
 sMi
 sMi
 sMi
 sMi
+rfl
 sMi
 sMi
-sMi
-sMi
-sMi
-sMi
-sMi
-sMi
+rfl
 sMi
 muQ
 orI
@@ -56009,14 +56854,14 @@ orI
 orI
 muQ
 bdJ
-bdJ
+hrZ
 bdJ
 muQ
 hEO
 fIo
 muQ
 hqK
-sMi
+rfl
 crq
 muQ
 orI
@@ -56028,7 +56873,7 @@ jXS
 tKI
 fKb
 fKb
-fKb
+pvE
 fKb
 fKb
 muQ
@@ -56563,11 +57408,11 @@ euY
 euY
 muQ
 kBc
-kBc
+ihw
 kBc
 xvh
 kBc
-kBc
+ihw
 kBc
 muQ
 orI
@@ -57294,7 +58139,7 @@ orI
 orI
 muQ
 sMi
-sMi
+svN
 sMi
 muQ
 hEO
@@ -57309,8 +58154,8 @@ eGF
 jRw
 qYZ
 muQ
-nbF
-tKI
+ltH
+bBz
 muQ
 orI
 orI
@@ -57334,11 +58179,11 @@ euY
 euY
 muQ
 xgx
-xgx
+lUQ
 xgx
 xvh
 xgx
-xgx
+lUQ
 xgx
 muQ
 orI
@@ -57553,10 +58398,10 @@ muQ
 sMi
 sMi
 sMi
-sMi
+svN
 nbF
 tKI
-sMi
+svN
 lgl
 cBQ
 sMi
@@ -57799,11 +58644,11 @@ orI
 orI
 muQ
 nqE
-rQH
+nFS
 oIL
 lAv
 bdJ
-bdJ
+xDS
 sMi
 sMi
 muQ
@@ -57817,7 +58662,7 @@ eHy
 eHy
 eHy
 eHy
-eHy
+vvm
 eHy
 eHy
 eHy
@@ -57841,14 +58686,14 @@ orI
 orI
 muQ
 kBc
-kBc
+ihw
 kBc
 muQ
 euY
 euY
 hzb
 euY
-euY
+oIy
 euY
 muQ
 orI
@@ -58079,7 +58924,7 @@ shy
 shy
 shy
 shy
-shy
+tEb
 woX
 dxR
 sAL
@@ -58582,17 +59427,17 @@ eHy
 eHy
 eHy
 eHy
+bmF
 eHy
 eHy
 eHy
 eHy
+bmF
 eHy
 eHy
 eHy
 eHy
-eHy
-eHy
-eHy
+bmF
 eHy
 eHy
 eHy
@@ -58612,7 +59457,7 @@ orI
 orI
 muQ
 xgx
-xgx
+lUQ
 xgx
 muQ
 muQ
@@ -58827,11 +59672,11 @@ orI
 orI
 muQ
 ekW
-rLG
+gUj
 cBR
 tUH
 suh
-ojP
+cLE
 ojP
 jKT
 muQ
@@ -58876,7 +59721,7 @@ orI
 orI
 muQ
 pvX
-euY
+aDK
 euY
 eAa
 muQ
@@ -59608,22 +60453,22 @@ orI
 muQ
 wJq
 rLG
-rLG
+gUj
 rWX
 muQ
 wJq
 rlF
-rLG
+gUj
 rWX
 muQ
 wJq
 rLG
-rLG
+gUj
 rWX
 muQ
 wJq
 rLG
-rLG
+gUj
 rWX
 muQ
 orI
