@@ -231,11 +231,11 @@
 	. = ..()
 
 	if(!istype(beacon))
-		log_debug("\A [src] was initialized with an invalid or nonexistent beacon.")
+		stack_trace("\A [src] was initialized with an invalid or nonexistent beacon.")
 		return INITIALIZE_HINT_QDEL
 
 	if(beacon.landmark && beacon.landmark != src)
-		log_debug("\A [src] was initialized with a beacon that already has a synced landmark.")
+		stack_trace("\A [src] was initialized with a beacon that already has a synced landmark.")
 		return INITIALIZE_HINT_QDEL
 
 	src.beacon = beacon
@@ -244,14 +244,14 @@
 /obj/effect/shuttle_landmark/automatic/spaceflare/Destroy()
 	GLOB.moved_event.unregister(beacon, src, /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved)
 	if (beacon?.active)
-		log_debug("\A [src] was destroyed with a still active beacon.")
+		stack_trace("\A [src] was destroyed with a still active beacon.")
 		beacon.deactivate()
 	beacon = null
 	. = ..()
 
 /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved(atom/movable/moving_instance, atom/old_loc, atom/new_loc)
 	if(!isturf(new_loc) || isspaceturf(new_loc) || isopenturf(new_loc))
-		log_debug("\A [src]'s beacon was moved to a non-turf or unacceptable location.")
+		stack_trace("\A [src]'s beacon was moved to a non-turf or unacceptable location.")
 		beacon.deactivate()
 		return
 	forceMove(new_loc)
