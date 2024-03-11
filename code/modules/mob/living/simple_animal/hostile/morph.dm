@@ -56,8 +56,10 @@
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 
-	add_verb(src, /mob/living/proc/ventcrawl)
+	name = "morph ([rand(100, 999)])"
+	add_language(LANGUAGE_CHANGELING)
 	add_verb(src, /mob/living/simple_animal/verb/change_name)
+	add_verb(src, /mob/living/proc/ventcrawl)
 
 	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
 	for(var/spell in morph_spells)

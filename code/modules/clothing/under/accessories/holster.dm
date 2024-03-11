@@ -9,6 +9,7 @@
 	item_state = "holster"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY
+	slot_flags = SLOT_BELT | SLOT_TIE
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
@@ -82,12 +83,16 @@
 		clear_holster()
 
 /obj/item/clothing/accessory/holster/attack_hand(mob/user)
-	if (has_suit) // If we are part of a suit.
+	if (!ishuman(user))
+		return ..()
+
+	var/mob/living/carbon/human/human = user
+	if (has_suit || human.belt == src) // If we are part of a suit.
 		if (holstered)
-			unholster(user)
+			unholster(human)
 		return
 
-	..(user)
+	return ..(human)
 
 /obj/item/clothing/accessory/holster/attackby(obj/item/attacking_item, mob/user)
 	holster(attacking_item, user)
@@ -251,7 +256,7 @@
 	name = "machete sheath"
 	desc = "A handsome synthetic leather sheath with matching belt."
 	icon_state = "holster_machete"
-	item_state = "thigh_brown"
+	item_state = "holster_machete"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	allowed_items = list(
 		/obj/item/material/hatchet/machete,

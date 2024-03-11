@@ -470,7 +470,8 @@ var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new(
 	if(rolled_down_state != -1 || ("[initial(uniform.icon_state)]_d[initial(uniform.contained_sprite) ? "_un" : "_s"]" in icon_states(under_icon)))
 		possible_states += UNIFORM_ROLLED_DOWN
 
-	var/input = input(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", metadata) as null|anything in possible_states
+	var/input = tgui_input_list(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", possible_states, metadata)
+
 	if(!input)
 		input = metadata
 	return input

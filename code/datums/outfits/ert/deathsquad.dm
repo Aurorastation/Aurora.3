@@ -1,4 +1,4 @@
-/datum/outfit/admin/deathsquad
+/obj/outfit/admin/deathsquad
 	name = "Asset Protection"
 
 	uniform = /obj/item/clothing/under/ert
@@ -27,16 +27,16 @@
 
 	id_iff = IFF_DEATHSQUAD
 
-/datum/outfit/admin/deathsquad/leader
+/obj/outfit/admin/deathsquad/leader
 	name = "Asset Protection Lead"
 
 	l_pocket = /obj/item/pinpointer
 	r_hand = /obj/item/device/orbital_dropper/icarus_drones
 
-/datum/outfit/admin/deathsquad/get_id_access()
+/obj/outfit/admin/deathsquad/get_id_access()
 	return get_all_accesses()
 
-/datum/outfit/admin/deathsquad/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/deathsquad/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
