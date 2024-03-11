@@ -23,8 +23,8 @@
 	path = /obj/item/martial_manual/gun_kata
 
 /datum/uplink_item/item/martial_arts/skrell
-	name = "Karak Vikul"
-	desc = "A manual containing instructions on the Skrellian martial art of Karak Vikul. Only usable by Skrell."
+	name = "Karak Virul"
+	desc = "A manual containing instructions on the Skrellian martial art of Karak Virul. Only usable by Skrell."
 	telecrystal_cost = 2
 	path = /obj/item/martial_manual/skrell
 
