@@ -203,3 +203,14 @@
 	desc = "A crate containing gear for a single individual."
 	path = /obj/structure/closet/crate/secure/gear_loadout/tcaf/single
 	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/exclusionist
+	name = "Exclusionist Assets (Group)"
+	desc = "A crate containing gear for a group."
+	path = /obj/structure/closet/crate/secure/gear_loadout/exclusionist
+
+/datum/uplink_item/item/gear_loadout/exclusionist_single
+	name = "Exclusionist Assets (Single)"
+	desc = "A crate containing gear for a single individual."
+	path = /obj/structure/closet/crate/secure/gear_loadout/exclusionist/single
+	telecrystal_cost = 10

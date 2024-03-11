@@ -260,8 +260,8 @@ SUBSYSTEM_DEF(virtualreality)
 		H.real_name = user.real_name
 		H.UpdateAppearance()
 
-		H.preEquipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
-		H.equipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
+		H.preEquipOutfit(/obj/outfit/admin/virtual_reality, FALSE)
+		H.equipOutfit(/obj/outfit/admin/virtual_reality, FALSE)
 
 		mind_transfer(user, H)
 		to_chat(H, SPAN_NOTICE("You are now in control of a virtual reality body. Dying will return you to your original body."))

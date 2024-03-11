@@ -100,7 +100,7 @@ var/list/channel_to_radio_key = new
 	if(!message_range)
 		message_range = world.view
 
-	if((mutations & HULK))
+	if((mutations & HULK) && !src.isSynthetic() && !isvaurca(src))
 		var/ending = copytext(message, length(message), length(message) + 1)
 		if(ending && GLOB.correct_punctuation[ending])
 			message = copytext(message, 1, length(message))

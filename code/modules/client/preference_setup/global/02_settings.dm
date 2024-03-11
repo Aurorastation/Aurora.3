@@ -40,8 +40,6 @@
 			"current_character",
 			"toggles",
 			"sfx_toggles",
-			"lastmotd",
-			"lastmemo",
 			"ckey" = 1,
 			"toggles_secondary",
 		)
