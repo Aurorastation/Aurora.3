@@ -1,4 +1,4 @@
-/datum/outfit/admin/nt
+/obj/outfit/admin/nt
 	name = "NanoTrasen Representative"
 
 	uniform = /obj/item/clothing/under/rank/centcom
@@ -16,10 +16,10 @@
 	id_icon = "centcom"
 	var/id_access = "NanoTrasen Representative"
 
-/datum/outfit/admin/nt/get_id_access()
+/obj/outfit/admin/nt/get_id_access()
 	return get_all_station_access() | get_centcom_access(id_access)
 
-/datum/outfit/admin/nt/officer
+/obj/outfit/admin/nt/officer
 	name = "NanoTrasen Navy Officer"
 
 	uniform = /obj/item/clothing/under/rank/centcom_officer
@@ -27,7 +27,7 @@
 	head = /obj/item/clothing/head/beret/centcom/officer
 	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
-/datum/outfit/admin/nt/captain
+/obj/outfit/admin/nt/captain
 	name = "NanoTrasen Navy Captain"
 
 	uniform = /obj/item/clothing/under/rank/centcom_captain
@@ -35,7 +35,7 @@
 	head = /obj/item/clothing/head/beret/centcom/captain
 	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
-/datum/outfit/admin/nt/protection_detail
+/obj/outfit/admin/nt/protection_detail
 	name = "ERT Protection Detail"
 
 	uniform = /obj/item/clothing/under/ccpolice
@@ -62,7 +62,7 @@
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	if(H && H.belt)
 
@@ -83,7 +83,7 @@
 		H.belt.contents += shield
 
 
-/datum/outfit/admin/nt/ert_commander
+/obj/outfit/admin/nt/ert_commander
 	name = "ERT Commander"
 
 	uniform = /obj/item/clothing/under/rank/centcom_commander
@@ -106,7 +106,7 @@
 
 	id_access = "BlackOps Commander"
 
-/datum/outfit/admin/nt/cciaa
+/obj/outfit/admin/nt/cciaa
 	name = "CCIA Agent"
 
 	uniform = /obj/item/clothing/under/rank/centcom_officer
@@ -128,7 +128,7 @@
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/odinsec
+/obj/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
 
 	uniform = /obj/item/clothing/under/ccpolice
@@ -161,7 +161,7 @@
 
 	id_access = "Odin Security"
 
-/datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	if(H && H.w_uniform)
 
@@ -172,7 +172,7 @@
 		var/obj/item/clothing/under/rank/U = H.w_uniform
 		U.attach_accessory(null, holster)
 
-/datum/outfit/admin/nt/specops
+/obj/outfit/admin/nt/specops
 	name = "Special Operations Officer"
 
 	uniform = /obj/item/clothing/under/syndicate/combat
@@ -192,7 +192,7 @@
 
 	id_access = "Death Commando"
 
-/datum/outfit/admin/nt/bssb
+/obj/outfit/admin/nt/bssb
 	name = "BSSB Agent"
 
 	uniform = /obj/item/clothing/under/rank/bssb
@@ -216,14 +216,14 @@
 	id_icon = "bssb"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/bssb/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/nt/bssb/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	if(H?.wear_suit)
 		var/obj/item/clothing/accessory/badge/bssb/senior/badge = new(src)
 		var/obj/item/clothing/U = H.wear_suit
 		U.attach_accessory(null, badge)
 
-/datum/outfit/admin/nt/bssb/guard
+/obj/outfit/admin/nt/bssb/guard
 	name = "BSSB Escort"
 
 	suit = /obj/item/clothing/suit/storage/toggle/bssb/armor
@@ -251,14 +251,14 @@
 		/obj/item/clothing/head/helmet = 1
 	)
 
-/datum/outfit/admin/nt/bssb/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/nt/bssb/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	if(H?.wear_suit)
 		var/obj/item/clothing/accessory/badge/bssb/badge = new(src)
 		var/obj/item/clothing/U = H.wear_suit
 		U.attach_accessory(null, badge)
 
-/datum/outfit/admin/nt/odindoc
+/obj/outfit/admin/nt/odindoc
 	name = "NTCC Odin Medical Specialist"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zavod
@@ -297,7 +297,7 @@
 
 	id_access = "Medical Doctor"
 
-/datum/outfit/admin/nt/odinpharm
+/obj/outfit/admin/nt/odinpharm
 	name = "NTCC Odin Pharmacy Specialist"
 
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist
@@ -314,7 +314,7 @@
 
 	id_access = "Medical Doctor"
 
-/datum/outfit/admin/nt/odinbartender
+/obj/outfit/admin/nt/odinbartender
 	name = "NTCC Odin Bartender"
 
 	uniform = /obj/item/clothing/under/rank/bartender
@@ -324,7 +324,7 @@
 
 	id_access = "Service"
 
-/datum/outfit/admin/nt/odinchef
+/obj/outfit/admin/nt/odinchef
 	name = "NTCC Odin Chef"
 
 	uniform = /obj/item/clothing/under/rank/chef
@@ -336,7 +336,7 @@
 
 	id_access = "Service"
 
-/datum/outfit/admin/nt/odinjanitor
+/obj/outfit/admin/nt/odinjanitor
 	name = "NTCC Odin Sanitation Specialist"
 
 	uniform = /obj/item/clothing/under/rank/janitor

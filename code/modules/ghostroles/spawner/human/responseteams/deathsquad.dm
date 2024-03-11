@@ -3,7 +3,7 @@
 	short_name = "ntaps"
 	max_count = 3
 	desc = "Protectors of the SCC's bottom line. The last thing you never see."
-	outfit = /datum/outfit/admin/deathsquad
+	outfit = /obj/outfit/admin/deathsquad
 	spawnpoints = list("DeathERTSpawn")
 	possible_species = list(SPECIES_HUMAN)
 	mob_name_prefix = "Spec. "
@@ -19,7 +19,7 @@
 	short_name = "ntapl"
 	max_count = 1
 	desc = "Leader of SCC's Asset Protection team."
-	outfit = /datum/outfit/admin/deathsquad/leader
+	outfit = /obj/outfit/admin/deathsquad/leader
 	mob_name_prefix = "Ldr. "
 
 /datum/ghostspawner/human/ert/deathsquad/post_spawn(mob/user)

@@ -44,11 +44,17 @@
 			return
 		Remove(owner)
 	owner = T
-	owner.actions.Add(src)
-	owner.update_action_buttons()
+	//This shit is because our actions are different than TG ones, remove it when we update the action datum
+	if(istype(T))
+		owner.actions.Add(src)
+		owner.update_action_buttons()
 	return
 
 /datum/action/proc/Remove(mob/living/T)
+	//This shit is because our actions are different than TG ones, remove it when we update the action datum
+	if(!istype(T))
+		return
+
 	if(button)
 		if(T.client)
 			T.client.screen -= button
