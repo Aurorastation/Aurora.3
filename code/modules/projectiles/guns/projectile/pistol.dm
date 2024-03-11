@@ -553,3 +553,31 @@
 		icon_state = "dom_pistol"
 	else
 		icon_state = "dom_pistol-e"
+
+/obj/item/gun/projectile/pistol/himeo
+	name = "himean service pistol"
+	desc = "The standard-issue handgun of the Planetary Guard. Incredibly rugged and reliable."
+	desc_extended = "The Type-45b 'Boxcar' can resist freezing temperatures, explosive decompression, and six hundred rounds before being rendered inoperable. What it cannot resist \
+	is a changing Spur; increasingly well-funded and well-armed pirates have led to changing fortune for the FCDAM's standard model. Increased imports of Xanan 4.6mm handguns have lead \
+	to speculation that Himeo, ever-compromising in the name of 'Coalition unity', will instead shift focus to licensed copycats."
+	magazine_type = /obj/item/ammo_magazine/mc10mm/himeo
+	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm/himeo)
+	icon = 'icons/obj/guns/himeo_pistol.dmi'
+	icon_state = "himeo_pistol"
+	item_state = "himeo_pistol"
+	caliber = "10mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+	suppressed = FALSE
+	can_suppress = FALSE
+
+/obj/item/gun/projectile/pistol/himeo/update_icon()
+	..()
+	if(ammo_magazine)
+		if(ammo_magazine?.stored_ammo.len)
+			icon_state = "himeopistol"
+		else
+			icon_state = "himeopistol-em"
+	else
+		icon_state = "himeopistol-e"

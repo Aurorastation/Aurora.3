@@ -665,6 +665,28 @@
 	..()
 	icon_state = (ammo_magazine)? "xanu_rifle" : "xanu_rifle-empty"
 
+/obj/item/gun/projectile/automatic/rifle/himeo
+	name = "\improper HPUAF-65 battle rifle"
+	desc = "An incredibly rugged bullpup battle rifle used by the Himean Planetary Guard. 'TO RESIST EVIL BY FORCE' is stamped on the receiver."
+	desc_extended = "Based on the dNAC-6.5 model in use by the majority of the Coalition, the HPUAF-65 'Ablett' has some significant differences. While it costs slightly more, and lacks full-automatic \
+	firing capacity, it can fire a more accurate two-round burst. Just watch out for the recoil."
+	icon = 'icons/obj/guns/himeo_rifle.dmi'
+	icon_state = "himeorifle"
+	item_state = "himeorifle"
+	magazine_type = /obj/item/ammo_magazine/a65
+	allowed_magazines = list(/obj/item/ammo_magazine/a65)
+	caliber = "a65"
+	recoil = 3
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)) //these bullets are from a union shop we can't afford to waste them
+		)
+
+/obj/item/gun/projectile/automatic/rifle/himeo/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "himeorifle" : "himeorifle-e"
+
 /obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."

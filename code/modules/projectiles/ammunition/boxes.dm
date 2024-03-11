@@ -180,6 +180,14 @@
 /obj/item/ammo_magazine/mc10mm/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/mc10mm/himeo
+	name = "magazine (10mm pistol)"
+	desc = "A proprietary magazine for a Himean 10mm pistol."
+	icon = 'icons/obj/guns/himeo_pistol.dmi'
+	icon_state = "himeopistol_mag"
+	max_ammo = 12
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/mc10mm/rubber
 	name = "magazine (10mm rubber)"
 	ammo_type = /obj/item/ammo_casing/c10mm/rubber
