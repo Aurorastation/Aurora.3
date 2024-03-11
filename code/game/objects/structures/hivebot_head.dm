@@ -22,7 +22,6 @@
 		spark(T, 3, GLOB.alldirs)
 		addtimer(CALLBACK(src, PROC_REF(deactivate)), 3 SECONDS)
 
-
 /obj/structure/hivebot_head/proc/deactivate()
 	icon_state = "hivebot_head"
 	visible_message(SPAN_WARNING("\The [src] shudders and goes silent..."))
