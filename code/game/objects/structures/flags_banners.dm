@@ -3112,6 +3112,46 @@
 /obj/structure/sign/flag/traditionalist/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+//Exclusionists
+/obj/item/flag/exclusionist
+	name = "\improper Exclusionist flag"
+	desc = "The gold and black flag of the Exclusionists, a heretical and extremist sect of the Trinary Perfection."
+	flag_path = "exclusionist"
+	flag_structure = /obj/structure/sign/flag/exclusionist
+
+/obj/structure/sign/flag/exclusionist
+	name = "\improper Exclusionist flag"
+	desc = "The gold and black flag of the Exclusionists, a heretical and extremist sect of the Trinary Perfection."
+	flag_path = "exclusionist"
+	icon_state = "exclusionist"
+	flag_item = /obj/item/flag/exclusionist
+
+/obj/structure/sign/flag/exclusionist/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/exclusionist/l
+	name = "large Exclusionist flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/exclusionist/large
+
+/obj/structure/sign/flag/exclusionist/large
+	icon_state = "exclusionist_l"
+	flag_path = "exclusionist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/exclusionist/l
+
+/obj/structure/sign/flag/exclusionist/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/exclusionist/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/exclusionist/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/exclusionist/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Callisto
 
 /obj/item/flag/callisto
