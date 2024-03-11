@@ -1655,8 +1655,8 @@
 	are omnipresent throughout the settled regions of human space, forming a sort of Coalition superculture; it's easier to sympathize with someone if you eat the same snacks."
 	icon_state = "frontiervend"
 	icon_vend = "frontiervend-vend"
-	//product_slogans = "At least 85 billion served!;A new frontier of flavors!;Snacking for a free frontier!;WARNING: This machine does not accept Solarian credits."
-	//product_ads = "Kill Solarians.;Behead Solarians.;Roundhouse kick a Solarian into the concrete.;Slam-dunk Solarians into the trashcan.;Launch Solarians into the sun."
+	product_slogans = "At least 85 billion served!;A new frontier of flavors!;Snacking for a free frontier!;Every purchase made supports the efforts of the Frontier Protection Bureau!"
+	product_ads = "Roundhouse kick a Solarian into the concrete.;Slam-dunk Solarians into the trashcan.;Launch Solarians into the sun.;Frost got what he deserved."
 	vend_id = "frontiervend"
 
 	products = list(
@@ -1715,9 +1715,7 @@
 		/obj/item/reagent_containers/food/snacks/papad/apple = 15,
 		/obj/item/storage/box/fancy/foysnack = 25
 	)
-	contraband = list(
-	//	/obj/item/storage/box/fancy/yoke/earthmover = 2 // guys rocked a little too hard for the GC but we will never forget the cold ones we cracked
-	)
+	contraband = list()
 	premium = list(
 		/obj/item/toy/comic/inspector = 2,
 		/obj/item/toy/comic/stormman = 2,
@@ -1730,7 +1728,6 @@
 	name = "hacked FrontierVend"
 	desc = "A complimentary FrontierVend machine. No money? No worries."
 	prices = list()
-
 
 /obj/machinery/vending/rental_bikes
 	name = "\improper Rental Bikes self-service vendor"

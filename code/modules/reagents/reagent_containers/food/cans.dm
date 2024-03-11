@@ -598,5 +598,5 @@
 	name = "Brown Palace New Neapolitan"
 	desc = "A Xanan brand of canned chai tea. This one is neapolitan flavored; vanilla, chocolate, and strawberry."
 	icon_state = "xanuneap"
-	reagents_to_add = list(/singleton/reagent/drink/tea/chaitea = 30)
+	reagents_to_add = list(/singleton/reagent/drink/tea/neapolitan_chaitea = 30)
 
