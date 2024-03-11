@@ -142,7 +142,6 @@
 /singleton/reagent/drugs/snowflake/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	if(prob(35))
 		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
-		M.adjustToxLoss(5)
 		M.add_chemical_effect(CE_NEUROTOXIC, 1)
 	..()
 
@@ -298,7 +297,7 @@
 /singleton/reagent/drugs/colorspace/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 
-	var/drug_strength = 80 * power
+	var/drug_strength = 20 * power
 
 	if(alien == IS_SKRELL)
 		drug_strength *= 0.8
