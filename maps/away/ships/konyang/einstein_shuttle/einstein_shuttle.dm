@@ -124,7 +124,7 @@
 	spawnpoints = list("einstein_pilot")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/einstein_crew
+	outfit = /obj/outfit/admin/einstein_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_SHELL, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -133,7 +133,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/einstein_crew
+/obj/outfit/admin/einstein_crew
 	name = "Einstein Shuttle Pilot"
 
 	uniform = /obj/item/clothing/under/rank/einstein
@@ -149,7 +149,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/einstein_crew/get_id_access()
+/obj/outfit/admin/einstein_crew/get_id_access()
 	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/einstein_crew/suit
@@ -161,7 +161,7 @@
 	spawnpoints = list("einstein_suit")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/einstein_crew/suit
+	outfit = /obj/outfit/admin/einstein_crew/suit
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -169,7 +169,7 @@
 	special_role = "Einstein Engines Corporate Representative"
 	respawn_flag = null
 
-/datum/outfit/admin/einstein_crew/suit
+/obj/outfit/admin/einstein_crew/suit
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel/leather

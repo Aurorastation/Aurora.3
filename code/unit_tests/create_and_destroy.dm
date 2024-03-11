@@ -102,6 +102,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		//The location needs to be the mob, otherwise it stacktrace
 		/obj/aiming_overlay,
 
+		//Requires an owner or stacktrace on creation
+		/atom/movable/flick_visual,
+
 	)
 
 	// Paths and all the subpaths excluded

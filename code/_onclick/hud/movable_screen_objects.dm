@@ -45,9 +45,9 @@
 		screen_loc = "[screen_loc_X[1]]:[pix_X],[screen_loc_Y[1]]:[pix_Y]"
 
 /obj/screen/movable/proc/encode_screen_X(X)
-	if(X > usr.client.view+1)
-		. = "EAST-[usr.client.view*2 + 1-X]"
-	else if(X < usr.client.view+1)
+	if(X > usr?.client?.view+1)
+		. = "EAST-[usr?.client?.view*2 + 1-X]"
+	else if(X < usr?.client?.view+1)
 		. = "WEST+[X-1]"
 	else
 		. = "CENTER"
@@ -58,19 +58,19 @@
 		var/num = text2num(copytext(X,6)) //Trim EAST-
 		if(!num)
 			num = 0
-		. = usr.client.view*2 + 1 - num
+		. = usr?.client?.view*2 + 1 - num
 	else if(findtext(X,"WEST+"))
 		var/num = text2num(copytext(X,6)) //Trim WEST+
 		if(!num)
 			num = 0
 		. = num+1
 	else if(findtext(X,"CENTER"))
-		. = usr.client.view+1
+		. = usr?.client?.view+1
 
 /obj/screen/movable/proc/encode_screen_Y(Y)
-	if(Y > usr.client.view+1)
-		. = "NORTH-[usr.client.view*2 + 1-Y]"
-	else if(Y < usr.client.view+1)
+	if(Y > usr?.client?.view+1)
+		. = "NORTH-[usr?.client?.view*2 + 1-Y]"
+	else if(Y < usr?.client?.view+1)
 		. = "SOUTH+[Y-1]"
 	else
 		. = "CENTER"
@@ -80,14 +80,14 @@
 		var/num = text2num(copytext(Y,7)) //Trim NORTH-
 		if(!num)
 			num = 0
-		. = usr.client.view*2 + 1 - num
+		. = usr?.client?.view*2 + 1 - num
 	else if(findtext(Y,"SOUTH+"))
 		var/num = text2num(copytext(Y,7)) //Time SOUTH+
 		if(!num)
 			num = 0
 		. = num+1
 	else if(findtext(Y,"CENTER"))
-		. = usr.client.view+1
+		. = usr?.client?.view+1
 
 //Debug procs
 /client/proc/test_movable_UI()

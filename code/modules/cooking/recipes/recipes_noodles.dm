@@ -90,6 +90,17 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ramenbowl
 
+/singleton/recipe/aoyama_ramen
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/nutriment/soysauce = 5)
+	fruit = list("moss" = 1, "chili" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/fish,
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/aoyama_ramen
+
 /singleton/recipe/spaghettibolognese
 	appliance = SAUCEPAN | POT
 	fruit = list("garlic" = 1, "onion" = 1, "tomato" = 1)

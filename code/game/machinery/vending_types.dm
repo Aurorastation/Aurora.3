@@ -846,6 +846,7 @@
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
+		/obj/item/seeds/bellpepperseed = 3,
 		/obj/item/seeds/berryseed = 3,
 		/obj/item/seeds/blackraspberryseed = 3,
 		/obj/item/seeds/blizzard = 3,
@@ -879,6 +880,7 @@
 		/obj/item/seeds/oracleseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/peaseed = 3,
 		/obj/item/seeds/peppercornseed = 3,
 		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
@@ -928,6 +930,7 @@
 		/obj/item/seeds/ambrosiavulgarisseed = 70,
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
+		/obj/item/seeds/bellpepperseed = 40,
 		/obj/item/seeds/berryseed = 40,
 		/obj/item/seeds/blackraspberryseed = 40,
 		/obj/item/seeds/blizzard = 60,
@@ -960,6 +963,7 @@
 		/obj/item/seeds/oracleseed = 50,
 		/obj/item/seeds/orangeseed = 40,
 		/obj/item/seeds/peanutseed = 30,
+		/obj/item/seeds/peaseed = 40,
 		/obj/item/seeds/peppercornseed = 30,
 		/obj/item/seeds/plastiseed = 40,
 		/obj/item/seeds/plumpmycelium = 20,
@@ -1065,7 +1069,8 @@
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
 	)
 	premium = list(
-		/obj/item/storage/toolbox/lunchbox/scc/filled = 2
+		/obj/item/storage/toolbox/lunchbox/scc/filled = 2,
+		/obj/item/reagent_containers/food/drinks/boba = 2
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -1685,3 +1690,18 @@
 		key.key_data = key_data_sports[1]
 		key_data_sports.Cut(1,2)
 
+/obj/machinery/vending/ramen
+	name = "ramen vendor"
+	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
+	icon_state = "ramenvend"
+	icon_vend = "ramenvend"
+	product_slogans = "Irasshaimase!"
+	vend_id = "ramen"
+	products = list(
+		/obj/item/reagent_containers/food/snacks/ramenbowl = 15,
+		/obj/item/reagent_containers/food/snacks/aoyama_ramen = 15
+	)
+	prices = list(
+		/obj/item/reagent_containers/food/snacks/ramenbowl = 60,
+	)
+	light_color = COLOR_GUNMETAL

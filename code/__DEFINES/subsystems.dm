@@ -253,6 +253,7 @@
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
+#define FIRE_PRIORITY_RUNECHAT 410
 #define FIRE_PRIORITY_TIMER 700
 
 /**
@@ -271,3 +272,16 @@
 #define SS_NO_DISPLAY 128
 
 #define SS_IS_RUNNING(subsystem) (subsystem.can_fire && (GAME_STATE & subsystem.runlevels))
+
+// Vote subsystem counting methods
+/// First past the post. One selection per person, and the selection with the most votes wins.
+#define VOTE_COUNT_METHOD_SINGLE 1
+/// Approval voting. Any number of selections per person, and the selection with the most votes wins.
+#define VOTE_COUNT_METHOD_MULTI 2
+
+/// The choice with the most votes wins. Ties are broken by the first choice to reach that number of votes.
+#define VOTE_WINNER_METHOD_SIMPLE "Simple"
+/// The winning choice is selected randomly based on the number of votes each choice has.
+#define VOTE_WINNER_METHOD_WEIGHTED_RANDOM "Weighted Random"
+/// There is no winner for this vote.
+#define VOTE_WINNER_METHOD_NONE "None"

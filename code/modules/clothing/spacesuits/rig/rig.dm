@@ -800,7 +800,7 @@
 	..()
 	null_wearer(user)
 
-/obj/item/rig/dropped(var/mob/user)
+/obj/item/rig/dropped(mob/user)
 	..()
 
 	if(user.client)

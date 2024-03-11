@@ -822,8 +822,8 @@
 	icon_state = "geneticist"
 
 /obj/item/toy/figure/hop
-	name = "head of personel action figure"
-	desc = "A \"Space Life\" brand head of personel action figure."
+	name = "head of personnel action figure"
+	desc = "A \"Space Life\" brand head of personnel action figure."
 	icon_state = "hop"
 
 /obj/item/toy/figure/hos

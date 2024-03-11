@@ -33,8 +33,6 @@ var/list/preferences_datums = list()
 	var/tgui_inputs_swapped = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
-	var/motd_hash = ""					//Hashes for the new server greeting window.
-	var/memo_hash = ""
 
 	//character preferences
 	var/real_name						//our character's name

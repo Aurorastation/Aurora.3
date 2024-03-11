@@ -11,7 +11,7 @@
 	variables = list() //Variables of that mob
 
 	//Vars related to human mobs
-	var/datum/outfit/outfit = null //Outfit to equip
+	var/obj/outfit/outfit = null //Outfit to equip
 	var/list/species_outfits = list() //Outfit overwrite for the species
 	var/uses_species_whitelist = TRUE //Do you need the whitelist to play the species?
 	var/possible_species = list(SPECIES_HUMAN)
@@ -140,7 +140,7 @@
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
-		var/datum/outfit/species_outfit = species_outfits[picked_species]
+		var/obj/outfit/species_outfit = species_outfits[picked_species]
 		M.preEquipOutfit(species_outfit, FALSE)
 		M.equipOutfit(species_outfit, FALSE)
 	else if(outfit)
