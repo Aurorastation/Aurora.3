@@ -40,6 +40,8 @@
 		T.lighting_overlay = null
 		T.luminosity = 1
 
+	SSlighting.overlay_queue -= src
+
 	return ..()
 
 // This is a macro PURELY so that the if below is actually readable.
