@@ -239,10 +239,12 @@
 		return INITIALIZE_HINT_QDEL
 
 	src.beacon = beacon
-	GLOB.moved_event.register(beacon, src, /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved)
+	RegisterSignal(beacon, COMSIG_MOVABLE_MOVED, PROC_REF(update_beacon_moved), TRUE)
+	//GLOB.moved_event.register(beacon, src, /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved)
 
 /obj/effect/shuttle_landmark/automatic/spaceflare/Destroy()
-	GLOB.moved_event.unregister(beacon, src, /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved)
+	UnregisterSignal(beacon, COMSIG_MOVABLE_MOVED)
+	//GLOB.moved_event.unregister(beacon, src, /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved)
 	if (beacon?.active)
 		stack_trace("\A [src] was destroyed with a still active beacon.")
 		beacon.deactivate()
