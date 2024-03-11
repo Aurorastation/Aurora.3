@@ -279,14 +279,5 @@
 
 //wash an object
 /obj/proc/clean()
-	if(istype(src, /obj/item/light))
-		var/obj/item/light/L = src
-		L.brightness_color = initial(L.brightness_color)
-		L.update()
-	else if(istype(src, /obj/machinery/light))
-		var/obj/machinery/light/L = src
-		L.brightness_color = initial(L.brightness_color)
-		L.update()
 	clean_blood()
-
 	color = initial(color)
