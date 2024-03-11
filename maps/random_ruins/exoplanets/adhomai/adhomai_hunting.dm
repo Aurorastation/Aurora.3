@@ -30,7 +30,7 @@
 	max_count = 2
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/adhomai_hunter
+	outfit = /obj/outfit/admin/adhomai_hunter
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -40,7 +40,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_hunter
+/obj/outfit/admin/adhomai_hunter
 	name = "Adhomian Hunter"
 
 	uniform = list(
@@ -78,7 +78,7 @@
 	max_count = 1
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/matake_hunter
+	outfit = /obj/outfit/admin/matake_hunter
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -88,7 +88,7 @@
 
 	uses_species_whitelist = TRUE
 
-/datum/outfit/admin/matake_hunter
+/obj/outfit/admin/matake_hunter
 	name = "Mata'ke Priest-Hunter"
 
 	uniform = /obj/item/clothing/under/tajaran/matake

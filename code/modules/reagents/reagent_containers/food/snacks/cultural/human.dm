@@ -638,3 +638,24 @@
 			icon_state = "pazillo_bitten"
 		if(96 to INFINITY)
 			icon_state = "pazillo"
+
+//Luna
+
+/obj/item/reagent_containers/food/snacks/traumwurst
+	name = "traumwurst"
+	desc = "Hearty pork sausages slathered with creamy eggplant sauce and served with a side of fried mushrooms, Traumwurst is served in many fine dining experiences across Luna, and one of very few dishes that can really be called Lunarian in origin. It was originally called Weltraumwurst (Space Sausage), but it was soon shortened to Traumwurst (Dream Sausage)."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "traumwurst"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("pork" = 5), /singleton/reagent/nutriment = list("eggplant sauce" = 5, "fried mushrooms" = 4))
+	bitesize = 3
+	filling_color = "#daad84"
+
+/obj/item/reagent_containers/food/snacks/traumwurst/update_icon()
+	var/percent_traumwurst = round((reagents.total_volume / 10) * 100)
+	switch(percent_traumwurst)
+		if(0 to 49)
+			icon_state = "traumwurst_half"
+		if(50 to INFINITY)
+			icon_state = "traumwurst"

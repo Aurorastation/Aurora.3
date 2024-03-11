@@ -11,7 +11,7 @@
 	spawnpoints = list("scc_scout_ship_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/scc_scout_ship_crew/captain
+	outfit = /obj/outfit/admin/scc_scout_ship_crew/captain
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -29,7 +29,7 @@
 	spawnpoints = list("scc_scout_ship_orion")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/scc_scout_ship_crew/orion
+	outfit = /obj/outfit/admin/scc_scout_ship_crew/orion
 	possible_species = list(\
 		SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, \
 		SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_UNBRANDED, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, \
@@ -55,7 +55,7 @@
 	spawnpoints = list("scc_scout_ship_heph")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/scc_scout_ship_crew/heph
+	outfit = /obj/outfit/admin/scc_scout_ship_crew/heph
 	possible_species = list(\
 		SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, \
 		SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_UNBRANDED, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, \
@@ -81,7 +81,7 @@
 	spawnpoints = list("scc_scout_ship_zeng")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/scc_scout_ship_crew/zeng
+	outfit = /obj/outfit/admin/scc_scout_ship_crew/zeng
 	possible_species = list(\
 		SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, \
 		SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_UNBRANDED, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, \
@@ -105,7 +105,7 @@
 	spawnpoints = list("scc_scout_ship_nanotrasen")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/scc_scout_ship_crew/nanotrasen
+	outfit = /obj/outfit/admin/scc_scout_ship_crew/nanotrasen
 	possible_species = list(\
 		SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, \
 		SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_UNBRANDED, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, \
@@ -131,7 +131,7 @@
 	spawnpoints = list("scc_scout_ship_zavod")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/scc_scout_ship_crew/zavod
+	outfit = /obj/outfit/admin/scc_scout_ship_crew/zavod
 	possible_species = list(\
 		SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, \
 		SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_UNBRANDED, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, \
@@ -148,7 +148,7 @@
 
 // ---------------------- outfits
 
-/datum/outfit/admin/scc_scout_ship_crew
+/obj/outfit/admin/scc_scout_ship_crew
 	name = "SCC Scout Ship Base Crew Uniform"
 
 	id = /obj/item/card/id/orion_ship
@@ -167,7 +167,7 @@
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/datum/outfit/admin/scc_scout_ship_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/scc_scout_ship_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -180,13 +180,13 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 		H.equip_or_collect(new /obj/item/rig/light/offworlder, slot_in_backpack)
 
-/datum/outfit/admin/scc_scout_ship_crew/get_id_access()
+/obj/outfit/admin/scc_scout_ship_crew/get_id_access()
 	return list(
 		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
 		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
 	)
 
-/datum/outfit/admin/scc_scout_ship_crew/captain
+/obj/outfit/admin/scc_scout_ship_crew/captain
 	name = "SCC Scout Ship Captain"
 
 	id = /obj/item/card/id/gold
@@ -202,14 +202,14 @@
 		/obj/item/implant/mindshield
 	)
 
-/datum/outfit/admin/scc_scout_ship_crew/captain/get_id_access()
+/obj/outfit/admin/scc_scout_ship_crew/captain/get_id_access()
 	return list(
 		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
 		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
 		ACCESS_HEADS, ACCESS_CAPTAIN,
 	)
 
-/datum/outfit/admin/scc_scout_ship_crew/orion
+/obj/outfit/admin/scc_scout_ship_crew/orion
 	name = "SCC Scout Ship Orion Crew"
 
 	id = /obj/item/card/id/orion
@@ -218,7 +218,7 @@
 	head = list(/obj/item/clothing/head/beret/corporate/orion, /obj/item/clothing/head/hardhat/white, /obj/item/clothing/head/softcap/orion_custodian)
 	accessory = /obj/item/clothing/accessory/pin/corporate/orion
 
-/datum/outfit/admin/scc_scout_ship_crew/heph
+/obj/outfit/admin/scc_scout_ship_crew/heph
 	name = "SCC Scout Ship Hephaestus Crew"
 
 	id = /obj/item/card/id/hephaestus
@@ -227,7 +227,7 @@
 	head = list(/obj/item/clothing/head/beret/corporate/heph, /obj/item/clothing/head/hardhat/green, /obj/item/clothing/head/sidecap/heph)
 	accessory = /obj/item/clothing/accessory/pin/corporate/heph
 
-/datum/outfit/admin/scc_scout_ship_crew/zeng
+/obj/outfit/admin/scc_scout_ship_crew/zeng
 	name = "SCC Scout Ship Zeng-Hu Crew"
 
 	id = /obj/item/card/id/zeng_hu
@@ -236,7 +236,7 @@
 	head = list(/obj/item/clothing/head/beret/corporate/zeng, /obj/item/clothing/head/softcap/zeng, /obj/item/clothing/head/surgery/zeng)
 	accessory = /obj/item/clothing/accessory/pin/corporate/zeng
 
-/datum/outfit/admin/scc_scout_ship_crew/nanotrasen
+/obj/outfit/admin/scc_scout_ship_crew/nanotrasen
 	name = "SCC Scout Ship NanoTrasen Crew"
 
 	id = /obj/item/card/id
@@ -245,7 +245,7 @@
 	head = list(/obj/item/clothing/head/beret/corporate, /obj/item/clothing/head/softcap/nt, /obj/item/clothing/head/surgery)
 	accessory = /obj/item/clothing/accessory/pin/corporate
 
-/datum/outfit/admin/scc_scout_ship_crew/zavod
+/obj/outfit/admin/scc_scout_ship_crew/zavod
 	name = "SCC Scout Ship Zavodskoi Crew"
 
 	id = /obj/item/card/id/zavodskoi
