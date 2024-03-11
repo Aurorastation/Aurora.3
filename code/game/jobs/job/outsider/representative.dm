@@ -280,7 +280,7 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /datum/outfit/job/consular_assistant
+	outfit = /obj/outfit/job/consular_assistant
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
 /datum/job/consular_assistant/get_outfit(mob/living/carbon/human/H, alt_title = null)
@@ -288,7 +288,7 @@
 	if(citizenship)
 		return citizenship.assistant_outfit
 
-/datum/outfit/job/consular_assistant
+/obj/outfit/job/consular_assistant
 	name = "Diplomatic Aide"
 	jobtype = /datum/job/consular_assistant
 
