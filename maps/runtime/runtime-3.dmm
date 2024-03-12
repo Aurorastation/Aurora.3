@@ -131,6 +131,9 @@
 /area/construction/hallway)
 "bF" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
+/obj/effect/floor_decal/industrial/hatch_small/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "cb" = (
@@ -180,6 +183,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"dZ" = (
+/turf/simulated/floor/tiled/cargo/brass,
 /area/construction/solars)
 "ef" = (
 /obj/machinery/light/small,
@@ -280,6 +286,12 @@
 	pixel_y = 18
 	},
 /turf/simulated/floor/wood/birch,
+/area/construction/solars)
+"fM" = (
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "fV" = (
 /obj/structure/cable{
@@ -470,6 +482,13 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"iF" = (
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/construction/solars)
+"iG" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/construction/solars)
 "iV" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -867,6 +886,9 @@
 /obj/structure/platform,
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"rj" = (
+/turf/simulated/floor/tiled/gunmetal,
+/area/construction/solars)
 "rw" = (
 /obj/machinery/door/airlock/generic/maintenance{
 	dir = 4
@@ -938,6 +960,12 @@
 "sP" = (
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
+"sQ" = (
+/obj/effect/floor_decal/industrial/hatch_small/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "sS" = (
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
@@ -1156,6 +1184,10 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"xJ" = (
+/obj/structure/lattice/catwalk/indoor/grate/light,
+/turf/simulated/floor/plating,
+/area/construction/solars)
 "xM" = (
 /turf/simulated/floor/tiled/bitile{
 	dir = 4
@@ -1257,6 +1289,9 @@
 /area/construction/solars)
 "Al" = (
 /turf/simulated/floor/tiled/steel,
+/area/construction/solars)
+"Ay" = (
+/turf/simulated/floor/tiled/slate/full,
 /area/construction/solars)
 "AA" = (
 /obj/structure/cable{
@@ -1542,6 +1577,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"FK" = (
+/turf/simulated/floor/tiled/slate,
+/area/construction/solars)
 "FV" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1656,6 +1694,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"IC" = (
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/construction/solars)
 "IH" = (
 /turf/simulated/floor/tiled/bitile{
 	dir = 8
@@ -2001,6 +2042,10 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"Pv" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/construction/solars)
 "Pz" = (
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
@@ -2244,6 +2289,12 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"To" = (
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Ts" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
@@ -2335,6 +2386,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor,
 /area/antag/mercenary)
+"Vw" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "VE" = (
 /obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
@@ -2413,6 +2473,10 @@
 	},
 /turf/simulated/floor,
 /area/construction/hallway)
+"Yq" = (
+/obj/structure/lattice/catwalk/indoor/grate/slate,
+/turf/simulated/floor/plating,
+/area/construction/solars)
 "Yr" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -36081,7 +36145,7 @@ pz
 pz
 pz
 pz
-pz
+Uv
 Uv
 Uv
 Uv
@@ -36338,8 +36402,8 @@ pz
 pz
 pz
 pz
-pz
 Uv
+DN
 DN
 DN
 DN
@@ -36595,19 +36659,19 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
-Na
-pE
+Pv
+rj
+iF
 DN
 eN
 eN
 eN
 DN
 DN
-Na
-Na
+To
+fM
 Uv
 pz
 Uv
@@ -36852,11 +36916,11 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
-ii
-Ni
+Yq
+FK
+Ay
 DN
 sn
 sn
@@ -37109,9 +37173,9 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
+xJ
 rK
 NP
 DN
@@ -37120,7 +37184,7 @@ Pk
 uE
 DN
 DN
-oG
+Vw
 bF
 Uv
 pz
@@ -37366,11 +37430,11 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
-XV
-Tz
+iG
+Na
+pE
 DN
 DN
 DN
@@ -37623,11 +37687,11 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
-Xs
-Lm
+Pv
+ii
+Ni
 DN
 pL
 pL
@@ -37880,11 +37944,11 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
-qv
-ut
+DN
+XV
+Tz
 DN
 DN
 DN
@@ -38137,19 +38201,19 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
-Al
-qB
+DN
+Xs
+Lm
 DN
 IH
 IH
 vG
 Fc
 DN
-Na
-Na
+sQ
+To
 Uv
 pz
 Uv
@@ -38394,11 +38458,11 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
 DN
-DN
+qv
+ut
 DN
 xM
 xM
@@ -38651,11 +38715,11 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
-oy
-Is
+DN
+Al
+qB
 DN
 DN
 DN
@@ -38908,8 +38972,8 @@ pz
 pz
 pz
 pz
-pz
 Uv
+DN
 DN
 oy
 Is
@@ -39165,11 +39229,11 @@ pz
 pz
 pz
 pz
-pz
 Uv
 DN
 DN
-DN
+dZ
+IC
 DN
 sS
 JM
@@ -39422,8 +39486,8 @@ pz
 pz
 pz
 pz
-pz
 Uv
+DN
 DN
 DN
 DN
@@ -39679,7 +39743,7 @@ pz
 pz
 pz
 pz
-pz
+Uv
 Uv
 Uv
 Uv
@@ -39942,6 +40006,7 @@ pz
 pz
 pz
 pz
+pz
 Uv
 ar
 Uv
@@ -40008,9 +40073,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (147,1,1) = {"
+pz
 pz
 pz
 pz
@@ -40265,9 +40330,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (148,1,1) = {"
+pz
 pz
 pz
 pz
@@ -40522,9 +40587,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (149,1,1) = {"
+pz
 pz
 pz
 pz
@@ -40779,9 +40844,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (150,1,1) = {"
+pz
 pz
 pz
 pz
@@ -41036,9 +41101,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (151,1,1) = {"
+pz
 pz
 pz
 pz
@@ -41293,9 +41358,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (152,1,1) = {"
+pz
 pz
 pz
 pz
@@ -41550,9 +41615,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (153,1,1) = {"
+pz
 pz
 pz
 pz
@@ -41807,9 +41872,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (154,1,1) = {"
+pz
 pz
 pz
 pz
@@ -42064,9 +42129,9 @@ pz
 pz
 pz
 pz
-pz
 "}
 (155,1,1) = {"
+pz
 pz
 pz
 pz
@@ -42321,7 +42386,6 @@ pz
 pz
 pz
 pz
-pz
 "}
 (156,1,1) = {"
 pz
@@ -42512,14 +42576,14 @@ pz
 pz
 pz
 pz
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
 pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz

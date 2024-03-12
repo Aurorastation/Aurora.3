@@ -237,6 +237,38 @@
 /singleton/flooring/tiling/light/full
 	icon_base = "monotile"
 
+/singleton/flooring/tiling/gunmetal
+	icon_base = "tiled"
+	color = COLOR_GUNMETAL
+	build_type = null
+
+/singleton/flooring/tiling/gunmetal/full
+	icon_base = "monotile"
+
+/singleton/flooring/tiling/slate
+	icon_base = "tiled"
+	color = COLOR_GUNMETAL
+	build_type = null
+
+/singleton/flooring/tiling/slate/full
+	icon_base = "monotile"
+
+/singleton/flooring/tiling/cargo
+	icon_base = "cargo"
+	color = COLOR_ALUMINIUM
+	build_type = null
+
+/singleton/flooring/tiling/cargo/full
+	icon_base = "monotile"
+
+/singleton/flooring/tiling/cargo/brass
+	icon_base = "tiled"
+	color = COLOR_BRASS
+	build_type = null
+
+/singleton/flooring/tiling/cargo/brass/full
+	icon_base = "monotile"
+
 /singleton/flooring/tiling/freezer
 	name = "floor"
 	desc = "Don't slip."
@@ -302,12 +334,16 @@
 	can_paint = TRUE
 	footstep_sound = /singleton/sound_category/plating_footstep
 
+/singleton/flooring/reinforced/large
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "reinforced_large"
+	build_type = null
+
 /singleton/flooring/reinforced/circuit
 	name = "processing strata"
 	desc = "A durable surface covered in various circuity and wiring."
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_base = "bcircuit"
-	build_type = null
 	build_cost = 1
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
 	can_paint = TRUE

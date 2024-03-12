@@ -178,7 +178,6 @@
 	initial_gas = null
 	temperature = TCMB
 	footstep_sound = /singleton/sound_category/plating_footstep
-
 	roof_type = null
 
 /turf/simulated/floor/tiled/airless
@@ -190,7 +189,6 @@
 	name = "airless floor"
 	initial_gas = null
 	temperature = TCMB
-
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
@@ -243,19 +241,70 @@
 	broken_overlay = null
 	burned_overlay = null
 
+// ------------------------------- tiled/gunmetal
+
+/turf/simulated/floor/tiled/gunmetal
+	name = "tiles"
+	icon_state = "tiled"
+	initial_flooring = /singleton/flooring/tiling/gunmetal
+	tile_decal_state = "tiled_light"
+	color = COLOR_GUNMETAL
+
+/turf/simulated/floor/tiled/gunmetal/full
+	name = "full tile"
+	icon_state = "monotile"
+	initial_flooring = /singleton/flooring/tiling/gunmetal/full
+	tile_outline = "monotile"
+	tile_decal_state = "monotile_light"
+	broken_overlay = null
+	burned_overlay = null
+
+// ------------------------------- tiled/slate
+
+/turf/simulated/floor/tiled/slate
+	name = "tiles"
+	icon_state = "tiled"
+	initial_flooring = /singleton/flooring/tiling/slate
+	tile_decal_state = "tiled_light"
+	color = COLOR_SLATE
+
+/turf/simulated/floor/tiled/slate/full
+	name = "full tile"
+	icon_state = "monotile"
+	initial_flooring = /singleton/flooring/tiling/slate/full
+	tile_outline = "monotile"
+	tile_decal_state = "monotile_light"
+	broken_overlay = null
+	burned_overlay = null
+
 // ------------------------------- cargo
 
 /turf/simulated/floor/tiled/cargo
 	name = "cargo tiles"
 	icon_state = "cargo"
-	// initial_flooring = /singleton/flooring/tiling/dark
+	initial_flooring = /singleton/flooring/tiling/cargo
 	tile_decal_state = "tiled_light"
-	color = COLOR_BRASS
+	color = COLOR_ALUMINIUM
 
 /turf/simulated/floor/tiled/cargo/full
 	name = "cargo tile"
 	icon_state = "cargo_monotile"
-	// initial_flooring = /singleton/flooring/tiling/dark
+	initial_flooring = /singleton/flooring/tiling/cargo/full
+	tile_decal_state = "monotile_light"
+
+// ------------------------------- cargo/brass
+
+/turf/simulated/floor/tiled/cargo/brass
+	name = "cargo tiles"
+	icon_state = "cargo"
+	initial_flooring = /singleton/flooring/tiling/cargo/brass
+	tile_decal_state = "tiled_light"
+	color = COLOR_BRASS
+
+/turf/simulated/floor/tiled/cargo/brass/full
+	name = "cargo tile"
+	icon_state = "cargo_monotile"
+	initial_flooring = /singleton/flooring/tiling/cargo/brass/full
 	tile_decal_state = "monotile_light"
 
 // ------------------------------- bitile
