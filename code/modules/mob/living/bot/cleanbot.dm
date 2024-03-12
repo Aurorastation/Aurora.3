@@ -8,8 +8,8 @@
 GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj/effect/decal/cleanable/blood, /obj/effect/decal/cleanable/vomit, /obj/effect/decal/cleanable/flour, \
 						/obj/effect/decal/cleanable/crayon, /obj/effect/decal/cleanable/liquid_fuel, /obj/effect/decal/cleanable/mucus, /obj/effect/decal/cleanable/dirt))
 
-/obj/effect/decal/cleanable/var
-	being_cleaned = FALSE
+/obj/effect/decal/cleanable
+	var/being_cleaned = FALSE
 	///A reference to a `/mob/living/bot/cleanbot` that wants to clean this turf, or null
 	var/datum/weakref/clean_marked = null
 
