@@ -51,9 +51,10 @@ SUBSYSTEM_DEF(mob_ai)
 			return
 
 /mob
-	var/tmp/thinking_enabled = FALSE
+	var/thinking_enabled = FALSE
 
 /mob/proc/think()
+	set waitfor = FALSE
 	return
 
 /mob/proc/on_think_disabled()

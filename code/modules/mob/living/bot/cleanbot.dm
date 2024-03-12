@@ -4,11 +4,14 @@
 // The fix involved labeling the various loops involved so they could be continued and broken properly.
 // It also decreases the amount of calls to AStar() and handle_target()
 
-var/list/cleanbot_types // Going to use this to generate a list of types once then cull it out locally, see comments below for more info
+///A list of types that cleanbots will look for
+GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj/effect/decal/cleanable/blood, /obj/effect/decal/cleanable/vomit, /obj/effect/decal/cleanable/flour, \
+						/obj/effect/decal/cleanable/crayon, /obj/effect/decal/cleanable/liquid_fuel, /obj/effect/decal/cleanable/mucus, /obj/effect/decal/cleanable/dirt))
 
 /obj/effect/decal/cleanable/var
-	being_cleaned = 0
-	tmp/mob/living/bot/cleanbot/clean_marked = 0 // If a cleaning bot has marked the cleanable to be cleaned, to prevent multiples from going to the same one.
+	being_cleaned = FALSE
+	///A reference to a `/mob/living/bot/cleanbot` that wants to clean this turf, or null
+	var/datum/weakref/clean_marked = null
 
 /mob/living/bot/cleanbot
 	name = "Cleanbot"
@@ -19,10 +22,13 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	locked = FALSE // Start unlocked so roboticist can set them to patrol.
 
-	var/obj/effect/decal/cleanable/target
+	///The target we're going to clean up, an `/obj/effect/decal/cleanable` weakref
+	var/datum/weakref/cleaning_target = null
 	var/list/path = list()
 	var/list/patrol_path = list()
-	var/list/ignorelist = list()
+
+	//A list of `/datum/weakref` that resolve to `/obj/effect/decal/cleanable`, those are the objects to ignore
+	var/list/datum/weakref/ignorelist = list()
 
 	var/obj/cleanbot_listener/listener
 	var/beacon_freq = 1445 // navigation beacon frequency
@@ -36,9 +42,14 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	var/odd_button = FALSE
 	var/should_patrol = FALSE
 	var/cleans_blood = TRUE
+
+	///A list of `/obj/effect/decal/cleanable` *types* that this borg can target for cleaning
 	var/list/target_types = list()
 
 	var/maximum_search_range = 7
+
+	///Boolean, if we're already searching, so in `think()` we don't start over
+	var/already_thinking = FALSE
 
 /mob/living/bot/cleanbot/Cross(atom/movable/crossed)
 	if(crossed)
@@ -49,6 +60,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /mob/living/bot/cleanbot/Initialize()
 	. = ..()
 	get_targets()
+	//Do not start to patrol until you're told to, also save processing
+	set_patrol_mode(FALSE)
 
 	listener = new /obj/cleanbot_listener(src)
 	listener.cleanbot = src
@@ -60,7 +73,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /mob/living/bot/cleanbot/Destroy()
 	path = null
 	patrol_path = null
-	target = null
+	cleaning_target = null
 	ignorelist = null
 	next_dest_loc = null
 
@@ -71,30 +84,45 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()
-	if(target.clean_marked && target.clean_marked != src)
-		target = null
+	SHOULD_NOT_SLEEP(TRUE)
+
+	//Get the actual cleanable decal to target
+	var/obj/effect/decal/cleanable/cleaning_target_cache = cleaning_target?.resolve()
+	var/mob/living/bot/cleanbot/turf_targeting_cleanbot = cleaning_target_cache?.clean_marked?.resolve()
+
+	//If already marked by another borg, ignore it
+	if(turf_targeting_cleanbot != src)
+		cleaning_target = null
 		path = list()
-		ignorelist |= target
+		ignorelist |= cleaning_target
 		return
-	if(get_turf(src) == get_turf(target))
+
+	//If we are over it, clean it up
+	if(get_turf(src) == get_turf(cleaning_target_cache))
 		if(!cleaning)
-			UnarmedAttack(target)
+			UnarmedAttack(cleaning_target_cache)
 			return TRUE
-	if(!path.len)
-		path = AStar(get_turf(src), get_turf(target), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+
+	//Try to get a path to the location if you don't have one
+	if(!length(path))
+		path = AStar(get_turf(src), get_turf(cleaning_target_cache), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-			ignorelist |= target
-			target.clean_marked = null
-			target = null
+			ignorelist |= cleaning_target
+			cleaning_target_cache.clean_marked = null
+			cleaning_target = null
 			path = list()
+
+	//See if we have time to move, if not, come back another time
+	if(TICK_CHECK)
 		return
-	else
+
+	if(length(path))
 		step_to(src, path[1])
 		path -= path[1]
 		return TRUE
 
-/mob/living/bot/cleanbot/proc/remove_from_ignore(path)
-	ignorelist -= path
+/mob/living/bot/cleanbot/proc/remove_from_ignore(datum/weakref/thing_to_unignore)
+	ignorelist -= thing_to_unignore
 
 /mob/living/bot/cleanbot/Life()
 	..()
@@ -102,7 +130,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		ignorelist = list()
 		return
 
-	if(ignorelist.len && prob(2))
+	if(length(ignorelist) && prob(2))
 		ignorelist -= pick(ignorelist)
 
 	if(client)
@@ -127,6 +155,13 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /mob/living/bot/cleanbot/think()
 	..()
+	//We already have another process running, shoo away AI subsystem
+	if(src.already_thinking)
+		return
+
+	//We are starting to think now
+	src.already_thinking = TRUE
+
 	if(!on)
 		return
 
@@ -140,37 +175,54 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
 	search_for: // We use the label so we can break out of this loop from within the next loop.
-		// Not breaking out of these loops properly is where the infinite loop was coming from before.
+
 		for(var/i = 0, i <= maximum_search_range, i++)
 			clean_for: // This one isn't really needed in this context, but it's good to have in case we expand later.
+
 				for(var/obj/effect/decal/cleanable/D in view(i, src))
-					if(D.clean_marked && D.clean_marked != src)
+
+					var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
+
+					//Someone already wants this cleanable and it's not us, keep looking
+					if(!isnull(turf_targeting_cleanbot) && turf_targeting_cleanbot != src)
 						continue clean_for
+
 					var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
 					if(other_bot && other_bot.cleaning && other_bot != src)
 						continue clean_for
+
+					// If the object has been slated to be ignored we continue the loop.
 					if((D in ignorelist))
-						// If the object has been slated to be ignored we continue the loop.
 						continue clean_for
+
+					// A matching /cleanable was found, now we want to A* it and see if we can reach it.
 					if((D.type in target_types))
-						// A matching /cleanable was found, now we want to A* it and see if we can reach it.
 						patrol_path = list()
-						target = D
-						D.clean_marked = src
+						cleaning_target = WEAKREF(D)
+						D.clean_marked = WEAKREF(src)
 						found_spot = handle_target()
 						if(found_spot)
 							break search_for // If the target location is found and pathed properly, break the search loop.
 						else
-							target = null // Otherwise we want to try the next cleanable in view, if any.
+							cleaning_target = null // Otherwise we want to try the next cleanable in view, if any.
 							D.clean_marked = null
 
+				//If we're being deleted, abort everything
+				if(QDELETED(src))
+					return
 
-	if(!found_spot && !target) // No targets in range
+				//Check and sleep if we are at maximum tickframe
+				if(TICK_CHECK)
+					stoplag()
+
+
+	if(!found_spot && !cleaning_target) // No targets in range
 		if(!patrol_path || !patrol_path.len)
 			if(!signal_sent || signal_sent > world.time + 200) // Waited enough or didn't send yet
 				var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
 				if(!frequency)
-					return
+					//Look I didn't write this shit, I'm just trying to fix it
+					goto stop_thinking
 
 				closest_dist = 9999
 				next_dest = null
@@ -191,14 +243,18 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		else
 			if(pulledby) // Don't wiggle if someone pulls you
 				patrol_path = list()
-				return
+				goto stop_thinking
 			if(patrol_path[1] == loc)
 				patrol_path -= patrol_path[1]
-				return
+				goto stop_thinking
 
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
+
+	stop_thinking:
+		src.already_thinking = FALSE
+
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 	. = ..()
@@ -221,15 +277,18 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D, var/clean_time)
 	if(D && do_after(src, clean_time))
+		//Get the actual cleanable decal to target
+		var/obj/effect/decal/cleanable/cleaning_target_cache = cleaning_target.resolve()
+
 		if(istype(D.loc, /turf/simulated))
 			var/turf/simulated/f = loc
 			f.dirt = 0
 		if(!D)
 			return
 		D.clean_marked = null
-		if(D == target)
-			target.being_cleaned = FALSE
-			target = null
+		if(D == cleaning_target_cache)
+			cleaning_target_cache.being_cleaned = FALSE
+			cleaning_target = null
 		qdel(D)
 	cleaning = FALSE
 	update_icon()
@@ -254,7 +313,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /mob/living/bot/cleanbot/turn_off()
 	..()
-	target = null
+	cleaning_target = null
 	path = list()
 	patrol_path = list()
 
@@ -298,8 +357,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			cleans_blood = !cleans_blood
 			get_targets()
 		if("patrol")
-			should_patrol = !should_patrol
-			patrol_path = list()
+			set_patrol_mode(!should_patrol)
 		if("freq")
 			var/freq = text2num(input("Select frequency for navigation beacons", "Frequnecy", num2text(beacon_freq / 10))) * 10
 			if(freq > 0)
@@ -312,6 +370,21 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			to_chat(usr, SPAN_NOTICE("You press the weird button."))
 	attack_hand(usr)
 
+/**
+ * Handles the turn on / off of patrol mode
+ *
+ * * state - A Boolean, `TRUE` to turn patrol mode on, `FALSE` to turn it off
+ */
+/mob/living/bot/cleanbot/proc/set_patrol_mode(state)
+	if(state)
+		should_patrol = TRUE
+		patrol_path = list()
+		MOB_START_THINKING(src)
+
+	else
+		should_patrol = FALSE
+		MOB_STOP_THINKING(src)
+
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
 	. = ..()
 	if(!screw_loose || !odd_button)
@@ -322,19 +395,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return TRUE
 
 /mob/living/bot/cleanbot/proc/get_targets()
-	// To avoid excessive loops, instead of storing a list of top-level types, we're going to store a list of all cleanables.
-	// It eats a little more memory, but uses quite a bit less CPU when attempting to do the type check in the cleaning routine.
-	// We're always going to have more memory to work with than CPU when it comes to BYOND and the extra usage is not much.
-	// And to avoid calling typesof() a bunch, we're going to generate the list once globally then Copy() to the bot's list and remove blood if needed.
-	// In my tests with around 50 cleanbots actively cleaning up messes it reduced the CPU usage on average around 10%
-	if(!cleanbot_types)
-		// This just generates the global list if it hasn't been done already, quick process.
-		cleanbot_types = typesof(/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/vomit,\
-						/obj/effect/decal/cleanable/crayon,/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/mucus,/obj/effect/decal/cleanable/dirt)
-						// I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
-	target_types = cleanbot_types.Copy()
+	target_types = GLOB.cleanbot_types
 	if(!cleans_blood)
-		target_types -= typesof(/obj/effect/decal/cleanable/blood)-typesof(/obj/effect/decal/cleanable/blood/oil)
+		//Well now there's a point, this doesn't clean blood or oil
+		target_types = target_types.Copy()
+		target_types -= typesof(/obj/effect/decal/cleanable/blood, /obj/effect/decal/cleanable/blood/oil)
 
 /* Radio object that listens to signals */
 
