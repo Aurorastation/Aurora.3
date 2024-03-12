@@ -12,7 +12,7 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -99,7 +99,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -427,6 +427,13 @@
 	fetil_dress["fetil dress, gold flairs"] = /obj/item/clothing/under/antillean/goldflair
 	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
 
+/datum/gear/uniform/miscellaneous/galatea_uniform
+	display_name = "galatean uniform"
+	description = "A work uniform often worn by citizens of the Federal Technology of Galatea."
+	path = /obj/item/clothing/under/galatea
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+
 /*
 	Uniform Rolled State Adjustment
 */
@@ -463,7 +470,8 @@ var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new(
 	if(rolled_down_state != -1 || ("[initial(uniform.icon_state)]_d[initial(uniform.contained_sprite) ? "_un" : "_s"]" in icon_states(under_icon)))
 		possible_states += UNIFORM_ROLLED_DOWN
 
-	var/input = input(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", metadata) as null|anything in possible_states
+	var/input = tgui_input_list(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", possible_states, metadata)
+
 	if(!input)
 		input = metadata
 	return input

@@ -233,20 +233,20 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	filling_color = "#FFF454"
 
-/obj/item/reagent_containers/food/snacks/dip/attackby(obj/item/reagent_containers/food/snacks/item as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/dip/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	var/obj/item/reagent_containers/food/snacks/returningitem
-	if(istype(item,/obj/item/reagent_containers/food/snacks/chip/nacho) && item.icon_state == "chip_nacho")
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/chip/nacho) && attacking_item.icon_state == "chip_nacho")
 		returningitem = new nachotrans(src)
-	else if (istype(item,/obj/item/reagent_containers/food/snacks/chip/miniavah) && item.icon_state == "avah_full" || item.icon_state == "avah_half")
+	else if (istype(attacking_item, /obj/item/reagent_containers/food/snacks/chip/miniavah) && attacking_item.icon_state == "avah_full" || attacking_item.icon_state == "avah_half")
 		returningitem = new avahtrans(src)
-	else if (istype(item,/obj/item/reagent_containers/food/snacks/chip) && (item.icon_state == "chip" || item.icon_state == "chip_half"))
+	else if (istype(attacking_item, /obj/item/reagent_containers/food/snacks/chip) && (attacking_item.icon_state == "chip" || attacking_item.icon_state == "chip_half"))
 		returningitem = new chiptrans(src)
 	if(returningitem)
 		returningitem.reagents.clear_reagents() //Clear the new chip
 		var/memed = 0
-		item.reagents.trans_to(returningitem, item.reagents.total_volume) //Old chip to new chip
-		if(item.icon_state == "chip_half")
+		attacking_item.reagents.trans_to(returningitem, attacking_item.reagents.total_volume) //Old chip to new chip
+		if(attacking_item.icon_state == "chip_half")
 			returningitem.icon_state = "[returningitem.icon_state]_half"
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
 		else if(prob(1))
@@ -256,7 +256,7 @@
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
 		else
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume*0.5,1,10)
-		qdel(item)
+		qdel(attacking_item)
 		reagents.trans_to(returningitem, bitesize) //Dip to new chip
 		user.put_in_hands(returningitem)
 

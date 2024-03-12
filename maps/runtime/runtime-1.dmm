@@ -1465,6 +1465,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"fM" = (
+/turf/unsimulated/wall/steel,
+/area/template_noop)
 "fV" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1850,17 +1853,25 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"IQ" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square/wide{
-	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
-	radio_frequency = 2001
-	},
-/turf/simulated/wall/r_wall,
-/area/maintenance/maintcentral)
 "IY" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Jd" = (
+/obj/effect/map_effect/airlock/s_to_n/long/square/wide{
+	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
+	radio_frequency = 2001
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/wall/r_wall,
+/area/maintenance/maintcentral)
 "Jx" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle,
@@ -1913,6 +1924,10 @@
 /obj/machinery/computer/ship/targeting/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"LM" = (
+/obj/effect/landmark/lobby_mobs_location,
+/turf/unsimulated/floor,
+/area/template_noop)
 "ME" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -11084,7 +11099,7 @@ ac
 ac
 bU
 bU
-IQ
+Jd
 wI
 ai
 at
@@ -11595,10 +11610,10 @@ aa
 aa
 aa
 aa
+ac
 ae
 ae
-ae
-ae
+ac
 Ft
 fH
 at
@@ -13928,8 +13943,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+fM
 ac
 Uf
 Uf
@@ -14185,8 +14200,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+LM
 ac
 Uf
 Uf
@@ -14442,8 +14457,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+fM
 ac
 ac
 ac

@@ -1413,7 +1413,7 @@
 "jz" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/izharshan,
-/obj/item/cane/shaman,
+/obj/item/nullrod/shaman,
 /obj/item/storage/box/fancy/matches,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1

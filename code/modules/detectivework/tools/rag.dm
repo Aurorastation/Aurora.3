@@ -53,11 +53,11 @@
 	else
 		remove_contents(user)
 
-/obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && W.isFlameSource())
+/obj/item/reagent_containers/glass/rag/attackby(obj/item/attacking_item, mob/user)
+	if(!on_fire && attacking_item.isFlameSource())
 		ignite()
 		if(on_fire)
-			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."))
 		else
 			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 		return TRUE
@@ -306,7 +306,7 @@
 
 /obj/item/reagent_containers/glass/rag/advanced/idris
 	name = "Idris advanced service cloth"
-	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. It's dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self respecting chef or bartender!"
+	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. Its dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self-respecting chef or bartender!"
 	icon_state = "idrisrag"
 	volume = 15
 

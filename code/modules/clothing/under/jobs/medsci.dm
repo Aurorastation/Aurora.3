@@ -33,6 +33,14 @@
 	icon_state = "zav_scientist"
 	item_state = "zav_scientist"
 
+/obj/item/clothing/under/rank/scientist/einstein
+	name = "einstein scientist's jumpsuit"
+	desc_extended = "Doing away with the hideous purple of the SCC's science uniforms in favor of yet more dull greens, \
+	Einstein Engines' science uniforms push new frontiers of style just as their wearers push everything else."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_scientist"
+	item_state = "ee_scientist"
+
 // Xenobotanist
 
 /obj/item/clothing/under/rank/scientist/botany

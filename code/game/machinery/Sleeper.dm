@@ -224,20 +224,20 @@
 		return
 	return attack_hand(user)
 
-/obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
-	if(!istype(I, /obj/item/forensics))
+/obj/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
-	if(istype(I, /obj/item/reagent_containers/glass))
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(!beaker)
-			beaker = I
-			user.drop_from_inventory(I,src)
-			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
+			beaker = attacking_item
+			user.drop_from_inventory(attacking_item, src)
+			user.visible_message("<span class='notice'>\The [user] adds \a [attacking_item] to \the [src].</span>", "<span class='notice'>You add \a [attacking_item] to \the [src].</span>")
 		else
 			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
 		return TRUE
-	else if(istype(I, /obj/item/grab))
+	else if(istype(attacking_item, /obj/item/grab))
 
-		var/obj/item/grab/G = I
+		var/obj/item/grab/G = attacking_item
 		var/mob/living/L = G.affecting
 		var/bucklestatus = L.bucklecheck(user)
 		if(!bucklestatus)
@@ -264,17 +264,21 @@
 			update_icon()
 			qdel(G)
 		return TRUE
-	else if(I.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-o")
 		return TRUE
-	else if(default_part_replacement(user, I))
+	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
+/obj/machinery/sleeper/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/target = dropping
+	if(!istype(target))
+		return
+
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return
 

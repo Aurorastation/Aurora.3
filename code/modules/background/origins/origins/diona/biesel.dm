@@ -28,7 +28,7 @@
 	name = "Pests of Titan Prime" //this might be the most metal origin name
 	desc = "Dionae who were originally grown in or picked up by Titan Prime on its way to Biesel. Prior to Titan Prime reaching Biesel, these Dionae had an incredibly hard time as they were constantly hunted by the ship's Vaurca inhabitants, believing them to be nothing more than pests and the Dionae not being able to communicate back with them. Once reaching Biesel many Dionae left the ship and went on to seek a new life on the planet. Those that didn't leave were willingly allowed to stay with the Zo'ra on a special garden-deck constructed specifically for them as a sort of apology for hunting them for so long."
 	important_information = "These Dionae are likely to have a massive distrust of the Zo'ra Hive or vaurca in general as a result of their time being hunted on the ship for so long."
-	possible_accents = list(ACCENT_PESTSONG)
+	possible_accents = list(ACCENT_HIVESONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
 

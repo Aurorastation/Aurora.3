@@ -14,11 +14,3 @@ GLOBAL_DATUM_INIT(exited_event, /singleton/observ/exited, new)
 /singleton/observ/exited
 	name = "Exited"
 	expected_type = /atom
-
-/******************
-* Exited Handling *
-******************/
-
-/atom/Exited(atom/movable/exitee, atom/new_loc)
-	. = ..()
-	GLOB.exited_event.raise_event(src, exitee, new_loc)

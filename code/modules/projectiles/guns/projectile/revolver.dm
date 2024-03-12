@@ -150,8 +150,8 @@
 	ammo_type = /obj/item/ammo_casing/cap
 	needspin = FALSE
 
-/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
-	if(!W.iswirecutter() || icon_state == "revolver")
+/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.iswirecutter() || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
 	icon = 'icons/obj/guns/revolver.dmi'
@@ -248,15 +248,15 @@
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/gun/projectile/revolver/lemat/examine(mob/user)
+/obj/item/gun/projectile/revolver/lemat/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)
 			to_print += round
-		to_chat(user, "\The [src] has a secondary barrel loaded with \a [to_print]")
+		. += "\The [src] has a secondary barrel loaded with \a [to_print]."
 	else
-		to_chat(user, "\The [src] has a secondary barrel that is empty.")
+		. += "\The [src] has a secondary barrel that is empty."
 
 /obj/item/gun/projectile/revolver/adhomian
 	name = "adhomian service revolver"

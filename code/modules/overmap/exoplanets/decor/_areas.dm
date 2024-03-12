@@ -2,6 +2,7 @@
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	always_unpowered = 1
+	area_flags = AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"

@@ -111,7 +111,7 @@ var/list/global/random_stock_large = list()
 
 /datum/cargospawner/New()
 	//First lets get the reference to our warehouse
-	for(var/areapath in typesof(current_map.warehouse_basearea))
+	for(var/areapath in typesof(SSatlas.current_map.warehouse_basearea))
 		warehouse = locate(areapath)
 		if (warehouse)
 			for (var/turf/simulated/floor/T in warehouse)
@@ -124,7 +124,7 @@ var/list/global/random_stock_large = list()
 				tables |= B
 
 /datum/cargospawner/proc/start()
-	if (!current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
+	if (!SSatlas.current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
 		return

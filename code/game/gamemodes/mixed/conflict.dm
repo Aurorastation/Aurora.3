@@ -8,5 +8,5 @@
 	require_all_templates = TRUE
 
 /datum/game_mode/conflict/pre_setup()
-	round_description = "Two underprepared teams of fools pick the same day to rob a highly valuable [current_map.company_short] [current_map.station_type]."
+	round_description = "Two underprepared teams of fools pick the same day to rob a highly valuable [SSatlas.current_map.company_short] [SSatlas.current_map.station_type]."
 	. = ..()

@@ -162,10 +162,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "corvo_cigarette"
 		item_state = "corvo_cigarette"
 
-/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/mask/fluff/corvo_cigarette/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "It is [active ? "on" : "off"].")
+		. += "It is [active ? "on" : "off"]."
 
 
 /obj/item/clothing/suit/storage/fluff/sonorous_mantle //Maraziite Throw Over - Sonorous Zouzoror - sleepywolf
@@ -474,9 +474,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 	var/has_spear = TRUE
 
-/obj/item/fluff/tokash_spear/examine(mob/user, distance, is_adjacent)
+/obj/item/fluff/tokash_spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(distance <= 1 && has_spear)
-		to_chat(user, "It currently holds an old looking spearhead.")
+		. += "It currently holds an old looking spearhead."
 
 /obj/item/fluff/tokash_spear/update_icon()
 	if(has_spear)
@@ -1640,10 +1641,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/fluff/nasira_burner/examine(mob/user)
+/obj/item/fluff/nasira_burner/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(lit)
-		to_chat(user, "\The [src] is currently lit.")
+		. += "\The [src] is currently lit."
 
 /obj/item/fluff/nasira_burner/proc/light(var/lighting_text)
 	if(!lit)
@@ -1854,11 +1855,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_spin_fx")
 	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
-/obj/item/fluff/ielia_tarot/examine(mob/user, distance, is_adjacent)
+/obj/item/fluff/ielia_tarot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		if(first_card && second_card && third_card)
-			to_chat(user, "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card].")
+			. += "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card]."
 
 /obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
 	cut_overlays()
@@ -2024,15 +2025,4 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ashkii_cloak"
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/medical_chest_rig/fluff/pleig_rig
-	name = "\improper Lyukal medical rig"
-	desc = "This blue chestpiece, stylized after a traditional paramedic's chest rig, contains the iconography of the Federation Resistance, also known as the Lyukal, with \
-	the flag of the Free Traverse on the back. It is most suited to the form of a worker or warrior Vaurca."
-	icon = 'icons/obj/custom_items/pleig_rig.dmi'
-	icon_override = 'icons/obj/custom_items/pleig_rig.dmi'
-	icon_state = "pleig_rig"
-	item_state = "pleig_rig"
-	contained_sprite = TRUE
-	species_restricted = list(BODYTYPE_VAURCA)
 

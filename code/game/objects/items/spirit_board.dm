@@ -7,9 +7,9 @@
 	var/planchette = "A"
 	var/lastuser = null
 
-/obj/item/spirit_board/examine(mob/user)
+/obj/item/spirit_board/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "The planchette is sitting at \"[planchette]\".")
+	. += "The planchette is sitting at \"[planchette]\"."
 
 /obj/item/spirit_board/attack_hand(mob/user)
 	if(!isturf(loc)) //so if you want to play the use the board, you need to put it down somewhere

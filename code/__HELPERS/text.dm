@@ -577,7 +577,7 @@
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[small\]", "<font size = \"1\">")
 	t = replacetext(t, "\[/small\]", "</font>")
-	t = replacetext(t, "\[station\]", current_map.station_name)
+	t = replacetext(t, "\[station\]", SSatlas.current_map.station_name)
 
 	var/regex/redacted_text = new(@"(\[redacted\])(.*?)(\[\/redacted\])", "g")
 	while (redacted_text.Find(t))
@@ -652,6 +652,8 @@
 	t = replacetext(t, "\[flag_izweski_small\]", "<img src = izweskiflag_small.png>")
 	t = replacetext(t, "\[logo_golden\]", "<img src = goldenlogo.png>")
 	t = replacetext(t, "\[logo_golden_small\]", "<img src = goldenlogo_small.png>")
+	t = replacetext(t, "\[logo_pvpolice\]", "<img src = pvpolicelogo.png>")
+	t = replacetext(t, "\[logo_pvpolice_small\]", "<img src = pvpolicelogo_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
@@ -670,7 +672,7 @@
 	t = replacetext(t, "</font>", "\[/large\]")
 	t = replacetext(t, "<font size = \"1\">", "\[small\]")
 	t = replacetext(t, "</font>", "\[/small\]")
-	t = replacetext(t, current_map.station_name, "\[station\]")
+	t = replacetext(t, SSatlas.current_map.station_name, "\[station\]")
 	t = replacetext(t, "<BR>", "\n")
 	t = replacetext(t, "<center>", "\[center\]")
 	t = replacetext(t, "</center>", "\[/center\]")
@@ -720,6 +722,8 @@
 		t = replacetext(t, "<img src = nkaflag.png>", "\[flag_nka\]")
 		t = replacetext(t, "<img src = izweskiflag.png>", "\[flag_izweski\]")
 		t = replacetext(t, "<img src = goldenlogo.png>", "\[logo_golden\]")
+		t = replacetext(t, "<img src = pvpolicelogo.png>", "\[logo_pvpolice\]")
+		t = replacetext(t, "<img src = pvpolicelogo_small.png>", "\[logo_pvpolice_small\]")
 
 	return t
 

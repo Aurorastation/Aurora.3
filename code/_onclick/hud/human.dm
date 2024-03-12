@@ -1,4 +1,4 @@
-/mob/living/carbon/human/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
+/mob/living/carbon/human/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	HUD.human_hud(ui_style, ui_color, ui_alpha, src)
 
 /datum/hud/proc/human_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
