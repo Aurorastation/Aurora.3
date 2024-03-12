@@ -7,6 +7,7 @@
 /area/abandoned_diner/diner
 	name = "Diner"
 	icon_state = "cafeteria"
+	area_blurb = "Stale air, mildew, and a distinct smell of rot haunt what clearly used to be a lovely classic-style diner. The jukebox adorns the center of the room, not having played a song for decades, but still ready to do so once more."
 
 /area/abandoned_diner/kitchen
 	name = "Kitchen"
@@ -19,6 +20,7 @@
 /area/abandoned_diner/freezer
 	name = "Freezer"
 	icon_state = "purple"
+	area_blurb = "The smell of rotten food bombards your nostrils. Hopefully the freezers still have something edible in them."
 
 /area/abandoned_diner/hydroponics
 	name = "Hydroponics Bay"
@@ -28,12 +30,19 @@
 	name = "Restrooms"
 	icon_state = "restrooms"
 	sound_env = BATHROOM
+	area_blurb = "Once clean and well-maintained, these restrooms have fallen into a horrific state of disrepair and stench."
+
+/area/abandoned_diner/crew_quarters
+	name = "Crew Quarters"
+	icon_state = "crew_quarters"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/abandoned_diner/maintenance
 	name = "Station Maintenance"
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
 	sound_env = TUNNEL_ENCLOSED
+	area_blurb = "The machinery in this room chugs away, evidently creaky and in desperate need of maintenance and lubrication. Somehow, though, they're still functional."
 
 /area/abandoned_diner/storage
 	name = "Storage"
