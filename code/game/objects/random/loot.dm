@@ -407,6 +407,26 @@
 /obj/random/finances/post_spawn(var/obj/item/spawned)
 	spawned.update_icon()
 
+/obj/random/desk_clutter/office
+	name = "desk clutter, office"
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "paper_plane"
+	problist = list(
+		/obj/item/stack/barricade/random = 1,
+		/obj/item/stack/barricade/wood/random = 0.5,
+		/obj/item/stack/barricade/plasteel/random = 0.25
+	)
+
+/obj/random/desk_clutter/science
+	name = "desk clutter, science"
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "paper_swan"
+	problist = list(
+		/obj/item/stack/barricade/random = 1,
+		/obj/item/stack/barricade/wood/random = 0.5,
+		/obj/item/stack/barricade/plasteel/random = 0.25
+	)
+
 /// Konyang loot
 
 /obj/random/barricade_materials
