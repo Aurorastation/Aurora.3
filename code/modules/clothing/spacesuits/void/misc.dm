@@ -232,6 +232,17 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword,
+		/obj/item/handcuffs
+	)
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
 	refittable = FALSE
 
