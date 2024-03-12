@@ -1,5 +1,5 @@
 
-// ------------------------ warning edge stripes
+// ------------------------ warning edge hazard stripes
 
 /obj/effect/floor_decal/industrial/warning
 	name = "hazard stripes"
@@ -22,7 +22,7 @@
 	name = "hazard stripes"
 	icon_state = "warningcorner_dust"
 
-// ------------------------ hatching stripes
+// ------------------------ hatching stripes main
 
 /obj/effect/floor_decal/industrial/hatch
 	name = "hatched marking"
@@ -32,10 +32,12 @@
 	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/hatch/grey
-	color = "#808080"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/industrial/hatch/red
-	color = "#990C0C"
+	color = COLOR_CRIMSON
+
+// ------------------------ hatching stripes small
 
 /obj/effect/floor_decal/industrial/hatch_small
 	name = "hatched marking small"
@@ -45,10 +47,12 @@
 	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/hatch_small/grey
-	color = "#808080"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/industrial/hatch_small/red
-	color = "#990C0C"
+	color = COLOR_CRIMSON
+
+// ------------------------ hatching stripes tiny
 
 /obj/effect/floor_decal/industrial/hatch_tiny
 	name = "hatched marking tiny"
@@ -58,10 +62,10 @@
 	color = COLOR_YELLOW_KHAKI
 
 /obj/effect/floor_decal/industrial/hatch_tiny/grey
-	color = "#808080"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/industrial/hatch_tiny/red
-	color = "#990C0C"
+	color = COLOR_CRIMSON
 
 // ------------------------ outline main
 
@@ -83,7 +87,7 @@
 
 /obj/effect/floor_decal/industrial/outline/red
 	name = "red outline"
-	color = "#990C0C"
+	color = COLOR_CRIMSON
 
 /obj/effect/floor_decal/industrial/outline/custodial
 	name = "custodial purple outline"
@@ -121,7 +125,7 @@
 	name = "red firefighting closet outline"
 	color = COLOR_RED_LIGHT
 
-// ------------------------ outline other
+// ------------------------ outline corner
 
 /obj/effect/floor_decal/industrial/outline_corner
 	name = "white outline"
@@ -137,7 +141,9 @@
 
 /obj/effect/floor_decal/industrial/outline_corner/red
 	name = "red outline"
-	color = "#990C0C"
+	color = COLOR_CRIMSON
+
+// ------------------------ outline straight
 
 /obj/effect/floor_decal/industrial/outline_straight
 	name = "white outline"
@@ -151,9 +157,30 @@
 	name = "grey outline"
 	color = COLOR_GRAY
 
-/obj/effect/floor_decal/industrial/outline_corner/red
+/obj/effect/floor_decal/industrial/outline_straight/red
 	name = "red outline"
-	color = "#990C0C"
+	color = COLOR_CRIMSON
+
+// ------------------------ outline segment
+
+/obj/effect/floor_decal/industrial/outline_segment
+	name = "white outline"
+	icon_state = "outline_segment"
+
+/obj/effect/floor_decal/industrial/outline_segment/yellow
+	name = "yellow outline"
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/outline_segment/grey
+	name = "grey outline"
+	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/outline_segment/red
+	name = "red outline"
+	color = COLOR_CRIMSON
+
+
+// ------------------------ outline door
 
 /obj/effect/floor_decal/industrial/outline_door
 	name = "white door outline"
@@ -169,9 +196,9 @@
 
 /obj/effect/floor_decal/industrial/outline_door/red
 	name = "red door outline"
-	color = "#990C0C"
+	color = COLOR_CRIMSON
 
-// ------------------------ loading/arrows
+// ------------------------ loading
 
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
@@ -187,6 +214,8 @@
 	name = "security blue loading area"
 	color = COLOR_BLUE_GRAY
 
+// ------------------------ arrows
+
 /obj/effect/floor_decal/industrial/arrow
 	name = "arrow"
 	icon_state = "arrow"
@@ -196,3 +225,5 @@
 
 /obj/effect/floor_decal/industrial/arrow/grey
 	color = COLOR_GRAY
+
+// ------------------------

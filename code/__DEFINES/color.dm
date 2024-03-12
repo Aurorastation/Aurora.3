@@ -59,6 +59,7 @@
 #define COLOR_GOLD             "#ffcc33"
 #define COLOR_CLOSET_GOLD      "#6d6133"
 #define COLOR_DARK_RED         "#9d2300"
+#define COLOR_CRIMSON          "#990C0C"
 #define COLOR_BOTTLE_GREEN     "#1f6b4f"
 #define COLOR_PALE_BTL_GREEN   "#57967f"
 #define COLOR_SLATE            "#708090"
@@ -116,7 +117,6 @@
 
 
 // Wood Colours
-
 #define WOOD_COLOR_GENERIC     "#8f5847"
 #define WOOD_COLOR_GENCONTRAST "#683b2e"
 #define WOOD_COLOR_BIRCH       "#d5a66e"
