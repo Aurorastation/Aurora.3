@@ -5818,7 +5818,7 @@
 	condiment_icon_state = "pumpkinspice"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_chocolate
+/singleton/reagent/condiment/syrup_chocolate
 	name = "Chocolate Syrup"
 	description = "Thick chocolate syrup used to flavor drinks."
 	taste_description = "chocolate"
@@ -5830,7 +5830,7 @@
 	taste_mult = 5
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_caramel
+/singleton/reagent/condiment/syrup_caramel
 	name = "Caramel Syrup"
 	description = "Thick caramel syrup used to flavor drinks."
 	taste_description = "caramel"
@@ -5842,7 +5842,7 @@
 	taste_mult = 5
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_vanilla
+/singleton/reagent/condiment/syrup_vanilla
 	name = "Vanilla Syrup"
 	description = "Thick vanilla syrup used to flavor drinks."
 	taste_description = "vanilla"
@@ -5854,7 +5854,7 @@
 	taste_mult = 5
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_pumpkin
+/singleton/reagent/condiment/syrup_pumpkin
 	name = "Pumpkin Spice Syrup"
 	description = "Thick spiced pumpkin syrup used to flavor drinks."
 	taste_description = "spiced pumpkin"
@@ -5867,7 +5867,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //berry
-/singleton/reagent/drink/syrup_berry
+/singleton/reagent/condiment/syrup_berry
 	name = "Berry Syrup"
 	description = "Thick berry syrup used to flavor drinks."
 	taste_description = "berry"
@@ -5880,7 +5880,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //strawberry
-/singleton/reagent/drink/syrup_strawberry
+/singleton/reagent/condiment/syrup_strawberry
 	name = "Strawberry Syrup"
 	description = "Thick strawberry syrup used to flavor drinks."
 	taste_description = "strawberry"
@@ -5893,7 +5893,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //blueberry
-/singleton/reagent/drink/syrup_blueberry
+/singleton/reagent/condiment/syrup_blueberry
 	name = "Blueberry Syrup"
 	description = "Thick blueberry syrup used to flavor drinks."
 	taste_description = "blueberry"
@@ -5906,7 +5906,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //rasp
-/singleton/reagent/drink/syrup_raspberry
+/singleton/reagent/condiment/syrup_raspberry
 	name = "Raspberry Syrup"
 	description = "Thick raspberry syrup used to flavor drinks."
 	taste_description = "raspberry"
@@ -5919,7 +5919,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //black rasp
-/singleton/reagent/drink/syrup_blackraspberry
+/singleton/reagent/condiment/syrup_blackraspberry
 	name = "Black Raspberry Syrup"
 	description = "Thick black raspberry syrup used to flavor drinks."
 	taste_description = "black raspberry"
@@ -5930,7 +5930,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //blue rasp
-/singleton/reagent/drink/syrup_blueraspberry
+/singleton/reagent/condiment/syrup_blueraspberry
 	name = "Blue Raspberry Syrup"
 	description = "Thick blue raspberry syrup used to flavor drinks."
 	taste_description = "blue raspberry"
@@ -5943,7 +5943,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //glow
-/singleton/reagent/drink/syrup_glowberry
+/singleton/reagent/condiment/syrup_glowberry
 	name = "Glowberry Syrup"
 	description = "Thick glowberry syrup used to flavor drinks."
 	taste_description = "glowberry"
@@ -5953,7 +5953,7 @@
 	taste_mult = 5
 
 //poison
-/singleton/reagent/drink/syrup_poisonberry
+/singleton/reagent/condiment/syrup_poisonberry
 	name = "Poison Berry Syrup"
 	description = "Thick poison berry syrup used to flavor drinks."
 	taste_description = "something sweet"
@@ -5963,7 +5963,7 @@
 	taste_mult = 5
 
 //death
-/singleton/reagent/drink/syrup_deathberry
+/singleton/reagent/condiment/syrup_deathberry
 	name = "Death Berry Syrup"
 	description = "Thick death berry syrup used to flavor drinks."
 	taste_description = "something sweet"
@@ -5973,7 +5973,7 @@
 	taste_mult = 5
 
 //ylpha
-/singleton/reagent/drink/syrup_ylphaberry
+/singleton/reagent/condiment/syrup_ylphaberry
 	name = "Ylpha Berry Syrup"
 	description = "Thick ylpha berry syrup used to flavor drinks."
 	taste_description = "ylpha berry"
@@ -5986,7 +5986,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //dirt
-/singleton/reagent/drink/syrup_dirtberry
+/singleton/reagent/condiment/syrup_dirtberry
 	name = "Dirt Berry Syrup"
 	description = "Thick dirt berry syrup used to flavor drinks."
 	taste_description = "dirt berry"
@@ -5998,7 +5998,7 @@
 	condiment_icon_state = "syrup_dirtberry"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_simple
+/singleton/reagent/condiment/syrup_simple
 	name = "Simple Syrup"
 	description = "Thick, unflavored syrup used as a base for drinks or flavorings."
 	taste_description = "molasses"
