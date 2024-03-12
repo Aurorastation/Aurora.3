@@ -8,10 +8,17 @@
 // --------------------- docks
 
 /obj/effect/shuttle_landmark/cult_base/dock/west_1
-	name = "Dock, West"
+	name = "Dock, West 1"
 	landmark_tag = "nav_cult_base_dock_west_1"
 	docking_controller = "airlock_cult_base_dock_west_1"
 	dir = EAST
+
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_1
+	name = "nav_cult_base_dock_west_1"
+	landmark_tag = "nav_cult_base_dock_west_1"
+	master_tag = "airlock_cult_base_dock_west_1"
+
+// ----
 
 /obj/effect/shuttle_landmark/cult_base/dock/west_2
 	name = "Dock, West 2"
@@ -19,11 +26,25 @@
 	docking_controller = "airlock_cult_base_dock_west_2"
 	dir = SOUTH
 
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_2
+	name = "nav_cult_base_dock_west_2"
+	landmark_tag = "nav_cult_base_dock_west_2"
+	master_tag = "airlock_cult_base_dock_west_2"
+
+// ----
+
 /obj/effect/shuttle_landmark/cult_base/dock/west_3
 	name = "Dock, West 3"
 	landmark_tag = "nav_cult_base_dock_west_3"
 	docking_controller = "airlock_cult_base_dock_west_3"
 	dir = NORTH
+
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_3
+	name = "nav_cult_base_dock_west_3"
+	landmark_tag = "nav_cult_base_dock_west_3"
+	master_tag = "airlock_cult_base_dock_west_3"
+
+// ----
 
 /obj/effect/shuttle_landmark/cult_base/dock/south_1
 	name = "Dock, South 1"
@@ -31,11 +52,23 @@
 	docking_controller = "airlock_cult_base_dock_south_1"
 	dir = NORTH
 
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_1
+	name = "nav_cult_base_dock_south_1"
+	landmark_tag = "nav_cult_base_dock_south_1"
+	master_tag = "airlock_cult_base_dock_south_1"
+
+// ----
+
 /obj/effect/shuttle_landmark/cult_base/dock/south_2
 	name = "Dock, South 2"
 	landmark_tag = "nav_cult_base_dock_south_2"
 	docking_controller = "airlock_cult_base_dock_south_2"
 	dir = WEST
+
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2
+	name = "nav_cult_base_dock_south_2"
+	landmark_tag = "nav_cult_base_dock_south_2"
+	master_tag = "airlock_cult_base_dock_south_2"
 
 // --------------------- space
 
