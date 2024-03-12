@@ -4,7 +4,7 @@
 // The fix involved labeling the various loops involved so they could be continued and broken properly.
 // It also decreases the amount of calls to AStar() and handle_target()
 
-///A list of types that cleanbots will look for
+///A list of *types* that cleanbots will look for
 GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj/effect/decal/cleanable/blood, /obj/effect/decal/cleanable/vomit, /obj/effect/decal/cleanable/flour, \
 						/obj/effect/decal/cleanable/crayon, /obj/effect/decal/cleanable/liquid_fuel, /obj/effect/decal/cleanable/mucus, /obj/effect/decal/cleanable/dirt))
 
@@ -31,9 +31,13 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	var/list/datum/weakref/ignorelist = list()
 
 	var/obj/cleanbot_listener/listener
-	var/beacon_freq = 1445 // navigation beacon frequency
+
+	///Used for patrol pathing, navbeacons have this by default
+	var/beacon_freq = BEACONS_FREQ
+
+	///The time at which a "findbeacon" signal was broadcasted; it's used for us to find the list of available beacons in patrol mode, to know where to go
 	var/signal_sent = 0
-	var/closest_dist
+	var/closest_dist = 9999
 	var/next_dest
 	var/next_dest_loc
 
@@ -169,9 +173,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		patrol_path?.Cut()
 		return
 
+	//If we could a spot to clean or not
 	var/found_spot
-	if(!should_patrol)
-		return
 
 	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
 	search_for: // We use the label so we can break out of this loop from within the next loop.
@@ -317,58 +320,84 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	path = list()
 	patrol_path = list()
 
-/mob/living/bot/cleanbot/attack_hand(var/mob/user)
-	if(!has_ui_access(user) && !emagged)
-		to_chat(user, SPAN_WARNING("The unit's interface refuses to unlock!"))
+/mob/living/bot/cleanbot/attack_hand(mob/user)
+	ui_interact(user)
+
+/mob/living/bot/cleanbot/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CleanBot")
+		ui.open()
+
+/mob/living/bot/cleanbot/ui_data(mob/user)
+	var/list/data = list()
+	data["status"] = on
+	data["locked"] = locked
+	data["maintenance_panel"] = open
+	data["cleans_blood"] = cleans_blood
+	data["should_patrol"] = should_patrol
+	data["screw_loose"] = screw_loose
+	data["odd_button"] = odd_button
+	data["beacon_freq"] = beacon_freq
+	return data
+
+/mob/living/bot/cleanbot/ui_static_data(mob/user)
+
+	var/list/data = list()
+	var/list/cleanables_names = list()
+
+
+	for(var/obj/effect/decal/cleanable/cleanable_type as anything in target_types)
+		cleanables_names |= capitalize_first_letters(initial(cleanable_type.name))
+
+	data["cleanable_types"] = cleanables_names
+	return data
+
+/mob/living/bot/cleanbot/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+
+	if(.)
 		return
 
-	var/dat = ""
-	dat += "Status: <A href='?src=\ref[src];operation=start'>[on ? "On" : "Off"]</A><BR>"
-	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
-	dat += "Maintenance panel is [open ? "opened" : "closed"]"
-	if(!locked || issilicon(user))
-		dat += "<BR>Cleans Blood: <A href='?src=\ref[src];operation=blood'>[cleans_blood ? "Yes" : "No"]</A><BR>"
-		dat += "<BR>Patrol station: <A href='?src=\ref[src];operation=patrol'>[should_patrol ? "Yes" : "No"]</A><BR>"
-	if(open && !locked)
-		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screw_loose ? "Yes" : "No"]</A><BR>"
-		dat += "Weird button pressed: <A href='?src=\ref[src];operation=odd_button'>[odd_button ? "Yes" : "No"]</A>"
+	switch(action)
 
-	var/datum/browser/bot_win = new(user, "autocleaner", "Automatic Station Cleaner v1.2 Controls")
-	bot_win.set_content(dat)
-	bot_win.open()
-
-/mob/living/bot/cleanbot/Topic(href, href_list)
-	if(..())
-		return
-	usr.set_machine(src)
-	add_fingerprint(usr)
-
-	if(!has_ui_access(usr) && !emagged)
-		to_chat(usr, SPAN_WARNING("Insufficient permissions."))
-		return
-
-	switch(href_list["operation"])
-		if("start")
+		if("toggle_status")
 			if(on)
 				turn_off()
 			else
 				turn_on()
-		if("blood")
+
+		if("toggle_cleans_blood")
 			cleans_blood = !cleans_blood
 			get_targets()
-		if("patrol")
+
+		if("toggle_patrol_mode")
 			set_patrol_mode(!should_patrol)
-		if("freq")
-			var/freq = text2num(input("Select frequency for navigation beacons", "Frequnecy", num2text(beacon_freq / 10))) * 10
-			if(freq > 0)
-				beacon_freq = freq
-		if("screw")
+
+		if("set_frequency")
+			var/new_frequency = tgui_input_number(usr, "Select frequency for navigation beacons", "Frequnecy", (beacon_freq/10), round_value = FALSE)
+			if(new_frequency > 0)
+				beacon_freq = new_frequency*10
+
+		if("toggle_screw")
 			screw_loose = !screw_loose
 			to_chat(usr, SPAN_NOTICE("You twiddle the screw."))
-		if("odd_button")
+
+		if("toggle_odd_button")
 			odd_button = !odd_button
 			to_chat(usr, SPAN_NOTICE("You press the weird button."))
+
+/mob/living/bot/cleanbot/Topic(href, href_list)
+	if(..())
+		return
+	add_fingerprint(usr)
+
 	attack_hand(usr)
+
+/mob/living/bot/cleanbot/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	//To refresh the lock/unlock from ID hitting etc.
+	SStgui.try_update_ui(user, src)
 
 /**
  * Handles the turn on / off of patrol mode
@@ -376,10 +405,15 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
  * * state - A Boolean, `TRUE` to turn patrol mode on, `FALSE` to turn it off
  */
 /mob/living/bot/cleanbot/proc/set_patrol_mode(state)
+	closest_dist = initial(closest_dist)
+	patrol_path.Cut()
+
 	if(state)
 		should_patrol = TRUE
 		patrol_path = list()
 		MOB_START_THINKING(src)
+		src.already_thinking = FALSE
+		signal_sent = 0
 
 	else
 		should_patrol = FALSE
@@ -411,6 +445,10 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	var/recv = signal.data["beacon"]
 	var/valid = signal.data["patrol"]
 	if(!recv || !valid || !cleanbot)
+		return
+
+	//If it's not on a connected level, don't bother
+	if(!AreConnectedZLevels(signal.source.loc?.z, cleanbot.loc?.z))
 		return
 
 	var/dist = get_dist(cleanbot, signal.source.loc)

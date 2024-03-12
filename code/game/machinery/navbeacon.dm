@@ -1,9 +1,6 @@
 // Navigation beacon for AI robots
 // Functions as a transponder: looks for incoming signal matching
 
-
-var/global/list/navbeacons			// no I don't like putting this in, but it will do for now
-
 /obj/machinery/navbeacon
 
 	icon = 'icons/obj/objects.dmi'
@@ -16,7 +13,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 	var/open = 0		// true if cover is open
 	var/locked = 1		// true if controls are locked
-	var/freq = 1445		// radio frequency
+	var/freq = BEACONS_FREQ		// radio frequency
 	var/location = ""	// location response text
 	var/list/codes		// assoc. list of transponder codes
 	var/codes_txt = ""	// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
@@ -30,10 +27,6 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 	var/turf/T = loc
 	hide(!T.is_plating())
-
-	// add beacon to MULE bot beacon list
-	if(freq == 1400)
-		LAZYADD(navbeacons, src)
 
 	if(SSradio)
 		SSradio.add_object(src, freq, RADIO_NAVBEACONS)
@@ -245,7 +238,6 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 				updateDialog()
 
 /obj/machinery/navbeacon/Destroy()
-	navbeacons?.Remove(src)
 	if(SSradio)
 		SSradio.remove_object(src, freq)
 	return ..()
