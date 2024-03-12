@@ -262,7 +262,7 @@
 	icon_base = "cargo_monotile"
 
 /singleton/flooring/tiling/cargo/brass
-	icon_base = "tiled"
+	icon_base = "cargo"
 	color = COLOR_BRASS
 	build_type = null
 
