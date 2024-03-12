@@ -184,9 +184,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
-"dZ" = (
-/turf/simulated/floor/tiled/cargo/brass,
-/area/construction/solars)
 "ef" = (
 /obj/machinery/light/small,
 /turf/simulated/floor,
@@ -696,6 +693,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"nQ" = (
+/obj/structure/table/wood/bamboo,
+/turf/simulated/floor/wood/birch,
+/area/construction/solars)
 "nT" = (
 /obj/structure/window{
 	dir = 4
@@ -909,6 +910,7 @@
 /turf/simulated/floor/tiled/light,
 /area/construction/solars)
 "sb" = (
+/obj/structure/table/wood,
 /turf/simulated/floor/wood/bamboo,
 /area/construction/solars)
 "sm" = (
@@ -967,6 +969,9 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "sS" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "td" = (
@@ -1128,6 +1133,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"xf" = (
+/turf/simulated/floor/tiled/cargo/brass/full,
 /area/construction/solars)
 "xj" = (
 /obj/structure/cable{
@@ -1606,6 +1614,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "GM" = (
+/obj/structure/table/wood/birch,
 /turf/simulated/floor/wood/ebony,
 /area/construction/solars)
 "GO" = (
@@ -1694,9 +1703,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"IC" = (
-/turf/simulated/floor/tiled/cargo/brass/full,
-/area/construction/solars)
 "IH" = (
 /turf/simulated/floor/tiled/bitile{
 	dir = 8
@@ -1754,6 +1760,9 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "JM" = (
+/obj/structure/bed/stool/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood/walnut,
 /area/construction/solars)
 "Kb" = (
@@ -1963,6 +1972,9 @@
 "Nk" = (
 /obj/machinery/requests_console,
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"Nv" = (
+/turf/simulated/floor/tiled/cargo/brass,
 /area/construction/solars)
 "Nw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -38980,7 +38992,7 @@ Is
 DN
 Gn
 sb
-um
+nQ
 GM
 DN
 MO
@@ -39232,8 +39244,8 @@ pz
 Uv
 DN
 DN
-dZ
-IC
+Nv
+xf
 DN
 sS
 JM

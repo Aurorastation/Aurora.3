@@ -269,6 +269,31 @@
 /singleton/flooring/tiling/cargo/brass/full
 	icon_base = "monotile"
 
+/singleton/flooring/tiling/bitile
+	icon_base = "bitile"
+	color = COLOR_TILED
+	build_type = null
+
+/singleton/flooring/tiling/gridded
+	icon_base = "grid"
+	color = COLOR_GRAY40
+	build_type = null
+
+/singleton/flooring/tiling/ridged
+	icon_base = "ridged"
+	color = COLOR_GUNMETAL
+	build_type = null
+
+/singleton/flooring/tiling/techmaint
+	icon_base = "techmaint"
+	color = COLOR_GRAY30
+	build_type = null
+
+/singleton/flooring/tiling/techfloor
+	icon_base = "techfloor"
+	color = COLOR_GRAY40
+	build_type = null
+
 /singleton/flooring/tiling/freezer
 	name = "floor"
 	desc = "Don't slip."
