@@ -179,7 +179,6 @@
 	name = "red outline"
 	color = COLOR_CRIMSON
 
-
 // ------------------------ outline door
 
 /obj/effect/floor_decal/industrial/outline_door
@@ -214,7 +213,7 @@
 	name = "security blue loading area"
 	color = COLOR_BLUE_GRAY
 
-// ------------------------ arrows
+// ------------------------ arrow
 
 /obj/effect/floor_decal/industrial/arrow
 	name = "arrow"

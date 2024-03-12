@@ -247,7 +247,7 @@
 
 /singleton/flooring/tiling/slate
 	icon_base = "tiled"
-	color = COLOR_GUNMETAL
+	color = COLOR_SLATE
 	build_type = null
 
 /singleton/flooring/tiling/slate/full
@@ -259,7 +259,7 @@
 	build_type = null
 
 /singleton/flooring/tiling/cargo/full
-	icon_base = "monotile"
+	icon_base = "cargo_monotile"
 
 /singleton/flooring/tiling/cargo/brass
 	icon_base = "tiled"
@@ -267,7 +267,7 @@
 	build_type = null
 
 /singleton/flooring/tiling/cargo/brass/full
-	icon_base = "monotile"
+	icon_base = "cargo_monotile"
 
 /singleton/flooring/tiling/bitile
 	icon_base = "bitile"
