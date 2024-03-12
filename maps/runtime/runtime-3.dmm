@@ -1602,6 +1602,10 @@
 /turf/template_noop,
 /area/template_noop)
 "EG" = (
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
@@ -1777,12 +1781,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"Jb" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor/tiled,
-/area/construction/solars)
 "Je" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -1921,9 +1919,11 @@
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "Ma" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 2
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
 	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "Mh" = (
@@ -38047,7 +38047,7 @@ DN
 DN
 DN
 Mz
-Jb
+Na
 Uv
 pz
 Uv
