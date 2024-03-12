@@ -1662,7 +1662,7 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "GM" = (
@@ -2308,7 +2308,9 @@
 /area/construction/hallway)
 "Sg" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "Sy" = (

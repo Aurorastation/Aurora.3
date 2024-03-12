@@ -67,6 +67,21 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/red
 	color = COLOR_CRIMSON
 
+// ------------------------ hatching stripes door
+
+/obj/effect/floor_decal/industrial/hatch_door
+	name = "hatched marking door"
+	icon_state = "delivery_door"
+
+/obj/effect/floor_decal/industrial/hatch_door/yellow
+	color = COLOR_YELLOW_KHAKI
+
+/obj/effect/floor_decal/industrial/hatch_door/grey
+	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/hatch_door/red
+	color = COLOR_CRIMSON
+
 // ------------------------ outline main
 
 /obj/effect/floor_decal/industrial/outline
