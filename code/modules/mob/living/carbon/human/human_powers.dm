@@ -408,7 +408,7 @@
 	last_special = world.time + 100
 
 /mob/living/carbon/human/proc/detonate_flechettes()
-	set category = "Military Frame"
+	set category = "Abilities"
 	set name = "Detonate Flechettes"
 	set desc = "Detonate all explosive flechettes in a range of seven meters."
 
@@ -417,7 +417,7 @@
 		return
 
 	for(var/mob/living/M in range(7, src))
-		to_chat(M, 'sound/effects/EMPulse.ogg')
+		playsound(M, 'sound/effects/EMPulse.ogg')
 		for(var/obj/item/material/shard/shrapnel/flechette/F in M.contents)
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
@@ -434,7 +434,7 @@
 
 
 /mob/living/carbon/human/proc/state_laws()
-	set category = "Military Frame"
+	set category = "Abilities"
 	set name = "State Laws"
 	set desc = "State your laws aloud."
 
@@ -520,7 +520,7 @@
 	last_special = world.time + 200
 
 /mob/living/carbon/human/proc/self_destruct()
-	set category = "Military Frame"
+	set category = "Abilities"
 	set name = "Engage Self-Destruct"
 	set desc = "When all else has failed, bite the bullet."
 

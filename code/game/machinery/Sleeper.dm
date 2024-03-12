@@ -274,7 +274,11 @@
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
+/obj/machinery/sleeper/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/target = dropping
+	if(!istype(target))
+		return
+
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return
 

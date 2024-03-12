@@ -8,6 +8,7 @@
 		- Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key.<br>\
 		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
 		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike.<br>\
+		- Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes.<br>\
 	"
 	icon = 'icons/obj/vehicle/bike.dmi'
 	icon_state = "bike_off"
@@ -22,10 +23,19 @@
 	brute_dam_coeff = 0.5
 	var/protection_percent = 60
 
-	var/land_speed = 5 //if 0 it can't go on turf
+	/// Speed on land. Higher is slower.
+	/// If 0 it can't go on land turfs at all.
+	var/land_speed = 5
+	/// Speed if walk intent is on.
+	/// Should be slower, but does not crash into other bikes or people at this speed.
+	/// If land speed is 0, still can't go on land turfs at all.
+	var/land_speed_careful = 6
+	/// Same as land speed, but for space turfs.
 	var/space_speed = 1
-	var/bike_icon = "bike"
+	/// Same as land speed if walk intent is on, but for space turfs.
+	var/space_speed_careful = 4
 
+	var/bike_icon = "bike"
 	var/storage_type = /obj/item/storage/toolbox/bike_storage
 	var/obj/item/storage/storage_compartment
 	var/datum/effect_system/ion_trail/ion
@@ -145,9 +155,9 @@
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
-/obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
-	if(!load(C))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [C] onto \the [src]."))
+/obj/vehicle/bike/MouseDrop_T(atom/dropping, mob/user)
+	if(!load(dropping))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
@@ -195,16 +205,22 @@
 		visible_message("The kickstand prevents the bike from moving!")
 		return
 
-	//these things like space, not turf. Dragging shouldn't weigh you down.
+	var/mob/living/rider = buckled
+	if(!istype(buckled))
+		return
+
+	var/is_careful = (rider.m_intent != M_RUN)
 	var/is_on_space = check_destination(destination)
+
 	if(is_on_space)
 		if(!space_speed)
 			return 0
-		move_delay = space_speed
+		move_delay = (is_careful ? space_speed_careful : space_speed)
 	else
 		if(!land_speed)
 			return 0
-		move_delay = land_speed
+		move_delay = (is_careful ? land_speed_careful : land_speed)
+
 	return ..()
 
 /obj/vehicle/bike/turn_on()
@@ -266,7 +282,7 @@
 		return
 	if(istype(buckled, /mob/living))
 		M = buckled
-	if(M.a_intent == I_HURT)
+	if(M.m_intent == M_RUN)
 		if (istype(AM, /obj/vehicle))
 			M.setMoveCooldown(10)
 			var/obj/vehicle/V = AM
@@ -342,7 +358,9 @@
 	dir = EAST
 
 	land_speed = 1
+	land_speed_careful = 4
 	space_speed = 0
+	space_speed_careful = 0
 
 	can_hover = FALSE
 
@@ -352,7 +370,7 @@
 		return
 	if(istype(buckled, /mob/living))
 		M = buckled
-	if(M.a_intent == I_HURT)
+	if(M.m_intent == M_RUN)
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 		M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
@@ -387,6 +405,7 @@
 
 	bike_icon = "snow"
 	land_speed = 2
+	land_speed = 4
 	protection_percent = 10
 	can_hover = FALSE
 	var/paid = FALSE
@@ -433,10 +452,18 @@
 	icon_state = "sport_on"
 	bike_icon = "sport"
 	land_speed = 1
+	land_speed_careful = 4
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE
 	key_type = /obj/item/key/bike/sport
+
+/obj/vehicle/bike/motor/check_destination(turf/destination)
+	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/floor/exoplanet/water))
+	if(is_type_in_typecache(destination,types) || pulledby)
+		return TRUE
+	else
+		return FALSE
 
 /obj/vehicle/bike/motor/generate_registration_plate()
 	registration_plate = "[rand(10,99)]S-[rand(1000,9999)]"

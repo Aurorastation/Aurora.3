@@ -2156,6 +2156,13 @@
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
 
+/datum/chemical_reaction/snakebite
+	name = "Snakebite"
+	id = "snakebite"
+	result = /singleton/reagent/alcohol/snakebite
+	required_reagents = list(/singleton/reagent/alcohol/beer = 5, /singleton/reagent/alcohol/applejack = 5)
+	result_amount = 10
+
 /datum/chemical_reaction/light_beer
 	name = "Light Beer"
 	id = "spacebeer"
@@ -2531,6 +2538,13 @@
 	required_temperature_min = T0C + 66
 	required_reagents = list(/singleton/reagent/drink/milk = 1)
 	result_amount = 1
+
+/datum/chemical_reaction/drink/milk/strawberry
+	name = "Strawberry milk"
+	id = "steamed_milk"
+	result = /singleton/reagent/drink/milk/strawberry
+	required_reagents = list(/singleton/reagent/drink/milk = 1, /singleton/reagent/drink/strawberryjuice = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/drink/flat_white
 	name = "Flat White"
@@ -4400,3 +4414,54 @@
 	result = /singleton/reagent/alcohol/tribunal
 	required_reagents = list(/singleton/reagent/alcohol/threefold = 1, /singleton/reagent/alcohol/godhead = 1, /singleton/reagent/water/holywater = 1)
 	result_amount = 3
+
+//boba drinks
+
+/datum/chemical_reaction/drink/boba_tea
+	name = "boba tea"
+	id = "bobatea"
+	result = /singleton/reagent/drink/boba_tea
+	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/milk/soymilk = 1, /singleton/reagent/drink/ice = 1, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/boba_tea_alt
+	name = "boba tea"
+	id = "bobatea"
+	result = /singleton/reagent/drink/boba_tea
+	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/milk = 1, /singleton/reagent/drink/ice = 1, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/lemon_lime_boba
+	name = "lemon lime boba"
+	id = "boba_lemonlime"
+	result = /singleton/reagent/drink/lemon_lime_boba
+	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/boba_strawberry
+	name = "strawberry boba"
+	id = "boba_strawberry"
+	result = /singleton/reagent/drink/boba_strawberry
+	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/milk/strawberry = 2, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/boba_banana
+	name = "banana boba"
+	id = "boba_banana"
+	result = /singleton/reagent/drink/boba_banana
+	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/banana = 1, /singleton/reagent/drink/milk = 1, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/summertime_boba
+	name = "summertime boba"
+	id = "boba_melonlime"
+	result = /singleton/reagent/drink/summertime_boba
+	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/watermelonjuice = 1, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/lovebug_boba
+	name = "lovebug boba"
+	id = "boba_lovebug"
+	result = /singleton/reagent/drink/lovebug_boba
+	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/nutriment/cherryjelly = 1, /singleton/reagent/drink/strawberryjuice = 1, /singleton/reagent/drink/boba = 1)
+	result_amount = 6

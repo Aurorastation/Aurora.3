@@ -91,6 +91,11 @@
 	icon_state = "storage"
 	sound_env = SMALL_ENCLOSED
 
+/area/ship/dominian_unathi/dock
+	name = "Kazhkz Privateer Ship - Docking Arm"
+	icon_state = "exit"
+
 //Shuttle
 /area/shuttle/dominian_unathi
 	name = "Kazhkz Privateer Fighter"
+	requires_power = TRUE

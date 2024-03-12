@@ -248,6 +248,7 @@
 	banners["banner, Empyrean"] = /obj/item/flag/empyrean
 	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
 	banners["banner, Callisto"] = /obj/item/flag/callisto
+	banners["banner, Venus"] = /obj/item/flag/venus
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -333,6 +334,7 @@
 	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
 	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
 	flags["flag, Callisto"] = /obj/item/flag/callisto/l
+	flags["flag, Venus"] = /obj/item/flag/venus/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -411,3 +413,22 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/lore_radio
+	display_name = "analog radio"
+	path = /obj/item/lore_radio
+
+/datum/gear/pottedplant_small
+	display_name = "potted plant"
+	description = "A small potted plant."
+	cost = 1
+	path = /obj/item/flora/pottedplant_small/dead
+
+/datum/gear/pottedplant_small/New()
+	..()
+	var/list/plants = list()
+	for(var/plant_type in typesof(/obj/item/flora/pottedplant_small))
+		var/obj/item/flora/pottedplant_small/plant = plant_type
+		plants[initial(plant.name)] = plant_type
+	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
+	gear_tweaks += new /datum/gear_tweak/path(plants)

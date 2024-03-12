@@ -17,8 +17,8 @@
 	reset_hair()
 	return 1
 
-/mob/living/carbon/human/proc/change_gender(var/set_gender)
-	if(gender == set_gender)
+/mob/living/carbon/human/proc/change_gender(var/set_gender, var/ignore_gender_check = FALSE)
+	if(gender == set_gender && !ignore_gender_check)
 		return
 
 	gender = set_gender

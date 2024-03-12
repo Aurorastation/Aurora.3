@@ -146,7 +146,7 @@
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
-		var/datum/outfit/species_outfit = species_outfits[picked_species]
+		var/obj/outfit/species_outfit = species_outfits[picked_species]
 		M.preEquipOutfit(species_outfit, FALSE)
 		M.equipOutfit(species_outfit, FALSE)
 	else if(outfit)

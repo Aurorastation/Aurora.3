@@ -572,7 +572,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == SPECIES_IPC_TERMINATOR))
+		if(M.isSynthetic() && M == user && !(M.get_species() == SPECIES_IPC_PURPOSE_HK))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
