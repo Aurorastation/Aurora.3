@@ -693,10 +693,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"nQ" = (
-/obj/structure/table/wood/bamboo,
-/turf/simulated/floor/wood/birch,
-/area/construction/solars)
 "nT" = (
 /obj/structure/window{
 	dir = 4
@@ -910,7 +906,6 @@
 /turf/simulated/floor/tiled/light,
 /area/construction/solars)
 "sb" = (
-/obj/structure/table/wood,
 /turf/simulated/floor/wood/bamboo,
 /area/construction/solars)
 "sm" = (
@@ -969,9 +964,6 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "sS" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 8
-	},
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "td" = (
@@ -1614,7 +1606,6 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "GM" = (
-/obj/structure/table/wood/birch,
 /turf/simulated/floor/wood/ebony,
 /area/construction/solars)
 "GO" = (
@@ -1760,9 +1751,6 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "JM" = (
-/obj/structure/bed/stool/wood{
-	dir = 8
-	},
 /turf/simulated/floor/wood/walnut,
 /area/construction/solars)
 "Kb" = (
@@ -38992,7 +38980,7 @@ Is
 DN
 Gn
 sb
-nQ
+um
 GM
 DN
 MO
