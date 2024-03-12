@@ -144,15 +144,6 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
-	allowed = list(
-		/obj/item/device/flashlight,
-		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
-		/obj/item/gun,
-		/obj/item/ammo_magazine,
-		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
-	)
 	light_overlay = "helmet_light_himeo_voidsuit"
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
@@ -161,7 +152,7 @@
 /obj/item/clothing/suit/space/void/himeo
 	name = "\improper Himean buzzard voidsuit"
 	desc = "A hardy voidsuit designed specifically for the Himean Planetary Guard. Based on the iconic Vulture voidsuit, and modelled after the Eagle, it boasts improved armor at the cost of weight."
-	desc_extended = "While the Vulture remains the most popular voidsuit in the Coalition, the Free Consortium of Defense and Aerospace Manufacturers has long sought improvements. As the Xanan 'Eagle' remains costly to import, the \
+	desc_extended = "While the Vulture remains the most popular voidsuit in the Coalition, the Free Consortium of Defense and Aerospace Manufacturers has long sought improvements. As the Xanan \"Eagle\" remains costly to import, the \
 	Type-97 \"Buzzard\" provides outstanding protections against the rigors of void combat at the cost of maneuverability. Naval boarding teams are fond of it; the inhuman faceplate and intimidating stature have led to more than \
 	one surrender without a single shot being fired."
 	icon = 'icons/obj/clothing/voidsuit/himeo.dmi'
