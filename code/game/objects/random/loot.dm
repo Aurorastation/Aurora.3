@@ -412,9 +412,22 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper_plane"
 	problist = list(
-		/obj/item/stack/barricade/random = 1,
-		/obj/item/stack/barricade/wood/random = 0.5,
-		/obj/item/stack/barricade/plasteel/random = 0.25
+		/obj/item/folder/blue,
+		/obj/item/folder/white,
+		/obj/item/folder/yellow,
+		/obj/item/folder/red,
+		/obj/item/pen,
+		/obj/item/pen/multi,
+		/obj/item/pen/white,
+		/obj/item/pen/fountain/silver,
+		/obj/item/paper_bin,
+		/obj/item/device/flashlight/lamp/off,
+		/obj/item/storage/slide_projector,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+		/obj/item/stamp/einstein,
+		/obj/item/paper_scanner,
+		/obj/item/clipboard,
+		/obj/random/pottedplant_small,
 	)
 
 /obj/random/desk_clutter/science
@@ -422,9 +435,39 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper_swan"
 	problist = list(
-		/obj/item/stack/barricade/random = 1,
-		/obj/item/stack/barricade/wood/random = 0.5,
-		/obj/item/stack/barricade/plasteel/random = 0.25
+		// office from above:
+		/obj/item/folder/blue,
+		/obj/item/folder/white,
+		/obj/item/folder/yellow,
+		/obj/item/folder/red,
+		/obj/item/pen,
+		/obj/item/pen/multi,
+		/obj/item/pen/white,
+		/obj/item/pen/fountain/silver,
+		/obj/item/paper_bin,
+		/obj/item/device/flashlight/lamp/off,
+		/obj/item/storage/slide_projector,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+		/obj/item/stamp/einstein,
+		/obj/item/paper_scanner,
+		/obj/item/clipboard,
+		/obj/random/pottedplant_small,
+		// science:
+		/obj/item/device/integrated_electronics/wirer,
+		/obj/item/device/integrated_electronics/debugger,
+		/obj/item/storage/box/fancy/vials,
+		/obj/item/folder/white,
+		/obj/item/folder/purple,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/storage/box/syringes,
+		/obj/item/storage/box/gloves,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/clothing/gloves/latex/nitrile,
+		/obj/item/clothing/glasses/science,
+		/obj/item/stock_parts/micro_laser/high,
+		/obj/item/device/analyzer,
+		/obj/item/device/robotanalyzer,
+		/obj/item/device/mass_spectrometer/adv,
 	)
 
 /// Konyang loot
