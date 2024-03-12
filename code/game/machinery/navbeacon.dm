@@ -20,13 +20,20 @@
 
 	req_access = list(ACCESS_ENGINE)
 
-/obj/machinery/navbeacon/Initialize()
+/obj/machinery/navbeacon/Initialize(mapload)
 	. = ..()
 
-	set_codes()
+	//If mapped, set the codes and hide it accordingly, otherwise, you're being built, so don't do that
+	//and unanchor yourself, as you'll be transported around, most likely
+	if(mapload)
+		set_codes()
 
-	var/turf/T = loc
-	hide(!T.is_plating())
+		var/turf/T = get_turf(src)
+		hide(!T.is_plating())
+
+	else
+		hide(FALSE)
+		anchored = FALSE
 
 	if(SSradio)
 		SSradio.add_object(src, freq, RADIO_NAVBEACONS)
@@ -73,6 +80,10 @@
 	// or one of the set transponder keys
 	// if found, return a signal
 /obj/machinery/navbeacon/receive_signal(datum/signal/signal)
+	//Does not work if not anchored to the ground
+	if(!anchored)
+		return
+
 	var/request = signal.data["findbeacon"]
 	if(request && ((request in codes) || request == "any" || request == location))
 		addtimer(CALLBACK(src, PROC_REF(post_signal)), 1)
@@ -80,6 +91,17 @@
 	// return a signal giving location and transponder codes
 
 /obj/machinery/navbeacon/proc/post_signal()
+	//Does not work if not anchored to the ground
+	if(!anchored)
+		return
+
+	//No power, no work
+	if(stat & NOPOWER)
+		return FALSE
+
+	//Wikipedia says this is the upper limit for a medium non directional beacon, deal with it
+	use_power_oneoff(2 KILOWATTS)
+
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
 	if(!frequency) return
@@ -95,7 +117,8 @@
 	frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 
 /obj/machinery/navbeacon/attackby(obj/item/attacking_item, mob/user)
-	var/turf/T = loc
+	var/turf/T = get_turf(src)
+
 	if(!T.is_plating())
 		return		// prevent intraction when T-scanner revealed
 
@@ -106,6 +129,24 @@
 
 		update_icon()
 		return TRUE
+
+	if(attacking_item.iswrench())
+		if(!open || locked)
+			to_chat(user, SPAN_NOTICE("You need to have the maintenance panel open and the controls unlocked to remove the bolts."))
+			return
+
+		if(do_after(user, 3 SECONDS, src))
+			if(anchored)
+				to_chat(user, SPAN_NOTICE("You unscrew the bolts, releasing \the [src] from \the [get_turf(src)]."))
+				anchored = FALSE
+
+				set_invisibility(FALSE)
+
+			else
+				to_chat(user, SPAN_NOTICE("You screw the bolts, firmly securing \the [src] onto \the [get_turf(src)]."))
+				anchored = TRUE
+
+				hide(!T.is_plating())
 
 	else if (attacking_item.GetID())
 		if(open)

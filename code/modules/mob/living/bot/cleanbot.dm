@@ -41,7 +41,6 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	var/next_dest
 	var/next_dest_loc
 
-	var/cleaning = FALSE
 	var/screw_loose = FALSE
 	var/odd_button = FALSE
 	var/should_patrol = FALSE
@@ -52,8 +51,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 	var/maximum_search_range = 7
 
-	///Boolean, if we're already searching, so in `think()` we don't start over
-	var/already_thinking = FALSE
+	///Boolean, if it's cleaning something *right now* and waiting for the timer to say it's done
+	var/cleaning = FALSE
 
 /mob/living/bot/cleanbot/Cross(atom/movable/crossed)
 	if(crossed)
@@ -88,8 +87,6 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()
-	SHOULD_NOT_SLEEP(TRUE)
-
 	//Get the actual cleanable decal to target
 	var/obj/effect/decal/cleanable/cleaning_target_cache = cleaning_target?.resolve()
 	var/mob/living/bot/cleanbot/turf_targeting_cleanbot = cleaning_target_cache?.clean_marked?.resolve()
@@ -109,18 +106,15 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 	//Try to get a path to the location if you don't have one
 	if(!length(path))
-		path = AStar(get_turf(src), get_turf(cleaning_target_cache), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-		if(!path)
+		path = get_path_to(src, cleaning_target_cache, 250, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
+		//No length means there's no path to reach it, add it to the exclusions
+		if(!length(path))
 			ignorelist |= cleaning_target
 			cleaning_target_cache.clean_marked = null
 			cleaning_target = null
 			path = list()
 
-	//See if we have time to move, if not, come back another time
-	if(TICK_CHECK)
-		return
-
-	if(length(path))
+	if(length(path) && !cleaning)
 		step_to(src, path[1])
 		path -= path[1]
 		return TRUE
@@ -159,12 +153,6 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 /mob/living/bot/cleanbot/think()
 	..()
-	//We already have another process running, shoo away AI subsystem
-	if(src.already_thinking)
-		return
-
-	//We are starting to think now
-	src.already_thinking = TRUE
 
 	if(!on)
 		return
@@ -176,47 +164,33 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	//If we could a spot to clean or not
 	var/found_spot
 
-	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
-	search_for: // We use the label so we can break out of this loop from within the next loop.
+	for(var/obj/effect/decal/cleanable/D in view(maximum_search_range, src))
 
-		for(var/i = 0, i <= maximum_search_range, i++)
-			clean_for: // This one isn't really needed in this context, but it's good to have in case we expand later.
+		var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
 
-				for(var/obj/effect/decal/cleanable/D in view(i, src))
+		//Someone already wants this cleanable and it's not us, keep looking
+		if(!isnull(turf_targeting_cleanbot) && turf_targeting_cleanbot != src)
+			continue
 
-					var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
+		var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
+		if(other_bot && other_bot.cleaning && other_bot != src)
+			continue
 
-					//Someone already wants this cleanable and it's not us, keep looking
-					if(!isnull(turf_targeting_cleanbot) && turf_targeting_cleanbot != src)
-						continue clean_for
+		// If the object has been slated to be ignored we continue the loop.
+		if((D in ignorelist))
+			continue
 
-					var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
-					if(other_bot && other_bot.cleaning && other_bot != src)
-						continue clean_for
-
-					// If the object has been slated to be ignored we continue the loop.
-					if((D in ignorelist))
-						continue clean_for
-
-					// A matching /cleanable was found, now we want to A* it and see if we can reach it.
-					if((D.type in target_types))
-						patrol_path = list()
-						cleaning_target = WEAKREF(D)
-						D.clean_marked = WEAKREF(src)
-						found_spot = handle_target()
-						if(found_spot)
-							break search_for // If the target location is found and pathed properly, break the search loop.
-						else
-							cleaning_target = null // Otherwise we want to try the next cleanable in view, if any.
-							D.clean_marked = null
-
-				//If we're being deleted, abort everything
-				if(QDELETED(src))
-					return
-
-				//Check and sleep if we are at maximum tickframe
-				if(TICK_CHECK)
-					stoplag()
+		// A matching /cleanable was found, now we want to A* it and see if we can reach it.
+		if((D.type in target_types))
+			patrol_path = list()
+			cleaning_target = WEAKREF(D)
+			D.clean_marked = WEAKREF(src)
+			found_spot = handle_target()
+			if(found_spot)
+				break // If the target location is found and pathed properly, break the search loop.
+			else
+				cleaning_target = null // Otherwise we want to try the next cleanable in view, if any.
+				D.clean_marked = null
 
 
 	if(!found_spot && !cleaning_target) // No targets in range
@@ -224,8 +198,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 			if(!signal_sent || signal_sent > world.time + 200) // Waited enough or didn't send yet
 				var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
 				if(!frequency)
-					//Look I didn't write this shit, I'm just trying to fix it
-					goto stop_thinking
+					return
 
 				closest_dist = 9999
 				next_dest = null
@@ -241,22 +214,19 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 				if(next_dest)
 					next_dest_loc = listener.memorized[next_dest]
 					if(next_dest_loc)
-						patrol_path = AStar(loc, next_dest_loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 120, id = botcard, exclude = null)
+						patrol_path = get_path_to(loc, next_dest_loc, 120, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
 						signal_sent = 0
 		else
 			if(pulledby) // Don't wiggle if someone pulls you
 				patrol_path = list()
-				goto stop_thinking
+				return
 			if(patrol_path[1] == loc)
 				patrol_path -= patrol_path[1]
-				goto stop_thinking
+				return
 
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
-
-	stop_thinking:
-		src.already_thinking = FALSE
 
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
@@ -276,23 +246,23 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	D.being_cleaned = TRUE
 	update_icon()
 	var/clean_time = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	INVOKE_ASYNC(src, PROC_REF(do_clean), D, clean_time)
+	addtimer(CALLBACK(src, PROC_REF(do_clean), D), clean_time)
 
-/mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D, var/clean_time)
-	if(D && do_after(src, clean_time))
-		//Get the actual cleanable decal to target
-		var/obj/effect/decal/cleanable/cleaning_target_cache = cleaning_target.resolve()
-
+/mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D)
+	if(D)
 		if(istype(D.loc, /turf/simulated))
 			var/turf/simulated/f = loc
 			f.dirt = 0
+
 		if(!D)
 			return
+
 		D.clean_marked = null
-		if(D == cleaning_target_cache)
-			cleaning_target_cache.being_cleaned = FALSE
-			cleaning_target = null
+		D.being_cleaned = FALSE
+		cleaning_target = null
+
 		qdel(D)
+
 	cleaning = FALSE
 	update_icon()
 
@@ -399,6 +369,19 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	//To refresh the lock/unlock from ID hitting etc.
 	SStgui.try_update_ui(user, src)
 
+/mob/living/bot/cleanbot/turn_on()
+	. = ..()
+	MOB_START_THINKING(src)
+
+/mob/living/bot/cleanbot/turn_off()
+	. = ..()
+	cleaning_target = null
+	path = list()
+	patrol_path = list()
+	ignorelist = list()
+	MOB_STOP_THINKING(src)
+
+
 /**
  * Handles the turn on / off of patrol mode
  *
@@ -411,13 +394,10 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	if(state)
 		should_patrol = TRUE
 		patrol_path = list()
-		MOB_START_THINKING(src)
-		src.already_thinking = FALSE
 		signal_sent = 0
 
 	else
 		should_patrol = FALSE
-		MOB_STOP_THINKING(src)
 
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
 	. = ..()
@@ -447,12 +427,20 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	if(!recv || !valid || !cleanbot)
 		return
 
-	//If it's not on a connected level, don't bother
-	if(!AreConnectedZLevels(signal.source.loc?.z, cleanbot.loc?.z))
+	var/turf/signal_sender_turf = get_turf(signal.source)
+	var/turf/our_cleanbot_turf = get_turf(cleanbot)
+
+	//Nullspace, some other shit, either way, abort
+	if(!istype(signal_sender_turf) || !istype(our_cleanbot_turf))
 		return
 
-	var/dist = get_dist(cleanbot, signal.source.loc)
-	memorized[recv] = signal.source.loc
+	//At the moment, the path system does not understand zlevels, so this only works on the same zlevel, deal with it, then you can just turn this into:
+	// if(!AreConnectedZLevels(signal.source.loc?.z, cleanbot.loc?.z))
+	if(signal_sender_turf.z != our_cleanbot_turf.z)
+		return
+
+	var/dist = get_dist(cleanbot, signal_sender_turf)
+	memorized[recv] = signal_sender_turf
 
 	if(dist < cleanbot.closest_dist) // We check all signals, choosing the closest beacon; then we move to the NEXT one after the closest one
 		cleanbot.closest_dist = dist

@@ -241,6 +241,7 @@
 #define INIT_ORDER_OVERLAY -7
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
+#define INIT_ORDER_PATH -50
 #define INIT_ORDER_STATPANELS -97
 #define INIT_ORDER_CHAT -100 //Should be last to ensure chat remains smooth during init.
 
@@ -250,6 +251,7 @@
 #define FIRE_PRIORITY_PING 10
 #define FIRE_PRIORITY_GARBAGE 15
 #define FIRE_PRIORITY_ASSETS 20
+#define FIRE_PRIORITY_PATHFINDING 23
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400

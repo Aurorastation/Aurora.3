@@ -220,6 +220,10 @@
 				return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
 	return !density
 
+/obj/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	. = ..()
+	return !. && check_access_list(pass_info.access)
+
 
 /obj/machinery/door/proc/bumpopen(mob/user as mob)
 	if(operating)	return
