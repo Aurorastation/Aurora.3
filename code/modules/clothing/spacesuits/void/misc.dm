@@ -161,6 +161,7 @@
 	contained_sprite = 1
 	slowdown = 1
 	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
 		laser = ARMOR_LASER_SMALL,
 		energy = ARMOR_ENERGY_MINOR,
