@@ -1,3 +1,6 @@
+
+// ------------------------ base
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
 	name = "coffee cup"
 	desc = "A plain white coffee cup."
@@ -23,7 +26,8 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-// Nations
+// ------------------------ nations
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol
 	name = "\improper sol coffee cup"
 	desc = "A blue coffee cup emblazoned with the crest of the Sol Alliance."
@@ -94,7 +98,16 @@
 	desc = "A tricolor coffee cup bearing the flag of Port Antillia."
 	icon_state = "coffeecup_portantillia"
 
-// Organisations
+// ------------------------ orgs/corpos
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc
+	name = "\improper SCC coffee cup"
+	desc = "A coffee cup bearing the SCC logo."
+	icon_state = "coffeecup_scc"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc/alt
+	icon_state = "coffeecup_scc_alt"
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	name = "\improper NT coffee cup"
 	desc = "A blue NanoTrasen coffee cup."
@@ -120,7 +133,16 @@
 	desc = "A coffee cup bearing the Zeng-Hu logo."
 	icon_state = "coffeecup_zeng"
 
-// Symbols, markings
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein
+	name = "\improper Einstein Engines coffee cup"
+	desc = "A coffee cup bearing the Zeng-Hu logo."
+	icon_state = "coffeecup_einstein"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt
+	icon_state = "coffeecup_einstein_alt"
+
+// ------------------------ symbols, markings
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
 	name = "#1 coffee cup"
 	desc = "A white coffee cup, prominently featuring a #1."
@@ -191,7 +213,8 @@
 	desc = "A coffee cup featuring the image of a Zhan miner."
 	icon_state = "coffeecup_zhan"
 
-// Pure colors & other
+// ------------------------ pure colors & other
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
 	name = "black coffee cup"
 	desc = "A sleek black coffee cup."
