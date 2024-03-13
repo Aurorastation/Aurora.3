@@ -1072,6 +1072,7 @@
 	dir = 8;
 	pixel_x = -7
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "ip" = (
@@ -6062,6 +6063,7 @@
 	dir = 4;
 	pixel_x = 6
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "PR" = (
@@ -6292,6 +6294,11 @@
 "RC" = (
 /obj/machinery/computer/ship/helm,
 /obj/structure/railing/mapped,
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -28;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "RI" = (

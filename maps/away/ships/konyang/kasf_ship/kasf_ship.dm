@@ -7,8 +7,8 @@
 
 	ship_cost = 1
 	sectors = list(ALL_COALITION_SECTORS)
-	spawn_weight = 1
-	spawn_weight_sector_dependent = list(SECTOR_HANEUNIM=1.5, ALL_COALITION_SECTORS=0.5)
+	spawn_weight = 0.5
+	spawn_weight_sector_dependent = list(SECTOR_HANEUNIM=1.5)
 
 	unit_test_groups = list(3)
 

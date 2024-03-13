@@ -50,6 +50,23 @@
 /obj/item/material/hatchet/butch,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
+"aV" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "aW" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Medical"
@@ -68,15 +85,19 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
 "bb" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1389;
-	icon_state = "door_locked";
-	id_tag = "surveyor_shuttle_out";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "bd" = (
@@ -98,6 +119,26 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
+"bv" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/obj/effect/shuttle_landmark/coc_survey_ship/port_dock{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "bx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -610,6 +651,17 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
 /area/shuttle/coc_survey_shuttle)
+"gC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "gD" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -722,6 +774,21 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
+"hU" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/coc_survey_ship/starboard_dock{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "hX" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -780,6 +847,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
+"ig" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "im" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/large,
@@ -1127,7 +1207,38 @@
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
+"lo" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "lr" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
 /turf/simulated/floor,
 /area/coc_survey_ship/atmos)
 "lx" = (
@@ -1782,10 +1893,39 @@
 "rb" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/port_propulsion)
-"ri" = (
-/obj/effect/map_effect/airlock/e_to_w/long/square,
-/turf/simulated/wall/shuttle/dark/cardinal/blue,
+"rd" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
 /area/coc_survey_ship/cargo)
+"ri" = (
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 20;
+	pixel_x = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "rk" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Dorms"
@@ -1924,6 +2064,14 @@
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/cargo)
 "sn" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/coc_survey_ship/cargo)
 "so" = (
@@ -2415,12 +2563,17 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "wM" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1389;
-	id_tag = "surveyor_out_internal"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/coc_survey_shuttle)
 "wQ" = (
@@ -3034,17 +3187,36 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "BR" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/coc_survey_ship/atmos)
-"BS" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1389;
-	icon_state = "door_locked";
-	id_tag = "surveyor_shuttle_in";
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
+"BS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "BU" = (
@@ -3191,6 +3363,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
+"CS" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "CT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3207,14 +3392,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "CW" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "surveyor_out_external";
-	frequency = 1389
-	},
 /obj/structure/lattice/catwalk,
 /obj/structure/bed/handrail{
 	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_survey_shuttle)
@@ -3531,6 +3719,14 @@
 /obj/structure/sign/flag/himeo,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/mess_hall)
+"FJ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "FK" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -3780,24 +3976,19 @@
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/blaster)
 "HH" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	id_tag = "surveyor_shuttle";
-	master_tag = "surveyor_shuttle";
-	pixel_y = 25;
-	tag_interior_door = "surveyor_shuttle_in";
-	tag_exterior_door = "surveyor_shuttle_out";
-	tag_interior_sensor = "surveyor_shuttle_interior_sensor";
-	tag_exterior_sensor = "surveyor_shuttle_exterior_sensor";
-	tag_chamber_sensor = "surveyor_shuttle_chamber_sensor";
-	tag_airpump = "surveyor_shuttle_pump_in";
-	frequency = 1389
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1389;
-	id_tag = "surveyor_shuttle_pump_in"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 20
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/coc_survey_shuttle)
 "HI" = (
@@ -3946,16 +4137,17 @@
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
 "Jl" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/light,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "Jm" = (
 /turf/simulated/floor/reinforced,
 /area/shuttle/coc_survey_shuttle)
@@ -4108,20 +4300,21 @@
 /area/coc_survey_ship/captain)
 "KD" = (
 /obj/machinery/airlock_sensor/airlock_interior{
-	dir = 8;
-	pixel_x = 23;
-	pixel_y = 5;
-	id_tag = "surveyor_shuttle_interior_sensor";
-	frequency = 1389
+	pixel_y = -8;
+	pixel_x = 24;
+	dir = 4
 	},
 /obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1389;
-	master_tag = "surveyor_shuttle";
-	name = "interior access button";
+	dir = 4;
 	pixel_x = 23;
-	pixel_y = -6;
-	dir = 4
+	pixel_y = 5
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -4194,18 +4387,20 @@
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/blaster)
 "Lk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
 /obj/machinery/airlock_sensor{
-	frequency = 1385;
-	id_tag = "surveyor_shuttle_chamber_sensor";
-	pixel_y = -23;
+	pixel_y = -19;
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1389;
-	id_tag = "surveyor_shuttle_pump_in"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/shuttle/coc_survey_shuttle)
 "Ln" = (
@@ -4409,11 +4604,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
 "MR" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/machinery/power/apc/high/north,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "MY" = (
@@ -4555,13 +4750,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "Oi" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -4687,6 +4880,18 @@
 /obj/effect/shuttle_landmark/coc_survey_ship/nav1,
 /turf/template_noop,
 /area/space)
+"Ps" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "Pt" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/cargo)
@@ -4765,12 +4970,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Qv" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1389;
-	icon_state = "door_locked";
-	id_tag = "surveyor_shuttle_out";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
 	},
@@ -4783,6 +4982,16 @@
 	pixel_y = 27;
 	dir = 4
 	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Qx" = (
@@ -5167,6 +5376,22 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
+"TY" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/obj/machinery/button/distress{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_survey_ship/bridge)
 "Ud" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor,
@@ -5242,6 +5467,14 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/coc_survey_ship/blaster)
+"UD" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "UF" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/anomaly)
@@ -5391,16 +5624,17 @@
 	dir = 1
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1389;
-	id_tag = "surveyor_shuttle_exterior_sensor";
-	pixel_y = -25;
-	pixel_x = 41;
-	dir = 4
+	dir = 1;
+	pixel_x = 1;
+	pixel_y = -21
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "surveyor_out_external";
-	frequency = 1389
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_survey_shuttle)
@@ -5489,17 +5723,32 @@
 /turf/simulated/floor,
 /area/coc_survey_ship/grauwolf)
 "WR" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1389;
-	icon_state = "door_locked";
-	id_tag = "surveyor_shuttle_in";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_coc_survey_shuttle";
+	shuttle_tag = "COC Survey Shuttle";
+	name = "airlock_coc_survey_shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
+"WT" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_starboard";
+	landmark_tag = "nav_surveyor_starboarddock";
+	name = "airlock_coc_surveyor_starboard"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "WY" = (
 /obj/effect/floor_decal/corner_wide/orange,
 /turf/simulated/floor/tiled,
@@ -5784,6 +6033,14 @@
 /obj/structure/viewport,
 /turf/simulated/floor,
 /area/coc_survey_ship/grauwolf)
+"YB" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "airlock_coc_surveyor_port";
+	landmark_tag = "nav_surveyor_portdock";
+	name = "airlock_coc_surveyor_port"
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "YC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7039,17 +7296,17 @@ PG
 PG
 PG
 PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 Kf
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
 PG
 PG
 PG
@@ -8669,9 +8926,9 @@ PG
 PG
 PG
 jn
-sn
-sn
-ri
+aV
+hU
+jn
 PG
 PG
 PG
@@ -8771,8 +9028,8 @@ PG
 jn
 jn
 jn
-sn
-sn
+WT
+UD
 jn
 jn
 PG
@@ -8873,7 +9130,7 @@ jn
 jn
 tR
 jn
-sn
+BR
 sn
 jn
 jn
@@ -8975,8 +9232,8 @@ Oa
 HF
 le
 jn
-sn
-sn
+rd
+CS
 jn
 XK
 ui
@@ -10944,7 +11201,7 @@ Pd
 EX
 CT
 hg
-Df
+TY
 ti
 PG
 PG
@@ -11223,7 +11480,7 @@ dT
 dT
 ul
 Sn
-Jl
+Xj
 Oi
 yZ
 ec
@@ -11325,8 +11582,8 @@ dT
 dT
 ul
 MR
-Xj
-xB
+gC
+FJ
 xB
 xB
 ul
@@ -13260,8 +13517,8 @@ XR
 Hy
 DH
 lr
-lr
-BR
+ig
+DH
 wF
 mt
 cF
@@ -13361,8 +13618,8 @@ DH
 DH
 QI
 DH
-lr
-lr
+lo
+Jl
 DH
 Ol
 Ol
@@ -13463,8 +13720,8 @@ PG
 DH
 DH
 DH
-lr
-lr
+ri
+YB
 DH
 Ol
 PG
@@ -13565,8 +13822,8 @@ PG
 PG
 PG
 DH
-lr
-lr
+bv
+Ps
 DH
 PG
 PG
@@ -14701,7 +14958,7 @@ PG
 PG
 PG
 PG
-PG
+Pr
 PG
 PG
 PG
@@ -14895,7 +15152,7 @@ PG
 PG
 PG
 PG
-Pr
+PG
 PG
 PG
 PG
