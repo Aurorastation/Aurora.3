@@ -89,7 +89,7 @@
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
-	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber. Maybe the Tajara made it?"
+	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber."
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"

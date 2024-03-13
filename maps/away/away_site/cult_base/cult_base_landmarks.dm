@@ -14,7 +14,7 @@
 	dir = EAST
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_1
-	name = "nav_cult_base_dock_west_1"
+	name = "airlock_cult_base_dock_west_1"
 	landmark_tag = "nav_cult_base_dock_west_1"
 	master_tag = "airlock_cult_base_dock_west_1"
 
@@ -27,7 +27,7 @@
 	dir = SOUTH
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_2
-	name = "nav_cult_base_dock_west_2"
+	name = "airlock_cult_base_dock_west_2"
 	landmark_tag = "nav_cult_base_dock_west_2"
 	master_tag = "airlock_cult_base_dock_west_2"
 
@@ -40,7 +40,7 @@
 	dir = NORTH
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_3
-	name = "nav_cult_base_dock_west_3"
+	name = "airlock_cult_base_dock_west_3"
 	landmark_tag = "nav_cult_base_dock_west_3"
 	master_tag = "airlock_cult_base_dock_west_3"
 
@@ -53,7 +53,7 @@
 	dir = NORTH
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_1
-	name = "nav_cult_base_dock_south_1"
+	name = "airlock_cult_base_dock_south_1"
 	landmark_tag = "nav_cult_base_dock_south_1"
 	master_tag = "airlock_cult_base_dock_south_1"
 
@@ -66,7 +66,7 @@
 	dir = WEST
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2
-	name = "nav_cult_base_dock_south_2"
+	name = "airlock_cult_base_dock_south_2"
 	landmark_tag = "nav_cult_base_dock_south_2"
 	master_tag = "airlock_cult_base_dock_south_2"
 
