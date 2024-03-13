@@ -428,6 +428,8 @@
 		/obj/item/paper_scanner,
 		/obj/item/clipboard,
 		/obj/random/pottedplant_small,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt,
 	)
 
 /obj/random/desk_clutter/science
@@ -452,6 +454,8 @@
 		/obj/item/paper_scanner,
 		/obj/item/clipboard,
 		/obj/random/pottedplant_small,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt,
 		// science:
 		/obj/item/device/integrated_electronics/wirer,
 		/obj/item/device/integrated_electronics/debugger,
