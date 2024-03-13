@@ -24,7 +24,7 @@
 
 /area/abandoned_diner/hydroponics
 	name = "Hydroponics Bay"
-	icon_state = "kitchen"
+	icon_state = "hydro"
 
 /area/abandoned_diner/restroom
 	name = "Restrooms"
