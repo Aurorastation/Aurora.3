@@ -45,9 +45,9 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/idris_cruiser_crew/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/organ/internal/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
-		tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_COMPANY
 		tag.citizenship_info = CITIZENSHIP_NONE
 
