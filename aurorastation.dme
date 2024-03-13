@@ -440,6 +440,7 @@
 #include "code\datums\outfits\outfit.dm"
 #include "code\datums\outfits\outfit_admin.dm"
 #include "code\datums\outfits\outfit_antag.dm"
+#include "code\datums\outfits\outfit_raccoon.dm"
 #include "code\datums\outfits\ert\ap_eridani.dm"
 #include "code\datums\outfits\ert\coalition.dm"
 #include "code\datums\outfits\ert\deathsquad.dm"

@@ -1929,6 +1929,10 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/desk/southleft,
 /obj/random/desk_clutter/office,
+/obj/item/folder/white{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior)
 "bPw" = (
@@ -3655,6 +3659,14 @@
 /obj/random/junk,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"dBC" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/folder/white{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "dCH" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4636,6 +4648,10 @@
 	pixel_y = 3
 	},
 /obj/structure/table/glass,
+/obj/item/folder/white{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /obj/random/desk_clutter/office,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
@@ -7917,6 +7933,10 @@
 "hBb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/desk/southright,
+/obj/item/folder/white{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior)
 "hBi" = (
@@ -9205,6 +9225,10 @@
 "iPf" = (
 /obj/structure/table/wood,
 /obj/random/desk_clutter/office,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart{
+	pixel_x = 7;
+	pixel_y = 17
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "iPK" = (
@@ -11202,6 +11226,14 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
+/area/point_verdant/interior)
+"kGm" = (
+/obj/structure/table/glass,
+/obj/item/folder/white{
+	pixel_x = -15;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "kGr" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -28946,8 +28978,8 @@ oqQ
 oqQ
 rfw
 muQ
-ufI
-ufI
+lWN
+lWN
 muQ
 muQ
 muQ
@@ -28988,8 +29020,8 @@ kxV
 xFT
 kxV
 muQ
-mWi
-mWi
+lWN
+lWN
 muQ
 kxV
 xFT
@@ -40279,8 +40311,8 @@ muQ
 muQ
 muQ
 muQ
-mWi
-mWi
+lWN
+lWN
 muQ
 muQ
 muQ
@@ -43887,7 +43919,7 @@ orI
 muQ
 rwM
 kxV
-isR
+dBC
 rwM
 aUn
 xUl
@@ -44147,7 +44179,7 @@ ecA
 ixi
 rwM
 iOm
-rff
+kGm
 oCI
 tQE
 kxV
