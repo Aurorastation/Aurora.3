@@ -1,7 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes potential method call on null object in ghostrole tgui."
