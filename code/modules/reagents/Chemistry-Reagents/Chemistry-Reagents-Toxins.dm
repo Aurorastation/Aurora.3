@@ -149,9 +149,9 @@
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/internal/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_FILTRATION_BIT]
 			if(isnull(F))
-				..()
+				return
 			else if(F.is_broken())
-				..()
+				return
 			else if(H.species.has_organ[BP_PHORON_RESERVE])
 				var/obj/item/organ/internal/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
 				if(isnull(P))
