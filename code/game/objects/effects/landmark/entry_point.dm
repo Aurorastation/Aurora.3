@@ -17,7 +17,9 @@
 	// try to get it using shuttle area first
 	var/datum/shuttle/shuttle = SSshuttle.shuttle_area_to_shuttle[get_area(src)]
 	if(istype(shuttle))
-		;
+		var/obj/effect/overmap/visitable/ship/ship = SSshuttle.shuttle_obj_by_name(shuttle.name)
+		if(istype(ship))
+			return ship
 
 	// do it recursively otherwise
 	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]

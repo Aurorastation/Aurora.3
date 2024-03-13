@@ -195,3 +195,11 @@ SUBSYSTEM_DEF(shuttle)
 		if (ship.type == type)
 			return ship
 	return null
+
+/// Returns obj of type `/obj/effect/overmap/visitable/ship/landable`,
+/// if its `shuttle` var equals arg `name`.
+/datum/controller/subsystem/shuttle/proc/shuttle_obj_by_name(name)
+	for (var/obj/effect/overmap/visitable/ship/landable/ship in ships)
+		if (ship.shuttle == name)
+			return ship
+	return null

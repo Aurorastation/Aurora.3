@@ -172,7 +172,7 @@
 	designation = "Raskolnikov"
 	desc = "\
 		A standard-sized transport shuttle manufactured by Hephaestus, the Finland-class is commonly used all around the Spur. \
-		It is cheap, easy to maintain, and spare parts can be produced mostly without any specialized machining tools. \
+		It is cheap, easy to maintain, and spare parts can mostly be produced without any specialized machining tools. \
 		"
 	shuttle = "Raskolnikov"
 	icon_state = "shuttle"
@@ -187,6 +187,15 @@
 	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
 	sizeclass = "Finland Transport Shuttle"
 	shiptype = "Transport of people and cargo"
+
+/obj/effect/overmap/visitable/ship/landable/raskolnikov/New()
+	designation = pick(
+		"Raskolnikov", "Razumikhin", "Wokulski", "Baryka", "Rieux",
+		"Crime and Punishment", "White Night", "Notes from Underground", "The Gambler", "The Peasants", "Gloria Victis", "Quo Vadis",
+		"Flood", "With Fire and Sword", "In Desert and Wilderness", "Lady of the Lake", "The Doll", "The Wedding", "The Coming Spring",
+		"Ravens and Crows Will Peck Us to Pieces", "Road to Nowhere",
+	)
+	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/raskolnikov
 	name = "\improper Raskolnikov control console"
