@@ -68,7 +68,7 @@
 /obj/item/clothing/head/helmet/space/void/unathi_pirate
 	name = "unathi raider helmet"
 	desc = "A cheap but effective helmet made to fit with a larger combat assembly."
-	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
+	icon = 'icons/clothing/suits/void/unathi_pirate.dmi'
 	icon_state = "rig0-unathipirate"
 	item_state = "rig0-unathipirate"
 	contained_sprite = TRUE
@@ -88,7 +88,7 @@
 /obj/item/clothing/suit/space/void/unathi_pirate
 	name = "unathi raider voidsuit"
 	desc = "A well-balanced combat voidsuit made by and for Unathi. The cheap but effective design makes it a popular choice amongst pirates and the likes."
-	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
+	icon = 'icons/clothing/suits/void/unathi_pirate.dmi'
 	icon_state = "rig-unathipirate"
 	item_state = "rig-unathipirate"
 	contained_sprite = TRUE
@@ -135,8 +135,7 @@
 /obj/item/clothing/suit/space/void/hegemony
 	name = "hegemony military voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. The standard spacefaring attire of the Izweski Hegemony Navy."
-	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
-	icon_override = 'icons/mob/species/unathi/suit.dmi'
+	icon = 'icons/clothing/suits/void/hegemony.dmi'
 	icon_state = "hegemony-voidsuit"
 	item_state = "hegemony-voidsuit_item"
 
@@ -157,10 +156,10 @@
 /obj/item/clothing/head/helmet/space/void/hegemony
 	name = "hegemony military helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. Usually seen on soldiers of the Izweski Hegemony Navy."
-	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
-	icon_override = 'icons/mob/species/unathi/helmet.dmi'
+	icon = 'icons/clothing/suits/void/hegemony.dmi'
 	icon_state = "hegemony-voidhelm"
-	item_state = "hegemony-voidhelm_item"
+	item_state = "hegemony-voidhelm"
+	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -180,37 +179,37 @@
 	name = "hegemony specialist voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a green insignia, marking the wearer as a specialist within the Izweski Navy."
 	icon_state = "hegemony-voidsuit-spec"
-	item_state = "hegemony-voidsuit-spec_item"
+	item_state = "hegemony-voidsuit-spec"
 
 /obj/item/clothing/head/helmet/space/void/hegemony/specialist
 	name = "hegemony specialist helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a green insignia, marking the wearer as a specialist within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-spec"
-	item_state = "hegemony-voidhelm-spec_item"
+	item_state = "hegemony-voidhelm-spec"
 
 /obj/item/clothing/suit/space/void/hegemony/captain
 	name = "hegemony captain's voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a purple insignia, marking the wearer as a captain within the Izweski Navy."
 	icon_state = "hegemony-voidsuit-lead"
-	item_state = "hegemony-voidsuit-lead_item"
+	item_state = "hegemony-voidsuit-lead"
 
 /obj/item/clothing/head/helmet/space/void/hegemony/captain
 	name = "hegemony captain's helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a captain within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-lead"
-	item_state = "hegemony-voidhelm-lead_item"
+	item_state = "hegemony-voidhelm-lead"
 
 /obj/item/clothing/suit/space/void/hegemony/priest
 	name = "hegemony priest's voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a white insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
 	icon_state = "hegemony-voidsuit-priest"
-	item_state = "hegemony-voidsuit-priest_item"
+	item_state = "hegemony-voidsuit-priest"
 
 /obj/item/clothing/head/helmet/space/void/hegemony/priest
 	name = "hegemony priest's helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-priest"
-	item_state = "hegemony-voidhelm-priest_item"
+	item_state = "hegemony-voidhelm-priest"
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate voidsuit"
