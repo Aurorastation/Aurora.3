@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/void/sol
 	name = "gargoyle voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military."
-	icon = 'icons/obj/clothing/suits/void/sol.dmi'
+	icon = 'icons/clothing/suits/void/sol.dmi'
 	icon_state = "sol_helmet"
 	item_state = "sol_helmet"
 	contained_sprite = TRUE
@@ -23,7 +23,7 @@
 /obj/item/clothing/suit/space/void/sol
 	name = "gargoyle voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military."
-	icon = 'icons/obj/clothing/suits/void/sol.dmi'
+	icon = 'icons/clothing/suits/void/sol.dmi'
 	icon_state = "sol_suit"
 	item_state = "sol_suit"
 	contained_sprite = TRUE
