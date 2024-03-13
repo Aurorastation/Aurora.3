@@ -9544,8 +9544,9 @@
 "gua" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
-	pixel_y = 3
+	pixel_y = 8
 	},
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "gub" = (
@@ -21309,8 +21310,14 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/structure/table/steel,
-/obj/machinery/recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/obj/structure/table/rack,
+/obj/item/device/spaceflare,
+/obj/item/device/spaceflare,
+/obj/item/device/spaceflare,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "oDd" = (
