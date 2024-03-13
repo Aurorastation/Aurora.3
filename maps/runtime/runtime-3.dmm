@@ -1177,6 +1177,12 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"wN" = (
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "wY" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1838,6 +1844,12 @@
 	},
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)
+"KC" = (
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "KL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -39331,8 +39343,8 @@ JM
 BC
 Gn
 DN
-Na
-Na
+wN
+KC
 Uv
 pz
 Uv
