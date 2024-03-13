@@ -68,7 +68,7 @@
 /obj/item/clothing/head/helmet/space/void/unathi_pirate
 	name = "unathi raider helmet"
 	desc = "A cheap but effective helmet made to fit with a larger combat assembly."
-	icon = 'icons/clothing/suits/void/unathi_pirate.dmi'
+	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
 	icon_state = "rig0-unathipirate"
 	item_state = "rig0-unathipirate"
 	contained_sprite = TRUE
@@ -88,7 +88,7 @@
 /obj/item/clothing/suit/space/void/unathi_pirate
 	name = "unathi raider voidsuit"
 	desc = "A well-balanced combat voidsuit made by and for Unathi. The cheap but effective design makes it a popular choice amongst pirates and the likes."
-	icon = 'icons/clothing/suits/void/unathi_pirate.dmi'
+	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
 	icon_state = "rig-unathipirate"
 	item_state = "rig-unathipirate"
 	contained_sprite = TRUE
@@ -135,7 +135,7 @@
 /obj/item/clothing/suit/space/void/hegemony
 	name = "hegemony military voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. The standard spacefaring attire of the Izweski Hegemony Navy."
-	icon = 'icons/clothing/suits/void/hegemony.dmi'
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidsuit"
 	item_state = "hegemony-voidsuit_item"
 
@@ -156,7 +156,7 @@
 /obj/item/clothing/head/helmet/space/void/hegemony
 	name = "hegemony military helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. Usually seen on soldiers of the Izweski Hegemony Navy."
-	icon = 'icons/clothing/suits/void/hegemony.dmi'
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidhelm"
 	item_state = "hegemony-voidhelm"
 	contained_sprite = TRUE

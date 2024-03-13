@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/void/sol
 	name = "gargoyle voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military."
-	icon = 'icons/clothing/suits/void/sol.dmi'
+	icon = 'icons/obj/clothing/voidsuit/sol.dmi'
 	icon_state = "sol_helmet"
 	item_state = "sol_helmet"
 	contained_sprite = TRUE
@@ -23,7 +23,7 @@
 /obj/item/clothing/suit/space/void/sol
 	name = "gargoyle voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military."
-	icon = 'icons/clothing/suits/void/sol.dmi'
+	icon = 'icons/obj/clothing/voidsuit/sol.dmi'
 	icon_state = "sol_suit"
 	item_state = "sol_suit"
 	contained_sprite = TRUE
@@ -46,7 +46,7 @@
 	name = "coalition vulture voidsuit helmet"
 	desc = "A helmet resembling an avian, built for the All-Xanu Grand Army and the Frontier Rangers. Heavy and plated with plasteel across its faces."
 	desc_extended = "The dNAXS-02 \"Vulture\" suit (formerly designated the dNXS-2) was designed by de Namur Defense Systems on Xanu in 2291, to provide the All-Xanu Grand Army with a modern voidsuit using the lessons learned from the then-recently ended Interstellar War. This model of voidsuit, designed to look like an avian, has been extremely successful and has been exported across the Coalition of Colonies and beyond. These wildly successful voidsuits are still produced to this day by de Namur's successor company, d.N.A Defense & Aerospace."
-	icon = 'icons/clothing/suits/void/coalition.dmi'
+	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "vulture_helmet"
 	item_state = "vulture_helmet"
 	contained_sprite = TRUE
@@ -72,7 +72,7 @@
 	name = "coalition vulture voidsuit"
 	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. It sees use to this day all throughout the Coalition of Colonies."
 	desc_extended = "The dNAXS-02 \"Vulture\" suit (formerly designated the dNXS-2) was designed by de Namur Defense Systems on Xanu in 2291, to provide the All-Xanu Grand Army with a modern voidsuit using the lessons learned from the then-recently ended Interstellar War. This model of voidsuit, designed to look like an avian, has been extremely successful and has been exported across the Coalition of Colonies and beyond. These wildly successful voidsuits are still produced to this day by de Namur's successor company, d.N.A Defense & Aerospace."
-	icon = 'icons/clothing/suits/void/coalition.dmi'
+	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "vulture"
 	item_state = "vulture"
 	contained_sprite = TRUE
@@ -163,7 +163,7 @@
 	desc = "A slot-eyed space helmet, sleek and designed for military purposes. Colored in Elyran military camouflage."
 	icon_state = "valkyrie_helmet"
 	item_state = "valkyrie_helmet"
-	icon = 'icons/clothing/suits/void/elyra.dmi'
+	icon = 'icons/obj/clothing/voidsuit/elyra.dmi'
 	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
@@ -185,7 +185,7 @@
 	desc = "A pricey specialist voidsuit designed for atmospheric long jumping and combat. Colored in Elyran military camouflage."
 	icon_state = "valkyrie"
 	item_state = "valkyrie"
-	icon = 'icons/clothing/suits/void/elyra.dmi'
+	icon = 'icons/obj/clothing/voidsuit/elyra.dmi'
 	contained_sprite = TRUE
 	slowdown = 1
 	armor = list(
@@ -256,7 +256,7 @@
 /obj/item/clothing/head/helmet/space/void/einstein
 	name = "banshee infiltration suit helmet"
 	desc = "A sleek, menacing voidsuit helmet with the branding of Taipei Engineering Industrial's private military contractors."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "bansheehelm"
 	item_state = "bansheehelm"
 	contained_sprite = 1
@@ -281,7 +281,7 @@
 /obj/item/clothing/suit/space/void/einstein
 	name = "banshee infiltration suit"
 	desc = "A tightly-fitting suit manufactured with shimmering, ablative plating. Looks almost weightless."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "banshee"
 	item_state = "banshee"
 	contained_sprite = 1
@@ -306,7 +306,7 @@
 /obj/item/clothing/head/helmet/space/void/zenghu
 	name = "dragon biohazard suit helmet"
 	desc = "A lightweight form-fitting helmet with sparse plating and weird, bug-like goggles."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "dragonhelm"
 	item_state = "dragonhelm"
 	contained_sprite = 1
@@ -334,7 +334,7 @@
 /obj/item/clothing/suit/space/void/zenghu
 	name = "dragon biohazard control suit"
 	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "dragon"
 	item_state = "dragon"
 	contained_sprite = 1
@@ -362,7 +362,7 @@
 /obj/item/clothing/head/helmet/space/void/hephaestus
 	name = "caiman drop suit helmet"
 	desc = "A massively heavy helmet, part of a larger terraforming suit assembly."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "caimanhelm"
 	item_state = "caimanhelm"
 	contained_sprite = 1
@@ -390,7 +390,7 @@
 /obj/item/clothing/suit/space/void/hephaestus
 	name = "caiman drop suit"
 	desc = "A superheavy Hephaestus designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "caiman"
 	item_state = "caiman"
 	contained_sprite = 1
@@ -418,7 +418,7 @@
 /obj/item/clothing/head/helmet/space/void/zavodskoi
 	name = "revenant suit helmet"
 	desc = "A scary-looking helmet with blood red optics."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "revenanthelm"
 	item_state = "revenanthelm"
 	contained_sprite = 1
@@ -442,7 +442,7 @@
 /obj/item/clothing/suit/space/void/zavodskoi
 	name = "revenant combat suit"
 	desc = "A robust skirmishing suit with lightweight plating. It is branded with Kumar Arms logos, a subsidiary of Zavodskoi Interstellar. It looks very portable."
-	icon = 'icons/clothing/suits/void/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "revenant"
 	item_state = "revenant"
 	contained_sprite = 1
@@ -508,7 +508,7 @@
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"
 	desc = "A glamorous, decorated helmet with thick plating across its faces. It holds the emblematic markings of the Empire of Dominia, if its design wasn't unmistakable enough."
-	icon = 'icons/clothing/suits/void/dominia.dmi'
+	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
 	icon_state = "dvoidsuithelm"
 	item_state = "dvoidsuithelm"
 	contained_sprite = 1
@@ -540,7 +540,7 @@
 /obj/item/clothing/suit/space/void/dominia
 	name = "dominian prejoroub combat suit"
 	desc = "An offshoot of the Coalition's vulture suit design, painted in Dominian colors with portability and maneuverability in mind over its bulkier counterpart."
-	icon = 'icons/clothing/suits/void/dominia.dmi'
+	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
 	icon_state = "dvoidsuit"
 	item_state = "dvoidsuit"
 	contained_sprite = 1
@@ -574,7 +574,7 @@
 /obj/item/clothing/head/helmet/space/void/golden_deep
 	name = "golden helmet"
 	desc = "A glamorous, decorated helmet plated with gold. Very hefty."
-	icon = 'icons/clothing/suits/void/golden_deep.dmi'
+	icon = 'icons/obj/clothing/voidsuit/golden_deep.dmi'
 	icon_state = "goldhelm"
 	item_state = "goldhelm"
 	contained_sprite = 1
@@ -595,7 +595,7 @@
 /obj/item/clothing/suit/space/void/golden_deep
 	name = "golden suit"
 	desc = "A very heavy, gold-plated suit. Fabulous!"
-	icon = 'icons/clothing/suits/void/golden_deep.dmi'
+	icon = 'icons/obj/clothing/voidsuit/golden_deep.dmi'
 	icon_state = "goldsuit"
 	item_state = "goldsuit"
 	contained_sprite = 1
@@ -702,7 +702,7 @@
 	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors. It quickly found purchase among \
 	Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/clothing/suits/void/himeotaj.dmi'
+	icon = 'icons/obj/clothing/voidsuit/himeotaj.dmi'
 	icon_state = "rig0-himeotaj"
 	item_state = "rig0-himeotaj"
 	item_state_slots = list(
@@ -719,7 +719,7 @@
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
 	Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/clothing/suits/void/himeotaj.dmi'
+	icon = 'icons/obj/clothing/voidsuit/himeotaj.dmi'
 	item_state = "rig-himeotaj"
 	icon_state = "rig-himeotaj"
 	item_state_slots = list(
@@ -735,7 +735,7 @@
 	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life \
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors. It quickly found purchase among \
 	Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/clothing/suits/void/himeotaj.dmi'
+	icon = 'icons/obj/clothing/voidsuit/himeotaj.dmi'
 	icon_state = "rig0-himeotaj-engineering"
 	item_state = "rig0-himeotaj-engineering"
 	item_state_slots = list(
@@ -753,7 +753,7 @@
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
 	Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/clothing/suits/void/himeotaj.dmi'
+	icon = 'icons/obj/clothing/voidsuit/himeotaj.dmi'
 	item_state = "rig-himeotaj-engineering"
 	icon_state = "rig-himeotaj-engineering"
 	item_state_slots = list(
@@ -769,7 +769,7 @@
 	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life \
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors. It quickly found purchase among \
 	Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/clothing/suits/void/himeotaj.dmi'
+	icon = 'icons/obj/clothing/voidsuit/himeotaj.dmi'
 	icon_state = "rig0-himeotaj-engineering"
 	item_state = "rig0-himeotaj-engineering"
 	item_state_slots = list(
@@ -787,7 +787,7 @@
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
 	Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/clothing/suits/void/himeotaj.dmi'
+	icon = 'icons/obj/clothing/voidsuit/himeotaj.dmi'
 	item_state = "rig-himeotaj-engineering"
 	icon_state = "rig-himeotaj-engineering"
 	item_state_slots = list(
@@ -943,7 +943,7 @@
 /obj/item/clothing/suit/space/void/tcaf
 	name = "tau ceti armed forces voidsuit"
 	desc = "A Zavodskoi-manufactured combat voidsuit designed for the Tau Ceti Armed Forces, the Type-37 \"Aegis\" is now the primary armored voidsuit in use by the Republic of Biesel."
-	icon = 'icons/clothing/suits/void/tcaf.dmi'
+	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
 	icon_state = "tcaf_suit"
 	item_state = "tcaf_suit"
 	armor = list(
@@ -967,7 +967,7 @@
 /obj/item/clothing/head/helmet/space/void/tcaf
 	name = "tau ceti armed forces voidsuit helmet"
 	desc = "A Zavodskoi-designed armored voidsuit helmet, painted in the colors of the Republic of Biesel. Commonly seen in use by personnel of the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/suits/void/tcaf.dmi'
+	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
 	icon_state = "tcaf_helmet"
 	item_state = "tcaf_helmet"
 	armor = list(
