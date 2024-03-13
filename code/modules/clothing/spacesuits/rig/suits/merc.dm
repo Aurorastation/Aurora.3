@@ -141,7 +141,7 @@
 /obj/item/rig/merc/einstein/ninja
 	initial_modules = list(
 		/obj/item/rig_module/power_sink,
-		/obj/item/rig_module/mounted/ion,
+		/obj/item/rig_module/mounted/energy/ion,
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/maneuvering_jets,
@@ -149,7 +149,7 @@
 		/obj/item/rig_module/vision/multi,
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/device/door_hack,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/chem_dispenser/combat
 	)

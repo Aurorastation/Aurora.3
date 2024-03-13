@@ -68,7 +68,7 @@
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/door_hack,
-		/obj/item/rig_module/mounted/energy_blade
+		/obj/item/rig_module/mounted/energy/energy_blade
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
@@ -101,7 +101,7 @@
 	req_access = list(ACCESS_LEGION)
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/mounted/smg,
+		/obj/item/rig_module/mounted/ballistic/smg,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/grenade_launcher,
