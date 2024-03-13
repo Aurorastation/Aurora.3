@@ -30629,7 +30629,6 @@
 /area/centcom/distress_prep)
 "bxn" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/landable/raskolnikov,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bxv" = (
@@ -39050,6 +39049,10 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
+"poR" = (
+/obj/effect/overmap/visitable/ship/landable/raskolnikov,
+/turf/unsimulated/mineral/asteroid,
+/area/template_noop)
 "ppx" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
@@ -39605,6 +39608,12 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"rqL" = (
+/turf/unsimulated/wall/riveted{
+	opacity = 0;
+	permit_ao = 0
+	},
+/area/template_noop)
 "rrI" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain{
@@ -83245,7 +83254,7 @@ aam
 aam
 aam
 aam
-aam
+rqL
 aam
 aam
 aam
@@ -83501,9 +83510,9 @@ aam
 aam
 aam
 aam
-aam
-aam
-aam
+rqL
+poR
+rqL
 aam
 aam
 aam
@@ -83759,7 +83768,7 @@ aam
 aam
 aam
 aam
-aam
+rqL
 aam
 aam
 aam
