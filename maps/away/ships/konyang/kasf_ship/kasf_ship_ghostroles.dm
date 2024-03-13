@@ -35,6 +35,11 @@
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_SELF
+		tag.citizenship_info = CITIZENSHIP_COALITION
 
 /obj/outfit/admin/kasf_crewman/get_id_access()
 	return list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
