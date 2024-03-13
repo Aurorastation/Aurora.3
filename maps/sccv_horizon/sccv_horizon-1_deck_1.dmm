@@ -6716,7 +6716,7 @@
 	dir = 4;
 	id_tag = "riso2";
 	name = "Isolation B";
-	req_access = list(65)
+	req_access = list(47)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "iso_b";
@@ -9473,7 +9473,7 @@
 "gsc" = (
 /obj/machinery/door/window/southleft{
 	name = "Artifact Storage";
-	req_access = list(65)
+	req_access = list(47)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -12640,7 +12640,7 @@
 	name = "PURGE Atmosphere";
 	pixel_x = 28;
 	pixel_y = -26;
-	req_access = list(65)
+	req_access = list(47)
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -12648,7 +12648,7 @@
 	name = "Blast Door Control";
 	pixel_x = 22;
 	pixel_y = -36;
-	req_access = list(65)
+	req_access = list(47)
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 4;
@@ -12656,7 +12656,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 22;
 	pixel_y = -25;
-	req_access = list(65);
+	req_access = list(47);
 	specialfunctions = 4
 	},
 /obj/machinery/atmospherics/valve/digital/open{
@@ -12955,8 +12955,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "iUb" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/structure/table/rack,
+/obj/structure/hivebot_head{
+	pixel_y = 15;
+	pixel_x = -3
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southleft{
+	name = "Artifact Storage";
+	req_access = list(47)
+	},
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_b)
 "iUg" = (
@@ -35207,7 +35223,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/custodial)
 "xVn" = (
-/obj/structure/anomaly_container,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_b)
