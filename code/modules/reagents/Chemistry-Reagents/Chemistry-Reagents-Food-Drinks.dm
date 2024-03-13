@@ -3251,8 +3251,8 @@
 /singleton/reagent/alcohol/twentytwo
 	name = "Twenty-Two Seventy Five"
 	description = "The king of brandy. Found in every bar on Xanu Prime, and every capital ship in the Coalition of Colonies."
-	taste_description = "sweet, oaken wine"
-	strength = 40
+	taste_description = "subtly sweet wine, with notes of oak and fruit"
+	strength = 35
 
 	glass_icon_state = "brandyglass"
 	glass_name = "glass of 2275"
@@ -3272,6 +3272,7 @@
 	name = "Gadpathurian Feni"
 	description = "The only liquor manufactured on Gadpathur, feni is a liquor originating in the Goa region of India and typically brewed from coconut sap, palm sap, or cashews. Typically issued as a morale supplement on celebratory occasions, the Planetary Defense Council has yet to disclose what this is precisely made from."
 	taste_description = "fruity biodiesel"
+	strength = 55
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of feni"
