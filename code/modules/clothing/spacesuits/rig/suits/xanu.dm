@@ -18,7 +18,7 @@
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/electrowarfare_suite,
