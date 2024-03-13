@@ -41,7 +41,7 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/recharger,
-		/obj/item/rig_module/mounted/skrell_gun
+		/obj/item/rig_module/mounted/energy/skrell_gun
 		)
 
 /obj/item/rig/skrell/equipped/merc
@@ -92,7 +92,7 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/teleporter/skrell,
-		/obj/item/rig_module/mounted/skrell_gun,
+		/obj/item/rig_module/mounted/energy/skrell_gun,
 		/obj/item/rig_module/stealth_field
 		)
 
