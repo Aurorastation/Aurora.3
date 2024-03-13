@@ -24,7 +24,7 @@
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost"
-	color = "#bbb186"
+	color = "#a2a8aa"
 	designer = "Unknown"
 	volume = "78 meters length, 133 meters beam/width, 24 meters vertical height"
 	weapons = "Not apparent"
