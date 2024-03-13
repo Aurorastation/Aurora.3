@@ -1506,7 +1506,7 @@
 	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
 
-	if(species.character_creation_psi_points && species.has_psionics)
+	if(psi && species.character_creation_psi_points && species.has_psionics)
 		psi.psi_points = max(species.character_creation_psi_points - psi.spent_psi_points, 0) //to prevent species-switching for more points
 
 	if(client)

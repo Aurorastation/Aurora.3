@@ -86,7 +86,7 @@
 	O.desc = "Your second grip on \the [initial(name)]."
 	user.put_in_inactive_hand(O)
 
-/obj/item/cargo_package/dropped(var/mob/living/user)
+/obj/item/cargo_package/dropped(mob/user)
 	..()
 	item_state = initial(item_state)
 	if(user)
