@@ -30,6 +30,7 @@
 		"nav_horizon_hangar_2",
 		NAV_HORIZON_DOCK_ALL,
 		NAV_HORIZON_EXTERIOR_ALL_DECKS,
+		NAV_HORIZON_EXTERIOR_ALL_SNEAKY,
 	)
 
 	tracked_dock_tags = list(

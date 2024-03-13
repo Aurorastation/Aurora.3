@@ -23443,9 +23443,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bfX" = (
-/obj/machinery/atmospherics/binary/pump/high_power/on{
-	dir = 2
-	},
+/obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "bfY" = (
@@ -36276,6 +36274,12 @@
 "gsd" = (
 /turf/simulated/floor/exoplanet/ice,
 /area/centcom/shared_dream)
+"guD" = (
+/turf/unsimulated/wall/riveted{
+	opacity = 0;
+	permit_ao = 0
+	},
+/area/template_noop)
 "gvT" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/flare/torch,
@@ -39049,10 +39053,6 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
-"poR" = (
-/obj/effect/overmap/visitable/ship/landable/raskolnikov,
-/turf/unsimulated/mineral/asteroid,
-/area/template_noop)
 "ppx" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
@@ -39608,12 +39608,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
-"rqL" = (
-/turf/unsimulated/wall/riveted{
-	opacity = 0;
-	permit_ao = 0
-	},
-/area/template_noop)
 "rrI" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain{
@@ -40024,6 +40018,10 @@
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"tsG" = (
+/obj/effect/overmap/visitable/ship/landable/raskolnikov,
+/turf/unsimulated/mineral/asteroid,
+/area/template_noop)
 "tvi" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/tiled/ramp{
@@ -83254,7 +83252,7 @@ aam
 aam
 aam
 aam
-rqL
+guD
 aam
 aam
 aam
@@ -83510,9 +83508,9 @@ aam
 aam
 aam
 aam
-rqL
-poR
-rqL
+guD
+tsG
+guD
 aam
 aam
 aam
@@ -83768,7 +83766,7 @@ aam
 aam
 aam
 aam
-rqL
+guD
 aam
 aam
 aam
