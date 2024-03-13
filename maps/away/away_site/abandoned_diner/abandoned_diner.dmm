@@ -52,7 +52,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aaf" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -3
@@ -80,6 +80,10 @@
 /area/abandoned_diner/crew_quarters)
 "aah" = (
 /obj/random/dirt_75,
+/obj/item/trash/match{
+	pixel_y = 9;
+	pixel_x = 11
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aai" = (
@@ -156,7 +160,7 @@
 	icon_state = "pipe-j2"
 	},
 /obj/structure/bed/stool/chair/folding{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
@@ -450,6 +454,7 @@
 	pixel_y = 2;
 	pixel_x = -9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "abn" = (
@@ -563,6 +568,7 @@
 	pixel_y = 15;
 	pixel_x = 11
 	},
+/obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "abQ" = (
@@ -919,6 +925,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/item/reagent_containers/glass/fertilizer/ez{
+	pixel_y = 16;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "adw" = (
@@ -971,6 +981,13 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
 /turf/simulated/floor/marble,
 /area/abandoned_diner/crew_quarters)
 "afF" = (
@@ -1130,11 +1147,16 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/wirecutters/clippers,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "amB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/rfd,
+/obj/structure/closet/crate/hydroponics/prespawned,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "amF" = (
@@ -1214,7 +1236,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/kitchen)
 "aoN" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -3
@@ -1263,7 +1285,6 @@
 "aqo" = (
 /obj/structure/table/glass,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/item/paper_bin{
 	pixel_y = 4;
 	pixel_x = -4
@@ -1275,7 +1296,7 @@
 /obj/item/pen/multi{
 	pixel_y = 7
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "aqz" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -1298,7 +1319,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "arF" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -1311,6 +1332,10 @@
 	pixel_x = -10
 	},
 /obj/random/dirt_75,
+/obj/item/storage/box/fancy/matches{
+	pixel_x = 6;
+	pixel_y = 3
+	},
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "arW" = (
@@ -1327,7 +1352,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "asJ" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor,
 /obj/item/trash/plate{
 	pixel_y = 4;
@@ -1336,15 +1361,9 @@
 /obj/item/broken_bottle,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
-"asP" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/abandoned_diner/hydroponics)
 "atg" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/item/modular_computer/console/preset/civilian,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "atN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1403,7 +1422,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "avW" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/item/trash/plate{
@@ -1438,6 +1457,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
+"ayq" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/structure/sink/kitchen{
+	layer = 3.3;
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/dark,
+/area/abandoned_diner/hydroponics)
 "ayC" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1456,8 +1483,11 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "ayQ" = (
-/obj/structure/flora/pottedplant/dead,
 /obj/random/dirt_75,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "azn" = (
@@ -1482,7 +1512,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "azV" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_y = 13;
 	pixel_x = -12
@@ -1637,7 +1667,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "aEF" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -1670,6 +1700,7 @@
 	pixel_y = 12;
 	pixel_x = -4
 	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "aFW" = (
@@ -1679,8 +1710,7 @@
 /obj/machinery/papershredder{
 	pixel_x = 6
 	},
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "aGp" = (
 /obj/effect/floor_decal/corner_wide/blue{
@@ -1705,6 +1735,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -20
 	},
+/obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -1792,6 +1823,9 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/alarm/north,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/marble,
 /area/abandoned_diner/crew_quarters)
 "aIH" = (
@@ -1861,7 +1895,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_diner/maintenance)
 "aLh" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -1871,6 +1905,14 @@
 /obj/item/reagent_containers/food/drinks/cans/space_up{
 	pixel_y = 4;
 	pixel_x = -5
+	},
+/obj/item/trash/match{
+	pixel_y = 8;
+	pixel_x = 3
+	},
+/obj/item/trash/match{
+	pixel_y = 17;
+	pixel_x = 7
 	},
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
@@ -1895,6 +1937,7 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed,
+/obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "aLy" = (
@@ -2031,15 +2074,17 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "aPw" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "aPZ" = (
 /obj/structure/bed/stool/chair/sofa/right/red{
@@ -2125,7 +2170,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/sign/staff_only{
-	pixel_y = 32
+	pixel_y = 32;
+	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
@@ -2196,9 +2242,8 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
-/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/turf/simulated/floor/tiled/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "aZe" = (
 /obj/machinery/biogenerator{
@@ -2244,6 +2289,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "boh" = (
@@ -2283,6 +2329,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
+"bFu" = (
+/obj/effect/shuttle_landmark/abandoned_diner/space/west_2,
+/turf/template_noop,
+/area/space)
 "bGi" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -2290,6 +2340,10 @@
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/abandoned_diner/maintenance)
+"bHd" = (
+/obj/effect/shuttle_landmark/abandoned_diner/space/west_1,
+/turf/template_noop,
+/area/space)
 "bLE" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/cable/green{
@@ -2304,6 +2358,18 @@
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
+/obj/structure/closet/walllocker{
+	pixel_x = 32;
+	name = "toiletries cabinet"
+	},
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothbrush/red,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/random/soap,
 /turf/simulated/floor/marble,
 /area/abandoned_diner/crew_quarters)
 "bLZ" = (
@@ -2379,6 +2445,9 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/abandoned_diner/dock_a2{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "ctO" = (
@@ -2476,6 +2545,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "dkf" = (
@@ -2504,16 +2574,10 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/abandoned_diner/docking/a)
 "dru" = (
-/obj/structure/mirror{
-	pixel_y = 29
-	},
-/obj/structure/sink{
-	pixel_y = 21
-	},
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
 /obj/random/dirt_75,
+/obj/machinery/washing_machine{
+	pixel_y = 13
+	},
 /turf/simulated/floor/marble,
 /area/abandoned_diner/crew_quarters)
 "duI" = (
@@ -2525,11 +2589,9 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "dDK" = (
-/obj/effect/shuttle_landmark/abandoned_diner/dock_a2{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
+/obj/random/dirt_75,
+/turf/simulated/wall,
+/area/abandoned_diner/docking/b)
 "dFV" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -2675,6 +2737,7 @@
 	pixel_y = 6;
 	pixel_x = 1
 	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/disposals)
 "esx" = (
@@ -2728,6 +2791,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
+"eBD" = (
+/obj/random/dirt_75,
+/turf/simulated/wall,
+/area/abandoned_diner/crew_quarters)
 "eCc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/segment{
@@ -2910,6 +2977,7 @@
 	},
 /obj/random/dirt_75,
 /obj/item/reagent_containers/inhaler/raskara_dust,
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "fBF" = (
@@ -2973,6 +3041,7 @@
 /obj/random/dirt_75,
 /obj/structure/table/rack,
 /obj/random/loot,
+/obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/plasteel/full,
 /turf/simulated/floor/plating,
@@ -3064,7 +3133,7 @@
 	},
 /area/abandoned_diner/freezer)
 "gGi" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -3185,9 +3254,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
-"hIo" = (
-/turf/template_noop,
-/area/abandoned_diner/maintenance)
 "hLA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3213,11 +3279,14 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "hUD" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/alarm/north,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "hWy" = (
@@ -3306,6 +3375,7 @@
 	pixel_y = 8;
 	pixel_x = 12
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "iru" = (
@@ -3338,6 +3408,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -3347,18 +3418,19 @@
 /obj/structure/flora/pottedplant/dead,
 /obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/docking/b)
 "izx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
-	},
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "iBL" = (
@@ -3369,6 +3441,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
+"iNJ" = (
+/obj/random/dirt_75,
+/turf/simulated/wall,
+/area/abandoned_diner/freezer)
 "iQm" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -3451,13 +3527,16 @@
 /area/abandoned_diner/kitchen)
 "jtk" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "jzc" = (
-/obj/effect/shuttle_landmark/abandoned_diner/dock_a1,
-/turf/template_noop,
-/area/space)
+/obj/random/dirt_75,
+/turf/simulated/wall,
+/area/abandoned_diner/diner)
 "jAJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/disposal/small/east,
@@ -3547,7 +3626,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "kdy" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -3641,12 +3720,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
-"ksV" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/abandoned_diner/hydroponics)
 "kwn" = (
 /obj/machinery/power/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3747,6 +3820,7 @@
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "kLG" = (
@@ -3760,6 +3834,7 @@
 /obj/machinery/alarm/north,
 /obj/random/loot,
 /obj/random/loot,
+/obj/random/civgun,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "kRg" = (
@@ -3775,7 +3850,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "kRo" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
@@ -3808,7 +3883,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "kXY" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -4046,7 +4121,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "moa" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -4098,6 +4173,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
+"mNe" = (
+/obj/machinery/vending/dinnerware/metal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/abandoned_diner/diner)
 "mQq" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -4122,7 +4202,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "mTd" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
@@ -4152,11 +4232,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/machinery/alarm/north,
 /obj/machinery/photocopier,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "mVU" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
@@ -4164,7 +4243,6 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/random/mre,
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "mZJ" = (
@@ -4253,6 +4331,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/random/soap,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "nMy" = (
@@ -4305,6 +4384,15 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
+"nXC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/trash/match{
+	pixel_y = 8;
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_diner/docking/b)
 "nZO" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
@@ -4312,13 +4400,12 @@
 "oaX" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/structure/table/reinforced/steel,
-/obj/item/towel,
-/obj/item/towel{
-	pixel_y = 4
-	},
 /obj/machinery/light/colored/decayed{
 	dir = 1
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
 	},
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
@@ -4489,9 +4576,8 @@
 	pixel_y = 12;
 	pixel_x = -8
 	},
-/obj/item/reagent_containers/food/drinks/cans/thirteenloko{
-	pixel_y = 1;
-	pixel_x = -1
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur{
+	pixel_y = 2
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
@@ -4537,10 +4623,13 @@
 	pixel_x = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/abandoned_diner/dock_a1{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "pyE" = (
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -4840,8 +4929,13 @@
 	dir = 8;
 	pixel_x = 21
 	},
+/obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
+"rbf" = (
+/obj/effect/shuttle_landmark/abandoned_diner/space/east_2,
+/turf/template_noop,
+/area/space)
 "rcg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
@@ -4857,6 +4951,10 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
+"rwn" = (
+/obj/effect/shuttle_landmark/abandoned_diner/space/east_1,
+/turf/template_noop,
+/area/space)
 "rDz" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -4909,6 +5007,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "sem" = (
@@ -4952,10 +5051,10 @@
 "slM" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 7
-	},
-/obj/item/storage/toolbox/mechanical,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/rods/full,
+/obj/item/clothing/head/welding,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "ssF" = (
@@ -4970,6 +5069,10 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
+"sxs" = (
+/obj/effect/shuttle_landmark/abandoned_diner/space/north,
+/turf/template_noop,
+/area/space)
 "sxx" = (
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner_wide/dark_green{
@@ -4995,13 +5098,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "syd" = (
-/obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/disposal/small/east,
-/obj/structure/disposalpipe/trunk{
+/obj/random/dirt_75,
+/turf/simulated/wall,
+/area/abandoned_diner/maintenance)
+"sDC" = (
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/abandoned_diner/diner)
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/abandoned_diner/maintenance)
 "sEp" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped,
@@ -5011,7 +5118,7 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/seed,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "sLT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -5100,6 +5207,7 @@
 /obj/structure/closet/crate/loot,
 /obj/random/junk,
 /obj/random/junk,
+/obj/item/clothing/wrists/watch/leather,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "tvh" = (
@@ -5112,11 +5220,12 @@
 /area/abandoned_diner/hydroponics)
 "tvt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
+	dir = 5
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/machinery/light/colored/dying,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "tzW" = (
@@ -5147,6 +5256,10 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
+"tDO" = (
+/obj/random/dirt_75,
+/turf/simulated/wall,
+/area/abandoned_diner/restroom)
 "tGp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -5199,6 +5312,21 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
+"tMN" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/junction{
+	dir = 2;
+	icon_state = "pipe-j2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_diner/diner)
 "tNw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/overmap/visitable/sector/abandoned_diner,
@@ -5362,6 +5490,7 @@
 "vjA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "vmQ" = (
@@ -5400,6 +5529,9 @@
 /obj/machinery/atmospherics/pipe/tank/air,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/cobweb,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "vIf" = (
@@ -5432,20 +5564,9 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "vTb" = (
-/obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/junction{
-	dir = 2
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/abandoned_diner/diner)
+/turf/simulated/wall,
+/area/abandoned_diner/backroom)
 "vTV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5496,6 +5617,7 @@
 	dir = 4
 	},
 /obj/machinery/light/colored/decayed,
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "wle" = (
@@ -5507,14 +5629,10 @@
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/b)
 "wnX" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "wrk" = (
@@ -5560,7 +5678,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "wHZ" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
@@ -5584,9 +5702,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "wTm" = (
 /obj/item/trash/cigbutt{
@@ -5632,7 +5749,6 @@
 "xgS" = (
 /obj/structure/table/glass,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/item/gamehelm/green{
 	pixel_y = 5
 	},
@@ -5642,10 +5758,11 @@
 	pixel_x = 3
 	},
 /obj/item/clothing/ears/earmuffs/earphones,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "xjB" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "xsc" = (
@@ -5665,7 +5782,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "xsR" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
@@ -5683,8 +5800,13 @@
 /obj/random/dirt_75,
 /obj/structure/table/rack,
 /obj/random/hardhat,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 7
+	},
+/obj/item/storage/toolbox/mechanical,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
+/obj/item/stack/cable_coil/yellow,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "xtX" = (
@@ -5705,8 +5827,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
+"xyz" = (
+/obj/random/dirt_75,
+/turf/simulated/wall,
+/area/abandoned_diner/storage)
 "xzF" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor,
 /obj/item/trash/plate/steak{
 	pixel_y = 4
@@ -5775,8 +5901,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "ykd" = (
-/turf/simulated/floor/carpet/rubber,
-/area/abandoned_diner/crew_quarters)
+/obj/effect/shuttle_landmark/abandoned_diner/space/south,
+/turf/template_noop,
+/area/space)
 "ykL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12973,7 +13100,7 @@ atU
 atU
 atU
 atU
-atU
+bHd
 atU
 atU
 atU
@@ -13337,7 +13464,7 @@ atU
 atU
 atU
 atU
-atU
+bFu
 atU
 atU
 atU
@@ -22246,8 +22373,8 @@ aai
 kjZ
 kjZ
 pAj
-kjZ
-kjZ
+jzc
+jzc
 pAj
 kjZ
 kjZ
@@ -22455,7 +22582,7 @@ aUl
 csS
 moa
 uoC
-kjZ
+jzc
 aJI
 chw
 wAR
@@ -22464,7 +22591,7 @@ nma
 oHN
 hpR
 bbU
-jzc
+atU
 atU
 atU
 atU
@@ -22657,9 +22784,9 @@ aDw
 mVU
 aEF
 aDw
-kjZ
+jzc
 wle
-aZw
+nXC
 hav
 aAr
 gWf
@@ -22848,7 +22975,7 @@ tDJ
 kjZ
 axg
 gpX
-syd
+awo
 gqs
 boh
 pbv
@@ -23050,9 +23177,9 @@ ekA
 kjZ
 hUD
 kdW
-vTb
+mZJ
 aat
-fIO
+tMN
 mZJ
 mZJ
 aam
@@ -23061,7 +23188,7 @@ fIO
 mHo
 aaq
 kyw
-kjZ
+jzc
 kjZ
 kjZ
 sLT
@@ -23448,15 +23575,15 @@ eZu
 amB
 fKW
 tty
-qqH
+xyz
 qqH
 hdR
 kjZ
+jzc
 kjZ
+jzc
 kjZ
-kjZ
-kjZ
-kjZ
+jzc
 xsR
 kRo
 mTd
@@ -23648,8 +23775,8 @@ gVn
 gVn
 qqH
 qqH
-qqH
-qqH
+xyz
+xyz
 qqH
 dRH
 mhA
@@ -23657,7 +23784,7 @@ fMC
 alO
 aCN
 aWA
-tgg
+vTb
 aNP
 jAJ
 aEn
@@ -24453,15 +24580,15 @@ nZO
 nxh
 aal
 rFQ
-gVn
+syd
 aIm
 acc
 abw
 qWd
 faX
 faX
-faX
-faX
+iNJ
+iNJ
 faX
 faX
 ecB
@@ -24480,7 +24607,7 @@ lyT
 kjZ
 eCc
 aLm
-aak
+dDK
 aak
 aak
 atU
@@ -24656,9 +24783,9 @@ piK
 mHl
 mmM
 gVn
-tgg
+vTb
 otu
-tgg
+vTb
 tgg
 faX
 gAL
@@ -24682,7 +24809,7 @@ aPZ
 kjZ
 qlS
 aJX
-aak
+dDK
 atU
 atU
 atU
@@ -24857,12 +24984,12 @@ jFF
 qdP
 tHg
 meJ
-gVn
+syd
 fbo
 pTG
 tjn
 vXl
-faX
+iNJ
 aDn
 aNY
 gPl
@@ -25059,19 +25186,19 @@ aOY
 alQ
 tHg
 fPy
-gVn
+syd
 aNd
 qoh
 aad
 kqu
-faX
+iNJ
 mgO
 ibg
 aRc
 aGw
 faX
 abd
-tgg
+vTb
 aYp
 npK
 aVi
@@ -25269,11 +25396,11 @@ osR
 faX
 faX
 faX
-faX
-faX
-faX
+iNJ
+iNJ
+iNJ
 oMh
-tgg
+vTb
 auV
 qYC
 ayC
@@ -25281,10 +25408,10 @@ acP
 kjZ
 aml
 kjZ
-kjZ
-awn
-kjZ
-kjZ
+jzc
+mNe
+jzc
+jzc
 kjZ
 aNq
 acw
@@ -25467,7 +25594,7 @@ gVn
 bCH
 pTG
 abm
-kqu
+eBD
 kqu
 agR
 lEz
@@ -25522,7 +25649,7 @@ atU
 atU
 atU
 atU
-atU
+ykd
 atU
 atU
 atU
@@ -25668,7 +25795,7 @@ olp
 gVn
 sxx
 jWL
-ykd
+eth
 wGM
 kqu
 kIj
@@ -25685,7 +25812,7 @@ flP
 fpt
 ade
 aAg
-fpt
+tDO
 aCM
 fhW
 fpt
@@ -25871,8 +25998,8 @@ gVn
 aag
 tKM
 ahV
-kqu
-kqu
+eBD
+eBD
 agR
 aXo
 bid
@@ -26069,13 +26196,13 @@ rcN
 dbn
 wnX
 izx
-gVn
+syd
 acx
 ajD
 eth
 acf
-kqu
-cTr
+eBD
+ayq
 adl
 fuA
 acm
@@ -26089,7 +26216,7 @@ qfh
 fpt
 oaX
 ayQ
-fpt
+tDO
 atN
 frc
 fpt
@@ -26268,21 +26395,21 @@ atU
 atU
 gVn
 gVn
-gVn
-gVn
+syd
+sDC
 tvt
-gVn
+syd
 cDi
 aAj
 exs
 kqu
-kqu
+eBD
 wXB
 tvh
 agR
 bid
 tvh
-ksV
+bid
 nyp
 aZe
 ldL
@@ -26292,8 +26419,8 @@ fpt
 oDD
 oDD
 fpt
-fpt
-fpt
+tDO
+tDO
 fpt
 aak
 ach
@@ -26470,14 +26597,14 @@ atU
 atU
 atU
 bTa
-atU
+gVn
 gVn
 dHR
-gVn
+syd
 kqu
 fwU
-kqu
-kqu
+eBD
+eBD
 kqu
 bid
 nyp
@@ -26639,7 +26766,7 @@ atU
 atU
 atU
 atU
-atU
+sxs
 atU
 atU
 atU
@@ -26682,11 +26809,11 @@ aGu
 hks
 kqu
 mTq
-cTr
+tIz
 bid
 bvC
 tIz
-asP
+bid
 puc
 aKo
 ldL
@@ -26701,7 +26828,7 @@ atU
 atU
 atU
 atU
-dDK
+atU
 atU
 atU
 atU
@@ -27081,7 +27208,7 @@ gVn
 kKK
 gVn
 kqu
-kqu
+eBD
 kqu
 kqu
 kqu
@@ -27274,19 +27401,19 @@ atU
 atU
 atU
 atU
-hIo
-hIo
-hIo
-eJH
-hIo
+atU
+atU
+atU
+bTa
+atU
 aDi
 fps
 bGi
-hIo
-eJH
-hIo
-hIo
-hIo
+atU
+bTa
+atU
+atU
+atU
 atU
 atU
 atU
@@ -27474,8 +27601,8 @@ atU
 atU
 atU
 atU
-atU
-atU
+kwn
+kwn
 kwn
 kwn
 kwn
@@ -27489,8 +27616,8 @@ kwn
 kwn
 kwn
 kwn
-atU
-atU
+kwn
+kwn
 atU
 atU
 atU
@@ -27676,9 +27803,9 @@ atU
 atU
 atU
 atU
-atU
-atU
 ptN
+aEO
+aEO
 aEO
 aEO
 aEO
@@ -27690,9 +27817,9 @@ qYa
 qYa
 qYa
 qYa
+qYa
+qYa
 mkW
-atU
-atU
 atU
 atU
 atU
@@ -27878,8 +28005,8 @@ atU
 atU
 atU
 atU
-atU
-atU
+aKx
+aKx
 aKx
 aKx
 aKx
@@ -27893,8 +28020,8 @@ aKx
 aKx
 aKx
 aKx
-atU
-atU
+aKx
+aKx
 atU
 atU
 atU
@@ -28080,9 +28207,9 @@ atU
 atU
 atU
 atU
-atU
-atU
 ffm
+eJH
+eJH
 eJH
 eJH
 eJH
@@ -28094,9 +28221,9 @@ eJH
 eJH
 eJH
 eJH
+eJH
+eJH
 ffm
-atU
-atU
 atU
 atU
 atU
@@ -28282,8 +28409,8 @@ atU
 atU
 atU
 atU
-atU
-atU
+kwn
+kwn
 kwn
 kwn
 kwn
@@ -28297,8 +28424,8 @@ kwn
 kwn
 kwn
 kwn
-atU
-atU
+kwn
+kwn
 atU
 atU
 atU
@@ -28484,9 +28611,9 @@ atU
 atU
 atU
 atU
-atU
-atU
 ptN
+aEO
+aEO
 aEO
 aEO
 aEO
@@ -28498,9 +28625,9 @@ qYa
 qYa
 qYa
 qYa
+qYa
+qYa
 mkW
-atU
-atU
 atU
 atU
 atU
@@ -28686,8 +28813,8 @@ atU
 atU
 atU
 atU
-atU
-atU
+aKx
+aKx
 aKx
 aKx
 aKx
@@ -28701,8 +28828,8 @@ aKx
 aKx
 aKx
 aKx
-atU
-atU
+aKx
+aKx
 atU
 atU
 atU
@@ -28888,9 +29015,9 @@ atU
 atU
 atU
 atU
-atU
-atU
 ffm
+eJH
+eJH
 eJH
 eJH
 eJH
@@ -28902,9 +29029,9 @@ eJH
 eJH
 eJH
 eJH
+eJH
+eJH
 ffm
-atU
-atU
 atU
 atU
 atU
@@ -29090,8 +29217,8 @@ atU
 atU
 atU
 atU
-atU
-atU
+kwn
+kwn
 kwn
 kwn
 kwn
@@ -29105,8 +29232,8 @@ kwn
 kwn
 kwn
 kwn
-atU
-atU
+kwn
+kwn
 atU
 atU
 atU
@@ -29292,9 +29419,9 @@ atU
 atU
 atU
 atU
-atU
-atU
 ptN
+aEO
+aEO
 aEO
 aEO
 aEO
@@ -29306,9 +29433,9 @@ qYa
 qYa
 qYa
 qYa
+qYa
+qYa
 mkW
-atU
-atU
 atU
 atU
 atU
@@ -29494,8 +29621,8 @@ atU
 atU
 atU
 atU
-atU
-atU
+aKx
+aKx
 aKx
 aKx
 aKx
@@ -29509,8 +29636,8 @@ aKx
 aKx
 aKx
 aKx
-atU
-atU
+aKx
+aKx
 atU
 atU
 atU
@@ -29696,8 +29823,8 @@ atU
 atU
 atU
 atU
-atU
-atU
+eJH
+eJH
 eJH
 eJH
 eJH
@@ -29711,8 +29838,8 @@ eJH
 eJH
 eJH
 eJH
-atU
-atU
+eJH
+eJH
 atU
 atU
 atU
@@ -32330,7 +32457,7 @@ atU
 atU
 atU
 atU
-atU
+rwn
 atU
 atU
 atU
@@ -35782,7 +35909,7 @@ atU
 atU
 atU
 atU
-atU
+rbf
 atU
 atU
 atU
