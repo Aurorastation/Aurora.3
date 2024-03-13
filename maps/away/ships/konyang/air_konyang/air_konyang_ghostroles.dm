@@ -31,7 +31,7 @@
 	special_role = "Air Konyang Passenger"
 	outfit = /obj/outfit/admin/konyang/civ
 
-/obj/outfit/admin/air_konyang
+/obj/outfit/admin/konyang/air_konyang
 	name = "Air Konyang Crew"
 	uniform = /obj/item/clothing/under/sl_suit //placeholder until we get uniforms
 	shoes = /obj/item/clothing/shoes/laceup
