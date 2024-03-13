@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/kataphract
+/obj/outfit/admin/ert/kataphract
 	name = "Kataphract-Hopeful"
 
 	uniform = /obj/item/clothing/under/unathi
@@ -28,7 +28,7 @@
 
 	id_iff = IFF_KATAPHRACT
 
-/datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 		H.w_uniform.accent_color = H.w_uniform.color
@@ -36,10 +36,10 @@
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
-/datum/outfit/admin/ert/kataphract/get_id_access()
+/obj/outfit/admin/ert/kataphract/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/ert/kataphract/klax
+/obj/outfit/admin/ert/kataphract/klax
 	name = "Kataphract-Hopeful Klax"
 
 	uniform = /obj/item/clothing/under/vaurca
@@ -61,7 +61,7 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 3
 	)
 
-/datum/outfit/admin/ert/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
@@ -80,7 +80,7 @@
 	A.replaced(H, affected)
 	H.update_body()
 
-/datum/outfit/admin/ert/kataphract/specialist
+/obj/outfit/admin/ert/kataphract/specialist
 	name = "Kataphract-Hopeful Spec."
 
 	head = /obj/item/clothing/head/helmet/space/void/kataphract/spec
@@ -109,21 +109,21 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)
 
-/datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
-/datum/outfit/admin/ert/kataphract/leader
+/obj/outfit/admin/ert/kataphract/leader
 	name = "Kataphract Knight"
 
 	head = /obj/item/clothing/head/helmet/space/void/kataphract/lead
 	suit = /obj/item/clothing/suit/space/void/kataphract/lead
 	glasses = /obj/item/clothing/glasses/thermal
 
-/datum/outfit/admin/ert/kataphract/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/kataphract/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
