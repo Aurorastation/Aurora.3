@@ -166,6 +166,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
 	can_paint = TRUE
+	wall_smooth = SMOOTH_NONE
 	footstep_sound = /singleton/sound_category/tiles_footstep
 	has_damage_range = 4
 	has_burn_range = 1

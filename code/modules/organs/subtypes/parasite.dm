@@ -383,7 +383,7 @@
 		if(stage >= 2)
 			if(prob(2))
 				to_chat(owner, SPAN_WARNING("Your stomach churns, and you feel sick. Something tries to come up your throat, but nothing comes out..."))
-				owner.adjustToxLoss(5)
+				owner.adjustHalLoss(5)
 
 		if(stage >= 3)
 			if(prob(10))

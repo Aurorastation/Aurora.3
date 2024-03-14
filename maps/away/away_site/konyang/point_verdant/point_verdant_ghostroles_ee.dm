@@ -49,6 +49,7 @@
 	special_role = "Einstein Facility Scientist"
 	spawnpoints = list("ee_sci")
 	outfit = /obj/outfit/admin/raccoon_city/ee_scientist
+	respawn_flag = null
 
 /obj/effect/ghostspawpoint/ee_scientist
 	name = "igs - EE Scientist"
@@ -112,6 +113,7 @@
 	special_role = "Einstein Facility Director"
 	spawnpoints = list("ee_director")
 	outfit = /obj/outfit/admin/raccoon_city/ee_scientist/ee_labs_director
+	respawn_flag = null
 
 /obj/outfit/admin/raccoon_city/ee_scientist/ee_labs_director
 	name = "EE Facility Director"
@@ -148,6 +150,7 @@
 	special_role = "Einstein Facility Project Lead"
 	spawnpoints = list("ee_plead")
 	outfit = /obj/outfit/admin/raccoon_city/ee_scientist/ee_lead_scientist
+	respawn_flag = null
 
 /obj/outfit/admin/raccoon_city/ee_scientist/ee_lead_scientist
 	name = "EE Lead Scientist"
@@ -185,6 +188,7 @@
 	special_role = "Einstein Facility Intern"
 	spawnpoints = list("ee_intern")
 	outfit = /obj/outfit/admin/raccoon_city/ee_intern
+	respawn_flag = null
 
 /obj/outfit/admin/raccoon_city/ee_intern
 	name = "EE Intern"
@@ -216,6 +220,7 @@
 	special_role = "ee_guard Facility Guard"
 	spawnpoints = list("ee_guard")
 	outfit = /obj/outfit/admin/raccoon_city/ee_guard
+	respawn_flag = null
 
 /obj/effect/ghostspawpoint/ee_guard
 	name = "igs - EE Guard"
@@ -263,6 +268,8 @@
 	special_role = "Patient Zero"
 	spawnpoints = list("ee_ashley")
 	outfit = /obj/outfit/admin/raccoon_city/patient_zero
+	max_count = 1
+	respawn_flag = null
 
 /obj/outfit/admin/raccoon_city/patient_zero
 	name = "Patient Zero"
@@ -294,6 +301,7 @@
 	special_role = "ee_engineer Facility Engineer"
 	spawnpoints = list("ee_engineer")
 	outfit = /obj/outfit/admin/raccoon_city/ee_engineer
+	respawn_flag = null
 
 /obj/effect/ghostspawpoint/ee_engineer
 	name = "igs - EE Engineer"
@@ -347,6 +355,7 @@
 	special_role = "ee_machinist Facility Machinist"
 	spawnpoints = list("ee_machinist")
 	outfit = /obj/outfit/admin/raccoon_city/ee_machinist
+	respawn_flag = null
 
 /obj/effect/ghostspawpoint/ee_machinist
 	name = "igs - EE Machinist"
@@ -391,6 +400,7 @@
 	special_role = "ee_synth Facility Synth"
 	spawnpoints = list("ee_synth")
 	outfit = /obj/outfit/admin/raccoon_city/ee_synth
+	respawn_flag = null
 
 /obj/effect/ghostspawpoint/ee_synth
 	name = "igs - EE Synth"

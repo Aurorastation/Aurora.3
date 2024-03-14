@@ -3,7 +3,7 @@
 	config_tag = "outbreak"
 	required_players = 0
 	required_enemies = 0
-	round_description = "Your survival is not guaranteed."
+	round_description = "There goes your vacation. Again."
 	extended_round_description = "Complete. Global. Saturation."
 	antag_tags = list(MODE_OUTBREAK)
 	votable = 0

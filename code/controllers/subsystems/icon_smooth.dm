@@ -116,7 +116,7 @@ SUBSYSTEM_DEF(icon_smooth)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	for(var/atom/neighbor as anything in orange(1,thing))
-		if(!QDELETED(neighbor) && neighbor.smoothing_flags)
+		if(!QDELETED(neighbor) && (neighbor.smoothing_flags != SMOOTH_NONE))
 			SSICONSMOOTH_ADD_TO_QUEUE(neighbor)
 
 /datum/controller/subsystem/icon_smooth/proc/remove_from_queues(atom/thing)

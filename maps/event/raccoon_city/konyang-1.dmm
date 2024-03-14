@@ -1784,6 +1784,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
+"bBU" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/ghostspawpoint/ee_lead_scientist,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "bCl" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -3551,9 +3556,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "dka" = (
-/mob/living/simple_animal/hostile/ipc_zombie{
-	dir = 2
-	},
+/obj/effect/ghostspawpoint/ashley,
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
 "dkg" = (
@@ -4039,6 +4042,13 @@
 /obj/item/herb,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/bar)
+"dGT" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint/ee_scientist,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "dHa" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -4065,7 +4075,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/item/reagent_containers/glass/bottle/trioxin,
+/obj/item/device/binoculars,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "dIb" = (
@@ -4550,6 +4560,7 @@
 /area/point_verdant/interior)
 "ecA" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/ghostspawpoint/ee_director,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "edw" = (
@@ -5794,6 +5805,13 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
+"ftv" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint/ee_intern,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "ftR" = (
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -7366,6 +7384,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
+"gOe" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint/ee_guard,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "gPg" = (
 /obj/structure/table/stone/marble,
 /obj/structure/window/reinforced,
@@ -13375,6 +13400,16 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/hotel)
+"mgx" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/obj/structure/sink{
+	pixel_y = 24
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "mgE" = (
 /obj/structure/table/rack/clothing{
 	dir = 4;
@@ -14415,6 +14450,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"naM" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "nbF" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -44484,7 +44524,7 @@ kxV
 rwM
 aUn
 hCx
-oCI
+gOe
 tQE
 kxV
 muQ
@@ -44741,7 +44781,7 @@ imQ
 cTW
 aUn
 ngf
-oCI
+gOe
 ixf
 imQ
 qga
@@ -45255,7 +45295,7 @@ ixi
 rwM
 iOm
 kGm
-oCI
+ftv
 tQE
 kxV
 elM
@@ -45510,7 +45550,7 @@ rwM
 isR
 odb
 rwM
-aUn
+bBU
 xUl
 oCI
 tQE
@@ -45769,7 +45809,7 @@ rJb
 edQ
 aUn
 exy
-oCI
+dGT
 jlx
 rJb
 fqA
@@ -46026,7 +46066,7 @@ kxV
 rwM
 aUn
 rff
-oCI
+dGT
 tQE
 kxV
 muQ
@@ -51158,16 +51198,16 @@ orI
 orI
 muQ
 xze
-dka
+xze
+xze
+muQ
+naM
+xze
 xze
 muQ
 xze
 xze
-xze
-muQ
-xze
-dka
-xze
+pyQ
 muQ
 irw
 irw
@@ -51416,11 +51456,11 @@ orI
 muQ
 kop
 xze
-xze
-muQ
-kop
-xze
 pyQ
+muQ
+mgx
+dka
+xze
 muQ
 kop
 xze
@@ -51679,7 +51719,7 @@ bxA
 bxA
 bxA
 muQ
-bxA
+sFX
 bxA
 bxA
 muQ
@@ -52183,7 +52223,7 @@ muQ
 xgn
 xze
 nvt
-tfB
+gFY
 lAv
 wFM
 qKi
@@ -52438,7 +52478,7 @@ muQ
 orI
 muQ
 rXO
-dka
+pyQ
 xze
 tfB
 tUH
@@ -53466,8 +53506,8 @@ muQ
 orI
 muQ
 rXO
-dka
 xze
+pyQ
 tfB
 tUH
 ulz
@@ -55523,7 +55563,7 @@ orI
 muQ
 rXO
 xze
-xze
+pyQ
 tfB
 tUH
 ulz

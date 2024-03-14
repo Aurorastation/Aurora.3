@@ -4,6 +4,7 @@
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 	is_outside = OUTSIDE_AREA
+	smoothing_flags = SMOOTH_NONE
 
 	// Damage to flooring.
 	var/broken
