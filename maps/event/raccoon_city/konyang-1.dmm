@@ -9391,9 +9391,9 @@
 "iPf" = (
 /obj/structure/table/wood,
 /obj/random/desk_clutter/office,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart{
-	pixel_x = 7;
-	pixel_y = 17
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein{
+	pixel_x = -4;
+	pixel_y = 16
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
@@ -18000,24 +18000,6 @@
 /obj/random/shotgun,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/bar)
-"qQo" = (
-/obj/structure/table/wood,
-/obj/item/material/ashtray/bronze{
-	pixel_x = 7;
-	pixel_y = -4
-	},
-/obj/item/storage/box/fancy/cigarettes/cigar{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt{
-	pixel_x = 8
-	},
-/turf/simulated/floor/wood,
-/area/point_verdant/interior)
 "qQB" = (
 /obj/structure/table/rack/clothing{
 	dir = 4;
@@ -48896,7 +48878,7 @@ orI
 orI
 muQ
 xAc
-qQo
+bbu
 fNF
 fNF
 gyV

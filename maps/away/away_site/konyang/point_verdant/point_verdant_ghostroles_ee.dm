@@ -61,7 +61,7 @@
 		/obj/item/clothing/suit/storage/toggle/labcoat,
 		/obj/item/clothing/suit/storage/toggle/labcoat/accent,
 		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci,
+		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_med,
 		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci,
 	)
 	glasses = list(
@@ -406,6 +406,92 @@
 	)
 	backpack_contents = list(
 
+	)
+
+// ----------------------------- OUTFITS FOR LOCKERS
+
+/obj/outfit/admin/raccoon_city/ee_locker
+	id = null
+	uniform = list(
+		/obj/item/clothing/under/rank/einstein/synthetic,
+		/obj/item/clothing/under/rank/scientist/einstein,
+		/obj/item/clothing/under/rank/einstein,
+		/obj/item/clothing/under/rank/einstein,
+		/obj/item/clothing/under/rank/engineer/einstein,
+		/obj/item/clothing/under/rank/machinist/einstein,
+	)
+	suit = list(
+		/obj/item/clothing/suit/storage/toggle/labcoat,
+		/obj/item/clothing/suit/storage/toggle/longcoat,
+		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_med,
+		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci,
+	)
+	shoes = list(
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/shoes/workboots,
+		/obj/item/clothing/shoes/workboots/dark,
+		/obj/item/clothing/shoes/sneakers/blue,
+		/obj/item/clothing/shoes/sneakers/brown,
+		/obj/item/clothing/shoes/sneakers/hitops/brown,
+		/obj/item/clothing/shoes/laceup,
+	)
+	backpack_contents = list(
+		/obj/item/storage/wallet/random,
+		/obj/random/desk_clutter/office,
+		/obj/random/desk_clutter/office,
+		/obj/random/desk_clutter/office,
+		/obj/random/desk_clutter/science,
+	)
+
+/obj/outfit/admin/raccoon_city/ee_locker/alt
+	uniform = list(
+		/obj/item/clothing/under/color/white,
+		/obj/item/clothing/under/color/green,
+		/obj/random/suit,
+	)
+	uniform = list(
+		/obj/item/clothing/suit/storage/hooded/wintercoat,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
+		/obj/item/clothing/suit/storage/toggle/labcoat,
+		/obj/item/clothing/suit/storage/toggle/longcoat,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
+		/obj/item/clothing/suit/storage/toggle/highvis,
+		/obj/item/clothing/suit/storage/toggle/highvis_alt,
+		/obj/item/clothing/suit/storage/toggle/track,
+		/obj/item/clothing/suit/storage/toggle/track/blue,
+		/obj/item/clothing/suit/storage/toggle/trench/colorable/random,
+		/obj/item/clothing/suit/storage/toggle/bomber,
+		/obj/item/clothing/suit/wcoat,
+	)
+
+/obj/random/ee_locker_outfit
+	name = "EE locker outfit"
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "paper_plane"
+	problist = list(
+		/obj/item/folder/blue,
+		/obj/item/folder/white,
+		/obj/item/folder/yellow,
+		/obj/item/folder/red,
+		/obj/item/pen,
+		/obj/item/pen/multi,
+		/obj/item/pen/white,
+		/obj/item/pen/fountain/silver,
+		/obj/item/paper_bin,
+		/obj/item/device/flashlight/lamp/off,
+		/obj/item/storage/slide_projector,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+		/obj/item/stamp/einstein,
+		/obj/item/paper_scanner,
+		/obj/item/clipboard,
+		/obj/random/pottedplant_small,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt,
 	)
 
 // -----------------------------
