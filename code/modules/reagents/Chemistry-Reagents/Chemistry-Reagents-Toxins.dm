@@ -807,7 +807,7 @@
 				if(prob(10))
 					H.vessel.remove_reagent(/singleton/reagent/blood, 30)
 					E.status &= ~ORGAN_BROKEN
-					M.visible_message("<b>[M]</b>'s spasms!", SPAN_DANGER("You feel a stabbing pain!"))
+					M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
 
 /singleton/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	if(prob(25))

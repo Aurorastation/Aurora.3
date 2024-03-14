@@ -681,7 +681,7 @@
 				I.damage = max(I.damage - damage_healed*removed, 0)
 
 		if((M.bodytemperature < 153) && M.chem_effects[CE_CRYO] && M.chem_effects[CE_ANTIBIOTIC]) //peridaxon in extracool cryogenic conditions alongside antibiotics will have a chance to de-nercotise liver and kidneys, though will incur overdose symptoms
-			overdose(M, alien, removed, holder)
+			H.infest_with_parasite(H, BP_TUMOUR_NONSPREADING, pick(H.organs), 10)
 			for(var/obj/item/organ/internal/O in H.internal_organs)
 				if((O.organ_tag == BP_LIVER) || (O.organ_tag == BP_KIDNEYS))
 					if(O.damage && prob(5))
@@ -694,21 +694,10 @@
 /singleton/reagent/peridaxon/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
-
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/ryetalyn))
 		return
-
 	var/mob/living/carbon/human/H = M
-	var/tumour_chance = 5
-	for(var/obj/item/organ/internal/parasite/benign_tumour/T in M.internal_organs)
-		tumour_chance = max(tumour_chance-2, 0) //no more than 3 tumours
-	if(prob(tumour_chance))
-		var/obj/item/organ/external/affected = pick(H.organs)
-		if(BP_IS_ROBOTIC(affected))
-			return
-		var/obj/item/organ/internal/parasite/benign_tumour/infest = new()
-		infest.parent_organ = affected
-		infest.replaced(H, affected)
+	H.infest_with_parasite(H, BP_TUMOUR_NONSPREADING, pick(H.organs), 5)
 
 /singleton/reagent/ryetalyn
 	name = "Ryetalyn"
@@ -1618,18 +1607,7 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & TENDON_CUT && prob(10))
 				E.status &= ~TENDON_CUT
-
-	var/tumour_chance = 5
-	for(var/obj/item/organ/internal/parasite/malignant_tumour/T in M.internal_organs)
-		tumour_chance = max(tumour_chance-2, 0) //no more than 3 tumours
-	if(prob(tumour_chance))
-		var/obj/item/organ/external/affected = (pick(H.organs))
-		if(BP_IS_ROBOTIC(affected))
-			return
-		var/obj/item/organ/internal/parasite/malignant_tumour/infest = new()
-		infest.parent_organ = affected
-		infest.replaced(H, affected)
-
+	H.infest_with_parasite(H, BP_TUMOUR_NONSPREADING, pick(H.organs), 5)
 
 /singleton/reagent/sanasomnum/final_effect(mob/living/carbon/M)
 	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
