@@ -145,13 +145,13 @@
 
 /obj/item/reagent_containers/glass/bottle/pyrosilicate
 	name = "pyrosilicate bottle"
-	desc = "A small bottle. Contains pyrosilicate - used to heat up reagents."
+	desc = "A small bottle. Contains pyrosilicate which is used to heat up reagents."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/pyrosilicate = 60)
 
 /obj/item/reagent_containers/glass/bottle/cryosilicate
 	name = "cryosilicate bottle"
-	desc = "A small bottle. Contains cryosilicate - used to cool down reagents."
+	desc = "A small bottle. Contains cryosilicate which is used to cool down reagents."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/cryosilicate = 60)
 
