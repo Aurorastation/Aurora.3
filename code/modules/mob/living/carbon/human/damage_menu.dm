@@ -153,3 +153,6 @@
 					H.gib()
 				if("dust")
 					H.dust()
+				if("zombify")
+					H.visible_message(SPAN_DANGER(FONT_HUGE("[H]'s skin rapidly turns green and rots as they contort...!")))
+					H.set_species(SPECIES_ZOMBIE)

@@ -154,6 +154,12 @@ export const DamageMenu = (props, context) => {
             icon="exclamation-triangle"
             onClick={() => act('misc', { action: 'dust' })}
           />
+          <Button
+            content="Zombify"
+            color="green"
+            icon="radiation"
+            onClick={() => act('misc', { action: 'zombify' })}
+          />
         </Section>
       </Window.Content>
     </Window>

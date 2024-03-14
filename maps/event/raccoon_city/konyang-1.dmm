@@ -440,6 +440,11 @@
 /obj/random/desk_clutter/science,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
+"asH" = (
+/obj/structure/closet,
+/obj/random/barricade_kit,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "asI" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -570,6 +575,14 @@
 /obj/structure/structural_support,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/tunnels)
+"azw" = (
+/obj/structure/table/rack,
+/obj/random/ammo,
+/obj/random/ammo,
+/obj/random/ammo,
+/obj/random/ammo,
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "azO" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -710,6 +723,10 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_kit,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "aKH" = (
@@ -3352,6 +3369,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/closet/hazmat/general,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/item/stack/barbed_wire/full,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "ddg" = (
@@ -3934,6 +3955,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/item/reagent_containers/glass/bottle/trioxin,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "dIb" = (
@@ -5060,6 +5082,11 @@
 /obj/random/dirt_75,
 /obj/machinery/vending/snack/konyang,
 /turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior)
+"eMP" = (
+/obj/structure/table/rack,
+/obj/random/konyang_gun/pistols,
+/turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "eMY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7513,6 +7540,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/closet/hazmat/general,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "hfv" = (
@@ -7769,6 +7799,9 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "hoQ" = (
@@ -9840,6 +9873,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
+"jjY" = (
+/obj/structure/closet,
+/obj/random/high_grade_weapon,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "jln" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -9903,6 +9941,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"joF" = (
+/obj/structure/table/steel,
+/obj/random/ammo,
+/obj/random/ammo,
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior)
 "joO" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/box/fancy/cigarettes/rugged{
@@ -14108,6 +14152,7 @@
 /area/point_verdant/interior)
 "ngD" = (
 /obj/structure/table/rack,
+/obj/random/konyang_gun/automatic,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "ngL" = (
@@ -14231,6 +14276,10 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_kit,
+/obj/random/barricade_kit,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "nms" = (
@@ -14267,6 +14316,11 @@
 	pixel_y = 21
 	},
 /turf/simulated/floor/tiled,
+/area/point_verdant/interior)
+"nnW" = (
+/obj/structure/table/rack,
+/obj/random/shotgun,
+/turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "nod" = (
 /obj/structure/bed/stool/padded/black{
@@ -15951,6 +16005,10 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "oZe" = (
@@ -17896,6 +17954,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"qNw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/antibody_extractor,
+/turf/simulated/floor/plating,
+/area/point_verdant/interior)
 "qNy" = (
 /obj/structure/bed/stool/chair/folding,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -19967,6 +20032,10 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_kit,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "syF" = (
@@ -20416,6 +20485,9 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
+/obj/random/barricade_materials,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "sRm" = (
@@ -22881,6 +22953,7 @@
 /area/point_verdant/interior/police)
 "vuT" = (
 /obj/structure/table/steel,
+/obj/random/medical,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "vvm" = (
@@ -26441,9 +26514,9 @@ muQ
 orI
 muQ
 muQ
-ngD
-ngD
-ngD
+eMP
+nnW
+nnW
 muQ
 muQ
 orI
@@ -26701,7 +26774,7 @@ ngD
 euY
 euY
 euY
-ngD
+eMP
 muQ
 orI
 muQ
@@ -27211,11 +27284,11 @@ tqV
 muQ
 orI
 muQ
-ngD
+eMP
 euY
 euY
 euY
-ngD
+eMP
 muQ
 orI
 muQ
@@ -27982,13 +28055,13 @@ cBf
 muQ
 orI
 muQ
-vuT
+joF
 euY
 euY
 euY
-ngD
+azw
 muQ
-qEC
+asH
 kxV
 kxV
 kxV
@@ -28243,9 +28316,9 @@ vuT
 euY
 euY
 euY
-ngD
+azw
 muQ
-qEC
+asH
 kxV
 kxV
 kxV
@@ -28759,7 +28832,7 @@ euY
 euY
 euY
 muQ
-qEC
+jjY
 kxV
 kxV
 qEC
@@ -29010,13 +29083,13 @@ vff
 muQ
 orI
 muQ
-ngD
-ngD
-ngD
+azw
+eMP
+azw
 vuT
 vuT
 muQ
-qEC
+jjY
 mAl
 kxV
 qEC
@@ -50110,7 +50183,7 @@ pbP
 qZM
 muQ
 qRL
-pbP
+qNw
 qZM
 muQ
 qRL

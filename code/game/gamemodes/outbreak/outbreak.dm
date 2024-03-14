@@ -29,6 +29,18 @@
 				var/turf/T = get_random_turf_in_range(user, 7, 0, TRUE, FALSE)
 				new /mob/living/carbon/human/zombie(T)
 
+		if("group_spawn_special")
+			for(var/i = 1 to params["group_spawn_special"])
+				var/turf/T = get_random_turf_in_range(user, 7, 0, TRUE, FALSE)
+				var/special = pick("rhino", "bull", "hunter")
+				switch(special)
+					if("rhino")
+						new /mob/living/carbon/human/rhino(T)
+					if("bull")
+						new /mob/living/carbon/human/bull(T)
+					if("hunter")
+						new /mob/living/carbon/human/hunter(T)
+
 /obj/effect/landmark/outbreak_zombie
 	name = "Simple Zombie Marker"
 

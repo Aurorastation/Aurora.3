@@ -53,6 +53,9 @@
 	/// A lazylist of weakrefs to mobs this spawner has spawned
 	var/list/datum/weakref/spawned_mobs
 
+	/// Password required to spawn from this spawner. For event ghostroles.
+	var/password = null
+
 /datum/ghostspawner/New()
 	. = ..()
 	if(!jobban_job)
@@ -243,7 +246,7 @@
 //Proc to disable the ghostspawner
 /datum/ghostspawner/proc/disable()
 	enabled = FALSE
-	if(loc_type == GS_LOC_POS)
+	if(loc_type == GS_LOC_ATOM)
 		for(var/i in SSghostroles.spawnpoints)
 			SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE

@@ -496,21 +496,101 @@
 
 /// Raccoon City zombies
 /datum/ghostspawner/human/zombie
-	name = "Konyanger Zombie"
+	name = "Point Verdant Zombie"
 	short_name = "kzombie"
 	desc = "You are a Konyanger turned into a Zombie by the Outbreak. ADMIN NOTE: You MUST roleplay like a believable zombie. You're free to take your time and \
 			be spooky without immediately killing people, but you must NOT do anything cheesy, powergamey, metagamey or unbelievable for a zombie."
-	loc_type = GS_LOC_ATOM
+	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human/zombie
-	possible_species = list(SPECIES_ZOMBIE, SPECIES_ZOMBIE_SKRELL)
 	tags = list("Outbreak")
 	respawn_flag = null
 	max_count = 100
 	enabled = FALSE
 	show_on_job_select = FALSE
+	allow_appearance_change = FALSE
+	mob_name = FALSE
 	spawnpoints = list("kzombie")
-	spawn_mob = /mob/living/carbon/human/zombie
+
+/datum/ghostspawner/human/special_zombie
+	name = "Special Zombie"
+	short_name = "szombie"
+	desc = "You are a special zombie - pick one between the Bull, Rhino, or Hunter. The Bull's specialty is smashing barricades and tanking damage. \
+			The Rhino's specialty is charge attacks and the area grab leap maneuver. The Hunter's specialty is grabbing people with leap and generally being \
+			a quick harasser through usage of the Consume verb."
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human/hunter
+	possible_species = list(/mob/living/carbon/human/hunter, /mob/living/carbon/human/rhino, /mob/living/carbon/human/bull)
+	tags = list("Outbreak")
+	respawn_flag = null
+	allow_appearance_change = FALSE
+	mob_name = FALSE
+	atom_add_message = "A special zombie spawner is available!"
 
 /obj/effect/ghostspawpoint/zombie
 	name = "igs - Generic Zombie"
 	identifier = "kzombie"
+
+/obj/effect/landmark/special_zombie
+	name = "lnd - Special Zombie"
+	var/ghost_role_id = "szombie"
+
+/datum/ghostspawner/human/zombie/labs
+	name = "Einstein Facility Zombie"
+	short_name = "fazombie"
+	desc = "You are a Zombie converging to the labs to kill the humans trying to cure the virus! ADMIN NOTE: You MUST roleplay like a believable zombie. \
+			You are here specifically to kill all the humans curing the virus, but you must NOT do anything cheesy, powergamey, metagamey or unbelievable for a zombie."
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human/zombie
+	tags = list("Outbreak")
+	respawn_flag = null
+	max_count = 50
+	spawnpoints = list("fazombie")
+
+/obj/effect/ghostspawpoint/umbrella_zombie
+	name = "igs - Final Assault Zombie"
+	identifier = "fazombie"
+
+/datum/ghostspawner/human/ee_labs_director
+	name = "Einstein Facility Director"
+	desc = "Direct Einstein Research Facility Omega's experiment on Hylemnomil."
+	short_name = "ee_director"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 1
+	password = "albertwesker"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Director"
+	special_role = "Einstein Facility Director"
+	spawnpoints = list("ee_director")
+
+/obj/outfit/admin/raccoon_city
+	uniform = /obj/item/clothing/under/rank/liaison/einstein
+	id = /obj/item/card/id/einstein
+	back = /obj/item/storage/backpack/satchel/leather
+	r_pocket = /obj/item/storage/wallet/random
+	shoes = /obj/item/clothing/shoes/laceup
+
+
+/obj/outfit/admin/raccoon_city/get_id_access()
+	return list(ACCESS_KONYANG_CORPORATE)
+
+/obj/outfit/admin/raccoon_city/ee_labs_director
+	name = "EE Facility Director"
+	head = /obj/item/clothing/head/beret/red
+	accessory = /obj/item/clothing/accessory/holster/thigh
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
+
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+		/obj/item/reagent_containers/glass/bottle/trioxin
+	)
+
+/obj/outfit/admin/raccoon_city/ee_guard
+	name = "EE Guard"
+	uniform = /obj/item/clothing/under/rank/einstein
+	suit = /obj/item/clothing/suit/armor/carrier/generic
+	accessory = /obj/item/clothing/accessory/holster/thigh
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+	)

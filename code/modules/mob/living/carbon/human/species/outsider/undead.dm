@@ -146,34 +146,37 @@
 /mob/living/carbon/human/bull/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_BULL)
 	set_name("zombie bull")
+	SSghostroles.add_spawn_atom("szombie", src)
 
 /mob/living/carbon/human/hunter/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_HUNTER)
 	set_name("zombie hunter")
+	SSghostroles.add_spawn_atom("szombie", src)
 
 /mob/living/carbon/human/rhino/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_RHINO)
 	set_name("zombie rhino")
+	SSghostroles.add_spawn_atom("szombie", src)
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
 	. = ..(mapload, SPECIES_ZOMBIE)
 	set_name("zombie")
 	var/list/possible_outfits = list(
-		/datum/outfit/admin/konyang_cop,
-		/datum/outfit/admin/konyang_clinic,
-		/datum/outfit/admin/konyang_firewatcher,
-		/datum/outfit/admin/konyang_goon,
-		/datum/outfit/admin/konyang_gwok,
-		/datum/outfit/admin/konyang_homesteader,
-		/datum/outfit/admin/konyang_pharm,
-		/datum/outfit/admin/konyang_utility,
-		/datum/outfit/admin/konyang_vendor,
-		/datum/outfit/admin/konyang_villager,
-		/datum/outfit/admin/konyang_zh,
-		/datum/outfit/admin/konyang_army_response/mechpilot,
-		/datum/outfit/admin/konyang_army_response/officer
+		/obj/outfit/admin/konyang_cop,
+		/obj/outfit/admin/konyang_clinic,
+		/obj/outfit/admin/konyang_firewatcher,
+		/obj/outfit/admin/konyang_goon,
+		/obj/outfit/admin/konyang_gwok,
+		/obj/outfit/admin/konyang_homesteader,
+		/obj/outfit/admin/konyang_pharm,
+		/obj/outfit/admin/konyang_utility,
+		/obj/outfit/admin/konyang_vendor,
+		/obj/outfit/admin/konyang_villager,
+		/obj/outfit/admin/konyang_zh,
+		/obj/outfit/admin/konyang_army_response/mechpilot,
+		/obj/outfit/admin/konyang_army_response/officer
 	)
-	var/datum/outfit/O = pick(possible_outfits)
+	var/obj/outfit/O = pick(possible_outfits)
 	preEquipOutfit(O, FALSE)
 	equipOutfit(O, FALSE)
 
@@ -249,7 +252,7 @@
 
 	total_health = 150
 
-	slowdown = 2
+	slowdown = 1
 
 	vision_flags = DEFAULT_SIGHT
 
@@ -501,7 +504,7 @@
 	icobase = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 
-	total_health = 300
+	total_health = 200
 
 	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID | TYPE_SYNTHETIC | TYPE_WEIRD
 	gluttonous = GLUT_ANYTHING
@@ -516,8 +519,7 @@
 	species_height = HEIGHT_CLASS_TALL
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MEDIUM,
+		ballistic = ARMOR_BALLISTIC_MEDIUM,
 		melee = ARMOR_MELEE_MAJOR,
 		bomb = null,
 		energy = ARMOR_ENERGY_RESISTANT
@@ -536,7 +538,7 @@
 	deform = 'icons/mob/human_races/zombie/r_zombie_hunter.dmi'
 	slowdown = 2
 
-	total_health = 180
+	total_health = 150
 
 	stamina = 40
 	sprint_speed_factor = 2
@@ -547,13 +549,13 @@
 	vision_flags = SEE_SELF | SEE_MOBS
 	hearing_sensitivity = HEARING_VERY_SENSITIVE
 
-	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_PISTOL,
-		melee = ARMOR_MELEE_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		energy = ARMOR_ENERGY_SMALL
-	)
+	maneuvers = list(/singleton/maneuver/leap/areagrab)
+	inherent_verbs = list(
+						/mob/living/carbon/human/proc/trample,
+						/mob/living/carbon/human/proc/darkness_eyes,
+						/mob/living/carbon/proc/consume,
+						/mob/living/carbon/proc/leap
+						)
 
 	unarmed_types = list(/datum/unarmed_attack/shocking) //This zombie cannot infect, it's an harrass type of zombie
 	show_ssd = TRUE
@@ -566,7 +568,7 @@
 	deform = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
 	slowdown = 2
 
-	total_health = 240
+	total_health = 210
 
 	stamina = 50
 	sprint_speed_factor = 0.7
@@ -581,14 +583,18 @@
 	grab_mod = 5
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		melee = ARMOR_MELEE_MAJOR,
+		ballistic = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		melee = ARMOR_MELEE_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		energy = ARMOR_ENERGY_SMALL
 	)
 
-	maneuvers = list(/singleton/maneuver/leap/areagrab)
+	inherent_verbs = list(
+						/mob/living/carbon/human/proc/trample,
+						/mob/living/carbon/human/proc/darkness_eyes,
+						/mob/living/carbon/proc/consume
+						)
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/golem)
 	show_ssd = TRUE
@@ -646,7 +652,14 @@
 		if (!target.lying && target.stat != DEAD) //Check victims are still prone
 			return
 
-		target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 10) //Just in case they haven't been infected already
+		target.apply_damage(rand(50, 60), DAMAGE_BRUTE, BP_CHEST)
+		target.adjustBruteLoss(20)
+		var/infection_chance = 80
+		var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
+		if(prob(infection_chance))
+			if(target.reagents)
+				target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
+
 		if (target.getBruteLoss() > target.maxHealth * 1.5)
 			if (target.stat != DEAD)
 				to_chat(src,SPAN_WARNING("You've scraped \the [target] down to the bones already!."))
@@ -662,19 +675,16 @@
 		if (iszombie(target)) //Just in case they turn whilst being eaten
 			return
 
-		target.apply_damage(rand(50, 60), DAMAGE_BRUTE, BP_CHEST)
-		target.adjustBruteLoss(20)
-
 		var/obj/item/organ/external/E = target.organs_by_name[BP_CHEST]
 		if(E && E.open < 3 && target.getBruteLoss() > 100)
 			E.open = min(E.open + 1, 3)
 			target.update_surgery() //Update broken ribcage sprites etc.
 
-		src.adjustBruteLoss(-5)
-		src.adjustFireLoss(-15)
-		src.adjustToxLoss(-5)
-		src.adjustBrainLoss(-5)
-		src.nutrition += 40
+		adjustBruteLoss(-5)
+		adjustFireLoss(-15)
+		adjustToxLoss(-5)
+		adjustBrainLoss(-5)
+		nutrition += 40
 
 		playsound(loc, 'sound/effects/splat.ogg', 20, 1)
 		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src), target.species.blood_color)
