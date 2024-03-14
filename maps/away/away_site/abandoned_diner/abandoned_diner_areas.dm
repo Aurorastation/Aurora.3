@@ -20,7 +20,7 @@
 /area/abandoned_diner/freezer
 	name = "Freezer"
 	icon_state = "purple"
-	area_blurb = "The smell of rotten food bombards your nostrils. Hopefully the freezers still have something edible in them."
+	area_blurb = "The smell of rotten food may bombard your nostrils, unless someone has cleaned this room up. Hopefully the freezers still have something edible in them."
 
 /area/abandoned_diner/hydroponics
 	name = "Hydroponics Bay"
@@ -53,7 +53,6 @@
 	icon_state = "shuttlegrn"
 
 //Docking Arms
-
 /area/abandoned_diner/docking
 	name = "Docking Arm"
 	icon_state = "shuttle3"

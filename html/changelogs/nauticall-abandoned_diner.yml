@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added an Abandoned Diner away site. It's a space diner that's been long abandoned and dirtied by over a decade of neglect and occasional visits by hoarders, both taking and depositing their treasure. Maybe it'd be nice to clean up."
+  - rscadd: "Added an Abandoned Diner away site."
