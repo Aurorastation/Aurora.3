@@ -147,50 +147,6 @@ SUBSYSTEM_DEF(jobs)
 	SetupOccupations()
 	unassigned = list()
 
-///This proc is called before the level loop of DivideOccupations() and will try to select a head, ignoring ALL non-head preferences for every level until it locates a head or runs out of levels to check
-/datum/controller/subsystem/jobs/proc/FillHeadPosition()
-	for(var/level = 1 to 3)
-		for(var/command_position in command_positions)
-			var/datum/job/job = GetJob(command_position)
-			if(!job)
-				continue
-
-			var/list/candidates = FindOccupationCandidates(job, level)
-			if(!candidates.len)
-				continue
-
-			// Build a weighted list, weight by age.
-			var/list/weightedCandidates = list()
-			for(var/mob/V in candidates)
-				// Log-out during round-start? What a bad boy, no head position for you!
-				if(!V.client)
-					continue
-
-				var/age = V.client.prefs.age
-
-				var/min_job_age = job.get_minimum_character_age(V.get_species())
-				var/ideal_job_age = job.get_ideal_character_age(V.get_species())
-
-				if(age > (ideal_job_age + 20)) // Elderly for the position
-					weightedCandidates[V] = 3
-				else if(age > (ideal_job_age + 10)) // Good, but on the elderly side
-					weightedCandidates[V] = 6
-				else if(age > (ideal_job_age - 10)) // Perfect
-					weightedCandidates[V] = 10
-				else if(age > (min_job_age + 10)) // Good, but on the young side
-					weightedCandidates[V] = 6
-				else if(age >= min_job_age) // Too young
-					weightedCandidates[V] = 3
-				else
-					if(candidates.len == 1) // There's only one option
-						weightedCandidates[V] = 1
-
-			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
-			if(AssignRole(candidate, command_position))
-				return TRUE
-	return FALSE
-
-
 ///This proc is called at the start of the level loop of DivideOccupations() and will cause head jobs to be checked before any other jobs of the same level
 /datum/controller/subsystem/jobs/proc/CheckHeadPositions(level)
 	for(var/command_position in command_positions)
@@ -242,11 +198,6 @@ SUBSYSTEM_DEF(jobs)
 		AssignRole(player, "Assistant")
 		assistant_candidates -= player
 	Debug("DO, AC1 end")
-
-	//Select one head
-	Debug("DO, Running Head Check")
-	FillHeadPosition()
-	Debug("DO, Head Check end")
 
 	//Other jobs are now checked
 	Debug("DO, Running Standard Check")
