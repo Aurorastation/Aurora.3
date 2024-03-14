@@ -523,5 +523,5 @@
 		/obj/item/reagent_containers/food/condiment/syrup_simple = 1,
 		/obj/item/reagent_containers/food/condiment/vanilla = 1,
 		/obj/item/reagent_containers/food/condiment/rice = 1,
-		/obj/item/reagent_containers/food/condiment/coco = 1
+		/obj/item/reagent_containers/food/condiment/cocoa = 1
 	)
