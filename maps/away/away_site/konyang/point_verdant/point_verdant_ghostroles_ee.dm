@@ -124,7 +124,7 @@
 		/obj/item/reagent_containers/glass/bottle/trioxin,
 		/obj/item/modular_computer/laptop,
 		/obj/item/stamp/einstein,
-		/obj/item/reagent_containers/hypospray/cmo
+		/obj/item/reagent_containers/hypospray/cmo,
 		/obj/item/folder/white,
 	)
 
