@@ -2916,30 +2916,18 @@
 /obj/item/clothing/accessory/badge/passport/dominia,
 /obj/item/clothing/accessory/badge/passport/dominia,
 /obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/storage/belt/utility/full,
-/obj/item/storage/belt/utility/full,
-/obj/item/clothing/accessory/holster/thigh/brown,
-/obj/item/clothing/accessory/holster/thigh/brown,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/holster/thigh/brown,
 /obj/item/clothing/accessory/holster/thigh/brown,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
-/obj/item/clothing/head/helmet/tank,
-/obj/item/clothing/head/helmet/tank,
-/obj/item/clothing/head/helmet/tank,
-/obj/item/clothing/head/helmet/tank,
 /obj/item/clothing/head/helmet/tank,
 /obj/item/clothing/head/helmet/tank,
 /obj/machinery/light/small{
@@ -2948,6 +2936,8 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/dominia,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "kkj" = (
@@ -4935,6 +4925,8 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "qZm" = (
