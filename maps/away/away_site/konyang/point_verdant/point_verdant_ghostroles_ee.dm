@@ -1,29 +1,5 @@
 
-/obj/outfit/admin/raccoon_city
-	uniform = /obj/item/clothing/under/rank/liaison/einstein
-	id = /obj/item/card/id/einstein
-	back = /obj/item/storage/backpack/satchel/leather
-	r_pocket = /obj/item/storage/wallet/random
-	shoes = /obj/item/clothing/shoes/laceup
-
-
-/obj/outfit/admin/raccoon_city/get_id_access()
-	return list(ACCESS_KONYANG_CORPORATE)
-
-/datum/ghostspawner/human/ee_labs_director
-	name = "Einstein Facility Director"
-	desc = "Direct Einstein Research Facility Omega's experiment on Hylemnomil."
-	short_name = "ee_director"
-	loc_type = GS_LOC_POS
-	spawn_mob = /mob/living/carbon/human
-	tags = list("Einstein Labs")
-	max_count = 1
-	password = "albertwesker"
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Einstein Facility Director"
-	special_role = "Einstein Facility Director"
-	spawnpoints = list("ee_director")
-	outfit = /obj/outfit/admin/raccoon_city/ee_labs_director
+// ----------------------------- BASE
 
 /obj/outfit/admin/raccoon_city
 	uniform = /obj/item/clothing/under/rank/liaison/einstein
@@ -57,12 +33,92 @@
 /obj/outfit/admin/raccoon_city/get_id_access()
 	return list(ACCESS_KONYANG_CORPORATE)
 
-/obj/outfit/admin/raccoon_city/ee_labs_director
+// ----------------------------- SCIENTIST
+
+/datum/ghostspawner/human/ee_scientist
+	name = "Einstein Facility Scientist"
+	desc = "Research Hylemnomil-Zeta, a dangerous but potentially miraculous and Spur-changing artificial chemical."
+	short_name = "ee_sci"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 2
+	password = "ee_sci"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Scientist"
+	special_role = "Einstein Facility Scientist"
+	spawnpoints = list("ee_sci")
+	outfit = /obj/outfit/admin/raccoon_city/ee_scientist
+
+/obj/effect/ghostspawpoint/ee_scientist
+	name = "igs - EE Scientist"
+	identifier = "ee_sci"
+
+/obj/outfit/admin/raccoon_city/ee_scientist
+	name = "EE Scientist"
+	uniform = /obj/item/clothing/under/rank/scientist/einstein
+	suit = list(
+		/obj/item/clothing/suit/storage/toggle/labcoat,
+		/obj/item/clothing/suit/storage/toggle/labcoat/accent,
+		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt,
+		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci,
+		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci,
+	)
+	glasses = list(
+		/obj/item/clothing/glasses/regular,
+		/obj/item/clothing/glasses/regular,
+		/obj/item/clothing/glasses/safety/goggles,
+		/obj/item/clothing/glasses/science,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/clothing/glasses/hud/health/aviator,
+	)
+	belt = list(
+		/obj/item/storage/belt/medical/full,
+		/obj/item/storage/belt/medical/full/inaprov,
+		/obj/item/storage/belt/medical/first_responder/full,
+		/obj/item/storage/belt/medical/first_responder/combat/full,
+	)
+	shoes = list(
+		/obj/item/clothing/shoes/sneakers/tip,
+		/obj/item/clothing/shoes/sneakers/hitops/tip,
+		/obj/item/clothing/shoes/sneakers/medsci,
+	)
+	gloves = list(
+		/obj/item/clothing/gloves/latex,
+		/obj/item/clothing/gloves/latex/nitrile,
+	)
+	backpack_contents = list(
+		/obj/item/modular_computer/laptop,
+		/obj/item/storage/firstaid,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline,
+		/obj/item/reagent_containers/glass/bottle/bicaridine,
+		/obj/item/reagent_containers/glass/bottle/dermaline,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus
+	)
+
+// ----------------------------- LABS DIRECTOR
+
+/datum/ghostspawner/human/ee_labs_director
+	name = "Einstein Facility Director"
+	desc = "Direct Einstein Research Facility Omega's experiment on Hylemnomil."
+	short_name = "ee_director"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 1
+	password = "albertwesker"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Director"
+	special_role = "Einstein Facility Director"
+	spawnpoints = list("ee_director")
+	outfit = /obj/outfit/admin/raccoon_city/ee_scientist/ee_labs_director
+
+/obj/outfit/admin/raccoon_city/ee_scientist/ee_labs_director
 	name = "EE Facility Director"
 	head = /obj/item/clothing/head/beret/red
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
-
+	belt = null
 	backpack_contents = list(
 		/obj/item/gun/projectile/sec/lethal,
 		/obj/item/reagent_containers/glass/bottle/trioxin,
@@ -75,6 +131,8 @@
 /obj/effect/ghostspawpoint/ee_director
 	name = "igs - EE Facility Director"
 	identifier = "ee_director"
+
+// ----------------------------- LABS LEAD
 
 /datum/ghostspawner/human/ee_labs_lead
 	name = "Einstein Facility Project Lead"
@@ -89,12 +147,12 @@
 	assigned_role = "Einstein Facility Project Lead"
 	special_role = "Einstein Facility Project Lead"
 	spawnpoints = list("ee_plead")
-	outfit = /obj/outfit/admin/raccoon_city/ee_lead_scientist
+	outfit = /obj/outfit/admin/raccoon_city/ee_scientist/ee_lead_scientist
 
-/obj/outfit/admin/raccoon_city/ee_lead_scientist
+/obj/outfit/admin/raccoon_city/ee_scientist/ee_lead_scientist
 	name = "EE Lead Scientist"
 	suit = /obj/item/clothing/suit/storage/toggle/longcoat
-
+	belt = null
 	backpack_contents = list(
 		/obj/item/modular_computer/laptop,
 		/obj/item/reagent_containers/hypospray,
@@ -110,6 +168,8 @@
 /obj/effect/ghostspawpoint/ee_lead_scientist
 	name = "igs - EE Lead Scientist"
 	identifier = "ee_plead"
+
+// ----------------------------- INTERN
 
 /datum/ghostspawner/human/ee_intern
 	name = "Einstein Facility Intern"
@@ -139,38 +199,7 @@
 	name = "igs - EE Intern"
 	identifier = "ee_intern"
 
-/datum/ghostspawner/human/ee_scientist
-	name = "Einstein Facility Scientist"
-	desc = "Research Hylemnomil-Zeta, a dangerous but potentially miraculous and Spur-changing artificial chemical."
-	short_name = "ee_sci"
-	loc_type = GS_LOC_POS
-	spawn_mob = /mob/living/carbon/human
-	tags = list("Einstein Labs")
-	max_count = 2
-	password = "ee_sci"
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Einstein Facility Scientist"
-	special_role = "Einstein Facility Scientist"
-	spawnpoints = list("ee_sci")
-	outfit = /obj/outfit/admin/raccoon_city/ee_scientist
-
-/obj/outfit/admin/raccoon_city/ee_scientist
-	name = "EE Scientist"
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	belt = /obj/item/storage/belt/medical
-
-	backpack_contents = list(
-		/obj/item/modular_computer/laptop,
-		/obj/item/storage/firstaid,
-		/obj/item/reagent_containers/glass/bottle/inaprovaline,
-		/obj/item/reagent_containers/glass/bottle/bicaridine,
-		/obj/item/reagent_containers/glass/bottle/dermaline,
-		/obj/item/reagent_containers/glass/bottle/dexalin_plus
-	)
-
-/obj/effect/ghostspawpoint/ee_scientist
-	name = "igs - EE Scientist"
-	identifier = "ee_sci"
+// ----------------------------- GUARD
 
 /datum/ghostspawner/human/ee_guard
 	name = "Einstein Facility Guard"
@@ -187,6 +216,10 @@
 	special_role = "ee_guard Facility Guard"
 	spawnpoints = list("ee_guard")
 	outfit = /obj/outfit/admin/raccoon_city/ee_guard
+
+/obj/effect/ghostspawpoint/ee_guard
+	name = "igs - EE Guard"
+	identifier = "ee_guard"
 
 /obj/outfit/admin/raccoon_city/ee_guard
 	name = "EE Guard"
@@ -213,9 +246,7 @@
 		/obj/item/handcuffs
 	)
 
-/obj/effect/ghostspawpoint/ee_guard
-	name = "igs - EE Guard"
-	identifier = "ee_guard"
+// ----------------------------- ASHLEY
 
 /datum/ghostspawner/human/ashley
 	name = "Patient Zero"
@@ -247,40 +278,26 @@
 	name = "igs - Ashley"
 	identifier = "ee_ashley"
 
-/obj/outfit/admin/raccoon_city/ee_synth
-	name = "EE Synth"
-	uniform = /obj/item/clothing/under/rank/einstein/synthetic
-	shoes = list(
-		/obj/item/clothing/shoes/sneakers/tip,
-		/obj/item/clothing/shoes/sneakers/hitops/tip,
-		/obj/item/clothing/shoes/sneakers/medsci,
-	)
-	backpack_contents = list(
+// ----------------------------- ENGINEER
 
-	)
+/datum/ghostspawner/human/ee_engineer
+	name = "Einstein Facility Engineer"
+	desc = ""
+	short_name = "ee_engineer"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 2
+	password = "ee_engineer"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Engineer"
+	special_role = "ee_engineer Facility Engineer"
+	spawnpoints = list("ee_engineer")
+	outfit = /obj/outfit/admin/raccoon_city/ee_engineer
 
-/obj/outfit/admin/raccoon_city/ee_machinist
-	name = "EE Machinist"
-	uniform = /obj/item/clothing/under/rank/machinist/einstein
-	belt = list(
-		/obj/item/storage/belt/utility/full,
-		/obj/item/storage/belt/utility/very_full,
-		/obj/item/storage/belt/utility/atmostech,
-	)
-	gloves = list(
-		/obj/item/clothing/gloves/green,
-		/obj/item/clothing/gloves/black_leather,
-		/obj/item/clothing/gloves/yellow,
-	)
-	shoes = list(
-		/obj/item/clothing/shoes/jackboots,
-		/obj/item/clothing/shoes/workboots,
-		/obj/item/clothing/shoes/workboots/dark,
-	)
-	backpack_contents = list(
-		/obj/item/device/robotanalyzer,
-		/obj/item/clothing/gloves/latex,
-	)
+/obj/effect/ghostspawpoint/ee_engineer
+	name = "igs - EE Engineer"
+	identifier = "ee_engineer"
 
 /obj/outfit/admin/raccoon_city/ee_engineer
 	name = "EE Engineer"
@@ -314,68 +331,81 @@
 
 	)
 
-/obj/outfit/admin/raccoon_city/ee_medical
-	name = "EE Medical"
-	uniform = /obj/item/clothing/under/rank/scientist/einstein
-	suit = list(
-		/obj/item/clothing/suit/storage/toggle/labcoat,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_med,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_med,
-	)
-	glasses = list(
-		/obj/item/clothing/glasses/hud/health,
-		/obj/item/clothing/glasses/hud/health/aviator,
-		/obj/item/clothing/glasses/hud/health/prescription,
-		/obj/item/clothing/glasses/regular,
-		/obj/item/clothing/glasses/safety/goggles,
-	)
-	gloves = list(
-		/obj/item/clothing/gloves/latex,
-		/obj/item/clothing/gloves/latex/nitrile,
-	)
-	shoes = list(
-		/obj/item/clothing/shoes/sneakers/tip,
-		/obj/item/clothing/shoes/sneakers/hitops/tip,
-		/obj/item/clothing/shoes/sneakers/medsci,
-	)
+// ----------------------------- MACHINIST
+
+/datum/ghostspawner/human/ee_machinist
+	name = "Einstein Facility Machinist"
+	desc = "."
+	short_name = "ee_machinist"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 2
+	password = "ee_machinist"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Machinist"
+	special_role = "ee_machinist Facility Machinist"
+	spawnpoints = list("ee_machinist")
+	outfit = /obj/outfit/admin/raccoon_city/ee_machinist
+
+/obj/effect/ghostspawpoint/ee_machinist
+	name = "igs - EE Machinist"
+	identifier = "ee_machinist"
+
+/obj/outfit/admin/raccoon_city/ee_machinist
+	name = "EE Machinist"
+	uniform = /obj/item/clothing/under/rank/machinist/einstein
 	belt = list(
-		/obj/item/storage/belt/medical/full,
-		/obj/item/storage/belt/medical/full/inaprov,
-		/obj/item/storage/belt/medical/first_responder/full,
-		/obj/item/storage/belt/medical/first_responder/combat/full,
+		/obj/item/storage/belt/utility/full,
+		/obj/item/storage/belt/utility/very_full,
+		/obj/item/storage/belt/utility/atmostech,
+	)
+	gloves = list(
+		/obj/item/clothing/gloves/green,
+		/obj/item/clothing/gloves/black_leather,
+		/obj/item/clothing/gloves/yellow,
+	)
+	shoes = list(
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/shoes/workboots,
+		/obj/item/clothing/shoes/workboots/dark,
 	)
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
-		/obj/random/firstaid = 1,
+		/obj/item/device/robotanalyzer,
+		/obj/item/clothing/gloves/latex,
 	)
 
-/obj/outfit/admin/raccoon_city/ee_scientist
-	name = "EE Scientist"
-	uniform = /obj/item/clothing/under/rank/scientist/einstein
-	suit = list(
-		/obj/item/clothing/suit/storage/toggle/labcoat,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci,
-		/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci,
-	)
-	glasses = list(
-		/obj/item/clothing/glasses/regular,
-		/obj/item/clothing/glasses/regular,
-		/obj/item/clothing/glasses/safety/goggles,
-		/obj/item/clothing/glasses/science,
-	)
+// ----------------------------- SYNTH
+
+/datum/ghostspawner/human/ee_synth
+	name = "Einstein Facility Synthetic"
+	desc = ""
+	short_name = "ee_synth"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human/shell
+	tags = list("Einstein Labs")
+	max_count = 2
+	password = "ee_synth"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Synth"
+	special_role = "ee_synth Facility Synth"
+	spawnpoints = list("ee_synth")
+	outfit = /obj/outfit/admin/raccoon_city/ee_synth
+
+/obj/effect/ghostspawpoint/ee_synth
+	name = "igs - EE Synth"
+	identifier = "ee_synth"
+
+/obj/outfit/admin/raccoon_city/ee_synth
+	name = "EE Synth"
+	uniform = /obj/item/clothing/under/rank/einstein/synthetic
 	shoes = list(
 		/obj/item/clothing/shoes/sneakers/tip,
 		/obj/item/clothing/shoes/sneakers/hitops/tip,
 		/obj/item/clothing/shoes/sneakers/medsci,
 	)
-	gloves = list(
-		/obj/item/clothing/gloves/latex,
-		/obj/item/clothing/gloves/latex/nitrile,
-	)
 	backpack_contents = list(
 
 	)
+
+// -----------------------------
