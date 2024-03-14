@@ -172,7 +172,7 @@
 				M.op_stage.in_progress -= list(zone = user)
 				if(ishuman(M))
 					var/mob/living/carbon/human/H = M
-					H.update_surgery()
+					H.update_surgery(TRUE)
 		return TRUE
 	return TRUE
 
