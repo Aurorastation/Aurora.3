@@ -224,7 +224,7 @@
 	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
-	var/citizenship_info = CITIZENSHIP_BIESEL
+	var/citizenship_info = CITIZENSHIP_NONE
 
 /obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
