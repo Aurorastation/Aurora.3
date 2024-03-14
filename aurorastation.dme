@@ -3658,6 +3658,8 @@
 #include "maps\away\away_site\konyang\point_verdant\point_verdant.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant_areas.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant_ghostroles.dm"
+#include "maps\away\away_site\konyang\point_verdant\point_verdant_ghostroles_ee.dm"
+#include "maps\away\away_site\konyang\point_verdant\point_verdant_ghostroles_zombie.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant_landmarks.dm"
 #include "maps\away\away_site\magshield\magshield.dm"
 #include "maps\away\away_site\magshield\magshield_areas.dm"
