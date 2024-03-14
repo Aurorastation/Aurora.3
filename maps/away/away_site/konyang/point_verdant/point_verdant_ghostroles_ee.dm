@@ -470,28 +470,18 @@
 	)
 
 /obj/random/ee_locker_outfit
-	name = "EE locker outfit"
-	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "paper_plane"
+	name = "random EE labs locker outfit"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "outfit"
 	problist = list(
-		/obj/item/folder/blue,
-		/obj/item/folder/white,
-		/obj/item/folder/yellow,
-		/obj/item/folder/red,
-		/obj/item/pen,
-		/obj/item/pen/multi,
-		/obj/item/pen/white,
-		/obj/item/pen/fountain/silver,
-		/obj/item/paper_bin,
-		/obj/item/device/flashlight/lamp/off,
-		/obj/item/storage/slide_projector,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
-		/obj/item/stamp/einstein,
-		/obj/item/paper_scanner,
-		/obj/item/clipboard,
-		/obj/random/pottedplant_small,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt,
+		/obj/outfit/admin/raccoon_city/ee_locker,
+		/obj/outfit/admin/raccoon_city/ee_locker/alt,
+		/obj/outfit/admin/raccoon_city/ee_engineer,
+		/obj/outfit/admin/raccoon_city/ee_guard,
+		/obj/outfit/admin/raccoon_city/ee_intern,
+		/obj/outfit/admin/raccoon_city/ee_machinist,
+		/obj/outfit/admin/raccoon_city/ee_scientist,
+		/obj/outfit/admin/raccoon_city/ee_synth,
 	)
 
 // -----------------------------
