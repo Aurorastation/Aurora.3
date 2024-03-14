@@ -291,9 +291,15 @@
 	else
 		..()
 
-/obj/item/organ/internal/ipc_tag/proc/modify_tag_data()
+/obj/item/organ/internal/ipc_tag/proc/modify_tag_data(var/can_be_untagged = FALSE)
 	if(!owner || owner.stat)
 		return
+	if(can_be_untagged)
+		var/untagged = tgui_alert(owner, "Do you wish to remove your tag? This is highly illegal in most nations!", "Untagged IPC", list("Remove Tag", "Keep Tag"))
+		if(untagged == "Remove Tag")
+			to_chat(owner, SPAN_WARNING("You are now an untagged synthetic - don't get caught!"))
+			qdel(src)
+			return
 	var/new_ownership = tgui_input_list(owner, "Choose an ownership status for your IPC tag.", "Tag Ownership", list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF))
 	if(!new_ownership)
 		return

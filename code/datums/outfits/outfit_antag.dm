@@ -44,7 +44,7 @@
 	if(isipc(H))
 		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
-			tag.modify_tag_data()
+			tag.modify_tag_data(TRUE)
 
 /obj/outfit/admin/syndicate/get_id_access()
 	return get_syndicate_access(id_access)

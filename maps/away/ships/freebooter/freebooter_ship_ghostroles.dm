@@ -62,7 +62,7 @@
 	if(isipc(H))
 		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
-			tag.modify_tag_data()
+			tag.modify_tag_data(TRUE) //Shady pirates might well have untagged IPCs aboard
 
 /obj/outfit/admin/freebooter_crew/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS)
