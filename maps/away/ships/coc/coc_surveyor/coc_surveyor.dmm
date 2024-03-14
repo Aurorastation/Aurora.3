@@ -78,8 +78,6 @@
 /area/coc_survey_ship/cryo)
 "bb" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1389;
-	id_tag = "surveyor_shuttle_out";
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -3235,8 +3233,6 @@
 /area/coc_survey_ship/cargo)
 "BS" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1389;
-	id_tag = "surveyor_shuttle_in";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -5142,7 +5138,6 @@
 /area/shuttle/coc_survey_shuttle)
 "Qv" = (
 /obj/machinery/door/airlock/external{
-	id_tag = "surveyor_shuttle_out";
 	dir = 4
 	},
 /obj/machinery/access_button{
@@ -5900,8 +5895,6 @@
 /area/coc_survey_ship/grauwolf)
 "WR" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1389;
-	id_tag = "surveyor_shuttle_in";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
