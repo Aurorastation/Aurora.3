@@ -80,6 +80,26 @@
 		desc = "Why? Who hurt you?"
 		icon_state = "pancakes_ruined"
 
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_blueberry))
+		name = "blueberry pancakes"
+		desc = "They're a little... TOO neon blue, aren't they? Doesn't look right... Oh well, they're full of sugar so who cares!"
+		icon_state = "pancakes_blueberry"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_raspberry))
+		name = "raspberry pancakes"
+		desc = "Your inner 12-year-old-girl-having-a-birthday party is squealing with overwhelming glee the longer you look at this."
+		icon_state = "pancakes_raspberry"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_blueraspberry))
+		name = "blue raspberry pancakes"
+		desc = "Delicious pancakes covered in blue raspberry syrup."
+		icon_state = "pancakes_blue_raspberry"
+
+	if(reagents.has_reagent(/singleton/reagent/drink/syrup_dirtberry))
+		name = "nifnif pancakes"
+		desc = "Dirtberry pancakes with little bits of roasted nifnif for extra crunch! It may not be traditional adhomian cuisine but it sure is popular there now anyway!"
+		icon_state = "pancakes_nifnif"
+
 /obj/item/reagent_containers/food/snacks/pancakes/berry
 	name = "berry pancakes"
 	desc = "Pancakes with berries, delicious."
@@ -491,7 +511,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 10, "cocoa" = 10, "orange" = 15))
 
 /obj/item/reagent_containers/food/snacks/cakeslice/starcake
-	name = "orange cake slice"
+	name = "starcake slice"
 	desc = "A thin slice of pound cake that mixes citrus fruits with cocoa, and has a layer of creamy glaze on top. Enjoyed with a side of coffee or tea all over the spur, in the weeping stars system it is also frequently served in funerals for some reason."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "starcake_slice"

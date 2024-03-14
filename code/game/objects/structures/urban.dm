@@ -430,6 +430,11 @@
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
 	icon_state = "buddha"
 
+/obj/structure/statue/gusoku
+	name = "gusoku"
+	desc = "A set of armor modelled after historical designs. Pieces replicating ancient artifacts are common on Konyang and viewed as favored pieces of art."
+	icon_state = "gusoku"
+
 /obj/structure/sign/urban
 	name = "exit sign"
 	desc = "A sign indicating where you should probably go in a hurry."

@@ -336,7 +336,7 @@
 		add_overlay(I)
 		i++
 
-/obj/item/hand/dropped(mob/user as mob)
+/obj/item/hand/dropped(mob/user)
 	. = ..()
 	if(locate(/obj/structure/table, loc))
 		src.update_icon(user.dir)

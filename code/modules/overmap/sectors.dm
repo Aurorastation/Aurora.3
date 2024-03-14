@@ -48,6 +48,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/comms_support = FALSE
 	/// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
 	var/comms_name = "shipboard"
+	/// Snowflake name to label frequency, if not set, frequency defaults to overmap name
+	var/freq_name = ""
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
 	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship

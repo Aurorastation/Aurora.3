@@ -24,7 +24,7 @@
 	max_count = 2
 
 	extra_languages = list(LANGUAGE_SOL_COMMON)
-	outfit = /datum/outfit/admin/konyang_cop
+	outfit = /obj/outfit/admin/konyang_cop
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -46,7 +46,7 @@
 	tags = list("External")
 	spawnpoints = list("konyang_infected_recovery_researcher")
 	extra_languages = list(LANGUAGE_SOL_COMMON)
-	outfit = /datum/outfit/admin/konyang_clinic
+	outfit = /obj/outfit/admin/konyang_clinic
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Konyang Infected Recovery Researcher"
