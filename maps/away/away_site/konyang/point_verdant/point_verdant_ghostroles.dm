@@ -594,3 +594,45 @@
 	backpack_contents = list(
 		/obj/item/gun/projectile/sec/lethal,
 	)
+
+/obj/outfit/admin/raccoon_city/ee_synth
+	name = "EE Synth"
+	uniform = /obj/item/clothing/under/rank/einstein/synthetic
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+	)
+
+/obj/outfit/admin/raccoon_city/ee_machinist
+	name = "EE Machinist"
+	uniform = /obj/item/clothing/under/rank/machinist/einstein
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+	)
+
+/obj/outfit/admin/raccoon_city/ee_captain
+	name = "EE Captain"
+	uniform = /obj/item/clothing/under/rank/captain/einstein
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+	)
+
+/obj/outfit/admin/raccoon_city/ee_engineer
+	name = "EE Engineer"
+	uniform = /obj/item/clothing/under/rank/engineer/einstein
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+	)
+
+/obj/outfit/admin/raccoon_city/ee_medical
+	name = "EE Medical"
+	uniform = /obj/item/clothing/under/rank/scientist/einstein
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+	)
+
+/obj/outfit/admin/raccoon_city/ee_scientist
+	name = "EE Scientist"
+	uniform = /obj/item/clothing/under/rank/scientist/einstein
+	backpack_contents = list(
+		/obj/item/gun/projectile/sec/lethal,
+	)
