@@ -207,11 +207,45 @@
 		/obj/item/storage/box/fancy/med_pouch
 		)
 
+/obj/item/storage/belt/medical/full
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+	)
+
+/obj/item/storage/belt/medical/full/inaprov
+	starts_with = list(
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+		/obj/item/storage/pill_bottle/inaprovaline = 1,
+		/obj/item/clothing/gloves/latex = 1,
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+	)
+
 /obj/item/storage/belt/medical/first_responder
 	name = "first responder utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
+
+/obj/item/storage/belt/medical/first_responder/full
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/crowbar/red = 1,
+		/obj/item/extinguisher/mini = 1,
+	)
 
 /obj/item/storage/belt/medical/first_responder/combat
 	name = "tactical medical belt"
@@ -314,6 +348,14 @@
 		/obj/item/handcuffs = 1,
 		/obj/item/device/flash = 1,
 		/obj/item/device/holowarrant = 1
+	)
+
+/obj/item/storage/belt/security/full/ee
+	starts_with = list(
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/handcuffs = 2,
+		/obj/item/device/flash = 1,
 	)
 
 /obj/item/storage/belt/soulstone

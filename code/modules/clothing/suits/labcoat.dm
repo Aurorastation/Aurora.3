@@ -181,6 +181,16 @@
 	icon_state = "labcoat_accent_alt"
 	item_state = "labcoat_accent_alt"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_med
+	name = "einstein medical department labcoat"
+	desc = "A suit that protects against minor chemical spills. This one has the typical coloration of a medical department of Einstein Engines."
+	accent_color = "#234242"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/ee_sci
+	name = "einstein scientist's labcoat"
+	desc = "A suit that protects against minor chemical spills. This one has the typical coloration of a science department of Einstein Engines."
+	accent_color = "#637c65"
+
 /obj/item/clothing/suit/storage/galatea_labcoat
 	name = "\improper Galatean labcoat"
 	desc = "A style of labcoat commonly worn by Galatean researchers which is intended to resemble labcoats commonly used throughout the Alliance prior to the Interstellar War’s outbreak in the late 2200s."
