@@ -550,6 +550,17 @@
 	name = "igs - Final Assault Zombie"
 	identifier = "fazombie"
 
+/obj/outfit/admin/raccoon_city
+	uniform = /obj/item/clothing/under/rank/liaison/einstein
+	id = /obj/item/card/id/einstein
+	back = /obj/item/storage/backpack/satchel/leather
+	r_pocket = /obj/item/storage/wallet/random
+	shoes = /obj/item/clothing/shoes/laceup
+
+
+/obj/outfit/admin/raccoon_city/get_id_access()
+	return list(ACCESS_KONYANG_CORPORATE)
+
 /datum/ghostspawner/human/ee_labs_director
 	name = "Einstein Facility Director"
 	desc = "Direct Einstein Research Facility Omega's experiment on Hylemnomil."
@@ -563,17 +574,7 @@
 	assigned_role = "Einstein Facility Director"
 	special_role = "Einstein Facility Director"
 	spawnpoints = list("ee_director")
-
-/obj/outfit/admin/raccoon_city
-	uniform = /obj/item/clothing/under/rank/liaison/einstein
-	id = /obj/item/card/id/einstein
-	back = /obj/item/storage/backpack/satchel/leather
-	r_pocket = /obj/item/storage/wallet/random
-	shoes = /obj/item/clothing/shoes/laceup
-
-
-/obj/outfit/admin/raccoon_city/get_id_access()
-	return list(ACCESS_KONYANG_CORPORATE)
+	outfit = /obj/outfit/admin/raccoon_city/ee_labs_director
 
 /obj/outfit/admin/raccoon_city/ee_labs_director
 	name = "EE Facility Director"
@@ -583,17 +584,178 @@
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/sec/lethal,
-		/obj/item/reagent_containers/glass/bottle/trioxin
+		/obj/item/reagent_containers/glass/bottle/trioxin,
+		/obj/item/modular_computer/laptop,
+		/obj/item/stamp/einstein,
+		/obj/item/reagent_containers/hypospray/cmo
 	)
+
+/obj/effect/ghostspawpoint/ee_director
+	name = "igs - EE Facility Director"
+	identifier = "ee_director"
+
+/datum/ghostspawner/human/ee_labs_lead
+	name = "Einstein Facility Project Lead"
+	desc = "Supervise the Einstein Research Facility Omega's experiment on Hylemnomil."
+	short_name = "ee_plead"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 1
+	password = "eelabslead"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Project Lead"
+	special_role = "Einstein Facility Project Lead"
+	spawnpoints = list("ee_plead")
+	outfit = /obj/outfit/admin/raccoon_city/ee_lead_scientist
+
+/obj/outfit/admin/raccoon_city/ee_lead_scientist
+	name = "EE Lead Scientist"
+	suit = /obj/item/clothing/suit/storage/toggle/longcoat
+
+	backpack_contents = list(
+		/obj/item/modular_computer/laptop,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/storage/firstaid/adv,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline,
+		/obj/item/reagent_containers/glass/bottle/perconol,
+		/obj/item/reagent_containers/glass/bottle/butazoline,
+		/obj/item/reagent_containers/glass/bottle/dermaline,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus,
+		/obj/item/reagent_containers/glass/bottle/peridaxon
+	)
+
+/obj/effect/ghostspawpoint/ee_lead_scientist
+	name = "igs - EE Lead Scientist"
+	identifier = "ee_plead"
+
+/datum/ghostspawner/human/ee_intern
+	name = "Einstein Facility Intern"
+	desc = "Serve coffee to your corporate overlords. Be noticed in the hopes for a promotion. Help out. Avoid dying a horrible death."
+	short_name = "ee_intern"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 1
+	password = "ee_intern"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Intern"
+	special_role = "Einstein Facility Intern"
+	spawnpoints = list("ee_intern")
+	outfit = /obj/outfit/admin/raccoon_city/ee_intern
+
+/obj/outfit/admin/raccoon_city/ee_intern
+	name = "EE Intern"
+
+	backpack_contents = list(
+		/obj/item/modular_computer/laptop,
+		/obj/item/storage/box/cups,
+		/obj/item/reagent_containers/glass/beaker/pitcher/coffee
+	)
+
+/obj/effect/ghostspawpoint/ee_intern
+	name = "igs - EE Intern"
+	identifier = "ee_intern"
+
+/datum/ghostspawner/human/ee_scientist
+	name = "Einstein Facility Scientist"
+	desc = "Research Hylemnomil-Zeta, a dangerous but potentially miraculous and Spur-changing artificial chemical."
+	short_name = "ee_sci"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 2
+	password = "ee_sci"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Scientist"
+	special_role = "Einstein Facility Scientist"
+	spawnpoints = list("ee_sci")
+	outfit = /obj/outfit/admin/raccoon_city/ee_scientist
+
+/obj/outfit/admin/raccoon_city/ee_scientist
+	name = "EE Scientist"
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	belt = /obj/item/storage/belt/medical
+
+	backpack_contents = list(
+		/obj/item/modular_computer/laptop,
+		/obj/item/storage/firstaid,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline,
+		/obj/item/reagent_containers/glass/bottle/bicaridine,
+		/obj/item/reagent_containers/glass/bottle/dermaline,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus
+	)
+
+/obj/effect/ghostspawpoint/ee_scientist
+	name = "igs - EE Scientist"
+	identifier = "ee_sci"
+
+/datum/ghostspawner/human/ee_guard
+	name = "Einstein Facility Guard"
+	desc = "You want to think that you're going to prevent dangerous experiments from getting loose, but in reality you're just lounging around at the checkpoint. \
+			Today will be just another one of those days. Right...?"
+	short_name = "ee_guard"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 2
+	password = "ee_guard"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Einstein Facility Guard"
+	special_role = "ee_guard Facility Guard"
+	spawnpoints = list("ee_guard")
+	outfit = /obj/outfit/admin/raccoon_city/ee_guard
 
 /obj/outfit/admin/raccoon_city/ee_guard
 	name = "EE Guard"
+
 	uniform = /obj/item/clothing/under/rank/einstein
 	suit = /obj/item/clothing/suit/armor/carrier/generic
 	accessory = /obj/item/clothing/accessory/holster/thigh
+	belt = /obj/item/storage/belt/security
 	backpack_contents = list(
 		/obj/item/gun/projectile/sec/lethal,
+		/obj/item/ammo_magazine/c45m,
+		/obj/item/ammo_magazine/c45m,
+		/obj/item/ammo_magazine/c45m,
+		/obj/item/melee/baton/loaded,
+		/obj/item/handcuffs,
+		/obj/item/handcuffs
 	)
+
+/obj/effect/ghostspawpoint/ee_guard
+	name = "igs - EE Guard"
+	identifier = "ee_guard"
+
+/datum/ghostspawner/human/ashley
+	name = "Patient Zero"
+	desc = "A girl with almost no friends or family, and the perfect target for an abduction. Nobody has noticed you're gone, but you want to live. Einstein \
+			will try to do terrible things to you. Can someone as insignificant as you change the course of history still?"
+	short_name = "ee_ashley"
+	loc_type = GS_LOC_POS
+	spawn_mob = /mob/living/carbon/human
+	tags = list("Einstein Labs")
+	max_count = 2
+	password = "AshleyBestWaifu"
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Patient Zero"
+	special_role = "Patient Zero"
+	spawnpoints = list("ee_ashley")
+	outfit = /obj/outfit/admin/raccoon_city/patient_zero
+
+/obj/outfit/admin/raccoon_city/patient_zero
+	name = "Patient Zero"
+	uniform = /obj/item/clothing/under/rank/medical/generic
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	id = null
+	back = null
+	l_pocket = /obj/item/clothing/head/pin/ribbon/back
+	r_pocket = /obj/item/storage/wallet/random
+	shoes = /obj/item/clothing/shoes/sneakers
+
+/obj/effect/ghostspawpoint/ashley
+	name = "igs - Ashley"
+	identifier = "ee_ashley"
 
 /obj/outfit/admin/raccoon_city/ee_synth
 	name = "EE Synth"
