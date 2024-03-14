@@ -42,7 +42,7 @@ changes:
   - bugfix: "Potentially fixed farmbots to not turn the server's CPU into molten metal."
   - bugfix: "Fixed navbeacons, they only work on the same Z-level."
   - refactor: "Refactored our bots to use TG's JPS (Jump Point Search) instead of AStar, which is more efficient."
-  - rscadd: "Navbeacons can now be print by the roboticist."
+  - rscadd: "Navbeacons can now be printed in protolathes."
   - backend: "Made the bots code more efficient and slightly more readable. Hopefully."
   - rscadd: "Cleanbot now uses TGUI."
   - rscadd: "Made navbeacons unanchorable and movable, adjusted them to not be map-only usable."
