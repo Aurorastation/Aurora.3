@@ -185,12 +185,6 @@
 		SPECIES_SKRELL_AXIORI = 150
 	)
 
-	ideal_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 170,
-		SPECIES_SKRELL_AXIORI = 170
-	)
-
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/representative/consular

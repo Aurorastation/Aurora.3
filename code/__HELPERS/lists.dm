@@ -253,11 +253,11 @@
 	var/item
 	for (item in L)
 		if (isnull(L[item]))
-		//Change by nanako, a default weight will no longer overwrite an explicitly set weight of 0
+		//A default weight will no longer overwrite an explicitly set weight of 0
 		//It will only use a default if no weight is defined
 			L[item] = 1
 		total += L[item]
-	total = rand() * total//Fix by nanako, allows it to handle noninteger weights
+	total = rand() * total//Allows it to handle noninteger weights
 	for (item in L)
 		total -= L[item]
 		if (total <= 0)

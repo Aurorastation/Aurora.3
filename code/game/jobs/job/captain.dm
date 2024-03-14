@@ -22,12 +22,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		SPECIES_SKRELL_AXIORI = 100
 	)
 
-	ideal_character_age = list(
-		SPECIES_HUMAN = 70,
-		SPECIES_SKRELL = 120,
-		SPECIES_SKRELL_AXIORI = 120
-	) // Old geezer captains ftw
-
 	outfit = /obj/outfit/job/captain
 
 	blacklisted_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -94,11 +88,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#1e59c9"
 	minimal_player_age = 10
 	economic_modifier = 10
-	ideal_character_age = list(
-		SPECIES_HUMAN = 50,
-		SPECIES_SKRELL = 100,
-		SPECIES_SKRELL_AXIORI = 100
-	)
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
@@ -157,11 +146,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#2b5bb5"
 	minimal_player_age = 20
 	economic_modifier = 5
-	ideal_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 75,
-		SPECIES_SKRELL_AXIORI = 75
-	)
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
