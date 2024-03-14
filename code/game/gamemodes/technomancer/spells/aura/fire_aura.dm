@@ -23,7 +23,7 @@
 	var/list/nearby_things = range(round(calculate_spell_power(4)),owner)
 
 	var/temp_change = calculate_spell_power(25)
-	var/datum/species/baseline = all_species["Human"]
+	var/datum/species/baseline = GLOB.all_species["Human"]
 	var/temp_cap = baseline.heat_level_3 * 1.5
 	var/fire_power = calculate_spell_power(2)
 

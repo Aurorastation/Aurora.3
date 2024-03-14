@@ -11,7 +11,7 @@
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
-	req_one_access = list(access_hydroponics, access_robotics, access_xenobotany)
+	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_ROBOTICS, ACCESS_XENOBOTANY)
 
 	var/action = "" // Used to update icon
 	var/waters_trays = TRUE
@@ -167,7 +167,7 @@
 					continue
 				if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
 					continue
-				if(pathfind(tray)) //If we can get there, we can accept it as a target. 
+				if(pathfind(tray)) //If we can get there, we can accept it as a target.
 					target = tray
 					frustration = 0
 					break
@@ -190,7 +190,7 @@
 	if(!length(freespaces))
 		return FALSE
 
-	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.	
+	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.
 	var/turf/location_goal = pick(freespaces)
 	path = AStar(loc, location_goal, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 	if(!path)
@@ -305,7 +305,7 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	qdel(src)
 	return
 
@@ -341,7 +341,8 @@
 	var/build_step = 0
 	var/created_name = "Farmbot"
 
-/obj/structure/reagent_dispensers/watertank/attackby(obj/item/robot_parts/S, mob/user)
+/obj/structure/reagent_dispensers/watertank/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/robot_parts/S = attacking_item
 	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
 		..()
 		return
@@ -352,28 +353,28 @@
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
 	qdel(S)
 
-/obj/item/farmbot_arm_assembly/attackby(obj/item/W, mob/user)
+/obj/item/farmbot_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(W, /obj/item/device/analyzer/plant_analyzer) && build_step == 0)
+	if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer) && build_step == 0)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add the plant analyzer to [src]."))
 		name = "farmbot assembly"
-		qdel(W)
+		qdel(attacking_item)
 		return TRUE
-	else if(istype(W, /obj/item/reagent_containers/glass/bucket) && build_step == 1)
+	else if(istype(attacking_item, /obj/item/reagent_containers/glass/bucket) && build_step == 1)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add a bucket to [src]."))
 		name = "farmbot assembly with bucket"
-		qdel(W)
+		qdel(attacking_item)
 		return TRUE //Prevents the object's afterattack from executing and causing runtime errors
-	else if(istype(W, /obj/item/material/minihoe) && build_step == 2)
+	else if(istype(attacking_item, /obj/item/material/minihoe) && build_step == 2)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add a minihoe to [src]."))
 		name = "farmbot assembly with bucket and minihoe"
-		user.remove_from_mob(W)
-		qdel(W)
+		user.remove_from_mob(attacking_item)
+		qdel(attacking_item)
 		return TRUE
-	else if(isprox(W) && build_step == 3)
+	else if(isprox(attacking_item) && build_step == 3)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You complete the Farmbot! Beep boop."))
 		var/mob/living/bot/farmbot/S = new /mob/living/bot/farmbot(get_turf(src))
@@ -382,12 +383,12 @@
 			wTank.forceMove(S)
 			S.tank = wTank
 		S.name = created_name
-		user.remove_from_mob(W)
-		qdel(W)
+		user.remove_from_mob(attacking_item)
+		qdel(attacking_item)
 		qdel(src)
 		return TRUE
-	else if(W.ispen())
-		var/t = input(user, "Enter new robot name", name, created_name) as text
+	else if(attacking_item.ispen())
+		var/t = tgui_input_text(user, "Enter new robot name", name, created_name)
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)
 			return

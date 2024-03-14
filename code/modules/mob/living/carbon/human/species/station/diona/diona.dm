@@ -10,7 +10,7 @@
 	total_health = 240
 	age_min = 30
 	age_max = 1000
-	default_genders = list(NEUTER)
+	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
@@ -68,7 +68,7 @@
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
-	has_organ = list( BP_STOMACH = /obj/item/organ/internal/stomach/diona)
+	has_organ = list(BP_STOMACH = /obj/item/organ/internal/stomach/diona)
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
@@ -165,7 +165,7 @@
 	return current_flags
 
 /datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
 		return TRUE
 	return FALSE
 

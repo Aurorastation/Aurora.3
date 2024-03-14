@@ -10,6 +10,7 @@
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
+	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -60,13 +61,13 @@
 		)
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell,
 		BP_HEART =    /obj/item/organ/internal/heart/skrell,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
 		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
-		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_EYES =     /obj/item/organ/internal/eyes/skrell
+		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
 
 	pain_messages = list("I can't feel my headtails", "You really need some painkillers", "Stars above, the pain")

@@ -15,7 +15,7 @@
 	var/base_state = "mflash"
 	anchored = 1
 	idle_power_usage = 2
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	var/_wifi_id
 	var/datum/wifi/receiver/button/flasher/wifi_receiver
 
@@ -49,8 +49,8 @@
 //		src.sd_SetLuminosity(0)
 
 //Don't want to render prison breaks impossible
-/obj/machinery/flasher/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.iswirecutter())
+/obj/machinery/flasher/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswirecutter())
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
@@ -92,12 +92,13 @@
 		O.Weaken(flash_time)
 
 /obj/machinery/flasher/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	if(prob(75/severity))
 		flash()
-	..(severity)
 
 /obj/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
 	if ((src.disable) || (src.last_flash && world.time < src.last_flash + 150))
@@ -106,8 +107,8 @@
 	if (src.anchored)
 		src.flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.iswrench())
+/obj/machinery/flasher/portable/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswrench())
 		add_fingerprint(user)
 		src.anchored = !src.anchored
 

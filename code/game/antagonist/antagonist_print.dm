@@ -74,7 +74,7 @@
 			// they are either imprisoned, or handcuffed in an area that can't be considered a hideout
 			text += "apprehended"
 		else if(isNotStationLevel(M.z))
-			text += "fled the station"
+			text += "fled the [SSatlas.current_map.station_type]"
 		else
 			text += "survived"
 		if(M.stat == UNCONSCIOUS)
@@ -94,7 +94,7 @@
 	var/bluecrystal_uses = 0
 	var/uplink_true = 0
 	var/purchases = ""
-	for(var/obj/item/device/uplink/H in world_uplinks)
+	for(var/obj/item/device/uplink/H in GLOB.world_uplinks)
 		if(H && H.uplink_owner && H.uplink_owner == ply)
 			telecrystal_uses += H.used_telecrystals
 			bluecrystal_uses += H.used_bluecrystals
@@ -109,7 +109,7 @@
 
 /proc/print_ownerless_uplinks()
 	var/has_printed = 0
-	for(var/obj/item/device/uplink/H in world_uplinks)
+	for(var/obj/item/device/uplink/H in GLOB.world_uplinks)
 		if(isnull(H.uplink_owner) && (H.used_telecrystals || H.used_bluecrystals))
 			if(!has_printed)
 				has_printed = 1

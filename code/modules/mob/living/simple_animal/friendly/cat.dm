@@ -16,7 +16,6 @@
 	emote_see = list("shakes their head", "shivers")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
@@ -172,9 +171,9 @@
 		flee_target = A
 		turns_since_move = 5
 
-/mob/living/simple_animal/cat/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/cat/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(O.force)
+	if(attacking_item.force)
 		set_flee_target(user? user : src.loc)
 
 /mob/living/simple_animal/cat/attack_hand(mob/living/carbon/human/M as mob)
@@ -206,7 +205,7 @@
 /mob/living/simple_animal/cat/fluff/handle_movement_target()
 	if (!QDELETED(friend))
 		var/follow_dist = 5
-		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit) //danger
+		if (friend.stat >= DEAD || friend.health <= GLOB.config.health_threshold_softcrit) //danger
 			follow_dist = 1
 		else if (friend.stat || friend.health <= 50) //danger or just sleeping
 			follow_dist = 2
@@ -240,16 +239,21 @@
 	if (stat || QDELETED(friend))
 		return
 	if (get_dist(src, friend) <= 1)
-		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit)
+		if (friend.stat >= DEAD || friend.health <= GLOB.config.health_threshold_softcrit)
 			if (prob((friend.stat < DEAD)? 50 : 15))
 				var/verb = pick("meows", "mews", "mrowls")
 				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
 		else
 			if (prob(5))
-				visible_emote(pick("nuzzles [friend].",
-								   "brushes against [friend].",
-								   "rubs against [friend].",
-								   "purrs."),0)
+				var/emote = pick(
+								"nuzzles [friend].",
+								"brushes against [friend].",
+								"rubs against [friend].",
+								"purrs.",
+								)
+
+				visible_emote(emote, 0)
+
 	else if (friend.health <= 50)
 		if (prob(10))
 			var/verb = pick("meows", "mews", "mrowls")
@@ -289,10 +293,10 @@
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/holder/cat/black
 
-/mob/living/simple_animal/cat/fluff/examine(mob/user)
+/mob/living/simple_animal/cat/fluff/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat == DEAD)
-		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
+		. += "Oh no, [name] is dead! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
@@ -305,10 +309,10 @@
 	gender = NEUTER
 	holder_type = /obj/item/holder/cat/kitten
 
-/mob/living/simple_animal/cat/kitten/examine(mob/user)
+/mob/living/simple_animal/cat/kitten/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat == DEAD)
-		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
+		. += "It's a dead kitten! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
@@ -352,7 +356,7 @@
 	can_nap = TRUE
 	holder_type = /obj/item/holder/cat/crusher
 
-/mob/living/simple_animal/cat/crusher/examine(mob/user)
+/mob/living/simple_animal/cat/crusher/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat == DEAD)
-		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")
+		. += "Crusher's dead. How could this have happened? She counted on you!"

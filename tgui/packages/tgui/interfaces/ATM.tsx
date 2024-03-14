@@ -157,8 +157,14 @@ export const AuthenticatedWindow = (props, context) => {
           />
           &nbsp;
           <Button
+            tooltip="Cash"
             icon="check"
             onClick={() => act('withdrawal', { funds_amount: withdraw })}
+          />
+          <Button
+            tooltip="Charge Card"
+            icon="credit-card"
+            onClick={() => act('e_withdrawal', { funds_amount: withdraw })}
           />
         </LabeledList.Item>
       </LabeledList>

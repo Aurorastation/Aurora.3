@@ -31,7 +31,7 @@
 	use_power = POWER_USE_OFF	//doesn't use APC power
 	var/multiz = TRUE
 	var/multi_unlocked = TRUE
-	req_one_access = list(access_captain, access_security, access_engine)
+	req_one_access = list(ACCESS_CAPTAIN, ACCESS_SECURITY, ACCESS_ENGINE)
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
@@ -54,17 +54,17 @@
 		. = TRUE
 		updateDialog()
 
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 
-/obj/machinery/shield_gen/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/card/id))
+/obj/machinery/shield_gen/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
 			updateDialog()
 		else
 			to_chat(user, SPAN_ALERT("Access denied."))
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
 

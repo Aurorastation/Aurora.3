@@ -54,6 +54,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/blue
 	color = "#6176a1"
 
+/turf/simulated/wall/shuttle/dark/cardinal/gold
+	color = COLOR_GOLD
+
 /turf/simulated/wall/shuttle/dark/long_diagonal_2
 	name = "test diagonal"
 	icon_state = "d2-we-1"
@@ -187,6 +190,7 @@
 	icon_state = "wall2"
 	health = 500
 	maxhealth = 500
+	alpha = 255
 	smoothing_flags = null
 	canSmoothWith = null
 	can_be_unanchored = FALSE

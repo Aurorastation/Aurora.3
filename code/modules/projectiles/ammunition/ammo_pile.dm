@@ -27,10 +27,10 @@
 			add_ammo(C)
 	addtimer(CALLBACK(src, PROC_REF(check_ammo)), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
 
-/obj/item/ammo_pile/examine(mob/user, distance, is_adjacent)
+/obj/item/ammo_pile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("It contains [length(ammo)] rounds."))
+		. += SPAN_NOTICE("It contains [length(ammo)] rounds.")
 
 /obj/item/ammo_pile/attack()
 	return
@@ -73,20 +73,20 @@
 		if(!(bullet in src)) // if the gun / mag accepted the bullet, it will no longer be in our pile
 			remove_ammo()
 
-/obj/item/ammo_pile/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/ammo_casing))
-		if(W.type != ammo_type)
-			to_chat(user, SPAN_WARNING("\The [W] has a different type of ammunition!"))
+/obj/item/ammo_pile/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_casing))
+		if(attacking_item.type != ammo_type)
+			to_chat(user, SPAN_WARNING("\The [attacking_item] has a different type of ammunition!"))
 			return TRUE
 		if(length(ammo) >= max_ammo)
 			to_chat(user, SPAN_WARNING("\The [src] is already fully stacked."))
 			return TRUE
-		var/obj/item/ammo_casing/B = W
+		var/obj/item/ammo_casing/B = attacking_item
 		if(!B.BB)
 			to_chat(user, SPAN_WARNING("\The [B] is spent!"))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You add \the [W] to \the [src]."))
-		add_ammo(W)
+		to_chat(user, SPAN_NOTICE("You add \the [attacking_item] to \the [src]."))
+		add_ammo(attacking_item)
 		return TRUE
 	return ..()
 
@@ -145,7 +145,7 @@
 		S.remove_from_storage(bullet, src)
 	bullet.forceMove(src)
 	ammo += bullet
-	var/image/ammo_picture = image(bullet.icon, bullet.icon_state, dir = pick(alldirs))
+	var/image/ammo_picture = image(bullet.icon, bullet.icon_state, dir = pick(GLOB.alldirs))
 	ammo_picture.pixel_x = rand(-6, 6)
 	ammo_picture.pixel_y = rand(-6, 6)
 	ammo_overlay[bullet] = ammo_picture

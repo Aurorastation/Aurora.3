@@ -12,10 +12,10 @@
 	if(buckled)
 		user_unbuckle(user)
 
-/obj/MouseDrop_T(atom/movable/MA, mob/living/user)
+/obj/MouseDrop_T(atom/dropping, mob/user)
 	. = ..()
-	if(is_type_in_list(MA, can_buckle))
-		user_buckle(MA, user)
+	if(is_type_in_list(dropping, can_buckle))
+		user_buckle(dropping, user)
 
 //Cleanup
 
@@ -24,30 +24,52 @@
 	return ..()
 
 
+/**
+ * Buckles an `/atom/movable` to this obj, performed by a `/mob`
+ *
+ * Returns `TRUE` if the buckling was successful, `FALSE` otherwise
+ *
+ * * buckling_atom - The `/atom/movable` to buckle
+ * * user - The `/mob` that performs the buclking action
+ */
 /obj/proc/buckle(atom/movable/buckling_atom, mob/user)
+
 	if(!buckling_atom.can_be_buckled || buckling_atom.buckled_to)
 		return FALSE
+
 	if(!is_type_in_list(buckling_atom, can_buckle))
 		return FALSE
+
 	if(buckling_atom.loc != loc)
 		step_towards(buckling_atom, src)
+
 		if(buckling_atom.loc != loc)
 			return FALSE
+
 	if(buckling_atom != user && isliving(buckling_atom))
 		var/mob/living/buckling_mob = buckling_atom
-		if(!buckling_mob.lying && !do_mob(user, buckling_mob, 3 SECONDS))
+
+		//If the mob is not lying, check if there's an user that is performing the action, if there is add 3 seconds to perform the action,
+		//otherwise just continue as do_mob requires an user and a target
+		if(!buckling_mob.lying && !isnull(user) && !do_mob(user, buckling_mob, 3 SECONDS))
 			return FALSE
+
 	buckling_atom.buckled_to = src
 	buckled = buckling_atom
+
 	if(istype(buckling_atom, /mob/living))
 		var/mob/living/buckling_mob = buckling_atom
+
 		if(length(buckling_mob.pinned) || (buckle_require_restraints && !buckling_mob.restrained()))
 			return FALSE
+
 		buckling_mob.set_dir(buckle_dir ? buckle_dir : dir)
 		buckling_mob.facing_dir = null
 		buckling_mob.update_canmove()
+
 	else
 		buckling_atom.anchored = TRUE
+
 	post_buckle(buckling_atom)
 	buckling_atom.layer = layer + 0.1
 	return TRUE

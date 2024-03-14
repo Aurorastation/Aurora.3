@@ -6,7 +6,7 @@
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 
 	var/secure = FALSE //if set, then wires will be randomized and bolts will drop if the door is broken
 	var/list/conf_access
@@ -33,7 +33,7 @@
 		t1 += "<B>Unrestricted Access Settings</B><br>"
 
 
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			if(direction & unres_dir)
 				t1 += "<a style='color:#00dd12' href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
 			else
@@ -112,12 +112,12 @@
 			if(!conf_access.len)
 				conf_access = null
 
-/obj/item/airlock_electronics/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/airlock_electronics) &&(!isrobot(user)))
+/obj/item/airlock_electronics/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/airlock_electronics) &&(!isrobot(user)))
 		if(src.locked)
 			to_chat(user, SPAN_WARNING("\The [src] you're trying to set is locked! Swipe your ID to unlock."))
 			return TRUE
-		var/obj/item/airlock_electronics/A = W
+		var/obj/item/airlock_electronics/A = attacking_item
 		if(A.locked)
 			to_chat(user, SPAN_WARNING("\The [src] you're trying to copy is locked! Swipe your ID to unlock."))
 			return TRUE
@@ -126,8 +126,8 @@
 		src.last_configurator = A.last_configurator
 		to_chat(user, SPAN_NOTICE("Configuration settings copied successfully."))
 		return TRUE
-	else if(W.GetID())
-		var/obj/item/card/id/I = W.GetID()
+	else if(attacking_item.GetID())
+		var/obj/item/card/id/I = attacking_item.GetID()
 		if(check_access(I))
 			locked = !locked
 			last_configurator = I.registered_name

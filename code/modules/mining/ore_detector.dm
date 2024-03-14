@@ -24,10 +24,10 @@
 
 	var/list/ore_names
 
-/obj/item/ore_detector/examine(mob/user, distance)
+/obj/item/ore_detector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("Alt-click to set the ore you wish to search for.")))
+		. += FONT_SMALL(SPAN_NOTICE("Alt-click to set the ore you wish to search for."))
 
 /obj/item/ore_detector/Destroy()
 	deactivate()
@@ -48,8 +48,8 @@
 /obj/item/ore_detector/ui_data(mob/user)
 	if(!length(ore_names))
 		ore_names = list()
-		for(var/ore_n in ore_data)
-			var/ore/O = ore_data[ore_n]
+		for(var/ore_n in GLOB.ore_data)
+			var/ore/O = GLOB.ore_data[ore_n]
 			var/ore_name = O.display_name
 			ore_names += ore_name
 		ore_names += SURFACE_MINERALS
@@ -130,7 +130,9 @@
 				M.client.images += ore_ping
 			ore_pings += ore_ping
 
-/obj/item/ore_detector/emp_act()
+/obj/item/ore_detector/emp_act(severity)
+	. = ..()
+
 	deactivate()
 
 /obj/item/ore_detector/proc/activate(var/mob/user)

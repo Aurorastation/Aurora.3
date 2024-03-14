@@ -58,7 +58,7 @@
 	// Update our 'sensor range' (ie. overmap lighting)
 	if(!sensors || !sensors.use_power || (stat & (NOPOWER|BROKEN)))
 		if(length(datalink_contacts))
-			var/remove_link = !sensors || HAS_FLAG(stat, BROKEN)
+			var/remove_link = !sensors || (stat & BROKEN)
 			datalink_remove_all_ships_datalink(remove_link)
 		for(var/key in contact_datums)
 			var/datum/overmap_contact/record = contact_datums[key]
@@ -128,7 +128,7 @@
 					QDEL_IN(record, 2 SECOND) // Need to restart the search if you've lost contact with the object.
 					if(contact.scannable)	  // Scannable objects are the only ones that give off notifications to prevent spam
 						visible_message(SPAN_NOTICE("\The [src] states, \"Contact lost with [record.name].\""))
-						playsound(loc, "sound/machines/sensors/contact_lost.ogg", 30, 1)
+						playsound(loc, 'sound/machines/sensors/contact_lost.ogg', 30, 1)
 				objects_in_view -= contact
 				continue
 
@@ -152,12 +152,12 @@
 						objects_in_view[contact] += round(sensors.sensor_strength**2)
 						if(!muted)
 							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Contact '[contact.unknown_id]' tracing [objects_in_view[contact]]% complete, bearing [bearing_estimate], error +/- [bearing_variability].\""))
-					playsound(loc, "sound/machines/sensors/contactgeneric.ogg", 10, 1) //Let players know there's something nearby.
+					playsound(loc, 'sound/machines/sensors/contactgeneric.ogg', 10, 1) //Let players know there's something nearby.
 				if(objects_in_view[contact] >= 100) // Identification complete.
 					record = new /datum/overmap_contact(src, contact)
 					contact_datums[contact] = record
 					if(contact.scannable)
-						playsound(loc, "sound/machines/sensors/newcontact.ogg", 30, 1)
+						playsound(loc, 'sound/machines/sensors/newcontact.ogg', 30, 1)
 						visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"New contact identified, designation [record.name], bearing [bearing].\""))
 					record.show()
 					animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
@@ -169,9 +169,9 @@
 			if(!record.pinged)
 				addtimer(CALLBACK(record, PROC_REF(ping)), time_delay)
 
-/obj/machinery/computer/ship/sensors/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/computer/ship/sensors/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	var/obj/item/device/multitool/P = I
+	var/obj/item/device/multitool/P = attacking_item
 	if(!istype(P))
 		return
 	var/obj/item/ship_tracker/tracker = P.get_buffer()
@@ -180,11 +180,11 @@
 
 	if(tracker in trackers)
 		trackers -= tracker
-		destroyed_event.unregister(tracker, src, PROC_REF(remove_tracker))
+		GLOB.destroyed_event.unregister(tracker, src, PROC_REF(remove_tracker))
 		to_chat(user, SPAN_NOTICE("You unlink the tracker in \the [P]'s buffer from \the [src]."))
 		return
 	trackers += tracker
-	destroyed_event.register(tracker, src, PROC_REF(remove_tracker))
+	GLOB.destroyed_event.register(tracker, src, PROC_REF(remove_tracker))
 	to_chat(user, SPAN_NOTICE("You link the tracker in \the [P]'s buffer to \the [src]."))
 
 /obj/machinery/computer/ship/sensors/proc/remove_tracker(var/obj/item/ship_tracker/tracker)

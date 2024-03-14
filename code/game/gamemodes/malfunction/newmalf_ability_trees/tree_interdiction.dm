@@ -89,7 +89,7 @@
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
-		for(var/mob/living/silicon/robot/R in silicon_mob_list)
+		for(var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))	// No drones.
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
@@ -146,7 +146,7 @@
 
 	var/list/drone_list = list()
 	var/hacked_num = 0
-	for(var/mob/living/silicon/robot/drone/D in mob_list)
+	for(var/mob/living/silicon/robot/drone/D in GLOB.mob_list)
 		if(D.client || D.stat != 2)
 			if(!D.hacked)
 				drone_list += D
@@ -157,8 +157,8 @@
 		to_chat(user, SPAN_WARNING("There are no active maintenance drones present to hack!"))
 		return
 
-	if(hacked_num >= config.hacked_drones_limit)
-		to_chat(user, SPAN_WARNING("ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [config.hacked_drones_limit] maximum possible."))
+	if(hacked_num >= GLOB.config.hacked_drones_limit)
+		to_chat(user, SPAN_WARNING("ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [GLOB.config.hacked_drones_limit] maximum possible."))
 		return
 
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
@@ -308,10 +308,10 @@
 			to_chat(target, "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$")
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
-							   	   "0101000100100100000100010010",\
-							       "0000010001001010100100111100",\
-							       "1010010011110000100101000100",\
-							       "0010010100010011010001001010")
+									"0101000100100100000100010010",\
+									"0000010001001010100100111100",\
+									"1010010011110000100101000100",\
+									"0010010100010011010001001010")
 				to_chat(target, temptxt)
 				sleep(5)
 			to_chat(target, "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE.")

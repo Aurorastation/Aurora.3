@@ -14,7 +14,7 @@
 	icon_state = "landmine_post"
 	anchored = TRUE
 
-/obj/structure/adhomai_minefield/examine(mob/user)
+/obj/structure/adhomai_minefield/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
-		to_chat(user, SPAN_WARNING("The sign says: \"WARNING: MINEFIELD\"."))
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_WARNING("The sign says: \"WARNING: MINEFIELD\".")

@@ -9,20 +9,20 @@
 
 /obj/structure/easel/Initialize(ml, _mat, _reinf_mat)
 	. = ..()
-	moved_event.register(src, src, PROC_REF(move_painting))
+	GLOB.moved_event.register(src, src, PROC_REF(move_painting))
 	material = SSmaterials.get_material_by_name(MATERIAL_WOOD)
 
 /obj/structure/easel/Destroy()
 	painting = null
-	moved_event.unregister(src, src, PROC_REF(move_painting))
+	GLOB.moved_event.unregister(src, src, PROC_REF(move_painting))
 	return ..()
 
 /*
  * Adding canvases.
  */
-/obj/structure/easel/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/canvas))
-		var/obj/item/canvas/C = I
+/obj/structure/easel/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/canvas))
+		var/obj/item/canvas/C = attacking_item
 		if(user.unEquip(C))
 			painting = C
 			C.forceMove(get_turf(src))
@@ -32,7 +32,7 @@
 			C.pixel_z = 0
 			user.visible_message("<b>[user]</b> puts \the [C] on \the [src].", SPAN_NOTICE("You place \the [C] on \the [src]."))
 		return TRUE
-	if(I.iswrench())
+	if(attacking_item.iswrench())
 		to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
 		dismantle()
 		return TRUE

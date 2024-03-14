@@ -108,7 +108,7 @@
 
 /obj/effect/meteor/proc/meteor_effect()
 	if(heavy)
-		for(var/mob/M in player_list)
+		for(var/mob/M in GLOB.player_list)
 			var/turf/T = get_turf(M)
 			if(!T || T.z != src.z)
 				continue
@@ -120,8 +120,8 @@
 		qdel(src)
 	return
 
-/obj/effect/meteor/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/pickaxe))
+/obj/effect/meteor/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pickaxe))
 		qdel(src)
 		return TRUE
 	return ..()
@@ -287,7 +287,7 @@
 	range = ((range - world.view) * 2)+1
 
 
-	for(var/A in player_list)
+	for(var/A in GLOB.player_list)
 		var/mob/M = A
 		var/turf/mobloc = get_turf(M)
 		if(mobloc && mobloc.z == T.z)

@@ -1,6 +1,6 @@
 // Anything that's coded as an "antagonist" that needs outfits should go here, unless it's an ERT.
 
-/datum/outfit/admin/syndicate
+/obj/outfit/admin/syndicate
 	name = "Syndicate Agent"
 	allow_backbag_choice = TRUE
 
@@ -30,7 +30,7 @@
 	var/id_access = "Syndicate Operative"
 	var/uplink_uses = DEFAULT_TELECRYSTAL_AMOUNT
 
-/datum/outfit/admin/syndicate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -40,13 +40,13 @@
 		U.hidden_uplink.uplink_owner = H.mind
 		U.hidden_uplink.telecrystals = uplink_uses
 		U.hidden_uplink.bluecrystals = round(uplink_uses / 2)
-		U.hidden_uplink.nanoui_menu = 1
+		U.hidden_uplink.tgui_menu = 1
 
-/datum/outfit/admin/syndicate/get_id_access()
+/obj/outfit/admin/syndicate/get_id_access()
 	return get_syndicate_access(id_access)
 
 
-/datum/outfit/admin/syndicate/operative
+/obj/outfit/admin/syndicate/operative
 	name = "Syndicate Operative"
 
 	suit = /obj/item/clothing/suit/space/void/merc
@@ -71,7 +71,7 @@
 		/obj/item/clothing/shoes/combat = 1
 )
 
-/datum/outfit/admin/syndicate/officer
+/obj/outfit/admin/syndicate/officer
 	name = "Syndicate Officer"
 
 	head = /obj/item/clothing/head/beret/red
@@ -95,7 +95,7 @@
 	)
 	id_access = "Syndicate Operative Leader"
 
-/datum/outfit/admin/syndicate/spy
+/obj/outfit/admin/syndicate/spy
 	name = "Syndicate Spy"
 	uniform = /obj/item/clothing/under/suit_jacket/really_black
 	shoes = /obj/item/clothing/shoes/sneakers/black/noslip
@@ -108,7 +108,7 @@
 
 // Syndicate Auxiliary Outfits (ninja, merc, etc.)
 
-/datum/outfit/admin/syndicate/ninja
+/obj/outfit/admin/syndicate/ninja
 	name = "Infiltrator"
 	allow_backbag_choice = FALSE
 
@@ -137,14 +137,14 @@
 
 	id_access = "Syndicate Agent"
 
-/datum/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
 
 	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
 
-/datum/outfit/admin/syndicate/mercenary
+/obj/outfit/admin/syndicate/mercenary
 	name = "Mercenary"
 
 	uniform = /obj/item/clothing/under/syndicate
@@ -161,7 +161,7 @@
 
 	id_iff = IFF_MERCENARY
 
-/datum/outfit/admin/syndicate/mercenary/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/mercenary/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -169,7 +169,7 @@
 	if(!H.shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 
-/datum/outfit/admin/syndicate/mercenary/loner
+/obj/outfit/admin/syndicate/mercenary/loner
 	name = "Loner"
 
 	l_ear = /obj/item/device/radio/headset/syndicate
@@ -184,7 +184,7 @@
 	id_iff = IFF_LONER
 	id_access = "Lone Operative"
 
-/datum/outfit/admin/syndicate/raider
+/obj/outfit/admin/syndicate/raider
 	name = "Raider"
 	allow_backbag_choice = FALSE
 
@@ -335,7 +335,7 @@
 
 	backpack_contents = list()
 
-/datum/outfit/admin/syndicate/raider/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/raider/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	new /obj/random/backpack(H.loc)
 	var/obj/item/storage/backpack/bag
@@ -370,7 +370,7 @@
 
 	return ..()
 
-/datum/outfit/admin/syndicate/raider/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/raider/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -381,11 +381,11 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
-/datum/outfit/admin/syndicate/burglar
+/obj/outfit/admin/syndicate/burglar
 	name = "Burglar"
 	allow_backbag_choice = FALSE
 
@@ -431,7 +431,7 @@
 
 	id_iff = IFF_BURGLAR
 
-/datum/outfit/admin/syndicate/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -483,13 +483,73 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
+	if(W)
+		W.handle_item_insertion(passport)
+
+
+/obj/outfit/admin/syndicate/jockey
+	name = "Jockey"
+	allow_backbag_choice = FALSE
+
+	uniform = list(
+		/obj/item/clothing/under/color/darkred,
+		/obj/item/clothing/under/color/red,
+		/obj/item/clothing/under/color/lightred
+	)
+
+	suit = list(
+		/obj/item/clothing/suit/storage/hazardvest,
+		/obj/item/clothing/suit/storage/hazardvest/green,
+		/obj/item/clothing/suit/storage/hazardvest/red
+	)
+
+	back = /obj/item/storage/backpack/duffel/syndie
+
+	belt = /obj/item/storage/belt/utility/very_full
+	shoes = /obj/item/clothing/shoes/workboots/all_species
+	glasses = null
+	head = /obj/item/clothing/head/welding
+
+	gloves = /obj/item/clothing/gloves/yellow // glubbs
+
+	backpack_contents = list(
+		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/device/flashlight = 1,
+		/obj/item/card/emag = 1
+	)
+
+	l_ear = /obj/item/device/radio/headset/jockey
+	r_pocket = /obj/item/device/special_uplink/jockey
+	id = /obj/item/storage/wallet
+
+	id_iff = IFF_JOCKEY
+
+/obj/outfit/admin/syndicate/jockey/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/turf/T = get_turf(H)
+	var/obj/item/gun/projectile/primary = new /obj/item/gun/projectile/silenced(T)
+	var/obj/item/magazine = new primary.magazine_type(T)
+	H.equip_to_slot_or_del(magazine, slot_l_store)
+	var/obj/item/clothing/accessory/holster/armpit/holster = new /obj/item/clothing/accessory/holster/armpit(T)
+	holster.holstered = primary
+	primary.forceMove(holster)
+
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	uniform.attackby(holster, H)
+
+	var/obj/item/storage/wallet/W = H.wear_id
+	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
 // Non-syndicate antag outfits
 
-/datum/outfit/admin/highlander
+/obj/outfit/admin/highlander
 	name = "Highlander"
 
 	uniform = /obj/item/clothing/under/kilt
@@ -502,7 +562,7 @@
 	id = /obj/item/card/id/highlander
 	id_iff = IFF_HIGHLANDER
 
-/datum/outfit/admin/highlander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/highlander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -512,7 +572,7 @@
 		W.name = "[H.real_name]'s ID"
 		W.registered_name = H.real_name
 
-/datum/outfit/admin/syndicate/cultist
+/obj/outfit/admin/syndicate/cultist
 	name = "Cultist"
 	allow_backbag_choice = FALSE
 
@@ -532,10 +592,10 @@
 
 	id_iff = IFF_CULTIST
 
-/datum/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	return
 
-/datum/outfit/admin/syndicate/cultist/super
+/obj/outfit/admin/syndicate/cultist/super
 	name = "Super Cultist"
 
 	head = /obj/item/clothing/head/helmet/space/cult
@@ -543,7 +603,7 @@
 
 	suit_store = /obj/item/gun/energy/rifle/cult
 
-/datum/outfit/admin/syndicate/raider_techno
+/obj/outfit/admin/syndicate/raider_techno
 	name = "Raider Techno"
 	allow_backbag_choice = FALSE
 
@@ -564,7 +624,7 @@
 
 	id_iff = IFF_BLUESPACE
 
-/datum/outfit/admin/syndicate/raider_techno/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/raider_techno/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/list/loadouts = list("Nature", "Techno", "Cobra", "Brawler", "Shimmer")
 	if(H.gender in list(FEMALE, PLURAL, NEUTER))
 		loadouts += list("Storm", "Sorceress")
@@ -606,7 +666,7 @@
 			back = /obj/item/technomancer_core/summoner
 	return ..()
 
-/datum/outfit/admin/syndicate/raider_techno/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/syndicate/raider_techno/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -617,7 +677,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
@@ -629,14 +689,14 @@
 	if(catalog)
 		catalog.bind_to_owner(H)
 
-/datum/outfit/admin/golem
+/obj/outfit/admin/golem
 	name = "Bluespace Golem"
 	allow_backbag_choice = FALSE
 
 	l_ear = /obj/item/device/radio/headset/bluespace
 	id_iff = IFF_BLUESPACE
 
-/datum/outfit/admin/techomancer
+/obj/outfit/admin/techomancer
 	name = "Technomancer"
 	allow_backbag_choice = FALSE
 
@@ -656,7 +716,7 @@
 
 	var/id_assignment = "Technomagus"
 
-/datum/outfit/admin/techomancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/techomancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -674,7 +734,7 @@
 	if(catalog)
 		catalog.bind_to_owner(H)
 
-/datum/outfit/admin/techomancer/apprentice
+/obj/outfit/admin/techomancer/apprentice
 	name = "Technomancer Apprentice"
 
 	head = /obj/item/clothing/head/chameleon/technomancer
@@ -686,7 +746,7 @@
 
 	id_assignment = "Techno-apprentice"
 
-/datum/outfit/admin/techomancer/apprentice/post_equip(mob/living/carbon/human/H, visualsOnly)
+/obj/outfit/admin/techomancer/apprentice/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -696,7 +756,7 @@
 	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")
 	to_chat(H, "<b>It would be wise to speak to your master, and learn what their plans are for today. Your clothing is holographic, you should change its look before leaving.</b>")
 
-/datum/outfit/admin/techomancer/golem
+/obj/outfit/admin/techomancer/golem
 	name = "Technomancer Golem"
 
 	head = null

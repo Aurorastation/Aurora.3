@@ -14,7 +14,7 @@
 	var/obj/machinery/camera/camera = null
 	var/obj/item/device/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
-	var/list/req_access = list(access_robotics) //Access needed to pop out the brain.
+	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
 	var/positronic
 
 	name = "spider-bot"
@@ -55,7 +55,7 @@
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 	internal_id = new /obj/item/card/id(src)
 	add_verb(src, /mob/living/proc/ventcrawl)
 	add_verb(src, /mob/living/proc/hide)
@@ -68,10 +68,10 @@
 /mob/living/simple_animal/spiderbot/isSynthetic()
 	return TRUE
 
-/mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/spiderbot/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(O, /obj/item/device/mmi))
-		var/obj/item/device/mmi/B = O
+	if(istype(attacking_item, /obj/item/device/mmi))
+		var/obj/item/device/mmi/B = attacking_item
 		if(src.mmi)
 			to_chat(user, "<span class='warning'>There's already a brain in [src]!</span>")
 			return
@@ -81,37 +81,37 @@
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/abstract/observer/G in player_list)
+				for(var/mob/abstract/observer/G in GLOB.player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
 			if(!ghost_can_reenter)
-				to_chat(user, "<span class='notice'>[O] is completely unresponsive; there's no point.</span>")
+				to_chat(user, "<span class='notice'>[attacking_item] is completely unresponsive; there's no point.</span>")
 				return
 
 		if(B.brainmob.stat == DEAD)
-			to_chat(user, "<span class='warning'>[O] is dead. Sticking it into the frame would sort of defeat the purpose.</span>")
+			to_chat(user, "<span class='warning'>[attacking_item] is dead. Sticking it into the frame would sort of defeat the purpose.</span>")
 			return
 
 		if(jobban_isbanned(B.brainmob, "Cyborg"))
-			to_chat(user, "<span class='warning'>\The [O] does not seem to fit.</span>")
+			to_chat(user, "<span class='warning'>\The [attacking_item] does not seem to fit.</span>")
 			return
 
-		to_chat(user, "<span class='notice'>You install \the [O] in \the [src]!</span>")
+		to_chat(user, "<span class='notice'>You install \the [attacking_item] in \the [src]!</span>")
 
-		if(istype(O, /obj/item/device/mmi/digital))
+		if(istype(attacking_item, /obj/item/device/mmi/digital))
 			positronic = 1
 			add_language("Robot Talk")
 
-		src.mmi = O
-		src.transfer_personality(O)
+		src.mmi = attacking_item
+		src.transfer_personality(attacking_item)
 
-		user.drop_from_inventory(O,src)
+		user.drop_from_inventory(attacking_item,src)
 		src.update_icon()
 		return 1
 
-	if (O.iswelder())
-		var/obj/item/weldingtool/WT = O
+	if (attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if (WT.use(0))
 			if(health < maxHealth)
 				health += pick(1,1,1,2,2,3)
@@ -124,12 +124,12 @@
 		else
 			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
 			return
-	else if(O.GetID())
+	else if(attacking_item.GetID())
 		if (!mmi)
 			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain.</span>")
 			return 0
 
-		var/obj/item/card/id/id_card = O.GetID()
+		var/obj/item/card/id/id_card = attacking_item.GetID()
 
 		if(!istype(id_card))
 			return 0
@@ -142,7 +142,7 @@
 			if("Eject")
 				if(use_check_and_message(user))
 					return 0
-				if(access_robotics in id_card.access)
+				if(ACCESS_ROBOTICS in id_card.access)
 					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
 					eject_brain()
 					if(held_item)
@@ -162,7 +162,7 @@
 				to_chat(src, SPAN_NOTICE("Access codes updated."))
 				return 1
 	else
-		O.attack(src, user, user.zone_sel.selecting)
+		attacking_item.attack(src, user, user.zone_sel.selecting)
 
 /mob/living/simple_animal/spiderbot/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
@@ -231,8 +231,8 @@
 
 /mob/living/simple_animal/spiderbot/death()
 
-	living_mob_list -= src
-	dead_mob_list += src
+	GLOB.living_mob_list -= src
+	GLOB.dead_mob_list += src
 
 	if(camera)
 		camera.status = 0
@@ -311,7 +311,7 @@
 	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
 	return 0
 
-/mob/living/simple_animal/spiderbot/examine(mob/user)
+/mob/living/simple_animal/spiderbot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(src.held_item)
 		to_chat(user, "It is carrying [icon2html(src.held_item, user)] \a [src.held_item].")

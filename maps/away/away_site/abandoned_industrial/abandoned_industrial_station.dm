@@ -1,6 +1,7 @@
 /datum/map_template/ruin/away_site/abandoned_industrial_station
 	name = "Abandoned Industrial Station"//Not a visible thing ingame, but this should be unique for visibility purposes
 	description = "Abandoned Industrial Station."//Not visible ingame
+	unit_test_groups = list(1)
 
 	id = "abandoned_industrial_station"//Arbitrary tag to make things work. This should be lowercase and unique
 	spawn_cost = 1
@@ -8,6 +9,7 @@
 	suffixes = list("away_site/abandoned_industrial/abandoned_industrial_station.dmm")
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(SECTOR_TAU_CETI, SECTOR_HANEUNIM)
 
 /singleton/submap_archetype/abandoned_industrial_station//Arbitrary duplicates of the above name/desc
 	map = "abandoned industrial station"

@@ -87,12 +87,12 @@
 		var/obj/item/clothing/worn_suit = M.wear_suit
 		var/obj/item/clothing/worn_helmet = M.head
 		if(worn_suit) // Are you wearing clothes?
-			if ((worn_suit.flags & THICKMATERIAL))
+			if ((worn_suit.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.7
 			else
 				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, "bio"), 70)) // Is it sealed? I can't get to 70% of your body.
 		if(worn_helmet)
-			if ((worn_helmet.flags & THICKMATERIAL))
+			if ((worn_helmet.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.3
 			else
 				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.
@@ -100,7 +100,7 @@
 			M.apply_damage(min(strength*0.85,2)+mut, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			var/venom_strength = max(strength*0.2, (round(feral/10,1) * (max(round(strength/20,1), 1)))) + toxic // Bee venom based on how angry I am and how many there are of me!
 			M.apply_damage(venom_strength, DAMAGE_PAIN)  //Bee venom causes pain, not organ failure
-			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic. 
+			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic.
 				M.apply_damage(venom_strength, DAMAGE_OXY)
 			update_icon()
 			to_chat(M, "<span class='warning'>You have been stung!</span>")
@@ -187,7 +187,7 @@
 				if(strength <= 0)
 					qdel(src)
 					return
-				var/turf/simulated/floor/T = get_step(src, pick(cardinal))
+				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinal))
 				if(istype(T))
 					Move(T)
 			break

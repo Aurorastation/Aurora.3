@@ -20,7 +20,7 @@
 /obj/item/contraband/poster/Initialize(mapload, given_serial = 0)
 	. = ..()
 	if(given_serial == 0)
-		serial_number = rand(1, poster_designs.len)
+		serial_number = rand(1, GLOB.poster_designs.len)
 	else
 		serial_number = given_serial
 	name += " - No. [serial_number]"
@@ -37,7 +37,7 @@
 		return
 
 	var/placement_dir = get_dir(user, W)
-	if (!(placement_dir in cardinal))
+	if (!(placement_dir in GLOB.cardinal))
 		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
 		return
 
@@ -47,7 +47,7 @@
 		stuff_on_wall = 1
 
 	//crude, but will cover most cases. We could do stuff like check pixel_x/y but it's not really worth it.
-	for (var/dir in cardinal)
+	for (var/dir in GLOB.cardinal)
 		var/turf/T = get_step(W, dir)
 		if (locate(/obj/structure/sign/poster) in T)
 			stuff_on_wall = 1
@@ -93,7 +93,7 @@
 	. = ..()
 
 	if(!serial)
-		serial = rand(1, poster_designs.len) //use a random serial if none is given
+		serial = rand(1, GLOB.poster_designs.len) //use a random serial if none is given
 
 	serial_number = serial
 
@@ -102,7 +102,7 @@
 		var/path = text2path(poster_type)
 		design = new path
 	else
-		design = poster_designs[serial_number]
+		design = GLOB.poster_designs[serial_number]
 
 	set_poster(design)
 
@@ -126,8 +126,8 @@
 	desc = "[initial(desc)] [design.desc]"
 	icon_state = design.icon_state // poster[serial_number]
 
-/obj/structure/sign/poster/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswirecutter())
+/obj/structure/sign/poster/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswirecutter())
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
 			to_chat(user, "<span class='notice'>You remove the remnants of the poster.</span>")

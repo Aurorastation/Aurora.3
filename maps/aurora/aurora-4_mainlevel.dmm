@@ -84,7 +84,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -150,24 +149,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"aas" = (
-/obj/effect/map_effect/airlock/s_to_n,
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aat" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	name = "Cold Storage";
-	req_access = list(66);
-	dir = 1
-	},
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/medical/surgerywing)
 "aau" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -219,7 +200,6 @@
 "aay" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaz" = (
@@ -278,8 +258,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaG" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
@@ -2856,7 +2836,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -4450,7 +4429,6 @@
 "ajb" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Maintenance Access";
-	req_access = null;
 	req_one_access = list(11,24);
 	dir = 4
 	},
@@ -5655,7 +5633,6 @@
 "alq" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(11);
-	req_one_access = null;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10257,14 +10234,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"aty" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/bridge)
 "atz" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11141,7 +11110,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Division Maintenance";
 	req_access = list(47);
-	req_one_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -18356,7 +18324,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	id = null;
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -18683,7 +18650,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 22;
 	pixel_y = 8;
-	req_access = null;
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -18987,7 +18953,7 @@
 "aHH" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "aHI" = (
 /obj/structure/cable/green{
@@ -20370,8 +20336,7 @@
 /obj/machinery/disposal,
 /obj/machinery/door/window/brigdoor/westleft{
 	dir = 1;
-	name = "Brig Delivery Chute";
-	req_one_access = null
+	name = "Brig Delivery Chute"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -20492,7 +20457,7 @@
 	pixel_y = -4
 	},
 /obj/item/paper_scanner,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "aKa" = (
 /obj/machinery/door/firedoor,
@@ -22111,16 +22076,13 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = null
+	dir = 4
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = null
+	dir = 1
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = null
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
@@ -22591,13 +22553,6 @@
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aNJ" = (
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "aNK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -22623,8 +22578,7 @@
 "aNM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/westleft{
-	name = "Server Room";
-	req_access = null
+	name = "Server Room"
 	},
 /obj/machinery/door/window/eastleft{
 	name = "Server Room"
@@ -23083,12 +23037,10 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = null
+	dir = 4
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = null
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
@@ -24060,12 +24012,10 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = null
+	dir = 4
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = null
+	dir = 8
 	},
 /obj/structure/window/reinforced/polarized,
 /turf/simulated/floor/plating,
@@ -24386,7 +24336,6 @@
 "aQS" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
-	id = null;
 	use_power = 1
 	},
 /obj/structure/window/reinforced{
@@ -25844,16 +25793,13 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized,
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = null
+	dir = 8
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = null
+	dir = 4
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = null
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
@@ -26897,12 +26843,10 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized,
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = null
+	dir = 8
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = null
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
@@ -26922,8 +26866,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized,
 /obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = null
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
@@ -26941,8 +26884,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized,
 /obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = null
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
@@ -26955,12 +26897,10 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized,
 /obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = null
+	dir = 4
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = null
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
@@ -27593,7 +27533,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = null;
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -27778,12 +27717,6 @@
 /area/hallway/primary/central_one)
 "aWL" = (
 /obj/structure/extinguisher_cabinet/north,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"aWM" = (
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "aWN" = (
@@ -28474,7 +28407,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "aXX" = (
 /obj/structure/cable{
@@ -28719,7 +28652,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "aYm" = (
 /obj/structure/cable{
@@ -29023,7 +28956,6 @@
 "aYK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	id_tag = null;
 	name = "Conference Room";
 	req_access = list(19);
 	dir = 4
@@ -29244,13 +29176,6 @@
 "aZd" = (
 /obj/machinery/light,
 /obj/machinery/status_display{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/port)
-"aZe" = (
-/obj/machinery/station_map{
-	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -29584,24 +29509,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aZK" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/obj/machinery/door/firedoor{
-	enable_smart_generation = 0
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "aZL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -29648,7 +29555,6 @@
 /area/hallway/primary/starboard)
 "aZO" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -30329,7 +30235,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbl" = (
 /obj/structure/disposalpipe/segment{
@@ -30339,18 +30245,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbm" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbn" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbo" = (
 /obj/structure/trash_pile,
@@ -31029,20 +30935,20 @@
 /area/bridge)
 "bcG" = (
 /obj/machinery/firealarm/west,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcH" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcI" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcJ" = (
 /obj/item/device/radio/intercom/east,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcK" = (
 /obj/structure/janitorialcart,
@@ -31528,7 +31434,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "bdI" = (
 /obj/structure/table/standard,
@@ -31541,7 +31447,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "bdJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -31869,7 +31775,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "ben" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -33390,7 +33296,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bgY" = (
 /obj/machinery/disposal,
@@ -33404,7 +33310,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bgZ" = (
 /obj/structure/grille,
@@ -34028,7 +33934,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -34413,10 +34318,6 @@
 	c_tag = "Central Corridor - Camera 6";
 	dir = 8
 	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -34669,13 +34570,13 @@
 	},
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bje" = (
 /obj/item/folder/white,
 /obj/item/pen,
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjf" = (
 /obj/item/paper_bin{
@@ -34683,7 +34584,7 @@
 	pixel_y = 7
 	},
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -34845,7 +34746,7 @@
 "bjt" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "bju" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -34864,7 +34765,7 @@
 	pixel_y = 36;
 	req_access = list(5)
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjv" = (
 /obj/structure/disposalpipe/segment{
@@ -35014,7 +34915,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bjK" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjL" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -35271,7 +35172,6 @@
 /obj/machinery/door/airlock/medical{
 	autoclose = 0;
 	icon_state = "door_open";
-	id_tag = null;
 	name = "Intensive Care Unit";
 	req_access = list(66);
 	dir = 1
@@ -35803,8 +35703,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Kitchen";
-	req_access = list(28);
-	req_one_access = null
+	req_access = list(28)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -37246,7 +37145,6 @@
 "bod" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	id_tag = null;
 	name = "Medical Reception";
 	req_access = list(5)
 	},
@@ -38043,7 +37941,6 @@
 /obj/machinery/door/airlock/medical{
 	autoclose = 0;
 	icon_state = "door_open";
-	id_tag = null;
 	name = "General Treatment Room";
 	req_access = list(66);
 	dir = 1
@@ -39002,8 +38899,7 @@
 /obj/machinery/button/remote/airlock{
 	id = "main_door";
 	name = "Main Exit Door Control";
-	pixel_x = -26;
-	req_access = null
+	pixel_x = -26
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 8
@@ -39022,7 +38918,6 @@
 /obj/machinery/door/airlock/medical{
 	autoclose = 0;
 	icon_state = "door_open";
-	id_tag = null;
 	name = "General Treatment Room";
 	req_access = list(66);
 	dir = 4
@@ -39559,7 +39454,7 @@
 	c_tag = "Central Corridor";
 	dir = 1
 	},
-/obj/machinery/computer/HolodeckControl/Aurora{
+/obj/machinery/computer/holodeck_control/Aurora{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -40208,8 +40103,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	id_tag = "CONS2door";
-	name = "Medical Bay";
-	req_access = null
+	name = "Medical Bay"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -40491,7 +40385,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
 	name = "Custodial Closet";
-	req_access = null;
 	req_one_access = list(26,66);
 	dir = 1
 	},
@@ -41772,10 +41665,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bxq" = (
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -42239,14 +42128,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "byu" = (
 /obj/machinery/door/window{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "byv" = (
 /obj/structure/window/reinforced{
@@ -42260,7 +42149,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "byw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -42790,7 +42679,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bzC" = (
 /obj/structure/table/standard,
@@ -42802,7 +42691,7 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bzD" = (
 /obj/structure/window/reinforced{
@@ -42814,7 +42703,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bzE" = (
 /obj/effect/floor_decal/corner/purple{
@@ -43297,7 +43186,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bAC" = (
 /obj/structure/table/standard,
@@ -43305,7 +43194,7 @@
 	dir = 1
 	},
 /obj/item/folder/purple,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bAD" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -43319,7 +43208,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bAF" = (
 /obj/effect/floor_decal/corner/purple{
@@ -43621,7 +43510,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/west,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bBz" = (
 /obj/structure/table/standard,
@@ -43629,7 +43518,7 @@
 /obj/item/storage/slide_projector{
 	pixel_y = 12
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bBB" = (
 /obj/effect/floor_decal/corner/purple{
@@ -44022,7 +43911,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bCq" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bCr" = (
 /obj/structure/table/rack,
@@ -44725,7 +44614,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Transfusion Supplies";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -44737,7 +44625,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -45395,7 +45282,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -46268,7 +46154,6 @@
 "bHA" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Pre/Post-OP";
-	req_access = null;
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -46314,7 +46199,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -46419,7 +46303,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -46694,7 +46577,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_research{
 	name = "Telescience";
-	req_access = null;
 	req_one_access = list(7,29);
 	dir = 1
 	},
@@ -47229,7 +47111,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bKp" = (
 /obj/structure/table/standard,
@@ -47239,14 +47121,13 @@
 /obj/item/folder/white,
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bKr" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/medical{
 	name = "Room 3";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -47509,7 +47390,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bLd" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -47737,7 +47618,6 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -47811,7 +47691,6 @@
 "bLQ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Starboard Ward";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -47835,7 +47714,7 @@
 "bLR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/filingcabinet,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bLS" = (
 /obj/structure/toilet{
@@ -47882,7 +47761,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12);
-	req_one_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -48040,7 +47918,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -48087,7 +47964,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Division Maintenance";
 	req_access = list(47);
-	req_one_access = null;
 	dir = 1
 	},
 /obj/machinery/door/blast/regular{
@@ -49435,11 +49311,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/research_port)
-"bPM" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/maintenance/research_port)
 "bPN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -50051,7 +49922,6 @@
 "bRM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -50343,7 +50213,6 @@
 "bSD" = (
 /obj/machinery/button/switch/crematorium{
 	_wifi_id = "chapel_crema";
-	cremate_dir = null;
 	pixel_x = -32;
 	pixel_y = 25
 	},
@@ -50762,7 +50631,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
@@ -51295,7 +51163,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
@@ -51653,7 +51520,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
@@ -53025,7 +52891,6 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Supply (Main Level) Substation";
 	req_access = list(31,10);
-	req_one_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -53306,7 +53171,6 @@
 "bZM" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
-	req_access = null;
 	req_one_access = list(31,48,26,67);
 	dir = 4
 	},
@@ -53775,7 +53639,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
-	req_access = null;
 	req_one_access = list(31,48,26,67);
 	dir = 1
 	},
@@ -53872,7 +53735,6 @@
 "caK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,26);
 	dir = 4
 	},
@@ -54207,7 +54069,6 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Maintenance";
-	req_access = null;
 	req_one_access = list(31,48);
 	dir = 4
 	},
@@ -55382,7 +55243,6 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
-	req_access = null;
 	req_one_access = list(31,48,67);
 	dir = 1
 	},
@@ -55760,7 +55620,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Mining";
-	req_access = null;
 	req_one_access = list(31,48,67);
 	dir = 1
 	},
@@ -56389,7 +56248,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Mining";
-	req_access = null;
 	req_one_access = list(48,67);
 	dir = 1
 	},
@@ -58422,7 +58280,7 @@
 "dqs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/computerframe,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "drh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -58511,7 +58369,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -58768,7 +58625,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -58816,8 +58672,7 @@
 /area/maintenance/vault)
 "eiB" = (
 /obj/machinery/door/blast/shutters{
-	dir = 2;
-	name = "shutter"
+	dir = 2
 	},
 /obj/machinery/conveyor{
 	icon_state = "conveyor-broken"
@@ -59767,7 +59622,7 @@
 /area/maintenance/cargo)
 "fQV" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "fRQ" = (
 /obj/machinery/light{
@@ -59823,7 +59678,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Research and Development Maintenance";
 	req_access = list(7);
-	req_one_access = null;
 	dir = 1
 	},
 /obj/machinery/door/blast/regular{
@@ -60194,7 +60048,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,25,28,66);
 	dir = 1
 	},
@@ -60276,7 +60129,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/random/medical,
 /obj/random/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "gIw" = (
 /obj/structure/bed/stool/padded/red,
@@ -60819,7 +60672,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/folder/white,
 /obj/item/pen,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "hBb" = (
 /obj/machinery/door/firedoor,
@@ -61192,7 +61045,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,29);
 	dir = 1
 	},
@@ -61493,7 +61345,7 @@
 "iOU" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "iPv" = (
 /turf/simulated/wall/r_wall,
@@ -61730,7 +61582,6 @@
 /obj/machinery/door/airlock/medical{
 	autoclose = 0;
 	icon_state = "door_open";
-	id_tag = null;
 	name = "Intensive Care Unit";
 	req_access = list(66);
 	dir = 4
@@ -61822,7 +61673,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/medical{
 	name = "Room 1";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -61926,7 +61776,6 @@
 /obj/machinery/door/airlock/medical{
 	autoclose = 0;
 	icon_state = "door_open";
-	id_tag = null;
 	name = "General Treatment Room";
 	req_access = list(66);
 	dir = 4
@@ -62174,10 +62023,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
-"kAL" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet,
-/area/crew_quarters/bar)
 "kAV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -62399,7 +62244,7 @@
 /obj/structure/table/standard,
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "lcc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -62684,7 +62529,6 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Medbay Substation";
 	req_access = list(5);
-	req_one_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -62851,7 +62695,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
 	req_access = list(12);
-	req_one_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -63132,7 +62975,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "mCf" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -63254,7 +63097,7 @@
 /obj/effect/landmark{
 	name = "borerstart"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "mIZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -63284,10 +63127,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"mMJ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/maintenance/bar)
 "mNw" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -63406,8 +63245,7 @@
 	id = "consular_office";
 	name = "consular door control";
 	pixel_x = -13;
-	pixel_y = -25;
-	req_access = null
+	pixel_y = -25
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
@@ -63415,7 +63253,6 @@
 	name = "consular door bolts";
 	pixel_x = -13;
 	pixel_y = -34;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -63849,7 +63686,7 @@
 	pixel_x = -32
 	},
 /obj/structure/bed/stool/chair/office/light,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "nLD" = (
 /obj/structure/cable/green{
@@ -64029,7 +63866,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/medical{
 	name = "Room 2";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -64240,7 +64076,6 @@
 "ovg" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Starboard Ward";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -64990,7 +64825,6 @@
 	name = "representative door bolts";
 	pixel_x = -8;
 	pixel_y = 17;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -64998,8 +64832,7 @@
 	id = "rep_office";
 	name = "representative door control";
 	pixel_x = 1;
-	pixel_y = 17;
-	req_access = null
+	pixel_y = 17
 	},
 /obj/machinery/button/switch/windowtint{
 	id = "rep_inner";
@@ -65422,7 +65255,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "qwE" = (
 /obj/machinery/door/firedoor,
@@ -65487,7 +65320,7 @@
 	name = "Nurse's Station"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "qHy" = (
 /obj/structure/coatrack,
@@ -65523,15 +65356,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"qLn" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12);
-	req_one_access = null;
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "qLp" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -65999,7 +65823,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Autopsy Lab";
 	req_access = list(12);
-	req_one_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -66202,7 +66025,7 @@
 /area/hydroponics)
 "rOC" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "rOK" = (
 /obj/effect/decal/cleanable/dirt,
@@ -66216,7 +66039,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Test Range";
 	req_access = list(12);
-	req_one_access = null;
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -67831,7 +67653,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Physical Therapy";
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 1
 	},
@@ -67990,7 +67811,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "uLs" = (
 /obj/structure/cable{
@@ -69468,7 +69289,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,66);
 	dir = 4
 	},
@@ -69637,7 +69457,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "xoJ" = (
 /obj/structure/sign/securearea{
@@ -88117,7 +87937,7 @@ ahT
 beG
 bcY
 bcY
-qLn
+bPt
 beC
 bcY
 bcY
@@ -89881,7 +89701,7 @@ aQq
 aVh
 ePx
 aXX
-aZe
+aWs
 aVq
 bbq
 bcV
@@ -89926,11 +89746,11 @@ bbs
 htm
 bbs
 bbs
-bPM
+uzs
 bQj
 bQD
 bPL
-bPM
+uzs
 bSf
 bbs
 bcY
@@ -99388,7 +99208,7 @@ nLT
 aSr
 aTT
 aIi
-aWM
+aZs
 aYn
 aZr
 baI
@@ -99711,7 +99531,7 @@ sEV
 sEV
 bYZ
 ivR
-kAL
+jnD
 bSM
 bNO
 cbi
@@ -103534,7 +103354,7 @@ bGB
 bBP
 bIs
 pie
-mMJ
+gfU
 bGC
 bGC
 bGC
@@ -104993,7 +104813,7 @@ aab
 aab
 aau
 aau
-aas
+aau
 aad
 aaF
 aah
@@ -105248,7 +105068,7 @@ aab
 aab
 aab
 aab
-aah
+aad
 aaq
 aah
 aay
@@ -106586,7 +106406,7 @@ ahC
 ahC
 aXa
 aYq
-aZK
+aZC
 avd
 avd
 bfh
@@ -107640,7 +107460,7 @@ aap
 bCc
 bCc
 bCc
-aat
+aap
 bzk
 bzk
 bxU
@@ -108120,7 +107940,7 @@ aGL
 qSC
 cCf
 aLQ
-aNJ
+awK
 aPu
 aRb
 aRb
@@ -114533,7 +114353,7 @@ aoq
 apF
 aqS
 asi
-aty
+atx
 avj
 awN
 ayE

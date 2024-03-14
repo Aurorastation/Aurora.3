@@ -10,11 +10,16 @@
 		command_announcement.Announce("Harmful fungi detected at coordinates ([origin_turf.x], [origin_turf.y], [origin_turf.z]). The structure may be contaminated.", "Biohazard Alert", new_sound = 'sound/AI/fungi.ogg', zlevels = affecting_z)
 
 /datum/event/wallrot/start()
+	..()
+
+	handle_wallrot()
+
+/datum/event/wallrot/proc/handle_wallrot()
 	set waitfor = FALSE
 
 	// 100 attempts
 	for(var/i = 0, i < 100, i++)
-		var/turf/candidate = locate(rand(1, world.maxx), rand(1, world.maxy), pick(current_map.station_levels))
+		var/turf/candidate = locate(rand(1, world.maxx), rand(1, world.maxy), pick(SSatlas.current_map.station_levels))
 		if(istype(candidate, /turf/simulated/wall))
 			origin_turf = candidate
 			break

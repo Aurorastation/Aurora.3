@@ -27,15 +27,16 @@
 		return TRUE
 	return FALSE
 
-/obj/item/clothing/suit/storage/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/storage/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(W, /obj/item/clothing/accessory))
+	if(istype(attacking_item, /obj/item/clothing/accessory))
 		return
-	pockets.attackby(W, user)
+	pockets.attackby(attacking_item, user)
 
 /obj/item/clothing/suit/storage/emp_act(severity)
+	. = ..()
+
 	pockets.emp_act(severity)
-	..()
 
 /obj/item/clothing/suit/storage/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	pockets.hear_talk(M, msg, verb, speaking)

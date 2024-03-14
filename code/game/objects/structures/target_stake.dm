@@ -13,16 +13,16 @@
 	. = ..()
 	material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
 
-/obj/structure/target_stake/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/target))
+/obj/structure/target_stake/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/target))
 		if(pinned_target)
 			to_chat(user, SPAN_WARNING("\The [src] already has a target."))
 			return
-		if(user.unEquip(W, FALSE, get_turf(src)))
-			to_chat(user, SPAN_NOTICE("You slide \the [W] into the stake."))
-			set_target(W)
+		if(user.unEquip(attacking_item, FALSE, get_turf(src)))
+			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] into the stake."))
+			set_target(attacking_item)
 		return
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(pinned_target)
 			to_chat(user, SPAN_WARNING("You cannot dismantle \the [src] while it has a target attached."))
 			return
@@ -43,8 +43,8 @@
 		T.pixel_x = 0
 		T.pixel_y = 0
 		T.layer = ABOVE_OBJ_LAYER
-		moved_event.register(T, src, TYPE_PROC_REF(/atom/movable, move_to_turf))
-		moved_event.register(src, T, TYPE_PROC_REF(/atom/movable, move_to_turf))
+		GLOB.moved_event.register(T, src, TYPE_PROC_REF(/atom/movable, move_to_turf))
+		GLOB.moved_event.register(src, T, TYPE_PROC_REF(/atom/movable, move_to_turf))
 		T.stake = src
 		pinned_target = T
 	else
@@ -52,8 +52,8 @@
 		if(pinned_target)
 			pinned_target.density = FALSE
 			pinned_target.layer = OBJ_LAYER
-			moved_event.unregister(pinned_target, src)
-			moved_event.unregister(src, pinned_target)
+			GLOB.moved_event.unregister(pinned_target, src)
+			GLOB.moved_event.unregister(src, pinned_target)
 			pinned_target.stake = null
 		pinned_target = null
 

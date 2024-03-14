@@ -67,9 +67,9 @@
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
 
-/obj/item/clothing/gloves/latex/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = O
+/obj/item/clothing/gloves/latex/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(C.use(1))
 			var/obj/item/L = new src.balloon
 			user.drop_from_inventory(L,get_turf(src))
@@ -246,7 +246,7 @@
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
 		var/T = get_turf(user)
-		spark(T, 3, alldirs)
+		spark(T, 3, GLOB.alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
@@ -332,13 +332,13 @@
 
 	if(user.a_intent == I_HURT)
 		if(mounted)
-			spark(user, 3, alldirs)
+			spark(user, 3, GLOB.alldirs)
 			mounted.Fire(L, user)
 
-/obj/item/clothing/gloves/ballistic/attackby(obj/item/W, mob/user)
+/obj/item/clothing/gloves/ballistic/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(mounted)
-		mounted.load_ammo(W, user)
+		mounted.load_ammo(attacking_item, user)
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()
@@ -394,7 +394,7 @@
 			if(iscarbon(A))
 				var/mob/living/carbon/L = A
 				L.electrocute_act(20,src, 1, user.zone_sel.selecting)
-				spark(src, 3, alldirs)
+				spark(src, 3, GLOB.alldirs)
 				charged = FALSE
 				update_icon()
 				user.update_inv_gloves()
@@ -405,7 +405,7 @@
 			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
 			var/obj/item/projectile/beam/tesla/LE = new (T)
 			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)
 			charged = FALSE
 			update_icon()

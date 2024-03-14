@@ -2581,7 +2581,7 @@
 /obj/machinery/door/window/westleft{
 	name = "Auxillary Cryogenics"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "bvr" = (
 /obj/structure/closet/gimmick{
@@ -3803,7 +3803,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "ddo" = (
 /obj/structure/table/reinforced,
@@ -12939,7 +12939,7 @@
 /area/centcom/evac)
 "oSD" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "oTX" = (
 /obj/structure/window/reinforced/crescent{
@@ -18169,7 +18169,7 @@
 	layer = 3.3;
 	pixel_y = 27
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "xun" = (
 /obj/structure/shuttle_part/transfer{

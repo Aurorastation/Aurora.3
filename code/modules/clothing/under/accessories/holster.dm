@@ -9,6 +9,7 @@
 	item_state = "holster"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY
+	slot_flags = SLOT_BELT | SLOT_TIE
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
@@ -82,27 +83,32 @@
 		clear_holster()
 
 /obj/item/clothing/accessory/holster/attack_hand(mob/user)
-	if (has_suit) // If we are part of a suit.
+	if (!ishuman(user))
+		return ..()
+
+	var/mob/living/carbon/human/human = user
+	if (has_suit || human.belt == src) // If we are part of a suit.
 		if (holstered)
-			unholster(user)
+			unholster(human)
 		return
 
-	..(user)
+	return ..(human)
 
-/obj/item/clothing/accessory/holster/attackby(obj/item/W, mob/user)
-	holster(W, user)
+/obj/item/clothing/accessory/holster/attackby(obj/item/attacking_item, mob/user)
+	holster(attacking_item, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)
+	. = ..()
+
 	if (holstered)
 		holstered.emp_act(severity)
-	..()
 
-/obj/item/clothing/accessory/holster/examine(mob/user)
+/obj/item/clothing/accessory/holster/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (holstered)
-		to_chat(user, "A [holstered] is holstered here.")
+		. += "A [holstered] is holstered here."
 	else
-		to_chat(user, "It is empty.")
+		. += "It is empty."
 
 /obj/item/clothing/accessory/holster/on_attached(obj/item/clothing/under/S, mob/user)
 	..()
@@ -141,6 +147,10 @@
 		H.holster(W, usr)
 	else
 		H.unholster(usr)
+
+/*###################
+	Holster Subtypes
+###################*/
 
 /obj/item/clothing/accessory/holster/armpit
 	name = "black armpit holster"
@@ -188,7 +198,17 @@
 	icon_state = "holster_brown_thigh"
 	item_state = "holster_brown_thigh"
 
-/********** Utility Holsters Start **********/
+/obj/item/clothing/accessory/holster/modular
+	name = "plate carrier holster"
+	desc = "A special holster with rigging able to attach to modern modular plate carriers."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "modular_holster"
+	item_state = "modular_holster"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	flippable = FALSE
+
+/*##### Utility Holsters Start #####*/
 // Utility Holster
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
@@ -236,7 +256,7 @@
 	name = "machete sheath"
 	desc = "A handsome synthetic leather sheath with matching belt."
 	icon_state = "holster_machete"
-	item_state = "thigh_brown"
+	item_state = "holster_machete"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	allowed_items = list(
 		/obj/item/material/hatchet/machete,

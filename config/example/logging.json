@@ -24,12 +24,16 @@
   "log_telecomms":0,
   "log_speech_indicators":0,
   "log_tools":0,
+  "log_loadout":1,
   "log_manifest":1,
   "log_subsystems":1,
   "log_subsystems_chemistry":1,
+  "log_subsystems_codex":1,
   "log_subsystems_atlas":1,
   "log_subsystems_ghostroles":1,
-  "log_subsystems_law":1,"log_subsystems_cargo":1,
+  "log_subsystems_law":1,
+  "log_subsystems_cargo":1,
+  "log_subsystems_discord":0,
   "log_subsystems_documents":1,
   "log_subsystems_fail2topic":1,
   "log_subsystems_mapfinalization":1,
@@ -42,5 +46,6 @@
   "log_gelf_enabled":0,
   "log_gelf_addr":"127.0.0.1:12345",
   "log_subsystems_zas":0,
-  "log_subsystems_zas_debug":0
+  "log_subsystems_zas_debug":0,
+  "log_subsystems_http":1
 }

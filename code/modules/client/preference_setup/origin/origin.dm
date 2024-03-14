@@ -67,7 +67,7 @@
 	)
 
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(!istext(pref.culture) || !ispath(text2path(pref.culture), /singleton/origin_item/culture))
 		var/singleton/origin_item/culture/CI = S.possible_cultures[1]
 		pref.culture = "[CI]"
@@ -94,7 +94,7 @@
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/origin/content(var/mob/user)
-	if(SSrecords.init_state != SS_INITSTATE_DONE)
+	if(!SSrecords.initialized)
 		return "<center><large>Records controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 	var/list/dat = list()
 	var/singleton/origin_item/culture/CL = GET_SINGLETON(text2path(pref.culture))
@@ -119,16 +119,16 @@
 	dat += "<b>Religion:</b> <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>"
 	dat += "<b>Accent:</b> <a href='?src=\ref[src];accent=1'>[pref.accent]</a><br/>"
 	. = dat.Join()
-	
+
 /datum/category_item/player_setup_item/origin/OnTopic(href, href_list, user)
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
 		var/list/possible_cultures = Singletons.GetMap(S.possible_cultures)
 		for(var/decl_type in possible_cultures)
 			var/singleton/origin_item/culture/CL = possible_cultures[decl_type]
 			options[CL.name] = CL
-		var/result = input(user, "Choose your character's culture.", "Culture") as null|anything in options
+		var/result = tgui_input_list(user, "Choose your character's culture.", "Culture", options)
 		var/singleton/origin_item/culture/chosen_culture = options[result]
 		if(chosen_culture)
 			show_window(chosen_culture, "set_culture_data", user)
@@ -141,7 +141,7 @@
 		for(var/decl_type in origins_list)
 			var/singleton/origin_item/origin/OR = origins_list[decl_type]
 			options[OR.name] = OR
-		var/result = input(user, "Choose your character's origin.", "Origins") as null|anything in options
+		var/result = tgui_input_list(user, "Choose your character's origin.", "Origins", options)
 		var/singleton/origin_item/origin/chosen_origin = options[result]
 		if(chosen_origin)
 			show_window(chosen_origin, "set_origin_data", user)
@@ -160,14 +160,14 @@
 		return TOPIC_REFRESH
 
 	if(href_list["economic_status"])
-		var/new_status = input(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", pref.economic_status)  as null|anything in ECONOMIC_POSITIONS
+		var/new_status = tgui_input_list(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", ECONOMIC_POSITIONS, pref.economic_status)
 		if(new_status && CanUseTopic(user))
 			pref.economic_status = new_status
 			return TOPIC_REFRESH
 
 	if(href_list["citizenship"])
 		var/singleton/origin_item/origin/our_origin = GET_SINGLETON(text2path(pref.origin))
-		var/choice = input(user, "Please choose your current citizenship.", "Character Preference", pref.citizenship) as null|anything in our_origin.possible_citizenships
+		var/choice = tgui_input_list(user, "Please choose your current citizenship.", "Character Preference", our_origin.possible_citizenships, pref.citizenship)
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_citizenship_menu(user, choice)
@@ -181,7 +181,7 @@
 
 	if(href_list["religion"])
 		var/singleton/origin_item/origin/our_origin = GET_SINGLETON(text2path(pref.origin))
-		var/choice = input(user, "Please choose a religion.", "Character Preference", pref.religion) as null|anything in our_origin.possible_religions
+		var/choice = tgui_input_list(user, "Please choose a religion.", "Character Preference", our_origin.possible_religions, pref.religion)
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_religion_menu(user, choice)
@@ -195,7 +195,7 @@
 
 	if(href_list["accent"])
 		var/singleton/origin_item/origin/our_origin = GET_SINGLETON(text2path(pref.origin))
-		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in our_origin.possible_accents
+		var/choice = tgui_input_list(user, "Please choose an accent.", "Character Preference", our_origin.possible_accents, pref.accent)
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_accent_menu(user, choice)

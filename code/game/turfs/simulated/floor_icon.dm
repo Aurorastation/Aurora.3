@@ -23,7 +23,7 @@
 		cut_overlays()
 		var/has_border = 0
 		//Check the cardinal turfs
-		for(var/step_dir in cardinal)
+		for(var/step_dir in GLOB.cardinal)
 			var/turf/simulated/floor/T = get_step(src, step_dir)
 			var/is_linked = flooring.symmetric_test_link(src, T)
 
@@ -44,7 +44,7 @@
 
 		//We can only have inner corners if we're smoothed with something
 		if (has_smooth && flooring.flags & TURF_HAS_INNER_CORNERS)
-			for(var/direction in cornerdirs)
+			for(var/direction in GLOB.cornerdirs)
 				if((has_smooth & direction) == direction)
 					if(!flooring.symmetric_test_link(src, get_step(src, direction)))
 						if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
@@ -54,7 +54,7 @@
 
 		//Next up, outer corners
 		if (has_border && flooring.flags & TURF_HAS_CORNERS)
-			for(var/direction in cornerdirs)
+			for(var/direction in GLOB.cornerdirs)
 				if((has_border & direction) == direction)
 					if(!flooring.symmetric_test_link(src, get_step(src, direction)))
 						if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
@@ -62,20 +62,21 @@
 						else
 							add_overlay(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-edge-[direction]", "[flooring.icon_base]_edges", direction,(flooring.flags & TURF_HAS_EDGES)))
 
+		if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
+			if(flooring.has_damage_state)
+				add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, material floors damage. like diamond_broken0.
+			else // EVERYTHING BELOW, SEE DAMAGE.DMI
+				add_overlay(get_damage_overlay("[broken_overlay ? "[broken_overlay]_" : ""]broken[broken]", BLEND_MULTIPLY, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, broken overlay. carpet_broken0.
+		if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
+			if(flooring.has_burn_state)
+				add_overlay(get_damage_overlay("[flooring.icon_base]_burned[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null))
+			else
+				add_overlay(get_damage_overlay("[burned_overlay ? "[burned_overlay]_" : ""]burned[burnt]"))
+
 	if(decals && decals.len)
 		for(var/image/I in decals)
 			add_overlay(I)
 
-	if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
-		if(flooring.has_damage_state)
-			add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, material floors damage. like diamond_broken0.
-		else // EVERYTHING BELOW, SEE DAMAGE.DMI
-			add_overlay(get_damage_overlay("[broken_overlay ? "[broken_overlay]_" : ""]broken[broken]", BLEND_MULTIPLY, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, broken overlay. carpet_broken0.
-	if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
-		if(flooring.has_burn_state)
-			add_overlay(get_damage_overlay("[flooring.icon_base]_burned[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null))
-		else
-			add_overlay(get_damage_overlay("[burned_overlay ? "[burned_overlay]_" : ""]burned[burnt]"))
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))

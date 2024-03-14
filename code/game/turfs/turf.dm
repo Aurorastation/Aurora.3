@@ -54,21 +54,24 @@
 
 	var/last_clean //for clean log spam.
 
+	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
+	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
+	var/mob/oranges_ear/assigned_oranges_ear
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
 	SHOULD_CALL_PARENT(FALSE)
 
-	if (initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
-
-	initialized = TRUE
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM, src)
 
 	if (isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -91,9 +94,9 @@
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
-	if (A.flags & SPAWN_ROOF)
+	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -108,7 +111,7 @@
 	changing_turf = FALSE
 
 	if (isStationLevel(z))
-		station_turfs -= src
+		GLOB.station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()
@@ -189,21 +192,21 @@
 
 	//First, check objects to block exit that are not on the border
 	for(var/obj/obstacle in mover.loc)
-		if(!(obstacle.flags & ON_BORDER) && (mover != obstacle) && (forget != obstacle))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
 			if(!obstacle.CheckExit(mover, src))
 				mover.Collide(obstacle)
 				return 0
 
 	//Now, check objects to block exit that are on the border
 	for(var/obj/border_obstacle in mover.loc)
-		if((border_obstacle.flags & ON_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
+		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
 			if(!border_obstacle.CheckExit(mover, src))
 				mover.Collide(border_obstacle)
 				return 0
 
 	//Next, check objects to block entry that are on the border
 	for(var/obj/border_obstacle in src)
-		if(border_obstacle.flags & ON_BORDER)
+		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
 				mover.Collide(border_obstacle)
 				return 0
@@ -215,7 +218,7 @@
 
 	//Finally, check objects/mobs to block entry that are not on the border
 	for(var/atom/movable/obstacle in src)
-		if(!(obstacle.flags & ON_BORDER))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
 				mover.Collide(obstacle)
 				return 0
@@ -283,13 +286,13 @@ var/const/enterloopsanity = 100
 	..(AM, old_loc)
 
 	var/objects = 0
-	if(AM && (AM.flags & PROXMOVE) && AM.simulated)
+	if(AM && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE) && AM.simulated)
 		for(var/atom/movable/oAM in range(1))
 			if(objects > enterloopsanity)
 				break
 			objects++
 
-			if (oAM.simulated && (oAM.flags & PROXMOVE))
+			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				AM.proximity_callback(oAM)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
@@ -302,7 +305,7 @@ var/const/enterloopsanity = 100
 	set waitfor = FALSE
 	sleep(0)
 	HasProximity(AM, TRUE)
-	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
+	if (!QDELETED(AM) && !QDELETED(src) && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 		AM.HasProximity(src, TRUE)
 
 /turf/proc/adjacent_fire_act(turf/simulated/floor/source, temperature, volume)
@@ -317,12 +320,12 @@ var/const/enterloopsanity = 100
 /turf/proc/can_lay_cable()
 	return can_have_cabling()
 
-/turf/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/grab))
-		var/obj/item/grab/grab = C
+/turf/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/grab = attacking_item
 		step(grab.affecting, get_dir(grab.affecting, src))
-	if (can_lay_cable() && C.iscoil())
-		var/obj/item/stack/cable_coil/coil = C
+	if (can_lay_cable() && attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
 		..()
@@ -387,7 +390,7 @@ var/const/enterloopsanity = 100
 	if(density)
 		return 1
 	for(var/atom/A in src)
-		if(A.density && !(A.flags & ON_BORDER))
+		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 1
 	return 0
 
@@ -395,27 +398,25 @@ var/const/enterloopsanity = 100
 /turf/proc/clean(atom/source, mob/user)
 	if(source.reagents.has_reagent(/singleton/reagent/water, 1) || source.reagents.has_reagent(/singleton/reagent/spacecleaner, 1))
 		clean_blood()
-		if(istype(src, /turf/simulated))
-			var/turf/simulated/T = src
-			T.dirt = 0
-			if(istype(src, /turf/simulated/floor))
-				var/turf/simulated/floor/F = src
-				if(F.flooring)
-					F.color = F.flooring.color
-				else
-					F.color = null
-			else
-				T.color = null
+
 		for(var/obj/effect/O in src)
-			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+			if(istype(O, /obj/effect/decal/cleanable))
 				qdel(O)
-			if(istype(O,/obj/effect/rune))
+
+			if(istype(O, /obj/effect/overlay))
+				var/obj/effect/overlay/OV = O
+				if(OV.no_clean)
+					continue
+				else
+					qdel(OV)
+
+			if(istype(O, /obj/effect/rune))
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
 	else
-		if( !(last_clean && world.time < last_clean + 100) )
+		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
 			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.

@@ -28,7 +28,7 @@
 	if(icon_state == initial(icon_state))
 		icon_state = pick(icon_states(icon) - icon_state)
 
-/obj/structure/trash_pile/MouseDrop_T(obj/structure/trash_pile/target, mob/user)
+/obj/structure/trash_pile/MouseDrop_T(atom/dropping, mob/user)
 	if(!Adjacent(user) || use_check_and_message(user))
 		return
 	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."))
@@ -179,6 +179,7 @@
 		/obj/item/clothing/under/tactical = 1,
 		/obj/item/clothing/suit/armor/material/makeshift/plasteel = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
+		/obj/item/clothing/accessory/led_collar = 1,
 		/obj/item/spacecash/c100 = 1,
 		/obj/item/spacecash/c200 = 1,
 	)

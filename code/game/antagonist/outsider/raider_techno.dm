@@ -21,6 +21,8 @@ var/datum/antagonist/raider_techno/raider_techno
 
 	id_type = /obj/item/card/id/syndicate/raider
 
+	has_idris_account = FALSE
+
 /datum/antagonist/raider_techno/New()
 	..()
 	raider_techno = src
@@ -52,8 +54,8 @@ var/datum/antagonist/raider_techno/raider_techno
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/raider_techno, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/raider_techno, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/raider_techno, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/raider_techno, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

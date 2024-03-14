@@ -4,7 +4,7 @@
 	icon = 'icons/obj/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	item_state = "beret"
-	item_flags = SHOWFLAVORTEXT
+	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
 	contained_sprite = TRUE
 	siemens_coefficient = 0.9
 
@@ -13,6 +13,16 @@
 	item_state = "beret_colorable"
 
 /obj/item/clothing/head/beret/colorable/random/Initialize()
+	. = ..()
+	color = get_random_colour(TRUE)
+
+/obj/item/clothing/head/beret/peaked/colourable
+	name = "peaked beret"
+	desc = "A peaked beret."
+	icon_state = "beret_peaked_colourable"
+	item_state = "beret_peaked_colourable"
+
+/obj/item/clothing/head/beret/peaked/colourable/random/Initialize()
 	. = ..()
 	color = get_random_colour(TRUE)
 

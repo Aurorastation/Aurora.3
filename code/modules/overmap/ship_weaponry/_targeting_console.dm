@@ -12,13 +12,25 @@
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
+/obj/machinery/computer/ship/targeting/terminal
+	name = "targeting systems terminal"
+	desc = "A targeting systems terminal using Zavodskoi software."
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "hostile"
+	icon_keyboard = "red_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+
 /obj/machinery/computer/ship/targeting/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/ship/targeting/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -65,6 +77,11 @@
 				else
 					selected_z = 0
 					data["selected_z"] = 0
+			var/obj/effect/entry_point = selected_entrypoint
+			if(istype(entry_point) && entry_point.z)
+				data["entry_point_map_image"] = SSholomap.minimaps_scan_base64[entry_point.z]
+				data["entry_point_x"] = entry_point.x
+				data["entry_point_y"] = entry_point.y
 		data["entry_points"] = copy_entrypoints(selected_z)
 		if(cannon)
 			data["cannon"] = get_gun_data(cannon);

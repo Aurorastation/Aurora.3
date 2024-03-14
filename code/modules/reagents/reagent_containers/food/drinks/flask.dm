@@ -32,28 +32,28 @@
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
 	. = ..()
 	cup = new(src)
-	flags ^= OPENCONTAINER
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
 	if(cup)
 		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))
 		user.put_in_hands(cup)
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		cup = null
 		update_icon()
 
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
 		if(cup)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
 			return TRUE
-		if(W.reagents.total_volume + reagents.total_volume > volume)
+		if(attacking_item.reagents.total_volume + reagents.total_volume > volume)
 			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and \the [src]!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
-		user.drop_from_inventory(W, src)
-		flags ^= OPENCONTAINER
-		cup = W
+		user.drop_from_inventory(attacking_item, src)
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+		cup = attacking_item
 		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
 		update_icon()
 		return TRUE

@@ -254,9 +254,11 @@
 		if(speaker_socket?.encryption_key)
 			speaker_encryption_key = speaker_socket.encryption_key
 
-	for(var/mob/player in player_list)
-		if(istype(player, /mob/abstract/observer) || player == speaker)
+	for(var/mob/player in GLOB.player_list)
+		if(player == speaker)
 			to_chat(player, msg)
+		else if(isobserver(player))
+			to_chat(player, "[ghost_follow_link(speaker, player)] [msg]")
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)
 				var/mob/living/carbon/human/listener_human = player
@@ -300,7 +302,7 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_VAURCA] in M.languages))
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
 	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
 		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
@@ -328,18 +330,15 @@
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE]
 
-	if(istype(S))
-		if(S.muted || S.disrupted)
-			to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
-			return FALSE
-		else
-			return TRUE
+	//Black k'ois zombies don't have neural sockets but need to talk, hence check if the socket exists, or it will runtime for them
+	if(S && (S.muted || S.disrupted))
+		to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
+		return FALSE
+
 	if(istype(V))
 		if(!V.transmitting)
 			to_chat(speaker, SPAN_WARNING("Your implant cannot transmit over the Hivenet!"))
 			return FALSE
-		else
-			return TRUE
 	else
 		return TRUE
 

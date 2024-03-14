@@ -23,8 +23,8 @@
 	else
 		to_chat(user, "Error, no route to host.")
 
-/obj/machinery/button/remote/attackby(obj/item/W, mob/user as mob)
-	if(istype(W, /obj/item/forensics))
+/obj/machinery/button/remote/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/forensics))
 		return
 	return src.attack_hand(user)
 
@@ -129,7 +129,7 @@
 
 /obj/machinery/button/remote/airlock/screamer/trigger()
 	. = ..()
-	global_announcer.autosay(message, capitalize_first_letters(name), channel)
+	GLOB.global_announcer.autosay(message, capitalize_first_letters(name), channel)
 
 #undef OPEN
 #undef IDSCAN

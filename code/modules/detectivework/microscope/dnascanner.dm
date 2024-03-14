@@ -15,7 +15,7 @@
 	var/last_process_worldtime = 0
 	var/report_num = 0
 
-/obj/machinery/dnaforensics/attackby(var/obj/item/W, mob/user as mob)
+/obj/machinery/dnaforensics/attackby(obj/item/attacking_item, mob/user)
 
 	if(bloodsamp)
 		to_chat(user, "<span class='warning'>There is already a sample in the machine.</span>")
@@ -25,12 +25,12 @@
 		to_chat(user, "<span class='warning'>Open the cover before inserting the sample.</span>")
 		return
 
-	var/obj/item/forensics/swab/swab = W
+	var/obj/item/forensics/swab/swab = attacking_item
 	if(istype(swab) && swab.is_used())
-		user.unEquip(W)
+		user.unEquip(attacking_item)
 		src.bloodsamp = swab
 		swab.forceMove(src)
-		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
+		to_chat(user, "<span class='notice'>You insert \the [attacking_item] into \the [src].</span>")
 	else
 		to_chat(user, "<span class='warning'>\The [src] only accepts used swabs.</span>")
 		return
@@ -120,7 +120,7 @@
 		info = "<b><font size=\"4\">[src] analysis report #[report_num]</font></b><HR>"
 		info += "<b>Scanned item:</b> [bloodsamp.name]<br><br>" + data
 		P.set_content_unsafe(pname, info)
-		print(P)
+		print(P, user = usr)
 		scanning = 0
 		update_icon()
 	return

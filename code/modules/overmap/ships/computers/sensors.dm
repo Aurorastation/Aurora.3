@@ -27,6 +27,17 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/sensors/terminal
+	name = "sensors terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "teleport"
+	icon_keyboard = "teleport_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null
@@ -64,15 +75,21 @@
 	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
 		var/volume = 15
 		if(!sound_token)
-			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
 		sound_token.SetVolume(volume)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
+
+/obj/machinery/computer/ship/sensors/proc/display_message(var/message)
+	if(OPERABLE(src))
+		playsound(src, 'sound/machines/triplebeep.ogg', 50)
+		visible_message(SPAN_NOTICE("\The [src] beeps, [SPAN_ITALIC("\"" + message + "\"")]"))
 
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Sensors", capitalize_first_letters(name))
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
 /obj/machinery/computer/ship/sensors/ui_data(mob/user)
@@ -238,15 +255,15 @@
 
 	if(sensors)
 		if (action == "range")
-			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
-			if(!CanInteract(usr, default_state))
+			var/nrange = tgui_input_number("Set new sensors range", "Sensor range", sensors.range, sensors.max_range, 1)
+			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if (nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if(action == "range_choice")
 			var/nrange = text2num(params["range_choice"])
-			if(!CanInteract(usr, default_state))
+			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if(nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
@@ -268,7 +285,7 @@
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
-			var/new_class = input("Insert a new ship class. 4 letters maximum.", "IFF Management") as text|null
+			var/new_class = tgui_input_text(usr, "Insert a new ship class. 4 letters maximum.", "IFF Management", linked.class, 4)
 			if(!length(new_class))
 				return
 			new_class = sanitizeSafe(new_class, 5)
@@ -284,7 +301,7 @@
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
-			var/new_name = input("Insert a new ship name. 24 letters maximum.", "IFF Management") as text|null
+			var/new_name = tgui_input_text(usr, "Insert a new ship name. 24 letters maximum.", "IFF Management", linked.designation, MAX_NAME_LEN)
 			if(!length(new_name))
 				return
 			new_name = sanitizeSafe(new_name, 24)
@@ -302,7 +319,7 @@
 				contact_details = null
 			if("print")
 				if(contact_details)
-					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+					playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
 					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
 		return TRUE
 
@@ -310,7 +327,7 @@
 		var/obj/effect/overmap/O = locate(params["scan"])
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked))|| (O in contact_datums))
-				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+				playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
 				LAZYSET(last_scan, "data", O.get_scan_data(usr))
 				LAZYSET(last_scan, "location", "[O.x],[O.y]")
 				LAZYSET(last_scan, "name", "[O]")
@@ -392,11 +409,11 @@
 	base_icon_state = icon_state
 	return ..()
 
-/obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
+/obj/machinery/shipsensors/attackby(obj/item/attacking_item, mob/user)
 	var/damage = max_health - health
-	if(damage && W.iswelder())
+	if(damage && attacking_item.iswelder())
 
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 
 		if(!WT.isOn())
 			return
@@ -451,16 +468,16 @@
 	if(heat_percentage > 85)
 		add_overlay("sensors-effect-hot")
 
-/obj/machinery/shipsensors/examine(mob/user)
+/obj/machinery/shipsensors/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(health <= 0)
-		to_chat(user, "\The [src] is wrecked.")
+		. += "\The [src] is wrecked."
 	else if(health < max_health * 0.25)
-		to_chat(user, "<span class='danger'>\The [src] looks like it's about to break!</span>")
+		. += "<span class='danger'>\The [src] looks like it's about to break!</span>"
 	else if(health < max_health * 0.5)
-		to_chat(user, "<span class='danger'>\The [src] looks seriously damaged!</span>")
+		. += "<span class='danger'>\The [src] looks seriously damaged!</span>"
 	else if(health < max_health * 0.75)
-		to_chat(user, "\The [src] shows signs of damage!")
+		. += "\The [src] shows signs of damage!"
 
 /obj/machinery/shipsensors/bullet_act(var/obj/item/projectile/Proj)
 	take_damage(Proj.get_structure_damage())
@@ -489,7 +506,7 @@
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()
 		if(deep_scan_toggled)
@@ -518,8 +535,11 @@
 	change_power_consumption(1500 * (range**2), POWER_USE_ACTIVE)
 
 /obj/machinery/shipsensors/emp_act(severity)
+	. = ..()
+
 	if(!use_power)
 		return
+
 	take_damage(20/severity)
 	toggle()
 

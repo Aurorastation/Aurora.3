@@ -28,12 +28,31 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
-"agA" = (
-/obj/structure/fuel_port/phoron{
-	pixel_x = -32
+"aei" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
+"agA" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null;
+	frequency = 1394
+	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/foyer)
 "aho" = (
 /obj/effect/shuttle_landmark/ranger_corvette/transit,
 /turf/space/transit/north,
@@ -60,9 +79,15 @@
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/ranger_corvette/leader)
 "aqe" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
 /turf/simulated/floor/carpet/red,
 /area/ship/ranger_corvette/crew)
 "aqk" = (
@@ -84,23 +109,36 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "awG" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "ayf" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out";
 	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	frequency = 1395
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "ayD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -125,14 +163,18 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
-"aHv" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+"aFp" = (
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
-/obj/machinery/meter,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/ranger_shuttle)
+"aHv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "aKd" = (
 /turf/simulated/floor/tiled/dark/full,
@@ -166,15 +208,33 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
+"aRl" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_ranger_docking";
+	master_tag = "airlock_ranger_docking";
+	frequency = 1394
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/foyer)
 "aWb" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "aXC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
@@ -186,6 +246,7 @@
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
 "aYE" = (
@@ -209,7 +270,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "bbM" = (
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
+	dir = 4
+	},
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "bex" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -217,11 +287,28 @@
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "bgA" = (
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	frequency = 1395
+	},
+/turf/simulated/floor,
 /area/shuttle/ranger_shuttle)
 "bhp" = (
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
+"bjx" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/carpet/red,
+/area/ship/ranger_corvette/crew)
 "bkP" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
@@ -250,23 +337,34 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
 "bom" = (
-/obj/machinery/vending/wallmed1{
-	name = "Medical Supplies";
-	pixel_x = -26;
-	pixel_y = -1;
-	req_access = null
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	frequency = 1394
 	},
-/obj/structure/table/steel,
-/obj/item/storage/bag/inflatable,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/ranger_shuttle)
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null;
+	frequency = 1394
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1;
+	pixel_y = 8
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/foyer)
 "boM" = (
 /obj/machinery/ammunition_loader/francisca{
 	weapon_id = "Ranger Francisca Rotary Gun"
@@ -280,10 +378,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/brig)
 "bsL" = (
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/alarm/east,
-/turf/simulated/floor/tiled/white,
-/area/ship/ranger_corvette/canteen)
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "bsV" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -303,6 +399,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "btv" = (
@@ -329,11 +428,29 @@
 /obj/machinery/vending/coffee/free,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"byX" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "bzo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
@@ -377,6 +494,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
+"bMK" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "bNr" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, barracks"
@@ -501,7 +624,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
 "cpO" = (
@@ -512,13 +634,14 @@
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
 	name = "fore blast door-control";
-	pixel_x = -32
+	pixel_x = -22;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "crw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/sign/flag/coalition{
+/obj/structure/sign/flag/xanu{
 	pixel_y = 32
 	},
 /obj/structure/bed/stool/padded,
@@ -531,11 +654,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "cHm" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "cIm" = (
 /obj/structure/table/stone/marble,
@@ -552,11 +684,20 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "cJN" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, voidsuit storage"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/voidsuits)
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8;
+	pixel_x = -13
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
 "cZV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -573,6 +714,10 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/gunnery)
+"dfi" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "dgw" = (
 /obj/structure/bed,
 /obj/item/clothing/mask/gas/alt{
@@ -615,7 +760,6 @@
 	dir = 5
 	},
 /obj/machinery/meter,
-/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "dmm" = (
@@ -660,16 +804,17 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/high/west{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "duC" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, engines"
-	},
-/turf/unsimulated/floor/plating,
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "dwE" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -686,18 +831,46 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
-"dGE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+"dCS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
+"dFf" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	frequency = 2137
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
+"dGE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/structure/sign/fire{
+	name = "\improper DANGER: FLAMMABLE GAS";
+	pixel_x = -32
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
@@ -717,6 +890,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
+"dIx" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20;
+	frequency = 2137
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
 "dMX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -730,6 +920,12 @@
 /area/ship/ranger_corvette/cryo)
 "dUu" = (
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/power/apc/east{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
 "dYC" = (
@@ -765,6 +961,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "epG" = (
@@ -790,13 +989,13 @@
 /turf/space/transit/north,
 /area/space)
 "etR" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "eue" = (
 /obj/machinery/door/airlock/security{
@@ -809,6 +1008,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/brig)
 "euV" = (
@@ -818,34 +1020,51 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/medbay)
 "exg" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "ezi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "ezP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
+"eBG" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "eCy" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/coffee/free,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "eCV" = (
 /obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/tiled/dark,
@@ -900,6 +1119,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "eGi" = (
@@ -926,6 +1148,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"eQz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "eQS" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -940,12 +1168,10 @@
 	name = "footlocker"
 	},
 /obj/item/clothing/accessory/badge/passcard/coalition,
-/obj/item/clothing/suit/storage/toggle/bomber,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/glasses/spiffygogs{
-	desc = "Goggles often used by racers in the sky's of Crosk.";
-	name = "crosk racing goggles"
-	},
+/obj/item/clothing/accessory/flagpatch/assunzione,
+/obj/item/assunzioneorb,
+/obj/item/clothing/accessory/poncho/assunzione,
+/obj/item/storage/assunzionesheath,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "eSo" = (
@@ -955,6 +1181,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "eSB" = (
@@ -966,6 +1195,19 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
+"eZx" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/machinery/door/window,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/ranger_corvette/engineering)
 "fbf" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
@@ -986,6 +1228,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/munitions)
 "fkm" = (
@@ -996,6 +1241,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "fkX" = (
@@ -1019,6 +1267,9 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
+/obj/structure/sign/flag/heph{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "fmF" = (
@@ -1037,6 +1288,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "fnq" = (
@@ -1051,12 +1305,33 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "fqt" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 24
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
+"fqT" = (
+/obj/structure/sign/radiation{
+	pixel_x = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "fro" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
 "frC" = (
@@ -1073,6 +1348,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "fxx" = (
@@ -1088,6 +1366,9 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
@@ -1114,8 +1395,12 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null;
+	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -1130,12 +1415,27 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/alarm/west{
-	pixel_x = -6;
-	req_one_access = null
-	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
+"fPZ" = (
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
+"fVq" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "gec" = (
 /obj/machinery/shower,
 /obj/structure/window/basic{
@@ -1146,11 +1446,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "gep" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -1216,21 +1514,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "gkw" = (
-/obj/machinery/door/airlock/engineering{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/engine1)
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "gnW" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -1259,11 +1554,30 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
+"gpc" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "gqU" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/foyer)
+"grA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null;
+	frequency = 1394
+	},
+/obj/machinery/light/small/emergency{
+	pixel_y = -22
+	},
+/turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "gtw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1271,14 +1585,21 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "gwg" = (
 /obj/structure/bed,
 /obj/item/bedsheet/ian,
-/obj/structure/sign/flag/coalition{
+/obj/structure/sign/flag/assunzione{
 	pixel_x = -32
 	},
+/obj/item/clothing/accessory/assunzione,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "gzc" = (
@@ -1311,21 +1632,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "gLv" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "freight_shuttle";
-	name = "Port docking controller";
-	pixel_x = 6;
-	pixel_y = 28;
-	tag_door = "freight_shuttle_out"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
 	},
-/obj/machinery/computer/ship/sensors{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "gMK" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1334,6 +1651,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
@@ -1347,6 +1669,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -1413,11 +1738,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/brig)
 "hdZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 6
-	},
-/obj/machinery/meter,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/door/airlock/engineering,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "hjK" = (
 /obj/structure/table/steel,
@@ -1432,6 +1755,12 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
+"hmD" = (
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "hmX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1439,26 +1768,55 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/engineering{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/engine2)
+"hnE" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/ranger_shuttle,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
+"hqB" = (
 /obj/machinery/door/airlock/engineering{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/engine2)
-"hqB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/ranger_corvette/foyer)
-"htX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/foyer)
+/area/ship/ranger_corvette/engine1)
+"htX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/atmos{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "hvo" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1538,6 +1896,16 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/leader)
+"hXP" = (
+/obj/structure/closet/crate{
+	name = "!!! TRITIUM CONTAINER !!!"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/effect/decal/cleanable/greenglow,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "hZi" = (
 /obj/machinery/door/airlock/service{
 	name = "Dormitory";
@@ -1550,6 +1918,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "ian" = (
@@ -1589,7 +1960,9 @@
 /area/ship/ranger_corvette/medbay)
 "ieN" = (
 /obj/structure/table/steel,
-/obj/structure/sign/flag/gadpathur/large/east,
+/obj/structure/sign/flag/gadpathur/large/east{
+	pixel_x = 32
+	},
 /obj/item/clothing/accessory/flagpatch/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
 /obj/effect/floor_decal/spline/plain/black{
@@ -1604,14 +1977,32 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "imn" = (
-/obj/effect/shuttle_landmark/ranger_shuttle/hangar,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_ranger_docking";
+	master_tag = "airlock_ranger_docking";
+	frequency = 1394
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4;
+	frequency = 1394
+	},
+/obj/effect/shuttle_landmark/ranger_shuttle/hangar{
+	dir = 8;
+	base_area = null;
+	base_turf = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
-/area/ship/ranger_corvette)
+/area/ship/ranger_corvette/foyer)
 "ioq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/sign/flag/heph{
-	pixel_y = 32;
-	ripped = 1
+/obj/structure/sign/flag/himeo{
+	pixel_y = 32
 	},
 /obj/structure/bed/stool/padded,
 /obj/effect/decal/cleanable/dirt,
@@ -1629,7 +2020,10 @@
 /area/ship/ranger_corvette/foyer)
 "itk" = (
 /obj/machinery/alarm/west,
-/turf/simulated/floor/holofloor/reinforced,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "itr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1649,14 +2043,23 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "iCX" = (
-/obj/machinery/vending/engivend{
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null;
+	cell_type = /obj/item/cell/hyper
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
+"iDh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "iFw" = (
 /obj/structure/table/wood,
 /obj/structure/sign/flag/sol{
@@ -1688,6 +2091,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "iOe" = (
@@ -1713,8 +2119,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "iVL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/extinguisher_cabinet/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "iWc" = (
@@ -1724,10 +2133,25 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
+"iXs" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "jgn" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "jih" = (
@@ -1751,6 +2175,9 @@
 	pixel_x = 0;
 	pixel_y = 28
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "jmN" = (
@@ -1763,6 +2190,9 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -1808,23 +2238,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "jsq" = (
-/obj/structure/sign/fire{
-	name = "\improper DANGER: FLAMMABLE GAS";
-	pixel_x = 32;
-	pixel_y = -32
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, hallway"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "jwy" = (
 /obj/machinery/light{
 	dir = 8;
@@ -1838,16 +2265,11 @@
 /area/ship/ranger_corvette/telecomms)
 "jwX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "jyf" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 8
@@ -1862,17 +2284,31 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/high/west{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "jyA" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "jyH" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "jBp" = (
@@ -1898,6 +2334,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "jMZ" = (
@@ -1921,6 +2360,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
+"jRF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "jVf" = (
 /obj/structure/closet/crate{
 	anchored = 1;
@@ -1935,20 +2384,34 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/ranger_corvette/crew)
 "jXb" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+/obj/machinery/light/small/emergency{
+	dir = 8;
+	pixel_x = -11
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "jXh" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/canteen)
 "jYe" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/ranger_shuttle)
@@ -1966,6 +2429,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "kcS" = (
@@ -1973,6 +2439,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
+"kfF" = (
+/obj/machinery/power/smes,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "kiF" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/sleeper,
@@ -1991,13 +2462,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
 "kku" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
 	},
+/obj/machinery/suit_cycler,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "kkN" = (
@@ -2031,7 +2506,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "kxo" = (
-/obj/machinery/vending/tool,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "kyh" = (
@@ -2060,7 +2538,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "kLL" = (
@@ -2071,7 +2549,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "kTh" = (
@@ -2086,26 +2564,59 @@
 /area/ship/ranger_corvette/bridge)
 "kYl" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/alarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
+"kYm" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/ranger_shuttle)
 "lfi" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/gunnery)
+"lgK" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/foyer)
 "lhJ" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/space)
 "lkY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/machinery/door/airlock/atmos{
-	dir = 1
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1;
+	frequency = 2137
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
-/area/ship/ranger_corvette/atmospherics)
+/area/ship/ranger_corvette)
 "lpY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2113,16 +2624,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "lsl" = (
-/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "lso" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -2155,6 +2663,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "lym" = (
@@ -2173,6 +2684,19 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
+"lGa" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/ranger_shuttle)
 "lGr" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -2196,6 +2720,12 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "lIp" = (
@@ -2222,6 +2752,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
+"lNa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green,
+/obj/machinery/power/apc/west,
+/turf/simulated/floor/tiled/white,
+/area/ship/ranger_corvette/bathroom)
 "lNh" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -2234,21 +2770,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "lTc" = (
-/obj/structure/table/steel,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = -10
-	},
 /obj/machinery/alarm/east,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "lWH" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/ranger_corvette/leader)
 "lXU" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2314,20 +2850,25 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "mcD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "mcN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 8
-	},
-/obj/item/pipewrench,
+/obj/item/trash/broken_electronics,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
 "mdX" = (
@@ -2345,12 +2886,27 @@
 "mhA" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
+"mhD" = (
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "mkT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
+"mlG" = (
+/obj/structure/cable/green,
+/obj/machinery/power/terminal,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/engineering)
 "mmT" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/bed/stool/padded,
@@ -2371,6 +2927,10 @@
 /area/ship/ranger_corvette/gunnery)
 "moB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green,
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "mun" = (
@@ -2381,6 +2941,9 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "muQ" = (
@@ -2408,15 +2971,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "mzO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 9
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/item/trash/broken_electronics,
-/turf/simulated/floor,
-/area/ship/ranger_corvette/atmospherics)
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/foyer)
 "mzY" = (
-/turf/simulated/floor,
-/area/ship/ranger_corvette/atmospherics)
+/obj/structure/closet/walllocker{
+	pixel_x = 32;
+	name = "radiation gear locker"
+	},
+/obj/item/clothing/suit/radiation,
+/obj/item/clothing/suit/radiation,
+/obj/item/clothing/head/radiation,
+/obj/item/clothing/head/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/glasses/safety/goggles,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "mAx" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/crew)
@@ -2470,6 +3044,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "mNJ" = (
@@ -2482,8 +3059,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "mQF" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "mVV" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -2494,6 +3073,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
@@ -2518,6 +3100,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/machinery/power/apc/low/north{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
@@ -2557,11 +3145,11 @@
 /area/ship/ranger_corvette/bathroom)
 "ntw" = (
 /obj/structure/table/steel,
-/obj/item/storage/toolbox/electrical,
-/obj/item/storage/toolbox/emergency{
-	pixel_y = 11
-	},
 /obj/structure/extinguisher_cabinet/east,
+/obj/item/storage/bag/inflatable,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "ntW" = (
@@ -2591,13 +3179,16 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "nDb" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/ranger_corvette/leader)
 "nFy" = (
 /obj/structure/table/wood,
@@ -2633,6 +3224,31 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/gunnery)
+"nPq" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	frequency = 1395
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4;
+	frequency = 1395
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/shuttle/ranger_shuttle)
 "nRI" = (
 /obj/structure/bed/padded,
 /obj/item/towel_flat{
@@ -2640,6 +3256,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
+"nTL" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/light/small/emergency{
+	dir = 8;
+	pixel_x = -11
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/shuttle/ranger_shuttle)
 "nTM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -2652,11 +3282,26 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "nVM" = (
-/obj/structure/extinguisher_cabinet/west,
-/obj/machinery/computer/ship/engines{
+/obj/structure/table/steel,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 4
+	},
+/obj/item/storage/toolbox/mechanical,
+/obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
+"nZU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "oey" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2672,6 +3317,13 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
+"ojz" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "okk" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, munitions bay, armory"
@@ -2700,6 +3352,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
+"oBx" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/ranger_shuttle)
 "oEN" = (
 /obj/machinery/door/airlock{
 	name = "EVA Storage";
@@ -2708,23 +3373,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "oIF" = (
-/obj/machinery/portable_atmospherics/canister/empty{
-	name = "waste canister"
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engineering)
+"oJk" = (
+/obj/machinery/vending/wallmed1{
+	name = "Medical Supplies";
+	req_access = null;
+	pixel_x = -32
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor,
-/area/ship/ranger_corvette/atmospherics)
-"oJk" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "oKe" = (
 /obj/structure/sign/directions/com{
@@ -2751,13 +3418,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "oNK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, voidsuit storage"
 	},
-/obj/machinery/meter,
-/obj/machinery/alarm/south,
-/turf/simulated/floor,
-/area/ship/ranger_corvette/atmospherics)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engineering)
 "oOX" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = null
@@ -2873,49 +3538,61 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
+"oUC" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/canteen)
 "oUG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "oXh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/power/apc/north{
+	req_access = null
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/atmos{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/ranger_corvette/atmospherics)
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "oXn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/engineering{
-	req_access = null
-	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "oZS" = (
-/obj/structure/sign/fire{
-	name = "\improper DANGER: FLAMMABLE GAS";
-	pixel_x = -32;
-	pixel_y = 32
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "paq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2937,6 +3614,21 @@
 "plP" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
+"pmD" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null;
+	frequency = 1394
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/foyer)
 "ppM" = (
 /obj/structure/sign/directions/medical{
 	dir = 4;
@@ -2946,6 +3638,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "ptP" = (
@@ -2954,6 +3649,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
@@ -2970,6 +3668,9 @@
 /obj/item/clothing/head/beret/engineering,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
@@ -2996,6 +3697,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "pDY" = (
@@ -3020,6 +3724,9 @@
 	item_state = null;
 	name = "ship blueprints"
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "pHP" = (
@@ -3035,6 +3742,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "pHQ" = (
@@ -3042,6 +3752,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "pPX" = (
@@ -3074,12 +3787,13 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
-"pVQ" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 32
+"pVw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/foyer)
+/area/shuttle/ranger_shuttle)
 "pXU" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -3134,6 +3848,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "qqG" = (
@@ -3160,14 +3877,40 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "qsf" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square{
-	required_access = null
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/canteen)
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	frequency = 1395
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	frequency = 1395
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 20;
+	frequency = 1395
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/shuttle/ranger_shuttle)
 "qtL" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
@@ -3177,11 +3920,14 @@
 /area/ship/ranger_corvette/gunnery)
 "qtV" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/mob/living/bot/medbot,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/power/apc/south{
+	req_access = null
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "que" = (
@@ -3192,6 +3938,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "qyq" = (
@@ -3230,7 +3985,7 @@
 /area/ship/ranger_corvette/canteen)
 "qBd" = (
 /turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette)
+/area/ship/ranger_corvette/engineering)
 "qCp" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -3243,6 +3998,12 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/west{
+	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -3257,17 +4018,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "qGl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+/obj/machinery/alarm/south,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 8
 	},
-/obj/machinery/suit_cycler,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/obj/item/pipewrench,
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "qHn" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3283,11 +4041,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "qMt" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, hallway"
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/foyer)
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "qQd" = (
 /obj/structure/cryofeed/pipes{
 	dir = 2;
@@ -3317,6 +4078,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "qSw" = (
@@ -3335,14 +4099,29 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/ranger_corvette/leader)
+"qSB" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 11
+	},
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -10
+	},
+/obj/structure/extinguisher_cabinet/east,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "qUy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
@@ -3385,11 +4164,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "riA" = (
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-dead"
+/obj/machinery/power/apc/north{
+	req_access = null
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/obj/machinery/pipedispenser,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "rki" = (
 /obj/item/reagent_containers/glass/bucket{
 	desc = "A blue plastic bucket, best not to ask what it's for."
@@ -3405,8 +4188,20 @@
 "roN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
+"rpr" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "rpP" = (
 /obj/structure/sign/directions/com{
 	dir = 4;
@@ -3415,6 +4210,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "rro" = (
@@ -3428,8 +4226,7 @@
 /area/ship/ranger_corvette/munitions)
 "rsO" = (
 /obj/machinery/door/window{
-	dir = 8;
-	req_one_access = list(150)
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
@@ -3463,6 +4260,16 @@
 "rBK" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/telecomms)
+"rEq" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "rKi" = (
 /obj/structure/viewport,
 /obj/effect/landmark/entry_point/fore{
@@ -3477,7 +4284,14 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/alarm/east,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "rQB" = (
@@ -3485,9 +4299,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "rRu" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/landable/ranger_shuttle,
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	frequency = 1395
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "rVd" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3503,6 +4331,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "rVo" = (
@@ -3547,16 +4378,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
+"siv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/crew)
 "slH" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/telecomms/allinone/ship/coalition_navy,
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "slN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "smG" = (
@@ -3568,12 +4409,9 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/energy/pistol/hegemony,
-/obj/item/gun/projectile/colt/super{
-	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds. This example sports a short slide, wood-paneled grips, and various other modifications. While it seems to have originally been a very expensive pistol, this one has seen constant and heavy use, and is now thoroughly worn - though it still functions well.";
-	name = "worn-out ornamental .45 combat pistol"
-	},
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
 /obj/item/gun/energy/blaster,
 /obj/item/gun/projectile/revolver/lemat,
 /obj/item/ammo_magazine/c38,
@@ -3586,11 +4424,23 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
 "spv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/meter,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "sqh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -3599,6 +4449,9 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
@@ -3613,12 +4466,15 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ranger_corvette/crew)
 "stX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
@@ -3634,9 +4490,31 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "sCd" = (
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/ranger_shuttle)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null;
+	frequency = 1394
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 20;
+	frequency = 1394
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/foyer)
+"sCu" = (
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/telecomms)
 "sEf" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -3653,6 +4531,9 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
@@ -3737,6 +4618,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
+"sTc" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
+"sTf" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, hallway"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/voidsuits)
 "sXv" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
@@ -3761,11 +4652,24 @@
 "tas" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/bridge)
-"tcC" = (
-/obj/structure/bed/stool/chair/shuttle{
+"tbY" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/shuttle/ranger_shuttle)
+"tcC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/extinguisher_cabinet/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "teP" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -3781,6 +4685,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
+"thB" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2;
+	frequency = 2137
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "thI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -3789,6 +4709,9 @@
 /obj/machinery/alarm/west{
 	pixel_x = -5;
 	req_one_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
@@ -3803,6 +4726,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "tmL" = (
@@ -3815,6 +4741,9 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
+/obj/structure/sign/flag/assunzione{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "tnO" = (
@@ -3826,6 +4755,9 @@
 	dir = 8;
 	pixel_x = -32;
 	pixel_y = -9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
@@ -3945,6 +4877,14 @@
 /obj/item/clothing/mask/breath/offworlder/jagmask,
 /obj/item/clothing/mask/breath/offworlder/jagmask,
 /obj/item/clothing/mask/breath/offworlder/jagmask,
+/obj/item/flag/assunzione,
+/obj/item/flag/assunzione,
+/obj/item/flag/assunzione/l,
+/obj/item/flag/assunzione/l,
+/obj/item/flag/xanu,
+/obj/item/flag/xanu,
+/obj/item/flag/xanu/l,
+/obj/item/flag/xanu/l,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "trH" = (
@@ -3959,6 +4899,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "tsn" = (
@@ -3967,31 +4910,27 @@
 /area/ship/ranger_corvette/bathroom)
 "ttk" = (
 /obj/structure/bed,
-/obj/structure/sign/poster{
-	pixel_x = -32
-	},
 /obj/item/bedsheet/syndie{
 	desc = "It has a syndicate emblem and it has an aura of anti-corporatism."
 	},
 /obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/structure/sign/flag/himeo{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "twl" = (
-/obj/machinery/iff_beacon,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "tAd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "tBK" = (
@@ -4081,6 +5020,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "tQJ" = (
@@ -4126,6 +5068,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "tVB" = (
@@ -4154,6 +5099,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "tXz" = (
@@ -4201,8 +5149,19 @@
 /obj/item/grenade/frag{
 	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments. This one has the word 'CATCH!!' written on it in white paint."
 	},
+/obj/machinery/power/apc/high/north,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
+"ueq" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/ranger_shuttle)
 "ufB" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4210,15 +5169,35 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
+"uhA" = (
+/obj/machinery/alarm/east,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "uiz" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, bathroom"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/bathroom)
+"ulR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "umS" = (
 /obj/structure/bed,
-/obj/structure/sign/flag/vysoka/large/north,
+/obj/structure/sign/flag/vysoka/large/north{
+	pixel_y = 32
+	},
 /obj/item/photo{
 	desc = "Pictured is someone standing beside a Gurmori infront of rolling hills."
 	},
@@ -4261,6 +5240,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "ust" = (
@@ -4289,6 +5274,29 @@
 /obj/item/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
+"usz" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null;
+	frequency = 1394
+	},
+/obj/machinery/access_button{
+	pixel_x = -23;
+	pixel_y = 22;
+	dir = 2;
+	frequency = 1394
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/foyer)
 "uty" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
@@ -4334,6 +5342,9 @@
 	},
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "uwT" = (
@@ -4365,9 +5376,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "uzX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "uAk" = (
 /obj/machinery/door/blast/regular/open{
 	id = "coc_bridge";
@@ -4384,6 +5397,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/east,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "uFD" = (
@@ -4392,25 +5408,40 @@
 /area/ship/ranger_corvette/engine1)
 "uGk" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out";
 	dir = 4
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	frequency = 1395
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8;
+	frequency = 1395
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "uHL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
+/turf/simulated/floor/tiled{
+	temperature = 278.15
 	},
-/turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
 "uOy" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/voidsuits)
 "uVR" = (
-/turf/simulated/floor/holofloor/reinforced,
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "uWT" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -4448,12 +5479,22 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
 "vpx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
+"vpY" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "vtO" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ship Munitions Storage";
@@ -4462,6 +5503,13 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/munitions)
+"vuD" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "vwc" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
@@ -4492,11 +5540,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "vzk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -4517,7 +5573,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armory";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "vLy" = (
@@ -4544,6 +5609,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "vPn" = (
@@ -4555,6 +5623,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
 	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
@@ -4581,6 +5655,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
+"vVQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
 "vXi" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/button/remote/blast_door{
@@ -4606,6 +5687,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/cryo)
 "vZZ" = (
@@ -4614,6 +5698,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
@@ -4662,10 +5749,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
 "wlw" = (
-/obj/machinery/computer/ship/helm{
-	req_access = null
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "wlA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4674,6 +5764,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
@@ -4702,6 +5795,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "wpP" = (
@@ -4713,6 +5809,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "wri" = (
@@ -4734,6 +5833,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "wrJ" = (
@@ -4750,6 +5852,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
@@ -4773,6 +5878,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "wBq" = (
@@ -4788,15 +5899,49 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
+"wDN" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4;
+	target_pressure = 250
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette/atmospherics)
+"wHL" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
 "wMK" = (
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
-"wNT" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square{
-	required_access = null
+"wNO" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/ranger_shuttle)
+"wNT" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4;
+	pixel_x = 14
+	},
+/turf/simulated/floor,
 /area/ship/ranger_corvette)
 "wPe" = (
 /obj/structure/bed/stool/bar/padded/brown,
@@ -4808,6 +5953,16 @@
 	name = "igs - ranger"
 	},
 /turf/simulated/floor/wood,
+/area/ship/ranger_corvette/foyer)
+"wPn" = (
+/obj/machinery/door/airlock/engineering,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "wSM" = (
 /obj/machinery/appliance/cooker/stove,
@@ -4834,8 +5989,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "wYR" = (
-/obj/structure/sign/flag/coalition/large/north,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "wZf" = (
@@ -4847,6 +6004,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm/south,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "xdG" = (
@@ -4856,13 +6016,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "xfP" = (
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/machinery/computer/ship/engines,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "xnk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4873,6 +6034,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "xnY" = (
@@ -4886,16 +6050,21 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/canteen)
 "xsE" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 32
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
 	},
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 4;
-	target_pressure = 250
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor,
-/area/ship/ranger_corvette/foyer)
+/area/ship/ranger_corvette/atmospherics)
 "xtN" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -4971,18 +6140,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "xCw" = (
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, crew compartment"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "xFA" = (
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engineering)
 "xJk" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/medbay)
@@ -4995,11 +6170,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "xPl" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "xRX" = (
 /turf/template_noop,
@@ -5017,6 +6195,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "xZA" = (
@@ -5040,17 +6221,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
 "yep" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
 	},
-/obj/structure/railing/mapped{
-	dir = 8
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "yfz" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -35236,10 +36413,10 @@ tWh
 tWh
 tWh
 tWh
-gkw
 tWh
 tWh
 tWh
+hqB
 tWh
 tWh
 rBK
@@ -35488,17 +36665,17 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-yfz
+gNW
+gNW
+gNW
+vFS
 exg
+stX
+pDY
+vFS
 gOp
 jmN
-vFS
-pDY
-oIF
-vFS
+yfz
 jwy
 lNh
 rzM
@@ -35745,17 +36922,17 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-yfz
+lkY
+cJN
+dFf
+thB
 eCy
+vVQ
+qGl
+vFS
 gXD
 jsa
-vFS
-mcN
-oNK
-vFS
+yfz
 wYR
 pVf
 rQB
@@ -35772,9 +36949,9 @@ bhp
 gUN
 mAx
 eJp
-aqe
+bjx
 viF
-cij
+siv
 fro
 doJ
 oAP
@@ -36002,18 +37179,18 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+wHL
+wNT
+dIx
 qMt
-eCV
-hdZ
-jsq
-lkY
-mzO
+mcN
 dmm
+jsq
 vFS
-rQB
+mzO
+jsa
+yfz
+sCu
 uwG
 rQB
 rBK
@@ -36258,25 +37435,25 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-yfz
+gNW
+gNW
+gNW
+gNW
+vFS
 riA
-hqB
-vZZ
-vFS
-mzY
 aXC
+wDN
 vFS
+gXD
+vZZ
+yfz
 pXU
 mun
 sfw
 rBK
 ioB
 vyC
-vzU
+iXs
 yfz
 eQS
 wdq
@@ -36304,7 +37481,7 @@ qQd
 dUu
 dBx
 tBK
-dNG
+eGi
 ndT
 gWX
 aRc
@@ -36515,18 +37692,18 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-uzX
-uzX
-gNW
-wNT
-xsE
-jsa
+oIF
+eZx
+mlG
+ojz
 vFS
 mLK
-stX
+xsE
+jwX
 vFS
+gXD
+jsa
+yfz
 qhi
 qkP
 slH
@@ -36772,23 +37949,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xFA
-xFA
-xFA
+oIF
+hXP
 qBd
+eQz
+vFS
+vFS
 htX
-jwX
 vFS
 vFS
-oXh
-vFS
+aKd
+jsa
+yfz
 rBK
 qrd
 rBK
 yfz
-tEO
+fPZ
 vOd
 qbp
 sYH
@@ -37029,12 +38206,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+oIF
+oXh
 xFA
-xFA
-xFA
-qBd
+awG
+wPn
+fqT
 spv
 dGE
 lsl
@@ -37286,14 +38463,14 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-awG
+oNK
+hmD
+dfi
 uzX
-gNW
-gNW
-qGl
-kku
+hdZ
+mzY
+vzU
+tEO
 maj
 tEO
 vZZ
@@ -37308,7 +38485,7 @@ qbp
 tVB
 mdX
 sLq
-fwA
+oUC
 fwA
 aiD
 mFt
@@ -37543,10 +38720,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+oIF
+mhD
+sTc
+gpc
 uOy
 uOy
 uOy
@@ -37563,9 +38740,9 @@ wUT
 wUT
 wUT
 wUT
-aKd
-sLq
-fwA
+lgK
+jRF
+oUC
 tmL
 iwS
 lym
@@ -37800,11 +38977,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-cJN
+oIF
+gkw
+uhA
+qSB
+uOy
 bHV
 hvo
 bHV
@@ -37815,14 +38992,14 @@ wUT
 wBq
 qUy
 sIh
-tsn
+lNa
 tsn
 wkO
 xzl
 wUT
-pVQ
-sLq
-fwA
+aKd
+ulR
+oUC
 paq
 qza
 lIp
@@ -38057,10 +39234,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+oIF
+oIF
+oIF
+oIF
 uOy
 bHV
 xzg
@@ -38077,9 +39254,9 @@ sJD
 lpY
 sJD
 wUT
-xFA
-xFA
-qsf
+usz
+pmD
+oUC
 crw
 ilB
 mmT
@@ -38334,9 +39511,9 @@ uwT
 wUT
 uwT
 wUT
-xFA
-xFA
-fwA
+bom
+agA
+oUC
 ioq
 waI
 mmT
@@ -38575,7 +39752,7 @@ xRX
 xRX
 xRX
 xRX
-uOy
+sTf
 bHV
 xzg
 jyA
@@ -38591,9 +39768,9 @@ uyk
 wUT
 wve
 wUT
-xFA
-xFA
-fwA
+sCd
+grA
+oUC
 fmB
 lXU
 nmy
@@ -38603,7 +39780,7 @@ dhX
 cdr
 ufB
 bXG
-bsL
+qHn
 oOX
 xJk
 xJk
@@ -38837,7 +40014,7 @@ uOy
 hFA
 jyH
 uOy
-vzU
+kku
 wlA
 wUT
 wUT
@@ -38849,7 +40026,7 @@ uiz
 wUT
 wUT
 imn
-xFA
+aRl
 jXh
 fwA
 xnY
@@ -39092,7 +40269,7 @@ oXn
 diy
 gJZ
 gJZ
-gJZ
+uOy
 gJZ
 gJZ
 hmX
@@ -39100,18 +40277,18 @@ gJZ
 xRX
 xRX
 xRX
-twl
-yau
-yau
-yau
+xRX
+xRX
+xRX
+xRX
 yau
 ayf
 uGk
-yau
-yau
-yau
-yau
-yau
+aFp
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -39358,17 +40535,17 @@ xRX
 xRX
 xRX
 xRX
-bbM
-bbM
-xfP
-nVM
+yau
+yau
+yau
+yau
+qsf
 bgA
-bgA
-sCd
-agA
-bom
-cHm
-jYe
+aFp
+yau
+yau
+yau
+xRX
 xRX
 xRX
 xRX
@@ -39614,18 +40791,18 @@ gJZ
 xRX
 xRX
 xRX
-xRX
-uHL
+kYm
+yau
 wlw
 jXb
-bgA
+yau
 rRu
-bgA
-bgA
-bgA
+nPq
+aFp
+nTL
 xPl
-cHm
-duC
+yau
+yau
 xRX
 xRX
 xRX
@@ -39871,13 +41048,13 @@ gJZ
 xRX
 xRX
 xRX
-xRX
-bbM
+yau
+yau
 bbM
 gLv
 tcC
 etR
-tcC
+bsL
 oJk
 mQF
 aHv
@@ -40129,17 +41306,17 @@ xRX
 xRX
 xRX
 yep
-yau
-yau
-yau
-yau
+duC
+twl
+hnE
+bsL
 xCw
+pVw
 fqt
-fqt
-yau
-yau
-yau
-yau
+nZU
+aei
+iDh
+lGa
 xRX
 xRX
 xRX
@@ -40385,18 +41562,18 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+yau
+yau
+fVq
+bsL
+bsL
+rpr
+uHL
+tbY
+vpY
+vuD
+dCS
+jYe
 xRX
 xRX
 xRX
@@ -40642,18 +41819,18 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+oBx
+yau
+xfP
+byX
+bMK
+bMK
+eBG
+rEq
+nVM
+kfF
+yau
+yau
 xRX
 xRX
 xRX
@@ -40900,16 +42077,16 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+yau
+yau
+yau
+yau
+wNO
+ueq
+yau
+yau
+yau
+yau
 xRX
 xRX
 xRX

@@ -94,16 +94,14 @@
 	if(!..())
 		return // Returns if no client.
 
-	if(stat == DEAD || HAS_FLAG(mutations, XRAY))
+	if(stat == DEAD || (mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if(stat != DEAD && is_ventcrawling == FALSE)
 		if(species && species.vision_flags)
 			sight = species.vision_flags
 		else
 			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(2)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (healths)

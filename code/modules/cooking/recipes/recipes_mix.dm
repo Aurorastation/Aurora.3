@@ -33,6 +33,15 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofukabob
 
+/singleton/recipe/hengsharolls
+	fruit = list("cabbage" = 1, "corn" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/mashedpotato,
+		/obj/item/reagent_containers/food/snacks/tofu
+		)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/hengsharolls
+
 // Salads
 
 /singleton/recipe/tossedsalad
@@ -42,7 +51,6 @@
 /singleton/recipe/aesirsalad
 	fruit = list("goldapple" = 1, "ambrosiadeus" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/aesirsalad
-
 /singleton/recipe/validsalad
 	fruit = list("potato" = 1, "ambrosia" = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
@@ -52,4 +60,62 @@
 	. = ..(container)
 	for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
 		being_cooked.reagents.del_reagent(/singleton/reagent/toxin)
+
+/singleton/recipe/tabboulehsalad
+	fruit = list("mint" = 3, "tomato" = 1, "wheat" = 1, "lemon" = 1)
+	result = /obj/item/reagent_containers/food/snacks/salad/tabboulehsalad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/tunasalad
+	fruit = list("mint" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+		)
+	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/salad/tunasalad
+
+/singleton/recipe/tunapastasalad
+	fruit = list("mint" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledspaghetti,
+		/obj/item/reagent_containers/food/snacks/fish
+		)
+	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/salad/tunapasta
+
+/singleton/recipe/potato_salad //ported from tg
+	fruit = list("potato" = 2, "onion" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledegg,
+		/obj/item/reagent_containers/food/snacks/boiledegg
+		)
+	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5)
+	result = /obj/item/reagent_containers/food/snacks/salad/potato_salad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/fruit_salad //ported from tg
+	fruit = list("orange" = 1, "apple" = 1, "grapes" = 1, "watermelon slice" = 2)
+	result = /obj/item/reagent_containers/food/snacks/salad/fruit_salad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/caesar_salad //ported from tg with a changed recipe
+	fruit = list("cabbage" = 1, "garlic" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagents = list(/singleton/reagent/drink/lemonjuice = 5, /singleton/reagent/nutriment/protein/egg = 3)
+	result = /obj/item/reagent_containers/food/snacks/salad/caesar_salad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/citrus_delight //ported from tg
+	fruit = list("orange" = 1, "lemon" = 1, "lime" = 1)
+	result = /obj/item/reagent_containers/food/snacks/salad/citrus_delight
+
+/singleton/recipe/spring_salad //ported from tg
+	fruit = list("peas" = 1, "carrot" = 1, "cabbage" = 2)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	result = /obj/item/reagent_containers/food/snacks/salad/spring_salad
 

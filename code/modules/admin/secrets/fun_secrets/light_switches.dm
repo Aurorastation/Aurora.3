@@ -25,6 +25,6 @@
 				set_switches(null)
 
 /datum/admin_secret_item/fun_secret/light_switches/proc/set_switches(var/new_state)
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(A.lightswitch != new_state)
 			A.set_lightswitch(new_state)

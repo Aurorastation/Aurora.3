@@ -151,7 +151,7 @@
 		src.visible_message("\The [src] buzzes. That ID has already been scanned.")
 		return 0
 
-	if (!(access_heads in access))
+	if (!(ACCESS_HEADS in access))
 		src.visible_message("\The [src] buzzes, rejecting [ident].")
 		return 0
 
@@ -172,8 +172,8 @@
 		emagged = 1
 		return 1
 
-/obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/W as obj, mob/user as mob)
-	read_authorization(W)
+/obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/attacking_item, mob/user)
+	read_authorization(attacking_item)
 	..()
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, datum/tgui/ui)
@@ -205,9 +205,9 @@
 			if (shuttle.in_use)
 				shuttle_status = "Busy."
 			else if (!shuttle.location)
-				shuttle_status = "Standing-by at [current_map.station_name]."
+				shuttle_status = "Standing-by at [SSatlas.current_map.station_name]."
 			else
-				shuttle_status = "Standing-by at [current_map.dock_name]."
+				shuttle_status = "Standing-by at [SSatlas.current_map.dock_name]."
 		if(WAIT_LAUNCH, FORCE_LAUNCH)
 			shuttle_status = "Shuttle has received command and will depart shortly."
 		if(WAIT_ARRIVE)

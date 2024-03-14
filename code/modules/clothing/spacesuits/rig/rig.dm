@@ -91,7 +91,7 @@
 	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
-	var/airtight = 1 //If set, will adjust the AIRTIGHT flag on components. Otherwise it should leave them untouched.
+	var/airtight = 1 //If set, will adjust the ITEM_FLAG_AIRTIGHT flag on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
 
@@ -102,17 +102,17 @@
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
-/obj/item/rig/examine()
+/obj/item/rig/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(wearer)
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)
 				continue
-			to_chat(usr, "[icon2html(piece, usr)] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed.")
+			. += "[icon2html(piece, usr)] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed."
 
 	if(src.loc == usr)
-		to_chat(usr, "The maintenance panel is [open ? "open" : "closed"].")
-		to_chat(usr, "Hardsuit systems are [offline ? "<span class='warning'>offline</span>" : "<span class='good'>online</span>"].")
+		. += "The maintenance panel is [open ? "open" : "closed"]."
+		. += "Hardsuit systems are [offline ? "<span class='warning'>offline</span>" : "<span class='good'>online</span>"]."
 
 /obj/item/rig/Initialize()
 	. = ..()
@@ -225,7 +225,7 @@
 		if(airtight)
 			piece.max_pressure_protection = initial(piece.max_pressure_protection)
 			piece.min_pressure_protection = initial(piece.min_pressure_protection)
-			piece.item_flags &= ~AIRTIGHT
+			piece.item_flags &= ~ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/proc/toggle_seals(var/mob/initiator,var/instant)
@@ -381,11 +381,11 @@
 		if(canremove)
 			piece.max_pressure_protection = initial(piece.max_pressure_protection)
 			piece.min_pressure_protection = initial(piece.min_pressure_protection)
-			piece.item_flags &= ~AIRTIGHT
+			piece.item_flags &= ~ITEM_FLAG_AIRTIGHT
 		else
 			piece.max_pressure_protection = max_pressure_protection
 			piece.min_pressure_protection = min_pressure_protection
-			piece.item_flags |= AIRTIGHT
+			piece.item_flags |= ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/process()
@@ -489,7 +489,7 @@
 	cell.use(cost*10)
 	return 1
 
-/obj/item/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = inventory_state)
+/obj/item/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = GLOB.inventory_state)
 	if(!user)
 		return
 
@@ -510,7 +510,7 @@
 
 	data["charge"] =       cell ? round(cell.charge,1) : 0
 	data["maxcharge"] =    cell ? cell.maxcharge : 0
-	data["chargestatus"] = cell ? Floor((cell.charge/cell.maxcharge)*50) : 0
+	data["chargestatus"] = cell ? FLOOR((cell.charge/cell.maxcharge)*50) : 0
 
 	data["emagged"] =       subverted
 	data["coverlock"] =     locked
@@ -800,9 +800,12 @@
 	..()
 	null_wearer(user)
 
-/obj/item/rig/dropped(var/mob/user)
+/obj/item/rig/dropped(mob/user)
 	..()
-	SSstatpanels.set_action_tabs(user.client, user)
+
+	if(user.client)
+		SSstatpanels.set_action_tabs_RIG(user.client, user)
+
 	null_wearer(user)
 
 
@@ -810,18 +813,20 @@
 /obj/item/rig/proc/malfunction()
 	return 0
 
-/obj/item/rig/emp_act(severity_class)
+/obj/item/rig/emp_act(severity)
+	. = ..()
+
 	//set malfunctioning
 	if(emp_protection < 30) //for ninjas, really.
 		malfunctioning += 10
 		if(malfunction_delay <= 0)
-			malfunction_delay = max(malfunction_delay, round(30/severity_class))
+			malfunction_delay = max(malfunction_delay, round(30/severity))
 
 	//drain some charge
-	if(cell) cell.emp_act((severity_class + 15)*1+(0.1*emp_protection))
+	if(cell) cell.powerdrain((severity + 15)*1+(0.1*emp_protection))
 
 	//possibly damage some modules
-	take_hit((100/severity_class), "electrical pulse", 1)
+	take_hit((100/severity), "electrical pulse", 1)
 
 /obj/item/rig/proc/shock(mob/user)
 	var/touchy = pick(BP_CHEST,BP_HEAD,BP_GROIN)
@@ -960,7 +965,7 @@
 			wearer.inertia_dir = 0 //If not then we can reset inertia and move
 
 	if(malfunctioning)
-		direction = pick(cardinal)
+		direction = pick(GLOB.cardinal)
 
 	// Inside an object, tell it we moved.
 	if(isobj(wearer.loc) || ismob(wearer.loc))
@@ -1031,22 +1036,12 @@
 			qdel(module)
 
 
-//Fiddles with some wires to possibly make the suit malfunction a little
-//Had to use numeric literals here, the wire defines in rig_wiring.dm weren't working
-//Possibly due to being defined in a later file, or undef'd somewhere
+//Fiddles with some wires to possibly make the suit malfunction a little.
 /obj/item/rig/proc/misconfigure(var/probability)
 	if (prob(probability))
-		wires.UpdatePulsed(1)//Fiddle with access
+		wires.emp_pulse()
 	if (prob(probability))
-		wires.UpdatePulsed(2)//frustrate the AI
-	if (prob(probability))
-		wires.UpdateCut(4)//break the suit
-	if (prob(probability))
-		wires.UpdatePulsed(8)
-	if (prob(probability))
-		wires.UpdateCut(16)
-	if (prob(probability))
-		subverted = 1
+		wires.emp_pulse()
 
 //Drains, rigs or removes the cell
 /obj/item/rig/proc/sabotage_cell()

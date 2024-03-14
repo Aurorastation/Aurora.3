@@ -11,21 +11,57 @@
 	simulated = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-	var/mob/living/aiming_at   // Who are we currently targeting, if anyone?
-	var/obj/item/aiming_with   // What are we targeting with?
-	var/mob/living/owner       // Who do we belong to?
-	var/locked =    0          // Have we locked on?
-	var/lock_time = 0          // When -will- we lock on?
-	var/active =    0          // Is our owner intending to take hostages?
-	var/target_permissions = TARGET_CAN_MOVE | TARGET_CAN_CLICK | TARGET_CAN_RADIO // Permission bitflags.
-	var/aimcooldown			   // How long untill we can re-aim?
-/obj/aiming_overlay/New(var/newowner)
-	..()
-	owner = newowner
+	///The `/mob/living` we are currently targeting, if any
+	var/mob/living/aiming_at
+
+	///The `/obj/item` we are using to target with, if any
+	var/obj/item/aiming_with
+
+	///Who do we belong to?
+	var/mob/living/owner
+
+	///Boolean, if the target referred by `aiming_at` has been locked onto
+	var/locked = FALSE
+
+	///The time, relative to `world.time`, at which the target referred by `aiming_at` will be locked onto
+	var/lock_time = 0
+
+	///Boolean, if `TRUE` aiming is performed instead of shooting
+	var/active = FALSE
+
+	///A list of permissions granted to the target, see `code\__DEFINES\targeting.dm`
+	var/target_permissions = TARGET_CAN_MOVE | TARGET_CAN_CLICK | TARGET_CAN_RADIO
+
+	///The time, relative to `world.time`, after which we can re-aim
+	var/aimcooldown
+
+/obj/aiming_overlay/Initialize(mapload, ...)
+	. = ..()
+
+	if(!isliving(loc))
+		stack_trace("Trying to create an aiming overlay with a location that is not /mob/living!")
+		return INITIALIZE_HINT_QDEL
+
+	owner = loc
 	loc = null
 	verbs.Cut()
 
-/obj/aiming_overlay/proc/toggle_permission(var/perm)
+/obj/aiming_overlay/Destroy()
+	cancel_aiming(TRUE)
+
+	toggle_active(FALSE)
+	if(owner?.aiming == src)
+		owner.aiming = null
+
+	owner = null
+
+	//Since cancel_aiming() might early return if aiming_at *OR* aiming_with are not set, we clear the refs here
+	aiming_at = null
+	aiming_with = null
+
+	. = ..()
+
+/obj/aiming_overlay/proc/toggle_permission(perm)
 
 	if(target_permissions & perm)
 		target_permissions &= ~perm
@@ -79,16 +115,11 @@
 		to_chat(aiming_at, "<span class='[use_span]'>You are [message].</span>")
 
 /obj/aiming_overlay/process()
-	if(!owner)
+	if(QDELETED(owner) || QDELETED(aiming_at) || QDELETED(aiming_with))
 		qdel(src)
 		return
 	..()
 	update_aiming()
-
-/obj/aiming_overlay/Destroy()
-	cancel_aiming(1)
-	owner = null
-	return ..()
 
 /obj/aiming_overlay/proc/update_aiming_deferred()
 	set waitfor = 0
@@ -97,32 +128,34 @@
 
 /obj/aiming_overlay/proc/update_aiming()
 
-	if(!owner)
+	if(QDELETED(owner))
 		qdel(src)
 		return
 
-	if(!aiming_at)
+	if(QDELETED(aiming_at))
 		cancel_aiming()
 		return
 
 	if(!locked && lock_time >= world.time)
-		locked = 1
+		locked = TRUE
 		update_icon()
 
-	var/cancel_aim = 1
+	var/cancel_aim = TRUE
 
 	if(!(aiming_with in owner) || (istype(owner, /mob/living/carbon/human) && (owner.l_hand != aiming_with && owner.r_hand != aiming_with)))
-		to_chat(owner, "<span class='warning'>You must keep hold of your weapon!</span>")
+		FEEDBACK_FAILURE(owner, "You must keep hold of your weapon!")
+	else if(owner.eye_blind)
+		FEEDBACK_FAILURE(owner, "You are blind and cannot see your target!")
 	else if(!aiming_at || !istype(aiming_at.loc, /turf))
-		to_chat(owner, "<span class='warning'>You have lost sight of your target!</span>")
+		FEEDBACK_FAILURE(owner, "You have lost sight of your target!")
 	else if(owner.incapacitated() || owner.lying || owner.restrained())
-		to_chat(owner, "<span class='warning'>You must be conscious and standing to keep track of your target!</span>")
+		FEEDBACK_FAILURE(owner, "You must be conscious and standing to keep track of your target!")
 	else if(aiming_at.is_invisible_to(owner))
-		to_chat(owner, "<span class='warning'>Your target has become invisible!</span>")
+		FEEDBACK_FAILURE(owner, "Your target has become invisible!")
 	else if(!(aiming_at in view(owner)))
-		to_chat(owner, "<span class='warning'>Your target is too far away to track!</span>")
+		FEEDBACK_FAILURE(owner, "Your target is too far away to track!")
 	else
-		cancel_aim = 0
+		cancel_aim = FALSE
 
 	forceMove(get_turf(aiming_at))
 
@@ -134,7 +167,11 @@
 		spawn(0)
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
-/obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
+/obj/aiming_overlay/proc/aim_at(mob/target, obj/thing)
+
+	if(QDELETED(target))
+		return
+
 	if (aimcooldown > world.time)
 		return
 
@@ -142,26 +179,26 @@
 		return
 
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You cannot aim a gun in your current state.</span>")
+		FEEDBACK_FAILURE(owner, "You cannot aim a gun in your current state.")
 		return
 	if(owner.lying)
-		to_chat(owner, "<span class='warning'>You cannot aim a gun while prone.</span>")
+		FEEDBACK_FAILURE(owner, "You cannot aim a gun while lying down.")
 		return
 	if(owner.restrained())
-		to_chat(owner, "<span class='warning'>You cannot aim a gun while handcuffed.</span>")
+		FEEDBACK_FAILURE(owner, "You cannot aim a gun while handcuffed.")
 		return
 
 	if(aiming_at)
 		if(aiming_at == target)
 			return
-		cancel_aiming(1)
-		owner.visible_message("<span class='danger'>\The [owner] turns \the [thing] on \the [target]!</span>")
+		cancel_aiming(TRUE)
+		owner.visible_message(SPAN_DANGER("\The [owner] turns \the [thing] on \the [target]!"))
 	else
-		owner.visible_message("<span class='danger'>\The [owner] aims \the [thing] at \the [target]!</span>")
+		owner.visible_message(SPAN_DANGER("\The [owner] aims \the [thing] at \the [target]!"))
 
 	if(owner.client)
 		owner.client.add_gun_icons()
-	to_chat(target, "<span class='danger'>You now have a gun pointed at you. No sudden moves!</span>")
+	to_chat(target, SPAN_DANGER("You now have a gun pointed at you. No sudden moves!"))
 	aiming_with = thing
 	aiming_at = target
 	if(istype(aiming_with, /obj/item/gun))
@@ -172,16 +209,16 @@
 	forceMove(get_turf(target))
 	START_PROCESSING(SSprocessing, src)
 
-	aiming_at.aimed |= src
-	toggle_active(1)
+	LAZYDISTINCTADD(aiming_at.aimed_at_by, src)
+	toggle_active(TRUE)
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	moved_event.register(owner, src, PROC_REF(update_aiming))
-	moved_event.register(aiming_at, src, PROC_REF(target_moved))
-	destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
+	GLOB.moved_event.register(owner, src, PROC_REF(update_aiming))
+	GLOB.moved_event.register(aiming_at, src, PROC_REF(target_moved))
+	GLOB.destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
 
-/obj/aiming_overlay/proc/aim_cooldown(var/seconds)
+/obj/aiming_overlay/proc/aim_cooldown(seconds)
 	aimcooldown = world.time + seconds SECONDS
 
 /obj/aiming_overlay/update_icon()
@@ -190,7 +227,7 @@
 	else
 		icon_state = "locking"
 
-/obj/aiming_overlay/proc/toggle_active(var/force_state = null)
+/obj/aiming_overlay/proc/toggle_active(force_state = null)
 	if(!isnull(force_state))
 		if(active == force_state)
 			return
@@ -203,26 +240,30 @@
 
 	if(owner.client)
 		if(active)
-			to_chat(owner, "<span class='notice'>You will now aim rather than fire.</span>")
+			balloon_alert(owner, "now aiming")
 			owner.client.add_gun_icons()
 		else
-			to_chat(owner, "<span class='notice'>You will no longer aim rather than fire.</span>")
+			balloon_alert(owner, "now firing")
 			owner.client.remove_gun_icons()
+		owner.gun_setting_icon.icon_state = "gun[active]"
 
-/obj/aiming_overlay/proc/cancel_aiming(var/no_message = 0)
+/obj/aiming_overlay/proc/cancel_aiming(no_message = FALSE)
 	if(!aiming_with || !aiming_at)
 		return
 	admin_attack_log(owner, aiming_at, "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].")
 	if(istype(aiming_with, /obj/item/gun))
 		playsound(get_turf(owner), 'sound/weapons/TargetOff.ogg', 50,1)
 	if(!no_message)
-		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
+		owner.visible_message(
+			SPAN_NOTICE("\The [owner] lowers \the [aiming_with]."),
+			SPAN_NOTICE("You lower \the [aiming_with].")
+		)
 
-	moved_event.unregister(owner, src)
+	GLOB.moved_event.unregister(owner, src)
 	if(aiming_at)
-		moved_event.unregister(aiming_at, src)
-		destroyed_event.unregister(aiming_at, src)
-		aiming_at.aimed -= src
+		GLOB.moved_event.unregister(aiming_at, src)
+		GLOB.destroyed_event.unregister(aiming_at, src)
+		LAZYREMOVE(aiming_at.aimed_at_by, src)
 		aiming_at = null
 
 	aiming_with = null

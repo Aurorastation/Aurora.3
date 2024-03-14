@@ -16,7 +16,6 @@
 
 	speak_chance = 1
 	turns_per_move = 7
-	see_in_dark = 6
 
 	speak = list("Woof!", "Bark!", "AUUUUUU!","AwooOOOoo!")
 	speak_emote = list("barks", "woofs")
@@ -112,6 +111,14 @@
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 
+/mob/living/simple_animal/hostile/commanded/dog/bullterrier
+	name = "bull terrier"
+	desc = "An odd looking dog with a head in the shape of an egg."
+
+	icon_state = "bullterrier"
+	icon_living = "bullterrier"
+	icon_dead = "bullterrier_dead"
+
 /mob/living/simple_animal/hostile/commanded/dog/harron
 	name = "domesticated ha'rron"
 	short_name = "ha'rron"
@@ -144,10 +151,10 @@
 	meat_amount = 3
 
 /mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(10, 15))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(5, 10))
-		if(3)
-			adjustFireLoss(rand(3, 5))

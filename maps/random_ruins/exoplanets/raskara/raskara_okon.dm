@@ -14,7 +14,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_EXPOUTPOST
 
 /area/raskara_okon/observatory
@@ -64,7 +64,7 @@
 	spawnpoints = list("okon_crew")
 	max_count = 5
 
-	outfit = /datum/outfit/admin/okon_crew
+	outfit = /obj/outfit/admin/okon_crew
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -74,7 +74,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/okon_crew
+/obj/outfit/admin/okon_crew
 	name = "Okon Crewmember"
 
 	id = /obj/item/card/id
@@ -87,5 +87,5 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/okon_crew/get_id_access()
-	return list(access_pra, access_external_airlocks)
+/obj/outfit/admin/okon_crew/get_id_access()
+	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)

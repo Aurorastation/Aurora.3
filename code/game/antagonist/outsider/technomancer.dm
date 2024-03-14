@@ -21,6 +21,8 @@ var/datum/antagonist/technomancer/technomancers
 
 	id_type = /obj/item/card/id/syndicate
 
+	has_idris_account = FALSE
+
 /datum/antagonist/technomancer/New()
 	..()
 	technomancers = src
@@ -35,14 +37,14 @@ var/datum/antagonist/technomancer/technomancers
 	if(!..())
 		return FALSE
 
-	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer, FALSE)
-	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer, FALSE)
+	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer, FALSE)
+	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer, FALSE)
 
 	return TRUE
 
 /datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/human/technomancer_mob)
-	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
-	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
+	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer/apprentice, FALSE)
+	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer/apprentice, FALSE)
 	return TRUE
 
 /datum/antagonist/technomancer/check_victory()

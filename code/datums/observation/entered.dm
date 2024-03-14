@@ -9,16 +9,8 @@
 //			/atom/old_loc: The atom the enterer came from
 //
 
-var/singleton/observ/entered/entered_event = new()
+GLOBAL_DATUM_INIT(entered_event, /singleton/observ/entered, new)
 
 /singleton/observ/entered
 	name = "Entered"
 	expected_type = /atom
-
-/*******************
-* Entered Handling *
-*******************/
-
-/atom/Entered(atom/movable/enterer, atom/old_loc)
-	..()
-	entered_event.raise_event(src, enterer, old_loc)

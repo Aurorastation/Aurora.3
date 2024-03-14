@@ -15,7 +15,7 @@
 	unacidable = 1
 	volume = 15
 	possible_transfer_amounts = list(5, 10, 15)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -129,7 +129,7 @@
 		name = "[name] ([name_label])"
 		verbs += /atom/proc/remove_label
 	if(reagents_to_add)
-		flags = 0
+		atom_flags = 0
 		spent = FALSE
 	update_icon()
 
@@ -157,17 +157,17 @@
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			spent = FALSE
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 			update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("You can't secure \the [src] without putting reagents in!"))
 		return
 	return ..()
 
-/obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
-		flags |= OPENCONTAINER
+/obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() && !is_open_container())
+		to_chat(user, SPAN_NOTICE("Using \the [attacking_item], you unsecure the autoinjector's lid.")) // it locks shut after being secured
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 		return TRUE
 	. = ..()
@@ -187,12 +187,12 @@
 		add_overlay(reagent_overlay)
 	update_held_icon()
 
-/obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
+/obj/item/reagent_containers/hypospray/autoinjector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, SPAN_NOTICE("It is currently loaded."))
+		. += SPAN_NOTICE("It is currently loaded.")
 	else
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
@@ -215,12 +215,12 @@
 	name_label = "coagzolug"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
 	volume = 5
-	flags = 0
+	atom_flags = 0
 	reagents_to_add = list(/singleton/reagent/coagzolug = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin
 	name_label = "hyronalin"
-	flags = 0
+	atom_flags = 0
 	reagents_to_add = list(/singleton/reagent/hyronalin = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone

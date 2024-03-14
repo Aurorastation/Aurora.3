@@ -4,35 +4,43 @@
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
 /singleton/recipe/muffin
 	appliance = OVEN
-	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5)
+	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/muffin
+	result_quantity = 6
 
 /singleton/recipe/berrymuffin
 	appliance = OVEN
-	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5)
+	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
 	)
-	fruit = list("berries" = 1)
+	fruit = list("berries" = 2)
 	result = /obj/item/reagent_containers/food/snacks/berrymuffin
+	result_quantity = 6
 
 ////////////////////////////////////////////PANCAKES////////////////////////////////////////////
 
 /singleton/recipe/pancakes
 	appliance = SKILLET
+	reagents = list(/singleton/reagent/sugar = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
-		)
+	)
 	result = /obj/item/reagent_containers/food/snacks/pancakes
-	result_quantity = 1
 
-/singleton/recipe/pancakes/berry
+/singleton/recipe/pancakes/berry //alternate way to get berry pancakes if you want to use actual berries and not syrup.
 	fruit = list("berries" = 1)
+	reagents = list(/singleton/reagent/sugar = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
 	result = /obj/item/reagent_containers/food/snacks/pancakes/berry
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
@@ -55,7 +63,7 @@
 
 /singleton/recipe/rofflewaffles
 	appliance = OVEN
-	reagents = list(/singleton/reagent/psilocybin = 5, /singleton/reagent/sugar = 10)
+	reagents = list(/singleton/reagent/drugs/psilocybin = 5, /singleton/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
@@ -134,6 +142,15 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cosmicbrownies
 
+/singleton/recipe/cakepops
+	appliance = OVEN
+	reagents = list(/singleton/reagent/browniemix = 5, /singleton/reagent/nutriment/vanilla = 5, /singleton/reagent/nutriment/sprinkles = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/whitechocolate
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/storage/box/fancy/food/cakepopjar
+
 // Cakes.
 //============
 /singleton/recipe/cake
@@ -184,6 +201,24 @@
 	appliance = OVEN
 	fruit = list("apple" = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/apple
+
+/singleton/recipe/cake/ntella_cheesecake
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/choconutspread = 15, /singleton/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack //Oreo cookies aren't a thing in the game yet but if/when they're made, please replace this with them!
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/ntella_cheesecake
+
+/singleton/recipe/cake/starcake
+	fruit = list("orange" = 1)
+	reagents = list(/singleton/reagent/nutriment/flour = 10, /singleton/reagent/sugar = 15, /singleton/reagent/nutriment/coco = 10, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/nutriment/protein/egg = 6)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/starcake
 
 //Predesigned pies
 //=======================
@@ -282,3 +317,41 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/truffle
 	result_quantity = 4
+
+/singleton/recipe/giffypie
+	appliance = OVEN
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/flour = 10, /singleton/reagent/nutriment/grapejelly = 10, /singleton/reagent/nutriment/peanutbutter = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/giffypie
+	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
+
+//Roulades
+/singleton/recipe/ylpharoulade
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/whitechocolate
+	)
+	reagents = list(/singleton/reagent/sugar = 10, /singleton/reagent/drink/ylphaberryjuice = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/ylpharoulade
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/chocolateroulade
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/chocolatebar
+	)
+	reagents = list(/singleton/reagent/sugar = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/chocolateroulade
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/strawberrybars
+	appliance = OVEN
+	fruit = list("strawberries" = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	reagents = list(/singleton/reagent/nutriment/flour = 10, /singleton/reagent/sugar = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/sliceable/strawberrybars

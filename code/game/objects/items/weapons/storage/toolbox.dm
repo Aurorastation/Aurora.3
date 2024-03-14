@@ -6,7 +6,7 @@
 	icon_state = "red"
 	item_state = "red"
 	center_of_mass = list("x" = 16,"y" = 11)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5
 	throwforce = 10
 	throw_speed = 1
@@ -101,8 +101,7 @@
 	starts_with = list(
 		/obj/item/crowbar = 1,
 		/obj/item/wrench = 1,
-		/obj/item/custom_ka_upgrade/upgrade_chips/damage = 1,
-		/obj/item/custom_ka_upgrade/cells/cell02 = 1
+		/obj/item/custom_ka_upgrade/barrels/barrel02 = 1
 	)
 
 /obj/item/storage/toolbox/syndicate

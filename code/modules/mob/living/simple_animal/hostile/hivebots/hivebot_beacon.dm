@@ -33,7 +33,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	speed = -10
-	see_in_dark = 8
 	destroy_surroundings = 0
 	var/bot_type
 	var/bot_amt = 160 //Number of total bots that are spawned before the beacon disappears completely.
@@ -99,7 +98,7 @@
 	new /obj/effect/decal/cleanable/greenglow(src.loc)
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	qdel(src)
 	return
 
@@ -154,7 +153,9 @@
 	else
 		..(Proj)
 
-/mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
+/mob/living/simple_animal/hostile/hivebotbeacon/emp_act(severity)
+	. = ..()
+
 	if(activated != -1)
 		LoseTarget()
 		change_stance(HOSTILE_STANCE_TIRED)
@@ -230,7 +231,7 @@
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/bomber(Destination, src)
 			if(GUARDIAN)
 				Destination = null
-				for(var/check_dir in cardinal)
+				for(var/check_dir in GLOB.cardinal)
 					var/turf/T = get_step(src, check_dir)
 					if(turf_clear(T))
 						Destination = T

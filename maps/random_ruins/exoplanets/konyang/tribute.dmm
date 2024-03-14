@@ -1,0 +1,6276 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"av" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"aC" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 16;
+	pixel_x = -1
+	},
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"aE" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 22;
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"aF" = (
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"bW" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ch" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"cq" = (
+/obj/structure/flora/rock/konyang/water{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"cA" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"cT" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"dk" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner3"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"dB" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner4"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"dM" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"eA" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner5"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"eO" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 22;
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"eP" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"fi" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"fk" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"fR" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"gd" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"hd" = (
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"hf" = (
+/obj/structure/flora/tree/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"hQ" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 19;
+	density = 0
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ib" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"if" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ih" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"iy" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/reedbush,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jc" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner2"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jn" = (
+/obj/structure/flora/rock/konyang/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"jz" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jD" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner5"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jJ" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jL" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"jV" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ki" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 26;
+	pixel_x = 1;
+	density = 0;
+	layer = 2.98
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"kZ" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"lr" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ls" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 8;
+	layer = 2.6
+	},
+/obj/structure/konyang_cliff{
+	icon_state = "cliff1-bottom";
+	layer = 2.1;
+	pixel_y = 14;
+	pixel_x = 2;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"lD" = (
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"mh" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"mt" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"mu" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"nh" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"ns" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"nt" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8
+	},
+/obj/item/device/versebook/trinary{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/storage/box/fancy/matches{
+	pixel_y = 6;
+	pixel_x = 11
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/space)
+"nv" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"ny" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-east"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"nK" = (
+/obj/structure/konyang_cliff{
+	icon_state = "corner_west"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"oh" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner1"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"pF" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"pR" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0;
+	layer = 6
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"pW" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-west";
+	layer = 2.5;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"qg" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 19;
+	density = 0
+	},
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"qk" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"qx" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"qy" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"ro" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"rw" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"sf" = (
+/obj/effect/konyang_waterfall/mist{
+	pixel_y = -16
+	},
+/obj/effect/konyang_waterfall{
+	pixel_y = -14;
+	icon_state = "waterfall_left"
+	},
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2";
+	opacity = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"st" = (
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"tg" = (
+/obj/structure/flora/tree/konyang,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"tk" = (
+/obj/structure/flora/tree/konyang,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"tA" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"tI" = (
+/obj/structure/flora/tree/konyang,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"tK" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"tR" = (
+/obj/structure/konyang_cliff{
+	icon_state = "corner_east"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"tT" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"uv" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"vn" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0;
+	layer = 6
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"vx" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"vQ" = (
+/obj/structure/flora/tree/konyang/fall,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"vS" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"ww" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"wX" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 22;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"xL" = (
+/obj/structure/flora/tree/konyang/blossom{
+	pixel_x = -36
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"xO" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ye" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"yv" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner1"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"zv" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"zB" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"zX" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Af" = (
+/turf/template_noop,
+/area/space)
+"An" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0;
+	layer = 6
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"AC" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"AF" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"AY" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Br" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Bw" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"BR" = (
+/mob/living/simple_animal/aquatic/fish/cod,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Ck" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/flora/tree/konyang,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"Cz" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"CD" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"Do" = (
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"FE" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"FY" = (
+/obj/effect/konyang_waterfall/mist{
+	pixel_y = -16
+	},
+/obj/effect/konyang_waterfall{
+	pixel_y = -14;
+	icon_state = "waterfall_right"
+	},
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2";
+	opacity = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"FZ" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1";
+	pixel_y = 25
+	},
+/obj/structure/flora/rock/konyang,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Gk" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Gl" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"GL" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 22;
+	density = 0
+	},
+/obj/structure/flora/rock/konyang,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"GT" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 22;
+	density = 0
+	},
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"GU" = (
+/obj/structure/flora/tree/konyang,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Hc" = (
+/obj/structure/konyang_cliff{
+	icon_state = "corner_east"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Hq" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 19
+	},
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1
+	},
+/obj/structure/flora/rock/konyang/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"HJ" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"HS" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ib" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"Ik" = (
+/obj/effect/decal/exterior_stairs/left,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Il" = (
+/obj/structure/flora/tree/konyang,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Io" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 19;
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"IA" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/obj/item/device/versebook/trinary{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/obj/item/device/versebook/trinary{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/space)
+"IB" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ji" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	layer = 2.98;
+	density = 0
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Jj" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"Jn" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"KC" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"KZ" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/flora/rock/konyang,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"Lk" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"LB" = (
+/obj/structure/flora/tree/konyang,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"LD" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"LJ" = (
+/obj/structure/flora/tree/konyang/blossom,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"LY" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Mj" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Mq" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"MD" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"MO" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1";
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ns" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner6"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Nw" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-west"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"NT" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"OW" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Pi" = (
+/obj/structure/flora/tree/konyang,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"PG" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"PR" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"PV" = (
+/obj/structure/flora/rock/konyang/moss,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"PY" = (
+/obj/structure/table/fancy/cyan,
+/obj/item/trash/candle{
+	pixel_x = 6
+	},
+/obj/item/trash/candle{
+	pixel_y = 1;
+	pixel_x = -3
+	},
+/obj/item/trash/candle{
+	pixel_y = 1;
+	pixel_x = -13
+	},
+/obj/item/trash/candle{
+	pixel_y = -1;
+	pixel_x = -7
+	},
+/obj/structure/sign/painting_frame/martyr{
+	pixel_y = 9;
+	pixel_x = -16;
+	name = "photo of a person";
+	desc = "a small portrait, with a plate reading 'Rest in Peace' on the bottom of the frame.";
+	desc_extended = null
+	},
+/obj/item/flag/trinaryperfection{
+	pixel_y = 19;
+	pixel_x = 3
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Qh" = (
+/obj/structure/flora/tree/konyang/fall{
+	pixel_x = -31;
+	pixel_y = -6
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"Qj" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/obj/structure/flora/tree/konyang/blossom,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"Qm" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"Qo" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"QA" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"QF" = (
+/obj/effect/konyang_waterfall{
+	icon_state = "waterfall_topleft";
+	pixel_y = -16
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"QJ" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"QK" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"QL" = (
+/obj/structure/flora/tree/konyang/fall{
+	pixel_x = -38
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals{
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"Sh" = (
+/mob/living/simple_animal/aquatic/fish,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Sl" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner6"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Sp" = (
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"ST" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0;
+	pixel_y = 25
+	},
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-east";
+	layer = 2.98
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ti" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 22;
+	density = 0
+	},
+/obj/structure/flora/rock/konyang,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Tu" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner2"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Ut" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 22;
+	density = 0
+	},
+/obj/structure/flora/rock/konyang,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"UJ" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/reedbush,
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0;
+	layer = 2.98
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"UM" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"UN" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 25;
+	density = 0
+	},
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 15;
+	pixel_x = -2
+	},
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"UO" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"VG" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2-bottom";
+	pixel_y = 26;
+	density = 0;
+	layer = 2.98
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"VJ" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west";
+	density = 0
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"Wc" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Wn" = (
+/obj/effect/konyang_waterfall{
+	icon_state = "waterfall_topright";
+	pixel_y = -16
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Wr" = (
+/obj/structure/flora/tree/konyang{
+	pixel_y = -6;
+	pixel_x = -22
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Wu" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/space)
+"WD" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Xp" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Xs" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Xt" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Xz" = (
+/obj/structure/flora/tree/konyang/fall{
+	pixel_x = -31;
+	pixel_y = -10
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"XR" = (
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"XS" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner3"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Yb" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Yo" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_east"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"YD" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"YH" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west";
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"YK" = (
+/obj/structure/konyang_cliff{
+	icon_state = "botcorner_east";
+	pixel_y = 15;
+	layer = 3;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"YP" = (
+/obj/structure/konyang_cliff,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"YW" = (
+/obj/structure/table/fancy/cyan,
+/obj/item/trash/candle{
+	pixel_x = 10
+	},
+/obj/item/trash/candle{
+	pixel_y = 1;
+	pixel_x = -3
+	},
+/obj/item/trash/candle{
+	pixel_y = -1;
+	pixel_x = -7
+	},
+/obj/item/trash/candle{
+	pixel_y = -1;
+	pixel_x = 4
+	},
+/obj/item/flag/konyang{
+	pixel_y = 17;
+	pixel_x = -4
+	},
+/obj/item/storage/box/fancy/matches{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Zq" = (
+/obj/structure/flora/tree/konyang/blossom{
+	pixel_y = -4;
+	pixel_x = -40
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/space)
+"ZA" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ZB" = (
+/obj/structure/konyang_cliff{
+	icon_state = "corner_west"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"ZN" = (
+/obj/structure/flora/rock/konyang/water,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"ZQ" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/konyang_cliff{
+	icon_state = "topcorner_west"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ZU" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/flora/tree/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+
+(1,1,1) = {"
+Af
+Af
+Af
+jJ
+Wc
+jJ
+Jn
+Jn
+Wc
+Wc
+jJ
+Wc
+ns
+Jn
+jJ
+Wc
+Wc
+Jn
+Jn
+Jn
+Wc
+jJ
+Wc
+Wc
+Jn
+Jn
+KC
+Wc
+jJ
+Jn
+Jn
+Jn
+jJ
+jJ
+pF
+Wc
+jJ
+Jn
+Jn
+QJ
+Jn
+rw
+Wc
+pF
+jJ
+Jn
+Jn
+rw
+Jn
+Jn
+Wc
+jJ
+KC
+hf
+Wc
+Jn
+Jn
+jJ
+Wc
+Wc
+Jn
+Jn
+jJ
+Wc
+ns
+Wc
+jJ
+Jn
+Jn
+Jn
+Jn
+Af
+Af
+Af
+Af
+Af
+Af
+"}
+(2,1,1) = {"
+Af
+jJ
+ns
+Wc
+jJ
+Jn
+Jn
+KC
+jJ
+Wc
+hf
+Jn
+jJ
+Wc
+Jn
+Jn
+Jn
+ns
+Wc
+jJ
+KC
+Jn
+ns
+jJ
+Wc
+Jn
+jJ
+mt
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+nK
+tA
+Jn
+ns
+Wc
+Wc
+jJ
+jJ
+Jn
+KC
+ns
+jJ
+KC
+KC
+Jn
+KC
+jJ
+Jn
+Jn
+Wc
+KC
+jJ
+jJ
+Wc
+Wc
+Af
+Af
+Af
+Af
+"}
+(3,1,1) = {"
+KC
+KC
+hf
+Wc
+Jn
+KC
+hf
+Wc
+Wc
+Jn
+Jn
+Jn
+mt
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+jD
+jJ
+Wc
+Wc
+KC
+hf
+Wc
+ns
+Jn
+Wc
+KC
+Pi
+jJ
+Cz
+Lk
+Lk
+Lk
+Lk
+mu
+Wc
+Wc
+XS
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+nK
+tA
+Jn
+Jn
+KC
+KC
+hf
+Wc
+jJ
+Jn
+Jn
+Jn
+Wc
+KC
+hf
+Jn
+jJ
+Wc
+Jn
+Jn
+Af
+Af
+"}
+(4,1,1) = {"
+Jn
+Wc
+rw
+KC
+hf
+Wc
+Mq
+YH
+Nw
+Nw
+Nw
+Nw
+jD
+hd
+Lk
+Lk
+hd
+Wc
+Jn
+jJ
+KC
+LB
+Lk
+Lk
+Lk
+hd
+Wc
+Jn
+rw
+KC
+hf
+Wc
+jJ
+jJ
+jJ
+jJ
+Jn
+jJ
+Jn
+Jn
+jJ
+hd
+Lk
+vQ
+Lk
+Lk
+hd
+Pi
+jJ
+Jn
+ns
+Wc
+Jn
+jJ
+Wc
+XS
+Nw
+Nw
+Nw
+nK
+OW
+KC
+Jn
+jJ
+KC
+mu
+Lk
+Lk
+hd
+KC
+jJ
+ZA
+Jn
+jJ
+Jn
+KC
+Af
+"}
+(5,1,1) = {"
+ns
+Jn
+Wc
+jJ
+Wc
+jJ
+Jn
+AY
+Jn
+jJ
+Wc
+jJ
+hd
+Lk
+vQ
+Lk
+hd
+hf
+jJ
+xO
+Jn
+hd
+Lk
+Lk
+Qj
+Lk
+hd
+Pi
+Jn
+jJ
+jJ
+Jn
+Jn
+KC
+hf
+Wc
+zX
+zB
+zB
+cA
+Yb
+cA
+cA
+zB
+fk
+zB
+zB
+zB
+cA
+Xp
+cA
+cA
+cA
+zB
+jJ
+Jn
+Jn
+Jn
+jJ
+XS
+Nw
+nK
+NT
+Wc
+jJ
+Lk
+Lk
+Lk
+Lk
+Wc
+Jn
+Jn
+KC
+KC
+Wc
+Jn
+Af
+"}
+(6,1,1) = {"
+Jn
+Jn
+jJ
+Wc
+Jn
+Jn
+mt
+jD
+jJ
+KC
+Pi
+mu
+Lk
+Lk
+Lk
+hd
+jJ
+Wc
+Jn
+Jn
+Wc
+PV
+hd
+Lk
+Lk
+Lk
+mu
+Wc
+ns
+cA
+fk
+cA
+zB
+zB
+cA
+cA
+zB
+cA
+fk
+zB
+zB
+zB
+zB
+cA
+cA
+cA
+cA
+cA
+Xp
+zB
+zB
+zB
+cA
+cA
+cA
+cA
+cA
+Xp
+zB
+Jn
+Wc
+XS
+pW
+nK
+tA
+Lk
+Sp
+vQ
+Lk
+KC
+KC
+jJ
+jJ
+KC
+hf
+jJ
+KC
+"}
+(7,1,1) = {"
+Jn
+Jn
+KC
+hf
+Jn
+mt
+jD
+Wc
+Jn
+Jn
+Wc
+ns
+hd
+mu
+hd
+zB
+zB
+cA
+cA
+cA
+Xp
+cA
+zB
+cA
+cA
+zB
+Xp
+zB
+cA
+cA
+zB
+cA
+Xp
+cA
+cA
+zB
+zB
+jJ
+Jn
+Wc
+jJ
+Jn
+Jn
+jJ
+Jn
+Wc
+Do
+Wc
+jJ
+KC
+hf
+Wc
+zX
+cA
+cA
+Xp
+zB
+zB
+cA
+zB
+jJ
+Jn
+Xs
+YP
+AC
+hd
+Lk
+Lk
+Lk
+Jn
+Jn
+Jn
+KC
+KC
+Jn
+Jn
+Jn
+"}
+(8,1,1) = {"
+jJ
+Wc
+Wc
+KC
+mt
+jD
+KC
+hf
+jJ
+Jn
+zB
+cA
+cA
+zB
+Xp
+cA
+cA
+zB
+fk
+cA
+cA
+zB
+zB
+zB
+Xp
+cA
+zB
+cA
+zB
+zB
+Lk
+Lk
+Lk
+Lk
+mu
+Jn
+Jn
+Wc
+jJ
+KC
+Pi
+ns
+Wc
+KC
+Pi
+Jn
+jJ
+Jn
+Jn
+Jn
+jJ
+jJ
+Wc
+Xs
+jJ
+Jn
+Jn
+jJ
+zB
+cA
+cA
+zB
+yv
+Hc
+NT
+Do
+hd
+hd
+Lk
+Wc
+Wc
+hd
+Wc
+jJ
+Wc
+Wc
+KC
+"}
+(9,1,1) = {"
+KC
+KC
+hf
+jJ
+MO
+Jn
+Wc
+jJ
+Wc
+zB
+fk
+cA
+zB
+cA
+cA
+KC
+hf
+Jn
+Jn
+jJ
+jJ
+Jn
+hf
+Wc
+jJ
+ww
+jJ
+Jn
+mu
+Lk
+Lk
+QL
+VJ
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+nK
+tT
+Wc
+zX
+cA
+cA
+Ik
+Ik
+zX
+cA
+zB
+Wc
+jJ
+jJ
+KC
+hd
+mu
+mu
+Jn
+Wc
+jJ
+"}
+(10,1,1) = {"
+Wc
+Jn
+jJ
+jJ
+UO
+KC
+Jn
+Jn
+cA
+zB
+cA
+jJ
+ns
+jJ
+Jn
+Jn
+jJ
+QA
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+jD
+rw
+Jn
+Jn
+KC
+hf
+Wc
+rw
+rw
+Jn
+KC
+hf
+Jn
+jJ
+Jn
+Jn
+KC
+jJ
+Jn
+Wc
+jJ
+jJ
+Jn
+Jn
+XS
+nK
+ch
+KC
+hf
+zB
+Ik
+Ik
+cA
+cA
+cA
+cA
+cA
+cA
+zB
+zX
+KC
+hd
+Wu
+Jn
+Wc
+"}
+(11,1,1) = {"
+KC
+KC
+hf
+QA
+jD
+jJ
+Wc
+zB
+cA
+zX
+Jn
+jJ
+Wc
+QA
+Nw
+Nw
+Nw
+jD
+Wc
+Jn
+Jn
+Jn
+KC
+hf
+Jn
+Jn
+KC
+hf
+jJ
+Jn
+Wc
+KC
+hf
+Jn
+jJ
+rw
+Wc
+Wc
+ns
+Wc
+Jn
+Wc
+Jn
+Jn
+Wc
+KC
+hf
+Wc
+Do
+Jn
+KC
+Pi
+jJ
+Jn
+Wc
+KC
+Wc
+XS
+nK
+OW
+Wc
+KC
+dk
+ZB
+OW
+zB
+zX
+Xp
+zB
+cA
+cA
+cA
+zB
+Jn
+hd
+mu
+Wc
+"}
+(12,1,1) = {"
+Jn
+KC
+Wc
+fR
+KC
+tk
+Xp
+cA
+zB
+Wc
+mt
+Nw
+Nw
+jD
+hf
+jJ
+Jn
+jJ
+KC
+hf
+jJ
+Wc
+jJ
+Wc
+ns
+Wc
+jJ
+Wc
+YH
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+nK
+NT
+hf
+jJ
+jJ
+Wc
+Wc
+Wc
+rw
+jJ
+Wc
+Jn
+KC
+Wc
+Wc
+ns
+KC
+hf
+Jn
+YP
+MD
+Jn
+Jn
+jJ
+YP
+tK
+hd
+jJ
+Wc
+Jn
+Jn
+jJ
+cA
+cA
+Jn
+jJ
+hd
+KC
+"}
+(13,1,1) = {"
+Jn
+rw
+Wc
+AY
+Wc
+Jn
+zB
+cA
+Do
+jJ
+fR
+Jn
+Jn
+jJ
+Wc
+ns
+Wc
+jJ
+KC
+QA
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+jD
+bW
+Jn
+KC
+Wc
+Jn
+jJ
+Jn
+Jn
+Jn
+Jn
+XS
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+nK
+NT
+jJ
+Wc
+jJ
+jJ
+Jn
+YP
+av
+KC
+Pi
+Jn
+YP
+jz
+hd
+Wu
+hd
+rw
+Wc
+Wc
+KC
+cA
+jJ
+Wc
+Jn
+jJ
+"}
+(14,1,1) = {"
+Wc
+jJ
+YH
+jD
+jJ
+zX
+cA
+cA
+Jn
+QA
+jD
+hf
+Wc
+YH
+Nw
+Nw
+Nw
+Nw
+Nw
+jD
+Wc
+KC
+Pi
+ww
+Jn
+jJ
+Jn
+KC
+hf
+Jn
+Wc
+KC
+hf
+ns
+ww
+Jn
+KC
+tI
+Wc
+jJ
+Jn
+Wc
+Jn
+KC
+Wc
+Jn
+Jn
+pF
+Jn
+Jn
+Wc
+XS
+Nw
+nK
+NT
+Pi
+Jn
+Wc
+XS
+nK
+PG
+Do
+KC
+YP
+jz
+Wc
+Jn
+Jn
+Jn
+hd
+zv
+jJ
+cA
+hd
+zX
+KC
+Jn
+"}
+(15,1,1) = {"
+Wc
+hf
+AY
+Jn
+Wc
+zB
+cA
+jJ
+Wc
+fR
+Jn
+jJ
+YH
+jD
+hf
+jJ
+Jn
+KC
+hf
+KC
+hf
+Jn
+Jn
+bW
+KC
+Pi
+ns
+jJ
+pF
+Wc
+jJ
+Wc
+Wc
+jJ
+Jn
+Jn
+jJ
+Jn
+Jn
+Jn
+KC
+Wc
+jJ
+KC
+hf
+Wc
+jJ
+jJ
+Wc
+ns
+Jn
+jJ
+Wc
+XS
+nK
+PG
+Jn
+KC
+hf
+YP
+jz
+jJ
+Jn
+YP
+jz
+jJ
+KC
+hf
+hd
+Lk
+Lk
+hd
+zX
+hd
+Wu
+hd
+Wc
+"}
+(16,1,1) = {"
+ns
+KC
+AY
+Jn
+ns
+zB
+fk
+KC
+hf
+AF
+Wc
+Wc
+UO
+Wc
+KC
+Pi
+jJ
+mt
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+nK
+ch
+Wc
+KC
+hf
+Jn
+Wc
+jJ
+Wc
+KC
+hf
+Wc
+Jn
+Wc
+KC
+hf
+hd
+hd
+Pi
+Jn
+KC
+Jn
+Jn
+XS
+Nw
+nK
+ch
+jJ
+YP
+MD
+Wc
+Wc
+YP
+jz
+Jn
+jJ
+KC
+hd
+Lk
+Lk
+Lk
+KC
+zX
+Jn
+hd
+hd
+"}
+(17,1,1) = {"
+jJ
+jJ
+fR
+jJ
+ww
+zB
+cA
+Jn
+QA
+jD
+GU
+KC
+UO
+hf
+jJ
+Jn
+YH
+jD
+hf
+Wc
+KC
+Pi
+Jn
+Jn
+jJ
+Jn
+Jn
+Jn
+Jn
+jJ
+Wc
+XS
+Nw
+Nw
+Nw
+Nw
+nK
+ch
+xO
+Jn
+KC
+ns
+Jn
+jJ
+Jn
+Wc
+hd
+Lk
+Lk
+Lk
+hd
+KC
+hf
+jJ
+Jn
+Jn
+YP
+jz
+jJ
+XS
+nK
+NT
+Pi
+YP
+jz
+Jn
+Jn
+Wc
+Lk
+Lk
+vQ
+Lk
+Wc
+Yb
+Jn
+Jn
+Wc
+"}
+(18,1,1) = {"
+Jn
+KC
+fR
+jJ
+IB
+cA
+zB
+pF
+AY
+jJ
+Wc
+lr
+jD
+Wc
+Jn
+ns
+fR
+Jn
+eP
+jJ
+KC
+KC
+Pi
+hd
+KC
+Pi
+jJ
+KC
+Pi
+KC
+Pi
+gd
+KC
+Pi
+jJ
+jJ
+XS
+nK
+PG
+jJ
+Jn
+Wc
+Jn
+KC
+hf
+hd
+Lk
+Lk
+vQ
+Lk
+Lk
+hd
+Wc
+KC
+hf
+Jn
+YP
+fi
+Jn
+Jn
+YP
+MD
+Wc
+YP
+MD
+KC
+Jn
+Wc
+Lk
+Lk
+Lk
+Lk
+Wc
+jJ
+jJ
+Yb
+hd
+"}
+(19,1,1) = {"
+Jn
+QA
+jD
+Wc
+Jn
+cA
+zB
+jJ
+fR
+Jn
+ns
+AF
+Jn
+KC
+hf
+QA
+jD
+Jn
+KC
+hf
+KC
+Pi
+Wu
+Lk
+LB
+Wc
+KC
+Pi
+jJ
+Wc
+Jn
+jJ
+Wc
+Jn
+Jn
+jJ
+Wc
+XS
+Nw
+Nw
+nK
+NT
+bW
+Wc
+KC
+KC
+LB
+Lk
+Lk
+Lk
+Lk
+KC
+LB
+pF
+Wc
+Wc
+YP
+Il
+jJ
+Jn
+YP
+jz
+Jn
+YP
+jz
+jJ
+Wc
+jJ
+hd
+Lk
+Lk
+Lk
+Wc
+zX
+Wc
+Wu
+hd
+"}
+(20,1,1) = {"
+Jn
+AY
+KC
+hf
+Wc
+cA
+Xp
+Jn
+FE
+Wc
+Jn
+UO
+Jn
+jJ
+Wc
+UO
+hf
+KC
+Pi
+jJ
+Wc
+mu
+Lk
+Lk
+Lk
+mu
+jJ
+Wc
+KC
+Pi
+Wc
+KC
+Pi
+KC
+hf
+KC
+Pi
+Jn
+Wc
+Xs
+YP
+jz
+Jn
+pF
+Jn
+KC
+Wc
+mu
+mu
+Lk
+hd
+zv
+Lk
+Lk
+KC
+Pi
+YP
+av
+KC
+Pi
+YP
+jz
+jJ
+YP
+av
+Jn
+ns
+Jn
+KC
+hd
+Lk
+mu
+KC
+Wc
+hd
+hd
+Jn
+"}
+(21,1,1) = {"
+Jn
+AY
+jJ
+Jn
+zB
+cA
+cA
+mu
+ye
+Jn
+Wc
+UO
+hf
+Jn
+hf
+fR
+Wc
+Wc
+Jn
+KC
+LB
+Lk
+Lk
+LJ
+Wu
+Jn
+vx
+Jn
+jJ
+ns
+KC
+Pi
+xO
+Wc
+jJ
+Wc
+Wc
+KC
+hf
+jJ
+kZ
+Gl
+Wc
+jJ
+Jn
+Jn
+Jn
+vx
+jJ
+hd
+Jn
+hd
+Lk
+Lk
+Lk
+Wc
+YP
+jz
+Wc
+Wc
+YP
+fi
+jJ
+YP
+jz
+Lk
+KC
+KC
+KC
+hf
+jJ
+Wc
+jJ
+Wc
+Jn
+ZA
+Xp
+"}
+(22,1,1) = {"
+jJ
+AY
+Xs
+Jn
+Xp
+zB
+zB
+Lk
+KZ
+KC
+Pi
+UO
+Jn
+Jn
+jJ
+fR
+jJ
+KC
+hf
+Jn
+mu
+Lk
+Lk
+mu
+Jn
+QK
+QK
+QK
+Jn
+Wc
+jJ
+Jn
+Do
+Jn
+KC
+Pi
+ns
+ww
+Jn
+oh
+tR
+UJ
+Jn
+Jn
+Jn
+QK
+QK
+QK
+QK
+vx
+Jn
+pF
+Lk
+Lk
+Qj
+Lk
+YP
+av
+ns
+jJ
+YP
+dM
+Jn
+YP
+jz
+Lk
+Lk
+Jn
+Wc
+Wc
+Wc
+KC
+jJ
+hd
+KC
+Jn
+Jn
+"}
+(23,1,1) = {"
+mt
+jD
+Wc
+jJ
+cA
+zB
+Lk
+Lk
+ye
+Wc
+Jn
+UO
+Jn
+Jn
+jJ
+UO
+Jn
+KC
+jJ
+Wc
+Jn
+mu
+jL
+Jn
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+vx
+jJ
+Wc
+Wc
+jJ
+Jn
+Jn
+kZ
+MD
+xO
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+Jn
+Jn
+Lk
+Lk
+Lk
+YP
+fi
+hf
+Jn
+YP
+MD
+Pi
+YP
+dM
+Lk
+Lk
+Wc
+jJ
+hd
+KC
+Jn
+Wc
+mu
+hd
+jJ
+Jn
+"}
+(24,1,1) = {"
+AY
+jJ
+Do
+Jn
+cA
+Xp
+Lk
+vQ
+ye
+Jn
+mt
+jD
+KC
+hf
+mt
+jD
+Wc
+Wc
+Jn
+Jn
+Jn
+jJ
+QK
+QK
+QK
+QK
+QK
+QK
+Sh
+QK
+QK
+QK
+QK
+Jn
+jJ
+KC
+hf
+bW
+oh
+tR
+ch
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+UM
+QK
+QK
+QK
+QK
+vx
+Jn
+Lk
+YP
+iy
+Lk
+Lk
+YP
+nv
+Jn
+YP
+nv
+Lk
+Lk
+hf
+Wc
+mu
+hd
+jJ
+Wc
+Wc
+hd
+Wc
+Jn
+"}
+(25,1,1) = {"
+fR
+QJ
+Jn
+zB
+zB
+cA
+Lk
+Lk
+FE
+jJ
+fR
+KC
+hf
+Wc
+AY
+Wc
+KC
+Pi
+Jn
+jJ
+QK
+QK
+QK
+UM
+QK
+UM
+UM
+QK
+UM
+UM
+QK
+UM
+QK
+QK
+Jn
+Wc
+Wc
+jJ
+kZ
+jV
+Jn
+QK
+QK
+BR
+QK
+UM
+UM
+UM
+QK
+UM
+UM
+QK
+QK
+QK
+jJ
+Lk
+YP
+nv
+Lk
+Lk
+YP
+nv
+Lk
+YP
+nv
+Lk
+Jn
+KC
+mu
+Wu
+KC
+ns
+Jn
+KC
+hf
+Jn
+Jn
+"}
+(26,1,1) = {"
+UO
+Jn
+jJ
+zB
+cA
+cA
+Lk
+PR
+jD
+Wc
+AY
+jJ
+Wc
+ns
+AY
+ns
+pF
+jJ
+Jn
+QK
+QK
+QK
+QK
+UM
+UM
+jn
+UM
+UM
+QK
+UM
+UM
+UM
+QK
+QK
+Jn
+Jn
+jJ
+kZ
+tR
+ch
+QK
+QK
+QK
+QK
+UM
+UM
+jn
+QK
+UM
+UM
+QK
+UM
+QK
+QK
+Jn
+Jn
+YP
+Qm
+Lk
+jJ
+YP
+nv
+Lk
+YP
+nv
+Lk
+Jn
+hd
+mu
+jJ
+Wc
+Jn
+KC
+KC
+jJ
+KC
+Jn
+"}
+(27,1,1) = {"
+UO
+hf
+Wc
+zX
+Xp
+jJ
+mu
+AY
+Jn
+Pi
+AY
+KC
+Wc
+jJ
+AY
+Jn
+Jn
+jJ
+vx
+QK
+QK
+QK
+UM
+BR
+QK
+UM
+nh
+nh
+UM
+UM
+ZN
+UM
+QK
+QK
+KC
+Pi
+oh
+tR
+ch
+Jn
+QK
+QK
+UM
+UM
+UM
+nh
+nh
+nh
+nh
+UM
+UM
+UM
+ZN
+QK
+QK
+vx
+YP
+aE
+cT
+Jn
+YP
+qk
+Lk
+YP
+Qm
+ZA
+Jn
+hd
+vx
+Wc
+Jn
+Jn
+jJ
+jJ
+Wc
+KC
+Wc
+"}
+(28,1,1) = {"
+AY
+Wc
+Jn
+cA
+zB
+Wc
+Jn
+AY
+Jn
+Jn
+AF
+Wc
+KC
+hf
+fR
+Jn
+jJ
+Wc
+QK
+QK
+QK
+UM
+UM
+QK
+UM
+LD
+LD
+CD
+CD
+UM
+UM
+UM
+Sh
+QK
+jJ
+Jn
+kZ
+Ti
+LY
+QK
+QK
+Sh
+jn
+QK
+HJ
+LD
+st
+st
+CD
+nh
+CD
+UM
+Sh
+QK
+QK
+QK
+kZ
+Io
+QK
+Jn
+YP
+GL
+Jn
+YP
+aE
+QK
+QK
+QK
+Jn
+Jn
+jJ
+KC
+Jn
+KC
+Jn
+Jn
+Wc
+"}
+(29,1,1) = {"
+AY
+jJ
+Jn
+cA
+cA
+jJ
+ZA
+UO
+Jn
+Wc
+qx
+hf
+Wc
+Wc
+if
+KC
+Pi
+Jn
+QK
+UM
+QK
+ZN
+UM
+UM
+LD
+LD
+st
+st
+CD
+nh
+CD
+UM
+QK
+UM
+QK
+jJ
+kZ
+hQ
+Jn
+QK
+UM
+UM
+QK
+UM
+HJ
+st
+st
+st
+st
+st
+Ib
+UM
+UM
+UM
+UM
+QF
+sf
+qg
+UM
+QK
+mh
+Io
+QK
+mh
+Io
+UM
+jn
+QK
+QK
+Jn
+Jn
+Wc
+Jn
+Wc
+KC
+Wc
+jJ
+"}
+(30,1,1) = {"
+UO
+Jn
+Wc
+cA
+zB
+Jn
+Wc
+AF
+jJ
+Wc
+UO
+Wc
+jJ
+KC
+ZU
+KC
+Jn
+Wc
+QK
+QK
+QK
+UM
+LD
+nh
+LD
+st
+st
+st
+st
+st
+CD
+Ib
+QK
+UM
+UM
+QK
+kZ
+Io
+ZN
+UM
+QK
+UM
+UM
+HJ
+LD
+st
+st
+st
+st
+st
+Ib
+UM
+UM
+UM
+UM
+Wn
+FY
+qg
+UM
+QF
+sf
+qg
+QF
+sf
+qg
+jn
+UM
+UM
+QK
+QK
+Jn
+Wc
+Wc
+jJ
+KC
+ns
+Jn
+"}
+(31,1,1) = {"
+AF
+Wc
+jJ
+fk
+zB
+KC
+Pi
+UO
+KC
+hf
+UO
+Pi
+Jn
+Jn
+AF
+Wc
+jJ
+vx
+QK
+UM
+QK
+UM
+HJ
+st
+st
+st
+st
+st
+st
+st
+vS
+Ib
+UM
+UM
+jn
+QF
+sf
+Hq
+jn
+UM
+jn
+QK
+UM
+HJ
+st
+st
+st
+st
+st
+vS
+vS
+UM
+QK
+UM
+QK
+QK
+kZ
+Io
+QK
+Wn
+FY
+qg
+Wn
+FY
+qg
+UM
+cq
+UM
+UM
+ZN
+vx
+Jn
+jJ
+Wc
+jJ
+Jn
+Jn
+"}
+(32,1,1) = {"
+UO
+Xs
+pF
+cA
+zB
+Wc
+QA
+jD
+Wc
+Jn
+fR
+KC
+Wc
+Jn
+UO
+hf
+Wc
+Jn
+QK
+QK
+QK
+UM
+qy
+ro
+qy
+st
+st
+st
+vS
+ro
+vS
+UM
+UM
+UM
+UM
+Wn
+FY
+Hq
+UM
+ZN
+UM
+UM
+HJ
+HJ
+st
+st
+st
+st
+vS
+vS
+jn
+UM
+UM
+QK
+QK
+jJ
+YP
+Ut
+Jn
+QK
+mh
+Io
+QK
+mh
+Io
+jn
+UM
+UM
+UM
+QK
+QK
+Jn
+Jn
+KC
+jJ
+Jn
+KC
+"}
+(33,1,1) = {"
+fR
+Jn
+jJ
+zB
+cA
+Jn
+AF
+Jn
+Wc
+jJ
+AY
+Wc
+KC
+hf
+AY
+jJ
+Wc
+Jn
+QK
+QK
+ZN
+Sh
+UM
+UM
+qy
+qy
+st
+vS
+vS
+UM
+UM
+UM
+ZN
+QK
+QK
+QK
+kZ
+Io
+ZN
+UM
+UM
+QK
+UM
+HJ
+ro
+qy
+st
+vS
+vS
+UM
+UM
+QK
+jn
+QK
+QK
+Jn
+YP
+nv
+Lk
+Bw
+YP
+eO
+YD
+YP
+GT
+QK
+QK
+UM
+BR
+UM
+QK
+QK
+Jn
+KC
+Wc
+KC
+hf
+"}
+(34,1,1) = {"
+fR
+mu
+Jn
+cA
+zB
+Jn
+fR
+mu
+Lk
+Lk
+AY
+ns
+jJ
+Wc
+AY
+Jn
+jJ
+Wc
+Jn
+QK
+QK
+QK
+UM
+QK
+jn
+ro
+ro
+ro
+UM
+QK
+UM
+QK
+QK
+QK
+mu
+Lk
+kZ
+Io
+QK
+QK
+QK
+jn
+QK
+UM
+UM
+qy
+ro
+vS
+UM
+UM
+QK
+UM
+QK
+QK
+QK
+Lk
+YP
+nv
+Lk
+Lk
+YP
+jz
+Lk
+YP
+nv
+Jn
+QK
+UM
+UM
+UM
+UM
+QK
+Jn
+Wc
+Jn
+Jn
+KC
+"}
+(35,1,1) = {"
+AF
+Lk
+Wc
+cA
+Xp
+Wc
+AY
+Lk
+Lk
+Lk
+FE
+Wc
+Jn
+Jn
+if
+Jn
+hf
+jJ
+Jn
+QK
+QK
+QK
+QK
+UM
+UM
+UM
+UM
+UM
+UM
+BR
+UM
+UM
+QK
+QK
+Lk
+Lk
+kZ
+hQ
+QK
+QK
+QK
+QK
+Sh
+QK
+UM
+jn
+ro
+UM
+UM
+BR
+QK
+QK
+QK
+QK
+Jn
+Lk
+YP
+fi
+Lk
+Lk
+YP
+nv
+Lk
+YP
+nv
+Jn
+QK
+QK
+UM
+jn
+QK
+QK
+Jn
+jJ
+mu
+Jn
+Wc
+"}
+(36,1,1) = {"
+UO
+Lk
+hd
+Xp
+cA
+pF
+AY
+Lk
+Qj
+Lk
+FE
+Jn
+Jn
+jJ
+fR
+Jn
+KC
+KC
+Pi
+jJ
+Jn
+QK
+QK
+QK
+UM
+QK
+UM
+QK
+UM
+UM
+QK
+QK
+QK
+Lk
+Lk
+xL
+kZ
+wX
+Wu
+Jn
+vx
+QK
+QK
+QK
+QK
+QK
+UM
+QK
+UM
+jn
+UM
+QK
+QK
+vx
+Lk
+Lk
+YP
+av
+hf
+Lk
+YP
+nv
+oh
+tR
+ih
+Lk
+QK
+QK
+UM
+UM
+QK
+QK
+Jn
+Jn
+hd
+Wu
+Wc
+"}
+(37,1,1) = {"
+UO
+vQ
+Lk
+zB
+cA
+jJ
+AY
+Lk
+Lk
+VJ
+jD
+KC
+hf
+Wc
+UO
+Jn
+ww
+ns
+Jn
+Jn
+jJ
+vx
+Jn
+QK
+QK
+UM
+Sh
+UM
+UM
+Xt
+QK
+mu
+Lk
+oh
+ny
+ny
+tR
+NT
+LB
+hd
+hd
+Jn
+Jn
+QK
+QK
+UM
+UM
+UM
+QK
+QK
+QK
+QK
+QK
+Jn
+Lk
+Lk
+YP
+jz
+jJ
+oh
+tR
+OW
+YP
+nv
+Lk
+Lk
+QK
+QK
+UM
+UM
+UM
+QK
+jJ
+Jn
+jJ
+hd
+hd
+"}
+(38,1,1) = {"
+AY
+Lk
+Lk
+cA
+zB
+ns
+AY
+mu
+Lk
+FE
+Wc
+aF
+hd
+KC
+ZU
+jJ
+Wc
+mu
+Lk
+hd
+Pi
+ns
+Jn
+jJ
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+Lk
+Qh
+kZ
+UN
+jJ
+jJ
+Wc
+Jn
+Jj
+hd
+LB
+jJ
+Jn
+QK
+QK
+QK
+QK
+QK
+QK
+Jn
+jJ
+Jn
+Lk
+Lk
+Lk
+YP
+jz
+ns
+YP
+fi
+Wc
+YP
+nv
+Lk
+hd
+Jn
+QK
+QK
+UM
+UM
+QK
+QK
+QK
+Jn
+ns
+hd
+"}
+(39,1,1) = {"
+AY
+Lk
+Lk
+zB
+cA
+Jn
+AF
+Jn
+zv
+AY
+jJ
+Lk
+Lk
+hd
+fR
+Jn
+KC
+tg
+Lk
+Lk
+hd
+Wc
+Wc
+Jn
+Jn
+Jn
+QK
+QK
+QK
+QK
+Lk
+Lk
+Lk
+kZ
+YW
+nt
+lD
+cA
+cA
+Qo
+Wc
+Wc
+Jn
+jJ
+Jn
+Jn
+QK
+QK
+Jn
+Jn
+hd
+mu
+hd
+Lk
+Lk
+oh
+tR
+PG
+jJ
+YP
+MD
+Jn
+YP
+nv
+Jn
+Wu
+vx
+QK
+QK
+UM
+Sh
+QK
+QK
+QK
+vx
+Jn
+Wu
+"}
+(40,1,1) = {"
+AY
+hd
+Lk
+zB
+fk
+Jn
+fR
+jJ
+Wc
+AY
+hd
+Lk
+Lk
+Lk
+AF
+Jn
+Wc
+hd
+Lk
+vQ
+Lk
+hd
+hf
+KC
+GU
+vx
+jJ
+Jn
+Jn
+Lk
+Lk
+Lk
+Xz
+kZ
+PY
+IA
+lD
+zB
+cA
+cA
+cA
+Wc
+KC
+hf
+vx
+Wc
+jJ
+vx
+jJ
+Lk
+Lk
+Lk
+hd
+Sp
+hd
+YP
+MD
+KC
+jJ
+YP
+dM
+Wc
+YP
+dM
+Jn
+mu
+Jn
+QK
+QK
+QK
+jn
+UM
+QK
+QK
+QK
+Jn
+KC
+"}
+(41,1,1) = {"
+UO
+jJ
+mu
+zB
+cA
+hf
+AF
+KC
+hf
+AF
+Lk
+Lk
+vQ
+Lk
+HS
+Ns
+KC
+hf
+hd
+Lk
+Lk
+hd
+jJ
+Jn
+Wc
+jJ
+Wc
+KC
+hf
+Lk
+Zq
+Lk
+Lk
+kZ
+aC
+jJ
+jJ
+Wc
+zX
+cA
+cA
+Xp
+Wc
+Wc
+jJ
+Wc
+KC
+Pi
+Jn
+Lk
+Lk
+Lk
+Lk
+hd
+tk
+YP
+jz
+KC
+Pi
+YP
+jz
+jJ
+YP
+MD
+Jn
+hd
+mu
+QK
+ZN
+Jn
+QK
+UM
+UM
+QK
+QK
+Jn
+jJ
+"}
+(42,1,1) = {"
+AF
+Jn
+Jn
+cA
+cA
+Jn
+fR
+Wc
+Jn
+AY
+Lk
+Lk
+Lk
+Lk
+Jn
+AF
+Wc
+jJ
+KC
+LB
+hd
+hf
+Wc
+jJ
+KC
+hf
+Jn
+jJ
+Wc
+Lk
+Lk
+Lk
+LJ
+XS
+Nw
+nK
+ki
+hf
+ww
+zX
+cA
+cA
+cA
+cA
+zB
+Jn
+Wc
+jJ
+Jn
+hd
+Sp
+vQ
+Lk
+hd
+oh
+tR
+ch
+Wc
+Wc
+YP
+jz
+jJ
+YP
+jz
+Wc
+jJ
+hd
+QK
+QK
+jJ
+QK
+UM
+UM
+QK
+jJ
+Jn
+Wc
+"}
+(43,1,1) = {"
+fR
+ns
+Wc
+cA
+zB
+Jn
+UO
+Jn
+Wc
+AY
+Jn
+Jn
+hd
+Lk
+Jn
+HS
+ny
+ny
+Ns
+Wc
+Jn
+jJ
+Wc
+bW
+Jn
+Jn
+Jn
+Wc
+KC
+hf
+Lk
+Lk
+Lk
+Lk
+mu
+kZ
+fi
+Jn
+Jn
+jJ
+zB
+zB
+zB
+cA
+cA
+cA
+zB
+zB
+zB
+zX
+Lk
+Lk
+Lk
+jJ
+YP
+MD
+Wc
+Jn
+Jn
+YP
+av
+Pi
+YP
+av
+Jn
+Jn
+hd
+Jn
+QK
+hd
+QK
+UM
+jn
+QK
+QK
+Jn
+vx
+"}
+(44,1,1) = {"
+fR
+Jn
+jJ
+zB
+cA
+Jn
+fR
+Jn
+hf
+AY
+Jn
+KC
+hf
+jJ
+Xs
+Wc
+jJ
+Wc
+Gk
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+Ns
+Wc
+Xs
+oh
+ny
+ny
+ny
+tR
+VG
+KC
+hf
+mu
+hd
+hd
+Pi
+zX
+Xp
+zB
+cA
+cA
+cA
+cA
+Xp
+Lk
+Lk
+oh
+tR
+PG
+jJ
+Jn
+KC
+YP
+fi
+Wc
+YP
+fi
+jJ
+hd
+Wu
+vx
+QK
+mu
+QK
+QK
+UM
+QK
+QK
+Jn
+Jn
+"}
+(45,1,1) = {"
+UO
+hf
+Jn
+Xp
+cA
+Do
+fR
+Wc
+jJ
+UO
+jJ
+Wc
+Jn
+Wc
+jJ
+KC
+hf
+Wc
+pF
+Wc
+jJ
+Wc
+Wc
+Jn
+jJ
+ns
+Wc
+Jn
+WD
+ny
+ny
+tR
+PG
+KC
+hf
+Jn
+Wc
+Jn
+hd
+Lk
+Lk
+Lk
+Lk
+mu
+KC
+Pi
+Jn
+ns
+zB
+cA
+cA
+Wc
+oh
+tR
+NT
+Jn
+Do
+KC
+hf
+YP
+MD
+Jn
+YP
+fi
+ns
+hd
+mu
+mu
+hd
+hd
+QK
+mu
+UM
+UM
+QK
+QK
+Jn
+"}
+(46,1,1) = {"
+fR
+Wc
+Jn
+cA
+zB
+KC
+UO
+Wr
+Wc
+vn
+Ns
+Wc
+Wc
+Jn
+KC
+Wc
+Wc
+bW
+Jn
+Wc
+KC
+KC
+hf
+pF
+Jn
+Wc
+KC
+hf
+jJ
+Wc
+Jn
+Wc
+Wc
+jJ
+Wc
+xO
+KC
+LB
+Lk
+Lk
+vQ
+Lk
+Lk
+mu
+Jn
+Jn
+jJ
+Jn
+yv
+ls
+Br
+FZ
+YP
+MD
+Jn
+Jn
+Wc
+jJ
+Wc
+YP
+Mj
+jJ
+YP
+MD
+Jn
+Wc
+hd
+hd
+mu
+hd
+Wu
+mu
+QK
+QK
+Sh
+QK
+Jn
+"}
+(47,1,1) = {"
+AF
+Wc
+Jn
+zB
+cA
+jJ
+UO
+Wc
+Jn
+ns
+vn
+jc
+ny
+ny
+ny
+ny
+ny
+ny
+Ns
+KC
+hf
+Wc
+jJ
+Wc
+Jn
+bW
+KC
+Wc
+Wc
+xO
+Jn
+KC
+hf
+Wc
+jJ
+Xs
+hd
+Lk
+Lk
+Lk
+Lk
+Lk
+oh
+ny
+ny
+ny
+ny
+ny
+tR
+YK
+cA
+ST
+tR
+PG
+KC
+hf
+KC
+hf
+Wc
+YP
+fi
+Jn
+YP
+MD
+Jn
+Jn
+KC
+cA
+zB
+jJ
+hd
+mu
+QK
+jJ
+QK
+ZN
+QK
+"}
+(48,1,1) = {"
+UO
+jJ
+Jn
+zX
+zB
+fk
+Yo
+Tu
+Sl
+jJ
+Jn
+Wc
+Jn
+Wc
+jJ
+Jn
+Wc
+Wc
+XR
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+tR
+Ji
+jJ
+Wc
+Jn
+ww
+Wc
+Xp
+cA
+Wc
+Wc
+KC
+Jn
+Wc
+KC
+Jn
+jJ
+YP
+jz
+Jn
+YP
+fi
+Wc
+Jn
+jJ
+cA
+cA
+zB
+Jn
+hd
+QK
+Jn
+QK
+UM
+QK
+"}
+(49,1,1) = {"
+HS
+Ns
+Wc
+jJ
+zB
+cA
+cA
+ib
+ib
+cA
+cA
+zB
+GU
+Jn
+Jn
+Wc
+KC
+hf
+jJ
+Do
+Jn
+Jn
+mu
+Lk
+Lk
+Lk
+Lk
+mu
+pF
+jJ
+KC
+hf
+Jn
+Wc
+Jn
+Wc
+Wc
+jJ
+Jn
+Jn
+Wc
+Do
+Wc
+Jn
+KC
+Pi
+Jn
+jJ
+jJ
+zB
+cA
+KC
+hf
+jJ
+Jn
+Jn
+Jn
+ns
+jJ
+YP
+MD
+Wc
+YP
+jz
+jJ
+Wc
+KC
+zB
+Yb
+cA
+zB
+vx
+QK
+Jn
+QK
+QK
+QK
+"}
+(50,1,1) = {"
+Jn
+AY
+Jn
+Jn
+fk
+zX
+zB
+ib
+ib
+cA
+Xp
+cA
+zX
+cA
+cA
+cA
+cA
+zB
+zX
+Jn
+Jn
+mu
+Lk
+Lk
+Lk
+vQ
+Lk
+Lk
+Wu
+Jn
+Jn
+Wc
+jJ
+Jn
+ns
+Wc
+KC
+hf
+Wc
+Wc
+jJ
+Wc
+Jn
+Wc
+Wc
+Jn
+Wc
+zX
+cA
+cA
+zB
+KC
+Jn
+Wc
+KC
+KC
+hf
+Wc
+Jn
+YP
+av
+Pi
+YP
+jz
+Jn
+jJ
+hd
+Wc
+zB
+cA
+zB
+jJ
+ZN
+Jn
+QK
+QK
+QK
+"}
+(51,1,1) = {"
+jJ
+fR
+Jn
+Wc
+Wc
+jJ
+ZQ
+dB
+eA
+Jn
+zB
+cA
+cA
+fk
+zB
+zB
+zB
+fk
+cA
+zB
+cA
+zB
+cA
+zB
+Xp
+cA
+cA
+zB
+Jn
+Wc
+jJ
+Jn
+Wc
+zX
+cA
+cA
+zB
+zB
+zB
+Xp
+zB
+cA
+cA
+cA
+zB
+zB
+cA
+cA
+Xp
+zB
+cA
+jJ
+Wc
+xO
+Wc
+jJ
+Wc
+jJ
+jJ
+YP
+av
+KC
+YP
+MD
+Jn
+Wc
+Wu
+hd
+ns
+cA
+cA
+KC
+QK
+Jn
+Jn
+QK
+Jn
+"}
+(52,1,1) = {"
+jJ
+AY
+Jn
+KC
+Pi
+KC
+UO
+Wr
+hd
+Lk
+Lk
+Lk
+hd
+Jn
+Jn
+KC
+hf
+Wc
+zB
+cA
+zB
+fk
+cA
+cA
+cA
+cA
+cA
+cA
+cA
+cA
+cA
+Xp
+zB
+cA
+cA
+zB
+fk
+cA
+cA
+cA
+zB
+zB
+Xp
+zB
+cA
+cA
+cA
+zB
+zB
+zB
+jJ
+jJ
+Jn
+KC
+hf
+Jn
+Jn
+Wc
+jJ
+YP
+jz
+ns
+YP
+av
+KC
+Wc
+hd
+hd
+Jn
+zB
+cA
+Yb
+Jn
+vx
+Wu
+mu
+Jn
+"}
+(53,1,1) = {"
+Jn
+AY
+Jn
+jJ
+KC
+Jn
+if
+Wc
+Lk
+Lk
+vQ
+Lk
+Lk
+Wc
+jJ
+jJ
+KC
+Jn
+jJ
+jJ
+Wc
+Jn
+jJ
+Jn
+KC
+jJ
+zX
+zB
+Xp
+cA
+cA
+cA
+cA
+zB
+Xp
+Jn
+Wc
+jJ
+Wc
+Jn
+jJ
+Jn
+Wc
+KC
+hf
+Jn
+Wc
+jJ
+jJ
+KC
+hf
+Wc
+Wc
+Wc
+Jn
+Wc
+Jn
+Wc
+oh
+tR
+PG
+jJ
+YP
+MD
+KC
+hf
+hd
+Wu
+hd
+jJ
+zB
+cA
+Wc
+hd
+hd
+hd
+hd
+"}
+(54,1,1) = {"
+Jn
+AY
+Wc
+Wc
+Jn
+jJ
+vn
+jc
+Ns
+Lk
+Lk
+Lk
+Lk
+KC
+jJ
+Wc
+Xs
+Wc
+KC
+Jn
+Jn
+jJ
+Jn
+Jn
+KC
+hf
+Jn
+ns
+jJ
+Jn
+Jn
+KC
+GU
+Jn
+pF
+ww
+Wc
+Jn
+Do
+mu
+Lk
+Lk
+Lk
+Wc
+Jn
+Jn
+Wc
+Wc
+Jn
+Do
+KC
+KC
+hf
+jJ
+jJ
+ns
+jJ
+oh
+tR
+OW
+Wc
+Jn
+YP
+qk
+Jn
+KC
+Jn
+hd
+hd
+hd
+Jn
+Wc
+pF
+jJ
+Jn
+Wu
+hd
+"}
+(55,1,1) = {"
+Jn
+fR
+Xs
+jJ
+Jn
+Jn
+Jn
+ns
+pR
+ny
+ny
+Ns
+hd
+KC
+hf
+Wc
+jJ
+Jn
+KC
+hf
+Jn
+ns
+KC
+hf
+KC
+Wc
+Wc
+KC
+PV
+Wc
+Jn
+Wc
+jJ
+Wc
+jJ
+KC
+hf
+Wc
+hd
+Lk
+Lk
+Qj
+Lk
+Wc
+Jn
+ww
+KC
+hf
+Jn
+jJ
+jJ
+Wc
+Jn
+jJ
+Wc
+Jn
+oh
+tR
+NT
+KC
+hf
+oh
+tR
+NT
+jJ
+Wc
+KC
+Jn
+hd
+hd
+hd
+jJ
+zB
+cA
+zB
+Wc
+hd
+"}
+(56,1,1) = {"
+ns
+fR
+KC
+KC
+Wc
+Wc
+Jn
+Jn
+jJ
+Wc
+Wc
+An
+ny
+ny
+ny
+ny
+Ns
+Wc
+Wc
+Wc
+jJ
+Wc
+Wc
+Wc
+jJ
+ww
+KC
+hf
+Wc
+Jn
+ns
+Wc
+KC
+Jn
+Jn
+KC
+jJ
+Jn
+Lk
+Lk
+Lk
+Lk
+hd
+jJ
+ns
+jJ
+KC
+Jn
+Wc
+Jn
+Wc
+oh
+ny
+ny
+ny
+ny
+tR
+NT
+Wc
+Wc
+jJ
+YP
+fi
+jJ
+Wc
+Wc
+KC
+hf
+Wc
+hd
+Jn
+Jn
+zB
+Yb
+cA
+zB
+jJ
+"}
+(57,1,1) = {"
+jJ
+XR
+Ns
+KC
+Pi
+jJ
+Wc
+Jn
+jJ
+KC
+Pi
+jJ
+Jn
+Jn
+Wc
+jJ
+An
+ny
+ny
+ny
+ny
+ny
+Ns
+KC
+ns
+Wc
+Jn
+KC
+jJ
+Wc
+Wc
+jJ
+KC
+hf
+Wc
+Jn
+Wc
+Wc
+Lk
+Lk
+hd
+oh
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+tR
+ch
+Xs
+Jn
+jJ
+rw
+KC
+hf
+rw
+Wc
+YP
+fi
+KC
+Jn
+jJ
+KC
+Wc
+jJ
+jJ
+Wc
+hd
+Wc
+zB
+cA
+cA
+Wc
+"}
+(58,1,1) = {"
+KC
+rw
+HS
+Ns
+KC
+Wc
+Do
+Jn
+Wc
+jJ
+Jn
+Wc
+Jn
+Jn
+KC
+jJ
+rw
+Jn
+Jn
+Wc
+Wc
+jJ
+An
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+tR
+PG
+jJ
+jJ
+Jn
+Wc
+Wc
+KC
+hf
+Wc
+rw
+Jn
+KC
+KC
+hf
+jJ
+ns
+Wc
+jJ
+oh
+tR
+NT
+KC
+Ck
+Lk
+ns
+Wc
+Wc
+hd
+Jn
+hd
+hd
+jJ
+zB
+Yb
+zB
+"}
+(59,1,1) = {"
+KC
+Wc
+Jn
+XR
+Ns
+KC
+jJ
+Jn
+Jn
+Jn
+jJ
+Jn
+jJ
+ns
+KC
+hf
+Wc
+Wc
+Xs
+jJ
+KC
+hf
+jJ
+Wc
+Jn
+Jn
+jJ
+KC
+Pi
+Wc
+Jn
+KC
+ns
+Wc
+Wc
+Jn
+Wc
+jJ
+jJ
+Jn
+Jn
+Jn
+ns
+KC
+hf
+jJ
+KC
+hf
+jJ
+ns
+KC
+jJ
+jJ
+Jn
+Wc
+Wc
+jJ
+Jn
+Jn
+oh
+tR
+OW
+KC
+Jn
+Lk
+Lk
+Lk
+mu
+KC
+KC
+hf
+Wu
+hd
+hd
+Wc
+zB
+cA
+"}
+(60,1,1) = {"
+KC
+hf
+Jn
+jJ
+WD
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+Ns
+jJ
+Wc
+Jn
+KC
+Jn
+rw
+Jn
+KC
+Jn
+Jn
+Wc
+rw
+Jn
+Xs
+KC
+Wc
+jJ
+Wc
+Wc
+rw
+Jn
+jJ
+KC
+hf
+ns
+Wc
+Jn
+jJ
+jJ
+Jn
+rw
+Wc
+Jn
+Jn
+Wc
+jJ
+Jn
+KC
+hf
+oh
+ny
+ny
+ny
+ny
+ny
+ny
+tR
+NT
+Jn
+jJ
+Jn
+Lk
+Lk
+vQ
+Lk
+hd
+Wc
+Wc
+ns
+zv
+hd
+hd
+jJ
+zB
+"}
+(61,1,1) = {"
+Af
+KC
+Jn
+rw
+ns
+Wc
+KC
+jJ
+Jn
+Jn
+Jn
+Jn
+XR
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+Ns
+Wc
+jJ
+Wc
+ns
+Jn
+Jn
+Wc
+rw
+KC
+KC
+hf
+jJ
+KC
+Wc
+Jn
+Jn
+Jn
+Jn
+KC
+hf
+Wc
+oh
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+tR
+uv
+Jn
+Jn
+jJ
+Jn
+Jn
+jJ
+Jn
+Jn
+KC
+hf
+Lk
+Lk
+Lk
+Lk
+hd
+jJ
+Wc
+Wc
+jJ
+hd
+Wu
+Wc
+Wc
+"}
+(62,1,1) = {"
+Af
+ns
+rw
+Jn
+Wc
+KC
+hf
+Wc
+Jn
+rw
+rw
+Jn
+KC
+hf
+Wc
+Wc
+ns
+jJ
+rw
+Jn
+XR
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+ny
+tR
+NT
+jJ
+KC
+Wc
+ns
+rw
+Jn
+KC
+jJ
+Jn
+Jn
+jJ
+KC
+hf
+KC
+ns
+Wc
+Wc
+jJ
+Wc
+KC
+hd
+mu
+Lk
+Lk
+hd
+hf
+Wc
+jJ
+KC
+KC
+jJ
+KC
+Af
+"}
+(63,1,1) = {"
+Af
+Af
+Jn
+Jn
+KC
+Jn
+Jn
+Jn
+KC
+ns
+Wc
+rw
+rw
+Jn
+jJ
+Jn
+Jn
+Jn
+Jn
+Jn
+rw
+Jn
+Wc
+pF
+jJ
+rw
+rw
+Jn
+rw
+Wc
+jJ
+Jn
+rw
+rw
+Wc
+jJ
+KC
+pF
+Jn
+Jn
+rw
+Wc
+Wc
+KC
+Jn
+Jn
+jJ
+Wc
+Wc
+KC
+jJ
+Wc
+Jn
+rw
+Wc
+Wc
+Wc
+jJ
+KC
+Jn
+Jn
+Wc
+Wc
+jJ
+Wc
+Wc
+KC
+jJ
+KC
+KC
+Wc
+Wc
+Wc
+Af
+Af
+Af
+Af
+"}

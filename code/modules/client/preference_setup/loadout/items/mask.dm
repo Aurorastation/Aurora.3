@@ -20,3 +20,9 @@
 	display_name = "cloth mask"
 	path = /obj/item/clothing/mask/cloth
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/mask/gadpathur
+	display_name = "gadpathurian rebreather"
+	path = /obj/item/clothing/mask/breath/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)

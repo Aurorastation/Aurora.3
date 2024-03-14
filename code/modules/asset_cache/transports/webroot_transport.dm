@@ -1,4 +1,4 @@
-/// CDN Webroot asset transport. 
+/// CDN Webroot asset transport.
 /datum/asset_transport/webroot
 	name = "CDN Webroot asset transport"
 
@@ -25,7 +25,7 @@
 
 /// Saves the asset to the webroot taking into account namespaces and hashes.
 /datum/asset_transport/webroot/proc/save_asset_to_webroot(datum/asset_cache_item/ACI)
-	var/webroot = config.asset_cdn_webroot
+	var/webroot = GLOB.config.asset_cdn_webroot
 	var/newpath = "[webroot][get_asset_suffex(ACI)]"
 	if (fexists(newpath))
 		return
@@ -39,7 +39,7 @@
 /datum/asset_transport/webroot/get_asset_url(asset_name, datum/asset_cache_item/asset_cache_item)
 	if (!istype(asset_cache_item))
 		asset_cache_item = SSassets.cache[asset_name]
-	var/url = config.asset_cdn_url //config loading will handle making sure this ends in a /
+	var/url = GLOB.config.asset_cdn_url //config loading will handle making sure this ends in a /
 	return "[url][get_asset_suffex(asset_cache_item)]"
 
 /datum/asset_transport/webroot/proc/get_asset_suffex(datum/asset_cache_item/asset_cache_item)
@@ -59,7 +59,7 @@
 	if (!islist(asset_list))
 		asset_list = list(asset_list)
 	for (var/asset_name in asset_list)
-		var/datum/asset_cache_item/ACI = asset_list[asset_name] 
+		var/datum/asset_cache_item/ACI = asset_list[asset_name]
 		if (!istype(ACI))
 			ACI = SSassets.cache[asset_name]
 		if (!ACI)
@@ -69,18 +69,18 @@
 			legacy_assets[asset_name] = ACI
 	if (length(legacy_assets))
 		. = ..(client, legacy_assets)
-	
+
 
 /// webroot slow asset sending - does nothing.
 /datum/asset_transport/webroot/send_assets_slow(client/client, list/files, filerate)
 	return FALSE
 
 /datum/asset_transport/webroot/validate_config(log = TRUE)
-	if (!config.asset_cdn_url)
+	if (!GLOB.config.asset_cdn_url)
 		if (log)
 			log_asset("ERROR: [type]: Invalid Config: ASSET_CDN_URL")
 		return FALSE
-	if (!config.asset_cdn_webroot)
+	if (!GLOB.config.asset_cdn_webroot)
 		if (log)
 			log_asset("ERROR: [type]: Invalid Config: ASSET_CDN_WEBROOT")
 		return FALSE

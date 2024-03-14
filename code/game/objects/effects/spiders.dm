@@ -21,18 +21,18 @@
 				qdel(src)
 	return
 
-/obj/effect/spider/attackby(var/obj/item/W, var/mob/user)
-	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]"))
-	var/damage = W.force / 4.0
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+/obj/effect/spider/attackby(obj/item/attacking_item, mob/user)
+	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(attacking_item.attack_verb, "attacked")] with [attacking_item][(user ? " by [user]." : ".")]"))
+	var/damage = attacking_item.force / 4.0
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			damage = 15
 			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		return TRUE
 	else
 		user.do_attack_animation(src)
-		playsound(loc, W.hitsound, 50, 1, -1)
+		playsound(loc, attacking_item.hitsound, 50, 1, -1)
 
 	health -= damage
 	healthcheck()
@@ -67,7 +67,7 @@
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || height == 0)
 		return TRUE
-	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider) || istype(mover,/mob/living/simple_animal/hostile/spider_queen))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
 		return TRUE
 	else if(istype(mover, /mob/living))
 		if(prob(50))
@@ -147,7 +147,7 @@
 	var/travelling_in_vent = 0
 	var/list/possible_offspring
 
-/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
+/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = list(/mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/giant_spider/nurse, /mob/living/simple_animal/hostile/giant_spider/emp, /mob/living/simple_animal/hostile/giant_spider/hunter, /mob/living/simple_animal/hostile/giant_spider/bombardier))
 	. = ..(mapload)
 
 	pixel_x = rand(6,-6)
@@ -278,10 +278,10 @@
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()
 
-/obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
+/obj/effect/spider/spiderling/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(istype(W, /obj/item/newspaper))
-		var/obj/item/newspaper/N = W
+	if(istype(attacking_item, /obj/item/newspaper))
+		var/obj/item/newspaper/N = attacking_item
 		if(N.rolled)
 			die()
 			return TRUE

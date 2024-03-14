@@ -9,8 +9,6 @@
 	message = sanitize(message)
 	message = formalize_text(message)
 
-	SStyping.set_indicator_state(client, FALSE)
-
 	if(client.handle_spam_prevention(message, MUTE_IC))
 		return
 
@@ -30,11 +28,11 @@
 
 	if(!had_speaking)
 		if(speaking)
-			message = copytext(message,2+length(speaking.key))
+			message = copytext_char(message, 2 + length(speaking.key))
 		else
 			speaking = get_default_language()
 
-	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
+	if(length_char(message) >= 1 && copytext_char(message, 1, 2) == "%")
 		if(speaking?.sing_verb)
 			is_singing = TRUE
 
@@ -74,7 +72,7 @@
 		else if(get_dist(src, M) <= watching_range)
 			if(M.stat == DEAD && M.client)
 				observers += M
-			else	
+			else
 				watching += M
 
 	if(length(observers)) //For ghosts who do NOT have ghost ears. They will see the whole message if nearby, no *s or not_heard messages.

@@ -28,9 +28,9 @@
 	QDEL_NULL(installed_gun)
 	. = ..()
 
-/obj/item/integrated_circuit/manipulation/weapon_firing/attackby(var/obj/O, var/mob/user)
-	if(istype(O, /obj/item/gun))
-		var/obj/item/gun/gun = O
+/obj/item/integrated_circuit/manipulation/weapon_firing/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun))
+		var/obj/item/gun/gun = attacking_item
 		if(installed_gun)
 			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
 			return
@@ -138,7 +138,8 @@
 	detach_grenade()
 	. = ..()
 
-/obj/item/integrated_circuit/manipulation/grenade/attackby(var/obj/item/grenade/G, var/mob/user)
+/obj/item/integrated_circuit/manipulation/grenade/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grenade/G = attacking_item
 	if(istype(G))
 		if(attached_grenade)
 			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
@@ -169,14 +170,14 @@
 // These procs do not relocate the grenade, that's the callers responsibility
 /obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/grenade/G)
 	attached_grenade = G
-	destroyed_event.register(attached_grenade, src, PROC_REF(detach_grenade))
+	GLOB.destroyed_event.register(attached_grenade, src, PROC_REF(detach_grenade))
 	size += G.w_class
 	desc += " \An [attached_grenade] is attached to it!"
 
 /obj/item/integrated_circuit/manipulation/grenade/proc/detach_grenade()
 	if(!attached_grenade)
 		return
-	destroyed_event.unregister(attached_grenade, src)
+	GLOB.destroyed_event.unregister(attached_grenade, src)
 	attached_grenade = null
 	size = initial(size)
 	desc = initial(desc)

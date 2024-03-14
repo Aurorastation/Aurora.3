@@ -74,19 +74,19 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/pipe/attackby(obj/item/attacking_item, mob/user)
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
 
-	if(istype(W,/obj/item/device/pipe_painter))
+	if(istype(attacking_item,/obj/item/device/pipe_painter))
 		return FALSE
 
-	if(istype(W, /obj/item/device/analyzer) && Adjacent(user))
-		var/obj/item/device/analyzer/A = W
+	if(istype(attacking_item, /obj/item/device/analyzer) && Adjacent(user))
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return FALSE
 
-	if (!W.iswrench() && !istype(W, /obj/item/pipewrench))
+	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -96,14 +96,14 @@
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
-		if(!istype(W, /obj/item/pipewrench))
+		if(!istype(attacking_item, /obj/item/pipewrench))
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
 			return TRUE
 		else
 			to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
@@ -298,7 +298,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -628,7 +628,7 @@
 /obj/machinery/atmospherics/pipe/manifold/atmos_init()
 	var/connect_directions = (NORTH|SOUTH|EAST|WEST)&(~dir)
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
 				if(target.initialize_directions & get_dir(target,src))
@@ -640,7 +640,7 @@
 				break
 
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
 				if(target.initialize_directions & get_dir(target,src))
@@ -652,7 +652,7 @@
 				break
 
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
 				if(target.initialize_directions & get_dir(target,src))
@@ -714,7 +714,7 @@
 	desc = "A manifold composed of auxiliary piping."
 	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
 	a Universal Adapter pipe."
-	icon_state = "intact-aux"
+	icon_state = "map-aux"
 	connect_types = CONNECT_TYPE_AUX
 	layer = 2.41
 	icon_connect_type = "-aux"
@@ -1369,12 +1369,12 @@
 
 	return null
 
-/obj/machinery/atmospherics/pipe/tank/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/device/pipe_painter))
+/obj/machinery/atmospherics/pipe/tank/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/pipe_painter))
 		return FALSE
 
-	if(istype(W, /obj/item/device/analyzer) && in_range(user, src))
-		var/obj/item/device/analyzer/A = W
+	if(istype(attacking_item, /obj/item/device/analyzer) && in_range(user, src))
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 
@@ -1388,7 +1388,7 @@
 	air_temporary.temperature = T20C
 
 	air_temporary.adjust_multi(GAS_OXYGEN,  (start_pressure*O2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature), \
-	                           GAS_NITROGEN,(start_pressure*N2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
+								GAS_NITROGEN,(start_pressure*N2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
 
 	. = ..()

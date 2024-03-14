@@ -6,9 +6,14 @@
 #define VOLUME_AMBIENT_HUM 18
 #define VOLUME_MUSIC 30
 
+/// This list of names is here to make sure we don't state our descriptive blurb to a person more than once.
+var/global/list/area_blurb_stated_to = list()
+
 /area
 	var/global/global_uid = 0
 	var/uid
+	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
+	var/area_flags
 	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/fire = null
 	var/atmosalm = 0
@@ -62,13 +67,20 @@
 	var/station_area = FALSE
 	var/centcomm_area = FALSE
 
+	/// A text-based description of the area, can be used for sounds, notable things in the room, etc.
+	var/area_blurb
+	/// Used to filter description showing across subareas.
+	var/area_blurb_category
+
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
-	if (!areas_by_type[type])
-		areas_by_type[type] = src
+	if (!GLOB.areas_by_type[type])
+		GLOB.areas_by_type[type] = src
 	// Atmos code needs this, so we need to make sure this is done by the time they initialize.
 	uid = ++global_uid
+	if(isnull(area_blurb_category))
+		area_blurb_category = type
 	. = ..()
 
 /area/Initialize(mapload)
@@ -88,11 +100,11 @@
 		luminosity = 1
 
 	if(centcomm_area)
-		centcom_areas[src] = TRUE
+		GLOB.centcom_areas[src] = TRUE
 		alwaysgravity = 1
 
 	if(station_area)
-		the_station_areas[src] = TRUE
+		GLOB.the_station_areas[src] = TRUE
 
 	if(!requires_power || !apc)
 		power_light = 0
@@ -105,10 +117,10 @@
 	. = ..()
 
 /area/proc/is_prison()
-	return flags & PRISON
+	return area_flags & AREA_FLAG_PRISON
 
 /area/proc/is_no_crew_expected()
-	return flags & NO_CREW_EXPECTED
+	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
 
 /area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
 	if(isnull(state))
@@ -310,6 +322,7 @@ var/list/mob/living/forced_ambiance_list = new
 	// Stop playing music.
 	else
 		stop_music(L)
+	do_area_blurb(L)
 
 // Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
@@ -389,7 +402,7 @@ var/list/mob/living/forced_ambiance_list = new
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
 /proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
-	for(var/Y in the_station_areas)
+	for(var/Y in GLOB.the_station_areas)
 		if(!Y)
 			continue
 		var/area/A = Y
@@ -421,7 +434,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 		if(filter_players)
 			var/should_continue = FALSE
-			for(var/mob/living/carbon/human/H in human_mob_list)
+			for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 				if(!H.client)
 					continue
 				if(A == get_area(H))
@@ -463,6 +476,43 @@ var/list/mob/living/forced_ambiance_list = new
 
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
+
+/**
+* Displays an area blurb on a mob's screen.
+*
+* Areas with blurbs set [/area/var/area_blurb] will display their blurb. Otherwise no blurb will be shown. Contains checks to avoid duplicate blurbs, pass the `override` variable to bypass this. If passed when an area has no blurb, will show a generic "no blurb" message.
+*
+* * `target_mob` - The mob to show an area blurb.
+* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs etc.
+*/
+/area/proc/do_area_blurb(mob/living/target_mob, override)
+	if(isnull(area_blurb))
+		if(override)
+			to_chat(target_mob, SPAN_NOTICE("No blurb set for this area."))
+		return
+
+	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
+		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
+		to_chat(target_mob, SPAN_NOTICE("[area_blurb]"))
+
+/// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
+/mob/living/verb/show_area_blurb()
+	set name = "Show area blurb"
+	set category = "IC"
+
+	if(!incapacitated(INCAPACITATION_KNOCKOUT))
+		var/area/blurb_verb = get_area(src)
+		if(blurb_verb)
+			blurb_verb.do_area_blurb(src, TRUE)
+
+/// A ghost version of the view area blurb verb so you can view it while observing.
+/mob/abstract/observer/verb/ghost_show_area_blurb()
+	set name = "Show area blurb"
+	set category = "IC"
+
+	var/area/blurb_verb = get_area(src)
+	if(blurb_verb)
+		blurb_verb.do_area_blurb(src, TRUE)
 
 #undef VOLUME_AMBIENCE
 #undef VOLUME_AMBIENT_HUM

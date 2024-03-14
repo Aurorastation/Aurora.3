@@ -40,15 +40,15 @@
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 21 : 4)
 	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 24 : -23) : 4
 
-/obj/structure/extinguisher_cabinet/attackby(obj/item/O, mob/user)
+/obj/structure/extinguisher_cabinet/attackby(obj/item/attacking_item, mob/user)
 	if(isrobot(user))
 		return
-	if(istype(O, /obj/item/extinguisher))
+	if(istype(attacking_item, /obj/item/extinguisher))
 		if(!has_extinguisher && opened)
-			user.remove_from_mob(O)
-			contents += O
-			has_extinguisher = O
-			to_chat(user, "<span class='notice'>You place [O] in [src].</span>")
+			user.remove_from_mob(attacking_item)
+			contents += attacking_item
+			has_extinguisher = attacking_item
+			to_chat(user, "<span class='notice'>You place [attacking_item] in [src].</span>")
 			playsound(src.loc, 'sound/effects/extin.ogg', 50, 0)
 		else
 			opened = !opened

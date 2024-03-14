@@ -7,7 +7,7 @@
 	icon_state = "grinder"
 	density = 1
 	anchored = TRUE
-	req_access = list(access_kitchen,access_morgue)
+	req_access = list(ACCESS_KITCHEN,ACCESS_MORGUE)
 
 	var/operating = 0 //Is it on?
 	var/dirty = 0 // Does it need cleaning?
@@ -24,7 +24,7 @@
 
 /obj/machinery/gibber/autogibber/Initialize()
 	. = ..()
-	for(var/i in cardinal)
+	for(var/i in GLOB.cardinal)
 		var/obj/machinery/mineral/input/input_obj = locate( /obj/machinery/mineral/input, get_step(loc, i) )
 		if(input_obj)
 			if(isturf(input_obj.loc))
@@ -77,36 +77,36 @@
 		return
 	startgibbing(user)
 
-/obj/machinery/gibber/examine()
+/obj/machinery/gibber/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(usr, "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"].")
+	. += "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"]."
 
 /obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
 	to_chat(user, SPAN_DANGER("You [emagged ? "disable" : "enable"] [src]'s safety guard."))
 	return TRUE
 
-/obj/machinery/gibber/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/grab))
-		var/obj/item/grab/G = W
+/obj/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 		if(G.state < GRAB_AGGRESSIVE)
 			to_chat(user, SPAN_DANGER("You need a better grip to do that!"))
 			return
 		move_into_gibber(user,G.affecting)
 		user.drop_from_inventory(G)
 
-	else if(isorgan(W))
-		user.drop_from_inventory(W)
+	else if(isorgan(attacking_item))
+		user.drop_from_inventory(attacking_item)
 		//TODO: Gibber Animations
-		qdel(W)
-		user.visible_message(SPAN_DANGER("[user] feeds [W] into [src], obliterating it."))
+		qdel(attacking_item)
+		user.visible_message(SPAN_DANGER("[user] feeds [attacking_item] into [src], obliterating it."))
 
 	do_hair_pull(user)
 
-/obj/machinery/gibber/MouseDrop_T(mob/target, mob/user)
+/obj/machinery/gibber/MouseDrop_T(atom/dropping, mob/user)
 	if(user.stat || user.restrained())
 		return
-	move_into_gibber(user,target)
+	move_into_gibber(user, dropping)
 
 /obj/machinery/gibber/proc/move_into_gibber(var/mob/user,var/mob/living/victim)
 

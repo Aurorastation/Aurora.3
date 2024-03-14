@@ -6,24 +6,24 @@
 
 /datum/topic_command/get_serverstatus/run_command(queryparams)
 	var/list/s[] = list()
-	s["version"] = game_version
-	s["mode"] = master_mode
-	s["respawn"] = config.abandon_allowed
-	s["enter"] = config.enter_allowed
-	s["vote"] = config.allow_vote_mode
-	s["ai"] = config.allow_ai
+	s["version"] = GLOB.game_version
+	s["mode"] = GLOB.master_mode
+	s["respawn"] = GLOB.config.abandon_allowed
+	s["enter"] = GLOB.config.enter_allowed
+	s["vote"] = GLOB.config.allow_vote_mode
+	s["ai"] = GLOB.config.allow_ai
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = get_round_duration_formatted()
-	s["gameid"] = game_id
+	s["gameid"] = GLOB.round_id
 	s["game_state"] = SSticker ? SSticker.current_state : 0
 	s["transferring"] = evacuation_controller?.is_evacuating()
 
-	s["players"] = clients.len
-	s["staff"] = staff.len
+	s["players"] = GLOB.clients.len
+	s["staff"] = GLOB.staff.len
 
 	var/admin_count = 0
 
-	for(var/S in staff)
+	for(var/S in GLOB.staff)
 		var/client/C = S
 		if(C.holder.fakekey)
 			continue
@@ -45,7 +45,7 @@
 
 /datum/topic_command/get_stafflist/run_command(queryparams)
 	var/list/l_staff = list()
-	for (var/s in staff)
+	for (var/s in GLOB.staff)
 		var/client/C = s
 		l_staff[C] = C.holder.rank
 
@@ -91,7 +91,7 @@
 
 	var/list/ckeys_found = list()
 
-	for (var/client/client in clients)
+	for (var/client/client in GLOB.clients)
 		if (!client.holder)
 			continue
 
@@ -128,7 +128,7 @@
 
 	var/list/ckeys_found = list()
 
-	for (var/client/client in clients)
+	for (var/client/client in GLOB.clients)
 		if (!client.holder)
 			continue
 
@@ -154,7 +154,7 @@
 
 /datum/topic_command/get_count_player/run_command(queryparams)
 	var/n = 0
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			n++
 
@@ -234,7 +234,7 @@
 		show_hidden_admins = text2num(queryparams["showadmins"])
 
 	var/list/players = list()
-	for (var/client/C in clients)
+	for (var/client/C in GLOB.clients)
 		if (!show_hidden_admins && C.holder?.fakekey)
 			players += ckey(C.holder.fakekey)
 		else
@@ -262,7 +262,7 @@
 
 	var/list/match = list()
 
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		var/strings = list(M.name, M.ckey)
 		if(M.mind)
 			strings += M.mind.assigned_role

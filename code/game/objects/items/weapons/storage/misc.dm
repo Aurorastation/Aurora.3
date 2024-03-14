@@ -66,7 +66,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_TINY
 	max_storage_space = 10
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -94,7 +94,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_TINY
 	starts_with = list(/obj/item/cigarette_filter = 10)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -163,6 +163,13 @@
 	item_state = "Dpacket"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/fine = 6)
 
+/obj/item/storage/chewables/oracle
+	name = "can of Natural Vysokan Fields chewing oracle"
+	desc = "A can of chewing oracle, advertising Vysoka's natural beauty. A warning box stating \"This chewing oracle is not healthier than tobacco alternatives\" appears to have been haphazardly placed on the can."
+	icon_state = "oracle_chew"
+	item_state = "Fpacket"
+	starts_with = list(/obj/item/clothing/mask/chewable/oracle = 6)
+
 /obj/item/storage/box/fancy/chewables/tobacco/nico
 	name = "box of Nico-Tine gum"
 	desc = "A Sol-approved brand of nicotine gum. Cut out the middleman for your addiction fix."
@@ -198,6 +205,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
+	w_class = ITEMSIZE_TINY
 	max_storage_space = 8
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
@@ -222,4 +230,18 @@
 	desc = "A exclusive brand of overpriced tobacco, allegedly grown at a lagrange point station in Sol system."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
 	icon_state = "roll_nico"
+	item_state = "Epacket"
+
+/obj/item/storage/chewables/rollable/oracle
+	name = "box of Vysokan Plains oracle leaves"
+	desc = "This box gives a large list of potential sources for the oracle inside of it, reflecting the unstable and volatile state of Vysokan politics."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle = 8)
+	icon_state = "roll_oracle"
+	item_state = "Dpacket"
+
+/obj/item/storage/chewables/rollable/vedamor
+	name = "box of Velhalktai Marathon oracle leaves"
+	desc = "Packaged by a major sponsor of the Velhalktai races, and exported by NanoTrasen, this box promises quality oracle grown directly in the city-state of Vedamor."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine = 8)
+	icon_state = "roll_vedamor"
 	item_state = "Epacket"

@@ -10,8 +10,11 @@
 	health = 200
 
 /obj/structure/closet/emp_act(severity)
+	. = ..()
+
 	if(!secure)
 		return
+
 	for(var/obj/O in src)
 		O.emp_act(severity)
 	if(!broken)
@@ -24,7 +27,6 @@
 			else
 				req_access = list()
 				req_access += pick(get_all_station_access())
-	..()
 
 /obj/structure/closet/proc/togglelock(mob/user as mob, silent)
 	if(use_check_and_message(user))
@@ -44,7 +46,7 @@
 				add_fingerprint(user)
 			locked = !locked
 			user.visible_message(SPAN_NOTICE("[user] [locked ? null : "un"]locks \the [src]."),
-								 SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
+									SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
 			update_icon()
 		else if(!silent)
 			to_chat(user, SPAN_NOTICE("Access Denied."))
@@ -92,7 +94,7 @@
 /obj/structure/closet/secure_closet/marooning_equipment
 	name = "marooning equipment locker"
 	icon_state = "maroon"
-	req_one_access = list(access_security, access_heads) // Marooned personnel would likely be marooned by security and/or command.
+	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS) // Marooned personnel would likely be marooned by security and/or command.
 
 /obj/structure/closet/secure_closet/marooning_equipment/fill()
 	new /obj/item/clothing/mask/breath(src)

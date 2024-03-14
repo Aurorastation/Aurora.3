@@ -59,12 +59,12 @@
 
 	return machine
 
-/obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/processing_unit_console/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
@@ -98,7 +98,7 @@
 	for(var/ore in machine.ores_processing)
 		if(!machine.ores_stored[ore] && !show_all_ores)
 			continue
-		var/ore/O = ore_data[ore]
+		var/ore/O = GLOB.ore_data[ore]
 		if(!O)
 			continue
 		var/processing_type = ""
@@ -123,27 +123,21 @@
 		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
 			if(params["choice"] == "claim")
-				if(access_mining_station in ID.access)
-					if(points >= 0)
-						ID.mining_points += points
-						if(points != 0)
-							ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
-						points = 0
-					else
-						to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))
+				if(points >= 0)
+					ID.mining_points += points
+					if(points != 0)
+						ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
+					points = 0
 				else
-					to_chat(usr, SPAN_WARNING("Required access not found."))
+					ping("<b>\The [src]</b> pings, \"Transaction failed due to a negative point value. No transaction can be done until this value has returned to a positive one.\"")
 			if(params["choice"] == "print_report")
-				if(access_mining_station in ID.access)
-					print_report(usr)
-				else
-					to_chat(usr, SPAN_WARNING("Required access not found."))
+				print_report(usr)
 		return TRUE
 
 	if(action == "toggle_smelting")
 		var/ore_name = params["toggle_smelting"]
 
-		var/choice = input("What setting do you wish to use for processing [ore_name]?") as null|anything in list("Smelting", "Compressing", "Alloying", "Nothing")
+		var/choice = tgui_input_list(usr, "What setting do you wish to use for processing [ore_name]?", "Processing", list("Smelting", "Compressing", "Alloying", "Nothing"))
 		if(!choice)
 			return TRUE
 
@@ -194,7 +188,7 @@
 	dat += "Operations Department</b><br><br>"
 
 	dat += "Form 0600<br> Mining Yield Declaration</center><hr>"
-	dat += "Facility: [current_map.station_name]<br>"
+	dat += "Facility: [SSatlas.current_map.station_name]<br>"
 	dat += "Date: [date_string]<br>"
 	dat += "Index: [idx]<br><br>"
 
@@ -254,7 +248,7 @@
 	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
-	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
+	playsound(get_turf(src), 'sound/bureaucracy/print_short.ogg', 50, 1)
 
 	// reset
 	output_mats = list()
@@ -306,24 +300,24 @@
 		for(var/alloytype in subtypesof(/datum/alloy))
 			alloy_data += new alloytype()
 
-	for(var/O in ore_data)
+	for(var/O in GLOB.ore_data)
 		ores_processing[O] = 0
 		ores_stored[O] = 0
 
 	//Locate our output and input machinery.
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)
 			break
 
 	if(!input)
-		input = get_step(src, reverse_dir[dir])
+		input = get_step(src, GLOB.reverse_dir[dir])
 	if(!output)
 		output = get_step(src, dir)
 
@@ -332,12 +326,12 @@
 		console.machine = null
 	return ..()
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/processing_unit/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
@@ -372,7 +366,7 @@
 			break
 
 		if(ores_stored[metal] > 0 && ores_processing[metal] != 0)
-			var/ore/O = ore_data[metal]
+			var/ore/O = GLOB.ore_data[metal]
 			if(!O)
 				continue
 
@@ -400,7 +394,7 @@
 						var/total
 						for(var/needs_metal in A.requires)
 							if(console)
-								var/ore/Ore = ore_data[needs_metal]
+								var/ore/Ore = GLOB.ore_data[needs_metal]
 								console.points += Ore.worth
 							use_power_oneoff(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]

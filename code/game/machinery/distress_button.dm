@@ -9,8 +9,8 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/button/distress/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -31,7 +31,7 @@
 	if(choice == "No" || !choice)
 		active = FALSE
 		return
-	var/distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
+	var/distress_message = tgui_input_text(user, "Enter a distress message that other vessels will receive.", "Distress Beacon", multiline = TRUE)
 	if(distress_message)
 		become_hearing_sensitive()
 		user.say(distress_message)

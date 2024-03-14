@@ -7,7 +7,7 @@
 	spawnpoints = list("tajara_mining_jack")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/tajara_mining_jack
+	outfit = /obj/outfit/admin/tajara_mining_jack
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -17,7 +17,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/tajara_mining_jack
+/obj/outfit/admin/tajara_mining_jack
 	name = "Mining Jack Miner"
 
 	uniform = list(
@@ -48,5 +48,5 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
-/datum/outfit/admin/tajara_mining_jack/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+/obj/outfit/admin/tajara_mining_jack/get_id_access()
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)

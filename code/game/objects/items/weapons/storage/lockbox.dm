@@ -10,7 +10,7 @@
 	w_class = ITEMSIZE_LARGE
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
 	var/locked = 1
 	var/broken = 0
 	var/icon_locked = "lockbox+l"
@@ -18,8 +18,8 @@
 	var/icon_broken = "lockbox+b"
 
 
-/obj/item/storage/lockbox/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/card/id))
+/obj/item/storage/lockbox/attackby(attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
 		if(src.broken)
 			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
 			return
@@ -37,9 +37,9 @@
 				return
 		else
 			to_chat(user, "<span class='warning'>Access Denied</span>")
-	else if(istype(W, /obj/item/melee/energy/blade))
-		if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
-			var/obj/item/melee/energy/blade/blade = W
+	else if(istype(attacking_item, /obj/item/melee/energy/blade))
+		if(emag_act(INFINITY, user, attacking_item, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
+			var/obj/item/melee/energy/blade/blade = attacking_item
 			blade.spark_system.queue()
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
@@ -77,7 +77,7 @@
 
 /obj/item/storage/lockbox/loyalty
 	name = "lockbox of mind shield implants"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	starts_with = list(
 		/obj/item/implantcase/mindshield = 3,
 		/obj/item/implanter/mindshield = 1
@@ -85,7 +85,7 @@
 
 /obj/item/storage/lockbox/anti_augment
 	name = "lockbox of augmentation disrupter implants"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	starts_with = list(
 		/obj/item/implantcase/anti_augment = 3,
 		/obj/item/implanter/anti_augment = 1
@@ -94,13 +94,13 @@
 /obj/item/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	starts_with = list(/obj/item/grenade/flashbang/clusterbang = 1)
 
 /obj/item/storage/lockbox/lawgiver
 	name = "weapons lockbox"
 	desc = "A high security weapons lockbox"
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
 	starts_with = list(/obj/item/gun/energy/lawgiver = 1)
 
 /obj/item/storage/lockbox/medal
@@ -110,7 +110,7 @@
 	item_state = "briefcase"
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_SMALL
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"

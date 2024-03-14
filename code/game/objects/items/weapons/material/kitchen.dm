@@ -42,19 +42,12 @@
 			return eyestab(M,user)
 		else
 			return ..()
-	var/fullness = M.get_fullness()
 	if(reagents.total_volume > 0)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return
-			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				to_chat(M, "You cannot force anymore food down!")
-				return
 			to_chat(M, SPAN_NOTICE("You [is_liquid ? "drink" : "eat"] some [loaded] from \the [src]."))
 		else
-			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				to_chat(M, "You cannot force anymore food down their throat!")
-				return
 			user.visible_message(SPAN_WARNING("\The [user] begins to feed \the [M]!"), SPAN_WARNING("You begin to feed \the [M]!"))
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
 				return
@@ -85,7 +78,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/nsize = input("Bite Size","Pick the amount of reagents to pick up.") as null|anything in bite_sizes
+	var/nsize = tgui_input_list(usr, "Select the amount of reagents to pick up.", "Bite Size", bite_sizes, transfer_amt)
 	if(nsize)
 		transfer_amt = nsize
 		to_chat(usr, SPAN_NOTICE("\The [src] will now scoop up [transfer_amt] reagents."))
@@ -95,6 +88,7 @@
 	desc = "It's a fork. Sure is pointy."
 	icon_state = "fork"
 	sharp = TRUE
+	surgerysound = 'sound/items/surgery/hemostat.ogg'
 
 /obj/item/material/kitchen/utensil/fork/plastic
 	icon_state = "plastic_fork"

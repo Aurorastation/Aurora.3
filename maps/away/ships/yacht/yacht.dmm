@@ -82,8 +82,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "ar" = (
-/obj/machinery/alarm/north{
-	pixel_y = -22
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
@@ -239,7 +239,9 @@
 "aT" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/spider/stickyweb,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
 "aU" = (
@@ -891,7 +893,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/west{
-	pixel_x = -28
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
@@ -932,7 +934,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/west{
-	pixel_x = -23
+	req_one_access = null
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
@@ -988,12 +990,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "df" = (
-/obj/structure/window/shuttle{
-	health = 150;
-	maxhealth = 150
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/bridge)
 "dg" = (
@@ -1364,12 +1361,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "mL" = (
-/obj/structure/window/shuttle{
-	health = 150;
-	maxhealth = 150
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/living)
 "nb" = (
@@ -1399,7 +1391,7 @@
 /area/shuttle/yacht/engine)
 "pb" = (
 /obj/machinery/alarm/east{
-	pixel_x = 24
+	req_one_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1501,7 +1493,7 @@
 /area/shuttle/yacht/bridge)
 "zA" = (
 /obj/machinery/alarm/west{
-	pixel_x = -28
+	req_one_access = null
 	},
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
@@ -1517,21 +1509,11 @@
 /turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "Be" = (
-/obj/structure/window/shuttle{
-	health = 150;
-	maxhealth = 150
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "DP" = (
-/obj/structure/window/shuttle{
-	health = 150;
-	maxhealth = 150
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, luxury cabin"
 	},
@@ -1542,12 +1524,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "Ge" = (
-/obj/structure/window/shuttle{
-	health = 150;
-	maxhealth = 150
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
@@ -1570,12 +1547,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "Jw" = (
-/obj/structure/window/shuttle{
-	health = 150;
-	maxhealth = 150
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew quarters"
 	},
@@ -1583,7 +1555,9 @@
 /area/shuttle/yacht/living)
 "MX" = (
 /obj/effect/spider/stickyweb,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/beach/water/alt,
 /area/shuttle/yacht/living)
 "Nb" = (
@@ -1593,7 +1567,7 @@
 	req_access = null
 	},
 /obj/machinery/alarm/east{
-	pixel_x = 24
+	req_one_access = null
 	},
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)

@@ -10,18 +10,18 @@
 		return
 
 	if(h_style)
-		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		var/selected_string
 		if(hair_style.length <= 1)
 			to_chat(src, "<span class ='warning'>Your hair isn't long enough to tie.</span>")
 			return
 		else
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
-			for(var/hair_string in hair_styles_list)
-				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+			for(var/hair_string in GLOB.hair_styles_list)
+				var/datum/sprite_accessory/hair/test = GLOB.hair_styles_list[hair_string]
 				if(test.length >= 2 && (species.type in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
-			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
+			selected_string = tgui_input_list(usr, "Select a new hairstyle.", "Your Hairstyle", valid_hairstyles, hair_style)
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
@@ -39,14 +39,14 @@
 		return
 
 	if(h_style)
-		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		var/selected_string
 		var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
-		for(var/hair_string in hair_styles_list)
-			var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+		for(var/hair_string in GLOB.hair_styles_list)
+			var/datum/sprite_accessory/hair/test = GLOB.hair_styles_list[hair_string]
 			if(species.type in test.species_allowed)
 				valid_hairstyles.Add(hair_string)
-		selected_string = input("Select a new headtail style", "Your headtail style", hair_style) as null|anything in valid_hairstyles
+		selected_string = tgui_input_list(usr, "Select a new headtail style", "Your Headtail Style", valid_hairstyles, hair_style)
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
@@ -60,14 +60,14 @@
 	set category = "Abilities"
 
 	if(f_style)
-		var/datum/sprite_accessory/facial_hair/screen_style = facial_hair_styles_list[f_style]
+		var/datum/sprite_accessory/facial_hair/screen_style = GLOB.facial_hair_styles_list[f_style]
 		var/selected_string
 		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
-		for(var/screen_string in facial_hair_styles_list)
-			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
+		for(var/screen_string in GLOB.facial_hair_styles_list)
+			var/datum/sprite_accessory/facial_hair/test = GLOB.facial_hair_styles_list[screen_string]
 			if(species.type in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
-		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
+		selected_string = tgui_input_list(usr, "Select a new screen", "Your monitor display", valid_screenstyles, screen_style)
 		if(selected_string && f_style != selected_string)
 			f_style = selected_string
 			regenerate_icons()
@@ -317,7 +317,7 @@
 
 	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
@@ -408,7 +408,7 @@
 	last_special = world.time + 100
 
 /mob/living/carbon/human/proc/detonate_flechettes()
-	set category = "Military Frame"
+	set category = "Abilities"
 	set name = "Detonate Flechettes"
 	set desc = "Detonate all explosive flechettes in a range of seven meters."
 
@@ -417,7 +417,7 @@
 		return
 
 	for(var/mob/living/M in range(7, src))
-		to_chat(M, 'sound/effects/EMPulse.ogg')
+		playsound(M, 'sound/effects/EMPulse.ogg')
 		for(var/obj/item/material/shard/shrapnel/flechette/F in M.contents)
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
@@ -434,7 +434,7 @@
 
 
 /mob/living/carbon/human/proc/state_laws()
-	set category = "Military Frame"
+	set category = "Abilities"
 	set name = "State Laws"
 	set desc = "State your laws aloud."
 
@@ -520,7 +520,7 @@
 	last_special = world.time + 200
 
 /mob/living/carbon/human/proc/self_destruct()
-	set category = "Military Frame"
+	set category = "Abilities"
 	set name = "Engage Self-Destruct"
 	set desc = "When all else has failed, bite the bullet."
 
@@ -547,7 +547,7 @@
 	var/target = null
 	var/text = null
 
-	if(!(all_languages[LANGUAGE_VAURCA] in src.languages))
+	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in src.languages))
 		to_chat(src, "<span class='danger'>Your mind is dark, the unity of the hive is torn from you!</span>")
 		return
 
@@ -568,7 +568,7 @@
 		to_chat(src, "<span class='danger'>[M]'s hivenet implant is inactive!</span>")
 		return
 
-	if(!(all_languages[LANGUAGE_VAURCA] in M.languages))
+	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		to_chat(src, "<span class='danger'>[M]'s hivenet implant is inactive!</span>")
 		return
 
@@ -745,7 +745,7 @@
 	var/turf/target = get_step(src, dir)
 
 	for(var/obj/obstacle in get_turf(src))
-		if((obstacle.flags & ON_BORDER) && (src != obstacle))
+		if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (src != obstacle))
 			if(!obstacle.CheckExit(src, target))
 				brokesomething++
 				if (!crash_into(obstacle))
@@ -801,7 +801,7 @@
 	A.ex_act(2)
 
 	sleep(1)
-	if (A && !(A.gcDestroyed) && A.type == oldtype)
+	if (A && !(A.gc_destroyed) && A.type == oldtype)
 		src.visible_message("<span class='danger'>[src.name] plows into \the [aname]!</span>")
 		return 0
 
@@ -1247,7 +1247,7 @@
 		to_chat(src, SPAN_WARNING("You don't know any martial arts!"))
 		return
 
-	var/datum/martial_art/selected_martial_art = input(src, "Select a primary martial art to use when fighting barehanded.", "Martial Art Selection") as null|anything in known_martial_arts
+	var/datum/martial_art/selected_martial_art = tgui_input_list(src, "Select a primary martial art to use when fighting barehanded.", "Martial Art Selection", known_martial_arts)
 	if(!selected_martial_art)
 		return
 
@@ -1316,12 +1316,12 @@
 /mob/living/carbon/human/proc/start_listening()
 	if (!is_listening())
 		visible_message("<b>[src]</b> begins to listen intently.")
-		intent_listener |= src
+		GLOB.intent_listener |= src
 
 /mob/living/carbon/human/proc/stop_listening()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
-		intent_listener -= src
+		GLOB.intent_listener -= src
 
 /mob/living/carbon/human/proc/open_tail_storage()
 	set name = "Tail Accessories"
@@ -1370,7 +1370,7 @@
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
 
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, admin_msg)
@@ -1381,7 +1381,7 @@
 
 			to_chat(C, ccia_msg)
 
-	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [src]! Gamemode: [SSticker.mode]")
+	SSdiscord.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [src]! Gamemode: [SSticker.mode]")
 
 	var/discord_msg = "[cciaa_present] agents online."
 	if (cciaa_present)
@@ -1390,8 +1390,8 @@
 		else
 			discord_msg += " [cciaa_afk] AFK."
 
-	discord_bot.send_to_cciaa(discord_msg)
-	post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[src]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
+	SSdiscord.send_to_cciaa(discord_msg)
+	SSdiscord.post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[src]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
 
 /mob/living/carbon/human/proc/hiveban() //Removes Hivenet completely from a Vaurca
 	set name = "Hivenet Ban"
@@ -1406,7 +1406,7 @@
 		return
 	if(!host.adminperms)
 		to_chat(src, SPAN_WARNING("You lack the authority to do that!"))
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
@@ -1515,7 +1515,7 @@
 		return
 	if(!host.adminperms)
 		to_chat(src, SPAN_WARNING("You lack the authority to do this!"))
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
@@ -1586,7 +1586,7 @@
 	if(!host.adminperms)
 		to_chat(src, SPAN_WARNING("You lack the authority to do this!"))
 		return
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
@@ -1719,7 +1719,7 @@
 		return
 	if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		decryptchance = 15
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/obj/item/organ/internal/vaurca/neuralsocket/S = player.internal_organs_by_name[BP_NEURAL_SOCKET]
 			if(S.encryption_key)
@@ -1751,7 +1751,7 @@
 		remoteview_target = null
 		reset_view(0)
 		return
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			if(player.stat != CONSCIOUS)
 				continue
@@ -1810,7 +1810,7 @@
 		return
 	if(!host.adminperms)
 		to_chat(src, SPAN_WARNING("You lack the authority to do this!"))
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
@@ -1883,7 +1883,7 @@
 	if(host.shielded_sockets.len >= max)
 		to_chat(src, SPAN_NOTICE("You are already shielding the maximum number of Vaurcae!"))
 		return
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
 	if(!length(available_vaurca))
@@ -1913,7 +1913,7 @@
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!src.can_hivenet())
 		return
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(player.stat == DEAD)
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
@@ -1940,7 +1940,7 @@
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!src.can_hivenet())
 		return
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(player.stat == DEAD)
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
@@ -1985,7 +1985,7 @@
 		remoteview_target = null
 		reset_view(0)
 		return
-	for(var/mob/living/carbon/human/player in (human_mob_list - src))
+	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			if(player.stat != CONSCIOUS)
 				continue
@@ -2031,7 +2031,7 @@
 	if(S.last_action > world.time)
 		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet action!"))
 		return FALSE
-	if(!(all_languages[LANGUAGE_VAURCA] in src.languages) || !istype(S))
+	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in src.languages) || !istype(S))
 		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return FALSE
 	if(S.disrupted)
@@ -2169,3 +2169,15 @@
 	V.transmitting = TRUE
 	say(",9[message]")
 	V.transmitting = FALSE
+
+/mob/living/carbon/human/proc/hivenet_manifest()
+	set name = "Hivenet Manifest"
+	set desc = "Get a list of all vaurca currently on the Hivenet."
+	set category = "Hivenet"
+
+	var/list/all_vaurca = list()
+	for(var/mob/living/carbon/human/vaurca in GLOB.human_mob_list)
+		if(!vaurca.stat && isvaurca(vaurca) && vaurca.internal_organs_by_name[BP_NEURAL_SOCKET])
+			all_vaurca += vaurca
+	var/datum/tgui_module/hivenet_manifest/HM = new /datum/tgui_module/hivenet_manifest(usr, all_vaurca)
+	HM.ui_interact(usr)

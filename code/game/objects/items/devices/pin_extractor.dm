@@ -5,7 +5,7 @@
 	icon_state = "pin_extractor"
 	item_state = "pin_extractor"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	action_button_name = "Toggle extractor"
 	var/on = 0
 	var/activation_sound = 'sound/effects/lighton.ogg'

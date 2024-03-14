@@ -7,7 +7,7 @@
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 200)
-	wires = WIRE_RECEIVE | WIRE_PULSE | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
+	wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
 
 	secured = TRUE
 
@@ -92,7 +92,7 @@
 
 /obj/item/device/assembly/signaler/pulse(var/radio = FALSE)
 	if(connected && wires)
-		connected.Pulse(src)
+		connected.pulse_assembly(src)
 	else if(holder)
 		holder.process_activation(src, 1, 0)
 	else if(machine)
@@ -138,7 +138,7 @@
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
 //Triggers the deadmanswitch if its dropped or moved into ones backpack
-/obj/item/device/assembly/signaler/dropped(var/mob/user)
+/obj/item/device/assembly/signaler/dropped(mob/user)
 	. = ..()
 	if(deadman)
 		if(!user.client)

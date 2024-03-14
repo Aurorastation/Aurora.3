@@ -1,4 +1,4 @@
-// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered. 
+// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."
@@ -17,7 +17,7 @@
 	emp_protection = 100
 	slowdown = -1
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	offline_slowdown = 0
 	offline_vision_restriction = 0
 	max_pressure_protection = LIGHT_RIG_MAX_PRESSURE
@@ -49,7 +49,7 @@
 	icon = 'icons/clothing/rig/light_hacker.dmi'
 	icon_state = "hacker_rig"
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 
 	airtight = 0
 	seal_delay = 5 //not being vaccum-proof has an upside I guess
@@ -74,14 +74,14 @@
 /obj/item/clothing/head/lightrig/hacker
 	name = "HUD"
 	siemens_coefficient = 0.4
-	flags = 0
+	item_flags = 0
 
 /obj/item/clothing/suit/lightrig/hacker
 	siemens_coefficient = 0.4
 
 /obj/item/clothing/shoes/lightrig/hacker
 	siemens_coefficient = 0.4
-	flags = NOSLIP //All the other rigs have magboots anyways, hopefully gives the hacker suit something more going for it.
+	item_flags = ITEM_FLAG_NO_SLIP //All the other rigs have magboots anyways, hopefully gives the hacker suit something more going for it.
 
 /obj/item/clothing/gloves/lightrig/hacker
 	siemens_coefficient = 0
@@ -127,7 +127,7 @@
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
 	boot_type = /obj/item/clothing/shoes/magboots/rig/light/ninja
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	initial_modules = list(
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
@@ -193,7 +193,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 
 	initial_modules = list(
 		/obj/item/rig_module/stealth_field,

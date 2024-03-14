@@ -133,6 +133,13 @@
 	holding_type = /obj/item/gun/launcher/mech/mountedgl/fl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
+/obj/item/mecha_equipment/mounted_system/combat/grenadestinger
+	name = "stinger grenade launcher"
+	desc = "The SGL-6SG grenade launcher is designated to launch primed stinger grenades."
+	icon_state = "mech_gl"
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/st
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+
 /obj/item/mecha_equipment/mounted_system/combat/grenadetear
 	name = "teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
@@ -232,6 +239,11 @@
 /obj/item/gun/launcher/mech/mountedgl/fl
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
 	grenade_type = /obj/item/grenade/flashbang
+	proj_gen_time = 200
+
+/obj/item/gun/launcher/mech/mountedgl/st
+	desc = "The SGL-6SG grenade launcher is designated to launch primed stinger grenades."
+	grenade_type = /obj/item/grenade/stinger
 	proj_gen_time = 200
 
 /obj/item/gun/launcher/mech/mountedgl/tg
@@ -410,7 +422,7 @@
 		if(P.damage <= 0)
 			return AURA_FALSE|AURA_CANCEL
 
-		spark(get_turf(src), 5, global.alldirs)
+		spark(get_turf(src), 5, GLOB.alldirs)
 		playsound(get_turf(src), /singleton/sound_category/spark_sound, 25, TRUE)
 
 /obj/aura/mechshield/hitby(atom/movable/M, var/speed)

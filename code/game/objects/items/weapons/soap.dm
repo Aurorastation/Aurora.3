@@ -15,7 +15,7 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/key_data
 	var/clean_msg
 	var/last_clean
@@ -31,11 +31,11 @@
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 	reagents.add_reagent(/singleton/reagent/spacecleaner, capacity)
 
-/obj/item/soap/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/key))
+/obj/item/soap/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key))
 		if(!key_data)
-			to_chat(user, SPAN_NOTICE("You imprint \the [I] into \the [src]."))
-			var/obj/item/key/K = I
+			to_chat(user, SPAN_NOTICE("You imprint \the [attacking_item] into \the [src]."))
+			var/obj/item/key/K = attacking_item
 			key_data = K.key_data
 			update_icon()
 		return TRUE
@@ -50,7 +50,7 @@
 	if(isliving(AM))
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
-			if(H.shoes?.item_flags & LIGHTSTEP)
+			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 				return
 		var/mob/living/M =	AM
 		M.slip("the [src.name]",3)

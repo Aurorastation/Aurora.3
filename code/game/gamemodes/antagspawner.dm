@@ -1,6 +1,6 @@
 // Helper proc to make sure no more than one active syndieborg exists at a time.
 /proc/can_buy_syndieborg()
-	for (var/mob/living/silicon/robot/R in silicon_mob_list)
+	for (var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
 		if (istype(R, /mob/living/silicon/robot/combat))
 			return 0
 
@@ -28,7 +28,7 @@
 
 	var/mob/M = new mob_type(get_turf(user))
 	M.faction = user.faction
-	spark(M, 4, alldirs)
+	spark(M, 4, GLOB.alldirs)
 	SSghostroles.add_spawn_atom(ghost_role_id, M)
 	equip_antag(M, user)
 	return M
@@ -45,7 +45,7 @@
 	. = ..()
 	var/mob/living/silicon/robot/combat/S = target
 	if(user?.mind.special_role)
-		var/datum/antagonist/user_antag = all_antag_types[lowertext(user.mind.special_role)]
+		var/datum/antagonist/user_antag = GLOB.all_antag_types[lowertext(user.mind.special_role)]
 		if(user_antag)
 			S.assigned_antagonist = user_antag
 	S.say("Initiating boot-up sequence!")
@@ -57,7 +57,7 @@
 	icon_state = "locator"
 	mob_type = /mob/living/carbon/human
 	ghost_role_id = "technoapprentice"
-	var/outfit_type = /datum/outfit/admin/techomancer/apprentice
+	var/outfit_type = /obj/outfit/admin/techomancer/apprentice
 	var/preserve_appearance = FALSE
 
 /obj/item/antag_spawner/technomancer_apprentice/attack_self(var/mob/user)
@@ -97,5 +97,5 @@
 	desc = "A teleportation device, which will bring a powerful synthetic helper to you."
 	mob_type = /mob/living/carbon/human/technomancer_golem
 	ghost_role_id = "technogolem"
-	outfit_type = /datum/outfit/admin/techomancer/golem
+	outfit_type = /obj/outfit/admin/techomancer/golem
 	preserve_appearance = TRUE

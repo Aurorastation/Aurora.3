@@ -6,7 +6,7 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -65,15 +65,17 @@
 		return TRUE
 	return FALSE
 
-/obj/item/clothing/head/helmet/attackby(obj/item/W, mob/user)
+/obj/item/clothing/head/helmet/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(!has_storage || istype(W, /obj/item/clothing/accessory))
+	if(!has_storage || istype(attacking_item, /obj/item/clothing/accessory))
 		return
-	hold.attackby(W, user)
+	hold.attackby(attacking_item, user)
 
 /obj/item/clothing/head/helmet/emp_act(severity)
-	if(has_storage) hold.emp_act(severity)
-	return ..()
+	. =  ..()
+
+	if(has_storage)
+		hold.emp_act(severity)
 
 /obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	if(has_storage) hold.hear_talk(M, msg, verb, speaking)
@@ -96,11 +98,11 @@
 		else
 			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
 
-/obj/item/clothing/head/helmet/space/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((distance <= 1) && camera)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
-		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
+		. += FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>."))
+		. += "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active."
 
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"

@@ -18,7 +18,7 @@
 /obj/item/implant/exile/get_data()
 	var/dat = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> [current_map.company_name] Employee Exile Implant<BR>
+<b>Name:</b> [SSatlas.current_map.company_name] Employee Exile Implant<BR>
 <b>Implant Details:</b> The onboard gateway system has been modified to reject entry by individuals containing this implant<BR>"}
 	return dat
 
@@ -37,7 +37,7 @@
 
 /obj/structure/closet/secure_closet/exile
 	name = "Exile Implants"
-	req_access = list(access_hos)
+	req_access = list(ACCESS_HOS)
 
 /obj/structure/closet/secure_closet/exile/New()
 	..()

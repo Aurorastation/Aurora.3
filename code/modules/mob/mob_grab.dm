@@ -14,7 +14,7 @@
 	name = "grab"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "reinforce"
-	flags = 0
+	atom_flags = 0
 	var/obj/screen/grab/hud = null
 	var/mob/living/affecting = null
 	var/mob/living/carbon/human/assailant = null
@@ -151,7 +151,7 @@
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/A = affecting
 			var/obj/item/clothing/C = A.head
-			if(C && (C.item_flags & THICKMATERIAL))
+			if(C && (C.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				return
 			if(!(A.species.flags & NO_BREATHE))
 				A.losebreath = max(A.losebreath + 3, 5)
@@ -301,7 +301,7 @@
 	else if(state < GRAB_UPGRADING)
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/H = affecting
-			if(H.head && (H.head.item_flags & AIRTIGHT))
+			if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 				assailant.visible_message(SPAN_WARNING("[affecting]'s headgear prevents [assailant] from choking them out!"), SPAN_WARNING("[affecting]'s headgear prevents you from choking them out!"))
 				return
 		hud.icon_state = "kill1"
@@ -411,7 +411,7 @@
 			affecting.buckled_to = null
 			affecting.update_canmove()
 			affecting.anchored = FALSE
-		moved_event.unregister(assailant, src, PROC_REF(move_affecting))
+		GLOB.moved_event.unregister(assailant, src, PROC_REF(move_affecting))
 
 	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 	affecting.layer = initial(affecting.layer)
@@ -447,7 +447,7 @@
 
 	H.visible_message("<b>[H]</b> starts lifting \the [affecting] onto their shoulders...", SPAN_NOTICE("You start lifting \the [affecting] onto your shoulders..."))
 
-	if(!do_after(H, 3 SECONDS, TRUE))
+	if(!do_after(H, 1 SECONDS, affecting))
 		return
 
 	if(affecting.buckled_to)
@@ -468,7 +468,7 @@
 	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
 	adjust_position()
-	moved_event.register(assailant, src, PROC_REF(move_affecting))
+	GLOB.moved_event.register(assailant, src, PROC_REF(move_affecting))
 
 /obj/item/grab/proc/set_wielding()
 	wielded = TRUE

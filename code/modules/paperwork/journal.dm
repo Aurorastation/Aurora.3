@@ -3,10 +3,10 @@
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
 	desc_info = "Alt-click this while it's on your person or next to you to open this journal.\nWhile the journal is open, use it in hand or use a pen on it to access the contents."
-	icon = 'icons/obj/item/journal.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "journal"
 	item_state = "journal"
-	contained_sprite = TRUE
+	color = COLOR_DARK_BROWN
 	update_icon_on_init = TRUE
 	throw_speed = 1
 	throw_range = 5
@@ -26,12 +26,16 @@
 	return ..()
 
 /obj/item/journal/update_icon()
+	cut_overlays()
 	if(!open)
 		icon_state = "[initial(icon_state)]_closed"
+		add_overlay(overlay_image(icon, "closed", flags=RESET_COLOR))
 	else if(LAZYLEN(indices))
-		icon_state = "[initial(icon_state)]_writing"
+		icon_state = initial(icon_state)
+		add_overlay(overlay_image(icon, "writing", flags=RESET_COLOR))
 	else
 		icon_state = initial(icon_state)
+		add_overlay(overlay_image(icon, "blank", flags=RESET_COLOR))
 
 	if(closed_desc)
 		desc = open ? initial(desc) + closed_desc : initial(desc)
@@ -57,14 +61,14 @@
 	var/obj/item/folder/embedded/E = indices[selected_folder]
 	E.attack_self(user)
 
-/obj/item/journal/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, insertables))
+/obj/item/journal/attackby(obj/item/attacking_item, mob/user)
+	if(is_type_in_list(attacking_item, insertables))
 		if(!open)
 			to_chat(user, SPAN_WARNING("You can't put anything into \the [src] while it's closed."))
 			return
 		var/obj/item/folder/embedded/E
 		var/list/options = LAZYLEN(indices) ? indices + "New Index" : list("New Index")
-		var/selected_folder = input(user, "Select an index to insert this into.", "Index Selection") as null|anything in options
+		var/selected_folder = tgui_input_list(user, "Select an index to insert this into.", "Index Selection", options)
 		if(isnull(selected_folder))
 			return
 		if(selected_folder == "New Index")
@@ -73,13 +77,13 @@
 			E = indices[selected_folder]
 		if(!E)
 			return
-		user.drop_from_inventory(I, E)
-		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [E] index in \the [src]."))
+		user.drop_from_inventory(attacking_item, E)
+		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [E] index in \the [src]."))
 		update_icon()
 		return
-	if(I.ispen())
+	if(attacking_item.ispen())
 		if(!open)
-			to_chat(user, SPAN_NOTICE("You open \the [src] with \the [I]."))
+			to_chat(user, SPAN_NOTICE("You open \the [src] with \the [attacking_item]."))
 			open = !open
 			update_icon()
 			return
@@ -95,7 +99,7 @@
 		index_name = "Index ([length(indices) + 1])"
 	E.name = index_name
 	LAZYSET(indices, E.name, E)
-	destroyed_event.register(E, src, PROC_REF(remove_index))
+	GLOB.destroyed_event.register(E, src, PROC_REF(remove_index))
 	return E
 
 /obj/item/journal/proc/remove_index(var/obj/item/folder/embedded/E)

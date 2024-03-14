@@ -1,7 +1,7 @@
 /obj/machinery/computer/shuttle_control/specops
 	name = "special operations shuttle console"
 	shuttle_tag = "Phoenix Shuttle"
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 
 /obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
 	to_chat(user, "<span class='warning'>Access Denied.</span>")
@@ -34,7 +34,7 @@
 		var/obj/machinery/computer/C = user
 
 		if(world.time <= reset_time)
-			C.visible_message("<span class='notice'>[current_map.boss_name] will not allow the Special Operations shuttle to launch yet.</span>")
+			C.visible_message("<span class='notice'>[SSatlas.current_map.boss_name] will not allow the Special Operations shuttle to launch yet.</span>")
 			if (((world.time - reset_time)/10) > 60)
 				C.visible_message("<span class='notice'>[-((world.time - reset_time)/10)/60] minutes remain!</span>")
 			else
@@ -65,12 +65,12 @@
 		if (!location)	//just arrived home
 			for(var/turf/T in get_area_turfs(shuttle_area))
 				var/mob/M = locate(/mob) in T
-				to_chat(M, "<span class='danger'>You have arrived at [current_map.boss_name]. Operation has ended!</span>")
+				to_chat(M, "<span class='danger'>You have arrived at [SSatlas.current_map.boss_name]. Operation has ended!</span>")
 		else	//just left for the station
 			launch_mauraders()
 			for(var/turf/T in get_area_turfs(shuttle_area))
 				var/mob/M = locate(/mob) in T
-				to_chat(M, "<span class='danger'>You have arrived at [current_map.station_name]. Commence operation!</span>")
+				to_chat(M, "<span class='danger'>You have arrived at [SSatlas.current_map.station_name]. Commence operation!</span>")
 
 				var/obj/machinery/light/small/readylight/light = locate() in T
 				if(light) light.set_state(1)
@@ -150,10 +150,10 @@
 		sleep(10)
 
 		var/spawn_marauder[] = new()
-		for(var/obj/effect/landmark/L in landmarks_list)
+		for(var/obj/effect/landmark/L in GLOB.landmarks_list)
 			if(L.name == "Marauder Entry")
 				spawn_marauder.Add(L)
-		for(var/obj/effect/landmark/L in landmarks_list)
+		for(var/obj/effect/landmark/L in GLOB.landmarks_list)
 			if(L.name == "Marauder Exit")
 				var/obj/effect/portal/P = new(L.loc)
 				P.set_invisibility(101)//So it is not seen by anyone.
@@ -215,10 +215,10 @@
 
 /obj/machinery/computer/shuttle_control/multi/legion
 	name = "dropship control console"
-	req_access = list(access_legion)
+	req_access = list(ACCESS_LEGION)
 	shuttle_tag = "Legion Shuttle"
 
 /obj/machinery/computer/shuttle_control/multi/distress
 	name = "shuttle control computer"
-	req_access = list(access_distress)
+	req_access = list(ACCESS_DISTRESS)
 	shuttle_tag = "Distress Shuttle"

@@ -12,7 +12,7 @@
  *		Cash Bag
  *		Book Bag (New thing)
  *		Slime Bag (New thing) ~Chaoko99
-  *
+ *
  *	-Sayu
  */
 
@@ -55,10 +55,10 @@
 		icon_state = "trashbag2"
 	else icon_state = "trashbag3"
 
-/obj/item/storage/bag/trash/attackby(var/obj/item/I, var/mob/user)
-	if (istype (I, /obj/item/device/lightreplacer))
+/obj/item/storage/bag/trash/attackby(obj/item/attacking_item, mob/user)
+	if (istype (attacking_item, /obj/item/device/lightreplacer))
 		var/count = 0
-		var/obj/item/device/lightreplacer/R = I
+		var/obj/item/device/lightreplacer/R = attacking_item
 		var/bagfull = 0
 		if (R.store_broken)
 			for(var/obj/item/light/L in R.contents)
@@ -275,7 +275,7 @@
 	desc = "A bag for carrying lots of money. It's got a big dollar sign printed on the front."
 	icon_state = "moneybag"
 	item_state = "moneybag"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	max_storage_space = 100
 	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)

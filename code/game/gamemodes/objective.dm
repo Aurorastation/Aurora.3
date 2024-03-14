@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-var/global/list/all_objectives = list()
-var/global/list/process_objectives = list()
+GLOBAL_LIST_EMPTY(all_objectives)
+GLOBAL_LIST_EMPTY(process_objectives)
 
 /datum/objective
 	var/datum/mind/owner = null			//Who owns the objective.
@@ -11,19 +11,19 @@ var/global/list/process_objectives = list()
 	var/process = 0						//Does the objective need regular checking?
 
 /datum/objective/New(var/text)
-	all_objectives |= src
+	GLOB.all_objectives |= src
 	if(text)
 		explanation_text = text
 	..()
 
 	if (process)
-		process_objectives |= src
+		GLOB.process_objectives |= src
 
 /datum/objective/Destroy()
-	all_objectives -= src
+	GLOB.all_objectives -= src
 
 	if (process)
-		process_objectives -= src
+		GLOB.process_objectives -= src
 	return ..()
 
 /datum/objective/proc/check_completion()
@@ -140,7 +140,7 @@ var/global/list/process_objectives = list()
 /datum/objective/anti_revolution/demote/find_target()
 	..()
 	if(target && target.current)
-		explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
+		explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [SSatlas.current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
 	else
 		explanation_text = "Free Objective"
 	return target
@@ -148,7 +148,7 @@ var/global/list/process_objectives = list()
 /datum/objective/anti_revolution/demote/find_target_by_role(role, role_type=0)
 	..(role, role_type)
 	if(target && target.current)
-		explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
+		explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [SSatlas.current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
 	else
 		explanation_text = "Free Objective"
 	return target
@@ -241,7 +241,7 @@ var/global/list/process_objectives = list()
 		return 0
 	var/area/shuttle = locate(/area/shuttle/escape)
 	var/list/protected_mobs = list(/mob/living/silicon/ai, /mob/living/silicon/pai)
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player.type in protected_mobs)	continue
 		if (player.mind && (player.mind != owner))
 			if(player.stat != DEAD)			//they're not dead!
@@ -263,7 +263,7 @@ var/global/list/process_objectives = list()
 		return 0
 	var/area/shuttle = locate(/area/shuttle/escape)
 	var/protected_mobs[] = list(/mob/living/silicon/ai, /mob/living/silicon/pai, /mob/living/silicon/robot)
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player.type in protected_mobs)	continue
 		if (player.mind)
 			if (player.stat != 2)
@@ -278,7 +278,7 @@ var/global/list/process_objectives = list()
 	if(!evacuation_controller.round_over())
 		return 0
 
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player == owner.current)
 			continue
 		if(player.mind)
@@ -516,7 +516,7 @@ var/global/list/process_objectives = list()
 					if(istype(M, /mob/living/silicon/ai) && M.stat != 2) //See if any AI's are alive inside that card.
 						return 1
 
-			for(var/mob/living/silicon/ai/ai in silicon_mob_list)
+			for(var/mob/living/silicon/ai/ai in GLOB.silicon_mob_list)
 				var/turf/T = get_turf(ai)
 				if(istype(T))
 					var/area/check_area = get_area(ai)
@@ -594,11 +594,11 @@ var/global/list/process_objectives = list()
 	target_amount = rand (lowbound,highbound)
 	var/n_p = 1 //autowin
 	if (SSticker.current_state == GAME_STATE_SETTING_UP)
-		for(var/mob/abstract/new_player/P in player_list)
+		for(var/mob/abstract/new_player/P in GLOB.player_list)
 			if(P.client && P.ready && P.mind!=owner)
 				n_p ++
 	else if (SSticker.current_state == GAME_STATE_PLAYING)
-		for(var/mob/living/carbon/human/P in player_list)
+		for(var/mob/living/carbon/human/P in GLOB.player_list)
 			var/datum/changeling/changeling = P.mind.antag_datums[MODE_CHANGELING]
 			if(P.client && !changeling && P.mind != owner)
 				n_p ++
@@ -828,7 +828,7 @@ var/global/list/process_objectives = list()
 	for(var/datum/mind/cult_mind in cult.current_antagonists)
 		if (cult_mind.current && cult_mind.current.stat!=2)
 			var/area/A = get_area(cult_mind.current )
-			if ( is_type_in_list(A, centcom_areas))
+			if ( is_type_in_list(A, GLOB.centcom_areas))
 				acolytes_survived++
 	if(acolytes_survived >= target_amount)
 		return 0
@@ -847,7 +847,7 @@ var/global/list/process_objectives = list()
 /datum/objective/cult/sacrifice/find_target()
 	var/list/possible_targets = list()
 	if(!possible_targets.len)
-		for(var/mob/living/carbon/human/player in player_list)
+		for(var/mob/living/carbon/human/player in GLOB.player_list)
 			if(player.mind && !(player.mind in cult))
 				possible_targets += player.mind
 	if(possible_targets.len > 0)

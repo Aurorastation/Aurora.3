@@ -4,11 +4,12 @@
 	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
 	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
 	into the shotgun, then pump the shotgun to chamber a fresh round."
+	accuracy = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
 
-/obj/item/gun/projectile/shotgun/attackby(obj/item/A, mob/user)
+/obj/item/gun/projectile/shotgun/attackby(obj/item/attacking_item, mob/user)
 	if (!can_sawoff || sawing_in_progress)
 		return ..()
 
@@ -17,7 +18,7 @@
 		/obj/item/melee/energy,
 		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))
-	if(is_type_in_typecache(A, barrel_cutting_tools) && w_class != 3)
+	if(is_type_in_typecache(attacking_item, barrel_cutting_tools) && w_class != 3)
 		to_chat(user, "<span class='notice'>You begin to [sawnoff_workmsg] of \the [src].</span>")
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
@@ -26,9 +27,9 @@
 			return
 
 		sawing_in_progress = TRUE
-		if(A.use_tool(src, user, 30, volume = 50))	//SHIT IS STEALTHY EYYYYY
+		if(attacking_item.use_tool(src, user, 30, volume = 50))	//SHIT IS STEALTHY EYYYYY
 			sawing_in_progress = FALSE
-			saw_off(user, A)
+			saw_off(user, attacking_item)
 		else
 			sawing_in_progress = FALSE
 	else
@@ -51,7 +52,7 @@
 	max_shells = 4
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
@@ -112,6 +113,7 @@
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	accuracy = 2
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
@@ -140,7 +142,7 @@
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
 	var/has_wield_state = TRUE
 	slot_flags = SLOT_BACK
@@ -183,6 +185,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	w_class = ITEMSIZE_NORMAL
 	force = 5
@@ -198,6 +201,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -250,3 +254,25 @@
 		toggle_folded(user)
 		return FALSE
 	return ..()
+
+/obj/item/gun/projectile/shotgun/foldable/cameragun
+	name = "camera"
+	desc = "A polaroid camera"
+	icon = 'icons/obj/guns/cameragun.dmi'
+	icon_state = "cameragun"
+	item_state = "cameragun"
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	magazine_type = /obj/item/ammo_magazine/mc9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
+	fire_delay = ROF_PISTOL
+	load_method = MAGAZINE
+	max_shells = 12
+	caliber = "9mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
+
+/obj/item/gun/projectile/shotgun/foldable/cameragun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")

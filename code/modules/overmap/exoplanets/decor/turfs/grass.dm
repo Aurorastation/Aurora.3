@@ -8,8 +8,8 @@
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
-	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(color && istype(E) && E.grass_color)
 			color = E.grass_color
 	if(!resources)

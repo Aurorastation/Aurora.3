@@ -89,6 +89,11 @@
 	desc = "A tricolor coffee cup bearing the flag of Europa."
 	icon_state = "coffeecup_europa"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/portantillia
+	name = "\improper Port Antillia coffee cup"
+	desc = "A tricolor coffee cup bearing the flag of Port Antillia."
+	icon_state = "coffeecup_portantillia"
+
 // Organisations
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	name = "\improper NT coffee cup"
@@ -210,7 +215,8 @@
 	name = "metal coffee cup"
 	desc = "A metal coffee cup. You're not sure which metal."
 	icon_state = "coffeecup_metal"
-	flags = OPENCONTAINER | CONDUCT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass
@@ -253,7 +259,8 @@
 	name = "tall metal coffee cup"
 	desc = "An unreasonably tall coffee cup, for when you really need to wake up in the morning. This one is made of metal."
 	icon_state = "coffeecup_tall_metal"
-	flags = OPENCONTAINER | CONDUCT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/rainbow

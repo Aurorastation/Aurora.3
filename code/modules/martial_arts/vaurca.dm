@@ -48,7 +48,7 @@
 	A.do_attack_animation(D)
 	var/atk_verb = pick("slices", "pinches", "chops", "bites", "claws")
 	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
-					  "<span class='danger'>[A] [atk_verb] you!</span>")
+						"<span class='danger'>[A] [atk_verb] you!</span>")
 	D.apply_damage(rand(5,15), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)
 	playsound(get_turf(D), 'sound/weapons/slash.ogg', 25, 1, -1)
 
@@ -95,6 +95,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	martial_art = /datum/martial_art/vkutet
+	species_restriction = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 
 #undef PIERCING_STRIKE
 #undef SWIFT_BITE

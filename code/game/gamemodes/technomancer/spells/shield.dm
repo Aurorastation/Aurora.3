@@ -53,7 +53,7 @@
 	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 		user.visible_message("<span class='danger'>\The [user]'s [src] blocks [attack_text]!</span>")
-		spark(src, 3, cardinal)
+		spark(src, 3, GLOB.cardinal)
 		playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 		adjust_instability(2)
 		return PROJECTILE_STOPPED

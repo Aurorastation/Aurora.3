@@ -1,20 +1,20 @@
-var/global/list/all_robolimbs = list()
-var/global/list/internal_robolimbs = list()
-var/global/list/chargen_robolimbs = list()
-var/global/list/fabricator_robolimbs = list()
-var/global/datum/robolimb/basic_robolimb
+GLOBAL_LIST_EMPTY(all_robolimbs)
+GLOBAL_LIST_EMPTY(internal_robolimbs)
+GLOBAL_LIST_EMPTY(chargen_robolimbs)
+GLOBAL_LIST_EMPTY(fabricator_robolimbs)
+GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /proc/populate_robolimb_list()
-	basic_robolimb = new()
+	GLOB.basic_robolimb = new()
 	for(var/limb_type in typesof(/datum/robolimb))
 		var/datum/robolimb/R = new limb_type()
-		all_robolimbs[R.company] = R
+		GLOB.all_robolimbs[R.company] = R
 		if(!R.unavailable_at_chargen)
-			chargen_robolimbs[R.company] = R
+			GLOB.chargen_robolimbs[R.company] = R
 		if(R.fabricator_available)
-			fabricator_robolimbs[R.company] = R
+			GLOB.fabricator_robolimbs[R.company] = R
 		if(R.allows_internal)
-			internal_robolimbs[R.company] = R
+			GLOB.internal_robolimbs[R.company] = R
 
 /datum/robolimb
 	var/company = "Unbranded"                            // Shown when selecting the limb.
@@ -102,8 +102,8 @@ var/global/datum/robolimb/basic_robolimb
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
-	desc = "A ludicrously expensive and EMP shielded component, these types of limbs are best suited for highly specialized cyborgs."
-	icon = 'icons/mob/human_races/ipc/r_terminator.dmi'
+	desc = "A ludicrously complex prosthetic created for Purpose Hunter-Killers."
+	icon = 'icons/mob/human_races/ipc/r_hunter_killer.dmi'
 	unavailable_at_chargen = TRUE
 	allows_internal = FALSE
 

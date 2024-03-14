@@ -1,3 +1,6 @@
+/datum/gear/shoes/tajara
+	abstract_type = /datum/gear/shoes/tajara
+
 /datum/gear/shoes/tajara/boots
 	display_name = "tajaran boots selection"
 	description = "A selection of boots fitted for Tajara."
@@ -113,14 +116,14 @@
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajaran_surgeon
 	display_name = "adhomian surgeon garb"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/surgery
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist", "Medical Intern", "Medical Personnel")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
@@ -425,7 +428,7 @@
 	path = /obj/item/voidsuit_modkit/himeo/tajara
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/free_council)
 
 /datum/gear/tajaran_tarot
@@ -658,3 +661,17 @@
 	earrings["adhomian pearls earrings"] = /obj/item/clothing/ears/earring/tajara
 	earrings["adhomian golden earrings"] = /obj/item/clothing/ears/earring/tajara/gold
 	gear_tweaks += new /datum/gear_tweak/path(earrings)
+
+/datum/gear/tajara_camera
+	display_name = "adhomian camera"
+	path = /obj/item/device/camera/adhomai
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/typewriter
+	display_name = "adhomian portable typewriter"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	path = /obj/item/typewriter_case
+	flags = GEAR_HAS_DESC_SELECTION

@@ -21,9 +21,23 @@
 	var/list/possible_explosions = list("Localized Limb", "Destroy Body")
 	var/warning_message = "Tampering detected. Tampering detected."
 
+/obj/item/implant/explosive/New()
+	..()
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
+
 /obj/item/implant/explosive/Initialize()
 	. = ..()
 	setFrequency(frequency)
+
+/obj/item/implant/explosive/Destroy()
+	lose_hearing_sensitivity(ROUNDSTART_TRAIT)
+
+	if(frequency)
+		SSradio.remove_object_all(src)
+	frequency = null
+	radio_connection = null
+
+	. = ..()
 
 /obj/item/implant/explosive/get_data()
 	. = {"
@@ -69,23 +83,23 @@
 	if(href_list["code"])
 		var/adj = text2num(href_list["code"])
 		if(!adj)
-			code = input("Set radio activation code","Radio activation") as num
+			code = tgui_input_number(usr, "Set radio activation code.", "Radio Activation")
 		else
 			code += adj
 		code = clamp(code,1,100)
 		interact(usr)
 	if(href_list["mode"])
-		var/mod = input("Set explosion mode", "Explosion mode") as null|anything in possible_explosions
+		var/mod = tgui_input_list(usr, "Set explosion mode.", "Explosion Mode", possible_explosions)
 		if(mod)
 			elevel = mod
 		interact(usr)
 	if(href_list["msg"])
-		var/msg = input("Set tampering message, or leave blank for no broadcasting.", "Anti-tampering", warning_message) as text|null
+		var/msg = tgui_input_text(usr, "Set tampering message, or leave blank for no broadcasting.", "Anti-Tampering", warning_message)
 		if(msg)
 			warning_message = msg
 		interact(usr)
 	if(href_list["phrase"])
-		var/talk = input("Set activation phrase", "Audio activation", phrase) as text|null
+		var/talk = tgui_input_text(usr, "Set activation phrase", "Audio Activation", phrase)
 		if(talk)
 			phrase = sanitizePhrase(talk)
 		interact(usr)
@@ -113,7 +127,7 @@
 
 /obj/item/implant/explosive/exposed()
 	if(warning_message)
-		global_announcer.autosay(warning_message, "Anti-Tampering System")
+		GLOB.global_announcer.autosay(warning_message, "Anti-Tampering System")
 
 /obj/item/implant/explosive/proc/sanitizePhrase(phrase)
 	var/list/replacechars = list("'" = "", "\"" = "", ">" = "", "<" = "", "(" = "", ")" = "")
@@ -180,7 +194,7 @@
 		M.gib()	//Simple mobs just get got
 	qdel(src)
 
-/proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
+/obj/item/implant/explosive/proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
 	var/datum/explosiondata/data = new
 	data.epicenter = epicenter
 	data.rec_pow = power
@@ -197,6 +211,8 @@
 	return TRUE
 
 /obj/item/implant/explosive/emp_act(severity)
+	. = ..()
+
 	if(malfunction)
 		return
 	malfunction = MALFUNCTION_TEMPORARY
@@ -220,13 +236,6 @@
 
 /obj/item/implant/explosive/isLegal()
 	return FALSE
-
-/obj/item/implant/explosive/New()
-	..()
-	become_hearing_sensitive(ROUNDSTART_TRAIT)
-
-/obj/item/implant/explosive/Destroy()
-	return ..()
 
 /obj/item/implant/explosive/full
 	possible_explosions = list("Localized Limb", "Destroy Body", "Full Explosion")
@@ -280,21 +289,19 @@
 	return TRUE
 
 /obj/item/implant/explosive/deadman/emp_act(severity)
+	. = ..()
+
 	if(malfunction)
 		return
+
 	malfunction = MALFUNCTION_TEMPORARY
 	switch (severity)
-		if(3.0)
-			if(prob(1))
-				small_countdown()
-			else if(prob(5))
-				meltdown()
-		if(2.0)
+		if(EMP_LIGHT)
 			if(prob(5))
 				small_countdown()
 			else if (prob(10))
 				meltdown()
-		if(1.0)
+		if(EMP_HEAVY)
 			if(prob(10))
 				small_countdown()
 			else if (prob(30))

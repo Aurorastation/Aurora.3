@@ -77,7 +77,12 @@
 	var/adminperms = FALSE
 	var/encryption_key
 	var/decryption_key
-	var/list/granted_verbs = list(/mob/living/carbon/human/proc/hivenet_recieve)
+
+	var/list/granted_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_manifest
+	)
+
 	var/list/all_hive_verbs = list(
 		/mob/living/carbon/human/proc/hiveban,
 		/mob/living/carbon/human/proc/hivevoid,
@@ -100,11 +105,11 @@
 	if(last_action > world.time)
 		last_action--
 	if (is_broken())
-		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
+		if (GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	else
-		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
+		if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	if(disrupted)
@@ -116,14 +121,14 @@
 
 /obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	owner = target
-	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
+	if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	add_verb(owner, granted_verbs)
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
-	if(all_languages[LANGUAGE_VAURCA] in target.languages)
+	if(GLOB.all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	remove_verb(owner, all_hive_verbs)
@@ -148,18 +153,19 @@
 		/mob/living/carbon/human/proc/hivenet_encrypt,
 		/mob/living/carbon/human/proc/hivenet_camera,
 		/mob/living/carbon/human/proc/hivenet_lattice,
-		/mob/living/carbon/human/proc/hivenet_decrypt
+		/mob/living/carbon/human/proc/hivenet_decrypt,
+		/mob/living/carbon/human/proc/hivenet_manifest
 	)
 
 /obj/item/organ/internal/vaurca/neuralsocket/admin/process()
 	if(!owner)
 		return
 	if (is_broken())
-		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
+		if (GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
 			to_chat(owner, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	else
-		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
+		if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
 			to_chat(owner, SPAN_NOTICE("Your mind expands, and your thoughts join the unity of the Hivenet."))
 
@@ -323,9 +329,15 @@
 	if(air_contents)
 		QDEL_NULL(air_contents)
 
+	//Clear the reference to the phoron reserve as internals
+	var/mob/living/carbon/location = loc
+	if(istype(location) && location?.internal == src)
+		location?.internal = null
+		location?.internals?.icon_state = "internal0"
+
 	return ..()
 
-/obj/item/organ/internal/vaurca/preserve/examine(mob/user, distance, is_adjacent)
+/obj/item/organ/internal/vaurca/preserve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -343,14 +355,14 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		. += "<span class='notice'>\The [src] feels [descriptive].</span>"
 
-/obj/item/organ/internal/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/organ/internal/vaurca/preserve/attackby(obj/item/attacking_item, mob/user)
 	..()
 	var/obj/icon = src
 
-	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		user.visible_message("<span class='warning'>[user] has used [W] on [icon2html(icon, viewers(get_turf(user)))] [src].</span>")
+	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+		user.visible_message("<span class='warning'>[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src].</span>")
 
 		var/pressure = air_contents.return_pressure()
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
@@ -365,8 +377,8 @@
 		else
 			to_chat(user, "<span class='notice'>Tank is empty!</span>")
 		src.add_fingerprint(user)
-	else if (istype(W,/obj/item/toy/balloon))
-		var/obj/item/toy/balloon/B = W
+	else if (istype(attacking_item, /obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = attacking_item
 		B.blow(src)
 		src.add_fingerprint(user)
 
@@ -407,11 +419,11 @@
 				mask_check = 1
 
 		if(mask_check)
-			if(location.wear_mask && (location.wear_mask.flags & AIRTIGHT))
+			if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 				data["maskConnected"] = 1
 			else if(istype(location, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = location
-				if(H.head && (H.head.flags & AIRTIGHT))
+				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
 
 	// update the ui if it exists, returns null if no ui is passed/found
@@ -455,11 +467,11 @@
 			else
 
 				var/can_open_valve
-				if(location.wear_mask && (location.wear_mask.flags & AIRTIGHT))
+				if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					can_open_valve = 1
 				else if(istype(location,/mob/living/carbon/human))
 					var/mob/living/carbon/human/H = location
-					if(H.head && (H.head.flags & AIRTIGHT))
+					if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 						can_open_valve = 1
 
 				if(can_open_valve)

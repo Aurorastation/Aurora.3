@@ -6,7 +6,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_ELECTRONICS
 	flags = SS_KEEP_TIMING
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 
 	var/list/all_integrated_circuits = list()
 	var/list/printer_recipe_list = list()
@@ -101,7 +101,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 			printer_recipe_list_upgraded += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = TRUE, "category" = category))
 
 
-	..()
+	return SS_INIT_SUCCESS
 
 #undef IC_SPAWN_DEFAULT
 #undef IC_SPAWN_RESEARCH

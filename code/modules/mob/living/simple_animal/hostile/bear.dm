@@ -15,7 +15,6 @@
 	emote_see = list("stares ferociously", "stomps")
 	speak_chance = 10
 	turns_per_move = 10
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	meat_amount = 5
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
@@ -255,7 +254,7 @@
 	spawn(5)
 		teleport()//Bluespace bears teleport away to rest
 
-/mob/living/simple_animal/hostile/bear/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/hostile/bear/attackby(obj/item/attacking_item, mob/user)
 	var/healthbefore = health
 	..()
 	spawn(1)

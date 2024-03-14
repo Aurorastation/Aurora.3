@@ -81,7 +81,7 @@
 
 /mob/living/simple_animal/schlorrgo/fall_impact()
 	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
-	step(src, pick(alldirs), 1)
+	step(src, pick(GLOB.alldirs), 1)
 	return FALSE
 
 /mob/living/simple_animal/schlorrgo/process_food()
@@ -241,13 +241,13 @@
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 1)
 
 /mob/living/simple_animal/schlorrgo/cybernetic/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(10, 15))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(5, 10))
-		if(3)
-			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/schlorrgo/cybernetic/check_wideness_change()
 	return
@@ -304,13 +304,13 @@
 		ranged = TRUE
 
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(10, 15))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(5, 10))
-		if(3)
-			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo/death(gibbed)
 	..(null, "dies!")

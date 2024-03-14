@@ -12,7 +12,7 @@
 
 /datum/gear/eyes/glasses
 	display_name = "glasses selection"
-	description = "A selection of glasses."
+	description = "A selection of prescription glasses."
 	path = /obj/item/clothing/glasses/regular
 
 /datum/gear/eyes/glasses/New()
@@ -23,8 +23,10 @@
 	glasses["glasses, circle"] = /obj/item/clothing/glasses/regular/circle
 	glasses["glasses, jamjar"] = /obj/item/clothing/glasses/regular/jamjar
 	glasses["glasses, monocle"] = /obj/item/clothing/glasses/monocle
-	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety
-	glasses["glasses, safety (prescription)"] = /obj/item/clothing/glasses/safety/prescription
+	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety/prescription
+	glasses["glasses, pince-nez"] = /obj/item/clothing/glasses/regular/pincenez
+	glasses["glasses, panto"] = /obj/item/clothing/glasses/regular/panto
+	glasses["contact lenses"] = /obj/item/clothing/glasses/regular/contacts
 	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/fakesunglasses
@@ -46,7 +48,7 @@
 	display_name = "flash-proof sunglasses selection (Security/Command)"
 	description = "A selection of flash-proof sunglasses."
 	path = /obj/item/clothing/glasses/sunglasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Executive Officer", "Operations Manager", "Investigator", "Bridge Crew")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Executive Officer", "Operations Manager", "Investigator", "Bridge Crew", "Security Personnel")
 
 /datum/gear/eyes/sunglasses/New()
 	..()
@@ -77,7 +79,7 @@
 	display_name = "medical HUD selection"
 	description = "A selection of medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
 
 /datum/gear/eyes/medhuds/New()
 	..()
@@ -87,13 +89,15 @@
 	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
 	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
 	medhud["visor sunglasses, medical"] = /obj/item/clothing/glasses/hud/health/aviator/visor
+	medhud["pincenez, medical"] = /obj/item/clothing/glasses/hud/health/aviator/pincenez
+	medhud["panto, medical"] = /obj/item/clothing/glasses/hud/health/aviator/panto
 	gear_tweaks += new /datum/gear_tweak/path(medhud)
 
 /datum/gear/eyes/sechuds
 	display_name = "security HUD selection"
 	description = "A selection of security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/aviator
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
 
 /datum/gear/eyes/sechuds/New()
 	..()
@@ -105,6 +109,8 @@
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
 	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
 	sechud["visor sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+	sechud["pincenez, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pincenez
+	sechud["panto, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/panto
 	gear_tweaks += new /datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch
@@ -152,7 +158,7 @@
 	display_name = "HUD goggles selection (medical)"
 	description = "A selection of medical goggles. Note that factional ones can only be taken by members of that faction."
 	path = /obj/item/clothing/glasses/safety/goggles/medical
-	allowed_roles = list("First Responder")
+	allowed_roles = list("First Responder", "Medical Personnel")
 
 /datum/gear/eyes/medical_goggles/New()
 	..()
@@ -165,4 +171,4 @@
 /datum/gear/eyes/colorable
 	display_name = "colorable glasses"
 	path = /obj/item/clothing/glasses/colorable
-	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ALPHA_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ALPHA_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION

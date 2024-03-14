@@ -96,8 +96,8 @@
 	filling_color = "#EDE0AF"
 
 // Dough + rolling pin = flat dough
-/obj/item/reagent_containers/food/snacks/dough/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/material/kitchen/rollingpin))
+/obj/item/reagent_containers/food/snacks/dough/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/rollingpin))
 		new /obj/item/reagent_containers/food/snacks/sliceable/flatdough(src)
 		to_chat(user, "You flatten the dough.")
 		qdel(src)
@@ -129,8 +129,8 @@
 	filling_color = "#EDE0AF"
 
 // potato + knife = raw sticks
-/obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/material/kitchen/utensil/knife))
+/obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/knife))
 		new /obj/item/reagent_containers/food/snacks/rawsticks(src)
 		to_chat(user, "You cut the potato.")
 		qdel(src)
@@ -194,6 +194,20 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 5))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/whitechocolate
+	name = "white chocolate bar"
+	desc = "Claimed by some to not really be chocolate. Most don't care."
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
+	icon_state = "whitechocolate"
+	filling_color = "#E3E3C7"
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("white chocolate" = 5))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped
+	icon_state = "whitechocolate_wrapped"
+
 /obj/item/reagent_containers/food/snacks/mashedpotato
 	name = "mashed potato"
 	desc = "Pillowy mounds of mashed potato."
@@ -217,3 +231,14 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/plaincrepe
+	name = "plain crepe"
+	desc = "A very thin type of pancake, typically used to wrap sweet things for desserts or, more controversially, savory things."
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
+	icon_state = "plaincrepe"
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 2))
+	center_of_mass = list("x"=16, "y"=16)
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	filling_color = "#caa178"

@@ -33,8 +33,8 @@
 	// Internal Computer
 	var/obj/item/modular_computer/silicon/computer
 	var/list/silicon_subsystems = list(
-		/mob/living/silicon/proc/computer_interact,
-		/mob/living/silicon/proc/silicon_mimic_accent
+		/mob/living/silicon/verb/computer_interact,
+		/mob/living/silicon/verb/silicon_mimic_accent
 	)
 
 	// Utility
@@ -56,7 +56,7 @@
 	var/can_speak_basic = TRUE
 
 /mob/living/silicon/Initialize()
-	silicon_mob_list |= src
+	GLOB.silicon_mob_list |= src
 	. = ..()
 	add_language(LANGUAGE_TCB, can_speak_basic)
 	init_id()
@@ -67,7 +67,7 @@
 	init_subsystems()
 
 /mob/living/silicon/Destroy()
-	silicon_mob_list -= src
+	GLOB.silicon_mob_list -= src
 	QDEL_NULL(computer)
 	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
@@ -97,24 +97,25 @@
 	return
 
 /mob/living/silicon/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			src.take_organ_damage(0, 20, emp = TRUE)
 			Stun(rand(5, 10))
-		if(2)
+		if(EMP_LIGHT)
 			src.take_organ_damage(0, 10, emp = TRUE)
 			Stun(rand(1, 5))
 	flash_act(affect_silicon = TRUE)
 	to_chat(src, SPAN_DANGER("BZZZT"))
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
-	..()
 
 /mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	return	//immune
 
 /mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, var/def_zone = null, tesla_shock = FALSE, ground_zero)
 	if(istype(source, /obj/machinery/containment_field))
-		spark(loc, 5, alldirs)
+		spark(loc, 5, GLOB.alldirs)
 
 		shock_damage *= 0.75	//take reduced damage
 		take_overall_damage(0, shock_damage)
@@ -184,7 +185,7 @@
 	return universal_speak || (speaking in src.speech_synthesizer_langs) //need speech synthesizer support to vocalize a language
 
 /mob/living/silicon/add_language(var/language, var/can_speak=1)
-	var/datum/language/added_language = all_languages[language]
+	var/datum/language/added_language = GLOB.all_languages[language]
 	if(!added_language)
 		return
 
@@ -194,7 +195,7 @@
 		return TRUE
 
 /mob/living/silicon/remove_language(var/rem_language)
-	var/datum/language/removed_language = all_languages[rem_language]
+	var/datum/language/removed_language = GLOB.all_languages[rem_language]
 	if(!removed_language)
 		return
 
@@ -226,7 +227,7 @@
 	return
 
 /mob/living/silicon/proc/toggle_sensor_mode()
-	var/sensor_type = input(src, "Please select sensor type.", "Sensor Integration") in list("Security", "Medical", "Disable")
+	var/sensor_type = tgui_input_list(src, "Please select sensor type.", "Sensor Integration", list("Security", "Medical", "Disable"))
 	switch(sensor_type)
 		if("Security")
 			sensor_mode = SEC_HUD
@@ -378,4 +379,4 @@
 	return common_radio
 
 /mob/living/silicon/get_speech_bubble_state_modifier()
-	return "synth"
+	return "robot"

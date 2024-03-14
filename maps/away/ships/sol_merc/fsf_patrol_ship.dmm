@@ -628,7 +628,7 @@
 /obj/item/toy/desk/newtoncradle{
 	pixel_x = -10
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "dYf" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -671,7 +671,7 @@
 /obj/effect/floor_decal/carpet/blue{
 	dir = 5
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "efK" = (
 /obj/effect/decal/cleanable/dirt,
@@ -892,7 +892,7 @@
 /obj/effect/floor_decal/carpet/blue{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "fFu" = (
 /obj/structure/table/steel,
@@ -1109,7 +1109,7 @@
 /obj/effect/floor_decal/carpet/blue{
 	dir = 6
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "gYW" = (
 /obj/machinery/ammunition_loader/francisca{
@@ -1256,7 +1256,7 @@
 /obj/effect/floor_decal/carpet/blue{
 	dir = 9
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "hZe" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1796,7 +1796,7 @@
 "lOH" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "lOJ" = (
 /obj/structure/table/wood,
@@ -2108,7 +2108,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "oqN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2673,7 +2673,7 @@
 	pixel_x = 5;
 	pixel_y = -4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "uHi" = (
 /obj/machinery/door/airlock/security{
@@ -2688,7 +2688,7 @@
 /obj/effect/floor_decal/carpet/blue{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "uWQ" = (
 /obj/machinery/washing_machine,
@@ -2824,7 +2824,7 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "vLp" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship)
 "vMq" = (
 /obj/effect/decal/cleanable/dirt,

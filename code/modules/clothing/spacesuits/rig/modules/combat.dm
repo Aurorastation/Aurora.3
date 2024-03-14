@@ -34,7 +34,8 @@
 	charges = list(
 		list("flashbang",   "flashbang",   /obj/item/grenade/flashbang,  3),
 		list("smoke bomb",  "smoke bomb",  /obj/item/grenade/smokebomb,  3),
-		list("EMP grenade", "EMP grenade", /obj/item/grenade/empgrenade, 3)
+		list("EMP grenade", "EMP grenade", /obj/item/grenade/empgrenade, 3),
+		list("stinger", "stinger", /obj/item/grenade/stinger, 3)
 		)
 
 /obj/item/rig_module/grenade_launcher/accepts_item(var/obj/item/input_device, var/mob/living/user)
@@ -268,7 +269,7 @@
 	interface_name = "thermal drill"
 	interface_desc = "A potent drill that can pierce rock walls over long distances."
 
-	gun_type = /obj/item/gun/energy/vaurca/mountedthermaldrill
+	gun_type = /obj/item/gun/energy/vaurca/thermaldrill/mounted
 
 	category = MODULE_UTILITY
 
@@ -407,3 +408,11 @@
 	playsound(H, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(H, 5, 5000)
 	return TRUE
+
+/obj/item/rig_module/mounted/skrell_gun
+	name = "mounted tqi-qop carbine"
+	desc = "A shoulder-mounted cell-powered tqi-qop carbine."
+	icon_state = "pulse"
+	interface_name = "mounted tqi-qop carbine"
+	interface_desc = "A shoulder-mounted cell-powered tqi-qop carbine."
+	gun_type = /obj/item/gun/energy/gun/qukala/mounted

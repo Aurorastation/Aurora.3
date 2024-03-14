@@ -1,5 +1,5 @@
 /area/magshield
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	icon = 'maps/away/away_site/magshield/magshield_sprites.dmi'
 
 /area/magshield/south
@@ -21,7 +21,7 @@
 /area/magshield/engine
 	name = "Orbital Station Engine"
 	icon_state = "engine"
-	
+
 /area/magshield/smes_storage
 	name = "Orbital Station SMES Battery Room"
 	icon_state = "smes_storage"

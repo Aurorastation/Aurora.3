@@ -46,13 +46,21 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "human_helmet"
 	item_state = "human_helmet"
+	build_from_parts = TRUE
+	worn_overlay = "face"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+
+/obj/item/clothing/head/expression/unathi
+	name = "unathi expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
+	icon_state = "unathi_helmet"
+	item_state = "unathi_helmet"
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -104,7 +112,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_TINY
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE
@@ -277,7 +286,7 @@
 	magpulse = 1
 	slowdown = 3
 	action_button_name = null
-	item_flags = THICKMATERIAL|AIRTIGHT|INJECTIONPORT|NOSLIP
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT|ITEM_FLAG_NO_SLIP
 	canremove = FALSE
 
 /obj/item/clothing/shoes/magboots/vaurca/aug/throw_at()
@@ -367,7 +376,7 @@
 /obj/item/clothing/mask/gas/vaurca/tactical
 	name = "tactical garment"
 	desc = "A tactical mandible garment with state of the art air filtration."
-	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | FLEXIBLEMATERIAL | THICKMATERIAL
+	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_FLEXIBLE_MATERIAL | ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
@@ -400,7 +409,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_LARGE
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE
@@ -514,11 +524,11 @@
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
-/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/arrow))
-		load(I, user)
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
+/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/arrow))
+		load(attacking_item, user)
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			var/obj/item/arrow/rod/ROD = new /obj/item/arrow/rod(src)
 			load(ROD, user)

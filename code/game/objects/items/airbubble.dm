@@ -82,16 +82,16 @@
 	slowdown = 0
 
 // Examine to see tank pressure
-/obj/structure/closet/airbubble/examine(mob/user)
+/obj/structure/closet/airbubble/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!isnull(internal_tank))
-		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
+		. += "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>"
 	else
-		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
+		. += "<span class='notice'>\The [src] has no tank attached.</span>"
 	if (cell)
-		to_chat(user, "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%.")
+		. += "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%."
 	else
-		to_chat(user, "<span class='warning'>[src] has no power cell installed.</span>")
+		. += "<span class='warning'>[src] has no power cell installed.</span>"
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
@@ -246,7 +246,8 @@
 		return FALSE
 
 	if ((world.time - last_shake) > 5 SECONDS)
-		playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
+		var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
+		playsound(loc, sound_to_play, 100, 1)
 		shake_animation()
 		last_shake = world.time
 
@@ -275,7 +276,8 @@
 	breakout = FALSE
 	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>") // holy shit this is hilarious
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
-	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
+	var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
+	playsound(loc, sound_to_play, 100, 1)
 	break_open()
 	shake_animation()
 	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
@@ -392,36 +394,36 @@
 		to_chat(usr, "<span class='warning'>[src] has no power cell.</span>")
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
-/obj/structure/closet/airbubble/attackby(obj/W, mob/user as mob)
-	if(istype(W, /obj/item/tank))
+/obj/structure/closet/airbubble/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/tank))
 		if(!isnull(use_internal_tank))
 			user.visible_message(
-			"<span class='warning'>[user] is attaching [W] to [src].</span>",
-			"<span class='notice'>You are attaching [W] to [src].</span>"
+			"<span class='warning'>[user] is attaching [attacking_item] to [src].</span>",
+			"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
 			)
 			if (!do_after(user, 2 SECONDS, src))
 				return
 			user.visible_message(
-			"<span class='warning'>[user] has attached [W] to [src].</span>",
-			"<span class='notice'>You attached [W] to [src].</span>"
+			"<span class='warning'>[user] has attached [attacking_item] to [src].</span>",
+			"<span class='notice'>You attached [attacking_item] to [src].</span>"
 			)
-			internal_tank = W
-			user.drop_from_inventory(W, src)
+			internal_tank = attacking_item
+			user.drop_from_inventory(attacking_item, src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 		else
 			to_chat(user, "<span class='warning'>[src] already has a tank attached.</span>")
 		return TRUE
 	if(opened)
-		if(istype(W, /obj/item/grab))
-			var/obj/item/grab/G = W
+		if(istype(attacking_item, /obj/item/grab))
+			var/obj/item/grab/G = attacking_item
 			MouseDrop_T(G.affecting, user)
 			return FALSE
-		if(!W.dropsafety())
+		if(!attacking_item.dropsafety())
 			return FALSE
 		user.drop_item()
 		return TRUE
-	else if(istype(W, /obj/item/handcuffs/cable))
+	else if(istype(attacking_item, /obj/item/handcuffs/cable))
 		if(zipped)
 			to_chat(user, "<span class='warning'>[src]'s zipper is already restrained.</span>")
 			return TRUE
@@ -439,10 +441,10 @@
 		"<span class='notice'>You put restrains on [src]'s zipper.</span>"
 		)
 
-		qdel(W)
+		qdel(attacking_item)
 		update_icon()
 		return TRUE
-	else if(W.iswirecutter())
+	else if(attacking_item.iswirecutter())
 		if(!zipped)
 			to_chat(user, "<span class='warning'>[src] has no cables to cut.</span>")
 			attack_hand(user)
@@ -463,24 +465,24 @@
 		new/obj/item/handcuffs/cable(src.loc)
 		update_icon()
 		return TRUE
-	else if(istype(W, /obj/item/cell))
+	else if(istype(attacking_item, /obj/item/cell))
 		if(!isnull(cell))
 			to_chat(user, "<span class='warning'>[src] already has [cell] attached to it.</span>")
 			attack_hand(user)
 			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] is attaching [W] to [src].</span>",
-		"<span class='notice'>You are attaching [W] to [src].</span>"
+		"<span class='warning'>[user] is attaching [attacking_item] to [src].</span>",
+		"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
 		)
 		if (!do_after(user, 2 SECONDS, src))
 			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] has attached [W] to [src].</span>",
-		"<span class='notice'>You attached [W] to [src].</span>"
+		"<span class='warning'>[user] has attached [attacking_item] to [src].</span>",
+		"<span class='notice'>You attached [attacking_item] to [src].</span>"
 		)
-		cell = W
+		cell = attacking_item
 		cooling = TRUE
-		user.drop_from_inventory(W, src)
+		user.drop_from_inventory(attacking_item, src)
 		return TRUE
 	else
 		return attack_hand(user)
@@ -513,11 +515,11 @@
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
 				visible_message("<span class='warning'>You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?</span>")
-				playsound(loc, "sound/effects/wind/wind_2_1.ogg", 100, 1)
+				playsound(loc, 'sound/effects/wind/wind_2_1.ogg', 100, 1)
 				return
 			inside_air = get_turf_air()
 			visible_message("<span class='warning'>You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?</span>")
-			playsound(loc, "sound/effects/wind/wind_2_2.ogg", 100, 1)
+			playsound(loc, 'sound/effects/wind/wind_2_2.ogg', 100, 1)
 
 			var/transfer_moles = inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)
 			var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)

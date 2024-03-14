@@ -229,4 +229,3 @@
 	icon_state = "captain"
 	item_state = "captain"
 	contained_sprite = TRUE
-	contained_sprite = TRUE

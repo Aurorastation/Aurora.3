@@ -28,7 +28,8 @@
 	if(camera)
 		camera.status = (head?.camera && head.camera.is_functional())
 
-	body.update_air(hatch_closed && use_air)
+	if(body)
+		body.update_air(hatch_closed && use_air)
 
 	var/powered = FALSE
 	if(get_cell())
@@ -111,13 +112,13 @@
 	var/obj/wreck = new wreckage_path(get_turf(src), src, gibbed)
 	wreck.name = "wreckage of \the [name]"
 	if(!gibbed)
-		if(arms.loc != src)
+		if(arms && (arms.loc != src))
 			arms = null
-		if(legs.loc != src)
+		if(legs && (legs.loc != src))
 			legs = null
-		if(head.loc != src)
+		if(head && (head.loc != src))
 			head = null
-		if(body.loc != src)
+		if(body && (body.loc != src))
 			body = null
 
 	explosion(get_turf(loc), 0, 0, 1, 3)
@@ -156,7 +157,7 @@
 			stuff_to_throw += thing
 	for(var/obj/item/thing in stuff_to_throw)
 		thing.forceMove(T)
-		thing.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(3,6),40)
+		thing.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(3,6),40)
 	explosion(T, -1, 0, 2)
 	qdel(src)
 	return

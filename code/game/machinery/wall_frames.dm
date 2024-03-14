@@ -3,14 +3,14 @@
 	desc = "Used for building machines."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire_bitem"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/build_machine_type
 	var/refund_amt = 2
 	var/refund_type = /obj/item/stack/material/steel
 	var/reverse = 0 //if resulting object faces opposite its dir (like light fixtures)
 
-/obj/item/frame/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.iswrench())
+/obj/item/frame/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswrench())
 		new refund_type( get_turf(src.loc), refund_amt)
 		qdel(src)
 		return TRUE
@@ -29,7 +29,7 @@
 	else
 		ndir = get_dir(on_wall,usr)
 
-	if (!(ndir in cardinal))
+	if (!(ndir in GLOB.cardinal))
 		return
 
 	var/turf/loc = get_turf(usr)

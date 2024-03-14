@@ -7,6 +7,8 @@
 	ship_cost = 2
 	id = "grand_romanovich"
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/grand_romanovich
 	map = "Grand Romanovich Casino"
 	descriptor = "An adhomian style casino in Tau Ceti's space."
@@ -20,7 +22,7 @@
 	use_common = TRUE
 
 /area/grand_romanovich
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	name = "Grand Romanovich Casino"
 	icon_state = "away"
 	requires_power = FALSE
@@ -76,11 +78,11 @@
 	density = 1
 	anchored = 1
 
-/obj/structure/casino/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
-	if (!W) return
+/obj/structure/casino/attackby(obj/item/attacking_item, mob/user)
+	if (!attacking_item) return
 
-	if(user.unEquip(W, 0, src.loc))
-		user.make_item_drop_sound(W)
+	if(user.unEquip(attacking_item, 0, src.loc))
+		user.make_item_drop_sound(attacking_item)
 		return 1
 
 /obj/item/coin/casino

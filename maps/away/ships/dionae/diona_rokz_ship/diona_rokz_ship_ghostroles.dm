@@ -9,7 +9,7 @@
 	spawnpoints = list("rokz_voidtamer")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/rokz_voidtamer
+	outfit = /obj/outfit/admin/rokz_voidtamer
 
 	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -20,7 +20,7 @@
 	special_role = "Rokz Clan Voidtamer"
 	respawn_flag = null
 
-/datum/outfit/admin/rokz_voidtamer
+/obj/outfit/admin/rokz_voidtamer
 	name = "Rokz Clan Voidtamer"
 	uniform = /obj/item/clothing/under/unathi
 	suit = /obj/item/clothing/suit/diona/rokz
@@ -30,9 +30,10 @@
 	l_pocket = /obj/item/device/radio
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
-/datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/rokz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#6D3175"
+		H.w_uniform.accent_color = H.w_uniform.color
 
 /datum/ghostspawner/human/rokz_voidtamer/captain
 	short_name = "rokz_voidtamer_captain"
@@ -42,7 +43,7 @@
 	spawnpoints = list("rokz_voidtamer_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/rokz_voidtamer/captain
+	outfit = /obj/outfit/admin/rokz_voidtamer/captain
 
 	uses_species_whitelist = TRUE
 
@@ -50,7 +51,7 @@
 	special_role = "Rokz Clan Voidtamer Captain"
 
 
-/datum/outfit/admin/rokz_voidtamer/captain
+/obj/outfit/admin/rokz_voidtamer/captain
 	name = "Rokz Clan Voidtamer Captain"
 
 	uniform = /obj/item/clothing/under/unathi

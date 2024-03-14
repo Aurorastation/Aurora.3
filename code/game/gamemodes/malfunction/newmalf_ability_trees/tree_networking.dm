@@ -105,13 +105,13 @@
 	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
 	switch(reporttype)
 		if("Template")
-			if(!config.sql_enabled)
+			if(!GLOB.config.sql_enabled)
 				to_chat(src, "<span class='notice'>DB Connection Disabled.</span>")
 				return
-			if (!establish_db_connection(dbcon))
+			if (!establish_db_connection(GLOB.dbcon))
 				to_chat(src, "<span class='notice'>Unable to connect to the database.</span>")
 				return
-			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
 			query.Execute()
 
 			var/list/template_names = list()
@@ -181,7 +181,7 @@
 			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			to_world("<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>")
+			to_world("<span class='alert'>New [SSatlas.current_map.company_name] Update available at all communication consoles.</span>")
 			sound_to(world, ('sound/AI/commandreport.ogg'))
 			post_comm_message(reporttitle, reportbody)
 
@@ -249,7 +249,7 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Notice: Trace Update. Abnormal network activity originating from: Network terminal aboard [current_map.station_name]. External network connections disabled. Trace cancelled.", "Network Monitoring")
+			command_announcement.Announce("Notice: Trace Update. Abnormal network activity originating from: Network terminal aboard [SSatlas.current_map.station_name]. External network connections disabled. Trace cancelled.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return

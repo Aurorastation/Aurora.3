@@ -12,16 +12,16 @@
 	economic_modifier = 1
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
-	outfit = /datum/outfit/job/assistant
+	outfit = /obj/outfit/job/assistant
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/job/assistant/get_access(selected_title)
-	if(config.assistant_maint && selected_title == "Assistant")
-		return list(access_maint_tunnels)
+	if(GLOB.config.assistant_maint && selected_title == "Assistant")
+		return list(ACCESS_MAINT_TUNNELS)
 	else
 		return list()
 
-/datum/outfit/job/assistant
+/obj/outfit/job/assistant
 	name = "Assistant"
 	jobtype = /datum/job/assistant
 
@@ -41,17 +41,17 @@
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
-	outfit = /datum/outfit/job/visitor
+	outfit = /obj/outfit/job/visitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/visitor
+/obj/outfit/job/visitor
 	name = "Off-Duty Crew Member"
 	jobtype = /datum/job/visitor
 
 	uniform = /obj/item/clothing/under/color/black
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-/datum/outfit/job/visitor/passenger
+/obj/outfit/job/visitor/passenger
 	name = "Passenger"
 	jobtype = /datum/job/passenger
 
@@ -68,6 +68,6 @@
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
-	outfit = /datum/outfit/job/visitor/passenger
+	outfit = /obj/outfit/job/visitor/passenger
 	blacklisted_species = null
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

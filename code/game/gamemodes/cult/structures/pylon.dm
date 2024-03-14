@@ -62,18 +62,18 @@
 	lang = new /datum/language/cultcommon()
 	update_icon()
 
-/obj/structure/cult/pylon/examine(var/mob/user)
+/obj/structure/cult/pylon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)
-				to_chat(user, SPAN_WARNING("It has very faint hairline fractures."))
+				. += SPAN_WARNING("It has very faint hairline fractures.")
 			if(8 to 20)
-				to_chat(user, SPAN_WARNING("It has several cracks across its surface."))
+				. += SPAN_WARNING("It has several cracks across its surface.")
 			if(20 to 30)
-				to_chat(user, SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure."))
+				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
 			if(30 to INFINITY)
-				to_chat(user, SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."))
+				. += SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 
 /obj/structure/cult/pylon/Move()
@@ -88,12 +88,12 @@
 //If the pylon goes a long time without shooting anything, it will consider slowing down processing
 /obj/structure/cult/pylon/proc/reconsider_interval()
 	var/mindist = INFINITY
-	for(var/mob/living/L in player_list)
+	for(var/mob/living/L in GLOB.player_list)
 		if(L.z != z)
 			continue
 		if(L.stat == DEAD)
 			continue
-		if(iscult(L))
+		if(iscultist(L))
 			continue
 		if(L == sacrificer)
 			continue
@@ -151,7 +151,7 @@
 //If user is a cultist, speaks message to them with a prefix
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
-	if(iscult(user) || (all_languages[LANGUAGE_CULT] in user.languages))
+	if(iscultist(user) || (GLOB.all_languages[LANGUAGE_CULT] in user.languages))
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
@@ -267,7 +267,7 @@
 			return
 		else
 			stuffcache = mobs_in_view(9, src)
-			if((target in stuffcache) && isInSight(src, target))
+			if((target in stuffcache) && is_in_sight(src, target))
 				fire_at(target)
 				return
 			else
@@ -284,16 +284,16 @@
 			continue		 //This is mainly for xenoarch antags
 		if(L.stat == DEAD)  //No point shooting at corpses
 			continue
-		if(iscult(L))		 //Pylon wont shoot at cultists or constructs
+		if(iscultist(L))		 //Pylon wont shoot at cultists or constructs
 			continue
-		if(!isInSight(src, L))
+		if(!is_in_sight(src, L))
 			continue
 		if(ismech(L))
 			var/mob/living/heavy_vehicle/mech = L
 			if(!LAZYLEN(mech.pilots))
 				continue
 			for(var/mob/M in mech.pilots)
-				if(M == sacrificer || iscult(M))
+				if(M == sacrificer || iscultist(M))
 					continue
 		target = L
 		break
@@ -346,19 +346,19 @@
 			return
 	attackpylon(user, damage, user)
 
-/obj/structure/cult/pylon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/holder))
-		var/obj/item/holder/H = W
+/obj/structure/cult/pylon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/holder))
+		var/obj/item/holder/H = attacking_item
 		if(H.contained)
 			present_sacrifice(user, H.contained)
 		return TRUE
 
-	attackpylon(user, W.force, W)
+	attackpylon(user, attacking_item.force, attacking_item)
 
 //Mousedrop so that constructs can drag rats out of maintenance to make turrets
-/obj/structure/cult/pylon/MouseDrop_T(var/atom/movable/C, mob/user)
-	if(istype(C, /mob/living))
-		present_sacrifice(user, C)
+/obj/structure/cult/pylon/MouseDrop_T(atom/dropping, mob/user)
+	if(istype(dropping, /mob/living))
+		present_sacrifice(user, dropping)
 		return
 	return ..()
 

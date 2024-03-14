@@ -21,12 +21,12 @@
 
 	selection_color = "#c9ad12"
 
-	access = list(access_merchant)
-	minimal_access = list(access_merchant)
+	access = list(ACCESS_MERCHANT)
+	minimal_access = list(ACCESS_MERCHANT)
 
 	latejoin_at_spawnpoints = TRUE
 
-	outfit = /datum/outfit/job/merchant
+	outfit = /obj/outfit/job/merchant
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/merchant/announce(mob/living/carbon/human/H)
@@ -34,11 +34,11 @@
 
 /datum/job/merchant/New()
 	..()
-	if(prob(config.merchant_chance))
+	if(prob(GLOB.config.merchant_chance))
 		spawn_positions = 1
 		total_positions = 1
 
-/datum/outfit/job/merchant
+/obj/outfit/job/merchant
 	name = "Merchant"
 	jobtype = /datum/job/merchant
 
@@ -51,7 +51,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	r_pocket = /obj/item/device/price_scanner
 
-/datum/outfit/merchant_assistant
+/obj/outfit/merchant_assistant
 	name = "Merchant's Assistant"
 	id = /obj/item/card/id/merchant
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/merchant
@@ -90,8 +90,8 @@
 		/obj/item/storage/wallet/random = 1
 		)
 
-/datum/outfit/merchant_assistant/get_id_rank(mob/living/carbon/human/H)
+/obj/outfit/merchant_assistant/get_id_rank(mob/living/carbon/human/H)
 	return "Merchant's Assistant"
 
-/datum/outfit/merchant_assistant/get_id_access()
-	return list(access_merchant)
+/obj/outfit/merchant_assistant/get_id_access()
+	return list(ACCESS_MERCHANT)

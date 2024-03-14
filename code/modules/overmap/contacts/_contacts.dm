@@ -109,5 +109,5 @@
 	marker = null
 	radar = null
 
-	QDEL_NULL_LIST(images)
+	QDEL_LIST(images)
 	. = ..()

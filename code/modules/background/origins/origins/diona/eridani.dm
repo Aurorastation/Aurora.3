@@ -12,7 +12,7 @@
 	important_information = "These Dionae tend to be significantly influenced by Eridanian Dregs, generally taking on some of their mannerisms and vocabulary."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/sunlight_grown
 	name = "Sunlight Grown"
@@ -20,4 +20,4 @@
 	important_information = "These Dionae tend to be significantly influenced by Eridanian Suits, generally taking on some of their mannerisms and vocabulary."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)

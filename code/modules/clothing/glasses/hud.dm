@@ -1,7 +1,7 @@
 /obj/item/clothing/glasses/hud
 	name = "HUD"
 	desc = "A heads-up display that provides important info in (almost) real time."
-	flags = 0 //doesn't protect eyes because it's a monocle, duh
+	item_flags = 0 //doesn't protect eyes because it's a monocle, duh
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 2)
 	var/list/icon/current = list() //the current hud icons
 
@@ -64,6 +64,7 @@
 	to_chat(user, SPAN_NOTICE("You detach a set of medical HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	var/obj/item/clothing/glasses/regular/R = new glasses_type(user.loc)
+	R.color = src.color
 	user.put_in_hands(R)
 	var/obj/item/clothing/glasses/hud/health/H = new /obj/item/clothing/glasses/hud/health(user.loc)
 	user.put_in_hands(H)
@@ -119,6 +120,7 @@
 	to_chat(user, SPAN_NOTICE("You detach a set of security HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	var/obj/item/clothing/glasses/regular/R = new glasses_type(user.loc)
+	R.color = src.color
 	user.put_in_hands(R)
 	var/obj/item/clothing/glasses/hud/security/S = new /obj/item/clothing/glasses/hud/security(user.loc)
 	user.put_in_hands(S)

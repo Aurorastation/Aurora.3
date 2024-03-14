@@ -22,7 +22,7 @@
 	var/ticket = ""
 	var/destinationact = "Service"
 	var/ticket_number = 1
-	req_one_access = list(access_bar, access_kitchen) // Access to change the menu
+	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN) // Access to change the menu
 
 /obj/machinery/orderterminal/Initialize()
 	. = ..()
@@ -79,11 +79,11 @@
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Idris Ordering Terminal.</i>"
 
-/obj/machinery/orderterminal/attackby(obj/O, mob/user)
-	var/obj/item/card/id/I = O.GetID()
+/obj/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/card/id/I = attacking_item.GetID()
 	if (!I)
 		return
-	if (!istype(O))
+	if (!istype(attacking_item))
 		return
 
 	else if (confirmorder)

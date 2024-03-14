@@ -5,7 +5,7 @@
 	dynamic_lighting = 1
 	no_light_control = 0
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/hephmining_ship/cyclops/cyclops_bridge
 	name = "Cyclops Bridge"
@@ -49,3 +49,4 @@
 /area/shuttle/cyclops_shuttle
 	name = "Wisp Shuttle"
 	icon_state = "shuttle2"
+	requires_power = TRUE

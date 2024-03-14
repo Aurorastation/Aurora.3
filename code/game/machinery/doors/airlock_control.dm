@@ -263,9 +263,9 @@
 	else
 		icon_state = "access_button_off"
 
-/obj/machinery/access_button/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/access_button/attackby(obj/item/attacking_item, mob/user)
 	//Swiping ID on the access button
-	if (I.GetID())
+	if (attacking_item.GetID())
 		attack_hand(user)
 		return TRUE
 	return ..()

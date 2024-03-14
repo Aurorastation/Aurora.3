@@ -4,8 +4,8 @@
 	program_icon_state = "id"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
-	required_access_run = access_change_ids
-	required_access_download = access_change_ids
+	required_access_run = ACCESS_CHANGE_IDS
+	required_access_download = ACCESS_CHANGE_IDS
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = FALSE
 	size = 8

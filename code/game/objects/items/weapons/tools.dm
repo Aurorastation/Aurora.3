@@ -25,7 +25,7 @@
 		)
 	icon_state = "wrench"
 	item_state = "wrench"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -34,6 +34,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	usesound = 'sound/items/wrench.ogg'
+	surgerysound = 'sound/items/surgery/bonesetter.ogg'
 	drop_sound = 'sound/items/drop/wrench.ogg'
 	pickup_sound = 'sound/items/pickup/wrench.ogg'
 
@@ -53,7 +54,7 @@
 		)
 	icon_state = "screwdriver"
 	item_state = "screwdriver"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	force = 8
 	throwforce = 5
@@ -63,6 +64,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
 	usesound = 'sound/items/Screwdriver.ogg'
+	surgerysound = 'sound/items/Screwdriver.ogg'
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
@@ -126,7 +128,7 @@
 		)
 	icon_state = "wirecutters"
 	item_state = "wirecutters"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 6
 	throw_speed = 2
@@ -138,6 +140,7 @@
 	sharp = TRUE
 	edge = TRUE
 	usesound = 'sound/items/Wirecutter.ogg'
+	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
@@ -215,11 +218,12 @@
 	item_state = "welder"
 	var/welding_state = "welding_sparks"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	usesound = 'sound/items/Welder.ogg'
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
@@ -335,13 +339,13 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+/obj/item/weldingtool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
-		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
+		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
 
-/obj/item/weldingtool/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/weldingtool/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(isrobot(loc))
 			to_chat(user, SPAN_ALERT("You cannot modify your own welder!"))
 			return TRUE
@@ -356,8 +360,8 @@
 		add_fingerprint(user)
 		return TRUE
 
-	if(!status && (istype(W, /obj/item/stack/rods)))
-		var/obj/item/stack/rods/R = W
+	if(!status && (istype(attacking_item, /obj/item/stack/rods)))
+		var/obj/item/stack/rods/R = attacking_item
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
@@ -396,7 +400,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_TERMINATOR))
+		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_PURPOSE_HK))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
@@ -572,28 +576,28 @@
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
 
-/obj/item/weldingtool/experimental/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/eyeshield))
+/obj/item/weldingtool/experimental/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/eyeshield))
 		if(eyeshield)
 			to_chat(user, SPAN_WARNING("\The [src] already has an eye shield installed!"))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
-		eyeshield = I
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
+		eyeshield = attacking_item
 		produces_flash = FALSE
 		add_overlay("eyeshield_attached", TRUE)
 		return TRUE
-	if(istype(I, /obj/item/overcapacitor))
+	if(istype(attacking_item, /obj/item/overcapacitor))
 		if(overcap)
 			to_chat(user, SPAN_WARNING("\The [src] already has an overcapacitor installed!"))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
-		overcap = I
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
+		overcap = attacking_item
 		add_overlay("overcap_attached", TRUE)
 		toolspeed *= 2
 		return TRUE
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(!eyeshield && !overcap)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
 			return TRUE
@@ -684,7 +688,7 @@
 		)
 	icon_state = "crowbar"
 	item_state = "crowbar"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -692,6 +696,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound
+	surgerysound = 'sound/items/surgery/retractor.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
@@ -712,7 +717,7 @@
 	w_class = ITEMSIZE_NORMAL
 	force = 12
 	throwforce = 12
-	flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
+	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_ENGINEERING = 2)
@@ -732,6 +737,9 @@
 
 	return TRUE
 
+/obj/item/crowbar/rescue_axe/can_woodcut()
+	return TRUE
+
 /obj/item/crowbar/rescue_axe/red
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
@@ -747,7 +755,7 @@
 		)
 	icon_state = "pipewrench"
 	item_state = "pipewrench"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -790,10 +798,10 @@
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
-/obj/item/combitool/examine(var/mob/user)
+/obj/item/combitool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
+		. += "It has the following fittings: <b>[english_list(tools)]</b>."
 
 /obj/item/combitool/iswrench()
 	return current_tool == "wrench"
@@ -830,7 +838,7 @@
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
-	flags = HELDMAPTEXT
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
@@ -849,12 +857,12 @@
 /obj/item/powerdrill/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "S")
 
-/obj/item/powerdrill/examine(var/mob/user)
+/obj/item/powerdrill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings:")
+		. += "It has the following fittings:"
 		for(var/tool in tools)
-			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+			. += "- [tool][tools[current_tool] == tool ? " (selected)" : ""]"
 
 /obj/item/powerdrill/MouseEntered(location, control, params)
 	. = ..()
@@ -903,7 +911,7 @@
 	desc = "Harvested from the finest NanoTrasen steel sheep."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "steel_wool"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/lit
 	matter = list(MATERIAL_STEEL = 40)
@@ -911,14 +919,14 @@
 /obj/item/steelwool/isFlameSource()
 	return lit
 
-/obj/item/steelwool/attackby(obj/item/W, mob/user)
-	if(W.isFlameSource())
-		ignite(W, user)
+/obj/item/steelwool/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isFlameSource())
+		ignite(attacking_item, user)
 		return TRUE
-	else if(istype(W, /obj/item/cell))
-		var/obj/item/cell/S = W
+	else if(istype(attacking_item, /obj/item/cell))
+		var/obj/item/cell/S = attacking_item
 		if(S.charge)
-			ignite(W, user)
+			ignite(attacking_item, user)
 		else
 			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
 		return TRUE
@@ -967,7 +975,7 @@
 		)
 	icon_state = "hammer"
 	item_state = "hammer"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 5

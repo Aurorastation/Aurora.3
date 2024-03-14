@@ -23,7 +23,7 @@
 		to_chat(usr, SPAN_WARNING("Your module is not installed in a hardsuit."))
 		return
 
-	module.holder.ui_interact(usr, nano_state = contained_state)
+	module.holder.ui_interact(usr, nano_state = GLOB.contained_state)
 
 /mob
 	var/get_rig_stats = 0

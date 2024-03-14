@@ -6,7 +6,7 @@
 	sharp = 0
 	edge = FALSE
 	armor_penetration = 20
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	can_embed = 0//No embedding pls
 	var/base_reflectchance = 40
 	var/base_block_chance = 25
@@ -39,7 +39,7 @@
 	edge = initial(edge)
 	w_class = initial(w_class)
 
-/obj/item/melee/energy/dropped(var/mob/user)
+/obj/item/melee/energy/dropped(mob/user)
 	..()
 	if(!istype(loc,/mob))
 		deactivate(user)
@@ -141,7 +141,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
@@ -189,7 +190,8 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_NORMAL
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = 1
@@ -236,12 +238,15 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_SMALL
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
 	edge = TRUE
-	var/blade_color
 	shield_power = 75
+	can_block_bullets = TRUE
+	base_reflectchance = 30
+	base_block_chance = 30
+	var/blade_color
 
 /obj/item/melee/energy/sword/New()
 	blade_color = pick("red","blue","green","purple")
@@ -272,13 +277,41 @@
 	attack_verb = list()
 	icon_state = initial(icon_state)
 
+/obj/item/melee/energy/sword/perform_technique(mob/living/carbon/human/target, mob/living/carbon/human/user, target_zone)
+	. = ..()
+	var/armor_reduction = target.get_blocked_ratio(target_zone, DAMAGE_BRUTE, DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP, damage = force)*100
+	var/obj/item/organ/external/affecting = target.get_organ(target_zone)
+	if(!affecting)
+		return
+	user.do_attack_animation(target)
+
+	if(target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == BP_MOUTH)
+		if(prob(70 - armor_reduction))
+			target.eye_blurry += 5
+			target.confused += 10
+			return TRUE
+
+	if(target_zone == BP_R_ARM || target_zone == BP_L_ARM || target_zone == BP_R_HAND || target_zone == BP_L_HAND)
+		if(prob(80 - armor_reduction))
+			if(target_zone == BP_R_ARM || target_zone == BP_R_HAND)
+				target.drop_r_hand()
+			else
+				target.drop_l_hand()
+			return TRUE
+
+	if(target_zone == BP_R_FOOT || target_zone == BP_R_FOOT || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
+		if(prob(60 - armor_reduction))
+			target.Weaken(5)
+			return TRUE
+
+	return FALSE
+
 /obj/item/melee/energy/sword/pirate
 	name = "energy cutlass"
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
 
 	slot_flags = SLOT_BELT
-
 	base_reflectchance = 60
 	base_block_chance = 60
 
@@ -402,7 +435,7 @@
 	throw_speed = 1
 	throw_range = 1
 	w_class = ITEMSIZE_LARGE//So you can't hide it in your pocket or some such.
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
 	base_reflectchance = 140

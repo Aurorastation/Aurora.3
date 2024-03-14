@@ -142,6 +142,7 @@
 /singleton/recipe/poppypretzel
 	appliance = OVEN
 	fruit = list("poppy" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/poppypretzel
 	result_quantity = 2
@@ -169,6 +170,24 @@
 		/obj/item/reagent_containers/food/snacks/sliceable/bread
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffing
+
+/singleton/recipe/angry_bread
+	appliance = OVEN
+	fruit = list("carrot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/flatbread,
+		/obj/item/reagent_containers/food/snacks/xenomeat,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/angry_bread
+
+/singleton/recipe/angry_bread/make_food(obj/container) // removing some reagents instead of using RECIPE_REAGENT_REPLACE so anything that's in the original meat you use is still in the final dish (namely whether or not the meat you use has polytrinic acid).
+	. = ..()
+	var/list/results = .
+	for(var/thing in results)
+		var/obj/item/xmg = thing
+		xmg.reagents.del_reagent(/singleton/reagent/drink/carrotjuice)
+		xmg.reagents.del_reagent(/singleton/reagent/nutriment/protein/cheese)
 
 //================================
 // Toasts and Toasted Sandwiches
@@ -214,6 +233,14 @@
 		/obj/item/reagent_containers/food/snacks/toast
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbtoast
+
+/singleton/recipe/ntella_bread
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/choconutspread = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/ntella_bread
 
 /singleton/recipe/slimetoast
 	appliance = SKILLET
@@ -354,3 +381,66 @@
 		/obj/item/reagent_containers/food/snacks/bacon
 	)
 	result = /obj/item/reagent_containers/food/snacks/blt
+
+
+//pita (these are all under bread for icon reasons)
+/singleton/recipe/pita
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	reagents = list(/singleton/reagent/sugar = 5 , /singleton/reagent/water = 5)
+	result = /obj/item/reagent_containers/food/snacks/pita
+
+/singleton/recipe/falafel
+	items = list(
+	/obj/item/reagent_containers/food/snacks/falafelballs,
+	/obj/item/reagent_containers/food/snacks/dip/hummus,
+	/obj/item/reagent_containers/food/snacks/pita
+	)
+	fruit = list("tomato" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/falafel
+
+/singleton/recipe/sabich
+	appliance = FRYER
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/dip/hummus,
+	/obj/item/reagent_containers/food/snacks/boiledegg
+	)
+	fruit = list("eggplant" = 1)
+	result = /obj/item/reagent_containers/food/snacks/pita/sabich
+
+/singleton/recipe/tunapita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/salad/tunasalad
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/tuna
+
+/singleton/recipe/chocolatepita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	)
+	reagents = list(/singleton/reagent/nutriment/choconutspread = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/chocolate
+
+/singleton/recipe/hummuspita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/dip/hummus
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/hummus
+
+/singleton/recipe/falafel_alt
+	items = list(
+	/obj/item/reagent_containers/food/snacks/falafelballs,
+	/obj/item/reagent_containers/food/snacks/pita/hummus
+	)
+	fruit = list("tomato" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/falafel

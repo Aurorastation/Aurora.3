@@ -10,7 +10,7 @@
 		var/mob/living/carbon/human/H = M
 		if(H.species && H.species.flags & NO_SCAN)
 			return
-			
+
 	for(var/datum/dna/gene/gene in dna_genes)
 		if(!M || !M.dna)
 			return

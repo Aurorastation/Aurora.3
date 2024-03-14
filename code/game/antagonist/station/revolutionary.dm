@@ -35,14 +35,14 @@ var/datum/antagonist/revolutionary/revs
 	revs = src
 
 /datum/antagonist/revolutionary/create_antagonist()
-	faction_welcome = "You joined a subversive organization in the crew of the [current_map.station_name]. United under a forward-thinking leader, you must achieve their goals."
-	welcome_text = "You are a subversive seeking to demolish the current order on the [current_map.station_type] by whatever means possible. Recruit friends and strangers alike to bring [current_map.company_short]'s tyranny to an end! Or whatever your objective is."
+	faction_welcome = "You joined a subversive organization in the crew of the [SSatlas.current_map.station_name]. United under a forward-thinking leader, you must achieve their goals."
+	welcome_text = "You are a subversive seeking to demolish the current order on the [SSatlas.current_map.station_type] by whatever means possible. Recruit friends and strangers alike to bring [SSatlas.current_map.company_short]'s tyranny to an end! Or whatever your objective is."
 
 /datum/antagonist/revolutionary/create_global_objectives()
 	if(!..())
 		return
 	global_objectives = list()
-	for(var/mob/living/carbon/human/player in mob_list)
+	for(var/mob/living/carbon/human/player in GLOB.mob_list)
 		if(!player.mind || player.stat == DEAD || !(player.mind.assigned_role in command_positions))
 			continue
 		var/datum/objective/rev/rev_obj = new

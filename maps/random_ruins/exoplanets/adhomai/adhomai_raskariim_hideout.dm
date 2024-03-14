@@ -16,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	turf_initializer = new /datum/turf_initializer/maintenance/raskariim()
 	ambience = AMBIENCE_GHOSTLY
 
@@ -38,7 +38,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/raskariim_hideout
+	outfit = /obj/outfit/admin/raskariim_hideout
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -48,7 +48,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/raskariim_hideout
+/obj/outfit/admin/raskariim_hideout
 	name = "Raskariim"
 
 	uniform = list(

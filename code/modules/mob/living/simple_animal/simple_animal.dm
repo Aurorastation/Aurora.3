@@ -182,10 +182,18 @@
 
 	if(simple_default_language)
 		add_language(simple_default_language)
-		default_language = all_languages[simple_default_language]
+		default_language = GLOB.all_languages[simple_default_language]
 
 	if(dead_on_map)
 		death()
+
+/mob/living/simple_animal/Destroy()
+	cut_overlay(blood_overlay)
+	movement_target = null
+	QDEL_NULL(udder)
+
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -209,15 +217,14 @@
 		src.client.screen = null
 	..()
 
-/mob/living/simple_animal/examine(mob/user)
-	. =  ..()
-
+/mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (stat == DEAD)
-		to_chat(user, "<span class='danger'>It looks dead.</span>")
+		. += "<span class='danger'>It looks dead.</span>"
 	if (health < maxHealth * 0.5)
-		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
+		. += "<span class='danger'>It looks badly wounded.</span>"
 	else if (health < maxHealth)
-		to_chat(user, "<span class='warning'>It looks wounded.</span>")
+		. += "<span class='warning'>It looks wounded.</span>"
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)
@@ -534,7 +541,7 @@
 			simple_harm_attack(user)
 			return
 		attack.show_attack_simple(user, src, pick(organ_names))
-		var/actual_damage = attack.get_unarmed_damage(user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
+		var/actual_damage = attack.get_unarmed_damage(src, user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
 		if(!actual_damage)
 			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
 		apply_damage(actual_damage, attack.damage_type)
@@ -548,48 +555,48 @@
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
 
-/mob/living/simple_animal/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/saddle) && vehicle_version && (stat != DEAD))
+/mob/living/simple_animal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/saddle) && vehicle_version && (stat != DEAD))
 		var/obj/vehicle/V = new vehicle_version (get_turf(src))
 		V.health = health
 		V.maxhealth = maxHealth
-		to_chat(user, SPAN_WARNING("You place \the [O] on the \the [src]."))
-		user.drop_from_inventory(O)
-		O.forceMove(get_turf(src))
-		qdel(O)
+		to_chat(user, SPAN_WARNING("You place \the [attacking_item] on the \the [src]."))
+		user.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(get_turf(src))
+		qdel(attacking_item)
 		qdel(src)
 
-	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
-		attacked_with_item(O, user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
+		attacked_with_item(attacking_item, user)
 		return
 	if(has_udder)
-		var/obj/item/reagent_containers/glass/G = O
+		var/obj/item/reagent_containers/glass/G = attacking_item
 		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 			if(udder.total_volume <= 0)
 				to_chat(user, SPAN_WARNING("The udder is dry."))
 				return
 			if(G.reagents.total_volume >= G.volume)
-				to_chat(user, SPAN_WARNING("The [O] is full."))
+				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
 				return
-			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [O].")
+			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [attacking_item].")
 			udder.trans_type_to(G, milk_type, rand(5, 10))
 			return
 
-	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
+	if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))
 		..()
 		poke()
 
-	else if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [O].")
+	else if(istype(attacking_item, brush) && canbrush) //Brushing animals
+		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [attacking_item].")
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
 			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/material/knife) || istype(O, /obj/item/material/kitchen/utensil/knife)|| istype(O, /obj/item/material/hatchet))
+		if(istype(attacking_item, /obj/item/material/knife) || istype(attacking_item, /obj/item/material/kitchen/utensil/knife)|| istype(attacking_item, /obj/item/material/hatchet))
 			harvest(user)
 	else
-		attacked_with_item(O, user)
+		attacked_with_item(attacking_item, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
@@ -671,7 +678,7 @@
 	if (!nutrition)
 		tally += 4
 
-	return tally+config.animal_delay
+	return tally + GLOB.config.animal_delay
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
@@ -897,7 +904,7 @@
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, DAMAGE_BURN)
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
-	spark(loc, 5, alldirs)
+	spark(loc, 5, GLOB.alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
 
@@ -920,18 +927,16 @@
 		return FALSE
 
 /mob/living/simple_animal/emp_act(severity)
+	. = ..()
+
 	if(!isSynthetic())
 		return
 
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(20, 25))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(10, 15))
-		if(3)
-			adjustFireLoss(rand(5, 10))
-		if(4)
-			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment
@@ -984,7 +989,7 @@
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
 
 /mob/living/simple_animal/get_speech_bubble_state_modifier()
-	return ..() || "rough"
+	return isSynthetic() ? "machine" : "rough"
 
 
 #undef BLOOD_NONE

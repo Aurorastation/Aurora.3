@@ -59,7 +59,7 @@
 /obj/structure/closet/secure_closet/freezer/kitchen
 	name = "kitchen cabinet"
 	desc = "A cabinet."
-	req_access = list(access_kitchen)
+	req_access = list(ACCESS_KITCHEN)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/fill()
 	for(var/i = 0, i < 2, i++)
@@ -73,7 +73,7 @@
 /obj/structure/closet/secure_closet/freezer/money
 	name = "freezer"
 	desc = "This contains cold hard cash."
-	req_access = list(access_heads_vault)
+	req_access = list(ACCESS_HEADS_VAULT)
 
 /obj/structure/closet/secure_closet/freezer/money/fill()
 	..()
@@ -93,3 +93,17 @@
 	for(var/i = 0, i < 2, i++)
 		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
 		new /obj/item/reagent_containers/food/condiment/sugar(src)
+
+/obj/structure/closet/secure_closet/freezer/kois
+	name = "freezer"
+	desc = "A freezer, painted in a sickly yellow, with a biohazard sign on the door."
+	icon_state = "freezer_kois"
+
+/obj/structure/closet/secure_closet/freezer/kois/spores
+	name = "k'ois freezer"
+	desc = "A freezer with k'ois inside. Painted in a sickly yellow, with a biohazard sign on the door."
+
+/obj/structure/closet/secure_closet/freezer/kois/spores/fill()
+	..()
+	for(var/i = 0, i < 8, i++)
+		new /obj/item/reagent_containers/food/snacks/grown/kois(src)

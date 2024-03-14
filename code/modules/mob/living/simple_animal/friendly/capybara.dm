@@ -32,10 +32,10 @@
 		addtimer(CALLBACK(src, PROC_REF(pet_response)), rand(2 SECONDS, 5 SECONDS))
 	..()
 
-/mob/living/simple_animal/capybara/examine(mob/user)
+/mob/living/simple_animal/capybara/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat == DEAD)
-		to_chat(user, "How can someone kill such a friendly creature?")
+		. += "How can someone kill such a friendly creature?"
 
 /mob/living/simple_animal/capybara/proc/pet_response(mob/M)
 	if(!stat && M)

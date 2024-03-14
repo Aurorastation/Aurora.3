@@ -4,10 +4,10 @@
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
-	if(config.guests_allowed) // shut up if guests allowed for testing
+	if(GLOB.config.guests_allowed) // shut up if guests allowed for testing
 		return
-	if(config.logsettings["log_access"])
-		for(var/mob/M in player_list)
+	if(GLOB.config.logsettings["log_access"])
+		for(var/mob/M in GLOB.player_list)
 			if(M == src)	continue
 			if( M.key && (M.key != key) )
 				var/matches
@@ -54,10 +54,11 @@
  * ckey.
  */
 /mob/proc/LateLogin()
+	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
-	player_list |= src
+	GLOB.player_list |= src
 	update_Login_details()
 	SSstatistics.update_status()
 
@@ -103,7 +104,5 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
-	if(client)
+	if(client && !istype(src, /mob/abstract/new_player)) //Do not update the skybox if it's a new player mob, they don't see it anyways and it can runtime
 		client.update_skybox(TRUE)
-
-	addtimer(CALLBACK(client, TYPE_PROC_REF(/client, check_panel_loaded)), 30 SECONDS)

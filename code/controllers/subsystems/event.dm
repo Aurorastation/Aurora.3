@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(events)
 
 	var/datum/event_meta/new_event = new
 
-	var/initialized = FALSE
+	initialized = FALSE
 
 /datum/controller/subsystem/events/Initialize()
 	allEvents = subtypesof(/datum/event)
@@ -34,8 +34,10 @@ SUBSYSTEM_DEF(events)
 	)
 	initialized = TRUE
 
-	if(current_map.use_overmap)
-		overmap_event_handler.create_events(current_map.overmap_z, current_map.overmap_size, current_map.overmap_event_areas)
+	if(SSatlas.current_map.use_overmap)
+		overmap_event_handler.create_events(SSatlas.current_map.overmap_z, SSatlas.current_map.overmap_size, SSatlas.current_map.overmap_event_areas)
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/events/Recover()
 	active_events = SSevents.active_events
@@ -122,7 +124,7 @@ SUBSYSTEM_DEF(events)
 
 /datum/controller/subsystem/events/proc/GetInteractWindow()
 	var/html = "<A align='right' href='?src=\ref[src];refresh=1'>Refresh</A>"
-	html += "<A align='right' href='?src=\ref[src];pause_all=[!config.allow_random_events]'>Pause All - [config.allow_random_events ? "Pause" : "Resume"]</A>"
+	html += "<A align='right' href='?src=\ref[src];pause_all=[!GLOB.config.allow_random_events]'>Pause All - [GLOB.config.allow_random_events ? "Pause" : "Resume"]</A>"
 
 	if(selected_event_container)
 		var/event_time = max(0, selected_event_container.next_event_time - world.time)
@@ -256,8 +258,8 @@ SUBSYSTEM_DEF(events)
 		EC.delayed = !EC.delayed
 		log_and_message_admins("has [EC.delayed ? "paused" : "resumed"] countdown for [severity_to_string[EC.severity]] events.")
 	else if(href_list["pause_all"])
-		config.allow_random_events = text2num(href_list["pause_all"])
-		log_and_message_admins("has [config.allow_random_events ? "resumed" : "paused"] countdown for all events.")
+		GLOB.config.allow_random_events = text2num(href_list["pause_all"])
+		log_and_message_admins("has [GLOB.config.allow_random_events ? "resumed" : "paused"] countdown for all events.")
 	else if(href_list["interval"])
 		var/delay = input("Enter delay modifier. A value less than one means events fire more often, higher than one less often.", "Set Interval Modifier") as num|null
 		if(delay && delay > 0)

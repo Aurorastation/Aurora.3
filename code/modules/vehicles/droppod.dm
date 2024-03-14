@@ -45,12 +45,12 @@
 /obj/vehicle/droppod/Move()
 	return
 
-/obj/vehicle/droppod/attackby(obj/item/I as obj, mob/user as mob)
-	if(I.iswelder() && status == USED && !humanload && !passenger)
-		var/obj/item/weldingtool/W = I
+/obj/vehicle/droppod/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder() && status == USED && !humanload && !passenger)
+		var/obj/item/weldingtool/W = attacking_item
 		if(W.welding)
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
-			if(I.use_tool(src, user, 200, volume = 50))
+			if(attacking_item.use_tool(src, user, 200, volume = 50))
 				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
@@ -113,7 +113,7 @@
 
 	if(!dest || dest == get_turf(src))
 		var/list/options = new()
-		for(var/test_dir in alldirs)
+		for(var/test_dir in GLOB.alldirs)
 			var/new_dir = get_step_to(src, get_step(src, test_dir))
 			if(new_dir && user.Adjacent(new_dir))
 				options += new_dir
@@ -157,7 +157,7 @@
 		load(user)
 		launchinterface()
 
-/obj/attack_ghost(mob/user)
+/obj/vehicle/droppod/attack_ghost(mob/user)
 	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
 		..()
 	else // normal ghosts cannot use this
@@ -170,7 +170,7 @@
 		ui.open()
 
 /obj/vehicle/droppod/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /obj/vehicle/droppod/ui_data(mob/user)
 	var/list/data = list()

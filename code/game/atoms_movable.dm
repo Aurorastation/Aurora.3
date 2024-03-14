@@ -7,11 +7,15 @@
 	var/anchored = 0
 	var/movable_flags
 
-	var/icon_scale_x = 1 // Used to scale icons up or down horizonally in update_transform().
-	var/icon_scale_y = 1 // Used to scale icons up or down vertically in update_transform().
-	var/icon_rotation = 0 // Used to rotate icons in update_transform()
+	///Used to scale icons up or down horizonally in update_transform().
+	var/icon_scale_x = 1
 
-	// var/elevation = 2    - not used anywhere
+	///Used to scale icons up or down vertically in update_transform().
+	var/icon_scale_y = 1
+
+	///Used to rotate icons in update_transform()
+	var/icon_rotation = 0
+
 	var/move_speed = 10
 	var/l_move_time = 1
 	var/throwing = 0
@@ -21,9 +25,14 @@
 	var/throw_range = 7
 	var/moved_recently = 0
 	var/atom/movable/pulledby = null
-	var/item_state = null // Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
-	var/overlay_state = null // Base name of the image used for when the item is worn. Suffixes are added to this. Important for icon flipping as _flip is added at the end of the value.
-	//Also used on holdable mobs for the same info related to their held version
+
+	///Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
+	var/item_state = null
+
+	///Base name of the image used for when the item is worn. Suffixes are added to this. Important for icon flipping as _flip is added at the end of the value.
+	var/overlay_state = null
+
+	///Also used on holdable mobs for the same info related to their held version
 	var/does_spin = TRUE // Does the atom spin when thrown (of course it does :P)
 
 	var/can_hold_mob = FALSE
@@ -37,27 +46,33 @@
 	 */
 	var/list/important_recursive_contents
 
-// We don't really need this, and apparently defining it slows down GC.
-/*/atom/movable/Del()
-	if(!QDELING(src) && loc)
-		testing("GC: -- [type] was deleted via del() rather than qdel() --")
-		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
-	..()*/
+	/// String representing the spatial grid groups we want to be held in.
+	/// acts as a key to the list of spatial grid contents types we exist in via SSspatial_grid.spatial_grid_categories.
+	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
+	var/spatial_grid_key
 
 /atom/movable/Destroy()
-	if (HAS_SPATIAL_GRID_CONTENTS(src))
-		SSspatial_grid.force_remove_from_cell(src)
-
-	LAZYCLEARLIST(contained_mobs)
-	LAZYCLEARLIST(important_recursive_contents)
-
-	moved_event.unregister_all_movement(loc, src)
+	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	. = ..()
 
-	for(var/atom/movable/AM in contents)
-		qdel(AM)
+	if(spatial_grid_key)
+		SSspatial_grid.force_remove_from_grid(src)
+
+	for(var/movable_content in contents)
+		qdel(movable_content)
+
+	QDEL_LAZYLIST(contained_mobs)
+
+	//Pretend this is moveToNullspace()
+	moveToNullspace()
 	loc = null
+
+	//This absolutely must be after moveToNullspace()
+	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
+	//If we clear this before the nullspace move, a ref to this object will be hung in any of its movable containers
+	LAZYNULL(important_recursive_contents)
+
 	screen_loc = null
 	if(ismob(pulledby))
 		var/mob/M = pulledby
@@ -67,6 +82,25 @@
 
 	if (bound_overlay)
 		QDEL_NULL(bound_overlay)
+
+/atom/movable/proc/moveToNullspace()
+	. = TRUE
+
+	var/atom/oldloc = loc
+
+	if (oldloc)
+		loc = null
+		var/area/old_area = get_area(oldloc)
+		if(isturf(oldloc)) //This checked if it's a multitile, which i have no clue what would be here, so just check for turf
+			for(var/atom/old_loc as anything in locs)
+				old_loc.Exited(src, NONE)
+		else
+			oldloc.Exited(src, NONE)
+
+		if(old_area)
+			old_area.Exited(src, NONE)
+
+	Moved(oldloc, TRUE)
 
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
@@ -144,7 +178,7 @@
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
 
-	if(usr && HAS_FLAG(usr.mutations, HULK))
+	if(usr && (usr.mutations & HULK))
 		src.throwing = 2 // really strong throw!
 
 	var/dist_travelled = 0
@@ -184,9 +218,9 @@
 		minor_dist = dist_x
 
 	while(src && target && src.throwing && istype(src.loc, /turf) \
-		  && ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
-		  	   || (a && a.has_gravity == 0) \
-			   || istype(src.loc, /turf/space)))
+			&& ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
+				|| (a && a.has_gravity == 0) \
+				|| istype(src.loc, /turf/space)))
 		// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 		var/atom/step
 		if(error >= 0)
@@ -250,16 +284,16 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in current_map.sealed_levels)
+	if(z in SSatlas.current_map.sealed_levels)
 		return
 
 	if(anchored)
 		return
 
-	if(!universe.OnTouchMapEdge(src))
+	if(!GLOB.universe.OnTouchMapEdge(src))
 		return
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
 		return
 
@@ -296,7 +330,7 @@
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
-	return current_map.get_transit_zlevel()
+	return SSatlas.current_map.get_transit_zlevel()
 
 // Returns the current scaling of the sprite.
 // Note this DOES NOT measure the height or width of the icon, but returns what number is being multiplied with to scale the icons, if any.
@@ -338,31 +372,6 @@
 	Moved(old_loc, TRUE)
 	return TRUE
 
-/atom/movable/Move()
-	var/old_loc = loc
-	. = ..()
-	if (.)
-		// Events.
-		if (moved_event.global_listeners[src])
-			moved_event.raise_event(src, old_loc, loc)
-
-		// Lighting.
-		if (light_sources)
-			var/datum/light_source/L
-			var/thing
-			for (thing in light_sources)
-				L = thing
-				L.source_atom.update_light()
-
-		// Openturf.
-		if (bound_overlay)
-			// The overlay will handle cleaning itself up on non-openspace turfs.
-			bound_overlay.forceMove(get_step(src, UP))
-			if (bound_overlay.dir != dir)
-				bound_overlay.set_dir(dir)
-
-		Moved(old_loc, FALSE)
-
 /atom/movable/proc/Moved(atom/old_loc, forced)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
@@ -370,7 +379,7 @@
 	update_grid_location(old_loc, src)
 
 /atom/movable/proc/update_grid_location(atom/old_loc)
-	if(!HAS_SPATIAL_GRID_CONTENTS(src) || SSspatial_grid.init_state < SS_INITSTATE_DONE)
+	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
 		return
 
 	var/turf/old_turf = get_turf(old_loc)
@@ -392,11 +401,23 @@
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
 
-	if (LAZYLEN(gone.important_recursive_contents))
-		var/list/nested_locs = get_nested_locs(src) + src
-		for (var/channel in gone.important_recursive_contents)
-			for (var/atom/movable/location as anything in nested_locs)
-				LAZYREMOVEASSOC(location.important_recursive_contents, channel, gone.important_recursive_contents[channel])
+	if(!LAZYLEN(gone.important_recursive_contents))
+		return
+	var/list/nested_locs = get_nested_locs(src) + src
+	for(var/channel in gone.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			LAZYINITLIST(location.important_recursive_contents)
+			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+			LAZYINITLIST(recursive_contents[channel])
+			recursive_contents[channel] -= gone.important_recursive_contents[channel]
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						// This relies on a nice property of the linked recursive and gridmap types
+						// They're defined in relation to each other, so they have the same value
+						SSspatial_grid.remove_grid_awareness(location, channel)
+			ASSOC_UNSETEMPTY(recursive_contents, channel)
+			UNSETEMPTY(location.important_recursive_contents)
 
 	if(LAZYLEN(gone.stored_chat_text))
 		return_floating_text(gone)
@@ -404,28 +425,38 @@
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
-	if (LAZYLEN(arrived.important_recursive_contents))
-		var/list/nested_locs = get_nested_locs(src) + src
-		for (var/channel in arrived.important_recursive_contents)
-			for (var/atom/movable/location as anything in nested_locs)
-				LAZYORASSOCLIST(location.important_recursive_contents, channel, arrived.important_recursive_contents[channel])
+	if(!LAZYLEN(arrived.important_recursive_contents))
+		return
+	var/list/nested_locs = get_nested_locs(src) + src
+	for(var/channel in arrived.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			LAZYINITLIST(location.important_recursive_contents)
+			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+			LAZYINITLIST(recursive_contents[channel])
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						SSspatial_grid.add_grid_awareness(location, channel)
+			recursive_contents[channel] |= arrived.important_recursive_contents[channel]
 
 	if (LAZYLEN(arrived.stored_chat_text))
 		give_floating_text(arrived)
 
-//allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
+///allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
-	if(!HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
-		for (var/atom/movable/location as anything in get_nested_locs(src) + src)
-			LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE, src)
-
-		var/turf/our_turf = get_turf(src)
-		if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-			SSspatial_grid.enter_cell(src, our_turf)
-
-		else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)//SSspatial_grid isnt init'd yet, add ourselves to the queue
-			SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 	ADD_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
+	if(!HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(location.important_recursive_contents)
+		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+			SSspatial_grid.add_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] += list(src)
+
+	var/turf/our_turf = get_turf(src)
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 
 /**
  * removes the hearing sensitivity channel from the important_recursive_contents list of this and all nested locs containing us if there are no more sources of the trait left
@@ -441,18 +472,21 @@
 		return
 
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
-		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+	/// We get our awareness updated by the important recursive contents stuff, here we remove our membership
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE, src)
+		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+			SSspatial_grid.remove_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+		UNSETEMPTY(location.important_recursive_contents)
 
 ///allows this movable to know when it has "entered" another area no matter how many movable atoms its stuffed into, uses important_recursive_contents
 /atom/movable/proc/become_area_sensitive(trait_source = TRAIT_GENERIC)
 	if(!HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
-		for (var/atom/movable/location as anything in get_nested_locs(src) + src)
+		for(var/atom/movable/location as anything in get_nested_locs(src) + src)
 			LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AREA_SENSITIVE, src)
 	ADD_TRAIT(src, TRAIT_AREA_SENSITIVE, trait_source)
 
@@ -464,34 +498,38 @@
 	if(HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
 		return
 
-	for (var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYREMOVE(location.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE], src)
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_AREA_SENSITIVE, src)
 
-///propogates new_client's mob through our nested contents, similar to other important_recursive_contents procs
+///propogates ourselves through our nested contents, similar to other important_recursive_contents procs
 ///main difference is that client contents need to possibly duplicate recursive contents for the clients mob AND its eye
-/atom/movable/proc/enable_client_mobs_in_contents(client/new_client)
-	var/turf/our_turf = get_turf(src)
-
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.enter_cell(src, our_turf, RECURSIVE_CONTENTS_CLIENT_MOBS)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
-		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_CLIENT_MOBS)
-
+/mob/proc/enable_client_mobs_in_contents()
 	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
-		LAZYORASSOCLIST(movable_loc.important_recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS, new_client.mob)
-
-///Clears the clients channel of this movables important_recursive_contents list and all nested locs
-/atom/movable/proc/clear_important_client_contents(client/former_client)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]))
+			SSspatial_grid.add_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
+		recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] |= src
 
 	var/turf/our_turf = get_turf(src)
+	/// We got our awareness updated by the important recursive contents stuff, now we add our membership
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
 
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_CLIENT_MOBS)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
-		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_CLIENT_MOBS)
+///Clears the clients channel of this mob
+/mob/proc/clear_important_client_contents()
+	var/turf/our_turf = get_turf(src)
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
 
 	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
-		LAZYREMOVEASSOC(movable_loc.important_recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS, former_client.mob)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
+		recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]))
+			SSspatial_grid.remove_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS)
+		UNSETEMPTY(movable_loc.important_recursive_contents)
 
 // This proc adds atom/movables to the AI targetable list, i.e. things that the AI (turrets, hostile animals) will attempt to target
 /atom/movable/proc/add_to_target_grid()
@@ -499,17 +537,18 @@
 		LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
 
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
-		SSspatial_grid.enter_cell(src, our_turf)
+	if(our_turf && SSspatial_grid.initialized)
+		SSspatial_grid.add_grid_awareness(src, RECURSIVE_CONTENTS_AI_TARGETS)
+		SSspatial_grid.add_grid_membership(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
 
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)//SSspatial_grid isnt init'd yet, add ourselves to the queue
+	else if(our_turf && !SSspatial_grid.initialized)//SSspatial_grid isnt init'd yet, add ourselves to the queue
 		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
 
 /atom/movable/proc/clear_from_target_grid()
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+	if(our_turf && SSspatial_grid.initialized)
 		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+	else if(our_turf && !SSspatial_grid.initialized)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
@@ -521,15 +560,17 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
-	if(!isturf(loc))
-		return
-	pickup_animation.color = color
+// /atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
+/obj/item/proc/do_pickup_animation(atom/target, turf/source)
+	if(!source)
+		if(!istype(loc, /turf))
+			return
+		source = loc
+	var/image/pickup_animation = image(icon = src)
 	pickup_animation.transform.Scale(0.75)
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
-	var/turf/T = get_turf(src)
-	var/direction = get_dir(T, target)
+	var/direction = get_dir(source, target)
 	var/to_x = target.pixel_x
 	var/to_y = target.pixel_y
 
@@ -545,13 +586,13 @@
 		to_y += 10
 		pickup_animation.pixel_x += 6 * (prob(50) ? 1 : -1) //6 to the right or left, helps break up the straight upward move
 
-	flick_overlay_view(pickup_animation, target, 4)
-	var/matrix/animation_matrix = new(pickup_animation.transform)
+	var/atom/movable/flick_visual/pickup = source.flick_overlay_view(pickup_animation, 0.4 SECONDS)
+	var/matrix/animation_matrix = new(pickup.transform)
 	animation_matrix.Turn(pick(-30, 30))
 	animation_matrix.Scale(0.65)
 
-	animate(pickup_animation, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = animation_matrix, easing = CUBIC_EASING)
-	animate(alpha = 0, transform = matrix().Scale(0.7), time = 1)
+	animate(pickup, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 0.3 SECONDS, transform = animation_matrix, easing = CUBIC_EASING)
+	animate(alpha = 0, transform = matrix().Scale(0.7), time = 0.1 SECONDS)
 
 /atom/movable/proc/do_drop_animation(atom/moving_from)
 	if(!isturf(loc))

@@ -39,7 +39,7 @@
 			if(!src)	return 1
 			if(src.loc != user)	return 1
 
-			var/list/directions = new/list(cardinal)
+			var/list/directions = new/list(GLOB.cardinal)
 			var/i = 0
 			for (var/obj/structure/window/win in user.loc)
 				i++
@@ -47,7 +47,7 @@
 					to_chat(user, "<span class='warning'>There are too many windows in this location.</span>")
 					return 1
 				directions-=win.dir
-				if(!(win.dir in cardinal))
+				if(!(win.dir in GLOB.cardinal))
 					to_chat(user, "<span class='warning'>Can't let you do that.</span>")
 					return 1
 
@@ -124,19 +124,19 @@
 	default_type = "wired glass"
 	construction_options = list()
 
-/obj/item/stack/material/glass/wired/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/stack/material/steel))
-		var/obj/item/stack/material/steel/M = O
+/obj/item/stack/material/glass/wired/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material/steel))
+		var/obj/item/stack/material/steel/M = attacking_item
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light
-			user.drop_from_inventory(L,get_turf(src))
+			user.drop_from_inventory(L, get_turf(src))
 			to_chat(user, "<span class='notice'>You make a light tile.</span>")
 			use(1)
 		else
 			to_chat(user, "<span class='warning'>You need one metal sheet to finish the light tile!</span>")
 
-	else if(O.iswirecutter())
-		user.drop_from_inventory(O,get_turf(src))
+	else if(attacking_item.iswirecutter())
+		user.drop_from_inventory(attacking_item, get_turf(src))
 		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		new /obj/item/stack/cable_coil(user.loc, 5)

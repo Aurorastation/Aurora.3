@@ -82,22 +82,6 @@
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
 
-/datum/language/terminator
-	name = LANGUAGE_TERMINATOR
-	desc = "A heavily encrypted communication network that piggybacks off of the state telecomms relays to covertly link Hephaestus black ops droids to their control AIs."
-	speech_verb = list("buzzes")
-	ask_verb = list("buzzes")
-	exclaim_verb = list("buzzes")
-	sing_verb = list("buzzes")
-	colour = "bad"
-	key = "hd"
-	flags = RESTRICTED | HIVEMIND
-	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
-	space_chance = 10
-
-/datum/language/terminator/get_random_name()
-	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
-
 /datum/language/revenant
 	name = LANGUAGE_REVENANT
 	desc = "The language of the forsaken bluespace inhabitants."
@@ -141,7 +125,7 @@
 		to_chat(speaker, msg)
 		return
 
-	for(var/mob/player in player_list)
+	for(var/mob/player in GLOB.player_list)
 		if(istype(player,/mob/abstract/observer) || check_special_condition(player))
 			if(!within_jamming_range(player))
 				to_chat(player, msg)
@@ -154,9 +138,9 @@
 		return FALSE
 	if(within_jamming_range(other))
 		return FALSE
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_LIIDRA] in M.languages)) //replace with Special Liidra Socket later
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_LIIDRA] in M.languages)) //replace with Special Liidra Socket later
 		return TRUE
-	if(M.internal_organs_by_name["blackkois"] && (all_languages[LANGUAGE_LIIDRA] in M.languages))
+	if(M.internal_organs_by_name["blackkois"] && (GLOB.all_languages[LANGUAGE_LIIDRA] in M.languages))
 		return TRUE
 	if(isvaurca(M))
 		var/interceptchance = 1 //tiny chance for normal bugs to hear a message
@@ -175,3 +159,38 @@
 		if(prob(interceptchance))
 			return TRUE
 	return FALSE
+
+/datum/language/greimorian
+	name = LANGUAGE_GREIMORIAN
+	desc = "The method which greimorians use to communicate with one another."
+	speech_verb = list("chitters")
+	ask_verb = list("hisses")
+	exclaim_verb = list("shrieks")
+	sing_verb = list("trills")
+	colour = "alien"
+	key = "gr"
+	syllables = list("sksk", "chch", "ss", "kh", "shsh", "sh", "gh", "ch", "tt")
+	flags = RESTRICTED
+
+/datum/language/greimorian/hivemind
+	name = LANGUAGE_GREIMORIAN_HIVEMIND
+	desc = "A way for greimorians to communicate with one another even when seperated."
+	key = "gh"
+	flags = RESTRICTED | HIVEMIND
+
+/datum/language/purpose
+	name = LANGUAGE_PURPOSE
+	desc = "A heavily encrypted communication network, used by the synthetics of Purpose."
+	speech_verb = list("beeps")
+	ask_verb = list("beeps")
+	exclaim_verb = list("loudly beeps")
+	sing_verb = list("rhythmically beeps")
+	colour = "changeling"
+	written_style = "encodedaudiolanguage"
+	key = "pr"
+	flags = RESTRICTED | NO_STUTTER | HIVEMIND
+	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
+	space_chance = 10
+
+/datum/language/purpose/get_random_name()
+	return "[pick(list("HERA","ZEUS","ARTEMIS","ATHENA","ARES","HADES","POSEIDON","DEMETER","APOLLO","APHORDITE","HERMES","HESTIA","DIONYSUS","PERSEPHONE","KRONOS","ODYSSEUS","AJAX","AGAMENON","CHIRON","CHARON"))][rand(100, 999)]"

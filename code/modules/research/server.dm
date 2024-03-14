@@ -13,7 +13,7 @@
 	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
-	req_access = list(access_rd) //Only the R&D can change server settings.
+	req_access = list(ACCESS_RD) //Only the R&D can change server settings.
 
 	var/list/linked_processors
 
@@ -96,8 +96,9 @@
 			TP.processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
+	. = ..()
+
 	griefProtection()
-	..()
 
 /obj/machinery/r_n_d/server/ex_act(severity)
 	griefProtection()
@@ -134,20 +135,20 @@
 
 			env.merge(removed)
 
-/obj/machinery/r_n_d/server/attackby(obj/item/O, mob/user)
-	if(O.ismultitool())
-		var/obj/item/device/multitool/MT = O
+/obj/machinery/r_n_d/server/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
+		var/obj/item/device/multitool/MT = attacking_item
 		var/obj/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/machinery/r_n_d/tech_processor)
 		if(TP)
 			TP.set_server(src)
 			MT.unregister_buffer(TP)
 		to_chat(user, SPAN_NOTICE("You link \the [TP] to \the [src]."))
 		return
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return
 
 /obj/machinery/r_n_d/server/centcom

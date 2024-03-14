@@ -154,15 +154,12 @@
 /proc/iszombie(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		switch(H.get_species())
-			if(SPECIES_ZOMBIE)
-				return TRUE
-			if(SPECIES_ZOMBIE_TAJARA)
-				return TRUE
-			if(SPECIES_ZOMBIE_UNATHI)
-				return TRUE
-			if(SPECIES_ZOMBIE_SKRELL)
-				return TRUE
+
+		if(istype(H.get_species(TRUE), /datum/species/zombie))
+			return TRUE
+		else
+			return FALSE
+
 	return FALSE
 
 /proc/isundead(A)
@@ -371,7 +368,7 @@ var/list/global/organ_rel_size = list(
 	p = 1
 	var/intag = 0
 	while(p <= n)
-		var/char = copytext(te, p, p + 1)
+		var/char = copytext_char(te, p, p + 1)
 		if (char == "<") //let's try to not break tags
 			intag = !intag
 		if (intag || char == " " || prob(pr))
@@ -385,28 +382,35 @@ var/list/global/organ_rel_size = list(
 
 /proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
-	var/leng=length(phrase)
-	var/counter=length(phrase)
-	var/newphrase=""
-	var/newletter=""
-	while(counter>=1)
-		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
-		if(prob(strength))
-			if(rand(1,3)==3)
-				if(lowertext(newletter)=="o")	newletter="u"
-				if(lowertext(newletter)=="s")	newletter="ch"
-				if(lowertext(newletter)=="a")	newletter="ah"
-				if(lowertext(newletter)=="c")	newletter="k"
-			switch(rand(1,15))
-				if(1,3,5,8)
-					newletter="[lowertext(newletter)]"
-				if(2,4,6,15)
-					newletter="[uppertext(newletter)]"
-				if(7)
-					newletter+="'"
+	var/leng = length_char(phrase)
+	var/counter = length_char(phrase)
+	var/newphrase = ""
+	var/newletter = ""
+	while (counter >= 1)
+		newletter = copytext_char(phrase, (leng - counter) + 1, (leng - counter) + 2)
+		if (prob(strength))
+			if (rand(1, 3) == 3)
+				switch (lowertext(newletter))
+					if ("o")
+						newletter = "u"
+					if ("s")
+						newletter = "ch"
+					if ("a")
+						newletter = "ah"
+					if ("c")
+						newletter = "k"
+
+			switch (rand(1, 15))
+				if (1, 3, 5, 8)
+					newletter = "[lowertext(newletter)]"
+				if (2, 4, 6, 15)
+					newletter = "[uppertext(newletter)]"
+				if (7)
+					newletter += "'"
 				else
 					. = null // For dreamchecker, does nothing
-		newphrase+="[newletter]";counter-=1
+		newphrase += "[newletter]"
+		counter -= 1
 	return newphrase
 
 /proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
@@ -467,7 +471,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		return
 	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
-	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
+	var/steps = min(1, FLOOR(duration/TICKS_PER_RECOIL_ANIM))-1
 	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
 	if(steps)
 		for(var/i = 1 to steps)
@@ -475,7 +479,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	animate(pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
 
 /proc/findname(msg)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.real_name == text("[msg]"))
 			return 1
 	return 0
@@ -537,10 +541,10 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				hud_used.action_intent.icon_state = I_HELP
 
 /proc/broadcast_security_hud_message(var/message, var/broadcast_source)
-	broadcast_hud_message(message, broadcast_source, sec_hud_users, /obj/item/clothing/glasses/hud/security)
+	broadcast_hud_message(message, broadcast_source, GLOB.sec_hud_users, /obj/item/clothing/glasses/hud/security)
 
 /proc/broadcast_medical_hud_message(var/message, var/broadcast_source)
-	broadcast_hud_message(message, broadcast_source, med_hud_users, /obj/item/clothing/glasses/hud/health)
+	broadcast_hud_message(message, broadcast_source, GLOB.med_hud_users, /obj/item/clothing/glasses/hud/health)
 
 /proc/broadcast_hud_message(var/message, var/broadcast_source, var/list/targets, var/icon)
 	var/turf/sourceturf = get_turf(broadcast_source)
@@ -551,7 +555,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 /proc/mobs_in_area(var/area/A)
 	var/list/mobs = new
-	for(var/mob/living/M in mob_list)
+	for(var/mob/living/M in GLOB.mob_list)
 		if(get_area(M) == A)
 			mobs += M
 	return mobs
@@ -577,7 +581,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 			else
 				name = realname
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
 			var/follow
 			var/lname

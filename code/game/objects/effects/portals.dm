@@ -5,6 +5,9 @@
 	icon_state = "portal"
 	density = TRUE
 	unacidable = TRUE //Can't destroy energy portals.
+	mouse_opacity = MOUSE_OPACITY_ICON
+	anchored = TRUE
+
 	var/does_teleport = TRUE // Some portals might just be visual
 	var/has_lifespan = TRUE // Whether we want to directly control the lifespan or not
 	var/failchance = 5
@@ -12,7 +15,6 @@
 	var/obj/target
 	var/creator
 	var/precision = 1
-	anchored = TRUE
 
 /obj/effect/portal/Initialize(mapload, turf/set_target, set_creator, lifespan = 300, precise = 1)
 	. = ..()
@@ -40,9 +42,9 @@
 	if(does_teleport)
 		teleport(AM)
 
-/obj/effect/portal/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/bluespace_neutralizer))
-		user.visible_message("<b>[user]</b> collapses \the [src] with \the [I].", SPAN_NOTICE("You collapse \the [src] with \the [I]."))
+/obj/effect/portal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
+		user.visible_message("<b>[user]</b> collapses \the [src] with \the [attacking_item].", SPAN_NOTICE("You collapse \the [src] with \the [attacking_item]."))
 		qdel(src)
 		return TRUE
 	return ..()
@@ -240,14 +242,13 @@
 	for(var/thing in contents)
 		var/obj/O = thing
 		O.forceMove(get_turf(src))
-		O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
 	var/area/A = get_area(src)
 	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
 	return ..()
 
-/obj/effect/portal/revenant/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/bluespace_neutralizer))
-		to_chat(user, SPAN_WARNING("You need to activate \the [I] and keep it near \the [src] to collapse it."))
+/obj/effect/portal/revenant/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
+		to_chat(user, SPAN_WARNING("You need to activate \the [attacking_item] and keep it near \the [src] to collapse it."))
 		return TRUE
 	return ..()
 
@@ -280,6 +281,10 @@
 			color = COLOR_STAGE_FIVE
 	light_color = color
 	update_light()
+
+/// Mainly for admin events.
+/obj/effect/portal/permanent
+	has_lifespan = FALSE
 
 #undef COLOR_STAGE_FIVE
 #undef COLOR_STAGE_FOUR

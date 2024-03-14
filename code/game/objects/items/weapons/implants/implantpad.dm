@@ -33,11 +33,11 @@
 		return
 	return ..()
 
-/obj/item/implantpad/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/implantcase))
+/obj/item/implantpad/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/implantcase))
 		if(!case)
-			user.drop_from_inventory(C,src)
-			case = C
+			user.drop_from_inventory(attacking_item, src)
+			case = attacking_item
 			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] already has an implant case attached to it!"))
