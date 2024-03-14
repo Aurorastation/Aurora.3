@@ -2916,24 +2916,31 @@
 /obj/item/clothing/accessory/badge/passport/dominia,
 /obj/item/clothing/accessory/badge/passport/dominia,
 /obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/item/clothing/accessory/holster/thigh/brown,
-/obj/item/clothing/accessory/holster/thigh/brown,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/item/clothing/head/dominia/fleet/armsman,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "kkj" = (
@@ -4924,6 +4931,8 @@
 	},
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/full,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "qZm" = (
