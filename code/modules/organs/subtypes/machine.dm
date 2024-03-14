@@ -298,11 +298,13 @@
 	if(!new_ownership)
 		return
 	ownership_info = new_ownership
-	if(ownership_info == IPC_OWNERSHIP_SELF)
+	if(ownership_info == IPC_OWNERSHIP_SELF) //Owned IPCs don't have citizenship
 		var/new_citizenship = tgui_input_list(owner, "Choose a citizenship for your IPC tag.", "Tag Citizenship", CITIZENSHIPS_ALL_IPC)
 		if(!new_citizenship)
 			return
 		citizenship_info = new_citizenship
+	else
+		citizenship_info = CITIZENSHIP_NONE
 	var/new_serial = tgui_input_text(owner, "Choose a serial number for your IPC tag, or leave blank for a random one.", "Serial Number")
 	if(!new_serial)
 		serial_number = uppertext(dd_limittext(md5(owner.real_name), 12))
