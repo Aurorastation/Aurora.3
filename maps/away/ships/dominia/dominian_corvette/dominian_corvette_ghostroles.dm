@@ -26,7 +26,6 @@
 	head = /obj/item/clothing/head/dominia/fleet
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
-	accessory = /obj/item/clothing/accessory/dominia
 
 	id = /obj/item/card/id/imperial_fleet
 
