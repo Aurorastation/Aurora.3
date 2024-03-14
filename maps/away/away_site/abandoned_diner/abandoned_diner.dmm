@@ -472,6 +472,7 @@
 	icon_state = "1-4"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/structure/disposalpipe/junction/yjunction,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "abo" = (
@@ -528,7 +529,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/backroom)
 "aby" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -615,6 +616,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
@@ -1193,9 +1197,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1404,9 +1408,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "avO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2077,6 +2081,10 @@
 /obj/random/dirt_75,
 /obj/machinery/light/colored/decayed{
 	dir = 8
+	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
@@ -3051,6 +3059,24 @@
 /obj/item/stack/material/plasteel/full,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
+"fQB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/abandoned_diner/crew_quarters)
 "fSo" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/bed/stool/padded/red{
@@ -3281,6 +3307,7 @@
 	},
 /obj/random/coin,
 /obj/item/reagent_containers/inhaler/xuxigas,
+/obj/random/spacecash,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "hRg" = (
@@ -3883,6 +3910,9 @@
 /obj/random/junk{
 	pixel_y = -8
 	},
+/obj/item/lore_radio{
+	pixel_y = 16
+	},
 /obj/item/reagent_containers/food/drinks/cans/dr_gibb{
 	pixel_y = 9;
 	pixel_x = -3
@@ -4055,6 +4085,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/floor_damage/broken2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "lEz" = (
@@ -4379,6 +4412,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Crew Area and Maintenance"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "nRr" = (
@@ -4457,6 +4491,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
@@ -4877,6 +4914,10 @@
 	pixel_x = 13
 	},
 /obj/random/dirt_75,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "qIv" = (
@@ -4926,7 +4967,7 @@
 "qWd" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/backroom)
 "qYa" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -5186,6 +5227,10 @@
 /obj/machinery/light_switch{
 	dir = 8;
 	pixel_x = -20
+	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
@@ -5708,6 +5753,9 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "wTm" = (
@@ -5791,13 +5839,9 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/item/trash/cigbutt,
-/obj/item/lore_radio{
-	pixel_y = 16
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
-	pixel_y = -6;
-	pixel_x = -5
+/obj/structure/cash_register{
+	dir = 4;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
@@ -5904,6 +5948,7 @@
 /obj/item/storage/firstaid/stab,
 /obj/item/storage/firstaid/regular,
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "ykd" = (
@@ -23388,7 +23433,7 @@ oAL
 ciE
 aeS
 jtk
-fSo
+gqs
 fSo
 fSo
 arW
@@ -24992,7 +25037,7 @@ tHg
 meJ
 ykd
 fbo
-pTG
+fQB
 tjn
 vXl
 vTb
