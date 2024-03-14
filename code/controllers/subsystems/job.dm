@@ -167,9 +167,12 @@ SUBSYSTEM_DEF(jobs)
 					continue
 
 				var/age = V.client.prefs.age
-
-				var/min_job_age = job.get_minimum_character_age(V.get_species())
-				var/ideal_job_age = job.get_ideal_character_age(V.get_species())
+				//handles cases such as if head is IPC, where age is not really a factor
+				var/min_job_age = 1
+				var/ideal_job_age = 12
+				if(!(V.get_species in ALL_IPC_SPECIES))
+					min_job_age = job.get_minimum_character_age(V.get_species())
+					ideal_job_age = job.get_ideal_character_age(V.get_species())
 
 				if(age > (ideal_job_age + 20)) // Elderly for the position
 					weightedCandidates[V] = 3
