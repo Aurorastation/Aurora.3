@@ -998,18 +998,7 @@
 
 /singleton/reagent/toxin/malignant_tumour_cells/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
-
 	var/mob/living/carbon/human/H = M
 	if(!(REAGENT_VOLUME(M.reagents, /singleton/reagent/cytophenolate)) && !H.internal_organs_by_name[BP_TUMOUR_SPREADING]) //only affects people with immunosuppressants or a pre-existing malignant tumour
 		return
-
-	var/tumour_chance = 5
-	for(var/obj/item/organ/internal/parasite/malignant_tumour/T in M.internal_organs)
-		tumour_chance = max(tumour_chance-2, 0) //no more than 3 tumours
-	if(prob(tumour_chance))
-		var/obj/item/organ/external/affected = (pick(H.organs))
-		if(BP_IS_ROBOTIC(affected))
-			return
-		var/obj/item/organ/internal/parasite/malignant_tumour/infest = new()
-		infest.parent_organ = affected
-		infest.replaced(H, affected)
+	H.infest_with_parasite(H, BP_TUMOUR_SPREADING, pick(H.organs), 10)
