@@ -25,7 +25,9 @@
 
 	use_overmap = FALSE
 	force_spawnpoint = TRUE
-	map_shuttles = list(/datum/shuttle/autodock/ferry/scc_transport)
+	map_shuttles = list(
+		/datum/shuttle/autodock/ferry/event_transport,
+	)
 
 /area/shuttle/scc
 	name = "SCC Transport Shuttle"
