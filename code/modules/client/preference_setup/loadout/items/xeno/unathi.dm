@@ -465,7 +465,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	allowed_roles = list("Chaplain")
-	flags = GEAR_HAS_NAME_SELECTION|GEAR_HAS_DESC_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/skakh/New()
 	..()
