@@ -191,10 +191,11 @@
 
 /obj/effect/overmap/visitable/ship/landable/raskolnikov/New()
 	designation = pick(
-		"Raskolnikov", "Razumikhin", "Wokulski", "Baryka", "Rieux",
-		"Crime and Punishment", "White Night", "Notes from Underground", "The Gambler", "The Peasants", "Gloria Victis", "Quo Vadis",
+		"Raskolnikov", "Razumikhin", "Wokulski", "Baryka", "Rieux", "Tokarczuk", "Christoph Kamil", "Untidy Thoughts", "Vengeance",
+		"Crime and Punishment", "White Night", "Notes from the Underground", "The Gambler", "The Peasants", "Gloria Victis", "Quo Vadis",
 		"Flood", "With Fire and Sword", "In Desert and Wilderness", "Lady of the Lake", "The Doll", "The Wedding", "The Coming Spring",
-		"Ravens and Crows Will Peck Us to Pieces", "Road to Nowhere",
+		"Ravens and Crows Will Peck Us to Pieces", "Road to Nowhere", "Sir Thaddaeus", "Street of Crocodiles", "The Cinnamon Shops",
+		"Shielding the Flame", "Return from the Stars", "The Cyberiad", "Socrates Dancing", "Farewell to Autumn", "Spring and Wine",
 	)
 	..()
 
