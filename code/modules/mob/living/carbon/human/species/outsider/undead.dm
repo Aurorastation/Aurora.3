@@ -145,17 +145,14 @@
 
 /mob/living/carbon/human/bull/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_BULL)
-	set_name("zombie bull")
 	SSghostroles.add_spawn_atom("szombie", src)
 
 /mob/living/carbon/human/hunter/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_HUNTER)
-	set_name("zombie hunter")
 	SSghostroles.add_spawn_atom("szombie", src)
 
 /mob/living/carbon/human/rhino/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_RHINO)
-	set_name("zombie rhino")
 	SSghostroles.add_spawn_atom("szombie", src)
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
@@ -504,7 +501,7 @@
 	icobase = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 
-	total_health = 200
+	total_health = 250
 
 	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID | TYPE_SYNTHETIC | TYPE_WEIRD
 	gluttonous = GLUT_ANYTHING
@@ -529,6 +526,9 @@
 	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/carbon/proc/consume, /mob/living/carbon/proc/smash_barricade)
 	show_ssd = TRUE
 
+/datum/species/zombie/bull/get_random_name(gender)
+	return "zombie bull"
+
 
 ///A zombie tuned to hunt preys
 /datum/species/zombie/hunter
@@ -538,10 +538,10 @@
 	deform = 'icons/mob/human_races/zombie/r_zombie_hunter.dmi'
 	slowdown = 2
 
-	total_health = 150
+	total_health = 80
 
-	stamina = 40
-	sprint_speed_factor = 2
+	stamina = 80
+	sprint_speed_factor = 1.2
 	slowdown = -2
 	standing_jump_range = 5
 	natural_climbing = TRUE
@@ -553,12 +553,14 @@
 	inherent_verbs = list(
 						/mob/living/carbon/human/proc/trample,
 						/mob/living/carbon/human/proc/darkness_eyes,
-						/mob/living/carbon/proc/consume,
-						/mob/living/carbon/human/proc/leap
+						/mob/living/carbon/proc/consume
 						)
 
-	unarmed_types = list(/datum/unarmed_attack/shocking) //This zombie cannot infect, it's an harrass type of zombie
+	unarmed_types = list(/datum/unarmed_attack/claws/strong)
 	show_ssd = TRUE
+
+/datum/species/zombie/hunter/get_random_name(gender)
+	return "zombie hunter"
 
 ///A zombie tuned for charge attacks
 /datum/species/zombie/rhino
@@ -568,7 +570,7 @@
 	deform = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
 	slowdown = 2
 
-	total_health = 210
+	total_health = 200
 
 	stamina = 50
 	sprint_speed_factor = 0.7
@@ -598,6 +600,9 @@
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/golem)
 	show_ssd = TRUE
+
+/datum/species/zombie/rhino/get_random_name(gender)
+	return "zombie rhino"
 
 /mob/living/carbon/proc/consume()
 	set name = "Consume"
@@ -643,6 +648,7 @@
 
 	src.visible_message(SPAN_DANGER("\The [src] hunkers down over \the [target], tearing into their flesh."))
 	playsound(loc, 'sound/effects/bonebreak3.ogg', 20, 1)
+	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
 
 	target.adjustHalLoss(50)
 
@@ -660,7 +666,7 @@
 			if(target.reagents)
 				target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
 
-		if (target.getBruteLoss() > target.maxHealth * 1.5)
+		if (target.getBruteLoss() > target.maxHealth * 3)
 			if (target.stat != DEAD)
 				to_chat(src,SPAN_WARNING("You've scraped \the [target] down to the bones already!."))
 			else
