@@ -16820,6 +16820,8 @@
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
+"poY" = (
+)
 "pph" = (
 /obj/structure/rod_railing{
 	dir = 8
@@ -51719,7 +51721,7 @@ bxA
 bxA
 bxA
 muQ
-sFX
+poY
 bxA
 bxA
 muQ
