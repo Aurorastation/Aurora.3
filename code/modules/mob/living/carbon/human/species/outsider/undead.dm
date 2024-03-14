@@ -554,7 +554,7 @@
 						/mob/living/carbon/human/proc/trample,
 						/mob/living/carbon/human/proc/darkness_eyes,
 						/mob/living/carbon/proc/consume,
-						/mob/living/carbon/proc/leap
+						/mob/living/carbon/human/proc/leap
 						)
 
 	unarmed_types = list(/datum/unarmed_attack/shocking) //This zombie cannot infect, it's an harrass type of zombie
