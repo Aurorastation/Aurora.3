@@ -294,14 +294,15 @@
 /obj/item/organ/internal/ipc_tag/proc/modify_tag_data()
 	if(!owner || owner.stat)
 		return
-	var/new_citizenship = tgui_input_list(owner, "Choose a citizenship for your IPC tag.", "Tag Citizenship", CITIZENSHIPS_ALL_IPC)
-	if(!new_citizenship)
-		return
-	citizenship_info = new_citizenship
 	var/new_ownership = tgui_input_list(owner, "Choose an ownership status for your IPC tag.", "Tag Ownership", list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF))
 	if(!new_ownership)
 		return
 	ownership_info = new_ownership
+	if(ownership_info == IPC_OWNERSHIP_SELF)
+		var/new_citizenship = tgui_input_list(owner, "Choose a citizenship for your IPC tag.", "Tag Citizenship", CITIZENSHIPS_ALL_IPC)
+		if(!new_citizenship)
+			return
+		citizenship_info = new_citizenship
 	var/new_serial = tgui_input_text(owner, "Choose a serial number for your IPC tag, or leave blank for a random one.", "Serial Number")
 	if(!new_serial)
 		serial_number = uppertext(dd_limittext(md5(owner.real_name), 12))
