@@ -141,14 +141,15 @@
 
 /singleton/recipe/poppypretzel
 	appliance = OVEN
-	fruit = list("poppy" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
+	fruit = list("poppy" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/poppypretzel
 	result_quantity = 2
 
 /singleton/recipe/bagel
 	appliance = OVEN
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	fruit = list("poppy" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
