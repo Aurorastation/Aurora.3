@@ -993,6 +993,10 @@
 /obj/structure/mirror{
 	pixel_x = 27
 	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = 8;
+	pixel_x = -8
+	},
 /turf/simulated/floor/marble,
 /area/abandoned_diner/crew_quarters)
 "afF" = (
@@ -3059,24 +3063,6 @@
 /obj/item/stack/material/plasteel/full,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
-"fQB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/abandoned_diner/crew_quarters)
 "fSo" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/bed/stool/padded/red{
@@ -4195,6 +4181,24 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
+"mqN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/abandoned_diner/crew_quarters)
 "mHl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -25037,7 +25041,7 @@ tHg
 meJ
 ykd
 fbo
-fQB
+mqN
 tjn
 vXl
 vTb
