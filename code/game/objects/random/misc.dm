@@ -477,7 +477,6 @@
 			P = null
 	. = new P(loc)
 
-
 /obj/random/syrup
 	name = "random syrup"
 	desc = "Contains random bottles of flavored syrup."
