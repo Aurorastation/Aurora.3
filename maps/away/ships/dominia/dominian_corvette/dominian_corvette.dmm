@@ -2928,16 +2928,12 @@
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
-/obj/item/clothing/head/helmet/tank,
-/obj/item/clothing/head/helmet/tank,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/item/clothing/accessory/dominia,
-/obj/item/clothing/accessory/dominia,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "kkj" = (
@@ -4835,6 +4831,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/item/clothing/accessory/dominia,
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/officer)
 "qPL" = (
@@ -6110,6 +6107,12 @@
 	},
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/flame/lighter/zippo/dominia,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/dominia,
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "vZS" = (
