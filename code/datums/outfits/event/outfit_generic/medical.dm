@@ -1,5 +1,5 @@
 
-/datum/outfit/admin/generic/medical
+/obj/outfit/admin/generic/medical
 	name = "Generic Medical Outfit"
 
 	uniform = list(

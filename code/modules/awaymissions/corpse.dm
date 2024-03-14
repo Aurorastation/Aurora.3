@@ -11,7 +11,7 @@
 	icon_state = "corpsespawner"
 
 	/// If set, this outfit is used to dress and equip the corpse.
-	/// Should either be a subtype of `/datum/outfit`, and then it is that specific outfit
+	/// Should either be a subtype of `/obj/outfit`, and then it is that specific outfit
 	/// Or a list of subtypes, where it randomly picks one outfit from that list
 	var/outfit = null
 

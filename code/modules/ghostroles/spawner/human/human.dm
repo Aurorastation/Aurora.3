@@ -13,7 +13,7 @@
 	//Vars related to human mobs
 
 	/// Outfit to equip
-	/// Should either be a subtype of `/datum/outfit`, and then it is that specific outfit
+	/// Should either be a subtype of `/obj/outfit`, and then it is that specific outfit
 	/// Or a list of subtypes, where it randomly picks one outfit from that list
 	var/outfit = null
 	/// Outfit overwrite for the species
