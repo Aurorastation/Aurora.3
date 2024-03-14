@@ -36,8 +36,6 @@
 		to_chat(user, "Scanning array is recharging.")
 
 /obj/item/device/ano_scanner/proc/scan()
-	set background = 1
-
 	last_scan_time = world.time
 	nearest_artifact_distance = -1
 	var/turf/cur_turf = get_turf(src)
