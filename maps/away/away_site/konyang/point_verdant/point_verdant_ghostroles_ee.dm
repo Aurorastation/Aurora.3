@@ -88,7 +88,7 @@
 		/obj/item/clothing/gloves/latex/nitrile,
 	)
 	backpack_contents = list(
-		/obj/item/modular_computer/laptop,
+		/obj/item/modular_computer/laptop/preset,
 		/obj/item/storage/firstaid,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline,
 		/obj/item/reagent_containers/glass/bottle/bicaridine,
@@ -122,7 +122,7 @@
 	backpack_contents = list(
 		/obj/item/gun/projectile/sec/lethal,
 		/obj/item/reagent_containers/glass/bottle/trioxin,
-		/obj/item/modular_computer/laptop,
+		/obj/item/modular_computer/laptop/preset,
 		/obj/item/stamp/einstein,
 		/obj/item/reagent_containers/hypospray/cmo,
 		/obj/item/folder/white,
@@ -154,7 +154,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/longcoat
 	belt = null
 	backpack_contents = list(
-		/obj/item/modular_computer/laptop,
+		/obj/item/modular_computer/laptop/preset,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/firstaid/adv,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline,
@@ -190,7 +190,7 @@
 	name = "EE Intern"
 
 	backpack_contents = list(
-		/obj/item/modular_computer/laptop,
+		/obj/item/modular_computer/laptop/preset,
 		/obj/item/storage/box/cups,
 		/obj/item/reagent_containers/glass/beaker/pitcher/coffee
 	)
