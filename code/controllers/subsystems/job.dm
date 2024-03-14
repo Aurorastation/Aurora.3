@@ -159,16 +159,7 @@ SUBSYSTEM_DEF(jobs)
 			if(!candidates.len)
 				continue
 
-			// Build a list of candidates.
-			var/list/weightedCandidates = list()
-			for(var/mob/V in candidates)
-				// Log-out during round-start? No point in considering the player for candidacy.
-				if(!V.client)
-					continue
-
-				weightedCandidates[V] = 1
-
-			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
+			var/mob/abstract/new_player/candidate = pick(candidates)
 			if(AssignRole(candidate, command_position))
 				return TRUE
 	return FALSE
