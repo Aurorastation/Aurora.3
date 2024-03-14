@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - tweak: "Removes age-weighted RNG when rolling for command roles."
+  - tweak: "Removed age-weighted RNG when rolling for command roles."
