@@ -288,8 +288,6 @@
 	name = "cocoa powder"
 	reagents_to_add = list(/singleton/reagent/nutriment/coco = 50)
 
-
-
 //MRE condiments and drinks.
 
 /obj/item/reagent_containers/food/condiment/small/packet
