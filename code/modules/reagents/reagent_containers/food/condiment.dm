@@ -282,10 +282,10 @@
 	name = "rice"
 	reagents_to_add = list(/singleton/reagent/nutriment/rice = 50)
 
-/obj/item/reagent_containers/food/condiment/coco //not exactly a condiment, but not exactly NOT a condiment, right?
+/obj/item/reagent_containers/food/condiment/cocoa //not exactly a condiment, but not exactly NOT a condiment, right?
 	icon_state = "cocoapowder"
 	fixed_state = TRUE
-	name = "coco powder"
+	name = "cocoa powder"
 	reagents_to_add = list(/singleton/reagent/nutriment/coco = 50)
 
 
