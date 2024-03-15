@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 			if(horizon)
 				//check if port of call is today
-				if(SSatlas.current_sector.next_port_visit && SSatlas.current_sector.next_port_visit == 0)
+				if(!isnull(SSatlas.current_sector.next_port_visit) && SSatlas.current_sector.next_port_visit == 0)
 					force_spawn |= ruin
 					for(var/ruin_path in ruin.force_ruins)
 						var/datum/map_template/ruin/force_ruin = new ruin_path
