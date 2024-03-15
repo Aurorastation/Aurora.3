@@ -468,6 +468,8 @@ example:
 #define TEMPLATE_FLAG_CLEAR_CONTENTS   4
 /// if it should forbid ruins from spawning on top of it
 #define TEMPLATE_FLAG_NO_RUINS         8
+/// Makes it always spawn if today is a port of call day
+#define TEMPLATE_FLAG_PORT_SPAWN         16
 
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
