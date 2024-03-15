@@ -988,7 +988,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
 
-		human_user << browse(dat, "window=newspaper_main;size=300x400")
+		show_browser(human_user, dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
 		to_chat(user, "The paper is full of intelligible symbols!")
