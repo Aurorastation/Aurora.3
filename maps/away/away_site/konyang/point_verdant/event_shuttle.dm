@@ -1,9 +1,4 @@
 
-/obj/machinery/computer/shuttle_control/event_transport
-	name = "SCCV Polish Punk control console"
-	req_access = null
-	shuttle_tag = "SCCV Polish Punk"
-
 /datum/shuttle/autodock/ferry/event_transport
 	name = "SCCV Polish Punk"
 	location = 1
@@ -39,3 +34,22 @@
 	base_turf = /turf/space
 	sound_env = LARGE_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
+
+/obj/machinery/computer/shuttle_control/event_transport
+	name = "SCCV Polish Punk control console"
+	req_access = null
+	shuttle_tag = "SCCV Polish Punk"
+	ui_template = "ShuttleControlConsoleEventShuttle"
+	var/auth_code = "tonkotsu ramen"
+
+/obj/machinery/computer/shuttle_control/event_transport/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/shuttle, var/action, var/list/params)
+	if(!istype(shuttle))
+		return FALSE
+
+	if(params["auth_code_input"] != auth_code)
+		return FALSE
+
+	. = ..()
+
+/obj/machinery/computer/shuttle_control/event_transport/ui_data_more()
+	. = list("auth_code" = auth_code)

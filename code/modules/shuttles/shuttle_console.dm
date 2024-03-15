@@ -112,7 +112,10 @@
 		"can_force" = shuttle.can_force(),
 		"can_rename_ship" = can_rename_ship,
 		"ship_name" = shuttle.name,
-	)
+	) + ui_data_more()
+
+/obj/machinery/computer/shuttle_control/proc/ui_data_more()
+	. = list()
 
 /obj/machinery/computer/shuttle_control/ui_act(action, params)
 	. = ..()
