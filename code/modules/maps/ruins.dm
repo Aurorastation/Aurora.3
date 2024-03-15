@@ -50,6 +50,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			// No matter if it spawns or not, we want it removed from further consideration, it either spawns here or not at all
 			potentialRuins -= ruin
 			handled_ruin_paths += ruin.type
+			continue
 
 		if(!(ruin.spawns_in_current_sector()) && !ignore_sector)
 			potentialRuins -= ruin
