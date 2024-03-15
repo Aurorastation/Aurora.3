@@ -23,6 +23,7 @@
 	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
 	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
 	//requires that the wearer's species is listed in icon_supported_species_tags
+	var/do_icon_species_adapt = FALSE
 
 	/**
 	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,

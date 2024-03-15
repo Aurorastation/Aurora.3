@@ -1314,3 +1314,21 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 /mob/get_client()
 	return client
+
+///Return a species tag based on bodytype. Used for suit refitting.
+/proc/species_tag_from_bodytype(var/bodytype)
+	var/tag
+	switch(bodytype)
+		if(BODYTYPE_DIONA)
+			tag = "dio"
+		if(BODYTYPE_IPC) //only baselines need unique suits
+			tag = "ipc"
+		if(BODYTYPE_SKRELL)
+			tag = "skr"
+		if(BODYTYPE_TAJARA)
+			tag = "taj"
+		if(BODYTYPE_UNATHI)
+			tag = "una"
+		if(BODYTYPE_VAURCA)
+			tag = "vau"
+	return tag

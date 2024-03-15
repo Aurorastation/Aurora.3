@@ -192,6 +192,45 @@
 	else
 		icon = initial(icon)
 
+/obj/item/clothing/proc/refit_contained(var/target_species)
+	if(!species_restricted || !contained_sprite)
+		return
+	var/species_short = species_tag_from_bodytype(target_species)
+	switch(target_species)
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) //humanoid bodies
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+		if(BODYTYPE_IPC) //ipc suits can fit on all ipcs
+			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+		else
+			species_restricted = list(target_species)
+	if(!species_short) //if it's empty, for human bodytype, so return
+		return
+	if(!(species_short in icon_supported_species_tags))
+		return
+	icon_species_tag = species_short
+	var/list/all_icon_states = icon_states(icon)
+	if("[species_short]_[icon_state]" in all_icon_states)
+		icon_state = "[species_short]_[icon_state]"
+		item_state = "[species_short]_[icon_state]"
+
+/obj/item/clothing/head/helmet/refit_contained(var/target_species)
+	if(!species_restricted || !contained_sprite)
+		return
+	var/species_short = species_tag_from_bodytype(target_species)
+	switch(target_species)
+		if(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+		else
+			species_restricted = list(target_species)
+	if(!species_short)
+		return
+	if(!(species_short in icon_supported_species_tags))
+		return
+	var/list/all_icon_states = icon_states(icon)
+	if("[species_short]_[icon_state]" in all_icon_states)
+		icon_state = "[species_short]_[icon_state]"
+		item_state = "[species_short]_[icon_state]"
+
 //material related procs
 
 /obj/item/clothing/get_material()
@@ -639,7 +678,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_HEAD]"
+		var/state = "[icon_state][WORN_HEAD]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)
@@ -1002,7 +1041,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_SUIT]"
+		var/state = "[icon_state][WORN_SUIT]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)
@@ -1187,7 +1226,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_UNDER]"
+		var/state = "[item_state][WORN_UNDER]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)

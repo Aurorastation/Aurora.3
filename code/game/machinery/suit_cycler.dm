@@ -526,21 +526,23 @@
 		return
 
 	if(target_species)
-		if(helmet)
+		if(helmet && !helmet.contained_sprite)
 			helmet.refit_for_species(target_species)
-		if(suit)
+		if(suit && !suit.contained_sprite)
 			suit.refit_for_species(target_species)
 
 	switch(target_department)
 		if("Engineering")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "engineering voidsuit helmet"
-				helmet.icon_state = "rig0-engineering"
-				helmet.item_state = "eng_helm"
+				helmet.icon_state = "engineering_helm"
+				helmet.item_state = "engineering_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "engineering voidsuit"
-				suit.icon_state = "rig-engineering"
-				suit.item_state = "eng_voidsuit"
+				suit.icon_state = "engineering"
+				suit.item_state = "engineering"
 		if("Mining")
 			if(helmet)
 				helmet.name = "mining voidsuit helmet"
@@ -570,13 +572,15 @@
 				suit.item_state = "sec_voidsuit"
 		if("Atmos")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "atmospherics voidsuit helmet"
-				helmet.icon_state = "rig0-atmos"
+				helmet.icon_state = "atmos_helm"
 				helmet.item_state = "atmos_helm"
 			if(suit)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "atmospherics voidsuit"
-				suit.icon_state = "rig-atmos"
-				suit.item_state = "atmos_voidsuit"
+				suit.icon_state = "atmos"
+				suit.item_state = "atmos"
 		if("Captain")
 			if(helmet)
 				helmet.name = "captain voidsuit helmet"
@@ -616,8 +620,12 @@
 				suit.icon_state = "freelancer"
 
 	if(helmet)
+		if(helmet.contained_sprite)
+			helmet.refit_contained(target_species)
 		helmet.name = "refitted [helmet.name]"
 	if(suit)
+		if(suit.contained_sprite)
+			suit.refit_contained(target_species)
 		suit.name = "refitted [suit.name]"
 	update_icon()
 
