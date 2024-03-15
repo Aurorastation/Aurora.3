@@ -263,18 +263,20 @@
 /area/abandoned_diner/diner)
 "aaU" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 16;
-	pixel_x = -3
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_y = 4;
 	pixel_x = 8
+	},
+/obj/structure/sign/double/barsign/kitchensign{
+	pixel_y = 28;
+	layer = 2.8;
+	req_access = null
+	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 16;
+	pixel_x = -3
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/kitchen)
@@ -919,6 +921,7 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "adp" = (
@@ -1002,9 +1005,17 @@
 "afF" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/cooking_container/board/bowl{
-	pixel_y = 8
+	pixel_y = 17
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_y = 4;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "aga" = (
@@ -1039,8 +1050,8 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "agD" = (
-/obj/machinery/seed_extractor,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/seed_storage,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "agR" = (
@@ -1461,8 +1472,9 @@
 /obj/random/junk{
 	pixel_x = -13
 	},
-/obj/structure/sign/poster{
-	pixel_y = 32
+/obj/structure/sign/emergency/exit{
+	dir = 8;
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
@@ -1492,11 +1504,11 @@
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "azn" = (
-/obj/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
+/obj/machinery/smartfridge,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "azC" = (
@@ -1562,8 +1574,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "aBr" = (
-/obj/machinery/seed_storage/garden,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "aBI" = (
@@ -1659,7 +1671,6 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed,
-/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "aEn" = (
@@ -1840,6 +1851,9 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/plasticflaps,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/disposals)
 "aIJ" = (
@@ -1855,13 +1869,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/b)
-"aJQ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/wall,
-/area/abandoned_diner/disposals)
 "aJX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2242,6 +2249,7 @@
 "aYp" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/kitchen)
 "aYq" = (
@@ -2398,6 +2406,7 @@
 	pixel_x = 11
 	},
 /obj/effect/decal/cleanable/ash,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "ciE" = (
@@ -2510,6 +2519,9 @@
 "cOW" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/flora/pottedplant/dead,
+/obj/structure/sign/emergency/exit{
+	pixel_y = -25
+	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "cRs" = (
@@ -3255,6 +3267,10 @@
 	pixel_y = -8;
 	pixel_x = 20
 	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = -6;
+	pixel_x = -8
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "hks" = (
@@ -3276,9 +3292,6 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "hLA" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/wall,
 /area/abandoned_diner/disposals)
 "hQv" = (
@@ -3691,9 +3704,12 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/disposalpipe/trunk{
-	dir = 1
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/sign/deathsposal{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/disposals)
 "kfs" = (
@@ -3840,7 +3856,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/north,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
@@ -4045,7 +4060,9 @@
 "ltu" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/structure/extinguisher_cabinet/east,
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/item/device/oxycandle,
+/obj/item/storage/bag/inflatable/emergency,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "lyT" = (
@@ -4401,6 +4418,9 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/disposals)
 "nRd" = (
@@ -4714,9 +4734,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "pAj" = (
@@ -4754,7 +4772,6 @@
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/molten_item,
-/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/kitchen)
 "pLZ" = (
@@ -5011,6 +5028,9 @@
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/sign/electricshock{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "rDz" = (
@@ -5104,15 +5124,15 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/disposals)
 "slj" = (
-/obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/structure/sink/kitchen{
-	layer = 3.3;
-	pixel_y = 26
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "slM" = (
 /obj/random/dirt_75,
@@ -5182,10 +5202,6 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/dead,
-/obj/machinery/atm{
-	dir = 1;
-	pixel_y = 28
-	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "sPP" = (
@@ -21404,7 +21420,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 atU
 atU
@@ -21606,7 +21622,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 atU
 atU
@@ -21631,7 +21647,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 atU
 atU
@@ -21808,32 +21824,32 @@ atU
 atU
 atU
 atU
+bTa
 atU
 atU
 atU
 atU
 atU
-atU
-atU
-atU
+bTa
+bTa
 avb
 abe
 tGp
 avb
 avb
+bTa
+atU
+atU
+bTa
+atU
+atU
+bTa
 atU
 atU
 atU
 atU
 atU
-atU
-atU
-atU
-atU
-atU
-atU
-atU
-atU
+bTa
 atU
 atU
 atU
@@ -22023,19 +22039,19 @@ jlG
 aac
 mSj
 avb
+bTa
+atU
+atU
+bTa
+atU
+atU
+bTa
 atU
 atU
 atU
 atU
 atU
-atU
-atU
-atU
-atU
-atU
-atU
-atU
-atU
+bTa
 atU
 atU
 atU
@@ -22225,19 +22241,19 @@ lay
 aac
 qIw
 avb
+bTa
+atU
+atU
+bTa
+atU
+atU
+bTa
 atU
 atU
 atU
 atU
 atU
-atU
-atU
-atU
-atU
-atU
-atU
-atU
-atU
+bTa
 atU
 atU
 atU
@@ -23014,7 +23030,7 @@ atU
 atU
 aSX
 atU
-atU
+bTa
 hLA
 skE
 gYR
@@ -23216,7 +23232,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 hLA
 nMy
 iTm
@@ -23418,7 +23434,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 hLA
 aIH
 jBB
@@ -23620,8 +23636,8 @@ atU
 atU
 aSX
 atU
-atU
-aJQ
+bTa
+hLA
 keF
 irC
 dkf
@@ -24865,7 +24881,7 @@ kjZ
 qlS
 aJX
 syd
-atU
+bTa
 atU
 atU
 atU
@@ -25067,7 +25083,7 @@ pAj
 uVJ
 iru
 chl
-atU
+bTa
 atU
 atU
 atU
@@ -25269,7 +25285,7 @@ kjZ
 cjr
 act
 chl
-atU
+bTa
 atU
 atU
 atU
@@ -26241,11 +26257,11 @@ atU
 atU
 atU
 atU
-atU
-atU
-atU
-atU
-atU
+bTa
+bTa
+bTa
+bTa
+bTa
 gVn
 rcN
 dbn
@@ -26257,7 +26273,7 @@ ajD
 eth
 acf
 jzc
-slj
+aZe
 adl
 fuA
 acm
@@ -26466,7 +26482,7 @@ bid
 tvh
 bid
 nyp
-aZe
+slj
 ldL
 fpt
 fpt
@@ -27274,7 +27290,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 atU
 atU
@@ -27476,7 +27492,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 atU
 atU
@@ -27678,7 +27694,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 aSX
 atU
@@ -27880,7 +27896,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 atU
 atU
@@ -28082,7 +28098,7 @@ atU
 atU
 atU
 atU
-atU
+bTa
 atU
 atU
 atU
