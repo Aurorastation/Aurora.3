@@ -45,12 +45,21 @@
 	var/can_repair			// If set, the cycler can repair voidsuits.
 	var/electrified = FALSE
 
-	//Departments that the cycler can paint suits to look like.
-	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
+	///Possible modifications to pick between
+	var/list/available_modifications = list(
+		/singleton/item_modifier/space_suit,
+		/singleton/item_modifier/space_suit/engineering,
+		/singleton/item_modifier/space_suit/atmospherics
+	)
+	///Extra modifications to add when emagged, duplicates will not be added
+	var/list/emagged_modifications = list(
+		/singleton/item_modifier/space_suit,
+		/singleton/item_modifier/space_suit/engineering
+	)
 	//Species that the suits can be configured to fit.
 	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 
-	var/target_department
+	var/singleton/item_modifier/target_modification
 	var/target_species
 
 	var/mob/living/carbon/human/occupant
@@ -63,6 +72,9 @@
 
 /obj/machinery/suit_cycler/Initialize(mapload, d = 0, populate_parts = TRUE)
 	. = ..()
+	if(!length(available_modifications) || !length(species))
+		crash_with("Invalid setup: [log_info_line(src)]")
+		return INITIALIZE_HINT_QDEL
 
 	if(populate_parts)
 		if(ispath(suit))
@@ -75,10 +87,11 @@
 			mask = new mask(src)
 
 	wires = new(src)
-	target_department = departments[1]
+	available_modifications = list_values(Singletons.GetMap(available_modifications))
+	target_modification = available_modifications[1]
 	target_species = species[1]
-	update_icon()
-	if(!target_department || !target_species)
+
+	if(!target_modification || !target_species)
 		qdel(src)
 
 /obj/machinery/suit_cycler/Destroy()
@@ -257,7 +270,7 @@
 
 	//Clear the access reqs, disable the safeties, and open up all paintjobs.
 	to_chat(user, SPAN_WARNING("You run the sequencer across the interface, corrupting the operating protocols."))
-	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "^%###^%$")
+//	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "^%###^%$")
 	emagged = TRUE
 	safeties = FALSE
 	req_access = list()
@@ -295,7 +308,7 @@
 		"can_repair" = can_repair,
 		"model_text" = model_text,
 		"radiation_level" = radiation_level,
-		"target_department" = target_department,
+		"target_department" = target_modification,
 		"target_species" = target_species,
 		"helmet" = helmet ? list("name" = helmet.name, "damage" = 0) : null,
 		"suit" = suit ? list("name" = suit.name, "damage" = suit.damage) : null,
@@ -345,9 +358,9 @@
 		update_icon()
 
 	else if(action == "select_department")
-		var/choice = tgui_input_list(usr, "Please select the target department paintjob.", "Cycler Target Department Selection", departments, target_department)
+		var/choice = tgui_input_list(usr, "Please select the target department paintjob.", "Cycler Target Department Selection", available_modifications, target_modification)
 		if(choice)
-			target_department = choice
+			target_modification = choice
 
 	else if(action == "select_species")
 		var/choice = tgui_input_list(usr, "Please select the target species configuration.", "Cycler Target Species Selection", species, target_species)
@@ -520,100 +533,18 @@
 	updateUsrDialog()
 	update_icon()
 
-//There HAS to be a less bloated way to do this. TODO: some kind of table/icon name coding? ~Z
 /obj/machinery/suit_cycler/proc/apply_paintjob()
-	if(!target_species || !target_department)
+	if(!target_species || !target_modification)
 		return
+
+	target_modification.RefitItem(helmet)
+	target_modification.RefitItem(suit)
 
 	if(target_species)
 		if(helmet)
 			helmet.refit_for_species(target_species)
 		if(suit)
 			suit.refit_for_species(target_species)
-
-	switch(target_department)
-		if("Engineering")
-			if(helmet)
-				helmet.name = "engineering voidsuit helmet"
-				helmet.icon_state = "rig0-engineering"
-				helmet.item_state = "eng_helm"
-			if(suit)
-				suit.name = "engineering voidsuit"
-				suit.icon_state = "rig-engineering"
-				suit.item_state = "eng_voidsuit"
-		if("Mining")
-			if(helmet)
-				helmet.name = "mining voidsuit helmet"
-				helmet.icon_state = "rig0-mining"
-				helmet.item_state = "mining_helm"
-			if(suit)
-				suit.name = "mining voidsuit"
-				suit.icon_state = "rig-mining"
-				suit.item_state = "mining_voidsuit"
-		if("Medical")
-			if(helmet)
-				helmet.name = "medical voidsuit helmet"
-				helmet.icon_state = "rig0-medical"
-				helmet.item_state = "medical_helm"
-			if(suit)
-				suit.name = "medical voidsuit"
-				suit.icon_state = "rig-medical"
-				suit.item_state = "medical_voidsuit"
-		if("Security")
-			if(helmet)
-				helmet.name = "security voidsuit helmet"
-				helmet.icon_state = "rig0-sec"
-				helmet.item_state = "sec_helm"
-			if(suit)
-				suit.name = "security voidsuit"
-				suit.icon_state = "rig-sec"
-				suit.item_state = "sec_voidsuit"
-		if("Atmos")
-			if(helmet)
-				helmet.name = "atmospherics voidsuit helmet"
-				helmet.icon_state = "rig0-atmos"
-				helmet.item_state = "atmos_helm"
-			if(suit)
-				suit.name = "atmospherics voidsuit"
-				suit.icon_state = "rig-atmos"
-				suit.item_state = "atmos_voidsuit"
-		if("Captain")
-			if(helmet)
-				helmet.name = "captain voidsuit helmet"
-				helmet.icon_state = "capspace"
-				helmet.item_state = "capspace"
-			if(suit)
-				suit.name = "captain voidsuit"
-				suit.icon_state = "capspace"
-				suit.item_state = "capspace"
-		if("^%###^%$", "Mercenary")
-			if(helmet)
-				helmet.name = "blood-red voidsuit helmet"
-				helmet.icon_state = "rig0-syndie"
-				helmet.item_state = "syndie_helm"
-			if(suit)
-				suit.name = "blood-red voidsuit"
-				suit.item_state = "syndie_voidsuit"
-				suit.icon_state = "rig-syndie"
-		if("Research")
-			if(helmet)
-				helmet.name = "research voidsuit helmet"
-				helmet.icon_state = "rig0-sci"
-				helmet.item_state = "research_voidsuit_helmet"
-			if(suit)
-				suit.name = "research voidsuit"
-				suit.item_state = "research_voidsuit"
-				suit.icon_state = "rig-sci"
-
-		if("Freelancers")
-			if(helmet)
-				helmet.name = "freelancer voidsuit helmet"
-				helmet.icon_state = "rig0-freelancer"
-				helmet.item_state = "rig0-freelancer"
-			if(suit)
-				suit.name = "freelancer voidsuit"
-				suit.item_state = "freelancer"
-				suit.icon_state = "freelancer"
 
 	if(helmet)
 		helmet.name = "refitted [helmet.name]"

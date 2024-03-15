@@ -787,6 +787,12 @@
 		if (subject_l[final])
 			return subject_l[final]
 
+///Returns the first key where T fulfills ispath
+/proc/get_ispath_key(var/list/L, var/T)
+	for(var/key in L)
+		if(ispath(T, key))
+			return key
+
 /datum/proc/dd_SortValue()
 	return "[src]"
 
