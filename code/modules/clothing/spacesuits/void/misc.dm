@@ -614,6 +614,10 @@
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
 	icon_state = "himeo_helm"
 	item_state = "himeo_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "mining_helm",
+		slot_r_hand_str = "mining_helm"
+		)
 
 	light_overlay = "helmet_light_dual"
 
@@ -625,6 +629,10 @@
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "himeo"
 	icon_state = "himeo"
+	item_state_slots = list(
+		slot_l_hand_str = "mining",
+		slot_r_hand_str = "mining"
+		)
 
 /obj/item/clothing/head/helmet/space/void/engineering/himeo
 	name = "himeo engineering voidsuit helmet"
@@ -634,6 +642,10 @@
 	item_state = "himeo_helm"
 	icon_state = "himeo_helm"
 	light_overlay = "helmet_light_dual"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering_helm",
+		slot_r_hand_str = "engineering_helm"
+		)
 
 /obj/item/clothing/suit/space/void/engineering/himeo
 	name = "himeo engineering voidsuit"
@@ -643,6 +655,10 @@
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "himeo"
 	icon_state = "himeo"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering",
+		slot_r_hand_str = "engineering"
+		)
 
 /obj/item/clothing/head/helmet/space/void/atmos/himeo
 	name = "himeo atmospherics voidsuit helmet"
@@ -651,6 +667,10 @@
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
 	item_state = "himeo_helm"
 	icon_state = "himeo_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos_helm",
+		slot_r_hand_str = "atmos_helm"
+		)
 
 	light_overlay = "helmet_light_dual"
 
@@ -662,6 +682,10 @@
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "himeo"
 	icon_state = "himeo"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos",
+		slot_r_hand_str = "atmos"
+		)
 
 /obj/item/clothing/head/helmet/space/void/mining/himeo/tajara
 	name = "himeo mining voidsuit helmet"

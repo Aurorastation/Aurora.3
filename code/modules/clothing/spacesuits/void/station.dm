@@ -6,6 +6,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "engineering_helm"
 	item_state = "engineering_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "engineering_helm",
+		slot_l_hand_str = "engineering_helm"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	armor = list(
@@ -26,6 +30,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "engineering"
 	item_state = "engineering"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "engineering",
+		slot_l_hand_str = "engineering"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	slowdown = 1
@@ -47,6 +55,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
 	icon_state = "mining_helm"
 	item_state = "mining_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "mining_helm",
+		slot_l_hand_str = "mining_helm"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	armor = list(
@@ -66,6 +78,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
 	icon_state = "mining"
 	item_state = "mining"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "mining",
+		slot_l_hand_str = "mining"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	armor = list(
@@ -85,6 +101,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
 	icon_state = "medical_helm"
 	item_state = "medical_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "medical_helm",
+		slot_l_hand_str = "medical_helm"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	armor = list(
@@ -103,6 +123,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
 	icon_state = "medical"
 	item_state = "medical"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "medical",
+		slot_l_hand_str = "medical"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	armor = list(
@@ -121,6 +145,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
 	icon_state = "security_helm"
 	item_state = "security_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "security_helm",
+		slot_l_hand_str = "security_helm"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	armor = list(
@@ -140,6 +168,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
 	icon_state = "security"
 	item_state = "security"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "security",
+		slot_l_hand_str = "security"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	armor = list(
@@ -157,8 +189,12 @@
 	desc = "A special helmet designed for work in a hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
 	name = "atmospherics voidsuit helmet"
 	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
-	icon_state = "engineering"
-	item_state = "engineering"
+	icon_state = "atmos_helm"
+	item_state = "atmos_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "atmos_helm",
+		slot_l_hand_str = "atmos_helm"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	armor = list(
@@ -178,8 +214,12 @@
 	name = "atmos voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
 	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
-	icon_state = "engineering"
-	item_state = "engineering"
+	icon_state = "atmos"
+	item_state = "atmos"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "atmos",
+		slot_l_hand_str = "atmos"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	armor = list(
@@ -201,6 +241,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
 	icon_state = "hos_helm"
 	item_state = "hos_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "security_helm",
+		slot_l_hand_str = "security_helm"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	armor = list(
@@ -219,6 +263,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
 	icon_state = "hos"
 	item_state = "hos"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "security",
+		slot_l_hand_str = "security"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	armor = list(
@@ -238,6 +286,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 	icon_state = "research_helm"
 	item_state = "research_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "research_helm",
+		slot_l_hand_str = "research_helm"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	armor = list(
@@ -254,6 +306,10 @@
 	icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 	icon_state = "research"
 	item_state = "research"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "research",
+		slot_l_hand_str = "research"
+	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
