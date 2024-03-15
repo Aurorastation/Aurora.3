@@ -331,8 +331,6 @@
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("skr")
-	icon_species_in_hand = TRUE
-	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/zenghu
 	name = "dragon biohazard control suit"
@@ -358,8 +356,6 @@
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("skr")
-	icon_species_in_hand = TRUE
-	refittable = FALSE
 
 //Hephaestus Industries espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/hephaestus
@@ -387,8 +383,6 @@
 	desc_extended = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
 	icon_supported_species_tags = list("una")
 	icon_auto_adapt = TRUE
-	icon_species_in_hand = TRUE
-	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/hephaestus
 	name = "caiman drop suit"
@@ -414,8 +408,6 @@
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
 	icon_supported_species_tags = list("una")
 	icon_auto_adapt = TRUE
-	icon_species_in_hand = TRUE
-	refittable = FALSE
 
 //Zavodskoi Interstellar espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zavodskoi

@@ -12,6 +12,7 @@ export type SuitCyclerData = {
   model_text: string;
   radiation_level: number;
   target_department: string;
+  department_change: BooleanLike;
   target_species: string;
   helmet: SuitObject;
   suit: SuitObject;
@@ -146,8 +147,10 @@ export const SuitCycler = (props, context) => {
             <LabeledList>
               <LabeledList.Item label="Target Department">
                 <Button
-                  disabled={data.in_use || data.locked}
-                  content={data.target_department}
+                  disabled={data.in_use || data.locked || !data.department_change}
+                  content={
+                    data.can_repair ? data.target_department : 'Not Available'
+                  }
                   icon="city"
                   onClick={() => act('select_department')}
                 />

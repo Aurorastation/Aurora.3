@@ -100,7 +100,7 @@
 /obj/item/clothing/suit/space/void/medical
 	name = "medical voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
-	con = 'icons/obj/clothing/voidsuit/station/medical.dmi'
+	icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
 	icon_state = "medical"
 	item_state = "medical"
 	contained_sprite = TRUE
