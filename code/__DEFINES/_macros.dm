@@ -125,7 +125,7 @@
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)
 #define from_target(target, receiver)                       target >> (receiver)
-#define to_file(file_entry, file_content)					file_entry << file_content
+#define to_file(file_entry, file_content)                   file_entry << file_content
 
 #define place_meta_charset(content) istext(content) ? "<meta charset=\"utf-8\">" + content : content
 
