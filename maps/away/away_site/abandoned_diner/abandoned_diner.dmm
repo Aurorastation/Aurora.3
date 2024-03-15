@@ -2148,6 +2148,7 @@
 /obj/random/dirt_75,
 /obj/item/reagent_containers/food/snacks/meat/undead,
 /obj/machinery/power/apc/low/east,
+/obj/random/junk,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -3350,12 +3351,8 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/random/junk,
 /obj/machinery/alarm/freezer/east,
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 13
-	},
+/obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
