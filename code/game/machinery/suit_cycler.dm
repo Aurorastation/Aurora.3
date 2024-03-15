@@ -637,6 +637,17 @@
 					suit.item_state = "freelancer"
 					suit.icon_state = "freelancer"
 
+		if(helmet) //so it looks like the new suit in hand
+			helmet.item_state_slots = list(
+				slot_r_hand_str = helmet.item_state,
+				slot_l_hand_str = helmet.item_state
+			)
+		if(suit)
+			suit.item_state_slots = list(
+				slot_r_hand_str = suit.item_state,
+				slot_l_hand_str = suit.item_state
+			)
+
 	if(helmet)
 		if(helmet.contained_sprite)
 			helmet.refit_contained(target_species)
