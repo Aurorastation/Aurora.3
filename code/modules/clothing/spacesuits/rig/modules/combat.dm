@@ -152,6 +152,10 @@
 	laser.Fire(target, holder.wearer)
 	return TRUE
 
+/obj/item/rig_module/mounted/energy/Destroy()
+	QDEL_NULL(laser)
+	. = ..()
+
 /obj/item/rig_module/mounted/ballistic
 	abstract_type = /obj/item/rig_module/mounted/ballistic
 	var/obj/item/gun/projectile/ballistic
@@ -190,6 +194,9 @@
 	else
 		ballistic.load_ammo(input, user)
 
+/obj/item/rig_module/mounted/ballistic/Destroy()
+	QDEL_NULL(ballistic)
+	. = ..()
 
 /obj/item/rig_module/mounted/energy/lcannon
 	name = "mounted laser cannon"
