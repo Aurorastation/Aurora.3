@@ -105,16 +105,20 @@ export const GhostSpawner = (props, context) => {
 
   let loc_to_color: Map<string, string> = new Map();
 
-  paginate(
-    Array.from(
-      new Set(
-        spawners
-          .filter((s) => s.spawn_overmap_location)
-          .map((s) => s.spawn_overmap_location)
-      )
-    ),
-    colors.length
-  ).map((p) => p.map((l, i) => (loc_to_color[l] = colors[i % colors.length])));
+  if (spawners) {
+    paginate(
+      Array.from(
+        new Set(
+          spawners
+            .filter((s) => s.spawn_overmap_location)
+            .map((s) => s.spawn_overmap_location)
+        )
+      ),
+      colors.length
+    ).map((p) =>
+      p.map((l, i) => (loc_to_color[l] = colors[i % colors.length]))
+    );
+  }
 
   return (
     <Window resizable width={1000} height={700}>
