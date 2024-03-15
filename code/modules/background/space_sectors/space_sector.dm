@@ -151,7 +151,7 @@
 			next_port_visit = current_day_index
 			break
 
-		next_port_visit_string = days_calculated == 0 ? "today" : days_calculated == 1 ? "in [days_calculated] day" : "in [days_calculated] days"
+		next_port_visit_string = days_calculated == 0 ? "Today" : days_calculated == 1 ? "in [days_calculated] day" : "in [days_calculated] days"
 
 	// For now, i've put processing to only happen if the sector has a radio station
 	// but if, in the future, you add more stuff for the processor to handle, feel free to move it out of the if block

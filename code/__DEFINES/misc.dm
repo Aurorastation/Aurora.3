@@ -460,16 +460,16 @@ example:
 
 //Map template flags
 /// Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES BITFLAG(0)
-/// Makes it ignore away site budget and just spawn (works only for away sites)
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES BITFLAG(1)
+/// If it should ignore away site budget and just spawn (works only for away sites)
 /// A site needs to be set to spawn in current sector to be considered still
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED BITFLAG(1)
-/// if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_CLEAR_CONTENTS   BITFLAG(2)
-/// if it should forbid ruins from spawning on top of it
-#define TEMPLATE_FLAG_NO_RUINS         BITFLAG(3)
-/// Makes it always spawn if today is a port of call day
-#define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(4)
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED BITFLAG(2)
+/// If it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_CLEAR_CONTENTS   BITFLAG(3)
+/// If it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RUINS         BITFLAG(4)
+/// If it should always spawn if today is a port of call day
+#define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(5)
 
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
