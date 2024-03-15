@@ -1051,7 +1051,7 @@
 /area/abandoned_diner/docking/a)
 "agD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/seed_storage,
+/obj/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "agR" = (
@@ -1452,6 +1452,13 @@
 /obj/item/trash/cigbutt,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
 	pixel_x = 14
+	},
+/obj/item/material/kitchen/utensil/fork{
+	pixel_y = 6;
+	pixel_x = 3
+	},
+/obj/item/material/kitchen/utensil/spoon{
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
@@ -2075,6 +2082,10 @@
 	},
 /obj/item/trash/plate{
 	pixel_y = 10
+	},
+/obj/item/material/kitchen/utensil/fork{
+	pixel_x = 13;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
