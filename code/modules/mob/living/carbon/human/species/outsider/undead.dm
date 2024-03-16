@@ -822,9 +822,9 @@
 
 /obj/item/tank_rock/throw_impact(atom/hit_atom)
 	. = ..()
-	if(ismob(hit_atom))
-		var/mob/M = hit_atom
+	if(isliving(hit_atom))
+		var/mob/living/M = hit_atom
 		M.visible_message(SPAN_DANGER(FONT_LARGE("\The [src] breaks as it makes contact with [M]!")))
 		M.Paralyse(5)
-		M.apply_damage(30, BRUTE, used_weapon = src, armor_pen = 30)
+		M.apply_damage(30, DAMAGE_BRUTE, used_weapon = src, armor_pen = 30)
 	qdel(src)
