@@ -231,7 +231,8 @@
 	///Used to determine whether something can pick a lock, and how well
 	var/lock_picking_level = 0
 
-	// Its vital that if you make new power tools or new recipies that you include this
+	///Used to determine what this item can be changed into with a modkit
+	var/list/convert_options
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()

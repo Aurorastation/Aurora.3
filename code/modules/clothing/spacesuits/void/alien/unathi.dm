@@ -1,10 +1,10 @@
 /obj/item/clothing/head/helmet/space/void/kataphract
 	name = "kataphract voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/species/unathi/hats.dmi'
-	icon_override = 'icons/mob/species/unathi/helmet.dmi'
-	icon_state = "rig0-kataphract"
-	item_state = "rig0-kataphract"
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon_state = "kataphract_helm"
+	item_state = "kataphract_helm"
+	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -21,10 +21,10 @@
 /obj/item/clothing/suit/space/void/kataphract
 	name = "kataphract voidsuit"
 	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/species/unathi/suits.dmi'
-	icon_override = 'icons/mob/species/unathi/suit.dmi'
-	icon_state = "rig-kataphract"
-	item_state = "rig-kataphract"
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon_state = "kataphract"
+	item_state = "kataphract"
+	contained_sprite = TRUE
 	slowdown = 1
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
@@ -44,26 +44,26 @@
 /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
-	icon_state = "rig0-kataphract-spec"
-	item_state = "rig0-kataphract-spec"
+	icon_state = "kataphract-spec_helm"
+	item_state = "kataphract-spec_helm"
 
 /obj/item/clothing/suit/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit"
 	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
-	icon_state = "rig-kataphract-spec"
-	item_state = "rig-kataphract-spec"
+	icon_state = "kataphract-spec"
+	item_state = "kataphract-spec"
 
 /obj/item/clothing/head/helmet/space/void/kataphract/lead
 	name = "kataphract knight voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
-	icon_state = "rig0-kataphract-lead"
-	item_state = "rig0-kataphract-lead"
+	icon_state = "kataphract-lead_helm"
+	item_state = "kataphract-lead_helm"
 
 /obj/item/clothing/suit/space/void/kataphract/lead
 	name = "kataphract knight voidsuit"
 	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
-	icon_state = "rig-kataphract-lead"
-	item_state = "rig-kataphract-lead"
+	icon_state = "kataphract-lead"
+	item_state = "kataphract-lead"
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate
 	name = "unathi raider helmet"
@@ -137,7 +137,7 @@
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. The standard spacefaring attire of the Izweski Hegemony Navy."
 	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidsuit"
-	item_state = "hegemony-voidsuit_item"
+	item_state = "hegemony-voidsuit"
 
 	w_class = ITEMSIZE_NORMAL
 	armor = list(

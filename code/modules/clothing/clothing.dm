@@ -22,6 +22,8 @@
 
 	var/species_sprite_adaption_type = WORN_UNDER
 
+	var/list/refittable_species //used with modkits, which species it can be refit to
+
 	//material things
 	var/material/material = null
 	var/applies_material_color = TRUE
@@ -195,7 +197,10 @@
 /obj/item/clothing/proc/refit_contained(var/target_species)
 	if(!species_restricted || !contained_sprite)
 		return
+
 	var/species_short = species_tag_from_bodytype(target_species)
+	if(species_short && !(species_short in icon_supported_species_tags)) //if it's empty it's for human, but otherwise it needs to be in there
+		return
 	switch(target_species)
 		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) //humanoid bodies
 			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
@@ -203,34 +208,37 @@
 			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 		else
 			species_restricted = list(target_species)
-	if(!species_short) //if it's empty, for human bodytype, so return
-		return
-	if(!(species_short in icon_supported_species_tags))
-		return
 	icon_species_tag = species_short
 	var/list/all_icon_states = icon_states(icon)
-	if("[species_short]_[icon_state]" in all_icon_states)
-		icon_state = "[species_short]_[icon_state]"
-		item_state = "[species_short]_[icon_state]"
+	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
+		item_state_slots = list( //done in order to prevent inhands from being overridden here
+			slot_r_hand_str = item_state,
+			slot_l_hand_str = item_state
+		)
+	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
+		icon_state = "[UNDERSCORE_OR_NULL(species_short)][icon_state]"
+		item_state = "[UNDERSCORE_OR_NULL(species_short)]icon_state]"
 
 /obj/item/clothing/head/helmet/refit_contained(var/target_species)
 	if(!species_restricted || !contained_sprite)
 		return
 	var/species_short = species_tag_from_bodytype(target_species)
+	if(species_short && !(species_short in icon_supported_species_tags)) //if it's empty it's for human, but otherwise it needs to be in there
+		return
 	switch(target_species)
 		if(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
 			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 		else
 			species_restricted = list(target_species)
-	if(!species_short)
-		return
-	if(!(species_short in icon_supported_species_tags))
-		return
 	var/list/all_icon_states = icon_states(icon)
-	if("[species_short]_[icon_state]" in all_icon_states)
-		icon_state = "[species_short]_[icon_state]"
-		item_state = "[species_short]_[icon_state]"
-
+	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
+		item_state_slots = list( //done in order to prevent inhands from being overridden here
+			slot_r_hand_str = item_state,
+			slot_l_hand_str = item_state
+		)
+	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
+		icon_state = "[UNDERSCORE_OR_NULL(species_short)][icon_state]"
+		item_state = "[UNDERSCORE_OR_NULL(species_short)]icon_state]"
 //material related procs
 
 /obj/item/clothing/get_material()

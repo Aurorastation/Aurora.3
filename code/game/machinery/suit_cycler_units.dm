@@ -132,7 +132,7 @@
 /obj/machinery/suit_cycler/offship //To be set up for various offships
 	model_text = "Unbranded"
 	req_access = null
-	department_change = FALSE
+	departments = list("N/A")
 	can_repair = TRUE
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_VAURCA)
 	boots = /obj/item/clothing/shoes/magboots

@@ -104,6 +104,7 @@
 	icon_state = "industrial1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial
+	convert_options = list(/obj/item/rig_assembly/industrial/himeo)
 
 /obj/item/rig_assembly/industrial/himeo
 	name = "himean industrial suit control module assembly"
@@ -112,6 +113,7 @@
 	icon_state = "himeo1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial/himeo
+	convert_options = list(/obj/item/rig_assembly/industrial)
 
 /obj/item/rig_assembly/hazmat
 	name = "AMI control module assembly"

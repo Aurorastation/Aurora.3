@@ -14,6 +14,7 @@ export type SuitCyclerData = {
   target_department: string;
   department_change: BooleanLike;
   target_species: string;
+  species_change: BooleanLike;
   helmet: SuitObject;
   suit: SuitObject;
   boots: SuitObject;
@@ -148,14 +149,14 @@ export const SuitCycler = (props, context) => {
               <LabeledList.Item label="Target Department">
                 <Button
                   disabled={data.in_use || data.locked || !data.department_change}
-                  content={ data.target_department }
+                  content={data.target_department}
                   icon="city"
                   onClick={() => act('select_department')}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="Target Species">
                 <Button
-                  disabled={data.in_use || data.locked}
+                  disabled={data.in_use || data.locked || !data.species_change}
                   content={data.target_species}
                   icon="person"
                   onClick={() => act('select_species')}
