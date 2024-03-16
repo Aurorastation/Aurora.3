@@ -154,7 +154,6 @@
 /proc/iszombie(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-
 		if(istype(H.get_species(TRUE), /datum/species/zombie))
 			return TRUE
 		else

@@ -222,7 +222,7 @@
 						'sound/effects/zombies/zombie_2.ogg',
 						'sound/effects/zombies/zombie_3.ogg',
 						'sound/effects/zombies/zombie_4.ogg')
-	speech_chance = 50
+	speech_chance = 100
 
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
@@ -725,7 +725,6 @@
 	name = "Superhuman"
 	unarmed_types = list(
 		/datum/unarmed_attack/claws/strong/zombie,
-		/datum/unarmed_attack/bite/infectious,
 		/datum/unarmed_attack/vaurca_bulwark,
 	)
 	brute_mod = 0.25
@@ -736,11 +735,26 @@
 	reagent_tag = IS_UNDEAD
 	flags = NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED | NO_CHUBBY
 	slowdown = 1
+	mob_size = 20
 	vision_flags = DEFAULT_SIGHT
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/carbon/proc/consume)
+	maneuvers = list(/singleton/maneuver/leap/areagrab)
+	inherent_verbs = list(
+						/mob/living/carbon/human/proc/trample,
+						/mob/living/carbon/human/proc/darkness_eyes,
+						/mob/living/carbon/proc/consume,
+						/mob/living/carbon/proc/smash_barricade,
+						/mob/living/carbon/human/proc/throw_rock
+						)
+	speech_chance = 100
+	speech_sounds = list(
+		'sound/effects/zombies/tank_1.ogg',
+		'sound/effects/zombies/tank_2.ogg',
+		'sound/effects/zombies/tank_3.ogg',
+		'sound/effects/zombies/tank_4.ogg',
+	)
+	death_sound = 'sound/effects/zombies/tank_death.ogg'
 	has_organ = list(
-		BP_ZOMBIE_PARASITE = /obj/item/organ/internal/parasite/zombie,
-		BP_BRAIN =           /obj/item/organ/internal/brain/zombie,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes,
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
@@ -762,3 +776,55 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 	)
+
+/datum/species/human/superhuman/create_organs(mob/living/carbon/human/H)
+	. = ..()
+	for(var/obj/item/organ/external/E in H.organs)
+		E.limb_flags |= ORGAN_ZOMBIFIED
+	H.mutations |= HULK
+
+/obj/item/reagent_containers/hypospray/autoinjector/hylemnomil_omega
+	name = "hylemnomil-omega autoinjector"
+	desc = "Your last resort."
+	volume = 5
+	amount_per_transfer_from_this = 5
+	reagents_to_add = list(
+		/singleton/reagent/toxin/hylemnomil_omega = 5
+	)
+
+/mob/living/carbon/human/proc/throw_rock()
+	set name = "Throw Rock"
+	set desc = "Pick up a large rock and throw it. Tank-style."
+	set category = "Abilities"
+
+	if (last_special > world.time)
+		to_chat(src, SPAN_WARNING("You aren't ready to do that! Wait [round(last_special - world.time) / 10] seconds."))
+		return
+
+	last_special = world.time + 10 SECONDS
+	visible_message(SPAN_DANGER(FONT_LARGE("[src] digs their hands into the ground and starts picking up a portion of it!")))
+	if(do_after(src, 3 SECONDS))
+		visible_message(SPAN_DANGER(FONT_LARGE("[src] picks up a large boulder out of the ground!")))
+		var/obj/item/tank_rock/TR = new()
+		put_in_any_hand_if_possible(TR)
+
+/obj/item/tank_rock
+	name = "boulder"
+	desc = "TANK!!!"
+	icon = 'icons/obj/flora/rocks_grey.dmi'
+	icon_state = "basalt2"
+	throwforce = 30
+	armor_penetration = 20
+	mob_throw_hit_sound = 'sound/effects/rock_break.ogg'
+
+/obj/item/tank_rock/too_heavy_to_throw()
+	return TRUE
+
+/obj/item/tank_rock/throw_impact(atom/hit_atom)
+	. = ..()
+	if(ismob(hit_atom))
+		var/mob/M = hit_atom
+		M.visible_message(SPAN_DANGER(FONT_LARGE("\The [src] breaks as it makes contact with [M]!")))
+		M.Paralyse(5)
+		M.apply_damage(30, BRUTE, used_weapon = src, armor_pen = 30)
+	qdel(src)

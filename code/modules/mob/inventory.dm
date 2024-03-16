@@ -407,7 +407,7 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
 
-	if(item.too_heavy_to_throw())
+	if(item.too_heavy_to_throw() && (species?.mob_size < 20))
 		to_chat(src, SPAN_DANGER("You try to throw \the [item] with a lot of difficulty..."))
 		if(do_after(src, 2 SECONDS))
 			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))

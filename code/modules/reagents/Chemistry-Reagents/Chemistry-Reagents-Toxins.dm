@@ -884,6 +884,38 @@
 			infest.stage = possible_organs[to_infest]
 			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
 
+/singleton/reagent/toxin/hylemnomil_omega
+	name = "Hylemnomil-Omega"
+	description = "An imperfect, almost final form of Hylemnomil-Zeta."
+	reagent_state = LIQUID
+	color = "#10041b"
+	strength = 1
+	taste_description = "complete global saturation"
+	metabolism = REM
+	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
+	affects_dead = TRUE
+
+/singleton/reagent/toxin/hylemnomil_omega/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	. = ..()
+	if(!ishuman(M))
+		return
+	var/mob/living/carbon/human/H = M
+	H.visible_message(SPAN_DANGER(FONT_HUGE("[H]'s skin starts bubbling, expanding and turning black!")))
+	H.make_jittery(100)
+	H.Paralyse(10)
+	H.emote("scream")
+	addtimer(CALLBACK(src, PROC_REF(weskerize), H), 5 SECONDS, TIMER_UNIQUE)
+	H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
+
+/singleton/reagent/toxin/hylemnomil_omega/proc/weskerize(mob/living/carbon/human/H)
+	if(istype(H.species, /datum/species/human/superhuman))
+		return
+	H.set_species("Superhuman", change_hair = FALSE)
+	to_world(FONT_HUGE(SPAN_CULT("An ear piercing, demonic scream echoes inside of your head!")))
+	sound_to(world, sound('sound/effects/zombies/tank_scream.ogg'))
+	H.rejuvenate()
+	H.restore_blood()
+
 /singleton/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."

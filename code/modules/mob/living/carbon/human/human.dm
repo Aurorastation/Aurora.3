@@ -1514,6 +1514,9 @@
 
 	update_emotes()
 
+	if(!(species.flags & NO_BLOOD))
+		vessel.maximum_volume = species.blood_volume
+
 	if(species)
 		return TRUE
 	else
