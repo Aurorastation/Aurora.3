@@ -60,7 +60,7 @@ GLOBAL_VAR(last_transfer_vote)
 		result = list("Continue The Round")
 
 	if(round(get_round_duration() / 36000)+12 <= 14)
-		to_world(SPAN_VOTE("Majority voting rule in effect. 2/3rds majority needed to initiate transfer."))
+		to_world(SPAN_VOTE("Majority voting rule in effect. 3/5ths majority needed to initiate transfer."))
 
 	return result
 
