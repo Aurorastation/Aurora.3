@@ -40,7 +40,7 @@
 	req_access = null
 	shuttle_tag = "SCCV Polish Punk"
 	ui_template = "ShuttleControlConsoleEventShuttle"
-	var/auth_code = "tonkotsu ramen"
+	var/auth_code = "6A3N8K1L0A4G8N"
 
 /obj/machinery/computer/shuttle_control/event_transport/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/shuttle, var/action, var/list/params)
 	if(!istype(shuttle))

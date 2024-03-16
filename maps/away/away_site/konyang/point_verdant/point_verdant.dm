@@ -82,4 +82,4 @@
 /obj/item/paper/fluff/wanted_poster
 	name = "police wanted poster"
 	desc = "A haphazardly crafted wanted poster."
-	info = "<center><b><font size=4>HELP WANTED</font></b></center><br> Ito Suzuki has been missing for ten days. If you have seen them, please contact the local police department."
+	info = "<center><b><font size=4>HELP WANTED</font></b></center><br> Ito Suzuki has been missing for ten days. If you have seen them, please contact the Police Department and  Hikari on Chirper at sugimoto.hikari."
