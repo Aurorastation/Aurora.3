@@ -479,8 +479,9 @@
 		if(H.back) // you would think, right
 			for(var/path in backpack_contents)
 				var/number = backpack_contents[path]
-				for(var/i in 1 to number)
-					H.equip_or_collect(new path(H), slot_in_backpack)
+				if(isnum(number))
+					for(var/i in 1 to number)
+						H.equip_or_collect(new path(H), slot_in_backpack)
 		else
 			var/obj/item/storage/storage_item
 			if(!H.l_hand)
@@ -496,8 +497,9 @@
 						storage_item.handle_item_insertion(new path(H.loc), TRUE)
 		for(var/path in belt_contents)
 			var/number = belt_contents[path]
-			for(var/i in 1 to number)
-				H.equip_or_collect(new path(H), slot_in_belt)
+			if(isnum(number))
+				for(var/i in 1 to number)
+					H.equip_or_collect(new path(H), slot_in_belt)
 
 		if(id)
 			var/obj/item/modular_computer/personal_computer
