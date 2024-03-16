@@ -135,6 +135,7 @@
 	req_access = null
 	departments = list("N/A")
 	can_repair = TRUE
+	rename_on_refit = FALSE
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_VAURCA)
 	boots = /obj/item/clothing/shoes/magboots
 	mask = /obj/item/clothing/mask/breath
@@ -153,6 +154,15 @@
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 	suit = /obj/item/clothing/suit/space/void/coalition
 	helmet = /obj/item/clothing/head/helmet/space/void/coalition
+
+/obj/machinery/suit_cycler/offship/gadpathur
+	model_text = "Gadpathurian Navy"
+	req_access = list(ACCESS_GADPATHUR_NAVY)
+	departments = list("Gadpathur")
+	species = list(BODYTYPE_HUMAN)
+	suit = /obj/item/clothing/suit/space/void/coalition/gadpathur
+	helmet = /obj/item/clothing/head/helmet/space/void/coalition/gadpathur
+	mask = /obj/item/clothing/mask/breath/gadpathur
 
 /obj/machinery/suit_cycler/offship/dominia
 	model_text = "Zhurong Imperial Shipyards"

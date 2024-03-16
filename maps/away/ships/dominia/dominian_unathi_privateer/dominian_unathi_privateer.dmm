@@ -474,33 +474,8 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_unathi/engineering)
 "dF" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia,
-/obj/item/clothing/head/helmet/space/void/dominia,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 2;
-	name = "Voidsuit Storage";
-	req_access = list(212)
-	},
+/obj/machinery/suit_cycler/offship/dominia,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "dK" = (
@@ -1435,6 +1410,9 @@
 /area/shuttle/dominian_unathi)
 "kT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "kW" = (
@@ -4755,6 +4733,9 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "FW" = (
@@ -7246,33 +7227,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "Xh" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia,
-/obj/item/clothing/head/helmet/space/void/dominia,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 2;
-	name = "Voidsuit Storage";
-	req_access = list(212)
-	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/suit_cycler/offship/dominia,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "Xj" = (
@@ -7550,33 +7509,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
-"YF" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia,
-/obj/item/clothing/head/helmet/space/void/dominia,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 2;
-	name = "Voidsuit Storage";
-	req_access = list(212)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/eva)
 "YH" = (
 /obj/machinery/light{
 	dir = 4
@@ -24562,7 +24494,7 @@ EV
 HG
 NL
 gY
-YF
+dF
 nd
 zB
 gY
@@ -24724,7 +24656,7 @@ EV
 tg
 Zh
 gY
-YF
+dF
 nd
 lv
 gY

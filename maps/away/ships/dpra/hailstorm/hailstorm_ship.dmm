@@ -225,23 +225,8 @@
 	},
 /area/hailstorm_ship/crew)
 "aF" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/dpra,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/dpra,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/dpra,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -387,6 +372,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

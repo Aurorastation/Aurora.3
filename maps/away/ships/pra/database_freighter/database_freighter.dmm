@@ -405,9 +405,8 @@
 	},
 /area/database_freighter/storage)
 "bL" = (
-/obj/machinery/suit_cycler/science{
-	req_access = list(209)
-	},
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1548,6 +1547,11 @@
 /obj/item/device/radio,
 /obj/structure/table/standard,
 /obj/structure/extinguisher_cabinet/north,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3177,6 +3181,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3812,20 +3817,8 @@
 	},
 /area/database_freighter/engineering)
 "IX" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/mask/breath,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/item/device/gps/science,
+/obj/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
