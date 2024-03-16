@@ -1670,7 +1670,9 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_service,
+/obj/machinery/door/airlock/glass_service{
+	name = "Freezer Access"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "aEj" = (
@@ -2982,7 +2984,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/random/seed,
+/obj/random/seed{
+	pixel_y = -4;
+	pixel_x = -4
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/hydroponics)
 "fwU" = (
@@ -3031,7 +3036,9 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	name = "Kitchen"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "fIO" = (
@@ -5201,7 +5208,10 @@
 "sEB" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/seed,
+/obj/random/seed{
+	pixel_x = -8;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "sLT" = (
@@ -5402,7 +5412,9 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/disposalpipe/segment,
-/obj/random/seed,
+/obj/random/seed{
+	pixel_x = 8
+	},
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
@@ -5732,7 +5744,10 @@
 /area/abandoned_diner/docking/b)
 "wCX" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/random/seed,
+/obj/random/seed{
+	pixel_y = 8;
+	pixel_x = 4
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -5989,7 +6004,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_service,
+/obj/machinery/door/airlock/glass_service{
+	name = "Staffroom"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 
