@@ -49,7 +49,7 @@ GLOBAL_VAR(last_transfer_vote)
 	var/factor = 0.5
 	switch(get_round_duration() / (10 * 60)) // minutes
 		if(0 to 180) //Up to 3 hours
-			factor = 0.67 //2/3rd, rounded up from 0.6 periodic
+			factor = 0.67 //3/5ths majority - (5-3)/3 =~ 0.67
 		else
 			factor = 1.0 //Equal weight
 
