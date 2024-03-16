@@ -44,15 +44,15 @@
 						new /mob/living/carbon/human/hunter(T)
 
 		if("spawn_special")
-				var/special = pick("rhino", "bull", "hunter")
-				var/turf/T = get_turf(usr)
-				switch(special)
-					if("rhino")
-						new /mob/living/carbon/human/rhino(T)
-					if("bull")
-						new /mob/living/carbon/human/bull(T)
-					if("hunter")
-						new /mob/living/carbon/human/hunter(T)
+			var/special = pick("rhino", "bull", "hunter")
+			var/turf/T = get_turf(usr)
+			switch(special)
+				if("rhino")
+					new /mob/living/carbon/human/rhino(T)
+				if("bull")
+					new /mob/living/carbon/human/bull(T)
+				if("hunter")
+					new /mob/living/carbon/human/hunter(T)
 
 /obj/effect/landmark/outbreak_zombie
 	name = "Simple Zombie Marker"
