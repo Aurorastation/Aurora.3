@@ -2342,6 +2342,10 @@
 /area/ship/gadpathur_patrol/medbay)
 "sb" = (
 /obj/machinery/cryopod,
+/obj/machinery/computer/cryopod{
+	pixel_y = -1;
+	pixel_x = 29
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cell)
 "sc" = (
@@ -3311,6 +3315,9 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/machinery/button/distress{
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)

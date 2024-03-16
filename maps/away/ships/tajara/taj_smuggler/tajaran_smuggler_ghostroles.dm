@@ -16,7 +16,7 @@
 
 	uses_species_whitelist = FALSE
 
-	assigned_role = "Tajaran Smuggler"
+	assigned_role = "Independent Spacer"
 	special_role = "Tajaran Smuggler"
 	respawn_flag = null
 
@@ -54,7 +54,7 @@
 		/obj/item/storage/backpack/duffel
 	)
 
-	id = null
+	id = /obj/item/card/id
 
 	l_ear = /obj/item/device/radio/headset/ship
 
@@ -65,6 +65,9 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless
 	)
+
+/obj/outfit/admin/tajaran_smuggler/get_id_access()
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 
 /datum/ghostspawner/human/tajaran_smuggler/captain
@@ -79,7 +82,7 @@
 
 	uses_species_whitelist = TRUE
 
-	assigned_role = "Tajaran Smuggler Captain"
+	assigned_role = "Independent Captain"
 	special_role = "Tajaran Smuggler Captain"
 
 
