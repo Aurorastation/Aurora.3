@@ -44,6 +44,15 @@ export const Outbreak = (props, context) => {
                 onChange={(e, value) => setSpecZombieAmt(value)}
               />
             </LabeledList.Item>
+            <LabeledList.Item label="Single Special Spawn">
+            <Button
+                content="Spawn"
+                icon="radiation"
+                onClick={() =>
+                  act('spawn_special')
+                }
+              />
+            </LabeledList.Item>
           </LabeledList>
         </Section>
       </Window.Content>
