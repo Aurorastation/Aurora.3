@@ -388,7 +388,7 @@
 
 /datum/ghostspawner/human/ee_synth
 	name = "Einstein Facility Synthetic"
-	desc = ""
+	desc = "The Director's personal bodyguard."
 	short_name = "ee_synth"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human/shell
@@ -414,8 +414,16 @@
 		/obj/item/clothing/shoes/sneakers/hitops/tip,
 		/obj/item/clothing/shoes/sneakers/medsci,
 	)
+	accessory = /obj/item/clothing/accessory/holster/thigh
+	belt = /obj/item/storage/belt/security
 	backpack_contents = list(
-
+		/obj/item/gun/projectile/sec/lethal,
+		/obj/item/ammo_magazine/c45m,
+		/obj/item/ammo_magazine/c45m,
+		/obj/item/ammo_magazine/c45m,
+		/obj/item/melee/baton/loaded,
+		/obj/item/handcuffs,
+		/obj/item/handcuffs
 	)
 
 // ----------------------------- OUTFITS FOR LOCKERS
