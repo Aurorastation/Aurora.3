@@ -1,0 +1,6 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - spellcheck: "Fixed the 2/3rds majority transfer description to say 3/5ths majority, in line with intended behavior."
