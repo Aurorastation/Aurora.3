@@ -54,6 +54,19 @@
 				if("hunter")
 					new /mob/living/carbon/human/hunter(T)
 
+		if("spawn_normal")
+			var/turf/T = get_turf(usr)
+			new /mob/living/carbon/human/zombie(T)
+
+		if("spawn_normal_adminspawn")
+			var/turf/T = get_turf(usr)
+			new /mob/living/carbon/human/zombie/adminspawn(T)
+
+		if("spawn_normal_adminspawn_group")
+			for(var/i = 1 to rand(5, 9))
+				var/turf/T = get_random_turf_in_range(user, 7, 0, TRUE, FALSE)
+				new /mob/living/carbon/human/zombie/adminspawn(T)
+
 /obj/effect/landmark/outbreak_zombie
 	name = "Simple Zombie Marker"
 

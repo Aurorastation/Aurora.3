@@ -17,14 +17,28 @@ export const Outbreak = (props, context) => {
       <Window.Content scrollable>
         <Section title="Outbreak Controller">
           <LabeledList>
-            <LabeledList.Item label="AI Zombie Spawn">
+            <LabeledList.Item label="AI Zombie Group Spawn">
               <Button
                 content="Spawn"
                 icon="radiation"
                 onClick={() => act('group_spawn')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Special Zombie Spawn">
+            <LabeledList.Item label="AI Zombie Single Spawn">
+              <Button
+                content="Spawn"
+                icon="radiation"
+                onClick={() => act('spawn_normal')}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Single Special Spawn">
+              <Button
+                content="Spawn"
+                icon="radiation"
+                onClick={() => act('spawn_special')}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Special Zombie Group Spawn">
               <Button
                 content="Spawn"
                 icon="radiation"
@@ -44,13 +58,18 @@ export const Outbreak = (props, context) => {
                 onChange={(e, value) => setSpecZombieAmt(value)}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Single Special Spawn">
-            <Button
+            <LabeledList.Item label="Adminspawn Zombie Single Spawn">
+              <Button
                 content="Spawn"
                 icon="radiation"
-                onClick={() =>
-                  act('spawn_special')
-                }
+                onClick={() => act('spawn_normal_adminspawn')}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Adminspawn Zombie Group Spawn">
+              <Button
+                content="Spawn"
+                icon="radiation"
+                onClick={() => act('spawn_normal_adminspawn_group')}
               />
             </LabeledList.Item>
           </LabeledList>
