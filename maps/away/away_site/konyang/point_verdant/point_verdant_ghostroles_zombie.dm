@@ -21,6 +21,7 @@
 	short_name = "aszombie"
 	desc = "See the description for the Konyanger zombies, but Matt has decided to be spooky and spawn some non-special player zombies in a specific location."
 	loc_type = GS_LOC_ATOM
+	enabled = TRUE
 	spawnpoints = list("aszombie")
 
 /datum/ghostspawner/human/special_zombie

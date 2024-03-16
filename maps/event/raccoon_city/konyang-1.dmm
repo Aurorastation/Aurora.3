@@ -5857,6 +5857,10 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"fyg" = (
+/obj/effect/ghostspawpoint/ee_synth,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "fyS" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -44893,7 +44897,7 @@ bAO
 orI
 muQ
 rwM
-kxV
+fyg
 dBC
 rwM
 aUn
