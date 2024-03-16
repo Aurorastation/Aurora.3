@@ -307,6 +307,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"aoC" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/effect/decal/curb,
+/obj/item/device/radio,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "aoF" = (
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/industrial/warning,
@@ -1299,6 +1307,7 @@
 /obj/item/reagent_containers/inhaler/space_drugs{
 	pixel_y = -5
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
 "bln" = (
@@ -3361,6 +3370,7 @@
 	pixel_x = -9
 	},
 /obj/machinery/light/small,
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "dbg" = (
@@ -5627,6 +5637,7 @@
 "fou" = (
 /obj/structure/table/rack,
 /obj/item/toy/comic/stormman,
+/obj/item/device/radio,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "foO" = (
@@ -5846,6 +5857,10 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"fyg" = (
+/obj/effect/ghostspawpoint/ee_synth,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "fyS" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -6364,6 +6379,7 @@
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
 	pixel_x = 9
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "fSp" = (
@@ -10356,6 +10372,7 @@
 	},
 /obj/random/barricade_materials,
 /obj/random/barricade_materials,
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "jxc" = (
@@ -10566,6 +10583,7 @@
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
 	pixel_x = -9
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "jHy" = (
@@ -10819,6 +10837,7 @@
 /obj/machinery/light/small,
 /obj/random/barricade_kit,
 /obj/random/barricade_kit,
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "jTt" = (
@@ -11350,6 +11369,11 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
+"ktT" = (
+/obj/random/dirt_75,
+/obj/item/device/radio,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/sewer)
 "ktX" = (
 /obj/structure/bed/padded/bunk,
 /obj/structure/bed/padded,
@@ -11749,6 +11773,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "kLT" = (
@@ -15061,6 +15086,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
+"nIv" = (
+/obj/effect/decal/curb,
+/obj/item/device/radio,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "nIT" = (
 /obj/effect/decal/curb,
 /obj/structure/shipping_container{
@@ -16611,6 +16641,7 @@
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
 	pixel_x = 9
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "pnF" = (
@@ -16968,6 +16999,10 @@
 /obj/random/dirt_75,
 /turf/unsimulated/floor/plating,
 /area/point_verdant/interior)
+"pAz" = (
+/obj/item/device/radio,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "pAC" = (
 /obj/structure/closet,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -17214,6 +17249,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/soju{
 	pixel_x = 8
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "pKI" = (
@@ -17951,6 +17987,7 @@
 /area/point_verdant/interior)
 "qtv" = (
 /obj/structure/table/standard,
+/obj/item/device/radio,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "quQ" = (
@@ -18125,6 +18162,7 @@
 	pixel_y = -2
 	},
 /obj/random/konyang_gun/pistols,
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "qAF" = (
@@ -18762,6 +18800,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "rcT" = (
@@ -19093,6 +19132,7 @@
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
 	pixel_y = 16
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "rpu" = (
@@ -20153,6 +20193,16 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
+"sjI" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/item/device/radio,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "sko" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
@@ -20845,6 +20895,7 @@
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/spray/cleaner,
+/obj/item/device/radio,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
 "sML" = (
@@ -21818,6 +21869,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"tHi" = (
+/obj/item/device/radio,
+/turf/unsimulated/mineral/konyang,
+/area/point_verdant/interior/tunnels)
 "tHs" = (
 /obj/machinery/light{
 	dir = 8
@@ -23801,6 +23856,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
+"vHT" = (
+/obj/machinery/shower{
+	dir = 4;
+	layer = 5
+	},
+/obj/structure/curtain/open/shower,
+/obj/item/device/radio,
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "vIJ" = (
 /obj/effect/floor_decal/corner_wide/white,
 /turf/simulated/floor/tiled,
@@ -44833,7 +44897,7 @@ bAO
 orI
 muQ
 rwM
-kxV
+fyg
 dBC
 rwM
 aUn
@@ -56964,7 +57028,7 @@ wAb
 wAb
 wAb
 wAb
-wAb
+tHi
 wAb
 wAb
 wAb
@@ -57737,7 +57801,7 @@ orI
 orI
 orI
 rTP
-vGr
+ktT
 vGr
 orI
 wNN
@@ -58775,7 +58839,7 @@ oiH
 oiH
 oiH
 sAZ
-vGr
+ktT
 orI
 orI
 wAb
@@ -63651,7 +63715,7 @@ dgR
 wBy
 fLu
 fLu
-fLu
+sjI
 ehr
 vya
 lUf
@@ -69045,7 +69109,7 @@ rel
 xGS
 wmP
 dgR
-uxb
+nIv
 gLP
 mmr
 nle
@@ -74176,7 +74240,7 @@ tiO
 tiO
 wvZ
 vya
-nXL
+aoC
 fvE
 mmr
 mmr
@@ -75012,7 +75076,7 @@ vya
 eQG
 gzr
 wlR
-wlR
+vHT
 wlR
 gzr
 wuH
@@ -76517,7 +76581,7 @@ vya
 quW
 mmr
 nkd
-mmr
+pAz
 mUS
 vya
 tzJ
@@ -77802,7 +77866,7 @@ tuO
 uxb
 mmr
 mmr
-mmr
+pAz
 mUS
 tuO
 tzJ

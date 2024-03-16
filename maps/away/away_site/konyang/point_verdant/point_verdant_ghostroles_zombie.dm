@@ -11,10 +11,29 @@
 	tags = list("Outbreak")
 	respawn_flag = null
 	enabled = FALSE
+	max_count = 999
 	show_on_job_select = FALSE
 	allow_appearance_change = FALSE
 	mob_name = FALSE
 	spawnpoints = list("kzombie")
+
+/datum/ghostspawner/human/zombie/admin
+	name = "Admin Spawn Zombie"
+	short_name = "aszombie"
+	desc = "See the description for the Konyanger zombies, but Matt has decided to be spooky and spawn some non-special player zombies in a specific location."
+	loc_type = GS_LOC_ATOM
+	max_count = 0
+	count = 0
+	enabled = TRUE
+	spawnpoints = list("aszombie")
+
+/datum/ghostspawner/human/zombie/admin/spawn_mob(mob/user)
+	var/atom/A = select_spawnatom()
+
+	if(A)
+		return A.assign_player(user)
+	to_chat(user, SPAN_DANGER("There are no spawn atoms available to spawn at!"))
+	return FALSE
 
 /datum/ghostspawner/human/special_zombie
 	name = "Special Zombie"
@@ -38,6 +57,7 @@
 		return A.assign_player(user)
 	to_chat(user, SPAN_DANGER("There are no spawn atoms available to spawn at!"))
 	return FALSE
+
 /obj/effect/ghostspawpoint/zombie
 	name = "igs - Generic Zombie"
 	identifier = "kzombie"
@@ -55,7 +75,7 @@
 	spawn_mob = /mob/living/carbon/human/zombie
 	tags = list("Outbreak")
 	respawn_flag = null
-	max_count = 50
+	max_count = 100
 	spawnpoints = list("fazombie")
 
 /obj/effect/ghostspawpoint/umbrella_zombie

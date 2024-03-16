@@ -29,6 +29,7 @@
 
 	if(user == occupant)
 		to_chat(user, SPAN_WARNING("The buckles stop you from doing much at all."))
+		. = ..()
 		return FALSE
 
 	if(!user.use_check_and_message())
@@ -38,6 +39,7 @@
 		if(occupant != intended_target)
 			to_chat(user, SPAN_WARNING("\The [src] beeps in disapproval. The error message says something along the lines of needing a patient infected with \
 										the very first strain of Hylemnomil-Zeta."))
+			. = ..()
 			return
 		var/time_to_die = tgui_alert(user, "Are you sure?", "Begin Antibody Creation", list("Yes", "No"))
 		if(time_to_die == "Yes")
@@ -49,8 +51,7 @@
 				to_chat(occupant, SPAN_CULT(FONT_HUGE("You are locked by bindings into \the [src] and your arm is stabbed by a needle!")))
 				to_world(SPAN_DANGER(FONT_HUGE("A loud alarm echoes from inside the Einstein laboratory, along with converging undead screaming...")))
 				sound_to(world, sound('sound/items/raccoon_city/umbrella_alarm.ogg'))
-		return
-	. = ..()
+				playsound(src, 'sound/effects/lingextends.ogg')
 
 /obj/machinery/antibody_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -69,30 +70,36 @@
 		icon_state = "extractor-active"
 		if(stage < MAX_STAGES+1)
 			if(stage_counter > stage*stage_threshold)
+				playsound(src, 'sound/effects/lingextends.ogg')
 				stage++
 			stage_counter += 5
 
 			switch(stage)
 				if(1)
 					if(prob(25))
-						to_chat(occupant, SPAN_DANGER(FONT_HUGE("The blood is being sucked out of you - the pain is unbearable!")))
+						to_chat(occupant, SPAN_DANGER(FONT_HUGE("Your blood is being sucked out of you - the pain is unbearable!")))
 						occupant.adjustHalLoss(10)
-						occupant.emote("whimper")
+						if(prob(10))
+							occupant.emote("whimper")
 				if(2)
 					if(prob(25))
 						to_chat(occupant, SPAN_DANGER(FONT_HUGE("Your arm feels like it's being torn apart as the needle digs further and further inside!")))
-						occupant.adjustHalLoss(20)
-						occupant.emote("scream")
+						occupant.adjustHalLoss(15)
+						if(prob(5))
+							occupant.emote("scream")
 				if(3)
 					if(prob(25))
 						to_chat(occupant, SPAN_DANGER(FONT_HUGE("You feel like you're going to die any second now!")))
-						occupant.adjustHalLoss(30)
-						occupant.emote("scream")
+						occupant.adjustHalLoss(20)
+						if(prob(10))
+							occupant.emote("scream")
 		else
 			if(occupant)
 				visible_message(SPAN_CULT(FONT_HUGE("\The [src] finishes working and, with a click, releases [occupant] from their bindings. It helpfully dispenses \
 								a vial of shining white liquid...")))
+				unbuckle()
 				new /obj/item/reagent_containers/glass/beaker/vial/antidote(get_turf(src))
+				playsound(src, 'sound/machines/weapons_analyzer_finish.ogg')
 			working = FALSE
 			stage = 0
 			stage_counter = 0

@@ -143,6 +143,11 @@
 		return TRUE
 	return FALSE
 
+/mob/living/carbon/human/zombie/adminspawn/Initialize(mapload)
+	thinking_enabled = FALSE
+	. = ..()
+	SSghostroles.add_spawn_atom("aszombie", src)
+
 /mob/living/carbon/human/bull/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_BULL)
 	SSghostroles.add_spawn_atom("szombie", src)
