@@ -136,7 +136,7 @@
 /datum/space_sector/proc/setup_current_sector()
 	SHOULD_CALL_PARENT(TRUE)
 
-	if(SSatlas.current_map.ports_of_call && length(scheduled_port_visits))
+	if(SSatlas.current_map.ports_of_call && length(SSatlas.current_sector.scheduled_port_visits))
 		var/current_day_index = GLOB.all_days.Find(time2text(world.realtime, "Day"))
 		var/days_calculated = 0
 		// The main problem to consider here is that you have to loop around for two weeks to find all the days, basically.
