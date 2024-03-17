@@ -475,8 +475,8 @@
 /area/ship/dominian_unathi/engineering)
 "dF" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia/unathi,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/suit/space/void/dominia,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/corner/orange{
@@ -7247,8 +7247,8 @@
 /area/ship/dominian_unathi/crew)
 "Xh" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia/unathi,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/suit/space/void/dominia,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/corner/orange{
@@ -7552,8 +7552,8 @@
 /area/shuttle/dominian_unathi)
 "YF" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia/unathi,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/suit/space/void/dominia,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/corner/orange{
