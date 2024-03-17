@@ -37,15 +37,12 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			continue
 
 		if((ruin.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (ruin.spawns_in_current_sector()))
-			//check if Horizon exists
-			var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
-			if(horizon)
-				//check if port of call is today
-				if(!isnull(SSatlas.current_sector.next_port_visit) && SSatlas.current_sector.next_port_visit == 0)
-					force_spawn |= ruin
-					for(var/ruin_path in ruin.force_ruins)
-						var/datum/map_template/ruin/force_ruin = new ruin_path
-						force_spawn |= force_ruin
+			//check if port of call is today
+			if(!isnull(SSatlas.current_sector.next_port_visit_string) && SSatlas.current_sector.next_port_visit_string == "Today")
+				force_spawn |= ruin
+				for(var/ruin_path in ruin.force_ruins)
+					var/datum/map_template/ruin/force_ruin = new ruin_path
+					force_spawn |= force_ruin
 
 			// No matter if it spawns or not, we want it removed from further consideration, it either spawns here or not at all
 			potentialRuins -= ruin
