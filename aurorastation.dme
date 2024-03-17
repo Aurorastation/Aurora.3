@@ -1879,6 +1879,7 @@
 #include "code\modules\clothing\suits\xeno\unathi.dm"
 #include "code\modules\clothing\suits\xeno\vaurca.dm"
 #include "code\modules\clothing\under\color.dm"
+#include "code\modules\clothing\under\dresses.dm"
 #include "code\modules\clothing\under\miscellaneous.dm"
 #include "code\modules\clothing\under\pants.dm"
 #include "code\modules\clothing\under\shorts.dm"
