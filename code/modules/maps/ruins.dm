@@ -38,11 +38,14 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 
 		if((ruin.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (ruin.spawns_in_current_sector()))
 			//check if port of call is today
-			if(!isnull(SSatlas.current_sector.next_port_visit_string) && SSatlas.current_sector.next_port_visit_string == "Today")
-				force_spawn |= ruin
-				for(var/ruin_path in ruin.force_ruins)
-					var/datum/map_template/ruin/force_ruin = new ruin_path
-					force_spawn |= force_ruin
+			if(SSatlas.current_map.ports_of_call && length(SSatlas.current_sector.scheduled_port_visits))
+				/// Gets today
+				var/today = GLOB.all_days[GLOB.all_days.Find(time2text(world.realtime, "Day"))]
+				if(today in SSatlas.current_sector.scheduled_port_visits) //checks if today is a port of call day
+					force_spawn |= ruin
+					for(var/ruin_path in ruin.force_ruins)
+						var/datum/map_template/ruin/force_ruin = new ruin_path
+						force_spawn |= force_ruin
 
 			// No matter if it spawns or not, we want it removed from further consideration, it either spawns here or not at all
 			potentialRuins -= ruin
