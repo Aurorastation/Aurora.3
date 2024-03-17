@@ -269,6 +269,10 @@
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
+		else if((site.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (site.spawns_in_current_sector()) && (site.port_of_call_check()))
+			guaranteed += site
+			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
+				available[site] = site.spawn_weight
 		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
