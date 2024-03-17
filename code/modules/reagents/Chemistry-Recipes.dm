@@ -4173,6 +4173,12 @@
 	required_reagents = list(/singleton/reagent/alcohol/absinthe = 1, /singleton/reagent/alcohol/vodka/mushroom = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/staghunt
+	name = "Stag Hunt"
+	result = /singleton/reagent/alcohol/staghunt
+	required_reagents = list(/singleton/reagent/drink/ice = 1, /singleton/reagent/alcohol/twentytwo = 3, /singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/drink/tea = 2)
+	result_amount = 7
+
 /datum/chemical_reaction/drink/internationale
 	name = "Internationale"
 	id = "internationale"
