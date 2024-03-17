@@ -113,11 +113,13 @@
 /obj/item/reagent_containers/food/condiment/barbecue
 	icon_state = "barbecue"
 	fixed_state = TRUE
+	name = "barbecue sauce"
 	reagents_to_add = list(/singleton/reagent/nutriment/barbecue = 20)
 
 /obj/item/reagent_containers/food/condiment/garlicsauce
 	icon_state = "garlic_sauce"
 	fixed_state = TRUE
+	name = "garlic sauce"
 	reagents_to_add = list(/singleton/reagent/nutriment/garlicsauce = 50)
 
 /obj/item/reagent_containers/food/condiment/pacid
@@ -147,6 +149,144 @@
 	fixed_state = TRUE
 	name = "mayonnaise"
 	reagents_to_add = list(/singleton/reagent/nutriment/mayonnaise = 50)
+
+/obj/item/reagent_containers/food/condiment/ntella
+	icon_state = "NTellajar"
+	fixed_state = TRUE
+	name = "NTella jar"
+	reagents_to_add = list(/singleton/reagent/nutriment/choconutspread = 50)
+
+/obj/item/reagent_containers/food/condiment/peanut_butter
+	icon_state = "pbjar"
+	fixed_state = TRUE
+	name = "peanut butter jar"
+	reagents_to_add = list(/singleton/reagent/nutriment/peanutbutter = 50)
+
+/obj/item/reagent_containers/food/condiment/cherry_jelly
+	icon_state = "jellyjar"
+	fixed_state = TRUE
+	name = "cherry jelly jar"
+	reagents_to_add = list(/singleton/reagent/nutriment/cherryjelly = 50)
+
+/obj/item/reagent_containers/food/condiment/hot_sauce
+	icon_state = "hotsauce"
+	name = "hot sauce"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/capsaicin = 50)
+
+/obj/item/reagent_containers/food/condiment/grape_jelly
+	icon_state = "grapejelly"
+	fixed_state = TRUE
+	name = "grape jelly jar"
+	reagents_to_add = list(/singleton/reagent/nutriment/grapejelly = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_simple
+	icon_state = "syrup_simple"
+	fixed_state = TRUE
+	name = "simple syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_simple = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_chocolate
+	icon_state = "syrup_chocolate"
+	fixed_state = TRUE
+	name = "chocolate syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_chocolate = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_strawberry
+	icon_state = "syrup_strawberry"
+	fixed_state = TRUE
+	name = "strawberry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_strawberry = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_strawberry
+	icon_state = "syrup_strawberry"
+	fixed_state = TRUE
+	name = "strawberry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_strawberry = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_berry
+	icon_state = "syrup_berry"
+	fixed_state = TRUE
+	name = "berry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_berry = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_raspberry
+	icon_state = "syrup_raspberry"
+	fixed_state = TRUE
+	name = "raspberry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_raspberry = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_blueberry
+	icon_state = "syrup_blueberry"
+	fixed_state = TRUE
+	name = "blueberry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_blueberry = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_blue_raspberry
+	icon_state = "syrup_blue_raspberry"
+	fixed_state = TRUE
+	name = "blue raspberry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_blueberry = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_ylphaberry
+	icon_state = "syrup_ylpha"
+	fixed_state = TRUE
+	name = "ylpha berry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_ylphaberry = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_caramel
+	icon_state = "syrup_caramel"
+	fixed_state = TRUE
+	name = "caramel syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_caramel = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_pumpkin
+	icon_state = "syrup_pumpkin"
+	fixed_state = TRUE
+	name = "pumpkin syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_pumpkin = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_vanilla
+	icon_state = "syrup_vanilla"
+	fixed_state = TRUE
+	name = "vanilla syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_vanilla = 50)
+
+/obj/item/reagent_containers/food/condiment/syrup_dirtberry
+	icon_state = "syrup_dirtberry"
+	fixed_state = TRUE
+	name = "dirtberry syrup"
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_dirtberry = 50)
+
+/obj/item/reagent_containers/food/condiment/gelatin
+	icon_state = "gello"
+	fixed_state = TRUE
+	name = "gelatin"
+	reagents_to_add = list(/singleton/reagent/nutriment/gelatin = 50)
+
+/obj/item/reagent_containers/food/condiment/batter
+	icon_state = "batter"
+	fixed_state = TRUE
+	name = "batter mix"
+	reagents_to_add = list(/singleton/reagent/nutriment/coating/batter = 50)
+
+/obj/item/reagent_containers/food/condiment/vanilla
+	icon_state = "vanilla"
+	fixed_state = TRUE
+	name = "vanilla extract"
+	reagents_to_add = list(/singleton/reagent/nutriment/vanilla = 50)
+
+/obj/item/reagent_containers/food/condiment/rice //everyone's favorite condiment, rice. (there wasn't really a better place for this, code-wise)
+	icon_state = "rice"
+	fixed_state = TRUE
+	name = "rice"
+	reagents_to_add = list(/singleton/reagent/nutriment/rice = 50)
+
+/obj/item/reagent_containers/food/condiment/cocoa //not exactly a condiment, but not exactly NOT a condiment, right?
+	icon_state = "cocoapowder"
+	fixed_state = TRUE
+	name = "cocoa powder"
+	reagents_to_add = list(/singleton/reagent/nutriment/coco = 50)
 
 //MRE condiments and drinks.
 
