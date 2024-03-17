@@ -169,7 +169,7 @@
 	icon_state = "grate_light"
 	base_icon_state = "grate_light"
 	return_amount = 1
-	color = COLOR_GUNMETAL
+	color = COLOR_GRAY50
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old/Initialize()
 	. = ..()
@@ -185,6 +185,12 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal
+	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/slate
+	color = COLOR_SLATE
 
 /obj/structure/lattice/catwalk/indoor/urban
 	name = "grate"

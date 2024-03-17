@@ -1465,6 +1465,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"fM" = (
+/turf/unsimulated/wall/steel,
+/area/template_noop)
 "fV" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1622,10 +1625,6 @@
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"sT" = (
-/obj/effect/landmark/lobby_mobs_location,
-/turf/unsimulated/floor,
-/area/template_noop)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1854,16 +1853,16 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"IQ" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/wall/r_wall,
-/area/maintenance/maintcentral)
 "IY" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Jd" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Jx" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle,
@@ -1916,6 +1915,10 @@
 /obj/machinery/computer/ship/targeting/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"LM" = (
+/obj/effect/landmark/lobby_mobs_location,
+/turf/unsimulated/floor,
+/area/template_noop)
 "ME" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -1933,9 +1936,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"NF" = (
-/turf/unsimulated/wall/steel,
-/area/template_noop)
 "Ot" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -7260,7 +7260,7 @@ dA
 dq
 dq
 de
-de
+Jd
 de
 de
 du
@@ -11090,7 +11090,7 @@ ac
 ac
 bU
 bU
-IQ
+ac
 wI
 ai
 at
@@ -13934,8 +13934,8 @@ aa
 aa
 aa
 aa
-NF
-NF
+fM
+fM
 ac
 Uf
 Uf
@@ -14191,8 +14191,8 @@ aa
 aa
 aa
 aa
-NF
-sT
+fM
+LM
 ac
 Uf
 Uf
@@ -14448,8 +14448,8 @@ aa
 aa
 aa
 aa
-NF
-NF
+fM
+fM
 ac
 ac
 ac
