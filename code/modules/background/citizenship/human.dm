@@ -5,12 +5,17 @@
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /obj/outfit/job/representative/consular/ceti
+	consular_outfit = /obj/outfit/job/representative/consular/ceti
+	assistant_outfit = /obj/outfit/job/consular_assistant/ceti
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -59,6 +64,10 @@
 		/obj/item/stamp/biesel = 1,
 	)
 
+/obj/outfit/job/consular_assistant/ceti
+	name = "Tau Ceti Diplomatic Aide"
+	accessory = /obj/item/clothing/accessory/tc_pin
+
 /obj/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
@@ -83,11 +92,33 @@
 	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /obj/outfit/job/representative/consular/sol
-
+	assistant_outfit = /obj/outfit/job/consular_assistant/sol
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_HUMAN,
 			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Aide" = list(
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -139,6 +170,11 @@
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
+/obj/outfit/job/consular_assistant/sol
+	name = "Sol Consular Officer"
+
+	accessory = /obj/item/clothing/accessory/sol_pin
+
 /datum/citizenship/sol_alliance/eridani
 	name = CITIZENSHIP_ERIDANI
 	description = "Eridani, or the Eridani Corporate Federation, is a dystopian oligarchic republic in the Epsilon Eridani system, dominated entirely by a council of mega-corporations \
@@ -147,7 +183,8 @@
 	workplace of various contractors on-board."
 
 	job_species_blacklist = list(
-		"Consular Officer" = ALL_SPECIES
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES
 	)
 
 /datum/citizenship/coalition
@@ -160,6 +197,16 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Aide" = list(
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
@@ -242,6 +289,25 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Aide" = list(
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
