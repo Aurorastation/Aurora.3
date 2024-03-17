@@ -1597,6 +1597,11 @@
 	pixel_y = 2;
 	pixel_x = 1
 	},
+/obj/machinery/button/distress{
+	pixel_y = -2;
+	pixel_x = -9;
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Zj" = (

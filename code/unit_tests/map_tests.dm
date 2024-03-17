@@ -231,7 +231,6 @@
 	name = "MAP: Check for bad piping"
 
 /datum/unit_test/map_test/bad_piping/start_test()
-	set background = 1
 	var/checks = 0
 	var/failed_checks = 0
 
