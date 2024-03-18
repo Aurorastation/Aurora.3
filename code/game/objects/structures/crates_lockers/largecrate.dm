@@ -104,3 +104,13 @@
 /obj/structure/largecrate/animal/hakhma
 	name = "hakhma crate"
 	held_type = /mob/living/simple_animal/hakhma
+
+/obj/structure/largecrate/animal/moghes
+	name = "moghresian animal crate"
+	held_type = /mob/living/simple_animal/threshbeast
+
+/obj/structure/largecrate/animal/moghes/warmount
+	held_type = /mob/living/simple_animal/hostile/retaliate/warmount
+
+/obj/structure/largecrate/animal/moghes/miervesh
+	held_type = /mob/living/simple_animal/miervesh

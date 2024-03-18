@@ -70,7 +70,7 @@
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
-	if(!registration_plate)
+	if(!registration_plate && !organic)
 		generate_registration_plate()
 	if(spawns_with_key)
 		key = new key_type(src)
@@ -78,7 +78,7 @@
 
 /obj/vehicle/bike/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(distance <= 4)
+	if(distance <= 4 && !organic)
 		. += "\The [src] has a small registration plate on the back, '[registration_plate]'."
 		if(key)
 			. += "\The [src] has \a [key] in."
@@ -194,7 +194,7 @@
 	return Move(get_step(src, direction))
 
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
-	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/unsimulated/floor/asteroid))
+	var/static/list/types = typecacheof(list(/turf/space))
 	if(is_type_in_typecache(destination,types) || pulledby)
 		return TRUE
 	else
