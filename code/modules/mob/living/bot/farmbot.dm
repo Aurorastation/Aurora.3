@@ -179,13 +179,6 @@
 					frustration = 0
 					break
 
-			if(check_tank())
-				for(var/obj/structure/sink/source in view(7, src))
-					if(pathfind(source)) //If we can find a valid path to this sink, it's our target
-						target = source
-						frustration = 0
-						break
-
 
 /mob/living/bot/farmbot/proc/pathfind(var/atom/A)
 	var/turf/targetloc = get_turf(A)

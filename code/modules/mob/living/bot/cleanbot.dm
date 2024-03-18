@@ -115,9 +115,19 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 			path = list()
 
 	if(length(path) && !cleaning)
-		step_to(src, path[1])
-		path -= path[1]
-		return TRUE
+		var/successfully_moved = step_to(src, path[1])
+
+		if(successfully_moved)
+			path -= path[1]
+			return TRUE
+
+		//Something blocked us, look for a different target, we might come back to this in a while
+		else
+			ignorelist |= cleaning_target
+			cleaning_target_cache.clean_marked = null
+			cleaning_target = null
+			path = list()
+
 
 /mob/living/bot/cleanbot/proc/remove_from_ignore(datum/weakref/thing_to_unignore)
 	ignorelist -= thing_to_unignore
@@ -165,6 +175,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	var/found_spot
 
 	for(var/obj/effect/decal/cleanable/D in view(maximum_search_range, src))
+		var/datum/weakref/cleanable_weakref = WEAKREF(D)
 
 		var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
 
@@ -177,13 +188,13 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 			continue
 
 		// If the object has been slated to be ignored we continue the loop.
-		if((D in ignorelist))
+		if((cleanable_weakref in ignorelist))
 			continue
 
-		// A matching /cleanable was found, now we want to A* it and see if we can reach it.
+		// A matching /cleanable was found, now we want to path trace to it and see if we can reach it.
 		if((D.type in target_types))
 			patrol_path = list()
-			cleaning_target = WEAKREF(D)
+			cleaning_target = cleanable_weakref
 			D.clean_marked = WEAKREF(src)
 			found_spot = handle_target()
 			if(found_spot)
