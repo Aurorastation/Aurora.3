@@ -28,7 +28,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 6)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 4
-	vehicle_version = /obj/vehicle/bike/threshbeast
+	vehicle_version = /obj/vehicle/animal/threshbeast
 
 /mob/living/simple_animal/threshbeast/saddle
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
@@ -36,8 +36,8 @@
 	icon_living = "threshbeast_s"
 	icon_dead = "threshbeast_dead_s"
 
-/mob/living/simple_animal/hostile/retaliate/warmount
-	name = "warmount"
+/mob/living/simple_animal/hostile/retaliate/hegeranzi
+	name = "hegeranzi"
 	desc = "A large species of herbivorous horned reptiles native to Moghes, the hegeranzi or 'warmount' is commonly used as  mount or beast of war by the Unathi. They are highly valued for their speed, aggression, and fearsome horns."
 	icon = 'icons/mob/npc/moghes_64.dmi'
 	icon_state = "warmount"
@@ -71,9 +71,9 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 10)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
-	vehicle_version = /obj/vehicle/bike/warmount
+	vehicle_version = /obj/vehicle/animal/hegeranzi
 
-/mob/living/simple_animal/hostile/retaliate/warmount/saddle
+/mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	name = "warmount"
 	desc = "A large species of herbivorous horned reptiles native to Moghes, the hegeranzi or 'warmount' is commonly used as  mount or beast of war by the Unathi. They are highly valued for their speed, aggression, and fearsome horns. This one seems to have been fitted with a saddle."
 	icon_state = "warmount_s_on"

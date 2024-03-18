@@ -110,7 +110,7 @@
 	held_type = /mob/living/simple_animal/threshbeast
 
 /obj/structure/largecrate/animal/moghes/warmount
-	held_type = /mob/living/simple_animal/hostile/retaliate/warmount
+	held_type = /mob/living/simple_animal/hostile/retaliate/hegeranzi
 
 /obj/structure/largecrate/animal/moghes/miervesh
 	held_type = /mob/living/simple_animal/miervesh

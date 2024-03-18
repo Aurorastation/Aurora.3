@@ -70,7 +70,7 @@
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
-	if(!registration_plate && !organic)
+	if(!registration_plate)
 		generate_registration_plate()
 	if(spawns_with_key)
 		key = new key_type(src)
@@ -78,7 +78,7 @@
 
 /obj/vehicle/bike/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(distance <= 4 && !organic)
+	if(distance <= 4)
 		. += "\The [src] has a small registration plate on the back, '[registration_plate]'."
 		if(key)
 			. += "\The [src] has \a [key] in."
