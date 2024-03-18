@@ -5621,7 +5621,9 @@
 /turf/simulated/floor/plating,
 /area/horizon/security/hallway)
 "czP" = (
-/obj/structure/closet/cabinet,
+/obj/structure/closet/cabinet{
+	name = "beer cabinet"
+	},
 /obj/item/clothing/suit/carp_costume,
 /obj/item/clothing/suit/lobster_costume,
 /obj/item/clothing/suit/jester_costume,
@@ -7670,10 +7672,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/random/pottedplant,
-/obj/machinery/computer/guestpass{
-	pixel_x = 32
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 8
 	},
+/obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dBQ" = (
@@ -41753,9 +41755,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "tHl" = (
@@ -44895,7 +44895,21 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
-/obj/random/pottedplant,
+/obj/structure/closet/cabinet{
+	name = "beer cabinet"
+	},
+/obj/item/storage/box/fancy/yoke/earthmover,
+/obj/item/storage/box/fancy/yoke/earthmover,
+/obj/item/storage/box/fancy/yoke/ebisu,
+/obj/item/storage/box/fancy/yoke/ebisu,
+/obj/item/storage/box/fancy/yoke/moonlabor,
+/obj/item/storage/box/fancy/yoke/moonlabor,
+/obj/item/storage/box/fancy/yoke/beer,
+/obj/item/storage/box/fancy/yoke/beer,
+/obj/item/storage/box/fancy/yoke/shimauma,
+/obj/item/storage/box/fancy/yoke/shimauma,
+/obj/item/storage/box/fancy/yoke/whistlingforest,
+/obj/item/storage/box/fancy/yoke/whistlingforest,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (

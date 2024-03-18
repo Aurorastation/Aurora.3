@@ -8279,7 +8279,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
 "fXn" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/frontiervend,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -10671,6 +10671,11 @@
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
+"hxG" = (
+/obj/machinery/vending/coffee,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard)
 "hxQ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -30607,6 +30612,11 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
+"vrm" = (
+/obj/machinery/vending/frontiervend,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard)
 "vrD" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -47534,7 +47544,7 @@ oRM
 pwt
 xAc
 xon
-mqJ
+vrm
 vlC
 iEg
 iHj
@@ -60864,7 +60874,7 @@ cru
 xwm
 xwm
 pTM
-jEj
+hxG
 mWg
 lXI
 spy
