@@ -59,3 +59,15 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/konyang
 	possible_space_sector = list(SECTOR_HANEUNIM)
+
+/datum/responseteam/izweski
+	name = "Izweski Hegemony Navy"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/izweski
+	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+
+/datum/responseteam/qukala
+	name = "Nralakk Federation Qukala"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/qukala
+	possible_space_sector = list(SECTOR_BADLANDS) //Not super lore-friendly but our only sector that could possibly have a Fed presence
