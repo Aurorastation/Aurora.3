@@ -1970,6 +1970,11 @@
 "bqN" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /obj/machinery/firealarm/west,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "bqQ" = (
@@ -3890,14 +3895,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "dcJ" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
 "dcU" = (
@@ -4072,10 +4074,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "djp" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
@@ -10671,11 +10669,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
-"hxG" = (
-/obj/machinery/vending/coffee,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/starboard)
 "hxQ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -21063,7 +21056,10 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -60874,7 +60870,7 @@ cru
 xwm
 xwm
 pTM
-hxG
+jEj
 mWg
 lXI
 spy

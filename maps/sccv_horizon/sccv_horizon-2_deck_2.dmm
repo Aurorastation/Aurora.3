@@ -7672,10 +7672,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 8
+/obj/machinery/computer/guestpass{
+	step_x = 32
 	},
-/obj/machinery/vending/frontiervend,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dBQ" = (
@@ -15796,7 +15796,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/item/device/radio/intercom/east,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "hmX" = (
@@ -21219,6 +21220,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "jLS" = (
@@ -41756,6 +41758,7 @@
 	dir = 1
 	},
 /obj/machinery/vending/frontiervend,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "tHl" = (
