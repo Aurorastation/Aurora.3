@@ -8,8 +8,7 @@
 	spawn_weight = 1
 	suffixes = list("away_site/abandoned_diner/abandoned_diner.dmm")
 
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(ALL_CORPORATE_SECTORS)
 
 /singleton/submap_archetype/abandoned_diner//Arbitrary duplicates of the above name/desc
 	map = "abandoned diner"

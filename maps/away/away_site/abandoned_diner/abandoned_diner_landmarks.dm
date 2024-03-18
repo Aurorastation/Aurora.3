@@ -3,22 +3,22 @@
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/abandoned_diner/dock_a1
-	name = "Diner - Docking Port A1"
+	name = "Docking Port A1"
 	landmark_tag = "diner_a1"
 	docking_controller = "diner_a1"
 
 /obj/effect/shuttle_landmark/abandoned_diner/dock_a2
-	name = "Diner - Docking Port A2"
+	name = "Docking Port A2"
 	landmark_tag = "diner_a2"
 	docking_controller = "diner_a2"
 
 /obj/effect/shuttle_landmark/abandoned_diner/dock_b1
-	name = "Diner - Docking Port B1"
+	name = "Docking Port B1"
 	landmark_tag = "diner_b1"
 	docking_controller = "diner_b1"
 
 /obj/effect/shuttle_landmark/abandoned_diner/dock_b2
-	name = "Diner - Docking Port B2"
+	name = "Docking Port B2"
 	landmark_tag = "diner_b2"
 	docking_controller = "diner_b2"
 
