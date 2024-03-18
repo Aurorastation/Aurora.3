@@ -414,14 +414,6 @@
 	if(isAdminLevel(src.z))
 		return
 
-	for(var/obj/machinery/anti_bluespace/AB in range(8, src))
-		if(AB.stat & (NOPOWER | BROKEN))
-			continue
-		else
-			AB.use_power_oneoff(AB.active_power_usage)
-			to_chat(src, SPAN_WARNING("An unknown force prevents you from stepping into the Veil!"))
-			return
-
 	if(ismob(pulledby))
 		var/mob/M = pulledby
 		if(M.pulling == src)
@@ -497,15 +489,6 @@
 			to_chat(owner_mob, SPAN_WARNING("You cannot maintain this form while unconscious."))
 			addtimer(CALLBACK(src, PROC_REF(kick_unconcious)), 10, TIMER_UNIQUE)
 		else
-			deactivate()
-			return
-
-	for(var/obj/machinery/anti_bluespace/AB in range(8, src))
-		if(AB.stat & (NOPOWER | BROKEN))
-			continue
-		else
-			AB.use_power_oneoff(AB.active_power_usage)
-			to_chat(owner_mob, SPAN_DANGER("You are ejected from the Veil by an unknown force!"))
 			deactivate()
 			return
 
