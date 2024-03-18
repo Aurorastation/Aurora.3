@@ -41754,11 +41754,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "tHk" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /obj/machinery/vending/frontiervend,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "tHl" = (
@@ -44898,21 +44898,7 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
-/obj/structure/closet/cabinet{
-	name = "beer cabinet"
-	},
-/obj/item/storage/box/fancy/yoke/earthmover,
-/obj/item/storage/box/fancy/yoke/earthmover,
-/obj/item/storage/box/fancy/yoke/ebisu,
-/obj/item/storage/box/fancy/yoke/ebisu,
-/obj/item/storage/box/fancy/yoke/moonlabor,
-/obj/item/storage/box/fancy/yoke/moonlabor,
-/obj/item/storage/box/fancy/yoke/beer,
-/obj/item/storage/box/fancy/yoke/beer,
-/obj/item/storage/box/fancy/yoke/shimauma,
-/obj/item/storage/box/fancy/yoke/shimauma,
-/obj/item/storage/box/fancy/yoke/whistlingforest,
-/obj/item/storage/box/fancy/yoke/whistlingforest,
+/obj/structure/closet/secure_closet/cabinet/beer,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (
