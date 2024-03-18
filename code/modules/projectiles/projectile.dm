@@ -101,6 +101,7 @@
 	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
 
 	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
+	var/secondary_projectile // does this projectile actually launch two projectiles?
 
 /obj/item/projectile/CanPass()
 	return TRUE
@@ -166,6 +167,10 @@
 	var/direct_target
 	if(get_turf(target) == get_turf(src))
 		direct_target = target
+
+	if(ispath(secondary_projectile))
+		var/obj/item/projectile/BB = new secondary_projectile(src)
+		BB.launch_projectile(target, target_zone, user, params, angle_override, forced_spread)
 
 	preparePixelProjectile(target, user? user : get_turf(src), params, forced_spread)
 	return fire(angle_override, direct_target)

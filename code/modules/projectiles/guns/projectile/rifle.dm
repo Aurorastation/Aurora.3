@@ -420,3 +420,25 @@
 	rack_verb = "work the lever on"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/crackrifle
+	name = "crack rifle"
+	desc = "A heavy bolt-action rifle of Moghesian manufacture."
+	desc_extended = "Manufactured by the Azarak Kingdom in 2350, the Azarak-96 'Crack Rifle' is a bolt-action rifle of Moghesian manufacture, easily recognizable by its long bayonet and large magazine wrapped around its trigger guard.\
+	This heavy but powerful weapon is mostly known for its use by the common warrior of the Traditionalist Coalition during the Contact War.\
+	Many of these rifles survived the ravages of the Contact War, a testament to their reliability."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "crackrifle"
+	item_state = "crackrifle"
+	caliber = "5.8mm"
+	magazine_type = /obj/item/ammo_magazine/crackrifle
+	allowed_magazines = list(/obj/item/ammo_magazine/crackrifle)
+	load_method = MAGAZINE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/unathi/handle_pump_loading()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
+		if(AC)
+			AC.forceMove(src)
+			ammo_magazine.stored_ammo -= AC
+			chambered = AC
