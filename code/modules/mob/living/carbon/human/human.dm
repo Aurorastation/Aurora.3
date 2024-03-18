@@ -791,6 +791,15 @@
 				flavor_texts[href_list["flavor_change"]] = msg
 				set_flavor()
 				return
+
+	if (href_list["metadata"])
+		var/message = "<b>OOC notes: [name]</b>" \
+			+ "\n\n" \
+			+ client.prefs.metadata \
+			+ "\n\n" \
+			+ SPAN_WARNING("Remember, this is ooc information.")
+		to_chat(usr, EXAMINE_BLOCK(message))
+
 	..()
 	return
 
