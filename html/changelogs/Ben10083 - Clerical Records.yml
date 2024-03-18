@@ -38,5 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Clerical module for cyborgs now can access and edit records"
-  - rscadd: "Clerical module now will install the records program."
+  - rscadd: "Clerical module now installs the records program, allowing it to access and edit records."
