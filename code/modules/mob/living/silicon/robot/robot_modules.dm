@@ -682,7 +682,7 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_MINE)
 	specialized_access_types = list(/datum/job/janitor) // Janitor is a nice general access without specifics
 
-/obj/item/robot_module/service/clerical/Initialize(var/mob/living/silicon/robot/R)
+/obj/item/robot_module/service/clerical/Initialize(mapload, var/mob/living/silicon/robot/R)
 	. = ..()
 	modules += new /obj/item/pen/robopen(src)
 	modules += new /obj/item/form_printer(src)
@@ -707,6 +707,7 @@ var/global/list/robot_modules = list(
 		R.computer.hard_drive.store_file(new /datum/computer_file/program/records(src))
 
 /obj/item/robot_module/service/clerical/Reset(var/mob/living/silicon/robot/R)
+	var/test = 0
 	if(R.computer) //remove records program
 		R.computer.hard_drive.remove_file(R.computer.hard_drive.find_file_by_name("records"))
 	. = ..()
