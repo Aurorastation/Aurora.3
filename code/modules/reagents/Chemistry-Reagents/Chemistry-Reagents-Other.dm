@@ -41,7 +41,7 @@
 
 /singleton/reagent/crayon_dust/grey //Mime
 	name = "Grey Crayon Dust"
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "chalky crushed dreams"
 
 /singleton/reagent/crayon_dust/brown //Rainbow
@@ -53,7 +53,7 @@
 	name = "Paint"
 	description = "This paint will stick to almost any object."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	overdose = REAGENTS_OVERDOSE * 0.5
 	color_weight = 0
 	taste_description = "chalk"
@@ -441,14 +441,14 @@
 	name = "Glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "sweetness"
 
 /singleton/reagent/nitroglycerin
 	name = "Nitroglycerin"
 	description = "Nitroglycerin is a heavy, colorless, oily, explosive liquid obtained by nitrating glycerol."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "oil"
 
 /singleton/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)

@@ -63,7 +63,7 @@
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
 	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer",
-		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager", "Security Personnel")
+		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager", "Diplomatic Aide", "Security Personnel")
 
 /datum/gear/accessory/holster/New()
 	..()

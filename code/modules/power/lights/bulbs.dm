@@ -192,3 +192,8 @@
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
+
+/obj/item/light/clean()
+	. = ..()
+	brightness_color = initial(brightness_color)
+	update()
