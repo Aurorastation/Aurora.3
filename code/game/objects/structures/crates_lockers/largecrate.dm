@@ -114,3 +114,6 @@
 
 /obj/structure/largecrate/animal/moghes/miervesh
 	held_type = /mob/living/simple_animal/miervesh
+
+/obj/structure/largecrate/animal/moghes/otzek
+	held_type = /mob/living/simple_animal/otzek

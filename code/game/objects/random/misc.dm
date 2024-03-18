@@ -246,7 +246,8 @@
 		/obj/structure/largecrate/animal/hakhma = 0.5,
 		/obj/structure/largecrate/animal/moghes = 0.5,
 		/obj/structure/largecrate/animal/moghes/warmount = 0.2,
-		/obj/structure/largecrate/animal/moghes/miervesh = 0.5
+		/obj/structure/largecrate/animal/moghes/miervesh = 0.5,
+		/obj/structure/largecrate/animal/moghes/otzek = 0.5
 	)
 
 /obj/random/random_flag
