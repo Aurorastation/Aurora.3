@@ -116,17 +116,15 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
 
-/obj/item/clothing/suit/space/void/himeo
+/obj/item/clothing/suit/space/void/coalition/himeo
 	name = "\improper Himean buzzard voidsuit"
 	desc = "A hardy voidsuit designed specifically for the Himean Planetary Guard. Based on the iconic Vulture voidsuit, and modelled after the Eagle, it boasts improved armor at the cost of weight."
 	desc_extended = "While the Vulture remains the most popular voidsuit in the Coalition, the Free Consortium of Defense and Aerospace Manufacturers has long sought improvements. As the Xanan \"Eagle\" remains costly to import, the \
 	Type-97 \"Buzzard\" provides outstanding protections against the rigors of void combat at the cost of maneuverability. Naval boarding teams are fond of it; the inhuman faceplate and intimidating stature have led to more than \
 	one surrender without a single shot being fired."
-	icon = 'icons/obj/clothing/voidsuit/himeo.dmi'
 	icon_state = "himeo_voidsuit"
 	item_state = "himeo_voidsuit"
-	contained_sprite = 1
-	slowdown = 1
+	slowdown = 1.5
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
@@ -149,18 +147,39 @@
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
-	refittable = FALSE
+	refittable_species = list(BODYTYPE_TAJARA)
+	icon_supported_species_tags = list("taj")
 
-/obj/item/clothing/head/helmet/space/void/galatea
+/obj/item/clothing/head/helmet/space/void/coalition/himeo
+	name = "\improper Himean buzzard helmet"
+	desc = "A hardy voidsuit helmet designed specifically for the Himean Planetary Guard. Based on the iconic Vulture voidsuit, and modelled after the Eagle, it boasts improved armor at the cost of weight."
+	desc_extended = "While the Vulture remains the most popular voidsuit in the Coalition, the Free Consortium of Defense and Aerospace Manufacturers has long sought improvements. As the Xanan \"Eagle\" remains costly to import, the \
+	Type-97 \"Buzzard\" provides outstanding protections against the rigors of void combat at the cost of maneuverability. Naval boarding teams are fond of it; the inhuman faceplate and intimidating stature have led to more than \
+	one surrender without a single shot being fired."
+	icon_state = "himeo_void_helmet"
+	item_state = "himeo_void_helmet"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	refittable_species = list(BODYTYPE_TAJARA)
+	icon_supported_species_tags = list("taj")
+	brightness_on = 6
+	light_color = "#ffce01"
+
+/obj/item/clothing/head/helmet/space/void/coalition/galatea
 	name = "\improper Galatean jackdaw helmet"
 	desc = "An unusual voidsuit helmet designed for Galatean naval forces. Features an advanced environmental shielding module and strengthened biohazard protocols."
 	desc_extended = "The Federal Technocracy of Galatea is unusual in that they did not base their voidsuit on the Vulture model, opting to start fresh with the \"Jackdaw\". Based on softsuit \
 	designs from the days of the Galatea Project, the Jackdaw has an incredibly advanced 'user protection suite' that shields the occupant from radiation, biohazards, and exotic particles, at the cost of \
 	combat protection."
-	icon = 'icons/obj/clothing/voidsuit/galatea.dmi'
 	icon_state = "galatea_void_helmet"
 	item_state = "galatea_void_helmet"
-	contained_sprite = TRUE
 	slowdown = 0.65
 	permeability_coefficient = 0
 	gas_transfer_coefficient = 0
@@ -177,16 +196,14 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
 	refittable = FALSE
 
-/obj/item/clothing/suit/space/void/galatea
+/obj/item/clothing/suit/space/void/coalition/galatea
 	name = "\improper Galatean jackdaw voidsuit"
 	desc = "An unusual voidsuit designed for Galatean naval forces. Features an advanced environmental shielding module and strengthened biohazard protocols."
 	desc_extended = "The Federal Technocracy of Galatea is unusual in that they did not base their voidsuit on the Vulture model, opting to start fresh with the \"Jackdaw\". Based on softsuit \
 	designs from the days of the Galatea Project, the Jackdaw has an incredibly advanced 'user protection suite' that shields the occupant from radiation, biohazards, and exotic particles, at the cost of \
 	combat protection."
-	icon = 'icons/obj/clothing/voidsuit/galatea.dmi'
 	icon_state = "galatea_voidsuit"
 	item_state = "galatea_voidsuit"
-	contained_sprite = 1
 	slowdown = 0.65
 	permeability_coefficient = 0
 	gas_transfer_coefficient = 0
