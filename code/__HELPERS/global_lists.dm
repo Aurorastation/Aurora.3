@@ -55,6 +55,8 @@ GLOBAL_LIST_EMPTY(all_areas)
 GLOBAL_LIST_EMPTY_TYPED(all_species, /datum/species)
 /// Short names of all species.
 GLOBAL_LIST_EMPTY(all_species_short_names)
+/// Species short names by bodytype.
+GLOBAL_LIST_EMPTY(all_species_bodytypes)
 /// All language datums. String to instance.
 GLOBAL_LIST_EMPTY(all_languages)
 /// Table of say codes for all languages.
@@ -225,6 +227,8 @@ GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 		if(length(S.autohiss_basic_map) || length(S.autohiss_extra_map) || length(S.autohiss_basic_extend) || length(S.autohiss_extra_extend))
 			S.has_autohiss = TRUE
 		GLOB.all_species[S.name] = S
+		if(!GLOB.all_species_bodytypes[S.bodytype])
+			GLOB.all_species_bodytypes[S.bodytype] = S.short_name
 		GLOB.all_species_short_names |= S.short_name
 
 	sortTim(GLOB.all_species, GLOBAL_PROC_REF(cmp_text_asc))

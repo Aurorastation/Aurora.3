@@ -198,7 +198,7 @@
 	if(!species_restricted || !contained_sprite)
 		return
 
-	var/species_short = species_tag_from_bodytype(target_species)
+	var/species_short = GLOB.all_species_bodytypes[target_species]
 	if(species_short && !(species_short in icon_supported_species_tags)) //if it's empty it's for human, but otherwise it needs to be in there
 		return
 	switch(target_species)
@@ -222,7 +222,7 @@
 /obj/item/clothing/head/helmet/refit_contained(var/target_species)
 	if(!species_restricted || !contained_sprite)
 		return
-	var/species_short = species_tag_from_bodytype(target_species)
+	var/species_short = GLOB.all_species_bodytypes[target_species]
 	if(species_short && !(species_short in icon_supported_species_tags)) //if it's empty it's for human, but otherwise it needs to be in there
 		return
 	switch(target_species)
