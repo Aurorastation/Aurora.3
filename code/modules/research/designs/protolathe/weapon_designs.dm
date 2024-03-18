@@ -62,3 +62,19 @@
 	req_tech = list(TECH_COMBAT = 5, TECH_BLUESPACE = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 3000, MATERIAL_GOLD = 3000, MATERIAL_PHORON = 500)
 	build_path = /obj/item/gun/energy/gravity_gun
+
+/datum/design/item/weapon/proto_smg
+	desc = "An experimental SMG, firing high-velocity armor-piercing 4mm rounds."
+	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 8000, MATERIAL_SILVER = 2000, MATERIAL_DIAMOND = 2000)
+	build_path = /obj/item/gun/projectile/automatic
+
+/datum/design/item/weapon/ammunition/AssembleDesignName()
+	..()
+	name = "Ammunition prototype ([item_name])"
+
+/datum/design/item/weapon/ammunition/ammo_flechette
+	desc = "A high capacity magazine of armor piercing flechette."
+	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_SILVER = 500, MATERIAL_DIAMOND = 200)
+	build_path = /obj/item/ammo_magazine/proto_smg
