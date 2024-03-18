@@ -676,7 +676,7 @@
 /area/ship/coc_scarab/hangar)
 "kP" = (
 /obj/effect/landmark/entry_point/port{
-	name = "starboard, aft"
+	name = "port, aft"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/coc_scarab/port)
@@ -1558,7 +1558,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/entry_point/port{
-	name = "starboard, fore"
+	name = "port, fore"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{

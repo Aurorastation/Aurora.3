@@ -40,13 +40,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/armory)
 "am" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -427,14 +426,13 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust2)
 "cw" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1205,16 +1203,15 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "fR" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust2)
@@ -1358,8 +1355,14 @@
 	pixel_x = -8;
 	pixel_y = 38
 	},
-/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/machinery/papershredder{
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/bridge)
 "gw" = (
@@ -2015,8 +2018,7 @@
 /area/ship/coc_scarab/mess)
 "ki" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -3639,8 +3641,7 @@
 /area/ship/coc_scarab/starboardhallway)
 "sG" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
@@ -4361,10 +4362,6 @@
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 1
 	},
-/obj/machinery/smartfridge/chemistry{
-	density = 0;
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/hydroponics)
 "wP" = (
@@ -4847,10 +4844,6 @@
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "zu" = (
-/obj/machinery/smartfridge/drying_rack{
-	density = 0;
-	pixel_y = 20
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 9
@@ -5002,8 +4995,7 @@
 /area/space)
 "Ag" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
@@ -5340,9 +5332,8 @@
 /area/ship/coc_scarab/thrust1)
 "BC" = (
 /obj/machinery/washing_machine{
-	density = 0;
-	pixel_y = 22;
-	pixel_x = 5
+	pixel_x = 6;
+	pixel_y = 10
 	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/structure/disposalpipe/trunk,
@@ -6073,15 +6064,14 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/forehallway)
 "Fn" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust1)
@@ -6505,11 +6495,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/atmospherics)
 "HT" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust1)
 "HW" = (
@@ -6677,6 +6666,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/starboardhallway)
+"IG" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/ship/coc_scarab/exterior)
 "II" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -6916,7 +6913,7 @@
 "JQ" = (
 /obj/structure/undies_wardrobe{
 	density = 0;
-	pixel_y = 20
+	pixel_y = 11
 	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -7593,7 +7590,7 @@
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 1;
 	output_tag = "scarab_thrust2";
-	sensors = list("scarab_thrust1_sensor"="Tank");
+	sensors = list("scarab_thrust2_sensor"="Tank");
 	name = "Carbon Dioxide Supply Monitor";
 	frequency = 1336;
 	input_tag = "scarab_thrust2_in"
@@ -9008,11 +9005,9 @@
 	},
 /obj/structure/filingcabinet{
 	pixel_x = -7;
-	density = 0;
 	pixel_y = 20
 	},
 /obj/structure/filingcabinet{
-	density = 0;
 	pixel_x = 6;
 	pixel_y = 20
 	},
@@ -46879,7 +46874,7 @@ BZ
 Al
 Al
 Al
-nr
+IG
 Al
 cW
 cW
