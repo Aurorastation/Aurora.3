@@ -115,7 +115,6 @@
 	category = "General"
 	is_stack = 1
 
-/datum/autolathe/recipe/glass
 /singleton/autolathe_recipe/aluminium
 	name = "aluminium sheets"
 	path = /obj/item/stack/material/aluminium
