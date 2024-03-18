@@ -707,9 +707,8 @@ var/global/list/robot_modules = list(
 		R.computer.hard_drive.store_file(new /datum/computer_file/program/records(src))
 
 /obj/item/robot_module/service/clerical/Reset(var/mob/living/silicon/robot/R)
-	var/test = 0
 	if(R.computer) //remove records program
-		R.computer.hard_drive.remove_file(R.computer.hard_drive.find_file_by_name("records"))
+		R.computer.hard_drive.remove_file(R.computer.hard_drive.find_file_by_name("record"))
 	. = ..()
 
 /obj/item/robot_module/miner
