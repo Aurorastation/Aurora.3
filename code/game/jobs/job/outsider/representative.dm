@@ -1,3 +1,70 @@
+/datum/job/journalist
+	title = "Corporate Reporter"
+	flag = JOURNALIST
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
+	department_flag = SERVICE
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "company officials"
+	selection_color = "#6186cf"
+
+	minimum_character_age = list(
+		SPECIES_HUMAN = 20,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
+
+	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
+	alt_titles = list("Freelance Journalist")
+	alt_outfits = list("Freelance Journalist" = /obj/outfit/job/journalistf)
+	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
+	outfit = /obj/outfit/job/journalist
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+
+/obj/outfit/job/journalist
+	name = "Corporate Reporter"
+	jobtype = /datum/job/journalist
+
+	uniform = /obj/item/clothing/under/suit_jacket/red
+	shoes = /obj/item/clothing/shoes/sneakers/black
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
+
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
+
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
+
+	backpack_contents = list(
+		/obj/item/clothing/accessory/badge/press = 1,
+		/obj/item/device/tvcamera = 1
+	)
+
+/obj/outfit/job/journalistf
+	name = "Freelance Journalist"
+	jobtype = /datum/job/journalist
+
+	uniform = /obj/item/clothing/under/suit_jacket/red
+	shoes = /obj/item/clothing/shoes/sneakers/black
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
+
+	backpack_contents = list(
+		/obj/item/clothing/accessory/badge/press/independent = 1,
+		/obj/item/device/tvcamera = 1
+	)
+
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
@@ -23,7 +90,7 @@
 		"Corporate Representative",
 		"Corporate Executive"
 		)
-	outfit = /datum/outfit/job/representative
+	outfit = /obj/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/consular/pre_spawn(mob/abstract/new_player/player)
@@ -38,7 +105,7 @@
 	var/datum/faction/faction = SSjobs.GetFaction(H)
 	LAZYDISTINCTADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
 
-/datum/outfit/job/representative
+/obj/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
 	var/fax_department = "Representative's Office"
 	jobtype = /datum/job/representative
@@ -63,13 +130,13 @@
 		/obj/item/gun/energy/pistol = 1
 	)
 
-/datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
+/obj/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
 		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
-/datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
+/obj/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
 	var/faxtext = "<center><br><h2><br><b>Directives Report</h2></b></FONT size><HR></center>"
 	faxtext += "<b><font face='Courier New'>Attention [name], the following directives are to be fulfilled during your stay in the station:</font></b><br><ul>"
 
@@ -89,7 +156,7 @@
 			P.update_icon()
 	return
 
-/datum/outfit/job/representative/proc/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
+/obj/outfit/job/representative/proc/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
 	var/rep_objectives
 
 	for (var/datum/faction/faction in SSjobs.factions)
@@ -126,7 +193,7 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /datum/outfit/job/representative/consular
+	outfit = /obj/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 	blacklisted_citizenship = list(CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
@@ -135,7 +202,7 @@
 	if(citizenship)
 		return citizenship.consular_outfit
 
-/datum/outfit/job/representative/consular
+/obj/outfit/job/representative/consular
 	name = "Consular Officer"
 	fax_department = "Consular's Office"
 	jobtype = /datum/job/consular
@@ -149,7 +216,7 @@
 	)
 	implants = null
 
-/datum/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
+/obj/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
 	var/rep_objectives
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)

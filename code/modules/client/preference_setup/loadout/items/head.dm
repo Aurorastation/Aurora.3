@@ -102,6 +102,11 @@
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/peaked_beret_colour
+	display_name = "beret, peaked (colourable)"
+	path = /obj/item/clothing/head/beret/peaked/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/sidecap
 	display_name = "side cap"
 	path = /obj/item/clothing/head/sidecap
@@ -111,7 +116,7 @@
 	display_name = "headwear, security (warden)"
 	description = "A selection of warden headwear."
 	path = /obj/item/clothing/head
-	allowed_roles = list("Head of Security" , "Warden")
+	allowed_roles = list("Head of Security" , "Warden", "Security Personnel")
 
 /datum/gear/head/warden/New()
 	..()
@@ -139,7 +144,7 @@
 /datum/gear/head/hardhat
 	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -292,7 +297,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/pmc
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -338,7 +343,7 @@
 	display_name = "IAC headgear selection"
 	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
 	path = /obj/item/clothing/head/softcap/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac/New()
@@ -474,7 +479,7 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 	return "Default"
 
 /datum/gear_tweak/hair_block/get_metadata(var/user, var/metadata)
-	return input(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", metadata) as anything in list("Yes", "No", "Default")
+	return tgui_input_list(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", list("Yes", "No", "Default"), metadata)
 
 /datum/gear_tweak/hair_block/tweak_item(var/obj/item/clothing/head/H, var/metadata)
 	if(!istype(H))

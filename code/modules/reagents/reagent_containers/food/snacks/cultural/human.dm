@@ -618,3 +618,44 @@
 	icon_state = "ladylulaine_slice"
 	filling_color = "#dbddff"
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/pazillo
+	name = "pazillo"
+	desc = "A simple handheld pastry that originates from Assunzione, this is a calzone filled with a mixture of ground chickpeas, onions and tomatoes mixed together. It is sometimes served with olive oil, artichoke spread, or garlic sauce, but can also be eaten on it's own. It's tradtionally considered street food, but can occasionally be found in proper restaurants."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "pazillo"
+	filling_color = "#5c802e"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 8)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 5, "chickpeas" = 3, "onion" = 3, "tomato" = 3))
+
+/obj/item/reagent_containers/food/snacks/pazillo/update_icon()
+	var/percent_pazillo = round((reagents.total_volume / 8) * 100)
+	switch(percent_pazillo)
+		if(0 to 50)
+			icon_state = "pazillo_small"
+		if(51 to 95)
+			icon_state = "pazillo_bitten"
+		if(96 to INFINITY)
+			icon_state = "pazillo"
+
+//Luna
+
+/obj/item/reagent_containers/food/snacks/traumwurst
+	name = "traumwurst"
+	desc = "Hearty pork sausages slathered with creamy eggplant sauce and served with a side of fried mushrooms, Traumwurst is served in many fine dining experiences across Luna, and one of very few dishes that can really be called Lunarian in origin. It was originally called Weltraumwurst (Space Sausage), but it was soon shortened to Traumwurst (Dream Sausage)."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "traumwurst"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("pork" = 5), /singleton/reagent/nutriment = list("eggplant sauce" = 5, "fried mushrooms" = 4))
+	bitesize = 3
+	filling_color = "#daad84"
+
+/obj/item/reagent_containers/food/snacks/traumwurst/update_icon()
+	var/percent_traumwurst = round((reagents.total_volume / 10) * 100)
+	switch(percent_traumwurst)
+		if(0 to 49)
+			icon_state = "traumwurst_half"
+		if(50 to INFINITY)
+			icon_state = "traumwurst"

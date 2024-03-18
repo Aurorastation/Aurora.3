@@ -1,7 +1,7 @@
 #define SUBSYSTEM_INIT_SOURCE "subsystem init"
 SUBSYSTEM_DEF(atoms)
 	name = "Atoms"
-	init_order = SS_INIT_ATOMS
+	init_order = INIT_ORDER_ATOMS
 	flags = SS_NO_FIRE
 
 	/// A stack of list(source, desired initialized state)

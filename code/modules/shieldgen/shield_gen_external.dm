@@ -7,7 +7,6 @@
 
 //Search for space turfs within range that are adjacent to a simulated turf.
 /obj/machinery/shield_gen/external/get_shielded_turfs()
-	set background = 1
 	var/list/out = list()
 
 	var/turf/gen_turf = get_turf(src)

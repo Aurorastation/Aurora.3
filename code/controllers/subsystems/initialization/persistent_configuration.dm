@@ -1,6 +1,7 @@
 SUBSYSTEM_DEF(persistent_configuration)
 	name = "Persistent Configuration"
-	init_order = SS_INIT_PERSISTENT_CONFIG
+	init_order = INIT_ORDER_PERSISTENT_CONFIGURATION
+	init_stage = INITSTAGE_EARLY
 	flags = SS_NO_FIRE
 
 // Config options go here. Make sure to give them sane default values!

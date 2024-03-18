@@ -30,19 +30,19 @@
 		return 0
 	return 1
 
-/obj/item/grenade/examine(mob/user, distance, is_adjacent)
+/obj/item/grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
 		if(det_time > 1)
-			to_chat(user, "The timer is set to [det_time/10] seconds.")
+			. += SPAN_NOTICE("The timer is set to [det_time/10] seconds.")
 			return
 		if(det_time == null)
 			return
-		to_chat(user, "\The [src] is set for instant detonation.")
+		. += SPAN_NOTICE("\The [src] is set for instant detonation.")
 
-/obj/item/grenade/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/gun/launcher/grenade))
-		var/obj/item/gun/launcher/grenade/G = W
+/obj/item/grenade/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/launcher/grenade))
+		var/obj/item/gun/launcher/grenade/G = attacking_item
 		G.load(src, user)
 	else
 		..()
@@ -76,11 +76,31 @@
 	playsound(loc, activation_sound, 75, 1, -3)
 
 	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
+	// Randomize the timing a bit. You wouldn't be aware of when exactly a grenade is going to pop.
+	// Nor do we want people to instantly know when to throw a perfectly timed grenade.
+	animate(src, det_time + rand(-5, 5), -1, LINEAR_EASING, color = COLOR_RED)
 
 /obj/item/grenade/proc/prime()
 	var/turf/T = get_turf(src)
 	if(T)
 		T.hotspot_expose(700,125)
+
+	if(ishuman(loc))
+		var/mob/living/carbon/human/victim = loc
+		var/obj/item/organ/external/exploded_hand
+		if(victim.hand == src)
+			exploded_hand = victim.organs_by_name[BP_R_HAND]
+		else if(victim.l_hand == src)
+			exploded_hand = victim.organs_by_name[BP_L_HAND]
+		explode_in_hand(victim, exploded_hand)
+
+/// This proc is called when the grenade explodes in your hand or on you. Exploded_hand can be null in case the grenade explodes in a pocket or something.
+/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+	SHOULD_CALL_PARENT(TRUE)
+	if(exploded_hand)
+		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
+	else
+		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
 
 /obj/item/grenade/attack_hand()
 	walk(src, null, null)

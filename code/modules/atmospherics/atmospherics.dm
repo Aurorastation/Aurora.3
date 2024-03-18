@@ -54,8 +54,8 @@ Pipelines + Other Objects -> Pipe network
 /obj/machinery/atmospherics/LateInitialize()
 	atmos_init()
 
-/obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
-	if(istype(A, /obj/item/device/pipe_painter))
+/obj/machinery/atmospherics/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/pipe_painter))
 		return FALSE
 	..()
 

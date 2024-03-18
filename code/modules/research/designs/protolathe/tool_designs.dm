@@ -168,3 +168,9 @@
 	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 3, TECH_COMBAT = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
 	build_path = /obj/item/recharger_backpack
+
+/datum/design/item/tool/spaceflare
+	name = "Bluespace Flare"
+	req_tech = list(TECH_BLUESPACE = 4, TECH_MAGNET = 3, TECH_DATA = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 400)
+	build_path = /obj/item/device/spaceflare

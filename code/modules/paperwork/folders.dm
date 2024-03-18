@@ -39,13 +39,13 @@
 		add_overlay("folder_paper")
 	return
 
-/obj/item/folder/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo) || istype(W, /obj/item/paper_bundle) || istype(W, /obj/item/sample))
-		user.drop_from_inventory(W,src)
-		to_chat(user, "<span class='notice'>You put the [W] into \the [src].</span>")
+/obj/item/folder/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo) || istype(attacking_item, /obj/item/paper_bundle) || istype(attacking_item, /obj/item/sample))
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, "<span class='notice'>You put the [attacking_item] into \the [src].</span>")
 		update_icon()
-	else if(W.ispen())
-		var/n_name = sanitizeSafe(input(usr, "What would you like to label the folder?", "Folder Labelling", null)  as text, MAX_NAME_LEN)
+	else if(attacking_item.ispen())
+		var/n_name = sanitizeSafe( tgui_input_text(user, "What would you like to label the folder?", "Folder Labelling", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(Adjacent(user) && user.stat == 0)
 			name = "folder[(n_name ? text("- '[n_name]'") : null)]"
 	return
@@ -165,9 +165,9 @@
 	else
 		icon_state = "envelope[contents.len > 0]"
 
-/obj/item/folder/envelope/examine(mob/user)
+/obj/item/folder/envelope/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "The seal is [sealed ? "intact" : "broken"].")
+	. += "The seal is [sealed ? "intact" : "broken"]."
 
 /obj/item/folder/envelope/proc/sealcheck(user)
 	var/ripperoni = alert("Are you sure you want to break the seal on \the [src]?", "Confirmation","Yes", "No")
@@ -184,7 +184,7 @@
 	else
 		..()
 
-/obj/item/folder/envelope/attackby(obj/item/W, mob/user)
+/obj/item/folder/envelope/attackby(obj/item/attacking_item, mob/user)
 	if(sealed)
 		sealcheck(user)
 		return

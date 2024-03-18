@@ -8,27 +8,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	external_examine(user)
 	. = ..()
 
-// This should be used when someone is examining while the case is opened.
-/obj/item/integrated_circuit/proc/internal_examine(mob/user)
-	to_chat(user, "This board has [inputs.len] input pin\s, [outputs.len] output pin\s and [activators.len] activation pin\s.")
-	for(var/datum/integrated_io/I in inputs)
-		if(I.linked.len)
-			to_chat(user, "The '[I]' is connected to [I.get_linked_to_desc()].")
-	for(var/datum/integrated_io/O in outputs)
-		if(O.linked.len)
-			to_chat(user, "The '[O]' is connected to [O.get_linked_to_desc()].")
-	for(var/datum/integrated_io/activate/A in activators)
-		if(A.linked.len)
-			to_chat(user, "The '[A]' is connected to [A.get_linked_to_desc()].")
-	any_examine(user)
-	interact(user)
-
 // This should be used when someone is examining from an 'outside' perspective, e.g. reading a screen or LED.
 /obj/item/integrated_circuit/proc/external_examine(mob/user)
 	any_examine(user)
 
 /obj/item/integrated_circuit/proc/any_examine(mob/user)
-	return
+	. = list()
 
 /obj/item/integrated_circuit/Initialize()
 	displayed_name = name
@@ -78,7 +63,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/proc/check_interactivity(mob/user)
 	if(assembly)
 		return assembly.check_interactivity(user)
-	else if(!CanInteract(user, physical_state))
+	else if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
@@ -195,7 +180,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	B.set_content(HTML.Join())
 	B.open()
 
-/obj/item/integrated_circuit/Topic(href, href_list, state = always_state)
+/obj/item/integrated_circuit/Topic(href, href_list, state = GLOB.always_state)
 	if(!check_interactivity(usr))
 		return
 	if (assembly && !assembly.opened)

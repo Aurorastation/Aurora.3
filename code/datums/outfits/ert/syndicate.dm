@@ -1,4 +1,4 @@
-/datum/outfit/admin/deathsquad/syndicate
+/obj/outfit/admin/deathsquad/syndicate
 	name = "Syndicate Commando"
 
 	uniform = /obj/item/clothing/under/syndicate
@@ -24,7 +24,7 @@
 
 	id_iff = IFF_SYNDICATE
 
-/datum/outfit/admin/deathsquad/syndicate/leader
+/obj/outfit/admin/deathsquad/syndicate/leader
 	name = "Syndicate Commando Lead"
 
 	l_pocket = /obj/item/pinpointer

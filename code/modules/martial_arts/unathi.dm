@@ -104,6 +104,7 @@
 	icon_state = "scroll"
 	item_state = "scroll"
 	martial_art = /datum/martial_art/kis_khan
+	species_restriction = list(SPECIES_UNATHI)
 
 #undef TAIL_SWEEP
 #undef SWIFT_DISARM

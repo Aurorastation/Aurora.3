@@ -59,10 +59,10 @@
 
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode
-/obj/item/light/attackby(var/obj/item/I, var/mob/user)
+/obj/item/light/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(istype(I, /obj/item/reagent_containers/syringe))
-		var/obj/item/reagent_containers/syringe/S = I
+	if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = attacking_item
 
 		to_chat(user, SPAN_NOTICE("You inject the solution into \the [src]."))
 

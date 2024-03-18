@@ -105,7 +105,7 @@
 	..()
 	update_icon()
 
-/obj/item/reagent_containers/syringe/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/reagent_containers/syringe/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/reagent_containers/syringe/afterattack(obj/target, mob/user, proximity)
@@ -182,7 +182,7 @@
 					if(!T.dna)
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood. (To be specific, your target seems to be missing their DNA datum)."))
 						return
-					if(HAS_FLAG(T.mutations, NOCLONE)) //target done been et, no more blood in him
+					if((T.mutations & NOCLONE)) //target done been et, no more blood in him
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 						return
 

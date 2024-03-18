@@ -143,6 +143,11 @@ function remove_verb(v) {
 
 function check_verbs() {
 	for (var v = verb_tabs.length - 1; v >= 0; v--) {
+		//Aurora snowflake check because somehow we manage to break even ports
+		if(!verb_tabs[v]){
+			v--;
+			continue;
+		}
 		verbs_cat_check(verb_tabs[v]);
 	}
 }
@@ -180,15 +185,21 @@ function verbs_cat_check(cat) {
 			break; // we only need one
 		}
 	}
-  var spells_in_cat = 0;
-  for(var v = 0; v < spells.length; v++) {
-    var part = verbs[0];
-    spellcat = part[0];
-    if(spellcat == tabCat){
-      spells_in_cat = 1;
-      break;
+	//More aurora snowflake code to handle spell tabs
+	var spells_in_cat = 0;
+	var spellcat = "";
+	for(var v = (spells.length - 1); v >= 0; v--) {
+		var spell = spells[v];
+		spellcat = spell[0];
+		if(spellcat != tabCat || spellcat.trim() == ""){
+			continue;
+		}
+		else{
+			spells_in_cat = 1;
+			break;
+		}
     }
-  }
+
 	if (verbs_in_cat != 1 && spells_in_cat != 1) {
 		removeStatusTab(tabCat);
 		if (current_tab == tabCat)
@@ -266,6 +277,8 @@ function tab_change(tab) {
 		draw_verbs(tab);
 	} else if (tab == "Debug Stat Panel") {
 		draw_debug();
+	} else if (tab == "SDQL2") {
+		draw_sdql2();
 	} else if (tab == turfname) {
 		draw_listedturf();
 	} else {
@@ -395,7 +408,15 @@ function draw_mc() {
 	}
 	document.getElementById("statcontent").appendChild(table);
 }
-
+function remove_sdql2() {
+	if (sdql2) {
+		sdql2 = [];
+		removePermanentTab("SDQL2");
+		if (current_tab == "SDQL2")
+			tab_change("Status");
+	}
+	checkStatusTab();
+}
 function iconError(e) {
 	if(current_tab != turfname) {
 		return;
@@ -837,7 +858,7 @@ Byond.subscribeTo('init_verbs', function (payload) {
 });
 
 Byond.subscribeTo('update_stat', function (payload) {
-	status_tab_parts = [];
+	status_tab_parts = [payload.ping_str];
 	var parsed = payload.global_data;
 
 	for (var i = 0; i < parsed.length; i++) if (parsed[i] != null) status_tab_parts.push(parsed[i]);
@@ -908,6 +929,7 @@ Byond.subscribeTo('create_listedturf', function (TN) {
 
 Byond.subscribeTo('remove_admin_tabs', function () {
 	remove_mc();
+	remove_sdql2();
 });
 
 Byond.subscribeTo('update_listedturf', function (TC) {
@@ -935,8 +957,19 @@ Byond.subscribeTo('add_admin_tabs', function () {
 	addPermanentTab("MC");
 });
 
-
+Byond.subscribeTo('update_sdql2', function (S) {
+	sdql2 = S;
+	if (sdql2.length > 0 && !verb_tabs.includes("SDQL2")) {
+		verb_tabs.push("SDQL2");
+		addPermanentTab("SDQL2");
+	}
+	if (current_tab == "SDQL2") {
+		draw_sdql2();
+	}
+});
 Byond.subscribeTo('remove_listedturf', remove_listedturf);
+
+Byond.subscribeTo('remove_sdql2', remove_sdql2);
 
 Byond.subscribeTo('remove_mc', remove_mc);
 

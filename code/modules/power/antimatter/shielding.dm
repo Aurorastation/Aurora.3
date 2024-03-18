@@ -160,12 +160,12 @@
 	else if(processing)
 		shutdown_core()
 
-/obj/machinery/am_shielding/attackby(obj/item/W, mob/user)
-	if(!istype(W) || !user)
+/obj/machinery/am_shielding/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item) || !user)
 		return
-	if(W.force > 10)
-		user.do_attack_animation(src, W)
-		stability -= W.force / 2
+	if(attacking_item.force > 10)
+		user.do_attack_animation(src, attacking_item)
+		stability -= attacking_item.force / 2
 		check_stability()
 		return ..()
 
@@ -223,8 +223,8 @@
 	throw_speed = 1
 	throw_range = 2
 
-/obj/item/device/am_shielding_container/attackby(var/obj/item/I, var/mob/user)
-	if(I.ismultitool() && isturf(loc))
+/obj/item/device/am_shielding_container/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool() && isturf(loc))
 		if(locate(/obj/machinery/am_shielding) in loc)
 			to_chat(user, SPAN_WARNING("There is already an antimatter reactor section there."))
 			return

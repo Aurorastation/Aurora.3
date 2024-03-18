@@ -19,15 +19,28 @@
 /proc/sort_list(list/list_to_sort, cmp=/proc/cmp_text_asc)
 	return sortTim(list_to_sort.Copy(), cmp)
 
-//Returns a list in plain english as a string
-/proc/english_list(var/list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "")
-	// this proc cannot be merged with counting_english_list to maintain compatibility
-	// with shoddy use of this proc for code logic and for cases that require original order
-	switch(input.len)
-		if(0) return nothing_text
-		if(1) return "[input[1]]"
-		if(2) return "[input[1]][and_text][input[2]]"
-		else  return "[jointext(input, comma_text, 1, -1)][final_comma_text][and_text][input[input.len]]"
+///Returns a list in plain english as a string
+/proc/english_list(list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "" )
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/total = length(input)
+	switch(total)
+		if (0)
+			return "[nothing_text]"
+		if (1)
+			return "[input[1]]"
+		if (2)
+			return "[input[1]][and_text][input[2]]"
+		else
+			var/output = ""
+			var/index = 1
+			while (index < total)
+				//Slightly reformatted from overriding `comma_text` from the TG version as flags it as breaking purity otherwise
+				output += "[input[index]][(index == total - 1) ? final_comma_text : comma_text]"
+				index++
+
+			return "[output][and_text][input[index]]"
 
 //Returns a newline-separated list that counts equal-ish items, outputting count and item names, optionally with icons and specific determiners
 /proc/counting_english_list(var/list/input, output_icons = TRUE, determiners = DET_NONE, nothing_text = "nothing", line_prefix = "\t", first_item_prefix = "\n", last_item_suffix = "\n", and_text = "\n", comma_text = "\n", final_comma_text = "")

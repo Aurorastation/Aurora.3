@@ -43,7 +43,7 @@
 		ui.open()
 
 /obj/screen/psi/hub/ui_state(mob/user)
-	return conscious_state
+	return GLOB.conscious_state
 
 /obj/screen/psi/hub/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE
@@ -56,19 +56,21 @@
 	data["psi_points"] = owner.psi.psi_points
 	data["bought_powers"] = owner.psi.psionic_powers
 	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
-		if(HAS_FLAG(P.ability_flags, PSI_FLAG_SPECIAL) && !(P.type in owner.psi.psionic_powers))
+		if((P.ability_flags & PSI_FLAG_SPECIAL) && !(P.type in owner.psi.psionic_powers))
 			continue
 		if(owner_rank < P.minimum_rank)
 			continue
 		/// Apex and Limitless abilities are automatically given, but we want them to have said abilities in the point shop so the users know what they do.
-		if(owner_rank < PSI_RANK_APEX && HAS_FLAG(P.ability_flags, PSI_FLAG_APEX))
+		if(owner_rank < PSI_RANK_APEX && (P.ability_flags & PSI_FLAG_APEX))
 			continue
-		if(owner_rank < PSI_RANK_LIMITLESS && HAS_FLAG(P.ability_flags, PSI_FLAG_LIMITLESS))
+		if(owner_rank < PSI_RANK_LIMITLESS && (P.ability_flags & PSI_FLAG_LIMITLESS))
 			continue
-		if(NOT_FLAG(P.ability_flags, PSI_FLAG_CANON))
-			if(owner_rank < PSI_RANK_HARMONIOUS && HAS_FLAG(P.ability_flags, PSI_FLAG_EVENT))
+		if(!(P.ability_flags & PSI_FLAG_CANON))
+			if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_EVENT))
 				continue
-		if(owner_rank < PSI_RANK_HARMONIOUS && HAS_FLAG(P.ability_flags, PSI_FLAG_ANTAG))
+		if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_ANTAG))
+			continue
+		if(!(owner.mind in loners.current_antagonists) && (P.ability_flags & PSI_FLAG_LONER))
 			continue
 		data["available_psionics"] += list(
 			list(

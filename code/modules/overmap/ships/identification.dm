@@ -17,17 +17,17 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/iff_beacon/LateInitialize()
-	if(current_map.use_overmap && !linked)
+	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-/obj/machinery/iff_beacon/attackby(obj/item/O, mob/user)
-	if(default_deconstruction_screwdriver(user, O))
+/obj/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 
 	if(panel_open)
-		if(O.ismultitool() || O.iswirecutter())
+		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
 			if(panel_open)
 				wires.interact(user)
 			else

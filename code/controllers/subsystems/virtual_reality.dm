@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(virtualreality)
 	name = "Virtual Reality"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	// MECHA
@@ -260,8 +260,8 @@ SUBSYSTEM_DEF(virtualreality)
 		H.real_name = user.real_name
 		H.UpdateAppearance()
 
-		H.preEquipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
-		H.equipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
+		H.preEquipOutfit(/obj/outfit/admin/virtual_reality, FALSE)
+		H.equipOutfit(/obj/outfit/admin/virtual_reality, FALSE)
 
 		mind_transfer(user, H)
 		to_chat(H, SPAN_NOTICE("You are now in control of a virtual reality body. Dying will return you to your original body."))

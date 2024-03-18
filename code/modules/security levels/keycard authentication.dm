@@ -26,7 +26,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/keycard_auth/LateInitialize()
-	if(current_map.use_overmap && !linked)
+	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
@@ -35,12 +35,12 @@
 	to_chat(user, SPAN_NOTICE("The station AI is not to interact with these devices."))
 	return
 
-/obj/machinery/keycard_auth/attackby(obj/item/W, mob/user)
+/obj/machinery/keycard_auth/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return
-	if(istype(W,/obj/item/card/id))
-		var/obj/item/card/id/ID = W
+	if(istype(attacking_item, /obj/item/card/id))
+		var/obj/item/card/id/ID = attacking_item
 		if(ACCESS_KEYCARD_AUTH in ID.access)
 			if(active == 1)
 				//This is not the device that made the initial request. It is the device confirming the request.
@@ -217,7 +217,7 @@ var/global/maint_all_access = 0
 	if(!I)
 		return ..(M)
 	var/list/A = I.GetAccess()
-	var/maint_sec_access = ((security_level > SEC_LEVEL_GREEN) && has_access(ACCESS_SECURITY, accesses = A))
+	var/maint_sec_access = ((GLOB.security_level > SEC_LEVEL_GREEN) && has_access(ACCESS_SECURITY, accesses = A))
 	var/exceptional_circumstances = maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(ACCESS_MAINT_TUNNELS)))
 		return 1

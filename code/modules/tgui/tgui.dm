@@ -60,7 +60,7 @@
 		src_object = src_object)
 	src.user = user
 	src.src_object = src_object
-	src.window_key = "[text_ref(src_object)]-main"
+	src.window_key = "[REF(src_object)]-main"
 	src.interface = interface
 	if(title)
 		src.title = title

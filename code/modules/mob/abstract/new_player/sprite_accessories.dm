@@ -4318,6 +4318,10 @@ Follow by example and make good judgement based on length which list to include 
 	name = "trinary perfection IPC screen"
 	icon_state = "ipc_tp"
 
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_gd
+	name = "golden deep IPC screen"
+	icon_state = "ipc_gd"
+
 /datum/sprite_accessory/facial_hair/diona_eye
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
 	name = "Mono Eye"

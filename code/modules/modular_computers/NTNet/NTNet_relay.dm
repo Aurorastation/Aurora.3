@@ -121,17 +121,17 @@
 		GLOB.ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
-		playsound(get_turf(src), W.usesound, 50, TRUE)
+/obj/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch."))
 		return
-	if(W.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(!panel_open)
 			to_chat(user, SPAN_WARNING("Open the maintenance panel first."))
 			return
-		playsound(get_turf(src), W.usesound, 50, 1)
+		playsound(get_turf(src), attacking_item.usesound, 50, 1)
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]!"))
 
 		for(var/atom/movable/A in component_parts)

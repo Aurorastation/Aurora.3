@@ -212,16 +212,16 @@
 	return
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/clonepod/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/clonepod/attackby(obj/item/attacking_item, mob/user)
 	if(isnull(occupant))
-		if(default_deconstruction_screwdriver(user, W))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return TRUE
-		if(default_deconstruction_crowbar(user, W))
+		if(default_deconstruction_crowbar(user, attacking_item))
 			return TRUE
-		if(default_part_replacement(user, W))
+		if(default_part_replacement(user, attacking_item))
 			return TRUE
-	if(W.GetID())
-		if(!check_access(W.GetID()))
+	if(attacking_item.GetID())
+		if(!check_access(attacking_item.GetID()))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return TRUE
 		if((!locked) || (isnull(occupant)))
@@ -232,13 +232,13 @@
 		else
 			locked = 0
 			to_chat(user, "System unlocked.")
-	else if(istype(W, /obj/item/reagent_containers/food/snacks/meat))
-		to_chat(user, "<span class='notice'>\The [src] processes \the [W].</span>")
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/meat))
+		to_chat(user, "<span class='notice'>\The [src] processes \the [attacking_item].</span>")
 		biomass += 50
-		user.drop_from_inventory(W,src)
-		qdel(W)
+		user.drop_from_inventory(attacking_item, src)
+		qdel(attacking_item)
 		return TRUE
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(locked && (anchored || occupant))
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 		else
@@ -248,7 +248,7 @@
 				connected = null
 			else
 				anchored = 1
-			playsound(loc, W.usesound, 100, 1)
+			playsound(loc, attacking_item.usesound, 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else
@@ -432,9 +432,9 @@
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
-/obj/item/disk/data/examine(mob/user)
+/obj/item/disk/data/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
+	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
 
 /*
  *	Diskette Box

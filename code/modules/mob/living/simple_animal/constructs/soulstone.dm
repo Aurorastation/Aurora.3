@@ -94,9 +94,9 @@
 	icon_state = "construct-cult"
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 
-/obj/structure/constructshell/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/device/soulstone))
-		var/obj/item/device/soulstone/S = O;
+/obj/structure/constructshell/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/soulstone))
+		var/obj/item/device/soulstone/S = attacking_item
 		S.transfer_soul("CONSTRUCT",src,user)
 
 
