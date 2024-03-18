@@ -259,7 +259,7 @@
 	desc = "May the force be within you. Sorta."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
-	force = 3.0
+	force = 3
 	throw_speed = 1
 	throw_range = 5
 	throwforce = 0
@@ -294,7 +294,7 @@
 /obj/item/holo/esword/attack_self(mob/living/user as mob)
 	active = !active
 	if (active)
-		force = 30
+		force = 33
 		icon_state = "sword[item_color]"
 		w_class = ITEMSIZE_LARGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)

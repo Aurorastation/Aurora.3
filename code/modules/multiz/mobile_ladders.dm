@@ -6,7 +6,7 @@
 	icon = 'icons/obj/multiz_items.dmi'
 	contained_sprite = TRUE
 	throw_range = 3
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 

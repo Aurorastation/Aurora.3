@@ -108,7 +108,7 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "rcs"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	throwforce = 10
 	throw_speed = 2
 	throw_range = 5

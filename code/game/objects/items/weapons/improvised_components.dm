@@ -45,7 +45,7 @@
 	icon_state = "wiredrod"
 	item_state = "rods"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 8
+	force = 18
 	throwforce = 10
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
@@ -92,7 +92,7 @@
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "shaft"
 	item_state = "rods"
-	force = 5
+	force = 11
 	throwforce = 3
 	w_class = ITEMSIZE_LARGE
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
@@ -121,7 +121,7 @@
 	desc = "A pointy spearhead, not really useful without a shaft."
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "spearhead"
-	force = 5
+	force = 11
 	throwforce = 5
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "poked")

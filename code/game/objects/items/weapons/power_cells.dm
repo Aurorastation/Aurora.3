@@ -5,7 +5,7 @@
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = list(TECH_POWER = 1)
-	force = 5.0
+	force = 11
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 5

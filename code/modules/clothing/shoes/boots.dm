@@ -132,7 +132,7 @@
 	icon_state = "combat"
 	item_state = "combat"
 	contained_sprite = TRUE
-	force = 5
+	force = 11
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,

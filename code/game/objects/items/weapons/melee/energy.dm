@@ -132,7 +132,7 @@
 	name = "energy glaive"
 	desc = "An energized glaive."
 	icon_state = "eglaive0"
-	force = 20
+	force = 25
 	throwforce = 30
 	active_force = 40
 	active_throwforce = 60
@@ -185,7 +185,7 @@
 	active_w_class = ITEMSIZE_HUGE
 	//force = 40
 	//throwforce = 25
-	force = 20
+	force = 25
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 5
@@ -362,7 +362,7 @@
 	base_reflectchance = 10
 	base_block_chance = 10
 	active_force = 20
-	force = 10
+	force = 15
 	origin_tech = list(TECH_MAGNET = 3)
 
 /obj/item/melee/energy/sword/knife/activate(mob/living/user)
@@ -376,7 +376,7 @@
 	base_reflectchance = 10
 	base_block_chance = 10
 	active_force = 20
-	force = 10
+	force = 15
 	origin_tech = list(TECH_MAGNET = 3)
 
 /obj/item/melee/energy/sword/knife/sol/activate(mob/living/user)

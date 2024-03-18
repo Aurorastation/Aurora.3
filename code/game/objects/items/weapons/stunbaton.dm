@@ -8,7 +8,7 @@
 	icon_state = "stunbaton"
 	item_state = "baton"
 	slot_flags = SLOT_BELT
-	force = 5
+	force = 11
 	sharp = 0
 	edge = FALSE
 	throwforce = 7
@@ -262,7 +262,7 @@
 	icon = 'icons/obj/stunrod.dmi'
 	icon_state = "stunrod"
 	item_state = "stunrod"
-	force = 7
+	force = 16
 	agonyforce = 80
 	hitcost = 1000
 	baton_color = "#75ACFF"

@@ -62,7 +62,7 @@
 	icon_state = "riot"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
-	force = 5.0
+	force = 11
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
@@ -101,7 +101,7 @@
 	item_state = "square_buckler"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
-	force = 8
+	force = 18
 	throwforce = 8
 	base_block_chance = 60
 	throw_speed = 10
@@ -131,7 +131,7 @@
 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
 	icon_state = "eshield0"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
@@ -232,7 +232,7 @@
 /obj/item/shield/energy/proc/HandleTurnOn()
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.25 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-start.ogg', 40)
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/shield/energy/proc/HandleShutOff()
@@ -307,7 +307,7 @@
 	icon_state = "tactshield"
 	item_state = "tactshield"
 	contained_sprite = 1
-	force = 3.0
+	force = 3
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
@@ -336,7 +336,7 @@
 	if(active)
 		icon_state = "[initial(icon_state)]_[active]"
 		item_state = "[initial(item_state)]_[active]"
-		force = 5
+		force = 11
 		throwforce = 5
 		throw_speed = 2
 		w_class = ITEMSIZE_LARGE

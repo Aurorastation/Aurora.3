@@ -118,7 +118,7 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "canesword"
 	item_state = "canesword"
-	force = 20
+	force = 25
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
 	sharp = 1

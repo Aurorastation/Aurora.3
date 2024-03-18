@@ -11,7 +11,7 @@
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
-	force = 15
+	force = 22
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)

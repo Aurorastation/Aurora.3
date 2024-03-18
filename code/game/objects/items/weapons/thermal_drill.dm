@@ -4,7 +4,7 @@
 	icon = 'icons/obj/safe_drill.dmi'
 	icon_state = "hardened_drill"
 	w_class = ITEMSIZE_HUGE
-	force = 12
+	force = 18
 	var/time_multiplier = 1
 	var/datum/looping_sound/thermal_drill/soundloop
 

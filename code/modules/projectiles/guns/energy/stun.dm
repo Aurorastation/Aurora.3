@@ -69,7 +69,7 @@
 	name = "energy crossbow"
 	desc = "A weapon favored by mercenary infiltration teams."
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	icon_state = "crossbowlarge"
 	item_state = "crossbow"
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)

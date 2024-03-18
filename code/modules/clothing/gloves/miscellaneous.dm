@@ -209,7 +209,7 @@
 	attack_verb = list("punched", "beaten", "struck")
 	siemens_coefficient = 1
 	fingerprint_chance = 100
-	force = 5
+	force = 11
 	punch_force = 5
 	clipped = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
@@ -225,7 +225,7 @@
 	attack_verb = list("whacked", "fisted", "power-punched")
 	siemens_coefficient = 1
 	fingerprint_chance = 50
-	force = 5
+	force = 11
 	punch_force = 10
 	clipped = 1
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
@@ -266,7 +266,7 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 1
-	force = 5
+	force = 11
 	punch_force = 10
 	clipped = 1
 	sharp = 1

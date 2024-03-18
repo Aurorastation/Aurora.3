@@ -58,7 +58,7 @@
 	icon_state = "cult"
 	item_state = "cult"
 	contained_sprite = TRUE
-	force = 5
+	force = 11
 	silent = 1
 	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
 	armor = list(

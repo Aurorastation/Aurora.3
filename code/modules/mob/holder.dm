@@ -650,5 +650,5 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "cod_rest"
 	item_state = "cod_rest"
 	hitsound = 'sound/effects/snap.ogg'
-	force = 6//quite large fishey
+	force = 14//quite large fishey
 	throwforce = 6

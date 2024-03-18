@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	max_shots = 20
 	fire_delay = 6
 	burst_delay = 3
@@ -211,7 +211,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = ITEMSIZE_LARGE
 	accuracy = 1
-	force = 10
+	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	charge_cost = 300

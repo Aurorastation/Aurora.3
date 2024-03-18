@@ -6,7 +6,7 @@
 	icon_state = "hunterkiller_scythe"
 	item_state = "hunterkiller_scythe"
 	w_class = ITEMSIZE_HUGE
-	force = 25
+	force = 31
 	armor_penetration = 30
 	slot_flags = SLOT_BACK
 	fire_sound = 'sound/weapons/railgun.ogg'

@@ -13,7 +13,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
-	force = 10.0
+	force = 15
 	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
@@ -213,7 +213,7 @@
 	excavation_amount = 100
 
 	can_wield = FALSE
-	force = 15.0
+	force = 22
 
 	action_button_name = null
 
@@ -225,7 +225,7 @@
 	digspeed = 5
 	digspeed_unwielded = 10
 	excavation_amount = 80
-	force = 10
+	force = 15
 
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
@@ -244,7 +244,7 @@
 	excavation_amount = 100
 
 	can_wield = FALSE
-	force = 25.0
+	force = 31
 
 	action_button_name = null
 
@@ -287,7 +287,7 @@
 	excavation_amount = 100
 
 	can_wield = 0
-	force = 20.0
+	force = 25
 	digspeed = 2
 	digspeed_unwielded = 3
 	force_unwielded = 20.0
@@ -308,7 +308,7 @@
 	autodrill = TRUE
 	drill_sound = 'sound/weapons/drill.ogg'
 	can_wield = FALSE
-	force = 15.0
+	force = 22
 	excavation_amount = 100
 
 	action_button_name = null
@@ -327,7 +327,7 @@
 	item_state = "shovel"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8.0
+	force = 18
 	throwforce = 4.0
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -351,7 +351,7 @@
 		)
 	icon_state = "spade"
 	item_state = "spade"
-	force = 5.0
+	force = 11
 	throwforce = 7.0
 	w_class = ITEMSIZE_SMALL
 
@@ -360,7 +360,7 @@
 	desc = "A standard-issue Gadpathurian entrenching tool. Sharpened edges make this tool/weapon equally adept at breaking earth and collarbones."
 	icon_state = "gadpathur_shovel"
 	item_state = "gadpathur_shovel"
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
@@ -1003,7 +1003,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "resonator"
 	desc = "A handheld device that creates small fields of energy that resonate until they detonate, crushing rock. It can also be activated without a target to create a field at the user's location, to act as a delayed time trap. It's more effective in a vacuum."
 	w_class = ITEMSIZE_NORMAL
-	force = 15
+	force = 22
 	throwforce = 10
 	var/burst_time = 30
 	var/fieldlimit = 4
@@ -1101,7 +1101,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "magneto"
 	desc = "A handheld device that creates a well of negative force that attracts minerals of a very specific type, size, and state to its user."
 	w_class = ITEMSIZE_NORMAL
-	force = 10
+	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
@@ -1139,7 +1139,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "jaunter"
 	desc = "A handheld device that creates a well of warp energy that teleports minerals of a very specific type, size, and state to its user."
 	w_class = ITEMSIZE_NORMAL
-	force = 15
+	force = 22
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
 	var/last_oresummon_time = 0

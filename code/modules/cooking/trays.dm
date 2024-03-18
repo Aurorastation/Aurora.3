@@ -11,7 +11,7 @@
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
-	force = 10.0
+	force = 15
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0

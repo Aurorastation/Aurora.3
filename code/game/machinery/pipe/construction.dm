@@ -5,7 +5,7 @@
 	//var/pipe_dir = 0
 	var/pipename
 	var/connect_types = CONNECT_TYPE_REGULAR
-	force = 7
+	force = 16
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	item_state = "buildpipe"

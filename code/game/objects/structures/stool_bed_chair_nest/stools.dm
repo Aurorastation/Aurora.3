@@ -179,7 +179,7 @@
 	desc_info = "Use in-hand or alt-click to right this."
 	randpixel = 0
 	center_of_mass = null
-	force = 10	// Doesn't really matter. Will get overriden by set_material.
+	force = 15	// Doesn't really matter. Will get overriden by set_material.
 	throwforce = 10
 	throw_range = 5
 	force_divisor = 0.4

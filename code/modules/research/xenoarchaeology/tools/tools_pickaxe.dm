@@ -11,7 +11,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 2.0
+	force = 2
 	desc = "Thick metallic wires for clearing away dust and loose scree (1 centimetre excavation depth)."
 	excavation_amount = 0.5
 	drill_sound = 'sound/weapons/thudswoosh.ogg'
@@ -30,7 +30,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 2.0
+	force = 2
 	desc = "A miniature excavation tool for precise digging (2 centimetre excavation depth)."
 	excavation_amount = 1
 	drill_sound = 'sound/items/Screwdriver.ogg'
@@ -49,7 +49,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 2.0
+	force = 2
 	desc = "A miniature excavation tool for precise digging (4 centimetre excavation depth)."
 	excavation_amount = 2
 	drill_sound = 'sound/items/Screwdriver.ogg'
@@ -68,7 +68,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 2.0
+	force = 2
 	desc = "A miniature excavation tool for precise digging (6 centimetre excavation depth)."
 	excavation_amount = 3
 	drill_sound = 'sound/items/Screwdriver.ogg'
@@ -87,7 +87,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 2.0
+	force = 2
 	desc = "A miniature excavation tool for precise digging (8 centimetre excavation depth)."
 	excavation_amount = 4
 	drill_sound = 'sound/items/Screwdriver.ogg'
@@ -106,7 +106,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 2.0
+	force = 2
 	desc = "A miniature excavation tool for precise digging (10 centimetre excavation depth)."
 	excavation_amount = 5
 	drill_sound = 'sound/items/Screwdriver.ogg'
@@ -125,7 +125,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 2.0
+	force = 2
 	desc = "A miniature excavation tool for precise digging (12 centimetre excavation depth)."
 	excavation_amount = 6
 	drill_sound = 'sound/items/Screwdriver.ogg'
@@ -143,7 +143,7 @@
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
-	force = 10.0
+	force = 15
 	desc = "A smaller, more precise version of the pickaxe (30 centimetre excavation depth)."
 	excavation_amount = 15
 	drill_sound = /singleton/sound_category/pickaxe_sound

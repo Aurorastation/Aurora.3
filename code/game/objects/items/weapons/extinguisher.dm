@@ -11,7 +11,7 @@
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2
 	throw_range = 10
-	force = 8
+	force = 18
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	amount_per_transfer_from_this = 150
@@ -93,7 +93,7 @@
 	w_class = ITEMSIZE_HUGE
 	throw_speed = 2
 	throw_range = 10
-	force = 10.0
+	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	drop_sound = 'sound/items/drop/gascan.ogg'
@@ -116,7 +116,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	throwforce = 2
 	w_class = ITEMSIZE_SMALL
-	force = 2.0
+	force = 2
 	max_water = 60
 	spray_amount = 10
 	spray_particles = 1

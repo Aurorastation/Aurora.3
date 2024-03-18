@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	center_of_mass = list("x" = 17,"y" = 12)
 	species_restricted = null
-	force = 5
+	force = 11
 	overshoes = 1
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT
 	var/magpulse = 0
@@ -55,7 +55,7 @@
 		item_flags |= ITEM_FLAG_NO_SLIP
 		magpulse = 1
 		set_slowdown()
-		force = 5
+		force = 11
 		if(icon_base)
 			icon_state = "[icon_base]1"
 			item_state = icon_state

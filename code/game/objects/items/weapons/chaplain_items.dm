@@ -11,7 +11,7 @@
 	icon_state = "nullrod"
 	item_state = "nullrod"
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throw_speed = 1
 	throw_range = 4
 	throwforce = 10
@@ -383,7 +383,7 @@
 	icon_state = "assunzioneorb"
 	item_state = "assunzioneorb"
 	throwforce = 5
-	force = 5
+	force = 11
 	light_range = 1.4
 	light_power = 1.4
 	light_color = LIGHT_COLOR_BLUE

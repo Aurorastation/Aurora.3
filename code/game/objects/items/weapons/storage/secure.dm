@@ -152,7 +152,7 @@
 	icon_state = "secure"
 	item_state = "secure"
 	contained_sprite = TRUE
-	force = 8.0
+	force = 18
 	throw_speed = 1
 	throw_range = 4
 	w_class = ITEMSIZE_LARGE
@@ -181,7 +181,7 @@
 	icon_opened = "safe0"
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
-	force = 8.0
+	force = 18
 	w_class = ITEMSIZE_IMMENSE
 	max_w_class = ITEMSIZE_IMMENSE
 	anchored = 1.0

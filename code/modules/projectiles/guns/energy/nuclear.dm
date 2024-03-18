@@ -48,7 +48,7 @@
 	item_state = "nucgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
-	force = 8 //looks heavier than a pistol
+	force = 18 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
 	reliability = 95
@@ -272,7 +272,7 @@
 	icon_state = "particlepistol"
 	item_state = "particlepistol"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	force = 5
+	force = 11
 	projectile_type = /obj/item/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
 
@@ -289,7 +289,7 @@
 	item_state = "particlesmg"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK
 	max_shots = 14
-	force = 7
+	force = 16
 	projectile_type = /obj/item/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
 

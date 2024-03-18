@@ -107,7 +107,7 @@
 	active_force = 20
 	active_throwforce = 20
 	active_w_class = ITEMSIZE_HUGE
-	force = 5
+	force = 11
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
@@ -189,7 +189,7 @@
 	desc = "A rather heavy data disk for a Vaurcan hiveship navigation drive."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
-	force = 10
+	force = 15
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	contained_sprite = 1
@@ -199,7 +199,7 @@
 	desc = "A large chunk of alien earth from the distant Vaurcan world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
 	icon = 'icons/obj/vaurca_items.dmi'
-	force = 15
+	force = 22
 	throwforce = 30
 	w_class = ITEMSIZE_LARGE
 	contained_sprite = 1
@@ -212,7 +212,7 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "beacon"
-	force = 15
+	force = 22
 	throwforce = 30
 	w_class = ITEMSIZE_LARGE
 	var/seed = /datum/seed/koisspore
@@ -404,7 +404,7 @@
 	armor_penetration = 30
 	active_throwforce = 20
 	active_w_class = ITEMSIZE_HUGE
-	force = 10
+	force = 15
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 10
