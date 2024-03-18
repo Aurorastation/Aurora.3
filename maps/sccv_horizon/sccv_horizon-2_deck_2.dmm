@@ -5621,7 +5621,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/security/hallway)
 "czP" = (
-/obj/item/clothing/suit/cabinet,
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/carp_costume,
 /obj/item/clothing/suit/lobster_costume,
 /obj/item/clothing/suit/jester_costume,
