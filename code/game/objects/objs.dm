@@ -277,3 +277,8 @@
 
 /obj/proc/set_pixel_offsets()
 	return
+
+//wash an object
+/obj/proc/clean()
+	clean_blood()
+	color = initial(color)

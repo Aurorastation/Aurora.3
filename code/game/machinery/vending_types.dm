@@ -125,6 +125,7 @@
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/fatshouters = 2,
 		/obj/item/reagent_containers/food/drinks/carton/mutthir = 2,
+		/obj/item/reagent_containers/food/drinks/boba = 2,
 		/obj/item/reagent_containers/food/drinks/flask/barflask = 2,
 		/obj/item/reagent_containers/food/drinks/flask/vacuumflask = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,

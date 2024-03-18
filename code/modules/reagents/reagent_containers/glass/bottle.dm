@@ -245,19 +245,19 @@
 
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate
 	name = "chocolate syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_chocolate = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/pumpkin
 	name = "pumpkin spice syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_pumpkin = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_pumpkin = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/vanilla
 	name = "vanilla syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_vanilla = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_vanilla = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/caramel
 	name = "caramel syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_caramel = 50)
 
 /obj/item/reagent_containers/glass/bottle/triglyceride
 	name = "triglyceride bottle"
