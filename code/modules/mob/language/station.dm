@@ -306,7 +306,7 @@
 		return 1
 	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
 		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
-		if(istype(V) && (all_languages[LANGUAGE_VAURCA] in M.languages))
+		if(istype(V) && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 			return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
@@ -336,7 +336,7 @@
 		return FALSE
 
 	if(istype(V))
-		if(!V.transmitting)
+		if(!V.transmitting || V.disrupted || V.muted)
 			to_chat(speaker, SPAN_WARNING("Your implant cannot transmit over the Hivenet!"))
 			return FALSE
 	else
