@@ -682,7 +682,7 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_MINE)
 	specialized_access_types = list(/datum/job/janitor) // Janitor is a nice general access without specifics
 
-/obj/item/robot_module/service/clerical/Initialize()
+/obj/item/robot_module/service/clerical/Initialize(var/mob/living/silicon/robot/R)
 	. = ..()
 	modules += new /obj/item/pen/robopen(src)
 	modules += new /obj/item/form_printer(src)
@@ -701,6 +701,15 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	emag = new /obj/item/stamp/chameleon(src)
+
+	//add records program
+	if(R.computer)
+		R.computer.hard_drive.store_file(new /datum/computer_file/program/records(src))
+
+/obj/item/robot_module/service/clerical/Reset(var/mob/living/silicon/robot/R)
+	if(R.computer) //remove records program
+		R.computer.hard_drive.remove_file(R.computer.hard_drive.find_file_by_name("records"))
+	. = ..()
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
