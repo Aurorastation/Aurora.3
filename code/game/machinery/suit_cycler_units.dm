@@ -56,7 +56,7 @@
 	name = "non-standard suit cycler"
 	model_text = "Nonstandard"
 	req_access = list(ACCESS_SYNDICATE)
-	departments = list("Mercenary")
+	departments = list("Mercenary", "Unchanged") //So the merc suit cycler can refit relevant suits
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/syndicate/prepared

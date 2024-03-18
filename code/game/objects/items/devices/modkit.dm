@@ -360,7 +360,7 @@
 	The same process can be used to convert the hardsuit back into a regular hardsuit. Make sure not to have any modules in the suit \
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
-	suit_options = list(
+	rig_options = list(
 		"NanoTrasen Hardsuit" = /obj/item/rig/nanotrasen,
 		"Corporate Auxiliary Hardsuit" = /obj/item/rig/nanotrasen/corporate_auxiliary,
 		"Nexus Security Hardsuit" = /obj/item/rig/nanotrasen/nexus
