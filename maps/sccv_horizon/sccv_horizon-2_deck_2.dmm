@@ -44896,7 +44896,7 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
-/obj/structure/closet/secure_closet/cabinet/beer,
+/obj/structure/closet/secure_closet/cabinet/beer/horizon,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (

@@ -27,7 +27,7 @@
 /obj/structure/closet/secure_closet/cabinet/beer
 	name = "beer closet"
 	desc = "A cabinet stacked end-to-end with six packs of beer."
-	req_access = list(ACCESS_BAR)
+	req_access = null
 	storage_capacity = 45
 
 /obj/structure/closet/secure_closet/cabinet/beer/fill()
@@ -44,5 +44,5 @@
 	new /obj/item/storage/box/fancy/yoke/whistlingforest( src )
 	new /obj/item/storage/box/fancy/yoke/whistlingforest( src )
 
-/obj/structure/closet/secure_closet/cabinet/beer/unlocked //for awaysites
-	req_access = null
+/obj/structure/closet/secure_closet/cabinet/beer/horizon
+	req_access = list(ACCESS_BAR)
