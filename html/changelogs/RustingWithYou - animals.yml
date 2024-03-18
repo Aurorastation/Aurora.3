@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Adds several Moghresian animals."
   - tweak: "Changes plains tyrant fluff and adds new abilities for any future use of them."
+  - bugfix: "Fixes animals having license plates and keys."
