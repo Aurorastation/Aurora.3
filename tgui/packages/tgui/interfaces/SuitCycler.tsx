@@ -148,7 +148,9 @@ export const SuitCycler = (props, context) => {
             <LabeledList>
               <LabeledList.Item label="Target Department">
                 <Button
-                  disabled={data.in_use || data.locked || !data.department_change}
+                  disabled={
+                    data.in_use || data.locked || !data.department_change
+                  }
                   content={data.target_department}
                   icon="city"
                   onClick={() => act('select_department')}
