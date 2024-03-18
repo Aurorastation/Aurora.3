@@ -99,6 +99,12 @@
 	icon_state = "bow"
 	item_state = "bow"
 
+/obj/item/clothing/head/pin/ribbon/gwen
+	name = "doll bow"
+	desc = "A hair bow with a small golden clip on the back, so it can be attached to hair or tied into it."
+	icon_state = "gwen_bow"
+	item_state = "gwen_bow"
+
 /obj/item/clothing/head/pin/ribbon/small
 	name = "small hair bow"
 	desc = "A ribbon tied into a small bow with a clip on the back to attach to hair."

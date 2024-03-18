@@ -95,6 +95,11 @@
 	display_name = "horrible tie"
 	path = /obj/item/clothing/accessory/horrible
 
+/datum/gear/accessory/doll_bow
+	display_name = "doll bow"
+	path = /obj/item/clothing/head/pin/ribbon/gwen
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/accessory/neck_accessories_colourable
 	display_name = "neck accessories selection (colourable)"
 	description = "A selection of various neck accessories, such as ribbons and bows."

@@ -162,6 +162,14 @@
 	desc = "A pair of gloves that reach past the elbow."
 	icon_state = "evening_gloves"
 
+/obj/item/clothing/gloves/gwen
+	name = "Doll gloves"
+	desc = "A pair of beautiful dark-purple gloves"
+	icon = 'icons/obj/item/clothing/gloves/gwen_gloves.dmi'
+	icon_state = "gwen_gloves"
+	item_state = "gwen_gloves"
+	contained_sprite = TRUE
+
 /obj/item/clothing/gloves/evening/unathi
 	name = "evening gloves"
 	desc = "A pair of gloves that reach past the elbow. These ones are designed for Unathi."

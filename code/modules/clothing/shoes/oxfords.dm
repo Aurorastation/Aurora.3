@@ -33,3 +33,9 @@
 	desc = "They may have lost some of their lustre over the years, but these green lizardskin shoes fit you perfectly."
 	icon_state = "oxford_lizardskin"
 	item_state = "oxford_lizardskin"
+
+/obj/item/clothing/shoes/laceup/gwen
+	name = "Doll shoes"
+	desc = "Does this shoes belong to doll?"
+	icon_state = "gwen_shoes"
+	item_state = "gwen_shoes"

@@ -144,6 +144,11 @@
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
 
+/datum/gear/uniform/gwen
+	display_name = "Doll dress"
+	path = /obj/item/clothing/under/gwen
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/uniform/bridge_crew
 	display_name = "bridge crew uniform selection"
 	path = /obj/item/clothing/under/rank/bridge_crew/alt

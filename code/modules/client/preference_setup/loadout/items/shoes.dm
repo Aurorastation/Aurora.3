@@ -69,6 +69,11 @@
 	path = /obj/item/clothing/shoes/sandals
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/shoes/gwen
+	display_name = "doll shoes"
+	path = /obj/item/clothing/shoes/laceup/gwen
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/shoes/sandals/New()
 	..()
 	var/list/sandals = list()

@@ -295,6 +295,16 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	no_overheat = TRUE
 
+/obj/item/clothing/under/gwen
+	name = "doll dress"
+	desc = "A beautiful doll dress"
+	icon = 'icons/clothing/under/uniforms/gwen_dress.dmi'
+	icon_state = "gwen_dress"
+	item_state = "gwen_dress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	no_overheat = TRUE
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/sundress_white
 	name = "white sundress"
 	desc = "A white sundress decorated with purple lilies."

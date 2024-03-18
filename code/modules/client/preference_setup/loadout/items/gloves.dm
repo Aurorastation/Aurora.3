@@ -42,6 +42,11 @@
 	path = /obj/item/clothing/gloves/black_leather/colour
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/gloves/gwen
+	display_name = "Doll gloves"
+	path = /obj/item/clothing/gloves/gwen
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/gloves/evening
 	display_name = "evening gloves"
 	path = /obj/item/clothing/gloves/evening
