@@ -211,7 +211,12 @@
 		if(M.mind)
 			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			if(vampire)
-				vampire.frenzy += removed * 5
+				if(vampire.status & VAMP_ISTHRALL)
+					if(prob(10))
+						thralls.remove_antagonist(M.mind)
+				else
+					vampire.frenzy += removed * 5
+					M.take_organ_damage(0, removed * 6)
 			if(cult.is_antagonist(M.mind) && prob(10))
 				cult.remove_antagonist(M.mind)
 	if(alien && alien == IS_UNDEAD)
@@ -224,6 +229,24 @@
 	return
 
 /singleton/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(ishuman(M))
+		if(M.mind)
+			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
+			if(vampire)
+				if(vampire.status & VAMP_ISTHRALL)
+					return
+				else if(!M.unacidable && removed > 0)
+					if(ishuman(M) && REAGENT_VOLUME(holder, type) >= 8)
+						var/mob/living/carbon/human/H = M
+						var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
+						if(affecting)
+							if(affecting.take_damage(0, removed * 6 * 0.1))
+								H.UpdateDamageIcon()
+							if(prob(100 * removed / 8)) // Applies disfigurement
+								H.emote("scream")
+								H.status_flags |= DISFIGURED
+					else
+						M.take_organ_damage(0, removed * 6 * 0.1)
 	if(alien && alien == IS_UNDEAD)
 		M.adjust_fire_stacks(5)
 		M.IgniteMob()
