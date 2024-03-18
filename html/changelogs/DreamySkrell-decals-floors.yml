@@ -1,9 +1,0 @@
-
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds floors, and recolores of existing floors."
-  - rscadd: "Adds floor markings and decals."
