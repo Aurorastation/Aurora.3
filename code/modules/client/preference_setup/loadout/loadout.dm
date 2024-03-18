@@ -244,7 +244,8 @@ var/list/gear_datums = list()
 		var/available = (G.check_faction(pref.faction) \
 			&& (job && G.check_role(job.title)) \
 			&& G.check_culture(text2path(pref.culture)) \
-			&& G.check_origin(text2path(pref.origin)))
+			&& G.check_origin(text2path(pref.origin)) \
+			&& G.check_religion(pref.religion))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 
@@ -459,6 +460,13 @@ var/list/gear_datums = list()
 	var/faction
 
 	/**
+	 * A string of the religion that can use this item
+	 *
+	 * If left `null`, any religion can spawn with this item
+	 */
+	var/religion
+
+	/**
 	 * A `/list` of [/singleton/origin_item/culture] paths that can use this item
 	 */
 	var/list/singleton/origin_item/culture/culture_restriction
@@ -580,6 +588,12 @@ var/list/gear_datums = list()
 // arg should be a faction name string
 /datum/gear/proc/check_faction(var/faction_)
 	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
+		return FALSE
+	return TRUE
+
+// arg should be a religion name string
+/datum/gear/proc/check_religion(var/religion_)
+	if((religion && religion_) && (religion != religion_))
 		return FALSE
 	return TRUE
 

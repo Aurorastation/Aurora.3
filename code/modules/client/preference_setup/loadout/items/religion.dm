@@ -5,6 +5,7 @@
 
 /datum/gear/religion/trinary
 	abstract_type = /datum/gear/religion/trinary
+	religion = RELIGION_TRINARY
 
 /datum/gear/religion/trinary/mask
 	display_name = "trinary perfection mask"
@@ -106,13 +107,13 @@
 
 /datum/gear/religion/dominia
 	abstract_type = /datum/gear/religion/dominia
+	religion = RELIGION_MOROZ
 
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_w_uniform
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -126,7 +127,6 @@
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot= slot_head
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -141,7 +141,6 @@
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_wear_suit
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -155,11 +154,11 @@
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia
 	slot = slot_tie
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/accessory/lyodii
 	display_name = "lyodic tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia/lyodii
+	culture_restriction = list(/singleton/origin_item/culture/dominia)
 
 /datum/gear/religion/dominia/accessory/tic
 	display_name = "retired tribunal investigator card selection"
@@ -178,7 +177,6 @@
 	path = /obj/item/clothing/head/beret/dominia/medical
 	slot = slot_head
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/robe_consular
 	display_name = "tribunalist consular uniform"
@@ -186,7 +184,6 @@
 	path = /obj/item/clothing/under/dominia/priest/consular
 	slot = slot_w_uniform
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
@@ -194,7 +191,6 @@
 	path = /obj/item/clothing/head/beret/dominia/consular
 	slot = slot_head
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
@@ -202,17 +198,14 @@
 	path = /obj/item/clothing/accessory/poncho/dominia/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
 	path = /obj/item/device/versebook/tribunal
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/icon
 	display_name = "tribunal iconography"
 	description = "A selection of Dominian religious icons."
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/icon/New()
 	..()
@@ -228,7 +221,7 @@
 
 /datum/gear/religion/assunzione
 	abstract_type = /datum/gear/religion/assunzione
-	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
+	religion = RELIGION_LUCEISM
 
 /datum/gear/religion/assunzione/robe
 	display_name = "assunzione robe selection"
