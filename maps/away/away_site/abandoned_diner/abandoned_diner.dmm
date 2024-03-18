@@ -362,9 +362,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/sign/poster{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "abf" = (
@@ -391,6 +388,10 @@
 	landmark_tag = "diner_b2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 32;
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "abi" = (
@@ -1878,6 +1879,9 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/b)
+"aJQ" = (
+/turf/simulated/wall,
+/area/abandoned_diner/disposals)
 "aJX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2030,6 +2034,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/disposalpipe/segment,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -3311,8 +3316,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "hLA" = (
-/turf/simulated/wall,
-/area/abandoned_diner/disposals)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_diner/hydroponics)
 "hQv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -5144,11 +5151,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/disposals)
-"slj" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/seed_extractor,
-/turf/simulated/floor/tiled/dark/full,
-/area/abandoned_diner/hydroponics)
 "slM" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack,
@@ -23056,7 +23058,7 @@ atU
 aSX
 atU
 bTa
-hLA
+aJQ
 skE
 gYR
 enw
@@ -23258,7 +23260,7 @@ atU
 atU
 atU
 bTa
-hLA
+aJQ
 nMy
 iTm
 vVv
@@ -23460,7 +23462,7 @@ atU
 atU
 atU
 bTa
-hLA
+aJQ
 aIH
 jBB
 cRs
@@ -23662,7 +23664,7 @@ atU
 aSX
 atU
 bTa
-hLA
+aJQ
 keF
 irC
 dkf
@@ -26507,7 +26509,7 @@ bid
 tvh
 bid
 nyp
-slj
+hLA
 ldL
 fpt
 fpt
