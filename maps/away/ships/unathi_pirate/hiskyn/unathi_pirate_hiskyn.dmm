@@ -3622,7 +3622,7 @@
 "iyd" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "izj" = (

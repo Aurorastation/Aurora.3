@@ -28,6 +28,9 @@
 
 /mob/living/death(gibbed,deathmessage="seizes up and falls limp...")
 	. = ..()
+
+	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)
+
 	if(.)
 		stop_aiming(no_message=1)
 
