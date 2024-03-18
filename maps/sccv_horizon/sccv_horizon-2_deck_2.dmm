@@ -7671,7 +7671,7 @@
 	dir = 6
 	},
 /obj/machinery/computer/guestpass{
-	step_x = 32
+	pixel_x = 32
 	},
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
