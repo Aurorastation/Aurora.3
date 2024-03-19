@@ -66,6 +66,26 @@ Thus, the two variables affect pump operation are set in New():
 	icon_state = "map_on-aux"
 	use_power = POWER_USE_IDLE
 
+/obj/machinery/atmospherics/binary/pump/supply
+	icon_state = "map_off-supply"
+	base_icon = "pump-supply"
+	icon_connect_type = "-supply"
+	connect_types = CONNECT_TYPE_SUPPLY
+
+/obj/machinery/atmospherics/binary/pump/supply/on
+	icon_state = "map_on-supply"
+	use_power = POWER_USE_IDLE
+
+/obj/machinery/atmospherics/binary/pump/scrubber
+	icon_state = "map_off-scrubber"
+	base_icon = "pump-scrubber"
+	icon_connect_type = "-scrubber"
+	connect_types = CONNECT_TYPE_SCRUBBER
+
+/obj/machinery/atmospherics/binary/pump/scrubber/on
+	icon_state = "map_on-scrubber"
+	use_power = POWER_USE_IDLE
+
 
 /obj/machinery/atmospherics/binary/pump/update_icon()
 	if(!powered())

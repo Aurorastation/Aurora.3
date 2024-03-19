@@ -168,9 +168,9 @@
 
 	return istype(mover) && mover.checkpass(PASSTABLE)
 
-/obj/machinery/optable/MouseDrop_T(obj/O, mob/user)
-	if(istype(O, /obj/item))
-		user.drop_from_inventory(O,get_turf(src))
+/obj/machinery/optable/MouseDrop_T(atom/dropping, mob/user)
+	if(istype(dropping, /obj/item))
+		user.drop_from_inventory(dropping, get_turf(src))
 	..()
 
 /**

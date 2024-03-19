@@ -37,10 +37,15 @@ SUBSYSTEM_DEF(virtualreality)
 /datum/controller/subsystem/virtualreality/proc/add_robot(var/mob/living/robot, var/network)
 	if(robot && network)
 		robots[network] += robot
+		RegisterSignal(robot, COMSIG_QDELETING, PROC_REF(remove_robot), TRUE)
 
 /datum/controller/subsystem/virtualreality/proc/remove_robot(var/mob/living/robot, var/network)
-	if(robot && network)
-		robots[network].Remove(robot)
+	if(robot)
+		if(network in robots) //This is because signals cannot pass parameters, and QDEL passes the force parameter here
+			robots[network].Remove(robot)
+		else
+			for(var/k in robots)
+				robots[k].Remove(robot)
 
 /datum/controller/subsystem/virtualreality/proc/add_bound(var/mob/living/silicon/bound, var/network)
 	if(bound && network)
@@ -260,8 +265,8 @@ SUBSYSTEM_DEF(virtualreality)
 		H.real_name = user.real_name
 		H.UpdateAppearance()
 
-		H.preEquipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
-		H.equipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
+		H.preEquipOutfit(/obj/outfit/admin/virtual_reality, FALSE)
+		H.equipOutfit(/obj/outfit/admin/virtual_reality, FALSE)
 
 		mind_transfer(user, H)
 		to_chat(H, SPAN_NOTICE("You are now in control of a virtual reality body. Dying will return you to your original body."))

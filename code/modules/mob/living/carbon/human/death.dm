@@ -58,8 +58,6 @@
 
 			remove_verb(src, /mob/living/carbon/proc/release_control)
 
-	callHook("death", list(src, gibbed))
-
 	if(!gibbed)
 		if(species.death_sound)
 			playsound(loc, species.death_sound, 80, 1, 1)

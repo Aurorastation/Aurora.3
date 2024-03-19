@@ -369,12 +369,12 @@
 	augs["eye flashlight"] = /obj/item/organ/internal/augment/eye_flashlight
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
-/datum/gear/religion/shaman_staff
-	display_name = "shaman staff"
-	path = /obj/item/cane/shaman
-	sort_category = "Xenowear - Unathi"
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
-	whitelisted = list(SPECIES_UNATHI)
+/datum/gear/augment/autakh/nullrod
+	display_name = "blessed prosthesis"
+	description = "A prosthetic limb, blessed with sacred Aut'akh rituals and ancient Mador runes. This augment can act as a chaplain's nullrod."
+	path = /obj/item/organ/external/hand/right/autakh/tool/nullrod
+	allowed_roles = list("Chaplain")
+	cost = 2
 
 /datum/gear/suit/maxtlatl
 	display_name = "Thakhist maxtlatl"
@@ -382,7 +382,6 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -390,7 +389,6 @@
 	display_name = "Thakhist wristguards"
 	path = /obj/item/clothing/wrists/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -399,7 +397,6 @@
 	display_name = "Thakhist headgear"
 	path = /obj/item/clothing/head/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -460,3 +457,21 @@
 	cards["hegemony passcard"] = /obj/item/clothing/accessory/badge/passcard/hegemony
 	cards["ouerea passcard"] = /obj/item/clothing/accessory/badge/passcard/ouerea
 	gear_tweaks += new /datum/gear_tweak/path(cards)
+
+/datum/gear/uniform/unathi/skakh
+	display_name = "Skakh robes selection"
+	path = /obj/item/clothing/under/unathi/skakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	allowed_roles = list("Chaplain")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/unathi/skakh/New()
+	..()
+	var/list/robes = list()
+	robes["Sk'akh priest's robes"] = /obj/item/clothing/under/unathi/skakh
+	robes["Sk'akh fisher's robes"] = /obj/item/clothing/under/unathi/skakh/fisher
+	robes["Sk'akh healer's robes"] = /obj/item/clothing/under/unathi/skakh/healer
+	robes["Sk'akh warrior's robes"] = /obj/item/clothing/under/unathi/skakh/warrior
+	gear_tweaks += new /datum/gear_tweak/path(robes)

@@ -737,6 +737,9 @@
 
 	return TRUE
 
+/obj/item/crowbar/rescue_axe/can_woodcut()
+	return TRUE
+
 /obj/item/crowbar/rescue_axe/red
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"

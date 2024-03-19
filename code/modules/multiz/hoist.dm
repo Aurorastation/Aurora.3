@@ -34,7 +34,11 @@
 		user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 		source_hoist.release_hoistee()
 
-/obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
+/obj/effect/hoist_hook/MouseDrop_T(atom/dropping, mob/user)
+	var/atom/movable/AM = dropping
+	if(!istype(AM))
+		return
+
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 

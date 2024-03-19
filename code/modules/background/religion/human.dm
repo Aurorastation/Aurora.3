@@ -49,6 +49,7 @@
 	Tribunal priests agree that all three are equally important, and that malign spirits can be attracted by an imbalance in the Great Three. Priests often stress the importance \
 	of balance, both in matters of spirit, in society, and in personal life."
 	book_name = "tribunal codex"
+	nulloptions = list("Tribunal Rod" = /obj/item/nullrod/dominia)
 
 /datum/religion/trinary
 	name = RELIGION_TRINARY

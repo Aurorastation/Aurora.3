@@ -5147,6 +5147,9 @@
 	id = "heph_lockdown";
 	name = "Ship Lockdown"
 	},
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "Nv" = (

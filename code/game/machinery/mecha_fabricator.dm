@@ -187,7 +187,8 @@
 		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
 	return TRUE
 
-/obj/machinery/mecha_part_fabricator/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
+/obj/machinery/mecha_part_fabricator/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/carbon/human/target = dropping
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)

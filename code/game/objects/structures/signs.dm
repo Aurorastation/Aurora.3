@@ -361,6 +361,12 @@
 	icon_state = "painting_frame"
 	w_class = ITEMSIZE_SMALL
 
+/obj/structure/sign/painting_frame/tsunami_kami
+	name = "tsunami kami"
+	desc = "A painting designed to replicate traditional woodblock styles. This one seems to be based off an ancient and venerable painting of a wave, paired with that of a woman."
+	icon_state = "tsunami_kami"
+	w_class = ITEMSIZE_SMALL
+
 /obj/structure/sign/painting_frame/hadii
 	name = "president Hadii portrait"
 	desc = "A portrait of President Hadii. An essential item in any Hadiist household."

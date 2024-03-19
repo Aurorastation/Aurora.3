@@ -341,6 +341,8 @@
 		t = replacetext(t, "\[logo_hp_small\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 		t = replacetext(t, "\[logo_golden\]", "")
+		t = replacetext(t, "\[logo_pvpolice\]", "")
+		t = replacetext(t, "\[logo_pvpolice_small\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
 	if(istypewriter)

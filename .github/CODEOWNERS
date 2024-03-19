@@ -8,28 +8,31 @@
 
 # This code requires the host/head dev to know of changes, therefore it's places in
 # this dedicated section
-/code/__defines/master_controller.dm @Arrow768
-/code/controllers/master @Arrow768
-/code/controllers/subsystems/fail2topic.dm @Arrow768
-/code/game/world.dm @Arrow768
-/code/modules/admin/ @Arrow768
-/code/modules/web_interface/ @Arrow768
-/code/modules/world_api/ @Arrow768
-/code/datums/discord/ @Arrow768
-/code/modules/udp/ @Arrow768
-/code/defines/procs/dbcore.dm @Arrow768
-/SQL/ @Arrow768
-/code/modules/http/ @Arrow768
-/code/datums/api.dm @Arrow768
+/code/__defines/master_controller.dm @Arrow768 @NonQueueingMatt
+/code/controllers/master @Arrow768 @NonQueueingMatt
+/code/controllers/subsystems/fail2topic.dm @Arrow768 @NonQueueingMatt
+/code/game/world.dm @Arrow768 @NonQueueingMatt
+/code/modules/admin/ @Arrow768 @NonQueueingMatt
+/code/modules/web_interface/ @Arrow768 @NonQueueingMatt
+/code/modules/world_api/ @Arrow768 @NonQueueingMatt
+/code/datums/discord/ @Arrow768 @NonQueueingMatt
+/code/modules/udp/ @Arrow768 @NonQueueingMatt
+/code/defines/procs/dbcore.dm @Arrow768 @NonQueueingMatt
+/SQL/ @Arrow768 @NonQueueingMatt
+/code/modules/http/ @Arrow768 @NonQueueingMatt
+/code/datums/api.dm @Arrow768 @NonQueueingMatt
 
 # Custom items, alb
 /code/modules/customitems/item_defines.dm @Alberyk
+
+# Mapping, inform dreamy
+/maps/ @DreamySkrell
 
 # Overmap, away sites and organs (brainmed), matt's expertise
 /code/__defines/overmap.dm @NonQueueingMatt
 /code/_helpers/overmap.dm @NonQueueingMatt
 /code/modules/overmap/ @NonQueueingMatt
-/maps/away/ @NonQueueingMatt
+/maps/away/ @NonQueueingMatt @DreamySkrell
 
 /code/__defines/organs.dm @NonQueueingMatt
 /code/modules/organs/ @NonQueueingMatt
@@ -65,6 +68,9 @@ code/modules/tgui @JohnWildkins
 # Tcomms and radios, Wildkins
 /code/game/machinery/telecomms/ @JohnWildkins
 /code/game/objects/items/devices/radio/ @JohnWildkins
+
+# Sprites, wezzy
+/icons/ @alsoandanswer
 
 # Whatever else
 /code/controllers/subsystems/cargo.dm @Arrow768

@@ -909,7 +909,7 @@ SUBSYSTEM_DEF(jobs)
 	var/uniform = job.get_outfit(H)
 	if(!uniform) // silicons don't have uniforms or gear
 		return
-	var/datum/outfit/U = new uniform
+	var/obj/outfit/U = new uniform
 	var/spawned_uniform = FALSE
 	var/spawned_suit = FALSE
 	for(var/item in prefs.gear)

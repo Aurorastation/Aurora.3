@@ -92,7 +92,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_network_access(user, ACCESS_SECURITY) && security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
+	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
 /datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

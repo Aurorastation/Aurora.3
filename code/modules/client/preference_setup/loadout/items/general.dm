@@ -93,6 +93,8 @@
 	coffeecups["Idris coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris
 	coffeecups["Zeng-Hu coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zeng
 	coffeecups["TCFL coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
+	coffeecups["All-Xanu Republic cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/xanu
+	coffeecups["Galatea cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/galatea
 	coffeecups["#1 coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
 	coffeecups["#1 monkey coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/puni
 	coffeecups["heart coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart
@@ -417,3 +419,18 @@
 /datum/gear/lore_radio
 	display_name = "analog radio"
 	path = /obj/item/lore_radio
+
+/datum/gear/pottedplant_small
+	display_name = "potted plant"
+	description = "A small potted plant."
+	cost = 1
+	path = /obj/item/flora/pottedplant_small/dead
+
+/datum/gear/pottedplant_small/New()
+	..()
+	var/list/plants = list()
+	for(var/plant_type in typesof(/obj/item/flora/pottedplant_small))
+		var/obj/item/flora/pottedplant_small/plant = plant_type
+		plants[initial(plant.name)] = plant_type
+	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
+	gear_tweaks += new /datum/gear_tweak/path(plants)

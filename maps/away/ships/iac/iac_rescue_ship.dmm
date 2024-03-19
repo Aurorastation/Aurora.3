@@ -1125,18 +1125,12 @@
 /obj/item/stack/material/steel/full{
 	pixel_x = -8
 	},
-/obj/item/stack/material/glass{
-	pixel_x = 8
-	},
-/obj/item/stack/material/glass{
-	pixel_x = 8
-	},
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
 /obj/item/stack/material/steel/full{
 	pixel_x = -8
 	},
-/obj/item/stack/material/glass{
-	pixel_x = 8
-	},
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/engineering)
 "bXv" = (
@@ -3696,7 +3690,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/bed/handrail,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -4020,7 +4017,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -4050,7 +4050,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -4239,7 +4242,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -4328,7 +4334,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/tiled/dark/full,
@@ -4456,7 +4465,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -4554,6 +4566,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
+"jBQ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "iac_shuttle_dock";
+	name = "Port docking controller";
+	pixel_x = -6;
+	pixel_y = -21;
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/hangar)
 "jFP" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/random/pottedplant,
@@ -5426,7 +5450,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/super/north,
+/obj/machinery/power/apc/super/north{
+	req_access = list(211)
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 1
 	},
@@ -5500,6 +5526,11 @@
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
+	},
+/obj/machinery/alarm/north{
+	req_one_access = list(211);
+	pixel_y = 0;
+	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/iac_shuttle)
@@ -5687,14 +5718,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "ambulance_shuttle";
-	name = "Port docking controller";
-	pixel_x = -6;
-	pixel_y = 28;
-	tag_door = "ambulance_shuttle_out"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -6820,7 +6843,10 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/white,
@@ -7016,7 +7042,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -7272,7 +7301,10 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/airlock_sensor{
@@ -8149,7 +8181,10 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -9433,7 +9468,10 @@
 	},
 /obj/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle"
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -9899,6 +9937,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
+	},
+/obj/machinery/alarm/north{
+	req_one_access = list(211)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -42608,7 +42649,7 @@ wbZ
 ttf
 aAY
 jTd
-vCZ
+jBQ
 bwt
 rUD
 mAN
