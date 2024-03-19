@@ -226,7 +226,7 @@
 /obj/item/ammo_casing/shotgun/moghes
 	name = "wall shell"
 	desc = "The appropriately-named wall shell, made specifically for the Moghesian wall gun."
-	desc_extended = "This complicated and expensive shotfun shell fires both a solid slug and a hail of shots at the same time, making it a destructive and dangerous ammunition at all ranges, assuming the user can point in the target's general direction. Somehow it seems to somewhat fit in other shotgun type weaponry too."
+	desc_extended = "This complicated and expensive shotgun shell fires both a solid slug and a hail of shots at the same time, making it a destructive and dangerous ammunition at all ranges, assuming the user can point in the target's general direction. Somehow it seems to somewhat fit in other shotgun type weaponry too."
 	icon_state = "moghes_shell"
 	spent_icon = "moghes_shell_spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/moghes
