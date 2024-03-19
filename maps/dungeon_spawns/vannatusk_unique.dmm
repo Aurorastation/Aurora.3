@@ -14,7 +14,7 @@
 /area/dungeon/bluespace_outpost)
 "ae" = (
 /obj/structure/table/standard,
-/obj/item/surgery/scalpel/laser3,
+/obj/item/surgery/scalpel/laser,
 /obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
