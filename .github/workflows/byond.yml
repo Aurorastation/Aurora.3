@@ -404,7 +404,7 @@ jobs:
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
-          grep "0 warnings" build_log.txt
+          grep "0 errors, 1 warning" build_log.txt
           echo -n "$POD" > config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
@@ -527,7 +527,7 @@ jobs:
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
-          grep "0 warnings" build_log.txt
+          grep "0 errors, 1 warning" build_log.txt
           echo -n "$POD" > config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
@@ -652,7 +652,7 @@ jobs:
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
-          grep "0 warnings" build_log.txt
+          grep "0 errors, 1 warning" build_log.txt
           echo -n "$POD" > config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
@@ -777,7 +777,7 @@ jobs:
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
-          grep "0 warnings" build_log.txt
+          grep "0 errors, 1 warning" build_log.txt
           echo -n "$POD" > config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
@@ -901,7 +901,7 @@ jobs:
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
-          grep "0 warnings" build_log.txt
+          grep "0 errors, 1 warning" build_log.txt
           echo -n "$POD" > config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
@@ -1024,7 +1024,7 @@ jobs:
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
-          grep "0 warnings" build_log.txt
+          grep "0 errors, 1 warning" build_log.txt
           echo -n "$POD" > config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt

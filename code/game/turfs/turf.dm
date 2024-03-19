@@ -516,3 +516,4 @@ var/const/enterloopsanity = 100
 	for(var/obj/effect/O in src)
 		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
 			qdel(O)
+	clean_blood()

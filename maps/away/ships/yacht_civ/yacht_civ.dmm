@@ -4606,6 +4606,9 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
 	pixel_x = 7
 	},
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
 "Uh" = (

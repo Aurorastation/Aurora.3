@@ -48,12 +48,12 @@
 
 /datum/uplink_item/item/gear_loadout/dominia
 	name = "Empire of Dominia Assets (Group)"
-	desc = "A crate containing gear for a group. The voidsuits and the hardsuit are only usable by humans."
+	desc = "A crate containing gear for a group. The voidsuits and the hardsuit are only usable by humans and Unathi."
 	path = /obj/structure/closet/crate/secure/gear_loadout/dominia
 
 /datum/uplink_item/item/gear_loadout/dominia_single
 	name = "Empire of Dominia Assets (Single)"
-	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans and Unathi."
 	path = /obj/structure/closet/crate/secure/gear_loadout/dominia/single
 	telecrystal_cost = 10
 
@@ -202,4 +202,15 @@
 	name = "Tau Ceti Armed Forces Assets (Single)"
 	desc = "A crate containing gear for a single individual."
 	path = /obj/structure/closet/crate/secure/gear_loadout/tcaf/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/exclusionist
+	name = "Exclusionist Assets (Group)"
+	desc = "A crate containing gear for a group."
+	path = /obj/structure/closet/crate/secure/gear_loadout/exclusionist
+
+/datum/uplink_item/item/gear_loadout/exclusionist_single
+	name = "Exclusionist Assets (Single)"
+	desc = "A crate containing gear for a single individual."
+	path = /obj/structure/closet/crate/secure/gear_loadout/exclusionist/single
 	telecrystal_cost = 10
