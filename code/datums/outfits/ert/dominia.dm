@@ -48,7 +48,7 @@
 	backpack_contents = list(
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/ammo_magazine/c45m/dominia = 1,
-		/obj/item/ammo_magazine/submachinemag = 2
+		/obj/item/ammo_magazine/submachinemag = 2,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,

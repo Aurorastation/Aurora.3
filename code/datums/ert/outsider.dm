@@ -72,9 +72,21 @@
 	spawner = /datum/ghostspawner/human/ert/qukala
 	possible_space_sector = list(SECTOR_BADLANDS) //Not super lore-friendly but our only sector that could possibly have a Fed presence
 
-/datum/ert/dominia
+/datum/responseteam/dominia
 	name = "Dominian Imperial Fleet"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/dominia
-	possible_space_sector list(SECTOR_BADLANDS)
+	possible_space_sector = list(SECTOR_BADLANDS)
 	equipment_map = /datum/map_template/distress_kataphract
+
+/datum/responseteam/zora
+	name = "Zo'ra Hive Warriors"
+	chance = 10
+	spawner = /datum/ghostspawner/human/ert/zora
+	possible_space_sector = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH)
+
+/datum/responseteam/klax
+	name = "K'lax Hive Warriors"
+	chance = 10
+	spawner = /datum/ghostspawner/human/ert/klax
+	possible_space_sector = list(SECTOR_UUEOAESA)

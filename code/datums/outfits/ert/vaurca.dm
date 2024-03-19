@@ -264,7 +264,7 @@
 	var/obj/item/organ/external/head = H.get_organ(weld.parent_organ)
 	weld.replaced(H, head)
 	var/obj/item/organ/tool = new /obj/item/organ/internal/augment/tool/combitool/vaurca/left(H)
-	var/obj/item/organ/external/hand = H.get_organ(D.parent_organ)
+	var/obj/item/organ/external/hand = H.get_organ(tool.parent_organ)
 	tool.replaced(H, hand)
 	H.update_body()
 

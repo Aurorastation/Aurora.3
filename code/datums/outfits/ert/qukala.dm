@@ -40,7 +40,6 @@
 /obj/outfit/admin/ert/qukala/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(isvaurca(H))
-		if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/tactical(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
