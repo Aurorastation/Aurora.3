@@ -104,6 +104,6 @@
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
-	name = "airlock_scc_scout_shuttle"
+	name = "SCC Scout Shuttle"
 	shuttle_tag = "SCC Scout Shuttle"
 	master_tag = "airlock_scc_scout_shuttle"

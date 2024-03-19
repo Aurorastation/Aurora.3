@@ -232,8 +232,12 @@
 /obj/effect/map_effect/window_spawner/full/shuttle
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow_shuttle"
+	window_path = /obj/structure/window/full/reinforced
 
 /obj/effect/map_effect/window_spawner/full/shuttle/scc
-	name = "full reinforced window spawner"
 	icon_state = "full_rwindow_shuttle_scc"
 	frame_color = "#AAAFC7"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary
+	color = "#5B5B5B"
+	frame_color = "#5B5B5B"
