@@ -617,7 +617,9 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Qx" = (
-/obj/structure/sign/flag/nka/large/south,
+/obj/structure/sign/flag/nka/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Rb" = (
@@ -657,7 +659,9 @@
 "Up" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/nka/large/north,
+/obj/structure/sign/flag/nka/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Uz" = (
@@ -725,7 +729,9 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Yr" = (
-/obj/structure/sign/flag/nka/large/north,
+/obj/structure/sign/flag/nka/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Yv" = (

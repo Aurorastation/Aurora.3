@@ -7,12 +7,6 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
-"as" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/reinforced{
-	temperature = 268.15
-	},
-/area/psis_outpost)
 "bE" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -232,7 +226,9 @@
 /obj/item/folder/red,
 /obj/item/folder/red,
 /obj/item/folder/red,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/item/folder/red,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_y = 5;
@@ -264,7 +260,9 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_x = 7;
 	pixel_y = 2
@@ -719,7 +717,7 @@
 	},
 /area/psis_outpost)
 "NA" = (
-/obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/regular/open{
 	id = "psis_cell"
 	},
@@ -728,7 +726,9 @@
 	},
 /area/psis_outpost)
 "OX" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
@@ -832,7 +832,9 @@
 	dir = 8
 	},
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -890,7 +892,9 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_x = -8;
 	pixel_y = 5
@@ -1916,7 +1920,7 @@ Kl
 Kl
 Kl
 Mq
-as
+qx
 tu
 to
 qx

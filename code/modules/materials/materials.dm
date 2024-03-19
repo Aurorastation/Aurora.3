@@ -410,7 +410,7 @@
 	icon_base = "concrete"
 	icon_colour = "#D2D1CD"
 	colour_blend = FALSE
-	wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+//	wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
 	stack_type = null
 	golem = null
 

@@ -270,17 +270,12 @@
 	temperature = 268.15
 	},
 /area/adhomai_fallout_bunker)
-"kG" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
-/area/adhomai_fallout_bunker)
 "kH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -309,7 +304,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -514,7 +511,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -850,13 +849,6 @@
 	temperature = 278.15
 	},
 /area/adhomai_fallout_bunker)
-"BQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
-/area/adhomai_fallout_bunker)
 "Cd" = (
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
@@ -866,14 +858,6 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/adhomai_fallout_bunker)
-"Cj" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomai_fallout_bunker)
@@ -1065,25 +1049,6 @@
 	temperature = 278.15
 	},
 /area/adhomai_fallout_bunker)
-"Iw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/adhomai_fallout_bunker)
-"IA" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/adhomai_fallout_bunker)
 "Jb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/bar/padded/red,
@@ -1203,19 +1168,13 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/adhomai_fallout_bunker)
-"NN" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomai_fallout_bunker)
@@ -1277,7 +1236,9 @@
 	},
 /area/adhomai_fallout_bunker)
 "Qk" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -1491,7 +1452,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1834,7 +1797,7 @@ bU
 bU
 bU
 bU
-IA
+oI
 af
 VB
 bU
@@ -1866,7 +1829,7 @@ hR
 ke
 MM
 Ym
-IA
+oI
 af
 qA
 bU
@@ -1894,11 +1857,11 @@ Ub
 Bj
 bU
 kH
-kG
 mZ
-BQ
+mZ
+pF
 Rg
-IA
+oI
 af
 Sj
 bU
@@ -1928,9 +1891,9 @@ bU
 pF
 Nv
 Ys
-BQ
+pF
 Rg
-IA
+oI
 af
 yG
 bU
@@ -1949,20 +1912,20 @@ nl
 wc
 rk
 sL
-NN
-NN
+kd
+kd
 wb
 nT
-Iw
+ol
 af
 nu
 bU
 UI
 Jb
-BQ
+pF
 Rg
 Rg
-IA
+oI
 af
 wn
 bU
@@ -1990,10 +1953,10 @@ af
 bu
 bU
 wj
-Cj
-Cj
-Cj
-Cj
+Ub
+Ub
+Ub
+Ub
 OG
 af
 sc
@@ -2021,7 +1984,7 @@ xa
 af
 aJ
 fk
-IA
+oI
 af
 af
 af
@@ -2055,12 +2018,12 @@ bu
 bU
 rG
 fJ
-NN
+kd
 fJ
-NN
+kd
 fJ
-NN
-NN
+kd
+kd
 KY
 bU
 Kn

@@ -189,7 +189,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -387,7 +389,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -939,7 +943,9 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1103,7 +1109,9 @@
 	},
 /area/peoples_station/robotics_bay)
 "fb" = (
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -2734,7 +2742,9 @@
 	},
 /area/shuttle/fang/engine)
 "md" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -4338,7 +4348,9 @@
 /area/peoples_station)
 "tu" = (
 /obj/machinery/light,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -4529,7 +4541,9 @@
 	},
 /area/peoples_station/defenses)
 "uz" = (
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6312,7 +6326,9 @@
 	},
 /area/peoples_station/solars)
 "Dl" = (
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
@@ -7206,7 +7222,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -9069,7 +9087,9 @@
 	},
 /area/shuttle/fang/bridge)
 "QX" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9581,7 +9601,9 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

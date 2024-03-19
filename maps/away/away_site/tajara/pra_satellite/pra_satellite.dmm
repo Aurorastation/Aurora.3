@@ -235,7 +235,9 @@
 	},
 /area/pra_satellite)
 "du" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -1045,7 +1047,9 @@
 	},
 /area/pra_satellite)
 "yE" = (
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
@@ -1366,7 +1370,9 @@
 	},
 /area/pra_satellite)
 "HQ" = (
-/obj/structure/sign/flag/pra/large/west,
+/obj/structure/sign/flag/pra/large/west{
+	pixel_x = -32
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -1512,7 +1518,9 @@
 	},
 /area/pra_satellite)
 "PQ" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},

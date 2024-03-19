@@ -1330,7 +1330,9 @@
 "em" = (
 /obj/structure/table/standard,
 /obj/item/book/manual/nka_manifesto,
-/obj/structure/sign/flag/nka/large/south,
+/obj/structure/sign/flag/nka/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2716,7 +2718,9 @@
 /obj/machinery/alarm/cold/west{
 	req_one_access = list(212)
 	},
-/obj/structure/sign/flag/nka/large/north,
+/obj/structure/sign/flag/nka/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2758,9 +2762,11 @@
 	},
 /area/nka_merchant)
 "lu" = (
-/obj/structure/sign/flag/nka/large/south,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/structure/sign/flag/nka/large/south{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4193,7 +4199,9 @@
 /area/nka_merchant)
 "Kg" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/nka/large/south,
+/obj/structure/sign/flag/nka/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

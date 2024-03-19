@@ -77,8 +77,10 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "dg" = (
-/obj/structure/sign/flag/dpra/large/east,
-/turf/simulated/wall/iron,
+/obj/structure/sign/flag/dpra/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "dF" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -162,7 +164,9 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "gW" = (
-/obj/structure/sign/flag/dpra/large/north,
+/obj/structure/sign/flag/dpra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "hT" = (
@@ -936,7 +940,9 @@
 "KV" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/structure/sign/flag/dpra/large/north,
+/obj/structure/sign/flag/dpra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/ghostspawpoint{
 	identifier = "ala_base_soldier";
 	name = "igs - ala_base_soldier"
@@ -1884,7 +1890,7 @@ DB
 DB
 Hq
 uI
-zp
+dg
 ES
 Hq
 DB
@@ -1923,7 +1929,7 @@ DB
 DB
 Hq
 Hq
-dg
+Hq
 Hq
 Hq
 DB

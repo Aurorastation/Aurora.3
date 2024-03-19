@@ -911,7 +911,9 @@
 /area/headmaster_ship/hangar)
 "cN" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -2601,7 +2603,9 @@
 	},
 /area/headmaster_ship/engine)
 "il" = (
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -4599,7 +4603,9 @@
 	},
 /area/headmaster_ship/armory)
 "uh" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -6282,7 +6288,9 @@
 	},
 /area/headmaster_ship/engine)
 "TP" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},

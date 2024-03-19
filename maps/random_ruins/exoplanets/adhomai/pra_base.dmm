@@ -140,13 +140,15 @@
 	},
 /area/pra_base)
 "fY" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "gh" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "pra_base"
 	},
 /turf/simulated/floor/wood,
@@ -301,11 +303,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
-/area/pra_base)
-"mB" = (
-/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -845,7 +842,9 @@
 "FZ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -889,7 +888,9 @@
 	},
 /area/pra_base)
 "Iq" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/structure/hadii_statue,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -902,19 +903,6 @@
 "Jc" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/pra_base)
-"Jg" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/under/tajaran/pra_uniform,
-/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
-/obj/item/clothing/head/beret/tajaran/pra,
-/obj/item/clothing/accessory/holster/hip,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/clothing/accessory/badge/pra_passport,
-/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -1134,7 +1122,9 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/clothing/accessory/badge/pra_passport,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -1993,7 +1983,7 @@ wB
 gU
 kO
 NW
-Jg
+aa
 gU
 wB
 gU
@@ -2248,7 +2238,7 @@ wB
 wB
 wB
 gU
-mB
+NW
 EP
 ZR
 EJ

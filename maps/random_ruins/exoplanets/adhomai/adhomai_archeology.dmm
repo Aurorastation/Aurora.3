@@ -169,7 +169,7 @@
 	},
 /area/exoplanet/adhomai)
 "E" = (
-/turf/simulated/wall/cloth,
+/turf/simulated/wall/wood,
 /area/adhomai_archeology)
 "F" = (
 /obj/structure/closet/crate/secure/large,
