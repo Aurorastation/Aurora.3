@@ -244,7 +244,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	walk(src, 0) // stop it from auto moving when the pilot gets in
+	SSmove_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
@@ -714,7 +714,7 @@
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()
-				walk(src, 0)
+				SSmove_manager.stop_looping(src)
 				say("Holding position.")
 				return
 

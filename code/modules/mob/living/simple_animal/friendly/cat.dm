@@ -64,7 +64,7 @@
 
 		if(!buckled_to)
 			if (turns_since_move > 5 || (flee_target || rattarget))
-				walk_to(src,0)
+				SSmove_manager.stop_looping(src)
 				turns_since_move = 0
 
 				if (flee_target) //fleeing takes precendence
@@ -73,7 +73,7 @@
 					handle_movement_target()
 
 		if (!movement_target)
-			walk_to(src,0)
+			SSmove_manager.stop_looping(src)
 
 		if(prob(2)) //spooky
 			var/mob/abstract/observer/spook = locate() in range(src,5)
@@ -164,7 +164,7 @@
 	if (flee_target)
 		if(prob(25)) say("HSSSSS")
 		stop_automated_movement = 1
-		walk_away(src, flee_target, 7, 2)
+		SSmove_manager.move_away(src, flee_target, 7, 2)
 
 /mob/living/simple_animal/cat/proc/set_flee_target(atom/A)
 	if(A)
@@ -215,17 +215,17 @@
 		if (movement_target != friend)
 			if (current_dist > follow_dist && !istype(movement_target, /mob/living/simple_animal/rat) && (friend in oview(src)))
 				//stop existing movement
-				walk_to(src,0)
+				SSmove_manager.stop_looping(src)
 				turns_since_scan = 0
 
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, DS2TICKS(seek_move_delay))
+				SSmove_manager.move_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)
-			walk_to(src,0)
+			SSmove_manager.stop_looping(src)
 			movement_target = null
 			stop_automated_movement = 0
 			if (prob(10))

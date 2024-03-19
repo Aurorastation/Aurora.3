@@ -522,14 +522,14 @@
  * Returns TRUE if the loop sucessfully started, or FALSE if it failed
  *
  * Arguments:
- * moving - The atom we want to move
- * chasing - The atom we want to move towards
- * max_dist - the furthest away from the target we're allowed to get
- * delay - How many deci-seconds to wait between fires. Defaults to the lowest value, 0.1
- * timeout - Time in deci-seconds until the moveloop self expires. Defaults to infinity
- * subsystem - The movement subsystem to use. Defaults to SSmovement. Only one loop can exist for any one subsystem
- * priority - Defines how different move loops override each other. Lower numbers beat higher numbers, equal defaults to what currently exists. Defaults to MOVEMENT_DEFAULT_PRIORITY
- * flags - Set of bitflags that effect move loop behavior in some way. Check _DEFINES/movement.dm
+ * * moving - The atom we want to move
+ * * chasing - The atom we want to move towards
+ * * max_dist - the furthest away from the target we're allowed to get
+ * * delay - How many deci-seconds to wait between fires. Defaults to the lowest value, 0.1
+ * * timeout - Time in deci-seconds until the moveloop self expires. Defaults to infinity
+ * * subsystem - The movement subsystem to use. Defaults to SSmovement. Only one loop can exist for any one subsystem
+ * * priority - Defines how different move loops override each other. Lower numbers beat higher numbers, equal defaults to what currently exists. Defaults to MOVEMENT_DEFAULT_PRIORITY
+ * * flags - Set of bitflags that effect move loop behavior in some way. Check _DEFINES/movement.dm
  *
 **/
 /datum/controller/subsystem/move_manager/proc/move_away(moving, chasing, max_dist, delay, timeout, subsystem, priority, flags, datum/extra_info)

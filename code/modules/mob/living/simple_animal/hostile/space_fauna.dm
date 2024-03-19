@@ -67,7 +67,7 @@
 	stop_automated_movement = 1
 	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (target_mob in targets))
 		change_stance(HOSTILE_STANCE_ATTACKING)
-		walk_to(src, target_mob, 1, move_to_delay)
+		SSmove_manager.move_to(src, target_mob, 1, move_to_delay)
 		return 1
 	..()
 

@@ -27,10 +27,10 @@
 	//float over to our destination, if we have one
 	destination = dest_turf
 	if(destination)
-		walk_to(src, destination)
+		SSmove_manager.move_to(src, destination, priority = MOVEMENT_SPACE_PRIORITY)
 
 /obj/effect/effect/smoke/chem/Destroy()
-	walk(src, 0)
+	SSmove_manager.stop_looping(src)
 	return ..()
 
 /obj/effect/effect/smoke/chem/Move()
