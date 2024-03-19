@@ -576,9 +576,7 @@
 									U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(
-					usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person."))
-				)
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
@@ -593,7 +591,7 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr,"security"))
-					var/message = "<b>Information</b>\n\n" \
+					var/message = "<b>Security Records: [R.name]</b>\n\n" \
 						+ "<b>Criminal Status:</b> [R.security.criminal]\n" \
 						+ "<b>Crimes:</b> [R.security.crimes]\n" \
 						+ "<b>Notes:</b> [R.security.notes]\n" \
@@ -602,9 +600,7 @@
 					read = 1
 
 			if(!read)
-				to_chat(
-					usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person."))
-				)
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
@@ -619,20 +615,18 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr, "security"))
-					var/message = "<b>Comments: [name]</b>\n\n"
+					var/message = "<b>Security Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.security.comments.len > 0)
 						for(var/comment in R.security.comments)
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>"
+					message += "<a href='?src=\ref[src];secrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_RED(message))
 
 			if(!read)
-				to_chat(
-					usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person."))
-				)
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
@@ -684,9 +678,7 @@
 								U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(
-					usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person."))
-				)
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
@@ -701,7 +693,7 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				if(hasHUD(usr, "medical"))
-					var/message = "<b>Medical information</b>\n\n" \
+					var/message = "<b>Medical Records: [R.name]</b>\n\n" \
 						+ "<b>Name:</b> [R.name] <b>Blood Type:</b> [R.medical.blood_type]\n" \
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
 						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
@@ -711,9 +703,7 @@
 					read = 1
 
 			if(!read)
-				to_chat(
-					usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person."))
-				)
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
@@ -728,20 +718,18 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				if(hasHUD(usr, "medical"))
-					var/message = "<b>Medical comments: [name]</b>\n\n"
+					var/message = "<b>Medical Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.medical.comments.len > 0)
 						for(var/comment in R.medical.comments)
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>"
+					message += "<a href='?src=\ref[src];medrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 
 			if(!read)
-				to_chat(
-					usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person."))
-				)
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
@@ -812,11 +800,11 @@
 				return
 
 	if (href_list["metadata"])
-		var/message = "<b>OOC notes: [name]</b>" \
+		var/message = "<b>OOC Notes: [name]</b>" \
 			+ "\n\n" \
 			+ client.prefs.metadata \
 			+ "\n\n" \
-			+ SPAN_WARNING("Remember, this is ooc information.")
+			+ SPAN_WARNING("Remember, this is OOC information.")
 		to_chat(usr, EXAMINE_BLOCK(message))
 
 	..()

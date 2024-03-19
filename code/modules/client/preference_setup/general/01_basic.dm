@@ -306,7 +306,7 @@
 		var/new_metadata = sanitize(
 			input(
 				user,
-				"Enter any information you'd like others to see, such as Roleplay-preferences:",
+				"Enter any information you'd like others to see, such as roleplay preferences.",
 				"Game Preference",
 				html_decode(pref.metadata)
 			) as message|null,
@@ -361,8 +361,8 @@
 		if (CanUseTopic(user))
 			var/user_choice = alert(
 				user,
-				"Are you sure you wish to clear ooc notes of this character?",
-				"Clear OOC notes Confirmation",
+				"Are you sure you wish to clear this character's OOC notes?",
+				"Clear OOC Notes Confirmation",
 				"Yes",
 				"No"
 			)
