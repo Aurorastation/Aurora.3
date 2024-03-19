@@ -54,7 +54,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/scc_scout_ship/New()
-	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Alluvial plain", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
+	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Alluvial Plain", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
 	..()
 
 // shuttle
@@ -84,7 +84,7 @@
 	return skybox_image
 
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle/New()
-	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Alluvial plain", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
+	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Alluvial Plain", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scc_scout_shuttle
