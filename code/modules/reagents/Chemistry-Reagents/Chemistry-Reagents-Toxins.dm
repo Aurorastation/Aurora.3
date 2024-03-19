@@ -715,6 +715,12 @@
 	nicotine = REM * 0.1
 	taste_mult = 2
 
+/singleton/reagent/toxin/tobacco/srendarrs_hand
+	name = "S'rendarr's Hand"
+	description = "S'rendarr's Hand, known as Alyad'al S'rendarr to the tajara, originates from Adhomai. The nicotine-containing leaves are often dried out and stuffed into pipes or rolled in paper for smoking."
+	taste_description = "honeyed tobacco"
+	nicotine = 0.3
+
 /singleton/reagent/toxin/oracle
 	name = "Oracle"
 	description = "Oracle originates from Vysoka, where it is often chewed, or dried and smoked or snorted. This is a common variant."
