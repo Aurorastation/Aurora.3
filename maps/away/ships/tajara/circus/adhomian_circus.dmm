@@ -524,7 +524,7 @@
 	},
 /area/adhomian_circus/fortune)
 "cBJ" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -640,9 +640,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
-"dhp" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/tamer)
 "dib" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -818,9 +815,6 @@
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
-/area/adhomian_circus/fortune)
-"dVn" = (
-/turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/fortune)
 "edV" = (
 /obj/structure/table/stone/marble,
@@ -2009,9 +2003,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/crew)
-"kRJ" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/adhomian_circus_shuttle)
 "kTl" = (
 /turf/simulated/floor/marble{
 	temperature = 278.15
@@ -2254,7 +2245,7 @@
 	},
 /area/shuttle/adhomian_circus_shuttle)
 "lYX" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
@@ -2530,9 +2521,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/tamer)
-"nqs" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/clown)
 "ntq" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -2639,7 +2627,7 @@
 	},
 /area/adhomian_circus/maintenance)
 "nDF" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2748,7 +2736,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/port)
 "onz" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/north{
 	name = "aft, bridge"
 	},
@@ -2830,9 +2818,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine/port)
-"oMS" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/crew)
 "oTz" = (
 /obj/item/reagent_containers/food/snacks/egg/schlorrgo,
 /obj/item/reagent_containers/food/snacks/egg/schlorrgo,
@@ -2943,9 +2928,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine/port)
-"ppy" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/port)
 "prU" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
@@ -2967,9 +2949,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/hangar)
-"pxV" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/bridge)
 "pLA" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -3864,9 +3843,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
-"vcr" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/starboard)
 "vfB" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/spray,
@@ -4301,7 +4277,7 @@
 	},
 /area/adhomian_circus/port)
 "xju" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4380,9 +4356,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/bridge)
-"xOg" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/adhomian_circus/engine)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -40544,7 +40517,7 @@ xHA
 xHA
 xHA
 xuV
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -40800,9 +40773,9 @@ lUV
 vFj
 pda
 mfs
-vcr
 xuV
-vcr
+xuV
+xuV
 xRX
 xRX
 xRX
@@ -41049,7 +41022,7 @@ vBV
 hke
 bXS
 sVW
-dhp
+xHA
 nfV
 pbe
 pbe
@@ -41057,10 +41030,10 @@ hoX
 rxp
 rxp
 eit
-vcr
+xuV
 yjk
-vcr
-vcr
+xuV
+xuV
 xRX
 xRX
 xRX
@@ -41306,7 +41279,7 @@ lgm
 cCN
 rBD
 kCJ
-dhp
+xHA
 nxu
 pdu
 mcf
@@ -41314,11 +41287,11 @@ kOW
 cUS
 oTz
 kvG
-vcr
+xuV
 yjk
 yjk
-vcr
-vcr
+xuV
+xuV
 xRX
 xRX
 xRX
@@ -41554,7 +41527,7 @@ xRX
 xRX
 xRX
 xRX
-xOg
+ehz
 ehz
 ehz
 ehz
@@ -41563,19 +41536,19 @@ ehz
 ehz
 qWL
 ehz
-dhp
-dhp
-dhp
-dhp
+xHA
+xHA
+xHA
+xHA
 qhw
-dhp
-dhp
-dhp
-vcr
+xHA
+xHA
+xHA
+xuV
 yjk
 yjk
 yjk
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -41811,7 +41784,7 @@ xRX
 xRX
 xRX
 xRX
-vcr
+xuV
 aSm
 aSm
 thx
@@ -41829,10 +41802,10 @@ aSm
 aSm
 aSm
 xuV
-vcr
-vcr
-vcr
-vcr
+xuV
+xuV
+xuV
+xuV
 xRX
 xRX
 xRX
@@ -42063,8 +42036,8 @@ xRX
 xRX
 xRX
 xRX
-nqs
-nqs
+ngK
+ngK
 ngK
 ngK
 ngK
@@ -42089,7 +42062,7 @@ gUk
 xtx
 vmI
 dtM
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -42319,8 +42292,8 @@ xRX
 xRX
 xRX
 ngK
-nqs
-nqs
+ngK
+ngK
 vfB
 qam
 gbO
@@ -42346,7 +42319,7 @@ rLF
 hwR
 hwR
 gYs
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -42603,7 +42576,7 @@ rLF
 hwR
 hwR
 rqo
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -42860,7 +42833,7 @@ rLF
 hwR
 hwR
 gYs
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -43374,7 +43347,7 @@ rLF
 hwR
 hwR
 gYs
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -43587,17 +43560,17 @@ xRX
 xRX
 xRX
 xRX
-kRJ
-kRJ
-kRJ
-kRJ
-kRJ
-kRJ
+oFG
+oFG
+oFG
+oFG
+oFG
+oFG
 bsl
-kRJ
-kRJ
-kRJ
-kRJ
+oFG
+oFG
+oFG
+oFG
 gkO
 xRX
 xRX
@@ -43631,7 +43604,7 @@ rLF
 hwR
 hwR
 gYs
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -43860,7 +43833,7 @@ xRX
 xRX
 xRX
 xRX
-nqs
+ngK
 vzp
 aab
 iew
@@ -43888,7 +43861,7 @@ rLF
 hwR
 hwR
 gYs
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -44117,7 +44090,7 @@ xRX
 xRX
 xRX
 xRX
-nqs
+ngK
 wwC
 nUu
 nUu
@@ -44145,7 +44118,7 @@ rLF
 hwR
 hwR
 gYs
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -44374,7 +44347,7 @@ xRX
 xRX
 xRX
 xRX
-nqs
+ngK
 lAY
 nUu
 xGS
@@ -44402,7 +44375,7 @@ rLF
 hwR
 hwR
 rqo
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -44615,29 +44588,29 @@ xRX
 xRX
 xRX
 xRX
-kRJ
-kRJ
-kRJ
+oFG
+oFG
+oFG
 oFG
 tAG
 bsf
 bOm
 bNj
 oFG
-kRJ
-kRJ
+oFG
+oFG
 tZg
 xRX
 xRX
 xRX
 xRX
-nqs
-nqs
-nqs
-nqs
-nqs
-nqs
-nqs
+ngK
+ngK
+ngK
+ngK
+ngK
+ngK
+ngK
 ngK
 jqO
 alY
@@ -44659,7 +44632,7 @@ nWC
 xmQ
 ndt
 kFO
-vcr
+xuV
 xRX
 xRX
 xRX
@@ -44875,12 +44848,12 @@ xRX
 xRX
 xRX
 xRX
-kRJ
-kRJ
-kRJ
+oFG
+oFG
+oFG
 tmJ
 nNZ
-kRJ
+oFG
 xRX
 xRX
 xRX
@@ -44895,7 +44868,7 @@ xRX
 xRX
 xRX
 xRX
-vcr
+xuV
 aSm
 aSm
 aSm
@@ -44913,12 +44886,12 @@ aSm
 aSm
 aSm
 gab
-oMS
-oMS
-oMS
-oMS
-oMS
-oMS
+gab
+gab
+gab
+gab
+gab
+gab
 gab
 xJd
 xRX
@@ -45152,16 +45125,16 @@ gdx
 gdx
 gdx
 gdx
-vcr
-vcr
-vcr
-vcr
-vcr
-vcr
-vcr
-vcr
+xuV
+xuV
+xuV
+xuV
+xuV
+xuV
+xuV
+xuV
 eIZ
-vcr
+xuV
 bql
 bql
 bql
@@ -45172,16 +45145,16 @@ bql
 bql
 cTz
 lZh
-oMS
+gab
 gTj
 bGH
 dGc
-pxV
+mrm
 mrm
 xju
 xju
 xju
-pxV
+mrm
 xRX
 xRX
 xRX
@@ -45433,7 +45406,7 @@ eFz
 sRj
 luC
 luC
-pxV
+mrm
 kQA
 dJv
 gCs
@@ -45684,13 +45657,13 @@ sth
 piT
 hXM
 bql
-oMS
-oMS
-oMS
+gab
+gab
+gab
 kvj
 luC
 fpz
-pxV
+mrm
 rnu
 anm
 pOw
@@ -46204,7 +46177,7 @@ ltF
 luC
 ykc
 hIR
-pxV
+mrm
 qek
 xMn
 piq
@@ -46461,7 +46434,7 @@ mSe
 luC
 luC
 luC
-pxV
+mrm
 qDO
 vnh
 iQA
@@ -46695,15 +46668,15 @@ gdx
 gdx
 gdx
 hNT
-ppy
-ppy
-ppy
-ppy
-ppy
-ppy
-ppy
+hNT
+hNT
+hNT
+hNT
+hNT
+hNT
+hNT
 wFh
-ppy
+hNT
 bql
 bql
 bql
@@ -46718,12 +46691,12 @@ cFk
 bGH
 dIJ
 bGH
-pxV
+mrm
 mrm
 xju
 xju
 xju
-pxV
+mrm
 xRX
 xRX
 xRX
@@ -46949,7 +46922,7 @@ xRX
 xRX
 xRX
 xRX
-ppy
+hNT
 xix
 uub
 sVk
@@ -46969,12 +46942,12 @@ sVk
 sVk
 sVk
 gab
-oMS
-oMS
-oMS
-oMS
-oMS
-oMS
+gab
+gab
+gab
+gab
+gab
+gab
 gab
 bKA
 xRX
@@ -47201,14 +47174,14 @@ xRX
 xRX
 xRX
 xRX
-dVn
-dVn
-dVn
-dVn
-dVn
-dVn
-dVn
-dVn
+cQG
+cQG
+cQG
+cQG
+cQG
+cQG
+cQG
+cQG
 qcw
 fGZ
 fGZ
@@ -47229,7 +47202,7 @@ wgh
 rRx
 aeb
 wpH
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -47458,14 +47431,14 @@ xRX
 xRX
 xRX
 xRX
-dVn
+cQG
 aEq
 pdV
 eyW
 iJi
 sNm
 nxp
-dVn
+cQG
 bAh
 got
 got
@@ -47486,7 +47459,7 @@ aaG
 mmv
 kTl
 oov
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -47715,14 +47688,14 @@ xRX
 xRX
 xRX
 xRX
-dVn
+cQG
 oAa
 wlK
 wlK
 wlK
 oAa
 jMa
-dVn
+cQG
 fcj
 got
 qDL
@@ -47743,7 +47716,7 @@ aaG
 wnH
 kTl
 oov
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -47979,7 +47952,7 @@ dyw
 fpK
 oAa
 abp
-dVn
+cQG
 fcj
 got
 lrP
@@ -48000,7 +47973,7 @@ aaG
 vHM
 eVA
 qjZ
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -48229,14 +48202,14 @@ xRX
 xRX
 xRX
 xRX
-dVn
+cQG
 oAa
 wlK
 wlK
 wlK
 oAa
 xCk
-dVn
+cQG
 fcj
 got
 lrP
@@ -48257,7 +48230,7 @@ aaG
 bpK
 hbo
 oov
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -48486,7 +48459,7 @@ xRX
 xRX
 xRX
 xRX
-dVn
+cQG
 ltJ
 oAa
 oAa
@@ -48514,7 +48487,7 @@ aaG
 sRM
 xUu
 oov
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -48750,7 +48723,7 @@ dVf
 gAT
 oAa
 cJz
-dVn
+cQG
 bTK
 got
 lrP
@@ -49002,12 +48975,12 @@ xRX
 xRX
 cQG
 cQG
-dVn
-dVn
-dVn
+cQG
+cQG
+cQG
 isG
-dVn
-dVn
+cQG
+cQG
 lHi
 got
 lrP
@@ -49028,7 +49001,7 @@ aaG
 gki
 dMP
 oov
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -49264,7 +49237,7 @@ ntw
 iJi
 oAa
 mYq
-dVn
+cQG
 lHi
 got
 qSz
@@ -49285,7 +49258,7 @@ aaG
 gZU
 kTl
 oov
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -49521,7 +49494,7 @@ cQG
 cQG
 wqJ
 lmZ
-dVn
+cQG
 eqz
 got
 got
@@ -49542,7 +49515,7 @@ aaG
 wNw
 kTl
 qjZ
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -49775,10 +49748,10 @@ xRX
 xRX
 xRX
 cQG
-dVn
-dVn
-dVn
-dVn
+cQG
+cQG
+cQG
+cQG
 sSb
 aTD
 aTD
@@ -49799,7 +49772,7 @@ euC
 tHx
 tHx
 uWs
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -50035,7 +50008,7 @@ xRX
 xRX
 xRX
 xRX
-ppy
+hNT
 sVk
 fDc
 sVk
@@ -50053,10 +50026,10 @@ lbP
 lbP
 sVk
 hNT
-ppy
-ppy
-ppy
-ppy
+hNT
+hNT
+hNT
+hNT
 xRX
 xRX
 xRX
@@ -50302,18 +50275,18 @@ jQR
 aGz
 jQR
 jQR
-ppy
+hNT
 fPY
 kwR
 edV
 ixs
 mgW
-ppy
-ppy
+hNT
+hNT
 ifb
 ifb
 ifb
-ppy
+hNT
 xRX
 xRX
 xRX
@@ -50566,11 +50539,11 @@ wpr
 hvE
 wpr
 kMJ
-ppy
+hNT
 ifb
 ifb
-ppy
-ppy
+hNT
+hNT
 xRX
 xRX
 xRX
@@ -50823,11 +50796,11 @@ wpr
 wpr
 wpr
 dsF
-ppy
+hNT
 ifb
-ppy
-ppy
-ppy
+hNT
+hNT
+hNT
 xRX
 xRX
 xRX
@@ -51080,9 +51053,9 @@ ozN
 mTv
 rWg
 gQT
-ppy
-ppy
-ppy
+hNT
+hNT
+hNT
 xRX
 xRX
 xRX
@@ -51338,7 +51311,7 @@ hNT
 hNT
 hNT
 hNT
-ppy
+hNT
 xRX
 xRX
 xRX

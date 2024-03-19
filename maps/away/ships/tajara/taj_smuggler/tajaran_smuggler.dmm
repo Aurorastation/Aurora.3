@@ -3570,7 +3570,7 @@
 /turf/template_noop,
 /area/space)
 "vtM" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3685,7 +3685,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
