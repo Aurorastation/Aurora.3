@@ -11,6 +11,7 @@
 	name = "Shuttle Hangar"
 	landmark_tag = "nav_yacht_civ_shuttle_dock"
 	docking_controller = "airlock_yacht_civ_shuttle_dock"
+	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/map_effect/marker/airlock/docking/yacht_civ/shuttle_hangar
 	name = "Shuttle Hangar"

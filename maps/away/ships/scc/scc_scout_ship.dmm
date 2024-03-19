@@ -1091,6 +1091,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "gc" = (
@@ -1854,12 +1855,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "lm" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, center"
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "lw" = (
@@ -1886,12 +1888,13 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/engineering_cargo)
 "lA" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/port{
 	name = "port, center"
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/medbay)
 "lG" = (
@@ -1999,9 +2002,10 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "mm" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "mr" = (
@@ -2067,6 +2071,9 @@
 	dir = 4
 	},
 /obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2173,7 +2180,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, cockpit"
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "nc" = (
 /obj/structure/closet/crate,
@@ -2318,12 +2325,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "nV" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, passenger seating"
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "nX" = (
@@ -3919,7 +3927,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/hydroponics)
 "yB" = (
-/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "yE" = (
@@ -4339,12 +4349,13 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Cg" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "Cy" = (
@@ -5054,9 +5065,10 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "HR" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "HV" = (
@@ -5946,9 +5958,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/hydroponics)
 "Ot" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/medbay)
 "Oz" = (
@@ -7289,6 +7302,7 @@
 	gps_prefix = "SCC";
 	gpstag = "SCOUTSHUTTLE"
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "Xu" = (
@@ -7688,7 +7702,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "ZT" = (
-/obj/structure/bed/stool/chair/padded/blue,
+/obj/structure/bed/stool/chair/padded/brown,
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship/quarters)
 
