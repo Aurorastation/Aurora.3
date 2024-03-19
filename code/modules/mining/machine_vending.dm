@@ -50,6 +50,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment(/obj/vehicle/train/cargo/engine/mining,					-1,					800,	1),
 	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade/ka,						10,					800),
 	new /datum/data/mining_equipment(/obj/item/oreportal,										35,					800),
+	new /datum/data/mining_equipment(/obj/item/device/spaceflare,								5,					800),
 	new /datum/data/mining_equipment(/obj/item/lazarus_injector,								25,					1000),
 	new /datum/data/mining_equipment(/obj/item/storage/backpack/cell,							5,					1000),
 	new /datum/data/mining_equipment(/obj/machinery/mining/drill,								-1,					1000,	1),

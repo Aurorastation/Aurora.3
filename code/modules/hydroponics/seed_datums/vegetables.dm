@@ -42,6 +42,32 @@
 /obj/item/seeds/icepepperseed
 	seed_type = "icechili"
 
+/datum/seed/bellpepper
+	name = "bellpepper"
+	seed_name = "bell pepper"
+	display_name = "bell peppers"
+	chems = list(/singleton/reagent/nutriment = list(1,25))
+	mutants = list("chili")
+	kitchen_tag = "bellpepper"
+
+/datum/seed/bellpepper/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,4)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_PRODUCT_ICON,"pepper")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ff922d")
+	set_trait(TRAIT_PLANT_COLOUR,"#35d65d")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+
+/obj/item/seeds/bellpepperseed
+	seed_type = "bellpepper"
+
 ///////////////
 //  Nettles  //
 ///////////////
@@ -202,6 +228,29 @@
 /obj/item/seeds/chickpeas
 	seed_type = "chickpea"
 
+/datum/seed/peas
+	name = "peas"
+	seed_name = "peas"
+	display_name = "peas"
+	chems = list(/singleton/reagent/nutriment = list(1, 20))
+	kitchen_tag = "peas"
+	mutants = list("chickpeas")
+
+/datum/seed/peas/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION, 3)
+	set_trait(TRAIT_PRODUCTION, 3)
+	set_trait(TRAIT_YIELD, 3)
+	set_trait(TRAIT_POTENCY, 5)
+	set_trait(TRAIT_PRODUCT_ICON, "bean")
+	set_trait(TRAIT_PRODUCT_COLOUR, "#70b74a")
+	set_trait(TRAIT_PLANT_ICON, "bush2")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/obj/item/seeds/peaseed
+	seed_type = "peas"
+
 ///////////////
 //  Cabbage  //
 ///////////////
@@ -230,3 +279,4 @@
 
 /obj/item/seeds/cabbageseed
 	seed_type = "cabbage"
+

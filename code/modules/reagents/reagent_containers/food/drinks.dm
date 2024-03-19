@@ -477,3 +477,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	icon_state = "britcup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
+
+/obj/item/reagent_containers/food/drinks/boba
+	name = "boba pearls"
+	desc = "Tapioca balls, so you can eat your drinks! Yum yum!" // the yum yum is sarcastic these things feel like chewing on rubber.
+	icon_state = "boba"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/boba = 60)
+	is_liquid = FALSE

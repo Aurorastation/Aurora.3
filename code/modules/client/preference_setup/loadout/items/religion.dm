@@ -3,11 +3,6 @@
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/religion/shaman_staff
-	display_name = "shaman staff"
-	path = /obj/item/cane/shaman
-	slot = slot_l_hand
-
 /datum/gear/religion/trinary
 	abstract_type = /datum/gear/religion/trinary
 

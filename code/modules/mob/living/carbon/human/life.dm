@@ -30,8 +30,6 @@
 	var/temperature_alert = 0
 
 /mob/living/carbon/human/Life()
-	set background = BACKGROUND_ENABLED
-
 	if (transforming)
 		return
 

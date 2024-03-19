@@ -119,6 +119,9 @@ I IS TYPIN'!'
 			var/mob/owner = master
 			if(owner.typing_indicator == src)
 				owner.typing_indicator = null
+
+		master = null
+
 	return ..()
 
 /atom/movable/typing_indicator/proc/hide_typing_indicator()

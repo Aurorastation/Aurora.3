@@ -1,6 +1,4 @@
 /mob/living/carbon/slime/Life()
-	set background = BACKGROUND_ENABLED
-
 	if(src.transforming)
 		return
 	..()

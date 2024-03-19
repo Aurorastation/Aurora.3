@@ -7,7 +7,7 @@
 	spawnpoints = list("izharshan_crew")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/izharshan
+	outfit = /obj/outfit/admin/izharshan
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -27,7 +27,7 @@
 
 	spawnpoints = list("izharshan_captain")
 
-	outfit = /datum/outfit/admin/izharshan/captain
+	outfit = /obj/outfit/admin/izharshan/captain
 
 
 	assigned_role = "Izharshan Captain"
@@ -40,7 +40,7 @@
 /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan
 	color = "#eed8c1"
 
-/datum/outfit/admin/izharshan
+/obj/outfit/admin/izharshan
 	name = "Izharshan Crewman"
 
 	uniform = /obj/item/clothing/under/unathi/izharshan
@@ -58,10 +58,10 @@
 		/obj/item/storage/box/survival = 1
 	)
 
-/datum/outfit/admin/izharshan/get_id_access()
+/obj/outfit/admin/izharshan/get_id_access()
 	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/outfit/admin/izharshan/captain
+/obj/outfit/admin/izharshan/captain
 	name = "Izharshan Captain"
 
 	suit = /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan
