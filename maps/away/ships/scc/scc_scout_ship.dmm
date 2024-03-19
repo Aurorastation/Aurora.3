@@ -180,7 +180,7 @@
 	dir = 6
 	},
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "aW" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -252,6 +252,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/mess)
+"bo" = (
+/turf/simulated/floor/tiled/cargo,
+/area/ship/scc_scout_ship/engineering_cargo)
 "bp" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -444,7 +447,7 @@
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/heph,
 /obj/item/crowbar,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "cr" = (
 /obj/structure/cable{
@@ -479,7 +482,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "cJ" = (
 /obj/structure/dispenser/oxygen,
@@ -890,7 +893,7 @@
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/zavod,
 /obj/item/crowbar,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "fd" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -1180,7 +1183,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "gw" = (
 /obj/machinery/door/firedoor/noid,
@@ -2174,7 +2177,7 @@
 	pixel_x = -5
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "mS" = (
 /obj/effect/landmark/entry_point/port{
@@ -2375,6 +2378,9 @@
 "od" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scc_scout_ship/maint_atmos)
+"ok" = (
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scc_scout_ship_shuttle/cockpit)
 "om" = (
 /obj/structure/extinguisher_cabinet/north,
 /obj/structure/cable{
@@ -2687,7 +2693,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "qd" = (
 /obj/machinery/sleeper{
@@ -2789,7 +2795,7 @@
 	pixel_x = 28;
 	pixel_y = -6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "qJ" = (
 /obj/machinery/door/firedoor/noid,
@@ -2847,7 +2853,7 @@
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "qY" = (
 /obj/structure/lattice/catwalk,
@@ -2918,7 +2924,7 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat/orion,
 /obj/item/storage/backpack/messenger/orion,
 /obj/item/crowbar/red,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "rG" = (
 /obj/effect/floor_decal/corner/lime,
@@ -3102,6 +3108,10 @@
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship/mess)
+"sQ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/cargo/full,
+/area/ship/scc_scout_ship/engineering_cargo)
 "sS" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3194,7 +3204,7 @@
 	},
 /obj/structure/bed/padded,
 /obj/item/bedsheet,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "tC" = (
 /obj/structure/lattice,
@@ -3562,10 +3572,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "ws" = (
 /obj/structure/table/steel,
@@ -3628,8 +3638,8 @@
 	pixel_y = -2;
 	pixel_x = 3
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo/full,
 /area/ship/scc_scout_ship/engineering_cargo)
 "wM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3674,7 +3684,7 @@
 /obj/item/clothing/suit/storage/toggle/longcoat/zeng,
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/zeng,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "wR" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3742,7 +3752,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/pen,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "xu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3930,7 +3940,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "yE" = (
 /obj/machinery/appliance/cooker/grill,
@@ -4102,7 +4112,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "zD" = (
 /obj/effect/floor_decal/corner/blue{
@@ -4140,11 +4150,11 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "Ae" = (
 /obj/effect/ghostspawpoint{
@@ -4160,7 +4170,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "An" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -4228,11 +4238,11 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/cargo_receptacle,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "Bm" = (
 /obj/structure/lattice/catwalk,
@@ -4316,6 +4326,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/mess)
+"BI" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/cargo,
+/area/ship/scc_scout_ship/engineering_cargo)
 "BL" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/marble,
@@ -4517,7 +4531,7 @@
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/nt,
 /obj/item/crowbar/rescue_axe,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "DI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -4580,8 +4594,8 @@
 	pixel_y = -2;
 	pixel_x = 3
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo/full,
 /area/ship/scc_scout_ship/engineering_cargo)
 "Ed" = (
 /obj/structure/lattice,
@@ -4699,7 +4713,7 @@
 	name = "random plushie (5% chance)"
 	},
 /obj/structure/bed/padded,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "Fe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -4981,6 +4995,9 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/ship/scc_scout_ship/mess)
+"Hj" = (
+/turf/simulated/floor/tiled/cargo/full,
+/area/ship/scc_scout_ship/engineering_cargo)
 "Hm" = (
 /obj/structure/window/reinforced{
 	layer = 5;
@@ -5127,7 +5144,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "Iw" = (
 /obj/effect/floor_decal/spline/plain{
@@ -5229,7 +5246,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/firealarm/west,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "IO" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -5302,7 +5319,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -5316,7 +5332,8 @@
 	pixel_y = -2;
 	pixel_x = 3
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "JB" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -5399,7 +5416,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "Kj" = (
 /obj/effect/floor_decal/corner/lime,
@@ -5852,7 +5869,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/cargo/full,
 /area/ship/scc_scout_ship/engineering_cargo)
 "NN" = (
 /obj/structure/cable{
@@ -5973,7 +5990,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "OG" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -6156,10 +6173,10 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "PU" = (
 /obj/random/pottedplant,
@@ -6266,7 +6283,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "Ra" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
@@ -6385,7 +6402,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "Sd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6406,7 +6423,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "Sl" = (
 /obj/structure/grille,
@@ -6439,7 +6456,7 @@
 	name = "random plushie (5% chance)"
 	},
 /obj/structure/bed/padded,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "SA" = (
 /obj/structure/closet/crate/loot,
@@ -6453,7 +6470,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "SD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6489,7 +6506,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "SH" = (
 /obj/machinery/light/small/emergency{
@@ -6576,7 +6593,7 @@
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "Tf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6719,7 +6736,7 @@
 "Uy" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "UB" = (
 /obj/structure/table/steel,
@@ -6766,13 +6783,13 @@
 	name = "random plushie (5% chance)"
 	},
 /obj/structure/bed/padded,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "UR" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "US" = (
 /obj/machinery/door/firedoor/noid,
@@ -7189,9 +7206,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "WU" = (
 /obj/structure/table/wood,
@@ -7303,7 +7320,7 @@
 	gpstag = "SCOUTSHUTTLE"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "Xu" = (
 /obj/effect/floor_decal/spline/plain/grey{
@@ -7385,7 +7402,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "XP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -41496,7 +41513,7 @@ sN
 sG
 HR
 SF
-lc
+ok
 yB
 aT
 qU
@@ -44293,12 +44310,12 @@ mr
 hD
 Si
 pU
-Si
+BI
 NJ
-cW
-cW
-hD
-Si
+sQ
+sQ
+Hj
+bo
 pU
 dC
 tw
