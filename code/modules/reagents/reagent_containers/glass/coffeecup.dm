@@ -102,7 +102,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc
 	name = "\improper SCC coffee cup"
-	desc = "A coffee cup bearing the SCC logo."
+	desc = "A coffee cup bearing the Stellar Corporate Conglomerate logo."
 	icon_state = "coffeecup_scc"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc/alt
@@ -120,7 +120,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht
 	name = "\improper Hephaestus coffee cup"
-	desc = "A strong coffee cup with the hephaestus logo emblazoned on it."
+	desc = "A strong coffee cup with the Hephaestus Industries logo emblazoned on it."
 	icon_state = "coffeecup_hepht"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris
@@ -133,9 +133,19 @@
 	desc = "A coffee cup bearing the Zeng-Hu logo."
 	icon_state = "coffeecup_zeng"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zavod
+	name = "\improper Zavodskoi coffee cup"
+	desc = "A coffee cup bearing the Zavodskoi Interstellar logo."
+	icon_state = "coffeecup_zavod"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion
+	name = "\improper Orion Express coffee cup"
+	desc = "A coffee cup bearing the Orion Express logo."
+	icon_state = "coffeecup_orion"
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein
 	name = "\improper Einstein Engines coffee cup"
-	desc = "A coffee cup bearing the Zeng-Hu logo."
+	desc = "A coffee cup bearing the Einstein Engines logo."
 	icon_state = "coffeecup_einstein"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt
