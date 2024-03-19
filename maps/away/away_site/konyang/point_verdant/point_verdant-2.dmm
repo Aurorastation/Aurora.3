@@ -659,7 +659,7 @@
 /obj/effect/decal/exterior_stairs/half{
 	layer = 2.8
 	},
-/turf/simulated/floor/exoplanet/water/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "bP" = (
 /obj/effect/map_effect/window_spawner/full/wood,
@@ -2011,7 +2011,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/water/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "fK" = (
 /obj/structure/closet/crate/bin/urban,
@@ -19622,7 +19622,7 @@
 /area/point_verdant/outdoors)
 "YY" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/water/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "YZ" = (
 /obj/item/paper_bin,
@@ -31445,9 +31445,9 @@ AL
 XV
 XV
 AL
-XV
-XV
-RZ
+AL
+AL
+AL
 AL
 AL
 XV

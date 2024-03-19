@@ -24,8 +24,6 @@ if (TICK_CHECK) { \
 }
 
 /datum/artifact_effect/cellcharge/DoEffectAura()
-	set background = 1
-
 	if(holder)
 		if (is_looping)
 			return TRUE

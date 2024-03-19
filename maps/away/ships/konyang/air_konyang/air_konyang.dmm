@@ -634,6 +634,9 @@
 	dir = 8
 	},
 /obj/item/clothing/head/helmet/pilot,
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "qA" = (
