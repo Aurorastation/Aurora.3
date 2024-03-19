@@ -69,7 +69,7 @@
 	for(var/mat in stored)
 		var/material/material = SSmaterials.get_material_by_name(mat)
 		if(material)
-			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 1.5))
+			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 1.5), 1)
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
 	return data
 
@@ -112,7 +112,7 @@
 			var/material/material = SSmaterials.get_material_by_name(mat)
 			if(material)
 				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
-				var/sheets = FLOOR(stored[mat]/sheet_cost)
+				var/sheets = FLOOR(stored[mat]/sheet_cost, 1)
 				if(sheets > 0)
 					var/obj/item/stack/material/M = new material.stack_type(get_turf(src), sheets)
 					M.update_icon()

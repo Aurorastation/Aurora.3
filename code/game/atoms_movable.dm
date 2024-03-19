@@ -39,6 +39,9 @@
 	var/list/contained_mobs
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
+	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
+	var/datum/movement_packet/move_packet
+
 	/**
 	 * an associative lazylist of relevant nested contents by "channel", the list is of the form: list(channel = list(important nested contents of that type))
 	 * each channel has a specific purpose and is meant to replace potentially expensive nested contents iteration
@@ -55,6 +58,11 @@
 	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	. = ..()
+
+	if(move_packet)
+		if(!QDELETED(move_packet))
+			qdel(move_packet)
+		move_packet = null
 
 	if(spatial_grid_key)
 		SSspatial_grid.force_remove_from_grid(src)

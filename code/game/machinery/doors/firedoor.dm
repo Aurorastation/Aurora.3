@@ -59,6 +59,8 @@
 
 	init_flags = 0
 
+	can_astar_pass = CANASTARPASS_DENSITY
+
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)

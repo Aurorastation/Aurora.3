@@ -104,7 +104,8 @@
 
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
-	if(!frequency) return
+	if(!frequency)
+		return
 
 	var/datum/signal/signal = new()
 	signal.source = src
@@ -228,7 +229,9 @@
 			usr.set_machine(src)
 
 			if (href_list["freq"])
+				SSradio.remove_object(src, freq)
 				freq = sanitize_frequency(freq + text2num(href_list["freq"]))
+				SSradio.add_object(src, freq, RADIO_NAVBEACONS)
 				updateDialog()
 
 			else if(href_list["locedit"])

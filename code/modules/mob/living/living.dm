@@ -585,7 +585,7 @@ default behaviour is:
 
 	return
 
-/mob/living/Move(a, b, flag)
+/mob/living/Move(atom/newloc, direct)
 	if (buckled_to)
 		return
 

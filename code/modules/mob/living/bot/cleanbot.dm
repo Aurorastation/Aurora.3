@@ -54,6 +54,9 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	///Boolean, if it's cleaning something *right now* and waiting for the timer to say it's done
 	var/cleaning = FALSE
 
+	///The turf we got the last movement failure on, since doors have to be bumped to be opened
+	var/turf/last_movement_failure_turf
+
 /mob/living/bot/cleanbot/Cross(atom/movable/crossed)
 	if(crossed)
 		if(istype(crossed, /mob/living/bot/cleanbot))
@@ -123,10 +126,19 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 		//Something blocked us, look for a different target, we might come back to this in a while
 		else
-			ignorelist |= cleaning_target
-			cleaning_target_cache.clean_marked = null
-			cleaning_target = null
-			path = list()
+			for(var/obj/machinery/door/a_door in path[1])
+				if(last_movement_failure_turf != path[1])
+					last_movement_failure_turf = path[1]
+					return
+
+				//This is the second failure, invalidate the target
+				else
+					ignorelist |= cleaning_target
+					cleaning_target_cache.clean_marked = null
+					cleaning_target = null
+					path = list()
+					break
+
 
 
 /mob/living/bot/cleanbot/proc/remove_from_ignore(datum/weakref/thing_to_unignore)
@@ -171,73 +183,80 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		patrol_path?.Cut()
 		return
 
-	//If we could a spot to clean or not
-	var/found_spot
+	//We have a path to a target already, follow it
+	if(length(path))
+		handle_target()
 
-	for(var/obj/effect/decal/cleanable/D in view(maximum_search_range, src))
-		var/datum/weakref/cleanable_weakref = WEAKREF(D)
+	//Otherwise, look around for a target, or patrol
+	else
 
-		var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
+		//If we could a spot to clean or not
+		var/found_spot
 
-		//Someone already wants this cleanable and it's not us, keep looking
-		if(!isnull(turf_targeting_cleanbot) && turf_targeting_cleanbot != src)
-			continue
+		for(var/obj/effect/decal/cleanable/D in view(maximum_search_range, src))
+			var/datum/weakref/cleanable_weakref = WEAKREF(D)
 
-		var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
-		if(other_bot && other_bot.cleaning && other_bot != src)
-			continue
+			var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
 
-		// If the object has been slated to be ignored we continue the loop.
-		if((cleanable_weakref in ignorelist))
-			continue
+			//Someone already wants this cleanable and it's not us, keep looking
+			if(!isnull(turf_targeting_cleanbot) && turf_targeting_cleanbot != src)
+				continue
 
-		// A matching /cleanable was found, now we want to path trace to it and see if we can reach it.
-		if((D.type in target_types))
-			patrol_path = list()
-			cleaning_target = cleanable_weakref
-			D.clean_marked = WEAKREF(src)
-			found_spot = handle_target()
-			if(found_spot)
-				break // If the target location is found and pathed properly, break the search loop.
+			var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
+			if(other_bot && other_bot.cleaning && other_bot != src)
+				continue
+
+			// If the object has been slated to be ignored we continue the loop.
+			if((cleanable_weakref in ignorelist))
+				continue
+
+			// A matching /cleanable was found, now we want to path trace to it and see if we can reach it.
+			if((D.type in target_types))
+				patrol_path = list()
+				cleaning_target = cleanable_weakref
+				D.clean_marked = WEAKREF(src)
+				found_spot = handle_target()
+				if(found_spot)
+					break // If the target location is found and pathed properly, break the search loop.
+				else
+					cleaning_target = null // Otherwise we want to try the next cleanable in view, if any.
+					D.clean_marked = null
+
+
+		if(!found_spot && !cleaning_target) // No targets in range
+			if(!patrol_path || !patrol_path.len)
+				if(!signal_sent || signal_sent > world.time + 200) // Waited enough or didn't send yet
+					var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
+					if(!frequency)
+						return
+
+					closest_dist = 9999
+					next_dest = null
+					next_dest_loc = null
+
+					var/datum/signal/signal = new()
+					signal.source = src
+					signal.transmission_method = TRANSMISSION_RADIO
+					signal.data = list("findbeacon" = "patrol")
+					frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
+					signal_sent = world.time
+				else
+					if(next_dest)
+						next_dest_loc = listener.memorized[next_dest]
+						if(next_dest_loc)
+							patrol_path = get_path_to(loc, next_dest_loc, 120, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
+							signal_sent = 0
 			else
-				cleaning_target = null // Otherwise we want to try the next cleanable in view, if any.
-				D.clean_marked = null
-
-
-	if(!found_spot && !cleaning_target) // No targets in range
-		if(!patrol_path || !patrol_path.len)
-			if(!signal_sent || signal_sent > world.time + 200) // Waited enough or didn't send yet
-				var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
-				if(!frequency)
+				if(pulledby) // Don't wiggle if someone pulls you
+					patrol_path = list()
+					return
+				if(patrol_path[1] == loc)
+					patrol_path -= patrol_path[1]
 					return
 
-				closest_dist = 9999
-				next_dest = null
-				next_dest_loc = null
-
-				var/datum/signal/signal = new()
-				signal.source = src
-				signal.transmission_method = TRANSMISSION_RADIO
-				signal.data = list("findbeacon" = "patrol")
-				frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
-				signal_sent = world.time
-			else
-				if(next_dest)
-					next_dest_loc = listener.memorized[next_dest]
-					if(next_dest_loc)
-						patrol_path = get_path_to(loc, next_dest_loc, 120, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
-						signal_sent = 0
-		else
-			if(pulledby) // Don't wiggle if someone pulls you
-				patrol_path = list()
-				return
-			if(patrol_path[1] == loc)
-				patrol_path -= patrol_path[1]
-				return
-
-			var/moved = step_towards(src, patrol_path[1])
-			if(moved)
-				patrol_path -= patrol_path[1]
+				var/moved = step_towards(src, patrol_path[1])
+				if(moved)
+					patrol_path -= patrol_path[1]
 
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
@@ -358,7 +377,9 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		if("set_frequency")
 			var/new_frequency = tgui_input_number(usr, "Select frequency for navigation beacons", "Frequnecy", (beacon_freq/10), round_value = FALSE)
 			if(new_frequency > 0)
+				SSradio.remove_object(listener, beacon_freq)
 				beacon_freq = new_frequency*10
+				SSradio.add_object(listener, beacon_freq, RADIO_NAVBEACONS)
 
 		if("toggle_screw")
 			screw_loose = !screw_loose

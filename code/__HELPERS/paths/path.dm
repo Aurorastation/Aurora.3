@@ -330,8 +330,12 @@
 	src.caller_ref = WEAKREF(construct_from)
 	src.pass_flags = construct_from.pass_flags
 	// src.movement_type = construct_from.movement_type
-	src.thrown = !!construct_from.throwing
-	src.anchored = construct_from.anchored
+
+	//If it's movable, it could have those, otherwise leave them as FALSE
+	if(istype(construct_from, /atom/movable))
+		src.thrown = !!construct_from.throwing
+
+		src.anchored = construct_from.anchored
 	src.has_gravity = has_gravity(construct_from)
 	if(ismob(construct_from))
 		var/mob/living/mob_construct = construct_from

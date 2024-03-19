@@ -168,7 +168,7 @@
 		var/adhomian_time = real_time
 		if(ISEVEN(current_day))
 			adhomian_time = real_time + 24
-		adhomian_day = FLOOR(current_day / 2)
+		adhomian_day = FLOOR(current_day / 2, 1)
 		to_chat(usr, "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.")
 
 

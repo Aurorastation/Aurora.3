@@ -47,3 +47,5 @@ changes:
   - rscadd: "Cleanbot now uses TGUI."
   - rscadd: "Made navbeacons unanchorable and movable, adjusted them to not be map-only usable."
   - backend: "Various backend additions to accomodate for the new pathing system."
+  - backend: "Added SSmove_manager and relative backend things to have it working."
+  - backend: "Adjusted FLOOR() define to match TG's version."

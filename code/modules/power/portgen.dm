@@ -332,7 +332,7 @@
 	if(loc)
 		var/datum/gas_mixture/environment = loc.return_air()
 		if(environment)
-			data["temperature_min"] = FLOOR(environment.temperature - T0C)
+			data["temperature_min"] = FLOOR(environment.temperature - T0C, 1)
 
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()

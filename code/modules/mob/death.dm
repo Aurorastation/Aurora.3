@@ -58,6 +58,8 @@
 
 	facing_dir = null
 
+	SSmove_manager.stop_looping(src)
+
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
 		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
 
