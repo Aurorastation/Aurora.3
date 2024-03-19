@@ -13,3 +13,7 @@
 /datum/map_template/distress_tcaf
 	name = "tau ceti distress equipment"
 	mappaths = list("maps/templates/distress/tcaf.dmm")
+
+/datum/map_template/distress_dominia
+	name = "dominian distress equipment"
+	mappaths = list("maps/templates/distress/dominia.dmm")

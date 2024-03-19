@@ -71,3 +71,10 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/qukala
 	possible_space_sector = list(SECTOR_BADLANDS) //Not super lore-friendly but our only sector that could possibly have a Fed presence
+
+/datum/ert/dominia
+	name = "Dominian Imperial Fleet"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/dominia
+	possible_space_sector list(SECTOR_BADLANDS)
+	equipment_map = /datum/map_template/distress_kataphract

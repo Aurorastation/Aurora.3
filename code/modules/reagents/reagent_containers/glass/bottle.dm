@@ -233,6 +233,12 @@
 	icon_state = "bottle-1"
 	reagents_to_add = list(/singleton/reagent/toxin/trioxin = 60)
 
+/obj/item/reagent_containers/glass/bottle/phoron
+	name = "phoron bottle"
+	desc = "A small bottle. Contains highly rare and flammable phoron."
+	icon_state = "bottle-1"
+	reagents_to_add = list(/singleton/reagent/toxin/phoron = 60)
+
 //syrups
 
 /obj/item/reagent_containers/glass/bottle/syrup

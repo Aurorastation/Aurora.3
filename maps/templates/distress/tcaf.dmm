@@ -5,7 +5,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/unsimulated/floor,
-/area/space)
+/area/centcom/distress_prep)
 "y" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -15,7 +15,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /turf/unsimulated/floor,
-/area/space)
+/area/centcom/distress_prep)
 "B" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/carrier/tcaf,
@@ -36,7 +36,7 @@
 /obj/item/recharger_backpack/high,
 /obj/item/recharger_backpack/high,
 /turf/unsimulated/floor,
-/area/space)
+/area/centcom/distress_prep)
 "D" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/peac,
@@ -48,7 +48,7 @@
 /obj/item/ammo_casing/peac/shrapnel,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/unsimulated/floor,
-/area/space)
+/area/centcom/distress_prep)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/crate/secure/legion{
@@ -81,16 +81,16 @@
 	name = "blaster turret assembly kit"
 	},
 /turf/unsimulated/floor,
-/area/space)
+/area/centcom/distress_prep)
 "T" = (
 /turf/unsimulated/floor,
-/area/space)
+/area/centcom/distress_prep)
 "V" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/combat/tcaf,
 /turf/unsimulated/floor,
-/area/space)
+/area/centcom/distress_prep)
 
 (1,1,1) = {"
 a
