@@ -170,3 +170,8 @@
 	name = "bottle of 5u Steramycin pills"
 	desc = "Contains prophylactic antibiotic pills."
 	starts_with = list(/obj/item/reagent_containers/pill/steramycin = 3)
+
+/obj/item/storage/pill_bottle/ryetalyn
+	name = "bottle of 5u Ryetalyn pills"
+	desc = "Contains pills used to treat genetic and immune diseases."
+	starts_with = list(/obj/item/reagent_containers/pill/ryetalyn = 4)

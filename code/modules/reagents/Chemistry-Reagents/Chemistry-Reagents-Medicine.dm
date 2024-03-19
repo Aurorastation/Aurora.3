@@ -706,7 +706,7 @@
 	color = "#004000"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "acid"
-	metabolism = 1
+	metabolism = REM
 	metabolism_min = 0.25
 
 /singleton/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
