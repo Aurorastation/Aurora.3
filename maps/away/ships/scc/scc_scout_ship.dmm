@@ -446,6 +446,15 @@
 /obj/item/crowbar,
 /turf/simulated/floor/tiled,
 /area/ship/scc_scout_ship/quarters)
+"cq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/item/hullbeacon/green,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/shuttle/scc_scout_ship_shuttle/cockpit)
 "cr" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -903,6 +912,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
+"ff" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/item/hullbeacon/red,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/shuttle/scc_scout_ship_shuttle/cockpit)
 "fk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -2167,6 +2185,14 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
+"mZ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/green,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship/exterior)
 "nc" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2252,11 +2278,6 @@
 /obj/item/device/radio,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
-"nC" = (
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/green,
-/turf/space/dynamic,
-/area/ship/scc_scout_ship/exterior)
 "nE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
@@ -2655,14 +2676,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "pU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/item/hullbeacon/red,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/airless,
-/area/shuttle/scc_scout_ship_shuttle/cockpit)
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/green,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship/exterior)
 "pX" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -3538,9 +3555,6 @@
 	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -5234,15 +5248,6 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/bridge)
-"IU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/obj/item/hullbeacon/green,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/airless,
-/area/shuttle/scc_scout_ship_shuttle/cockpit)
 "IW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -6257,6 +6262,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 "Rb" = (
@@ -6504,14 +6512,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
-"SO" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/hullbeacon/green,
-/turf/space/dynamic,
-/area/ship/scc_scout_ship/exterior)
 "ST" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -36835,7 +36835,7 @@ Px
 Px
 Px
 qY
-nC
+pU
 pJ
 dm
 dm
@@ -38411,7 +38411,7 @@ RB
 RB
 pJ
 pJ
-nC
+pU
 Xj
 Xj
 Xj
@@ -39423,7 +39423,7 @@ EZ
 EZ
 EZ
 EZ
-SO
+mZ
 jV
 hV
 Wi
@@ -40421,7 +40421,7 @@ Xj
 Xj
 Xj
 Xj
-nC
+pU
 NO
 qq
 GZ
@@ -40463,7 +40463,7 @@ Ko
 eq
 zK
 aI
-IU
+cq
 Xj
 Xj
 Xj
@@ -42262,7 +42262,7 @@ We
 XV
 sB
 QV
-pU
+ff
 Xj
 Ys
 Xj
