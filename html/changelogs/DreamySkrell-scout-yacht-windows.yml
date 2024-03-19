@@ -1,0 +1,10 @@
+
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - maptweak: "SCC Scout Ship mapping and name tweaks."
+  - maptweak: "Civilian Yacht mapping tweaks."
+  - rscadd: "Shuttle window spawners."
