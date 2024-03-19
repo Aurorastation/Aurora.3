@@ -98,6 +98,16 @@
 	desc = "A tricolor coffee cup bearing the flag of Port Antillia."
 	icon_state = "coffeecup_portantillia"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/xanu
+	name = "\improper All-Xanu Republic coffee cup"
+	desc = "A coffee cup bearing the flag of the All-Xanu Republic."
+	icon_state = "coffeecup_xanu"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/galatea
+	name = "\improper Federal Technocracy of Galatea coffee cup"
+	desc = "A coffee cup bearing the flag of the Federal Technocracy of Galatea"
+	icon_state = "coffeecup_galatea"
+
 // ------------------------ orgs/corpos
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc
