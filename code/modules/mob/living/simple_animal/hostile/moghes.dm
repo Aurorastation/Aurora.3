@@ -12,7 +12,7 @@
 	emote_sounds = list('sound/effects/creatures/monstergrowl.ogg')
 	turns_per_move = 5
 	speak_chance = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 10
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "pets"
