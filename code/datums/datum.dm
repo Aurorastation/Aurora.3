@@ -8,6 +8,10 @@
 	var/gc_destroyed
 
 	var/tmp/list/active_timers
+
+	/// Active timers with this datum as the target
+	var/list/_active_timers
+
 	var/tmp/isprocessing = 0
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
@@ -54,15 +58,13 @@
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
 	weak_reference = null //ensure prompt GCing of weakref.
 
-	if(active_timers)
-		var/list/timers = active_timers
-		active_timers = null
-		if (timers)
-			for (var/thing in timers)
-				var/datum/timedevent/timer = thing
-				if (timer.spent)
-					continue
-				qdel(timer)
+	if(_active_timers)
+		var/list/timers = _active_timers
+		_active_timers = null
+		for(var/datum/timedevent/timer as anything in timers)
+			if (timer.spent && !(timer.flags & TIMER_DELETE_ME))
+				continue
+			qdel(timer)
 
 	#ifdef REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING_DEBUG

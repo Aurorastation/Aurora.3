@@ -2,25 +2,35 @@
 	name = "Point Verdant - Conglomerate Spaceport"
 	requires_power = 0
 	no_light_control = 1
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_env = CITY
+	var/lighting = FALSE //Is this area automatically lit?
+
+/area/point_verdant/Initialize()
+	. = ..()
+	if(lighting)
+		for(var/turf/T in src)
+			T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, 50, COLOR_WHITE) //Same light level as Konyang proper
 
 /area/point_verdant/outer
 	name = "Point Verdant - Outskirts"
 	sound_env = FOREST
+	lighting = TRUE
 
 /area/point_verdant/coast
 	name = "Point Verdant - Waterside"
 	ambience = AMBIENCE_KONYANG_WATER
 	area_blurb = "The crashing sounds of waves on the shore punctuates the air. The vast ocean spreads out as far as the eye can see, looking almost flat."
 	area_blurb_category = "verdant_shore"
+	lighting = TRUE
 
 /area/point_verdant/reservoir
 	name = "Point Verdant - Reservoir"
 	sound_env = PLAIN
 	ambience = AMBIENCE_KONYANG_WATER
+	lighting = TRUE
 
 /area/point_verdant/sewer
 	name = "Point Verdant - Sewers"
@@ -45,6 +55,10 @@
 
 /area/point_verdant/interior/hotel
 	name = "Point Verdant - Hotel"
+	icon_state = "crew_quarters"
+
+/area/point_verdant/interior/hotel/basement
+	name = "Point Verdant - Hotel - Basement"
 	icon_state = "crew_quarters"
 
 /area/point_verdant/interior/arcade
@@ -119,10 +133,13 @@
 	name = "Point Verdant - Outdoors"
 	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city."
 	area_blurb_category = "verdant_outdoors"
+	lighting = TRUE
 
 /area/point_verdant/water
 	name = "Point Verdant - Open Water"
 	icon_state = "fitness_pool"
+	lighting = TRUE
 
 /area/point_verdant/water/deep // also used for waterdock landing area
 	name = "Point Verdant - Deep Water"
+	lighting = TRUE

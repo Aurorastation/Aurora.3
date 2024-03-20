@@ -17,6 +17,8 @@
 	ruin_planet_type = PLANET_SNOW
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
+	unit_test_groups = list(2)
+
 /obj/effect/overmap/visitable/sector/exoplanet/snow/generate_atmosphere()
 	..()
 	if(atmosphere)

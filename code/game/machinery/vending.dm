@@ -145,6 +145,7 @@
 		src.ads_list += text2list(src.product_ads, ";")
 
 	add_screen_overlay()
+	build_products()
 	build_inventory()
 	power_change()
 
@@ -167,6 +168,15 @@
 			screen_overlays["[icon_state]-deny"] = make_screen_overlay(icon, "[icon_state]-deny")
 	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
 	reset_light()
+
+/**
+ *  Build src.products
+ *
+ *  To be overriden if building the products list is dynamic at runtime or needs any complex logic
+ */
+/obj/machinery/vending/proc/build_products()
+	SHOULD_NOT_SLEEP(TRUE)
+	return
 
 /**
  *  Build src.product_records from the products lists
@@ -719,6 +729,7 @@
 
 	var/vending_usr_dir = get_dir(src, user)
 	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
+	vended_product_post(vended)
 	if(Adjacent(user))
 		user.put_in_hands(vended)
 	src.status_message = ""
@@ -734,6 +745,12 @@
 					use_power_oneoff(RC.reagents.set_temperature(cooling_temperature))
 				if(1)
 					use_power_oneoff(RC.reagents.set_temperature(heating_temperature))
+
+/// To be overriden if vended out products need any post-processing, setting its vars.
+/// Called by `vend_product`.
+/// `vended` is the item that is being vended out.
+/obj/machinery/vending/proc/vended_product_post(var/obj/vended)
+	return
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 

@@ -102,8 +102,8 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
-	desc = "A ludicrously expensive and EMP shielded component, these types of limbs are best suited for highly specialized cyborgs."
-	icon = 'icons/mob/human_races/ipc/r_terminator.dmi'
+	desc = "A ludicrously complex prosthetic created for Purpose Hunter-Killers."
+	icon = 'icons/mob/human_races/ipc/r_hunter_killer.dmi'
 	unavailable_at_chargen = TRUE
 	allows_internal = FALSE
 

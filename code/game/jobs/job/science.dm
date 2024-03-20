@@ -35,11 +35,11 @@
 		SPECIES_SKRELL = 100,
 		SPECIES_SKRELL_AXIORI = 100
 	)
-	outfit = /datum/outfit/job/rd
+	outfit = /obj/outfit/job/rd
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
-/datum/outfit/job/rd
+/obj/outfit/job/rd
 	name = "Research Director"
 	jobtype = /datum/job/rd
 
@@ -85,10 +85,10 @@
 	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
 
 	minimal_player_age = 14
-	outfit = /datum/outfit/job/scientist
+	outfit = /obj/outfit/job/scientist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/scientist
+/obj/outfit/job/scientist
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
@@ -137,10 +137,10 @@
 	minimal_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID)
 
 	minimal_player_age = 14
-	outfit = /datum/outfit/job/scientist/xenoarchaeologist
+	outfit = /obj/outfit/job/scientist/xenoarchaeologist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/scientist/xenoarchaeologist
+/obj/outfit/job/scientist/xenoarchaeologist
 	name = "Xenoarchaeologist"
 	jobtype = /datum/job/xenoarchaeologist
 
@@ -174,10 +174,10 @@
 
 	minimal_player_age = 14
 
-	outfit = /datum/outfit/job/scientist/xenobiologist
+	outfit = /obj/outfit/job/scientist/xenobiologist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/scientist/xenobiologist
+/obj/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
 
@@ -206,11 +206,11 @@
 
 	minimal_player_age = 14
 
-	outfit = /datum/outfit/job/scientist/xenobotanist
+	outfit = /obj/outfit/job/scientist/xenobotanist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 
-/datum/outfit/job/scientist/xenobotanist
+/obj/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
 	jobtype = /datum/job/xenobotanist
 
@@ -228,10 +228,10 @@
 	selection_color = "#a44799"
 	access = list(ACCESS_RESEARCH, ACCESS_TOX)
 	minimal_access = list(ACCESS_RESEARCH, ACCESS_TOX)
-	outfit = /datum/outfit/job/intern_sci
+	outfit = /obj/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/intern_sci
+/obj/outfit/job/intern_sci
 	name = "Lab Assistant"
 	jobtype = /datum/job/intern_sci
 

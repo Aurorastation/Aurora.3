@@ -155,9 +155,19 @@
 		spawn_atoms -= A
 	return A
 
-//The proc to actually spawn in the user
+/**
+ * The proc to actually spawn in the user
+ *
+ * OVERWRITE THIS IN THE CHILD IMPLEMENTATIONS to return the spawned in mob !!!
+ *
+ * This is a basic proc for atom based spawners
+ *
+ * * user - A `/mob` to assign the current owner (client) of, to the new ghost spawn
+ *
+ * Returns a `/mob` which is the spawned mob, or `null` in case of error/unavailability
+ */
 /datum/ghostspawner/proc/spawn_mob(mob/user)
-	//OVERWRITE THIS IN THE CHILD IMPLEMENTATIONS to return the spawned in mob !!!
+	RETURN_TYPE(/mob)
 
 	//This is a basic proc for atom based spawners.
 	//  Location based spawners usually need a bit more logic

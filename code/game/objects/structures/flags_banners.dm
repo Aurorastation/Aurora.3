@@ -3100,16 +3100,56 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/traditionalist/l
 
-/obj/structure/sign/flag/scarab/large/north/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/north/Initialize(mapload)
 	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/scarab/large/south/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/south/Initialize(mapload)
 	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/scarab/large/east/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/east/Initialize(mapload)
 	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/scarab/large/west/Initialize(mapload)
+/obj/structure/sign/flag/traditionalist/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Exclusionists
+/obj/item/flag/exclusionist
+	name = "\improper Exclusionist flag"
+	desc = "The gold and black flag of the Exclusionists, a heretical and extremist sect of the Trinary Perfection."
+	flag_path = "exclusionist"
+	flag_structure = /obj/structure/sign/flag/exclusionist
+
+/obj/structure/sign/flag/exclusionist
+	name = "\improper Exclusionist flag"
+	desc = "The gold and black flag of the Exclusionists, a heretical and extremist sect of the Trinary Perfection."
+	flag_path = "exclusionist"
+	icon_state = "exclusionist"
+	flag_item = /obj/item/flag/exclusionist
+
+/obj/structure/sign/flag/exclusionist/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/exclusionist/l
+	name = "large Exclusionist flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/exclusionist/large
+
+/obj/structure/sign/flag/exclusionist/large
+	icon_state = "exclusionist_l"
+	flag_path = "exclusionist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/exclusionist/l
+
+/obj/structure/sign/flag/exclusionist/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/exclusionist/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/exclusionist/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/exclusionist/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 // Callisto
@@ -3149,3 +3189,60 @@
 
 /obj/structure/sign/flag/callisto/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+// Venus
+
+/obj/item/flag/venus
+	name = "\improper Venusian flag"
+	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	flag_path = "venus"
+	flag_structure = /obj/structure/sign/flag/venus
+
+/obj/structure/sign/flag/venus
+	name = "\improper Venusian flag"
+	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	flag_path = "venus"
+	icon_state = "venus"
+	flag_item = /obj/item/flag/venus
+
+/obj/item/flag/venus/l
+	name = "large Venusian flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/venus/large
+
+/obj/structure/sign/flag/venus/large
+	icon_state = "venus_l"
+	flag_path = "venus"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/venus/l
+
+/obj/structure/sign/flag/venus/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/venus/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/venus/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/venus/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Hiskyn
+/obj/item/flag/hiskyn
+	name = "\improper Hiskyn's Revanchists flag"
+	desc = "This crimson and black banner depicts an Unathi skull with a thin-bladed knife hanging above it. Anyone familiar with the pirate fleets of the southern Spur would recognise it as the banner of Hiskyn's Revanchists."
+	desc_extended = "The Hiskyn clan was once part of the clan Kazhkz, prior to their oaths of fealty to the Empire of Dominia. The Kazhkz-Han'san fleet split over the schism, with those who refused to bend their knees to a human power taking the name of Hiskyn. This fleet is known to target Dominian vessels with a vengeance, and particularly vessels carrying Dominian Unathi, whom they bear a deep hatred for."
+	flag_path = "hiskyn"
+	flag_structure = /obj/structure/sign/flag/hiskyn
+
+/obj/structure/sign/flag/hiskyn
+	name = "\improper Hiskyn's Revanchists flag"
+	desc = "This crimson and black banner depicts an Unathi skull with a thin-bladed knife hanging above it. Anyone familiar with the pirate fleets of the southern Spur would recognise it as the banner of Hiskyn's Revanchists."
+	desc_extended = "The Hiskyn clan was once part of the clan Kazhkz, prior to their oaths of fealty to the Empire of Dominia. The Kazhkz-Han'san fleet split over the schism, with those who refused to bend their knees to a human power taking the name of Hiskyn. This fleet is known to target Dominian vessels with a vengeance, and particularly vessels carrying Dominian Unathi, whom they bear a deep hatred for."
+	flag_path = "hiskyn"
+	icon_state = "hiskyn"
+	flag_item = /obj/item/flag/hiskyn
+
+/obj/structure/sign/flag/hiskyn/unmovable
+	unmovable = TRUE

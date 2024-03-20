@@ -223,22 +223,6 @@
 
 	return washit
 
-/obj/item/cane/shaman
-	name = "shaman staff"
-	desc = "A seven foot staff traditionally carried by Unathi shamans both as a symbol of authority and to aid them in walking. It is made out of dark, polished wood and is curved at the end."
-	icon_state = "shaman_staff"
-	item_state = "shaman_staff"
-	w_class = ITEMSIZE_LARGE
-
-/obj/item/cane/shaman/afterattack(atom/A, mob/user as mob, proximity)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(!proximity)
-		return
-	if (istype(A, /turf/simulated/floor))
-		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
-		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
-		return
-
 /obj/item/cane/concealed
 	var/concealed_blade
 

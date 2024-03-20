@@ -110,6 +110,18 @@
 		/obj/item/reagent_containers/food/snacks/bun
 	)
 	result = /obj/item/reagent_containers/food/snacks/chickenfillet
+
+/singleton/recipe/chickenparm
+	appliance = SKILLET
+	fruit = list("tomato" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/bun,
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/chickenparm
+
 /singleton/recipe/sloppyjoe
 	appliance = SKILLET
 	items = list(

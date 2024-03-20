@@ -15,10 +15,14 @@
 
 	set_species(new_species)
 	reset_hair()
+	if(isipc(src))
+		var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data(TRUE)
 	return 1
 
-/mob/living/carbon/human/proc/change_gender(var/set_gender)
-	if(gender == set_gender)
+/mob/living/carbon/human/proc/change_gender(var/set_gender, var/ignore_gender_check = FALSE)
+	if(gender == set_gender && !ignore_gender_check)
 		return
 
 	gender = set_gender

@@ -1413,7 +1413,7 @@
 "jz" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/izharshan,
-/obj/item/cane/shaman,
+/obj/item/nullrod/shaman,
 /obj/item/storage/box/fancy/matches,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -7597,9 +7597,6 @@
 /area/hegemony_ship/canteen)
 "Tq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/button/distress{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7951,11 +7948,11 @@
 /area/hegemony_ship/trophy_room)
 "VB" = (
 /obj/item/device/binoculars,
-/obj/item/device/binoculars{
-	pixel_y = 5
-	},
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/spline/plain,
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "VD" = (

@@ -236,122 +236,18 @@
 	W.reagents.add_reagent(/singleton/reagent/water, spray_amount)
 	W.set_up(O, spray_amount)
 
-	if(iscarbon(O))
-		var/update_icons_required = FALSE
+	if(ishuman(O))
+		var/mob/living/carbon/human/H = O
+		H.wash()
 
-		var/mob/living/carbon/M = O
-		if(M.r_hand)
-			M.r_hand.clean_blood()
-		if(M.l_hand)
-			M.l_hand.clean_blood()
-		if(M.back)
-			if(M.back.clean_blood())
-				M.update_inv_back(0)
-
-		//flush away reagents on the skin
-		if(M.touching)
-			var/remove_amount = M.touching.maximum_volume * M.reagent_permeability() //take off your suit first
-			M.touching.remove_any(remove_amount)
-
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/washgloves = TRUE
-			var/washshoes = TRUE
-			var/washmask = TRUE
-			var/washears = TRUE
-			var/washglasses = TRUE
-			var/washwrists = TRUE
-
-			if(H.wear_suit)
-				washgloves = !(H.wear_suit.flags_inv & HIDEGLOVES)
-				washshoes = !(H.wear_suit.flags_inv & HIDESHOES)
-				washwrists = !(H.wear_suit.flags_inv & HIDEWRISTS)
-
-			if(H.head)
-				washmask = !(H.head.flags_inv & HIDEMASK)
-				washglasses = !(H.head.flags_inv & HIDEEYES)
-				washears = !(H.head.flags_inv & HIDEEARS)
-
-			if(H.wear_mask)
-				if (washears)
-					washears = !(H.wear_mask.flags_inv & HIDEEARS)
-				if (washglasses)
-					washglasses = !(H.wear_mask.flags_inv & HIDEEYES)
-
-			if(H.head)
-				if(H.head.clean_blood())
-					H.update_inv_head(0)
-					update_icons_required = TRUE
-			if(H.wear_suit)
-				if(H.wear_suit.clean_blood())
-					H.update_inv_wear_suit(0)
-					update_icons_required = TRUE
-			else if(H.w_uniform)
-				if(H.w_uniform.clean_blood())
-					H.update_inv_w_uniform(0)
-					update_icons_required = TRUE
-			if(H.gloves && washgloves)
-				if(H.gloves.clean_blood())
-					H.update_inv_gloves(0)
-					update_icons_required = TRUE
-			if(H.shoes && washshoes)
-				if(H.shoes.clean_blood())
-					H.update_inv_shoes(0)
-					update_icons_required = TRUE
-			if(H.wear_mask && washmask)
-				if(H.wear_mask.clean_blood())
-					H.update_inv_wear_mask(0)
-					update_icons_required = TRUE
-			if(H.glasses && washglasses)
-				if(H.glasses.clean_blood())
-					H.update_inv_glasses(0)
-					update_icons_required = TRUE
-			if(H.l_ear && washears)
-				if(H.l_ear.clean_blood())
-					H.update_inv_l_ear(0)
-					update_icons_required = TRUE
-			if(H.r_ear && washears)
-				if(H.r_ear.clean_blood())
-					H.update_inv_r_ear(0)
-					update_icons_required = TRUE
-			if(H.belt)
-				if(H.belt.clean_blood())
-					H.update_inv_belt(0)
-					update_icons_required = TRUE
-			if(H.wrists && washwrists)
-				if(H.wrists.clean_blood())
-					H.update_inv_wrists(0)
-					update_icons_required = TRUE
-			H.clean_blood(washshoes)
-		else
-			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
-				if(M.wear_mask.clean_blood())
-					M.update_inv_wear_mask(0)
-					update_icons_required = TRUE
-			M.clean_blood()
-
-		if (update_icons_required)
-			M.update_icon()
-	else
-		O.clean_blood()
-
-	if(istype(O, /obj/item/light))
-		var/obj/item/light/L = O
-		L.brightness_color = initial(L.brightness_color)
-		L.update()
-	else if(istype(O, /obj/machinery/light))
-		var/obj/machinery/light/L = O
-		L.brightness_color = initial(L.brightness_color)
-		L.update()
-
-	O.color = initial(O.color)
+	if(isobj(O))
+		var/obj/object = O
+		object.clean()
 
 	if(isturf(loc))
 		var/turf/tile = loc
-		loc.clean_blood()
-		for(var/obj/effect/E in tile)
-			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
-				qdel(E)
+		tile.clean_blood()
+		tile.remove_cleanables()
 
 /obj/machinery/shower/process()
 	if(!on)

@@ -245,17 +245,18 @@
 	if (!active)
 		QDEL_NULL(sound_token)
 		return
-	sound_token = sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
+	sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
 
 /obj/item/shield/energy/hegemony
 	name = "hegemony barrier"
 	desc = "A Zkrehk-Guild manufactured energy shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "hegemony-eshield0"
+	base_block_chance = 60
 
 /obj/item/shield/energy/hegemony/update_icon()
 	icon_state = "hegemony-eshield[active]"
 	if(active)
-		set_light(1.5, 1.5, "e68917")
+		set_light(1.5, 1.5, "#e68917")
 	else
 		set_light(0)
 
@@ -263,6 +264,7 @@
 	name = "kataphract barrier"
 	desc = "A hardlight kite shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "kataphract-eshield0"
+	base_block_chance = 65
 
 /obj/item/shield/energy/hegemony/kataphract/update_icon()
 	icon_state = "kataphract-eshield[active]"
@@ -275,6 +277,7 @@
 	name = "energy barrier"
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
 	icon_state = "ebarrier0"
+	base_block_chance = 55
 
 /obj/item/shield/energy/legion/update_icon()
 	icon_state = "ebarrier[active]"
@@ -287,6 +290,7 @@
 	name = "dominian energy barrier"
 	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
 	icon_state = "dominian-eshield0"
+	base_block_chance = 60
 
 /obj/item/shield/energy/dominia/update_icon()
 	icon_state = "dominian-eshield[active]"

@@ -10,7 +10,7 @@
 	spawnpoints = list("imperial_fleet_voidsman")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/imperial_fleet_voidsman
+	outfit = /obj/outfit/admin/imperial_fleet_voidsman
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -19,7 +19,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/imperial_fleet_voidsman
+/obj/outfit/admin/imperial_fleet_voidsman
 	name = "Imperial Fleet Voidsman"
 
 	uniform = /obj/item/clothing/under/dominia/fleet
@@ -33,7 +33,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/imperial_fleet_voidsman/get_id_access()
+/obj/outfit/admin/imperial_fleet_voidsman/get_id_access()
 	return list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/imperial_fleet_voidsman/officer
@@ -45,13 +45,13 @@
 	spawnpoints = list("imperial_fleet_voidsman")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/imperial_fleet_voidsman/officer
+	outfit = /obj/outfit/admin/imperial_fleet_voidsman/officer
 
 	assigned_role = "Imperial Fleet Officer"
 	special_role = "Imperial Fleet Officer"
 
 
-/datum/outfit/admin/imperial_fleet_voidsman/officer
+/obj/outfit/admin/imperial_fleet_voidsman/officer
 	name = "Imperial Fleet Officer"
 	head = /obj/item/clothing/head/dominia/fleet/officer
 	uniform = /obj/item/clothing/under/dominia/fleet/officer
@@ -66,13 +66,13 @@
 
 	max_count = 2
 
-	outfit = /datum/outfit/admin/imperial_fleet_voidsman/armsman
+	outfit = /obj/outfit/admin/imperial_fleet_voidsman/armsman
 
 	assigned_role = "Imperial Fleet Armsman"
 	special_role = "Imperial Fleet Armsman"
 
 
-/datum/outfit/admin/imperial_fleet_voidsman/armsman
+/obj/outfit/admin/imperial_fleet_voidsman/armsman
 	name = "Imperial Fleet Armsman"
 	head = /obj/item/clothing/head/dominia/fleet/armsman
 	uniform = /obj/item/clothing/under/dominia/fleet/armsman
@@ -86,13 +86,13 @@
 
 	max_count = 1
 
-	outfit = /datum/outfit/admin/imperial_fleet_voidsman/priest
+	outfit = /obj/outfit/admin/imperial_fleet_voidsman/priest
 
 	assigned_role = "Imperial Fleet Priest"
 	special_role = "Imperial Fleet Priest"
 
 
-/datum/outfit/admin/imperial_fleet_voidsman/priest
+/obj/outfit/admin/imperial_fleet_voidsman/priest
 	name = "Imperial Fleet Priest"
 	head = /obj/item/clothing/head/beret/dominia/priest
 	uniform = /obj/item/clothing/under/dominia/priest

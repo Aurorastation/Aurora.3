@@ -15,6 +15,8 @@
 	ruin_planet_type = PLANET_GRASS
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
+	unit_test_groups = list(2)
+
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_map()
 	if(prob(40))
 		lightlevel = rand(1,7)/10	//give a chance of twilight jungle

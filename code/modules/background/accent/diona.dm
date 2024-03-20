@@ -44,11 +44,11 @@
 
 //Vaurca Influenced Accents
 
-/datum/accent/pestsong
-	name = ACCENT_PESTSONG
-	description = "Unique to those known as the Pests of Titan Prime, this accent is influenced by the buzzing and clacking noises of Vaurca, and as such tends to sound much harsher to the ears than many other Dionae accents."
-	tag_icon = "dionae_pest"
-	text_tag = "PTS"
+/datum/accent/hivesong
+	name = ACCENT_HIVESONG
+	description = "Unique to those known as the Pests of Titan Prime, Hivesong is influenced by the buzzing and clacking noises of Vaurca, and as such tends to sound much harsher to the ears than many other Dionae accents."
+	tag_icon = "dionae_hive"
+	text_tag = "HVS"
 
 //Unathi Influenced Accents
 /datum/accent/sandsong

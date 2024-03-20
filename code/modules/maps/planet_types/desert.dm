@@ -16,6 +16,8 @@
 	ruin_planet_type = PLANET_DESERT
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
+	unit_test_groups = list(1)
+
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_map()
 	lightlevel = rand(5,10)/10	//deserts are usually :lit:
 	..()

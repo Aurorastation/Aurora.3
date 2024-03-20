@@ -25,6 +25,10 @@
 	requires_contact = FALSE
 	instant_contact = TRUE
 
+	comms_support = TRUE
+	comms_name = "National Police" //these comms should only be used by Konyang Police ghostroles
+	freq_name = "Corporate District Patrol"
+
 	initial_generic_waypoints = list(
 		"nav_point_verdant_waterdock_01",
 		"nav_point_verdant_waterdock_02",

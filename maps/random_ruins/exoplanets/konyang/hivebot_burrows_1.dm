@@ -15,7 +15,7 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	base_turf = /turf/simulated/floor/exoplanet/basalt/cave
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 	sound_env = TUNNEL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
