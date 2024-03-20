@@ -23,7 +23,7 @@
 	name = "Raskara Surface"
 	ambience = AMBIENCE_OTHERWORLDLY
 	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
-	area_blurb = "The dark surface of the moon is quite. You feel a strange presence nearby."
+	area_blurb = "The dark surface of the moon is quiet. You feel a strange presence nearby."
 
 /area/exoplanet/barren/burzsia
 	name = "Burzsia Surface"
