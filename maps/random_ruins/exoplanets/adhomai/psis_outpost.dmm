@@ -74,10 +74,10 @@
 "dP" = (
 /obj/structure/table/standard,
 /obj/item/device/taperecorder,
-/obj/item/device/camera,
 /obj/machinery/light/small/red{
 	dir = 1
 	},
+/obj/item/device/camera/adhomai,
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},

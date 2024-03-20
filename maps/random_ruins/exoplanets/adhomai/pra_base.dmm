@@ -159,6 +159,12 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/black,
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	id = "pra_base";
+	pixel_x = 10;
+	pixel_y = 8
+	},
 /turf/simulated/floor/wood,
 /area/pra_base)
 "gP" = (
@@ -240,6 +246,11 @@
 /obj/effect/ghostspawpoint{
 	identifier = "pra_base_commissar";
 	name = "igs - pra_base_commissar"
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	pixel_x = -4;
+	id = "pra_base"
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -937,20 +948,16 @@
 /area/pra_base)
 "JK" = (
 /obj/structure/table/wood,
-/obj/machinery/button/switch/windowtint{
-	dir = 4;
-	pixel_x = -4;
-	pixel_y = 7;
-	id = "pra_base"
-	},
 /obj/item/stamp{
 	name = "people's republic of adhomai stamp";
 	icon_state = "stamp-zavod";
-	pixel_x = 6
+	pixel_x = 10;
+	pixel_y = 12
 	},
 /obj/item/stamp/denied{
-	pixel_x = -4
+	pixel_y = 12
 	},
+/obj/item/portable_typewriter,
 /turf/simulated/floor/wood,
 /area/pra_base)
 "Lb" = (
