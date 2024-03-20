@@ -1340,6 +1340,7 @@
 #include "code\game\objects\structures\crates_lockers\closets\secure\freezer.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\guncabinet.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\hydroponics.dm"
+#include "code\game\objects\structures\crates_lockers\closets\secure\marooning.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\medical.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\operations.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\personal.dm"
