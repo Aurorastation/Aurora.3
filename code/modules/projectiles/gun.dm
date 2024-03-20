@@ -834,7 +834,7 @@
 /obj/item/gun/on_give()
 	update_maptext()
 
-/obj/item/gun/dropped(mob/living/user)
+/obj/item/gun/dropped(mob/user)
 	..()
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
@@ -878,7 +878,7 @@
 	else
 		qdel(src)
 
-/obj/item/offhand/dropped(mob/living/user)
+/obj/item/offhand/dropped(mob/user)
 	. = ..()
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()

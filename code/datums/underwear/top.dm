@@ -119,7 +119,7 @@
 	icon_state = "fishnet_simple"
 	has_color = TRUE
 
-/datum/category_item/underwear/top/fishnet_simple
+/datum/category_item/underwear/top/ao_yem
 	name = "Ao Yem"
 	icon_state = "ao_yem"
 	has_color = TRUE

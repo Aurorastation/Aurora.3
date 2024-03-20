@@ -85,3 +85,10 @@
 /obj/effect/landmark/corpse/ipc_zombie //just a naked baseline corpse
 	name = "IPC Zombie"
 	species = SPECIES_IPC
+
+/obj/effect/landmark/corpse/ipc_zombie/do_extra_customization(mob/living/carbon/human/M)
+	var/obj/item/organ/internal/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_SELF
+		tag.citizenship_info = CITIZENSHIP_COALITION

@@ -6,7 +6,7 @@
 	spawnpoints = list("air_konyang")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/air_konyang
+	outfit = /obj/outfit/admin/konyang/air_konyang
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Air Konyang Crew"
@@ -29,9 +29,9 @@
 	max_count = 4
 	assigned_role = "Air Konyang Passenger"
 	special_role = "Air Konyang Passenger"
-	outfit = /datum/outfit/admin/konyang
+	outfit = /obj/outfit/admin/konyang/civ
 
-/datum/outfit/admin/air_konyang
+/obj/outfit/admin/konyang/air_konyang
 	name = "Air Konyang Crew"
 	uniform = /obj/item/clothing/under/sl_suit //placeholder until we get uniforms
 	shoes = /obj/item/clothing/shoes/laceup
@@ -40,7 +40,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 	l_ear = /obj/item/device/radio/headset/ship
 
-/datum/outfit/admin/konyang
+/obj/outfit/admin/konyang/civ
 	name = "Konyanger Civilian"
 	uniform = list(
 		/obj/item/clothing/under/konyang,

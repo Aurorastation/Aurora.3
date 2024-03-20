@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/nanotrasen
+/obj/outfit/admin/ert/nanotrasen
 	name = "NanoTrasen ERT Responder"
 
 	uniform = /obj/item/clothing/under/ert
@@ -20,10 +20,10 @@
 		/obj/item/ammo_magazine/a556/ap = 1
 	)
 
-/datum/outfit/admin/ert/nanotrasen/get_id_access()
+/obj/outfit/admin/ert/nanotrasen/get_id_access()
 	return get_all_station_access() | get_centcom_access("Emergency Response Team")
 
-/datum/outfit/admin/ert/nanotrasen/specialist
+/obj/outfit/admin/ert/nanotrasen/specialist
 	name = "NanoTrasen ERT Engineer Specialist"
 
 	belt = /obj/item/storage/belt/utility/full
@@ -31,7 +31,7 @@
 
 	belt_contents = null
 
-/datum/outfit/admin/ert/nanotrasen/specialist/medical
+/obj/outfit/admin/ert/nanotrasen/specialist/medical
 	name = "NanoTrasen ERT Medical Specialist"
 
 	belt = /obj/item/storage/belt/medical/first_responder/combat
@@ -48,7 +48,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/datum/outfit/admin/ert/nanotrasen/leader
+/obj/outfit/admin/ert/nanotrasen/leader
 	name = "NanoTrasen ERT Leader"
 
 	back = /obj/item/rig/ert

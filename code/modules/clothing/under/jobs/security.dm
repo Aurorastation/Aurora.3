@@ -116,6 +116,11 @@
 	icon_state = "ee_officer"
 	item_state = "ee_officer"
 
+/obj/item/clothing/under/rank/security/zeng
+	name = "zeng-hu pharmaceuticals security officer uniform"
+	icon_state = "zeng_officer"
+	item_state = "zeng_officer"
+
 /obj/item/clothing/under/rank/warden
 	name = "warden's uniform"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection."

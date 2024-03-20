@@ -1653,6 +1653,10 @@
 	req_access = list(25);
 	pixel_y = 5
 	},
+/obj/machinery/button/distress{
+	pixel_y = 6;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
 "ov" = (

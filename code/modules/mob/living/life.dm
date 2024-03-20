@@ -1,6 +1,4 @@
 /mob/living/Life()
-	set background = BACKGROUND_ENABLED
-
 	if (QDELETED(src))	// If they're being deleted, why bother?
 		return
 

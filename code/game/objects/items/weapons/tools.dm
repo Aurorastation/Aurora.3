@@ -400,7 +400,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_TERMINATOR))
+		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_PURPOSE_HK))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
@@ -735,6 +735,9 @@
 		if(M.a_intent && M.a_intent == I_HURT)
 			return FALSE
 
+	return TRUE
+
+/obj/item/crowbar/rescue_axe/can_woodcut()
 	return TRUE
 
 /obj/item/crowbar/rescue_axe/red

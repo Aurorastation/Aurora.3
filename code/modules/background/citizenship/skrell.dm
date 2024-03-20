@@ -6,7 +6,8 @@
 	life almost unmatched anywhere else in the Spur. \
 	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of humanity, who has acquired AI technology \
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
-	consular_outfit = /datum/outfit/job/representative/consular/nralakk
+	consular_outfit = /obj/outfit/job/representative/consular/nralakk
+	assistant_outfit = /obj/outfit/job/consular_assistant/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -28,6 +29,23 @@
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -67,7 +85,7 @@
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/nralakk
+/obj/outfit/job/representative/consular/nralakk
 	name = "Nralakk Consular Officer"
 
 	uniform = /obj/item/clothing/under/skrell
@@ -75,7 +93,7 @@
 		/obj/item/device/camera = 1
 	)
 
-/datum/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isskrell(H))
 			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol(H), slot_belt)
@@ -92,3 +110,6 @@
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
+
+/obj/outfit/job/consular_assistant/nralakk
+	uniform = /obj/item/clothing/under/skrell

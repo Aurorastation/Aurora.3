@@ -698,6 +698,10 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 5
+	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "azr" = (
@@ -1895,7 +1899,13 @@
 /area/medical/equipment)
 "bpd" = (
 /obj/structure/table/steel,
-/obj/item/material/ashtray/bronze,
+/obj/item/material/ashtray/bronze{
+	pixel_x = -9
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "bpD" = (
@@ -2495,6 +2505,10 @@
 	dir = 8;
 	id = "shutters_deck3_cafedesk";
 	name = "Cafe Desk Shutter"
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 10;
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/cafeteria)
@@ -3291,6 +3305,10 @@
 	},
 /obj/item/folder/white,
 /obj/item/stamp/cmo,
+/obj/random/pottedplant_small{
+	pixel_x = 8;
+	pixel_y = 12
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "cCp" = (
@@ -5527,10 +5545,11 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/chips{
-	pixel_x = -13
+	pixel_x = -9
 	},
 /obj/item/material/ashtray/glass{
-	pixel_y = -3
+	pixel_y = -3;
+	pixel_x = 7
 	},
 /obj/machinery/recharger{
 	pixel_x = 5;
@@ -7398,7 +7417,14 @@
 "fxi" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/device/flashlight/lamp{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 11;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "fxj" = (
@@ -8906,6 +8932,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/random/pottedplant_small{
+	pixel_x = -5;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/central)
 "guz" = (
@@ -9013,6 +9043,10 @@
 "gyx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge/secondary)
 "gza" = (
@@ -9134,6 +9168,10 @@
 	name = "Cafe Desk Shutter"
 	},
 /obj/structure/table/stone/marble,
+/obj/random/pottedplant_small{
+	pixel_x = -8;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/cafeteria)
 "gDJ" = (
@@ -9409,7 +9447,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/aux{
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "gMX" = (
@@ -11441,6 +11481,10 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge)
 "ihc" = (
@@ -12620,6 +12664,10 @@
 /area/engineering/break_room)
 "iSb" = (
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_y = 0;
+	pixel_x = -5
+	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge)
 "iSt" = (
@@ -13279,7 +13327,10 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/pink,
+/obj/item/device/flashlight/lamp/lava/pink{
+	pixel_x = -4;
+	pixel_y = 6
+	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge/secondary)
 "jwe" = (
@@ -14004,6 +14055,14 @@
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
+"jUG" = (
+/obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "jVe" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -14143,6 +14202,10 @@
 /obj/item/folder/sec,
 /obj/item/folder/sec,
 /obj/item/pen,
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 16
+	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/investigators_office)
 "jZm" = (
@@ -14401,6 +14464,10 @@
 	dir = 4
 	},
 /obj/structure/table/stone/marble,
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "klQ" = (
@@ -14526,6 +14593,10 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/newscaster/east,
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 0
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "kqe" = (
@@ -15782,6 +15853,10 @@
 	pixel_x = 5;
 	pixel_y = -7
 	},
+/obj/random/pottedplant_small{
+	pixel_x = -6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "ldS" = (
@@ -16322,6 +16397,10 @@
 /area/crew_quarters/captain)
 "lvm" = (
 /obj/structure/table/reinforced/wood,
+/obj/random/pottedplant_small{
+	pixel_x = -6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "lvq" = (
@@ -16780,6 +16859,10 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/random/pottedplant_small{
+	pixel_x = 14;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "lMI" = (
@@ -18808,6 +18891,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"nga" = (
+/obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_y = 16
+	},
+/turf/simulated/floor/carpet,
+/area/bridge/cciaroom)
 "ngK" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -20010,6 +20100,10 @@
 /area/horizon/hallway/deck_three/primary/central)
 "nVh" = (
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge/secondary)
 "nVG" = (
@@ -20025,11 +20119,15 @@
 /obj/structure/table/standard,
 /obj/item/device/taperecorder{
 	pixel_x = -4;
-	pixel_y = 3
+	pixel_y = 5
 	},
 /obj/machinery/recharger{
 	pixel_x = 8;
 	pixel_y = 6
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 3;
+	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -21847,6 +21945,10 @@
 /obj/structure/table/reinforced/wood,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 5;
+	pixel_y = -1
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
@@ -23920,6 +24022,10 @@
 	dir = 8
 	},
 /obj/machinery/newscaster/west,
+/obj/random/pottedplant_small{
+	pixel_x = -7;
+	pixel_y = 3
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular_two)
 "qOO" = (
@@ -23927,6 +24033,10 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 0
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "qOR" = (
@@ -26189,7 +26299,9 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "sqD" = (
 /obj/structure/table/wood,
-/obj/item/material/ashtray/bronze,
+/obj/item/material/ashtray/bronze{
+	pixel_y = -4
+	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge/secondary)
 "sqN" = (
@@ -26205,6 +26317,10 @@
 	},
 /obj/item/paper_scanner{
 	pixel_x = -1
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -14;
+	pixel_y = 5
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
@@ -27231,6 +27347,9 @@
 "tcA" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/random/pottedplant_small{
+	pixel_y = 16
+	},
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/central)
 "tcM" = (
@@ -30806,6 +30925,10 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
 /obj/structure/railing/mapped,
+/obj/random/pottedplant_small{
+	pixel_x = -3;
+	pixel_y = 8
+	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "vEh" = (
@@ -32808,6 +32931,10 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/unary/vent_pump/aux,
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "wYq" = (
@@ -33156,6 +33283,10 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
@@ -34066,6 +34197,10 @@
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 0
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative_two)
@@ -58236,7 +58371,7 @@ qLf
 nbB
 ach
 bMb
-bMb
+nga
 rjn
 moN
 cPq
@@ -59849,7 +59984,7 @@ oWu
 eBw
 isH
 bhp
-xjl
+jUG
 jaG
 pbu
 gqH
