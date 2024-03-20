@@ -493,7 +493,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
 		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
-		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb)
+		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
 
 /// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
 /mob/living/verb/show_area_blurb()
