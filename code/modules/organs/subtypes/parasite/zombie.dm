@@ -162,10 +162,12 @@
 	to_chat(owner, "<font size=4><span class='warning'>You feel your flesh burning as it rots, and your head exploding as the virus reaches it...</font></span>")
 	to_chat(owner, "<font size=4><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
 	owner.set_species(owner.species.zombie_type, 0, 0, 0)
-	var/list/wakeup_sounds = list('sound/effects/zombies/zombie_1.ogg',
+	var/list/wakeup_sounds = list(
+						'sound/effects/zombies/zombie_1.ogg',
 						'sound/effects/zombies/zombie_2.ogg',
 						'sound/effects/zombies/zombie_3.ogg',
-						'sound/effects/zombies/zombie_4.ogg')
+						'sound/effects/zombies/zombie_4.ogg'
+						)
 	playsound(owner, pick(wakeup_sounds))
 	owner.change_skin_color(r, g, b)
 	owner.update_dna()
