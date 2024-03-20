@@ -107,3 +107,74 @@
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("tuna"  = 3), /singleton/reagent/nutriment = list("mayo" = 3, "pasta" =4))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/salad/potato_salad
+	name = "potato salad"
+	desc = "Potatoes that have been saladed."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "potatosalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#e6d89a"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 12, /singleton/reagent/nutriment/protein/egg = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("potato"  = 5, "mayonnaise" = 5, "zest" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/salad/fruit_salad
+	name = "fruit salad"
+	desc = "Delicious, nutritious, sweet and delicious!"
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "fruitsalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#f3a126"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/drink/grapejuice = 3, /singleton/reagent/drink/orangejuice = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("apple"  = 5, "orange" = 5, "grapes" = 5, "watermelon" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/salad/caesar_salad
+	name = "caesar salad"
+	desc = "Lettuce, croutons, lemon juice, olive oil, egg yolks, anchovies, and so much flavoring! Truly a salad to rule an empire."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "caesarsalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#3b8d34"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("crunchy greens"  = 5), /singleton/reagent/nutriment/protein = list("anchovies" = 5, "cheese" = 4))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/salad/jungle_salad
+	name = "jungle salad"
+	desc = "An exotic fruit salad, made with real jungle!"
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "junglesalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#f3a126"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/drink/grapejuice = 3, /singleton/reagent/drink/banana = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("apple"  = 5, "banana" = 5, "grapes" = 5, "watermelon" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/salad/citrus_delight
+	name = "citrus delight"
+	desc = "A fruit salad made of various citrus fruits. Probably very healthy for you! You know... If you ignore all the natural sugar in it."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "citrusdelight"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#f3a126"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 7, /singleton/reagent/drink/orangejuice = 3, /singleton/reagent/drink/lemonjuice = 3, /singleton/reagent/drink/limejuice = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("tangy sourness"  = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/salad/spring_salad
+	name = "spring salad"
+	desc = "A simple salad of carrots, lettuce and peas drizzled in oil with a pinch of salt."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "springsalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#5a9c62"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("salad" = 2, "tomato" = 2, "bulgur" = 2, "greens" = 2))
+	bitesize = 3

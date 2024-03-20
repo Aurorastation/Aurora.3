@@ -199,7 +199,7 @@
 			var/obj/item/paper/P = src[1]
 			if(istype(loc, /obj/item/gripper)) //Hacky but without it there's a ghost icon with grippers and it all spills on the floor.
 				var/obj/item/gripper/G = loc
-				G.drop(get_turf(src), FALSE)
+				G.drop(get_turf(src), usr, FALSE)
 				G.grip_item(P, usr, FALSE)
 			else
 				usr.put_in_hands(P)

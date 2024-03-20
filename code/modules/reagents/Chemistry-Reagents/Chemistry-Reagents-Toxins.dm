@@ -149,9 +149,9 @@
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/internal/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_FILTRATION_BIT]
 			if(isnull(F))
-				..()
+				return
 			else if(F.is_broken())
-				..()
+				return
 			else if(H.species.has_organ[BP_PHORON_RESERVE])
 				var/obj/item/organ/internal/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
 				if(isnull(P))
@@ -714,6 +714,12 @@
 	reagent_state = LIQUID
 	nicotine = REM * 0.1
 	taste_mult = 2
+
+/singleton/reagent/toxin/tobacco/srendarrs_hand
+	name = "S'rendarr's Hand"
+	description = "S'rendarr's Hand, known as Alyad'al S'rendarr to the tajara, originates from Adhomai. The nicotine-containing leaves are often dried out and stuffed into pipes or rolled in paper for smoking."
+	taste_description = "honeyed tobacco"
+	nicotine = 0.3
 
 /singleton/reagent/toxin/oracle
 	name = "Oracle"

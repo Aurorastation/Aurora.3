@@ -1,34 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/machinery/door/airlock/diona/external{
-	dir = 4
-	},
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship/engine)
-"ab" = (
-/obj/machinery/door/airlock/diona/external{
-	dir = 4
-	},
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship/engine)
 "ac" = (
 /obj/machinery/door/airlock/diona{
 	dir = 1
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
-"ad" = (
-/obj/machinery/door/airlock/diona{
-	dir = 1
-	},
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship/hall)
-"ae" = (
-/obj/machinery/door/airlock/diona/external{
-	dir = 4
-	},
-/turf/simulated/floor/diona,
-/area/shuttle/diona_serz_ship_shuttle)
 "af" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/diona/airless,
@@ -1297,6 +1273,11 @@
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
+	},
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 7
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/bridge)
@@ -36165,8 +36146,8 @@ Jd
 Jd
 Jd
 Jd
-aa
-ab
+ca
+ca
 Jd
 Lw
 kB
@@ -37703,7 +37684,7 @@ YM
 Gh
 Gh
 YM
-ad
+ac
 Sa
 LE
 Sa
@@ -42820,7 +42801,7 @@ kB
 yR
 yR
 yR
-ae
+Dh
 Oo
 yR
 yR

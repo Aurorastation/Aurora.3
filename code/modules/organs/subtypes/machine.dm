@@ -224,7 +224,7 @@
 	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
-	var/citizenship_info = CITIZENSHIP_BIESEL
+	var/citizenship_info = CITIZENSHIP_NONE
 
 /obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
@@ -290,6 +290,34 @@
 							citizenship_info = citizenship
 	else
 		..()
+
+/obj/item/organ/internal/ipc_tag/proc/modify_tag_data(var/can_be_untagged = FALSE)
+	if(!owner || owner.stat)
+		return
+	if(can_be_untagged)
+		var/untagged = tgui_alert(owner, "Do you wish to remove your tag? This is highly illegal in most nations!", "Untagged IPC", list("Remove Tag", "Keep Tag"))
+		if(untagged == "Remove Tag")
+			to_chat(owner, SPAN_WARNING("You are now an untagged synthetic - don't get caught!"))
+			qdel(src)
+			return
+	var/new_ownership = tgui_input_list(owner, "Choose an ownership status for your IPC tag.", "Tag Ownership", list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF))
+	if(!new_ownership)
+		return
+	ownership_info = new_ownership
+	if(ownership_info == IPC_OWNERSHIP_SELF) //Owned IPCs don't have citizenship
+		var/new_citizenship = tgui_input_list(owner, "Choose a citizenship for your IPC tag.", "Tag Citizenship", CITIZENSHIPS_ALL_IPC)
+		if(!new_citizenship)
+			return
+		citizenship_info = new_citizenship
+	else
+		citizenship_info = CITIZENSHIP_NONE
+	var/new_serial = tgui_input_text(owner, "Choose a serial number for your IPC tag, or leave blank for a random one.", "Serial Number")
+	if(!new_serial)
+		serial_number = uppertext(dd_limittext(md5(owner.real_name), 12))
+	else
+		serial_number = uppertext(dd_limittext(new_serial, 12))
+	to_chat(owner, SPAN_NOTICE("IPC tag data has been updated."))
+
 
 // Used for an MMI or posibrain being installed into a human.
 /obj/item/organ/internal/mmi_holder

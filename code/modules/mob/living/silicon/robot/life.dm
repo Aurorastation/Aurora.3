@@ -1,6 +1,4 @@
 /mob/living/silicon/robot/Life()
-	set background = BACKGROUND_ENABLED
-
 	if(transforming)
 		return
 

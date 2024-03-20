@@ -46,29 +46,29 @@
 	)
 
 	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
-		"Warden" = /datum/outfit/job/warden/zavodskoi,
-		"Security Cadet" = /datum/outfit/job/intern_sec/officer/zavodskoi,
-		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/zavodskoi,
-		"Investigator" =/datum/outfit/job/forensics/zavodskoi,
-		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
-		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zavodskoi,
-		"Xenobotanist" = /datum/outfit/job/scientist/xenobotanist/zavodskoi,
-		"Lab Assistant" = /datum/outfit/job/intern_sci/zavodskoi,
-		"Xenoarchaeologist"= /datum/outfit/job/scientist/xenoarchaeologist/zavodskoi,
-		"Engineer" = /datum/outfit/job/engineer/zavodskoi,
-		"Atmospheric Technician" = /datum/outfit/job/atmos/zavodskoi,
-		"Engineering Apprentice" = /datum/outfit/job/intern_eng/zavodskoi,
-		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/zavodskoi,
-		"Corporate Reporter" = /datum/outfit/job/journalist/zavodskoi,
-		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zavodskoi,
-		"Security Personnel" = /datum/outfit/job/officer/zavodskoi,
-		"Engineering Personnel" = /datum/outfit/job/engineer/zavodskoi,
-		"Science Personnel" = /datum/outfit/job/scientist/zavodskoi
+		"Security Officer" = /obj/outfit/job/officer/zavodskoi,
+		"Warden" = /obj/outfit/job/warden/zavodskoi,
+		"Security Cadet" = /obj/outfit/job/intern_sec/officer/zavodskoi,
+		"Investigator Intern" = /obj/outfit/job/intern_sec/forensics/zavodskoi,
+		"Investigator" =/obj/outfit/job/forensics/zavodskoi,
+		"Scientist" = /obj/outfit/job/scientist/zavodskoi,
+		"Xenobiologist" = /obj/outfit/job/scientist/xenobiologist/zavodskoi,
+		"Xenobotanist" = /obj/outfit/job/scientist/xenobotanist/zavodskoi,
+		"Lab Assistant" = /obj/outfit/job/intern_sci/zavodskoi,
+		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zavodskoi,
+		"Engineer" = /obj/outfit/job/engineer/zavodskoi,
+		"Atmospheric Technician" = /obj/outfit/job/atmos/zavodskoi,
+		"Engineering Apprentice" = /obj/outfit/job/intern_eng/zavodskoi,
+		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/zavodskoi,
+		"Corporate Reporter" = /obj/outfit/job/journalist/zavodskoi,
+		"Corporate Liaison" = /obj/outfit/job/representative/zavodskoi,
+		"Off-Duty Crew Member" = /obj/outfit/job/visitor/zavodskoi,
+		"Security Personnel" = /obj/outfit/job/officer/zavodskoi,
+		"Engineering Personnel" = /obj/outfit/job/engineer/zavodskoi,
+		"Science Personnel" = /obj/outfit/job/scientist/zavodskoi
 	)
 
-/datum/outfit/job/officer/zavodskoi
+/obj/outfit/job/officer/zavodskoi
 	name = "Security Officer - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/security/zavod
@@ -79,7 +79,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/warden/zavodskoi
+/obj/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
 
 	head = /obj/item/clothing/head/warden/zavod
@@ -93,7 +93,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/intern_sec/officer/zavodskoi
+/obj/outfit/job/intern_sec/officer/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/cadet/zavod
@@ -104,7 +104,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/intern_sec/forensics/zavodskoi
+/obj/outfit/job/intern_sec/forensics/zavodskoi
 	name = "Investigator Intern - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/cadet/zavod
@@ -115,7 +115,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/forensics/zavodskoi
+/obj/outfit/job/forensics/zavodskoi
 	name = "Investigator - Zavodskoi Interstellar"
 
 	id = /obj/item/card/id/zavodskoi/sec
@@ -127,7 +127,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/scientist/zavodskoi
+/obj/outfit/job/scientist/zavodskoi
 	name = "Scientist - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/zavod
@@ -140,7 +140,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/scientist/xenobiologist/zavodskoi
+/obj/outfit/job/scientist/xenobiologist/zavodskoi
 	name = "Xenobiologist - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zavod
@@ -153,7 +153,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/scientist/xenobotanist/zavodskoi
+/obj/outfit/job/scientist/xenobotanist/zavodskoi
 	name = "Xenobotanist - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany/zavod
@@ -161,7 +161,7 @@
 	id = /obj/item/card/id/zavodskoi
 	shoes = /obj/item/clothing/shoes/sneakers/medsci/zavod
 
-/datum/outfit/job/scientist/xenoarchaeologist/zavodskoi
+/obj/outfit/job/scientist/xenoarchaeologist/zavodskoi
 	name = "Xenoarchaeologist - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zavod
@@ -174,7 +174,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/intern_sci/zavodskoi
+/obj/outfit/job/intern_sci/zavodskoi
 	name = "Lab Assistant - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern/zavod
@@ -186,7 +186,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/engineer/zavodskoi
+/obj/outfit/job/engineer/zavodskoi
 	name = "Engineer - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/zavod
@@ -198,7 +198,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/atmos/zavodskoi
+/obj/outfit/job/atmos/zavodskoi
 	name = "Atmospheric Technician - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician/zavod
@@ -210,7 +210,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/intern_eng/zavodskoi
+/obj/outfit/job/intern_eng/zavodskoi
 	name = "Engineering Apprentice - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
@@ -222,7 +222,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/intern_atmos/zavodskoi
+/obj/outfit/job/intern_atmos/zavodskoi
 	name = "Atmospherics Apprentice - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
@@ -234,7 +234,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/representative/zavodskoi
+/obj/outfit/job/representative/zavodskoi
 	name = "Zavodskoi Interstellar Corporate Liaison"
 
 	head = /obj/item/clothing/head/beret/corporate/zavod
@@ -255,7 +255,7 @@
 		/obj/item/stamp/zavodskoi = 1
 	)
 
-/datum/outfit/job/journalist/zavodskoi
+/obj/outfit/job/journalist/zavodskoi
 	name = "Corporate Reporter - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/librarian/zavod
@@ -266,7 +266,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
-/datum/outfit/job/visitor/zavodskoi
+/obj/outfit/job/visitor/zavodskoi
 	name = "Off-Duty Crew Member - Zavodskoi Interstellar"
 
 	id = /obj/item/card/id/zavodskoi

@@ -9,7 +9,7 @@ import { storage } from 'common/storage';
 import { loadSettings, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from '../settings/actions';
 import { selectSettings } from '../settings/selectors';
 import { addChatPage, changeChatPage, changeScrollTracking, loadChat, rebuildChat, removeChatPage, saveChatToDisk, clearChatMessages, toggleAcceptedType, updateMessageCount } from './actions';
-import { MAX_PERSISTED_MESSAGES, MESSAGE_SAVE_INTERVAL } from './constants';
+import { MAX_PERSISTED_MESSAGES, MESSAGE_SAVE_INTERVAL, MESSAGE_PRUNE_INTERVAL } from './constants';
 import { createMessage, serializeMessage } from './model';
 import { chatRenderer } from './renderer';
 import { selectChat, selectCurrentChatPage } from './selectors';
@@ -78,6 +78,10 @@ export const chatMiddleware = (store) => {
   setInterval(() => {
     saveChatToStorage(store);
   }, MESSAGE_SAVE_INTERVAL);
+  setInterval(() => {
+    const settings = selectSettings(store.getState());
+    chatRenderer.pruneMessagesTo(settings.maxMessages, MAX_PERSISTED_MESSAGES);
+  }, MESSAGE_PRUNE_INTERVAL);
   return (next) => (action) => {
     const { type, payload } = action;
     if (!initialized) {

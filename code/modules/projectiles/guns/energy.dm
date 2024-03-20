@@ -221,7 +221,7 @@
 		connect(backcharge)
 
 
-/obj/item/gun/energy/dropped(mob/living/user)
+/obj/item/gun/energy/dropped(mob/user)
 	. = ..()
 
 	if(recharger)

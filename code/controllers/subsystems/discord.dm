@@ -250,7 +250,6 @@ SUBSYSTEM_DEF(discord)
  * Returns text - The invite URL to the designated invite channel.
  */
 /datum/controller/subsystem/discord/proc/retreive_invite()
-	set background = 1
 	if (!active)
 		log_subsystem_discord("RetrieveInvite - Failed - Bot not Active")
 		return ""

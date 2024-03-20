@@ -118,6 +118,33 @@
 	M.add_chemical_effect(CE_HALLUCINATE, power)
 	M.confused = max(M.confused, power)
 
+/singleton/reagent/drugs/snowflake
+	name = "Snowflake"
+	description = "A recreational stimulant refined from frost oil, found in certain plants."
+	taste_description = "metallic and bitter"
+	reagent_state = LIQUID
+	color = "#bbd7eb"
+	overdose = 15
+	fallback_specific_heat = 15
+	default_temperature = T0C - 40
+	initial_effect_message_list = list("You feel euphoric!", "You feel unstoppable.")
+	sober_message_list = list("You feel a bit more sluggish", "You feel terrible...", "You feel pretty dehydrated.")
+
+/singleton/reagent/drugs/snowflake/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	M.add_chemical_effect(CE_PAINKILLER, 3 * power)
+	M.bodytemperature = max(M.bodytemperature - 15 * TEMPERATURE_DAMAGE_COEFFICIENT * power, 0)
+	if(prob(12))
+		M.emote(pick("shiver", "sniff"))
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You just can't seem to stop sniffling...", "You feel impatient...", "Your eyes feel a bit dry.")))
+
+/singleton/reagent/drugs/snowflake/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(prob(35))
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
+		M.add_chemical_effect(CE_NEUROTOXIC, 1)
+	..()
+
 /singleton/reagent/drugs/impedrezene
 	name = "Impedrezene"
 	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
@@ -258,6 +285,29 @@
 			M.emote(pick("twitch", "shiver"))
 		else
 			M.seizure()
+
+/singleton/reagent/drugs/colorspace
+	name = "Colorspace"
+	description = "A psychedelic drug that alters thought and perception."
+	taste_description = "flavorless paste"
+	color = "#a7a6a4"
+	initial_effect_message_list = list("Your skin tickles.", "You seem to leave this world behind...")
+	sober_message_list = list("The world grows still again.", "Colors seem duller.")
+
+/singleton/reagent/drugs/colorspace/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+
+	var/drug_strength = 20 * power
+
+	if(alien == IS_SKRELL)
+		drug_strength *= 0.8
+
+	M.druggy = max(M.druggy, 15)
+	M.hallucination = max(M.hallucination, drug_strength)
+
+	if(prob(15))
+		to_chat(SPAN_GOOD(pick("The floor is melting...", "Everything is so much brighter! Wow!", "Everything is shifting around you.")))
+
 
 /singleton/reagent/drugs/night_juice
 	name = "Nightlife"
