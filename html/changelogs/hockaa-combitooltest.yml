@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes:
+  - tweak: "Combitools now have appropriate sounds corresponding to their selected bit."
