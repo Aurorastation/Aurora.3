@@ -52,6 +52,10 @@
 		H.update_body()
 	if(H?.wear_suit)
 		H.wear_suit.color = pick("#4f3911", "#292826")
+	if(isipc(H))
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data()
 
 /obj/outfit/admin/heph_security/get_id_access()
 	return list(ACCESS_HEPHAESTUS, ACCESS_EXTERNAL_AIRLOCKS)

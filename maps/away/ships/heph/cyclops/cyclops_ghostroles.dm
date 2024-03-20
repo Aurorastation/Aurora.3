@@ -54,6 +54,10 @@
 		var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 		A.replaced(H, affected)
 		H.update_body()
+	if(isipc(H))
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data()
 
 /obj/outfit/admin/cyclops_crew/get_id_access()
 	return list(ACCESS_HEPHAESTUS,ACCESS_EXTERNAL_AIRLOCKS)

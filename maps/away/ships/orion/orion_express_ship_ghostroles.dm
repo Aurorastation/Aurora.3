@@ -47,7 +47,8 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/surname = splittext(H.name, " ")
+		var/list/fullname = splittext(H.name, " ")
+		var/surname = fullname[fullname.len]
 		switch(surname)
 			if("K'lax")
 				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
@@ -60,6 +61,10 @@
 		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+	if(isipc(H))
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data()
 
 /obj/outfit/admin/orion_express_courier/get_id_access()
 	return list(ACCESS_ORION_EXPRESS_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

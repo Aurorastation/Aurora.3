@@ -86,6 +86,11 @@
 /obj/effect/landmark/corpse/idris/robot/do_extra_customization(mob/living/carbon/human/M)
 	M.adjustBruteLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinal)
+	var/obj/item/organ/internal/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_COMPANY
+		tag.citizenship_info = CITIZENSHIP_NONE
 
 /obj/effect/landmark/corpse/idris/captain
 	name = "Idris Captain"
