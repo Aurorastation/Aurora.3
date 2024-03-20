@@ -57,8 +57,8 @@
 						/obj/item/handcuffs = 2
 						)
 	backpack_contents = list(
-						/obj/item/clothing/accessory/badge/hadii_card/member = 1
-						)
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1
+	)
 	l_ear = null
 
 	id = /obj/item/card/id
