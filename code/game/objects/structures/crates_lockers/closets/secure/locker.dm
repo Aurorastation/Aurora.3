@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet
-	name = "secure locker"
+	name = "locker"
 	desc = "It's a steel ID-locked locker."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "secure"
