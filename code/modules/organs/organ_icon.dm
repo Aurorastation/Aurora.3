@@ -197,6 +197,10 @@
 					mob_icon.ColorTone(rgb(10,50,0))
 					mob_icon.SetIntensity(0.7)
 
+				if(status & ORGAN_ZOMBIFIED)
+					mob_icon.ColorTone(rgb(30, 30, 30))
+					mob_icon.SetIntensity(0.7)
+
 				if(skin_color)
 					mob_icon.Blend(skin_color, ICON_ADD)
 

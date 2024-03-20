@@ -12,10 +12,15 @@
 
 	egg = /singleton/reagent/toxin/trioxin
 
+	/// If the parasite is currently being cured by an antidote. Stops progression.
 	var/curing = FALSE
+	/// If the parasite has been cured. Stops the cure from happening twice.
 	var/cured = FALSE
+	/// Tracker for cure progress.
 	var/cured_timer = 0
+	/// The last world.time we were healed as a zombie.
 	var/last_heal = 0
+	/// The amount of seconds between each heal.
 	var/heal_rate = 5 SECONDS
 
 /obj/item/organ/internal/parasite/zombie/process()
