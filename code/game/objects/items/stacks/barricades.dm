@@ -46,6 +46,11 @@
 	amount = rand(1, 5)
 	update_icon()
 
+/obj/item/stack/barricade/full/Initialize(mapload)
+	. = ..()
+	amount = 5
+	update_icon()
+
 /obj/item/stack/barricade/plasteel
 	name = "plasteel barricade kit"
 	desc = "A kit of plasteel, pipes, nuts, and bolts. You can make a barricade with this."
@@ -56,6 +61,11 @@
 /obj/item/stack/barricade/plasteel/random/Initialize(mapload)
 	. = ..()
 	amount = rand(1, 5)
+	update_icon()
+
+/obj/item/stack/barricade/plasteel/full/Initialize(mapload)
+	. = ..()
+	amount = 5
 	update_icon()
 
 /obj/item/stack/barricade/wood
@@ -69,4 +79,9 @@
 /obj/item/stack/barricade/wood/random/Initialize(mapload)
 	. = ..()
 	amount = rand(1,5)
+	update_icon()
+
+/obj/item/stack/barricade/wood/full/Initialize(mapload)
+	. = ..()
+	amount = 5
 	update_icon()
