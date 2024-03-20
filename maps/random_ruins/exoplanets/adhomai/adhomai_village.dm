@@ -17,6 +17,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A cozy Tajaran village. The heat and smell of food emanating from the houses are a relief in the cold wilderness."
 
 //ghost roles
 

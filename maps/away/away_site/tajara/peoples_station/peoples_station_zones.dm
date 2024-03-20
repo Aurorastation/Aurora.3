@@ -6,6 +6,7 @@
 	no_light_control = TRUE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "The clean and highly organized walls of the station welcomes you. The People's Republic of Adhomai's anthem can be heard from the speakers."
 
 /area/peoples_station/barracks
 	name = "People's Space Station Barracks"

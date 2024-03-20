@@ -12,3 +12,4 @@
 	icon_state = "bluenew"
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	ambience = AMBIENCE_OTHERWORLDLY
+	area_blurb = "You feel a strange presence here. Something is weighing down on your shoulders."

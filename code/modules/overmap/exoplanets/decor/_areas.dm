@@ -8,6 +8,7 @@
 	name = "Adhomian Wilderness"
 	ambience = list('sound/effects/wind/tundra0.ogg', 'sound/effects/wind/tundra1.ogg', 'sound/effects/wind/tundra2.ogg', 'sound/effects/wind/spooky0.ogg', 'sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+	area_blurb = "The freezing wind blows through the unforgiving Adhomian wilderness."
 
 /area/exoplanet/barren
 	name = "\improper Planetary surface"
@@ -22,6 +23,7 @@
 	name = "Raskara Surface"
 	ambience = AMBIENCE_OTHERWORLDLY
 	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
+	area_blurb = "The dark surface of the moon is quite. You feel a strange presence nearby."
 
 /area/exoplanet/barren/burzsia
 	name = "Burzsia Surface"

@@ -4301,16 +4301,6 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
-"Rs" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "database_bridge"
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/database_freighter)
 "Rt" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -11742,7 +11732,7 @@ ki
 BF
 BF
 ew
-Rs
+Zq
 iB
 iB
 mb

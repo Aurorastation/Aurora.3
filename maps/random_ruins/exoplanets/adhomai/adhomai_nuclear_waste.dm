@@ -16,3 +16,4 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
+	area_blurb = "Countless warnings are stamped on the walls in multiples languages: This place is not a place of honor; no highly esteemed deed is commemorated here; nothing valued is here."

@@ -19,6 +19,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	turf_initializer = new /datum/turf_initializer/maintenance/raskariim()
 	ambience = AMBIENCE_GHOSTLY
+	area_blurb = "You feel watched as you enter this old house."
 
 /datum/turf_initializer/maintenance/raskariim/initialize(var/turf/simulated/T)
 	..()
