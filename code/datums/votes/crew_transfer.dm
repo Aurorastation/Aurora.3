@@ -45,11 +45,12 @@ GLOBAL_VAR(last_transfer_vote)
 /datum/vote/crewtransfer/get_vote_result(list/non_voters)
 	SHOULD_CALL_PARENT(FALSE)
 
-	//Calculate the factor based on the duration in minutes
-	var/factor = 0.5
+	// Calculate the factor based on the duration in minutes
+	// Formula for an x/y majority: (y-x)/x
+	var/factor = 1.0
 	switch(get_round_duration() / (10 * 60)) // minutes
 		if(0 to 180) //Up to 3 hours
-			factor = 0.67 //2/3rd, rounded up from 0.6 periodic
+			factor = 0.5 //2/3rds majority: transfer requires 2x the votes. (3-2)/2 = 0.5
 		else
 			factor = 1.0 //Equal weight
 
