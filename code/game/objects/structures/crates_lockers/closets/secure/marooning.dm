@@ -23,11 +23,11 @@
 		/obj/item/crowbar/red = 1,
 		/obj/item/device/flashlight/heavy = 1,
 		/obj/item/device/gps/marooning_equipment = 1,
-		/obj/item/airbubble = 1
+		/obj/item/airbubble = 1,
 
 		// Rations
 		/obj/item/storage/box/fancy/mre/random = 2,
-		/obj/item/reagent_containers/food/drinks/waterbottle = 4
+		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
 
 		// Medical Supplies
 		/obj/item/storage/firstaid/stab = 1
