@@ -14,7 +14,7 @@
 	sound_env = LARGE_ENCLOSED
 	no_light_control = 1
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
-	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gasses for the vessel's life support systems."
+	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems."
 	area_blurb_category = "atmos"
 
 /area/engineering/atmos/monitoring
