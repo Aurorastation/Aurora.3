@@ -628,11 +628,11 @@ h2.alert {
   border: 1px solid #111a27;
   margin: 0.5em;
   padding: 0.5em 0.75em;
-}
 
-&--grey {
-  @extend .examine_block;
-  border-color: #808080;
+  &--grey {
+    @extend .examine_block;
+    border-color: #808080;
+  }
 }
 
 .examine_block .icon {
