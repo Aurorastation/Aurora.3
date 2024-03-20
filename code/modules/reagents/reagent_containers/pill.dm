@@ -371,7 +371,7 @@
 	reagents_to_add = list(/singleton/reagent/spacecleaner = 15)
 
 /obj/item/reagent_containers/pill/ryetalyn
-	name = "10u Ryetalyn Pill"
+	name = "5u Ryetalyn Pill"
 	desc = "A medicine used to treat genetic conditions, including benign and malignant tumours."
 	icon_state = "pill11"
-	reagents_to_add = list(/singleton/reagent/ryetalyn = 10)
+	reagents_to_add = list(/singleton/reagent/ryetalyn = 5)
