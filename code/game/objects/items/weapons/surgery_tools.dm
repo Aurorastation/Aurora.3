@@ -109,7 +109,7 @@
 /obj/item/surgery/scalpel/laser
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
-	icon_state = "scalpel_laser3"
+	icon_state = "scalpel_laser"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
 	damtype = "fire"
@@ -234,7 +234,7 @@
 		/obj/item/surgery/hemostat = "tray_hemostat",
 		/obj/item/surgery/retractor = "tray_retractor",
 		/obj/item/surgery/scalpel = "tray_scalpel",
-		/obj/item/surgery/scalpel/laser = "tray_scalpel_laser3",
+		/obj/item/surgery/scalpel/laser = "tray_scalpel_laser",
 		/obj/item/surgery/scalpel/manager = "tray_scalpel_manager",
 		/obj/item/surgery/surgicaldrill = "tray_drill",
 		/obj/item/surgery/bone_gel = "tray_bone-gel",
