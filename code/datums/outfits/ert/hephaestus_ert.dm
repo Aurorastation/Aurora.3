@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/hephaestus
+/obj/outfit/admin/ert/hephaestus
 	name = "Hephaestus Asset Protection"
 	uniform = /obj/item/clothing/under/rank/security/heph
 	shoes = /obj/item/clothing/shoes/magboots
@@ -32,10 +32,10 @@
 
 	id_iff = IFF_HEPH
 
-/datum/outfit/admin/ert/hephaestus/get_id_access()
+/obj/outfit/admin/ert/hephaestus/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/ert/hephaestus/medic
+/obj/outfit/admin/ert/hephaestus/medic
 	name = "Hephaestus Medic"
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -69,7 +69,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/datum/outfit/admin/ert/hephaestus/engi
+/obj/outfit/admin/ert/hephaestus/engi
 	name = "Hephaestus Engineer"
 	back = /obj/item/storage/backpack/duffel/heph
 	belt = /obj/item/storage/belt/utility/very_full
@@ -90,6 +90,6 @@
 	)
 	belt_contents = null
 
-/datum/outfit/admin/ert/hephaestus/leader
+/obj/outfit/admin/ert/hephaestus/leader
 	name = "Hephaestus Squad Leader"
 	uniform = /obj/item/clothing/under/rank/captain/hephaestus

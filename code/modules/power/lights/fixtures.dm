@@ -714,3 +714,8 @@
 		if(brightness_color != default_color)
 			brightness_color = default_color
 			update(0)
+
+/obj/machinery/light/clean()
+	. = ..()
+	brightness_color = initial(brightness_color)
+	update()

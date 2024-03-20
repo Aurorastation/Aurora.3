@@ -206,9 +206,9 @@
 		step(src, get_dir(AM, src))
 	take_damage(tforce)
 
-/obj/structure/window/attack_hand(var/mob/user)
+/obj/structure/window/attack_hand(var/mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if((user.mutations & HULK))
+	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
 		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"))
 		user.do_attack_animation(src)

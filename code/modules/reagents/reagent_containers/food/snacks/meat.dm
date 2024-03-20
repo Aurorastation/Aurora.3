@@ -205,6 +205,12 @@
 	contained_sprite = TRUE
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drugs/mindbreaker = 6)
 
+/obj/item/reagent_containers/food/snacks/meat/hakhma
+	name = "hakhma meat"
+	desc = "A slab of purple bug-meat. Still tastes like chicken."
+	icon_state = "hakhmeat"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 4) // pork of the stars! insects do, in fact, get fat.
+
 /obj/item/reagent_containers/food/snacks/meat/bat
 	name = "bat wings"
 	desc = "Like chicken wings, but with even less meat!"
@@ -377,3 +383,22 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 4, "cabbage" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/meatballs_and_peas
+	name = "meatballs and peas"
+	desc = "Meatballs, peas, tomato sauce, and sometimes some mashed potatoes on the side. Whether you think of this as 'home cooking' or 'a working man's meal', one thing is for sure - It's as comforting and delicioius as it is simple."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "meatballpeas"
+	filling_color = "#913b19"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 6)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("meat" = 5), /singleton/reagent/nutriment = list("tomato sauce" = 4, "peas" = 4))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/meatballs_and_peas/update_icon()
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 49)
+			icon_state = "meatballpeas_half"
+		if(50 to INFINITY)
+			icon_state = "meatballpeas"

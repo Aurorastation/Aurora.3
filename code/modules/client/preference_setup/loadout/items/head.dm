@@ -479,7 +479,7 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 	return "Default"
 
 /datum/gear_tweak/hair_block/get_metadata(var/user, var/metadata)
-	return input(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", metadata) as anything in list("Yes", "No", "Default")
+	return tgui_input_list(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", list("Yes", "No", "Default"), metadata)
 
 /datum/gear_tweak/hair_block/tweak_item(var/obj/item/clothing/head/H, var/metadata)
 	if(!istype(H))

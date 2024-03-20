@@ -30,6 +30,17 @@
 	/// Lobby music overrides.
 	var/list/lobby_tracks
 
+	/// A list of the major ports in this sector.
+	/// Note that these are supposed to be visitable by the Horizon and its crew, so only put those there.
+	var/list/ports_of_call
+	/// The days of the next port visits. If null, port visits are disabled.
+	/// Must be a day found in the all_days list.
+	var/list/scheduled_port_visits = list("Sunday")
+	/// This variable holds the calculated time (integer) until port visit. Do not edit manually.
+	var/next_port_visit
+	/// This variable holds the string of time until port visit. Will be "in 1 day", "in 2 days", "today", etc. Do not edit manually.
+	var/next_port_visit_string
+
 	//vars used by the meteor random event
 
 	var/list/meteors_minor = list(
@@ -125,6 +136,23 @@
 /datum/space_sector/proc/setup_current_sector()
 	SHOULD_CALL_PARENT(TRUE)
 
+	if(SSatlas.current_map.ports_of_call && length(scheduled_port_visits))
+		var/current_day_index = GLOB.all_days.Find(time2text(world.realtime, "Day"))
+		var/days_calculated = 0
+		// The main problem to consider here is that you have to loop around for two weeks to find all the days, basically.
+		// It could be Thursday with Wednesday as a port of call, for example.
+		while(!next_port_visit)
+			if(!(GLOB.all_days[current_day_index] in SSatlas.current_sector.scheduled_port_visits))
+				days_calculated++
+				current_day_index++
+				if(current_day_index > length(GLOB.all_days))
+					current_day_index = 1
+					continue
+			next_port_visit = current_day_index
+			break
+
+		next_port_visit_string = days_calculated == 0 ? "today" : days_calculated == 1 ? "in [days_calculated] day" : "in [days_calculated] days"
+
 	// For now, i've put processing to only happen if the sector has a radio station
 	// but if, in the future, you add more stuff for the processor to handle, feel free to move it out of the if block
 	if(length(lore_radio_stations))
@@ -177,12 +205,6 @@
 
 /datum/space_sector/proc/get_chat_description()
 	return "<hr><div align='center'><hr1><B>Current Sector: [name]!</B></hr1><br><i>[description]</i><hr></div>"
-
-/datum/space_sector/proc/get_port_travel_time()
-	return "[rand(1, 3)] days"
-
-/datum/space_sector/proc/generate_system_name()
-	return "[pick("Miranda", "BNM", "Xavier", "GJ", "HD", "TC", "Melissa", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"
 
 /// Returns a flat list of all possible away sites that can spawn in this sector.
 /datum/space_sector/proc/possible_sites_in_sector()
