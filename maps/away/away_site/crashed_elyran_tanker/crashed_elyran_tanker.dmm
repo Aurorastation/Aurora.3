@@ -357,7 +357,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "dm" = (
-/obj/structure/closet/secure_closet/freezer/fridge{
+/obj/structure/closet/secure_closet/refrigerator/standard{
 	opened = 1
 	},
 /obj/effect/decal/cleanable/dirt,

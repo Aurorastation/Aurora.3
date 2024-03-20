@@ -1576,7 +1576,7 @@
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/structure/closet/secure_closet/freezer/fridge{
+/obj/structure/closet/secure_closet/refrigerator/standard{
 	desc = "It looks like it has not been used for some time.";
 	name = "dust-covered refrigerator"
 	},

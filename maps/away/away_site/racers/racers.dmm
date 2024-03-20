@@ -1136,7 +1136,7 @@
 /area/space)
 "frf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -1959,7 +1959,7 @@
 /area/racers)
 "jnP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = list(202)
 	},
 /obj/item/reagent_containers/food/condiment/flour,
@@ -4892,7 +4892,7 @@
 /area/racers)
 "xFs" = (
 /obj/machinery/light/small,
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/meatball,
 /obj/item/reagent_containers/food/snacks/meatball,
 /obj/item/reagent_containers/food/snacks/meatball,

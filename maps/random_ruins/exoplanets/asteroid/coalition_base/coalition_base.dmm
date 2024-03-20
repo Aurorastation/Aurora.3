@@ -78,7 +78,7 @@
 /turf/simulated/wall/r_wall,
 /area/coalition_base/kitchen)
 "bU" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/condiment/flour,

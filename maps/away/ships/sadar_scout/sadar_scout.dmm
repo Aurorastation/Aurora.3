@@ -6329,7 +6329,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/forehall)
 "UX" = (
-/obj/structure/closet/secure_closet/freezer/fridge{
+/obj/structure/closet/secure_closet/refrigerator/standard{
 	anchored = 1
 	},
 /obj/item/reagent_containers/food/condiment/enzyme{

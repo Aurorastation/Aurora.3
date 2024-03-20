@@ -1168,7 +1168,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/militia_ship)
 "piw" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,

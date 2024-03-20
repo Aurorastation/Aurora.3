@@ -8661,7 +8661,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bKj" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
 	},
@@ -11461,7 +11461,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "dGn" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -18442,7 +18442,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "hTk" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/structure/sign/poster{

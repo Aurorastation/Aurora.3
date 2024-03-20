@@ -3962,11 +3962,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mZ" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "na" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)

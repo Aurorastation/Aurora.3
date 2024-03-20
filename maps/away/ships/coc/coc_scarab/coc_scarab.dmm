@@ -9189,7 +9189,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "TT" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,

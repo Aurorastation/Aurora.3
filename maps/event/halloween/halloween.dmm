@@ -3404,7 +3404,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/kitchen)
 "nS" = (
-/obj/structure/closet/secure_closet/freezer/meat/super_meat,
+/obj/structure/closet/secure_closet/freezer/meat/grill,
 /turf/simulated/floor/tiled/freezer,
 /area/city/kitchen)
 "nT" = (
@@ -3633,7 +3633,7 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "oW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,

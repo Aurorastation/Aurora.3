@@ -2531,7 +2531,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "pqU" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = list(204)
 	},
 /obj/item/reagent_containers/food/snacks/meat,

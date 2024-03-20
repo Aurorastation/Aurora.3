@@ -1045,7 +1045,7 @@
 /turf/simulated/wall/rusty,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "eoo" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1095,7 +1095,7 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/medbay)

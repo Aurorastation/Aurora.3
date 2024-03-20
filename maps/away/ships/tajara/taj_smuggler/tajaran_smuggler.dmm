@@ -3318,7 +3318,7 @@
 	},
 /area/tajaran_smuggler/power)
 "ttw" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/produce{

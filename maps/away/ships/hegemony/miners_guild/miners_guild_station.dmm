@@ -1511,7 +1511,7 @@
 /turf/simulated/floor/plating,
 /area/miners_guild)
 "qC" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -3959,7 +3959,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
 "RK" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,

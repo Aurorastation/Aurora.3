@@ -851,7 +851,7 @@
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/adhomai_bar)
 "Ta" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -884,7 +884,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "TJ" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
