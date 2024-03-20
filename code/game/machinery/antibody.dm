@@ -21,7 +21,6 @@
 	var/mob/living/carbon/human/occupant
 
 /obj/machinery/antibody_extractor/Destroy()
-	intended_target = null
 	occupant = null
 	return ..()
 
@@ -39,9 +38,12 @@
 		return FALSE
 
 	if(occupant)
-		if(occupant != intended_target)
+		var/is_infected = FALSE
+		if(occupant.organs_by_name[BP_ZOMBIE_PARASITE])
+			is_infected = TRUE
+		if(!is_infected)
 			to_chat(user, SPAN_WARNING("\The [src] beeps in disapproval. The error message says something along the lines of needing a patient infected with \
-										the very first strain of Hylemnomil-Zeta."))
+										Hylemnomil-Zeta."))
 			. = ..()
 			return
 		var/time_to_die = tgui_alert(user, "Are you sure?", "Begin Antibody Creation", list("Yes", "No"))
