@@ -9,6 +9,7 @@
 	stage_interval = 110
 	drug_resistance = TRUE
 	relative_size = 0
+	status = ORGAN_ZOMBIFIED
 
 	egg = /singleton/reagent/toxin/hylemnomil
 
