@@ -630,6 +630,11 @@ h2.alert {
   padding: 0.5em 0.75em;
 }
 
+&--grey {
+  @extend .examine_block;
+  border-color: #808080;
+}
+
 .examine_block .icon {
   width: 1.5em;
   height: 1.5em;
