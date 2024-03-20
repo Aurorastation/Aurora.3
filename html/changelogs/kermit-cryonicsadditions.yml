@@ -5,7 +5,7 @@ delete-after: True
 changes:
   - bugfix: "Cryotubes no longer render synthetics unconscious - IPCs can now bathe in cryotubes to cool off."
   - tweak: "Cryotubes apply less stasis at temperatures between 120K and 200K, meaning cryotube beaker mixes are more viable."
-  - rscadd: "Cataleptinol (new recipe: 0.5u phoron, 1u alkysine, 0.5u clonexadone, 0.75u cryosilicate) has been reworked from the ground up to be more useful and versatile. Cataleptinol will heal brain activity regardless of oxygenation - at cryo temperatures, this is with no consequence; outside of cryogenics, the benefits come with large consequences which will exacerbate any medical conditions."
+  - rscadd: "Cataleptinol (new recipe: 0.5u phoron, 2u alkysine, 1u clonexadone and a 5u cryosilicate catalyst) has been reworked from the ground up to be more useful and versatile. Cataleptinol will heal brain activity regardless of oxygenation - at cryo temperatures, this is with no consequence; outside of cryogenics, the benefits come with large consequences which will exacerbate any medical conditions."
   - rscadd: "Cryo/Clonexadone both overdose at 5u. This isn't anything to worry about when using Cryo/Clonexadone in a cryotube; using these two chemicals outside of cryotubes requires much greater care. Added ocular toxicity (eye damage) for use by Cryo/Clonexadone's overdose."
   - tweak: "Significantly nerfs Cryo/Clonexadone's organ healing. It's still there, but pharmacist's can improve upon the organ healing - it's also required due to metabolisation/stasis changes. Cryo/Clonexadone only heals brain damage above the 50% mark."
   - tweak: "Renames Cryosurfactant -> Cryosilicate. The recipe now also uses silicate instead of surfactant."
