@@ -3,7 +3,7 @@
 	desc = "A kit of metal, pipes, nuts, and bolts. You can make a barricade with this."
 	singular_name = "barricade kit"
 	max_amount = 5
-	icon = 'icons/obj/raccoon_city/barricades.dmi'
+	icon = 'icons/obj/barricade_stacks.dmi'
 	icon_state = "steel-kit"
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
