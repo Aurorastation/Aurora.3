@@ -5,6 +5,7 @@
 	desc = "A planet comprised mainly of solid common minerals and silicate."
 	color = "#bf7c39"
 	icon_state = "globe1"
+	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	rock_colors = list(COLOR_GRAY80)
 	features_budget = 1
 	surface_color = "#B1A69B"
