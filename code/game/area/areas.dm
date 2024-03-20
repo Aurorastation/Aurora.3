@@ -488,7 +488,7 @@ var/list/mob/living/forced_ambiance_list = new
 /area/proc/do_area_blurb(mob/living/target_mob, override)
 	if(isnull(area_blurb))
 		if(override)
-			to_chat(target_mob, SPAN_NOTICE("No blurb set for this area."))
+			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
 		return
 
 	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
