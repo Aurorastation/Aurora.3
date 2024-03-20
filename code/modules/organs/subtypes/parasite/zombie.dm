@@ -10,7 +10,7 @@
 	drug_resistance = TRUE
 	relative_size = 0
 
-	egg = /singleton/reagent/toxin/trioxin
+	egg = /singleton/reagent/toxin/hylemnomil
 
 	/// If the parasite is currently being cured by an antidote. Stops progression.
 	var/curing = FALSE

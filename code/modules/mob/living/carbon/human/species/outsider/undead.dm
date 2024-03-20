@@ -354,7 +354,12 @@
 	)
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious)
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/carbon/proc/consume, /mob/living/carbon/proc/smash_barricade)
+	inherent_verbs = list(
+						/mob/living/carbon/human/proc/darkness_eyes,
+						/mob/living/carbon/proc/consume,
+						/mob/living/carbon/proc/smash_barricade,
+						/mob/living/carbon/human/proc/throw_rock
+						)
 	show_ssd = TRUE
 
 /datum/species/zombie/bull/get_random_name(gender)
@@ -384,7 +389,6 @@
 
 	maneuvers = list(/singleton/maneuver/leap/areagrab)
 	inherent_verbs = list(
-						/mob/living/carbon/human/proc/trample,
 						/mob/living/carbon/human/proc/darkness_eyes,
 						/mob/living/carbon/proc/consume
 						)
@@ -500,10 +504,10 @@
 		target.apply_damage(rand(50, 60), DAMAGE_BRUTE, BP_CHEST)
 		target.adjustBruteLoss(20)
 		var/infection_chance = 80
-		var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
+		var/hylemnomil_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/hylemnomil)
 		if(prob(infection_chance))
 			if(target.reagents)
-				target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
+				target.reagents.add_reagent(/singleton/reagent/toxin/hylemnomil, min(10, ZOMBIE_MAX_HYLEMNOMIL - hylemnomil_amount))
 
 		if (target.getBruteLoss() > target.maxHealth * 3)
 			if (target.stat != DEAD)
