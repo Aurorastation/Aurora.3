@@ -861,27 +861,42 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
+		/// Thetamycin is a temporary fix.
 		if(H.reagents.has_reagent(/singleton/reagent/thetamycin, 15))
 			return
 
+		/// Antibodies are a more permanent one.
 		if(H.chem_effects[CE_ANTIBODIES])
 			return
 
 		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
 			var/to_infest
 			var/list/possible_organs = list()
+			var/obj/item/organ/external/organ_to_check
+
+			/// The infection starts from the hands and feet. The closer it is to the brain, the higher the stage it starts at.
 			for(var/organ in list(BP_R_HAND, BP_L_HAND, BP_R_FOOT, BP_L_FOOT))
-				if(H.organs_by_name[organ])
+				organ_to_check = H.organs_by_name[organ]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
 					possible_organs[organ] = 1
+
 			if(!length(possible_organs))
 				for(var/organ in list(BP_R_ARM, BP_L_ARM, BP_R_LEG, BP_L_LEG))
-					if(H.organs_by_name[organ])
+					organ_to_check = H.organs_by_name[organ]
+					if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
 						possible_organs[organ] = 2
+
+			/// In case there aren't any appendages, try the groin.
 			if(!length(possible_organs))
-				if(H.organs_by_name[BP_GROIN])
+				organ_to_check = H.organs_by_name[BP_GROIN]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
 					possible_organs[BP_GROIN] = 2
+
+			/// I'm not even sure how you get to being a nugget, but the last resort is the chest.
 			if(!length(possible_organs))
 				possible_organs[BP_CHEST] = 3
+
+			/// Infect the user, apply the right stage, then remove all hylemnomil from the user.
 			to_infest = pick(possible_organs)
 			var/obj/item/organ/external/affected = H.organs_by_name[to_infest]
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
@@ -889,6 +904,7 @@
 			infest.parent_organ = affected.limb_name
 			infest.stage = possible_organs[to_infest]
 			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
+
 /singleton/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
