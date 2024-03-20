@@ -1,0 +1,47 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: MattAtlas
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+- rscadd: "Zombie limbs are now ACTUALLY easier to delimb. There was a longstanding bug that made their maim bonus not apply."
+- rscadd: "Added new abilities to every zombie type. Ported the Consume verb from bay, which zombies can use to refresh their HP, gib dead enemies, or simply kill alive ones and rip their ribcage open. Yes, it visibly rips their ribcage open."
+- rscadd: "The zombie chem is now called Hylemnomil-Zeta and has Lore:tm:."
+- rscadd: "Added the antibody extractor. The only way to get Hylemnomil-Zeta antibodies."
+- rscadd: "Added barricade stacks."
+- rscadd: "Reworked how the infection works. It starts from an appendage and progresses to the brain. An infection can be stopped by cutting off the infected limb."
+- rscadd: "You cannot remove zombie parasites surgically anymore."
