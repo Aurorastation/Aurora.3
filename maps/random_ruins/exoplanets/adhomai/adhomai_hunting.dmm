@@ -19,6 +19,12 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"dy" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "ey" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -37,13 +43,6 @@
 /obj/item/trap,
 /obj/item/trap,
 /obj/item/trap,
-/turf/simulated/floor/exoplanet/wood,
-/area/adhomai_hunting)
-"he" = (
-/obj/structure/window/basic{
-	dir = 4
-	},
-/obj/structure/curtain/black,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "hD" = (
@@ -94,10 +93,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "le" = (
-/obj/structure/window/basic{
-	dir = 8
-	},
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "lh" = (
@@ -268,6 +265,7 @@
 	desc = "An expensive silver charm of tajaran origin. This one has the arrowhead of Ma'take";
 	name = "mata'ke charm"
 	},
+/obj/item/nullrod/matake,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "DY" = (
@@ -327,6 +325,16 @@
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
+"Nu" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
+"PH" = (
+/obj/structure/sign/flag/matake,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
 "Sm" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -360,7 +368,7 @@
 /turf/simulated/floor/exoplanet/ice,
 /area/exoplanet/adhomai)
 "VL" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "VU" = (
@@ -832,7 +840,7 @@ qU
 Vo
 rg
 rg
-VL
+Nu
 rg
 wj
 Hj
@@ -857,7 +865,7 @@ Hj
 Hj
 rg
 rg
-qU
+PH
 Sm
 VU
 qU
@@ -971,7 +979,7 @@ qU
 DY
 rg
 rg
-he
+le
 rg
 rg
 Hj
@@ -993,7 +1001,7 @@ Hj
 Hj
 rg
 rg
-qU
+PH
 IE
 ey
 qU
@@ -1130,7 +1138,7 @@ Hj
 Hj
 Hj
 Hj
-Hj
+dy
 KI
 Hj
 jh
@@ -1171,7 +1179,7 @@ CX
 rg
 rg
 rg
-he
+le
 rg
 rg
 Hj

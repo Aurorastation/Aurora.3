@@ -119,7 +119,8 @@
 /area/exoplanet/adhomai)
 "J" = (
 /obj/structure/sign/flag/dpra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)

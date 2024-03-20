@@ -44,6 +44,10 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
+"eh" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
+/area/nka_base)
 "eF" = (
 /obj/structure/sign/emergency/meetingpoint{
 	name = "\improper AID STATION sign";
@@ -387,6 +391,12 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
+"xQ" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nka_base)
 "yk" = (
 /obj/machinery/shower{
 	dir = 1
@@ -626,7 +636,9 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Rg" = (
-/obj/effect/map_effect/window_spawner/basic,
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Sr" = (
@@ -676,9 +688,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Vn" = (
-/obj/structure/simple_door/wood{
-	name = "shower"
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -1155,7 +1165,7 @@ DL
 DL
 DL
 yB
-WG
+xQ
 yB
 yB
 yB
@@ -1237,7 +1247,7 @@ yB
 DL
 EP
 EP
-WG
+eh
 mB
 mB
 vd
@@ -1543,10 +1553,10 @@ DL
 DL
 EP
 EP
-yB
-yB
-yB
-yB
+CO
+CO
+CO
+CO
 DL
 gU
 "}
@@ -1580,7 +1590,7 @@ Fo
 Rg
 gF
 YC
-yB
+CO
 DL
 gU
 "}
@@ -1614,7 +1624,7 @@ EP
 cM
 Rb
 AC
-yB
+CO
 DL
 gU
 "}
@@ -1645,10 +1655,10 @@ EP
 EP
 EP
 EP
-yB
+CO
 ak
 ka
-yB
+CO
 DL
 gU
 "}
@@ -1679,10 +1689,10 @@ EP
 EP
 EP
 EP
-yB
-yB
-yB
-yB
+CO
+CO
+CO
+CO
 DL
 gU
 "}

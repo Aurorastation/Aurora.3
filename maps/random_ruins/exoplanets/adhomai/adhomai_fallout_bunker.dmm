@@ -38,7 +38,8 @@
 /area/adhomai_fallout_bunker)
 "bu" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -806,7 +807,8 @@
 /area/adhomai_fallout_bunker)
 "At" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15

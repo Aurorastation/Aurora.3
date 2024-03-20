@@ -53,6 +53,7 @@
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir, /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara, /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar, /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul)
 	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/adhomai)
 	scheduled_port_visits = list("Thursday", "Sunday")
+	ports_of_call = list("the city of Nal'tor", "the city of Kaltir", "the city of Crevus")
 	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
 	starlight_color = "#50b7bb"
 	starlight_power = 2

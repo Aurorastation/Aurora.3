@@ -53,7 +53,8 @@
 /area/adhomai_archeology)
 "m" = (
 /obj/structure/sign/flag/nka{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -106,7 +107,8 @@
 "t" = (
 /obj/machinery/floodlight,
 /obj/structure/sign/flag/nka{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -205,7 +207,8 @@
 /area/adhomai_archeology)
 "O" = (
 /obj/structure/sign/flag/nka{
-	pixel_x = 32
+	pixel_x = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -213,7 +216,8 @@
 /area/exoplanet/adhomai)
 "P" = (
 /obj/structure/sign/flag/nka{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -238,7 +242,8 @@
 "U" = (
 /obj/structure/closet/crate/miningcart,
 /obj/structure/sign/flag/nka{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15

@@ -21,7 +21,8 @@
 	dir = 6
 	},
 /obj/structure/sign/flag/pra{
-	pixel_x = 32
+	pixel_x = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -56,7 +57,8 @@
 /area/pra_base)
 "bU" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -229,7 +231,9 @@
 	},
 /area/pra_base)
 "ly" = (
-/obj/structure/sign/flag/pra/large/east,
+/obj/structure/sign/flag/pra/large/east{
+	pixel_x = 32
+	},
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
@@ -326,7 +330,8 @@
 "nc" = (
 /obj/structure/table/standard,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -503,7 +508,8 @@
 "uO" = (
 /obj/machinery/light,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -695,7 +701,8 @@
 /area/pra_base)
 "CG" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 30
+	pixel_y = 30;
+	stand_icon = null
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -949,7 +956,8 @@
 "Lb" = (
 /obj/machinery/light,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /obj/machinery/floodlight{
 	dir = 1
@@ -1096,7 +1104,8 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15

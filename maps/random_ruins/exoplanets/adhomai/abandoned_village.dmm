@@ -93,6 +93,10 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"kw" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
+/area/exoplanet/adhomai)
 "kB" = (
 /obj/item/trash/can/adhomian_can,
 /turf/simulated/floor/exoplanet/snow{
@@ -289,6 +293,12 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
+/area/exoplanet/adhomai)
+"Mb" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "Oa" = (
 /obj/structure/reagent_dispensers/keg/mead,
@@ -590,7 +600,7 @@ WK
 Rh
 Rh
 Rh
-rf
+kw
 WK
 WK
 WK
@@ -1074,10 +1084,10 @@ nR
 nR
 nR
 Rh
-rf
+kw
 WK
 WK
-rf
+kw
 WK
 Wa
 Wa
@@ -1099,7 +1109,7 @@ Gu
 Gu
 Gu
 Gu
-rf
+Mb
 Gu
 Gu
 wj
@@ -1168,7 +1178,7 @@ WK
 WK
 WK
 WK
-rf
+kw
 Aq
 Aq
 Aq

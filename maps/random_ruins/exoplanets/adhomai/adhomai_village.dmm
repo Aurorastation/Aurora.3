@@ -182,11 +182,6 @@
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
-"kO" = (
-/obj/structure/window/basic,
-/obj/structure/curtain/black,
-/turf/simulated/floor/exoplanet/wood,
-/area/adhomai_village)
 "mf" = (
 /obj/structure/closet/cabinet,
 /obj/item/ammo_casing/shotgun/pellet,
@@ -283,7 +278,7 @@
 	},
 /area/adhomai_village)
 "rf" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "rM" = (
@@ -416,10 +411,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "zh" = (
-/obj/structure/window/basic{
-	dir = 1
-	},
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "zA" = (
@@ -827,8 +820,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "TD" = (
-/obj/structure/curtain/black,
-/obj/structure/window/basic{
+/obj/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -994,7 +986,7 @@ HX
 TQ
 TQ
 Ic
-kO
+zh
 IM
 ew
 xc
@@ -1039,7 +1031,7 @@ Gu
 GN
 TQ
 Cc
-kO
+zh
 xc
 xc
 xc
@@ -1265,7 +1257,7 @@ Gu
 Gu
 Gu
 Gu
-rf
+TD
 Gu
 YV
 xc
@@ -1312,7 +1304,7 @@ Gu
 Gu
 Gu
 Gu
-TD
+zh
 Gu
 Jb
 xc
@@ -1334,7 +1326,7 @@ TQ
 TQ
 TQ
 TQ
-kO
+zh
 xc
 xc
 xc
@@ -1611,7 +1603,7 @@ Gu
 Gu
 Gu
 Gu
-rf
+TD
 Gu
 Gu
 wj
@@ -1697,7 +1689,7 @@ Gu
 Gu
 Gu
 Gu
-rf
+TD
 Gu
 Gu
 "}
@@ -1853,7 +1845,7 @@ TQ
 TQ
 TQ
 TQ
-kO
+zh
 xc
 xc
 xc
@@ -1948,7 +1940,7 @@ Gu
 Gu
 Gu
 Gu
-TD
+zh
 Gu
 Gu
 Gu

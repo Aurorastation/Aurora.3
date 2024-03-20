@@ -405,12 +405,11 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
-/material/stone/concrete
+/material/concrete
 	name = MATERIAL_CONCRETE
 //	icon_base = "concrete"
 	icon_colour = COLOR_CONCRETE
 	wall_colour = COLOR_CONCRETE
-	colour_blend = FALSE
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
 //	wall_icon = 'icons/turf/smooth/concrete_wall.dmi'

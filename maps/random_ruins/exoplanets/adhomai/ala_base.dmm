@@ -181,7 +181,8 @@
 /area/ala_base)
 "iP" = (
 /obj/structure/sign/flag/dpra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -520,7 +521,8 @@
 "wf" = (
 /obj/machinery/light,
 /obj/structure/sign/flag/dpra{
-	pixel_y = -33
+	pixel_y = -33;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -554,6 +556,12 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
+/area/ala_base)
+"xl" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "xp" = (
 /obj/structure/railing/fence,
@@ -1111,7 +1119,8 @@
 /area/ala_base)
 "RD" = (
 /obj/structure/sign/flag/dpra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -2141,7 +2150,7 @@ DB
 DB
 yS
 yS
-nE
+xl
 yS
 yS
 DB

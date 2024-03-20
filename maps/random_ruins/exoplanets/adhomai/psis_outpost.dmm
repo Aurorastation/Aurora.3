@@ -135,7 +135,8 @@
 	dir = 9
 	},
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled/dark{
@@ -311,7 +312,8 @@
 	dir = 8
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/machinery/light{
 	dir = 8
@@ -439,7 +441,8 @@
 /area/psis_outpost)
 "yD" = (
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -594,7 +597,8 @@
 	dir = 10
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -653,7 +657,8 @@
 	dir = 9
 	},
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -697,7 +702,8 @@
 	dir = 5
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
 /turf/simulated/floor/tiled/dark{
@@ -738,7 +744,8 @@
 	dir = 5
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -777,7 +784,8 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/machinery/light{
 	dir = 4;

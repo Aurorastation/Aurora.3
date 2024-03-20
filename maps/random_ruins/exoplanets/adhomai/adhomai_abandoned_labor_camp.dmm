@@ -16,12 +16,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"cw" = (
-/obj/structure/simple_door,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
 "ds" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/snow{
@@ -36,7 +30,8 @@
 	pixel_x = 9
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -44,7 +39,8 @@
 /area/exoplanet/adhomai)
 "ev" = (
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -253,7 +249,9 @@
 	},
 /area/exoplanet/adhomai)
 "qI" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -341,7 +339,8 @@
 "wx" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -376,7 +375,8 @@
 /area/exoplanet/adhomai)
 "yd" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -453,7 +453,8 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -588,7 +589,8 @@
 /area/exoplanet/adhomai)
 "KV" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -649,9 +651,7 @@
 	},
 /area/exoplanet/adhomai)
 "Qe" = (
-/obj/structure/simple_door{
-	initial_lock_value = "labor_barracks"
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -693,7 +693,8 @@
 "Tp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/item/handcuffs,
 /turf/simulated/floor/concrete/square{
@@ -743,7 +744,8 @@
 /area/exoplanet/adhomai)
 "Xv" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -767,9 +769,7 @@
 	},
 /area/exoplanet/adhomai)
 "Yn" = (
-/obj/structure/simple_door{
-	initial_lock_value = "labor_barracks"
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -1131,7 +1131,7 @@ mC
 Rh
 vB
 Zf
-cw
+Yn
 zf
 zf
 zf
