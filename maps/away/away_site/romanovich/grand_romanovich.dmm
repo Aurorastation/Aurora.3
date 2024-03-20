@@ -7011,14 +7011,6 @@
 	temperature = 278
 	},
 /area/grand_romanovich/outdoors)
-"KI" = (
-/obj/machinery/door/blast/regular/open{
-	id = "lockdown"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
-/area/grand_romanovich)
 "KO" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -40952,7 +40944,7 @@ aI
 XU
 aI
 aI
-KI
+aI
 XU
 XU
 kZ
