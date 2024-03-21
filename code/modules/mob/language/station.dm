@@ -289,7 +289,8 @@
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))
-		if (!istype(other, /mob/living/silicon/pai)) //A consumer product, hardly authorized to read the hivenet relay
+		var/mob/living/silicon/S = other
+		if(S.can_hear_hivenet)
 			return 1
 
 	var/mob/living/carbon/human/M = other
