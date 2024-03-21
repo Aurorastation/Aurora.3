@@ -828,6 +828,22 @@
 	if(tool)
 		playsound(user, 'sound/items/penclick.ogg', 25)
 		current_tool = tool
+		switch(tool)
+			if("wrench")
+				usesound = 'sound/items/wrench.ogg'
+				surgerysound = 'sound/items/surgery/bonesetter.ogg'
+			if("screwdriver")
+				usesound = 'sound/items/screwdriver.ogg'
+				surgerysound = 'sound/items/screwdriver.ogg'
+			if("wirecutters")
+				usesound = 'sound/items/wirecutter.ogg'
+				surgerysound = 'sound/items/surgery/hemostat.ogg'
+			if("crowbar")
+				usesound = /singleton/sound_category/crowbar_sound
+				surgerysound = 'sound/items/surgery/retractor.ogg'
+			if("multitool")
+				usesound = null
+				surgerysound = null
 		update_tool()
 	return 1
 
