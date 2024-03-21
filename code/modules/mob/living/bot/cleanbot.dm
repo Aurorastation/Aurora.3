@@ -246,10 +246,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 						if(next_dest_loc)
 							patrol_path = get_path_to(loc, next_dest_loc, 120, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
 							signal_sent = 0
-			else
-				if(pulledby) // Don't wiggle if someone pulls you
-					patrol_path = list()
-					return
+			else if(should_patrol)
 				if(patrol_path[1] == loc)
 					patrol_path -= patrol_path[1]
 					return
