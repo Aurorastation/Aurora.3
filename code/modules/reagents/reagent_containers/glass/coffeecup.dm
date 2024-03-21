@@ -120,6 +120,16 @@
 	desc = "A coffee cup bearing the Zeng-Hu logo."
 	icon_state = "coffeecup_zeng"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/xanu
+	name = "\improper All-Xanu Republic coffee cup"
+	desc = "A coffee cup bearing the flag of the All-Xanu Republic."
+	icon_state = "coffeecup_xanu"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/galatea
+	name = "\improper Federal Technocracy of Galatea coffee cup"
+	desc = "A coffee cup bearing the flag of the Federal Technocracy of Galatea"
+	icon_state = "coffeecup_galatea"
+
 // Symbols, markings
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
 	name = "#1 coffee cup"

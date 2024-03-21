@@ -412,21 +412,6 @@
 	temperature = 278.15
 	},
 /area/database_freighter/eva)
-"bM" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/database_freighter)
 "bQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -622,6 +607,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red,
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1041,14 +1029,6 @@
 	name = "igs - database_freighter_crew"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278.15
-	},
-/area/database_freighter)
-"ey" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter)
@@ -1832,21 +1812,6 @@
 	temperature = 278.15
 	},
 /area/database_freighter/hangar)
-"iN" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/database_freighter)
 "iO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1957,14 +1922,6 @@
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
-"jI" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/database_freighter)
 "jJ" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -11951,7 +11908,7 @@ OL
 xG
 xG
 xG
-jI
+aM
 fZ
 eo
 jT
@@ -12433,7 +12390,7 @@ mb
 eX
 aM
 mb
-ey
+VU
 xG
 xG
 kA
@@ -13069,7 +13026,7 @@ FA
 Dp
 FL
 LS
-iN
+he
 fE
 Zf
 CQ
@@ -13890,7 +13847,7 @@ am
 he
 tu
 Wl
-bM
+cJ
 br
 Ap
 hv

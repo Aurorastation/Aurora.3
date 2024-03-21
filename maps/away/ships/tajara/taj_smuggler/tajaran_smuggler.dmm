@@ -3,7 +3,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/tajaran_smuggler_shuttle/hangar,
+/obj/effect/shuttle_landmark/tajaran_smuggler_shuttle/hangar{
+	dir = 8
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},

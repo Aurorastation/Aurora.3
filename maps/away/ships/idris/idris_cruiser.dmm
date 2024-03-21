@@ -1898,6 +1898,11 @@
 	pixel_y = 4;
 	pixel_x = 6
 	},
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -8;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/bridge)
 "id" = (

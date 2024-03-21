@@ -205,6 +205,12 @@
 	contained_sprite = TRUE
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drugs/mindbreaker = 6)
 
+/obj/item/reagent_containers/food/snacks/meat/hakhma
+	name = "hakhma meat"
+	desc = "A slab of purple bug-meat. Still tastes like chicken."
+	icon_state = "hakhmeat"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 4) // pork of the stars! insects do, in fact, get fat.
+
 /obj/item/reagent_containers/food/snacks/meat/bat
 	name = "bat wings"
 	desc = "Like chicken wings, but with even less meat!"
