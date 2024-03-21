@@ -131,37 +131,37 @@
 	return
 
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
-/atom/movable/Move(newloc, direct)
+/atom/movable/Move(atom/newloc, direction)
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
 		return
 
 	var/old_loc = loc
 
-	if (direct & (direct - 1))
-		if (direct & 1)
-			if (direct & 4)
+	if (direction & (direction - 1))
+		if (direction & 1)
+			if (direction & 4)
 				if (step(src, NORTH))
 					step(src, EAST)
 				else
 					if (step(src, EAST))
 						step(src, NORTH)
 			else
-				if (direct & 8)
+				if (direction & 8)
 					if (step(src, NORTH))
 						step(src, WEST)
 					else
 						if (step(src, WEST))
 							step(src, NORTH)
 		else
-			if (direct & 2)
-				if (direct & 4)
+			if (direction & 2)
+				if (direction & 4)
 					if (step(src, SOUTH))
 						step(src, EAST)
 					else
 						if (step(src, EAST))
 							step(src, SOUTH)
 				else
-					if (direct & 8)
+					if (direction & 8)
 						if (step(src, SOUTH))
 							step(src, WEST)
 						else
@@ -204,9 +204,9 @@
 
 			Moved(old_loc, FALSE)
 
-		if(direct != olddir)
+		if(direction != olddir)
 			dir = olddir
-			set_dir(direct)
+			set_dir(direction)
 
 		src.move_speed = world.time - src.l_move_time
 		src.l_move_time = world.time
