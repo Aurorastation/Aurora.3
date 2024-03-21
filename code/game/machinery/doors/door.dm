@@ -59,6 +59,8 @@
 
 	atmos_canpass = CANPASS_PROC
 
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
 		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
@@ -219,6 +221,9 @@
 				open_hatch(mover)
 				return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
 	return !density
+
+/obj/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	return (check_access_list(pass_info.access) && can_open())
 
 
 /obj/machinery/door/proc/bumpopen(mob/user as mob)
