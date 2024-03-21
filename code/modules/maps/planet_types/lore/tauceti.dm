@@ -7,7 +7,6 @@
 	icon_state = "globe1"
 	color = "#cf1020"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LORE
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/update_icon()
@@ -26,7 +25,6 @@
 	rock_colors = list("#e49135")
 	color = "#e49135"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LORE
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/luthien/update_icon()
@@ -48,7 +46,6 @@
 	rock_colors = list("#4a3f41")
 	color = "#4a3f41"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LORE
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/update_icon()
@@ -65,7 +62,6 @@
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "globe1"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LORE
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/update_icon()
@@ -87,7 +83,6 @@
 	color = "#b2abbf"
 	rock_colors = list("#b2abbf")
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LORE
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/update_icon()
@@ -107,7 +102,6 @@
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "asteroid"
 	generated_name = FALSE
-	ruin_planet_type = PLANET_LORE
 	ring_chance = 0
 	place_near_main = null
 
