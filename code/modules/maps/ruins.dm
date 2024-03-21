@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			continue
 
 		if((ruin.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (ruin.spawns_in_current_sector()))
-			if(ruin.port_of_call_check())
+			if(SSatlas.is_port_call_day())
 				force_spawn |= ruin
 				for(var/ruin_path in ruin.force_ruins)
 					var/datum/map_template/ruin/force_ruin = new ruin_path

@@ -41,3 +41,4 @@ changes:
   - rscdel: "Point Verdant now only spawns when the day is a Port of Call day."
   - backend: "New template flag for ruins added, flag has ruin always spawn when today is a Port of Call, otherwise will not spawn."
   - tweak: "Haneunim port of call days now Saturday and Sunday"
+  - backend: "New atlas subsystem proc to check if today is a port of call day."

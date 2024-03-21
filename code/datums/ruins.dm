@@ -86,11 +86,3 @@
 /// Returns `TRUE` if this ruin can spawn in current sector, otherwise `FALSE`.
 /datum/map_template/ruin/proc/spawns_in_current_sector()
 	return (SSatlas.current_sector.name in sectors)
-
-/datum/map_template/ruin/proc/port_of_call_check()
-	if(SSatlas.current_map.ports_of_call && length(SSatlas.current_sector.scheduled_port_visits))
-		/// Get today
-		var/today = GLOB.all_days[GLOB.all_days.Find(time2text(world.realtime, "Day"))]
-		if(today in SSatlas.current_sector.scheduled_port_visits) //checks if today is a port of call day
-			return TRUE
-	return FALSE
