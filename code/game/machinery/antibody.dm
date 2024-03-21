@@ -3,8 +3,7 @@
 /obj/machinery/antibody_extractor
 	name = "antibody extractor"
 	desc = "A machine made to extract antibodies. There's a holographic info-label on it..."
-	desc_extended = "This machine is made to extract antibodies from a subject. It will only work with the <b>unmutated, original</b> version of the virus. \
-					<span class='danger'>This machine will immediately notify the entire facility if used without authorization.</span>"
+	desc_extended = "This machine is made to extract antibodies from a subject. It will only work with the <b>unmutated, original</b> version of the virus."
 	icon = 'icons/obj/machinery/extractor.dmi'
 	icon_state = "extractor"
 	anchored = TRUE
@@ -31,7 +30,7 @@
 
 	if(user == occupant)
 		to_chat(user, SPAN_WARNING("The buckles stop you from doing much at all."))
-		. = ..()
+		..()
 		return FALSE
 
 	if(!user.use_check_and_message())
@@ -44,8 +43,7 @@
 		if(!is_infected)
 			to_chat(user, SPAN_WARNING("\The [src] beeps in disapproval. The error message says something along the lines of needing a patient infected with \
 										Hylemnomil-Zeta."))
-			. = ..()
-			return
+			return ..()
 		var/time_to_die = tgui_alert(user, "Are you sure?", "Begin Antibody Creation", list("Yes", "No"))
 		if(time_to_die == "Yes")
 			user.visible_message(SPAN_WARNING("[user] starts fiddling with \the [src]'s controls..."))
@@ -53,6 +51,7 @@
 				user.visible_message(SPAN_WARNING(FONT_HUGE("[user] activates \the [src] as it begins rumbling!")))
 				working = TRUE
 				stage = 1
+				log_and_message_admins("has begun antibody extraction", usr, get_turf(src))
 				to_chat(occupant, SPAN_CULT(FONT_HUGE("You are locked by bindings into \the [src] and your arm is stabbed by a needle!")))
 				playsound(src, 'sound/effects/lingextends.ogg')
 

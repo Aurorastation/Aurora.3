@@ -202,7 +202,7 @@
 	reagent_tag = IS_UNDEAD
 
 	rarity_value = 10
-	blurb = "Once a living person, this unholy creature was created either by the power of science."
+	blurb = "Once a living person, this unholy creature was created by the power of science."
 
 	remains_type = /obj/effect/decal/remains/human
 	dust_remains_type = /obj/effect/decal/remains/human/burned
@@ -352,6 +352,8 @@
 		bomb = null,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
+
+	mob_size = 20
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious)
 	inherent_verbs = list(
@@ -589,8 +591,15 @@
 	armor_penetration = 20
 	mob_throw_hit_sound = 'sound/effects/rock_break.ogg'
 
-/obj/item/tank_rock/too_heavy_to_throw()
-	return TRUE
+/obj/item/tank_rock/do_additional_pickup_checks(mob/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(H.mob_size < 16)
+		to_chat(user, SPAN_WARNING("That's way too heavy for you to pick up!"))
+		return FALSE
+	else
+		return TRUE
 
 /obj/item/tank_rock/throw_impact(atom/hit_atom)
 	. = ..()
