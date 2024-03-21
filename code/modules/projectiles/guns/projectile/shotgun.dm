@@ -77,6 +77,7 @@
 		return
 	pump(user)
 
+/obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	playsound(M, rack_sound, 60, FALSE)
 	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
 	if(cycle_anim)
