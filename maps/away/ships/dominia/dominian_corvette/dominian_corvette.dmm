@@ -877,6 +877,12 @@
 	identifier = "imperial_fleet_voidsman";
 	name = "igs - imperial_voidsman"
 	},
+/obj/machinery/alarm/north{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 10;
+	req_one_access = list(212)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "cwq" = (
@@ -1503,9 +1509,6 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering/reactor)
 "fek" = (
-/obj/machinery/alarm/west{
-	req_one_access = list(212)
-	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -1999,6 +2002,10 @@
 /obj/item/clothing/accessory/holster/thigh/brown,
 /obj/item/clothing/accessory/holster/thigh/brown,
 /obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/armory)
 "gXv" = (
@@ -2016,6 +2023,15 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
+/obj/structure/closet/walllocker{
+	pixel_y = 32
+	},
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/clothing/accessory/badge/passport/dominia,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "hbA" = (
@@ -2917,12 +2933,6 @@
 /area/ship/dominian_corvette/docking)
 "kjg" = (
 /obj/structure/closet,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/badge/passport/dominia,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/machinery/light/small{
@@ -2943,7 +2953,10 @@
 /obj/item/clothing/head/dominia/fleet,
 /obj/item/clothing/head/dominia/fleet,
 /obj/item/clothing/head/dominia/fleet/armsman,
-/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/item/clothing/under/dominia/fleet,
+/obj/item/clothing/under/dominia/fleet,
+/obj/item/clothing/under/dominia/fleet,
+/obj/item/clothing/under/dominia/fleet/armsman,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "kkj" = (
@@ -4842,6 +4855,9 @@
 	dir = 9
 	},
 /obj/item/clothing/accessory/dominia,
+/obj/item/clothing/under/dominia/fleet/officer,
+/obj/item/clothing/head/dominia/fleet/officer,
+/obj/item/clothing/suit/storage/dominia/fleet,
 /turf/simulated/floor/wood,
 /area/ship/dominian_corvette/officer)
 "qPL" = (
@@ -6109,16 +6125,16 @@
 	name = "priest's raiments locker";
 	pixel_y = 32
 	},
-/obj/item/clothing/accessory/dominia,
-/obj/item/clothing/accessory/dominia,
 /obj/item/clothing/head/beret/dominia,
 /obj/item/clothing/under/dominia/priest,
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/flame/lighter/zippo/dominia,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/dominia,
 /obj/machinery/light/floor{
 	dir = 1
 	},
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/flame/lighter/zippo/dominia,
 /obj/item/clothing/accessory/dominia,
 /obj/item/clothing/accessory/dominia,
 /obj/item/clothing/accessory/dominia,
