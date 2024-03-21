@@ -465,7 +465,7 @@
 			if (iszombie(L))
 				to_chat(src, SPAN_WARNING("\The [L] isn't fresh anymore!"))
 				continue
-			if (!(L.species.zombie_type in list(SPECIES_ZOMBIE, SPECIES_ZOMBIE_BULL, SPECIES_ZOMBIE_HUNTER, SPECIES_ZOMBIE_RHINO, SPECIES_ZOMBIE_SKRELL, SPECIES_ZOMBIE_TAJARA, SPECIES_ZOMBIE_UNATHI)) || L.is_diona() || L.isSynthetic())
+			if (!L.species.zombie_type || L.is_diona() || L.isSynthetic())
 				to_chat(src, SPAN_WARNING("You'd break your teeth on \the [L]!"))
 				continue
 			victims += L
