@@ -10,7 +10,9 @@
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("pokes", "stabs")
+	/// If the umbrella is open or not.
 	var/is_open = FALSE
+	/// Colour of the umbrella. Must be one present in the dmi.
 	var/umbrella_color
 
 /obj/item/umbrella/Initialize(mapload, ...)
@@ -27,7 +29,7 @@
 		if(!is_open)
 			to_chat(user, SPAN_NOTICE("You unfurl \the [src]."))
 			item_state = "umbrella_[umbrella_color]_open"
-			w_class = ITEMSIZE_SMALL
+			w_class = ITEMSIZE_LARGE
 			is_open = TRUE
 			force = 1
 			sharp = FALSE
@@ -36,11 +38,11 @@
 		else
 			to_chat(user, SPAN_NOTICE("You close up \the [src]."))
 			item_state = "umbrella_[umbrella_color]_closed"
-			w_class = ITEMSIZE_LARGE
+			w_class = initial(w_class)
 			is_open = FALSE
-			force = 5
-			sharp = TRUE
-			attack_verb = list("pokes", "stabs")
+			force = initial(force)
+			sharp = initial(sharp)
+			attack_verb = initial(attack_verb)
 			hitsound = initial(hitsound)
 
 /obj/item/umbrella/gives_weather_protection()

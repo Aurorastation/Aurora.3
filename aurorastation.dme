@@ -1042,6 +1042,7 @@
 #include "code\game\objects\items\tajara.dm"
 #include "code\game\objects\items\toys.dm"
 #include "code\game\objects\items\trash.dm"
+#include "code\game\objects\items\umbrella.dm"
 #include "code\game\objects\items\vaurca.dm"
 #include "code\game\objects\items\vitals_monitor.dm"
 #include "code\game\objects\items\devices\aicard.dm"
