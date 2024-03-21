@@ -1,8 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/noid,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "ad" = (
@@ -261,6 +262,12 @@
 /area/ship/scc_scout_ship/mess)
 "bo" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "bp" = (
@@ -430,6 +437,12 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "cm" = (
@@ -592,8 +605,14 @@
 /obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "dh" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
@@ -739,6 +758,12 @@
 	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 "dX" = (
@@ -1034,6 +1059,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
@@ -1429,6 +1457,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -1952,6 +1986,10 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "lg" = (
@@ -2110,6 +2148,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "lZ" = (
@@ -2521,6 +2560,12 @@
 "ok" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
@@ -3060,6 +3105,12 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard)
 "rq" = (
@@ -3177,6 +3228,9 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -3387,6 +3441,9 @@
 	dir = 10
 	},
 /obj/random/pottedplant,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "tA" = (
@@ -3429,6 +3486,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -3753,6 +3813,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "we" = (
@@ -3766,6 +3829,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -4022,6 +4091,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "xG" = (
@@ -4039,6 +4109,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -4375,6 +4448,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
 "zI" = (
@@ -4587,6 +4663,12 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/cargo,
 /area/ship/scc_scout_ship/engineering_cargo)
 "BL" = (
@@ -4760,6 +4842,9 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/hydroponics)
@@ -5537,6 +5622,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "IG" = (
@@ -5787,6 +5875,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -6580,6 +6674,12 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "Qk" = (
@@ -6823,6 +6923,12 @@
 /area/ship/scc_scout_ship/maint_atmos)
 "Si" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "Sj" = (
@@ -7485,15 +7591,20 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/bridge)
 "VU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "VW" = (
 /obj/effect/floor_decal/corner/grey{
@@ -7554,6 +7665,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
@@ -8104,6 +8221,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_ship_shuttle/eva)
