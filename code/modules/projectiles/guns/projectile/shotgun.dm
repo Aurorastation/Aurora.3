@@ -61,7 +61,6 @@
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
-	var/recentpump = 0 // to prevent spammage
 	var/rack_sound = /singleton/sound_category/shotgun_pump
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
@@ -76,14 +75,7 @@
 	if(jam_num)
 		to_chat(user, SPAN_WARNING("\The [src] is jammed!"))
 		return
-	if(world.time >= recentpump + 10)
-		pump(user)
-		recentpump = world.time
-
-/obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
-	if(!wielded)
-		if(!do_after(M, 2 SECONDS)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
-			return
+	pump(user)
 
 	playsound(M, rack_sound, 60, FALSE)
 	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
