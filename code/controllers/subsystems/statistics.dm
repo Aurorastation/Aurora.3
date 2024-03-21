@@ -1,3 +1,5 @@
+#define PING_BUFFER_TIME 25
+
 SUBSYSTEM_DEF(statistics)
 	name = "Statistics & Inactivity"
 	wait = 1 MINUTE
@@ -35,6 +37,9 @@ SUBSYSTEM_DEF(statistics)
 GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 
 /datum/controller/subsystem/statistics/Initialize(timeofday)
+
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(something_died))
+
 	for (var/type in subtypesof(/datum/statistic) - list(/datum/statistic/numeric, /datum/statistic/grouped))
 		var/datum/statistic/S = new type
 		if (!S.name)
@@ -48,16 +53,20 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/statistics/fire()
-	// Handle AFK.
-	if(GLOB.config.kick_inactive)
-		var/inactivity_threshold = GLOB.config.kick_inactive MINUTES
-		for(var/client/C in GLOB.clients)
+	// Handle AFK and pings
+	for(var/client/C in GLOB.clients)
+		if(GLOB.config.kick_inactive)
+			var/inactivity_threshold = GLOB.config.kick_inactive MINUTES
 			if(!isobserver(C.mob) && !C.holder)
 				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
 					to_chat_immediate(C, SPAN_WARNING("You have been inactive for more than [GLOB.config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
 					kicked_clients++
+
+		//Ask the client to ping, this is done in TG by the server_maint subsystems, but I'm not gonna port it all just for this
+		if(!(!C || world.time - C.connection_time < PING_BUFFER_TIME || C.inactivity >= (wait-1)))
+			winset(C, null, "command=.update_ping+[num2text(world.time+world.tick_lag*TICK_USAGE_REAL/100, 32)]")
 
 	// Handle population polling.
 	if (GLOB.config.sql_enabled && GLOB.config.sql_stats)
@@ -167,9 +176,15 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		return
 
 	for(var/datum/feedback_variable/FV in feedback)
-		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[game_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
+		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[GLOB.round_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
 		var/DBQuery/query_insert = GLOB.dbcon.NewQuery(sql)
 		query_insert.Execute()
+
+/datum/controller/subsystem/statistics/proc/something_died(datum/source, mob/dead_mob, gibbed)
+	if(dead_mob.ckey)
+		IncrementGroupedStat("ckey_deaths", dead_mob.ckey)
+		if(gibbed)
+			IncrementSimpleStat("gibs")
 
 // Sanitize inputs to avoid SQL injection attacks
 /proc/sql_sanitize_text(var/text)
@@ -296,3 +311,5 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 /datum/controller/subsystem/statistics/stat_entry(msg)
 	msg = "Kicked: [kicked_clients]"
 	return ..()
+
+#undef PING_BUFFER_TIME

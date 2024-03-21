@@ -30,22 +30,22 @@
 	var/named = 0
 	var/described = 0
 
-/obj/item/gun/energy/laser/prototype/examine(mob/user, distance, is_adjacent)
-	. = ..(user)
+/obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(distance > 1)
 		return
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			to_chat(user, "You can see \the [modifier] attached.")
+			. += "You can see \a [modifier] attached."
 	if(capacitor)
-		to_chat(user, "You can see \the [capacitor] attached.")
+		. += "You can see \a [capacitor] attached."
 	if(focusing_lens)
-		to_chat(user, "You can see \the [focusing_lens] attached.")
+		. += "You can see \a [focusing_lens] attached."
 	if(modulator)
-		to_chat(user, "You can see \the [modulator] attached.")
+		. += "You can see \a [modulator] attached."
 
-/obj/item/gun/energy/laser/prototype/attackby(var/obj/item/D, var/mob/user)
-	if(!D.isscrewdriver())
+/obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.isscrewdriver())
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)

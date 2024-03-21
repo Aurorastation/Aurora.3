@@ -201,11 +201,11 @@
 			take_damage((Proj.damage / laser_resist) / fire_resist)
 	return FALSE
 
-/obj/effect/blob/attackby(obj/item/W, mob/user)
+/obj/effect/blob/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	playsound(get_turf(src), 'sound/effects/attackblob.ogg', 50, TRUE)
-	if(W.iswirecutter())
+	if(attacking_item.iswirecutter())
 		if(!pruned)
 			to_chat(user, SPAN_NOTICE("You collect a sample from \the [src]."))
 			var/obj/P = new product(get_turf(user))
@@ -217,13 +217,13 @@
 			return
 
 	var/damage = 0
-	switch(W.damtype)
+	switch(attacking_item.damtype)
 		if(DAMAGE_BURN)
-			damage = (W.force / fire_resist)
-			if(W.iswelder())
+			damage = (attacking_item.force / fire_resist)
+			if(attacking_item.iswelder())
 				playsound(get_turf(src), 'sound/items/Welder.ogg', 100, TRUE)
 		if(DAMAGE_BRUTE)
-			damage = (W.force / brute_resist)
+			damage = (attacking_item.force / brute_resist)
 
 	take_damage(damage)
 

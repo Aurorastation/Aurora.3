@@ -215,7 +215,7 @@
 		setup_for_overmap(overmap_ship, overmap_hazard)
 
 	if(!affecting_z)
-		affecting_z = current_map.station_levels
+		affecting_z = SSatlas.current_map.station_levels
 
 	// event needs to be responsible for this, as stuff like APLUs currently make their own events for curious reasons
 	SSevents.active_events += src
@@ -224,7 +224,7 @@
 	..()
 
 /datum/event/proc/location_name()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return station_name()
 
 	var/obj/effect/overmap/O = GLOB.map_sectors["[pick(affecting_z)]"]

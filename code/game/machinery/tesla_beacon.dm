@@ -49,8 +49,8 @@
 		to_chat(user, SPAN_WARNING("You need to screw \the [src] to the floor first!"))
 		return
 
-/obj/machinery/power/tesla_beacon/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/machinery/power/tesla_beacon/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(active)
 			to_chat(user, SPAN_WARNING("You need to deactivate \the [src] first!"))
 			return TRUE

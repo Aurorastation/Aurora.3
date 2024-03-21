@@ -102,8 +102,8 @@
 	..()
 	update_icon()
 
-/obj/machinery/sparker/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+/obj/machinery/sparker/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.isscrewdriver())
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)

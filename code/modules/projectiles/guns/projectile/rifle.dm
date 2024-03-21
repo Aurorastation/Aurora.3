@@ -99,24 +99,24 @@
 			ammo_magazine.stored_ammo -= AC
 			chambered = AC
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(jam_chance)
 		if(10 to 20)
-			to_chat(user, SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag."))
+			. += SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag.")
 		if(20 to 40)
-			to_chat(user, SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag.")
 		if(40 to 80)
-			to_chat(user, SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag.")
 		if(80 to INFINITY)
-			to_chat(user, SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag."))
+			. += SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag.")
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/reagent_containers/glass/rag))
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag))
 		if(!jam_chance || jam_chance == initial(jam_chance))
 			to_chat(user, SPAN_WARNING("There's no fouling present on \the [src]."))
 			return
-		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [A].", SPAN_NOTICE("You start cleaning \the [src] with \the [A]."))
+		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [attacking_item].", SPAN_NOTICE("You start cleaning \the [src] with \the [attacking_item]."))
 		if(do_after(user, jam_chance * 5))
 			to_chat(user, SPAN_WARNING("You completely clean \the [src]."))
 			jam_chance = initial(jam_chance)
@@ -288,14 +288,14 @@
 
 	update_icon()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
 			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
 			return
 		if(!has_clip)
-			user.drop_from_inventory(A,src)
-			has_clip = A
+			user.drop_from_inventory(attacking_item, src)
+			has_clip = attacking_item
 			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
 			if(!has_clip.stored_ammo.len)
 				add_overlay("springfield-clip-empty")

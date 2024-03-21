@@ -101,12 +101,12 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 	frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 
-/obj/machinery/navbeacon/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/navbeacon/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = loc
 	if(!T.is_plating())
 		return		// prevent intraction when T-scanner revealed
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		open = !open
 
 		user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", "You [open ? "open" : "close"] the beacon's cover.")
@@ -114,7 +114,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 		update_icon()
 		return TRUE
 
-	else if (I.GetID())
+	else if (attacking_item.GetID())
 		if(open)
 			if (src.allowed(user))
 				src.locked = !src.locked

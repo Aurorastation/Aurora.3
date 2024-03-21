@@ -15,8 +15,8 @@
 /obj/structure/flora/proc/can_dig()
 	return FALSE
 
-/obj/structure/flora/attackby(obj/item/I, mob/user)
-	if(I.is_shovel() && can_dig())
+/obj/structure/flora/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.is_shovel() && can_dig())
 		dig_up(user)
 		return
 	..()

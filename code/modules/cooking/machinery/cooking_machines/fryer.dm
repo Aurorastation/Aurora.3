@@ -25,10 +25,10 @@
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
 
-/obj/machinery/appliance/cooker/fryer/examine(mob/user, distance, is_adjacent)
+/obj/machinery/appliance/cooker/fryer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (is_adjacent)
-		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
+		. += "The oil gauge displays: [oil.total_volume]u/[optimal_oil]."
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
@@ -203,11 +203,11 @@
 	//Coat the victim in some oil
 	oil.trans_to(victim, 40)
 
-/obj/machinery/appliance/cooker/fryer/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/reagent_containers/glass) && I.reagents)
-		if (I.reagents.total_volume <= 0 && oil)
+/obj/machinery/appliance/cooker/fryer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass) && attacking_item.reagents)
+		if (attacking_item.reagents.total_volume <= 0 && oil)
 			//Its empty, handle scooping some hot oil out of the fryer
-			oil.trans_to(I, I.reagents.maximum_volume)
+			oil.trans_to(attacking_item, attacking_item.reagents.maximum_volume)
 			user.visible_message("[user] scoops some oil out of [src].", SPAN_NOTICE("You scoop some oil out of [src]."))
 			return TRUE
 	//It contains stuff, handle pouring any oil into the fryer
@@ -215,12 +215,12 @@
 	//That would really require coding some sort of filter or better replacement mechanism first
 	//So for now, restrict to oil only
 		var/amount = 0
-		for (var/_R in I.reagents.reagent_volumes)
+		for (var/_R in attacking_item.reagents.reagent_volumes)
 			if (ispath(_R, /singleton/reagent/nutriment/triglyceride/oil))
 				var/delta = REAGENTS_FREE_SPACE(oil)
-				delta = min(delta, I.reagents.reagent_volumes[_R])
+				delta = min(delta, attacking_item.reagents.reagent_volumes[_R])
 				oil.add_reagent(_R, delta)
-				I.reagents.remove_reagent(_R, delta)
+				attacking_item.reagents.remove_reagent(_R, delta)
 				amount += delta
 		if (amount > 0)
 			user.visible_message("[user] pours some oil into [src].", SPAN_NOTICE("You pour [amount]u of oil into [src]."), SPAN_NOTICE("You hear something viscous being poured into a metal container."))

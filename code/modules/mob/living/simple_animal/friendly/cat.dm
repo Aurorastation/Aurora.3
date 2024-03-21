@@ -171,9 +171,9 @@
 		flee_target = A
 		turns_since_move = 5
 
-/mob/living/simple_animal/cat/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/cat/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(O.force)
+	if(attacking_item.force)
 		set_flee_target(user? user : src.loc)
 
 /mob/living/simple_animal/cat/attack_hand(mob/living/carbon/human/M as mob)
@@ -293,10 +293,10 @@
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/holder/cat/black
 
-/mob/living/simple_animal/cat/fluff/examine(mob/user)
+/mob/living/simple_animal/cat/fluff/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat == DEAD)
-		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
+		. += "Oh no, [name] is dead! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
@@ -309,10 +309,10 @@
 	gender = NEUTER
 	holder_type = /obj/item/holder/cat/kitten
 
-/mob/living/simple_animal/cat/kitten/examine(mob/user)
+/mob/living/simple_animal/cat/kitten/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat == DEAD)
-		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
+		. += "It's a dead kitten! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
@@ -356,7 +356,7 @@
 	can_nap = TRUE
 	holder_type = /obj/item/holder/cat/crusher
 
-/mob/living/simple_animal/cat/crusher/examine(mob/user)
+/mob/living/simple_animal/cat/crusher/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat == DEAD)
-		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")
+		. += "Crusher's dead. How could this have happened? She counted on you!"

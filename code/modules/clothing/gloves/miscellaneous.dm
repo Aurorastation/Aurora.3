@@ -67,9 +67,9 @@
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
 
-/obj/item/clothing/gloves/latex/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = O
+/obj/item/clothing/gloves/latex/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(C.use(1))
 			var/obj/item/L = new src.balloon
 			user.drop_from_inventory(L,get_turf(src))
@@ -335,10 +335,10 @@
 			spark(user, 3, GLOB.alldirs)
 			mounted.Fire(L, user)
 
-/obj/item/clothing/gloves/ballistic/attackby(obj/item/W, mob/user)
+/obj/item/clothing/gloves/ballistic/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(mounted)
-		mounted.load_ammo(W, user)
+		mounted.load_ammo(attacking_item, user)
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()

@@ -11,16 +11,16 @@
 	bitesize = 2
 
 // Burger + cheese wedge = cheeseburger
-/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/reagent_containers/food/snacks/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/reagent_containers/food/snacks/cheesewedge))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
+/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/cheesewedge))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
 		to_chat(user, "You make a cheeseburger.")
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 		return
-	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/burger/B = new(get_turf(src))
-		B.attackby(W,user)
+		B.attackby(attacking_item, user)
 		qdel(src)
 	else
 		..()
@@ -207,6 +207,16 @@
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 2))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/chickenparm
+	name = "chicken parm hero"
+	desc = "Fried chicken with cheese and tomato sauce, served on a bread roll."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "parmsandwich"
+	filling_color = "#7e4118"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4, /singleton/reagent/nutriment/protein/cheese = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tomato sauce" = 2), /singleton/reagent/nutriment/protein = list("fried chicken" = 4))
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/sloppyjoe

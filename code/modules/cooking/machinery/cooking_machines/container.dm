@@ -38,12 +38,12 @@
 	. = ..()
 	update_icon()
 
-/obj/item/reagent_containers/cooking_container/examine(var/mob/user)
+/obj/item/reagent_containers/cooking_container/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contents))
-		to_chat(user, SPAN_NOTICE(get_content_info()))
+		. += SPAN_NOTICE(get_content_info())
 	if(reagents.total_volume)
-		to_chat(user, SPAN_NOTICE(get_reagent_info()))
+		. += SPAN_NOTICE(get_reagent_info())
 
 /obj/item/reagent_containers/cooking_container/proc/get_content_info()
 	var/string = "It contains:</br><ul><li>"
@@ -71,16 +71,16 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
-	if(is_type_in_list(I, insertable))
-		if (!can_fit(I))
+/obj/item/reagent_containers/cooking_container/attackby(obj/item/attacking_item, mob/user)
+	if(is_type_in_list(attacking_item, insertable))
+		if (!can_fit(attacking_item))
 			to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
 			return FALSE
 
-		if(!user.unEquip(I))
+		if(!user.unEquip(attacking_item))
 			return
-		I.forceMove(src)
-		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
+		attacking_item.forceMove(src)
+		to_chat(user, SPAN_NOTICE("You put [attacking_item] [place_verb] [src]."))
 		update_icon()
 		return
 
@@ -296,10 +296,10 @@
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
-/obj/item/reagent_containers/cooking_container/board/examine(mob/user)
+/obj/item/reagent_containers/cooking_container/board/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contents) || reagents?.total_volume)
-		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
+		. += SPAN_NOTICE("To attempt cooking: click and hold, then drag this onto your character.")
 
 /obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))

@@ -27,6 +27,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	invisible_until_ghostrole_spawn = TRUE
 	designer = "Grand Camarilla Estriconian, Midaion Anchorage"
 	volume = "65 meters length, 35 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"

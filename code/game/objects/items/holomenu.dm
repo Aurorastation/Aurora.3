@@ -54,8 +54,8 @@
 	else
 		set_light(0)
 
-/obj/item/holomenu/attackby(obj/item/I, mob/user)
-	var/obj/item/card/id/ID = I.GetID()
+/obj/item/holomenu/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/card/id/ID = attacking_item.GetID()
 	if(istype(ID))
 		if(check_access(ID))
 			anchored = !anchored
@@ -64,9 +64,9 @@
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 		return TRUE
-	if(istype(I, /obj/item/paper) && allowed(user))
-		var/obj/item/paper/P = I
-		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+	if(istype(attacking_item, /obj/item/paper) && allowed(user))
+		var/obj/item/paper/P = attacking_item
+		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		update_icon()
@@ -141,13 +141,13 @@
 		menu_text = pencode2html(new_text)
 		update_icon()
 
-/obj/item/holomenu/holodeck/attackby(obj/item/I, mob/user)
-	var/obj/item/card/id/ID = I.GetID()
+/obj/item/holomenu/holodeck/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/card/id/ID = attacking_item.GetID()
 	if(istype(ID))
 		return TRUE
-	if(istype(I, /obj/item/paper))
-		var/obj/item/paper/P = I
-		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/P = attacking_item
+		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		update_icon()

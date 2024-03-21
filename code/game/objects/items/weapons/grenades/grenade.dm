@@ -30,19 +30,19 @@
 		return 0
 	return 1
 
-/obj/item/grenade/examine(mob/user, distance, is_adjacent)
+/obj/item/grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
 		if(det_time > 1)
-			to_chat(user, "The timer is set to [det_time/10] seconds.")
+			. += SPAN_NOTICE("The timer is set to [det_time/10] seconds.")
 			return
 		if(det_time == null)
 			return
-		to_chat(user, "\The [src] is set for instant detonation.")
+		. += SPAN_NOTICE("\The [src] is set for instant detonation.")
 
-/obj/item/grenade/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/gun/launcher/grenade))
-		var/obj/item/gun/launcher/grenade/G = W
+/obj/item/grenade/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/launcher/grenade))
+		var/obj/item/gun/launcher/grenade/G = attacking_item
 		G.load(src, user)
 	else
 		..()

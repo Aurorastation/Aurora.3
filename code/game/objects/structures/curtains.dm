@@ -39,28 +39,28 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
 
-/obj/structure/curtain/attackby(obj/item/W, mob/user)
+/obj/structure/curtain/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.iswirecutter() || W.sharp && !W.noslice)
+	if(attacking_item.iswirecutter() || attacking_item.sharp && !attacking_item.noslice)
 		if(manipulating)	return
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
 					SPAN_NOTICE("You begin cutting down \the [src]."))
-		if(!W.use_tool(src, user, 30, volume = 50))
+		if(!attacking_item.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
 					SPAN_NOTICE("You cut down \the [src]."))
 		dismantle()
 
-	if(W.isscrewdriver()) //You can anchor/unanchor curtains
+	if(attacking_item.isscrewdriver()) //You can anchor/unanchor curtains
 		anchored = !anchored
 		var/obj/structure/curtain/C
 		for(C in src.loc)
 			if(C != src && C.anchored) //Can't secure more than one curtain in a tile
 				to_chat(user, "There is already a curtain secured here!")
 				return
-		playsound(src.loc, W.usesound, 50, 1)
+		playsound(src.loc, attacking_item.usesound, 50, 1)
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."))
 
 /obj/structure/curtain/proc/toggle()

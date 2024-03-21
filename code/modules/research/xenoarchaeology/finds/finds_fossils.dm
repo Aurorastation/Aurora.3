@@ -41,14 +41,14 @@
 /obj/item/fossil/skull/horned/New()
 	icon_state = "horned_skull[rand(1, 2)]"
 
-/obj/item/fossil/skull/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/fossil/bone))
+/obj/item/fossil/skull/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/fossil/bone))
 		var/obj/o = new /obj/skeleton(get_turf(src))
 		var/a = new /obj/item/fossil/bone
 		var/b = new src.type
 		o.contents.Add(a)
 		o.contents.Add(b)
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 
 /obj/skeleton
@@ -65,12 +65,12 @@
 	src.breq = rand(3)+3
 	src.desc = "An incomplete skeleton, looks like it could use [src.breq-src.bnum] more bones."
 
-/obj/skeleton/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/fossil/bone))
+/obj/skeleton/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/fossil/bone))
 		if(!bstate)
 			bnum++
 			src.contents.Add(new/obj/item/fossil/bone)
-			qdel(W)
+			qdel(attacking_item)
 			if(bnum==breq)
 				usr = user
 				icon_state = "skel"
@@ -86,7 +86,7 @@
 				to_chat(user, "Looks like it could use [src.breq-src.bnum] more bones.")
 		else
 			..()
-	else if(istype(W,/obj/item/pen))
+	else if(istype(attacking_item, /obj/item/pen))
 		plaque_contents = sanitize(input("What would you like to write on the plaque:","Skeleton plaque",""))
 		user.visible_message("<b>[user]</b> writes something on the base of [src].","You relabel the plaque on the base of [icon2html(src, user)] [src].")
 		if(src.contents.Find(/obj/item/fossil/skull/horned))

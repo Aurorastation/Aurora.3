@@ -28,9 +28,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_delete,		/*delete an instance/object/mob/etc*/
 	/client/proc/cmd_admin_check_contents,	/*displays the contents of an instance*/
 	/datum/admins/proc/access_news_network,	/*allows access of newscasters*/
-	/client/proc/giveruntimelog,		/*allows us to give access to runtime logs to somebody*/
 	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
-	/client/proc/view_signal_log,		/*allows admins to check the log of signaler uses*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/jumptozlevel,
 	/client/proc/jumptoshuttle,
@@ -220,6 +218,7 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_generate_lag,
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
@@ -392,8 +391,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,
-	/client/proc/giveruntimelog,
 	/client/proc/toggledebuglogs,
 	/client/proc/getserverlog,
 	/client/proc/view_chemical_reaction_logs,
@@ -467,7 +466,6 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/debug_variables,
 	/client/proc/dsay,
 	/client/proc/getruntimelog,
-	/client/proc/giveruntimelog,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
@@ -480,6 +478,7 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_generate_lag,
 	/client/proc/create_poll, //Allows to create polls
 	/client/proc/profiler_start,
 	/client/proc/rustg_send_udp
@@ -497,6 +496,8 @@ var/list/admin_verbs_cciaa = list(
 )
 
 /client/proc/add_admin_verbs()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(holder)
 		add_verb(src, admin_verbs_default)
 		if(holder.rights & R_BUILDMODE)		add_verb(src, /client/proc/togglebuildmodeself)

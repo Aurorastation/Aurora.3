@@ -147,6 +147,7 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 	psi_deaf = TRUE
+	possible_speech_bubble_types = list("robot", "default")
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

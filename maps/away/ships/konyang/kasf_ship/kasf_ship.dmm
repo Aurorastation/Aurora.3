@@ -8897,7 +8897,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/telecomms/allinone/ship/coalition_navy,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
 "YK" = (

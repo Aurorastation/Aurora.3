@@ -72,7 +72,7 @@
 		if(!UWC)
 			return
 		var/datum/category_item/underwear/selected_underwear = tgui_input_list(H, "Choose your underwear.", "Choose Underwear", UWC.items, H.all_underwear[UWC.name])
-		if(selected_underwear && CanUseTopic(H, default_state))
+		if(selected_underwear && CanUseTopic(H, GLOB.default_state))
 			H.all_underwear[UWC.name] = selected_underwear
 			H.hide_underwear[UWC.name] = FALSE
 			. = TRUE

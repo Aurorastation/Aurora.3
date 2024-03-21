@@ -103,33 +103,33 @@
 			num_copies = clamp(text2num(params["num_copies"]), 1, max_copies)
 			return TRUE
 
-/obj/machinery/photocopier/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/paper) || istype(O, /obj/item/photo) || istype(O, /obj/item/paper_bundle))
+/obj/machinery/photocopier/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo) || istype(attacking_item, /obj/item/paper_bundle))
 		if(!copy_item)
-			user.drop_from_inventory(O,src)
-			copy_item = O
-			to_chat(user, SPAN_NOTICE("You insert \the [O] into \the [src]."))
+			user.drop_from_inventory(attacking_item,src)
+			copy_item = attacking_item
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 			flick(insert_anim, src)
 			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
 			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("There is already something in \the [src]."))
-	else if(istype(O, /obj/item/device/toner))
+	else if(istype(attacking_item, /obj/item/device/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
-			to_chat(user, SPAN_NOTICE("You insert \the [O] into \the [src]."))
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 			flick("photocopier_toner", src)
 			playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
-			var/obj/item/device/toner/T = O
+			var/obj/item/device/toner/T = attacking_item
 			toner = min(toner + T.toner_amount, max_toner)
-			user.drop_from_inventory(O,get_turf(src))
-			qdel(O)
+			user.drop_from_inventory(attacking_item, get_turf(src))
+			qdel(attacking_item)
 			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("This cartridge is not yet ready for replacement! Use up the rest of the toner."))
 			flick("photocopier_notoner", src)
 			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
-	else if(O.iswrench())
-		playsound(loc, O.usesound, 50, 1)
+	else if(attacking_item.iswrench())
+		playsound(loc, attacking_item.usesound, 50, 1)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	return

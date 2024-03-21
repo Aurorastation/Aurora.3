@@ -26,8 +26,8 @@
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/kinetic_harvester/attackby(obj/item/thing, mob/user)
-	if(thing.ismultitool())
+/obj/machinery/kinetic_harvester/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/datum/component/local_network_member/lanm = GetComponent(/datum/component/local_network_member)
 		if(lanm.get_new_tag(user))
 			find_core()

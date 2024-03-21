@@ -77,7 +77,7 @@
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
-	var/high_edge = current_map.overmap_size - 1
+	var/high_edge = SSatlas.current_map.overmap_size - 1
 
 	var/heading = get_heading()
 
@@ -98,7 +98,7 @@
 
 /obj/effect/overmap/Initialize()
 	. = ..()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
 
 	if(known)

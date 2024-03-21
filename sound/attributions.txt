@@ -82,3 +82,10 @@ ATTRIBUTIONS SECTION START
 /sound/items/devices/minedetector/minedetector_medium.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
 /sound/items/devices/minedetector/minedetector_far.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/konyang/konyang-1.ogg - PocketNoMoney
+sound/music/lobby/konyang/konyang-2.ogg - BGM gongbang
+sound/music/lobby/konyang/konyang-3.ogg - zolezzi
+sound/music/lobby/konyang/konyang-4.ogg - Karl Casey @ White Bat Audio
+ATTRIBUTIONS SECTION END

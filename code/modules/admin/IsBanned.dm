@@ -11,7 +11,7 @@
 #define ACCESS_STATUS_STICKYBANNED "sticky banned"
 
 
-#define LOG_CLIENT_CONNECTION(STATUS)  if (log_connection) {log_connection(ckey(key), address, computer_id, byond_version, byond_build, game_id, STATUS)}
+#define LOG_CLIENT_CONNECTION(STATUS)  if (log_connection) {log_connection(ckey(key), address, computer_id, byond_version, byond_build, GLOB.round_id, STATUS)}
 
 /world/proc/log_connection(ckey, ip, computerid, byond_version, byond_build, game_id, access_status)
 	if(!establish_db_connection(GLOB.dbcon))
@@ -27,7 +27,7 @@
 		"computerid"=computerid,
 		"byond_version"=byond_version,
 		"byond_build"=byond_build,
-		"game_id"=game_id,
+		"game_id"=GLOB.round_id,
 		"status"=access_status))
 
 

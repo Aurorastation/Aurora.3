@@ -67,7 +67,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		sync_linked()
 
 	get_holopad_id()
@@ -81,13 +81,13 @@ Possible to do for anyone motivated enough:
 	var/area/A = get_area(src)
 	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
 
-/obj/machinery/hologram/holopad/examine(mob/user)
+/obj/machinery/hologram/holopad/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(connected_pad)
 		if(established_connection)
-			to_chat(user, SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]")
 		else
-			to_chat(user, SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]")
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())
@@ -273,9 +273,9 @@ Possible to do for anyone motivated enough:
 		return 0
 	return -1
 
-/obj/machinery/hologram/holopad/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/modular_computer))
-		var/obj/item/modular_computer/MC = W
+/obj/machinery/hologram/holopad/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/modular_computer))
+		var/obj/item/modular_computer/MC = attacking_item
 		if(!(MC in linked_pdas))
 			linked_pdas |= MC
 			to_chat(user, SPAN_NOTICE("You link \the [MC] to \the [src]."))
@@ -472,7 +472,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/get_holopad_id()
 	holopad_id = ""
 
-	if(current_map.use_overmap && linked)
+	if(SSatlas.current_map.use_overmap && linked)
 		holopad_id = "[linked.name] | "
 
 	var/area/A = get_area(src)
@@ -481,7 +481,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)
 		return FALSE
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
 		if(get_dist(HP.linked, linked) > 1 && !(HP.linked in view(max_overmap_call_range, linked)))

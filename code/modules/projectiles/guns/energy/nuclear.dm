@@ -177,6 +177,32 @@
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
 		)
 
+/obj/item/gun/energy/pistol/goldendeep
+	name = "golden deep ornate energy pistol"
+	desc = "An intricate golden energy pistol, engraved with a quality unlike no other. If you had to describe this pistol in one word, it would be <b>expensive.</b>"
+	desc_extended = "Possessed by only the most affluent affiliates of the Golden Deep, this ornate energy pistol covered in gold is the result of a commission, which had the artistic quality of Ultra Maz combined with the scientific technology acquired by the Estriconian to produce a weapon that many outsiders see as a firearm more valuable than the assets it was made to protect."
+	icon = 'icons/obj/guns/goldendeep_ornatepistol.dmi'
+	icon_state = "ornatepistolstun100"
+	item_state = "ornatepistolstun100"
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/laser2.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 10
+	fire_delay = 3
+	can_turret = FALSE
+	secondary_projectile_type = /obj/item/projectile/beam/pistol
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
+	can_switch_modes = TRUE
+
+	projectile_type = /obj/item/projectile/beam/disorient
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	modifystate = "ornatepistolstun"
+
+	firemodes = list(
+		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
+		)
+
 /obj/item/gun/energy/repeater
 	name = "energy repeater"
 	desc = "A Stellar Corporate Conglomerate created energy repeater, extremely lightweight. It has three settings: Single, Three-Burst, and Full-Auto."
@@ -319,7 +345,7 @@
 	can_turret = FALSE
 	secondary_projectile_type = /obj/item/projectile/energy/blaster/skrell
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	projectile_type = /obj/item/projectile/energy/disruptorstun/skrell
 	modifystate = "psipistolstun"
 

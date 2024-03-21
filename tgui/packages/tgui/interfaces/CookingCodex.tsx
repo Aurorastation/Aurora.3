@@ -47,7 +47,7 @@ export const CookingCodex = (props, context) => {
               <Table.Cell>Ingredients</Table.Cell>
               <Table.Cell>Appliances</Table.Cell>
             </Table.Row>
-            {data?.recipes
+            {data.recipes
               .filter((recipe) => {
                 return (
                   recipe.result
@@ -63,7 +63,7 @@ export const CookingCodex = (props, context) => {
               })
               .sort((a, b) => a.result.localeCompare(b.result))
               .map((recipe) => (
-                <Table.Row header className="candystripe" key={recipe.result}>
+                <Table.Row header className="candystripe" key={recipe}>
                   <Table.Cell textAlign="right" verticalAlign="middle" pl="5px">
                     {recipe.result.toLocaleLowerCase()}
                   </Table.Cell>

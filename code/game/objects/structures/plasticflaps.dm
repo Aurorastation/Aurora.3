@@ -89,13 +89,13 @@
 			if (prob(5))
 				qdel(src)
 
-/obj/structure/plasticflaps/attackby(obj/item/W, mob/user)
+/obj/structure/plasticflaps/attackby(obj/item/attacking_item, mob/user)
 	if(manipulating)	return
-	if(W.iswirecutter() || W.sharp && !W.noslice)
+	if(attacking_item.iswirecutter() || attacking_item.sharp && !attacking_item.noslice)
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
 					SPAN_NOTICE("You begin cutting down \the [src]."))
-		if(!W.use_tool(src, user, 30, volume = 50))
+		if(!attacking_item.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."), SPAN_NOTICE("You cut down \the [src]."))

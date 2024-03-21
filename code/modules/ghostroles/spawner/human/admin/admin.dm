@@ -18,7 +18,7 @@
 	max_count = 4
 
 	//Vars related to human mobs
-	outfit = /datum/outfit/admin/nt/odinsec
+	outfit = /obj/outfit/admin/nt/odinsec
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -42,7 +42,7 @@
 	max_count = 4
 
 	//Vars related to human mobs
-	outfit = /datum/outfit/admin/nt/odindoc
+	outfit = /obj/outfit/admin/nt/odindoc
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -63,7 +63,7 @@
 	req_perms_edit = R_CCIAA
 	max_count = 1
 
-	outfit = /datum/outfit/admin/nt/odinpharm
+	outfit = /obj/outfit/admin/nt/odinpharm
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -84,7 +84,7 @@
 	req_perms_edit = R_CCIAA
 	max_count = 2
 
-	outfit = /datum/outfit/admin/nt/odinchef
+	outfit = /obj/outfit/admin/nt/odinchef
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -105,7 +105,7 @@
 	req_perms_edit = R_CCIAA
 	max_count = 1
 
-	outfit = /datum/outfit/admin/nt/odinbartender
+	outfit = /obj/outfit/admin/nt/odinbartender
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -125,7 +125,7 @@
 	req_perms = null
 	max_count = 1
 
-	outfit = /datum/outfit/admin/nt/odinjanitor
+	outfit = /obj/outfit/admin/nt/odinjanitor
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -148,7 +148,7 @@
 	req_perms_edit = R_CCIAA
 	max_count = 4
 
-	outfit = /datum/outfit/admin/ert/legion/sentinel
+	outfit = /obj/outfit/admin/ert/legion/sentinel
 	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

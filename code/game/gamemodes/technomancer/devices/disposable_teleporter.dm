@@ -22,9 +22,9 @@
 	one has been provided to allow you to leave your hideout."
 	uses = 1
 
-/obj/item/disposable_teleporter/examine(mob/user)
+/obj/item/disposable_teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "[uses] uses remaining.")
+	. += "[uses] uses remaining."
 
 /obj/item/disposable_teleporter/attack_self(mob/user as mob)
 	if(!uses)

@@ -258,7 +258,7 @@
 		"fine" = fine,
 		"felony" = felony,
 		"created_by" = created_by,
-		"game_id" = game_id
+		"game_id" = GLOB.round_id
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
 	var/DBQuery/infraction_insert_query = GLOB.dbcon.NewQuery({"INSERT INTO ss13_character_incidents

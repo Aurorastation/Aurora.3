@@ -6,7 +6,7 @@
 
 SUBSYSTEM_DEF(battle_monsters)
 	name = "Battle Monsters"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	var/list/monster_elements

@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(plants)
 	name = "Seeds & Plants"
 	flags = 0	// Override parent's flags.
 	wait = 75
-	init_order = SS_INIT_SEEDS
+	init_order = INIT_ORDER_SEEDS
 	priority = SS_PRIORITY_PLANTS
 	runlevels = RUNLEVELS_PLAYING
 

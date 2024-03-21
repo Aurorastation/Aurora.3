@@ -104,7 +104,7 @@
 					else
 						activate_pin(3)
 					return
-				if(HAS_FLAG(T.mutations, NOCLONE)) //target done been et, no more blood in him
+				if((T.mutations & NOCLONE)) //target done been et, no more blood in him
 					if(T.reagents.trans_to_obj(src, tramount))
 						activate_pin(2)
 					else

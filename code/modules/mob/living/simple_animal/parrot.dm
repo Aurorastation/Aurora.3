@@ -241,10 +241,10 @@
 	return
 
 //Mobs with objects
-/mob/living/simple_animal/parrot/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/parrot/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(!stat && !client && !istype(O, /obj/item/stack/medical))
-		if(O.force)
+	if(!stat && !client && !istype(attacking_item, /obj/item/stack/medical))
+		if(attacking_item.force)
 			if(parrot_state == PARROT_PERCH)
 				parrot_sleep_dur = parrot_sleep_max //Reset it's sleep timer if it was perched
 

@@ -35,10 +35,10 @@
 	. = ..()
 
 
-/obj/item/rig_assembly/examine(mob/user, distance)
+/obj/item/rig_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(construct)
-		to_chat(user, construct.get_desc())
+		. += construct.get_desc()
 
 /obj/item/rig_assembly/MouseEntered(location, control, params)
 	. = ..()
@@ -52,8 +52,8 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/rig_assembly/attackby(obj/item/W as obj, mob/user as mob)
-	if(!construct || !construct.action(W, user))
+/obj/item/rig_assembly/attackby(obj/item/attacking_item, mob/user)
+	if(!construct || !construct.action(attacking_item, user))
 		..()
 	return
 

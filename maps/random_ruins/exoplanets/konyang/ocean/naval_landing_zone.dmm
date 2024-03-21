@@ -1292,7 +1292,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "rc" = (
-/obj/effect/shuttle_landmark/automatic/intrepid,
+/obj/effect/decal/road_marking/no_pass,
+/obj/effect/shuttle_landmark/automatic/intrepid{
+	dir = 1
+	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "rf" = (
@@ -5390,20 +5393,20 @@ Ss
 vj
 FU
 lb
-Pq
-FU
-FU
-FU
-FU
-FU
-FU
-FU
-FU
-FU
-FU
-FU
-FU
 rc
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
 FU
 FU
 FU

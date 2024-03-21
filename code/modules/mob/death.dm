@@ -104,6 +104,8 @@
 		if(hostile_in_sight.target_mob == src)
 			hostile_in_sight.target_mob = null
 
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_DEATH, src, gibbed)
+
 	return 1
 
 /mob/proc/set_respawn_time()

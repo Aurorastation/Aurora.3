@@ -23,10 +23,10 @@
 	w_class = ITEMSIZE_TINY
 	var/obj/item/sample
 
-/obj/item/device/core_sampler/examine(mob/user, distance, is_adjacent)
+/obj/item/device/core_sampler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
-		to_chat(user, SPAN_NOTICE("This one is [sample ? "full" : "empty"]."))
+		. += SPAN_NOTICE("This one is [sample ? "full" : "empty"].")
 
 /obj/item/device/core_sampler/proc/sample_item(var/item_to_sample, var/mob/user)
 	var/datum/geosample/geo_data

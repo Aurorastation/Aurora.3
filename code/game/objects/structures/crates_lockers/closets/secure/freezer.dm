@@ -55,6 +55,12 @@
 		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
 	for(var/i = 0, i < 2, i++)
 		new /obj/item/storage/box/fancy/egg_box(src)
+	for(var/i = 0, i < 1, i++)
+		new /obj/item/reagent_containers/food/snacks/spreads/butter(src)
+	for(var/i = 0, i < 4, i++)
+		new /obj/random/condiment(src)
+	for(var/i = 0, i < 2, i++)
+		new /obj/random/kitchen_staples(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen
 	name = "kitchen cabinet"
@@ -95,10 +101,15 @@
 		new /obj/item/reagent_containers/food/condiment/sugar(src)
 
 /obj/structure/closet/secure_closet/freezer/kois
-	name = "k'ois freezer"
-	desc = "A freezer with k'ois inside. Don't eat this unless you're a Vaurca!"
+	name = "freezer"
+	desc = "A freezer, painted in a sickly yellow, with a biohazard sign on the door."
+	icon_state = "freezer_kois"
 
-/obj/structure/closet/secure_closet/freezer/kois/fill()
+/obj/structure/closet/secure_closet/freezer/kois/spores
+	name = "k'ois freezer"
+	desc = "A freezer with k'ois inside. Painted in a sickly yellow, with a biohazard sign on the door."
+
+/obj/structure/closet/secure_closet/freezer/kois/spores/fill()
 	..()
 	for(var/i = 0, i < 8, i++)
 		new /obj/item/reagent_containers/food/snacks/grown/kois(src)

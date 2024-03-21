@@ -17,14 +17,14 @@
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
 
-/obj/item/mecha_equipment/examine(mob/user, distance)
+/obj/item/mecha_equipment/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(restricted_hardpoints))
 		var/hardpoints = english_list(restricted_hardpoints, and_text = ", ")
-		to_chat(user, SPAN_NOTICE("<b>Exosuit Mounts:</b> [hardpoints]"))
+		. += SPAN_NOTICE("<b>Exosuit Mounts:</b> [hardpoints]")
 	if(length(restricted_software))
 		var/software = english_list(restricted_software, and_text = ", ")
-		to_chat(user, SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]"))
+		. += SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]")
 
 /obj/item/mecha_equipment/attack() //Generally it's not desired to be able to attack with items
 	return 0

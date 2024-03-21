@@ -28,10 +28,10 @@
 			Proj.on_hit(M,M.bullet_act(Proj, def_zone))
 	return
 
-/obj/effect/forcefield/attackby(var/obj/item/I, var/mob/user)
+/obj/effect/forcefield/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(I, /obj/item/nullrod))
-		to_chat(user, "<span class='notice'>\the [src] dissipates at the touch of the \the [I].</span>")
+	if(istype(attacking_item, /obj/item/nullrod))
+		to_chat(user, "<span class='notice'>\the [src] dissipates at the touch of the \the [attacking_item].</span>")
 		qdel(src)
 
 /obj/effect/forcefield/cultify()

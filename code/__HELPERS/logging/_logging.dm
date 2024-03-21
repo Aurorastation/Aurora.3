@@ -10,13 +10,13 @@
 /proc/log_startup()
 	var/static/already_logged = FALSE
 	if (!already_logged)
-		log_world(GLOB.diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
+		log_world(GLOB.diary, "[log_end]\n[log_end]\nStarting up. (ID: [GLOB.round_id]) [log_end]\n---------------------[log_end]")
 		already_logged = TRUE
 	else
 		crash_with("log_startup() was called more then once")
 
 /proc/log_topic(T, addr, master, key, var/list/queryparams)
-	_log_topic("[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
+	_log_topic("[GLOB.round_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
 
 /proc/log_error(msg)
 	world.log <<  "## ERROR: [msg][log_end]"
@@ -59,7 +59,7 @@
 #endif
 
 /proc/game_log(category, text)
-	WRITE_LOG(GLOB.diary, "[game_id] [category]: [text][log_end]")
+	WRITE_LOG(GLOB.diary, "[GLOB.round_id] [category]: [text][log_end]")
 
 /proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	_log_admin(text)

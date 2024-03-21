@@ -89,13 +89,13 @@
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/attackby(obj/item/W, mob/user)
-	if(isassembly(W))
-		var/obj/item/device/assembly/A = W
+/obj/item/device/assembly/attackby(obj/item/attacking_item, mob/user)
+	if(isassembly(attacking_item))
+		var/obj/item/device/assembly/A = attacking_item
 		if(!A.secured && !secured)
 			attach_assembly(A, user)
 			return
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(toggle_secure())
 			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else
@@ -108,13 +108,13 @@
 	return
 
 
-/obj/item/device/assembly/examine(mob/user, distance, is_adjacent)
+/obj/item/device/assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 || loc == user)
 		if(secured)
-			to_chat(user, "\The [src] is ready!")
+			. += "\The [src] is ready!"
 		else
-			to_chat(user, "\The [src] can be attached!")
+			. += "\The [src] can be attached!"
 
 
 /obj/item/device/assembly/attack_self(mob/user)

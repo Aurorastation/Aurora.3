@@ -4,37 +4,13 @@
 	THAT ARE PRESENT THERE
 */
 
-#define SS_INIT_PERSISTENT_CONFIG 26
-#define SS_INIT_MISC_FIRST  25
-#define SS_INIT_SEEDS       24	// Plant controller setup.
-#define SS_INIT_MAPLOAD     22	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
-#define SS_INIT_JOBS        21
-#define SS_INIT_MAPFINALIZE 20	// Asteroid generation.
-#define SS_INIT_PARALLAX    19	// Parallax image cache generation. Must run before ghosts are able to join
-#define SS_INIT_ATOMS       17	// World initialization. Will trigger lighting updates. Observers can join after this loads.
-#define SS_INIT_ASSETS      16	// Assets subsystem setup.
-#define SS_INIT_POWER       15	// Initial powernet build.
-#define SS_INIT_ECONOMY     14  // Cargo needs economy set up
 #define SS_INIT_CARGO       13	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PIPENET     12	// Initial pipenet build.
-#define SS_INIT_MACHINERY   11	// Machinery prune and powernet build.
-#define SS_INIT_AIR         10	// Air setup and pre-bake.
 #define SS_INIT_NIGHT       9	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_SMOOTHING   8	// Object icon smoothing. Creates overlays.
-#define SS_INIT_ICON_UPDATE 7	// Icon update queue flush. Should run before overlays.
 #define SS_INIT_AO          6	// Wall AO neighbour build.
-#define SS_INIT_OVERLAY     5	// Overlay flush.
-#define SS_INIT_AWAY_MAPS   4   // Note: away maps (ruins, exoplanets, ...) must initialize before ghost roles in order for their spawnpoints to work.
-#define SS_INIT_GHOSTROLES  3   // Ghost roles must initialize before SS_INIT_MISC due to some roles (matriarch drones) relying on the assumption that this SS is initialized.
-#define SS_INIT_MISC        2	// Subsystems without an explicitly set initialization order start here.
 #define SS_INIT_SUNLIGHT    1	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
-#define SS_INIT_LIGHTING   	0	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
-#define SS_INIT_ZCOPY      -1	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define SS_INIT_XENOARCH   -2   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
 #define SS_INIT_HOLOMAP    -4   // Minimap subsystem. Should be initialized after all maps, away sites, ships, planets, etc.
-#define SS_INIT_LOBBY      -5	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
-#define SS_INIT_PING 	   -6	// Pinger for the clients
-#define SS_INIT_CHAT       -7	// To ensure chat remains smooth during init.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
@@ -58,14 +34,11 @@
 #define SS_PRIORITY_TICKER     100	// Gameticker.
 //#define FIRE_PRIORITY_DEFAULT   50	// This is defined somewhere else.
 #define SS_PRIORITY_MOB         40	// Mob Life().
-#define SS_PRIORITY_ASSET		40  // Asset loading subsystem - not to be confused with SSassets.
 #define SS_PRIORITY_AIR         40	// ZAS processing.
-#define SS_PRIORITY_CHAT        30  // Chat
 #define SS_PRIORITY_STATPANELS  25  // Statpanels.
 #define SS_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
 #define SS_PRIORITY_MACHINERY   25	// Machinery + powernet ticks.
 #define SS_PRIORITY_NANOUI      25	// UI updates.
-#define SS_PRIORITY_VOTE        20
 #define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
 #define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT       20
@@ -77,7 +50,6 @@
 #define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
-#define SS_PRIORITY_PING        10
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 #define SS_PRIORITY_ARRIVALS    10	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 

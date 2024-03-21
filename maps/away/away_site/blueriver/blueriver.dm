@@ -98,12 +98,12 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/deity/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/deity/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	user.visible_message(
-		"<span class='danger'>[user] hits \the [src] with \the [W]!</span>",
-		"<span class='danger'>You hit \the [src] with \the [W]!</span>",
+		"<span class='danger'>[user] hits \the [src] with \the [attacking_item]!</span>",
+		"<span class='danger'>You hit \the [src] with \the [attacking_item]!</span>",
 		"<span class='danger'>You hear something breaking!</span>"
 		)
 

@@ -46,13 +46,21 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "human_helmet"
 	item_state = "human_helmet"
+	build_from_parts = TRUE
+	worn_overlay = "face"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+
+/obj/item/clothing/head/expression/unathi
+	name = "unathi expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
+	icon_state = "unathi_helmet"
+	item_state = "unathi_helmet"
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -516,11 +524,11 @@
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
-/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/arrow))
-		load(I, user)
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
+/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/arrow))
+		load(attacking_item, user)
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			var/obj/item/arrow/rod/ROD = new /obj/item/arrow/rod(src)
 			load(ROD, user)

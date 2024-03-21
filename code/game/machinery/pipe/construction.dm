@@ -490,15 +490,15 @@
 /obj/item/pipe/attack_self(mob/user as mob)
 	return rotate()
 
-/obj/item/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/item/pipe/attackby(obj/item/attacking_item, mob/user)
 	..()
 	//*
-	if (!W.iswrench() && !istype(W, /obj/item/pipewrench))
+	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
-	if(istype(W, /obj/item/pipewrench))
-		var/action = alert(user, "Change pipe?", "Change pipe", "Yes", "No")
+	if(istype(attacking_item, /obj/item/pipewrench))
+		var/action = tgui_input_list(user, "Change pipe?", "Change pipe", list("Yes", "No"), "No")
 		if(action == "Yes")
-			action = alert(user, "Change pipe type?", "Change pipe", "Yes", "No")
+			action = tgui_input_list(user, "Change pipe type?", "Change pipe", list("Yes", "No"), "No")
 			if(action == "No")
 				if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT, PIPE_FUEL_STRAIGHT, PIPE_FUEL_BENT, PIPE_AUX_STRAIGHT, PIPE_AUX_BENT))
 					if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_FUEL_STRAIGHT, PIPE_AUX_STRAIGHT))
@@ -1506,7 +1506,7 @@
 			P.atmos_init()
 			P.build_network()
 
-	playsound(src.loc, W.usesound, 50, 1)
+	playsound(src.loc, attacking_item.usesound, 50, 1)
 	user.visible_message( \
 		"[user] fastens the [src].", \
 		"<span class='notice'>You have fastened the [src].</span>", \
@@ -1528,13 +1528,13 @@
 	item_state = "buildpipe"
 	w_class = ITEMSIZE_LARGE
 
-/obj/item/pipe_meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (W.iswrench())
+/obj/item/pipe_meter/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswrench())
 		if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 			to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
 			return 1
 		new/obj/machinery/meter( src.loc )
-		playsound(src.loc, W.usesound, 50, 1)
+		playsound(src.loc, attacking_item.usesound, 50, 1)
 		to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
 		qdel(src)
 		return TRUE

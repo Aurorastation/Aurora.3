@@ -8,10 +8,10 @@
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
 
-/obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
+/obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
 		return ..()
-	var/obj/item/card/id/card = I.GetID()
+	var/obj/item/card/id/card = attacking_item.GetID()
 	if(istype(card))
 		if(check_access(card))
 			set_sign()

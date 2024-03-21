@@ -500,11 +500,11 @@
 	w_class = ITEMSIZE_SMALL
 	var/active = 0 //if the ship is on
 
-/obj/item/orion_ship/examine(mob/user, distance, is_adjacent)
+/obj/item/orion_ship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
-	to_chat(user, SPAN_NOTICE("There's a little switch on the bottom. It's flipped [active ? "up" : "down"]."))
+	. += SPAN_NOTICE("There's a little switch on the bottom. It's flipped [active ? "up" : "down"].")
 
 /obj/item/orion_ship/attack_self(mob/user)
 	if(active)

@@ -3,7 +3,7 @@
 SUBSYSTEM_DEF(finalize)
 	name = "Map Finalization"
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
-	init_order = SS_INIT_MAPFINALIZE
+	init_order = INIT_ORDER_MAPFINALIZE
 
 	var/dmm_suite/maploader
 	var/datum/away_mission/selected_mission
@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(finalize)
 	global.uplink = new
 
 	var/time = world.time
-	current_map.finalize_load()
+	SSatlas.current_map.finalize_load()
 	log_subsystem_mapfinalization("Finalized map in [(world.time - time)/10] seconds.")
 
 	load_space_ruin()
@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(finalize)
 
 	if(GLOB.config.generate_asteroid)
 		time = world.time
-		current_map.generate_asteroid()
+		SSatlas.current_map.generate_asteroid()
 		log_subsystem_mapfinalization("Generated asteroid in [(world.time - time)/10] seconds.")
 
 	// Generate the area list.
@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(finalize)
 		else
 			log_subsystem_mapfinalization("Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds.")
 			admin_notice(SPAN_DANGER("Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds."), R_DEBUG)
-			current_map.restricted_levels.Add(world.maxz)
+			SSatlas.current_map.restricted_levels.Add(world.maxz)
 	QDEL_NULL(maploader)
 
 /datum/controller/subsystem/finalize/proc/place_dungeon_spawns()

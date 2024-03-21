@@ -49,32 +49,32 @@
 	dispenser_win.set_content(dat)
 	dispenser_win.open()
 
-/obj/structure/dispenser/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/tank/oxygen) || istype(I, /obj/item/tank/air) || istype(I, /obj/item/tank/anesthetic))
+/obj/structure/dispenser/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/tank/oxygen) || istype(attacking_item, /obj/item/tank/air) || istype(attacking_item, /obj/item/tank/anesthetic))
 		if(oxygentanks < 10)
-			user.drop_from_inventory(I, src)
-			oxytanks.Add(I)
+			user.drop_from_inventory(attacking_item, src)
+			oxytanks.Add(attacking_item)
 			oxygentanks++
-			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
+			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 			if(oxygentanks < 5)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
-	if(istype(I, /obj/item/tank/phoron))
+	if(istype(attacking_item, /obj/item/tank/phoron))
 		if(phorontanks < 10)
-			user.drop_from_inventory(I, src)
-			platanks.Add(I)
+			user.drop_from_inventory(attacking_item, src)
+			platanks.Add(attacking_item)
 			phorontanks++
-			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
+			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 			if(oxygentanks < 6)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
-	if(I.iswrench())
+	if(attacking_item.iswrench())
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You lean down and unwrench [src]."))
 			anchored = FALSE

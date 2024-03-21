@@ -165,7 +165,7 @@
 	return 1
 
 /mob/living/carbon/brain/handle_regular_hud_updates()
-	if(stat == DEAD || HAS_FLAG(mutations, XRAY))
+	if(stat == DEAD || (mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if(stat != DEAD)
@@ -192,7 +192,7 @@
 		else
 			healths.icon_state = "health7"
 
-		if(stat == DEAD || HAS_FLAG(mutations, XRAY))
+		if(stat == DEAD || (mutations & XRAY))
 			set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 			set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 		else if(stat != DEAD)

@@ -71,21 +71,20 @@
 		qdel(CI)
 	return ..()
 
-/obj/machinery/appliance/examine(mob/user, distance, is_adjacent)
+/obj/machinery/appliance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		list_contents(user)
-		return TRUE
+		. += list_contents(user)
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
+	. = list()
 	if (isemptylist(cooking_objs))
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. = SPAN_NOTICE("It is empty.")
 		return
-	var/string = "Contains...<ul>"
+	. = "Contains...<ul>"
 	for (var/datum/cooking_item/CI in cooking_objs)
-		string += "<li>\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
-	string += "</ul>"
-	to_chat(user, string)
+		. += "\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
+	. += "</ul>"
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)
@@ -199,29 +198,29 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/appliance/attackby(obj/item/attacking_item, mob/user)
 	if(!cook_type || (stat & (BROKEN)))
 		to_chat(user, SPAN_WARNING("[src] is not working."))
 		return
 
-	var/result = can_insert(I, user)
+	var/result = can_insert(attacking_item, user)
 	if(result == CANNOT_INSERT)
-		if(default_deconstruction_screwdriver(user, I))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return
-		else if(default_part_replacement(user, I))
+		else if(default_part_replacement(user, attacking_item))
 			return
-		else if(default_deconstruction_crowbar(user, I))
+		else if(default_deconstruction_crowbar(user, attacking_item))
 			return
 		return
 
 	if(result == INSERT_GRABBED)
-		var/obj/item/grab/G = I
+		var/obj/item/grab/G = attacking_item
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
 			return
 
 	//From here we can start cooking food
-	add_content(I, user)
+	add_content(attacking_item, user)
 	update_icon()
 
 

@@ -373,18 +373,18 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	throw_range = 5
 	var/created_name = "Cleanbot"
 
-/obj/item/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
+/obj/item/bucket_sensor/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm))
-		user.drop_from_inventory(O, get_turf(src))
-		qdel(O)
+	if(istype(attacking_item, /obj/item/robot_parts/l_arm) || istype(attacking_item, /obj/item/robot_parts/r_arm))
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		qdel(attacking_item)
 		var/turf/T = get_turf(src)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
 		to_chat(user, SPAN_NOTICE("You add the robot arm to the bucket and sensor assembly. Beep boop!"))
 		qdel(src)
-	else if(O.ispen())
-		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
+	else if(attacking_item.ispen())
+		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
 		if(!in_range(src, usr) && src.loc != usr)

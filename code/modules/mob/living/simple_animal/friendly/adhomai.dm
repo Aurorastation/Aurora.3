@@ -21,17 +21,17 @@
 	mob_size = 5
 	var/eggsleft = 0
 
-/mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
-		var/obj/item/reagent_containers/food/snacks/grown/G = O
+/mob/living/simple_animal/ice_tunneler/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
+		var/obj/item/reagent_containers/food/snacks/grown/G = attacking_item
 		if(G.seed && G.seed.kitchen_tag == "nfrihi")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It whistles happily."),
-					SPAN_NOTICE("You feed \the [O] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("\The [user] feeds \the [attacking_item] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It whistles happily."),
 					"You hear a cluck.")
-				user.drop_from_inventory(O,get_turf(src))
-				qdel(O)
+				user.drop_from_inventory(attacking_item,get_turf(src))
+				qdel(attacking_item)
 				eggsleft += rand(1, 4)
 			else
 				to_chat(user, "\The [name] doesn't seem hungry!")
@@ -234,7 +234,7 @@
 		unburrow()
 	..()
 
-/mob/living/simple_animal/ice_catcher/attackby(obj/item/O, mob/user)
+/mob/living/simple_animal/ice_catcher/attackby(obj/item/attacking_item, mob/user)
 	if(burrowed && (stat != DEAD))
 		unburrow()
 	..()

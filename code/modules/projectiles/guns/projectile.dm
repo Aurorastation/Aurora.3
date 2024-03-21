@@ -227,13 +227,13 @@
 	update_maptext()
 	update_icon()
 
-/obj/item/gun/projectile/attackby(obj/item/I, mob/user)
+/obj/item/gun/projectile/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(.)
 		return
-	load_ammo(I, user)
-	if(istype(I, /obj/item/suppressor))
-		var/obj/item/suppressor/S = I
+	load_ammo(attacking_item, user)
+	if(istype(attacking_item, /obj/item/suppressor))
+		var/obj/item/suppressor/S = attacking_item
 		if(!can_suppress)
 			balloon_alert(user, "\the [S.name] doesn't fit")
 			return
@@ -288,17 +288,17 @@
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
 
-/obj/item/gun/projectile/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/projectile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	if(jam_num)
-		to_chat(user, "<span class='warning'>It looks jammed.</span>")
+		. += "<span class='warning'>It looks jammed.</span>"
 	if(ammo_magazine)
-		to_chat(user, "It has \a [ammo_magazine] loaded.")
+		. += "It has \a [ammo_magazine] loaded."
 	if(suppressed)
-		to_chat(user, "It has a suppressor attached.")
-	to_chat(user, "Has [get_ammo()] round\s remaining.")
+		. += "It has a suppressor attached."
+	. += "Has [get_ammo()] round\s remaining."
 	return
 
 /obj/item/gun/projectile/get_ammo()

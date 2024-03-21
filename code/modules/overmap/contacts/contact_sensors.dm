@@ -58,7 +58,7 @@
 	// Update our 'sensor range' (ie. overmap lighting)
 	if(!sensors || !sensors.use_power || (stat & (NOPOWER|BROKEN)))
 		if(length(datalink_contacts))
-			var/remove_link = !sensors || HAS_FLAG(stat, BROKEN)
+			var/remove_link = !sensors || (stat & BROKEN)
 			datalink_remove_all_ships_datalink(remove_link)
 		for(var/key in contact_datums)
 			var/datum/overmap_contact/record = contact_datums[key]
@@ -169,9 +169,9 @@
 			if(!record.pinged)
 				addtimer(CALLBACK(record, PROC_REF(ping)), time_delay)
 
-/obj/machinery/computer/ship/sensors/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/computer/ship/sensors/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	var/obj/item/device/multitool/P = I
+	var/obj/item/device/multitool/P = attacking_item
 	if(!istype(P))
 		return
 	var/obj/item/ship_tracker/tracker = P.get_buffer()

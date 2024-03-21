@@ -35,7 +35,7 @@ AI MODULES
 			return
 
 		if(SSticker.mode && SSticker.mode.name == "blob")
-			to_chat(usr, "Law uploads have been disabled by [current_map.company_name]!")
+			to_chat(usr, "Law uploads have been disabled by [SSatlas.current_map.company_name]!")
 			return
 
 		if (comp.current.stat == 2 || comp.current.control_disabled == 1)

@@ -2691,7 +2691,10 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "HY" = (
-/obj/effect/shuttle_landmark/automatic/intrepid,
+/obj/effect/decal/road_marking/no_pass,
+/obj/effect/shuttle_landmark/automatic/intrepid{
+	dir = 1
+	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ic" = (
@@ -5872,20 +5875,20 @@ mR
 UH
 zh
 uc
-fq
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
 HY
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
 zh
 zh
 zh
