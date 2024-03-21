@@ -2450,6 +2450,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/flag/caladius{
+	pixel_x = 32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 "ixD" = (
