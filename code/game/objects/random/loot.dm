@@ -524,18 +524,17 @@
 	var/obj/item/gun/projectile/G = thing
 	if(G.ammo_magazine)
 		var/mags = rand(0, 2)
-		if(mags)
-			for(var/i = 1 to mags)
-				var/obj/item/ammo_magazine/AG = new G.ammo_magazine.type(get_turf(G))
-				if(prob(50))
-					var/to_delete = rand(1, length(AG.stored_ammo))
-					var/delete_counter = 0
-					for(var/obj/item/ammo_casing/AC in AG.stored_ammo)
-						qdel(AC)
-						delete_counter++
-						if(delete_counter > to_delete)
-							break
-						AG.update_icon()
+		for(var/i = 1 to mags)
+			var/obj/item/ammo_magazine/AG = new G.ammo_magazine.type(get_turf(G))
+			if(prob(50))
+				var/to_delete = rand(1, length(AG.stored_ammo))
+				var/delete_counter = 0
+				for(var/obj/item/ammo_casing/AC in AG.stored_ammo)
+					qdel(AC)
+					delete_counter++
+					if(delete_counter > to_delete)
+						break
+				AG.update_icon()
 
 /obj/random/gun_with_ammo/pistols
 	name = "pistols"

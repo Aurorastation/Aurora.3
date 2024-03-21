@@ -483,7 +483,6 @@
 			target = victims[1]
 
 	if (!target)
-		to_chat(src, SPAN_WARNING("You aren't on top of a victim!"))
 		return
 	if (get_turf(src) != get_turf(target) || !(target.lying || target.stat == DEAD))
 		to_chat(src, SPAN_WARNING("You're no longer on top of \the [target]!"))

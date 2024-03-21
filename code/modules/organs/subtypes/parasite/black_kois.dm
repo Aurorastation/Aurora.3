@@ -23,7 +23,7 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		if(stage < 3)
-			to_chat(owner, "<span class='warning'>You feel a stinging pain in your head!</span>")
+			to_chat(owner, SPAN_WARNING("You feel a stinging pain in your head!"))
 		else
 			to_chat(owner, "A part of you tries to fight back, but the taste of the black k'ois puts you at ease.")
 		owner.visible_message("<b>[owner]</b> winces slightly.")
@@ -38,7 +38,7 @@
 		set_light(-1.5, 6, "#FFFFFF")
 		if(!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages))
 			owner.add_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+			to_chat(owner, SPAN_NOTICE("Your mind expands, and your thoughts join the unity of the Hivenet."))
 
 		if(prob(5))
 			if(stage < 4)
@@ -54,7 +54,7 @@
 				to_chat(owner, SPAN_GOOD("You cannot ever believe that you struggled against this feeling. You are home. You are happy."))
 
 		else if(prob(10))
-			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
+			to_chat(owner, SPAN_WARNING("You feel disorientated!"))
 			switch(rand(1,3))
 				if(1)
 					owner.confused += 10
@@ -160,7 +160,7 @@
 			target.death(FALSE) //too late, there is no brain left to save
 	if(GLOB.all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
-		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+		to_chat(target, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	if(GLOB.all_languages[LANGUAGE_LIIDRA] in target.languages && stage >= 3)
 		target.remove_language(LANGUAGE_LIIDRA)
 	removed_langs = 0

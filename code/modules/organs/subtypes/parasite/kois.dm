@@ -21,7 +21,7 @@
 		return
 
 	if(prob(10) && (owner.can_feel_pain()))
-		to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
+		to_chat(owner, SPAN_WARNING("You feel a stinging pain in your abdomen!"))
 		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
@@ -40,13 +40,13 @@
 	if(stage >= 3)
 		set_light(1, l_color = "#E6E600")
 		if(prob(10))
-			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
+			to_chat(owner, SPAN_WARNING("You feel something squirming inside of you!"))
 			owner.reagents.add_reagent(/singleton/reagent/toxin/phoron, 8)
 			owner.reagents.add_reagent(/singleton/reagent/kois, 5)
 
 	if(stage >= 4)
 		if(prob(10))
-			to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
+			to_chat(owner, SPAN_DANGER("You feel something alien coming up your throat!"))
 			owner.emote("cough")
 
 			var/turf/T = get_turf(owner)
