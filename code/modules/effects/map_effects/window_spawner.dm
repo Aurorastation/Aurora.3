@@ -239,5 +239,5 @@
 	frame_color = "#AAAFC7"
 
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary
-	color = "#5B5B5B"
+	icon_state = "full_rwindow_shuttle_merc"
 	frame_color = "#5B5B5B"
