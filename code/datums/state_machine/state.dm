@@ -1,4 +1,4 @@
-// An individual state, defined as a `/decl` to save memory.
+// An individual state, defined as a `/singleton` to save memory.
 // On a directed graph, these would be the nodes themselves, connected to each other by unidirectional arrows.
 /singleton/state
 	// Transition decl types, which get turned into refs to those types.
