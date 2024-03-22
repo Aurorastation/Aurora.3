@@ -12,15 +12,31 @@
 	// VARIABLES //
 	var/teles_left	// How many teleports left until it becomes uncalibrated
 	var/datum/projectile_data/last_tele_data = null
-	var/z_co = 4
+
+	///The zlevel aim offset, that was inputted by the user as a target
+	var/zlevel_offset = 0
+
+	///The Zlevel that is being targeted, aka the real one
+	var/target_zlevel = 4
+
+	///The rotation that was inputted by the user as a target
+	var/rotation = 0
+
+	///The angle that was inputted by the user as a target
+	var/angle = 45
+
+	///The power that was inputted by the user as a target
+	var/power = 5
+
+	///The power offset
 	var/power_off
+
+	///The rotation offset
 	var/rotation_off
 	//var/angle_off
-	var/last_target
 
-	var/rotation = 0
-	var/angle = 45
-	var/power = 5
+	///The target of the last teleportation, a turf
+	var/turf/last_target
 
 	// Based on the power used
 	var/teleport_cooldown = 0 // every index requires a bluespace crystal
@@ -30,6 +46,33 @@
 	var/max_crystals = 5
 	var/list/crystals = list()
 	var/obj/item/device/gps/inserted_gps
+
+	///A list of Zlevels that belong to the visitable (generally a ship) we are in
+	var/list/our_zlevels = list()
+
+	///A list of currently known Zlevels translations below our ship/visitable
+	var/list/overmap_contacts_zlevels = list()
+
+/obj/machinery/computer/telescience/Initialize()
+	. = ..()
+	recalibrate()
+	for(var/i = 1; i <= starting_crystals; i++)
+		crystals += new /obj/item/bluespace_crystal/artificial(null) // starting crystals
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/telescience/LateInitialize()
+	. = ..()
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
+		if(istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+			//If we got hooked up correctly, populate the list of our zlevels
+			if(linked)
+				for(var/zlevel in GLOB.map_sectors)
+					if(GLOB.map_sectors["[zlevel]"] == linked)
+						our_zlevels += text2num(zlevel)
 
 /obj/machinery/computer/telescience/Destroy()
 	eject()
@@ -42,11 +85,6 @@
 	. = ..()
 	. += "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots."
 
-/obj/machinery/computer/telescience/Initialize()
-	. = ..()
-	recalibrate()
-	for(var/i = 1; i <= starting_crystals; i++)
-		crystals += new /obj/item/bluespace_crystal/artificial(null) // starting crystals
 
 /obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
@@ -114,7 +152,7 @@
 		t += "</div>"
 
 		t += "<A href='?src=\ref[src];setz=1'>Set Sector</A>"
-		t += "<div class='statusDisplay'>[z_co ? z_co : "NULL"]</div>"
+		t += "<div class='statusDisplay'>[zlevel_offset]</div>"
 
 		t += "<BR><A href='?src=\ref[src];send=1'>Open Portal</A>"
 		t += "<BR><A href='?src=\ref[src];recal=1'>Recalibrate Crystals</A> <A href='?src=\ref[src];eject=1'>Eject Crystals</A>"
@@ -168,7 +206,7 @@
 		var/trueY = Clamp(round(proj_data.dest_y, 1), 1, world.maxy)
 		var/spawn_time = round(proj_data.time) * 10
 
-		var/turf/target = locate(trueX, trueY, z_co)
+		var/turf/target = locate(trueX, trueY, target_zlevel)
 		last_target = target
 		var/area/A = get_area(target)
 		flick("pad-beam", telepad)
@@ -230,12 +268,12 @@
 				log_msg = dd_limittext(log_msg, length(log_msg) - 2)
 			else
 				log_msg += "nothing"
-			log_msg += " [sending ? "to" : "from"] [trueX], [trueY], [z_co] ([A ? A.name : "null area"])"
+			log_msg += " [sending ? "to" : "from"] [trueX], [trueY], [target_zlevel] ([A ? A.name : "null area"])"
 			investigate_log(log_msg, "telesci")
 			updateDialog()
 
 /obj/machinery/computer/telescience/proc/teleport(mob/user)
-	if(rotation == null || angle == null || z_co == null)
+	if(rotation == null || angle == null || target_zlevel == null)
 		temp_msg = "ERROR!<BR>Set a angle, rotation and sector."
 		return
 	if(power <= 0)
@@ -250,17 +288,12 @@
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(isNotStationLevel(z_co))
-		telefail()
-		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(SSatlas.current_map.station_levels)]."
-		return
 	if(teles_left > 0)
 		doteleport(user)
 	else
 		telefail()
 		temp_msg = "ERROR!<BR>Calibration required."
 		return
-	return
 
 /obj/machinery/computer/telescience/proc/eject()
 	for(var/obj/item/I in crystals)
@@ -298,10 +331,74 @@
 				power = power_options[index]
 
 	if(href_list["setz"])
-		var/new_z = input("Please input desired sector.", name, z_co) as num
+		var/inputed_new_z = tgui_input_number(usr, "Please input desired height offset", "Section Selection", 0, max_value = world.maxz, min_value = world.maxz*-1, round_value = TRUE)
+
 		if(..())
 			return
-		z_co = Clamp(round(new_z), 1, 10)
+
+		//Use a holder var to do the calculations, detached from the user input, as we vary it
+		var/new_z = inputed_new_z
+		//If we crossed the 0 mark, get a free additional zlevel (so we don't have to deal with a zlevel 0)
+		if(new_z < 0 && abs(new_z) >= src.z)
+			new_z--
+
+		//Prevent people from targeting admin levels
+		if(isAdminLevel(src.z + new_z))
+			to_chat(usr, SPAN_WARNING("Bluespace forces prevent this offset from being used."))
+			return
+
+		if((src.z + new_z) < 0 || !AreConnectedZLevels(src.z, (src.z + new_z)))
+
+			overmap_contacts_zlevels = list()
+
+			var/list/obj/effect/overmap/visitable/already_added_visitables = list()
+
+			//Get the minimum zlevel that we need to offset to be extraneous of our ship
+			//eg. if we are on Zlevel 4, and our ship covers Z 1 to 5, we have 3 Zlevels
+			//that are ours, so we need to offset by 4 to start being outside our zlevels
+			//(of course those zlevels would be virtual ones, to place the translation to the real ones for overmap visitables)
+			var/our_zlevel = src.z
+			var/min_zlevel_below_us = 1
+			while((our_zlevel-=1) in our_zlevels)
+				min_zlevel_below_us++
+
+			for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
+				if(linked.check_ownership(S))
+					for(var/obj/effect/overmap/visitable/known_visitable in S.objects_in_view)
+						//If fully scanned and identified
+						if(S.objects_in_view[known_visitable] < 100)
+							continue
+
+						//If it's us or some BS, skip
+						if(known_visitable.map_z == our_zlevels)
+							continue
+
+						//If we added this already, skip
+						if(known_visitable in already_added_visitables)
+							continue
+
+
+						//Ok, we found what would be the offset below us to start adding shit, let's add shit
+						for(var/contact_zlevel in known_visitable.map_z)
+							overmap_contacts_zlevels["[min_zlevel_below_us+length(overmap_contacts_zlevels)]"] = contact_zlevel
+
+						//Mark it as added
+						already_added_visitables += known_visitable
+
+			if((src.z + new_z) < 0 && (num2text(abs(new_z)-1) in overmap_contacts_zlevels))
+				target_zlevel = overmap_contacts_zlevels["[abs(new_z)-1]"]
+				zlevel_offset = inputed_new_z
+			else
+				to_chat(usr, SPAN_WARNING("There is nothing targetable at this height."))
+				return
+
+		//Same area as us
+		else
+			if((src.z+new_z) in our_zlevels)
+				target_zlevel = (src.z+new_z)
+				zlevel_offset = inputed_new_z
+			else
+				to_chat(usr, SPAN_WARNING("There is nothing targetable at this height."))
 
 	if(href_list["ejectGPS"])
 		if(inserted_gps)
