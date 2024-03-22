@@ -291,7 +291,7 @@
 	if(istype(other, /mob/living/silicon))
 		var/mob/living/silicon/S = other
 		if(S.can_hear_hivenet)
-			return 1
+			return TRUE
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
