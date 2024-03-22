@@ -47,7 +47,7 @@ var/global/list/default_interrogation_channels = list(
 	throw_speed = 2
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
+	matter = list(MATERIAL_ALUMINIUM = 75, MATERIAL_GLASS = 25)
 	suffix = "\[3\]"
 	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
