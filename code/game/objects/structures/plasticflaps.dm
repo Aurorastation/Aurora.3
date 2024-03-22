@@ -67,6 +67,10 @@
 	if(istype(A, /obj/vehicle))	//no vehicles
 		return 0
 
+	//Bots can always pass
+	if(isbot(A))
+		return TRUE
+
 	var/mob/living/M = A
 	if(istype(M))
 		if(M.lying)

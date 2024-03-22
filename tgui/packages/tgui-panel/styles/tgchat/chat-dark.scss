@@ -618,6 +618,20 @@ em {
   &--grey {
     @extend .examine_block;
     border-color: #808080;
+
+  &--blue {
+    @extend .examine_block;
+    border-color: #3c5dc0;
+  }
+
+  &--red {
+    @extend .examine_block;
+    border-color: #e21111;
+  }
+
+  &--deep-cyan {
+    @extend .examine_block;
+    border-color: #0f7e62;
   }
 }
 
