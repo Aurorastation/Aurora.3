@@ -180,7 +180,7 @@
 	if(weld_rate)
 		desc += "<br>It is capable of repairing a stationbound's structural damage."
 	if(wire_rate)
-		desc += "<br>It is capable of repairing a stationbound's burn damage."
+		desc += "<br>It is capable of repairing stationbounds' burn damage."
 
 /obj/machinery/recharge_station/proc/build_overlays()
 	cut_overlays()
