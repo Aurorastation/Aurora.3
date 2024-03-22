@@ -539,6 +539,8 @@ var/list/diona_banned_languages = list(
 		to_chat(src, SPAN_DANGER("Your Gestalt is not responding! Something might have happened to it!"))
 	else
 		gestalt.key = key
+		remove_verb(gestalt, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
+		add_verb(gestalt, /mob/living/carbon/human/proc/switch_to_nymph)
 		return TRUE
 	return FALSE
 
