@@ -173,6 +173,12 @@
 	area_blurb = "The scents of oil and machine lubricant fill the air in this workshop."
 	area_blurb_category = "robotics"
 
+/area/operations/lower/machinist/surgicalbay
+	name = "Machinist Surgical Bay"
+	icon_state = "machinst_workshop"
+	area_blurb = "The scent of sterilized equipment mixed with anxiety and concern fill the air."
+	area_blurb_category = "robotics"
+
 /area/operations/lobby
 	name = "Operations Lobby"
 
