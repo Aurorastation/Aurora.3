@@ -27,9 +27,6 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			handled_ruin_paths += ruin.type
 			continue
 
-		if(!(ruin.spawns_in_current_sector()))
-			continue
-
 		if((ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
 			force_spawn |= ruin
 			for(var/ruin_path in ruin.force_ruins)
