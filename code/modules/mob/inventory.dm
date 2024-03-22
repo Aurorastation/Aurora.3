@@ -492,6 +492,8 @@ var/list/slot_equipment_priority = list( \
 			. += I
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/obj/outfit/O = null
 
 	if(ispath(outfit))

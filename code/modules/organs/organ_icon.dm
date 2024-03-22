@@ -18,7 +18,7 @@
 	var/limb_exception = FALSE
 	if(robotize_type)
 		var/datum/robolimb/R = GLOB.all_robolimbs[robotize_type]
-		if(R.paintable)
+		if(R?.paintable)
 			limb_exception = TRUE
 	if((status & ORGAN_ROBOT) && !limb_exception)
 		return

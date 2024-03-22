@@ -356,10 +356,17 @@
 		var/obj/item/clothing/accessory/A = new suit_accessory
 		S.attach_accessory(H, A)
 
+/**
+ * This proc handles actions done after the outfit was equipped,
+ * eg. toggling internals, personalizations or similar
+ *
+ * This process can and does sleep, and should never be waited upon, but only invoked asyncronously (`INVOKE_ASYNC`)
+ */
 /obj/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for changing items post equip (such as toggeling internals, ...)
 
 /obj/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
 	//Start with uniform,suit,backpack for additional slots
 	if(back)
 		equip_item(H, back, slot_back)
@@ -512,7 +519,7 @@
 			else
 				H.equip_or_collect(ID, slot_wear_id)
 
-	post_equip(H, visualsOnly)
+	INVOKE_ASYNC(src, PROC_REF(post_equip), H, visualsOnly)
 
 	if(!visualsOnly)
 		apply_fingerprints(H)
