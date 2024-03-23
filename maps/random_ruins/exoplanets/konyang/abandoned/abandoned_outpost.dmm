@@ -33,15 +33,6 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_telecomms_outpost)
-"bm" = (
-/obj/effect/landmark/corpse/konyang_army,
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/item/ammo_casing/a556/spent,
-/obj/item/ammo_casing/a556/spent,
-/obj/item/ammo_casing/a556/spent,
-/obj/item/ammo_casing/a556/spent,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/konyang_telecomms_outpost)
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -86,7 +77,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "dB" = (
@@ -103,11 +93,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled,
-/area/konyang_telecomms_outpost)
-"er" = (
-/obj/structure/flora/bush/konyang_reeds,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
 "eE" = (
 /obj/structure/sign/flag/konyang/large/south,
@@ -257,10 +242,6 @@
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_telecomms_outpost)
-"mb" = (
-/obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/konyang_telecomms_outpost)
 "mh" = (
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang_telecomms_outpost)
@@ -279,14 +260,9 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
-"mY" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/tiled,
-/area/konyang_telecomms_outpost)
 "ni" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/item/ammo_casing/a556/spent,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
 "nj" = (
@@ -318,10 +294,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asphalt,
-/area/konyang_telecomms_outpost)
-"nH" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
 "ok" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -379,10 +351,6 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
-"rc" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/konyang,
-/area/konyang_telecomms_outpost)
 "rm" = (
 /obj/effect/decal/road_marking/thin,
 /obj/machinery/mech_recharger/automobile,
@@ -431,15 +399,6 @@
 /area/konyang_telecomms_outpost)
 "tE" = (
 /turf/simulated/floor/plating,
-/area/konyang_telecomms_outpost)
-"tR" = (
-/obj/effect/landmark/corpse/konyang_army,
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
-/obj/item/ammo_casing/a556/spent,
-/obj/item/ammo_casing/a556/spent,
-/obj/item/ammo_casing/a556/spent,
-/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_telecomms_outpost)
 "ui" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -619,7 +578,6 @@
 /obj/item/ammo_casing/a556/spent,
 /obj/item/ammo_casing/a556/spent,
 /obj/item/ammo_casing/a556/spent,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_telecomms_outpost)
 "Ac" = (
@@ -896,7 +854,6 @@
 /area/konyang_telecomms_outpost)
 "Ki" = (
 /obj/machinery/door/window/eastright,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "Ks" = (
@@ -931,11 +888,6 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
-"LZ" = (
-/obj/structure/flora/bush/konyang_reeds,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/konyang,
-/area/konyang_telecomms_outpost)
 "MM" = (
 /obj/effect/decal/fake_object{
 	icon_state = "hub";
@@ -948,8 +900,9 @@
 /turf/simulated/wall/concrete,
 /area/konyang_telecomms_outpost)
 "NO" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/wood,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/landmark/corpse/ipc_zombie,
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
 "NR" = (
 /obj/structure/sink{
@@ -1059,7 +1012,6 @@
 "Sm" = (
 /obj/item/material/shard,
 /obj/item/material/shard,
-/obj/effect/decal/cleanable/blood/splatter,
 /obj/item/ammo_casing/a556/spent,
 /obj/item/ammo_casing/a556/spent,
 /obj/item/ammo_casing/a556/spent,
@@ -1084,10 +1036,6 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/exoplanet/tiled,
-/area/konyang_telecomms_outpost)
-"UA" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_telecomms_outpost)
 "UC" = (
 /obj/structure/bed/stool/padded/brown{
@@ -1135,14 +1083,6 @@
 /obj/item/material/kitchen/rollingpin,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
-"Yp" = (
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/bluegrid/cooled,
-/area/konyang_telecomms_outpost)
 "Yx" = (
 /obj/item/ammo_casing/a556/spent,
 /obj/item/ammo_casing/a556/spent,
@@ -1155,7 +1095,6 @@
 /obj/item/ammo_casing/a556/spent,
 /obj/item/ammo_casing/a556/spent,
 /obj/item/ammo_casing/a556/spent,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
 "YF" = (
@@ -1674,7 +1613,7 @@ sg
 sg
 sg
 bM
-Ze
+NO
 FA
 FA
 sg
@@ -1718,7 +1657,7 @@ sg
 sg
 sg
 FA
-UA
+FA
 bM
 sg
 sg
@@ -1789,7 +1728,7 @@ bM
 oJ
 sg
 sg
-er
+sg
 sg
 sg
 sg
@@ -1834,7 +1773,7 @@ bM
 bM
 ym
 bM
-LZ
+sg
 sg
 sg
 bM
@@ -1847,7 +1786,7 @@ pT
 FA
 bM
 sg
-er
+sg
 sg
 sg
 bM
@@ -1921,7 +1860,7 @@ FA
 bM
 bM
 bM
-LZ
+sg
 sg
 sg
 sg
@@ -1963,7 +1902,7 @@ bM
 bM
 bM
 bM
-rc
+bM
 bM
 bM
 bM
@@ -2004,8 +1943,8 @@ FA
 fh
 FA
 FA
-mb
-bm
+FA
+pT
 FA
 FA
 FA
@@ -2018,7 +1957,7 @@ FA
 Fo
 FA
 Qc
-tR
+zO
 un
 lp
 lp
@@ -2036,7 +1975,7 @@ bM
 (21,1,1) = {"
 FA
 FA
-UA
+FA
 FA
 ar
 FA
@@ -2046,7 +1985,7 @@ FA
 FA
 FA
 FA
-UA
+FA
 zO
 FA
 FA
@@ -2109,7 +2048,7 @@ qX
 zI
 zv
 iN
-Yp
+Sc
 ts
 Sc
 FV
@@ -2207,7 +2146,7 @@ sg
 bM
 bM
 Ns
-mY
+lp
 lp
 Ns
 bM
@@ -2308,7 +2247,7 @@ sg
 sg
 sg
 FA
-UA
+FA
 sg
 sg
 bM
@@ -2384,7 +2323,7 @@ fW
 iT
 iT
 iT
-nH
+iT
 iT
 fW
 sE
@@ -2475,7 +2414,7 @@ bM
 bM
 sg
 bM
-UA
+FA
 FA
 sg
 sg
@@ -2553,7 +2492,7 @@ Ks
 Dv
 Zj
 UC
-NO
+BP
 uU
 FA
 FA
@@ -2729,7 +2668,7 @@ sg
 sg
 sg
 sg
-rc
+bM
 sg
 sg
 ok
