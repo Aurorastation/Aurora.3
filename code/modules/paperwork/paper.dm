@@ -640,7 +640,7 @@
 			return
 
 		var/obj/item/pen/robopen/RP = attacking_item
-		if ( istype(RP) && RP.mode == 2 )
+		if(istype(RP) && RP.mode == RENAME_PAPER)
 			RP.RenamePaper(user,src)
 		else
 			var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
