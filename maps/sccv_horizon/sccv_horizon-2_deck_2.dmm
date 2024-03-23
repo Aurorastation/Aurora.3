@@ -3003,12 +3003,9 @@
 /area/hallway/primary/central_one)
 "boB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	icon_state = "shutter0";
+/obj/machinery/door/blast/shutters/open{
 	id = "MechBayShutter";
 	name = "Mech Bay Shutters";
-	opacity = 0;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7973,12 +7970,9 @@
 /area/medical/ors)
 "dJh" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	icon_state = "shutter0";
+/obj/machinery/door/blast/shutters/open{
 	id = "MechBayShutter";
-	name = "Mech Bay Shutters";
-	opacity = 0
+	name = "Mech Bay Shutters"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
@@ -37273,13 +37267,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_room/rust)
 "rlp" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "RnDShutters";
-	name = "Research and Development";
-	opacity = 0
+/obj/machinery/door/blast/shutters/open{
+	id = "RnDShutters"
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -43917,6 +43906,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_hard)
+"urG" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "RnDShutters";
+	name = "RnD Shutters"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/chemistry)
 "urP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -45884,6 +45881,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"vsE" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "RnDShutters"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/chemistry)
 "vsI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -49793,13 +49798,10 @@
 /area/horizon/security/head_of_security)
 "wZw" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
+/obj/machinery/door/blast/shutters/open{
 	dir = 8;
-	icon_state = "shutter0";
 	id = "RnDShutters";
-	name = "Research and Development";
-	opacity = 0
+	name = "RnD Shutters"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/chemistry)
@@ -76261,8 +76263,8 @@ rvf
 uTr
 uTr
 wZw
-wZw
-wZw
+vsE
+vsE
 uTr
 eHG
 qGp
@@ -76460,7 +76462,7 @@ bGj
 dJh
 iGU
 tHv
-rlp
+urG
 hEx
 rDh
 mAQ
