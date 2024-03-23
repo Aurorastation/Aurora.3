@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(sounds)
 		".aiff",
 	)
 
-	all_sounds = pathwalk("sound/", valid_file_extensions)
+	all_sounds = pathwalk('sound/', valid_file_extensions)
 
 /// Removes a channel from using list.
 /datum/controller/subsystem/sounds/proc/free_sound_channel(channel)
