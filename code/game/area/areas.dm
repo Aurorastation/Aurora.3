@@ -58,7 +58,9 @@ var/global/list/area_blurb_stated_to = list()
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
-	var/sound_env = STANDARD_STATION
+
+	///Used to decide what kind of reverb the area makes sound have
+	var/sound_environment = STANDARD_STATION
 
 	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
 	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.

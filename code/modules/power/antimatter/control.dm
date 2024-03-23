@@ -73,7 +73,7 @@
 		power_cycle = 0
 
 /obj/machinery/power/am_control_unit/proc/produce_power()
-	playsound(get_turf(src), 'sound/effects/air_seal.ogg', 25, TRUE, environment = SEWER_PIPE)
+	playsound(get_turf(src), 'sound/effects/air_seal.ogg', 25, TRUE)
 	for(var/thing in linked_cores)
 		flick("core2", thing)
 	if(reported_core_efficiency <= 0)

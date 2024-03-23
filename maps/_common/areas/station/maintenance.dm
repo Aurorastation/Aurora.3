@@ -2,7 +2,7 @@
 
 /area/maintenance
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
@@ -241,7 +241,7 @@
 
 /area/maintenance/elevator
 	name = "Primary Elevator Shaft Maintenance"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED
 	icon_state = "green"
 
 /area/maintenance/vault
@@ -253,7 +253,7 @@
 /area/maintenance/substation
 	name = "Substation"
 	icon_state = "substation"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED
 	ambience = AMBIENCE_SUBSTATION
 	area_blurb = "Clearly a substation, designed to downgrade voltage to departments in case of electrical hazards, and to act as an emergency battery in case of engine failure. Unlike the maintenance corridors, these stations are far less dusty."
 	area_blurb_category = "substation"
@@ -334,30 +334,30 @@
 /area/maintenance/auxsolarport
 	name = "Solar Maintenance - Fore Port"
 	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED
 
 /area/maintenance/starboardsolar
 	name = "Solar Maintenance - Aft"
 	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED
 
 /area/maintenance/portsolar
 	name = "Solar Maintenance - Port"
 	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED
 
 /area/maintenance/auxsolarstarboard
 	name = "Solar Maintenance - Fore Starboard"
 	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED
 
 /area/maintenance/foresolar
 	name = "Solar Maintenance - Fore"
 	icon_state = "SolarcontrolA"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED
 
 /area/maintenance/workshop
 	name = "Research Maintenance - Auxiliary"
 	icon_state = "workshop"
 	turf_initializer = null
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SMALL_ENCLOSED

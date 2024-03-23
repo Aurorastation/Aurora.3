@@ -46,7 +46,7 @@
 	name = "Command - Conference Room"
 	icon_state = "bridge"
 	ambience = list()
-	sound_env = MEDIUM_SOFTFLOOR
+	sound_environment = MEDIUM_SOFTFLOOR
 	area_blurb = "A place for behind-closed-doors meetings to get things done, or argue for hours in..."
 	area_blurb_category = "command_meeting"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -54,7 +54,7 @@
 /area/bridge/cciaroom
 	name = "Command - Human Resources Meeting Room"
 	icon_state = "hr"
-	sound_env = MEDIUM_SOFTFLOOR
+	sound_environment = MEDIUM_SOFTFLOOR
 	area_blurb = "You feel severe existential dread when you enter this room.."
 	area_blurb_category = "hr_meeting"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -62,7 +62,7 @@
 /area/bridge/cciaroom/lounge
 	name = "Command - Human Resources Lounge"
 	icon_state = "hrlounge"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SMALL_SOFTFLOOR
 	area_blurb = "A place that worsens the slightest anxieties surrounding meetings with your bosses boss."
 	area_blurb_category = "hr_lounge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -80,7 +80,7 @@
 /area/crew_quarters/captain
 	name = "Command - Captain's Office"
 	icon_state = "captain"
-	sound_env = MEDIUM_SOFTFLOOR
+	sound_environment = MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/crew_quarters/heads

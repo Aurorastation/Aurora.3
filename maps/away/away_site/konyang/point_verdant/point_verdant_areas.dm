@@ -5,7 +5,7 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	ambience = AMBIENCE_KONYANG_TRAFFIC
-	sound_env = CITY
+	sound_environment = SOUND_ENVIRONMENT_CITY
 	var/lighting = FALSE //Is this area automatically lit?
 
 /area/point_verdant/Initialize()
@@ -16,7 +16,7 @@
 
 /area/point_verdant/outer
 	name = "Point Verdant - Outskirts"
-	sound_env = FOREST
+	sound_environment = SOUND_ENVIRONMENT_FOREST
 	lighting = TRUE
 
 /area/point_verdant/coast
@@ -28,19 +28,19 @@
 
 /area/point_verdant/reservoir
 	name = "Point Verdant - Reservoir"
-	sound_env = PLAIN
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	ambience = AMBIENCE_KONYANG_WATER
 	lighting = TRUE
 
 /area/point_verdant/sewer
 	name = "Point Verdant - Sewers"
-	sound_env = SEWER_PIPE
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 	area_blurb = "Tainted water flows through these dark and grimy sewers, it smells utterly horrible down here. It's best not to think what you are breathing in, or touching."
 	area_blurb_category = "verdant_sewers"
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior
 	name = "Point Verdant - Indoors"
-	sound_env = LARGE_SOFTFLOOR
+	sound_environment = LARGE_SOFTFLOOR
 	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
 
 //Main city buildings
@@ -127,7 +127,7 @@
 	area_blurb_category = "verdant_tunnels"
 
 /area/point_verdant/interior/shallow//For open-walled areas, like awnings and balconies
-	sound_env = CITY
+	sound_environment = SOUND_ENVIRONMENT_CITY
 
 /area/point_verdant/outdoors
 	name = "Point Verdant - Outdoors"

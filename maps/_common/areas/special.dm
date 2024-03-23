@@ -57,7 +57,7 @@
 
 /area/centcom/creed
 	name = "Creed's Office"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SMALL_SOFTFLOOR
 
 /area/centcom/holding
 	name = "Holding Facility"
@@ -85,7 +85,7 @@
 	name = "BLV The Tower - Hangar 5"
 	icon_state = "blvhangar5"
 	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 /area/centcom/distress_prep
 	name = "Distress Team Preparation"
@@ -104,7 +104,7 @@
 /area/merchant_station/warehouse
 	name = "Merchant Warehouse"
 	icon_state = "merchant_ware"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = LARGE_ENCLOSED
 
 // Antagonist Bases
 
@@ -152,7 +152,7 @@
 	name = "Thunderdome"
 	icon_state = "thunder"
 	requires_power = 0
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 	no_light_control = 1
 	centcomm_area = 1
 	area_flags = AREA_FLAG_NO_CREW_EXPECTED
@@ -226,6 +226,6 @@
 	name = "Ship"
 	icon_state = "ship"
 	requires_power = 0
-	sound_env = STANDARD_STATION
+	sound_environment = STANDARD_STATION
 	no_light_control = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF

@@ -346,7 +346,7 @@
 	faction = "worms"
 
 /mob/living/simple_animal/hostile/greatwormking/Destroy()
-	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
+	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, pressure_affected = 0)
 	for(var/mob/living/L in SSmobs.greatworms)
 		L.death()
 	for(var/obj/structure/S in SSmobs.greatasses)

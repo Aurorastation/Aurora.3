@@ -292,4 +292,4 @@
 		var/turf/mobloc = get_turf(M)
 		if(mobloc && mobloc.z == T.z)
 			if(!isdeaf(M))
-				M.playsound_simple(T, 'sound/effects/meteorimpact.ogg', range, use_random_freq = TRUE, use_pressure = FALSE)
+				M.playsound_local(T, 'sound/effects/meteorimpact.ogg', range, vary = TRUE, pressure_affected = FALSE)

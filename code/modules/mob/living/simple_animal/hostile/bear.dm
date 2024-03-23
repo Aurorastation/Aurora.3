@@ -393,14 +393,14 @@
 //This is triggered randomly periodically by the bear
 /mob/living/simple_animal/hostile/bear/proc/growl_soft()
 	var/sound = pick(quiet_sounds)
-	playsound(src, sound, 50, 1,3, usepressure = 0)
+	playsound(src, sound, 50, 1,3, pressure_affected = 0)
 
 
 //Plays a loud sound from a selection of four
 //Played when bear is attacking or dies
 /mob/living/simple_animal/hostile/bear/proc/growl_loud()
 	var/sound = pick(loud_sounds)
-	playsound(src, sound, 85, 1, 5, usepressure = 0)
+	playsound(src, sound, 85, 1, 5, pressure_affected = 0)
 
 //A special bear subclass which is more powerful and has the ability to teleport around to seek out prey.
 //It dislikes other bears and refuses to cooperate with them. If two of them see each other, one or both will teleport away
