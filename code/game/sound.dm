@@ -59,8 +59,8 @@
 	var/source_z = turf_source.z
 	var/list/listeners = list()
 
-	var/list/players_by_zlevel[world.maxz]
-	var/list/dead_players_by_zlevel[world.maxz]
+	var/list/players_by_zlevel[world.maxz][]
+	var/list/dead_players_by_zlevel[world.maxz][]
 
 	for(var/mob/player as anything in GLOB.player_list)
 		if(required_preferences && (player.client.prefs.toggles & required_preferences) != required_preferences)
