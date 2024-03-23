@@ -176,7 +176,7 @@
 /area/operations/lower/machinist/surgicalbay
 	name = "Machinist Surgical Bay"
 	icon_state = "machinist_workshop"
-	area_blurb = "The scent of sterilized equipment mixed with anxiety and concern fill the air."
+	area_blurb = "The scent of sterilized equipment fill the air in this surgical bay."
 	area_blurb_category = "robotics"
 
 /area/operations/lobby
