@@ -1,11 +1,11 @@
 /obj/structure/closet/secure_closet
-	name = "secure locker"
-	desc = "It's an immobile card-locked storage unit."
+	name = "locker"
+	desc = "It's a steel ID-locked locker."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "secure"
+	anchored = FALSE
 	secure = TRUE
 	opened = FALSE
-	anchored = FALSE
 	locked = TRUE
 	health = 200
 
@@ -55,7 +55,7 @@
 	. = ..()
 	togglelock(user)
 
-/obj/structure/closet/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar) // Wow, this is like, a real-life fossil.
+/obj/structure/closet/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && !opened && !broken)
 
 /obj/structure/closet/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
@@ -78,7 +78,7 @@
 		return 1
 
 /obj/structure/closet/proc/verb_togglelock()
-	set src in oview(1) // One square distance
+	set src in oview(1)
 	set category = "Object"
 	set name = "Toggle Lock"
 
@@ -89,35 +89,3 @@
 		togglelock(usr)
 	else
 		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
-
-// Marooning Equipment
-/obj/structure/closet/secure_closet/marooning_equipment
-	name = "marooning equipment locker"
-	icon_state = "maroon"
-	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS) // Marooned personnel would likely be marooned by security and/or command.
-
-/obj/structure/closet/secure_closet/marooning_equipment/fill()
-	new /obj/item/clothing/mask/breath(src)
-	new /obj/item/clothing/under/color/yellow(src)
-	new /obj/item/clothing/shoes/workboots/grey(src)
-	new /obj/item/clothing/head/helmet/space/emergency/marooning_equipment(src)
-	new /obj/item/clothing/suit/space/emergency/marooning_equipment(src)
-	new /obj/item/tank/oxygen/marooning_equipment(src)
-	new /obj/item/storage/backpack/duffel/marooning_equipment(src)
-
-/obj/item/storage/backpack/duffel/marooning_equipment
-	name = "marooning equipment duffel bag"
-	desc = "A duffel bag full of marooning equipment."
-	starts_with = list(
-		/obj/item/crowbar/red = 1,
-		/obj/item/device/flashlight/heavy = 1,
-		/obj/item/device/gps/marooning_equipment = 1,
-		/obj/item/airbubble = 1,
-
-		// Rations
-		/obj/item/storage/box/fancy/mre/random = 2,
-		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
-
-		// Medical Supplies
-		/obj/item/storage/firstaid/stab = 1,
-	)

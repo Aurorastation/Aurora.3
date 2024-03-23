@@ -207,7 +207,7 @@
 			else
 				visible_message(SPAN_NOTICE("\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
-			walk(src, 0)
+			SSmove_manager.stop_looping(src)
 
 	if(exploding && prob(20))
 		if(prob(50))
@@ -220,7 +220,7 @@
 		exploding = TRUE
 		set_stat(UNCONSCIOUS)
 		wander = 1
-		walk(src, 0)
+		SSmove_manager.stop_looping(src)
 		spawn(rand(50, 150))
 			if(!disabled && exploding)
 				explosion(get_turf(src), 0, 1, 4, 7)
@@ -233,7 +233,7 @@
 	health -= rand(3, 15) * (severity + 1)
 	disabled = rand(150, 600)
 	hostile_drone = FALSE
-	walk(src, 0)
+	SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/icarus_drone/death()
 	..(null, "suddenly breaks apart.")

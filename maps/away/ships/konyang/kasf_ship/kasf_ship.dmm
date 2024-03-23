@@ -5906,7 +5906,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/drinks/carton/cream,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
