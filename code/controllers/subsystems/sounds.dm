@@ -59,10 +59,7 @@ SUBSYSTEM_DEF(sounds)
 		".aiff",
 	)
 
-	//Opendream is picky about paths, and sounds are forced to be kinda static paths, hence just mask it out
-	#if !defined(OPENDREAM)
-	all_sounds = pathwalk('sound/', valid_file_extensions)
-	#endif
+	all_sounds = pathwalk("sound/", valid_file_extensions)
 
 /// Removes a channel from using list.
 /datum/controller/subsystem/sounds/proc/free_sound_channel(channel)
