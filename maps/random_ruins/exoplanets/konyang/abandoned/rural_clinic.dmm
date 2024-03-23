@@ -160,9 +160,9 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "rP" = (
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
+/obj/effect/landmark/corpse/ipc_zombie,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "te" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -376,14 +376,6 @@
 	},
 /obj/item/material/shard,
 /obj/item/stack/rods,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
-"Qv" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpse/konyang_clinic_worker,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "Sg" = (
@@ -819,11 +811,11 @@ Xe
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
+rP
+rP
+rP
+rP
+rP
 Xe
 Xe
 Xe
@@ -950,7 +942,7 @@ qH
 GS
 pl
 DO
-rP
+Vq
 iW
 Vq
 Vq
@@ -1143,7 +1135,7 @@ zu
 zu
 zu
 zu
-Qv
+zu
 zu
 GS
 Xe
