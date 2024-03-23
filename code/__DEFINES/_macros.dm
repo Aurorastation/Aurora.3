@@ -32,6 +32,9 @@
 
 /// Adds a generic box around whatever message you're sending in chat. Really makes things stand out.
 #define EXAMINE_BLOCK(str) ("<div class='examine_block'>" + str + "</div>")
+#define EXAMINE_BLOCK_BLUE(str) ("<div class='examine_block--blue'>" + str + "</div>")
+#define EXAMINE_BLOCK_RED(str) ("<div class='examine_block--red'>" + str + "</div>")
+#define EXAMINE_BLOCK_DEEP_CYAN(str) ("<div class='examine_block--deep-cyan'>" + str + "</div>")
 
 #define FONT_SIZE_SMALL "10px"
 #define FONT_SIZE_NORMAL "13px"
