@@ -148,11 +148,6 @@
 			M.noise_act(intensity = EAR_PROTECTION_MAJOR, stun_pwr = 2)
 		shriek_time = world.time + 2 MINUTES //cant do it too often or it will get annoying as fuck
 
-/mob/living/simple_animal/hostile/shrieker/Life()
-	if(shriek_time > world.time)
-		shriek_time--
-	..()
-
 /mob/living/simple_animal/hostile/shrieker/FoundTarget()
 	if(target_mob && shriek_time <= world.time)
 		shriek(get_turf(src), target_mob)

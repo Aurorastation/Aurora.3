@@ -41,12 +41,15 @@
 
 /obj/vehicle/animal/load(var/atom/movable/C)
 	var/mob/living/M = C
-	if(!istype(C)) return 0
+	if(!istype(C)) return FALSE
 	if(M.buckled_to || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
-		return 0
+		return FALSE
 	return ..(M)
 
 /obj/vehicle/animal/MouseDrop(atom/over)
+	if(use_check_and_message(user))
+		return
+
 	if(usr == over && ishuman(over))
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
@@ -57,6 +60,8 @@
 		return
 
 /obj/vehicle/animal/attack_hand(var/mob/user as mob)
+	if(use_check_and_message(user))
+		return
 	if(user == load)
 		unload(load)
 		to_chat(user, "You unbuckle yourself from \the [src]")
@@ -95,11 +100,11 @@
 
 	if(is_on_space) //IDK when we will ever need space-flying animals but may as well leave the possibility open
 		if(!space_speed)
-			return 0
+			return FALSE
 		move_delay = (is_careful ? space_speed_careful : space_speed)
 	else
 		if(!land_speed)
-			return 0
+			return FALSE
 		move_delay = (is_careful ? land_speed_careful : land_speed)
 
 	return ..()
