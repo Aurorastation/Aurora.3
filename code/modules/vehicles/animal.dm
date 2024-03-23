@@ -55,6 +55,9 @@
 		storage_compartment.open(H)
 
 /obj/vehicle/animal/MouseDrop_T(atom/dropping, mob/user)
+	if(use_check_and_message(user))
+		return
+
 	if(!load(dropping))
 		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
 		return
