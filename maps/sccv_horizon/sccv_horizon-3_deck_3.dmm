@@ -29334,7 +29334,7 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/east,
-/obj/structure/closet/secure_closet/freezer/cafe,
+/obj/structure/closet/secure_closet/refrigerator/cafe,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)

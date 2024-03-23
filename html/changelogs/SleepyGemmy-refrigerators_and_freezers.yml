@@ -1,0 +1,8 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Changed refrigerators and kitchen cabinets to have their own paths."
+  - tweak: "Added standard refrigerators and kitchen cabinet variants filled with the standard contents. The base variants are now empty."
+  - maptweak: "Paths updated in the maps to use the new kitchen storage variants."

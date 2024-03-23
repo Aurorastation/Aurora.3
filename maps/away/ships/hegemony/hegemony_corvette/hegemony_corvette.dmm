@@ -6571,7 +6571,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/canteen)
 "Nc" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
