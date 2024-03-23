@@ -125,7 +125,7 @@
 
 /area/hangar/intrepid
 	name = "Intrepid Hangar"
-	area_blurb = "A big, open room, often housing the Horizon's largest shuttle, the Intrepid."
+	area_blurb = "A big, open room, home to the SCCV Horizon's largest shuttle, the Intrepid."
 	area_blurb_category = "intrepid_hanger"
 
 /area/hangar/intrepid/interstitial
@@ -170,7 +170,7 @@
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
 	icon_state = "machinist_workshop"
-	area_blurb = "The scents of oil and machine lubricant fill the air in this workshop."
+	area_blurb = "The scents of oil and mechanical lubricants fill the air in this workshop."
 	area_blurb_category = "robotics"
 
 /area/operations/lobby
@@ -682,7 +682,7 @@
 	name = "Horizon - Deck 3 Cafeteria"
 	icon_state = "cafeteria"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	area_blurb = "The smell of coffee wafts over from the cafe. Patience the tree stands proudly in the centre of the atrium."
+	area_blurb = "The smell of coffee wafts over from the cafe. Patience, the tree, stands proudly in the centre of the atrium."
 	area_blurb_category = "d3_cafe"
 
 // Custodial
@@ -693,7 +693,7 @@
 	sound_env = LARGE_ENCLOSED
 	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	area_blurb = "A strong, concentrated smell of many cleaning supplies sits within this room."
+	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
 	area_blurb_category = "janitor"
 
 /area/horizon/custodial/disposals
@@ -828,6 +828,10 @@
 	icon_state = "evidence"
 	ambience = AMBIENCE_FOREBODING
 	sound_env = SMALL_ENCLOSED
+
+// Commissary
+/area/horizon/commissary
+	name = "Horizon - Commissary"
 /********** Unique End **********/
 
 /********** Weapon Systems Start **********/
@@ -864,6 +868,3 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Weapon Systems End **********/
-
-/area/horizon/commissary
-	name = "Horizon - Commissary"
