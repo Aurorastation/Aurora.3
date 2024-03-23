@@ -154,3 +154,21 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
 	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	allows_internal = FALSE
+
+/datum/robolimb/hoplan
+	company = PROSTHETIC_HOPLAN
+	desc = "TODOMATT"
+	species_can_use = list(SPECIES_IPC)
+	icon = 'icons/mob/human_races/ipc/hoplan.dmi'
+
+/datum/robolimb/indricus
+	company = PROSTHETIC_INDRICUS
+	desc = "TODOMATT"
+	species_can_use = list(SPECIES_IPC)
+	icon = 'icons/mob/human_races/ipc/indricus.dmi'
+
+/datum/robolimb/raxus
+	company = PROSTHETIC_RAXUS
+	desc = "TODOMATT"
+	species_can_use = list(SPECIES_IPC)
+	icon = 'icons/mob/human_races/ipc/raxus.dmi'

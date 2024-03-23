@@ -6171,6 +6171,58 @@ Follow by example and make good judgement based on length which list to include 
 	body_parts = list(BP_GROIN)
 	do_colouration = FALSE
 
+// Baseline markings.
+/datum/sprite_accessory/marking/baseline_head
+	name = "Baseline - Raxus Primary Colors"
+	icon = 'icons/mob/human_races/markings_baseline.dmi'
+	icon_state = "raxus_primary"
+	icon_blend_mode = ICON_MULTIPLY
+	is_painted = TRUE
+	body_parts = list(BP_HEAD)
+	robotize_type_required = PROSTHETIC_RAXUS
+
+/datum/sprite_accessory/marking/baseline_head/lights
+	name = "Baseline - Raxus Head Lights"
+	icon_state = "raxus_lights"
+
+/datum/sprite_accessory/marking/baseline_head/indricus
+	name = "Baseline - Indricus Primary Colors"
+	icon_state = "indricus_primary"
+	robotize_type_required = PROSTHETIC_INDRICUS
+
+/datum/sprite_accessory/marking/baseline_head/indricus/lights
+	name = "Baseline - Indricus Lights"
+	icon_state = "indricus_lights"
+
+/datum/sprite_accessory/marking/baseline_head/hoplan
+	name = "Baseline - Hoplan Primary Colors"
+	icon_state = "indricus_primary"
+	robotize_type_required = PROSTHETIC_HOPLAN
+
+/datum/sprite_accessory/marking/baseline_head/hoplan/lights
+	name = "Baseline - Hoplan Lights"
+	icon_state = "hoplan_lights"
+
+/datum/sprite_accessory/marking/baseline_color
+	name = "Baseline - Primary Colors"
+	icon = 'icons/mob/human_races/markings_baseline.dmi'
+	icon_state = "machine_primary"
+	icon_blend_mode = ICON_MULTIPLY
+	is_painted = TRUE
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
+
+/datum/sprite_accessory/marking/baseline_color/arm
+	name = "Baseline - Primary Arm Colors"
+	body_parts = list(BP_R_ARM, BP_L_ARM, BP_R_HAND, BP_L_HAND)
+
+/datum/sprite_accessory/marking/baseline_color/arm
+	name = "Baseline - Primary Leg Colors"
+	body_parts = list(BP_R_LEG, BP_L_LEG, BP_R_LEG, BP_L_LEG)
+
+/datum/sprite_accessory/marking/baseline_color/chest
+	name = "Baseline - Primary Head Colors"
+	body_parts = list(BP_HEAD)
+
 //bishop
 /datum/sprite_accessory/marking/bishop_lights
 	name = "Bishop - Lights Colour"
