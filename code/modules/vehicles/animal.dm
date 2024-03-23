@@ -47,7 +47,7 @@
 	return ..(M)
 
 /obj/vehicle/animal/MouseDrop(atom/over)
-	if(use_check_and_message(user))
+	if(use_check_and_message(usr))
 		return
 
 	if(usr == over && ishuman(over))
