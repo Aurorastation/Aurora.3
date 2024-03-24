@@ -236,9 +236,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
-		if(world.time >= recentpump + 10)
-			pump(user)
-			recentpump = world.time
+		pump(user)
 		return
 	else
 		if(open_bolt && has_clip)
