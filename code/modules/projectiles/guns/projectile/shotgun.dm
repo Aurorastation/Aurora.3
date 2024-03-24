@@ -49,7 +49,7 @@
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
-	max_shells = 4
+	max_shells = 7 // max of 8
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -114,7 +114,7 @@
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	accuracy = 2
-	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
+	max_shells = 13 // holds a max of 14 shells at once
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 	cycle_anim = FALSE

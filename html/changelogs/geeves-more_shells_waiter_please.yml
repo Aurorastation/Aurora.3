@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Buffed the pump shotgun to hold 8 shells instead of 5."
+  - tweak: "Buffed the combat shotgun to hold 12 shells instead of 8."
+  - tweak: "Buffed shotgun shells to stack up to 8 instead of 5."
