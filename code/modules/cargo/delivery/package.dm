@@ -7,7 +7,7 @@
 	item_state = "express_package"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_HUGE
-	force = 10
+	force = 15
 
 	slowdown = 1
 

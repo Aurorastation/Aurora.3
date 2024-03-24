@@ -71,7 +71,7 @@
 	hitsound = /singleton/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 15
+	force = 22
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
@@ -88,7 +88,7 @@
 	item_state = "scalpel"
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	sharp = 1
 	edge = TRUE
 	w_class = ITEMSIZE_TINY
@@ -113,6 +113,7 @@
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
 	damtype = "fire"
+	force = 18
 
 /obj/item/surgery/scalpel/manager
 	name = "incision management system"
@@ -120,7 +121,7 @@
 	icon_state = "scalpel_manager"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matter = list (DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
-	force = 7.5
+	force = 8
 
 /*
  * Circular Saw
@@ -133,7 +134,7 @@
 	surgerysound = 'sound/items/surgery/circularsaw.ogg'
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 15
+	force = 22
 	w_class = ITEMSIZE_NORMAL
 	throwforce = 9
 	throw_speed = 3
@@ -177,7 +178,7 @@
 	icon_state = "bonesetter"
 	item_state = "bonesetter"
 	surgerysound = 'sound/items/surgery/bonesetter.ogg'
-	force = 8
+	force = 18
 	throwforce = 9
 	throw_speed = 3
 	throw_range = 5

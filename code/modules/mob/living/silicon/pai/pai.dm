@@ -9,6 +9,7 @@
 	density = 0
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 	can_pull_size = 2 //max size for an object the pAI can pull
+	can_hear_hivenet = FALSE //Unlike most silicons, this is a consumer product with minimal lawbinding, and isn't trusted with Hivenet logs
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null

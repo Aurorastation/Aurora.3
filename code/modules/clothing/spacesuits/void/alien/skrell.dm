@@ -65,6 +65,7 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	species_restricted = list(BODYTYPE_SKRELL)
+	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/kala
 	name = "qukala voidsuit helmet"
@@ -83,6 +84,7 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	species_restricted = list(BODYTYPE_SKRELL)
+	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/kala/med
 	name = "qukala medical voidsuit"

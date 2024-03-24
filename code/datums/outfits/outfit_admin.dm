@@ -13,6 +13,25 @@
 	if(id_icon)
 		C.icon_state = id_icon
 
+/obj/outfit/admin/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if(!visualsOnly)
+		if(H?.wear_suit && istype(H.wear_suit, /obj/item/clothing/suit/space/void))
+			var/obj/item/clothing/suit = H.wear_suit
+			if(!(H.species.bodytype in suit.species_restricted))
+				if(suit.contained_sprite)
+					suit.refit_contained(H.species.bodytype)
+				else
+					suit.refit_for_species(H.species.bodytype)
+		if(H?.head && istype(H.head, /obj/item/clothing/head/helmet/space/void))
+			var/obj/item/clothing/head = H.head
+			if(!(H.species.bodytype in head.species_restricted))
+				if(head.contained_sprite)
+					head.refit_contained(H.species.bodytype)
+				else
+					head.refit_for_species(H.species.bodytype)
+
+
 /obj/outfit/admin/random_employee
 	name = "Random Employee"
 
