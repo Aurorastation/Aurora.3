@@ -20,6 +20,8 @@
 	heat_capacity = 10000
 	var/lava = 0
 
+	var/has_edge_icon = TRUE
+
 /turf/simulated/floor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(flooring)
