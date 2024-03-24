@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - maptweak: "Removed infected IPCs from maps, as per the event's resolution."
