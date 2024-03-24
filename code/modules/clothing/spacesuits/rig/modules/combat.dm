@@ -136,8 +136,6 @@
 		laser = new laser(src)
 		laser.canremove = FALSE
 		laser.has_safety = FALSE
-	else
-		crash_with("[laser] is an invalid path on [src]!")
 
 /obj/item/rig_module/mounted/energy/engage(atom/target, mob/user)
 
@@ -168,8 +166,6 @@
 		ballistic = new ballistic(src)
 		ballistic.canremove = FALSE
 		ballistic.has_safety = FALSE
-	else
-		crash_with("[ballistic] is an invalid path on [src]!")
 
 /obj/item/rig_module/mounted/ballistic/engage(atom/target, mob/user)
 

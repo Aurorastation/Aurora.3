@@ -37,25 +37,7 @@
 	can_suppress = FALSE
 	auto_eject = TRUE
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-
-/obj/item/gun/projectile/automatic/mounted/load_ammo(obj/item/A, mob/user)
-	var/obj/item/rig/rig = get_rig()
-	if(istype(rig))
-		if(!rig.offline && rig.suit_is_deployed())
-			..()
-		else
-			to_chat(user, SPAN_WARNING("You can't reload your submachine gun without deploying your hardsuit!"))
-			balloon_alert(user, "Deploy your hardsuit first!")
-			return
-
-/obj/item/gun/projectile/automatic/mounted/unload_ammo(mob/user, allow_dump = 0)
-	var/obj/item/rig/rig = get_rig()
-	if(istype(rig))
-		if(!rig.offline && rig.suit_is_deployed())
-			..()
-		else
-			to_chat(user, SPAN_WARNING("You can't unload your submachine gun without deploying your hardsuit!"))
-			balloon_alert(user, "Deploy your hardsuit first!")
+	mounted = TRUE
 
 //Submachine guns and personal defence weapons, go.
 
@@ -186,25 +168,7 @@
 	can_suppress = FALSE
 	accuracy = 0
 	offhand_accuracy = 0
-
-/obj/item/gun/projectile/automatic/wt550/mounted/load_ammo(obj/item/A, mob/user)
-	var/obj/item/rig/rig = get_rig()
-	if(istype(rig))
-		if(!rig.offline && rig.suit_is_deployed())
-			..()
-		else
-			to_chat(user, SPAN_WARNING("You can't reload your machine pistol without deploying your hardsuit!"))
-			balloon_alert(user, "Deploy your hardsuit first!")
-			return
-
-/obj/item/gun/projectile/automatic/wt550/mounted/unload_ammo(mob/user, allow_dump = 0)
-	var/obj/item/rig/rig = get_rig()
-	if(istype(rig))
-		if(!rig.offline && rig.suit_is_deployed())
-			..()
-		else
-			to_chat(user, SPAN_WARNING("You can't unload your machine pistol without deploying your hardsuit!"))
-			balloon_alert(user, "Deploy your hardsuit first!")
+	mounted = TRUE
 
 /obj/item/gun/projectile/automatic/konyang_pirate
 	name = "pirate smg"
