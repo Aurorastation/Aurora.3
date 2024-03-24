@@ -23,9 +23,27 @@
 	flora_diversity = 0
 	has_trees = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine, /datum/map_template/ruin/exoplanet/hivebot_burrows_1, /datum/map_template/ruin/exoplanet/hivebot_burrows_2,
-	/datum/map_template/ruin/exoplanet/konyang_fireoutpost, /datum/map_template/ruin/exoplanet/konyang_homestead, /datum/map_template/ruin/exoplanet/konyang_tribute, /datum/map_template/ruin/exoplanet/konyang_swamp_1, /datum/map_template/ruin/exoplanet/konyang_swamp_2, /datum/map_template/ruin/exoplanet/konyang_swamp_3, /datum/map_template/ruin/exoplanet/konyang_swamp_4, /datum/map_template/ruin/exoplanet/konyang_zombie_outpost, /datum/map_template/ruin/exoplanet/konyang_zombie_village,
-	/datum/map_template/ruin/exoplanet/konyang_zombies, /datum/map_template/ruin/exoplanet/konyang_lostcop, /datum/map_template/ruin/exoplanet/rural_clinic, /datum/map_template/ruin/exoplanet/infected_recovery_post)
+	ruin_type_whitelist = list(
+		/datum/map_template/ruin/exoplanet/konyang_landing_zone,
+		/datum/map_template/ruin/exoplanet/konyang_jeweler_nest,
+		/datum/map_template/ruin/exoplanet/konyang_village,
+		/datum/map_template/ruin/exoplanet/konyang_telecomms_outpost,
+		/datum/map_template/ruin/exoplanet/pirate_outpost,
+		/datum/map_template/ruin/exoplanet/pirate_moonshine,
+		/datum/map_template/ruin/exoplanet/hivebot_burrows_1,
+		/datum/map_template/ruin/exoplanet/hivebot_burrows_2,
+		/datum/map_template/ruin/exoplanet/konyang_fireoutpost,
+		/datum/map_template/ruin/exoplanet/konyang_homestead,
+		/datum/map_template/ruin/exoplanet/konyang_tribute,
+		/datum/map_template/ruin/exoplanet/konyang_swamp_1,
+		/datum/map_template/ruin/exoplanet/konyang_swamp_2,
+		/datum/map_template/ruin/exoplanet/konyang_swamp_3,
+		/datum/map_template/ruin/exoplanet/konyang_swamp_4,
+		/datum/map_template/ruin/exoplanet/konyang_abandoned_outpost,
+		/datum/map_template/ruin/exoplanet/konyang_abandoned_village,
+		/datum/map_template/ruin/exoplanet/konyang_lostcop,
+		/datum/map_template/ruin/exoplanet/rural_clinic
+	)
 	possible_themes = list(/datum/exoplanet_theme/konyang)
 	place_near_main = list(1,0)
 	var/landing_area
@@ -69,7 +87,7 @@
 	switch(landing_area)
 		if("overgrown wilderness within the Yakusoku Jungle.")
 			possible_themes = list(/datum/exoplanet_theme/konyang)
-			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine, /datum/map_template/ruin/exoplanet/hivebot_burrows_1, /datum/map_template/ruin/exoplanet/hivebot_burrows_2, /datum/map_template/ruin/exoplanet/konyang_fireoutpost, /datum/map_template/ruin/exoplanet/konyang_homestead, /datum/map_template/ruin/exoplanet/konyang_tribute, /datum/map_template/ruin/exoplanet/konyang_swamp_1, /datum/map_template/ruin/exoplanet/konyang_swamp_2, /datum/map_template/ruin/exoplanet/konyang_swamp_3, /datum/map_template/ruin/exoplanet/konyang_swamp_4, /datum/map_template/ruin/exoplanet/konyang_zombie_outpost, /datum/map_template/ruin/exoplanet/konyang_zombie_village, /datum/map_template/ruin/exoplanet/konyang_zombies)
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine, /datum/map_template/ruin/exoplanet/hivebot_burrows_1, /datum/map_template/ruin/exoplanet/hivebot_burrows_2, /datum/map_template/ruin/exoplanet/konyang_fireoutpost, /datum/map_template/ruin/exoplanet/konyang_homestead, /datum/map_template/ruin/exoplanet/konyang_tribute, /datum/map_template/ruin/exoplanet/konyang_swamp_1, /datum/map_template/ruin/exoplanet/konyang_swamp_2, /datum/map_template/ruin/exoplanet/konyang_swamp_3, /datum/map_template/ruin/exoplanet/konyang_swamp_4, /datum/map_template/ruin/exoplanet/konyang_abandoned_outpost, /datum/map_template/ruin/exoplanet/konyang_abandoned_village)
 
 		if("abandoned infrastructure in Han'ei Industrial Park, discontinued.")
 			possible_themes = list(/datum/exoplanet_theme/konyang/abandoned)
