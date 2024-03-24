@@ -375,7 +375,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_PLASTIC = 75)
 	origin_tech = list(TECH_MAGNET = 1)
 
 /obj/item/staff
