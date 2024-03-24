@@ -5675,7 +5675,7 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "amB" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -21747,6 +21747,7 @@
 	name = "station blueprints";
 	pixel_y = -8
 	},
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -22430,6 +22431,7 @@
 	pixel_y = 9
 	},
 /obj/item/spacecash/c1,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -22676,7 +22678,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bep" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/structure/sign/poster{
@@ -23888,7 +23890,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bgW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bgX" = (
@@ -25607,7 +25609,6 @@
 	},
 /area/antag/mercenary)
 "blf" = (
-/obj/machinery/acting/changer,
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "freezer"
@@ -31898,6 +31899,8 @@
 /area/antag/ninja)
 "bBT" = (
 /obj/structure/table/standard,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor,
 /area/antag/ninja)
 "bBU" = (
@@ -35500,6 +35503,23 @@
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
+"dBp" = (
+/obj/machinery/shower{
+	pixel_y = 20
+	},
+/obj/structure/closet/crate,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/turf/unsimulated/floor{
+	icon_state = "freezer"
+	},
+/area/antag/mercenary)
 "dBL" = (
 /turf/simulated/wall/shuttle/unique/ccia{
 	icon_state = "8,0"
@@ -39507,6 +39527,15 @@
 /obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
+"rhV" = (
+/obj/machinery/shower{
+	pixel_y = 20
+	},
+/obj/machinery/acting/changer,
+/turf/unsimulated/floor{
+	icon_state = "freezer"
+	},
+/area/antag/mercenary)
 "rkm" = (
 /obj/structure/flora/grass/jungle,
 /turf/simulated/floor/holofloor/grass{
@@ -40171,6 +40200,19 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
+"tZQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/turf/unsimulated/floor,
+/area/antag/raider)
 "ubF" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -40656,6 +40698,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"vFR" = (
+/obj/structure/table/steel,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/flooring/circuit.dmi';
+	icon_state = "bcircuit"
+	},
+/area/antag/wizard)
 "vFS" = (
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -88644,7 +88694,7 @@ aVE
 aWV
 aXf
 aXf
-aXf
+vFR
 aVE
 aVE
 aVE
@@ -90975,7 +91025,7 @@ bgg
 bgg
 bfp
 baX
-bjT
+rhV
 bjS
 blg
 baX
@@ -91232,7 +91282,7 @@ bgf
 bgf
 biD
 baX
-bjT
+dBp
 bjS
 blg
 baX
@@ -102801,7 +102851,7 @@ bkk
 btd
 blz
 bjB
-btj
+tZQ
 bny
 boD
 bny

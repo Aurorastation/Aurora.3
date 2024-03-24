@@ -261,7 +261,28 @@
 
 	if(M.stat != DEAD && ishuman(M) && user.a_intent != I_HURT)
 		var/mob/living/K = M
-		if(cult && (K.mind in cult.current_antagonists) && prob(75))
+		var/datum/vampire/vampire = K.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire)
+			if(vampire.status & VAMP_ISTHRALL)
+				if(do_after(user, 1.5 SECONDS))
+					K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
+				var/choice = alert(K,"Do you want to give into the light and be freed from your vampiric master?","Become cleansed","Resist","Give in")
+				switch(choice)
+					if("Resist")
+						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to your vampiric master!"))
+						K.say("*scream")
+						K.take_overall_damage(5, 15)
+						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
+					if("Give in")
+						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
+						K.take_overall_damage(10, 20)
+						thralls.remove_antagonist(K.mind)
+						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
+			else if (vampire.status & VAMP_FRENZIED)
+				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"))
+				K.adjust_fire_stacks(10)
+				K.IgniteMob()
+		else if(cult && (K.mind in cult.current_antagonists) && prob(75))
 			if(do_after(user, 1.5 SECONDS))
 				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
@@ -279,6 +300,7 @@
 			else
 				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
 				return
+
 		else
 			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
 			M.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [M]'s head."))

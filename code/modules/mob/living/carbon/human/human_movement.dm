@@ -74,6 +74,9 @@
 			changeling = mind.antag_datums[MODE_CHANGELING]
 		if(!changeling)
 			tally += T.movement_cost
+		if(species && istype(T, /turf/simulated/floor/exoplanet/water))
+			if(species.can_breathe_water())
+				tally -= T.movement_cost
 
 	tally += GLOB.config.human_delay
 

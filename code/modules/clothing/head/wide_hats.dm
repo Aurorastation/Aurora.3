@@ -26,6 +26,7 @@
 	contained_sprite = TRUE
 	icon_state = "cowboyhat"
 	item_state = "cowboyhat"
+	protects_against_weather = TRUE
 
 /obj/item/clothing/head/cowboy/wide
 	name = "wide-brimmed cowboy hat"

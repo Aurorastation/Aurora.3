@@ -163,6 +163,17 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
+/obj/item/clothing/accessory/badge/hadii_card/member
+	name = "party member card"
+	desc = "A card denoting a member of the Hadiist party."
+	desc_extended = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
+	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
+	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
+	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
+	icon_state = "hadii-id-real"
+	overlay_state = "hadii-id-real"
+	badge_string = "Member of Party of the Free Tajara under the Leadership of Hadii"
+
 /obj/item/clothing/accessory/dpra_badge
 	name = "almariist pin"
 	desc = "A pin worn by supporters of the Democratic People's Republic of Adhomai and the ideals of almariism."

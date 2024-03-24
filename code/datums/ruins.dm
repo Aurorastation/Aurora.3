@@ -79,6 +79,7 @@
 			var/list/sectors_flattened = flatten_list(list(sectors))
 			if(current_sector.name in sectors_flattened)
 				spawn_weight = weight_in_sector
+				break
 
 	// fin
 	..()

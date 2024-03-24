@@ -49,7 +49,7 @@
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
-	max_shells = 4
+	max_shells = 7 // max of 8
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -61,7 +61,6 @@
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
-	var/recentpump = 0 // to prevent spammage
 	var/rack_sound = /singleton/sound_category/shotgun_pump
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
@@ -76,15 +75,9 @@
 	if(jam_num)
 		to_chat(user, SPAN_WARNING("\The [src] is jammed!"))
 		return
-	if(world.time >= recentpump + 10)
-		pump(user)
-		recentpump = world.time
+	pump(user)
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
-	if(!wielded)
-		if(!do_after(M, 2 SECONDS)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
-			return
-
 	playsound(M, rack_sound, 60, FALSE)
 	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
 	if(cycle_anim)
@@ -114,7 +107,7 @@
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	accuracy = 2
-	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
+	max_shells = 13 // holds a max of 14 shells at once
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 	cycle_anim = FALSE

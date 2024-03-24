@@ -32,6 +32,8 @@
 		/obj/item/device/vending_refill/coffee = 1,
 		/obj/item/device/vending_refill/snack = 1,
 		/obj/item/device/vending_refill/cola = 1,
+		/obj/item/device/vending_refill/zora = 1,
+		/obj/item/device/vending_refill/frontiervend = 1,
 		/obj/item/device/vending_refill/smokes = 1,
 		/obj/item/device/vending_refill/meds = 1,
 		/obj/item/device/vending_refill/robust = 1,
@@ -108,6 +110,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/kvass = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/tarasun = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/saintjacques = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
@@ -125,6 +129,7 @@
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/fatshouters = 2,
 		/obj/item/reagent_containers/food/drinks/carton/mutthir = 2,
+		/obj/item/reagent_containers/food/drinks/boba = 2,
 		/obj/item/reagent_containers/food/drinks/flask/barflask = 2,
 		/obj/item/reagent_containers/food/drinks/flask/vacuumflask = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,
@@ -1643,6 +1648,87 @@
 		/obj/item/reagent_containers/food/drinks/bottle/wine = 50,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 100
 	)
+
+/obj/machinery/vending/frontiervend
+	name = "\improper FrontierVend"
+	desc = "A vending machine specialized in snacks from the Coalition of Colonies."
+	desc_extended = "Almost rebranded to the 'Coalition of Snackolonies', the FrontierVend brand is owned by a now-subsidiary of Orion Express specialized in food exports. These machines \
+	are omnipresent throughout the settled regions of human space, forming a sort of Coalition superculture; it's easier to sympathize with someone if you eat the same snacks."
+	icon_state = "frontiervend"
+	icon_vend = "frontiervend-vend"
+	product_slogans = "At least 85 billion served!;A new frontier of flavors!;Snacking for a free frontier!;Every purchase made supports the efforts of the Frontier Protection Bureau!"
+	product_ads = "Roundhouse kick a Solarian into the concrete.;Slam-dunk Solarians into the trashcan.;Launch Solarians into the sun.;Frost got what he deserved."
+	vend_id = "frontiervend"
+
+	products = list(
+		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 8,
+		/obj/item/reagent_containers/food/drinks/cans/boch = 8,
+		/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn = 8,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai = 6,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 8,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 8,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 8,
+		/obj/item/reagent_containers/food/drinks/cans/galatea = 8,
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend = 6,
+		/obj/item/reagent_containers/food/snacks/fishjerky = 8,
+		/obj/item/reagent_containers/food/snacks/pepperoniroll = 8,
+		/obj/item/reagent_containers/food/snacks/salmiak = 6,
+		/obj/item/reagent_containers/food/snacks/hakhspam = 6,
+		/obj/item/reagent_containers/food/snacks/pemmicanbar = 8,
+		/obj/item/reagent_containers/food/snacks/choctruffles = 6,
+		/obj/item/reagent_containers/food/snacks/peanutsnack = 8,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/pepper = 6,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/choc = 6,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/masala = 6,
+		/obj/item/reagent_containers/food/snacks/chana = 8,
+		/obj/item/reagent_containers/food/snacks/chana/wild = 8,
+		/obj/item/reagent_containers/food/snacks/papad = 8,
+		/obj/item/reagent_containers/food/snacks/papad/garlic = 8,
+		/obj/item/reagent_containers/food/snacks/papad/ginger = 8,
+		/obj/item/reagent_containers/food/snacks/papad/apple = 8,
+		/obj/item/storage/box/fancy/foysnack = 4
+	)
+	prices = list(
+		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 20,
+		/obj/item/reagent_containers/food/drinks/cans/boch = 15,
+		/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate = 15,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan = 15,
+		/obj/item/reagent_containers/food/drinks/cans/galatea = 25,
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend = 20,
+		/obj/item/reagent_containers/food/snacks/fishjerky = 20,
+		/obj/item/reagent_containers/food/snacks/pepperoniroll = 20,
+		/obj/item/reagent_containers/food/snacks/salmiak = 20,
+		/obj/item/reagent_containers/food/snacks/hakhspam = 25,
+		/obj/item/reagent_containers/food/snacks/pemmicanbar = 15,
+		/obj/item/reagent_containers/food/snacks/choctruffles = 20,
+		/obj/item/reagent_containers/food/snacks/peanutsnack = 15,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/pepper = 15,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/choc = 15,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/masala = 15,
+		/obj/item/reagent_containers/food/snacks/chana = 18,
+		/obj/item/reagent_containers/food/snacks/chana/wild = 18,
+		/obj/item/reagent_containers/food/snacks/papad = 15,
+		/obj/item/reagent_containers/food/snacks/papad/garlic = 15,
+		/obj/item/reagent_containers/food/snacks/papad/ginger = 15,
+		/obj/item/reagent_containers/food/snacks/papad/apple = 15,
+		/obj/item/storage/box/fancy/foysnack = 25
+	)
+	contraband = list()
+	premium = list(
+		/obj/item/toy/comic/inspector = 2,
+		/obj/item/toy/comic/stormman = 2,
+		/obj/item/toy/plushie/greimorian = 2
+	)
+	random_itemcount = 0
+	light_color = COLOR_BABY_BLUE
+
+/obj/machinery/vending/frontiervend/hacked
+	name = "hacked FrontierVend"
+	desc = "A complimentary FrontierVend machine. No money? No worries."
+	prices = list()
 
 /obj/machinery/vending/rental_bikes
 	name = "\improper Rental Bikes self-service vendor"

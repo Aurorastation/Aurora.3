@@ -1227,3 +1227,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/is_shovel()
 	return FALSE
+
+/obj/item/proc/gives_weather_protection()
+	return FALSE

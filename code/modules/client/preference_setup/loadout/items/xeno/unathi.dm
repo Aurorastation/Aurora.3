@@ -458,19 +458,20 @@
 	cards["ouerea passcard"] = /obj/item/clothing/accessory/badge/passcard/ouerea
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 
-/datum/gear/uniform/skakh
-	display_name = "sk'akh robes selection"
+/datum/gear/uniform/unathi/skakh
+	display_name = "Skakh robes selection"
 	path = /obj/item/clothing/under/unathi/skakh
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	allowed_roles = list("Chaplain")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/uniform/skakh/New()
+/datum/gear/uniform/unathi/skakh/New()
 	..()
-	var/list/skakh = list()
-	skakh["Sk'akh priest's robes"] = /obj/item/clothing/under/unathi/skakh
-	skakh["Sk'akh fisher's robes"] = /obj/item/clothing/under/unathi/skakh/fisher
-	skakh["Sk'akh healer's robes"] = /obj/item/clothing/under/unathi/skakh/healer
-	skakh["Sk'akh warrior's robes"] = /obj/item/clothing/under/unathi/skakh/warrior
-	gear_tweaks += new /datum/gear_tweak/path(skakh)
+	var/list/robes = list()
+	robes["Sk'akh priest's robes"] = /obj/item/clothing/under/unathi/skakh
+	robes["Sk'akh fisher's robes"] = /obj/item/clothing/under/unathi/skakh/fisher
+	robes["Sk'akh healer's robes"] = /obj/item/clothing/under/unathi/skakh/healer
+	robes["Sk'akh warrior's robes"] = /obj/item/clothing/under/unathi/skakh/warrior
+	gear_tweaks += new /datum/gear_tweak/path(robes)

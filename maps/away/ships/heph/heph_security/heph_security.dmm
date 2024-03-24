@@ -614,7 +614,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/heph_security_ship/francisca)
 "ez" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -1109,7 +1109,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/brig)
 "ir" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -3602,7 +3602,7 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "Bm" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
@@ -4808,7 +4808,7 @@
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "KO" = (
-/obj/structure/closet/secure_closet/freezer/fridge{
+/obj/structure/closet/secure_closet/refrigerator/standard{
 	name = "k'ois freezer"
 	},
 /obj/item/reagent_containers/food/snacks/koiswaffles,
@@ -5146,6 +5146,9 @@
 /obj/machinery/button/alternate{
 	id = "heph_lockdown";
 	name = "Ship Lockdown"
+	},
+/obj/machinery/button/distress{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)

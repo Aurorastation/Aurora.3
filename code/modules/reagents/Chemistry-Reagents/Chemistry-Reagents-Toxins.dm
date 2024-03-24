@@ -149,9 +149,9 @@
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/internal/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_FILTRATION_BIT]
 			if(isnull(F))
-				..()
+				return
 			else if(F.is_broken())
-				..()
+				return
 			else if(H.species.has_organ[BP_PHORON_RESERVE])
 				var/obj/item/organ/internal/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
 				if(isnull(P))
@@ -715,6 +715,12 @@
 	nicotine = REM * 0.1
 	taste_mult = 2
 
+/singleton/reagent/toxin/tobacco/srendarrs_hand
+	name = "S'rendarr's Hand"
+	description = "S'rendarr's Hand, known as Alyad'al S'rendarr to the tajara, originates from Adhomai. The nicotine-containing leaves are often dried out and stuffed into pipes or rolled in paper for smoking."
+	taste_description = "honeyed tobacco"
+	nicotine = 0.3
+
 /singleton/reagent/toxin/oracle
 	name = "Oracle"
 	description = "Oracle originates from Vysoka, where it is often chewed, or dried and smoked or snorted. This is a common variant."
@@ -836,49 +842,68 @@
 		H.berserk_stop()
 		berserked = FALSE
 
-/singleton/reagent/toxin/trioxin
-	name = "Trioxin"
-	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
+/singleton/reagent/toxin/hylemnomil
+	name = "Hylemnomil-Zeta"
+	description = "An extraordinary synthetic compound created at Einstein Engines Research Base Omega-99. This compound is synthetically created to incorporate parts of \
+					the Rampancy Signal on Konyang. It rewrites an organism's DNA at the base and, similarly to rabies, makes the infected organic have an \
+					unstoppable need to feed on anything it sees. Instructions can be conveyed to some degree, such as information on who is an Einstein Engines \
+					employee and to not hurt them. The process of DNA rewriting leads to rapid rotting of the flesh."
 	reagent_state = LIQUID
-	color = "#E7E146"
+	color = "#551A8B"
 	strength = 1
-	taste_description = "old eggs"
+	taste_description = "unknown scientific concoction"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
 	affects_dead = TRUE
 
-/singleton/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/hylemnomil/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(istype(M,/mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
+		/// Thetamycin is a temporary fix.
 		if(H.reagents.has_reagent(/singleton/reagent/thetamycin, 15))
 			return
 
+		/// Antibodies are a more permanent one.
+		if(H.chem_effects[CE_ANTIBODIES])
+			return
+
 		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
-			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
+			var/to_infest
+			var/list/possible_organs = list()
+			var/obj/item/organ/external/organ_to_check
+
+			/// The infection starts from the hands and feet. The closer it is to the brain, the higher the stage it starts at.
+			for(var/organ in list(BP_R_HAND, BP_L_HAND, BP_R_FOOT, BP_L_FOOT))
+				organ_to_check = H.organs_by_name[organ]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+					possible_organs[organ] = 1
+
+			if(!length(possible_organs))
+				for(var/organ in list(BP_R_ARM, BP_L_ARM, BP_R_LEG, BP_L_LEG))
+					organ_to_check = H.organs_by_name[organ]
+					if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+						possible_organs[organ] = 2
+
+			/// In case there aren't any appendages, try the groin.
+			if(!length(possible_organs))
+				organ_to_check = H.organs_by_name[BP_GROIN]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+					possible_organs[BP_GROIN] = 2
+
+			/// I'm not even sure how you get to being a nugget, but the last resort is the chest.
+			if(!length(possible_organs))
+				possible_organs[BP_CHEST] = 3
+
+			/// Infect the user, apply the right stage, then remove all hylemnomil from the user.
+			to_infest = pick(possible_organs)
+			var/obj/item/organ/external/affected = H.organs_by_name[to_infest]
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
-
-		if(H.species.zombie_type)
-			if(!H.internal_organs_by_name[BP_BRAIN])	//destroying the brain stops trioxin from bringing the dead back to life
-				return
-
-			if(H && H.stat != DEAD)
-				return
-
-			for(var/datum/language/L in H.languages)
-				H.remove_language(L.name)
-
-			var/r = H.r_skin
-			var/g = H.g_skin
-			var/b = H.b_skin
-
-			H.set_species(H.species.zombie_type, 0, 0, 0)
-			H.revive()
-			H.change_skin_color(r, g, b)
-			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+			infest.parent_organ = affected.limb_name
+			infest.stage = possible_organs[to_infest]
+			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
 
 /singleton/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"

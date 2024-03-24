@@ -511,7 +511,7 @@
 /obj/structure/sign/flag/kazhkz{
 	pixel_y = 32
 	},
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/material/hatchet/unathiknife,
 /obj/machinery/light{
 	dir = 8;
@@ -3424,7 +3424,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engineering)
 "oOX" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,

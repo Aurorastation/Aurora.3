@@ -628,6 +628,26 @@ h2.alert {
   border: 1px solid #111a27;
   margin: 0.5em;
   padding: 0.5em 0.75em;
+
+  &--grey {
+    @extend .examine_block;
+    border-color: #808080;
+  }
+
+  &--blue {
+    @extend .examine_block;
+    border-color: #3c5dc0;
+  }
+
+  &--red {
+    @extend .examine_block;
+    border-color: #a30000;
+  }
+
+  &--deep-cyan {
+    @extend .examine_block;
+    border-color: #0a5c47;
+  }
 }
 
 .examine_block .icon {

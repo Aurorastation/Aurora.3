@@ -608,7 +608,7 @@
 
 /obj/structure/closet/proc/end_door_animation()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
-	vis_contents -= door_obj
+	remove_vis_contents(door_obj)
 	update_icon()
 	compile_overlays(src)
 
@@ -639,7 +639,7 @@
 
 /obj/structure/closet/proc/end_door_animation_alt()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
-	vis_contents -= door_obj_alt
+	remove_vis_contents(door_obj_alt)
 	update_icon()
 	compile_overlays(src)
 

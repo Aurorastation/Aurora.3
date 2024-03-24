@@ -30,8 +30,6 @@
 	var/temperature_alert = 0
 
 /mob/living/carbon/human/Life()
-	set background = BACKGROUND_ENABLED
-
 	if (transforming)
 		return
 
@@ -305,6 +303,8 @@
 	return breath
 
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+	..()
+
 	if(!environment)
 		return
 

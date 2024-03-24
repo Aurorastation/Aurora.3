@@ -742,7 +742,7 @@
 /turf/space,
 /area/space)
 "hv" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -1652,6 +1652,10 @@
 	pixel_x = -5;
 	req_access = list(25);
 	pixel_y = 5
+	},
+/obj/machinery/button/distress{
+	pixel_y = 6;
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
