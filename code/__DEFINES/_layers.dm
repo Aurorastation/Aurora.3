@@ -27,7 +27,7 @@
 	#define PLATING_LAYER 1
 	//ABOVE PLATING
 	#define HOLOMAP_LAYER 1.01
-	#define DECAL_PAINTING_LAYER 1.02
+	#define DECAL_PLATING_LAYER 1.02
 	#define DISPOSALS_PIPE_LAYER 1.03
 	#define LATTICE_LAYER 1.04
 	#define PIPE_LAYER 1.05
@@ -111,6 +111,12 @@
 
 	#define AREA_LAYER 999
 
+//FUTURE OVERMAP_PLANE
+	#define OVERMAP_SECTOR_LAYER 3.15
+	#define OVERMAP_IMPORTANT_SECTOR_LAYER 3.16
+	#define OVERMAP_SHIP_LAYER 3.17
+	#define OVERMAP_SHUTTLE_LAYER 3.18
+
 //FUTURE LIGHTING PLANE
 	#define LIGHTBULB_LAYER 10
 	#define LIGHTING_LAYER 11
@@ -143,6 +149,14 @@
 
 /atom/proc/hud_layerise()
 	layer = HUD_ITEM_LAYER
+
+/image/proc/turf_decal_layerise()
+	plane = DEFAULT_PLANE
+	layer = DECAL_LAYER
+
+/image/proc/plating_decal_layerise()
+	plane = DEFAULT_PLANE
+	layer = DECAL_PLATING_LAYER
 
 /atom/proc/reset_plane_and_layer()
 	plane = initial(plane)

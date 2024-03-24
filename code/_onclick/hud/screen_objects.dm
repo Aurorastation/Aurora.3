@@ -152,7 +152,7 @@
 
 /obj/screen/storage/background
 	name = "background storage"
-	layer = SCREEN_LAYER+0.01
+	layer = HUD_BASE_LAYER
 
 /obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
 	. = ..()

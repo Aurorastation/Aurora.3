@@ -62,9 +62,9 @@
 /obj/structure/window/update_icon()
 	if(!full)
 		if(dir == SOUTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		else
-			layer = WINDOW_PANE_LAYER
+			layer = SIDE_WINDOW_LAYER
 	SSicon_smooth.add_to_queue(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)

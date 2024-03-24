@@ -5,7 +5,7 @@
 	icon_state = "window_frame"
 	color = COLOR_GRAY20
 	build_amt = 4
-	layer = LAYER_ABOVE_TABLE
+	layer = ABOVE_TABLE_LAYER
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
