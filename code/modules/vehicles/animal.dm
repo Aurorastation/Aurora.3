@@ -12,7 +12,8 @@
 	brute_dam_coeff = 0.5
 	dir = SOUTH
 	anchored = FALSE //so you can drag animals around
-	var/protection_percent = 60
+	///The chance of blocking a projectile aimed at the user. Nothing by default.
+	var/block_chance = 0
 
 	/// Speed on land. Higher is slower.
 	/// If 0 it can't go on land turfs at all.
@@ -30,6 +31,11 @@
 	var/obj/item/storage/storage_compartment
 	organic = TRUE
 	on = TRUE
+	var/list/armor_values = list( //some default values that seem about right for an average animal
+		melee = ARMOR_MELEE_MEDIUM,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 
 /obj/vehicle/animal/setup_vehicle()
 	..()
@@ -38,6 +44,8 @@
 	add_overlay(image(icon, "[icon_state]_overlay", MOB_LAYER + 1))
 	if(storage_type)
 		storage_compartment = new storage_type(src)
+	if(LAZYLEN(armor_values))
+		AddComponent(/datum/component/armor, armor_values)
 
 /obj/vehicle/animal/load(var/atom/movable/C)
 	var/mob/living/M = C
@@ -76,7 +84,11 @@
 			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
 /obj/vehicle/animal/bullet_act(var/obj/item/projectile/Proj)
-	if(buckled && prob(protection_percent))
+	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
+	var/key = get_armor_key(Proj.damage_type, Proj.damage_flags)
+	if(armor_component.get_value(key))
+		block_chance = armor_component.get_value(key)
+	if(buckled && prob(block_chance))
 		buckled.bullet_act(Proj)
 		return
 	..()
@@ -182,6 +194,7 @@
 	storage_type = /obj/item/storage/toolbox/bike_storage/saddle
 	corpse = /mob/living/simple_animal/climber/saddle
 
+
 /obj/item/storage/toolbox/bike_storage/saddle
 	name = "saddle storage"
 
@@ -231,6 +244,12 @@
 
 	storage_type = /obj/item/storage/toolbox/bike_storage/saddle
 	corpse = /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
+	armor_values = list( //big tough war beast, has some more armor particularly against bullets and melee
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 
 /obj/vehicle/animal/warmount/RunOver(mob/living/carbon/human/H)
 	var/mob/living/M

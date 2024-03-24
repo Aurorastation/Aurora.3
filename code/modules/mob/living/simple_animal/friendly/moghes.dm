@@ -29,6 +29,11 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 4
 	vehicle_version = /obj/vehicle/animal/threshbeast
+	natural_armor = list(
+		melee = ARMOR_MELEE_MEDIUM,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 
 /mob/living/simple_animal/threshbeast/saddle
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
@@ -72,6 +77,12 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
 	vehicle_version = /obj/vehicle/animal/hegeranzi
+	natural_armor = list( //big tough war beast, has some more armor particularly against bullets and melee
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 
 /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	name = "warmount"
