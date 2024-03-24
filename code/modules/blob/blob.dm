@@ -386,13 +386,13 @@
 	switch(tendril_type)
 		if(TENDRIL_SOLID)
 			desc = "An incredibly dense, yet flexible, tendril, removed from an asteroclast."
-			force = 10
+			force = 15
 			color = COLOR_BRONZE
 			origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2)
 		if(TENDRIL_FIRE)
 			desc = "A tendril removed from an asteroclast. It's hot to the touch."
 			damtype = DAMAGE_BURN
-			force = 15
+			force = 22
 			color = COLOR_AMBER
 			origin_tech = list(TECH_POWER = 2, TECH_BIO = 2)
 

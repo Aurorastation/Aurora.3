@@ -238,8 +238,10 @@
 #define INIT_ORDER_VOTE -4
 #define INIT_ORDER_ASSETS -5
 #define INIT_ORDER_ICON_UPDATE -5.5 //Yet another aurora snowflake, Icon update queue flush. Should run before overlays, probably before smoothing the icon too
+#define INIT_ORDER_VISCONTENTS -5.6  // Queued vis_contents updates.
 #define INIT_ORDER_ICON_SMOOTHING -6
 #define INIT_ORDER_OVERLAY -7
+#define INIT_ORDER_WEATHER    -9
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define INIT_ORDER_PATH -50

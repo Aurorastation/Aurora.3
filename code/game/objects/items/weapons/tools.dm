@@ -27,7 +27,7 @@
 	item_state = "wrench"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -56,7 +56,7 @@
 	item_state = "screwdriver"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
-	force = 8
+	force = 18
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
@@ -130,7 +130,7 @@
 	item_state = "wirecutters"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 6
+	force = 14
 	throw_speed = 2
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
@@ -537,7 +537,7 @@
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
-			force = 15
+			force = 22
 			damtype = DAMAGE_BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
@@ -690,7 +690,7 @@
 	item_state = "crowbar"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
@@ -715,7 +715,7 @@
 	icon_state = "rescue_axe"
 	item_state = "rescue_axe"
 	w_class = ITEMSIZE_NORMAL
-	force = 12
+	force = 18
 	throwforce = 12
 	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
@@ -757,7 +757,7 @@
 	item_state = "pipewrench"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
@@ -855,7 +855,7 @@
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
-	force = 8
+	force = 18
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
@@ -993,7 +993,7 @@
 	item_state = "hammer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 3

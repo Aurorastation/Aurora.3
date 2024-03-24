@@ -74,6 +74,8 @@ var/global/list/area_blurb_stated_to = list()
 	/// Used to filter description showing across subareas.
 	var/area_blurb_category
 
+	var/tmp/is_outside = OUTSIDE_NO
+
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
@@ -464,6 +466,7 @@ var/list/mob/living/forced_ambiance_list = new
 /proc/ChangeArea(var/turf/T, var/area/A)
 	if(!istype(A))
 		CRASH("Area change attempt failed: invalid area supplied.")
+	var/old_outside = T.is_outside()
 	var/area/old_area = get_area(T)
 	if(old_area == A)
 		return
@@ -478,6 +481,11 @@ var/list/mob/living/forced_ambiance_list = new
 
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
+
+	T.last_outside_check = OUTSIDE_UNCERTAIN
+	var/outside_changed = T.is_outside() != old_outside
+	if(T.is_outside == OUTSIDE_AREA && outside_changed)
+		T.update_weather()
 
 /**
 * Displays an area blurb on a mob's screen.
