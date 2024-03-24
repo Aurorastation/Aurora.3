@@ -1535,6 +1535,10 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"lq" = (
+/obj/machinery/vending/dinnerware/bar,
+/turf/simulated/floor/plating,
+/area/construction)
 "mn" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1756,6 +1760,13 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"Am" = (
+/obj/machinery/vending/dinnerware/bar{
+	layer = 4;
+	density = 0
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "AB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -7003,7 +7014,7 @@ dA
 dq
 dq
 de
-de
+lq
 de
 de
 dC
@@ -7517,7 +7528,7 @@ dA
 dq
 dq
 de
-de
+Am
 de
 de
 du

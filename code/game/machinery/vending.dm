@@ -51,6 +51,16 @@
 	clicksound = /singleton/sound_category/button_sound
 	manufacturer = "idris"
 
+	check_mapped_in_vars()
+		#if defined(UNIT_TEST)
+		if(density!=initial(density)) {SSunit_tests_config.UT.fail("**** foo bar [src], [type], [x] [y] [z],", __FILE__, __LINE__)}
+		#endif
+
+	check_mapped_in_vars()
+		#if defined(UNIT_TEST)
+		if(density!=initial(density)) {SSunit_tests_config.UT.fail("**** baz foo [src], [type], [x] [y] [z],", __FILE__, __LINE__)}
+		#endif
+
 	var/icon_vend //Icon_state when vending
 	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
 

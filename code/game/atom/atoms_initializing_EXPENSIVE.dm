@@ -144,6 +144,9 @@
 	if (update_icon_on_init)
 		SSicon_update.add_to_queue(src)
 
+	// todo: explain
+	check_mapped_in_vars()
+
 	return INITIALIZE_HINT_NORMAL
 
 /**
