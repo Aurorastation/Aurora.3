@@ -22,3 +22,6 @@
 	else
 		to_chat(user, SPAN_WARNING("You must be standing on the rune!"))
 	return fizzle(user, A)
+
+/obj/effect/rune/ethereal/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/ethereal::name])

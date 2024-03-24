@@ -110,6 +110,10 @@
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 	randomize_color = FALSE
 
+/obj/machinery/light/small/broken
+	status = LIGHT_BROKEN
+	icon_state = "bulb_broken_preview"
+
 /obj/machinery/light/small/red
 	brightness_range = 2.5
 	brightness_power = 0.45

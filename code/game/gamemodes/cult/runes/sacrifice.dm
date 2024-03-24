@@ -86,3 +86,6 @@
 			victim.dust() // To prevent the MMI from remaining
 		else
 			victim.gib()
+
+/obj/effect/rune/sacrifice/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/sacrifice::name])
