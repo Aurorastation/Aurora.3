@@ -230,7 +230,78 @@
 /datum/job/consular/after_spawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
+	add_verb(H, /mob/living/carbon/human/proc/summon_goon)
 
 /datum/job/consular/on_despawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYREMOVE(blacklisted_citizenship, citizenship.name)
+	var/datum/job/J = SSjobs.GetJob("Diplomatic Aide")
+	if(citizenship.linked_citizenship)
+		LAZYDISTINCTADD(J.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYDISTINCTADD(J.blacklisted_citizenship, H.citizenship)
+	if(J.total_positions > 0)
+		J.total_positions--
+
+/mob/living/carbon/human/proc/summon_goon()
+	set name = "Open Aide Slot"
+	set desc = "Allows a diplomatic aide to join you as an assistant, companion, or bodyguard."
+	set category = "Consular"
+
+	if(alert(src, "Are you sure you want to open an assistant slot? This can only be used once", "Open Aide Slot", "No", "Yes") != "Yes")
+		return
+	var/datum/job/J = SSjobs.GetJob("Diplomatic Aide")
+	var/datum/citizenship/citizenship = SSrecords.citizenships[src.citizenship]
+	if(citizenship.linked_citizenship) //if there's a secondary citizenship that this one should allow - e.g zo'ra and biesel
+		LAZYREMOVE(J.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYREMOVE(J.blacklisted_citizenship, src.citizenship)
+	J.total_positions++
+	to_chat(src, SPAN_NOTICE("A slot for a diplomatic aide has been opened."))
+	remove_verb(src, /mob/living/carbon/human/proc/summon_goon)
+
+/datum/job/consular_assistant
+	title = "Diplomatic Aide"
+	flag = CONSULAR_ASST
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 0 //manually opened by consular
+	spawn_positions = 0
+	supervisors = "the Consular Officer"
+	selection_color = "#6186cf"
+	economic_modifier = 5
+
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
+
+	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_CONSULAR)
+	outfit = /obj/outfit/job/consular_assistant
+	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+
+/datum/job/consular_assistant/get_outfit(mob/living/carbon/human/H, alt_title = null)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	if(citizenship)
+		return citizenship.assistant_outfit
+
+/obj/outfit/job/consular_assistant
+	name = "Diplomatic Aide"
+	jobtype = /datum/job/consular_assistant
+
+	uniform = /obj/item/clothing/under/suit_jacket/navy
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
+	shoes = /obj/item/clothing/shoes/laceup
+	glasses = /obj/item/clothing/glasses/sunglasses/big
+	headset = /obj/item/device/radio/headset/representative
+	bowman = /obj/item/device/radio/headset/representative/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+
+/datum/job/consular_assistant/after_spawn(mob/living/carbon/human/H)
+	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)

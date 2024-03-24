@@ -338,3 +338,65 @@
 	icon_state = "custard_bowl"
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/fishjerky
+	name = "Go-Go Gwok! Great Grouper"
+	icon_state = "fishjerky_trash"
+
+/obj/item/trash/pepperoniroll
+	name = "roll wrapper"
+	icon_state = "rollwrapper"
+
+/obj/item/trash/salmiakpack
+	name = "salmiak packet"
+	icon_state = "salmiak_pack"
+
+/obj/item/trash/hakhmaps
+	name = "maps tin"
+	icon_state = "hakhmaps_trash"
+
+/obj/item/trash/pemmican
+	name = "pemmican bar wrapper"
+	icon_state = "pemmican_trash"
+
+/obj/item/trash/trufflebag
+	name = "truffle bag"
+	icon_state = "trufflebag_trash"
+
+/obj/item/trash/peanutsnack
+	name = "peanut bag"
+	icon_state = "nuts_trash"
+
+/obj/item/trash/peanutsnack/pepper
+	icon_state = "peppernuts_trash"
+
+/obj/item/trash/peanutsnack/choc
+	icon_state = "chocnuts_trash"
+
+/obj/item/trash/peanutsnack/masala
+	icon_state = "masalanuts_trash"
+
+/obj/item/trash/chana
+	name = "chana wrapper"
+	icon_state = "chanamild_trash"
+
+/obj/item/trash/chana/wild
+	icon_state = "chanawild_trash"
+
+/obj/item/trash/foysnack
+	name = "cookie wrapper"
+	icon_state = "foysnack_trash"
+
+/obj/item/trash/papad
+	name = "empty papad box"
+	icon_state = "papad_trash"
+
+/obj/item/trash/papad/garlic
+	icon_state = "papadgarlic_trash"
+
+/obj/item/trash/papad/ginger
+	icon_state = "papadginger_trash"
+
+/obj/item/trash/papad/apple
+	icon_state = "papadapple_trash"
+

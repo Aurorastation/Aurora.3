@@ -119,3 +119,8 @@
 	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/spring_salad
 
+/singleton/recipe/jungle_salad //ported from tg
+	fruit = list("banana" = 2, "apple" = 1, "grapes" = 1, "watermelon slice" = 2)
+	result = /obj/item/reagent_containers/food/snacks/salad/jungle_salad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+

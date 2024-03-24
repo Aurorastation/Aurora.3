@@ -6,6 +6,7 @@
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	consular_outfit = /obj/outfit/job/representative/consular/pra
+	assistant_outfit = /obj/outfit/job/consular_assistant/dpra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -30,6 +31,28 @@
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN
 		)
 	)
 
@@ -49,7 +72,19 @@
 		/obj/item/storage/box/hadii_manifesto = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/storage/field_ration = 1,
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 		/obj/item/storage/box/syndie_kit/spy/hidden = 1
+	)
+	accessory = /obj/item/clothing/accessory/hadii_pin
+
+/obj/outfit/job/consular_assistant/pra
+	glasses = null
+	uniform = /obj/item/clothing/under/tajaran/smart
+	backpack_contents = list(
+		/obj/item/storage/box/hadii_card = 1,
+		/obj/item/storage/box/hadii_manifesto = 1,
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1,
+		/obj/item/storage/field_ration = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
 
@@ -62,6 +97,7 @@
 	insurgency movement, then an organized military, into a modern, democratic nation. With the help of Nated as a government minister going out to negotiate with ruling Juntas to \
 	voluntarily turn over power to civilian governments, the DPRA's future faces many fundamental changes."
 	consular_outfit = /obj/outfit/job/representative/consular/dpra
+	assistant_outfit = /obj/outfit/job/consular_assistant/dpra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -86,6 +122,28 @@
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN
 		)
 	)
 
@@ -108,6 +166,15 @@
 	)
 	accessory = /obj/item/clothing/accessory/dpra_pin
 
+/obj/outfit/job/consular_assistant/dpra
+	glasses = null
+	uniform = /obj/item/clothing/under/tajaran/smart
+	backpack_contents = list(
+		/obj/item/storage/box/dpra_manifesto = 1,
+		/obj/item/storage/field_ration/dpra = 1
+	)
+	accessory = /obj/item/clothing/accessory/dpra_pin
+
 /datum/citizenship/nka
 	name = CITIZENSHIP_NKA
 	description = "The last major faction is the rebellious New Kingdom of Adhomai, which seceded and declared itself a nation in 2450. The New Kingdom is ruled by a Njarir'Akhran noble \
@@ -119,6 +186,7 @@
 	The lofty titles of the nobles disguise the fact that most of the nobility of this new kingdom remain in squalor only marginally better than the peasants. Life is difficult, and \
 	the Azunja dynasty finds itself struggling to function with their limited constitutional powers and factional in-fighting between the military and the civilian government."
 	consular_outfit = /obj/outfit/job/representative/consular/nka
+	assistant_outfit = /obj/outfit/job/consular_assistant/nka
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -143,6 +211,28 @@
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN
 		)
 	)
 
@@ -163,6 +253,16 @@
 		/obj/item/storage/box/nka_manifesto = 1,
 		/obj/item/storage/field_ration/nka = 1,
 		/obj/item/storage/box/syndie_kit/spy/hidden = 1
+	)
+	accessory = /obj/item/clothing/accessory/nka_pin
+
+/obj/outfit/job/consular_assistant/nka
+	glasses = null
+	uniform = /obj/item/clothing/under/tajaran/fancy
+	backpack_contents = list(
+		/obj/item/folder/blue/nka = 1,
+		/obj/item/storage/box/nka_manifesto = 1,
+		/obj/item/storage/field_ration/nka = 1
 	)
 	accessory = /obj/item/clothing/accessory/nka_pin
 

@@ -123,6 +123,10 @@ length to avoid portals or something i guess?? Not that they're counted right no
 /proc/PathWeightCompare(PathNode/a, PathNode/b)
 	return a.estimated_cost - b.estimated_cost
 
+/**
+ * This is used *ONLY* for things that have to be checked *RIGHT NOW* and cannot wait and play nicely with everything else,
+ * movements and whatever else you don't have an *extremely compelling* reason for, have to use `get_path_to`
+ */
 /proc/AStar(var/start, var/end, adjacent, dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/id, var/datum/exclude)
 	var/PriorityQueue/open = new /PriorityQueue(/proc/PathWeightCompare)
 	var/list/closed = list()

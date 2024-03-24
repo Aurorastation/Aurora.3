@@ -390,6 +390,9 @@
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
+	if (GLOB.config.allow_Metadata && client.prefs.metadata)
+		msg += "<span class='deadsay'>OOC Notes:</span> <a href='?src=\ref[src];metadata=1'>\[View\]</a>\n"
+
 	msg += "</span>"
 
 	if(src in GLOB.intent_listener)

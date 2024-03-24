@@ -1551,6 +1551,16 @@
 	glass_name = "cup of chocolate chai tea"
 	glass_desc = "A surprisingly pleasant mix of chocolate and spice."
 
+/singleton/reagent/drink/tea/neapolitan_chaitea
+	name = "Neapolitan Chai"
+	description = "A Xanan innovation; spiced tea with notes of vanilla, chocolate, and strawberry."
+	color = "#DBAD81"
+	taste_description = "neapolitan ice cream"
+
+	glass_icon_state = "chaitea"
+	glass_name = "cup of neapolitan chai tea"
+	glass_desc = "A Xanan innovation; spiced tea with notes of vanilla, chocolate, and strawberry."
+
 /singleton/reagent/drink/tea/chaitealatte
 	name = "Chai Latte"
 	description = "A frothy spiced tea."
@@ -2465,6 +2475,63 @@
 	glass_name = "mug of apple cider juice"
 	glass_desc = "It's just spiced up apple juice. Sometimes the barista can't work miracles."
 
+/singleton/reagent/drink/mushroom_kvass
+	name = "Mushroom Kvass"
+	description = "A fermented drink derived from mushroom bread. Contains too little alcohol to get anyone drunk."
+	color = "#c7882a"
+	taste_description = "tangy, earthy fruitiness"
+
+	glass_icon_state = "mushroomkvass"
+	glass_name = "glass of mushroom kvass"
+	glass_desc = "Mushroom vodka's non-alcoholic cousin. For fellow workers of all ages."
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/singleton/reagent/drink/bochbrew
+	name = "Boch Brew"
+	description = "A soft drink derived from the digestive sacs of the boch-kivir."
+	color = "#b325b3"
+	adj_sleepy = -1
+	caffeine = 0.2
+	taste_description = "fizzy fruit"
+	carbonated = TRUE
+
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of berry boch brew"
+	glass_desc = "A soft drink derived from the digestive sacs of the boch-kivir."
+
+/singleton/reagent/drink/bochbrew/buckthorn
+	name = "Buckthorn Boch Brew"
+	description = "A soft drink derived from the digestive sacs of the boch-kivir. This one is buckthorn flavored."
+	color = "#cf7e14"
+	taste_description = "fizzy sweet-tart candy"
+
+	glass_icon_state = "orangejuice"
+	glass_name = "glass of buckthorn boch brew"
+	glass_desc = "A soft drink derived from the digestive sacs of the boch-kivir."
+
+/singleton/reagent/drink/sugarcane
+	name = "Mahendru's Best Blend"
+	description = "All-natural sugarcane juice mixed with apple flavorings."
+	color = "#dacfc6"
+	taste_description = "flowery honey and apples"
+
+/singleton/reagent/drink/galatea
+	name = "Gala-Tea energy drink"
+	description = "An extremely potent energy drink. The Ministry of Food Safety assures the public that drinking thirty standard units a week is perfectly safe."
+	color = "#1bda9a"
+	taste_description = "saccharine and formaldehyde"
+
+/singleton/reagent/drink/galatea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(alien != IS_DIONA)
+		if(prob(2))
+			to_chat(M, SPAN_GOOD(pick("You feel utterly focused.", "You have a sudden fit of creativity.", "You feel alert and focused.")))
+
+/singleton/reagent/drink/galatea/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	if(!(alien in list(IS_DIONA)))
+		M.make_jittery(5)
+		if(prob(2))
+			to_chat(M, SPAN_GOOD(pick("You find it difficult to tear yourself away from your current task.", "Your mind refuses to wander.")))
+
 /singleton/reagent/drink/ntella_milkshake
 	name = "NTella Milkshake"
 	description = "An intensely sweet chocolatey concoction with whipped cream on top."
@@ -3180,6 +3247,36 @@
 	glass_icon_state = "tarasunglass"
 	glass_name = "glass of tarasun"
 	glass_desc = "An incredibly potent alcoholic beverage, distilled and fermented from tenelote milk."
+
+/singleton/reagent/alcohol/twentytwo
+	name = "Twenty-Two Seventy Five"
+	description = "The king of brandy. Found in every bar on Xanu Prime, and every capital ship in the Coalition of Colonies."
+	taste_description = "subtly sweet wine, with notes of oak and fruit"
+	strength = 35
+
+	glass_icon_state = "brandyglass"
+	glass_name = "glass of 2275"
+	glass_desc = "A classy liquor from the All-Xanu Republic. A longtime favorite of the Xanan everyman."
+
+/singleton/reagent/alcohol/saintjacques
+	name = "Saint-Jacques Black Label"
+	description = "The gold standard of Xanan liquor, Saint-Jacques Black Label reigns supreme in the Coalition of Colonies. Expensive, but you'll understand why."
+	taste_description = "rich, smooth autumn nights"
+	strength = 45
+
+	glass_icon_state = "cognacglass"
+	glass_name = "glass of saint-jacques black label cognac"
+	glass_desc = "A glass of premium Xanan cognac."
+
+/singleton/reagent/alcohol/feni
+	name = "Gadpathurian Feni"
+	description = "The only liquor manufactured on Gadpathur, feni is a liquor originating in the Goa region of India and typically brewed from coconut sap, palm sap, or cashews. Typically issued as a morale supplement on celebratory occasions, the Planetary Defense Council has yet to disclose what this is precisely made from."
+	taste_description = "fruity biodiesel"
+	strength = 55
+
+	glass_icon_state = "ginvodkaglass"
+	glass_name = "glass of feni"
+	glass_desc = "A glass of strong-smelling feni."
 
 /singleton/reagent/alcohol/triplesec
 	name = "Triple Sec"
@@ -4238,6 +4335,17 @@
 	glass_desc = "A Himean cocktail, so named for its tendency to make the room spin.  You have nothing to lose but your sobriety."
 
 	glass_center_of_mass = list("x"=16, "y"=9)
+
+/singleton/reagent/alcohol/staghunt
+	name = "Stag Hunt"
+	description = "The beloved cocktail of the Coalition's capital world, the All-Xanu Republic. Typically enjoyed outdoors, after a hunt or hike."
+	color = "#ddb638"
+	strength = 35
+	taste_description = "brandy and lemonade"
+
+	glass_icon_state = "staghunt"
+	glass_name = "glass of Stag Hunt"
+	glass_desc = "The national drink of the All-Xanu Republic. Brandy, tea, and lemonade, over ice. A perfect pairing with wild game, the setting sun, and a warm breeze."
 
 /singleton/reagent/alcohol/internationale
 	name = "Solarian White"
@@ -6356,7 +6464,7 @@
 	description = "A tall glass of milky tea-infused banana juice with tapioca pearls at the bottom."
 	nutrition = 3
 	color = "#ffd255"
-	taste_description = "strawberry tapioca tea"
+	taste_description = "banana tapioca tea"
 	glass_icon_state = "boba_banana"
 	glass_name = "banana boba"
 	glass_desc = "Banana boba bo boba, banana fanna fo foba..."
