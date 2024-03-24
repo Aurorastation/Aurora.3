@@ -1,4 +1,5 @@
-#define FLOOR(x) round(x)
+// round() acts like floor(x, 1) by default but can't handle other values
+#define FLOOR(x, y) ( round((x) / (y)) * (y) )
 
 // round() acts like floor(x, 1) by default but can't handle other values
 #define FLOOR_FLOAT(x, y) ( round((x) / (y)) * (y) )
@@ -6,7 +7,7 @@
 // min is inclusive, max is exclusive
 /proc/Wrap(val, min, max)
 	var/d = max - min
-	var/t = FLOOR((val - min) / d)
+	var/t = FLOOR((val - min) / d, 1)
 	return val - (t * d)
 
 /proc/Default(a, b)
@@ -74,7 +75,7 @@
 	return (min < val && val < max)
 
 /proc/IsInteger(x)
-	return FLOOR(x) == x
+	return FLOOR(x, 1) == x
 
 /proc/IsMultiple(x, y)
 	return x % y == 0

@@ -205,7 +205,7 @@
 
 	if(hovering_choice == choice)
 		return
-	vis_contents -= hover_overlays_cache[hovering_choice]
+	remove_vis_contents(hover_overlays_cache[hovering_choice])
 	hovering_choice = choice
 
 	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache[choice]
@@ -213,7 +213,7 @@
 		overlay_object = new
 		overlay_object.icon_state = "[choice]"
 		hover_overlays_cache[choice] = overlay_object
-	vis_contents += overlay_object
+	add_vis_contents(overlay_object)
 
 
 /obj/effect/overlay/zone_sel
@@ -225,7 +225,7 @@
 
 /obj/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering_choice)
-		vis_contents -= hover_overlays_cache[hovering_choice]
+		remove_vis_contents(hover_overlays_cache[hovering_choice])
 		hovering_choice = null
 
 /obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)

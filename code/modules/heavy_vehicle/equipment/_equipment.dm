@@ -6,7 +6,7 @@
 	icon_state = ""
 	var/on_mech_icon_state
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
-	force = 10
+	force = 15
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner
 	var/list/restricted_software

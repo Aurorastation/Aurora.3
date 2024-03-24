@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aH" = (
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "bK" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/konyang,
@@ -16,31 +12,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
-"cj" = (
-/obj/effect/landmark/corpse/konyang_villager,
-/turf/simulated/floor/exoplanet/konyang,
-/area/exoplanet/grass/konyang)
 "et" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
 	},
-/obj/effect/landmark/corpse/konyang_villager,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
-"eE" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
-"fO" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "gj" = (
@@ -66,13 +42,6 @@
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/exoplanet/grass/konyang)
-"gD" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "iW" = (
 /obj/machinery/door/urban{
 	dir = 1
@@ -128,11 +97,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
-"oI" = (
-/obj/effect/decal/cleanable/blood/gibs/robot,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "pl" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -186,11 +150,6 @@
 /obj/structure/curtain/open/medical,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
-"qM" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpse/konyang_cop,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "rd" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -201,9 +160,9 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "rP" = (
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
+/obj/effect/landmark/corpse/ipc_zombie,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "te" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -271,7 +230,6 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "xB" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
@@ -305,10 +263,6 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/exoplanet/grass/konyang)
-"Bf" = (
-/obj/effect/landmark/corpse/konyang_villager,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "Cc" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -329,7 +283,6 @@
 /area/konyang/rural_clinic)
 "DO" = (
 /obj/item/material/shard,
-/obj/effect/landmark/corpse/konyang_villager,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "Er" = (
@@ -341,7 +294,6 @@
 	dir = 4
 	},
 /obj/item/material/shard,
-/obj/effect/decal/cleanable/blood,
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
@@ -352,7 +304,6 @@
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
@@ -399,14 +350,6 @@
 "Ka" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/exoplanet/grass/konyang)
-"KC" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/mob/living/simple_animal/hostile/ipc_zombie,
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "KI" = (
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/exoplanet/grass/konyang)
@@ -433,28 +376,6 @@
 	},
 /obj/item/material/shard,
 /obj/item/stack/rods,
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
-"Pi" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/konyang,
-/area/exoplanet/grass/konyang)
-"Qv" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpse/konyang_clinic_worker,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
-"Qx" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpse/konyang_clinic_worker,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "Sg" = (
@@ -528,13 +449,6 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
-"ZK" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 
 (1,1,1) = {"
 Xe
@@ -767,7 +681,7 @@ Xe
 Xe
 Xe
 Xe
-Pi
+Xe
 Xe
 Xe
 bK
@@ -869,7 +783,7 @@ Xe
 Xe
 Xe
 Xe
-cj
+Xe
 Xe
 Xe
 Xe
@@ -897,13 +811,13 @@ Xe
 Xe
 Xe
 Xe
+rP
+rP
+rP
+rP
+rP
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-Pi
 Xe
 Xe
 Xe
@@ -963,11 +877,11 @@ zu
 qH
 GS
 zu
-rP
+Vq
 Vq
 xw
 Vq
-fO
+Vq
 Vq
 GS
 Xe
@@ -991,16 +905,16 @@ Xe
 Xe
 GS
 zu
-eE
+cd
 zu
 DB
 cd
 Oz
 zu
 xw
-rP
-Bf
-aH
+Vq
+Vq
+Vq
 GS
 Xe
 Xe
@@ -1028,14 +942,14 @@ qH
 GS
 pl
 DO
-rP
+Vq
 iW
 Vq
-oI
+Vq
 Vq
 GS
 Xe
-cj
+Xe
 Xe
 Xe
 Xe
@@ -1092,9 +1006,9 @@ pV
 GS
 pl
 xB
-oI
-gD
-qM
+Vq
+zu
+Vq
 XG
 Vq
 GS
@@ -1119,8 +1033,8 @@ Xe
 Xe
 GS
 oE
-eE
-Qx
+cd
+zu
 DB
 cd
 zu
@@ -1154,16 +1068,16 @@ jS
 WB
 TB
 GS
-ZK
+zu
 pn
 pn
 zu
 wn
-ZK
+zu
 Vq
 xw
 Xe
-Pi
+Xe
 Xe
 Xe
 Xe
@@ -1217,11 +1131,11 @@ Xe
 Xe
 Xe
 GS
-gD
 zu
-KC
 zu
-Qv
+zu
+zu
+zu
 zu
 GS
 Xe
@@ -1282,9 +1196,9 @@ Xe
 Xe
 GS
 gs
-gD
+zu
 Sg
-gD
+zu
 Cc
 te
 GS

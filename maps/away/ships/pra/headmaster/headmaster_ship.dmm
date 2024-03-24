@@ -424,15 +424,9 @@
 	},
 /area/headmaster_ship/armory)
 "bj" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
-/obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/mask/breath,
 /obj/machinery/light,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1286,6 +1280,13 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/structure/table/standard,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2188,14 +2189,8 @@
 	},
 /area/headmaster_ship/engine)
 "gY" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
-/obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/mask/breath,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3123,22 +3118,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/armory)
-"jX" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/mask/breath,
-/obj/item/device/gps,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/hangar)
 "kb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -3825,22 +3804,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/medbay)
-"mv" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/mask/breath,
-/obj/item/device/gps,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/hangar)
 "mx" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -5913,7 +5876,7 @@
 	},
 /area/headmaster_ship/bridge)
 "OT" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/produce{
@@ -16121,7 +16084,7 @@ NZ
 cc
 ub
 ub
-mv
+gY
 NZ
 NZ
 eH
@@ -16607,7 +16570,7 @@ NZ
 dK
 jJ
 tb
-jX
+gY
 NZ
 eH
 xT
@@ -16931,7 +16894,7 @@ NZ
 Rm
 mZ
 ub
-mv
+gY
 NZ
 nW
 NZ
@@ -17093,7 +17056,7 @@ NZ
 hW
 yM
 gc
-jX
+gY
 NZ
 dm
 NZ

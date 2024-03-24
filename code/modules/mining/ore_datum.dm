@@ -142,3 +142,19 @@ GLOBAL_LIST_EMPTY(ore_data)
 	compresses_to = MATERIAL_HYDROGEN_METALLIC
 	scan_icon = "mineral_rare"
 	worth = 30
+
+/ore/aluminium
+	name = ORE_BAUXITE
+	display_name = "bauxite"
+	smelts_to = MATERIAL_ALUMINIUM
+	ore = /obj/item/ore/aluminium
+	scan_icon = "mineral_common"
+	worth = 5
+
+/ore/lead
+	name = ORE_GALENA
+	display_name = "galena"
+	smelts_to = MATERIAL_LEAD
+	ore = /obj/item/ore/lead
+	scan_icon = "mineral_uncommon"
+	worth = 10

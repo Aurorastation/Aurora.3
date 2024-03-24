@@ -55,3 +55,4 @@
 	uniform = /obj/item/clothing/under/tajaran/database_freighter/captain
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	accessory = /obj/item/clothing/accessory/hadii_pin
+	l_hand = /obj/item/clothing/accessory/badge/hadii_card/member

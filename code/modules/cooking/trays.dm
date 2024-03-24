@@ -11,7 +11,7 @@
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
-	force = 10.0
+	force = 15
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
@@ -104,7 +104,7 @@
 	I.forceMove(src)
 	auto_align(I, click_params)
 	current_weight += I.w_class
-	vis_contents += I
+	add_vis_contents(I)
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
 	item_equipped_event.register(I, src, PROC_REF(pick_up))
 	GLOB.destroyed_event.register(I, src, PROC_REF(unload_item))

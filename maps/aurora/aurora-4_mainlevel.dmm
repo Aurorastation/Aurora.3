@@ -1678,7 +1678,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
 "ady" = (
-/obj/structure/closet/secure_closet/freezer/fridge{
+/obj/structure/closet/secure_closet/refrigerator/standard{
 	desc = "It looks like it has not been used for some time.";
 	name = "Dust-covered refrigerator"
 	},
@@ -49536,7 +49536,7 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -68784,7 +68784,7 @@
 /area/engineering/foyer)
 "wil" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,

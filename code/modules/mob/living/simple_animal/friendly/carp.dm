@@ -70,11 +70,11 @@
 /mob/living/simple_animal/carp/fluff/think()
 	..()
 	if(!stat && !buckled_to && (turns_since_move > 5))
-		walk_to(src,0)
+		SSmove_manager.stop_looping(src)
 		turns_since_move = 0
 		handle_movement_target()
 	if(!movement_target && (turns_since_move > 5))
-		walk_to(src,0)
+		SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/carp/fluff/proc/handle_movement_target()
 	if(!QDELETED(friend))
@@ -89,17 +89,17 @@
 		if(movement_target != friend)
 			if(current_dist > follow_dist && (friend in oview(src)))
 				//stop existing movement
-				walk_to(src,0)
+				SSmove_manager.stop_looping(src)
 				turns_since_scan = 0
 
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, DS2TICKS(seek_move_delay))
+				SSmove_manager.move_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if(current_dist <= near_dist)
-			walk_to(src,0)
+			SSmove_manager.stop_looping(src)
 			movement_target = null
 			stop_automated_movement = 0
 			if(prob(10))
