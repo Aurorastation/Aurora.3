@@ -2610,7 +2610,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cic)
 "iUc" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -2619,22 +2618,15 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/fish/mollusc,
 /obj/item/reagent_containers/food/snacks/fish/mollusc,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/storage/box/kitchen{
-	pixel_x = -4;
-	pixel_y = 5
-	},
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
 /obj/item/storage/box/condiment{
 	pixel_y = 13
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/recroom)
 "iVM" = (
