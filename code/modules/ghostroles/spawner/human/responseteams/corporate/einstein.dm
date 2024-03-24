@@ -27,6 +27,6 @@
 	short_name = "ee_ertl"
 	desc = "The commander of a Einstein Engines asset protection squad."
 	max_count = 1
-	outfit = /obj/outfit/admin/ert/einstein/lead
+	outfit = /obj/outfit/admin/ert/einstein/leader
 	welcome_message = "You are the commander of an Einstein Engines heavy asset protection squad. You have recieved a distress call, and been dispatched to investigate. Lead your team."
 	assigned_role = "Asset Protection Commander (Einstein)"
