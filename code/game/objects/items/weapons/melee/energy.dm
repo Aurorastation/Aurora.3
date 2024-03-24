@@ -179,12 +179,9 @@
 	name = "energy axe"
 	desc = "An energised battle axe."
 	icon_state = "axe0"
-	//active_force = 150 //holy...
 	active_force = 60
 	active_throwforce = 35
 	active_w_class = ITEMSIZE_HUGE
-	//force = 40
-	//throwforce = 25
 	force = 25
 	throwforce = 10
 	throw_speed = 1
@@ -426,7 +423,7 @@
 	name = "energy blade"
 	desc = "A concentrated beam of energy in the shape of a blade. Very stylish... and lethal."
 	icon_state = "blade"
-	force = 40
+	force = 30
 	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
 	sharp = TRUE
 	edge = TRUE
