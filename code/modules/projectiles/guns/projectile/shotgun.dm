@@ -51,7 +51,7 @@
 	item_state = "shotgun"
 	max_shells = 7 // max of 8
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
@@ -143,7 +143,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
 	var/has_wield_state = TRUE
@@ -190,7 +190,7 @@
 	accuracy = 0
 	is_wieldable = FALSE
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 	slot_flags &= ~SLOT_BACK	//you can't sling it on your back
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
 	name = "sawn-off shotgun"
@@ -208,7 +208,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 
 /obj/item/gun/projectile/shotgun/foldable
 	name = "foldable shotgun"

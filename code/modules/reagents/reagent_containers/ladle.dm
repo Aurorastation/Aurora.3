@@ -7,7 +7,7 @@
 	possible_transfer_amounts = list(10, 15, 30)
 	w_class = ITEMSIZE_SMALL
 	volume = 30
-	force = 6
+	force = 14
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	drop_sound = 'sound/items/drop/glass.ogg'
