@@ -2997,6 +2997,12 @@
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = -32
 	},
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "bnN" = (
@@ -35693,8 +35699,7 @@
 	pixel_y = 10
 	},
 /obj/random/pottedplant_small{
-	pixel_x = -9;
-	pixel_y = 0
+	pixel_x = -9
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -50872,8 +50877,7 @@
 	pixel_y = 13
 	},
 /obj/random/pottedplant_small{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
