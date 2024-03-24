@@ -303,6 +303,8 @@
 	return breath
 
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+	..()
+
 	if(!environment)
 		return
 

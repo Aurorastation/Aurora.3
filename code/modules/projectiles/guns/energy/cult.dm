@@ -10,7 +10,7 @@
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	max_shots = 5
 	fire_delay = 25
 	accuracy = -1

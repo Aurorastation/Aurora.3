@@ -215,8 +215,8 @@
 "hM" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/landmark/corpse/konyang_villager,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/sidewalk,
 /area/konyang_village)
 "hP" = (
@@ -575,7 +575,6 @@
 	pixel_y = -11;
 	pixel_x = -4
 	},
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/konyang_village)
 "tD" = (
@@ -615,11 +614,6 @@
 /obj/machinery/light,
 /obj/item/material/shard,
 /turf/simulated/floor/exoplanet/lino/diamond,
-/area/konyang_village)
-"uV" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/landmark/corpse/konyang_villager,
-/turf/simulated/floor/exoplanet/wood,
 /area/konyang_village)
 "vc" = (
 /obj/structure/bed/padded,
@@ -672,7 +666,6 @@
 "wp" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/konyang_village)
 "xk" = (
@@ -713,8 +706,6 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/landmark/corpse/konyang_villager,
-/obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_village)
 "xF" = (
@@ -827,18 +818,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_village)
-"yL" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/landmark/corpse/konyang_villager,
-/turf/simulated/floor/exoplanet/wood,
-/area/konyang_village)
 "yM" = (
-/obj/effect/decal/cleanable/blood/splatter,
 /obj/item/material/hatchet/butch,
-/obj/effect/landmark/corpse/konyang_villager,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/wood,
 /area/konyang_village)
 "yQ" = (
@@ -995,7 +978,6 @@
 /obj/item/beach_ball/holoball{
 	pixel_x = -16
 	},
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_village)
 "BM" = (
@@ -1034,12 +1016,6 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/wood,
-/area/konyang_village)
-"CU" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_village)
 "CV" = (
 /obj/effect/decal/exterior_stairs/half/center{
@@ -1112,10 +1088,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_village)
-"Gr" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/sidewalk/blocks,
-/area/konyang_village)
 "Gt" = (
 /obj/structure/window/urban{
 	dir = 8;
@@ -1136,6 +1108,11 @@
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_village)
 "GM" = (
+/turf/simulated/floor/exoplanet/wood,
+/area/konyang_village)
+"GX" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/wood,
 /area/konyang_village)
 "Hb" = (
@@ -1225,12 +1202,6 @@
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_village)
-"IT" = (
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/landmark/corpse/konyang_villager,
-/turf/simulated/floor/exoplanet/concrete,
-/area/konyang_village)
 "IY" = (
 /obj/random/dirt_75,
 /obj/machinery/light,
@@ -1284,12 +1255,6 @@
 /obj/structure/flora/rock/konyang,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/konyang_village)
-"KN" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_village)
 "KS" = (
 /obj/structure/chainlink_fence{
@@ -1505,8 +1470,6 @@
 /obj/effect/decal/road_marking/no_pass,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/landmark/corpse/konyang_villager,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/konyang_village)
 "OS" = (
@@ -1646,6 +1609,8 @@
 /area/konyang_village)
 "SZ" = (
 /obj/effect/floor_decal/spline/plain/full,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_village)
 "To" = (
@@ -1699,10 +1664,6 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
-"UN" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/wood,
-/area/konyang_village)
 "Vi" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset{
@@ -1714,24 +1675,12 @@
 	},
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang_village)
-"Vq" = (
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/wood,
-/area/konyang_village)
 "Vx" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/railing/fence{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/konyang_village)
-"VH" = (
-/obj/effect/decal/road_marking/no_pass,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_village)
 "VY" = (
 /obj/item/material/shard,
@@ -1762,7 +1711,6 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/exoplanet/sidewalk,
 /area/konyang_village)
 "Wz" = (
@@ -1828,10 +1776,6 @@
 /obj/item/seeds/riceseed,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
-"Xg" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/konyang_village)
 "Xq" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -1889,7 +1833,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
 "Ym" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
@@ -2434,7 +2378,7 @@ Ge
 Ge
 Ge
 St
-CU
+oR
 Kw
 dx
 NX
@@ -2597,7 +2541,7 @@ oF
 qf
 tT
 hj
-GM
+GX
 GM
 Kf
 OA
@@ -2606,9 +2550,9 @@ St
 rG
 OB
 cK
-uV
 GM
-UN
+GX
+GM
 of
 tT
 aP
@@ -2638,19 +2582,19 @@ MJ
 oF
 NY
 Zy
-Vq
+hj
 hj
 QV
 oF
 OA
-VH
+tD
 St
 CY
 TO
 tT
 GM
 GM
-yL
+pG
 GM
 tT
 cQ
@@ -2681,7 +2625,7 @@ OB
 zY
 WX
 xk
-uV
+GM
 dC
 oF
 OA
@@ -2690,7 +2634,7 @@ St
 DI
 cC
 tT
-Xg
+tT
 Tr
 OB
 OB
@@ -2896,7 +2840,7 @@ OA
 CY
 CY
 zS
-KN
+oR
 oR
 Dt
 zS
@@ -3102,7 +3046,7 @@ ou
 yw
 yw
 yM
-UN
+GM
 oT
 OB
 OB
@@ -3143,7 +3087,7 @@ oF
 bE
 yw
 yw
-UN
+GM
 GM
 kK
 OB
@@ -3261,7 +3205,7 @@ Av
 NX
 NX
 NX
-Gr
+oM
 oM
 GG
 tT
@@ -3319,7 +3263,7 @@ Zw
 jO
 Ge
 oR
-IT
+St
 ic
 OB
 Wj

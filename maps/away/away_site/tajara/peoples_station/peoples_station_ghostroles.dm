@@ -63,6 +63,7 @@
 						/obj/item/ammo_magazine/mc9mm = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1
 						)
+	l_hand = /obj/item/clothing/accessory/badge/hadii_card/member
 
 
 /datum/ghostspawner/human/peoples_station_crew/commissar
@@ -92,6 +93,7 @@
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)

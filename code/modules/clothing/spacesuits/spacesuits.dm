@@ -36,7 +36,8 @@
 
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	build_and_apply_species_adaption()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space
 	name = "softsuit"
@@ -64,12 +65,14 @@
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	siemens_coefficient = 0.5
 	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM,BODYTYPE_VAURCA_BULWARK)
+	protects_against_weather = TRUE
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
-	build_and_apply_species_adaption()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()

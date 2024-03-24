@@ -1,11 +1,11 @@
-/datum/map_template/ruin/exoplanet/konyang_zombie_outpost
-	name = "Konyang Telecomms Outpost - Zombies"
-	id = "konyang_zombie_outpost"
-	description = "A remote telecommunications relay, assaulted by infected IPCs."
+/datum/map_template/ruin/exoplanet/konyang_abandoned_outpost
+	name = "Konyang Telecomms Outpost - Abandoned"
+	id = "konyang_abandoned_outpost"
+	description = "A remote telecommunications relay, abandoned for any reason."
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/zombie_outpost.dmm")
+	suffixes = list("konyang/abandoned_outpost.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_telecomms_outpost)
 
 /obj/effect/landmark/corpse/konyang_army

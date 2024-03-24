@@ -25,14 +25,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
-"am" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck/atmos)
 "ao" = (
 /obj/machinery/cryopod/robot,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -145,13 +137,6 @@
 "bi" = (
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
-"bl" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck)
 "br" = (
 /obj/item/circuitboard/aicore,
 /turf/simulated/floor/greengrid,
@@ -245,11 +230,6 @@
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
-"bQ" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck/cryo)
 "bS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
@@ -275,7 +255,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "cf" = (
@@ -731,13 +710,6 @@
 /obj/effect/overlay/container_logo/zenghu,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
-"fl" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck)
 "fm" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/vending/cola,
@@ -803,10 +775,16 @@
 "fY" = (
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/starboarddock)
+"gb" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck)
 "gf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/mob/living/simple_animal/hostile/ipc_zombie,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "gk" = (
@@ -876,7 +854,8 @@
 "gF" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/konyang_wreck,
-/mob/living/simple_animal/hostile/ipc_zombie,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
 "gH" = (
@@ -1029,7 +1008,6 @@
 "hR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "hT" = (
@@ -1077,7 +1055,6 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "ib" = (
@@ -1450,7 +1427,6 @@
 /area/konyang_wreck/pod6)
 "lp" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "lv" = (
@@ -1498,11 +1474,6 @@
 /obj/structure/bed/handrail,
 /turf/template_noop,
 /area/space)
-"lV" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck/pod2)
 "mk" = (
 /obj/structure/shipping_container{
 	icon_state = "red1"
@@ -1575,6 +1546,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
+"mV" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck/starboarddock)
 "mX" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, pod 2"
@@ -1602,27 +1578,16 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/mob/living/simple_animal/hostile/ipc_zombie,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
-"ne" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck)
 "ng" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
-"nm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck/engineering)
 "no" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -1723,11 +1688,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
-"oo" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck/pod4)
 "op" = (
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod8)
@@ -1951,22 +1911,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/bridge)
-"qr" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/plating,
-/area/konyang_wreck/pod2)
 "qw" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
@@ -2370,6 +2314,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/bridge)
+"tH" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck/pod2)
 "tQ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2502,22 +2452,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
-"uW" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/plating,
-/area/konyang_wreck/pod8)
 "uY" = (
 /obj/machinery/light{
 	dir = 8;
@@ -3153,6 +3087,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/captain)
+"Af" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck/pod2)
 "Ai" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3366,6 +3306,11 @@
 /obj/structure/shipping_container,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
+"BO" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck/pod5)
 "BQ" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
@@ -3374,10 +3319,6 @@
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
-"BU" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck)
 "Cb" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -3421,6 +3362,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
+"Cz" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck/atmos)
 "CB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -3590,11 +3535,6 @@
 "Ea" = (
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod6)
-"El" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/plating,
-/area/konyang_wreck/pod2)
 "Ep" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4199,6 +4139,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod4)
+"KB" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck)
 "KJ" = (
 /obj/structure/shipping_container{
 	icon_state = "grey3"
@@ -4361,6 +4309,11 @@
 /obj/effect/overlay/container_logo,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
+"Mo" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck/portdock)
 "Mp" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -4394,16 +4347,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
-"MC" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/plating,
-/area/konyang_wreck/pod6)
 "MI" = (
 /obj/structure/shipping_container{
 	icon_state = "red3"
@@ -4571,9 +4514,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "NU" = (
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/tiled/dark,
-/area/konyang_wreck/pod5)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/konyang_wreck/pod4)
 "NW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/vending/coffee,
@@ -4710,7 +4660,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/mob/living/simple_animal/hostile/ipc_zombie,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "OW" = (
@@ -5143,22 +5092,6 @@
 "SK" = (
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
-"SL" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/plating,
-/area/konyang_wreck/pod6)
 "SP" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/command,
@@ -5308,6 +5241,18 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
+"Uk" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck)
 "Ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
@@ -5758,6 +5703,12 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
+"Yu" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/landmark/corpse/ipc_zombie,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/konyang_wreck/pod4)
 "YD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -31188,7 +31139,7 @@ JO
 Ij
 hZ
 Th
-NU
+Ij
 Iz
 JO
 JO
@@ -34307,7 +34258,7 @@ Xr
 rr
 bb
 bb
-bb
+mV
 gJ
 DS
 YK
@@ -35790,7 +35741,7 @@ cf
 qI
 sb
 qI
-am
+sb
 mY
 Dx
 jE
@@ -36068,7 +36019,7 @@ Dl
 ks
 JO
 JO
-Ij
+BO
 te
 Aq
 hR
@@ -36355,7 +36306,7 @@ kH
 ks
 Ye
 Vv
-AE
+KB
 Ye
 ks
 uj
@@ -36565,7 +36516,7 @@ tj
 tj
 tj
 le
-tj
+Cz
 PF
 TY
 kH
@@ -36818,7 +36769,7 @@ Rj
 Fx
 Ur
 eK
-tj
+Cz
 tj
 tj
 le
@@ -37591,7 +37542,7 @@ vH
 qC
 qC
 dq
-fl
+Os
 rg
 Pj
 Ye
@@ -37640,7 +37591,7 @@ Yk
 MM
 MM
 Vv
-BU
+Pj
 rm
 sg
 uj
@@ -37848,17 +37799,27 @@ vH
 fK
 Fn
 dq
-BU
+Pj
 rg
 Pj
 Ye
 dA
-Pj
+gb
 Pj
 Pj
 CB
 Pj
-BU
+Pj
+NP
+Pj
+Pj
+dA
+Pj
+gb
+Pj
+CB
+Pj
+Pj
 NP
 Pj
 Pj
@@ -37872,20 +37833,10 @@ Pj
 NP
 Pj
 Pj
-dA
-Pj
-BU
-Pj
-CB
-Pj
-Pj
-NP
-Pj
-BU
 dA
 gA
 Pj
-Pj
+gb
 CB
 Pj
 Pj
@@ -37895,7 +37846,7 @@ Pj
 Pj
 dA
 Pj
-BU
+Pj
 Vv
 Jd
 Pj
@@ -38362,7 +38313,7 @@ vH
 br
 aO
 dq
-BU
+Pj
 HD
 Pj
 Ye
@@ -38381,7 +38332,7 @@ Pj
 Pj
 Pj
 zq
-BU
+Pj
 Pj
 Xs
 Pj
@@ -38395,9 +38346,9 @@ Pj
 Pj
 Xs
 Pj
-Pj
+gb
 ux
-BU
+gb
 Pj
 gA
 zq
@@ -38411,7 +38362,7 @@ ux
 Pj
 Pj
 Vv
-ne
+zq
 Pj
 Tl
 Ye
@@ -38628,7 +38579,7 @@ je
 zc
 Cd
 Cd
-je
+Uk
 Cd
 ef
 Cd
@@ -38654,7 +38605,7 @@ ef
 Cd
 Cd
 je
-bl
+Cd
 Cd
 Cd
 je
@@ -39144,7 +39095,7 @@ ks
 ks
 ks
 KV
-uW
+rt
 KV
 ks
 ks
@@ -39191,7 +39142,7 @@ SJ
 zQ
 uZ
 ZY
-bQ
+SJ
 SJ
 TE
 YT
@@ -39688,7 +39639,7 @@ kH
 kH
 kH
 YU
-qr
+eg
 YU
 kH
 kH
@@ -39696,7 +39647,7 @@ kH
 ks
 Ye
 YD
-AE
+KB
 Ye
 ks
 dW
@@ -39904,7 +39855,7 @@ yv
 yv
 yv
 dN
-nm
+AZ
 Vl
 AZ
 yI
@@ -40461,7 +40412,7 @@ II
 rA
 eg
 QR
-QR
+Af
 QR
 Ks
 ks
@@ -40972,9 +40923,9 @@ ks
 Ks
 oa
 AT
-El
+AT
 eg
-El
+AT
 AT
 Re
 Ks
@@ -41229,9 +41180,9 @@ ks
 Ks
 Nu
 Nu
-zF
+tH
 eg
-zF
+tH
 Nu
 Nu
 Ks
@@ -41486,9 +41437,9 @@ ks
 Ks
 Nu
 Nu
-zF
+tH
 eg
-zF
+tH
 Nu
 Nu
 Ks
@@ -41743,9 +41694,9 @@ ks
 Ks
 Nu
 Nu
-lV
+tH
 eg
-zF
+tH
 Nu
 Nu
 Ks
@@ -41981,7 +41932,7 @@ Ea
 zy
 ln
 ln
-SL
+Vn
 ln
 ln
 pl
@@ -42017,7 +41968,7 @@ IG
 Zl
 eY
 en
-eY
+Mo
 qU
 vz
 tt
@@ -42247,9 +42198,9 @@ ks
 zL
 CK
 CK
-oo
+Yu
 ff
-oo
+Yu
 CK
 CK
 zL
@@ -42257,7 +42208,7 @@ ks
 Ks
 Nu
 Nu
-zF
+tH
 eg
 zF
 Nu
@@ -42761,9 +42712,9 @@ ks
 zL
 CK
 CK
-oo
+Yu
 dE
-oo
+Yu
 CK
 CK
 zL
@@ -42771,9 +42722,9 @@ ks
 Ks
 Nu
 Nu
-zF
+tH
 FY
-zF
+tH
 Nu
 Nu
 Ks
@@ -43028,7 +42979,7 @@ ks
 Ks
 oa
 AT
-El
+AT
 FY
 AT
 AT
@@ -43266,7 +43217,7 @@ Ea
 Oq
 Oq
 tR
-MC
+Hq
 tR
 XX
 xo
@@ -43276,7 +43227,7 @@ zL
 rJ
 Zv
 Nb
-dE
+NU
 Nb
 rJ
 Ng
@@ -43285,7 +43236,7 @@ ks
 Ks
 kt
 mk
-zF
+tH
 FY
 zF
 kt
@@ -43532,7 +43483,7 @@ ks
 zL
 rJ
 rI
-Nb
+Yu
 dE
 Nb
 rJ
@@ -43544,7 +43495,7 @@ kt
 EB
 zF
 FY
-zF
+tH
 kt
 EB
 Ks
@@ -44303,7 +44254,7 @@ ks
 zL
 CK
 CK
-Nb
+Yu
 dE
 Nb
 rJ
@@ -44560,7 +44511,7 @@ ks
 zL
 CK
 CK
-Nb
+Yu
 dE
 Nb
 rJ
@@ -44817,7 +44768,7 @@ ks
 zL
 CK
 CK
-Nb
+Yu
 dE
 Nb
 rJ
