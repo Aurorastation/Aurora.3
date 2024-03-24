@@ -50,6 +50,9 @@
 	initial_flooring = /singleton/flooring/grass
 	footstep_sound = /singleton/sound_category/grass_footstep
 
+/turf/simulated/floor/grass/no_edge
+	has_edge_icon = FALSE
+
 /turf/simulated/floor/diona
 	name = "biomass flooring"
 	icon = 'icons/turf/flooring/diona.dmi'

@@ -1168,7 +1168,7 @@
 "ayo" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_two/fore)
 "ayv" = (
 /obj/effect/floor_decal/corner/purple{
@@ -4983,7 +4983,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/hallway/primary/central_two)
 "cfI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
@@ -6067,7 +6067,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/hallway/primary/central_one)
 "cMF" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -9618,7 +9618,7 @@
 	layer = 2
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/garden)
 "eBj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11647,7 +11647,7 @@
 "fuX" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_two/fore)
 "fvh" = (
 /obj/item/device/multitool,
@@ -11686,7 +11686,7 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	layer = 2
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/garden)
 "fwK" = (
 /obj/effect/floor_decal/spline/plain{
@@ -14497,7 +14497,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/rnd/hallway)
 "gFc" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -14507,7 +14507,7 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	layer = 2
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/garden)
 "gFs" = (
 /obj/effect/landmark{
@@ -16889,7 +16889,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/rnd/hallway)
 "hIq" = (
 /obj/structure/platform_stairs/full/east_west_cap,
@@ -18690,7 +18690,7 @@
 	c_tag = "Second Deck - Service Hallway";
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_two/fore)
 "iEj" = (
 /obj/structure/cable/green{
@@ -26935,7 +26935,7 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	layer = 2
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/garden)
 "mBB" = (
 /turf/simulated/wall/r_wall,
@@ -33885,7 +33885,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/hallway/primary/central_one)
 "pQq" = (
 /obj/structure/table/wood,
@@ -37498,7 +37498,7 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	layer = 2
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/garden)
 "rAw" = (
 /obj/structure/cable/green{
@@ -37524,7 +37524,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/hallway/primary/central_two)
 "rBL" = (
 /obj/structure/disposalpipe/segment{
@@ -39482,7 +39482,7 @@
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/device/radio/intercom/west,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/garden)
 "sBz" = (
 /obj/structure/bed/stool/chair/office{
@@ -50085,7 +50085,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_two/fore)
 "xlP" = (
 /obj/effect/floor_decal/corner/black{
@@ -50125,7 +50125,7 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	layer = 2
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/garden)
 "xmw" = (
 /obj/machinery/alarm/east,

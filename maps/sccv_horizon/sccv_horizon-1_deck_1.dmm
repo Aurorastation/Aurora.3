@@ -1745,7 +1745,7 @@
 /area/rnd/xenoarch_atrium)
 "bpl" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "bpI" = (
 /obj/machinery/door/airlock/external{
@@ -4960,7 +4960,7 @@
 "dtb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "dtN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5506,7 +5506,7 @@
 	dir = 4
 	},
 /mob/living/simple_animal/chicken,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "dNa" = (
 /obj/machinery/light,
@@ -5693,7 +5693,7 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/plain,
 /mob/living/simple_animal/chicken,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "dWD" = (
 /obj/effect/floor_decal/corner/brown{
@@ -7396,7 +7396,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "fbc" = (
 /obj/structure/cable/green{
@@ -8416,7 +8416,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /mob/living/simple_animal/chicken,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "fKD" = (
 /obj/structure/cable/green{
@@ -8877,7 +8877,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "fXF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -10269,7 +10269,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "gUl" = (
 /obj/structure/cable{
@@ -19801,7 +19801,7 @@
 	},
 /area/shuttle/intrepid/quarters)
 "nyp" = (
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "nyz" = (
 /obj/structure/shuttle_part/scc/research{
@@ -21621,7 +21621,7 @@
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/machinery/alarm/east,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/hallway/primary/aft)
 "oQZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -23864,7 +23864,7 @@
 "qnt" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/random/pottedplant,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/hallway/primary/aft)
 "qog" = (
 /obj/effect/landmark/entry_point/fore{
@@ -24453,7 +24453,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "qIS" = (
 /obj/item/stack/material/phoron{
@@ -26117,7 +26117,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "rRq" = (
 /obj/structure/cable/green{
@@ -32468,7 +32468,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hydroponics/lower)
 "wlh" = (
 /obj/machinery/conveyor{
