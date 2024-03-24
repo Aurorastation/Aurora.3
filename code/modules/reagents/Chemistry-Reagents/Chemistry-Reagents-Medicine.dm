@@ -1831,3 +1831,22 @@
 			if(P)
 				if(P.drug_resistance == 0)
 					P.drug_resistance = 1
+
+/singleton/reagent/antibodies
+	name = "Hylemnomil-Zeta Antibodies"
+	description = "A pure antibody compound that is capable of fighting against Hylemnomil-Zeta."
+	color = "#FFFFFF"
+	overdose = 100
+	metabolism = REM*0.0001
+	scannable = TRUE
+	taste_description = "pure death"
+
+/singleton/reagent/antibodies/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	. = ..()
+	M.add_chemical_effect(CE_ANTIBODIES, 10)
+	var/obj/item/organ/internal/parasite/zombie/Z = M.internal_organs_by_name[BP_ZOMBIE_PARASITE]
+	if(Z && !Z.curing)
+		if(prob(5))
+			var/obj/item/organ/external/E = Z.parent_organ
+			Z.curing = TRUE
+			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))

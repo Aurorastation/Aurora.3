@@ -395,22 +395,22 @@
 	icon_state = initial(icon_state) +"_locked"
 
 ///Zombie-producing grenade
-/obj/item/grenade/chem_grenade/trioxin
-	name = "trioxin grenade"
-	desc = "Concentrated trioxin. The lab really cooked for this one."
+/obj/item/grenade/chem_grenade/hylemnomil
+	name = "hylemnomil grenade"
+	desc = "Concentrated hylemnomil. The lab really cooked for this one."
 	stage = 2
 	path = 1
 
-/obj/item/grenade/chem_grenade/trioxin/Initialize()
+/obj/item/grenade/chem_grenade/hylemnomil/Initialize()
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
 	B1.reagents.add_reagent(/singleton/reagent/phosphorus, 40)
 	B1.reagents.add_reagent(/singleton/reagent/potassium, 40)
-	B1.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 40)
+	B1.reagents.add_reagent(/singleton/reagent/toxin/hylemnomil, 40)
 	B2.reagents.add_reagent(/singleton/reagent/sugar, 40)
-	B2.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 80)
+	B2.reagents.add_reagent(/singleton/reagent/toxin/hylemnomil, 80)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
