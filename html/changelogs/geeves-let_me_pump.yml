@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscdel: "Removed the one second cooldown between shotgun pumps. The standard firing delay still applies."
-  - rscdel: "Removed the forced wait when you pump a shotgun one-handed, similarly to how CM does it."
