@@ -68,7 +68,7 @@
 	var/cycle_anim = TRUE
 
 /obj/item/gun/projectile/shotgun/pump/handle_maptext()
-	var/ammo = length(loaded) || 0
+	var/ammo = length(loaded)
 	if(ammo > 9)
 		maptext_x = 12
 	else
