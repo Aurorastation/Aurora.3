@@ -96,6 +96,7 @@
 	return total_draw
 
 /mob/living/heavy_vehicle/handle_environment(var/datum/gas_mixture/environment)
+	..()
 	if(!environment) return
 	//Mechs and vehicles in general can be assumed to just tend to whatever ambient temperature
 	if(abs(environment.temperature - bodytemperature) > 10 )
