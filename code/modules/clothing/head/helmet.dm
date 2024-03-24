@@ -24,6 +24,7 @@
 	var/obj/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+	protects_against_weather = TRUE
 
 	var/has_storage = TRUE
 	var/obj/item/storage/internal/helmet/hold

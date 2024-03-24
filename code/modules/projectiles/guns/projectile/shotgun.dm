@@ -49,9 +49,9 @@
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
-	max_shells = 4
+	max_shells = 7 // max of 8
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
@@ -61,11 +61,19 @@
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
-	var/recentpump = 0 // to prevent spammage
 	var/rack_sound = /singleton/sound_category/shotgun_pump
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
+
+/obj/item/gun/projectile/shotgun/pump/handle_maptext()
+	var/ammo = length(loaded)
+	if(ammo > 9)
+		maptext_x = 12
+	else
+		maptext_x = 16
+	var/ammo_display = "[ammo]+[chambered?.BB ? "1" : "0"]"
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo_display]</span>"
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -76,15 +84,9 @@
 	if(jam_num)
 		to_chat(user, SPAN_WARNING("\The [src] is jammed!"))
 		return
-	if(world.time >= recentpump + 10)
-		pump(user)
-		recentpump = world.time
+	pump(user)
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
-	if(!wielded)
-		if(!do_after(M, 2 SECONDS)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
-			return
-
 	playsound(M, rack_sound, 60, FALSE)
 	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
 	if(cycle_anim)
@@ -114,7 +116,7 @@
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	accuracy = 2
-	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
+	max_shells = 13 // holds a max of 14 shells at once
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 	cycle_anim = FALSE
@@ -141,7 +143,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
 	var/has_wield_state = TRUE
@@ -188,7 +190,7 @@
 	accuracy = 0
 	is_wieldable = FALSE
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 	slot_flags &= ~SLOT_BACK	//you can't sling it on your back
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
 	name = "sawn-off shotgun"
@@ -206,7 +208,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 
 /obj/item/gun/projectile/shotgun/foldable
 	name = "foldable shotgun"

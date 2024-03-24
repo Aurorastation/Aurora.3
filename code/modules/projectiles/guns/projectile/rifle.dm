@@ -236,9 +236,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
-		if(world.time >= recentpump + 10)
-			pump(user)
-			recentpump = world.time
+		pump(user)
 		return
 	else
 		if(open_bolt && has_clip)
@@ -337,7 +335,7 @@
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 23

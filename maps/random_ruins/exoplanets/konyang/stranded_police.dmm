@@ -11,13 +11,6 @@
 /obj/item/gun/projectile/revolver/konyang/police,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
-"d" = (
-/obj/effect/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/exoplanet/grass/konyang)
-"f" = (
-/turf/simulated/wall/wood,
-/area/exoplanet/grass/konyang)
 "h" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
@@ -44,20 +37,11 @@
 /obj/item/device/flashlight/maglight,
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
-"v" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/ipc_zombie,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/exoplanet/grass/konyang)
 "w" = (
 /obj/structure/automobile/police{
 	name = "broken police cruiser";
 	desc = "A police vehicle with all the bells and whistles you'd expect from a decently-funded agency. This one seems to be broken beyond repair."
 	},
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/exoplanet/grass/konyang)
-"x" = (
-/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "A" = (
@@ -71,24 +55,6 @@
 "D" = (
 /obj/item/ammo_magazine/c45/revolver,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/exoplanet/grass/konyang)
-"E" = (
-/obj/effect/decal/cleanable/blood/gibs/robot,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/exoplanet/grass/konyang)
-"F" = (
-/obj/effect/landmark/corpse/konyang_villager,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/exoplanet/grass/konyang)
-"G" = (
-/obj/effect/decal/cleanable/blood/gibs/robot,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/exoplanet/konyang,
-/area/exoplanet/grass/konyang)
-"I" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "J" = (
 /turf/simulated/floor/exoplanet/konyang,
@@ -280,7 +246,7 @@ J
 J
 J
 J
-E
+l
 J
 J
 u
@@ -302,10 +268,10 @@ J
 J
 J
 R
-d
+l
 l
 w
-E
+l
 J
 J
 J
@@ -369,10 +335,10 @@ s
 J
 q
 b
-E
+l
 m
 l
-G
+J
 J
 J
 J
@@ -393,7 +359,7 @@ J
 J
 J
 c
-G
+J
 J
 J
 J
@@ -427,10 +393,10 @@ J
 "}
 (15,1,1) = {"
 J
-f
-f
-f
-f
+J
+J
+J
+J
 J
 J
 J
@@ -449,11 +415,11 @@ J
 "}
 (16,1,1) = {"
 J
-f
-F
-v
-x
-I
+J
+J
+J
+J
+J
 J
 a
 a
@@ -471,10 +437,10 @@ J
 "}
 (17,1,1) = {"
 J
-f
-f
-f
-f
+J
+J
+J
+J
 J
 N
 J

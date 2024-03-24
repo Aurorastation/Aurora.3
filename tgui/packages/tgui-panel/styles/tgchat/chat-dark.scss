@@ -614,6 +614,26 @@ em {
   border: 1px solid #a4bad6;
   margin: 0.5em;
   padding: 0.5em 0.75em;
+
+  &--grey {
+    @extend .examine_block;
+    border-color: #808080;
+  }
+
+  &--blue {
+    @extend .examine_block;
+    border-color: #3c5dc0;
+  }
+
+  &--red {
+    @extend .examine_block;
+    border-color: #e21111;
+  }
+
+  &--deep-cyan {
+    @extend .examine_block;
+    border-color: #0f7e62;
+  }
 }
 
 .examine_block .icon {

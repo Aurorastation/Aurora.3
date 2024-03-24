@@ -337,13 +337,13 @@
 	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
-	force = 10
+	force = 5
 	brightness_on = 5
 	efficiency_modifier = 0.8
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
+	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	light_wedge = LIGHT_NARROW
 

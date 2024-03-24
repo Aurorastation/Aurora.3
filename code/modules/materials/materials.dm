@@ -710,6 +710,26 @@
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 
+/material/aluminium
+	name = MATERIAL_ALUMINIUM
+	stack_type = /obj/item/stack/material/aluminium
+	icon_colour = "#cccdcc"
+	weight = 18
+	conductivity = 29.48
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
+/material/lead
+	name = MATERIAL_LEAD
+	stack_type = /obj/item/stack/material/lead
+	icon_colour = "#5f5960"
+	weight = 32
+	conductivity = 4.39
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
 // Adminspawn only, do not let anyone get this.
 /material/elevatorium
 	name = MATERIAL_ELEVATOR

@@ -125,6 +125,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	reload_sound = /singleton/sound_category/shotgun_reload
 	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+	max_stack = 8
 
 /obj/item/ammo_casing/shotgun/used/Initialize()
 	. = ..()

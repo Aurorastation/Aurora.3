@@ -271,7 +271,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/maintenance_foyer)
 "bm" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,

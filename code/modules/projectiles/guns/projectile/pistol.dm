@@ -232,7 +232,7 @@
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
-	force = 10
+	force = 15
 	accuracy = 1
 	caliber = ".50"
 	load_method = MAGAZINE
