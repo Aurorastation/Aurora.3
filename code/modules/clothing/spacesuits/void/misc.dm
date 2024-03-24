@@ -1100,6 +1100,15 @@
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	icon_supported_species_tags = list("ipc")
 	anomaly_protection = 0.2
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 
 /obj/item/clothing/suit/space/void/coalition/assunzione
 	name = "\improper Assunzionii rook voidsuit"
@@ -1109,7 +1118,15 @@
 	item_state = "assunzione_suit"
 	icon_supported_species_tags = list("ipc")
 	anomaly_protection = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
-	refittable = TRUE
