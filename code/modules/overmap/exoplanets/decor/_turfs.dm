@@ -15,8 +15,6 @@
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 
-	has_edge_icon = TRUE
-
 /turf/simulated/floor/exoplanet/New()
 	// try to get the the atmos and area of the exoplanet
 	if(SSatlas.current_map.use_overmap)
