@@ -236,6 +236,13 @@
 	required_reagents = list(/singleton/reagent/mercury = 1, /singleton/reagent/sugar = 1, /singleton/reagent/lithium = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/snowflake
+	name = "Snowflake"
+	id = "snowflake"
+	result = /singleton/reagent/drugs/snowflake
+	required_reagents = list(/singleton/reagent/frostoil = 1, /singleton/reagent/fuel = 1, /singleton/reagent/sulfur = 1)
+	result_amount = 1
+
 /datum/chemical_reaction/cocaine
 	name = "Cocaine"
 	id = "cocaine"
@@ -897,6 +904,13 @@
 	required_reagents = list(/singleton/reagent/uranium = 2, /singleton/reagent/toxin/fertilizer/robustharvest = 2, /singleton/reagent/nutriment/caramel = 3, /singleton/reagent/fuel = 1)
 	required_temperature_min = T0C + 621 //Mix reactants with 10u salt, then pour 30u of solution in one go into 30u of pyrosilicate. Pyrosilicate will be consumed; salt must be separated.
 	result_amount = 3
+
+/datum/chemical_reaction/colorspace
+	name = "Colorspace"
+	id = "colorspace"
+	result = /singleton/reagent/drugs/colorspace
+	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/silicon = 1)
+	result_amount = 1
 
 /* Solidification */
 
@@ -4176,8 +4190,8 @@
 /datum/chemical_reaction/drink/staghunt
 	name = "Stag Hunt"
 	result = /singleton/reagent/alcohol/staghunt
-	required_reagents = list(/singleton/reagent/drink/ice = 1, /singleton/reagent/alcohol/twentytwo = 3, /singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/drink/tea = 2)
-	result_amount = 7
+	required_reagents = list(/singleton/reagent/drink/icetea = 2, /singleton/reagent/alcohol/twentytwo = 2, /singleton/reagent/drink/lemonjuice = 1)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/internationale
 	name = "Internationale"

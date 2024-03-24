@@ -6,7 +6,7 @@
 #define VOLUME_AMBIENT_HUM 18
 #define VOLUME_MUSIC 30
 
-/// This list of names is here to make sure we don't state our descriptive blurb to a person more than once.
+/// This list of names is here to make sure we don't state the area blurb to a mob more than once.
 var/global/list/area_blurb_stated_to = list()
 
 /area
@@ -71,6 +71,8 @@ var/global/list/area_blurb_stated_to = list()
 	var/area_blurb
 	/// Used to filter description showing across subareas.
 	var/area_blurb_category
+
+	var/tmp/is_outside = OUTSIDE_NO
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
@@ -462,6 +464,7 @@ var/list/mob/living/forced_ambiance_list = new
 /proc/ChangeArea(var/turf/T, var/area/A)
 	if(!istype(A))
 		CRASH("Area change attempt failed: invalid area supplied.")
+	var/old_outside = T.is_outside()
 	var/area/old_area = get_area(T)
 	if(old_area == A)
 		return
@@ -477,27 +480,32 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
 
+	T.last_outside_check = OUTSIDE_UNCERTAIN
+	var/outside_changed = T.is_outside() != old_outside
+	if(T.is_outside == OUTSIDE_AREA && outside_changed)
+		T.update_weather()
+
 /**
 * Displays an area blurb on a mob's screen.
 *
 * Areas with blurbs set [/area/var/area_blurb] will display their blurb. Otherwise no blurb will be shown. Contains checks to avoid duplicate blurbs, pass the `override` variable to bypass this. If passed when an area has no blurb, will show a generic "no blurb" message.
 *
 * * `target_mob` - The mob to show an area blurb.
-* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs etc.
+* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs, etc.
 */
 /area/proc/do_area_blurb(mob/living/target_mob, override)
 	if(isnull(area_blurb))
 		if(override)
-			to_chat(target_mob, SPAN_NOTICE("No blurb set for this area."))
+			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
 		return
 
 	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
 		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
-		to_chat(target_mob, SPAN_NOTICE("[area_blurb]"))
+		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
 
 /// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
 /mob/living/verb/show_area_blurb()
-	set name = "Show area blurb"
+	set name = "Show Area Blurb"
 	set category = "IC"
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT))
@@ -507,7 +515,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 /// A ghost version of the view area blurb verb so you can view it while observing.
 /mob/abstract/observer/verb/ghost_show_area_blurb()
-	set name = "Show area blurb"
+	set name = "Show Area Blurb"
 	set category = "IC"
 
 	var/area/blurb_verb = get_area(src)

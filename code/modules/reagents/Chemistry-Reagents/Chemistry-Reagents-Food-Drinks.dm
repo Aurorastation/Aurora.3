@@ -6464,7 +6464,7 @@
 	description = "A tall glass of milky tea-infused banana juice with tapioca pearls at the bottom."
 	nutrition = 3
 	color = "#ffd255"
-	taste_description = "strawberry tapioca tea"
+	taste_description = "banana tapioca tea"
 	glass_icon_state = "boba_banana"
 	glass_name = "banana boba"
 	glass_desc = "Banana boba bo boba, banana fanna fo foba..."

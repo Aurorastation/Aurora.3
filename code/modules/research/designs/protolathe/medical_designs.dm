@@ -47,26 +47,12 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
 	build_path = /obj/item/stack/nanopaste
 
-/datum/design/item/medical/scalpel_laser1
-	name = "Basic Laser Scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
-	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2, TECH_MAGNET = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
-	build_path = /obj/item/surgery/scalpel/laser1
-
-/datum/design/item/medical/scalpel_laser2
-	name = "Improved Laser Scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks somewhat advanced."
+/datum/design/item/medical/scalpel_laser
+	name = "Laser Scalpel"
+	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 4, TECH_MAGNET = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 2500)
-	build_path = /obj/item/surgery/scalpel/laser2
-
-/datum/design/item/medical/scalpel_laser3
-	name = "Advanced Laser Scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks to be the pinnacle of precision energy cutlery!"
-	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 6, TECH_MAGNET = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 2000, MATERIAL_GOLD = 1500)
-	build_path = /obj/item/surgery/scalpel/laser3
+	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
+	build_path = /obj/item/surgery/scalpel/laser
 
 /datum/design/item/medical/scalpel_manager
 	name = "Incision Management System"

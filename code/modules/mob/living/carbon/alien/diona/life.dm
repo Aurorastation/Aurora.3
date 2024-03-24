@@ -1,6 +1,7 @@
 //Dionaea regenerate health and nutrition in light.
 
 /mob/living/carbon/alien/diona/handle_environment(datum/gas_mixture/environment)
+	..()
 	if(environment && consume_nutrition_from_air)
 		environment.remove(diona_handle_air(get_dionastats(), pressure))
 
@@ -47,6 +48,6 @@
 	if(!gestalt)
 		if(stat != DEAD)
 			if(master_nymph && !client && master_nymph != src)
-				walk_to(src, master_nymph, 1, movement_delay())
+				SSmove_manager.move_to(src, master_nymph, 1, movement_delay())
 			else
-				walk_to(src, 0)
+				SSmove_manager.stop_looping(src)
