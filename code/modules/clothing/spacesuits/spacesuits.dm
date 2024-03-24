@@ -36,7 +36,8 @@
 
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	build_and_apply_species_adaption()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space
 	name = "softsuit"
@@ -70,7 +71,8 @@
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
-	build_and_apply_species_adaption()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()

@@ -2124,15 +2124,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/hydroponics)
 "lV" = (
-/obj/machinery/suit_cycler/medical{
-	req_access = null
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/medical,
-/obj/item/clothing/head/helmet/space/void/medical,
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/suit_cycler/medical/prepared{
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
@@ -2597,13 +2594,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/suit_cycler/mining{
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "ov" = (
@@ -4226,13 +4220,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship/medbay)
 "yj" = (
-/obj/machinery/suit_cycler/science{
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/suit_cycler/science/prepared{
 	req_access = null
 	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sci,
-/obj/item/clothing/head/helmet/space/void/sci,
-/obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "yp" = (
@@ -5420,13 +5411,10 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_ship_shuttle/medbay)
 "Ht" = (
-/obj/machinery/suit_cycler/engineering{
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/suit_cycler/engineering/prepared{
 	req_access = null
 	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "Hv" = (
