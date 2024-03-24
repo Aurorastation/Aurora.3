@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Shotguns are no longer extremely accurate when shot one-handed, and must be wielded to be fired accurately."
+  - bugfix: "Firearms that set their accuracy, firing delay, or recoil to 0 when wielded will now properly do that."
