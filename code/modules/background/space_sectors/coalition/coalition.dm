@@ -65,7 +65,7 @@
 	cargo_price_coef = list("nt" = 1.1, "hpi" = 0.7, "zhu" = 0.4, "een" = 1.0, "get" = 1.1, "arz" = 1.8, "blm" = 0.9, "iac" = 1.2, "zsc" = 1.8, "vfc" = 0.9, "bis" = 0.4, "xmg" = 0.7, "npi" = 0.8)
 
 	ports_of_call = list("the corporate district of Aoyama")
-	scheduled_port_visits = list("Thursday", "Sunday")
+	scheduled_port_visits = list("Saturday", "Sunday")
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder
