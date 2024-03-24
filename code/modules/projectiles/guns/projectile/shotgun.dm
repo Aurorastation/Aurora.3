@@ -66,6 +66,15 @@
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
 
+/obj/item/gun/projectile/shotgun/pump/handle_maptext()
+	var/ammo = length(loaded)
+	if(ammo > 9)
+		maptext_x = 12
+	else
+		maptext_x = 16
+	var/ammo_display = "[ammo]+[chambered?.BB ? "1" : "0"]"
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo_display]</span>"
+
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
 		return chambered.BB

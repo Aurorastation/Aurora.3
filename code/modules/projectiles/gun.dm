@@ -1027,20 +1027,27 @@
 /obj/item/gun/proc/can_autofire(object, location, params)
 	return (can_autofire && world.time >= next_fire_time)
 
+/// Called when the gun's ammo state changes, checks if it's being held by a mob or in a mob's bag, and then updates the maptext
 /obj/item/gun/proc/update_maptext()
 	if(displays_maptext)
 		if(!ismob(loc) && !ismob(loc.loc))
 			maptext = ""
 			return
-		var/ammo = get_ammo()
-		if(ammo > 9)
-			if(ammo < 20)
-				maptext_x = 20
-			else
-				maptext_x = 18
+		handle_maptext()
+
+
+/// Updates the maptext for the gun when a holographic ammo display is attached. Called in update_maptext() in gun.dm
+/obj/item/gun/proc/handle_maptext()
+	SHOULD_NOT_SLEEP(TRUE)
+	var/ammo = get_ammo()
+	if(ammo > 9)
+		if(ammo < 20)
+			maptext_x = 20
 		else
-			maptext_x = 22
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
+			maptext_x = 18
+	else
+		maptext_x = 22
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
 
 /obj/item/gun/get_print_info(var/no_clear = TRUE)
 	if(no_clear)
