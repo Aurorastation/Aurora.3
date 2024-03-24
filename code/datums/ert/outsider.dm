@@ -77,7 +77,7 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/dominia
 	possible_space_sector = list(SECTOR_BADLANDS)
-	equipment_map = /datum/map_template/distress_kataphract
+	equipment_map = /datum/map_template/distress_dominia
 
 /datum/responseteam/zora
 	name = "Zo'ra Hive Warriors"
