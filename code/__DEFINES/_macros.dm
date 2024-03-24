@@ -127,7 +127,7 @@
 #define from_target(target, receiver)                       target >> (receiver)
 #define to_file(file_entry, file_content)                   file_entry << file_content
 
-#define place_meta_charset(content) istext(content) ? "<meta charset=\"utf-8\">" + content : content
+#define (place_meta_charset(content) istext(content) ? "<meta charset=\"utf-8\">" + (content) : (content))
 
 #define legacy_chat(target, message)                        to_target(target, message)
 #define to_world(message)                                   to_chat(world, message)
