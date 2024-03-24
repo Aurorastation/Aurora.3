@@ -85,10 +85,7 @@
 
 /obj/vehicle/animal/bullet_act(var/obj/item/projectile/Proj)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	var/key = get_armor_key(Proj.damage_type, Proj.damage_flags)
-	if(armor_component.get_value(key))
-		block_chance = armor_component.get_value(key)
-	if(buckled && prob(block_chance))
+	if(buckled && prob((1 - armor_component.get_blocked(Proj.damage_type, Proj.damage_flags, Proj.armor_penetration))*100))
 		buckled.bullet_act(Proj)
 		return
 	..()
