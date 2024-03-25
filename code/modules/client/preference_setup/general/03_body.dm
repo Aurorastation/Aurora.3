@@ -528,15 +528,15 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		if (href_list["next_hair_style"])
 			if (selected_style_index >= valid_hairstyles.len)
-				to_chat(user, SPAN_NOTICE("You're at the bottom of the list! Delightful!"))
-				return TOPIC_NOACTION
-			new_h_style = valid_hairstyles[selected_style_index + 1]
+				new_h_style = valid_hairstyles[1]
+			else
+				new_h_style = valid_hairstyles[selected_style_index + 1]
 
 		else if (href_list["previous_hair_style"])
 			if (selected_style_index <= 1)
-				to_chat(user, SPAN_NOTICE("You're at the top of the list! That's wonderful!"))
-				return TOPIC_NOACTION
-			new_h_style = valid_hairstyles[selected_style_index - 1]
+				new_h_style = valid_hairstyles[valid_hairstyles.len]
+			else
+				new_h_style = valid_hairstyles[selected_style_index - 1]
 
 		else
 			new_h_style = tgui_input_list(
@@ -633,15 +633,15 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		if (href_list["next_facial_style"])
 			if (selected_style_index >= valid_facialhairstyles.len)
-				to_chat(user, SPAN_NOTICE("You're at the bottom of the list! Delightful!"))
-				return TOPIC_NOACTION
-			new_f_style = valid_facialhairstyles[selected_style_index + 1]
+				new_f_style = valid_facialhairstyles[1]
+			else
+				new_f_style = valid_facialhairstyles[selected_style_index + 1]
 
 		else if (href_list["previous_facial_style"])
 			if (selected_style_index <= 1)
-				to_chat(user, SPAN_NOTICE("You're at the top of the list! That's wonderful!"))
-				return TOPIC_NOACTION
-			new_f_style = valid_facialhairstyles[selected_style_index - 1]
+				new_f_style = valid_hairstyles[valid_hairstyles.len]
+			else
+				new_f_style = valid_facialhairstyles[selected_style_index - 1]
 
 		else
 			new_f_style = tgui_input_list(
