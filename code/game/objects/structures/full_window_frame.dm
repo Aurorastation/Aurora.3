@@ -34,7 +34,7 @@
 	var/has_glass_installed = FALSE
 	var/has_grille_installed = FALSE
 	var/glass_needed = 4
-	var/rods_needed = 4
+	var/rods_needed = 2
 
 /obj/structure/window_frame/cardinal_smooth(adjacencies, var/list/dir_mods)
 	dir_mods = handle_blending(adjacencies, dir_mods)
