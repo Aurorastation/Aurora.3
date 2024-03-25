@@ -15,14 +15,6 @@
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
-"ac" = (
-/obj/machinery/light/spot{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/hangar)
 "ae" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -59,6 +51,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
 	icon_state = "map"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -174,6 +169,9 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -340,7 +338,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/headmaster_shuttle)
 "aO" = (
-/obj/machinery/computer/ship/navigation{
+/obj/machinery/computer/ship/navigation/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/art{
@@ -395,8 +393,11 @@
 	},
 /area/headmaster_ship/engine)
 "aW" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -463,7 +464,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(209)
+	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -524,6 +527,9 @@
 	},
 /area/headmaster_ship/mess_hall)
 "bj" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /obj/machinery/suit_cycler/offship/pra,
@@ -587,6 +593,9 @@
 	dir = 2;
 	pixel_y = 28
 	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -636,12 +645,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/dock)
-"bG" = (
-/obj/machinery/light/spot/built,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/hangar)
 "bH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -653,6 +656,9 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -718,7 +724,7 @@
 	},
 /area/headmaster_ship/engineering)
 "bR" = (
-/obj/machinery/computer/ship/navigation{
+/obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/art{
@@ -774,6 +780,9 @@
 	dir = 2;
 	pixel_y = 28
 	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -801,6 +810,9 @@
 /area/headmaster_ship/captain_quarters)
 "cc" = (
 /obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -986,6 +998,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -999,6 +1014,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1059,6 +1077,9 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1071,6 +1092,9 @@
 /area/headmaster_ship/commissar_quarters)
 "cQ" = (
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1178,7 +1202,9 @@
 	},
 /area/headmaster_ship)
 "de" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(209)
+	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
@@ -1194,7 +1220,9 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/alarm/cold/south,
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -1239,7 +1267,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/cold/south,
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1247,6 +1280,9 @@
 "dm" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/simple_animal/hostile/republicon/ranged,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1333,6 +1369,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1349,6 +1388,9 @@
 "dy" = (
 /obj/machinery/vending/engivend{
 	req_access = list(209)
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1476,6 +1518,17 @@
 	},
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
+"dS" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "dV" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
@@ -1632,9 +1685,7 @@
 	master_tag = "airlock_headmaster_starboard";
 	name = "airlock_headmaster_starboard"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
+/obj/machinery/light/small/emergency,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 2;
 	pixel_y = 28;
@@ -1650,7 +1701,9 @@
 	},
 /area/headmaster_ship/engineering)
 "ex" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1812,23 +1865,19 @@
 	},
 /area/headmaster_ship/hangar)
 "fa" = (
-/obj/machinery/door/airlock{
-	req_access = list(209);
-	name = "Hangar";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 8;
-	req_one_access = list(24,11,67,209)
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/multi_tile{
+	dir = 1;
+	name = "Hangar";
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1908,6 +1957,9 @@
 	},
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -2019,6 +2071,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2047,6 +2102,10 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
 /obj/item/toy/plushie/coolschlorrgo,
+/obj/effect/ghostspawpoint{
+	identifier = "headmaster_kosmostrelki";
+	name = "igs - headmaster_captain"
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -2108,6 +2167,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -2129,6 +2191,7 @@
 /obj/item/folder/red{
 	pixel_x = -3
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "fV" = (
@@ -2192,6 +2255,9 @@
 "gc" = (
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2310,22 +2376,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/barracks)
-"gx" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship)
 "gB" = (
 /obj/structure/toilet,
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -2340,8 +2398,11 @@
 	},
 /area/headmaster_ship/hangar)
 "gH" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/pipedispenser,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/headmaster_ship/engineering)
 "gK" = (
@@ -2394,6 +2455,9 @@
 "gQ" = (
 /obj/structure/table/rack,
 /obj/item/stack/rods,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/full,
@@ -2487,8 +2551,9 @@
 	},
 /area/headmaster_ship/engine)
 "gY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_cycler/offship/pra,
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2589,6 +2654,9 @@
 /obj/machinery/vending/tool{
 	req_access = list(209)
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2663,7 +2731,7 @@
 	dir = 5
 	},
 /obj/machinery/door/window/southright{
-	req_access = list(207)
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/headmaster_shuttle)
@@ -2689,7 +2757,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "hV" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(209)
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -2734,6 +2804,9 @@
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = list(209)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2845,9 +2918,12 @@
 	},
 /area/headmaster_ship/captain_quarters)
 "in" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light,
 /obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2928,7 +3004,8 @@
 /obj/machinery/door/airlock{
 	req_access = list(209);
 	name = "Stall 2";
-	dir = 1
+	dir = 1;
+	id_tag = "headmaster_stall_2"
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
@@ -3025,7 +3102,9 @@
 	},
 /area/headmaster_ship/mess_hall)
 "iW" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(209)
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -3124,8 +3203,11 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/portgen/basic/fusion,
-/obj/machinery/door/window{
-	req_one_access = "112"
+/obj/machinery/door/window/southright{
+	req_access = list(209)
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/bluegrid/cooled,
 /area/headmaster_ship/engine)
@@ -3173,22 +3255,21 @@
 /turf/simulated/floor,
 /area/shuttle/headmaster_shuttle)
 "jw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/light/spot{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	pixel_x = 24;
+	id_tag = "headmaster_shuttle";
+	frequency = 1380;
+	child_names_txt = "Orbital Fleet Shuttle Airlock";
+	child_tags_txt = "headmaster_shuttle";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/headmaster_ship)
+/area/headmaster_ship/hangar)
 "jy" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3334,6 +3415,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3349,6 +3433,16 @@
 "kf" = (
 /obj/structure/toilet{
 	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "headmaster_stall_2";
+	name = "Stall Door Lock";
+	pixel_x = -24;
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -3409,7 +3503,9 @@
 	},
 /area/headmaster_ship/engine)
 "kw" = (
-/obj/machinery/power/apc/high/east,
+/obj/machinery/power/apc/high/east{
+	req_access = list(209)
+	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -3538,6 +3634,9 @@
 	master_tag = "airlock_headmaster_ship_dock_port";
 	req_one_access = list(209)
 	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3571,6 +3670,11 @@
 "kZ" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	identifier = "headmaster_kosmostrelki";
+	name = "igs - headmaster_commissar"
+	},
+/obj/item/toy/plushie/farwa,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -3639,6 +3743,9 @@
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3753,6 +3860,17 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/engine)
+"lD" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "lE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -3765,8 +3883,11 @@
 	},
 /area/headmaster_ship/commissar_quarters)
 "lJ" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/inflatable_dispenser,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
@@ -3799,6 +3920,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3812,6 +3936,9 @@
 /area/headmaster_ship/bridge)
 "lT" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
@@ -3824,6 +3951,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3841,6 +3971,9 @@
 	},
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -3933,6 +4066,9 @@
 /area/headmaster_ship/hangar)
 "mj" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3984,6 +4120,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/engine)
+"mt" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "mx" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze{
@@ -4010,6 +4154,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
 /area/shuttle/headmaster_shuttle)
+"mB" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/eva)
 "mF" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -4226,6 +4378,9 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4279,12 +4434,17 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
 /area/headmaster_ship/barracks)
 "nA" = (
-/obj/machinery/alarm/cold/south,
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -4354,14 +4514,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship)
-"oC" = (
-/obj/machinery/light/spot{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/hangar)
 "oL" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
@@ -4369,6 +4521,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
+/obj/machinery/light,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -4398,6 +4551,9 @@
 	req_access = null;
 	pixel_x = -32
 	},
+/obj/item/flag/pra,
+/obj/item/flag/pra/l,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hadii,
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "pb" = (
@@ -4430,6 +4586,9 @@
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
 "pg" = (
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -4466,6 +4625,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4547,6 +4709,7 @@
 /area/headmaster_ship/hangar)
 "qK" = (
 /obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4565,7 +4728,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "qV" = (
-/obj/machinery/alarm/cold/south,
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -4593,6 +4758,12 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/engineering)
+"rf" = (
+/obj/machinery/light,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/headmaster_ship/captain_quarters)
 "rp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4637,6 +4808,7 @@
 /obj/machinery/vending/engineering{
 	req_access = list(209)
 	},
+/obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4696,6 +4868,25 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "headmaster_robots";
+	name = "Defensive Robots";
+	req_access = list(209);
+	pixel_x = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "headmaster_bridge";
+	name = "Bridge Blastdoor";
+	req_access = list(209);
+	pixel_y = 8;
+	pixel_x = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "headmaster_cic";
+	name = "CIC Lockdown";
+	req_access = list(209);
+	pixel_x = 6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "sW" = (
@@ -4740,7 +4931,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/headmaster_shuttle)
 "tv" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(209)
+	},
 /obj/structure/cable/green,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -4760,6 +4953,25 @@
 "tB" = (
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/captain_quarters)
+"tM" = (
+/obj/machinery/suit_cycler/offship/pra,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/eva)
+"tR" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "tY" = (
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/commissar_quarters)
@@ -4808,18 +5020,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/armory)
-"ue" = (
-/obj/structure/bed/stool/bar/padded/red,
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/dock)
 "uh" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
@@ -4842,6 +5042,10 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4891,8 +5095,9 @@
 	pixel_x = 24;
 	id_tag = "headmaster_shuttle";
 	frequency = 1380;
-	child_names_txt = "Elyran Shuttle Airlock";
-	child_tags_txt = "elyran_shuttle"
+	child_names_txt = "Orbital Fleet Shuttle Airlock";
+	child_tags_txt = "headmaster_shuttle";
+	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
@@ -4911,19 +5116,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/commissar_quarters)
-"vC" = (
-/obj/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
-/area/headmaster_ship/medbay)
 "vQ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4966,6 +5158,9 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4977,22 +5172,20 @@
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
 "ws" = (
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
-	id_tag = "headmaster_shuttle";
-	frequency = 1380;
-	child_names_txt = "Elyran Shuttle Airlock";
-	child_tags_txt = "elyran_shuttle";
-	dir = 8
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/headmaster_ship/hangar)
+/area/headmaster_ship/engine)
 "wt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
 	icon_state = "map"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5000,6 +5193,9 @@
 /area/headmaster_ship/engine)
 "wP" = (
 /obj/structure/undies_wardrobe,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5025,6 +5221,14 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
+"xn" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/engineering)
 "xr" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating{
@@ -5076,6 +5280,18 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/captain_quarters)
+"xK" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/dock)
 "xM" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/floor_decal/industrial/warning{
@@ -5149,6 +5365,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship)
+"yB" = (
+/obj/machinery/light/spot{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "yD" = (
 /obj/structure/table/standard,
 /obj/structure/cable/green{
@@ -5189,18 +5413,13 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/headmaster_ship/eva)
-"yQ" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/mess_hall)
 "za" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor{
@@ -5216,12 +5435,46 @@
 	},
 /area/headmaster_ship/engineering)
 "zm" = (
-/obj/machinery/power/apc/high/east,
+/obj/machinery/power/apc/high/east{
+	req_access = list(209)
+	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/headmaster_ship/hangar)
+"zr" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/headmaster_ship/medbay)
+"zw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "zK" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/structure/sign/flag/pra{
@@ -5309,7 +5562,8 @@
 /obj/machinery/door/airlock{
 	req_access = list(209);
 	name = "Restroom";
-	dir = 1
+	dir = 1;
+	id_tag = "headmaster_stall_1"
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
@@ -5329,15 +5583,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"AE" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship)
 "AO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5354,6 +5599,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship)
+"AQ" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/eva)
 "AY" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -5387,6 +5640,14 @@
 	},
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
+"By" = (
+/obj/machinery/light/spot{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "BH" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -5398,6 +5659,19 @@
 	},
 /turf/template_noop,
 /area/space)
+"BQ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_headmaster_ship_dock_port";
+	name = "airlock_headmaster_ship_dock_port";
+	master_tag = "airlock_headmaster_ship_dock_port";
+	req_one_access = list(209)
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/headmaster_ship/dock)
 "BT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -5455,20 +5729,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/engine)
-"Ca" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/mess_hall)
 "Ci" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -5496,6 +5756,9 @@
 "Cx" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5639,6 +5902,9 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 8
 	},
+/obj/structure/sign/flag/pra/large/east{
+	pixel_x = 32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "Eh" = (
@@ -5695,7 +5961,7 @@
 /area/shuttle/headmaster_shuttle)
 "EP" = (
 /obj/machinery/power/apc/high/west{
-	req_access = list(207)
+	req_access = list(209)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5996,6 +6262,12 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/barracks)
+"IK" = (
+/obj/machinery/light/spot/built,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "IO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -6042,6 +6314,9 @@
 /area/shuttle/headmaster_shuttle)
 "Jv" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6070,6 +6345,26 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/captain_quarters)
+"JJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "JX" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 4
@@ -6095,6 +6390,10 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "headmaster_cic"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6125,6 +6424,16 @@
 	},
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
+"KA" = (
+/obj/machinery/suit_cycler/offship/pra,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/eva)
 "KB" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
@@ -6223,16 +6532,46 @@
 	},
 /turf/template_noop,
 /area/space)
+"Lw" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/machinery/suit_cycler/offship/pra,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/eva)
 "LD" = (
 /obj/structure/toilet,
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -12
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/headmaster_ship/captain_quarters)
+"LQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/barracks)
 "LS" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6283,6 +6622,18 @@
 "Mm" = (
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/gun_deck)
+"Mr" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "MA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -6360,18 +6711,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/engine)
-"Nl" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4;
-	status = 2
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship)
 "No" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -6533,9 +6872,14 @@
 	},
 /area/headmaster_ship/bridge)
 "OT" = (
-/obj/machinery/power/apc/high/south,
+/obj/machinery/power/apc/high/south{
+	req_access = list(209)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6609,17 +6953,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/dock)
-"PG" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship)
 "PJ" = (
 /obj/item/clothing/head/cone,
 /turf/simulated/floor/tiled/dark{
@@ -6632,25 +6965,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/headmaster_ship)
-"PP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/mess_hall)
 "PV" = (
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -6680,6 +6994,21 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
+"QB" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_headmaster_ship_dock_starboard";
+	name = "airlock_headmaster_ship_dock_starboard";
+	master_tag = "airlock_headmaster_ship_dock_starboard";
+	req_one_access = list(209)
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/headmaster_ship)
@@ -6807,6 +7136,17 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/bridge)
+"RZ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "Sa" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/simple_animal/hostile/republicon/ranged,
@@ -6827,15 +7167,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/medbay)
-"Sd" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
-/area/headmaster_ship/mess_hall)
 "Si" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/extinguisher_cabinet/east{
@@ -6879,7 +7210,9 @@
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
 "Td" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(209)
+	},
 /obj/structure/cable/green,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -7005,6 +7338,21 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/barracks)
+"Ud" = (
+/obj/machinery/light,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/headmaster_ship/commissar_quarters)
+"Ue" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "Ul" = (
 /obj/structure/viewport,
 /obj/machinery/door/blast/regular/open{
@@ -7093,21 +7441,13 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
 /area/headmaster_ship/commissar_quarters)
-"Vs" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship)
 "Vv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -7165,10 +7505,31 @@
 /obj/item/reagent_containers/pill/cyanide{
 	name = "emergency cyanide pill"
 	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/headmaster_ship/cic)
+"Wg" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "headmaster_stall_1";
+	name = "Stall Door Lock";
+	pixel_x = -24;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "Wi" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
@@ -7197,7 +7558,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/eva)
 "Wl" = (
-/obj/machinery/alarm/cold/south,
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
+	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
@@ -7240,6 +7603,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/barracks)
+"WZ" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/eva)
 "Xa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -7273,6 +7644,20 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/dock)
+"Xo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "Xy" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/jackboots/tajara,
@@ -15928,7 +16313,7 @@ iB
 hK
 bs
 Xj
-Xj
+BQ
 hK
 iB
 iB
@@ -16062,10 +16447,10 @@ Up
 Eh
 nd
 hm
-so
+xn
 rM
 oh
-oC
+yB
 qG
 ub
 ub
@@ -16081,7 +16466,7 @@ ub
 ub
 qG
 ub
-oC
+yB
 NZ
 iB
 iB
@@ -16216,7 +16601,7 @@ iB
 iB
 aI
 bX
-aT
+ws
 No
 aT
 aT
@@ -16405,7 +16790,7 @@ pf
 SV
 QT
 ub
-bG
+IK
 NZ
 iB
 iB
@@ -16894,11 +17279,11 @@ uZ
 ub
 NZ
 cc
-eH
-eH
+WZ
+WZ
 gY
 hK
-ue
+xK
 je
 qL
 hK
@@ -17029,7 +17414,7 @@ iB
 Up
 Up
 Up
-aT
+ws
 Up
 xr
 dM
@@ -17220,7 +17605,7 @@ NZ
 Cx
 eH
 eH
-gY
+tM
 hK
 ga
 je
@@ -17382,7 +17767,7 @@ NZ
 lh
 jJ
 tb
-gY
+tM
 hK
 dI
 je
@@ -17541,10 +17926,10 @@ ub
 ub
 ub
 kD
-eH
+AQ
 sX
 eH
-eH
+mB
 Oa
 an
 bp
@@ -17706,7 +18091,7 @@ NZ
 lU
 mZ
 eH
-gY
+Lw
 hK
 fA
 hK
@@ -17849,26 +18234,26 @@ gH
 oh
 dm
 NZ
-ac
+jw
 ma
 ma
 ma
 lZ
 eZ
 pN
-ws
+ub
 nb
 cn
 zm
 kH
 aH
 ub
-ac
+By
 NZ
 lO
 yM
 gc
-gY
+KA
 hK
 pF
 hK
@@ -18018,7 +18403,7 @@ NZ
 NZ
 NZ
 NZ
-NZ
+ub
 fa
 NZ
 NZ
@@ -18167,39 +18552,39 @@ IZ
 IZ
 IZ
 hp
-PG
+lD
 eQ
 fL
 fL
 fL
 fL
-PG
+lD
 fL
 LS
 fL
-PG
+lD
 kE
 fL
 fL
 fB
 fL
-PG
+lD
 fL
 kE
 fL
 fL
 fL
-PG
+lD
 eQ
 fL
 Fy
-PG
+lD
 fL
 fL
 eQ
 fL
 kE
-PG
+lD
 mG
 ae
 Oe
@@ -18335,7 +18720,7 @@ DJ
 DJ
 DJ
 DJ
-jw
+BT
 DJ
 jA
 DJ
@@ -18493,7 +18878,7 @@ IZ
 UM
 ME
 ME
-Nl
+Mr
 ME
 ME
 cx
@@ -18504,13 +18889,13 @@ ME
 ME
 Af
 ME
-Nl
+Mr
 ME
 ME
 pT
 ME
 Af
-Nl
+Mr
 ME
 ME
 ME
@@ -18520,7 +18905,7 @@ OU
 ME
 pT
 ME
-Vs
+RZ
 ME
 ki
 ME
@@ -18816,12 +19201,12 @@ Up
 Sc
 oo
 cW
-vC
+zr
 io
 ea
 xP
 hZ
-fE
+JJ
 dG
 tY
 KQ
@@ -18984,12 +19369,12 @@ ec
 Wi
 pi
 dd
-AE
+tR
 tY
 Vj
 gi
 bT
-bT
+Ud
 tY
 kF
 ii
@@ -19001,7 +19386,7 @@ GV
 kh
 lV
 RC
-PP
+zw
 mx
 RC
 Wx
@@ -19323,7 +19708,7 @@ bg
 Fm
 pg
 AB
-kf
+Wg
 RC
 hE
 OD
@@ -19468,7 +19853,7 @@ ba
 cq
 de
 xP
-gx
+dS
 fE
 dG
 tY
@@ -19641,7 +20026,7 @@ fK
 tY
 Fm
 Fm
-ia
+LQ
 Fm
 Fm
 Fm
@@ -19649,7 +20034,7 @@ gg
 iE
 kf
 RC
-Ca
+Xo
 kW
 RC
 he
@@ -19945,7 +20330,7 @@ iB
 Up
 Up
 Up
-aT
+ws
 Up
 sU
 oX
@@ -19965,13 +20350,13 @@ kZ
 tB
 Fm
 Fm
-ia
+LQ
 Fm
 Fm
 Fm
 kQ
 OD
-yQ
+mt
 OD
 Yo
 at
@@ -20280,7 +20665,7 @@ OT
 bd
 cs
 fE
-AE
+tR
 tB
 QE
 nE
@@ -20455,7 +20840,7 @@ NF
 Ua
 RM
 Fm
-Sd
+Ue
 pj
 pj
 pj
@@ -20609,7 +20994,7 @@ tB
 fQ
 il
 PV
-PV
+rf
 tB
 fk
 NR
@@ -20752,7 +21137,7 @@ iB
 iB
 aI
 bX
-aT
+ws
 No
 aT
 za
@@ -20764,7 +21149,7 @@ jt
 du
 wm
 bd
-gx
+dS
 cm
 dG
 tB
@@ -21414,7 +21799,7 @@ iB
 IZ
 AO
 iS
-iS
+QB
 IZ
 iB
 iB
