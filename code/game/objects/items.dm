@@ -1100,7 +1100,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/tool_use_check(mob/living/user, amount)
 	return TRUE
 
-// Plays item's usesound, if any.
+/// Plays item's usesound, if any
 /obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
 	if(target && volume)
 		var/played_sound
@@ -1114,7 +1114,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				played_sound = pick(hitsound)
 
 		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
-		playsound(target, played_sound, volume, TRUE)
+		playsound(target, played_sound, volume, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Generic use proc. Depending on the item, it uses up fuel, charges, sheets, etc.
 // Returns TRUE on success, FALSE on failure.

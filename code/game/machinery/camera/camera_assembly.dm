@@ -30,7 +30,7 @@
 		if(0)
 			// State 0
 			if(attacking_item.iswrench() && isturf(src.loc))
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "You wrench the assembly into place.")
 				anchored = 1
 				state = 1
@@ -48,7 +48,7 @@
 				return TRUE
 
 			else if(attacking_item.iswrench())
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				update_icon()
@@ -78,7 +78,7 @@
 		if(3)
 			// State 3
 			if(attacking_item.isscrewdriver())
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 
 				var/input = sanitize( tgui_input_text(user, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret",
 											"Set Network", (camera_network ? camera_network : NETWORK_STATION)) )
@@ -143,7 +143,7 @@
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			to_chat(user, "You unattach an upgrade from the assembly.")
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			U.forceMove(get_turf(src))
 			upgrades -= U
 		return

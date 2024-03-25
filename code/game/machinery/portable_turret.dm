@@ -362,12 +362,12 @@
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			//This code handles moving the turret around. After all, it's a portable turret!
 			if(!anchored)
-				playsound(loc, attacking_item.usesound, 100, 1)
+				attacking_item.play_tool_sound(get_turf(src), 100)
 				anchored = 1
 				update_icon()
 				to_chat(user, "<span class='notice'>You secure the exterior bolts on the turret.</span>")
 			else if(anchored)
-				playsound(loc, attacking_item.usesound, 100, 1)
+				attacking_item.play_tool_sound(get_turf(src), 100)
 				anchored = 0
 				to_chat(user, "<span class='notice'>You unsecure the exterior bolts on the turret.</span>")
 				update_icon()
@@ -841,7 +841,7 @@
 	switch(build_step)
 		if(0)	//first step
 			if(attacking_item.iswrench() && !anchored)
-				playsound(loc, attacking_item.usesound, 100, 1)
+				attacking_item.play_tool_sound(get_turf(src), 100)
 				to_chat(user, "<span class='notice'>You secure the external bolts.</span>")
 				anchored = 1
 				build_step = 1
@@ -849,7 +849,7 @@
 				return TRUE
 
 			else if(attacking_item.iscrowbar() && !anchored)
-				playsound(loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
 				new /obj/item/stack/material/steel( loc, 5)
 				qdel(src)
@@ -867,7 +867,7 @@
 				return TRUE
 
 			else if(attacking_item.iswrench())
-				playsound(loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				to_chat(user, "<span class='notice'>You unfasten the external bolts.</span>")
 				anchored = 0
 				build_step = 0
@@ -877,7 +877,7 @@
 
 		if(2)
 			if(attacking_item.iswrench())
-				playsound(loc, attacking_item.usesound, 100, 1)
+				attacking_item.play_tool_sound(get_turf(src), 100)
 				to_chat(user, "<span class='notice'>You bolt the metal armor into place.</span>")
 				build_step = 3
 				icon_state = "turret_frame_3_[case_sprite_set]"
@@ -920,7 +920,7 @@
 				return TRUE
 
 			else if(attacking_item.iswrench())
-				playsound(loc, attacking_item.usesound, 100, 1)
+				attacking_item.play_tool_sound(get_turf(src), 100)
 				to_chat(user, "<span class='notice'>You remove the turret's metal armor bolts.</span>")
 				build_step = 2
 				icon_state = "turret_frame_2_[case_sprite_set]"
@@ -940,7 +940,7 @@
 
 		if(5)
 			if(attacking_item.isscrewdriver())
-				playsound(loc, attacking_item.usesound, 100, 1)
+				attacking_item.play_tool_sound(get_turf(src), 100)
 				build_step = 6
 				to_chat(user, "<span class='notice'>You close the access hatch.</span>")
 				icon_state = "turret_frame_5a_[case_sprite_set]"
@@ -965,7 +965,7 @@
 				return TRUE
 
 			else if(attacking_item.isscrewdriver())
-				playsound(loc, attacking_item.usesound, 100, 1)
+				attacking_item.play_tool_sound(get_turf(src), 100)
 				build_step = 5
 				to_chat(user, "<span class='notice'>You open the access hatch.</span>")
 				cut_overlays()
@@ -1021,7 +1021,7 @@
 				return TRUE
 
 			else if(attacking_item.iscrowbar())
-				playsound(loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6

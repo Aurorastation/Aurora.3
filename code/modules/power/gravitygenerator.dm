@@ -205,7 +205,7 @@
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(attacking_item.isscrewdriver())
 				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(attacking_item.iswelder())
@@ -227,17 +227,17 @@
 		if(GRAV_NEEDS_WRENCH)
 			if(attacking_item.iswrench())
 				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
-				playsound(src.loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				set_fix()
 		else
 			..()
 	if(attacking_item.iscrowbar())
 		if(backpanelopen)
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
 			backpanelopen = 0
 		else
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='notice'>You open the back panel.</span>")
 			backpanelopen = 1
 

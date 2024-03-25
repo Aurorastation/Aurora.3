@@ -291,7 +291,7 @@
 
 		else if(attacking_item.isscrewdriver())
 			open = !open
-			playsound(loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(open)
 				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else

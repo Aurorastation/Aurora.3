@@ -309,7 +309,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.isscrewdriver())
 		src.add_fingerprint(user)
-		playsound(src.loc, attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		if(do_after(user, 20))
 			if(!src) return
 			switch (anchored)

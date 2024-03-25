@@ -351,7 +351,7 @@
 
 	if(repairing && attacking_item.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, attacking_item.usesound, 50, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return TRUE

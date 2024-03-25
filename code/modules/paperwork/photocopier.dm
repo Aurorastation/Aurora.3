@@ -129,7 +129,7 @@
 			flick("photocopier_notoner", src)
 			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 	else if(attacking_item.iswrench())
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	return
