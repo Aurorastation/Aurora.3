@@ -221,6 +221,10 @@
 	pixel_x = pixel_x
 	pixel_y = pixel_y
 
+/obj/machinery/light/small/floor/set_pixel_offsets()
+	pixel_x = pixel_x
+	pixel_y = pixel_y
+
 /obj/machinery/light/update_icon()
 	cut_overlays()
 	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
