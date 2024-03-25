@@ -407,7 +407,6 @@
 
 /material/concrete
 	name = MATERIAL_CONCRETE
-//	icon_base = "concrete"
 	icon_colour = COLOR_CONCRETE
 	wall_colour = COLOR_CONCRETE
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
