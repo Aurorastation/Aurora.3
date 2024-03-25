@@ -229,7 +229,7 @@
 
 /obj/item/reagent_containers/glass/bottle/trioxin
 	name = "hylemnomil-zeta vial"
-	desc = "A small, unmarked lial with an ominous label. <span class='cult'>It contains a swirling, purple liquid.</span>"
+	desc = "A small, unmarked vial with an ominous label. <span class='cult'>It contains a swirling, purple liquid.</span>"
 	icon_state = "bouteille"
 	reagents_to_add = list(/singleton/reagent/toxin/hylemnomil = 60)
 //syrups

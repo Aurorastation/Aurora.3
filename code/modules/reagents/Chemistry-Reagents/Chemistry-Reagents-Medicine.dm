@@ -1556,7 +1556,7 @@
 
 /singleton/reagent/sanasomnum
 	name = "Sanasomnum"
-	description = "Not strictly a drug, Sanasomnum is actually a cocktail of biomechanical stem cells, which induce a regenerative state of unconsciousness capable healing almost any injury in minutes - however, usage nearly guarantees long-term and irreversible complications, and it is banned from medical use throughout the spur."
+	description = "Not strictly a drug, Sanasomnum is a cocktail of biomechanical stem cells known to cause paralysis and cancerous growths in the few human studies it was trialled during. As a result, little further research has been done on it... nothing that's available to the public, at least."
 	reagent_state = SOLID
 	color = "#b2db5e"
 	overdose = REAGENTS_OVERDOSE
@@ -1607,7 +1607,6 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & TENDON_CUT && prob(10))
 				E.status &= ~TENDON_CUT
-	H.infest_with_parasite(H, BP_TUMOUR_NONSPREADING, pick(H.organs), 5)
 
 /singleton/reagent/sanasomnum/final_effect(mob/living/carbon/M)
 	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
