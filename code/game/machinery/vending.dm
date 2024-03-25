@@ -62,6 +62,9 @@
 	// 	#endif
 
 	NO_MAP_OVERRIDE(density)
+	// check_mapped_in_vars() { if(density!=initial(density)) { SSunit_tests_config.UT.fail("**** foo bar [src], [type], [x] [y] [z],", __FILE__, __LINE__) } }
+	// UNLINT(check_mapped_in_vars(){})
+	// FOOBAR(check_mapped_in_vars(){})
 
 	var/icon_vend //Icon_state when vending
 	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
