@@ -5,8 +5,15 @@
 	but natives aren't known to treat settlements kindly."
 	skybox_icon = "badlands"
 	sector_welcome_message = 'sound/AI/welcome_badlands.ogg'
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow,
-								/obj/effect/overmap/visitable/sector/exoplanet/crystal)
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid,
+		/obj/effect/overmap/visitable/sector/exoplanet/grass/grove,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren,
+		/obj/effect/overmap/visitable/sector/exoplanet/lava,
+		/obj/effect/overmap/visitable/sector/exoplanet/desert,
+		/obj/effect/overmap/visitable/sector/exoplanet/snow,
+		/obj/effect/overmap/visitable/sector/exoplanet/crystal
+	)
 	starlight_color = "#b13636"
 	starlight_power = 2
 	starlight_range = 4
