@@ -230,7 +230,7 @@
 "qA" = (/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/corner/brown{dir = 10},/obj/machinery/light,/turf/simulated/floor/tiled/dark/airless,/area/hivebothub/secure)
 "qC" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/simple/hidden,/obj/effect/decal/cleanable/floor_damage/rust,/turf/simulated/floor/tiled/dark/airless,/area/hivebothub/portdocks)
 "qE" = (/obj/effect/decal/cleanable/blood/drip,/obj/item/stack/material/graphite{pixel_y = -7; pixel_x = -8},/turf/simulated/floor/tiled/dark/airless,/area/hivebothub/portdocks)
-"qF" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/closet/secure_closet/freezer/fridge,/obj/effect/decal/cleanable/flour,/turf/simulated/floor/tiled/airless,/area/hivebothub/kitchen)
+"qF" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/closet/secure_closet/refrigerator/standard,/obj/effect/decal/cleanable/flour,/turf/simulated/floor/tiled/airless,/area/hivebothub/kitchen)
 "qG" = (/obj/structure/girder,/turf/simulated/floor/airless,/area/hivebothub/kitchen)
 "qI" = (/obj/effect/floor_decal/industrial/hatch/yellow,/obj/effect/decal/cleanable/dirt,/obj/item/ore/iron{pixel_x = 4; pixel_y = 5},/obj/machinery/door/blast/shutters/open{id = "hivebot_starboard_shutter_4"},/turf/simulated/floor/tiled/dark/full/airless,/area/hivebothub/starboarddocks)
 "qO" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/suit_storage_unit/standard_unit,/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/alarm/north,/turf/simulated/floor/airless,/area/hivebothub/engi)

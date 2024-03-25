@@ -44,6 +44,7 @@
 #define COLOR_SUN              "#ec8b2f"
 #define COLOR_PURPLE_GRAY      "#a2819e"
 #define COLOR_BLUE_LIGHT       "#33ccff"
+#define COLOR_NAVY "#000080"
 #define COLOR_RED_LIGHT        "#ff3333"
 #define COLOR_BEIGE            "#ceb689"
 #define COLOR_BABY_BLUE        "#89cff0"

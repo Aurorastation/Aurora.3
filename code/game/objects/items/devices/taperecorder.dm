@@ -5,7 +5,7 @@
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
 
-	matter = list(DEFAULT_WALL_MATERIAL = 60, MATERIAL_GLASS = 30)
+	matter = list(MATERIAL_ALUMINIUM = 60, MATERIAL_GLASS = 30)
 
 	var/emagged = FALSE
 	var/recording = FALSE

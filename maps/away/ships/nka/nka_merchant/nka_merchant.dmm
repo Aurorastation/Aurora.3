@@ -272,7 +272,7 @@
 	},
 /area/nka_merchant/engineering)
 "aO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -669,9 +669,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"cd" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/mess)
 "ce" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -934,9 +931,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"cR" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/engine)
 "cS" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -978,7 +972,7 @@
 	},
 /area/nka_merchant/merchant)
 "dd" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/produce{
@@ -1123,25 +1117,11 @@
 	},
 /area/nka_merchant/captain_quarters)
 "dF" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/eastright{
-	dir = 2;
-	req_access = list(213);
-	name = "Voidsuit"
-	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/nka,
-/obj/item/clothing/head/helmet/space/void/nka,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/nka,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1330,9 +1310,7 @@
 "em" = (
 /obj/structure/table/standard,
 /obj/item/book/manual/nka_manifesto,
-/obj/structure/sign/flag/nka/large/south{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1838,22 +1816,8 @@
 	},
 /area/nka_merchant/eva)
 "hc" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/eastright{
-	dir = 2;
-	req_access = list(213);
-	name = "Voidsuit"
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/nka,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2003,27 +1967,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
-"ig" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
+"ih" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/eastright{
-	dir = 2;
-	req_access = list(213);
-	name = "Voidsuit"
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/nka,
-/obj/item/clothing/head/helmet/space/void/nka,
-/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/nka_merchant/eva)
+/area/nka_merchant)
 "ij" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/effect/ghostspawpoint{
@@ -2430,7 +2381,7 @@
 	},
 /area/shuttle/nka_merchant_shuttle)
 "kf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "merchant_navy_bridge"
@@ -2718,9 +2669,7 @@
 /obj/machinery/alarm/cold/west{
 	req_one_access = list(212)
 	},
-/obj/structure/sign/flag/nka/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nka/large/north,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2762,11 +2711,9 @@
 	},
 /area/nka_merchant)
 "lu" = (
+/obj/structure/sign/flag/nka/large/south,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
-	},
-/obj/structure/sign/flag/nka/large/south{
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3290,14 +3237,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
-"rc" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "rp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -3316,9 +3255,12 @@
 	},
 /area/nka_merchant/mess)
 "rq" = (
-/obj/machinery/suit_cycler/security{
-	req_access = list(213)
-	},
+/obj/structure/table/rack,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3731,6 +3673,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
+"AT" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/nka_merchant/engine)
 "AY" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -3797,9 +3742,6 @@
 "Df" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/nka_merchant_shuttle)
-"Dj" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/hangar)
 "Do" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -3842,7 +3784,7 @@
 	},
 /area/nka_merchant/merchant)
 "DU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4199,9 +4141,7 @@
 /area/nka_merchant)
 "Kg" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/nka/large/south{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4595,6 +4535,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engine)
+"TH" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/nka_merchant/hangar)
 "TN" = (
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
@@ -4657,11 +4600,14 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/engineering)
+"Vj" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/nka_merchant/mess)
 "Vp" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant)
 "Vv" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "merchant_navy_bridge"
@@ -15897,11 +15843,11 @@ iB
 iB
 iB
 iB
-cR
-cR
-cR
-cR
-cR
+AT
+AT
+AT
+AT
+AT
 iB
 iB
 iB
@@ -16062,9 +16008,9 @@ iB
 vo
 RS
 Zr
-cR
-cR
-cR
+AT
+AT
+AT
 vA
 vA
 Wx
@@ -16225,8 +16171,8 @@ YX
 dV
 Zr
 cr
-cR
-cR
+AT
+AT
 jA
 vA
 bg
@@ -16247,11 +16193,11 @@ DU
 DU
 DU
 JO
-cd
-cd
+Vj
+Vj
 aA
-cd
-cd
+Vj
+Vj
 aO
 aO
 aO
@@ -16388,7 +16334,7 @@ Fy
 RS
 Zr
 Zr
-cR
+AT
 jA
 vA
 Wx
@@ -16409,7 +16355,7 @@ Dx
 cP
 fD
 dG
-cd
+Vj
 dd
 fY
 KT
@@ -16545,12 +16491,12 @@ iB
 iB
 iB
 iB
-cR
-cR
+AT
+AT
 aI
 Zr
 eD
-cR
+AT
 vA
 vA
 Wx
@@ -16571,7 +16517,7 @@ fm
 MA
 ij
 dE
-cd
+Vj
 ai
 fY
 fx
@@ -16708,11 +16654,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Zr
-cR
+AT
 hx
 dO
 Wx
@@ -16733,7 +16679,7 @@ fm
 Qh
 ex
 ou
-cd
+Vj
 mG
 fY
 bX
@@ -16870,11 +16816,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Zr
-cR
+AT
 xX
 IA
 IA
@@ -16895,7 +16841,7 @@ Oz
 OJ
 de
 FU
-cd
+Vj
 fE
 FH
 nq
@@ -17032,11 +16978,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Zr
-cR
+AT
 vA
 vA
 fQ
@@ -17057,10 +17003,10 @@ JO
 dN
 JO
 JO
-cd
-cd
-cd
-cd
+Vj
+Vj
+Vj
+Vj
 qm
 lT
 eV
@@ -17069,7 +17015,7 @@ EU
 Vp
 aJ
 xc
-rc
+ih
 kI
 pT
 lw
@@ -17194,12 +17140,12 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 ga
 fk
-cR
-ig
+AT
+hc
 bq
 bq
 cT
@@ -17356,12 +17302,12 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 et
 iT
-cR
-ig
+AT
+hc
 bq
 gU
 sn
@@ -17379,12 +17325,12 @@ lW
 JX
 eE
 bH
-rc
+ih
 Vp
 Si
 eB
 eB
-cd
+Vj
 jV
 rs
 aD
@@ -17518,11 +17464,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 et
 iT
-cR
+AT
 dF
 bq
 GP
@@ -17541,12 +17487,12 @@ Yo
 fJ
 aJ
 xc
-rc
+ih
 Vp
 eF
 eB
 iw
-cd
+Vj
 eV
 rp
 pf
@@ -17555,7 +17501,7 @@ eV
 Vp
 aJ
 xc
-rc
+ih
 Vp
 pL
 pL
@@ -17679,13 +17625,13 @@ iB
 iB
 iB
 iB
-cR
-cR
+AT
+AT
 aI
 TU
 wQ
-cR
-ig
+AT
+hc
 bq
 fK
 Jv
@@ -17703,21 +17649,21 @@ fJ
 fJ
 fI
 xc
-rc
+ih
 Vp
-cd
-cd
-cd
-cd
-cd
+Vj
+Vj
+Vj
+Vj
+Vj
 nE
-cd
-cd
-cd
+Vj
+Vj
+Vj
 Vp
 fI
 xc
-rc
+ih
 Vp
 Vp
 Vp
@@ -17846,7 +17792,7 @@ RS
 aI
 gh
 iY
-cR
+AT
 hc
 bq
 Do
@@ -17861,7 +17807,7 @@ pA
 ni
 yc
 yc
-Dj
+TH
 lt
 tY
 xc
@@ -17879,7 +17825,7 @@ wP
 Vp
 nw
 xc
-rc
+ih
 RM
 aj
 bc
@@ -18008,7 +17954,7 @@ kx
 kx
 am
 iY
-cR
+AT
 rq
 jl
 ia
@@ -18041,7 +17987,7 @@ WG
 zY
 eE
 jv
-rc
+ih
 eH
 mR
 lJ
@@ -18170,7 +18116,7 @@ fH
 aI
 Zr
 iY
-cR
+AT
 vA
 vA
 vV
@@ -18185,7 +18131,7 @@ pA
 mE
 yc
 ek
-Dj
+TH
 dX
 cm
 cm
@@ -18203,7 +18149,7 @@ EC
 Vp
 nw
 xc
-rc
+ih
 hS
 yv
 je
@@ -18327,12 +18273,12 @@ iB
 iB
 iB
 iB
-cR
-cR
+AT
+AT
 aI
 Zr
 Zr
-cR
+AT
 Bv
 tw
 nz
@@ -18347,8 +18293,8 @@ wt
 wt
 wt
 bY
-Dj
-Dj
+TH
+TH
 WZ
 WZ
 WZ
@@ -18490,7 +18436,7 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 OL
@@ -18652,11 +18598,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 jn
-cR
+AT
 iU
 bF
 kA
@@ -18689,7 +18635,7 @@ aw
 Vp
 hV
 jm
-rc
+ih
 Vp
 pL
 pL
@@ -18814,11 +18760,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Ll
-cR
+AT
 fq
 YM
 Df
@@ -18976,11 +18922,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 jn
-cR
+AT
 hf
 ht
 Df
@@ -19013,7 +18959,7 @@ ji
 Vp
 aJ
 xc
-rc
+ih
 UL
 xB
 ch
@@ -19138,11 +19084,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 jn
-cR
+AT
 En
 ht
 du
@@ -19300,11 +19246,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 zi
-cR
+AT
 iU
 ht
 Df
@@ -19461,12 +19407,12 @@ iB
 iB
 iB
 iB
-cR
-cR
+AT
+AT
 aI
 Zr
 Zr
-cR
+AT
 iU
 kU
 Df
@@ -19626,9 +19572,9 @@ iB
 vo
 TF
 XG
-cR
-cR
-cR
+AT
+AT
+AT
 hf
 zm
 cl
@@ -19790,7 +19736,7 @@ dV
 Zr
 aH
 mg
-cR
+AT
 aX
 yc
 yc
@@ -19806,7 +19752,7 @@ dA
 yc
 yc
 it
-Dj
+TH
 WZ
 WZ
 WZ
@@ -19950,10 +19896,10 @@ iB
 vo
 fH
 Zr
-cR
-cR
-cR
-Dj
+AT
+AT
+AT
+TH
 oh
 oh
 oh
@@ -19967,8 +19913,8 @@ oh
 oh
 oh
 oh
-Dj
-Dj
+TH
+TH
 WZ
 iB
 iB
@@ -20109,11 +20055,11 @@ iB
 iB
 iB
 iB
-cR
-cR
-cR
-cR
-cR
+AT
+AT
+AT
+AT
+AT
 iB
 iB
 iB

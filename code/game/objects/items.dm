@@ -231,7 +231,8 @@
 	///Used to determine whether something can pick a lock, and how well
 	var/lock_picking_level = 0
 
-	// Its vital that if you make new power tools or new recipies that you include this
+	///Used to determine what this item can be changed into with a modkit
+	var/list/convert_options
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -1226,4 +1227,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return FALSE
 
 /obj/item/proc/is_shovel()
+	return FALSE
+
+/obj/item/proc/gives_weather_protection()
 	return FALSE

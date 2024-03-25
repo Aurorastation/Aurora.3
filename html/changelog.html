@@ -35,6 +35,199 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">25 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Should fix the antag IPC selection from hanging roundstart.</li>
+				<li class="backend">The proc that called it had a lot of sleep, it is now invoked asyncronously, possibly speeds up roundstart spawn.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes unsimulated turfs creating black and purple squares.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Alters stats on Qukala &amp; Techraider voidsuits to be in-line with standard combat suit values.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed small floor lights being offset.</li>
+			</ul>
+
+			<h2 class="date">24 March 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Point Verdant now only spawns when the day is a Port of Call day.</li>
+				<li class="backend">New template flag for ruins added, flag has ruin always spawn when today is a Port of Call, otherwise will not spawn.</li>
+				<li class="tweak">Haneunim port of call days now Saturday and Sunday</li>
+				<li class="backend">New atlas subsystem proc to check if today is a port of call day.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaks the sprite and palette of the stasis bed.</li>
+				<li class="maptweak">SCC Scout Ship mapping and name tweaks.</li>
+				<li class="maptweak">Civilian Yacht mapping tweaks.</li>
+				<li class="rscadd">Shuttle window spawners.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed autoinjectors doafter on attack_self.</li>
+				<li class="bugfix">Fixed implantpads runtiming if a case is not present.</li>
+				<li class="bugfix">Fixed item stacks leaving themselves referenced as machines to the user/mob, which lead to harddels.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Buffed the pump shotgun to hold 8 shells instead of 5.</li>
+				<li class="tweak">Buffed the combat shotgun to hold 12 shells instead of 8.</li>
+				<li class="tweak">Buffed shotgun shells to stack up to 8 instead of 5.</li>
+				<li class="rscdel">Removed the one second cooldown between shotgun pumps. The standard firing delay still applies.</li>
+				<li class="rscdel">Removed the forced wait when you pump a shotgun one-handed, similarly to how CM does it.</li>
+				<li class="rscadd">Added six ammo display units to the Warden&#x27;s office.</li>
+				<li class="tweak">Shotguns now more accurately reflect shells in the tube and whether there&#x27;s a shell in the chamber.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Completely remaps the Dominian corvette in line with current mapping standards.</li>
+				<li class="tweak">Trims the Dominian corvette ghostrole descriptions.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Zombie limbs are now ACTUALLY easier to delimb. There was a longstanding bug that made their maim bonus not apply.</li>
+				<li class="rscadd">Added new abilities to every zombie type. Ported the Consume verb from bay, which zombies can use to refresh their HP, gib dead enemies, or simply kill alive ones and rip their ribcage open. Yes, it visibly rips their ribcage open.</li>
+				<li class="rscadd">The zombie chem is now called Hylemnomil-Zeta and has Lore:tm:.</li>
+				<li class="rscadd">Added the antibody extractor. The only way to get Hylemnomil-Zeta antibodies.</li>
+				<li class="rscadd">Added barricade stacks.</li>
+				<li class="rscadd">Reworked how the infection works. It starts from an appendage and progresses to the brain. An infection can be stopped by cutting off the infected limb.</li>
+				<li class="rscadd">You cannot remove zombie parasites surgically anymore.</li>
+				<li class="experiment">Buffed the force of most melee items.</li>
+				<li class="tweak">The maglight has been nerfed to not do more damage than most melee items.</li>
+			</ul>
+			<h3 class="author">MattAtlas (Porting), Loaf (Original Code), Lancer (Umbrella Sprites) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ported a weather system from Nebula. Original code credit is to Loaf.</li>
+				<li class="rscadd">Added umbrellas to the game. Sprites by Lancer.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">All station voidsuits are now contained sprites.</li>
+				<li class="tweak">Suit cyclers now support contained sprites.</li>
+				<li class="bugfix">Fixes several reported issues with away ships.</li>
+				<li class="maptweak">Adds distress beacons to all ships that were missing them.</li>
+			</ul>
+			<h3 class="author">SidVeld updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Unicode support in browser windows.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removed infected IPCs from maps, as per the event&#x27;s resolution.</li>
+			</ul>
+			<h3 class="author">Sniblet updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Upgraded cyborg rechargers now specify that they only repair stationbounds.</li>
+				<li class="bugfix">pAIs no longer receive Hivenet.</li>
+				<li class="rscadd">More accents for the stationbound Mimic Accent verb.</li>
+				<li class="rscdel">Stationbounds cannot mimic the Plutonian accent.</li>
+				<li class="bugfix">Removed duplicate Eridani Suit in Mimic Accent.</li>
+			</ul>
+
+			<h2 class="date">23 March 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">New PRA membership card added, unlike honorary member cards, this new card indicates full party membership. Hadii&#x27;s Grace.</li>
+				<li class="tweak">Hadiist member cards added to relevant PRA roles.</li>
+			</ul>
+			<h3 class="author">Nalarac updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Condensed the three laser scalpels into one that does not have a chance to fail.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Tweaked some things in telecommunications.</li>
+				<li class="tweak">Tweaked some area blurb descriptions.</li>
+				<li class="tweak">Changed refrigerators and kitchen cabinets to have their own paths.</li>
+				<li class="tweak">Added standard refrigerators and kitchen cabinet variants filled with the standard contents. The base variants are now empty.</li>
+				<li class="maptweak">Paths updated in the maps to use the new kitchen storage variants.</li>
+			</ul>
+
+			<h2 class="date">22 March 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds more coffee cups: SCC, Zavod, Orion, EE.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some diona verbs.</li>
+			</ul>
+
+			<h2 class="date">21 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Updated the reference tracker, it should now be faster.</li>
+				<li class="bugfix">Fixed cleanbots so they detect flour.</li>
+				<li class="bugfix">Potentially fixed farmbots to not turn the server&#x27;s CPU into molten metal.</li>
+				<li class="bugfix">Fixed navbeacons, they only work on the same Z-level.</li>
+				<li class="refactor">Refactored our bots to use TG&#x27;s JPS (Jump Point Search) instead of AStar, which is more efficient.</li>
+				<li class="rscadd">Navbeacons can now be printed in protolathes.</li>
+				<li class="backend">Made the bots code more efficient and slightly more readable. Hopefully.</li>
+				<li class="rscadd">Cleanbot now uses TGUI.</li>
+				<li class="rscadd">Made navbeacons unanchorable and movable, adjusted them to not be map-only usable.</li>
+				<li class="backend">Various backend additions to accomodate for the new pathing system.</li>
+				<li class="backend">Added SSmove_manager and relative backend things to have it working.</li>
+				<li class="backend">Adjusted FLOOR() define to match TG&#x27;s version.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added support for religion restrictions in loadout items.</li>
+				<li class="tweak">Luceism, Tribunalism, and Trinary Perfection items are now locked to their respective religions.</li>
+				<li class="rscdel">Removed origin restrictions from all Luceism and Tribunalism items, except the Lyodii amulet.</li>
+				<li class="rscadd">Added lead and its associated ore, galena.</li>
+				<li class="rscadd">Added aluminium and its associated ore, bauxite.</li>
+				<li class="tweak">The autolathe can now accept lead, aluminium, and plastic.</li>
+				<li class="tweak">Adjusted several recipes to utilize aluminium and plastic, depending on their sensible material and their sprite.</li>
+				<li class="tweak">Renamed Ninja to Operative.</li>
+			</ul>
+			<h3 class="author">Hocka updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Combitools now have appropriate sounds corresponding to their selected bit.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Corrected the vote factor applied to pre-3 hour transfers, so it correctly checks for a 2/3rds supermajority to transfer.</li>
+			</ul>
+			<h3 class="author">SidVeld updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added ability to view ooc notes in examine.</li>
+				<li class="tweak">Medical and Security huds messages wrapped into boxes.</li>
+			</ul>
+			<h3 class="author">Tomixcomics updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Corrected the banana boba tea flavor from strawberries to banana</li>
+				<li class="bugfix">Added the missing recipe for jungle salad</li>
+			</ul>
+			<h3 class="author">crunchypretzels updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes the recipe for Stag Hunt.</li>
+				<li class="maptweak">Adds Coalition snack vendors to the Horizon.</li>
+				<li class="experiment">Moves a cigarette vendor from the bar to the starboard docking port on Deck Three. Sorry.</li>
+				<li class="maptweak">Adds a cabinet of canned beer to the bar backroom.</li>
+			</ul>
+			<h3 class="author">hazelmouse updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Overhauls the Scarab Salvager offship to newer mapping standards.</li>
+			</ul>
+
+			<h2 class="date">20 March 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Cyborg pen rename paper mode now works.</li>
+				<li class="backend">New define file for robopen.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a exoplanet turf flag conflict.</li>
+			</ul>
+
 			<h2 class="date">19 March 2024</h2>
 			<h3 class="author">AlaunusLux updated:</h3>
 			<ul class="changes bgimages16">

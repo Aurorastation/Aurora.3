@@ -1004,7 +1004,7 @@
 	},
 /area/adhomian_circus/port)
 "eZF" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/stew/tajaran,
 /obj/item/reagent_containers/food/snacks/stew/tajaran,
 /obj/item/reagent_containers/food/snacks/stew/tajaran,
@@ -2410,7 +2410,7 @@
 	},
 /area/adhomian_circus/crew)
 "mTv" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/adhomian_sausage,
 /obj/item/reagent_containers/food/snacks/adhomian_sausage,
 /obj/item/reagent_containers/food/snacks/adhomian_sausage,
@@ -2762,7 +2762,7 @@
 	},
 /area/adhomian_circus/fortune)
 "ozN" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/explorer_ration,
 /obj/item/reagent_containers/food/snacks/explorer_ration,
 /obj/item/reagent_containers/food/snacks/explorer_ration,
@@ -3342,7 +3342,7 @@
 	},
 /area/adhomian_circus/port)
 "rWg" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/fruit_rikazu,
 /obj/item/reagent_containers/food/snacks/fruit_rikazu,
 /obj/item/reagent_containers/food/snacks/fruit_rikazu,
@@ -4248,7 +4248,7 @@
 	},
 /area/adhomian_circus/port)
 "xas" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,

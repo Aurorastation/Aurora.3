@@ -1,7 +1,7 @@
 // Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
 	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
-	force = 5
+	force = 11
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 3
@@ -106,6 +106,28 @@
 	apply_colour = TRUE
 
 /obj/item/stack/material/iron/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/aluminium
+	name = "aluminium"
+	icon_state = "sheet-metal"
+	default_type = MATERIAL_ALUMINIUM
+	apply_colour = TRUE
+
+/obj/item/stack/material/aluminium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/lead
+	name = "lead"
+	icon_state = "sheet-silver"
+	default_type = MATERIAL_LEAD
+	apply_colour = TRUE
+
+/obj/item/stack/material/lead/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

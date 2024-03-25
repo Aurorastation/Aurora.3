@@ -18,6 +18,8 @@
 	var/maxhealth = 70
 	var/neighbor_status = 0
 
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+
 /obj/structure/railing/mapped
 	color = COLOR_GUNMETAL
 	anchored = TRUE
@@ -92,6 +94,11 @@
 	if(mover.throwing)
 		return TRUE
 	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
+
+/obj/structure/railing/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	if(to_dir == dir)
 		return !density
 	return TRUE
 

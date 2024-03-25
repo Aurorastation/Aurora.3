@@ -3,7 +3,7 @@
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
-	force = 1.0
+	force = 1
 	w_class = ITEMSIZE_TINY
 	throwforce = 0
 	throw_speed = 3

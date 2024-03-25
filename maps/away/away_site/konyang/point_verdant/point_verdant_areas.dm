@@ -6,6 +6,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_env = CITY
+	is_outside = TRUE
 	var/lighting = FALSE //Is this area automatically lit?
 
 /area/point_verdant/Initialize()
@@ -42,6 +43,7 @@
 	name = "Point Verdant - Indoors"
 	sound_env = LARGE_SOFTFLOOR
 	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
+	is_outside = FALSE
 
 //Main city buildings
 /area/point_verdant/interior/laundromat
@@ -90,7 +92,7 @@
 
 /area/point_verdant/interior/decrepit
 	name = "Point Verdant - Decrepit Apartments"
-	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mould."
+	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mold."
 	area_blurb_category = "verdant_decrepit_apartment"
 
 /area/point_verdant/interior/pharmacy

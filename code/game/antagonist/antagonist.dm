@@ -186,6 +186,8 @@
 	return 1
 
 /datum/antagonist/proc/draft_antagonist(var/datum/mind/player)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	//Check if the player can join in this antag role, or if the player has already been given an antag role.
 	if(!can_become_antag(player))
 		log_traitor("[player.key] was selected for [role_text] by lottery, but is not allowed to be that role.")

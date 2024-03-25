@@ -4,7 +4,7 @@
 	name = "animal tagger"
 	desc = "Used for tagging animals to be identified by a ear tag."
 	icon_state = "animal_tagger0"
-	force = 5.0
+	force = 11
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
 	throw_range = 15

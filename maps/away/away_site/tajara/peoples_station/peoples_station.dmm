@@ -129,7 +129,7 @@
 	},
 /area/peoples_station)
 "aF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -189,9 +189,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -389,9 +387,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -943,9 +939,7 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/structure/sign/flag/pra/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1094,6 +1088,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"eZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "fa" = (
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "Robot Storage";
@@ -1109,9 +1118,7 @@
 	},
 /area/peoples_station/robotics_bay)
 "fb" = (
-/obj/structure/sign/flag/pra/large/south{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -1277,7 +1284,7 @@
 	},
 /area/peoples_station/restroom)
 "fD" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1590,7 +1597,7 @@
 	},
 /area/shuttle/fang/engine)
 "hc" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/produce{
@@ -1869,7 +1876,7 @@
 	},
 /area/peoples_station/solars)
 "iD" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2742,9 +2749,7 @@
 	},
 /area/shuttle/fang/engine)
 "md" = (
-/obj/structure/sign/flag/pra/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -3304,7 +3309,7 @@
 	},
 /area/peoples_station/training)
 "oU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3465,14 +3470,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
-"pB" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/mess_hall)
 "pF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3552,7 +3549,7 @@
 	},
 /area/peoples_station/armory)
 "pZ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3615,6 +3612,14 @@
 /obj/structure/railing/mapped,
 /turf/template_noop,
 /area/peoples_station/bridge)
+"qo" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "qq" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain,
@@ -3645,6 +3650,14 @@
 /area/peoples_station/hangar)
 "qC" = (
 /turf/simulated/wall/shuttle/raider,
+/area/peoples_station/mess_hall)
+"qD" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
 /area/peoples_station/mess_hall)
 "qE" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -4348,9 +4361,7 @@
 /area/peoples_station)
 "tu" = (
 /obj/machinery/light,
-/obj/structure/sign/flag/pra/large/south{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -4455,7 +4466,7 @@
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
 "tS" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4541,9 +4552,7 @@
 	},
 /area/peoples_station/defenses)
 "uz" = (
-/obj/structure/sign/flag/pra/large/south{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5569,14 +5578,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
-"zA" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "zB" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -5926,21 +5927,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
-"Bt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Bu" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -6094,7 +6080,7 @@
 /area/peoples_station/atmos)
 "Ca" = (
 /obj/effect/map_effect/airlock/e_to_w,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -6326,9 +6312,7 @@
 	},
 /area/peoples_station/solars)
 "Dl" = (
-/obj/structure/sign/flag/pra/large/south{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
@@ -6449,7 +6433,7 @@
 	},
 /area/peoples_station/training)
 "DM" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -6636,6 +6620,25 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
+"EH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "EI" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white{
@@ -6687,7 +6690,7 @@
 	},
 /area/peoples_station/solars)
 "Fe" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -6762,28 +6765,11 @@
 	},
 /area/peoples_station)
 "Fz" = (
-/obj/structure/table/rack,
-/obj/machinery/door/window{
-	name = "Voidsuit Storage"
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7222,9 +7208,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/sign/flag/pra/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -7454,25 +7438,8 @@
 /turf/template_noop,
 /area/peoples_station/bridge)
 "IS" = (
-/obj/structure/table/rack,
-/obj/machinery/door/window{
-	name = "Voidsuit Storage"
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7957,7 +7924,7 @@
 	},
 /area/peoples_station/hangar)
 "LH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -7996,6 +7963,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
+"LV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/armory)
 "LW" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -8481,7 +8454,7 @@
 /turf/simulated/floor/airless,
 /area/peoples_station/solars)
 "Ok" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -9081,15 +9054,13 @@
 	},
 /area/peoples_station/armory)
 "QR" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "QX" = (
-/obj/structure/sign/flag/pra/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9171,6 +9142,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"Rq" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "Rs" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
@@ -9229,12 +9211,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-"Ry" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/armory)
 "RB" = (
 /obj/machinery/light{
 	dir = 8
@@ -9294,7 +9270,7 @@
 	},
 /area/peoples_station/training)
 "RM" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -9601,9 +9577,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10108,25 +10082,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/barracks)
-"Vg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Vl" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 1
@@ -10493,17 +10448,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
-"Xr" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Xs" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration,
@@ -41059,11 +41003,11 @@ lJ
 mL
 xM
 pe
-Vg
-zA
+EH
+qo
 zB
-zA
-zA
+qo
+qo
 qY
 CR
 Kn
@@ -41315,7 +41259,7 @@ lJ
 lJ
 yj
 PH
-Bt
+eZ
 zY
 rO
 rO
@@ -42347,7 +42291,7 @@ xp
 hv
 rN
 dt
-Xr
+Rq
 GT
 hw
 Xj
@@ -42556,8 +42500,8 @@ hh
 Mz
 OL
 VV
-Ry
-Ry
+LV
+LV
 JS
 JQ
 Mz
@@ -42814,7 +42758,7 @@ Mz
 ly
 nm
 Qj
-Ry
+LV
 JS
 MM
 Mz
@@ -43326,28 +43270,28 @@ hk
 HB
 MG
 zB
-zA
-zA
-zA
-zA
-Vg
+qo
+qo
+qo
+qo
+EH
 zB
-zA
+qo
 tx
-zA
-zA
+qo
+qo
 zB
-zA
-zA
-zA
+qo
+qo
+qo
 zB
-zA
-zA
-zA
-zA
-zA
-zA
-Vg
+qo
+qo
+qo
+qo
+qo
+qo
+EH
 lH
 CR
 TC
@@ -43889,7 +43833,7 @@ rE
 tk
 Ol
 dt
-Xr
+Rq
 GT
 hw
 CR
@@ -44636,7 +44580,7 @@ Ms
 to
 CR
 Je
-zA
+qo
 eY
 zv
 zv
@@ -45123,7 +45067,7 @@ yK
 yK
 OO
 Bz
-Xr
+Rq
 GT
 hw
 CR
@@ -45637,7 +45581,7 @@ eC
 eC
 Zd
 qT
-Bt
+eZ
 zb
 hw
 CR
@@ -45670,22 +45614,22 @@ Kn
 Kn
 qC
 BQ
-pB
+qD
 cO
-pB
-pB
+qD
+qD
 bF
-pB
-pB
-pB
+qD
+qD
+qD
 Uf
 bF
-pB
-pB
-pB
-pB
+qD
+qD
+qD
+qD
 bF
-pB
+qD
 Ab
 qC
 eH
@@ -47693,7 +47637,7 @@ Um
 Um
 Um
 Um
-Xr
+Rq
 TT
 Cw
 iT
@@ -48237,8 +48181,8 @@ Kn
 Kn
 qC
 nZ
-pB
-pB
+qD
+qD
 Vl
 jZ
 LA
@@ -48978,7 +48922,7 @@ Hn
 Hn
 nF
 Hr
-Bt
+eZ
 zb
 hw
 CR
@@ -49749,7 +49693,7 @@ Um
 Um
 Um
 Um
-Xr
+Rq
 GT
 hw
 CR
@@ -51034,7 +50978,7 @@ yq
 UW
 Lw
 hJ
-Bt
+eZ
 zb
 hw
 CR
@@ -51063,21 +51007,21 @@ CR
 CR
 CR
 MG
-zA
-zA
+qo
+qo
 yT
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
 Jp
-zA
+qo
 eX
 lH
 CR
@@ -51548,29 +51492,29 @@ yq
 UW
 lg
 PY
-Xr
+Rq
 GT
 aD
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
 yx
 Ow
 mt
