@@ -414,7 +414,6 @@
 	stack_type = null
 	golem = null
 
-
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
 	stack_type = /obj/item/stack/material/steel
