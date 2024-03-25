@@ -16,7 +16,6 @@ changes:
   - rscadd: "Red Nightshade in cryogenic conditions will restore bone breaks."
   - rscadd: "Overdosing peridaxon results in the developing of benign tumours; benign tumours do not spread or cause collateral damage to organs, they simply cause pain. Ryetalyn will put a tumour into recession."
   - rscadd: "Genetic damage now results in the developing of malignant tumours; malignant tumours will eventually spread and cause collateral damage to organs. Symptoms will be different depending on the tumour's location. Ryetalyn will put a tumour into recession - some ryetalyn pills can be found in the GTR's Medication Cabinet."
-  - rscadd: "Sanasomnum also results in malignant tumours, essentially starting a 20 minute countdown if you've had to use one. That's if the antagonist doesn't acquire ryetalyn in that time period."
   - tweak: "Limb deformities resulting from genetic damage may occur more often."
   - bugfix: "Coolant tanks no longer anti-nuke an environment's atmosphere when destroyed."
   - imageadd: "Adds 'Cryonics Mixture' and 'Other Mixture' IV bag labels."
