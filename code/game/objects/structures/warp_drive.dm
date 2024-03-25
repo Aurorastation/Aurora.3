@@ -15,6 +15,6 @@
 	name = "Modified Suzuki-Zhang Hammer Drive"
 	desc = "\
 		A Suzuki-Zhang Hammer Drive, commonly found on larger interstellar vessels. \
-		This one appears to be heavily however to work with a smaller power supply, \
+		This one appears to be heavily modified however to work with a smaller power supply, \
 		and components from nearly every major megacorporation can be seen making it up.\
 	"
