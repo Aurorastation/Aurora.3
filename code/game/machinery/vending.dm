@@ -173,6 +173,7 @@
 	. = ..()
 	CHECK_NON_INITIAL(density)
 	CHECK_NON_INITIAL(layer)
+	SSunit_tests_config.UT.fail("**** var has non-initial value: ugh; [src]; [type]; xyz: [x] [y] [z];", __FILE__, __LINE__)
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
