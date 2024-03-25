@@ -296,12 +296,18 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "[tail_spacing ? "<br>" : ""]<b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
-	out += " Style: <a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
+	out += " Style: " \
+		+ "<a href='?src=\ref[src];previous_hair_style=1'> < </a>" \
+		+ "<a href='?src=\ref[src];next_hair_style=1'> > </a>" \
+		+ "<a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
 
 	out += "<br><b>Facial</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];facial_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_facial, pref.g_facial, pref.b_facial))] "
-	out += " Style: <a href='?src=\ref[src];facial_style=1'>[pref.f_style]</a><br>"
+	out += " Style: " \
+		+ "<a href='?src=\ref[src];previous_facial_style=1'> < </a>" \
+		+ "<a href='?src=\ref[src];next_facial_style=1'> > </a>" \
+		+ "<a href='?src=\ref[src];facial_style=1'>[pref.f_style]</a><br>"
 
 	out += "<br><b>Gradient</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
@@ -501,7 +507,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.tail_style = new_tail_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["hair_style"])
+	else if(href_list["hair_style"] || href_list["next_hair_style"] || href_list["previous_hair_style"])
 		if(mob_species.bald)
 			return
 		//var/bodytype = mob_species.get_bodytype()
@@ -517,7 +523,30 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
 
-		var/new_h_style = tgui_input_list(user, "Choose your character's hair style.", "Character Preference", valid_hairstyles, pref.h_style)
+		var/new_h_style
+		var/selected_style_index = valid_hairstyles.Find(pref.h_style)
+
+		if (href_list["next_hair_style"])
+			if (selected_style_index >= valid_hairstyles.len)
+				to_chat(user, SPAN_NOTICE("You're at the bottom of the list! Delightful!"))
+				return TOPIC_NOACTION
+			new_h_style = valid_hairstyles[selected_style_index + 1]
+
+		else if (href_list["previous_hair_style"])
+			if (selected_style_index <= 1)
+				to_chat(user, SPAN_NOTICE("You're at the top of the list! That's wonderful!"))
+				return TOPIC_NOACTION
+			new_h_style = valid_hairstyles[selected_style_index - 1]
+
+		else
+			new_h_style = tgui_input_list(
+				user,
+				"Choose your character's hair style.",
+				"Character Preference",
+				valid_hairstyles,
+				pref.h_style
+			)
+
 		if(new_h_style && CanUseTopic(user))
 			pref.h_style = new_h_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -583,7 +612,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.b_skin = GetBluePart(new_preset)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["facial_style"])
+	else if(href_list["facial_style"] || href_list["next_facial_style"] || href_list["previous_facial_style"])
 		if(mob_species.bald)
 			return
 		var/list/valid_facialhairstyles = list()
@@ -599,7 +628,30 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
 
-		var/new_f_style = tgui_input_list(user, "Choose your character's facial-hair style:", "Character Preference", valid_facialhairstyles, pref.f_style)
+		var/new_f_style
+		var/selected_style_index = valid_facialhairstyles.Find(pref.f_style)
+
+		if (href_list["next_facial_style"])
+			if (selected_style_index >= valid_facialhairstyles.len)
+				to_chat(user, SPAN_NOTICE("You're at the bottom of the list! Delightful!"))
+				return TOPIC_NOACTION
+			new_f_style = valid_facialhairstyles[selected_style_index + 1]
+
+		else if (href_list["previous_facial_style"])
+			if (selected_style_index <= 1)
+				to_chat(user, SPAN_NOTICE("You're at the top of the list! That's wonderful!"))
+				return TOPIC_NOACTION
+			new_f_style = valid_facialhairstyles[selected_style_index - 1]
+
+		else
+			new_f_style = tgui_input_list(
+				user,
+				"Choose your character's facial-hair style:",
+				"Character Preference",
+				valid_facialhairstyles,
+				pref.f_style
+			)
+
 		if(new_f_style && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.f_style = new_f_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
