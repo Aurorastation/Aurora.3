@@ -40,17 +40,17 @@
 /area/kataphract_chapter/dorms
 	name = "Kataphract Chapter - Dormitory"
 	icon_state = "Sleep"
-	sound_environment = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/toilets
 	name = "Kataphract Chapter - Toilets"
 	icon_state = "toilet"
-	sound_environment = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/kataphract_chapter/office
 	name = "Kataphract Chapter - Knight's Office"
 	icon_state = "law"
-	sound_environment = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/cafeteria
 	name = "Kataphract Chapter - Cafeteria"
@@ -104,7 +104,7 @@
 /area/kataphract_chapter/warehouse
 	name = "Kataphract Chapter - Warehouse"
 	icon_state = "quartstorage"
-	sound_environment = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/kataphract_chapter/hangar
 	name = "Kataphract Chapter - Hangar"

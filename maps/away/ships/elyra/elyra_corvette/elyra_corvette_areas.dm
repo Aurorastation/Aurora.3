@@ -24,12 +24,12 @@
 
 /area/ship/elyran_corvette/washroom
 	name = "Elyran Corvette - Washroom"
-	sound_environment = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/elyran_corvette/brig
 	name = "Elyran Corvette - Brig"
 	ambience = AMBIENCE_GENERIC
-	sound_environment = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/elyran_corvette/hangar
 	name = "Elyran Corvette - Hangar"

@@ -41,7 +41,7 @@
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior
 	name = "Point Verdant - Indoors"
-	sound_environment = LARGE_SOFTFLOOR
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
 	is_outside = FALSE
 

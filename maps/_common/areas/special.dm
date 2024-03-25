@@ -28,6 +28,7 @@
 /area/centcom/start
 	name = "New Player Spawn"
 	dynamic_lighting = 0
+	sound_environment = SOUND_ENVIRONMENT_NONE
 
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
@@ -57,7 +58,7 @@
 
 /area/centcom/creed
 	name = "Creed's Office"
-	sound_environment = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/centcom/holding
 	name = "Holding Facility"
@@ -104,7 +105,7 @@
 /area/merchant_station/warehouse
 	name = "Merchant Warehouse"
 	icon_state = "merchant_ware"
-	sound_environment = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 // Antagonist Bases
 
@@ -226,6 +227,6 @@
 	name = "Ship"
 	icon_state = "ship"
 	requires_power = 0
-	sound_environment = STANDARD_STATION
+	sound_environment = SOUND_AREA_STANDARD_STATION
 	no_light_control = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF

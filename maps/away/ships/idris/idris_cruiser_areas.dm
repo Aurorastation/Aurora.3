@@ -95,7 +95,7 @@
 	name = "Engineering"
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
-	sound_environment = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/ship/idris_cruiser/engineering/reactor
 	name = "Reactor"
@@ -110,7 +110,7 @@
 /area/ship/idris_cruiser/suite
 	name = "Suite"
 	icon_state = "Sleep"
-	sound_environment = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/ship/idris_cruiser/suite/suite_1
 	name = "Suite 1"

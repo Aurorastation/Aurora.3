@@ -194,18 +194,17 @@
 	S.status = SOUND_UPDATE
 	SEND_SOUND(src, S)
 
+/client/proc/playtitlemusic(vol = 85)
+	set waitfor = FALSE
+	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
+
+	if(prefs.toggles & SOUND_LOBBY)
+		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
+
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
-/proc/playsound_in(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0, frequency = 0, time)
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, source, soundin, vol, vary, extrarange, falloff, is_global, usepressure, environment, required_preferences, required_asfx_toggles, frequency), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
-
-/client/proc/playtitlemusic()
-	if(!SSticker.login_music)
-		return
-	if(prefs.toggles & SOUND_LOBBY)
-		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS)
-
+//Unlike TG, we use singletons here, so this is different, for now
 /proc/get_sfx(soundin)
 	if(isfile(soundin) || (istext(soundin) && !ispath(soundin)))
 		return soundin

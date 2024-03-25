@@ -1,7 +1,7 @@
 /area/holodeck
 	name = "Holodeck"
 	icon_state = "Holodeck"
-	sound_environment = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = TRUE
 	station_area = TRUE
 	dynamic_lighting = FALSE
@@ -82,7 +82,7 @@
 /area/holodeck/source_space
 	name = "Holodeck - Space"
 	has_gravity = 0
-	sound_environment = SPACE
+	sound_environment = SOUND_AREA_SPACE
 
 /area/holodeck/source_battlemonsters
 	name = "Holodeck - Battlemonsters Arena"

@@ -35,13 +35,13 @@
 /area/abandoned_diner/crew_quarters
 	name = "Crew Quarters"
 	icon_state = "crew_quarters"
-	sound_environment = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/abandoned_diner/maintenance
 	name = "Station Maintenance"
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
-	sound_environment = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	area_blurb = "The machinery in this room chugs away, evidently creaky and in desperate need of maintenance and lubrication. Somehow, though, they're still functional."
 
 /area/abandoned_diner/storage

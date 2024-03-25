@@ -76,7 +76,7 @@
 
 /area/ship/kasf_corvette/washroom
 	name = "KASF Corvette - Washroom"
-	sound_environment = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/kasf_corvette/brig
 	name = "KASF Corvette - Brig"
