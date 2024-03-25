@@ -17,7 +17,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
-	area_blurb = "A typical Adhomian inn. The scent the alchool, the cigarette smoke, and the warmth welcomes you."
+	area_blurb = "A typical Adhomian inn. The scent of alcohol and cigarette smoke as well as the warmth welcomes you."
 
 //ghost roles
 
