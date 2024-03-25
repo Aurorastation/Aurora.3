@@ -45,6 +45,12 @@
 		/obj/structure/window_frame
 	)
 
+/obj/structure/grille/over/Destroy()
+	var/obj/structure/window_frame/window_frame = locate(/obj/structure/window_frame) in get_turf(src)
+	if (window_frame)
+		window_frame.has_grille_installed = FALSE
+	..()
+
 /obj/structure/grille/over/cardinal_smooth(adjacencies, var/list/dir_mods)
 	dir_mods = handle_blending(adjacencies, dir_mods)
 	return ..(adjacencies, dir_mods)
