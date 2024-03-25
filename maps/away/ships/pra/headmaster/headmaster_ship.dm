@@ -4,7 +4,7 @@
 	description = "A People's Republic Orbital Fleet ship."
 	suffixes = list("ships/pra/headmaster/headmaster_ship.dmm")
 	ship_cost = 1
-	spawn_weight = 9
+	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
