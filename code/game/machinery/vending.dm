@@ -61,7 +61,7 @@
 	// 	if(density!=initial(density)) {SSunit_tests_config.UT.fail("**** baz foo [src], [type], [x] [y] [z],", __FILE__, __LINE__)}
 	// 	#endif
 
-	NO_MAP_OVERRIDE(density)
+	// NO_MAP_OVERRIDE(density)
 	// check_mapped_in_vars() { if(density!=initial(density)) { SSunit_tests_config.UT.fail("**** foo bar [src], [type], [x] [y] [z],", __FILE__, __LINE__) } }
 	// UNLINT(check_mapped_in_vars(){})
 	// FOOBAR(check_mapped_in_vars(){})
@@ -168,6 +168,11 @@
 
 /obj/machinery/vending/LateInitialize()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+
+/obj/machinery/vending/check_non_initial_vars()
+	. = ..()
+	CHECK_NON_INITIAL(density)
+	CHECK_NON_INITIAL(layer)
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))

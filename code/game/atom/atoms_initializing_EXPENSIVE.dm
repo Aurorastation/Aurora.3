@@ -145,7 +145,9 @@
 		SSicon_update.add_to_queue(src)
 
 	// todo: explain
-	check_mapped_in_vars()
+	#if defined(UNIT_TEST)
+		check_non_initial_vars()
+	#endif
 
 	return INITIALIZE_HINT_NORMAL
 
