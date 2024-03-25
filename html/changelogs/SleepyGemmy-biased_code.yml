@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - tweak: "Removed age-weighted RNG when rolling for command roles."
