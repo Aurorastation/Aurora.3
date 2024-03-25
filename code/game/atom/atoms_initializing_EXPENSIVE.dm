@@ -147,7 +147,6 @@
 	// todo: explain
 	// #if defined(UNIT_TEST)
 	check_non_initial_vars()
-	SSunit_tests_config.UT.fail("this should fail...", __FILE__, __LINE__)
 	// #endif
 
 	return INITIALIZE_HINT_NORMAL
