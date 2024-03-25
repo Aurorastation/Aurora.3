@@ -411,7 +411,6 @@
 	wall_colour = COLOR_CONCRETE
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
-//	wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
 	stack_type = null
 	golem = null
 
