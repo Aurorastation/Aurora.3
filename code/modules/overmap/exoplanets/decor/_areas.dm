@@ -43,7 +43,7 @@
 /area/exoplanet/grass/play_ambience(var/mob/living/L)
 	..()
 	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
-		L.playsound_to(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = 1))
+		L.playsound_local(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
 
 /area/exoplanet/grass/grove
 	base_turf = /turf/simulated/floor/exoplanet/grass/grove

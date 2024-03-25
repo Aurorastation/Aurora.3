@@ -203,7 +203,11 @@
 		spill()
 
 	if(user)
-		playsound(src.loc, I.usesound, 50, 1)
+
+		if(iswelder(I))
+			var/obj/item/welder = I
+			welder.play_tool_sound(get_turf(src), 50)
+
 		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
 		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			return

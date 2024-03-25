@@ -27,7 +27,7 @@
 /obj/machinery/the_singularitygen/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
 		anchored = !anchored
-		playsound(src.loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
 			user.visible_message("[user.name] secures [src.name] to the floor.",
 									"You secure the [src.name] to the floor.",
