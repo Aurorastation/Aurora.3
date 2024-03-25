@@ -245,9 +245,9 @@
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
 				if (!fitting_is_on_floor)
-					I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+					I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 				else
-					I.layer = layer
+					I.plane = plane
 				add_overlay(I)
 			else
 				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
