@@ -15,6 +15,14 @@
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
+"ac" = (
+/obj/machinery/light/spot{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "ae" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -73,6 +81,9 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "an" = (
@@ -228,7 +239,7 @@
 /turf/simulated/floor,
 /area/shuttle/headmaster_shuttle)
 "aB" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/computer/ship/sensors/terminal{
@@ -618,10 +629,19 @@
 	pixel_y = -28;
 	dir = 8
 	},
+/obj/effect/shuttle_landmark/nav_headmaster_ship/dock/port{
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/headmaster_ship/dock)
+"bG" = (
+/obj/machinery/light/spot/built,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "bH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -685,6 +705,9 @@
 	},
 /obj/item/clothing/ears/earmuffs,
 /obj/item/device/binoculars,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "bQ" = (
@@ -1047,7 +1070,7 @@
 	},
 /area/headmaster_ship/commissar_quarters)
 "cQ" = (
-/obj/machinery/alarm/cold/south,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1216,6 +1239,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/alarm/cold/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2286,6 +2310,17 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/barracks)
+"gx" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "gB" = (
 /obj/structure/toilet,
 /obj/structure/sink{
@@ -3278,6 +3313,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4226,6 +4265,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -4312,6 +4354,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship)
+"oC" = (
+/obj/machinery/light/spot{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "oL" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
@@ -4433,6 +4483,9 @@
 "pF" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/simple_animal/hostile/republicon/ranged,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4522,6 +4575,9 @@
 /area/headmaster_ship/gun_deck)
 "qY" = (
 /obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "qZ" = (
@@ -4675,8 +4731,11 @@
 	},
 /area/headmaster_ship/gun_deck)
 "tu" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/computer/shuttle_control/explore/headmaster_shuttle{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/headmaster_shuttle)
@@ -4749,6 +4808,18 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/armory)
+"ue" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/dock)
 "uh" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
@@ -4840,6 +4911,19 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/commissar_quarters)
+"vC" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/headmaster_ship/medbay)
 "vQ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4881,6 +4965,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4962,6 +5047,9 @@
 	pixel_x = 12;
 	pixel_y = 28;
 	dir = 4
+	},
+/obj/effect/shuttle_landmark/nav_headmaster_ship/dock/starboard{
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -5105,6 +5193,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/eva)
+"yQ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "za" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor{
@@ -5233,6 +5329,15 @@
 	},
 /turf/template_noop,
 /area/space)
+"AE" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "AO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5350,6 +5455,20 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/engine)
+"Ca" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "Ci" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -5641,6 +5760,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -5715,6 +5838,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6205,6 +6331,7 @@
 /obj/machinery/door/window{
 	dir = 1
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "Nb" = (
@@ -6233,6 +6360,18 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/engine)
+"Nl" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "No" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -6465,10 +6604,22 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/headmaster_ship/dock)
+"PG" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "PJ" = (
 /obj/item/clothing/head/cone,
 /turf/simulated/floor/tiled/dark{
@@ -6481,6 +6632,25 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/headmaster_ship)
+"PP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "PV" = (
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -6583,6 +6753,7 @@
 "RM" = (
 /mob/living/simple_animal/hostile/republicon/ranged,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6639,6 +6810,9 @@
 "Sa" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/simple_animal/hostile/republicon/ranged,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6653,6 +6827,15 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/medbay)
+"Sd" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/headmaster_ship/mess_hall)
 "Si" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/extinguisher_cabinet/east{
@@ -6742,6 +6925,7 @@
 "Tt" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/simple_animal/hostile/republicon/ranged,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6839,6 +7023,9 @@
 /mob/living/heavy_vehicle/premade/pra_egg{
 	dir = 8
 	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6910,6 +7097,17 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/commissar_quarters)
+"Vs" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship)
 "Vv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -10545,7 +10743,7 @@ iB
 iB
 iB
 iB
-iB
+UZ
 iB
 iB
 iB
@@ -13298,7 +13496,7 @@ iB
 iB
 iB
 iB
-UZ
+iB
 iB
 iB
 iB
@@ -15867,7 +16065,7 @@ hm
 so
 rM
 oh
-ub
+oC
 qG
 ub
 ub
@@ -15883,7 +16081,7 @@ ub
 ub
 qG
 ub
-ub
+oC
 NZ
 iB
 iB
@@ -16207,7 +16405,7 @@ pf
 SV
 QT
 ub
-ub
+bG
 NZ
 iB
 iB
@@ -16700,7 +16898,7 @@ eH
 eH
 gY
 hK
-fN
+ue
 je
 qL
 hK
@@ -17651,7 +17849,7 @@ gH
 oh
 dm
 NZ
-ub
+ac
 ma
 ma
 ma
@@ -17665,7 +17863,7 @@ zm
 kH
 aH
 ub
-ub
+ac
 NZ
 lO
 yM
@@ -17969,39 +18167,39 @@ IZ
 IZ
 IZ
 hp
-fL
+PG
 eQ
 fL
 fL
 fL
 fL
-fL
+PG
 fL
 LS
 fL
-fL
+PG
 kE
 fL
 fL
 fB
 fL
-fL
+PG
 fL
 kE
 fL
 fL
 fL
-fL
+PG
 eQ
 fL
 Fy
-fL
+PG
 fL
 fL
 eQ
 fL
 kE
-fL
+PG
 mG
 ae
 Oe
@@ -18295,7 +18493,7 @@ IZ
 UM
 ME
 ME
-ME
+Nl
 ME
 ME
 cx
@@ -18306,13 +18504,13 @@ ME
 ME
 Af
 ME
-ME
+Nl
 ME
 ME
 pT
 ME
 Af
-ME
+Nl
 ME
 ME
 ME
@@ -18322,7 +18520,7 @@ OU
 ME
 pT
 ME
-ME
+Vs
 ME
 ki
 ME
@@ -18618,7 +18816,7 @@ Up
 Sc
 oo
 cW
-oo
+vC
 io
 ea
 xP
@@ -18786,7 +18984,7 @@ ec
 Wi
 pi
 dd
-dG
+AE
 tY
 Vj
 gi
@@ -18803,7 +19001,7 @@ GV
 kh
 lV
 RC
-Do
+PP
 mx
 RC
 Wx
@@ -19270,7 +19468,7 @@ ba
 cq
 de
 xP
-cs
+gx
 fE
 dG
 tY
@@ -19451,7 +19649,7 @@ gg
 iE
 kf
 RC
-bh
+Ca
 kW
 RC
 he
@@ -19773,7 +19971,7 @@ Fm
 Fm
 kQ
 OD
-OD
+yQ
 OD
 Yo
 at
@@ -20082,7 +20280,7 @@ OT
 bd
 cs
 fE
-dG
+AE
 tB
 QE
 nE
@@ -20257,7 +20455,7 @@ NF
 Ua
 RM
 Fm
-pj
+Sd
 pj
 pj
 pj
@@ -20566,7 +20764,7 @@ jt
 du
 wm
 bd
-cs
+gx
 cm
 dG
 tB
@@ -22544,7 +22742,7 @@ iB
 iB
 iB
 iB
-nO
+iB
 iB
 iB
 iB
@@ -23968,7 +24166,7 @@ iB
 iB
 iB
 iB
-DT
+iB
 iB
 iB
 iB
@@ -24650,7 +24848,7 @@ iB
 iB
 iB
 iB
-iB
+nO
 iB
 iB
 iB
@@ -24940,7 +25138,7 @@ iB
 iB
 iB
 iB
-iB
+DT
 iB
 iB
 iB
