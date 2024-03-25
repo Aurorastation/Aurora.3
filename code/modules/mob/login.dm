@@ -25,6 +25,9 @@
 						message_admins("<span class='warning'><B>Notice: </B></span><span class='notice'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </span>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).",ckey=key_name(src))
 
+/mob
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
+
 /**
  * Currently marked as SHOULD_NOT_OVERRIDE.
  *
@@ -73,6 +76,8 @@
 	set_sight(sight|SEE_SELF)
 	disconnect_time = null
 
+	my_client = client
+
 	player_age = client.player_age
 
 	if(loc && !isturf(loc))
@@ -95,6 +100,7 @@
 	clear_important_client_contents(client)
 	enable_client_mobs_in_contents(client)
 
+	CreateRenderers()
 	update_client_color()
 	add_click_catcher()
 

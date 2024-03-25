@@ -140,7 +140,7 @@
 	icon_state = "white"
 	anchored = TRUE
 	simulated = FALSE
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	alpha = 100
 	var/datum/weakref/source
 
@@ -159,7 +159,7 @@
 		return
 	cut_overlays()
 	var/mutable_appearance/MA = new(I)
-	MA.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	MA.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	MA.appearance_flags = RESET_ALPHA
 	MA.alpha = 170
 	MA.pixel_x = 0

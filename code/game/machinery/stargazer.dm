@@ -11,7 +11,8 @@
 
 /obj/machinery/stargazer/Initialize(mapload, d, populate_components)
 	. = ..()
-	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]", EFFECTS_ABOVE_LIGHTING_LAYER)
+	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]")
+	star_system_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	power_change()
 
 /obj/machinery/stargazer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
