@@ -124,8 +124,14 @@
 /turf/simulated/floor/exoplanet/ice/update_icon()
 	return
 
+/turf/simulated/floor/exoplanet/ice/cold //temperature is -5 celsius
+	temperature = 268.15
+
 /turf/simulated/floor/exoplanet/ice/dark
 	icon_state = "icedark"
+
+/turf/simulated/floor/exoplanet/ice/dark/cold //temperature is -5 celsius
+	temperature = 268.15
 
 //Snow
 /turf/simulated/floor/exoplanet/snow
@@ -156,11 +162,17 @@
 /turf/simulated/floor/exoplanet/snow/melt()
 	ChangeTurf(/turf/simulated/floor/exoplanet/permafrost)
 
+/turf/simulated/floor/exoplanet/snow/cold //temperature is -5 celsius
+	temperature = 268.15
+
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+
+/turf/simulated/floor/exoplanet/permafrost/cold //temperature is -5 celsius
+	temperature = 268.15
 
 //Grass
 /turf/simulated/floor/exoplanet/grass
