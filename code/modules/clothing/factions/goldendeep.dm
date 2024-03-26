@@ -111,7 +111,7 @@
 	icon = 'icons/clothing/under/shirts/pactolus_raingarb.dmi'
 
 //suits
-/obj/item/clothing/storage/goldendeep
+/obj/item/clothing/suit/storage/goldendeep
 	name = "eccentric_coat"
 	desc = "*bloodborne music starts playing*"
 	icon_state = "eccentric_coat"
@@ -129,6 +129,7 @@
 	item_state = "golden_cape"
 	icon = 'icons/clothing/suits/capes/golden_cape.dmi'
 	contained_sprite = TRUE
+	icon_override = null
 
 /obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
 	name = "flowing cloak"
@@ -177,7 +178,6 @@
 	icon_state = "cowl"
 	item_state = "cowl"
 	icon = 'icons/clothing/head/cowl.dmi'
-	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	slot_flags = SLOT_EARS  | SLOT_HEAD
 
@@ -187,7 +187,6 @@
 	icon_state = "cube_hood"
 	item_state = "cube_hood"
 	icon = 'icons/clothing/head/cube_hood.dmi'
-	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	slot_flags = SLOT_EARS  | SLOT_HEAD
 
@@ -212,6 +211,7 @@
 	item_state = "thesian_webbing"
 	icon = 'icons/clothing/accessories/thesian_webbing.dmi'
 	contained_sprite = TRUE
+	has_accents = TRUE
 
 //backpack
 
