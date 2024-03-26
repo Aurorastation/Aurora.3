@@ -33,6 +33,14 @@
 	desc = "A purple folder, specifically designed for the Research Division facilities of the company."
 	icon_state = "folder_purple"
 
+/obj/item/folder/green
+	desc = "A green folder."
+	icon_state = "folder_green"
+
+/obj/item/folder/green_white
+	desc = "A green folder."
+	icon_state = "folder_green_white"
+
 /obj/item/folder/update_icon()
 	cut_overlays()
 	if(contents.len)
