@@ -13,7 +13,6 @@
 	mid_sounds = list('sound/machines/sm/loops/calm.ogg' = 1)
 	mid_length = 60
 	volume = 40
-	ignore_walls = FALSE
 	falloff_distance = 4
 	vary = TRUE
 
@@ -72,15 +71,7 @@
 	)
 	mid_length = 1.8 SECONDS
 	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
-	ignore_walls = FALSE
 	volume = 10
-
-//	mid_length = 1.8 SECONDS
-//	extra_range = -11
-//	falloff_distance = 1
-//	falloff_exponent = 5 (falloff system from /tg/)(not smart enough to port it)
-//	volume = 50
-//	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /datum/looping_sound/computer
@@ -93,7 +84,6 @@
 	end_volume = 10
 	volume = 1
 	extra_range = SILENCED_SOUND_EXTRARANGE
-	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -102,7 +92,6 @@
 	mid_length = 1.8 SECONDS
 	extra_range = 10
 	volume = 70
-	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -110,6 +99,5 @@
 	mid_sounds = list('sound/machines/firealarm/FireAlarm1.ogg' = 1,'sound/machines/firealarm/FireAlarm2.ogg' = 1,'sound/machines/firealarm/FireAlarm3.ogg' = 1,'sound/machines/firealarm/FireAlarm4.ogg' = 1)
 	mid_length = 2.4 SECONDS
 	volume = 75
-	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

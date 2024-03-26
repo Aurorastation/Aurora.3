@@ -535,9 +535,9 @@
 		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	else if(slot_flags && slot)
 		if(equip_sound)
-			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
+			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE)
 		else
-			playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME)
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
