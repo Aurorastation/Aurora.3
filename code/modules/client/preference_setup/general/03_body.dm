@@ -526,14 +526,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/new_h_style
 		var/selected_style_index = valid_hairstyles.Find(pref.h_style)
 
-		if (href_list["next_hair_style"])
-			if (selected_style_index >= valid_hairstyles.len)
+		if(href_list["next_hair_style"])
+			if(selected_style_index >= valid_hairstyles.len)
 				new_h_style = valid_hairstyles[1]
 			else
 				new_h_style = valid_hairstyles[selected_style_index + 1]
 
-		else if (href_list["previous_hair_style"])
-			if (selected_style_index <= 1)
+		else if(href_list["previous_hair_style"])
+			if(selected_style_index <= 1)
 				new_h_style = valid_hairstyles[valid_hairstyles.len]
 			else
 				new_h_style = valid_hairstyles[selected_style_index - 1]
@@ -631,14 +631,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/new_f_style
 		var/selected_style_index = valid_facialhairstyles.Find(pref.f_style)
 
-		if (href_list["next_facial_style"])
-			if (selected_style_index >= valid_facialhairstyles.len)
+		if(href_list["next_facial_style"])
+			if(selected_style_index >= valid_facialhairstyles.len)
 				new_f_style = valid_facialhairstyles[1]
 			else
 				new_f_style = valid_facialhairstyles[selected_style_index + 1]
 
-		else if (href_list["previous_facial_style"])
-			if (selected_style_index <= 1)
+		else if(href_list["previous_facial_style"])
+			if(selected_style_index <= 1)
 				new_f_style = valid_facialhairstyles[valid_facialhairstyles.len]
 			else
 				new_f_style = valid_facialhairstyles[selected_style_index - 1]
