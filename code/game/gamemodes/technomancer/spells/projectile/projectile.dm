@@ -21,7 +21,7 @@
 		new_projectile.fire(direct_target = pb_target)
 		log_and_message_admins("has casted [src] at \the [hit_atom].")
 		if(fire_sound)
-			playsound(src, fire_sound, 75, 1)
+			playsound(src, fire_sound, 75, 1, ignore_walls = TRUE)
 		if(aspect != ASPECT_PSIONIC)
 			adjust_instability(instability_per_shot)
 		return TRUE

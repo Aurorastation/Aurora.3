@@ -1417,7 +1417,7 @@ var/list/total_extraction_beacons = list()
 	QDEL_NULL(effect_overlay)
 	if(location)
 		new /obj/effect/overlay/temp/explosion(location)
-		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)
+		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1, ignore_walls = TRUE)
 		for(var/atom/A in range(4,location))
 			if(istype(A,/turf/simulated/mineral))
 				var/turf/simulated/mineral/M = A

@@ -507,7 +507,7 @@
 	if(suppressed)
 		playsound(loc, suppressed_sound, suppressed_volume, vary_fire_sound)
 	else
-		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff_distance  = 0.5)
+		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff_distance  = 0.5, ignore_walls = TRUE)
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
 	var/obj/item/projectile/P = projectile

@@ -27,7 +27,7 @@
 
 	var/sound_pressure_affected = TRUE // If false, people in low pressure or vacuum will hear the sound.
 
-	var/sound_ignore_walls = FALSE // If false, walls will completely muffle the sound.
+	var/sound_ignore_walls = TRUE // If false, walls will completely muffle the sound.
 
 	var/sound_preference = null // Player preference to check before playing this sound to them, if any.
 
