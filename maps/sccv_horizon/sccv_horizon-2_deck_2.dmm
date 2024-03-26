@@ -5152,6 +5152,8 @@
 /obj/structure/sign/staff_only{
 	pixel_x = -31
 	},
+/obj/item/storage/box/fancy/tray/machinist,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
 "cjX" = (
@@ -5288,7 +5290,6 @@
 /area/horizon/kitchen)
 "cnQ" = (
 /obj/machinery/r_n_d/circuit_imprinter,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_y = 8
 	},
@@ -5298,6 +5299,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
 "coa" = (
@@ -7146,6 +7148,9 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "dmD" = (
@@ -7304,8 +7309,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/computer/rdconsole/core,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/computer/rdconsole/core{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/lab)
 "drB" = (
@@ -11181,15 +11188,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "fgZ" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
 /obj/structure/railing/mapped{
 	density = 0;
 	icon_state = "railing0-0";
 	dir = 1;
 	pixel_y = 12
 	},
+/obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
 "fha" = (
@@ -12323,7 +12328,6 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
 "fJc" = (
@@ -15612,7 +15616,6 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -29
 	},
-/obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
@@ -23595,11 +23598,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "kQV" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray/machinist,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	density = 0;
 	icon_state = "railing0-0";
@@ -23608,6 +23606,16 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/gloves{
+	pixel_x = 7
+	},
+/obj/item/storage/box/masks{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
@@ -27028,10 +27036,10 @@
 	pixel_x = 5
 	},
 /obj/item/pen/black{
-	pixel_y = -5
+	pixel_x = 7
 	},
 /obj/item/folder/yellow{
-	pixel_x = -4
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
@@ -33153,11 +33161,6 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/decal/fake_object{
-	desc = "Climb it to reach higher places!";
-	name = "ladder";
-	icon_state = "mech_ladder"
-	},
 /turf/simulated/floor/plating,
 /area/operations/lower/machinist)
 "pof" = (
@@ -35917,6 +35920,8 @@
 	dir = 8
 	},
 /obj/machinery/requests_console/west,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "qFl" = (
@@ -36153,9 +36158,6 @@
 	dir = 4
 	},
 /obj/machinery/disposal/small/east,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "qKi" = (
@@ -37540,22 +37542,15 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "rtb" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/masks{
-	pixel_x = 8
-	},
-/obj/item/storage/box/gloves{
-	pixel_x = 7
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = 5
-	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	density = 0;
 	icon_state = "railing0-0"
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
@@ -41865,6 +41860,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "tAX" = (
@@ -49986,27 +49982,27 @@
 /area/security/checkpoint2)
 "xdr" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp{
-	pixel_x = -6;
-	pixel_y = 9
-	},
 /obj/machinery/button/remote/blast_door{
 	desc = "It controls the research shutters.";
 	id = "RnDShutters";
 	name = "Research Shutters";
-	pixel_x = 8;
+	pixel_x = -6;
 	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "It controls the research shutters.";
 	id = "shutters_deck2_rescon";
 	name = "Research Conveyor Shutter";
-	pixel_x = 8;
+	pixel_x = -6;
 	pixel_y = 10;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = 7;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
@@ -52641,6 +52637,9 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/platform{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
@@ -77278,7 +77277,7 @@ uTr
 eWv
 trE
 eWv
-eWv
+uTr
 uTr
 xmw
 ylk
