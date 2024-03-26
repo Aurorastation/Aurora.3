@@ -639,7 +639,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		else if (href_list["previous_facial_style"])
 			if (selected_style_index <= 1)
-				new_f_style = valid_hairstyles[valid_hairstyles.len]
+				new_f_style = valid_facialhairstyles[valid_facialhairstyles.len]
 			else
 				new_f_style = valid_facialhairstyles[selected_style_index - 1]
 
