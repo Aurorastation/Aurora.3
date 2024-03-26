@@ -51,12 +51,12 @@ var/bomb_set
 				panel_open = 1
 				add_overlay("panel_open")
 				to_chat(user, "You unscrew the control panel of [src].")
-				playsound(src,  attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src, 50)
 			else
 				panel_open = 0
 				cut_overlay("panel_open")
 				to_chat(user, "You screw the control panel of [src] back on.")
-				playsound(src, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src, 50)
 		else
 			if (panel_open == 0)
 				to_chat(user, "\The [src] emits a buzzing noise, the panel staying locked in.")
@@ -64,7 +64,7 @@ var/bomb_set
 				panel_open = 0
 				cut_overlay("panel_open")
 				to_chat(user, "You screw the control panel of \the [src] back on.")
-				playsound(src, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src, 50)
 			flick("lock", src)
 		return TRUE
 

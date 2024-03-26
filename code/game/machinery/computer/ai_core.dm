@@ -48,13 +48,13 @@
 				user.drop_from_inventory(attacking_item,src)
 				return TRUE
 			if(attacking_item.isscrewdriver() && circuit)
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You screw the circuit board into place.</span>")
 				state = 2
 				icon_state = "2"
 				return TRUE
 			if(attacking_item.iscrowbar() && circuit)
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				state = 1
 				icon_state = "0"
@@ -63,7 +63,7 @@
 				return TRUE
 		if(2)
 			if(attacking_item.isscrewdriver() && circuit)
-				playsound(loc,  attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
 				state = 1
 				icon_state = "1"
@@ -152,7 +152,7 @@
 				return TRUE
 
 			if(attacking_item.iscrowbar() && brain)
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You remove the brain.</span>")
 				brain.forceMove(loc)
 				brain = null
@@ -161,7 +161,7 @@
 
 		if(4)
 			if(attacking_item.iscrowbar())
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
 				state = 3
 				if (brain)
@@ -172,7 +172,7 @@
 				return TRUE
 
 			if(attacking_item.isscrewdriver())
-				playsound(loc,  attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You connect the monitor.</span>")
 				if(!brain)
 					var/open_for_latejoin = alert(user, "Would you like this core to be open for latejoining AIs?", "Latejoin", "Yes", "Yes", "No") == "Yes"

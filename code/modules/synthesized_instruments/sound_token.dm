@@ -44,7 +44,7 @@
 		return sound.environment
 	else
 		var/area/A = get_area(listener)
-		return A && PrivIsValidEnvironment(A.sound_env) ? A.sound_env : sound.environment
+		return A && PrivIsValidEnvironment(A.sound_environment) ? A.sound_environment : sound.environment
 
 /datum/sound_token/instrument/Stop()
 	player.unsubscribe(src)

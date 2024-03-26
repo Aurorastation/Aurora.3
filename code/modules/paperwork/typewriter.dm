@@ -12,7 +12,7 @@
 	said, rural areas and less urban parts of the planet still rely heavily on these machines."
 	icon_state = "typewriter"
 	icon = 'icons/obj/device.dmi'
-	force = 20
+	force = 25
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
@@ -121,7 +121,7 @@
 	icon_state = "typewriter_case_closed"
 	item_state = "briefcase_black"
 	contained_sprite = TRUE
-	force = 10
+	force = 15
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 4

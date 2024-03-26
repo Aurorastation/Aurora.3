@@ -176,7 +176,7 @@
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
-	usr << browse(dat,"window=lookupnotes;size=900x500")
+	show_browser(usr, dat, "window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
 	if (!ckey)

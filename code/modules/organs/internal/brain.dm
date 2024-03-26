@@ -5,7 +5,7 @@
 	parent_organ = BP_HEAD
 	vital = TRUE
 	icon_state = "brain"
-	force = 1.0
+	force = 1
 	w_class = ITEMSIZE_SMALL
 	throwforce = 1.0
 	throw_speed = 3

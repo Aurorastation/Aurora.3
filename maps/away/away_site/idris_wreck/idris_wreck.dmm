@@ -1600,7 +1600,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "vU" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/simulated/floor/lino{
 	initial_gas = null
 	},

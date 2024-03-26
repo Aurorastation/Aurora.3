@@ -3571,7 +3571,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "sq" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,

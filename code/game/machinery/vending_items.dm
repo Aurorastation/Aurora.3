@@ -6,7 +6,7 @@
 	icon_state = "setup_medium-open"
 	item_state = "restock_unit"
 	desc = "A vending machine restock cart."
-	force = 7
+	force = 16
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7

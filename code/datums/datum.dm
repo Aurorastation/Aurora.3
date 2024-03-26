@@ -34,6 +34,9 @@
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
 
+	/// Used to avoid unnecessary refstring creation in Destroy().
+	var/tmp/has_state_machine = FALSE
+
 #ifdef REFERENCE_TRACKING
 	/// When was this datum last touched by a reftracker?
 	/// If this value doesn't match with the start of the search
