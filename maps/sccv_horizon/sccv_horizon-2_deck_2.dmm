@@ -7378,13 +7378,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	icon_state = "shutter0";
-	id = "RnDShutters";
-	name = "Research and Development";
-	opacity = 0
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/research)
@@ -23155,8 +23148,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/blast/shutters{
 	density = 0;
-	icon_state = "shutter0";
-	id = "RnDShutters";
+	id = "RnDDesk";
 	name = "Research and Development";
 	opacity = 0
 	},
@@ -35014,16 +35006,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "qlB" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	icon_state = "shutter0";
-	id = "RnDShutters";
-	name = "Research and Development";
-	opacity = 0
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/rnd/chemistry)
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "qlU" = (
 /obj/structure/bed/stool/padded/black,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -49997,8 +49984,9 @@
 	desc = "It controls the research shutters.";
 	id = "RnDShutters";
 	name = "Research Shutters";
-	pixel_x = -6;
-	dir = 1
+	pixel_x = 6;
+	dir = 1;
+	pixel_y = 10
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "It controls the research shutters.";
@@ -50008,12 +49996,15 @@
 	pixel_y = 10;
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp{
-	pixel_x = 7;
-	pixel_y = 6
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "It controls the research shutters.";
+	id = "RnDDesk";
+	name = "Research Desk Shutters";
+	pixel_x = -6;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
@@ -50048,12 +50039,6 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
-"xea" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "xed" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -50734,12 +50719,9 @@
 /area/horizon/library)
 "xun" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	icon_state = "shutter0";
+/obj/machinery/door/blast/shutters/open{
 	id = "RnDShutters";
-	name = "Research and Development";
-	opacity = 0
+	name = "RnD Shutters"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/lab)
@@ -76077,9 +76059,9 @@ avz
 aKr
 qIJ
 vIt
-xea
-xea
-xea
+qlB
+qlB
+qlB
 hkk
 vIt
 qIr
@@ -76484,7 +76466,7 @@ hEx
 rDh
 mAQ
 uon
-qlB
+urG
 nGI
 aNp
 mbE
