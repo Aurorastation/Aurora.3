@@ -255,6 +255,7 @@
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Captain")
 	faction = "Private Military Contracting Group"
 	cost = 1
+
 /datum/gear/augment/vekatak_hivenet
 	display_name = "Ve'katak Phalanx Hivenet receiver"
 	description = "An experimental augment developed for the non-Vaurca of the Ve'katak Phalanx, allowing them to recieve Hivenet transmissions and send preset messages."
@@ -262,3 +263,4 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_UNATHI)
 	faction = "Private Military Contracting Group"
 	cost = 4
+	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member")
