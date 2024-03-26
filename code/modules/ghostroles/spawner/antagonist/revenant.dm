@@ -54,7 +54,7 @@
 		var/mob/M = m
 		if(M.ear_deaf)
 			continue
-		M.playsound_simple(get_turf(M), 'sound/ambience/tension/tension.ogg', 75, FALSE)
+		M.playsound_local(get_turf(M), 'sound/ambience/tension/tension.ogg', 75, FALSE)
 		to_chat(M, FONT_LARGE(SPAN_CULT("A faint hum coming from the station walls fills your ears...")))
 	has_fired = TRUE
 

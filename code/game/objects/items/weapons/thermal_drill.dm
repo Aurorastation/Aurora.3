@@ -10,7 +10,7 @@
 
 /obj/item/thermal_drill/Initialize()
 	. = ..()
-	soundloop = new(list(src), FALSE)
+	soundloop = new(src, FALSE)
 
 /obj/item/thermal_drill/Destroy()
 	QDEL_NULL(soundloop)

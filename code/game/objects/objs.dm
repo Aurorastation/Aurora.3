@@ -34,7 +34,9 @@
 	var/icon_species_in_hand = FALSE
 
 	var/equip_slot = 0
+	///Played when the item is used, for example tools
 	var/usesound
+
 	var/toolspeed = 1
 
 	var/surgerysound

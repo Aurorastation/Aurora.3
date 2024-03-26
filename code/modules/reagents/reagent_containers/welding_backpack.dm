@@ -33,7 +33,7 @@
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			atom_flags = ATOM_FLAG_OPEN_CONTAINER
-		playsound(src, attacking_item.usesound, 70)
+		attacking_item.play_tool_sound(get_turf(src), 70)
 		to_chat(user, SPAN_NOTICE("You wrench \the [src]'s fuel cap [(atom_flags & ATOM_FLAG_OPEN_CONTAINER) ? "open" : "closed"]."))
 		return
 	else if(attacking_item.iswelder())

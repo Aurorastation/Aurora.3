@@ -119,7 +119,7 @@
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
-			playsound(get_turf(src), attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			update_icon()
 			SStgui.update_uis(src)
 			return TRUE
@@ -128,7 +128,7 @@
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
-					playsound(get_turf(src), attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					update_icon()
 					SStgui.update_uis(src)
 					return TRUE

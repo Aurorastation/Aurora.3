@@ -89,3 +89,33 @@
 	fcopy(file, filename)
 	. = md5filepath(filename)
 	fdel(filename)
+
+/**
+ * Takes a directory and returns every file within every sub directory.
+ * If extensions_filter is provided then only files that end in that extension are given back.
+ * If extensions_filter is a list, any file that matches at least one entry is given back.
+ */
+/proc/pathwalk(path, extensions_filter)
+	var/list/jobs = list(path)
+	var/list/filenames = list()
+
+	while(jobs.len)
+		var/current_dir = pop(jobs)
+		var/list/new_filenames = flist(current_dir)
+		for(var/new_filename in new_filenames)
+			// if filename ends in / it is a directory, append to currdir
+			if(findtext(new_filename, "/", -1))
+				jobs += "[current_dir][new_filename]"
+				continue
+			// filename extension filtering
+			if(extensions_filter)
+				if(islist(extensions_filter))
+					for(var/allowed_extension in extensions_filter)
+						if(endswith(new_filename, allowed_extension))
+							filenames += "[current_dir][new_filename]"
+							break
+				else if(endswith(new_filename, extensions_filter))
+					filenames += "[current_dir][new_filename]"
+			else
+				filenames += "[current_dir][new_filename]"
+	return filenames
