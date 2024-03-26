@@ -156,8 +156,9 @@
 
 /obj/machinery/vending/check_non_initial_vars()
 	. = ..()
-	// CHECK_NON_INITIAL(density)
-	// CHECK_NON_INITIAL(layer)
+	CHECK_NON_INITIAL(density)
+	CHECK_NON_INITIAL(layer)
+	// var/x = TRUE
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))

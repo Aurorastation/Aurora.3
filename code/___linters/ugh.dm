@@ -5,10 +5,14 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 // todo: document
-#define CHECK_NON_INITIAL(VARNAME) \
-	if(VARNAME!=initial(VARNAME)) { \
-		SSunit_tests_config.UT.fail("**** var has non-initial value: [#VARNAME]; [src]; [type]; xyz: [x] [y] [z];", __FILE__, __LINE__) \
-	}
+#if defined(UNIT_TEST)
+	#define CHECK_NON_INITIAL(VARNAME) \
+		if(VARNAME!=initial(VARNAME)) { \
+			SSunit_tests_config.UT.fail("**** var has non-initial value: [#VARNAME]; [src]; [type]; xyz: [x] [y] [z];", __FILE__, __LINE__) \
+		}
+#else
+	#define CHECK_NON_INITIAL(X)
+#endif
 
 	// 	check_mapped_in_vars()
 	// 		#if defined(UNIT_TEST)

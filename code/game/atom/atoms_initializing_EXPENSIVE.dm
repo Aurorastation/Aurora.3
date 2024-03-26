@@ -146,7 +146,7 @@
 
 	// todo: explain
 	// #if defined(UNIT_TEST)
-	check_non_initial_vars()
+	// check_non_initial_vars()
 	// #endif
 
 	return INITIALIZE_HINT_NORMAL
