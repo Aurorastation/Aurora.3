@@ -123,8 +123,8 @@
 //cloaks
 
 /obj/item/clothing/accessory/poncho/goldendeep
-	name = "cape"
-	desc = "FOR SUPER PACTOLUS!"
+	name = "golden deep cape"
+	desc = "Viewed as ostentatious by outsiders (and perhaps insiders, for that matter,) capes nonetheless remain as a means of quickly broadcasting one's status (or pretentions of status).
 	icon_state = "golden_cape"
 	item_state = "golden_cape"
 	icon = 'icons/clothing/suits/capes/golden_cape.dmi'
@@ -133,7 +133,7 @@
 
 /obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
 	name = "flowing cloak"
-	desc = "he do flow tho"
+	desc = "A long and flowing cloak used by members of Golden Deep evocative of trenchcoats. Curiously, many investigatorial synthetics within the collective favor these cloaks."
 	icon_state = "flowing_cloak"
 	item_state = "flowing_cloak"
 	icon = 'icons/clothing/suits/capes/flowing_cloak.dmi'
