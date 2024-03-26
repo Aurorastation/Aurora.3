@@ -998,7 +998,7 @@ pixel_x = 10;
 			else if(attacking_item.iswrench())
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src.loc, 50)
 				qdel(src)
 				return TRUE
 

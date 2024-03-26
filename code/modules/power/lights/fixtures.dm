@@ -221,6 +221,10 @@
 	pixel_x = pixel_x
 	pixel_y = pixel_y
 
+/obj/machinery/light/small/floor/set_pixel_offsets()
+	pixel_x = pixel_x
+	pixel_y = pixel_y
+
 /obj/machinery/light/update_icon()
 	cut_overlays()
 	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
@@ -455,7 +459,7 @@
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
 		if(attacking_item.isscrewdriver()) //If it's a screwdriver open it.
-			playsound(get_turf(src), attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
 			var/obj/machinery/light_construct/newlight = null
 			switch(fitting)

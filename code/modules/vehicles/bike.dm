@@ -194,7 +194,7 @@
 	return Move(get_step(src, direction))
 
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
-	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/unsimulated/floor/asteroid))
+	var/static/list/types = typecacheof(list(/turf/space))
 	if(is_type_in_typecache(destination,types) || pulledby)
 		return TRUE
 	else
