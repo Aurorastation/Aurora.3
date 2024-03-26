@@ -1,7 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - tweak: "Cleaned up the gas tank dispenser code."
-  - maptweak: "Removed some manually mapped variables on gas tank dispensers."
