@@ -55,3 +55,174 @@
 	item_state = "goldendeep_skirtsuit"
 	icon = 'icons/clothing/under/uniforms/goldendeep_skirtsuit.dmi'
 	contained_sprite = TRUE
+
+//colorable items go under here
+
+//shirts
+/obj/item/clothing/accessory/goldendeep
+	name = "fine shirt"
+	desc = "Goddamn, that's a fine shirt."
+	icon_state = "fine_shirt"
+	item_state = "fine_shirt"
+	icon = 'icons/clothing/under/shirts/fine_shirt.dmi'
+	contained_sprite = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/goldendeep/pompous
+	name = "pompous shirt"
+	desc = "GOOD DAY MILORD"
+	icon_state = "pompous_shirt"
+	item_state = "pompous_shirt"
+	icon = 'icons/clothing/under/shirts/pompous_shirt.dmi'
+
+/obj/item/clothing/accessory/goldendeep/gambeson
+	name = "quilted gambeson"
+	desc = "didn't have it in you to be a naked maul guy huh"
+	icon_state = "quilted_gambeson"
+	item_state = "quilted_gambeson"
+	icon = 'icons/clothing/under/shirts/quilted_gambeson.dmi'
+
+/obj/item/clothing/accessory/goldendeep/tabbard
+	name = "valiant_tabbard"
+	desc = "AGAAAAAAAAATHAAAAAAAAAAAAAA"
+	icon_state = "valiant_tabbard"
+	item_state = "valiant_tabbard"
+	icon = 'icons/clothing/under/shirts/valiant_tabbard.dmi'
+
+/obj/item/clothing/accessory/goldendeep/clothwrappeduniform
+	name = "cloth wrapped uniform"
+	desc = "playing peasant is not okay in frontlines"
+	icon_state = "cloth_wrapped_uniform"
+	item_state = "cloth_wrapped_uniform"
+	icon = 'icons/clothing/under/shirts/cloth_wrapped_uniform.dmi'
+
+/obj/item/clothing/accessory/goldendeep/pullover
+	name = "armored pullover"
+	desc = "powergamers look no further"
+	icon_state = "armored_pullover"
+	item_state = "armored_pullover"
+	icon = 'icons/clothing/under/shirts/armored_pullover.dmi'
+
+/obj/item/clothing/accessory/goldendeep/raingarb
+	name = "pactolus rain garb"
+	desc = "welcome to the zone, stalker"
+	icon_state = "pactolus_raingarb"
+	item_state = "pactolus_raingarb"
+	icon = 'icons/clothing/under/shirts/pactolus_raingarb.dmi'
+
+//suits
+/obj/item/clothing/storage/goldendeep
+	name = "eccentric_coat"
+	desc = "*bloodborne music starts playing*"
+	icon_state = "eccentric_coat"
+	item_state = "eccentric_coat"
+	icon = 'icons/clothing/suits/coats/eccentric_coat.dmi'
+	contained_sprite = TRUE
+	has_accents = TRUE
+
+//cloaks
+
+/obj/item/clothing/accessory/poncho/goldendeep
+	name = "cape"
+	desc = "FOR SUPER PACTOLUS!"
+	icon_state = "golden_cape"
+	item_state = "golden_cape"
+	icon = 'icons/clothing/suits/capes/golden_cape.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
+	name = "flowing cloak"
+	desc = "he do flow tho"
+	icon_state = "flowing_cloak"
+	item_state = "flowing_cloak"
+	icon = 'icons/clothing/suits/capes/flowing_cloak.dmi'
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/goldendeep/elegantcloak
+	name = "elegant cloak"
+	desc = "such cloak, much elegant, very drip"
+	icon_state = "elegant_cloak"
+	item_state = "elegant_cloak"
+	icon = 'icons/clothing/suits/capes/elegant_cloak.dmi'
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/goldendeep/furwrap
+	name = "fur wrap"
+	desc = "you have to ask yourself what fur they got for this on pactolus"
+	icon_state = "fur_wrap"
+	item_state = "fur_wrap"
+	icon = 'icons/clothing/suits/capes/fur_wrap.dmi'
+
+/obj/item/clothing/accessory/poncho/goldendeep/desertadornment
+	name = "desert adornment"
+	desc = "what do you have to give except the water in your bodies?"
+	icon_state = "desert_adornment"
+	item_state = "desert_adornment"
+	icon = 'icons/clothing/suits/capes/desert_adornment.dmi'
+
+//head slot
+
+/obj/item/clothing/head/goldendeep
+	name = "furred crown"
+	desc = "i fought in a vysokan war once, you know"
+	icon_state = "furred_crown"
+	item_state = "furred_crown"
+	icon = 'icons/clothing/head/furred_crown.dmi'
+	contained_sprite = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/head/goldendeep/cowl
+	name = "cowl"
+	desc = "over here stranger"
+	icon_state = "cowl"
+	item_state = "cowl"
+	icon = 'icons/clothing/head/cowl.dmi'
+	flags_inv = BLOCKHAIR
+	body_parts_covered = 0
+	slot_flags = SLOT_EARS  | SLOT_HEAD
+
+/obj/item/clothing/head/goldendeep/cubehood
+	name = "cube hood"
+	desc = "i give you two for one overloader"
+	icon_state = "cube_hood"
+	item_state = "cube_hood"
+	icon = 'icons/clothing/head/cube_hood.dmi'
+	flags_inv = BLOCKHAIR
+	body_parts_covered = 0
+	slot_flags = SLOT_EARS  | SLOT_HEAD
+
+/obj/item/clothing/head/goldendeep/chainjewelry
+	name = "chain jewelry"
+	desc = "i'm not asking you, i'm asking the bene gesserit"
+	icon_state = "chain_jewelry"
+	item_state = "chain_jewelry"
+	icon = 'icons/clothing/head/chain_jewelry.dmi'
+	slot_flags = SLOT_EARS  | SLOT_HEAD | SLOT_MASK
+
+/obj/item/clothing/head/goldendeep/chainjewelry/baseline
+	icon_state = "chain_jewelry_baseline"
+	item_state = "chain_jewelry_baseline"
+
+//accessories
+
+/obj/item/clothing/accessory/storage/goldendeep
+	name = "thesian webbing"
+	desc = "cyberstan, can't keep her down!"
+	icon_state = "thesian_webbing"
+	item_state = "thesian_webbing"
+	icon = 'icons/clothing/accessories/thesian_webbing.dmi'
+	contained_sprite = TRUE
+
+//backpack
+
+/obj/item/storage/backpack/goldendeep
+	name = "sacred icon"
+	desc = "when you first saw midaion, were you blinded by its majesty? paralyzed? dumbstruck?"
+	icon = 'icons/clothing/backpacks/sacred_icon.dmi'
+	icon_state = "sacred_icon"
+	item_state = "sacred_icon"
+	contained_sprite = TRUE
+
+/obj/item/storage/backpack/goldendeep/baseline
+	icon_state = "sacred_icon_baseline"
+	item_state = "sacred_icon_baseline"
