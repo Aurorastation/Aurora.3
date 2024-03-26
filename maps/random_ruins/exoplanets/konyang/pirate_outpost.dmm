@@ -3,7 +3,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_pirate_outpost)
 "am" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/trash/ramen,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
