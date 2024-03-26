@@ -1,7 +1,7 @@
 /area/holodeck
 	name = "Holodeck"
 	icon_state = "Holodeck"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = TRUE
 	station_area = TRUE
 	dynamic_lighting = FALSE
@@ -19,35 +19,35 @@
 
 /area/holodeck/source_gym
 	name = "Holodeck - Gym"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/holodeck/source_range
 	name = "Holodeck - Range"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/holodeck/source_emptycourt
 	name = "Holodeck - Empty Court"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/holodeck/source_boxingcourt
 	name = "Holodeck - Boxing Court"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/holodeck/source_basketball
 	name = "Holodeck - Basketball Court"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/holodeck/source_thunderdomecourt
 	name = "Holodeck - Thunderdome Court"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/holodeck/source_courtroom
 	name = "Holodeck - Courtroom"
-	sound_env = AUDITORIUM
+	sound_environment = SOUND_ENVIRONMENT_AUDITORIUM
 
 /area/holodeck/source_beach
 	name = "Holodeck - Beach"
-	sound_env = PLAIN
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 
 /area/holodeck/source_burntest
 	name = "Holodeck - Atmospheric Burn Test"
@@ -57,36 +57,36 @@
 
 /area/holodeck/source_meetinghall
 	name = "Holodeck - Meeting Hall"
-	sound_env = AUDITORIUM
+	sound_environment = SOUND_ENVIRONMENT_AUDITORIUM
 
 /area/holodeck/source_theatre
 	name = "Holodeck - Theatre"
-	sound_env = CONCERT_HALL
+	sound_environment = SOUND_ENVIRONMENT_CONCERT_HALL
 
 /area/holodeck/source_picnicarea
 	name = "Holodeck - Picnic Area"
-	sound_env = PLAIN
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 
 /area/holodeck/source_dininghall
 	name = "Holodeck - Dining Hall"
-	sound_env = PLAIN
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 
 /area/holodeck/source_snowfield
 	name = "Holodeck - Snow Field"
-	sound_env = FOREST
+	sound_environment = SOUND_ENVIRONMENT_FOREST
 
 /area/holodeck/source_desert
 	name = "Holodeck - Desert"
-	sound_env = PLAIN
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 
 /area/holodeck/source_space
 	name = "Holodeck - Space"
 	has_gravity = 0
-	sound_env = SPACE
+	sound_environment = SOUND_AREA_SPACE
 
 /area/holodeck/source_battlemonsters
 	name = "Holodeck - Battlemonsters Arena"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/holodeck/source_chessboard
 	name = "Holodeck - Chessboard"

@@ -2,7 +2,7 @@
 
 /area/maintenance
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
@@ -241,7 +241,7 @@
 
 /area/maintenance/elevator
 	name = "Primary Elevator Shaft Maintenance"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	icon_state = "green"
 
 /area/maintenance/vault
@@ -253,7 +253,7 @@
 /area/maintenance/substation
 	name = "Substation"
 	icon_state = "substation"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_SUBSTATION
 	area_blurb = "The hum of the substation's machinery fills the room, holding equipment made to transform voltage and manage power supply to various rooms, and to act as an emergency battery. In comparison to the maintenance tunnels, these stations are far less dusty."
 	area_blurb_category = "substation"
@@ -334,30 +334,30 @@
 /area/maintenance/auxsolarport
 	name = "Solar Maintenance - Fore Port"
 	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/starboardsolar
 	name = "Solar Maintenance - Aft"
 	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/portsolar
 	name = "Solar Maintenance - Port"
 	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/auxsolarstarboard
 	name = "Solar Maintenance - Fore Starboard"
 	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/foresolar
 	name = "Solar Maintenance - Fore"
 	icon_state = "SolarcontrolA"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/workshop
 	name = "Research Maintenance - Auxiliary"
 	icon_state = "workshop"
 	turf_initializer = null
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED

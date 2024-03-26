@@ -82,6 +82,7 @@
 #define CE_BLOODCLOT    "bloodclot"		// Coagzolug
 #define CE_ORGANREPAIR  "organrepair"	// Rezadone
 #define CE_ANTIPARASITE "antiparasite"  // Helmizole, garlic
+#define CE_ANTIBODIES   "antibodies"    // Hylemnomil-Zeta antibodies
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"

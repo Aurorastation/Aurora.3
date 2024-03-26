@@ -44,7 +44,7 @@
 		if(attacking_item.iscrowbar())
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
-					playsound(get_turf(src), attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 					M.state = 2
 					M.icon_state = "box_1"

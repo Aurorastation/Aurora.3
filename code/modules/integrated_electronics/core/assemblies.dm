@@ -248,7 +248,7 @@
 			return TRUE
 
 	else if(attacking_item.iswrench() && can_anchor)
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		if(anchored)
 			on_anchored()
@@ -258,7 +258,7 @@
 		return TRUE
 
 	else if(attacking_item.iscrowbar())
-		playsound(get_turf(src), attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		opened = !opened
 		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
 		update_icon()

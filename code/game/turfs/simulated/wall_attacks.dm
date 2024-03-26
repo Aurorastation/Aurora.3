@@ -274,7 +274,7 @@
 			if(5)
 				if (attacking_item.isscrewdriver())
 					to_chat(user, SPAN_NOTICE("You begin removing the support lines."))
-					playsound(src, attacking_item.usesound, 100, 1)
+					attacking_item.play_tool_sound(get_turf(src), 100)
 					if(!attacking_item.use_tool(src, user, 60, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
 						return
 					construction_stage = 4

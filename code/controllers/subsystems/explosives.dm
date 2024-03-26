@@ -160,12 +160,12 @@ SUBSYSTEM_DEF(explosives)
 						// If inside the blast radius + world.view - 2
 						if (dist <= closedist)
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [explosion_dir].")))
-							M.playsound_simple(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
+							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
 						else if (dist > closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a semi-close explosion coming from \the [explosion_dir].")))
-							M.playsound_simple(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
+							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
 						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
-							volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = TRUE)
+							volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, vary = TRUE, falloff_distance = 1000, pressure_affected = TRUE)
 							if(volume)
 								to_chat(M, FONT_LARGE(SPAN_NOTICE("You hear the sound of a distant explosion coming from \the [explosion_dir].")))
 
@@ -357,10 +357,10 @@ SUBSYSTEM_DEF(explosives)
 		var/dist = get_dist(M, epicenter) || 1
 		if ((reception & EXPLFX_SOUND) && !isdeaf(M))
 			if (dist <= close_dist)
-				M.playsound_simple(epicenter, explosion_sound, min(100, volume), use_random_freq = TRUE, falloff = 5)
+				M.playsound_local(epicenter, explosion_sound, min(100, volume), vary = TRUE, falloff_distance = 5)
 				//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 			else
-				volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = FALSE)
+				volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, vary = TRUE, falloff_distance = 1000, pressure_affected = FALSE)
 
 		if ((reception & EXPLFX_SHAKE) && volume > 0)
 			shake_camera(M, min(30, max(2,(power*2) / dist)), min(3.5, ((power/3) / dist)),0.05)
