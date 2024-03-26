@@ -35005,12 +35005,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
-"qlB" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "qlU" = (
 /obj/structure/bed/stool/padded/black,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -41865,7 +41859,8 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/operations/lower/machinist)
 "tAX" = (
 /obj/machinery/camera/network/second_deck{
@@ -50039,6 +50034,12 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
+"xea" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "xed" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -76059,9 +76060,9 @@ avz
 aKr
 qIJ
 vIt
-qlB
-qlB
-qlB
+xea
+xea
+xea
 hkk
 vIt
 qIr
