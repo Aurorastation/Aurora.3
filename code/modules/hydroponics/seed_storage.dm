@@ -390,7 +390,7 @@
 			to_chat(user, SPAN_WARNING("There are no seeds in \the [attacking_item.name]."))
 		return
 	else if(attacking_item.iswrench())
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 

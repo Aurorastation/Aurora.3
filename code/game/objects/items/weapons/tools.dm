@@ -434,7 +434,7 @@
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
-			playsound(target, usesound, 15)
+			playsound(target, usesound, 15, extrarange = SILENCED_SOUND_EXTRARANGE)
 			repair_organ(user, target, affecting)
 
 /obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
@@ -536,7 +536,7 @@
 				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
-			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
+			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			force = 22
 			damtype = DAMAGE_BURN
 			w_class = ITEMSIZE_LARGE
@@ -555,7 +555,7 @@
 			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
 		else if(T)
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
-		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, 1)
+		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE
 		w_class = initial(w_class)
@@ -826,7 +826,7 @@
 		current_tool = 1
 	var/tool = RADIAL_INPUT(user, tools)
 	if(tool)
-		playsound(user, 'sound/items/penclick.ogg', 25)
+		playsound(user, 'sound/items/penclick.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		current_tool = tool
 		switch(tool)
 			if("wrench")
@@ -958,7 +958,7 @@
 		lit = TRUE
 		if(user)
 			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
-		playsound(get_turf(src), 'sound/items/flare.ogg', 50)
+		playsound(get_turf(src), 'sound/items/flare.ogg', 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
 		set_light(2, 2, LIGHT_COLOR_LAVA)

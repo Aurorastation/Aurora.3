@@ -66,7 +66,6 @@
 
 
 	brightness_on = 6
-	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
@@ -1090,3 +1089,44 @@
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
 	brightness_on = 6
 	siemens_coefficient = 0.35
+
+/obj/item/clothing/head/helmet/space/void/coalition/assunzione
+	name = "\improper Assunzionii rook voidsuit helmet"
+	desc = "Based on the common Coalition Vulture design, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's scientific and military forces. In addition to being a servicable combat voidsuit model, it is equipped with state-of-the-art anomalous energy shielding developed by Zeng-Hu Pharmaceuticals."
+	desc_extended = "Rook suits are largely seen in the hands of Assunzionii military patrols in Light's Edge, as well as scientific expeditions into the darkness of the Lemurian Sea. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+	icon_state = "assunzione_helmet"
+	item_state = "assunzione_helmet"
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
+	icon_supported_species_tags = list("ipc")
+	anomaly_protection = 0.2
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+/obj/item/clothing/suit/space/void/coalition/assunzione
+	name = "\improper Assunzionii rook voidsuit"
+	desc = "Based on the common Coalition Vulture design, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's scientific and military forces. In addition to being a servicable combat voidsuit model, it is equipped with state-of-the-art anomalous energy shielding developed by Zeng-Hu Pharmaceuticals."
+	desc_extended = "Rook suits are largely seen in the hands of Assunzionii military patrols in Light's Edge, as well as scientific expeditions into the darkness of the Lemurian Sea. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+	icon_state = "assunzione_suit"
+	item_state = "assunzione_suit"
+	icon_supported_species_tags = list("ipc")
+	anomaly_protection = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL)
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)

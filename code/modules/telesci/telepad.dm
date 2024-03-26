@@ -61,7 +61,7 @@
 /obj/machinery/telepad_cargo/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.iswrench())
 		anchored = 0
-		playsound(src, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
 			anchored = 0
 			to_chat(user, "<span class='caution'>\The [src] can now be moved.</span>")
@@ -70,11 +70,11 @@
 			to_chat(user, "<span class='caution'>\The [src] is now secured.</span>")
 	if(attacking_item.isscrewdriver())
 		if(stage == 0)
-			playsound(src, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='caution'>You unscrew the telepad's tracking beacon.</span>")
 			stage = 1
 		else if(stage == 1)
-			playsound(src, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='caution'>You screw in the telepad's tracking beacon.</span>")
 			stage = 0
 	if(attacking_item.iswelder() && stage == 1)

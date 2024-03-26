@@ -95,7 +95,7 @@
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \

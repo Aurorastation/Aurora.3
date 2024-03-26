@@ -871,3 +871,8 @@
 		return copytext(html_encode(user_input), 1, max_length)
 	else
 		return trim(html_encode(user_input), max_length)
+
+/// Returns TRUE if the input_text ends with the ending
+/proc/endswith(input_text, ending)
+	var/input_length = LAZYLEN(ending)
+	return !!findtext(input_text, ending, -input_length)

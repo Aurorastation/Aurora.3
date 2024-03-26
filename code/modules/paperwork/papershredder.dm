@@ -22,7 +22,7 @@
 		return
 
 	else if (attacking_item.iswrench())
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message(
 			SPAN_NOTICE("[anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."]"),

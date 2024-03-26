@@ -251,6 +251,9 @@
 	var/authed = TRUE
 	var/player_age = "Requires database"
 
+	///Override for sound_environmentironments. If this is set the user will always hear a specific type of reverb (Instead of the area defined reverb)
+	var/sound_environment_override = SOUND_ENVIRONMENT_NONE
+
 	///the icon currently used for the typing indicator's bubble
 	var/atom/movable/typing_indicator/typing_indicator
 	/// User is thinking in character. Used to revert to thinking state after stop_typing

@@ -38,6 +38,9 @@
 	/// Measured in Celsius, when worn, the clothing modifies the baseline temperature by this much
 	var/body_temperature_change = 0
 
+	///How protective is this clothing against anomalies? Should be a value from 0 to 1 indicating the percentage of anomaly protection it provides.
+	var/anomaly_protection = 0
+
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
