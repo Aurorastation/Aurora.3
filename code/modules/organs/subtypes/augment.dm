@@ -502,7 +502,7 @@
 	augment_languages = list(LANGUAGE_SKRELLIAN)
 
 /obj/item/organ/internal/augment/language/vekatak
-	name = "Ve'katak Phalanx Hivenet reciever"
+	name = "Ve'katak Phalanx Hivenet receiver"
 	icon_state = "phalanx_hivenet"
 	dead_icon = "phalanx_hivenet_broken"
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
