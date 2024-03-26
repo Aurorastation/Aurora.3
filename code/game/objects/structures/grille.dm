@@ -47,7 +47,7 @@
 
 /obj/structure/grille/over/Destroy()
 	var/obj/structure/window_frame/window_frame = locate(/obj/structure/window_frame) in get_turf(src)
-	if (window_frame)
+	if(window_frame)
 		window_frame.has_grille_installed = FALSE
 	return ..()
 
