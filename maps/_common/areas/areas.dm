@@ -37,6 +37,7 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	ambience = AMBIENCE_SPACE
 	no_light_control = 1
 	base_turf = /turf/space
+	is_outside = OUTSIDE_YES
 
 /area/space/atmosalert()
 	return

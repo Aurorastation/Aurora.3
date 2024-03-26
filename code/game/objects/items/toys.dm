@@ -573,7 +573,7 @@
 	equip_sound = /singleton/sound_category/sword_equip_sound
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_BACK
-	force = 5
+	force = 11
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced")

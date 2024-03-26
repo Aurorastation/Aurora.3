@@ -341,7 +341,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "oG" = (
-/obj/structure/closet/secure_closet/freezer/fridge{
+/obj/structure/closet/secure_closet/refrigerator/standard{
 	pixel_x = -8
 	},
 /obj/item/reagent_containers/food/snacks/fish,

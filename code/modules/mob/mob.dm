@@ -738,6 +738,7 @@
 
 	src.pulling = AM
 	AM.pulledby = src
+	SSmove_manager.stop_looping(AM)
 
 	if(pullin)
 		pullin.icon_state = "pull1"
@@ -1393,6 +1394,58 @@
 /mob/proc/get_actions_for_statpanel()
 	var/list/data = list()
 	return data
+
+/mob/proc/get_weather_protection()
+	for(var/obj/item/brolly in get_active_hand())
+		if(brolly.gives_weather_protection())
+			LAZYADD(., brolly)
+	if(!LAZYLEN(.))
+		for(var/turf/T as anything in RANGE_TURFS(1, loc))
+			for(var/obj/structure/flora/tree in T)
+				if(tree.protects_against_weather)
+					LAZYADD(., tree)
+
+/mob/living/carbon/human/get_weather_protection()
+	. = ..()
+	if(!LAZYLEN(.))
+		var/obj/item/clothing/head/check_head = get_equipped_item(slot_head_str)
+		if(!istype(check_head) || !check_head.protects_against_weather)
+			return
+		var/obj/item/clothing/suit/check_body = get_equipped_item(slot_wear_suit_str)
+		if(!istype(check_body) || !check_body.protects_against_weather)
+			return
+		LAZYADD(., check_head)
+		LAZYADD(., check_body)
+
+/mob/proc/get_weather_exposure()
+
+	// We're inside something else.
+	if(!isturf(loc))
+		return WEATHER_IGNORE
+
+	var/turf/T = loc
+	// We're under a roof or otherwise shouldn't be being rained on.
+	if(!T.is_outside())
+
+		// For non-multiz we'll give everyone some nice ambience.
+		if(!HasAbove(T.z))
+			return WEATHER_ROOFED
+
+		// For multi-z, check the actual weather on the turf above.
+		// TODO: maybe make this a property of the z-level marker.
+		var/turf/above = GetAbove(T)
+		if(above.weather)
+			return WEATHER_ROOFED
+
+		// Being more than one level down should exempt us from ambience.
+		return WEATHER_IGNORE
+
+	// Nothing's protecting us from the rain here
+	var/list/weather_protection = get_weather_protection()
+	if(LAZYLEN(weather_protection))
+		return WEATHER_PROTECTED
+
+	return WEATHER_EXPOSED
 
 #undef UNBUCKLED
 #undef PARTIALLY_BUCKLED

@@ -2997,6 +2997,12 @@
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = -32
 	},
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "bnN" = (
@@ -7670,10 +7676,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/random/pottedplant,
 /obj/machinery/computer/guestpass{
 	pixel_x = 32
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dBQ" = (
@@ -10153,6 +10159,14 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/rods/full,
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 6;
+	pixel_x = -7
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 6;
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "ePg" = (
@@ -15794,7 +15808,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/item/device/radio/intercom/east,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "hmX" = (
@@ -21217,6 +21232,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "jLS" = (
@@ -26826,7 +26842,7 @@
 	},
 /area/horizon/kitchen/freezer)
 "myE" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -35683,8 +35699,7 @@
 	pixel_y = 10
 	},
 /obj/random/pottedplant_small{
-	pixel_x = -9;
-	pixel_y = 0
+	pixel_x = -9
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -40052,6 +40067,8 @@
 /obj/structure/table/standard,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/steel/full,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
 /obj/item/storage/belt/utility,
 /obj/machinery/light{
 	dir = 8
@@ -41750,12 +41767,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "tHk" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "tHl" = (
@@ -44895,7 +44911,7 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
-/obj/random/pottedplant,
+/obj/structure/closet/secure_closet/cabinet/beer/horizon,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (
@@ -50861,8 +50877,7 @@
 	pixel_y = 13
 	},
 /obj/random/pottedplant_small{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)

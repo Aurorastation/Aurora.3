@@ -128,7 +128,7 @@
 			if(contents_count())
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			switch(mode)
 				if(MODE_OFF)
 					mode = MODE_UNSCREWED
@@ -1613,12 +1613,12 @@
 	if(attacking_item.isscrewdriver())
 		if(mode==0)
 			mode=1
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You remove the screws around the power connection.")
 			return
 		else if(mode==1)
 			mode=0
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
 	else if(attacking_item.iswelder() && mode==1)

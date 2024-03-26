@@ -346,21 +346,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"bG" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "bK" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -630,14 +615,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
-"dc" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/visitor)
 "df" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 6
@@ -1620,7 +1597,7 @@
 	},
 /area/shuttle/fang/engine)
 "hc" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/produce{
@@ -1866,23 +1843,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-"is" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
-"iv" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/mess_hall)
 "iw" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3510,14 +3470,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
-"pB" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/mess_hall)
 "pF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3757,14 +3709,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/barracks)
-"qL" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "qS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5366,17 +5310,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
-"yw" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "yx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -5645,14 +5578,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
-"zA" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "zB" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6002,21 +5927,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
-"Bt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Bu" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -6426,17 +6336,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
-"Dq" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Dr" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light,
@@ -6758,14 +6657,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
-"EN" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/mess_hall)
 "EU" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, barracks"
@@ -6874,28 +6765,11 @@
 	},
 /area/peoples_station)
 "Fz" = (
-/obj/structure/table/rack,
-/obj/machinery/door/window{
-	name = "Voidsuit Storage"
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7564,25 +7438,8 @@
 /turf/template_noop,
 /area/peoples_station/bridge)
 "IS" = (
-/obj/structure/table/rack,
-/obj/machinery/door/window{
-	name = "Voidsuit Storage"
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/pra,
-/obj/item/clothing/head/helmet/space/void/pra,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7776,14 +7633,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
-"JO" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "JQ" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -8297,14 +8146,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"MJ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/visitor)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8703,14 +8544,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/atmos)
-"OI" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "OJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
@@ -9378,12 +9211,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-"Ry" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/armory)
 "RB" = (
 /obj/machinery/light{
 	dir = 8
@@ -9655,11 +9482,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
-"SO" = (
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/defenses)
 "SQ" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -10260,25 +10082,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/barracks)
-"Vg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Vl" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 1
@@ -10645,17 +10448,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
-"Xr" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Xs" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration,
@@ -38899,9 +38691,9 @@ mN
 Uy
 uw
 gJ
-SO
+Wl
 bq
-SO
+Wl
 Uy
 Kn
 Kn
@@ -39155,9 +38947,9 @@ mN
 mN
 Uy
 fq
-SO
-SO
-SO
+Wl
+Wl
+Wl
 Ff
 Uy
 Kn
@@ -40699,7 +40491,7 @@ Uy
 ZP
 oW
 Aj
-SO
+Wl
 Uy
 Kn
 Kn
@@ -41467,7 +41259,7 @@ lJ
 lJ
 yj
 PH
-Bt
+eZ
 zY
 rO
 rO
@@ -41726,8 +41518,8 @@ hs
 xM
 JK
 No
-OI
-OI
+QK
+QK
 Nv
 mV
 Qc
@@ -41985,7 +41777,7 @@ dt
 dt
 dt
 dt
-is
+qh
 GT
 hw
 CR
@@ -42242,7 +42034,7 @@ Zc
 cJ
 Dz
 dt
-is
+qh
 GT
 hw
 CR
@@ -42499,7 +42291,7 @@ xp
 hv
 rN
 dt
-Xr
+Rq
 GT
 hw
 Xj
@@ -42708,8 +42500,8 @@ hh
 Mz
 OL
 VV
-Ry
-Ry
+LV
+LV
 JS
 JQ
 Mz
@@ -42756,7 +42548,7 @@ zs
 Ss
 jN
 dt
-is
+qh
 GT
 hw
 CR
@@ -43013,7 +42805,7 @@ zs
 YD
 kd
 dt
-is
+qh
 GT
 Fs
 CR
@@ -43270,7 +43062,7 @@ Cf
 zh
 JN
 GH
-bG
+Yy
 kC
 hw
 CR
@@ -43482,7 +43274,7 @@ qo
 qo
 qo
 qo
-Vg
+EH
 zB
 qo
 tx
@@ -43499,7 +43291,7 @@ qo
 qo
 qo
 qo
-Vg
+EH
 lH
 CR
 TC
@@ -43527,7 +43319,7 @@ zs
 tk
 ZL
 dt
-is
+qh
 GT
 hw
 CR
@@ -43784,7 +43576,7 @@ zs
 tk
 zj
 dt
-is
+qh
 GT
 hw
 CR
@@ -43998,8 +43790,8 @@ TV
 QK
 QK
 QK
-OI
-Dq
+QK
+No
 QK
 QK
 QK
@@ -44010,7 +43802,7 @@ QK
 QK
 QK
 QK
-Dq
+No
 QK
 xS
 QK
@@ -44041,7 +43833,7 @@ rE
 tk
 Ol
 dt
-Xr
+Rq
 GT
 hw
 CR
@@ -44298,7 +44090,7 @@ nW
 yJ
 RO
 dt
-is
+qh
 dD
 UX
 CR
@@ -44555,7 +44347,7 @@ dt
 dt
 dt
 dt
-is
+qh
 GT
 hw
 CR
@@ -44788,7 +44580,7 @@ Ms
 to
 CR
 Je
-zA
+qo
 eY
 zv
 zv
@@ -44812,7 +44604,7 @@ zv
 yb
 lH
 CR
-is
+qh
 GT
 hw
 CR
@@ -45303,27 +45095,27 @@ to
 CR
 JK
 No
-OI
-OI
-OI
-OI
 QK
-OI
+QK
+QK
+QK
+QK
+QK
 sR
-OI
-OI
-OI
-OI
-OI
-OI
-OI
-OI
-OI
-OI
-OI
-OI
-OI
-OI
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
+QK
 Up
 CR
 Ey
@@ -47125,7 +46917,7 @@ jZ
 jZ
 fb
 qC
-MJ
+Ay
 FS
 tK
 dP
@@ -47637,7 +47429,7 @@ vx
 vx
 vx
 jZ
-EN
+SJ
 Gk
 Ns
 FS
@@ -48153,7 +47945,7 @@ aM
 jZ
 SJ
 qC
-dc
+nk
 FS
 tK
 MC
@@ -48389,8 +48181,8 @@ Kn
 Kn
 qC
 nZ
-pB
-pB
+qD
+qD
 Vl
 jZ
 LA
@@ -48408,9 +48200,9 @@ jZ
 jZ
 jZ
 jZ
-EN
+SJ
 Gk
-dc
+nk
 FS
 tK
 tK
@@ -48665,7 +48457,7 @@ aM
 aM
 aM
 jZ
-EN
+SJ
 qC
 Tl
 FS
@@ -48922,7 +48714,7 @@ vx
 vx
 vx
 jZ
-EN
+SJ
 qC
 nk
 FS
@@ -49179,9 +48971,9 @@ vx
 vx
 vx
 jZ
-iv
+ab
 qC
-dc
+nk
 FS
 tK
 tK
@@ -49695,7 +49487,7 @@ sM
 qc
 bC
 qC
-dc
+nk
 jM
 nj
 nj
@@ -49952,7 +49744,7 @@ qC
 qC
 qC
 qC
-dc
+nk
 Od
 nj
 Kn
@@ -51215,21 +51007,21 @@ CR
 CR
 CR
 MG
-zA
-zA
+qo
+qo
 yT
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
-zA
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
+qo
 Jp
-zA
+qo
 eX
 lH
 CR
@@ -51751,7 +51543,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 Ne
 Vb
 Vb
@@ -52008,7 +51800,7 @@ lI
 lI
 lI
 lI
-qL
+ik
 dN
 kk
 kk
@@ -52218,24 +52010,24 @@ JJ
 QK
 QK
 QK
-Dq
+No
 QK
 QK
 QK
 QK
-Dq
+No
 QK
 QK
 QK
 QK
 QK
-Dq
+No
 QK
 QK
 Yh
 QK
 QK
-Dq
+No
 GT
 QK
 Up
@@ -53807,7 +53599,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -54064,7 +53856,7 @@ Kn
 Kn
 Kn
 lI
-yw
+Lb
 PV
 aP
 dR
@@ -54578,7 +54370,7 @@ Kn
 Kn
 Kn
 lI
-JO
+ik
 PV
 aP
 dR
@@ -54835,7 +54627,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -55092,7 +54884,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -55349,7 +55141,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -55606,7 +55398,7 @@ hz
 hz
 Kn
 lI
-yw
+Lb
 PV
 aP
 dR
@@ -55863,7 +55655,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -56120,7 +55912,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -56377,7 +56169,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -56634,7 +56426,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 PV
 aP
 dR
@@ -57148,7 +56940,7 @@ eu
 SH
 Kn
 lI
-yw
+Lb
 PU
 mR
 mR
@@ -57405,7 +57197,7 @@ eu
 SH
 Kn
 lI
-yw
+Lb
 Ao
 kk
 kk
@@ -57662,7 +57454,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 BO
 AD
 pF
@@ -57919,7 +57711,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -58176,7 +57968,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -58433,7 +58225,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -58690,7 +58482,7 @@ eu
 SH
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -58947,7 +58739,7 @@ hz
 hz
 Kn
 lI
-yw
+Lb
 BO
 aP
 dR
@@ -59204,7 +58996,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -59461,7 +59253,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -59718,7 +59510,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -59975,7 +59767,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -60232,7 +60024,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -60489,7 +60281,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -60746,7 +60538,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 BO
 aP
 dR
@@ -61003,7 +60795,7 @@ Kn
 Kn
 Kn
 lI
-yw
+Lb
 BO
 fy
 ll
@@ -61260,7 +61052,7 @@ Kn
 Kn
 Kn
 lI
-qL
+ik
 uV
 Vb
 Vb

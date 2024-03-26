@@ -6,7 +6,7 @@
 	item_state = "arm_blade"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
-	force = 30
+	force = 33
 	sharp = TRUE
 	edge = TRUE
 	anchored = TRUE
@@ -68,7 +68,7 @@
 	icon_state = "ling_shield"
 	item_state = "ling_shield"
 	contained_sprite = TRUE
-	force = 15 //Bash the crap out of people
+	force = 22 //Bash the crap out of people
 	slot_flags = null
 	anchored = TRUE
 	throwforce = 0 //Just to be on the safe side

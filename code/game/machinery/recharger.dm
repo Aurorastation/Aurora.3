@@ -55,7 +55,7 @@
 			return TRUE
 		anchored = !anchored
 		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
-		playsound(loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
 
 	if (istype(attacking_item, /obj/item/gripper))//Code for allowing cyborgs to use rechargers

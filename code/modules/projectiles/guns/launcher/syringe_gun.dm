@@ -68,7 +68,7 @@
 	icon_state = "syringegun"
 	item_state = "syringegun"
 	w_class = ITEMSIZE_NORMAL
-	force = 7
+	force = 16
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	slot_flags = SLOT_BELT
 

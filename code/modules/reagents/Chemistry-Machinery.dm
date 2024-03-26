@@ -95,7 +95,7 @@
 	else if(attacking_item.iswrench())
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
-		playsound(src.loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 
 	if(ui?.user)
 		ui = SStgui.try_update_ui(user, src, ui)

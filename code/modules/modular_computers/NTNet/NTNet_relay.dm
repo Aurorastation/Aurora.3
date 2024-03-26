@@ -123,7 +123,7 @@
 
 /obj/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
-		playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch."))
 		return
@@ -131,7 +131,7 @@
 		if(!panel_open)
 			to_chat(user, SPAN_WARNING("Open the maintenance panel first."))
 			return
-		playsound(get_turf(src), attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]!"))
 
 		for(var/atom/movable/A in component_parts)

@@ -49,7 +49,7 @@
 		return TRUE
 	else if(attacking_item.iswrench())
 		anchored = !anchored
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.visible_message("<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 								"You have [anchored ? "" : "un" ]secured \the [src]!")
 		update_icon()

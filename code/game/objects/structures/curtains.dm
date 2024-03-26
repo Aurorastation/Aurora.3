@@ -60,7 +60,7 @@
 			if(C != src && C.anchored) //Can't secure more than one curtain in a tile
 				to_chat(user, "There is already a curtain secured here!")
 				return
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."))
 
 /obj/structure/curtain/proc/toggle()

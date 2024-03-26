@@ -23,7 +23,7 @@
 	density = FALSE
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5
+	force = 11
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 5

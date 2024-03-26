@@ -156,6 +156,13 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
+/obj/outfit/admin/ssmd_ipc/post_equip(mob/living/carbon/human/H, visualsOnly)
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
+		tag.citizenship_info = CITIZENSHIP_NONE
+
 /obj/outfit/admin/ssmd_ipc/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
