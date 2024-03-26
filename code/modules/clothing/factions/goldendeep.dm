@@ -124,7 +124,7 @@
 
 /obj/item/clothing/accessory/poncho/goldendeep
 	name = "golden deep cape"
-	desc = "Viewed as ostentatious by outsiders (and perhaps insiders, for that matter,) capes nonetheless remain as a means of quickly broadcasting one's status (or pretentions of status).
+	desc = "Viewed as ostentatious by outsiders (and perhaps insiders, for that matter,) capes nonetheless remain as a means of quickly broadcasting one's status (or pretentions of status)."
 	icon_state = "golden_cape"
 	item_state = "golden_cape"
 	icon = 'icons/clothing/suits/capes/golden_cape.dmi'
@@ -156,7 +156,7 @@
 
 /obj/item/clothing/accessory/poncho/goldendeep/desertadornment
 	name = "desert adornment"
-	desc = "Lightweight and soft, this sleeveless coat feels like it's hardly anything at all, but it keeps the sun from bearing down on the wearer.
+	desc = "Lightweight and soft, this sleeveless coat feels like it's hardly anything at all, but it keeps the sun from bearing down on the wearer."
 	icon_state = "desert_adornment"
 	item_state = "desert_adornment"
 	icon = 'icons/clothing/suits/capes/desert_adornment.dmi'
