@@ -91,9 +91,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light_switch{
-	pixel_y = -19
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
@@ -1393,7 +1390,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber/huge,
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled,
 /area/shuttle/xanu_boarder/main)
 "eW" = (
@@ -1957,7 +1954,9 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow/ammo)
 "gS" = (
-/obj/machinery/suit_cycler,
+/obj/machinery/suit_cycler{
+	req_access = list(222)
+	},
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6304,10 +6303,6 @@
 /area/ship/xanu_frigate/weapon/longbow)
 "wj" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = -20
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
@@ -14233,10 +14228,6 @@
 "WY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
-	},
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = 20
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
