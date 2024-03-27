@@ -2195,7 +2195,6 @@
 	set category = "Hivenet"
 
 	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
-	var/current_area = get_area(src)
 	var/list/messages = list(
 		"I remain operational.",
 		"Message received.",
@@ -2205,9 +2204,9 @@
 		"Minor damage registered.",
 		"Damage registered",
 		"Critical damage registered",
-		"Assistance required at [current_area].",
-		"Hostiles sighted at [current_area].",
-		"[current_area] is clear of threats."
+		"Assistance required at my location.",
+		"Hostiles sighted at my location.",
+		"Location clear of threats."
 	)
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You are in no state to do that!"))
