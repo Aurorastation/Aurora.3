@@ -58,6 +58,10 @@
 	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
 	var/mob/oranges_ear/assigned_oranges_ear
 
+	/// How pathing algorithm will check if this turf is passable by itself (not including content checks). By default it's just density check.
+	/// WARNING: Currently to use a density shortcircuiting this does not support dense turfs with special allow through function
+	var/pathing_pass_method = TURF_PATHING_PASS_DENSITY
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -516,3 +520,4 @@ var/const/enterloopsanity = 100
 	for(var/obj/effect/O in src)
 		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
 			qdel(O)
+	clean_blood()

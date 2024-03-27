@@ -57,6 +57,10 @@
 	var/bluespace_called_message
 	var/bluespace_recall_message
 
+	/// If this map has ports of call and refuels there. Crew are implied to be able to leave to these ports.
+	/// Ports of call are taken from the current map sector.
+	var/ports_of_call = FALSE
+
 	var/evac_controller_type = /datum/evacuation_controller
 
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.

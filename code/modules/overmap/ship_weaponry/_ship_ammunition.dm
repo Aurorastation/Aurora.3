@@ -141,7 +141,7 @@
 /obj/item/ship_ammunition/proc/unwield()
 	wielded = FALSE
 
-/obj/item/ship_ammunition/dropped(var/mob/living/user)
+/obj/item/ship_ammunition/dropped(mob/user)
 	..()
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()

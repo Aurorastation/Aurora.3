@@ -429,14 +429,16 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		go_in(user, M)
 		return TRUE
 
-/obj/machinery/cryopod/MouseDrop_T(atom/movable/O, mob/living/user)
-	if(!istype(user))
-		return
-	if(!check_occupant_allowed(O))
+/obj/machinery/cryopod/MouseDrop_T(atom/dropping, mob/user)
+	if(!istype(user, /mob/living))
 		return
 
-	var/mob/living/M = O
-	go_in(user, M)
+	if(!check_occupant_allowed(dropping))
+		return
+
+	var/mob/living/M = dropping
+	if(istype(M))
+		go_in(user, M)
 
 /obj/machinery/cryopod/verb/move_inside()
 	set name = "Enter Pod"

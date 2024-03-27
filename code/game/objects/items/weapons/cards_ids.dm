@@ -157,9 +157,9 @@ var/const/NO_EMAG_ACT = -50
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, SOUTH, ignore_parent_dir = TRUE)
+	front = getFlatIcon(M, SOUTH)
 	front.Scale(128, 128)
-	side = getFlatIcon(M, WEST, ignore_parent_dir = TRUE)
+	side = getFlatIcon(M, WEST)
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)

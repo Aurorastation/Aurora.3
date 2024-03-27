@@ -135,7 +135,8 @@
 /obj/machinery/suit_cycler/relaymove(var/mob/user)
 	eject_occupant(user)
 
-/obj/machinery/suit_cycler/MouseDrop_T(mob/living/M, mob/living/user)
+/obj/machinery/suit_cycler/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/M = dropping
 	if(use_check_and_message(user))
 		return
 	if(!istype(M))

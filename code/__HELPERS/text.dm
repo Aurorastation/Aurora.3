@@ -652,6 +652,8 @@
 	t = replacetext(t, "\[flag_izweski_small\]", "<img src = izweskiflag_small.png>")
 	t = replacetext(t, "\[logo_golden\]", "<img src = goldenlogo.png>")
 	t = replacetext(t, "\[logo_golden_small\]", "<img src = goldenlogo_small.png>")
+	t = replacetext(t, "\[logo_pvpolice\]", "<img src = pvpolicelogo.png>")
+	t = replacetext(t, "\[logo_pvpolice_small\]", "<img src = pvpolicelogo_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
@@ -720,6 +722,8 @@
 		t = replacetext(t, "<img src = nkaflag.png>", "\[flag_nka\]")
 		t = replacetext(t, "<img src = izweskiflag.png>", "\[flag_izweski\]")
 		t = replacetext(t, "<img src = goldenlogo.png>", "\[logo_golden\]")
+		t = replacetext(t, "<img src = pvpolicelogo.png>", "\[logo_pvpolice\]")
+		t = replacetext(t, "<img src = pvpolicelogo_small.png>", "\[logo_pvpolice_small\]")
 
 	return t
 

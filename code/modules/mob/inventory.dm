@@ -492,7 +492,7 @@ var/list/slot_equipment_priority = list( \
 			. += I
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
-	var/datum/outfit/O = null
+	var/obj/outfit/O = null
 
 	if(ispath(outfit))
 		O = new outfit
@@ -506,7 +506,7 @@ var/list/slot_equipment_priority = list( \
 	return O.equip(src, visualsOnly)
 
 /mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
-	var/datum/outfit/O = null
+	var/obj/outfit/O = null
 
 	if(ispath(outfit))
 		O = new outfit

@@ -180,7 +180,8 @@
 	health = 100
 	var/datum/weakref/captured = null
 
-/obj/item/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
+/obj/item/trap/animal/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/M = dropping
 	if(!istype(M))
 		return
 

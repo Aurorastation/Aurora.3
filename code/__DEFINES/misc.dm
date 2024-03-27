@@ -28,9 +28,6 @@
 #define INVISIBILITY_MAXIMUM		100
 #define INVISIBILITY_ABSTRACT		101	// Special invis value that can never be seen by see_invisible.
 
-// Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
-#define PROCESS_KILL 26 // Used to trigger removal from a processing list.
-
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2

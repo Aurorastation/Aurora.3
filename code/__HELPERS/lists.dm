@@ -21,6 +21,9 @@
 
 ///Returns a list in plain english as a string
 /proc/english_list(list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "" )
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/total = length(input)
 	switch(total)
 		if (0)
@@ -33,10 +36,8 @@
 			var/output = ""
 			var/index = 1
 			while (index < total)
-				if (index == total - 1)
-					comma_text = final_comma_text
-
-				output += "[input[index]][comma_text]"
+				//Slightly reformatted from overriding `comma_text` from the TG version as flags it as breaking purity otherwise
+				output += "[input[index]][(index == total - 1) ? final_comma_text : comma_text]"
 				index++
 
 			return "[output][and_text][input[index]]"

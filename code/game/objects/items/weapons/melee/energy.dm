@@ -39,7 +39,7 @@
 	edge = initial(edge)
 	w_class = initial(w_class)
 
-/obj/item/melee/energy/dropped(var/mob/user)
+/obj/item/melee/energy/dropped(mob/user)
 	..()
 	if(!istype(loc,/mob))
 		deactivate(user)

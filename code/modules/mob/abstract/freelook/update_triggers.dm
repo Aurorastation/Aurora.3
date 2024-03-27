@@ -5,11 +5,6 @@
 		for(var/datum/visualnet/VN in GLOB.visual_nets)
 			VN.update_visibility(A, opacity_check)
 
-/atom/Destroy()
-	if(opacity)
-		updateVisibility(src)
-	. = ..()
-
 /atom/set_opacity()
 	. = ..()
 	if(.)

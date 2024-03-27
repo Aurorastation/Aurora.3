@@ -127,7 +127,7 @@
 		LoseTarget()
 	if(target_mob in targets)
 		if(get_dist(src, target_mob) <= 6)
-			walk(src, 0)
+			SSmove_manager.stop_looping(src)
 			OpenFire(target_mob)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/activate_beacon()

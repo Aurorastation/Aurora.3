@@ -25,7 +25,7 @@
 	src.player = player
 	src.sound_type = ASFX_INSTRUMENT
 
-	var/channel = sound_player.PrivGetChannel(src) //Attempt to find a channel
+	var/channel = GLOB.sound_player.PrivGetChannel(src) //Attempt to find a channel
 	if(!isnum(channel))
 		CRASH("All available sound channels are in active use.")
 	sound.channel = channel
@@ -52,5 +52,6 @@
 
 /datum/sound_token/instrument/Destroy()
 	. = ..()
+	GLOB.destroyed_event.unregister(source, src, /datum/proc/qdel_self)
 	player.unsubscribe(src)
 	player = null

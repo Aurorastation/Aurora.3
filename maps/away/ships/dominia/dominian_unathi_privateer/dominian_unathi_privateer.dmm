@@ -475,8 +475,8 @@
 /area/ship/dominian_unathi/engineering)
 "dF" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia/unathi,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/suit/space/void/dominia,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/corner/orange{
@@ -1072,6 +1072,7 @@
 	dir = 8;
 	pixel_x = -7
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "ip" = (
@@ -6062,6 +6063,7 @@
 	dir = 4;
 	pixel_x = 6
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "PR" = (
@@ -6292,6 +6294,11 @@
 "RC" = (
 /obj/machinery/computer/ship/helm,
 /obj/structure/railing/mapped,
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -28;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "RI" = (
@@ -7240,8 +7247,8 @@
 /area/ship/dominian_unathi/crew)
 "Xh" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia/unathi,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/suit/space/void/dominia,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/corner/orange{
@@ -7545,8 +7552,8 @@
 /area/shuttle/dominian_unathi)
 "YF" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/dominia/unathi,
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/suit/space/void/dominia,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/corner/orange{

@@ -373,7 +373,7 @@
 		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
 		return
 
-/obj/item/gun/energy/vaurca/typec/dropped(var/mob/user)
+/obj/item/gun/energy/vaurca/typec/dropped(mob/user)
 	..()
 	if(!istype(loc,/mob))
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)

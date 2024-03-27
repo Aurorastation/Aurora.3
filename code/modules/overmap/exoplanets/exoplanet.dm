@@ -75,6 +75,10 @@
 	var/generated_name = TRUE
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
+	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
+	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
+	var/list/unit_test_groups = list()
+
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
@@ -93,7 +97,35 @@
 /obj/effect/overmap/visitable/sector/exoplanet/update_icon()
 	icon_state = "globe[rand(1,3)]"
 
-/obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/sector/exoplanet/New(loc, max_x, max_y, being_generated_for_unit_test = FALSE)
+
+	#if defined(UNIT_TEST)
+
+	//If we are being generated for unit testing, determine if we actually want to be generated here or not
+	if(being_generated_for_unit_test)
+
+		//Check that noone forgot to set the test group on an exoplanet, except for the lore ones, we don't care about them
+		//as we do not test them currently
+		if(!length(src.unit_test_groups) && src.ruin_planet_type != PLANET_LORE)
+			SSunit_tests_config.UT.fail("**** The exoplanet --> [src.name] - [src.type] <-- does not have any unit test group set! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+		//Check that we are in this test group, otherwise skip this exoplanet type from generation
+		var/in_this_test_group = FALSE
+		for(var/unit_test_group in src.unit_test_groups)
+			if((unit_test_group in SSunit_tests_config.config["exoplanet_types_unit_test_groups"]) || SSunit_tests_config.config["exoplanet_types_unit_test_groups"] == "*")
+				in_this_test_group = TRUE
+				break
+
+		if(!in_this_test_group)
+			SSunit_tests_config.UT.debug("**** The exoplanet --> [src.name] - [src.type] <-- was not loaded as its group is not in the exoplanet_types_unit_test_groups! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+	#endif //UNIT_TEST
+
+
 	if(!SSatlas.current_map.use_overmap)
 		return
 

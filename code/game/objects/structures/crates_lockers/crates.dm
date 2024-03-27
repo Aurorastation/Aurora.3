@@ -246,9 +246,11 @@
 				/obj/item/ore/coal = 3,
 				/obj/item/ore/diamond = 1,
 				/obj/item/ore/glass = 3,
+				/obj/item/ore/aluminium = 3,
 				/obj/item/ore/gold = 2,
 				/obj/item/ore/iron = 3,
 				/obj/item/ore/osmium = 1,
+				/obj/item/ore/lead = 2,
 				/obj/item/ore/silver = 2,
 				/obj/item/ore/slag = 1,
 				/obj/item/ore/uranium = 1

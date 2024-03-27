@@ -276,7 +276,7 @@
 	name = initial(name)
 	update_icon()
 
-/obj/item/shockpaddles/dropped(var/mob/living/user)
+/obj/item/shockpaddles/dropped(mob/user)
 	..()
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()

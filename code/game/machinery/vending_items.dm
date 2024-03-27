@@ -99,6 +99,11 @@
 	vend_id = "zora"
 	charges = 40
 
+/obj/item/device/vending_refill/frontiervend
+	name = "frontiervend resupply canister"
+	vend_id = "frontiervend"
+	charges = 220
+
 /obj/item/device/vending_refill/battlemonsters
 	name = "Battlemonsters resupply canister"
 	vend_id = "battlemonsters"

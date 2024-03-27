@@ -28,7 +28,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/melee/arm_blade/dropped(var/mob/living/user)
+/obj/item/melee/arm_blade/dropped(mob/user)
 	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
@@ -86,7 +86,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/shield/riot/changeling/dropped(var/mob/living/user)
+/obj/item/shield/riot/changeling/dropped(mob/user)
 	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")

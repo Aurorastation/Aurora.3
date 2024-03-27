@@ -25,7 +25,7 @@
 			armor_penetration = 40
 			icon_state = "psiblade_long"
 
-/obj/item/psychic_power/psiblade/dropped(var/mob/living/user)
+/obj/item/psychic_power/psiblade/dropped(mob/user)
 	. = ..()
 	playsound(loc, 'sound/effects/psi/power_fail.ogg', 30, 1)
 	QDEL_IN(src, 1)

@@ -510,7 +510,7 @@
 
 	data["charge"] =       cell ? round(cell.charge,1) : 0
 	data["maxcharge"] =    cell ? cell.maxcharge : 0
-	data["chargestatus"] = cell ? FLOOR((cell.charge/cell.maxcharge)*50) : 0
+	data["chargestatus"] = cell ? FLOOR((cell.charge/cell.maxcharge)*50, 1) : 0
 
 	data["emagged"] =       subverted
 	data["coverlock"] =     locked
@@ -800,7 +800,7 @@
 	..()
 	null_wearer(user)
 
-/obj/item/rig/dropped(var/mob/user)
+/obj/item/rig/dropped(mob/user)
 	..()
 
 	if(user.client)

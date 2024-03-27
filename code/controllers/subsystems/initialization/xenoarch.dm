@@ -13,8 +13,6 @@ SUBSYSTEM_DEF(xenoarch)
 	var/list/digsite_spawning_turfs = list()
 
 /datum/controller/subsystem/xenoarch/Initialize(timeofday)
-	set background = TRUE
-
 	//create digsites
 	for(var/turf/TIW in world)
 		CHECK_TICK

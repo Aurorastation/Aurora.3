@@ -1,39 +1,7 @@
-/atom
-	layer = 2
-	var/level = 2
-	var/atom_flags = 0
-	var/init_flags = 0
-	var/list/fingerprints
-	var/list/fingerprintshidden
-	var/fingerprintslast = null
-	var/list/blood_DNA
-	var/list/other_DNA
-	var/other_DNA_type = null
-	var/was_bloodied
-	var/blood_color
-	var/last_bumped = 0
-	var/pass_flags = 0
-	var/throwpass = 0
-	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
-	var/simulated = 1 // Filter for actions. Used by lighting overlays.
-	var/fluorescent // Shows up under a UV light.
-
-	/// Chemistry.
-	var/datum/reagents/reagents = null
-	var/list/reagents_to_add
-	var/list/reagent_data
-
-	var/list/atom_colours // Used to store the different colors on an atom, such as its inherent color, the colored paint applied on it, special color effect, and so on.
-
-	// Detective work, used for the duplicate data points kept in the scanners.
-	var/list/original_atom
-
-	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
-
-	// Extra descriptions.
-	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+/*############################################
+		THIS FILE IS DEPRECATED,
+	USE code\game\atom\_atom.dm INSTEAD
+############################################*/
 
 /atom/proc/reveal_blood()
 	return

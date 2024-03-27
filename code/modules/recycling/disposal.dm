@@ -246,7 +246,8 @@
 
 // mouse drop another mob or self
 //
-/obj/machinery/disposal/MouseDrop_T(mob/target, mob/user)
+/obj/machinery/disposal/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/target = dropping
 	if(user.stat || !user.canmove || !istype(target))
 		return
 	if(target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1)

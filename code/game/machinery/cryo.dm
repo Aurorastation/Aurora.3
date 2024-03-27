@@ -266,12 +266,12 @@
 				qdel(attacking_item)
 	return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/dropping, mob/user)
 	if(!istype(user))
 		return
-	if(!ismob(O))
+	if(!ismob(dropping))
 		return
-	var/mob/living/L = O
+	var/mob/living/L = dropping
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.victim == L)
 			to_chat(usr, SPAN_WARNING("[L.name] will not fit into the cryo because they have a slime latched onto their head."))

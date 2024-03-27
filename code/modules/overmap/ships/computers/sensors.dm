@@ -75,7 +75,7 @@
 	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
 		var/volume = 15
 		if(!sound_token)
-			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
 		sound_token.SetVolume(volume)
 	else if(sound_token)
 		QDEL_NULL(sound_token)

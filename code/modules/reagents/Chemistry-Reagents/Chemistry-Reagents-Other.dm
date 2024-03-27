@@ -41,7 +41,7 @@
 
 /singleton/reagent/crayon_dust/grey //Mime
 	name = "Grey Crayon Dust"
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "chalky crushed dreams"
 
 /singleton/reagent/crayon_dust/brown //Rainbow
@@ -53,7 +53,7 @@
 	name = "Paint"
 	description = "This paint will stick to almost any object."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	overdose = REAGENTS_OVERDOSE * 0.5
 	color_weight = 0
 	taste_description = "chalk"
@@ -211,7 +211,12 @@
 		if(M.mind)
 			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			if(vampire)
-				vampire.frenzy += removed * 5
+				if(vampire.status & VAMP_ISTHRALL)
+					if(prob(10))
+						thralls.remove_antagonist(M.mind)
+				else
+					vampire.frenzy += removed * 5
+					M.take_organ_damage(0, removed * 6)
 			if(cult.is_antagonist(M.mind) && prob(10))
 				cult.remove_antagonist(M.mind)
 	if(alien && alien == IS_UNDEAD)
@@ -224,6 +229,24 @@
 	return
 
 /singleton/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(ishuman(M))
+		if(M.mind)
+			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
+			if(vampire)
+				if(vampire.status & VAMP_ISTHRALL)
+					return
+				else if(!M.unacidable && removed > 0)
+					if(ishuman(M) && REAGENT_VOLUME(holder, type) >= 8)
+						var/mob/living/carbon/human/H = M
+						var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
+						if(affecting)
+							if(affecting.take_damage(0, removed * 6 * 0.1))
+								H.UpdateDamageIcon()
+							if(prob(100 * removed / 8)) // Applies disfigurement
+								H.emote("scream")
+								H.status_flags |= DISFIGURED
+					else
+						M.take_organ_damage(0, removed * 6 * 0.1)
 	if(alien && alien == IS_UNDEAD)
 		M.adjust_fire_stacks(5)
 		M.IgniteMob()
@@ -441,14 +464,14 @@
 	name = "Glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "sweetness"
 
 /singleton/reagent/nitroglycerin
 	name = "Nitroglycerin"
 	description = "Nitroglycerin is a heavy, colorless, oily, explosive liquid obtained by nitrating glycerol."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "oil"
 
 /singleton/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)

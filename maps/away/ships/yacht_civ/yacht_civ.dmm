@@ -463,7 +463,7 @@
 "ff" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/storage/box/produce,
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/produce,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -4605,6 +4605,9 @@
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
 	pixel_x = 7
+	},
+/obj/machinery/button/distress{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
