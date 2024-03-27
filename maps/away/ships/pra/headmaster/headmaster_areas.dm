@@ -35,6 +35,10 @@
 	name = "Headmaster Barracks"
 	icon_state = "crew_quarters"
 
+/area/headmaster_ship/bathroom
+	name = "Headmaster Ship Washroom"
+	icon_state = "washroom"
+
 /area/headmaster_ship/captain_quarters
 	name = "Headmaster Ship Captain Quarters"
 	icon_state = "captain"

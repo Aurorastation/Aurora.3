@@ -1990,7 +1990,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "fx" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
@@ -2071,26 +2071,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship)
-"fG" = (
-/obj/machinery/firealarm/south,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/headmaster_ship/armory)
 "fH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2322,7 +2302,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "gh" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -3043,7 +3023,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "iF" = (
 /obj/machinery/iff_beacon{
 	pixel_y = 4;
@@ -3119,7 +3099,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "iU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -3131,7 +3111,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "iW" = (
 /obj/machinery/power/apc/north{
 	req_access = list(209)
@@ -3139,7 +3119,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "iY" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/regular{
@@ -3161,7 +3141,6 @@
 	},
 /area/headmaster_ship/medbay)
 "iZ" = (
-/obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -3200,7 +3179,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "ji" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -3484,7 +3463,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "kg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -3499,7 +3478,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "ki" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -3644,7 +3623,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "kH" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -4026,7 +4005,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "lW" = (
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -4653,7 +4632,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "pi" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -4974,6 +4953,9 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/commissar_quarters)
+"sE" = (
+/turf/simulated/wall/shuttle/raider,
+/area/headmaster_ship/bathroom)
 "sR" = (
 /obj/machinery/light/spot{
 	dir = 8
@@ -5674,7 +5656,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "AC" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -6317,7 +6299,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/headmaster_ship/mess_hall)
+/area/headmaster_ship/bathroom)
 "GW" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/corner/red{
@@ -6995,7 +6977,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	use_power = 1;
 	frequency = 1441;
-	id = "headmaster_co2_out_starboard"
+	id_tag = "headmaster_co2_out_starboard"
 	},
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -19320,10 +19302,10 @@ gK
 Fm
 Fm
 Fm
-RC
-RC
-RC
-RC
+sE
+sE
+sE
+sE
 aS
 RC
 RC
@@ -19485,7 +19467,7 @@ Fm
 iT
 jg
 fv
-RC
+sE
 Do
 ty
 RC
@@ -19647,7 +19629,7 @@ Fm
 GV
 kh
 lV
-RC
+sE
 BP
 mx
 RC
@@ -19807,9 +19789,9 @@ nf
 av
 IA
 iU
-RC
-RC
-RC
+sE
+sE
+sE
 ex
 ty
 RC
@@ -19817,7 +19799,7 @@ Wx
 hH
 lX
 YX
-fG
+oT
 ha
 XI
 dZ
@@ -19971,7 +19953,7 @@ Fm
 pg
 AB
 kG
-RC
+sE
 hE
 OD
 RC
@@ -20131,9 +20113,9 @@ ho
 ho
 Fm
 iW
-RC
-RC
-RC
+sE
+sE
+sE
 bh
 ty
 RC
@@ -20295,7 +20277,7 @@ Fm
 gg
 iE
 kf
-RC
+sE
 qH
 kW
 RC
@@ -20454,10 +20436,10 @@ ia
 fY
 cp
 Fm
-RC
-RC
-RC
-RC
+sE
+sE
+sE
+sE
 bh
 ty
 RC
