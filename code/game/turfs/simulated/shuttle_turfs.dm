@@ -55,7 +55,7 @@
 	color = "#6176a1"
 
 /turf/simulated/wall/shuttle/dark/cardinal/coalition
-	color = "#949ea3"
+	color = COLOR_COALITION
 
 /turf/simulated/wall/shuttle/dark/cardinal/gold
 	color = COLOR_GOLD

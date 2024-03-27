@@ -29,7 +29,7 @@
 	These same redundancies, designed for greater survivability in a peer-on-peer conflict, make the Rapier an expensive investment, one which has seen the Estoc survive in the navies of other Coalition states."
 	icon_state = "xanu_frigate"
 	moving_state = "xanu_frigate_moving"
-	colors = "#899997"
+	colors = COLOR_COALITION
 	designer = "dNA Defense & Aerospace Shipyards"
 	volume = "108 meters length, 71 meters beam/width, 45 meters vertical height"
 	drive = "Medium-Speed Warp Acceleration FTL Drive"
@@ -78,7 +78,7 @@
 	shuttle = "Xanu Fighter"
 	icon_state = "canary"
 	moving_state = "canary_moving"
-	colors = "#899997"
+	colors = COLOR_COALITION
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 0.5 SECONDS
 	vessel_mass = 800
@@ -120,7 +120,7 @@
 	shuttle = "Xanu Boarder"
 	icon_state = "intrepid"
 	moving_state = "intrepid_moving"
-	colors = "#899997"
+	colors = COLOR_COALITION
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 0.5 SECONDS
 	vessel_mass = 1500
