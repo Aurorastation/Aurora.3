@@ -41,11 +41,12 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
-	if((M.chem_doses[type] > 30) && prob(2) || ((M.bodytemperature < 189) && M.chem_effects[CE_CRYO] && prob(10))) //Bicaridine treats arterial bleeding when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
+	if((M.chem_doses[type] > 30) && prob(2) || ((M.bodytemperature < 189) && M.chem_effects[CE_CRYO] && prob(25))) //Bicaridine treats arterial bleeding when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
+				M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
 
 /singleton/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.dizziness = max(100, M.dizziness)
