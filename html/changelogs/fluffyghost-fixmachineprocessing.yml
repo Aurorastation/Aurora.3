@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
+  - bugfix: "Fixed a runtime found on mechs."
   - bugfix: "Fixed machine processing for ores going in the negatives for alloying."
   - backend: "Some more optimizations, DMdocs, turned a var into a global one, some defines added and made into bitflags, yada yada you know the usual deal."
