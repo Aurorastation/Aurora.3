@@ -370,7 +370,7 @@
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()
 		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."))
-		playsound(src, 'sound/machines/compbeep5.ogg')
+		playsound(src, 'sound/machines/compbeep5.ogg', 50)
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TRUE
 

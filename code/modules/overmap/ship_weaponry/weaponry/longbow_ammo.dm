@@ -19,7 +19,7 @@
 				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[H] connects \the [P] to the casing!"))
 				H.drop_from_inventory(P)
 				add_primer(P)
-				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
 		if(istype(attacking_item, /obj/item/warhead) && !warhead)
 			var/obj/item/warhead/W = attacking_item
 			user.visible_message( SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."), SPAN_NOTICE("You start connecting \the [W] to the casing..."))
@@ -27,7 +27,7 @@
 				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[H] connects \the [W] to the casing!"))
 				H.drop_from_inventory(W)
 				add_warhead(W)
-				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
 	update_status()
 
 /obj/item/ship_ammunition/longbow/can_be_loaded()
