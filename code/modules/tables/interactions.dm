@@ -162,11 +162,11 @@
 					switch(H.a_intent)
 						if(I_GRAB)
 							H.visible_message(SPAN_NOTICE("[H] knocks on the table!"))
-							playsound(src, 'sound/effects/table_knock.ogg')
+							playsound(src, 'sound/effects/table_knock.ogg', 50)
 						if(I_HURT)
 							H.do_attack_animation(src)
 							H.visible_message(SPAN_WARNING("[H] slams [H.get_pronoun("his")] hand on the table!"))
-							playsound(src, 'sound/effects/table_slam.ogg')
+							playsound(src, 'sound/effects/table_slam.ogg', 50)
 							if(material.hardness > 15) //15 wood, 60 steel
 								var/obj/item/organ/external/hand/hand = H.zone_sel.selecting
 								if(!BP_IS_ROBOTIC(hand))
