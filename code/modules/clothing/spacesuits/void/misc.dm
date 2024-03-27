@@ -1034,6 +1034,7 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 	icon_supported_species_tags = "ipc"
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
+	refittable = TRUE
 
 /obj/item/clothing/suit/space/void/sol/konyang
 	name = "konyang aerospace forces voidsuit"
@@ -1044,6 +1045,7 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 	icon_supported_species_tags = "ipc"
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
+	refittable = TRUE
 
 /obj/item/clothing/suit/space/void/tcaf
 	name = "tau ceti armed forces voidsuit"
