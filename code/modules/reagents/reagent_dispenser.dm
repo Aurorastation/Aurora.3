@@ -419,8 +419,8 @@
 
 	if(src.loc)
 		var/datum/gas_mixture/env = src.loc.return_air()
-		if(env)
-			env.temperature = max(173, env.temperature - (reagents.total_volume/10))
+		if(env && reagents.total_volume)
+				env.temperature = max(173, env.temperature - (reagents.total_volume/10))
 
 	QDEL_IN(src, 10)
 
