@@ -2198,7 +2198,7 @@
 	var/current_area = get_area(src)
 	var/list/messages = list(
 		"I remain operational.",
-		"Message recieved.",
+		"Message received.",
 		"Order complete.",
 		"Cannot complete order.",
 		"I am on standby.",
