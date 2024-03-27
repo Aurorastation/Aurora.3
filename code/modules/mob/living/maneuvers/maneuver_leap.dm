@@ -35,7 +35,7 @@
 						damage_mod += 1
 			if(isturf(T))
 				T.visible_message(SPAN_DANGER("[H] lands on \the [T] with a quake!"))
-				playsound(get_turf(T), 'sound/effects/bangtaper.ogg')
+				playsound(get_turf(T), 'sound/effects/bangtaper.ogg', 80)
 				for(var/mob/living/L in range(2, T))
 					shake_camera(L, 2, 4)
 				for(var/mob/living/rebecca in T)

@@ -233,11 +233,11 @@
 /obj/item/gun/energy/rifle/laser/qukala
 	name = "geop cannon"
 	desc = "An advanced weapon of Skrell design, this Geop Cannon uses a tiny warp accelerator to super heat particles."
-	desc_extended = ""
 	icon = 'icons/obj/item/gun/energy/rifle/qukala_heavy.dmi'
 	icon_state = "qukala_heavy"
 	item_state = "qukala_heavy"
 	max_shots = 10
+	self_recharge = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser/skrell/heavy
 
 /obj/item/gun/energy/rifle/hegemony
