@@ -1100,17 +1100,9 @@
 		return
 	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Also handles the effects of fevers
 	if(!(REAGENT_VOLUME(holder, type) > overdose))
-		if(REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) > 5)
-			if(M.bodytemperature > M.species.cold_level_3)
-				M.bodytemperature = max(140, M.bodytemperature - (50 * TEMPERATURE_DAMAGE_COEFFICIENT)) //will have body temp fluctuate in and out of cryogenic ranges, so not 100% without taking some other measures to cool a subject.
-		else if(REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate) > 5)
-			if(M.bodytemperature < M.species.heat_level_3)
-				M.bodytemperature = min(474, M.bodytemperature + (50 * TEMPERATURE_DAMAGE_COEFFICIENT))
-
-		var/combination_present = REAGENT_VOLUME(M.reagents, /singleton/reagent/cryosilicate) || REAGENT_VOLUME(M.reagents, /singleton/reagent/pyrosilicate)
-		if((M.bodytemperature > 310) && !combination_present)
+		if(M.bodytemperature > 310)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
-		else if((M.bodytemperature < 311) && !combination_present)
+		else if(M.bodytemperature < 311)
 			M.bodytemperature = min(310, M.bodytemperature + (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /singleton/reagent/leporazine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
