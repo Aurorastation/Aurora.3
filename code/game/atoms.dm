@@ -767,3 +767,7 @@
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)
 		qdel(bullet_mark)
+
+/// things that object need to do when a movable atom inside it is deleted
+/atom/proc/on_stored_atom_del(atom/movable/AM)
+	return

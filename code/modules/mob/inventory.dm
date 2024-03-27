@@ -371,6 +371,9 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE
 
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_THROW, item) & COMPONENT_CANCEL_THROW)
+		return
+
 	var/throw_range = item.throw_range
 	var/itemsize
 

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported pouches from CM, these are storage items that fit in your pockets. A bunch have been mapped into the cargo warehouse."
