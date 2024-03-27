@@ -335,8 +335,9 @@
 		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
+		/obj/item/reagent_containers/pill/cocaine = 3,
+		/obj/item/reagent_containers/pill/heorin = 2,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
-		/obj/item/contraband/poster = 5,
 		/obj/item/material/knife/butterfly = 2,
 		/obj/item/material/butterflyblade = 3,
 		/obj/item/material/butterflyhandle = 3,
@@ -345,20 +346,19 @@
 		/obj/item/material/knife/tacknife = 1,
 		/obj/item/material/kitchen/utensil/knife/boot = 2,
 		/obj/item/storage/secure/briefcase/money = 1,
+		/obj/item/gun/projectile/pistol = 0.2,
+		/obj/item/gun/projectile/revolver/derringer = 0.4,
+		/obj/item/gun/projectile/shotgun/improvised/sawn = 0.3,
+		/obj/item/storage/pill_bottle/spotlight = 1,
+		/obj/item/pen/reagent/paralysis = 1,
+		/obj/item/pen/reagent/poison = 1,
 		/obj/item/material/knife/butterfly/switchblade = 1,
 		/obj/item/reagent_containers/syringe/drugs = 1,
-		/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
-		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
-		/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
-		/obj/item/reagent_containers/food/snacks/grown/mushroom/reishi = 1,
-		/obj/item/reagent_containers/food/snacks/grown/mushroom/destroyingangel = 1,
-		/obj/item/reagent_containers/food/snacks/grown/mushroom/ghostmushroom = 0.5,
-		/obj/item/seeds/ambrosiavulgarisseed = 2,
-		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
 		/obj/item/reagent_containers/inhaler/xuxigas = 1
+
 	)
 
 /obj/random/coin
