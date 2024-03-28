@@ -40,13 +40,12 @@
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type] * 2)
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
-
-	if((M.chem_doses[type] > 30) && prob(2) || ((M.bodytemperature < 189) && M.chem_effects[CE_CRYO] && prob(25))) //Bicaridine treats arterial bleeding when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
+	if(((M.chem_doses[type] > 30) && prob(2)) || ((M.bodytemperature < 189) && prob(10))) //Bicaridine treats arterial bleeding when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
-				M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
+				M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain in your [E.name]!"))
 
 /singleton/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.dizziness = max(100, M.dizziness)
@@ -87,7 +86,7 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) //Cell regeneration spiralling out of control resulting in genetic damage.
 
-	if((M.bodytemperature < 192) && M.chem_effects[CE_CRYO])
+	if((M.bodytemperature < 192))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		if(head.disfigured && prob(10))
@@ -681,7 +680,7 @@
 				var/damage_healed = ((M.bodytemperature < 186) && M.chem_effects[CE_CRYO]) ? 2 : 1 //2x effective if administered in cryogenic conditions
 				I.damage = max(I.damage - damage_healed*removed, 0)
 
-		if((M.bodytemperature < 153) && M.chem_effects[CE_CRYO] && M.chem_effects[CE_ANTIBIOTIC]) //peridaxon in extracool cryogenic conditions alongside antibiotics will have a chance to de-nercotise liver and kidneys, though will incur overdose symptoms
+		if((M.bodytemperature < 153) && M.chem_effects[CE_ANTIBIOTIC]) //peridaxon in extracool cryogenic conditions alongside antibiotics will have a chance to de-nercotise liver and kidneys, though will incur overdose symptoms
 			H.infest_with_parasite(H, BP_TUMOUR_NONSPREADING, pick(H.organs), 10)
 			for(var/obj/item/organ/internal/O in H.internal_organs)
 				if((O.organ_tag == BP_LIVER) || (O.organ_tag == BP_KIDNEYS))
@@ -1385,7 +1384,7 @@
 		M.dizziness = max(200, M.dizziness + 15)
 		M.hallucination = max(M.hallucination, 100)
 		M.add_chemical_effect(CE_BLOODTHIN, 40) //treat (arterial) bleeding first
-		if(prob(25))
+		if(prob(40))
 			to_chat(M, SPAN_HIGHDANGER(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!", "You feel a painful pressure build up within your skull!", "An unbearable pain radiates throughout your head!")))
 			M.adjustHalLoss(rand(30,60)) //painshock levels of pain, though still managable.
 			M.Weaken(2)
@@ -1402,7 +1401,7 @@
 	if(.)
 		M.add_chemical_effect(CE_HALLUCINATE, 2)
 		if(prob(40))
-			M.add_chemical_effect(CE_HEPATOTOXIC, 1.5) //major downside of using cataleptinol, this will create more problems if left unchecked. outside of cryogenic conditions, this translates to trading ~25% brain activity for total liver failure; in cryogenic conditions, you trade ~40% brain activity for total liver failure.
+			M.add_chemical_effect(CE_HEPATOTOXIC, 2) //major downside of using cataleptinol, this will create more problems if left unchecked. outside of cryogenic conditions, this translates to trading ~25% brain activity for total liver failure; in cryogenic conditions, you trade ~40% brain activity for total liver failure.
 
 /singleton/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, 6*removed) //crashes both the brain & liver if you OD. Neurotoxic also stops it from healing, so you just fucked up a patient for no gain.
