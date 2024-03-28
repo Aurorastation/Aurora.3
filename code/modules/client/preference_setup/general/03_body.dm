@@ -924,7 +924,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 /datum/category_item/player_setup_item/general/body/proc/verify_robolimb_appropriate(datum/sprite_accessory/S)
 	var/organ_status = pref.organ_data[S.required_organ]
 	var/robolimb_manufacturer = pref.rlimb_data[name]
-	check_robolimb_appropriate(S, organ_status, robolimb_manufacturer)
+	. = check_robolimb_appropriate(S, organ_status, robolimb_manufacturer)
 
 /// This proc is used to check markings and facial hair after changing prosthesis.
 /datum/category_item/player_setup_item/general/body/proc/recheck_markings_and_facial_hair()
