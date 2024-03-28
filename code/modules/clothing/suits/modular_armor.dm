@@ -696,6 +696,35 @@
 	icon_state = "flagpatch_portantillia"
 	item_state = "flagpatch_portantillia"
 
+/obj/item/clothing/accessory/flagpatch/zora
+	name = "zo'ra hive flagpatch"
+	desc = "A flagpatch representing the Zo'ra Hive. This flag depicts the Zo'rane capital world of Caprice, \
+	bearing a torch representing their position within the Republic of Biesel."
+	icon_state = "flagpatch_zora"
+	item_state = "flagpatch_zora"
+
+/obj/item/clothing/accessory/flagpatch/klax
+	name = "k'lax hive flagpatch"
+	desc = "A flagpatch representing the K'lax Hive. This flag depicts the K'laxian capital world of Tret, \
+	bearing the quartered colours of the Izweski Hegemony to represent the Hive's vassalage."
+	icon_state = "flagpatch_klax"
+	item_state = "flagpatch_klax"
+
+/obj/item/clothing/accessory/flagpatch/cthur
+	name = "c'thur hive flagpatch"
+	desc = "A flagpatch representing the C'thur Hive. This flag depicts the star borne by the Nralakk Federation's \
+	own flag, representing the Hive's independence and gracious allegiance toward the Federation."
+	icon_state = "flagpatch_cthur"
+	item_state = "flagpatch_cthur"
+
+/obj/item/clothing/accessory/flagpatch/sedantis
+	name = "sedantis flagpatch"
+	desc = "A flagpatch representing the gas giant Sedantis and it's orbiting bodies. Sedantis I, also known as \
+	Vaur'avek'uyit, was the homeworld of the Vaurca. Symbolism involving it is often employed to represent greater \
+	pan-Vaurcaesian interests over the interests of the individual Hives."
+	icon_state = "flagpatch_sedantis"
+	item_state = "flagpatch_sedantis"
+
 // Wildlands
 
 /obj/item/clothing/accessory/flagpatch/fsf
