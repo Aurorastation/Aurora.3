@@ -1711,6 +1711,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/clipboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/longbow)
 "gc" = (
@@ -2332,6 +2333,14 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/super/critical/east,
+/obj/machinery/recharger{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/machinery/recharger{
+	pixel_x = 5;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "ih" = (
@@ -2848,7 +2857,7 @@
 	dir = 8;
 	pixel_x = -21;
 	pixel_y = 3;
-	id = "xanufrigate_medbayprivacy";
+	id = "xanufrigate_meetingprivacy";
 	name = "Privacy Shutters"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4352,6 +4361,11 @@
 /obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/mess_hall)
+"pi" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/xanu_boarder/main)
 "pj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -4778,6 +4792,9 @@
 "qI" = (
 /obj/structure/railing/mapped,
 /obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "qL" = (
@@ -5281,6 +5298,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "sK" = (
@@ -6674,6 +6692,10 @@
 /area/shuttle/xanu_boarder/main)
 "xH" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/device/flashlight/lamp{
+	pixel_x = 3;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/longbow)
 "xK" = (
@@ -9402,6 +9424,7 @@
 /obj/item/stack/rods/full,
 /obj/item/device/oxycandle,
 /obj/item/device/oxycandle,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_fighter)
 "Ha" = (
@@ -10163,6 +10186,7 @@
 "JA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/weapon/longbow)
 "JB" = (
@@ -10540,6 +10564,7 @@
 /obj/item/device/oxycandle,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/main)
 "Kv" = (
@@ -11736,7 +11761,8 @@
 	pixel_y = 32
 	},
 /mob/living/heavy_vehicle/premade/combat/coalition,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "OI" = (
@@ -13044,6 +13070,7 @@
 "Tf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/grauwolf)
 "Th" = (
@@ -14135,6 +14162,7 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
 /obj/random/smokable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "WJ" = (
@@ -34779,7 +34807,7 @@ Zm
 Zm
 Zm
 bX
-rP
+pi
 Ik
 fX
 Va

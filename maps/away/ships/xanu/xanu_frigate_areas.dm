@@ -13,7 +13,7 @@
 /area/ship/xanu_frigate/captain
 	name = "Xanu Frigate - Captain's Quarters"
 	icon_state = "captain"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environmentironment = SMALL_SOFTFLOOR
 
 /area/ship/xanu_frigate/meeting
 	name = "Xanu Frigate - Briefing Room"
@@ -27,7 +27,7 @@
 /area/ship/xanu_frigate/rec_room
 	name = "Xanu Frigate - Recreation Room"
 	icon_state = "library"
-	sound_env = LARGE_SOFTFLOOR
+	sound_environmentironment = LARGE_SOFTFLOOR
 
 /area/ship/xanu_frigate/crew_quarters
 	name = "Xanu Frigate - Crew Quarters"
@@ -53,7 +53,7 @@
 
 /area/ship/xanu_frigate/weapon
 	name = "Xanu Frigate - Weapon Bay"
-	sound_env = SMALL_ENCLOSED
+	sound_environmentironment = SMALL_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/xanu_frigate/weapon/longbow
@@ -84,7 +84,7 @@
 /area/ship/xanu_frigate/hangar
 	name = "Xanu Frigate - Fighter Hangar Bay"
 	icon_state = "dk_yellow"
-	sound_env = LARGE_ENCLOSED
+	sound_environmentironment = LARGE_ENCLOSED
 
 /area/ship/xanu_frigate/cargo_bay
 	name = "Xanu Frigate - Cargo Bay"
@@ -106,7 +106,7 @@
 /area/ship/xanu_frigate/engineering
 	name = "Xanu Frigate - Engineering"
 	icon_state = "engineering"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = LARGE_ENCLOSED
 	ambience = AMBIENCE_ENGINEERING
 
 /area/ship/xanu_frigate/engineering/port
@@ -122,7 +122,7 @@
 /area/ship/xanu_frigate/corridor
 	name = "Xanu Frigate - Corridor"
 	icon_state = "hallC"
-	sound_env = STONE_CORRIDOR
+	sound_environment = STONE_CORRIDOR
 
 /area/ship/xanu_frigate/corridor/fore_atrium
 	name = "Xanu Frigate - Fore Atrium"
