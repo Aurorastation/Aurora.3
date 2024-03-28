@@ -321,6 +321,7 @@ var/list/preferences_datums = list()
 		var/obj/screen/S = char_render_holders[index]
 		client?.screen -= S
 		qdel(S)
+	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	char_render_holders = null
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
@@ -336,10 +337,6 @@ var/list/preferences_datums = list()
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
-	else if(href_list["close"])
-		// User closed preferences window, cleanup anything we need to.
-		clear_character_previews()
-		return 1
 	return 1
 
 /datum/preferences/Topic(href, list/href_list)
@@ -375,8 +372,12 @@ var/list/preferences_datums = list()
 		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored.", "Permanently Delete Character", "No", "Yes") == "Yes")
 			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
 				delete_character_sql(usr.client)
+	else if(href_list["close"])
+		// User closed preferences window, cleanup anything we need to.
+		clear_character_previews()
+		return 1
 	else
-		return 0
+		return
 
 	ShowChoices(usr)
 	return 1
