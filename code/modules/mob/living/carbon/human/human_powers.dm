@@ -2198,7 +2198,7 @@
 	var/list/messages = list(
 		"I remain operational.",
 		"Message received.",
-		"Order complete.",
+		"Order completed.",
 		"Cannot complete order.",
 		"I am on standby.",
 		"Minor damage registered.",
