@@ -332,7 +332,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/unathi,
 /obj/random/civgun/rifle,
-/obj/item/gun/projectile/shotgun/pump/rifle/crackrifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /obj/item/ammo_magazine/crackrifle,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)

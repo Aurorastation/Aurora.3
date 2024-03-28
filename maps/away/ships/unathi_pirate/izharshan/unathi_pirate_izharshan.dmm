@@ -1522,7 +1522,7 @@
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/crackrifle,
-/obj/item/gun/projectile/shotgun/pump/rifle/crackrifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "XV" = (
