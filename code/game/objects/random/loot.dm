@@ -336,7 +336,7 @@
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/reagent_containers/pill/cocaine = 3,
-		/obj/item/reagent_containers/pill/heorin = 2,
+		/obj/item/reagent_containers/pill/heroin = 2,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/material/knife/butterfly = 2,
 		/obj/item/material/butterflyblade = 3,

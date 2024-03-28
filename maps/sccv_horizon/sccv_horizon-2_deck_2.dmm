@@ -7810,6 +7810,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/random/contraband,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
 "dFC" = (
@@ -24840,8 +24841,8 @@
 /area/maintenance/wing/starboard)
 "lEe" = (
 /obj/structure/closet/crate,
-/obj/random/loot,
 /obj/effect/floor_decal/industrial/warning,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lEv" = (
@@ -33899,6 +33900,7 @@
 	pixel_x = -5;
 	pixel_y = 3
 	},
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "pRd" = (
@@ -49713,7 +49715,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/random/loot,
+/obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "xdI" = (
