@@ -345,7 +345,7 @@
 
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"
-	desc = "An outdated helmet designated to be worn by an Unathi, it was commonly used by the Hegemony Levies."
+	desc = "An outdated ceramic-metal helmet of Unathi design. Commonly seen on Moghes during the days of the Contact War, and now commonplace in the hands of raiders and pirates."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
@@ -353,22 +353,22 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/unathi/hegemony
 	name = "hegemony helmet"
-	desc = "A highly armored helmet designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
+	desc = "A highly armored ceramic-metal composite helmet fitted for an Unathi. Commonly used by the military forces of the Izweski Hegemony."
 	icon_state = "hegemony_helmet"
 	item_state = "hegemony_helmet"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_MINOR

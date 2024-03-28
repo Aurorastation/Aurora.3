@@ -21,6 +21,20 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed
+	name = "strange rifle"
+	desc = DESC_PARENT
+	can_sawoff = FALSE
+	load_method = MAGAZINE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/handle_pump_loading()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
+		if(AC)
+			AC.forceMove(src)
+			ammo_magazine.stored_ammo -= AC
+			chambered = AC
+
 /obj/item/gun/projectile/shotgun/pump/rifle/blank
 	desc = "A replica of a traditional Adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock."
 	ammo_type = /obj/item/ammo_casing/a762/blank
@@ -70,7 +84,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun
 	name = "pipegun"
 	desc = "An excellent weapon for flushing out tunnel rats and enemy assistants, but its rifling leaves much to be desired."
 	icon = 'icons/obj/guns/pipegun.dmi'
@@ -91,15 +105,7 @@
 
 	jam_chance = -10
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_pump_loading()
-	if(ammo_magazine && length(ammo_magazine.stored_ammo))
-		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
-		if(AC)
-			AC.forceMove(src)
-			ammo_magazine.stored_ammo -= AC
-			chambered = AC
-
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(jam_chance)
 		if(10 to 20)
@@ -111,7 +117,7 @@
 		if(80 to INFINITY)
 			. += SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag.")
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/attackby(obj/item/attacking_item, mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag))
 		if(!jam_chance || jam_chance == initial(jam_chance))
 			to_chat(user, SPAN_WARNING("There's no fouling present on \the [src]."))
@@ -123,7 +129,7 @@
 		return
 	return ..()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_post_fire(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/handle_post_fire(mob/user)
 	. = ..()
 	jam_chance = min(jam_chance + 5, 100)
 
@@ -418,3 +424,17 @@
 	rack_verb = "work the lever on"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle
+	name = "crack rifle"
+	desc = "A heavy bolt-action rifle of Moghesian manufacture."
+	desc_extended = "Manufactured by the Azarak Kingdom in 2350, the Azarak-96 'Crack Rifle' is a bolt-action rifle of Moghesian manufacture, easily recognizable by its long bayonet and large magazine wrapped around its trigger guard.\
+	This heavy but powerful weapon is mostly known for its use by the common warrior of the Traditionalist Coalition during the Contact War.\
+	Many of these rifles survived the ravages of the Contact War, a testament to their reliability."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "crackrifle"
+	item_state = "crackrifle"
+	caliber = "5.8mm"
+	magazine_type = /obj/item/ammo_magazine/crackrifle
+	allowed_magazines = list(/obj/item/ammo_magazine/crackrifle)
+	load_method = MAGAZINE

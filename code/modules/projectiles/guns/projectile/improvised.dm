@@ -131,7 +131,7 @@
 		if(buildstate == 3)
 			if(C.use(10))
 				to_chat(user, "<span class='notice'>You tie the lengths of cable to the pipegun, making a sling.</span>")
-				new /obj/item/gun/projectile/shotgun/pump/rifle/pipegun(get_turf(src))
+				new /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun(get_turf(src))
 				qdel(src)
 			else
 				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")

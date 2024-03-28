@@ -4324,14 +4324,18 @@
 	req_access = list(210)
 	},
 /obj/random/civgun,
-/obj/random/civgun,
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
-/obj/random/civgun,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/armory)
 "mrq" = (
@@ -5413,6 +5417,9 @@
 /obj/item/gun/projectile/automatic/rifle/dominia,
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/armory)
 "tjg" = (

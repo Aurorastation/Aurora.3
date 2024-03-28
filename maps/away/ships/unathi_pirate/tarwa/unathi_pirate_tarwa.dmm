@@ -332,7 +332,8 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/unathi,
 /obj/random/civgun/rifle,
-/obj/random/civgun/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/obj/item/ammo_magazine/crackrifle,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "dG" = (
@@ -3874,6 +3875,11 @@
 	},
 /obj/random/civgun,
 /obj/random/civgun,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "ZY" = (

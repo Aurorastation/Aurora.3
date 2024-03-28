@@ -189,7 +189,7 @@
 		/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 		/obj/item/gun/projectile/automatic/tommygun,
 		/obj/item/gun/projectile/shotgun/pump/rifle,
-		/obj/item/gun/projectile/shotgun/pump/rifle/pipegun,
+		/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 		/obj/item/gun/projectile/contender,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage,
