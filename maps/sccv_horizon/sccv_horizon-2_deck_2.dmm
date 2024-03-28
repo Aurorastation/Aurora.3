@@ -5141,12 +5141,6 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
 "cjJ" = (
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0";
-	dir = 1;
-	pixel_y = 12
-	},
 /obj/structure/sign/staff_only{
 	pixel_x = -31
 	},
@@ -5594,6 +5588,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
+"cyn" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/white,
+/area/rnd/lab)
 "cyG" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -6999,12 +7000,9 @@
 /area/maintenance/wing/port)
 "dki" = (
 /obj/structure/table/standard,
-/obj/item/storage/bag/circuits/basic,
-/obj/item/device/integrated_electronics/debugger{
-	pixel_x = 6
-	},
-/obj/item/device/integrated_electronics/wirer{
-	pixel_x = -6
+/obj/item/storage/bag/circuits/basic{
+	pixel_y = 5;
+	pixel_x = -11
 	},
 /obj/structure/platform{
 	dir = 1
@@ -8358,6 +8356,14 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
+	},
+/obj/item/device/integrated_electronics/wirer{
+	pixel_x = -3;
+	pixel_y = 10
+	},
+/obj/item/device/integrated_electronics/debugger{
+	pixel_x = 5;
+	pixel_y = 9
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
@@ -11187,12 +11193,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "fgZ" = (
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0";
-	dir = 1;
-	pixel_y = 12
-	},
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
@@ -12327,6 +12327,9 @@
 "fIE" = (
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
@@ -15033,14 +15036,13 @@
 /area/horizon/exterior)
 "gNn" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance{
-	dir = 1;
-	name = "Research and Development Maintenance";
-	req_access = list(7)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/maintenance{
+	dir = 1;
+	name = "Machinist Workshop Maintenance";
+	req_access = list(29)
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "gNq" = (
@@ -17072,6 +17074,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "hJr" = (
@@ -17883,6 +17886,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist/surgicalbay)
 "ijb" = (
@@ -23604,20 +23608,14 @@
 /area/maintenance/substation/engineering)
 "kQV" = (
 /obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0";
-	dir = 1;
-	pixel_y = 12
-	},
-/obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/gloves{
-	pixel_x = 7
+	pixel_x = -5
 	},
 /obj/item/storage/box/masks{
-	pixel_x = 8
+	pixel_x = -5
 	},
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = 5
@@ -36540,14 +36538,14 @@
 	id = "shutters_deck2_workshopdesk";
 	name = "Machinist Workshop Desk Shutters";
 	pixel_x = -7;
-	pixel_y = 6
+	pixel_y = 3
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 5;
 	id = "MechBayShutter";
 	name = "Machinist Bay Shutters";
-	pixel_x = -7;
-	pixel_y = -8
+	pixel_x = 3;
+	pixel_y = 3
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
@@ -37540,9 +37538,6 @@
 	density = 0;
 	icon_state = "railing0-0"
 	},
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist/surgicalbay)
 "rtu" = (
@@ -38036,6 +38031,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/black,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "rFR" = (
@@ -46146,6 +46142,7 @@
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist/surgicalbay)
 "vzE" = (
@@ -48241,6 +48238,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/west,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist/surgicalbay)
 "wou" = (
@@ -51615,6 +51613,7 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom/east,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "xQj" = (
@@ -78486,7 +78485,7 @@ kEh
 aTp
 sRC
 dlo
-hKB
+cyn
 qKx
 iSf
 dYe
