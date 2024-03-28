@@ -52,7 +52,7 @@
 				antag.current.client.images |= get_indicator(antag, other_antag)
 
 /datum/antagonist/proc/update_icons_added(var/datum/mind/player)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 	if(!antag_indicator || !player.current)
 		return
 
@@ -68,7 +68,7 @@
 			player.current.client.images |= get_indicator(player, antag)
 
 /datum/antagonist/proc/update_icons_removed(var/datum/mind/player)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!antag_indicator || !player.current)
 		return

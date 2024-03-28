@@ -258,8 +258,8 @@
 		keyparts += "norm"
 
 	keyparts += "[species.race_key]"
-	keyparts += "[dna.GetUIState(DNA_UI_GENDER)]"
-	keyparts += "[dna.GetUIValue(DNA_UI_SKIN_TONE)]"
+	keyparts += "[dna?.GetUIState(DNA_UI_GENDER)]"
+	keyparts += "[dna?.GetUIValue(DNA_UI_SKIN_TONE)]"
 	if (skin_color)
 		keyparts += "[skin_color]"
 	if (body_hair && hair_color)
