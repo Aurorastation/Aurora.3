@@ -250,7 +250,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 /datum/sound_token/proc/PrivGetEnvironment(listener)
 	var/area/A = get_area(listener)
-	return A && PrivIsValidEnvironment(A.sound_env) ? A.sound_env : sound.environment
+	return A && PrivIsValidEnvironment(A.sound_environment) ? A.sound_environment : sound.environment
 
 /datum/sound_token/proc/PrivIsValidEnvironment(environment)
 	if(islist(environment) && length(environment) != 23)

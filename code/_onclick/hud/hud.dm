@@ -137,9 +137,6 @@ var/list/global_huds
 	///Boolean, if the action buttons are hidden
 	var/action_buttons_hidden = FALSE
 
-	var/obj/screen/lingchemdisplay
-	var/obj/screen/instability_display //Technomancer.
-	var/obj/screen/energy_display //Technomancer.
 	var/obj/screen/blobpwrdisplay
 	var/obj/screen/blobhealthdisplay
 	var/obj/screen/r_hand_hud_object
@@ -163,7 +160,6 @@ var/list/global_huds
 	hurt_intent = null
 	disarm_intent = null
 	help_intent = null
-	lingchemdisplay = null
 	blobpwrdisplay = null
 	blobhealthdisplay = null
 	r_hand_hud_object = null

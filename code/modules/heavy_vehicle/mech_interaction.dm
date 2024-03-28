@@ -452,7 +452,7 @@
 
 				user.put_in_hands(body.cell)
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
-				playsound(user.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [attacking_item].</span>")
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()

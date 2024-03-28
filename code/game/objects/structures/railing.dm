@@ -244,7 +244,7 @@
 			return
 	// Wrench Open
 		else
-			playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(density)
 				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] open."), SPAN_NOTICE("You wrench \the [src] open."))
 				density = FALSE
@@ -260,7 +260,7 @@
 			if(health >= maxhealth)
 				to_chat(user, SPAN_WARNING("\The [src] does not need repairs."))
 				return
-			playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(do_after(user, 20, src))
 				if(health >= maxhealth)
 					return
@@ -274,7 +274,7 @@
 			to_chat(user, SPAN_NOTICE("You need to wrench \the [src] from back into place first."))
 			return
 		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrewing \the [src].</span>" : "<span class='notice'>\The [user] begins fastening \the [src].</span>" )
-		playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(do_after(user, 10, src) && density)
 			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
 			anchored = !anchored

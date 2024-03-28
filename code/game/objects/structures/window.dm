@@ -265,24 +265,24 @@
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
-			playsound(loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_icon()
 			update_nearby_icons()
-			playsound(loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
 		else if(!reinf)
 			anchored = !anchored
 			update_nearby_icons()
-			playsound(loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
 	else if(attacking_item.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
-		playsound(loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
 	else if(attacking_item.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)

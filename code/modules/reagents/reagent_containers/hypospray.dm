@@ -149,7 +149,7 @@
 	if(is_open_container())
 		to_chat(user, SPAN_WARNING("\The [src] hasn't been secured yet!"))
 		return
-	if(do_after(user, 1 SECOND, TRUE))
+	if(do_after(user, 1 SECOND))
 		inject(user, user, TRUE)
 
 /obj/item/reagent_containers/hypospray/autoinjector/AltClick(mob/user)

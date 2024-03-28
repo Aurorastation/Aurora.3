@@ -5,7 +5,7 @@
 	//var/pipe_dir = 0
 	var/pipename
 	var/connect_types = CONNECT_TYPE_REGULAR
-	force = 7
+	force = 16
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	item_state = "buildpipe"
@@ -1506,7 +1506,7 @@
 			P.atmos_init()
 			P.build_network()
 
-	playsound(src.loc, attacking_item.usesound, 50, 1)
+	attacking_item.play_tool_sound(get_turf(src), 50)
 	user.visible_message( \
 		"[user] fastens the [src].", \
 		"<span class='notice'>You have fastened the [src].</span>", \
@@ -1534,7 +1534,7 @@
 			to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
 			return 1
 		new/obj/machinery/meter( src.loc )
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
 		qdel(src)
 		return TRUE

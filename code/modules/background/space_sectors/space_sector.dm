@@ -136,7 +136,7 @@
 /datum/space_sector/proc/setup_current_sector()
 	SHOULD_CALL_PARENT(TRUE)
 
-	if(SSatlas.current_map.ports_of_call && length(scheduled_port_visits))
+	if(SSatlas.current_map.ports_of_call && length(SSatlas.current_sector.scheduled_port_visits))
 		var/current_day_index = GLOB.all_days.Find(time2text(world.realtime, "Day"))
 		var/days_calculated = 0
 		// The main problem to consider here is that you have to loop around for two weeks to find all the days, basically.
@@ -151,7 +151,7 @@
 			next_port_visit = current_day_index
 			break
 
-		next_port_visit_string = days_calculated == 0 ? "today" : days_calculated == 1 ? "in [days_calculated] day" : "in [days_calculated] days"
+		next_port_visit_string = days_calculated == 0 ? "Today" : days_calculated == 1 ? "in [days_calculated] day" : "in [days_calculated] days"
 
 	// For now, i've put processing to only happen if the sector has a radio station
 	// but if, in the future, you add more stuff for the processor to handle, feel free to move it out of the if block

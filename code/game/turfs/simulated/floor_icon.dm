@@ -34,13 +34,10 @@
 				//Now, if we don't, then lets add a border
 				if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
 					add_overlay(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-broken-edge-[step_dir]", "[flooring.icon_base]_broken_edges", step_dir,(flooring.flags & TURF_HAS_EDGES)))
-				else
+				else if(flooring.flags & TURF_HAS_EDGES)
 					add_overlay(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-edge-[step_dir]", "[flooring.icon_base]_edges", step_dir, (flooring.flags & TURF_HAS_EDGES)))
 
 		has_smooth = ~(has_border & (NORTH | SOUTH | EAST | WEST))
-
-		if(flooring.can_paint && decals && length(decals))
-			add_overlay(decals)
 
 		//We can only have inner corners if we're smoothed with something
 		if (has_smooth && flooring.flags & TURF_HAS_INNER_CORNERS)
@@ -76,7 +73,6 @@
 	if(decals && decals.len)
 		for(var/image/I in decals)
 			add_overlay(I)
-
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))

@@ -169,14 +169,14 @@
 		switch(state)
 			if(EMITTER_LOOSE)
 				state = EMITTER_BOLTED
-				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(EMITTER_BOLTED)
 				state = EMITTER_LOOSE
-				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))

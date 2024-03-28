@@ -309,7 +309,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		if(M.mind)
 			linkedholodeck.play_ambience(M)
 
-	linkedholodeck.sound_env = A.sound_env
+	linkedholodeck.sound_environment = A.sound_environment
 
 	spawn(30)
 		for(var/obj/effect/landmark/L in linkedholodeck)

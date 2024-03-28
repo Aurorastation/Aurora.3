@@ -21,7 +21,7 @@
 	if(attacking_item.iscrowbar())
 		amount--
 		to_chat(user, "<span class='notice'>You pry off the steel sheet from the [name].</span>")
-		playsound(src.loc, attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		new /obj/item/stack/material/glass/wired(user.loc)
 		new /obj/item/stack/material/steel(user.loc)
 		if(amount <= 0)

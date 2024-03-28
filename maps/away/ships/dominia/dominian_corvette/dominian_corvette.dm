@@ -17,18 +17,34 @@
 //areas
 /area/ship/dominian_corvette
 	name = "Dominian Corvette"
+	requires_power = TRUE
+
+/area/ship/dominian_corvette/janitor
+	name = "Dominian Corvette Custodial Closet"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/dominian_corvette/hangar
 	name = "Dominian Corvette Hangar"
+	ambience = AMBIENCE_HANGAR
+
+/area/ship/dominian_corvette/eva
+	name = "Dominian Corvette EVA Preparation"
 
 /area/ship/dominian_corvette/infirmary
 	name = "Dominian Corvette Infirmary"
+	icon_state = "medbay"
 
 /area/ship/dominian_corvette/quarters
 	name = "Dominian Corvette Crew Quarters"
+	icon_state = "Sleep"
 
-/area/ship/dominian_corvette/brig
-	name = "Dominian Corvette Brig"
+/area/ship/dominian_corvette/head
+	name = "Dominian Corvette Head"
+	icon_state = "washroom"
+
+/area/ship/dominian_corvette/recroom
+	name = "Dominian Corvette Recreation Room"
+	icon_state = "lounge"
 
 /area/ship/dominian_corvette/cic
 	name = "Dominian Corvette CIC"
@@ -38,24 +54,52 @@
 
 /area/ship/dominian_corvette/franny
 	name = "Dominian Corvette Francisca Compartment"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/officer
-	name = "Dominian Corvette Officer Compartment"
+	name = "Dominian Corvette Officer Quarters"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/ship/dominian_corvette/armory
 	name = "Dominian Corvette Armory"
+	icon_state = "security"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/temple
 	name = "Dominian Corvette Temple"
-
-/area/ship/dominian_corvette/cryo
-	name = "Dominian Corvette Cryogenics"
+	icon_state = "chapel"
+	ambience = AMBIENCE_CHAPEL
 
 /area/ship/dominian_corvette/engineering
 	name = "Dominian Corvette Engineering"
+	ambience = AMBIENCE_ENGINEERING
+
+/area/ship/dominian_corvette/engineering/reactor
+	name = "Dominian Corvette Reactor Room"
+	ambience = AMBIENCE_SINGULARITY
+
+/area/ship/dominian_corvette/engineering/atmos
+	name = "Dominian Corvette Atmospherics"
+	icon_state = "atmos"
+
+/area/ship/dominian_corvette/propulsion
+	name = "Dominian Corvette Starboard Propulsion"
+
+/area/ship/dominian_corvette/propulsion/port
+	name = "Dominian Corvette Port Propulsion"
+
+/area/ship/dominian_corvette/docking
+	name = "Dominian Corvette Starboard Docking Arm"
+
+/area/ship/dominian_corvette/docking/port
+	name = "Dominian Corvette Port Docking Arm"
 
 /area/ship/dominian_corvette/cannon
 	name = "Dominian Corvette Cannon Compartment"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/exterior
 	name = "Dominian Corvette Exterior"
@@ -91,7 +135,11 @@
 
 	initial_generic_waypoints = list(
 		"nav_dominian_corvette_1",
-		"nav_dominian_corvette_2"
+		"nav_dominian_corvette_2",
+		"nav_dominian_corvette_3",
+		"nav_dominian_corvette_4",
+		"nav_dominian_corvette_starboard_dock",
+		"nav_dominian_corvette_dock_port"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -130,6 +178,20 @@
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
+/obj/effect/shuttle_landmark/dominian_corvette/dock
+	name = "Dominian Corvette Starboard Dock"
+	landmark_tag = "nav_dominian_corvette_starboard_dock"
+	docking_controller = "airlock_dominian_corvette_starboard_dock"
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/dominian_corvette/dock/port
+	name = "Dominian Corvette Port Dock"
+	landmark_tag = "nav_dominian_corvette_dock_port"
+	docking_controller = "airlock_dominian_corvette_dock_port"
+	base_turf = /turf/space
+	base_area = /area/space
+
 /obj/effect/shuttle_landmark/dominian_corvette/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_dominian_corvette"
@@ -149,7 +211,7 @@
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
-	vessel_size = SHIP_SIZE_TINY
+	vessel_size = SHIP_SIZE_SMALL
 
 /obj/machinery/computer/shuttle_control/explore/dominian_shuttle
 	name = "shuttle control console"
@@ -162,6 +224,7 @@
 	shuttle_area = list(/area/shuttle/dominian_shuttle)
 	current_location = "nav_hangar_dominia"
 	landmark_transition = "nav_transit_dominian_shuttle"
+	dock_target = "airlock_dominian_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_dominia"
@@ -172,7 +235,7 @@
 	landmark_tag = "nav_hangar_dominia"
 	docking_controller = "dominian_shuttle_dock"
 	base_area = /area/ship/dominian_corvette
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/dominian_shuttle/transit

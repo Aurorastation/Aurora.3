@@ -97,7 +97,7 @@
 				return
 			if(WT.use(0, user))
 				to_chat(user, SPAN_NOTICE("You use \the [WT] to weld apart \the [src]."))
-				playsound(src, WT.usesound, 50, 1)
+				WT.play_tool_sound(get_turf(src), 50)
 				new /obj/item/stack/material/steel(get_turf(src), 4)
 				qdel(src)
 				return

@@ -79,7 +79,7 @@
 			if(do_after(H, weapon.load_time, src, DO_UNIQUE))
 				if(weapon.load_ammunition(SA, H))
 					visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"))
-					playsound(src, 'sound/weapons/ammo_load.ogg')
+					playsound(src, 'sound/weapons/ammo_load.ogg', 70)
 					return TRUE
 				else
 					to_chat(H, SPAN_WARNING("The loader is full!"))

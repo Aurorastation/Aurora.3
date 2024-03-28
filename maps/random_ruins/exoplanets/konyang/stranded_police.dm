@@ -10,7 +10,7 @@
 /datum/ghostspawner/human/konyang_lostcop
 	short_name = "konyang_lostcop"
 	name = "Konyang Lost Police Patrolman"
-	desc = "Wander the countryside, try to find help, don't die to the infected."
+	desc = "Wander the countryside and try to find help."
 	tags = list("External")
 	welcome_message = "You are a lost patrolman."
 
