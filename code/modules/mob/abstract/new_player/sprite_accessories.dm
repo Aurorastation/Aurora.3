@@ -17,27 +17,34 @@
 */
 
 /datum/sprite_accessory
-
-	var/icon			// the icon file the accessory is located in
-	var/icon_state		// the icon_state of the accessory
-	var/preview_state	// a custom preview state for whatever reason
-
-	var/name			// the preview name of the accessory
-
-	// Determines if the accessory will be skipped or included in random hair generations
+	/// The icon file the accessory is located in.
+	var/icon
+	/// The icon_state of the accessory.
+	var/icon_state
+	/// A custom preview state if wanted.
+	var/preview_state
+	/// The name of the accessory.
+	var/name
+	/// Determines if the accessory will be skipped or included in random hair generation.
 	var/gender = NEUTER
-
-	// Restrict some styles to specific species. This requires the type path of the datum of the species in question, as well as all children of that datum if applicable.
-	var/list/species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
-
-	// Whether or not the accessory can be affected by colouration
-	var/do_colouration = 1
-
-	// The blend mode to use when blending this icon with its color. May not apply to all sprite_accessory types, and must be a ICON_* blend mode, not BLEND_*!
+	/// Restrict some styles to specific species. This requires the type path of the datum of the species in question, as well as all children if applicable.
+	var/list/species_allowed = list(
+		/datum/species/human,
+		/datum/species/human/offworlder,
+		/datum/species/machine/shell,
+		/datum/species/machine/shell/rogue,
+		/datum/species/zombie
+	)
+	/// Whether or not the accessory can be affected by colouration.
+	var/do_colouration = TRUE
+	/// The blend mode to use when blending this icon with its color. May not apply to all sprite_accessory types, and must be a ICON_* blend mode, not BLEND_*!
 	var/icon_blend_mode = ICON_ADD
-
-	//This is to provide safe names to use for hair/sprite to text. See Skrell tentacles for example
-	var/chatname = null
+	/// This is to provide safe names to use for hair/sprite to text. See Skrell tentacles for an example.
+	var/chatname
+	/// The organ the markings go over. Used to check if a marking can go over a certain organ. Must be an organ tag.
+	var/required_organ
+	/// Required prosthetic types to use this marking, if any. List is "any of". Null means no robotize type required. Empty list means there must be NO robotize type.
+	var/list/robotize_type_required
 
 
 /*
@@ -4140,7 +4147,14 @@ Follow by example and make good judgement based on length which list to include 
 	name = "blank IPC screen"
 	icon_state = "ipc_blank"
 	species_allowed = list(/datum/species/machine)
+	robotize_type_required = list()
+	required_organ = BP_HEAD
 	gender = NEUTER
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/none
+	name = "no IPC screen"
+	icon_state = "none"
+	robotize_type_required = list(PROSTHETIC_HOPLAN, PROSTHETIC_RAXUS, PROSTHETIC_INDRICUS)
 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_blue
 	name = "blue IPC screen"
@@ -4543,8 +4557,6 @@ Follow by example and make good judgement based on length which list to include 
 	var/body_parts = list() //A list of bodyparts this covers, TODO: port defines for organs someday
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
-
-	var/robotize_type_required // if set, this marking will only apply when put on a valid robolimb type
 
 /datum/sprite_accessory/marking/bandage_head
 	name = "Bandage, head 1"
@@ -6176,10 +6188,9 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Baseline - Raxus Primary Colors"
 	icon = 'icons/mob/human_races/markings_baseline.dmi'
 	icon_state = "raxus_primary"
-	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_HEAD)
-	robotize_type_required = PROSTHETIC_RAXUS
+	robotize_type_required = list(PROSTHETIC_RAXUS)
 
 /datum/sprite_accessory/marking/baseline_head/lights
 	name = "Baseline - Raxus Head Lights"
@@ -6188,7 +6199,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/baseline_head/indricus
 	name = "Baseline - Indricus Primary Colors"
 	icon_state = "indricus_primary"
-	robotize_type_required = PROSTHETIC_INDRICUS
+	robotize_type_required = list(PROSTHETIC_INDRICUS)
 
 /datum/sprite_accessory/marking/baseline_head/indricus/lights
 	name = "Baseline - Indricus Lights"
@@ -6197,7 +6208,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/baseline_head/hoplan
 	name = "Baseline - Hoplan Primary Colors"
 	icon_state = "indricus_primary"
-	robotize_type_required = PROSTHETIC_HOPLAN
+	robotize_type_required = list(PROSTHETIC_HOPLAN)
 
 /datum/sprite_accessory/marking/baseline_head/hoplan/lights
 	name = "Baseline - Hoplan Lights"
@@ -6207,7 +6218,6 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Baseline - Primary Colors"
 	icon = 'icons/mob/human_races/markings_baseline.dmi'
 	icon_state = "machine_primary"
-	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
 
@@ -6231,7 +6241,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_BC
+	robotize_type_required = list(PROSTHETIC_BC)
 
 /datum/sprite_accessory/marking/bishop_lights/bishop_mask
 	name = "Bishop - Face Mask"
@@ -6268,7 +6278,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_IND
+	robotize_type_required = list(PROSTHETIC_IND)
 
 /datum/sprite_accessory/marking/g1_panels/g1_head
 	name = "G1 - Head Panel Colors"
@@ -6295,7 +6305,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_HI
+	robotize_type_required = list(PROSTHETIC_HI)
 
 /datum/sprite_accessory/marking/g2_panels/g2_head
 	name = "G2 - Head Panel Colors"
@@ -6322,7 +6332,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_ZH
+	robotize_type_required = list(PROSTHETIC_ZH)
 
 /datum/sprite_accessory/marking/zeng_panels/zeng_head
 	name = "Zeng-Hu - Head Panel Colors"
@@ -6349,7 +6359,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_XMG
+	robotize_type_required = list(PROSTHETIC_XMG)
 
 /datum/sprite_accessory/marking/xion_panels/xion_head
 	name = "Xion - Head Panel Colors"

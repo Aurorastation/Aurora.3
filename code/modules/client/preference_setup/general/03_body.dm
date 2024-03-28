@@ -411,6 +411,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(!(mob_species.type in S.species_allowed))
 					continue
+				if(!verify_robolimb_markings(S))
+					continue
 
 				valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
 
@@ -609,9 +611,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/datum/species/species = GLOB.all_species[pref.species]
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
-			if(!S.species_allowed.len)
+			if(!length(S.species_allowed))
 				continue
 			else if(!(species.type in S.species_allowed))
+				usable_markings -= M
+			if(!verify_robolimb_markings(M))
 				usable_markings -= M
 
 		if (!usable_markings.len)
@@ -730,6 +734,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					var/datum/robolimb/M = GLOB.chargen_robolimbs[company]
 					if(!(tmp_species in M.species_can_use))
 						continue
+					if(!(limb in M.allowed_external_organs))
+						continue
 					usable_manufacturers[company] = M
 				if(!usable_manufacturers.len)
 					return
@@ -785,6 +791,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					var/datum/robolimb/M = GLOB.chargen_robolimbs[company]
 					if(!(tmp_species in M.species_can_use))
 						continue
+					if(!(organ_name in M.allowed_internal_organs))
+						continue
 					usable_manufacturers[company] = M
 				if(!usable_manufacturers.len)
 					return
@@ -792,11 +800,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(!choice)
 					return
 
-
-				var/datum/robolimb/R = GLOB.all_robolimbs[choice]
-				if(!(organ_name in R.allowed_internal_organs))
-					alert(user, "You can not select this manufacturer for this organ.")
-					return
 				pref.rlimb_data[organ_name] = choice
 				pref.organ_data[organ_name] = "mechanical"
 
@@ -906,14 +909,26 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	user << browse(dat.Join(), "window=species;size=700x400")
 
-/*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
-
-	for(var/organ in pref.organ_data)
-		pref.organ_data[organ] = null
-	while(null in pref.organ_data)
-		pref.organ_data -= null
-
-	for(var/organ in pref.rlimb_data)
-		pref.rlimb_data[organ] = null
-	while(null in pref.rlimb_data)
-		pref.rlimb_data -= null*/
+/datum/category_item/player_setup_item/general/body/proc/verify_robolimb_markings(var/datum/sprite_accessory/S)
+	if(S.robotize_type_required)
+		if(S.required_organ)
+			var/status = pref.organ_data[S.required_organ]
+			// Null robotize_type_required means it doesn't matter what prosthetic type we use.
+			if(isnull(S.robotize_type_required))
+				return TRUE
+			if(status == "cyborg")
+				if(length(S.robotize_type_required))
+					var/datum/robolimb/R
+					if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[S.required_organ]])
+						R = GLOB.all_robolimbs[pref.rlimb_data[S.required_organ]]
+					else
+						R = GLOB.basic_robolimb
+					if(!(R.company in S.robotize_type_required))
+						return FALSE
+				else
+					// Empty list means we can't have a prosthetic type to use this marking.
+					return FALSE
+			else if(length(S.robotize_type_required))
+				// There's a robotize type required and our limb is not a prosthetic.
+				return FALSE
+	return TRUE
