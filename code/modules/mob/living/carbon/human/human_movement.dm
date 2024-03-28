@@ -159,11 +159,11 @@
 			if(S.do_special_footsteps(m_intent))
 				return
 		if (m_intent == M_RUN)
-			playsound(src, is_noisy ? footsound : species.footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, (is_noisy ? footsound : species.footsound), 70, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, is_noisy ? footsound : species.footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, (is_noisy ? footsound : species.footsound), 40, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/proc/handle_leg_damage()
 	if(!can_feel_pain())
