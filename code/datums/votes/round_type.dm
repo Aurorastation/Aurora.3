@@ -63,9 +63,24 @@
 /datum/vote/gamemode/finalize_vote(winning_option)
 	to_world(SPAN_WARNING("<b>The round will start soon.</b>"))
 
-	if(GLOB.master_mode != lowertext(winning_option))
-		SSpersistent_configuration.last_gamemode = lowertext(winning_option)
-		GLOB.master_mode = lowertext(winning_option)
+	var/winning_option_lowertext = lowertext(winning_option)
+
+	if(GLOB.master_mode != winning_option_lowertext)
+		SSpersistent_configuration.last_gamemode = winning_option_lowertext
+
+		//This is because `/datum/configuration/proc/pick_mode()` uses the config tag, for god-knows what reason
+		//unless it's one of these snowflake gamemodes
+		if(winning_option_lowertext in list(ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET, ROUNDTYPE_STR_RANDOM))
+			GLOB.master_mode = winning_option_lowertext
+
+		else
+
+			for(var/votable_mode_name in GLOB.config.votable_modes)
+				var/datum/game_mode/M = GLOB.gamemode_cache[votable_mode_name]
+
+				if(M.name == winning_option)
+					GLOB.master_mode = M.config_tag
+					break
 
 /datum/vote/gamemode/reset()
 	. = ..()
