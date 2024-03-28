@@ -124,7 +124,7 @@
 		"<a href='?src=\ref[src];flavor_text=open'>Set Flavor Text</a><br/>",
 		"<a href='?src=\ref[src];flavour_text_robot=open'>Set Robot Flavor Text</a><br/>",
 		"<br>",
-		"Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[pref.signature]</font><br/>",
+		"Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[html_decode(pref.signature)]</font><br/>",
 		"<a href='?src=\ref[src];edit_signature=text'>Edit Text</a> | ",
 		"<a href='?src=\ref[src];edit_signature=font'>Edit Font</a> | ",
 		"<a href='?src=\ref[src];edit_signature=help'>Help</a> | ",
@@ -164,7 +164,7 @@
 	else if (href_list["edit_signature"])
 		switch (href_list["edit_signature"])
 			if ("text")
-				var/new_sign = tgui_input_text(usr, "Please input the new character signature.", "New Signature", html2pencode(pref.signature))
+				var/new_sign = tgui_input_text(usr, "Please input the new character signature.", "New Signature", html2pencode(html_decode(pref.signature)), encode = FALSE)
 				if (!new_sign)
 					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signature)

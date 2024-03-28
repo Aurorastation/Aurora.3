@@ -137,14 +137,14 @@
 				"sex" = R.sex,
 				"age" = R.age,
 				"fingerprint" = R.fingerprint,
-				"has_notes" = R.notes,
+				"has_notes" = html_decode(R.notes),
 				"physical_status" = R.physical_status,
 				"mental_status" = R.mental_status,
 				"species" = R.species,
 				"citizenship" = R.citizenship,
 				"religion" = R.religion,
 				"employer" = R.employer,
-				"notes" = R.notes,
+				"notes" = html_decode(R.notes),
 				"blood" = R.medical ? R.medical.blood_type : null,
 				"dna" = R.medical ? R.medical.blood_dna : null,
 				"ccia_notes" = R.ccia_record,
@@ -171,7 +171,7 @@
 				excluded += "security"
 			if(!(records_type & RECORD_MEDICAL))
 				excluded += "medical"
-			var/returned = active.Listify(1, excluded, data["active"])
+			var/returned = active.Listify(1, excluded, data["active"], decode_html = TRUE)
 			if(returned)
 				data["active"] = returned
 	else
