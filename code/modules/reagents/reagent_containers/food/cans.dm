@@ -192,7 +192,7 @@
 			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
 		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
 			fragem(src, shrapnelcount, shrapnelcount, 3, 5, 15, 3, TRUE, 5)
-			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
+			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50, ignore_walls = TRUE)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
 	qdel(src)
 

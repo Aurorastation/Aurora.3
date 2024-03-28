@@ -40,8 +40,8 @@
 	var/pressure_affected = TRUE
 	/// Are the sounds subject to reverb? Defaults to TRUE.
 	var/use_reverb = TRUE
-	/// Are we ignoring walls? Defaults to TRUE.
-	var/ignore_walls = TRUE
+	/// Are we ignoring walls? Defaults to FALSE.
+	var/ignore_walls = FALSE
 
 	// State stuff
 	/// The source of the sound, or the recipient of the sound.
