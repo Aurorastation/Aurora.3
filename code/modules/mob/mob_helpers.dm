@@ -353,32 +353,24 @@ var/list/global/organ_rel_size = list(
 		return pick(base_miss_chance)
 	return zone
 
-/proc/stars(n, pr)
-	if (pr == null)
-		pr = 25
-	if (pr <= 0)
-		return null
-	else
-		if (pr >= 100)
-			return n
-	var/te = n
-	var/t = ""
-	n = length(n)
-	var/p = null
-	p = 1
-	var/intag = 0
-	while(p <= n)
-		var/char = copytext_char(te, p, p + 1)
-		if (char == "<") //let's try to not break tags
-			intag = !intag
-		if (intag || char == " " || prob(pr))
-			t = text("[][]", t, char)
-		else
-			t = text("[]*", t)
-		if (char == ">")
-			intag = !intag
-		p++
-	return t
+/**
+ * Convert random parts of a passed in message to stars
+ *
+ * * phrase - the string to convert
+ * * probability - probability any character gets changed
+ *
+ * This proc is dangerously laggy, avoid it or die
+ */
+/proc/stars(phrase, probability = 25)
+	if(length(phrase) == 0)
+		return
+
+	var/list/chars = splittext_char(html_decode(phrase), "")
+	for(var/i in 1 to length(chars))
+		if(chars[i] == " " || !prob(probability))
+			continue
+		chars[i] = "*"
+	return sanitize(jointext(chars, ""))
 
 /proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
