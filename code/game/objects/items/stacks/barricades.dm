@@ -38,7 +38,7 @@
 	SPAN_NOTICE("You assemble a [barricade_name] barricade."))
 	SB.set_dir(user.dir)
 	SB.add_fingerprint(user)
-	playsound(SB, build_sound)
+	playsound(SB, build_sound, 40)
 	use(1)
 
 /obj/item/stack/barricade/random/Initialize(mapload)
