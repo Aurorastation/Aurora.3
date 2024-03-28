@@ -371,19 +371,8 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "by" = (
-/obj/structure/closet{
-	name = "equipment closet"
-	},
-/obj/item/storage/backpack/duffel/eng,
-/obj/item/storage/backpack/duffel/eng,
-/obj/item/clothing/head/hardhat,
-/obj/item/clothing/head/hardhat,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/suit/storage/hazardvest,
-/obj/item/clothing/suit/storage/hazardvest,
-/obj/item/clothing/under/xanu/engi,
-/obj/item/clothing/under/xanu/engi,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "bz" = (
@@ -2303,26 +2292,23 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "ia" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222);
-	name = "smg cabinet"
+/obj/structure/closet{
+	name = "equipment closet"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/gun/projectile/automatic/xanusmg,
-/obj/item/gun/projectile/automatic/xanusmg,
-/obj/item/gun/projectile/automatic/xanusmg,
-/obj/item/gun/projectile/automatic/xanusmg,
-/obj/machinery/alarm/north,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/xanu_frigate/cic)
+/obj/item/storage/backpack/duffel/eng,
+/obj/item/storage/backpack/duffel/eng,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/under/xanu/engi,
+/obj/item/clothing/under/xanu/engi,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "ic" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -2437,17 +2423,29 @@
 /area/ship/xanu_frigate/cic)
 "ix" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
-/obj/structure/closet/crate/secure/phoron,
-/obj/item/stack/material/phoron{
-	amount = 10
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/obj/item/stack/material/phoron{
-	amount = 10
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
-/obj/item/stack/material/phoron{
-	amount = 10
+/obj/structure/closet/crate/elec,
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
+/obj/item/device/multitool,
+/obj/item/storage/toolbox/electrical,
+/obj/item/circuitboard/smes,
+/obj/item/circuitboard/smes,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
+/obj/item/stack/cable_coil/yellow,
+/obj/item/stack/cable_coil/yellow,
+/obj/item/stack/cable_coil/yellow,
+/obj/item/stack/cable_coil/yellow,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/cargo_bay)
 "iy" = (
@@ -5050,25 +5048,22 @@
 "rA" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(222);
-	name = "equipment cabinet"
+	name = "smg cabinet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/material/knife/tacknife,
-/obj/item/material/knife/tacknife,
-/obj/item/material/knife/tacknife,
-/obj/item/material/knife/tacknife,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
+/obj/item/gun/projectile/automatic/xanusmg,
+/obj/item/gun/projectile/automatic/xanusmg,
+/obj/item/gun/projectile/automatic/xanusmg,
+/obj/item/gun/projectile/automatic/xanusmg,
+/obj/machinery/alarm/north,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "rC" = (
@@ -5301,29 +5296,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/xanu_frigate/eva)
 "sF" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222);
-	name = "pistol cabinet"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/gun/projectile/xanupistol,
-/obj/item/gun/projectile/xanupistol,
-/obj/item/gun/projectile/xanupistol,
-/obj/item/gun/projectile/xanupistol,
-/obj/item/gun/projectile/xanupistol,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/flag/xanu{
-	pixel_y = 32
-	},
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/xanu_frigate/cic)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
+/obj/structure/closet/crate/secure/phoron,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/ship/xanu_frigate/cargo_bay)
 "sG" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -5986,30 +5965,25 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_boarder/main)
 "uE" = (
-/obj/machinery/door/airlock/external,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(222);
+	name = "rifle cabinet"
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "External Lockdown Blast Door";
-	id = "xanufrigate_dockinglock"
-	},
-/obj/machinery/access_button{
-	dir = 1;
-	pixel_x = -28;
-	pixel_y = 12;
-	req_access = list(222)
-	},
-/obj/effect/shuttle_landmark/xanu_frigate/mid_port,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "xanufrigate_mid_port";
-	master_tag = "xanufrigate_mid_port";
-	name = "xanufrigate_mid_port"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/port)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/xanu_frigate/cic)
 "uJ" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning{
@@ -8614,17 +8588,13 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/cic)
 "DT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/obj/machinery/atmospherics/binary/pump/supply/on{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/atmospherics/binary/pump/supply/on{
+	dir = 1;
+	target_pressure = 500
 	},
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
@@ -8828,19 +8798,29 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "EE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(222);
+	name = "equipment cabinet"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/closet/crate/elec,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/ship/xanu_frigate/cargo_bay)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/xanu_frigate/cic)
 "EF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -10154,25 +10134,20 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "Jg" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222);
-	name = "rifle cabinet"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/gun/projectile/automatic/rifle/dnac,
-/obj/item/gun/projectile/automatic/rifle/dnac,
-/obj/item/gun/projectile/automatic/rifle/dnac,
-/obj/item/gun/projectile/automatic/rifle/dnac,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/xanu_frigate/cic)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "Ji" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11972,13 +11947,29 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
 "Pc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(222);
+	name = "pistol cabinet"
 	},
-/obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/engineering/port)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/gun/projectile/xanupistol,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/xanu{
+	pixel_y = 32
+	},
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/xanu_frigate/cic)
 "Pg" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -12984,10 +12975,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/xanu_fighter)
 "Sw" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
+/obj/machinery/door/airlock/external,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "External Lockdown Blast Door";
+	id = "xanufrigate_dockinglock"
+	},
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12;
+	req_access = list(222)
+	},
+/obj/effect/shuttle_landmark/xanu_frigate/mid_port,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "xanufrigate_mid_port";
+	master_tag = "xanufrigate_mid_port";
+	name = "xanufrigate_mid_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/ship/xanu_frigate/engineering/port)
+/area/ship/xanu_frigate/corridor/port)
 "Sz" = (
 /obj/machinery/computer/ship/engines/terminal,
 /obj/item/device/radio/intercom/hailing/north,
@@ -43394,11 +43405,11 @@ xT
 kV
 kV
 wr
-EE
+ix
 Lz
 fa
 tQ
-ix
+sF
 xT
 Zm
 Zm
@@ -47259,7 +47270,7 @@ GF
 GF
 in
 By
-Jg
+uE
 VE
 Ia
 By
@@ -47516,7 +47527,7 @@ GF
 GP
 in
 By
-ia
+rA
 nF
 Yj
 AI
@@ -47773,7 +47784,7 @@ GP
 GP
 in
 By
-sF
+Pc
 kE
 Mo
 By
@@ -48287,7 +48298,7 @@ sb
 dv
 Me
 By
-rA
+EE
 FQ
 kS
 By
@@ -49810,7 +49821,7 @@ cG
 cG
 cG
 cG
-DT
+Jg
 ln
 Mz
 RX
@@ -50062,14 +50073,14 @@ cG
 cG
 uO
 vd
-by
+ia
 Cq
 SE
 uM
 Vm
 CE
-Pc
-Sw
+DT
+by
 jn
 Hf
 cG
@@ -52147,7 +52158,7 @@ Zm
 Zm
 Zm
 Zm
-uE
+Sw
 hU
 bu
 rr
