@@ -550,6 +550,7 @@
 	description = "A bright orange powder consisting of strange self-heating properties that reacts when exposed to sodium chloride."
 	reagent_state = SOLID
 	color = "#FFFF00"
+	scannable = TRUE
 	breathe_met = REM/2
 	touch_met = REM/2
 	taste_description = "chalk"
@@ -563,6 +564,7 @@
 	description = "A bright cyan liquid consisting of strange self-cooling properties that reacts when exposed to water."
 	reagent_state = LIQUID
 	color = "#00FFFF"
+	scannable = TRUE
 	breathe_met = REM/2
 	touch_met = REM/2
 	taste_description = "needles"

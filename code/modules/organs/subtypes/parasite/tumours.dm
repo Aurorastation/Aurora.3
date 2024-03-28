@@ -15,31 +15,31 @@
 
 	origin_tech = list(TECH_BIO = 2)
 
-/obj/item/organ/internal/parasite/benign_tumour/Initialize()
-	. = ..()
-	switch(parent_organ)
-		if(BP_CHEST)
-			name = "benign chest lipoma"
-		if(BP_GROIN)
-			name = "benign abdominal tumour"
-		if(BP_HEAD)
-			name = "benign skull cavity tumour"
-		if(BP_L_ARM)
-			name = "benign lipoma (left arm)"
-		if(BP_R_ARM)
-			name = "benign lipoma (right arm)"
-		if(BP_L_HAND)
-			name = "benign chondroma (left hand)"
-		if(BP_R_HAND)
-			name = "benign chondroma (right hand)"
-		if(BP_L_LEG)
-			name = "benign lipoma (left leg)"
-		if(BP_R_LEG)
-			name = "benign lipoma (right leg)"
-		if(BP_L_FOOT)
-			name = "benign plantar fibroma (left foot)"
-		if(BP_R_FOOT)
-			name = "benign plantar fibroma (right foot)"
+/obj/item/organ/internal/parasite/benign_tumour/proc/generate_name()
+	if(parent_organ)
+		switch(parent_organ)
+			if(BP_CHEST)
+				name = "benign chest lipoma"
+			if(BP_GROIN)
+				name = "benign abdominal tumour"
+			if(BP_HEAD)
+				name = "benign skull cavity tumour"
+			if(BP_L_ARM)
+				name = "benign lipoma (left arm)"
+			if(BP_R_ARM)
+				name = "benign lipoma (right arm)"
+			if(BP_L_HAND)
+				name = "benign chondroma (left hand)"
+			if(BP_R_HAND)
+				name = "benign chondroma (right hand)"
+			if(BP_L_LEG)
+				name = "benign lipoma (left leg)"
+			if(BP_R_LEG)
+				name = "benign lipoma (right leg)"
+			if(BP_L_FOOT)
+				name = "benign plantar fibroma (left foot)"
+			if(BP_R_FOOT)
+				name = "benign plantar fibroma (right foot)"
 
 /obj/item/organ/internal/parasite/benign_tumour/process()
 	..()
@@ -72,31 +72,31 @@
 
 	egg = /singleton/reagent/toxin/malignant_tumour_cells
 
-/obj/item/organ/internal/parasite/malignant_tumour/Initialize()
-	. = ..()
-	switch(parent_organ)
-		if(BP_CHEST)
-			name = "malignant chest wall sarcoma"
-		if(BP_GROIN)
-			name = "gastric cancer"
-		if(BP_HEAD)
-			name = "malignant brain tumour"
-		if(BP_L_ARM)
-			name = "malignant melanoma (left arm)"
-		if(BP_R_ARM)
-			name = "malignant melanoma (right arm)"
-		if(BP_L_HAND)
-			name = "malignant chondrosarcoma (left hand)"
-		if(BP_R_HAND)
-			name = "malignant chondrosarcoma (right hand)"
-		if(BP_L_LEG)
-			name = "malignant melanoma (left leg)"
-		if(BP_R_LEG)
-			name = "malignant melanoma (right leg)"
-		if(BP_L_FOOT)
-			name = "malignant chondrosarcoma (left foot)"
-		if(BP_R_FOOT)
-			name = "malignant chondrosarcoma (right foot)"
+/obj/item/organ/internal/parasite/malignant_tumour/proc/generate_name()
+	if(parent_organ)
+		switch(parent_organ)
+			if(BP_CHEST)
+				name = "malignant chest wall sarcoma"
+			if(BP_GROIN)
+				name = "gastric cancer"
+			if(BP_HEAD)
+				name = "malignant brain tumour"
+			if(BP_L_ARM)
+				name = "malignant melanoma (left arm)"
+			if(BP_R_ARM)
+				name = "malignant melanoma (right arm)"
+			if(BP_L_HAND)
+				name = "malignant chondrosarcoma (left hand)"
+			if(BP_R_HAND)
+				name = "malignant chondrosarcoma (right hand)"
+			if(BP_L_LEG)
+				name = "malignant melanoma (left leg)"
+			if(BP_R_LEG)
+				name = "malignant melanoma (right leg)"
+			if(BP_L_FOOT)
+				name = "malignant chondrosarcoma (left foot)"
+			if(BP_R_FOOT)
+				name = "malignant chondrosarcoma (right foot)"
 
 /obj/item/organ/internal/parasite/malignant_tumour/process()
 	..()

@@ -89,7 +89,9 @@
 					var/obj/item/organ/internal/parasite/malignant_tumour/P = new()
 					P.parent_organ = organ_to_infest
 					P.replaced(H, organ_to_infest)
+					P.generate_name()
 				if("benign tumour")
 					var/obj/item/organ/internal/parasite/benign_tumour/P = new()
 					P.parent_organ = organ_to_infest
 					P.replaced(H, organ_to_infest)
+					P.generate_name()
