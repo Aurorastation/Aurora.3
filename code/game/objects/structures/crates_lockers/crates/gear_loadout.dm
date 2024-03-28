@@ -290,7 +290,7 @@
 	new /obj/item/clothing/suit/space/void/zenghu(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/device/modkit/skrell(src)
+	new /obj/item/device/modkit/multi_species(src)
 
 /obj/structure/closet/crate/gear_loadout/nanotrasen/suit/fill()
 	new /obj/item/rig/nanotrasen(src)
@@ -308,6 +308,7 @@
 	new /obj/item/clothing/suit/space/void/einstein(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/device/modkit/multi_species(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/dominia/fill()
 	new /obj/item/clothing/under/dominia/fleet(src)
@@ -544,6 +545,7 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/species_modkit(src)
 
 /obj/structure/closet/crate/gear_loadout/einstein/single/fill()
 	new /obj/item/clothing/head/helmet/space/void/einstein(src)
@@ -554,6 +556,7 @@
 	new /obj/item/suppressor(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/device/modkit/multi_species(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/hegemony/fill()
 	new/obj/item/clothing/under/unathi/izweski(src)
