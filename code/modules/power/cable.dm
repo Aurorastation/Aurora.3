@@ -32,7 +32,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/d1 = 0
 	var/d2 = 1
-	layer = CABLE_LAYER //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
+	layer = EXPOSED_WIRE_LAYER
 	color = COLOR_RED
 	var/obj/machinery/power/breakerbox/breaker_box
 
@@ -1063,7 +1063,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		M.pixel_y = initial(M.pixel_y) + 8 //rise them up a bit
 		M.dir = SOUTH
 	else
-		layer = initial(layer)
+		reset_plane_and_layer()
 		cut_overlay(over)
 		STOP_PROCESSING(SSprocessing, src)
 		pixel_x = initial(pixel_x)

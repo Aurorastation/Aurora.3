@@ -60,7 +60,7 @@
 	desc = DESC_PARENT
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "generic"
-	layer = LIGHTING_LAYER - 1
+	layer = FIRE_LAYER
 	appearance_flags = RESET_COLOR
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 

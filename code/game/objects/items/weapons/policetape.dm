@@ -25,7 +25,7 @@ var/list/tape_roll_applications = list()
 	name = "tape"
 	icon = 'icons/obj/policetape.dmi'
 	anchored = 1
-	layer = 3.1 // Above closed airlocks.
+	layer = BASE_ABOVE_OBJ_LAYER
 	var/lifted = 0
 	var/list/crumplers
 	var/crumpled = 0
@@ -181,7 +181,7 @@ var/list/tape_roll_applications = list()
 		var/obj/item/tape/P = new tape_type(T.x,T.y,T.z)
 		P.forceMove(locate(T.x,T.y,T.z))
 		P.icon_state = "[src.icon_base]_door"
-		P.layer = 3.2
+		P.layer = ABOVE_DOOR_LAYER
 		to_chat(user, SPAN_NOTICE("You finish placing the [src]."))
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))
@@ -235,8 +235,10 @@ var/list/tape_roll_applications = list()
 			crumple(user)
 		if(lifted)
 			animate(src, 1 SECOND, alpha = 150)
+			layer = ABOVE_HUMAN_LAYER
 		else
 			animate(src, 1 SECOND, alpha = initial(alpha))
+			reset_plane_and_layer()
 	else
 		breaktape(null, user)
 

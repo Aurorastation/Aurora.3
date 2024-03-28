@@ -3,7 +3,7 @@
 	desc = "An obviously artifical structure of unknown origin."
 	icon = 'icons/obj/monolith.dmi'
 	icon_state = "jaggy1"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
 	anchored = TRUE
 	var/active = FALSE

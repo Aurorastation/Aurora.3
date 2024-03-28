@@ -176,7 +176,6 @@
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	color = "#ff9900"
 	blend_mode = BLEND_SUBTRACT
-	layer = SCREEN_LAYER
 
 #undef EVAC_OPT_ABANDON_SHIP
 #undef EVAC_OPT_BLUESPACE_JUMP

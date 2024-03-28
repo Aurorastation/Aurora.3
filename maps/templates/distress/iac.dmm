@@ -22,7 +22,6 @@
 /area/centcom/distress_prep)
 "d" = (
 /obj/structure/closet/crate/freezer{
-	layer = 2.99;
 	name = "rations"
 	},
 /obj/item/reagent_containers/food/snacks/koisbar_clean,
@@ -63,7 +62,6 @@
 /area/centcom/distress_prep)
 "e" = (
 /obj/structure/closet/crate/freezer{
-	layer = 2.99;
 	name = "blood, surgery equipment"
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -92,7 +90,6 @@
 /area/centcom/distress_prep)
 "f" = (
 /obj/structure/closet/crate/medical{
-	layer = 2.99
 	},
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,

@@ -39,5 +39,5 @@
 
 /obj/effect/map_effect/particle_emitter/bar_smoke
 	particle_type = /particles/bar_smoke
-	layer = LAYER_UNDER_TABLE
+	layer = BELOW_TABLE_LAYER
 	alpha = 128

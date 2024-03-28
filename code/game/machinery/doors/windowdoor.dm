@@ -5,7 +5,7 @@
 	icon_state = "left"
 	var/base_state = "left"
 	alpha = 196
-	layer = WINDOW_PANE_LAYER
+	layer = SIDE_WINDOW_LAYER
 	min_force = 4
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file

@@ -417,7 +417,6 @@
 /area/shuttle/scrapper_ship/bridge)
 "fd" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
@@ -447,7 +446,6 @@
 /area/scrapper_base/atmos)
 "fq" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
@@ -478,7 +476,6 @@
 	dir = 6
 	},
 /obj/structure/extinguisher_cabinet/west{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /turf/simulated/floor/plating{
@@ -1022,7 +1019,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_scrapper";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -1620,7 +1616,6 @@
 /obj/effect/floor_decal/corner/beige/full,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
@@ -1700,7 +1695,6 @@
 	dir = 6
 	},
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2255,7 +2249,6 @@
 /area/shuttle/scrapper_ship/storage)
 "CM" = (
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2330,7 +2323,6 @@
 /area/scrapper_base)
 "Et" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -2681,7 +2673,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
-	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
 	dir = 4
@@ -2692,7 +2683,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_scrapper";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /obj/effect/floor_decal/industrial/warning{
@@ -2984,7 +2974,6 @@
 	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3339,7 +3328,6 @@
 	dir = 9
 	},
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /turf/simulated/floor/plating{
@@ -3364,7 +3352,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
-	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
 	dir = 4
@@ -3491,7 +3478,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_scrapper";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8

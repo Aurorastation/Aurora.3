@@ -1,6 +1,6 @@
 /mob
 	density = 1
-	layer = 4.0
+	layer = MOB_LAYER
 	animate_movement = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	sight = DEFAULT_SIGHT

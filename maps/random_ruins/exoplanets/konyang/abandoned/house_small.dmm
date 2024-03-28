@@ -55,7 +55,6 @@
 /area/exoplanet/grass/konyang)
 "dj" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
@@ -82,7 +81,6 @@
 /area/exoplanet/grass/konyang)
 "fb" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -156,7 +154,6 @@
 "jA" = (
 /obj/structure/window/urban{
 	dir = 8;
-	layer = 3.3
 	},
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
@@ -167,7 +164,6 @@
 /area/konyang/house_small)
 "jL" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -190,7 +186,6 @@
 /area/konyang/house_small)
 "kf" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/machinery/door/urban{
 	dir = 4
@@ -339,7 +334,6 @@
 "re" = (
 /obj/structure/window/urban{
 	dir = 4;
-	layer = 3.3
 	},
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
@@ -349,7 +343,6 @@
 /area/konyang/house_small)
 "rl" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/curtain/black,
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -395,7 +388,6 @@
 /obj/random/dirt_75,
 /obj/structure/table/rack/clothing{
 	dir = 4;
-	layer = 3.1
 	},
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
@@ -454,7 +446,6 @@
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "bench";
-	layer = 2.4;
 	name = "bench"
 	},
 /turf/simulated/floor/exoplanet/konyang,
@@ -518,11 +509,9 @@
 /area/exoplanet/grass/konyang)
 "yn" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/window/urban{
 	dir = 4;
-	layer = 3.3
 	},
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
@@ -545,7 +534,6 @@
 /area/konyang/house_small)
 "BH" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/window/urban{
 	dir = 4
@@ -574,7 +562,6 @@
 /area/exoplanet/grass/konyang)
 "EF" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/bed/stool/padded/red{
 	dir = 8
@@ -635,7 +622,6 @@
 /area/konyang/house_small)
 "HQ" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/bed/stool/padded/red{
 	dir = 1
@@ -669,7 +655,6 @@
 /area/konyang/house_small)
 "Ix" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/window/urban,
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -691,7 +676,6 @@
 /area/exoplanet/grass/konyang)
 "IS" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -720,7 +704,6 @@
 /area/exoplanet/grass/konyang)
 "Kc" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep{
-	layer = 2.5
 	},
 /obj/structure/bed/stool/padded/red{
 	dir = 4
@@ -920,7 +903,6 @@
 	desc = "A bland air conditioning unit.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "ac";
-	layer = 2.7;
 	name = "AC unit"
 	},
 /turf/simulated/floor/exoplanet/concrete,

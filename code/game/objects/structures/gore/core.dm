@@ -2,7 +2,6 @@
 	name = "alien thing"
 	desc = "There's something alien about this."
 	icon = 'icons/obj/gore_structures.dmi'
-	layer = ABOVE_CABLE_LAYER + 0.1
 	anchored = TRUE
 	density = FALSE
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"

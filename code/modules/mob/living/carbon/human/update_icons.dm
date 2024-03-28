@@ -239,7 +239,7 @@ There are several things that need to be remembered:
 
 		LAZYADD(ovr, DI)
 
-	overlays_raw[DAMAGE_LAYER] = ovr
+	overlays_raw[MOB_DAMAGE_LAYER] = ovr
 	update_bandages(update_icons)
 	if(update_icons)
 		update_icon()
@@ -250,7 +250,7 @@ There are several things that need to be remembered:
 		return
 
 	var/list/ovr
-	if(overlays_raw[DAMAGE_LAYER])
+	if(overlays_raw[MOB_DAMAGE_LAYER])
 		for(var/obj/item/organ/external/O in organs)
 			if(O.is_stump())
 				continue

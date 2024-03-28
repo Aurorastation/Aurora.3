@@ -18,7 +18,6 @@
 	desc = "Clumped up flesh, pulsating in rhythm with the tendrils that surround it."
 	icon_state = "tendril_node"
 	density = TRUE
-	layer = ABOVE_CABLE_LAYER + 0.2
 	maxHealth = 150
 	light_range = NODERANGE
 	light_color = LIGHT_COLOR_EMERGENCY

@@ -149,7 +149,7 @@
 	NeighborsCheck(update_neighbors)
 	overlays.Cut()
 	if(dir == SOUTH)
-		layer = ABOVE_MOB_LAYER
+		layer = ABOVE_HUMAN_LAYER
 	else
 		layer = initial(layer)
 	if(!neighbor_status || !anchored)

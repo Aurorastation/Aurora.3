@@ -8,7 +8,7 @@
 	speak_emote = list("chirps")
 	mob_size = 4
 	composition_reagent = /singleton/reagent/slimejelly
-	layer = 5
+	layer = MOB_LAYER
 	maxHealth = 150
 	health = 150
 	gender = NEUTER

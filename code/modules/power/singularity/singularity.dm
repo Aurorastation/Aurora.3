@@ -7,7 +7,7 @@
 	icon_state = "singularity_s1"
 	anchored = 1
 	density = 1
-	layer = 6
+	layer = SINGULARITY_LAYER
 	light_power = -100 //eats all light
 	unacidable = 1 //Don't comment this out.
 	appearance_flags = NO_CLIENT_COLOR

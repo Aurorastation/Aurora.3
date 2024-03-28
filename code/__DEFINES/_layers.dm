@@ -1,71 +1,163 @@
+/*
+	from stddef.dm, planes & layers built into byond.
+
+	FLOAT_LAYER = -1
+	AREA_LAYER = 1
+	TURF_LAYER = 2
+	OBJ_LAYER = 3
+	MOB_LAYER = 4
+	FLY_LAYER = 5
+	EFFECTS_LAYER = 5000
+	TOPDOWN_LAYER = 10000
+	BACKGROUND_LAYER = 20000
+	------
+
+	FLOAT_PLANE = -32767
+*/
+
+#define CLICKCATCHER_PLANE -100
+
 #define PLANE_SPACE_BACKGROUND -99
 #define PLANE_SPACE_PARALLAX (PLANE_SPACE_BACKGROUND + 1) // -98
 #define PLANE_SKYBOX (PLANE_SPACE_PARALLAX + 1) // -97
 #define PLANE_SPACE_DUST (PLANE_SPACE_PARALLAX + 1) // -96
 #define PLANE_ABOVE_PARALLAX (PLANE_SPACE_DUST + 1) // -95
-#define PLANE_DEFAULT 0
-#define DECAL_PLATING_LAYER (TURF_LAYER + 0.01)
-// TURF_LAYER 			2
-#define LOWER_ON_TURF_LAYER (TURF_LAYER + 0.05)	// under the below
-#define ON_TURF_LAYER (TURF_LAYER + 0.1)	// sitting on the turf - should be preferred over direct use of TURF_LAYER
-#define DECAL_LAYER (ON_TURF_LAYER + 0.01)
-#define AO_LAYER (ON_TURF_LAYER + 0.1)
-#define UNDER_PIPE_LAYER (PIPE_LAYER - 0.1)
-#define PIPE_LAYER 2.4 //under wires with their 2.44
-#define CABLE_LAYER 2.44
-#define ABOVE_CABLE_LAYER (CABLE_LAYER + 0.1)
-#define LAYER_TABLE 2.8
-#define LAYER_UNDER_TABLE 2.79
-#define LAYER_ABOVE_TABLE 2.81
-#define BELOW_OBJ_LAYER 2.9
-// OBJ_LAYER			3
-#define DOOR_OPEN_LAYER 3
-#define ABOVE_OBJ_LAYER 3.01
-#define UNDERDOOR 3.09		//Just barely under a closed door.
-#define WINDOW_PANE_LAYER 3.2
-#define DOOR_CLOSED_LAYER 3.6	//Above most items if closed
-#define BELOW_MOB_LAYER 3.7
-// MOB_LAYER			4
-#define ABOVE_MOB_LAYER 4.1
-#define ABOVE_ALL_MOB_LAYER 4.5
-#define INGAME_HUD_EFFECT_LAYER 5
-#define LIGHTING_LAYER 11
-#define EFFECTS_ABOVE_LIGHTING_LAYER 12 // For overlays you want to be above light.
-#define UNDER_HUD_LAYER 19
-#define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
-#define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
-#define SCREEN_LAYER 22			//Mob HUD/effects layer
-#define CINEMA_LAYER 23
 
+#define DEFAULT_PLANE 0
+	#define PLATING_LAYER 1
+	//ABOVE PLATING
+	#define HOLOMAP_LAYER 1.01
+	#define DECAL_PLATING_LAYER 1.02
+	#define DISPOSALS_PIPE_LAYER 1.03
+	#define LATTICE_LAYER 1.04
+	#define PIPE_LAYER 1.05
+	#define WIRE_LAYER 1.06
+	#define WIRE_TERMINAL_LAYER 1.07
+	#define ABOVE_WIRE_LAYER 1.08
+	//TURF_LAYER 2
+	#define TURF_DETAIL_LAYER 2.01
+	#define TURF_SHADOW_LAYER 2.02
+	//ABOVE TURF
+	#define DECAL_LAYER 2.03
+	#define RUNE_LAYER 2.04
+	#define ABOVE_TILE_LAYER 2.05
+	#define EXPOSED_PIPE_LAYER 2.06
+	#define EXPOSED_WIRE_LAYER 2.07
+	#define EXPOSED_WIRE_TERMINAL_LAYER 2.08
+	#define CATWALK_LAYER 2.09
+	#define ABOVE_CATWALK_LAYER 2.10
+	#define BLOOD_LAYER 2.11
+	#define MOUSETRAP_LAYER 2.12
+	#define PLANT_LAYER 2.13
+	#define AO_LAYER 2.14
+	//HIDING MOB
+	#define HIDING_MOB_LAYER 2.15
+	#define SHALLOW_FLUID_LAYER 2.16
+	#define MOB_SHADOW_LAYER 2.17
+	// OBJ
+	#define BELOW_DOOR_LAYER 2.18
+	#define OPEN_DOOR_LAYER 2.19
+	#define BELOW_TABLE_LAYER 2.20
+	#define TABLE_LAYER 2.21
+	#define ABOVE_TABLE_LAYER 2.22
+	#define BELOW_OBJ_LAYER 2.23
+	#define STRUCTURE_LAYER 2.24
+	//OBJ_LAYER 3
+	#define ABOVE_OBJ_LAYER 3.01
+	#define UNDERDOOR 3.015		//Just barely under a closed door. TODO: Obsolete?
+	#define CLOSED_DOOR_LAYER 3.02
+	#define ABOVE_DOOR_LAYER 3.03
+	#define SIDE_WINDOW_LAYER 3.04
+	#define FULL_WINDOW_LAYER 3.05
+	#define ABOVE_WINDOW_LAYER 3.06
+	#define HOLOMAP_OVERLAY_LAYER 3.061
+	//LYING MOB AND HUMAN
+	#define LYING_MOB_LAYER 3.07
+	#define LYING_HUMAN_LAYER 3.08
+	#define BASE_ABOVE_OBJ_LAYER 3.09
+	//HUMAN
+	#define BASE_HUMAN_LAYER 3.10
+	//MOB_LAYER 4
+	#define MECH_BASE_LAYER 4.01
+	#define MECH_INTERMEDIATE_LAYER 4.02
+	#define MECH_PILOT_LAYER 4.03
+	#define MECH_LEG_LAYER 4.04
+	#define MECH_COCKPIT_LAYER 4.05
+	#define MECH_ARM_LAYER 4.06
+	#define MECH_HEAD_LAYER 4.07
+	#define MECH_GEAR_LAYER 4.08
+	#define MECH_DECAL_LAYER 4.09
+	//ABOVE_HUMAN
+	#define ABOVE_HUMAN_LAYER 4.10
+	#define VEHICLE_LOAD_LAYER 4.11
+	#define CAMERA_LAYER 4.12
+	//BLOB
+	#define BLOB_SHIELD_LAYER 4.13
+	#define BLOB_NODE_LAYER 4.14
+	#define BLOB_CORE_LAYER 4.15
+	//EFFECTS BELOW LIGHTING
+	#define BELOW_PROJECTILE_LAYER 4.16
+	#define DEEP_FLUID_LAYER 4.17
+	#define FIRE_LAYER 4.18
+	#define PROJECTILE_LAYER 4.19
+	#define ABOVE_PROJECTILE_LAYER 4.20
+	#define SINGULARITY_LAYER 4.21
+	#define POINTER_LAYER 4.22
+	#define MIMICED_LIGHTING_LAYER 4.23 // Z-Mimic-managed lighting
+	//FLY_LAYER 5
+	//OBSERVER
+	#define OBSERVER_LAYER 5.1
+	#define OBFUSCATION_LAYER 5.2
 
+	#define AREA_LAYER 999
 
-#define OVERMAP_SECTOR_LAYER 3.01
-#define OVERMAP_IMPORTANT_SECTOR_LAYER 3.02
-#define OVERMAP_SHIP_LAYER 3.03
-#define OVERMAP_SHUTTLE_LAYER 3.03
+//FUTURE OVERMAP_PLANE
+	#define OVERMAP_SECTOR_LAYER 3.15
+	#define OVERMAP_IMPORTANT_SECTOR_LAYER 3.16
+	#define OVERMAP_SHIP_LAYER 3.17
+	#define OVERMAP_SHUTTLE_LAYER 3.18
 
-#define MECH_UNDER_LAYER            4
-#define MECH_BASE_LAYER             4.01
-#define MECH_HATCH_LAYER            4.02
-#define MECH_HEAD_LAYER             4.03
-#define MECH_EYES_LAYER             4.04
-#define MECH_LEG_LAYER              4.05
-#define MECH_ARM_LAYER              4.06
-#define MECH_DECAL_LAYER            4.07
-#define MECH_GEAR_LAYER             4.08
-#define MECH_ABOVE_LAYER            4.09
+//FUTURE LIGHTING PLANE
+	#define LIGHTBULB_LAYER 10
+	#define LIGHTING_LAYER 11
+	#define ABOVE_LIGHTING_LAYER 12
 
-// Blob Layers
-#define BLOB_SHIELD_LAYER           4.11
-#define BLOB_NODE_LAYER             4.12
-#define BLOB_CORE_LAYER	            4.13
+//FUTURE EFFECTS_ABOVE_LIGHTING_PLANE
+	#define EFFECTS_ABOVE_LIGHTING_LAYER 13 // For overlays you want to be above light.
+	#define EYEGLOW_LAYER 14
+	#define BEAM_PROJECTILE_LAYER 15
+	#define SUPERMATTER_WALL_LAYER 16
+	#define SPEECH_INDICATOR_LAYER 17
 
-#define MIMICED_LIGHTING_LAYER      4.21	// Z-Mimic-managed lighting
+//FUTURE FULLSCREEN_PLANE
+	#define FULLSCREEN_LAYER 18
+	#define DAMAGE_LAYER 19
+	#define IMPAIRED_LAYER 20
+	#define BLIND_LAYER 21
+	#define CRIT_LAYER 22
 
-#define CLICKCATCHER_PLANE -100
+//FUTURE HUD_PLANE
+	#define UNDER_HUD_LAYER 23
+	#define HUD_BASE_LAYER 24
+	#define HUD_ITEM_LAYER 25
+	#define HUD_ABOVE_ITEM_LAYER 26
+	#define RADIAL_BACKGROUND_LAYER 26.5
+	#define RADIAL_BASE_LAYER 27
+	#define RADIAL_CONTENT_LAYER 28
 
 #define DEFAULT_APPEARANCE_FLAGS (PIXEL_SCALE)
 
+/atom/proc/hud_layerise()
+	layer = HUD_ITEM_LAYER
+
 /image/proc/turf_decal_layerise()
-	plane = PLANE_DEFAULT
+	plane = DEFAULT_PLANE
 	layer = DECAL_LAYER
+
+/image/proc/plating_decal_layerise()
+	plane = DEFAULT_PLANE
+	layer = DECAL_PLATING_LAYER
+
+/atom/proc/reset_plane_and_layer()
+	plane = initial(plane)
+	layer = initial(layer)

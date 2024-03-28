@@ -132,7 +132,7 @@
 	if(buckled)
 		overlays += buckled
 		var/image/I = image(icon,icon_state="overlay")
-		I.layer = ABOVE_MOB_LAYER
+		I.layer = ABOVE_HUMAN_LAYER
 		overlays += I
 
 /obj/structure/quicksand/proc/expose()

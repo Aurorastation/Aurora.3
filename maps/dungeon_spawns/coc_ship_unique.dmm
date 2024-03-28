@@ -89,7 +89,6 @@
 "ci" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "19,3";
-	layer = 3.5;
 	outside_part = 0
 	},
 /obj/item/ammo_casing/gauss,
@@ -959,7 +958,6 @@
 	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/dirt{
-	layer = 3.1
 	},
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
@@ -981,7 +979,6 @@
 	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/dirt{
-	layer = 3.1
 	},
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
@@ -1386,7 +1383,6 @@
 "Ci" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,3";
-	layer = 3.5;
 	outside_part = 0
 	},
 /obj/item/storage/firstaid/o2{
@@ -1441,7 +1437,6 @@
 "DK" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,3";
-	layer = 3.5;
 	outside_part = 0
 	},
 /obj/structure/table/steel,

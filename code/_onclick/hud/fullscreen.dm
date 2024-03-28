@@ -67,7 +67,7 @@
 	icon_state = "default"
 	screen_loc = "CENTER-7,CENTER-7"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	layer = HUD_LAYER - 0.1
+	layer = FULLSCREEN_LAYER
 	var/severity = 0
 	var/allstate = 0 //shows if it should show up for dead people too
 
@@ -77,24 +77,27 @@
 
 /obj/screen/fullscreen/brute
 	icon_state = "brutedamageoverlay"
+	layer = DAMAGE_LAYER
 
 /obj/screen/fullscreen/oxy
 	icon_state = "oxydamageoverlay"
+	layer = DAMAGE_LAYER
 
 /obj/screen/fullscreen/crit
 	icon_state = "passage"
+	layer = CRIT_LAYER
 
 /obj/screen/fullscreen/strong_pain
 	icon_state = "strong_pain"
-	layer = OBFUSCATION_LAYER
+	layer = CRIT_LAYER
 
 /obj/screen/fullscreen/blind
 	icon_state = "blackimageoverlay"
-	layer = OBFUSCATION_LAYER
+	layer = BLIND_LAYER
 
 /obj/screen/fullscreen/blackout
 	icon_state = "blackout"
-	layer = OBFUSCATION_LAYER
+	layer = BLIND_LAYER
 
 /obj/screen/fullscreen/impaired
 	icon_state = "impairedoverlay"
@@ -143,7 +146,7 @@
 
 /obj/screen/fullscreen/frenzy
 	icon_state = "frenzyoverlay"
-	layer = OBFUSCATION_LAYER
+	layer = BLIND_LAYER
 
 /obj/screen/fullscreen/teleport
 	icon_state = "teleport"

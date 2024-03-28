@@ -786,7 +786,7 @@
 	var/dpdir = 0		// bitmask of pipe directions
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
-	layer = 2.3			// slightly lower than wires and other pipes
+	layer = DISPOSALS_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map

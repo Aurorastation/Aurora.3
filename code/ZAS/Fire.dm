@@ -129,7 +129,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "wavey_fire"
 	light_color = LIGHT_COLOR_FIRE
-	layer = ABOVE_MOB_LAYER
+	layer = FIRE_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()
 

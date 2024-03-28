@@ -16,7 +16,7 @@ LINEN BINS
 		slot_r_hand_str = 'icons/mob/items/righthand_bedsheet.dmi',
 		)
 	slot_flags = SLOT_BACK
-	layer = 4.0
+	layer = BASE_ABOVE_OBJ_LAYER
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
@@ -95,7 +95,7 @@ LINEN BINS
 		if(M.loc == src.loc)
 			return
 	else
-		layer = initial(layer)
+		reset_plane_and_layer()
 
 /obj/item/bedsheet/verb/fold_verb()
 	set name = "Fold Bedsheet"
@@ -125,7 +125,7 @@ LINEN BINS
 			fold = TRUE
 			slot_flags = null
 			w_class = ITEMSIZE_SMALL
-			layer = initial(layer)
+			layer = reset_plane_and_layer()
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
@@ -159,7 +159,7 @@ LINEN BINS
 			roll = TRUE
 			slot_flags = null
 			w_class = ITEMSIZE_NORMAL
-			layer = initial(layer)
+			layer = reset_plane_and_layer()
 			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
 				user.lay_down()
 		else
@@ -167,7 +167,7 @@ LINEN BINS
 			slot_flags = SLOT_BACK
 			w_class = ITEMSIZE_LARGE
 			if(layer == initial(layer))
-				layer = ABOVE_MOB_LAYER
+				layer = ABOVE_HUMAN_LAYER
 			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
 				user.lay_down()
 		update_icon()

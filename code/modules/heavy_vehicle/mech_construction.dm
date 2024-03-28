@@ -152,7 +152,7 @@
 	H.holding = system
 
 	system.screen_loc = H.screen_loc
-	system.layer = H.layer+0.1
+	system.hud_layerise()
 
 	hud_elements |= system
 	refresh_hud()

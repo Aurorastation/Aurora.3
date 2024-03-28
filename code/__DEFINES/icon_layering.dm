@@ -8,7 +8,7 @@
 #define TAIL_SOUTH_ACC_LAYER  7
 #define SHOES_LAYER_ALT       8
 #define UNIFORM_LAYER         9
-#define DAMAGE_LAYER          10
+#define MOB_DAMAGE_LAYER          10
 #define ID_LAYER              11
 #define BANDAGE_LAYER         12
 #define SHOES_LAYER           13

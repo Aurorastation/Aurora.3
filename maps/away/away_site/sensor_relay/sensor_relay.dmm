@@ -187,7 +187,6 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/structure/curtain{
-	layer = 4.1
 	},
 /obj/structure/sign/poster{
 	pixel_x = 32
@@ -598,11 +597,9 @@
 "kgP" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -909,11 +906,9 @@
 "pat" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/towel/random{
-	layer = 3.02;
 	pixel_y = 4
 	},
 /obj/item/towel/random{
-	layer = 3.01;
 	pixel_y = 2
 	},
 /obj/item/towel/random,
@@ -963,7 +958,6 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/head/hardhat/orange,
 /obj/structure/curtain{
-	layer = 4.1
 	},
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay)

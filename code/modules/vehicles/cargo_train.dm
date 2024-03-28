@@ -352,7 +352,7 @@
 		var/mutable_appearance/MA = new(C)
 		MA.pixel_x += load_offset_x
 		MA.pixel_y += load_offset_y
-		MA.layer = FLOAT_LAYER
+		MA.layer = VEHICLE_LOAD_LAYER
 
 		add_overlay(MA)
 

@@ -45,7 +45,7 @@
 			if(-INFINITY to 1)
 				maptext_color = COLOR_RED
 		C.maptext = "<font color='[maptext_color]'>[current_charge]%</font>"
-		C.layer = SCREEN_LAYER + 0.01
+		C.hud_layerise()
 		cx++
 		if (cx > (4+cols))
 			cx = 4

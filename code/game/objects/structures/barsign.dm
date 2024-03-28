@@ -1,7 +1,6 @@
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "Off"
-	layer = 2.99
 	anchored = TRUE
 	req_access = list(ACCESS_BAR) //Has to initalize at first, this is updated by instance's req_access
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED

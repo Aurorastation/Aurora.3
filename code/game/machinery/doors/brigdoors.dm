@@ -12,7 +12,7 @@
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
 	req_access = list(ACCESS_BRIG)
-	layer = OBJ_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	density = FALSE
 	var/id = null     		// id of door it controls.

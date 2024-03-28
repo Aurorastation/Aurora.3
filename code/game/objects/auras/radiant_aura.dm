@@ -3,7 +3,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "at_shield1"
 	alpha = 75
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_WINDOW_LAYER
 
 /obj/aura/radiant_aura/added_to(mob/living/user)
 	..()

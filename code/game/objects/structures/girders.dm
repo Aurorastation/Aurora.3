@@ -7,7 +7,7 @@
 	icon_state = "girder"
 	anchored = 1
 	density = 1
-	layer = ABOVE_CABLE_LAYER
+	layer = BELOW_OBJ_LAYER
 	w_class = ITEMSIZE_HUGE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/state = 0
