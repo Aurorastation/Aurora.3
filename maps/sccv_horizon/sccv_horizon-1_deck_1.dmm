@@ -2561,8 +2561,7 @@
 	dir = 10
 	},
 /obj/random/pottedplant_small{
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
@@ -6958,6 +6957,7 @@
 /obj/structure/table/standard{
 	no_cargo = 1
 	},
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "eOk" = (
@@ -15140,6 +15140,7 @@
 	dir = 4
 	},
 /obj/random/loot,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "kuQ" = (
@@ -31257,6 +31258,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "vqU" = (
