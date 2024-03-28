@@ -1,6 +1,6 @@
 /obj/item/storage/box/bloodpacks
-	name = "blood packs bags"
-	desc = "This box contains blood packs."
+	name = "\improper IV bags"
+	desc = "This box contains IV bags."
 	illustration = "blood"
 
 /obj/item/storage/box/bloodpacks/fill()
@@ -14,7 +14,7 @@
 	new /obj/item/reagent_containers/blood/empty(src)
 
 /obj/item/reagent_containers/blood
-	name = "blood pack"
+	name = "\improper IV bag"
 	desc = "Contains fluids used for transfusions."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "bloodpack"
@@ -37,7 +37,7 @@
 /obj/item/reagent_containers/blood/Initialize()
 	. = ..()
 	if(blood_type != null)
-		name = "blood pack [blood_type]"
+		name = "\improper IV bag - [blood_type] blood"
 		reagents.add_reagent(/singleton/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
 		w_class = ITEMSIZE_NORMAL
 		update_icon()
@@ -163,10 +163,10 @@
 /obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if (attacking_item.ispen())
-		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
+		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty IV bag") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = tgui_input_list(user, "What blood type would you like to label it as?", "Blood Types",  list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel"))
+		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel"))
 		if(blood_name == "Cancel")
 			return
 		var/obj/item/i = user.get_active_hand()
@@ -176,13 +176,13 @@
 			blood_type = null
 			name = initial(name)
 			desc = initial(desc)
-			to_chat(user, SPAN_NOTICE("You clear the blood pack label."))
+			to_chat(user, SPAN_NOTICE("You clear the IV bag label."))
 			update_icon()
 			return
 		blood_type = blood_name
-		name = "blood pack [blood_type]"
+		name = "\improper IV bag - [blood_type]"
 		desc = "Contains fluids used for transfusions."
-		to_chat(user, SPAN_NOTICE("You label the blood pack as [blood_type]."))
+		to_chat(user, SPAN_NOTICE("You label the IV bag as [blood_type]."))
 		update_icon()
 		return
 
@@ -269,12 +269,12 @@
 	blood_type = "O-"
 
 /obj/item/reagent_containers/blood/empty
-	name = "empty blood pack"
+	name = "empty IV bag"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
 	icon_state = "bloodpack"
 
 /obj/item/reagent_containers/blood/ripped
-	name = "ripped blood pack"
+	name = "ripped IV bag"
 	desc = "It's torn up and useless."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"

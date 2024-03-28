@@ -254,13 +254,13 @@
 		return 0
 	else if(bodytemperature > species.cold_level_2)
 		. = 5 * (1 - (bodytemperature - species.cold_level_2) / (species.cold_level_1 - species.cold_level_2))
-		. = max(2, .)
+		. = max(2, .) //stasis factor range: 2 to 5 after rounding
 	else if(bodytemperature > species.cold_level_3)
-		. = 20 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
-		. = max(5, .)
+		. = 11 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
+		. = max(5, .) //stasis factor range: 5 to 10 after rounding. we still want chemicals to metabolise at a bearable speed for those sick pharmacy beaker mixes.
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
-		. = max(20, .)
+		. = max(20, .) //stasis factor range: 20 to 80 after rounding. irl cryonics ''achieves full stasis'' in bodies at 80K.
 	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
 		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
 		if(cryo.current_stasis_mult)

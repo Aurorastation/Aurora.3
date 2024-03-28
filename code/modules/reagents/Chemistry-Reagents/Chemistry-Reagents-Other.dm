@@ -550,16 +550,30 @@
 	description = "A bright orange powder consisting of strange self-heating properties that reacts when exposed to sodium chloride."
 	reagent_state = SOLID
 	color = "#FFFF00"
+	scannable = TRUE
+	breathe_met = REM/2
+	touch_met = REM/2
 	taste_description = "chalk"
 	default_temperature = 600 //Kelvin
 
-/singleton/reagent/cryosurfactant
-	name = "Cryosurfactant"
+/singleton/reagent/pyrosilicate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(M.bodytemperature < M.species.heat_level_3)
+		M.bodytemperature = min(474, M.bodytemperature + (50 * TEMPERATURE_DAMAGE_COEFFICIENT))
+/singleton/reagent/cryosilicate
+	name = "Cryosilicate"
 	description = "A bright cyan liquid consisting of strange self-cooling properties that reacts when exposed to water."
 	reagent_state = LIQUID
 	color = "#00FFFF"
+	scannable = TRUE
+	breathe_met = REM/2
+	touch_met = REM/2
 	taste_description = "needles"
 	default_temperature = 100 //Kelvin
+
+/singleton/reagent/cryosilicate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!(REAGENT_VOLUME(M.reagents, /singleton/reagent/leporazine) > 5))
+		if(M.bodytemperature > M.species.cold_level_3)
+			M.bodytemperature = max(140, M.bodytemperature - (50 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /singleton/reagent/venenum
 	name = "Venenum"

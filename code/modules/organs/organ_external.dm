@@ -1526,7 +1526,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(genetic_degradation <= 30)
 		if(status & ORGAN_MUTATED)
 			unmutate()
-			to_chat(src, "<span class = 'notice'>Your [name] is shaped normally again.</span>")
+			to_chat(src, SPAN_NOTICE("Your [name] is shaped normally again."))
 	return -(genetic_degradation - last_gene_dam)
 
 /obj/item/organ/external/proc/add_genetic_damage(var/amount)
@@ -1536,10 +1536,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	var/last_gene_dam = genetic_degradation
 	genetic_degradation = min(100,max(0,genetic_degradation + amount))
-	if(genetic_degradation > 30)
+	if(genetic_degradation > 10)
+		owner.infest_with_parasite(owner, BP_TUMOUR_SPREADING, src)
+	if(genetic_degradation > 20)
 		if(!(status & ORGAN_MUTATED) && prob(genetic_degradation))
 			mutate()
-			to_chat(owner, "<span class = 'notice'>Something is not right with your [name]...</span>")
+			to_chat(owner, SPAN_NOTICE("Something is not right with your [name]..."))
 	return (genetic_degradation - last_gene_dam)
 
 // Pain/halloss

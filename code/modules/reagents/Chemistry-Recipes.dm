@@ -733,7 +733,8 @@
 	name = "Cataleptinol"
 	id = "cataleptinol"
 	result = /singleton/reagent/cataleptinol
-	required_reagents = list(/singleton/reagent/toxin/phoron = 0.1, /singleton/reagent/alkysine = 1, /singleton/reagent/cryoxadone = 0.1)
+	required_reagents = list(/singleton/reagent/toxin/phoron = 0.5, /singleton/reagent/alkysine = 2, /singleton/reagent/clonexadone = 1)
+	catalysts = list(/singleton/reagent/cryosilicate = 5)
 	result_amount = 1
 
 /datum/chemical_reaction/coughsyrup
@@ -3891,41 +3892,41 @@
 	result_amount = 4
 	required_reagents = list(/singleton/reagent/silicate = 1, /singleton/reagent/acid = 1, /singleton/reagent/hydrazine = 1, /singleton/reagent/iron = 1)
 
-/datum/chemical_reaction/cryosurfactant
-	name = "Cryosurfactant"
-	id = "cryosurfactant"
-	result = /singleton/reagent/cryosurfactant
+/datum/chemical_reaction/cryosilicate
+	name = "Cryosilicate"
+	id = "cryosilicate"
+	result = /singleton/reagent/cryosilicate
 	result_amount = 3
-	required_reagents = list(/singleton/reagent/surfactant = 1, /singleton/reagent/drink/ice = 1, /singleton/reagent/sodium = 1)
+	required_reagents = list(/singleton/reagent/silicate = 1, /singleton/reagent/drink/ice = 1, /singleton/reagent/sodium = 1)
 
 //WATER
-/datum/chemical_reaction/cryosurfactant_cooling_water
-	name = "Cryosurfactant Cooling Water"
-	id = "cryosurfactant_cooling_water"
+/datum/chemical_reaction/cryosilicate_cooling_water
+	name = "Cryosilicate Cooling Water"
+	id = "cryosilicate_cooling_water"
 	result = null
 	result_amount = 1
-	required_reagents = list(/singleton/reagent/cryosurfactant = 1)
+	required_reagents = list(/singleton/reagent/cryosilicate = 1)
 	inhibitors = list(/singleton/reagent/pyrosilicate = 1)
 	catalysts = list(/singleton/reagent/water = 1)
 	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent(/singleton/reagent/cryosurfactant)
+/datum/chemical_reaction/cryosilicate_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	holder.del_reagent(/singleton/reagent/cryosilicate)
 	holder.add_thermal_energy(-created_volume*500)
 
 //ICE
-/datum/chemical_reaction/cryosurfactant_cooling_ice
-	name = "Cryosurfactant Cooling Ice"
-	id = "cryosurfactant_cooling_ice"
+/datum/chemical_reaction/cryosilicate_cooling_ice
+	name = "Cryosilicate Cooling Ice"
+	id = "cryosilicate_cooling_ice"
 	result = null
 	result_amount = 1
-	required_reagents = list(/singleton/reagent/cryosurfactant = 1)
+	required_reagents = list(/singleton/reagent/cryosilicate = 1)
 	inhibitors = list(/singleton/reagent/pyrosilicate = 1)
 	catalysts = list(/singleton/reagent/drink/ice = 1)
 	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent(/singleton/reagent/cryosurfactant)
+/datum/chemical_reaction/cryosilicate_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	holder.del_reagent(/singleton/reagent/cryosilicate)
 	holder.add_thermal_energy(-created_volume*500)
 
 /datum/chemical_reaction/pyrosilicate_heating
@@ -3934,22 +3935,22 @@
 	result = null
 	result_amount = 1
 	required_reagents = list(/singleton/reagent/pyrosilicate = 1)
-	inhibitors = list(/singleton/reagent/cryosurfactant = 1)
+	inhibitors = list(/singleton/reagent/cryosilicate = 1)
 	catalysts = list(/singleton/reagent/sodiumchloride = 1)
 
 /datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
 	holder.del_reagent(/singleton/reagent/pyrosilicate)
 	holder.add_thermal_energy(created_volume*1000)
 
-/datum/chemical_reaction/pyrosilicate_cryosurfactant
-	name = "Pyrosilicate Cryosurfactant Reaction"
-	id = "pyrosilicate_cryosurfactant"
+/datum/chemical_reaction/pyrosilicate_cryosilicate
+	name = "Pyrosilicate Cryosilicate Reaction"
+	id = "pyrosilicate_cryosilicate"
 	result = null
-	required_reagents = list(/singleton/reagent/pyrosilicate = 1, /singleton/reagent/cryosurfactant = 1)
+	required_reagents = list(/singleton/reagent/pyrosilicate = 1, /singleton/reagent/cryosilicate = 1)
 	required_temperature_min = T0C //Does not react when below these temperatures.
 	result_amount = 1
 
-/datum/chemical_reaction/pyrosilicate_cryosurfactant/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+/datum/chemical_reaction/pyrosilicate_cryosilicate/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	if(created_volume)
 		var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
 		if(istype(T))
