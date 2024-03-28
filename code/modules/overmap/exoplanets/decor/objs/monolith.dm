@@ -3,7 +3,7 @@
 	desc = "An obviously artifical structure of unknown origin."
 	icon = 'icons/obj/monolith.dmi'
 	icon_state = "jaggy1"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
 	anchored = TRUE
 	var/active = FALSE
@@ -22,7 +22,7 @@
 		var/image/I = image(icon,"[icon_state]decor")
 		I.appearance_flags = RESET_COLOR
 		I.color = get_random_colour(0, 150, 255)
-		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		add_overlay(I)
 		set_light(0.3, 0.1, 2, l_color = I.color)
 

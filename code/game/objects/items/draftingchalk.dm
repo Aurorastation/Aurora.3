@@ -4,7 +4,6 @@
 	icon = 'icons/obj/smooth/chalkline-smooth.dmi'
 	icon_state = "preview"
 	color = "#FFFFFF"
-	layer = 2.1
 	anchored = TRUE
 	smoothing_flags = SMOOTH_TRUE
 

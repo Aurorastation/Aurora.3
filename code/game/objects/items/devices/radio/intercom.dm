@@ -22,7 +22,7 @@ pixel_x = 8;
 		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "intercom"
-	layer = 2.99
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = ITEMSIZE_LARGE

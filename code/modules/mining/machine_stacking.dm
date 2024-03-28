@@ -19,7 +19,7 @@
 
 /obj/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
 	..()
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 	return INITIALIZE_HINT_LATELOAD

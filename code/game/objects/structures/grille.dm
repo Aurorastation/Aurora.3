@@ -10,7 +10,7 @@
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	explosion_resistance = 1
-	layer = 2.98
+	layer = BELOW_OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/health = 10
 	var/destroyed = 0

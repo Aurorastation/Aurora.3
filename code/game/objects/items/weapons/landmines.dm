@@ -22,7 +22,7 @@
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
-	layer = TURF_LAYER + 0.2
+	layer = ABOVE_TILE_LAYER
 	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
 
 

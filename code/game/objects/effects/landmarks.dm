@@ -7,7 +7,7 @@
 	simulated = 0
 	invisibility = 101
 	var/delete_me = 0
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/landmark/New()
 	..()

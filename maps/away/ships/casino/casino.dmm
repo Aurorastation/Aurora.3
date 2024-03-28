@@ -4839,7 +4839,6 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
-	layer = 2.8
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_crew_atmos)

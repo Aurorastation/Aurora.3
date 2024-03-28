@@ -55,7 +55,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -120,7 +119,6 @@
 "aaw" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/random/pottedplant,
@@ -388,7 +386,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -528,7 +525,6 @@
 "arl" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -836,7 +832,6 @@
 "aDi" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -851,11 +846,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/adv{
@@ -863,11 +856,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/adv{
@@ -1075,7 +1066,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks1";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -1516,7 +1506,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -1597,7 +1586,6 @@
 "bcl" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/random/pottedplant,
@@ -1841,7 +1829,6 @@
 /area/cruise/jungle)
 "blf" = (
 /obj/item/gun/projectile/automatic/rifle/z8{
-	layer = 2.99;
 	pixel_y = 10
 	},
 /obj/item/gun/projectile/automatic/rifle/z8{
@@ -2023,7 +2010,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/template_noop,
@@ -2042,7 +2028,6 @@
 /area/cruise/fore)
 "bqt" = (
 /obj/structure/flora/tree/jungle{
-	layer = 9.1
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -2117,7 +2102,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -3412,12 +3396,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -3568,7 +3550,6 @@
 	desc = "A gigantic thruster in delightful Idris colors. This thing's used to look as fabulous as it is efficient, with its thruster plume resembling a shooting star.";
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
-	layer = 9;
 	name = "starslinger thruster";
 	opacity = 0;
 	pixel_y = -128
@@ -3773,7 +3754,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree2";
-	layer = 9.2
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -4346,7 +4326,6 @@
 	desc = "A big, sad derelict hovercar!";
 	icon = 'icons/effects/64x64.dmi';
 	icon_state = "derelict_hovercar";
-	layer = 9;
 	name = "derelict hovercar"
 	},
 /obj/structure/flora/grass/jungle{
@@ -4372,7 +4351,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -4403,7 +4381,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks1";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -4530,7 +4507,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9.1;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -4648,7 +4624,6 @@
 "dBm" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2";
-	layer = 9.12
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
@@ -4730,7 +4705,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks1";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -5067,7 +5041,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -5204,7 +5177,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -5489,7 +5461,6 @@
 "erJ" = (
 /obj/structure/bed/stool/padded/red,
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_x = 6;
 	pixel_y = 27
 	},
@@ -5987,7 +5958,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/structure/closet/crate/large,
@@ -6556,7 +6526,6 @@
 	desc = "A nondescript shower drain.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14
@@ -6792,13 +6761,11 @@
 /area/cruise/central)
 "fsh" = (
 /obj/structure/flora/tree/jungle/small{
-	layer = 9.12
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks1";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -7034,7 +7001,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -7150,7 +7116,6 @@
 	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "bush";
-	layer = 9.1;
 	name = "bush";
 	pixel_x = -16
 	},
@@ -7259,7 +7224,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -7313,7 +7277,6 @@
 	desc = "A nondescript shower drain.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14
@@ -7429,7 +7392,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor{
@@ -7629,7 +7591,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor{
@@ -7691,7 +7652,6 @@
 	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "bush";
-	layer = 9.1;
 	name = "bush";
 	pixel_x = -16
 	},
@@ -7943,7 +7903,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
@@ -8129,7 +8088,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -8445,7 +8403,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -8466,7 +8423,6 @@
 "gBO" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2";
-	layer = 9.12
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -8525,7 +8481,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -8892,7 +8847,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -9061,7 +9015,6 @@
 	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "bush";
-	layer = 9.1;
 	name = "bush";
 	pixel_x = -16
 	},
@@ -9082,7 +9035,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -9097,7 +9049,6 @@
 "hbr" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3";
-	layer = 9.1
 	},
 /turf/unsimulated/floor{
 	desc = "Gloomy, depressing grass...";
@@ -9784,7 +9735,6 @@
 	desc = "A nondescript shower drain.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14
@@ -9928,7 +9878,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -9963,7 +9912,6 @@
 "hQs" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2";
-	layer = 9.12
 	},
 /turf/unsimulated/floor{
 	desc = "Gloomy, depressing grass...";
@@ -10177,7 +10125,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/template_noop,
@@ -10291,13 +10238,11 @@
 "ieV" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2";
-	layer = 9.12
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -10322,7 +10267,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -10412,7 +10356,6 @@
 "ijF" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -10492,7 +10435,6 @@
 "imp" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3";
-	layer = 9.11
 	},
 /turf/unsimulated/floor{
 	desc = "Gloomy, depressing grass...";
@@ -10518,7 +10460,6 @@
 	desc = "A gigantic thruster in desaturated Conglomerate colors.";
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "scc_ship_engine";
-	layer = 9;
 	name = "hyperefficient thruster";
 	pixel_y = -128
 	},
@@ -10550,7 +10491,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks1";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -10691,7 +10631,6 @@
 "isP" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3";
-	layer = 9.11
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -10833,7 +10772,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -11046,7 +10984,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor{
@@ -11104,7 +11041,6 @@
 	desc = "A gigantic thruster in delightful Idris colors. This thing's used to look as fabulous as it is efficient, with its thruster plume resembling a shooting star.";
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
-	layer = 9;
 	name = "starslinger thruster";
 	opacity = 0;
 	pixel_y = -128
@@ -11747,17 +11683,14 @@
 	pixel_y = 2
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
@@ -11952,11 +11885,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
@@ -11994,7 +11925,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -12048,7 +11978,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -12117,7 +12046,6 @@
 	desc = "A gigantic thruster in delightful Idris colors. This thing's used to look as fabulous as it is efficient, with its thruster plume resembling a shooting star.";
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
-	layer = 9;
 	name = "starslinger thruster";
 	opacity = 0;
 	pixel_y = -128
@@ -12392,7 +12320,6 @@
 "jRb" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12937,7 +12864,6 @@
 "knz" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle/ionrifle{
@@ -13013,11 +12939,9 @@
 	pixel_y = -5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = -10
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 2.99;
 	pixel_x = 4
 	},
 /obj/item/storage/box/gloves{
@@ -13134,7 +13058,6 @@
 	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "bush";
-	layer = 9.1;
 	name = "bush";
 	pixel_x = -16
 	},
@@ -13160,13 +13083,11 @@
 "kuu" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2";
-	layer = 9.12
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -13405,7 +13326,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor/plating,
@@ -13657,7 +13577,6 @@
 "kQi" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
@@ -14044,7 +13963,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -14267,13 +14185,11 @@
 /area/cruise/centerline)
 "lpP" = (
 /obj/structure/flora/tree/jungle/small{
-	layer = 9.12
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -14376,14 +14292,12 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
@@ -14485,82 +14399,66 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
@@ -14761,7 +14659,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9.1;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -14790,7 +14687,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -14895,7 +14791,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -14910,7 +14805,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
@@ -15200,7 +15094,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -15253,7 +15146,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -15271,7 +15163,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -15633,7 +15524,6 @@
 "mnl" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -16148,7 +16038,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -16280,52 +16169,42 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 5
 	},
@@ -16341,7 +16220,6 @@
 /area/cruise/pool)
 "mOx" = (
 /obj/structure/flora/tree/jungle/small{
-	layer = 9.12
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -16520,11 +16398,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -16533,11 +16409,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
@@ -16589,7 +16463,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -16607,7 +16480,6 @@
 "mYa" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3";
-	layer = 9.11
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
@@ -16629,13 +16501,11 @@
 "mZW" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/tree/jungle{
-	layer = 9.1
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks1";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -16792,7 +16662,6 @@
 	dir = 9
 	},
 /obj/structure/closet/walllocker/emerglocker/north{
-	layer = 3;
 	pixel_x = -1;
 	pixel_y = 29
 	},
@@ -16911,7 +16780,6 @@
 	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "bush";
-	layer = 9.1;
 	name = "bush";
 	pixel_x = -16
 	},
@@ -17169,7 +17037,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor{
@@ -17326,12 +17193,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -17408,7 +17273,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -17896,7 +17760,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
@@ -17962,7 +17825,6 @@
 "ogR" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray{
-	layer = 2.99
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -18031,7 +17893,6 @@
 /area/cruise/beach)
 "ojQ" = (
 /obj/structure/closet/walllocker/emerglocker/north{
-	layer = 3;
 	pixel_x = -1;
 	pixel_y = 29
 	},
@@ -18619,7 +18480,6 @@
 	desc = "An automated gun turret, it shoots bad code so you do not encounter any weird glitches or hackers...";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "code firewall point defense"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -18680,12 +18540,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -18947,7 +18805,6 @@
 "oXT" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27
 	},
 /obj/machinery/icecream_vat,
@@ -19238,7 +19095,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -19380,12 +19236,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -19427,14 +19281,12 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor{
@@ -19712,14 +19564,12 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
@@ -19931,14 +19781,12 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor{
@@ -20154,7 +20002,6 @@
 "pXi" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/random/pottedplant,
@@ -20679,7 +20526,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -20865,7 +20711,6 @@
 /area/cruise/hydroponics)
 "qEZ" = (
 /obj/structure/flora/tree/jungle{
-	layer = 9.11
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -20883,7 +20728,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
@@ -20964,7 +20808,6 @@
 "qIH" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray{
-	layer = 2.99
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -21080,7 +20923,6 @@
 	desc = "A gigantic thruster in delightful Idris colors. This thing's used to look as fabulous as it is efficient, with its thruster plume resembling a shooting star.";
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
-	layer = 9;
 	name = "starslinger thruster";
 	opacity = 0;
 	pixel_y = -128
@@ -21162,13 +21004,11 @@
 "qSc" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3";
-	layer = 9.11
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -21203,7 +21043,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/template_noop,
@@ -21418,7 +21257,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -21529,7 +21367,6 @@
 	desc = "An automated gun turret, it shoots bad code so you do not encounter any weird glitches or hackers...";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "code firewall point defense"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -22103,7 +21940,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
@@ -22269,7 +22105,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -22303,7 +22138,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -22358,7 +22192,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks1";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -22571,7 +22404,6 @@
 "ses" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
@@ -23500,7 +23332,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -23580,7 +23411,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -23615,7 +23445,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -23641,7 +23470,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -23680,7 +23508,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -23742,7 +23569,6 @@
 	desc = "A true to life depiction of a Jotun main battle tank, once used to kill quite a lot of people in a war a really long time ago! Wow! Horrifying. It's beached and immobile.";
 	icon = 'icons/mecha/mecha_114x59.dmi';
 	icon_state = "jotun-broken";
-	layer = 9;
 	name = "beached Jotun main battle tank";
 	pixel_x = -44
 	},
@@ -23757,7 +23583,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -23935,7 +23760,6 @@
 	desc = "A gigantic thruster in desaturated Conglomerate colors.";
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "scc_ship_engine";
-	layer = 9;
 	name = "hyperefficient thruster";
 	pixel_y = -128
 	},
@@ -23991,14 +23815,12 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -24052,7 +23874,6 @@
 "tne" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -24102,7 +23923,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -24220,7 +24040,6 @@
 /area/cruise/library)
 "tuz" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	name = "sink";
 	pixel_y = 23
 	},
@@ -24724,7 +24543,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/unsimulated/floor{
@@ -24897,7 +24715,6 @@
 	desc = "A true to life depiction of a Jotun main battle tank, once used to kill quite a lot of people in a war a really long time ago! Wow! Horrifying. It's beached and immobile.";
 	icon = 'icons/mecha/mecha_114x59.dmi';
 	icon_state = "jotun-broken";
-	layer = 9;
 	name = "beached Jotun main battle tank";
 	pixel_x = -44
 	},
@@ -24924,7 +24741,6 @@
 "tWe" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3";
-	layer = 9.1
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -24960,11 +24776,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/adv{
@@ -24972,11 +24786,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
@@ -25379,7 +25191,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -25530,7 +25341,6 @@
 	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "bush";
-	layer = 9.1;
 	name = "bush";
 	pixel_x = -16
 	},
@@ -25573,7 +25383,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -25893,7 +25702,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -26775,7 +26583,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -26835,7 +26642,6 @@
 	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "bush";
-	layer = 9.1;
 	name = "bush";
 	pixel_x = -16
 	},
@@ -27128,7 +26934,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /turf/unsimulated/floor{
@@ -27298,7 +27103,6 @@
 	desc = "A big, scary derelict mech!";
 	icon = 'icons/effects/96x96.dmi';
 	icon_state = "derelict_mech";
-	layer = 9;
 	name = "derelict mech"
 	},
 /obj/structure/flora/grass/jungle{
@@ -27489,7 +27293,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -27520,7 +27323,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -27680,7 +27482,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp";
@@ -28493,13 +28294,11 @@
 /area/cruise/beach_bar)
 "wQN" = (
 /obj/structure/flora/tree/jungle{
-	layer = 9.1
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -28535,7 +28334,6 @@
 	color = "#ff0000";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
-	layer = 2.6;
 	name = "cable"
 	},
 /turf/template_noop,
@@ -28717,7 +28515,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_r";
-	layer = 9;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -29106,7 +28903,6 @@
 	pixel_y = -11
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = -3
 	},
@@ -29144,7 +28940,6 @@
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "rustlamp_l";
-	layer = 9.1;
 	light_color = "#FA644B";
 	light_range = 6;
 	name = "rusty lamp"
@@ -29304,7 +29099,6 @@
 "xvq" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/item/flame/candle,
@@ -29499,7 +29293,6 @@
 /area/cruise/beach)
 "xBm" = (
 /obj/structure/closet/walllocker/emerglocker/north{
-	layer = 3;
 	pixel_x = -1;
 	pixel_y = 29
 	},
@@ -29585,7 +29378,6 @@
 "xEM" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
@@ -29659,7 +29451,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks2";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -29856,7 +29647,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16
@@ -29966,7 +29756,6 @@
 	desc = "A gigantic thruster in desaturated Conglomerate colors.";
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "scc_ship_engine";
-	layer = 9;
 	name = "hyperefficient thruster";
 	pixel_y = -128
 	},
@@ -30017,7 +29806,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -30160,7 +29948,6 @@
 	desc = "A huge lamp post.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "lamp_on";
-	layer = 9;
 	name = "tall lamp post";
 	opacity = 1
 	},
@@ -30205,7 +29992,6 @@
 	desc = "A nondescript shower drain.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "shower drain";
 	pixel_x = 9;
 	pixel_y = -14

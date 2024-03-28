@@ -337,7 +337,6 @@
 /area/saniorios_smuggler)
 "lf" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15

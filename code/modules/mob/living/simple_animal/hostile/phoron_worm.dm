@@ -118,7 +118,7 @@
 	speed = -1
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
-	layer = ON_TURF_LAYER
+	layer = TURF_DETAIL_LAYER
 	density = FALSE
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 

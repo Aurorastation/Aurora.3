@@ -9,7 +9,7 @@
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
-	layer = 3.5
+	layer = ABOVE_WINDOW_LAYER
 	w_class = ITEMSIZE_NORMAL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 

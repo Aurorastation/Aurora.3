@@ -227,7 +227,7 @@
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs_3d"
-	layer = TURF_LAYER
+	layer = RUNE_LAYER
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE

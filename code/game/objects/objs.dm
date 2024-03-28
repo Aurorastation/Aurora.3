@@ -1,4 +1,5 @@
 /obj
+	layer = OBJ_LAYER
 	animate_movement = 2
 
 	var/list/matter //Used to store information about the contents of the object.

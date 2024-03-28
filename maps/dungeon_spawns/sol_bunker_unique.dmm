@@ -854,7 +854,6 @@
 	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/dirt{
-	layer = 3.1
 	},
 /turf/simulated/floor/wood{
 	nitrogen = 0;
@@ -898,7 +897,6 @@
 /area/dungeon/sol_outpost)
 "cG" = (
 /obj/effect/decal/cleanable/dirt{
-	layer = 3.1
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -1136,7 +1134,6 @@
 	density = 1;
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_open_0";
-	layer = 2.99;
 	name = "broken turret"
 	},
 /obj/effect/decal/cleanable/dirt,

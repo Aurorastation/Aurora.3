@@ -12,7 +12,7 @@
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
-	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
+	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
@@ -245,9 +245,9 @@
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
 				if (!fitting_is_on_floor)
-					I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+					I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 				else
-					I.layer = layer
+					I.plane = plane
 				add_overlay(I)
 			else
 				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))

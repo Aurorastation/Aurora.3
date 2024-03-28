@@ -1,5 +1,5 @@
 /obj/effect/map_effect/door_helper
-	layer = DOOR_CLOSED_LAYER + 0.1
+	layer = CLOSED_DOOR_LAYER + 0.01
 
 /obj/effect/map_effect/door_helper/Initialize(mapload, ...)
 	..()

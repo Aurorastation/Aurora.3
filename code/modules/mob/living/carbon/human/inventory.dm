@@ -288,7 +288,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 				var/obj/item/clothing/ears/offear/O = new /obj/item/clothing/ears/offear(src)
 				O.copy_ear(W)
 				src.r_ear = O
-				O.layer = SCREEN_LAYER+0.01
 			W.equipped(src, slot, assisted_equip)
 			update_inv_l_ear(redraw_mob)
 		if(slot_r_ear)
@@ -301,7 +300,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 				var/obj/item/clothing/ears/offear/O = new /obj/item/clothing/ears/offear(src)
 				O.copy_ear(W)
 				src.l_ear = O
-				O.layer = SCREEN_LAYER+0.01
 			W.equipped(src, slot, assisted_equip)
 			update_inv_r_ear(redraw_mob)
 		if(slot_glasses)
@@ -374,7 +372,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		src.r_hand = null
 		update_inv_r_hand()
 
-	W.layer = SCREEN_LAYER+0.01
+	W.hud_layerise()
 	for(var/s in species.hud.gear)
 		var/list/gear = species.hud.gear[s]
 		if(gear["slot"] == slot)

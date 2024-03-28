@@ -5,7 +5,6 @@
 	},
 /obj/structure/barricade/wooden{
 	dir = 4;
-	layer = 2.95
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15

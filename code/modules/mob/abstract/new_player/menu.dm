@@ -54,7 +54,7 @@
 
 /obj/screen/new_player
 	icon = 'icons/misc/hudmenu/hudmenu.dmi'
-	layer = HUD_LAYER
+	layer = HUD_BASE_LAYER
 
 /obj/screen/new_player/Initialize()
 	set_sector_things()

@@ -12,7 +12,7 @@
 	alpha = 196
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = WINDOW_PANE_LAYER
+	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -62,9 +62,9 @@
 /obj/structure/window/update_icon()
 	if(!full)
 		if(dir == SOUTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		else
-			layer = WINDOW_PANE_LAYER
+			layer = SIDE_WINDOW_LAYER
 	SSicon_smooth.add_to_queue(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -546,7 +546,7 @@
 	dir = 5
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
@@ -621,7 +621,7 @@
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
 	full = TRUE
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -773,7 +773,7 @@
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	glasstype = /obj/item/stack/material/glass/reinforced
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smoothing_flags = SMOOTH_MORE
 

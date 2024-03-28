@@ -39,7 +39,6 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	name = "portal subtype"
 	invisibility = 0
 	opacity = TRUE
-	layer = ON_TURF_LAYER
 	appearance_flags = PIXEL_SCALE|KEEP_TOGETHER // Removed TILE_BOUND so things not visible on the other side stay hidden from the viewer.
 
 	var/obj/effect/map_effect/portal/counterpart = null // The portal line or master that this is connected to, on the 'other side'.

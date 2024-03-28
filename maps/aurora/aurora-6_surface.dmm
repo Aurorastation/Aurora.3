@@ -667,7 +667,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
@@ -1209,7 +1208,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -2104,7 +2102,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /obj/structure/window/reinforced,
@@ -3050,7 +3047,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -3124,7 +3120,6 @@
 "cwm" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8;
-	layer = 3.5
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -3359,7 +3354,6 @@
 	dir = 1
 	},
 /obj/effect/spider/stickyweb{
-	layer = 3.5
 	},
 /obj/machinery/door/blast/shutters{
 	id = "commissary_counter";
@@ -3963,7 +3957,6 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1399;
-	layer = 3.5;
 	master_tag = "admin_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = 21;
@@ -4476,7 +4469,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "science_shuttle";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "science_shuttle_pump";
 	tag_chamber_sensor = "science_shuttle_sensor";
@@ -4877,7 +4869,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -5206,7 +5197,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = -32
 	},
@@ -5568,7 +5558,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 32
 	},
@@ -6971,7 +6960,6 @@
 /area/solar/fore)
 "giv" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = -32
 	},
 /obj/machinery/light{
@@ -7451,7 +7439,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -9406,17 +9393,14 @@
 /obj/item/storage/box/fancy/cookiesnack,
 /obj/item/storage/box/fancy/cookiesnack,
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.01;
 	pixel_x = -8;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.01;
 	pixel_x = -1;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 14
 	},
@@ -9506,7 +9490,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -9898,7 +9881,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
@@ -10814,7 +10796,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -11574,7 +11555,6 @@
 	dir = 6
 	},
 /obj/structure/window/reinforced{
-	layer = 6;
 	name = "adjusted window"
 	},
 /obj/structure/bed/stool/chair/office/bridge{
@@ -11898,7 +11878,6 @@
 	dir = 9
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 3
 	},
@@ -11907,7 +11886,6 @@
 	pixel_y = 3
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
@@ -11975,7 +11953,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	layer = 3.3;
 	master_tag = "brig_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -12955,7 +12932,6 @@
 /area/quartermaster/loading)
 "lvK" = (
 /obj/structure/closet/cabinet{
-	layer = 2.9
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/booze,
@@ -14776,7 +14752,6 @@
 	dir = 9
 	},
 /obj/structure/window/reinforced{
-	layer = 6;
 	name = "adjusted window"
 	},
 /obj/structure/bed/stool/chair/office/bridge{
@@ -16680,7 +16655,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_y = -32
 	},
@@ -16871,7 +16845,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/status_display{
-	layer = 3.5
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
@@ -17106,7 +17079,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
-	layer = 3.3;
 	master_tag = "centcom_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -17134,7 +17106,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
@@ -17427,7 +17398,6 @@
 /area/hallway/secondary/exit)
 "pqk" = (
 /obj/structure/closet/cabinet{
-	layer = 2.9
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/random_flag,
@@ -18393,7 +18363,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -18493,7 +18462,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -20337,7 +20305,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /obj/structure/window/reinforced{
@@ -21952,7 +21919,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -23458,7 +23424,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -24367,7 +24332,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -25340,7 +25304,6 @@
 "vZO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor{
-	layer = 2.8;
 	open_layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -25608,7 +25571,6 @@
 	dir = 8
 	},
 /obj/machinery/status_display{
-	layer = 3.5
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
@@ -26349,7 +26311,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "brig_solar_airlock";
-	layer = 3.3;
 	pixel_y = -25;
 	req_access = list(13);
 	tag_airpump = "brig_solar_pump";
@@ -26359,7 +26320,6 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "brig_solar_sensor";
-	layer = 3.3;
 	pixel_x = 12;
 	pixel_y = -25
 	},
@@ -26513,7 +26473,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -27662,7 +27621,6 @@
 /area/security/vacantoffice)
 "yav" = (
 /obj/structure/closet/cabinet{
-	layer = 2.9
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/padded/red,

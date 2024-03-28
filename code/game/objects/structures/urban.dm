@@ -189,7 +189,6 @@
 	desc = "An emergency water hydrant for emergency watering of things."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "hydrant"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/urban_grate
@@ -205,7 +204,6 @@
 	desc = "A parking meter that seems to be turned off."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "parking"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/television
@@ -220,7 +218,6 @@
 	desc = "A divider for an environment where you're probably swapping clothes, made with your privacy in mind."
 	icon = 'icons/obj/structure/urban/tailoring.dmi'
 	icon_state = "divider1"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/neon_sign
@@ -229,7 +226,7 @@
 	icon = 'icons/obj/structure/urban/konyang_neon.dmi'
 	icon_state = "sign1"
 	anchored = TRUE
-	layer = 7
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/shipping_container
 	name = "freight container"
@@ -238,13 +235,13 @@
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
-	layer = 7
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
 	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
 	icon_state = "heph1"
-	layer = 7.01
+	layer = ABOVE_HUMAN_LAYER + 0.01
 
 /obj/effect/overlay/container_logo/einstein
 	name = "Einstein Engines emblem"
@@ -263,7 +260,6 @@
 	density = TRUE
 	throwpass = TRUE
 	climbable = TRUE
-	layer = 4.01
 	anchored = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -294,7 +290,6 @@
 	density = TRUE
 	throwpass = TRUE
 	anchored = TRUE
-	layer = 4.01
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -305,7 +300,6 @@
 	throwpass = TRUE
 	climbable = TRUE
 	anchored = TRUE
-	layer = 4.01
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in
@@ -349,7 +343,6 @@
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
-	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
@@ -385,7 +378,6 @@
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
-	layer = 3.01
 
 /obj/structure/rope_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
@@ -414,7 +406,6 @@
 	icon_state = "post"
 	density = FALSE
 	anchored = TRUE
-	layer = 3
 
 /obj/structure/statue
 	name = "statue of Neopolymus"
@@ -423,7 +414,7 @@
 	icon_state = "neopolymus"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+
 
 /obj/structure/statue/buddha
 	name = "buddha statue"
@@ -440,7 +431,7 @@
 	desc = "A sign indicating where you should probably go in a hurry."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "exit"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/sign/billboard
 	name = "commercial billboard"
@@ -448,14 +439,13 @@
 	icon = 'icons/obj/structure/urban/billboard.dmi'
 	icon_state = "board-l"
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/sign/billboard/advert
 	name = "billboard advertisement"
 	desc = null
 	icon_state = "sign"
 	density = TRUE
-	layer = 4.6
 
 /obj/structure/sign/billboard/advert/random/Initialize(mapload)
 	. = ..()
@@ -486,7 +476,6 @@
 	icon = 'icons/obj/structure/urban/restaurant.dmi'
 	icon_state = "menu_off"
 	density = 1
-	layer = ABOVE_ALL_MOB_LAYER
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.8
 	var/menu_text = ""
@@ -592,7 +581,7 @@
 	//basestate = "wall_half"
 	health = 200
 	maxhealth = 200
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/blocker/exterior_wall/red
 	color = COLOR_PALE_RED_GRAY

@@ -7,7 +7,7 @@
 	unacidable = TRUE
 	simulated = 0
 	invisibility = 101
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
 	pixel_y = -32
 

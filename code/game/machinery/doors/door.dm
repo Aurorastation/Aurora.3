@@ -9,10 +9,10 @@
 	anchored = 1
 	opacity = 1
 	density = 1
-	layer = DOOR_OPEN_LAYER
+	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
-	var/open_layer = DOOR_OPEN_LAYER
-	var/closed_layer = DOOR_CLOSED_LAYER
+	var/open_layer = OPEN_DOOR_LAYER
+	var/closed_layer = CLOSED_DOOR_LAYER
 
 	/// Boolean. Whether or not the door blocks vision.
 	var/visible = TRUE

@@ -5931,7 +5931,6 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/item/storage/firstaid/toxin{
@@ -5939,7 +5938,6 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
@@ -6235,7 +6233,6 @@
 "uW" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray{
-	layer = 2.99
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -6273,7 +6270,6 @@
 /obj/item/bedsheet/black,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/carpet/art,
@@ -6740,7 +6736,6 @@
 "CJ" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
@@ -7618,7 +7613,6 @@
 	pixel_y = 20
 	},
 /obj/structure/mirror{
-	layer = 2.98;
 	pixel_y = 34
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -7661,11 +7655,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -7674,11 +7666,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -7794,12 +7784,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -8084,12 +8072,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{

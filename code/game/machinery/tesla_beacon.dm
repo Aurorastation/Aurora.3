@@ -9,7 +9,6 @@
 	icon_state = "beacon_off"
 	anchored = FALSE
 	density = TRUE
-	layer = MOB_LAYER - 0.1
 
 	var/active = FALSE
 

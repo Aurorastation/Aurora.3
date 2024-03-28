@@ -114,7 +114,7 @@
 	effect.density = FALSE
 	effect.anchored = TRUE
 	effect.icon = 'icons/effects/effects.dmi'
-	effect.layer = 3
+	effect.layer = LYING_HUMAN_LAYER
 	flick("summoning", effect)
 	QDEL_IN(effect, 10)
 	H.forceMove(ling)
@@ -579,7 +579,7 @@
 	effect.density = FALSE
 	effect.anchored = TRUE
 	effect.icon = 'icons/effects/effects.dmi'
-	effect.layer = 3
+	effect.layer = LYING_HUMAN_LAYER
 	flick("summoning", effect)
 	QDEL_IN(effect, 10)
 	M.forceMove(ling) //move inside the new dude to hide him.
