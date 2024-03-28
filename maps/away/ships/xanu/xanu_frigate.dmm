@@ -5995,7 +5995,7 @@
 	pixel_y = 12;
 	req_access = list(222)
 	},
-/obj/effect/shuttle_landmark/xanu_frigate/mid_starboard,
+/obj/effect/shuttle_landmark/xanu_frigate/mid_port,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "xanufrigate_mid_port";
 	master_tag = "xanufrigate_mid_port";
