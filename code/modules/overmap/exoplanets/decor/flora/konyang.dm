@@ -114,7 +114,7 @@
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
 		to_chat(L, "<span class='notice'>You brush through \the [src] really quite loudly.</span>")
-		playsound(loc, 'sound/effects/plantshake.ogg', 100, 1)
+		playsound(loc, 'sound/effects/plantshake.ogg', 60, TRUE)
 		shake_animation()
 	..()
 
