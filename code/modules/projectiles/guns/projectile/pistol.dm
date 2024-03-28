@@ -571,7 +571,7 @@
 
 /obj/item/gun/projectile/pistol/spitter/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
+	if(length(ammo_magazine?.stored_ammo))
 		icon_state = "spitterpistol"
 	else
 		icon_state = "spitterpistol-empty"

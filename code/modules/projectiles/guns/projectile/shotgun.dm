@@ -298,6 +298,7 @@
 	caliber = "shotgun"
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	handle_casings = HOLD_CASINGS
+	///Whether the shotgun's chamber is open
 	var/open = FALSE
 
 /obj/item/gun/projectile/shotgun/wallgun/update_icon()
@@ -321,7 +322,7 @@
 
 /obj/item/gun/projectile/shotgun/wallgun/load_ammo(obj/item/A, mob/user)
 	if(!open)
-		to_chat(user, "<span class='warning'>You need to open the cover to load [src].</span>")
+		to_chat(user, SPAN_WARNING("You need to open the cover to load \the[src]."))
 		return
 	..()
 
@@ -339,9 +340,8 @@
 
 				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
-				var/active_hand = H.hand
 
-				if(active_hand)
+				if(H.hand)
 					LH.take_damage(30)
 				else
 					RH.take_damage(30)

@@ -101,7 +101,9 @@
 	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
 
 	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
-	var/secondary_projectile // does this projectile actually launch two projectiles?
+
+	///If the projectile launches a secondary projectile in addition to itself.
+	var/secondary_projectile
 
 /obj/item/projectile/CanPass()
 	return TRUE

@@ -433,7 +433,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/crackrifle)
 	load_method = MAGAZINE
 
-/obj/item/gun/projectile/shotgun/pump/rifle/unathi/handle_pump_loading()
+/obj/item/gun/projectile/shotgun/pump/rifle/crackrifle/handle_pump_loading()
 	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
 		if(AC)
