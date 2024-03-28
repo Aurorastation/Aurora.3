@@ -733,3 +733,55 @@
 	icon_state = "underglove"
 	item_state = "underglove"
 	contained_sprite = TRUE
+
+//Xanu
+
+/obj/item/clothing/under/xanu
+	name = "xanu armed forces fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by enlisted personnel of the All-Xanu Armed Forces."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu"
+	item_state = "xanu"
+	contained_sprite = TRUE
+	siemens_coefficient = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/xanu/med
+	name = "xanu armed forces medic fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by medics of the All-Xanu Armed Forces."
+	icon_state = "xanu_med"
+	item_state = "xanu_med"
+
+/obj/item/clothing/under/xanu/engi
+	name = "xanu armed forces engineer fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by engineers of the All-Xanu Armed Forces."
+	icon_state = "xanu_engi"
+	item_state = "xanu_engi"
+
+/obj/item/clothing/under/xanu/maa
+	name = "xanu armed forces master-at-arms fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by masters-at-arms of the All-Xanu Armed Forces."
+	icon_state = "xanu_maa"
+	item_state = "xanu_maa"
+
+/obj/item/clothing/under/xanu/pilot
+	name = "xanu armed forces pilot fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by pilots of the All-Xanu Armed Forces."
+	icon_state = "xanu_pilot"
+	item_state = "xanu_pilot"
+
+/obj/item/clothing/under/xanu/officer
+	name = "xanu armed forces officer coat"
+	desc = "A shirt and tie underneath a shortcoat, used by commissioned officers of the All-Xanu Armed Forces."
+	icon_state = "xanu_comm"
+	item_state = "xanu_comm"
+
+/obj/item/clothing/under/xanu/officer/senior
+	name = "xanu armed forces senior officer coat"
+	desc = "A shirt and tie underneath a shortcoat, used by high-ranking commissioned officers of the All-Xanu Armed Forces."
+	icon_state = "xanu_cap"
+	item_state = "xanu_cap"

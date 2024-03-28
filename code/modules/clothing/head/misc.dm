@@ -691,3 +691,23 @@
 	desc = "A white colored helmet made from advanced ceramic."
 	icon_state = "helmet_pilot"
 	item_state = "helmet_pilot"
+
+/obj/item/clothing/head/xanu
+	name = "xanu armed forces garrison cap"
+	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu_garrison_enlisted"
+	item_state = "xanu_garrison_enlisted"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/xanu/officer
+	name = "xanu armed forces officer garrison cap"
+	desc = "A garrison cap belonging to an officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_comm"
+	item_state = "xanu_garrison_comm"
+
+/obj/item/clothing/head/xanu/senior
+	name = "xanu armed forces senior officer garrison cap"
+	desc = "A garrison cap belonging to a high-ranking officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_cap"
+	item_state = "xanu_garrison_cap"
