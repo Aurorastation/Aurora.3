@@ -149,7 +149,6 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	frequency = 1337;
-	icon_state = "door_locked";
 	id_tag = "distress_shuttle_hatch_aft";
 	locked = 1;
 	name = "Aft Shuttle Hatch";
@@ -27833,7 +27832,8 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood-broken6"
+	dir = 8;
+	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
 "bqk" = (
@@ -32271,7 +32271,6 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
 	frequency = 1337;
-	icon_state = "door_locked";
 	id_tag = "distress_shuttle_hatch_fore";
 	locked = 1;
 	name = "Port Shuttle Hatch";

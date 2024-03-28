@@ -188,7 +188,7 @@
 									SPAN_WARNING("You hear a horrible ripping noise."))
 		else
 			part.droplimb(0,DROPLIMB_BLUNT)
-		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg')
+		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg', 70)
 	else if(ismob(imp_in))
 		var/mob/M = imp_in
 		M.gib()	//Simple mobs just get got
