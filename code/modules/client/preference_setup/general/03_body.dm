@@ -822,6 +822,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["reset_organs"])
 		pref.organ_data.Cut()
 		pref.rlimb_data.Cut()
+		recheck_markings_and_facial_hair()
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
@@ -923,7 +924,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 /// This proc verifies if a sprite accessory can be put on a robolimb, checking its manufacturer.
 /datum/category_item/player_setup_item/general/body/proc/verify_robolimb_appropriate(datum/sprite_accessory/S)
 	var/organ_status = pref.organ_data[S.required_organ]
-	var/robolimb_manufacturer = pref.rlimb_data[name]
+	var/robolimb_manufacturer = pref.rlimb_data[S.required_organ]
 	. = check_robolimb_appropriate(S, organ_status, robolimb_manufacturer)
 
 /// This proc is used to check markings and facial hair after changing prosthesis.
@@ -940,5 +941,5 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(!verify_robolimb_appropriate(F))
 			var/datum/species/user_species = GLOB.all_species[pref.species]
 			var/organ_status = pref.organ_data[F.required_organ]
-			var/robolimb_manufacturer = pref.rlimb_data[name]
+			var/robolimb_manufacturer = pref.rlimb_data[F.required_organ]
 			pref.f_style = random_facial_hair_style(pref.gender, user_species.type, organ_status, robolimb_manufacturer)

@@ -53,7 +53,8 @@
 			continue
 		if(!(species in S.species_allowed))
 			continue
-		check_robolimb_appropriate(S, organ_status, robolimb_manufacturer)
+		if(!check_robolimb_appropriate(S, organ_status, robolimb_manufacturer))
+			continue
 
 		valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
 
