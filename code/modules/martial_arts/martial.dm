@@ -213,7 +213,7 @@
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(species_restriction && !(H.species in species_restriction))
+	if(species_restriction && !(H.species.name in species_restriction))
 		to_chat(H, SPAN_WARNING("Your species is incapable of learning this martial art!"))
 		return
 	var/datum/martial_art/F = new martial_art(null)
