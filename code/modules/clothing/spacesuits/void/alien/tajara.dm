@@ -173,7 +173,7 @@
 
 /obj/item/clothing/suit/space/void/dpra
 	name = "people's volunteer spacer militia voidsuit"
-	desc = "A refitted, sturdy voidsuit created from corporate models acquired during the liberation of Gaka'zaal. These armored models are issued to the People's volunteer spacer militia."
+	desc = "A refitted, sturdy voidsuit created from Hegemony models acquired during the liberation of Gakal'zaal. These armored models are issued to the People's Volunteer Spacer Militia."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "DPRA_voidsuit"
 	item_state = "DPRA_voidsuit"
@@ -203,7 +203,7 @@
 
 /obj/item/clothing/head/helmet/space/void/dpra
 	name = "people's volunteer spacer militia voidsuit helmet"
-	desc = "A refitted, sturdy voidsuit created from corporate models acquired during the liberation of Gaka'zaal. These armored models are issued to the People's volunteer spacer militia."
+	desc = "A refitted, sturdy voidsuit created from Hegemony models acquired during the liberation of Gakal'zaal. These armored models are issued to the People's Volunteer Spacer Militia."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "DPRA_voidsuit_helmet"
 	item_state = "DPRA_voidsuit_helmet"

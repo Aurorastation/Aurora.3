@@ -39,7 +39,7 @@
 #define ALL_GENERIC_SECTORS		list(SECTOR_STAR_NURSERY, SECTOR_GENERIC)
 
 //For sectors where corporate entities can or should appear. Corporate ships having this tag can be seen more reliably
-#define ALL_CORPORATE_SECTORS	list(ALL_TAU_CETI_SECTORS, SECTOR_SRANDMARR, SECTOR_UUEOAESA, ALL_COALITION_SECTORS, ALL_GENERIC_SECTORS, SECTOR_GAKAL, SECTOR_NRRAHRAHUL, SECTOR_BADLANDS)//Currently excludes Elyran sectors and Light's Edge
+#define ALL_CORPORATE_SECTORS	list(ALL_TAU_CETI_SECTORS, SECTOR_SRANDMARR, SECTOR_UUEOAESA, ALL_COALITION_SECTORS, ALL_GENERIC_SECTORS, SECTOR_NRRAHRAHUL, SECTOR_BADLANDS)//Currently excludes Elyran sectors and Light's Edge
 
 //For highly dangerous sectors with high piracy. Civilian and leisure ships should be less common or not found here.
 #define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS)
