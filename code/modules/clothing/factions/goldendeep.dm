@@ -83,7 +83,7 @@
 	icon = 'icons/clothing/under/shirts/quilted_gambeson.dmi'
 
 /obj/item/clothing/accessory/goldendeep/tabbard
-	name = "valiant_tabbard"
+	name = "valiant tabbard"
 	desc = " Tabbards of Pactolous represent businesses and merchants, if not an individual's own organization."
 	icon_state = "valiant_tabbard"
 	item_state = "valiant_tabbard"
