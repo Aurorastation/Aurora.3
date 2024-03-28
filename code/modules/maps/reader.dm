@@ -504,6 +504,7 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 			value = deepCopyList(value)
 		what.vars[attribute] = value
 	GLOB.use_preloader = FALSE
+	what.check_non_initial_vars()
 
 /area/template_noop
 	name = "Area Passthrough"
