@@ -1483,6 +1483,8 @@
 	brute_mod = species.brute_mod
 
 	max_stamina = species.stamina
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+		max_stamina *= 1.1
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
 	sprint_cost_factor = species.sprint_cost_factor
