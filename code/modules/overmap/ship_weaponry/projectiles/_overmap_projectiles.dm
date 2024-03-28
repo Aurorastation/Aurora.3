@@ -88,7 +88,7 @@
 					qdel(ammunition.original_projectile) //No longer needed.
 					var/turf/laze = get_turf(entry_target)
 					ammunition.original_projectile = widowmaker
-					playsound(laze, 'sound/weapons/gunshot/ship_weapons/orbital_travel.ogg')
+					playsound(laze, 'sound/weapons/gunshot/ship_weapons/orbital_travel.ogg', 60)
 					laze.visible_message(SPAN_DANGER("<font size=6>A bright star is getting closer from the sky...!</font>"))
 					sleep(11 SECONDS) //Let the sound play!
 					widowmaker.primed = TRUE

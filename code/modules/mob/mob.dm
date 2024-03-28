@@ -3,25 +3,32 @@
 #define FULLY_BUCKLED 2
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
+	MOB_STOP_THINKING(src)
+
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 	lose_hearing_sensitivity()
+
+	QDEL_LIST(spell_masters)
+	remove_screen_obj_references()
+
 	if(client)
-		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
-			qdel(spell_master)
-		remove_screen_obj_references()
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
+
 	if (mind)
 		mind.handle_mob_deletion(src)
+
 	for(var/infection in viruses)
 		qdel(infection)
+
 	for(var/cc in client_colors)
 		qdel(cc)
+
 	client_colors = null
 	viruses.Cut()
 	item_verbs = null
@@ -41,7 +48,7 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
-	MOB_STOP_THINKING(src)
+	QDEL_NULL(ability_master)
 
 	return ..()
 
