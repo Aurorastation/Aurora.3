@@ -189,14 +189,16 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/hoplan
 	company = PROSTHETIC_HOPLAN
-	desc = "TODOMATT"
+	desc = "A refined helmet with an industrial lean. Extra plating seems to be applied to the top surface while the rest of the head features \
+			small breaks in the armor and running lights. A polished screen hides four optic sensors behind a display."
 	species_can_use = list(SPECIES_IPC)
 	icon = 'icons/mob/human_races/ipc/hoplan.dmi'
 	allowed_external_organs = list(BP_HEAD)
 
 /datum/robolimb/indricus
 	company = PROSTHETIC_INDRICUS
-	desc = "TODOMATT"
+	desc = "One lens-like eye dominates this style of head, with a camera like adjustable segment, this head is entirely encased with no seams or \
+			crevices bar service hatches."
 	species_can_use = list(SPECIES_IPC)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/indricus.dmi'
@@ -204,7 +206,9 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/raxus
 	company = PROSTHETIC_RAXUS
-	desc = "TODOMATT"
+	desc = "Imposing and bold, this angled helmet features a collection of small pin-prick optic sensors to make up for its lack of inherent eyes. \
+			The top of the head extends outward, where the thinner point meets halfway down the face before extending in to a similarly wide jaw, \
+			giving the head a shape almost like an cubic hourglass."
 	species_can_use = list(SPECIES_IPC)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/raxus.dmi'
