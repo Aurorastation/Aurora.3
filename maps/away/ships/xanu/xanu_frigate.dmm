@@ -9402,8 +9402,6 @@
 /obj/item/stack/rods/full,
 /obj/item/device/oxycandle,
 /obj/item/device/oxycandle,
-/obj/item/clothing/under/xanu/pilot,
-/obj/item/clothing/under/xanu/pilot,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_fighter)
 "Ha" = (
@@ -12085,6 +12083,8 @@
 /obj/item/rig/zero/xanu{
 	req_access = list(222)
 	},
+/obj/item/clothing/under/xanu/pilot,
+/obj/item/clothing/under/xanu/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/xanu_fighter)
 "Qa" = (
