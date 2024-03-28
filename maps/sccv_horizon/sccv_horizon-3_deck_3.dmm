@@ -235,7 +235,8 @@
 "agD" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/grass/no_edge,
 /area/crew_quarters/lounge)
 "agT" = (
 /obj/structure/disposalpipe/segment,
@@ -1352,7 +1353,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/port)
 "aXB" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2463,7 +2464,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/port)
 "bRs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2668,7 +2669,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/central)
 "caP" = (
 /turf/simulated/open,
@@ -2770,7 +2771,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "cdh" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -3368,7 +3369,7 @@
 "cGj" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/central)
 "cGm" = (
 /obj/machinery/light{
@@ -3414,7 +3415,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "cHQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -3485,7 +3486,7 @@
 /area/crew_quarters/heads/hop/xo)
 "cLV" = (
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "cMa" = (
 /obj/structure/table/standard,
@@ -6466,7 +6467,7 @@
 /area/maintenance/bridge)
 "eRL" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "eSk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7934,7 +7935,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/port)
 "fND" = (
 /obj/machinery/door/blast/shutters{
@@ -9204,7 +9205,7 @@
 /area/horizon/security/investigations_hallway)
 "gEM" = (
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "gFw" = (
 /obj/machinery/door/airlock/external{
@@ -10325,7 +10326,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/bridge)
 "hnx" = (
 /obj/structure/ladder{
@@ -10779,7 +10780,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "hBC" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "hCg" = (
 /obj/machinery/washing_machine,
@@ -10953,7 +10954,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/bridge)
 "hKi" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -12011,7 +12012,7 @@
 	dir = 8;
 	pixel_y = -10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "iyX" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -12112,7 +12113,7 @@
 /area/hallway/medical/upper)
 "iBY" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "iCO" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -12120,7 +12121,7 @@
 	},
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/port)
 "iCT" = (
 /obj/structure/railing/mapped,
@@ -14951,7 +14952,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "kzM" = (
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "kAt" = (
 /obj/structure/cable/green{
@@ -16684,7 +16685,7 @@
 	dir = 8;
 	pixel_y = -10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "lEP" = (
 /obj/structure/lattice,
@@ -16865,7 +16866,7 @@
 /area/horizon/holodeck_control)
 "lMI" = (
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "lNe" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -17098,7 +17099,7 @@
 /area/bridge/meeting_room)
 "lZY" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "mac" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -18086,7 +18087,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "mCX" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -19027,7 +19028,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/bridge)
 "nkE" = (
 /obj/machinery/door/firedoor,
@@ -19114,7 +19115,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "nmW" = (
 /obj/structure/railing/mapped{
@@ -20321,7 +20322,7 @@
 "ocK" = (
 /obj/structure/flora/ausbushes/genericbush,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "ocO" = (
 /obj/structure/disposalpipe/junction{
@@ -22485,7 +22486,7 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "pHG" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "pIS" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -25155,7 +25156,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "rCK" = (
 /obj/structure/flora/tree/jungle/small/patience,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "rCZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -27562,7 +27563,7 @@
 "tor" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/port)
 "tot" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -28737,7 +28738,7 @@
 	dir = 8;
 	pixel_y = -10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "uce" = (
 /obj/structure/cable/green{
@@ -30122,7 +30123,7 @@
 "vcJ" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "vcX" = (
 /obj/machinery/door/airlock/security{
@@ -30226,7 +30227,7 @@
 	dir = 1;
 	pixel_y = -14
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/starboard)
 "vgn" = (
 /obj/machinery/door/firedoor,
@@ -32912,7 +32913,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/hallway/deck_three/primary/port)
 "wWK" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -34125,7 +34126,7 @@
 "xWX" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/horizon/cafeteria)
 "xXk" = (
 /obj/machinery/door/firedoor,

@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Fixed grass flowing over onto tiles on the Horizon."
