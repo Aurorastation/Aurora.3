@@ -2010,6 +2010,10 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/gun_deck/second)
+"pM" = (
+/obj/structure/sign/flag/dpra/large/north,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship)
 "qm" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -2673,7 +2677,6 @@
 	},
 /area/hailstorm_ship/engineering)
 "CE" = (
-/obj/structure/sign/flag/dpra/large/north,
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
@@ -2771,7 +2774,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/eva)
 "DU" = (
-/obj/structure/sign/flag/dpra/large/north,
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
@@ -15014,7 +15016,7 @@ rH
 rH
 kf
 rH
-Oa
+pM
 CE
 tE
 ag
@@ -15500,7 +15502,7 @@ Wd
 Wx
 IK
 ij
-Oa
+pM
 DU
 tE
 OG

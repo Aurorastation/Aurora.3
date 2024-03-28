@@ -163,7 +163,6 @@
 	req_access = list(209);
 	name = "Entry";
 	locked = 1;
-	icon_state = "door_locked";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/rust{

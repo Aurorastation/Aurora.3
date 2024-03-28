@@ -734,7 +734,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1927,7 +1929,7 @@
 	},
 /area/database_freighter/engineering)
 "jJ" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "database_bridge"
@@ -2229,7 +2231,7 @@
 	},
 /area/database_freighter)
 "lv" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2372,7 +2374,7 @@
 	},
 /area/database_freighter)
 "mk" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "database_bridge"
@@ -2404,7 +2406,7 @@
 	},
 /area/database_freighter/barracks)
 "mr" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
@@ -2922,7 +2924,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/structure/bed/stool/chair/padded/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4196,13 +4200,13 @@
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "PH" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/database_freighter/laboratory)
 "PO" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
@@ -4282,19 +4286,9 @@
 	},
 /area/database_freighter)
 "Rg" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hull"
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/database_freighter)
-"Rs" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4667,7 +4661,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/captain_quarters)
 "Zq" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -11731,7 +11725,7 @@ ki
 BF
 BF
 ew
-Rs
+Zq
 iB
 iB
 mb

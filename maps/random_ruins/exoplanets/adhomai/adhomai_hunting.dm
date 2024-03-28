@@ -17,6 +17,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "Multiple huntings trophies decorate this place. The lodge smells of fresh meat and blood."
 
 //ghost roles
 

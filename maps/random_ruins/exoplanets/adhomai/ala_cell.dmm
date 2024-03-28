@@ -89,7 +89,9 @@
 /area/exoplanet/adhomai)
 "C" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/obj/structure/sign/flag/dpra/large/north,
+/obj/structure/sign/flag/dpra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "F" = (
@@ -110,12 +112,15 @@
 /obj/item/pickaxe,
 /obj/item/pickaxe,
 /obj/item/pickaxe,
-/obj/structure/sign/flag/dpra/large/north,
+/obj/structure/sign/flag/dpra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "J" = (
 /obj/structure/sign/flag/dpra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)

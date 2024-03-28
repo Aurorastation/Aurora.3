@@ -106,15 +106,7 @@
 	logging_home_tag = "nav_nka_merchant_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/nka_merchant_shuttle/hangar
-	name = "Her Majesty's Mercantile Flotilla Shuttle Hangar"
-	landmark_tag = "nav_nka_merchant_shuttle"
-	docking_controller = "nka_merchant_shuttle_dock"
-	base_area = /area/nka_merchant/hangar
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/nka_merchant_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_nka_merchant_shuttle"
-	base_turf = /turf/space/transit/north
+/obj/effect/map_effect/marker/airlock/shuttle/nka_merchant_shuttle
+	name = "Her Majesty's Mercantile Flotilla Shuttle"
+	shuttle_tag = "Her Majesty's Mercantile Flotilla Shuttle"
+	master_tag = "nka_merchant_shuttle"

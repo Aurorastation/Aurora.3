@@ -21,7 +21,8 @@
 	dir = 6
 	},
 /obj/structure/sign/flag/pra{
-	pixel_x = 32
+	pixel_x = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -56,7 +57,8 @@
 /area/pra_base)
 "bU" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -140,13 +142,15 @@
 	},
 /area/pra_base)
 "fY" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "gh" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "pra_base"
 	},
 /turf/simulated/floor/wood,
@@ -155,6 +159,12 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/black,
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	id = "pra_base";
+	pixel_x = 10;
+	pixel_y = 8
+	},
 /turf/simulated/floor/wood,
 /area/pra_base)
 "gP" = (
@@ -227,13 +237,20 @@
 	},
 /area/pra_base)
 "ly" = (
-/obj/structure/sign/flag/pra/large/east,
+/obj/structure/sign/flag/pra/large/east{
+	pixel_x = 32
+	},
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "pra_base_commissar";
 	name = "igs - pra_base_commissar"
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	pixel_x = -4;
+	id = "pra_base"
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -304,11 +321,6 @@
 	temperature = 268.15
 	},
 /area/pra_base)
-"mB" = (
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
-/area/pra_base)
 "mN" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -329,7 +341,8 @@
 "nc" = (
 /obj/structure/table/standard,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -506,7 +519,8 @@
 "uO" = (
 /obj/machinery/light,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -698,7 +712,8 @@
 /area/pra_base)
 "CG" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 30
+	pixel_y = 30;
+	stand_icon = null
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -845,7 +860,9 @@
 "FZ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -889,7 +906,9 @@
 	},
 /area/pra_base)
 "Iq" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/structure/hadii_statue,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -902,19 +921,6 @@
 "Jc" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/pra_base)
-"Jg" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/under/tajaran/pra_uniform,
-/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
-/obj/item/clothing/head/beret/tajaran/pra,
-/obj/item/clothing/accessory/holster/hip,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/clothing/accessory/badge/pra_passport,
-/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -942,26 +948,23 @@
 /area/pra_base)
 "JK" = (
 /obj/structure/table/wood,
-/obj/machinery/button/switch/windowtint{
-	dir = 4;
-	pixel_x = -4;
-	pixel_y = 7;
-	id = "pra_base"
-	},
 /obj/item/stamp{
 	name = "people's republic of adhomai stamp";
 	icon_state = "stamp-zavod";
-	pixel_x = 6
+	pixel_x = 10;
+	pixel_y = 12
 	},
 /obj/item/stamp/denied{
-	pixel_x = -4
+	pixel_y = 12
 	},
+/obj/item/portable_typewriter,
 /turf/simulated/floor/wood,
 /area/pra_base)
 "Lb" = (
 /obj/machinery/light,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /obj/machinery/floodlight{
 	dir = 1
@@ -1108,7 +1111,8 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -1134,7 +1138,9 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/clothing/accessory/badge/pra_passport,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -1993,7 +1999,7 @@ wB
 gU
 kO
 NW
-Jg
+aa
 gU
 wB
 gU
@@ -2248,7 +2254,7 @@ wB
 wB
 wB
 gU
-mB
+NW
 EP
 ZR
 EJ

@@ -26,6 +26,9 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug{
 	pixel_y = -5
 	},
+/obj/item/storage/altar/rredouane{
+	pixel_y = 15
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -42,11 +45,18 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"G" = (
+/obj/structure/sign/flag/rredouane,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "J" = (
 /obj/item/storage/pill_bottle/dice/tajara{
 	pixel_x = 10;
-	pixel_y = -5
+	pixel_y = -10
 	},
+/obj/structure/sign/flag/rredouane,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
@@ -122,7 +132,7 @@ N
 N
 N
 N
-N
+G
 T
 N
 N

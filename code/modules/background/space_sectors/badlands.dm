@@ -5,7 +5,15 @@
 	but natives aren't known to treat settlements kindly."
 	skybox_icon = "badlands"
 	sector_welcome_message = 'sound/AI/welcome_badlands.ogg'
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid,
+		/obj/effect/overmap/visitable/sector/exoplanet/grass/grove,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren,
+		/obj/effect/overmap/visitable/sector/exoplanet/lava,
+		/obj/effect/overmap/visitable/sector/exoplanet/desert,
+		/obj/effect/overmap/visitable/sector/exoplanet/snow,
+		/obj/effect/overmap/visitable/sector/exoplanet/crystal
+	)
 	starlight_color = "#b13636"
 	starlight_power = 2
 	starlight_range = 4
@@ -16,7 +24,15 @@
 	amount of old, dying stars and impassable nebulae. Due to close proximity to patrols on either end of this space, it isn't frequented much by criminal elements and is one of the \
 	safer parts of the known Frontier. After 2462, the Republic of Elyra has occupied the majority of Valley Hale, now bordering the Republic of Biesel."
 	skybox_icon = "valley_hale"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid,
+		/obj/effect/overmap/visitable/sector/exoplanet/grass/grove,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren,
+		/obj/effect/overmap/visitable/sector/exoplanet/lava,
+		/obj/effect/overmap/visitable/sector/exoplanet/desert,
+		/obj/effect/overmap/visitable/sector/exoplanet/snow,
+		/obj/effect/overmap/visitable/sector/exoplanet/crystal
+	)
 	starlight_color = "#e68831"
 	starlight_power = 2
 	starlight_range = 4
@@ -50,7 +66,15 @@
 	almost perpetual snowfall and extremely low temperatures. It is currently divided between three factions involved in a cold war: the People's Republic of Adhomai, the Democratic People's \
 	Republic of Adhomai, and the New Kingdom of Adhomai."
 	skybox_icon = "srandmarr"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir, /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara, /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar, /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul, /obj/effect/overmap/visitable/sector/exoplanet/adhomai)
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/raskara,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar,
+		/obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
+	)
+	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/adhomai)
+	scheduled_port_visits = list("Thursday", "Sunday")
+	ports_of_call = list("the city of Nal'tor", "the city of Kaltir", "the city of Crevus")
 	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
 	starlight_color = "#50b7bb"
 	starlight_power = 2

@@ -310,7 +310,7 @@
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "X" = (
-/turf/simulated/wall/cloth,
+/turf/simulated/wall/wood,
 /area/adhomai_archeology)
 "Y" = (
 /obj/machinery/artifact_scanpad,

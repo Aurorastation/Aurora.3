@@ -5,6 +5,7 @@
 	desc = "A planet comprised mainly of solid common minerals and silicate."
 	color = "#bf7c39"
 	icon_state = "globe1"
+	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	rock_colors = list(COLOR_GRAY80)
 	features_budget = 1
 	surface_color = "#B1A69B"
@@ -37,7 +38,6 @@
 	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	color = "#8f4754"
 	icon_state = "globe2"
-	rock_colors = null
 	plant_colors = null
 	rock_colors = list("#4a3f41")
 	features_budget = 1
@@ -135,7 +135,7 @@
 	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
-	rock_colors = null
+	rock_colors = list("#6fb1b5")
 	plant_colors = null
 	flora_diversity = 0
 	has_trees = FALSE

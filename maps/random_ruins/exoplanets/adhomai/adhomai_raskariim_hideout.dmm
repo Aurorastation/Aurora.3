@@ -59,6 +59,12 @@
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
+"da" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_raskariim_hideout)
 "de" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -95,12 +101,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "fs" = (
-/obj/structure/curtain/black,
 /obj/structure/barricade/wooden{
-	dir = 4
-	},
-/obj/structure/window/basic{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
@@ -204,7 +206,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "ri" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "rw" = (
@@ -220,12 +222,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "rG" = (
-/obj/structure/window/basic{
-	dir = 8
-	},
-/obj/structure/curtain/black,
-/obj/structure/barricade/wooden{
-	dir = 8
+/obj/machinery/door/urban{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
@@ -535,14 +533,15 @@
 /obj/item/clothing/head/tajaran/raskara,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
+"Ja" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_raskariim_hideout)
 "Jk" = (
 /obj/structure/curtain/black,
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
-/obj/structure/window/basic{
-	dir = 1
-	},
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "Jq" = (
@@ -672,7 +671,9 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "Te" = (
-/obj/item/trash/can/adhomian_can,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "UC" = (
@@ -720,6 +721,9 @@
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/organ/internal/liver/tajara,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/adhomai_raskariim_hideout)
 
@@ -728,7 +732,7 @@ WO
 WO
 WO
 WO
-rG
+Jk
 WO
 WO
 de
@@ -752,7 +756,7 @@ WO
 Vm
 Nt
 Dg
-SE
+fs
 Pz
 WO
 WM
@@ -781,14 +785,14 @@ NT
 WO
 WO
 WO
-rG
+Jk
 WO
 WO
 WO
 WO
 WO
-rG
-rG
+Jk
+Jk
 WO
 WO
 WM
@@ -805,14 +809,14 @@ SE
 SE
 HE
 WO
-SE
+fs
 tv
 LC
 rK
 WO
 rg
-SE
-SE
+fs
+fs
 HG
 WO
 WM
@@ -849,7 +853,7 @@ WM
 WO
 WO
 WO
-ri
+rG
 WO
 WO
 WO
@@ -1017,7 +1021,7 @@ WM
 WO
 WO
 WO
-ri
+rG
 WO
 WO
 WO
@@ -1048,10 +1052,10 @@ WO
 WO
 WO
 WO
-ri
+da
 WO
 WO
-ri
+da
 WO
 WO
 WO
@@ -1140,13 +1144,13 @@ wq
 kt
 kt
 lI
-SE
+Ja
 sX
 WO
 WO
 WO
 WO
-fs
+Jk
 WO
 WO
 WO
@@ -1164,7 +1168,7 @@ WO
 WO
 WO
 WO
-fs
+Jk
 WO
 WO
 WM
