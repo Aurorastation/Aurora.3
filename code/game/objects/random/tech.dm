@@ -112,8 +112,8 @@
 		/obj/item/rig_module/fabricator = 0.5,
 		/obj/item/rig_module/grenade_launcher = 0.5,
 		/obj/item/rig_module/maneuvering_jets = 0.5,
-		/obj/item/rig_module/mounted/egun = 1,
-		/obj/item/rig_module/mounted/smg = 0.5,
+		/obj/item/rig_module/mounted/energy/egun = 1,
+		/obj/item/rig_module/mounted/ballistic/machine_pistol = 0.5,
 		/obj/item/rig_module/vision/multi = 0.5
 	)
 
