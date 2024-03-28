@@ -2304,7 +2304,8 @@
 /area/ship/xanu_frigate/engineering/port)
 "ia" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222)
+	req_access = list(222);
+	name = "pistol cabinet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/gun/projectile/xanupistol,
@@ -3171,13 +3172,26 @@
 /area/ship/xanu_frigate/bridge)
 "kS" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222)
+	req_access = list(222);
+	name = "equipment cabinet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "kV" = (
@@ -5054,7 +5068,8 @@
 /area/ship/xanu_frigate/weapon/longbow)
 "rA" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222)
+	req_access = list(222);
+	name = "shotgun cabinet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/gun/projectile/automatic/rifle/shotgun/xanan,
@@ -5300,14 +5315,6 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/rig/combat/xanu{
 	req_access = list(222)
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = -24
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = -33
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
@@ -7672,7 +7679,8 @@
 /area/ship/xanu_frigate/corridor/starboard)
 "AP" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222)
+	req_access = list(222);
+	name = "rifle cabinet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/gun/projectile/automatic/rifle/dnac,
@@ -10146,7 +10154,8 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "Jg" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222)
+	req_access = list(222);
+	name = "smg cabinet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/gun/projectile/automatic/xanusmg,
