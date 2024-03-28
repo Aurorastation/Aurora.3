@@ -1,0 +1,6 @@
+author: SidVeld
+
+delete-after: True
+
+changes:
+  - rscadd: "Added buttons that can be used to quickly change a character's hairstyle or beard without using a list."
