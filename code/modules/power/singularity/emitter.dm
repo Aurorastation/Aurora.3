@@ -117,7 +117,7 @@
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/process()
+/obj/machinery/power/emitter/process(seconds_per_tick)
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))
@@ -152,7 +152,7 @@
 		var/burst_time = (min_burst_delay + max_burst_delay) / 2 + 2 * (burst_shots - 1)
 		var/power_per_shot = active_power_usage * (burst_time / 10) / burst_shots
 
-		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, 2, 0.5, TRUE)
+		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, extrarange = (MEDIUM_RANGE_SOUND_EXTRARANGE-1))
 		if(prob(35))
 			spark_system.queue()
 
