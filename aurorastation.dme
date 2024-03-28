@@ -2052,6 +2052,7 @@
 #include "code\modules\effects\map_effects\sound_emitter.dm"
 #include "code\modules\effects\map_effects\window_spawner.dm"
 #include "code\modules\effects\map_effects\marker\_defines.dm"
+#include "code\modules\effects\map_effects\marker\_marker.dm"
 #include "code\modules\effects\map_effects\marker\airlock_.dm"
 #include "code\modules\effects\map_effects\marker\airlock_docking.dm"
 #include "code\modules\effects\map_effects\marker\airlock_helper.dm"

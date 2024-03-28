@@ -1,7 +1,3 @@
-/obj/effect/map_effect/marker
-	name = "map marker parent abstract object"
-	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "marker_base"
 
 /// Airlock marker that, when placed above airlock components, actually sets them up to make it functional.
 /// This is a simple exterior access airlock, not used for docking.
