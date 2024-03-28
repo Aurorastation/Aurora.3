@@ -420,6 +420,9 @@
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
+#define PROSTHETIC_HOPLAN "Hoplan Head"
+#define PROSTHETIC_RAXUS "Raxus Head"
+#define PROSTHETIC_INDRICUS "Indricus Head"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
