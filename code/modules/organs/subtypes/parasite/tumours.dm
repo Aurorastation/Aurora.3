@@ -45,8 +45,8 @@
 	..()
 	if (!owner)
 		return
-	if(REAGENT_VOLUME(owner.reagents, /singleton/reagent/ryetalyn))
-		recession = 5
+	if(REAGENT_VOLUME(owner.reagents, /singleton/reagent/ryetalyn))  //10u will treat most tumours, 20u will nuke fully developed tumours
+		recession = 20
 	if(prob(2))
 		owner.adjustNutritionLoss(5)
 	if(stage >= 2)  //after ~5 minutes
@@ -102,8 +102,8 @@
 	..()
 	if (!owner)
 		return
-	if(REAGENT_VOLUME(owner.reagents, /singleton/reagent/ryetalyn))
-		recession = 5
+	if(REAGENT_VOLUME(owner.reagents, /singleton/reagent/ryetalyn)) //10u will treat most tumours, 20u will nuke fully developed tumours
+		recession = 20
 	if(prob(5))
 		owner.adjustNutritionLoss(5)
 		if(prob(5))
