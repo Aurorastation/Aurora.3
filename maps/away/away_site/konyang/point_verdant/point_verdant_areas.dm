@@ -99,18 +99,18 @@
 // Clinic
 /area/point_verdant/interior/clinic
 	name = "Point Verdant - Clinic"
-	sound_env = MEDIUM_SOFTFLOOR
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
 
 // Clinic - Toilet
 /area/point_verdant/interior/clinic/toilet // lmao.
 	name = "Point Verdant - Clinic - Toilet"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 // Clinic - Basement
 /area/point_verdant/interior/clinic/basement
 	name = "Point Verdant - Clinic - Basement"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_CHAPEL
 
 // Pharmacy
