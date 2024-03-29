@@ -196,7 +196,7 @@
 	icon_state = "chain_jewelry"
 	item_state = "chain_jewelry"
 	icon = 'icons/clothing/head/chain_jewelry.dmi'
-	slot_flags = SLOT_EARS  | SLOT_HEAD | SLOT_MASK
+	slot_flags = SLOT_EARS | SLOT_HEAD | SLOT_MASK
 
 /obj/item/clothing/head/goldendeep/chainjewelry/baseline
 	icon_state = "chain_jewelry_baseline"
