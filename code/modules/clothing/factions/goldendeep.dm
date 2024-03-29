@@ -188,7 +188,7 @@
 	item_state = "cube_hood"
 	icon = 'icons/clothing/head/cube_hood.dmi'
 	body_parts_covered = 0
-	slot_flags = SLOT_EARS  | SLOT_HEAD
+	slot_flags = SLOT_EARS | SLOT_HEAD
 
 /obj/item/clothing/head/goldendeep/chainjewelry
 	name = "chain jewelry"
