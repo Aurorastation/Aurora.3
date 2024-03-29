@@ -68,7 +68,15 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
 "ak" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack/retail_shelf,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "al" = (
@@ -117,20 +125,27 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/outdoors)
 "ar" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/light{
-	pixel_y = 8;
-	pixel_x = -7
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/box/gloves{
+	pixel_y = -4;
+	pixel_x = -4
 	},
-/obj/item/storage/firstaid/light{
-	pixel_y = 8;
-	pixel_x = 7
+/obj/item/storage/box/gloves{
+	pixel_y = 7;
+	pixel_x = -4
 	},
-/obj/item/storage/firstaid/light{
-	pixel_x = -7
+/obj/item/storage/pill_bottle/cetahydramine{
+	pixel_x = 9;
+	pixel_y = 8
 	},
-/obj/item/storage/firstaid/light{
-	pixel_x = 7
+/obj/item/storage/pill_bottle/cetahydramine{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/sign/urban/konyang/clinic{
+	pixel_x = 5;
+	pixel_y = 37
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -190,9 +205,6 @@
 /obj/structure/closet/crate/bin/urban/dumpster,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
-"aC" = (
-/turf/simulated/floor/sidewalk,
-/area/point_verdant/interior/clinic)
 "aD" = (
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/tailor)
@@ -1333,35 +1345,6 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
-"dD" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = -8;
-	pixel_y = -5
-	},
-/obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_y = -5
-	},
-/obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = 8;
-	pixel_y = -5
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "dE" = (
 /obj/structure/konyang_cliff,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -3125,6 +3108,7 @@
 /obj/item/device/healthanalyzer{
 	pixel_y = -1
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "it" = (
@@ -5507,6 +5491,7 @@
 	pixel_y = 6;
 	pixel_x = 9
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "oJ" = (
@@ -5674,14 +5659,6 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
-"oY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/blast/shutters{
-	dir = 8;
-	id = "konyang_clinic"
-	},
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior/pharmacy)
 "oZ" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/lino/diamond,
@@ -5936,6 +5913,7 @@
 /obj/item/storage/pill_bottle/dexalin_plus{
 	pixel_y = -6
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "pE" = (
@@ -6163,7 +6141,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "qj" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -6396,7 +6374,24 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "qL" = (
-/obj/structure/table/rack/retail_shelf,
+/obj/structure/table/standard,
+/obj/item/storage/box/masks{
+	pixel_y = 8;
+	pixel_x = 4
+	},
+/obj/item/storage/box/masks{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -8;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "qM" = (
@@ -6440,14 +6435,15 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "qS" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular{
+	pixel_y = 8;
+	pixel_x = -4
 	},
-/obj/structure/table/rack/retail_shelf,
-/obj/item/stack/medical/splint/full,
-/obj/item/stack/medical/splint/full,
-/obj/item/stack/medical/splint/full,
-/obj/item/stack/medical/splint/full,
+/obj/item/storage/firstaid/regular{
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "qT" = (
@@ -6852,6 +6848,7 @@
 /area/point_verdant/interior/laundromat)
 "rM" = (
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "rN" = (
@@ -8217,7 +8214,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "vp" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -8270,7 +8267,7 @@
 	pixel_y = 27
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/water)
+/area/point_verdant/outdoors)
 "vw" = (
 /obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/tiled,
@@ -8759,21 +8756,6 @@
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
-"wF" = (
-/obj/structure/table/standard,
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_x = -8;
-	pixel_y = 11
-	},
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_y = 11;
-	pixel_x = 8
-	},
-/obj/item/storage/pill_bottle/dylovene{
-	pixel_y = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "wH" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
@@ -9174,12 +9156,6 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
-"xN" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "xO" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb{
@@ -9591,6 +9567,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "yO" = (
@@ -9880,6 +9857,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "zB" = (
@@ -10535,7 +10513,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "Bg" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/food/drinks/dry_ramen{
@@ -10833,7 +10811,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/lino,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "BX" = (
 /obj/effect/decal/road_marking/thin,
 /obj/effect/decal/road_marking/thin{
@@ -10914,9 +10892,6 @@
 /obj/effect/floor_decal/corner_wide/grey,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
-"Cl" = (
-/turf/simulated/floor/wood,
-/area/point_verdant/interior/pharmacy)
 "Cm" = (
 /obj/structure/rope_post{
 	dir = 8;
@@ -11786,7 +11761,7 @@
 	id = "konyang_clinic"
 	},
 /turf/simulated/floor/lino,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "Ey" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom";
@@ -11868,10 +11843,19 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/outdoors)
 "EI" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/machinery/light{
-	dir = 8
+/obj/structure/table/standard,
+/obj/item/storage/pill_bottle/dylovene{
+	pixel_x = -8;
+	pixel_y = 11
 	},
+/obj/item/storage/pill_bottle/dylovene{
+	pixel_y = 11;
+	pixel_x = 8
+	},
+/obj/item/storage/pill_bottle/dylovene{
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "EJ" = (
@@ -12160,6 +12144,7 @@
 	dir = 8;
 	req_access = list(228)
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Fx" = (
@@ -12314,23 +12299,22 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "FY" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/gloves{
-	pixel_y = -4;
-	pixel_x = -4
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = 6;
+	pixel_y = 7
 	},
-/obj/item/storage/box/gloves{
-	pixel_y = 7;
-	pixel_x = -4
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = -7;
+	pixel_y = 7
 	},
-/obj/item/storage/pill_bottle/cetahydramine{
-	pixel_x = 9;
-	pixel_y = 8
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = 6
 	},
-/obj/item/storage/pill_bottle/cetahydramine{
-	pixel_x = 9;
-	pixel_y = 1
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = -7
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Ga" = (
@@ -12481,10 +12465,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "Gp" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Gq" = (
@@ -12738,8 +12719,8 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "GU" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/extinguisher_cabinet/east,
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "GV" = (
@@ -12839,6 +12820,10 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "Hh" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Hi" = (
@@ -13510,10 +13495,21 @@
 /area/point_verdant/outdoors)
 "IV" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/clothing/accessory/stethoscope,
-/obj/machinery/light,
-/obj/item/clothing/accessory/stethoscope,
-/turf/simulated/floor/tiled/white,
+/obj/item/storage/firstaid/light{
+	pixel_y = 8;
+	pixel_x = -7
+	},
+/obj/item/storage/firstaid/light{
+	pixel_y = 8;
+	pixel_x = 7
+	},
+/obj/item/storage/firstaid/light{
+	pixel_x = -7
+	},
+/obj/item/storage/firstaid/light{
+	pixel_x = 7
+	},
+/turf/space,
 /area/point_verdant/interior/pharmacy)
 "IX" = (
 /obj/structure/rod_railing{
@@ -13569,6 +13565,7 @@
 /obj/machinery/door/window/westleft{
 	req_access = list(228)
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Jh" = (
@@ -15107,14 +15104,24 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "Nb" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/regular{
-	pixel_y = 8;
-	pixel_x = -4
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/pill_bottle/steramycin{
+	pixel_x = 8
 	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = 4
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/storage/pill_bottle/steramycin{
+	pixel_x = -9
 	},
+/obj/item/storage/pill_bottle/steramycin{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/glass/bottle/thetamycin{
+	pixel_y = -6
+	},
+/obj/item/storage/pill_bottle/steramycin{
+	pixel_x = -9
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Nc" = (
@@ -15402,13 +15409,6 @@
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
-"NP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/blast/shutters{
-	id = "konyang_clinic"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/point_verdant/interior/clinic/toilet)
 "NQ" = (
 /obj/machinery/vending/cola/konyang,
 /turf/simulated/floor/sidewalk/flat,
@@ -15650,7 +15650,19 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
-"Oo" = (
+"Op" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/water)
+"Oq" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
+"Or" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/glass/bottle/perconol{
 	pixel_x = -9;
@@ -15674,36 +15686,7 @@
 	pixel_x = 8;
 	pixel_y = -5
 	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
-"Op" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/point_verdant/water)
-"Oq" = (
-/obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
-/area/point_verdant/outdoors)
-"Or" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = -7
-	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Os" = (
@@ -16173,6 +16156,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "PA" = (
@@ -16314,22 +16298,23 @@
 /area/point_verdant/outdoors)
 "PR" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/pill_bottle/steramycin{
-	pixel_x = 8
+/obj/item/stack/medical/ointment/full{
+	pixel_x = 8;
+	pixel_y = 4
 	},
-/obj/item/reagent_containers/glass/bottle/thetamycin,
-/obj/item/storage/pill_bottle/steramycin{
-	pixel_x = -9
+/obj/item/stack/medical/ointment/full{
+	pixel_x = -4;
+	pixel_y = 4
 	},
-/obj/item/storage/pill_bottle/steramycin{
-	pixel_x = 8
-	},
-/obj/item/reagent_containers/glass/bottle/thetamycin{
+/obj/item/stack/medical/ointment/full{
+	pixel_x = 8;
 	pixel_y = -6
 	},
-/obj/item/storage/pill_bottle/steramycin{
-	pixel_x = -9
+/obj/item/stack/medical/ointment/full{
+	pixel_x = -4;
+	pixel_y = -6
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "PS" = (
@@ -18270,7 +18255,7 @@
 	pixel_y = 27
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/water)
+/area/point_verdant/outdoors)
 "UY" = (
 /obj/structure/flora/tree/konyang/fall,
 /obj/structure/ledge/quarter{
@@ -18406,13 +18391,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices)
-"Vs" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "Vt" = (
 /obj/machinery/light{
 	dir = 8
@@ -18554,7 +18532,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "VI" = (
 /obj/machinery/vending/rental_bikes{
 	key_data_mopeds = list("M17-3023","M36-1211","M56-4117");
@@ -18755,7 +18733,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
 /turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "Wh" = (
 /obj/structure/table/wood,
 /obj/item/pen/red{
@@ -18881,23 +18859,30 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/outdoors)
 "Wz" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/masks{
-	pixel_y = 8;
-	pixel_x = 4
-	},
-/obj/item/storage/box/masks{
-	pixel_y = 2;
-	pixel_x = 4
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -8;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/spray/cleaner{
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
 	pixel_x = -8;
 	pixel_y = 3
 	},
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
+	pixel_x = -8;
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
+	pixel_x = 8;
+	pixel_y = -5
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "WA" = (
@@ -19192,25 +19177,11 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "Xk" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/stack/medical/ointment/full{
-	pixel_x = 8;
-	pixel_y = 4
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
-	pixel_y = -6
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "Xl" = (
 /obj/structure/ledge{
 	dir = 1
@@ -19468,6 +19439,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "XQ" = (
@@ -19666,6 +19638,7 @@
 /obj/item/storage/firstaid/surgery{
 	pixel_y = 6
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Yw" = (
@@ -19714,7 +19687,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/point_verdant/interior/pharmacy)
+/area/point_verdant/interior/clinic)
 "YD" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
@@ -38853,7 +38826,7 @@ BT
 Ne
 bx
 mG
-aC
+BT
 ko
 ko
 ko
@@ -39110,7 +39083,7 @@ BT
 ve
 bx
 Ja
-aC
+BT
 ko
 Yu
 dt
@@ -39367,7 +39340,7 @@ BT
 jH
 xH
 Ja
-aC
+BT
 ko
 ko
 Zz
@@ -39375,9 +39348,9 @@ ko
 sV
 Uj
 ko
-Vp
-Vp
-Vp
+ko
+ko
+ko
 Vp
 ng
 ng
@@ -39624,7 +39597,7 @@ VL
 ve
 xH
 Ja
-aC
+BT
 Cb
 zy
 zP
@@ -39634,11 +39607,11 @@ zP
 Ev
 VH
 Wg
-Vp
+ko
 Nb
-wF
-Hh
-EI
+Gp
+ak
+Gp
 PR
 Vp
 qG
@@ -39881,7 +39854,7 @@ BT
 ve
 xH
 Ja
-aC
+BT
 Cb
 zP
 zP
@@ -39891,11 +39864,11 @@ zP
 zP
 Bf
 vo
-Vp
+ko
 ar
-is
+Gp
 Hh
-ak
+Gp
 IV
 Vp
 ie
@@ -40138,7 +40111,7 @@ BT
 ve
 xH
 Ja
-aC
+BT
 ko
 NA
 Ak
@@ -40146,13 +40119,13 @@ NA
 ko
 zP
 zP
-Cl
-Cl
+zP
+zP
 BV
-xN
-xN
-xN
-Vs
+Gp
+Gp
+Gp
+Gp
 qS
 HS
 BT
@@ -40395,21 +40368,21 @@ BT
 ve
 xH
 Ja
-aC
-NP
+BT
+Cb
 GG
 GG
 GG
 ko
 gq
 zZ
-Cl
+zP
 qi
-Vp
+ko
 Wz
-Xk
-Hh
-ak
+Gp
+EI
+Gp
 qL
 HS
 pf
@@ -40652,22 +40625,22 @@ VL
 ve
 xH
 Ja
-aC
-NP
+BT
+Cb
 xq
 JD
 xq
 ko
 iA
 Gu
-Cl
+zP
 YC
-Vp
+ko
 Or
+Gp
 FY
-Hh
-ak
-Hh
+Gp
+Gp
 Hq
 BT
 LN
@@ -40909,7 +40882,7 @@ BT
 ve
 xH
 Ja
-aC
+BT
 ko
 ko
 ko
@@ -40918,13 +40891,13 @@ ko
 bo
 bo
 Ex
-oY
+bo
+ko
 Vp
-Vp
-dD
-Hh
-ak
-Hh
+Gp
+is
+Gp
+Gp
 Ih
 BT
 LN
@@ -41178,12 +41151,12 @@ BT
 BT
 NZ
 Vp
-Oo
-Hh
-ak
-Hh
+Gp
+Gp
+Gp
+Gp
 HS
-BT
+Xk
 LN
 bb
 Ut
@@ -41435,10 +41408,10 @@ wU
 BT
 BT
 HS
-xN
-xN
 Gp
-xN
+Gp
+Gp
+Gp
 HS
 BT
 LN
@@ -41941,17 +41914,17 @@ cs
 DT
 Dv
 UX
-wK
-MA
-MA
-wK
+ZZ
+HX
+HX
+ZZ
 wL
 tU
 Bp
 HS
 oI
 yN
-ak
+Gp
 rM
 Er
 BT
@@ -42198,17 +42171,17 @@ cI
 Yg
 Dv
 UX
-MA
-Mw
-Lo
-wK
+HX
+lN
+qo
+ZZ
 wL
 CC
 rr
 HS
 pD
-Hh
-ak
+Gp
+Gp
 XP
 Vp
 BT
@@ -42455,10 +42428,10 @@ nJ
 LY
 Dv
 vv
-MA
-MA
-wK
-MA
+HX
+HX
+ZZ
+HX
 wL
 tU
 qE
@@ -42711,11 +42684,11 @@ Ja
 cR
 yR
 eM
-hI
-hI
-hI
-hI
-hI
+lG
+lG
+lG
+lG
+lG
 wt
 tU
 Bp

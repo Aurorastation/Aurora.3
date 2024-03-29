@@ -204,7 +204,7 @@
 "aG" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior/tunnels)
+/area/point_verdant/interior/pharmacy)
 "aH" = (
 /obj/structure/barricade/wooden,
 /obj/effect/decal/road_marking/no_pass,
@@ -1905,7 +1905,7 @@
 /obj/machinery/door/urban,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/pharmacy)
 "fM" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2131,9 +2131,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
-"gC" = (
-/turf/simulated/wall/r_wall,
-/area/point_verdant/interior/tunnels)
 "gD" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
@@ -3193,7 +3190,7 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior/tunnels)
+/area/point_verdant/interior/pharmacy)
 "jS" = (
 /obj/structure/ledge/quarter{
 	dir = 8
@@ -5158,7 +5155,7 @@
 /obj/item/mop,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/pharmacy)
 "pH" = (
 /obj/effect/floor_decal/corner_wide/white,
 /turf/simulated/floor/tiled,
@@ -6772,7 +6769,7 @@
 	},
 /obj/item/screwdriver,
 /turf/simulated/floor/tiled/white,
-/area/point_verdant/interior)
+/area/point_verdant/interior/pharmacy)
 "uw" = (
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
@@ -6837,9 +6834,6 @@
 /obj/random/junk,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
-"uH" = (
-/turf/unsimulated/mineral/konyang,
-/area/point_verdant/interior/pharmacy)
 "uJ" = (
 /obj/machinery/vending/snack{
 	name = "Free Chocolate Corp";
@@ -7600,9 +7594,6 @@
 /obj/item/device/advanced_healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
-"wV" = (
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/tunnels)
 "wX" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
@@ -9440,7 +9431,7 @@
 	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/white,
-/area/point_verdant/interior)
+/area/point_verdant/interior/pharmacy)
 "CB" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/sidewalk/flat,
@@ -11849,7 +11840,7 @@
 /obj/item/device/assembly/mousetrap/armed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/pharmacy)
 "IV" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/storage/box/toothpaste,
@@ -12634,7 +12625,7 @@
 /obj/item/storage/box/syringes,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior/tunnels)
+/area/point_verdant/interior/pharmacy)
 "LA" = (
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -14359,7 +14350,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior/tunnels)
+/area/point_verdant/interior/pharmacy)
 "Qr" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/toxin{
@@ -15541,7 +15532,7 @@
 /obj/item/storage/box/syringegun,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior/tunnels)
+/area/point_verdant/interior/pharmacy)
 "TB" = (
 /obj/random/dirt_75,
 /obj/structure/closet/hazmat/custodial,
@@ -17395,9 +17386,6 @@
 /obj/structure/automobile_filler,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
-"Yw" = (
-/turf/simulated/wall/r_wall,
-/area/point_verdant/interior)
 "Yx" = (
 /obj/structure/closet/crate/bin/urban,
 /obj/effect/floor_decal/industrial/outline/custodial,
@@ -17682,7 +17670,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior/tunnels)
+/area/point_verdant/interior/pharmacy)
 "Zx" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -35947,10 +35935,10 @@ rf
 rf
 rf
 rf
-uH
-uH
-uH
-uH
+rf
+rf
+rf
+rf
 AV
 AV
 AV
@@ -36200,14 +36188,14 @@ pu
 TP
 pw
 eH
-uH
-uH
-uH
-uH
-uH
-uH
-uH
-uH
+rf
+rf
+rf
+rf
+rf
+rf
+rf
+rf
 AV
 AV
 AV
@@ -36457,14 +36445,14 @@ TP
 TP
 TP
 eH
-uH
-uH
-uH
-uH
-uH
-uH
-uH
-uH
+rf
+rf
+rf
+rf
+rf
+rf
+rf
+rf
 AV
 YC
 ln
@@ -36714,14 +36702,14 @@ xd
 Ex
 le
 eH
-uH
-uH
-uH
-uH
-uH
-uH
-uH
-uH
+rf
+rf
+rf
+rf
+rf
+rf
+rf
+rf
 AV
 se
 SS
@@ -37484,7 +37472,7 @@ rf
 rf
 rf
 rf
-Yw
+mz
 JK
 Qx
 zX
@@ -37738,10 +37726,10 @@ rf
 rf
 rf
 rf
-Yw
-Yw
-Yw
-Yw
+mz
+mz
+mz
+mz
 nG
 Qx
 Qx
@@ -37995,7 +37983,7 @@ rf
 rf
 rf
 rf
-Yw
+mz
 pG
 IU
 fK
@@ -38251,7 +38239,7 @@ rf
 rf
 rf
 rf
-uH
+rf
 mz
 kx
 nZ
@@ -38508,7 +38496,7 @@ rf
 rf
 rf
 rf
-uH
+rf
 mz
 mz
 mz
@@ -38765,8 +38753,8 @@ rf
 rf
 rf
 rf
-uH
-uH
+rf
+rf
 mz
 qO
 FL
@@ -39022,8 +39010,8 @@ rf
 rf
 rf
 rf
-uH
-uH
+rf
+rf
 mz
 HE
 du
@@ -39793,7 +39781,7 @@ rf
 rf
 rf
 rf
-Yw
+mz
 CA
 Yt
 op
@@ -40050,7 +40038,7 @@ rf
 rf
 rf
 rf
-Yw
+mz
 uv
 DA
 Mp
@@ -40307,8 +40295,8 @@ rf
 rf
 rf
 rf
-Yw
-Yw
+mz
+mz
 mz
 mz
 mz
@@ -40569,11 +40557,11 @@ rf
 rf
 rf
 rf
-gC
+mz
 jR
-wV
+Qx
 aG
-gC
+mz
 AV
 AV
 AV
@@ -40826,11 +40814,11 @@ rf
 rf
 rf
 rf
-gC
+mz
 TA
-wV
+Qx
 Qq
-gC
+mz
 AV
 AV
 AV
@@ -41083,11 +41071,11 @@ rf
 rf
 rf
 rf
-gC
+mz
 Zw
-wV
+Qx
 Lz
-gC
+mz
 AV
 AV
 AV
@@ -41340,11 +41328,11 @@ rf
 rf
 rf
 rf
-gC
-gC
-gC
-gC
-gC
+mz
+mz
+mz
+mz
+mz
 AV
 AV
 AV
