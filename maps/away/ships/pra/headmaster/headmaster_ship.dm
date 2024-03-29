@@ -109,7 +109,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/headmaster_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Shuttle"
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
