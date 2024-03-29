@@ -179,7 +179,7 @@
 	item_state = "cowl"
 	icon = 'icons/clothing/head/cowl.dmi'
 	body_parts_covered = 0
-	slot_flags = SLOT_EARS  | SLOT_HEAD
+	slot_flags = SLOT_EARS | SLOT_HEAD
 
 /obj/item/clothing/head/goldendeep/cubehood
 	name = "cube hood"
