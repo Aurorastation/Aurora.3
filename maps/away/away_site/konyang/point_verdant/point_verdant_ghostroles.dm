@@ -219,8 +219,9 @@
 /datum/outfit/admin/konyang_phys
 	name = "Konyang Physician"
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	uniform = /obj/item/clothing/under/suit_jacket
-	shoes = /obj/item/clothing/shoes/laceup
+	accessory = /obj/item/clothing/accessory/dressshirt
+	uniform = /obj/item/clothing/under/pants/khaki
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	back = /obj/item/storage/backpack/satchel/med
 	r_pocket = /obj/item/storage/wallet/random
 	id = /obj/item/card/id
