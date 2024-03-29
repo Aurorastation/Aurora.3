@@ -29,7 +29,7 @@
 	setup_panel_cache()
 
 /mob/living/silicon/robot/proc/setup_eye_cache()
-	if(!module_sprites[icontype][ROBOT_EYES])
+	if(!module_sprites?[icontype]?[ROBOT_EYES])
 		return
 	var/eye_layer = src.layer
 	if(lights_on && layer == MOB_LAYER) // in case you're hiding. so eyes don't go through tables.
@@ -53,7 +53,7 @@
 /mob/living/silicon/robot/proc/setup_panel_cache()
 	if(!length(module_sprites))
 		return
-	if(!module_sprites[icontype][ROBOT_PANEL])
+	if(!module_sprites?[icontype]?[ROBOT_PANEL])
 		return
 	var/panelprefix = custom_sprite ? src.ckey : module_sprites[icontype][ROBOT_PANEL] // Shoutout to Geeves.
 	cached_panel_overlays = list(

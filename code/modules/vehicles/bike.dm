@@ -155,9 +155,9 @@
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
-/obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
-	if(!load(C))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [C] onto \the [src]."))
+/obj/vehicle/bike/MouseDrop_T(atom/dropping, mob/user)
+	if(!load(dropping))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
@@ -194,7 +194,7 @@
 	return Move(get_step(src, direction))
 
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
-	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/unsimulated/floor/asteroid))
+	var/static/list/types = typecacheof(list(/turf/space))
 	if(is_type_in_typecache(destination,types) || pulledby)
 		return TRUE
 	else

@@ -1404,7 +1404,7 @@
 /area/piratebase/living)
 "gM" = (
 /obj/random/dirt_75,
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
@@ -2653,7 +2653,7 @@
 /area/piratebase/quarters)
 "nf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/sliceable/bread,
 /obj/item/reagent_containers/food/snacks/sliceable/bread{
 	pixel_y = -4;
@@ -3766,7 +3766,7 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/pirate_shuttle/med)
 "sh" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -6198,7 +6198,7 @@
 /turf/simulated/floor/tiled/full,
 /area/piratebase/eva)
 "Gc" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,

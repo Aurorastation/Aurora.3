@@ -9,7 +9,7 @@
 	icon_state = "defibunit"
 	item_state = "defibunit"
 	contained_sprite = TRUE
-	force = 5
+	force = 11
 	throwforce = 6
 	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
@@ -276,7 +276,7 @@
 	name = initial(name)
 	update_icon()
 
-/obj/item/shockpaddles/dropped(var/mob/living/user)
+/obj/item/shockpaddles/dropped(mob/user)
 	..()
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()

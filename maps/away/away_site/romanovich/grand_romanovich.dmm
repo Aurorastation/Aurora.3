@@ -5993,7 +5993,7 @@
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
@@ -6258,7 +6258,7 @@
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "vp" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
@@ -6440,7 +6440,7 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
@@ -6542,7 +6542,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "zi" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -7268,7 +7268,7 @@
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "Ld" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,

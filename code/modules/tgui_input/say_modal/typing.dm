@@ -114,11 +114,14 @@ I IS TYPIN'!'
 
 /atom/movable/typing_indicator/Destroy()
 	if(master)
-		master.vis_contents -= src
+		master.remove_vis_contents(src)
 		if(ismob(master))
 			var/mob/owner = master
 			if(owner.typing_indicator == src)
 				owner.typing_indicator = null
+
+		master = null
+
 	return ..()
 
 /atom/movable/typing_indicator/proc/hide_typing_indicator()
@@ -128,7 +131,7 @@ I IS TYPIN'!'
 	set_invisibility(INVISIBILITY_MAXIMUM)
 	if(ismovable(master))
 		var/atom/movable/owner = master
-		owner.vis_contents -= src
+		owner.remove_vis_contents(src)
 	shown = FALSE
 
 /atom/movable/typing_indicator/proc/show_typing_indicator(var/thinking = FALSE)
@@ -146,7 +149,7 @@ I IS TYPIN'!'
 
 	if(ismovable(master))
 		var/atom/movable/owner = master
-		owner.vis_contents += src
+		owner.add_vis_contents(src)
 
 	if(!shown)
 		// Animate it popping up from nowhere.

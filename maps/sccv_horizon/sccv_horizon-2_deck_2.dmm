@@ -1893,7 +1893,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 1;
 	name = "INDRA Reactor";
-	req_access = list(11)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2997,6 +2997,12 @@
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = -32
 	},
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "bnN" = (
@@ -4220,6 +4226,10 @@
 	pixel_x = -7;
 	pixel_y = 4
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bPf" = (
@@ -4735,6 +4745,10 @@
 /obj/item/holomenu{
 	pixel_x = 9;
 	pixel_y = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 5;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
@@ -7490,6 +7504,10 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
+/obj/random/pottedplant_small{
+	pixel_x = -1;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "dwZ" = (
@@ -7658,10 +7676,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/random/pottedplant,
 /obj/machinery/computer/guestpass{
 	pixel_x = 32
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dBQ" = (
@@ -9166,6 +9184,10 @@
 /obj/item/modular_computer/laptop/preset/medical{
 	pixel_y = 4
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 14
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "eqa" = (
@@ -9305,7 +9327,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
 	name = "INDRA Reactor";
-	req_access = list(11)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -9410,6 +9432,10 @@
 "ewk" = (
 /obj/structure/table/wood,
 /obj/item/toy/desk/officetoy,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 9
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "eww" = (
@@ -10133,6 +10159,14 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/rods/full,
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 6;
+	pixel_x = -7
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 6;
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "ePg" = (
@@ -11221,6 +11255,10 @@
 /obj/item/storage/box/tea/tieguanyin{
 	pixel_x = 10;
 	pixel_y = 9
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
@@ -13515,9 +13553,19 @@
 	name = "Hydroponics Requests Console"
 	},
 /obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/item/paper_bin{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/pen{
+	pixel_x = 6;
+	pixel_y = 2
+	},
 /obj/structure/extinguisher_cabinet/west,
+/obj/random/pottedplant_small{
+	pixel_x = -9;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
 "gmE" = (
@@ -15105,7 +15153,10 @@
 /area/engineering/smes)
 "gUn" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 9;
+	pixel_x = 5
+	},
 /obj/machinery/button/switch/windowtint{
 	dir = 1;
 	id = "Bar_Private_Lounge";
@@ -15114,6 +15165,10 @@
 /obj/item/lore_radio{
 	pixel_x = 9;
 	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -7;
+	pixel_y = 3
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/bar)
@@ -15254,6 +15309,10 @@
 /obj/item/flame/candle{
 	pixel_x = 10;
 	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 3;
+	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
@@ -15749,7 +15808,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/item/device/radio/intercom/east,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "hmX" = (
@@ -18062,11 +18122,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
 "ioS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "ioW" = (
@@ -18296,6 +18357,10 @@
 	name = "remote shutter control";
 	pixel_x = 6;
 	pixel_y = -2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 3;
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -19082,6 +19147,10 @@
 /obj/item/device/quikpay{
 	destinationact = "Operations"
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iNY" = (
@@ -19348,6 +19417,10 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/central_one)
@@ -21159,6 +21232,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "jLS" = (
@@ -21701,7 +21775,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
 	name = "INDRA Reactor Maintenance";
-	req_access = list(11)
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/rust)
@@ -22060,8 +22134,12 @@
 	pixel_y = 16
 	},
 /obj/item/reagent_containers/glass/rag{
-	pixel_x = 2;
+	pixel_x = -3;
 	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 10;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -22754,6 +22832,10 @@
 /obj/item/pen{
 	pixel_x = -4;
 	pixel_y = 2
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 1
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
@@ -25627,6 +25709,12 @@
 	departmentType = 1;
 	name = "Kitchen Requests Console"
 	},
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_y = -2;
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "lYZ" = (
@@ -25894,6 +25982,10 @@
 /area/hallway/primary/central_two)
 "mdB" = (
 /obj/structure/table/reinforced,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "mdR" = (
@@ -26520,6 +26612,10 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/random/pottedplant_small{
+	pixel_x = -4;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "mtP" = (
@@ -26746,7 +26842,7 @@
 	},
 /area/horizon/kitchen/freezer)
 "myE" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -27797,8 +27893,9 @@
 /area/horizon/security/hallway)
 "mVw" = (
 /obj/structure/table/standard,
-/obj/item/stamp/ce,
-/obj/item/paper/monitorkey,
+/obj/item/paper/monitorkey{
+	pixel_x = -8
+	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
 	id = "EngineVent";
@@ -27815,6 +27912,13 @@
 	pixel_y = 10;
 	req_access = list(10);
 	specialfunctions = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/obj/item/stamp/ce{
+	pixel_x = -1
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -29850,20 +29954,20 @@
 	pixel_x = -16;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
-	pixel_x = 9;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
-	pixel_x = 1;
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -15;
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate{
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/glass/bottle/syrup/caramel{
-	pixel_x = -15;
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 9;
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -30447,6 +30551,10 @@
 /area/hallway/medical)
 "oil" = (
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = -4;
+	pixel_y = 6
+	},
 /turf/simulated/floor/carpet,
 /area/hallway/primary/central_two)
 "oiD" = (
@@ -31287,6 +31395,10 @@
 	name = "Library Showcase";
 	req_access = list(37)
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 17
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "oBZ" = (
@@ -31693,6 +31805,12 @@
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_y = -1;
+	pixel_x = -1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "oNy" = (
@@ -31981,6 +32099,10 @@
 "oWC" = (
 /obj/structure/table/wood,
 /obj/machinery/light,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = -2
+	},
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "oWQ" = (
@@ -32022,6 +32144,11 @@
 /area/medical/first_responder)
 "oXu" = (
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_y = -2
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/crew_quarters/lounge/bar)
 "oXv" = (
@@ -32267,7 +32394,7 @@
 	id_tag = "r-ust_electrical_maintenance";
 	locked = 1;
 	name = "INDRA Reactor SMES";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/rust)
@@ -33408,6 +33535,10 @@
 	name = "Operations Requests Console"
 	},
 /obj/structure/table/standard,
+/obj/random/pottedplant_small{
+	pixel_x = -7;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pHJ" = (
@@ -34173,6 +34304,14 @@
 /obj/machinery/reagentgrinder{
 	pixel_x = 1;
 	pixel_y = 7
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = -15
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics/garden)
@@ -35556,8 +35695,11 @@
 	dir = 5
 	},
 /obj/item/device/flashlight/lamp{
-	pixel_x = 1;
-	pixel_y = 7
+	pixel_x = 3;
+	pixel_y = 10
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -9
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -36201,7 +36343,7 @@
 	RCon_tag = "Supermatter - Containment";
 	charge = 2000000;
 	input_attempt = 1;
-	input_level = 100000;
+	input_level = 200000;
 	is_critical = 1;
 	output_attempt = 1;
 	output_level = 200000
@@ -37098,6 +37240,10 @@
 	pixel_x = -6;
 	pixel_y = 15
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 12;
+	pixel_y = 6
+	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "ruz" = (
@@ -37516,6 +37662,10 @@
 "rFR" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "rGj" = (
@@ -37984,6 +38134,10 @@
 	pixel_y = 7
 	},
 /obj/item/paper_bin,
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = 15
+	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
 "rQJ" = (
@@ -39913,6 +40067,8 @@
 /obj/structure/table/standard,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/steel/full,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
 /obj/item/storage/belt/utility,
 /obj/machinery/light{
 	dir = 8
@@ -41611,12 +41767,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "tHk" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "tHl" = (
@@ -42708,6 +42863,12 @@
 	},
 /obj/item/flame/candle{
 	pixel_y = 16
+	},
+/obj/random/pottedplant_small{
+	spawn_nothing_percentage = 25;
+	name = "random potted plant, small (25% nothing)";
+	pixel_x = -4;
+	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -44750,7 +44911,7 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
-/obj/random/pottedplant,
+/obj/structure/closet/secure_closet/cabinet/beer/horizon,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (
@@ -50714,6 +50875,9 @@
 /obj/item/device/flashlight/lamp/green{
 	pixel_x = -5;
 	pixel_y = 13
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 6
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)

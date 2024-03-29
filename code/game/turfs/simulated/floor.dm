@@ -3,6 +3,7 @@
 	desc = "The naked hull."
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
+	is_outside = OUTSIDE_AREA
 
 	// Damage to flooring.
 	var/broken

@@ -393,7 +393,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	client.autohiss_mode = client.prefs.autohiss_setting
 
-	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
+	src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // MAD JAMS cant last forever yo)
 
 	if(mind)
 		mind.active = 0					//we wish to transfer the key manually

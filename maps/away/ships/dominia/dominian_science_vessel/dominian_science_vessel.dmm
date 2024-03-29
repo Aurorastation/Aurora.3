@@ -4380,10 +4380,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/chemical_dispenser,
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
+/obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "oAQ" = (
@@ -7054,13 +7054,13 @@
 /area/ship/dominian_science_vessel/center_hall)
 "xGk" = (
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffee,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/mess)
 "xHl" = (

@@ -4,6 +4,9 @@
 	in tandem with the material world. These spirits exist in objects and nature - bringing either good luck or sorrow. The supernatural and afterlife are taken at face value by Th'akh. \
 	It is a very decentralized religion, with the Akhandi Order of monks being the closet thing it has to a church."
 	book_name = "assorted Th'akh fables"
+	nulloptions = list(
+		"Shaman Staff" = /obj/item/nullrod/shaman
+	)
 
 /datum/religion/skakh
 	name = RELIGION_SKAKH
@@ -14,6 +17,12 @@
 	important aspects of Unathi society. It is said that all three are equally important, and that disasters are caused by an imbalance in the Great Three. Priests often stress the \
 	importance of balance, both in matters of spirit as well as in society and personal life. "
 	book_name = "Sk'akh legends"
+	nulloptions = list(
+		"Shaman Staff" = /obj/item/nullrod/shaman,
+		"Warrior's Sword" = /obj/item/nullrod/skakh_warrior,
+		"Healer's Staff" = /obj/item/nullrod/skakh_healer,
+		"Fisher's Sickle" = /obj/item/nullrod/skakh_fisher
+	)
 
 /datum/religion/siakh
 	name = RELIGION_SIAKH
@@ -24,6 +33,9 @@
 	church due to Si'akh claiming it to be completely illegitimate. Its followers are ruthlessly hunted down by the Maraziite Order and many of its followers are fleeing into human \
 	space as they try to find personal salvation. It is treated as a Sk'akh heresy or a fanatical doomsday cult by orthodox Unathi. "
 	book_name = "transcripts from Si'akh"
+	nulloptions = list(
+		"Shaman Staff" = /obj/item/nullrod/shaman
+	)
 
 /datum/religion/autakh
 	name = RELIGION_AUTAKH
@@ -35,3 +47,6 @@
 	anger, or other emotional vices. Aut'akh preach that the Contact War was the result of sinta being so misled by evil spirits that they brought the world to ruin, and all power, whether a government, \
 	religion, or corporation, is inherently corrupt due to the influence of evil spirits."
 	book_name = "Rituals and Regiments of the Ancient Mador"
+	nulloptions = list(
+		"Shaman Staff" = /obj/item/nullrod/shaman
+	)

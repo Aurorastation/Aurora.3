@@ -7,7 +7,7 @@
 	randpixel = 8
 	desc = "A flat disc or piece of metal with an official stamp. An archaic type of currency."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 0.0
+	force = 0
 	throwforce = 0.0
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS

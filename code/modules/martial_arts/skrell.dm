@@ -91,6 +91,7 @@
 	name = "karak virul manual"
 	desc = "A manual designated to teach the user about the skrellian martial art of Karak Virul."
 	martial_art = /datum/martial_art/karak_virul
+	species_restriction = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 #undef PAINFUL_PALM
 #undef SKRELL_LEG_SWEEP

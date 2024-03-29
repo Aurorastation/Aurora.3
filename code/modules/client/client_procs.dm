@@ -236,19 +236,6 @@ var/list/localhost_addresses = list(
 			if ("webint")
 				src.open_webint()
 
-			// Handle the updating of MotD and Memo tabs upon click.
-			if ("updateHashes")
-				var/save = 0
-				if (href_list["#motd-tab"])
-					src.prefs.motd_hash = href_list["#motd-tab"]
-					save = 1
-				if (href_list["#memo-tab"])
-					src.prefs.memo_hash = href_list["#memo-tab"]
-					save = 1
-
-				if (save)
-					src.prefs.save_preferences()
-
 		return
 
 	if (href_list["view_jobban"])
@@ -672,6 +659,8 @@ var/list/localhost_addresses = list(
 	set name = "Toggle Accent Tag Text"
 	set category = "Preferences"
 	set desc = "Toggles whether accents will be shown as text or images.."
+
+	to_chat(usr, SPAN_NOTICE("You toggle the accent tag text [(prefs?.toggles_secondary & ACCENT_TAG_TEXT) ? "off" : "on"]."))
 
 	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
 	prefs.save_preferences()

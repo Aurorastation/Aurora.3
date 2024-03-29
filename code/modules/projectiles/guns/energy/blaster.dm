@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
-	force = 5
+	force = 11
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	offhand_accuracy = 1
@@ -84,7 +84,7 @@
 	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
 
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
 	can_bayonet = TRUE

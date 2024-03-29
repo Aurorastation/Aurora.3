@@ -21,8 +21,6 @@
 #define HUMAN_NEEDED_OXYGEN (MOLES_CELLSTANDARD * BREATH_PERCENTAGE * 0.16)
 #define HUMAN_HEAT_CAPACITY 280000 //J/K For 80kg person
 
-#define SOUND_MINIMUM_PRESSURE 10
-
 #define PRESSURE_DAMAGE_COEFFICIENT 4 // The amount of pressure damage someone takes is equal to (pressure / HAZARD_HIGH_PRESSURE)*PRESSURE_DAMAGE_COEFFICIENT, with the maximum of MAX_PRESSURE_DAMAGE.
 #define MAX_HIGH_PRESSURE_DAMAGE 4
 #define LOW_PRESSURE_DAMAGE 0.6 // The amount of damage someone takes when in a low pressure area. (The pressure threshold is so low that it doesn't make sense to do any calculations, so it just applies this flat value).

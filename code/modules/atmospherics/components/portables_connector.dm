@@ -27,6 +27,16 @@
 	icon_connect_type = "-aux"
 	connect_types = CONNECT_TYPE_AUX
 
+/obj/machinery/atmospherics/portables_connector/supply
+	icon_state = "map_connector-supply"
+	icon_connect_type = "-supply"
+	connect_types = CONNECT_TYPE_SUPPLY
+
+/obj/machinery/atmospherics/portables_connector/scrubber
+	icon_state = "map_connector-scrubber"
+	icon_connect_type = "-scrubber"
+	connect_types = CONNECT_TYPE_SCRUBBER
+
 
 /obj/machinery/atmospherics/portables_connector/Initialize()
 	initialize_directions = dir

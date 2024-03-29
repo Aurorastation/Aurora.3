@@ -3,7 +3,7 @@
 	desc = "Teleport to a destination you click on."
 	icon_state = "tech_dispel"
 	point_cost = 3
-	ability_flags = PSI_FLAG_ANTAG
+	ability_flags = PSI_FLAG_LONER
 	spell_path = /obj/item/spell/jump
 
 /obj/item/spell/jump

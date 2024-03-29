@@ -105,7 +105,7 @@
 
 /mob/proc/AIize(move=1)
 	if(client)
-		src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jams for AIs)
+		src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // stop the jams for AIs)
 
 	//The destination the mob will be spawned at
 	var/final_destination = loc

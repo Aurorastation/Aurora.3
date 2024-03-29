@@ -5,7 +5,7 @@
 	icon_state = "grenadelauncher"
 	item_state = "grenadelauncher"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
 	fire_sound_text = "a metallic thunk"
@@ -113,7 +113,7 @@
 	name = "underslung grenade launcher"
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 	max_grenades = 0
 
 //load and unload directly into chambered

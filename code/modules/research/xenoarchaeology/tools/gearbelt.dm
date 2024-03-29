@@ -28,5 +28,6 @@
 		/obj/item/storage/box/excavation,
 		/obj/item/anobattery,
 		/obj/item/device/ano_scanner,
-		/obj/item/ore_detector
+		/obj/item/ore_detector,
+		/obj/item/device/spaceflare
 		)

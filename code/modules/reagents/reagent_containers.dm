@@ -87,7 +87,7 @@
 	reagents.apply_force(speed)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
-	if(reagents.total_volume)
+	if(reagents?.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
 	playsound(src, shatter_sound, 70, 1)

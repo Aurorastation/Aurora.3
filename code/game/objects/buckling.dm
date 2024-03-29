@@ -12,10 +12,10 @@
 	if(buckled)
 		user_unbuckle(user)
 
-/obj/MouseDrop_T(atom/movable/MA, mob/living/user)
+/obj/MouseDrop_T(atom/dropping, mob/user)
 	. = ..()
-	if(is_type_in_list(MA, can_buckle))
-		user_buckle(MA, user)
+	if(is_type_in_list(dropping, can_buckle))
+		user_buckle(dropping, user)
 
 //Cleanup
 
