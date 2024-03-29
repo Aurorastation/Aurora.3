@@ -3791,7 +3791,7 @@
 /area/rnd/test_range)
 "cFo" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/material/shard,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "cGd" = (
@@ -6840,6 +6840,7 @@
 /obj/structure/table/standard{
 	no_cargo = 1
 	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "eKl" = (
@@ -22139,12 +22140,9 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/aft)
 "phO" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/lube,
-/turf/simulated/floor/tiled{
-	dir = 5;
-	icon_state = "vault"
-	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced,
 /area/maintenance/wing/starboard/deck1)
 "phV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
