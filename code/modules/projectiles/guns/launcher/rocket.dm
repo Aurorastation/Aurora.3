@@ -51,7 +51,7 @@
 /obj/item/gun/launcher/rocket/konyang
 	name = "konyang rocket launcher"
 	desc = "An unguided rocket launcher often used by the armed forces of Konyang."
-	desc_extended = "The KGM-701 is a heavy anti-tank guided missile in use by the Konyang Army, another carryover from their old Solarian stockpiles. Capable of handling any tank that wouldn't get bogged down on Konyang's soft terrain, the KGM-701 is expected to soldier on for many years to come. This however, is *not* a KGM-701, but the KGM-701D, the unguided discount variation of the old Solarian ATGM, typically issued to colonial garrisons and not rated against any modern vehicles."
+	desc_extended = "The KGM-701 is a heavy anti-tank guided missile in use by the Konyang Army, another carryover from their old Solarian stockpiles. Capable of handling any tank that wouldn't get bogged down on Konyang's soft terrain, the KGM-701 is expected to soldier on for many years to come. This however, is not a KGM-701, but the KGM-701D, the unguided discount variation of the old Solarian ATGM, typically issued to colonial garrisons and not rated against any modern vehicles."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "kgm"
 	item_state = "kgm"

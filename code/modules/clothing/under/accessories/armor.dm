@@ -286,15 +286,3 @@
 	name = "striped TCAF carapace arm guards"
 	icon_state = "tcaf_armguards_stripe"
 	item_state = "tcaf_armguards_stripe"
-
-/obj/item/clothing/accessory/leg_guard/konyang_navy
-	name = "\improper Konyang navy leg guards"
-	icon_state = "legguards_navy"
-	item_state = "legguards_navy"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-	)

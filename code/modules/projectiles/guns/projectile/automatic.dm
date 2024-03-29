@@ -648,7 +648,7 @@
 /obj/item/gun/projectile/automatic/tommygun/konyang
 	name = "konyang police submachine gun"
 	desc = "A compact submachine gun made specifically for the Konyang National Police. Takes .45 ammo."
-	desc_extended = "Produced by one of Einstein Engines' local subsidiaries on Konyang, the K45 'Pogpung' submachine gun is Taepung Arms' entry into the submachine gun market. \
+	desc_extended = "Produced by one of Einstein Engines' local subsidiaries on Konyang, the K45 \"Pogpung\" submachine gun is Taepung Arms' entry into the submachine gun market. \
 	The National Police purchased a large number of K45s for their patrol units due to reports that service revolvers were inadequate at stopping rampant IPCs. The K45-P variant \
 	specially designed for the police forces is chambered in the organization's preferred .45 caliber and is limited to 3-round bursts due to the relatively limited firearms training of \
 	National Police officers."
