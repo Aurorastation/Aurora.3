@@ -165,7 +165,7 @@
 
 /obj/item/clothing/head/goldendeep
 	name = "furred crown"
-	desc = "Like a true monarch, has a metal rim capped with a cloth top piece. Peaked in a ornate point. "
+	desc = "Like a true monarch, has a metal rim capped with a cloth top piece. Peaked in a ornate point."
 	icon_state = "furred_crown"
 	item_state = "furred_crown"
 	icon = 'icons/clothing/head/furred_crown.dmi'
