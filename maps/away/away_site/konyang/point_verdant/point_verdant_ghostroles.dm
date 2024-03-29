@@ -223,7 +223,7 @@
 	special_role = "Physician"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang/physician
+/obj/outfit/admin/konyang/physician
 	name = "Konyang Physician"
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	accessory = /obj/item/clothing/accessory/dressshirt
@@ -238,7 +238,7 @@
 		/obj/item/reagent_containers/hypospray = 1
 	)
 
-/datum/outfit/admin/konyang/physician/get_id_access()
+/obj/outfit/admin/konyang/physician/get_id_access()
 	return list(ACCESS_KONYANG_CLINIC, ACCESS_KONYANG_PHARMACY)
 
 /datum/ghostspawner/human/konyang_bar
