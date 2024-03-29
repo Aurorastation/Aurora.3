@@ -1,5 +1,6 @@
 
-///
+/// Large tank marker, used to set up "large tanks", that being multi-tile tanks of gas,
+/// with its own control console, sensor, pump, and injector.
 /obj/effect/map_effect/marker/large_tank
 	name = "large tank marker"
 	desc = "See comments/documentation in code."
