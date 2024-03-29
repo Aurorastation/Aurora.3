@@ -4981,7 +4981,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/computer/shuttle_control/explore/headmaster_shuttle{
+/obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
