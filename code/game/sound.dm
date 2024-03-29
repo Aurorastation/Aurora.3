@@ -106,7 +106,7 @@
 			if(ignore_walls)
 				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
 			else
-				aurora_snowflake_sound_calculation(listening_mob, turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+				adjust_sound_based_on_path_obstacles(listening_mob, turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
 
 			. += listening_mob
 
@@ -117,7 +117,7 @@
  *
  * Use this to tweak what happens with the sound along the path from the emitter to the receiver of said sound
  */
-/proc/aurora_snowflake_sound_calculation(mob/listening_mob, turf/turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+/proc/adjust_sound_based_on_path_obstacles(mob/listening_mob, turf/turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
 	var/turf/inbetween_turf = get_turf(listening_mob)
 
 	for(var/step_counter in 1 to get_dist(listening_mob, turf_source))
