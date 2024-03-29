@@ -113,7 +113,7 @@
 //suits
 /obj/item/clothing/suit/storage/goldendeep
 	name = "eccentric coat"
-	desc = " What. Is. That? This coat is long with reinforcement to make someone look like an angel of old, or a clown."
+	desc = "This coat is long with reinforcement to make someone look like an angel of old, or a clown."
 	icon_state = "eccentric_coat"
 	item_state = "eccentric_coat"
 	icon = 'icons/clothing/suits/coats/eccentric_coat.dmi'
