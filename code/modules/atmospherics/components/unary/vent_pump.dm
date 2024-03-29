@@ -59,7 +59,7 @@
 	pump_direction = 0
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos
-	icon_state = "map_vent_in"
+	icon_state = "map_vent"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
 	internal_pressure_bound = PRESSURE_ONE_THOUSAND * 2
