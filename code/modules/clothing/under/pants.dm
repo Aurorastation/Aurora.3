@@ -44,7 +44,7 @@
 
 /obj/item/clothing/under/pants/highvis
 	name = "high visibility pants"
-	desc = "A pair of loose-fitting, high visibility pants to help the user be recognizable in high traffic areas with large industrial equipment."
+	desc = "A pair of loose-fitting, high visibility pants to help the wearer be recognizable in high traffic areas with large industrial equipment."
 	icon = 'icons/clothing/kit/highvis.dmi'
 	icon_state = "pants_highvis"
 	item_state = "pants_highvis"
