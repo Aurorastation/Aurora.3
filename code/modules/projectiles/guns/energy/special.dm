@@ -509,3 +509,167 @@
 	fire_delay = 20
 	accuracy = 40
 	muzzle_flash = 10
+
+/obj/item/galatealaserpack
+	name = "galatean bioelectrical reactor backpack"
+	desc = "An ominously-thrumming backpack-mounted machine, powering an O61 Infantry Laser Rifle."
+	icon = 'icons/obj/guns/galatea_laser.dmi'
+	icon_state = "laserpack_holstered"
+	item_state = "laserpack_holstered"
+	contained_sprite = 1
+	w_class = ITEMSIZE_LARGE
+	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
+	action_button_name = "Deploy the Laser Rifle"
+
+	var/obj/item/gun/energy/galatea/gun
+	var/armed = FALSE
+
+/obj/item/galatealaserpack/update_icon() // all credit to alb for minigun code, which this is
+	..()
+	if(armed)
+		icon_state = "laserpack"
+		item_state = "laserpack"
+	else
+		icon_state = "laserpack_holstered"
+		item_state = "laserpack_holstered"
+
+/obj/item/galatealaserpack/Initialize() // add a gun to the pack
+	. = ..()
+	gun = make_gun()
+	gun.source = src
+	gun.forceMove(src)
+
+/obj/item/galatealaserpack/proc/make_gun()
+	return new /obj/item/gun/energy/galatea()
+
+/obj/item/galatealaserpack/ui_action_click()
+	if(src in usr)
+		toggle_lasergun()
+
+/obj/item/galatealaserpack/verb/toggle_lasergun() // ui button and a verb
+	set name = "Deploy the Laser Rifle"
+	set category = "Object"
+	var/mob/living/carbon/human/user
+	if(istype(usr,/mob/living/carbon/human))
+		user = usr
+	else
+		return
+
+	if(!user)
+		return
+
+	if (user.back!= src)
+		to_chat(user, "<span class='warning'>\The [src] must be worn to deploy \the [gun]!</span>")
+		return
+
+	if(use_check_and_message(user))
+		return
+
+	if(!gun)
+		to_chat(user, "<span class='warning'>There is no weapon attached to the \the [src]!</span>")
+
+	if(armed)
+		to_chat(user, "<span class='warning'>\The [src] has been already deployed!</span>")
+
+	else
+		if(!user.put_in_hands(gun))
+			to_chat(user, "<span class='warning'>You need a free hand to hold \the [gun]!</span>")
+			return
+
+		armed = TRUE
+		update_icon()
+		user.update_inv_back()
+
+/obj/item/galatealaserpack/equipped(mob/user, slot)
+	..()
+	if(slot != slot_back) // if we're not wearing it, remove it
+		remove_gun()
+		user.update_inv_back()
+
+/obj/item/galatealaserpack/proc/remove_gun()
+	if(!gun)
+		return
+	if(ismob(gun.loc))
+		var/mob/M = gun.loc
+		if(M.drop_from_inventory(gun, src))
+			update_icon()
+	else
+		gun.forceMove(src)
+		update_icon()
+
+	armed = FALSE
+	return
+
+/obj/item/galatealaserpack/Destroy()
+	if(gun)
+		qdel(gun)
+		gun = null
+	return ..()
+
+/obj/item/galatealaserpack/attackby(obj/item/attacking_item, mob/user, params) // if you hit the pack with the gun, "stow" it
+	if(attacking_item == gun)
+		remove_gun()
+		update_icon()
+		user.update_inv_back()
+		return 1
+	else
+		return ..()
+
+/obj/item/gun/energy/galatea
+	name = "galatean laser rifle"
+	desc = "The Galatean O61-B, an export model of their advanced Mark 61 Infantry Rifle."
+	desc_extended = "Galatean soldiers are heavily bioaugmented, combining soldier and weapon into a cohesive unit. The Mark 61 Infantry Rifle is one such example, drawing on the bioelectricity of the human body \
+	through an implant with which to power the gun. Unaugmented users complained of headaches, lethargy, and impossible dreams; The O61B has integrated the bioaugments into the firing mechanism, preventing 'baselines' \
+	from even using it. Luckily, this is an export version, the O61-B, which allows foreign users a taste of advanced Technocracy weaponry for the low price of a single bioaugment."
+	icon = 'icons/obj/guns/galatea_laser.dmi'
+	icon_state = "galatealaser"
+	item_state = "galatealaser"
+	slot_flags = 0
+	has_icon_ratio = FALSE
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/laser3.ogg'
+	needspin = FALSE
+	origin_tech = null
+	charge_meter = FALSE
+	projectile_type = /obj/item/projectile/beam/xray // can't wear a hardsuit, and it's only 15 damage with a lot of AP
+	charge_cost = 100
+	max_shots = 20
+	self_recharge = 1 // bioreactor in the backpack; not entirely defenseless against EMPs
+	fire_delay = 35
+	burst_delay = 2
+	can_turret = 0
+
+	is_wieldable = TRUE
+
+	fire_delay_wielded = 10
+	accuracy_wielded = 0
+
+	var/obj/item/galatealaserpack/source
+
+
+/obj/item/gun/energy/galatea/dropped(mob/user) // the gun is part of the backpack; prevent weirdness
+	..()
+	if(source)
+		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/galatealaserpack, remove_gun))
+		source.update_icon()
+		user.update_inv_back()
+
+/obj/item/gun/energy/galatea/Move()
+	..()
+	if(loc != source.loc)
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/galatealaserpack, remove_gun)) // prevent even weirder shit
+
+/obj/item/gun/energy/galatea/special_check(var/mob/user) // if you don't have the implant, you get one shot before you get floored (thanks matt)
+	var/obj/item/implant/export_lasgun/E = locate() in user
+	if(E)
+		return TRUE
+	else
+		var/pain_message = pick("All the energy leaves your body with a sickening 'crack'!",
+								"You collapse, like a puppet with its strings cut!",
+								"You're forced to your knees, vision swimming!")
+
+		to_chat(user, "<span class='warning'>[pain_message]</span>")
+		user.Weaken(10)
+		return TRUE
