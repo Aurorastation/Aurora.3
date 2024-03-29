@@ -6,24 +6,35 @@
 	icon_supported_species_tags = null
 	icon = 'icons/clothing/rig/xanu/xanu_rig.dmi'
 	icon_state = "xanu_rig"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat/xanu
 
 /obj/item/clothing/head/helmet/space/rig/combat/xanu
 	light_overlay = "helmet_light_xanu"
 
-//Lacks the dNAC-25-2 autocannon
-/obj/item/rig/combat/xanu/equipped/light
+/obj/item/rig/combat/xanu/equipped
 
 	initial_modules = list(
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/vision/thermal,
+		/datum/uplink_item/item/hardsuit_modules/maneuvering_jets,
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/mounted/egun,
+		)
+
+/obj/item/rig/combat/xanu/equipped/ert //ERT variant
+	initial_modules = list(
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/vision/thermal,
+		/datum/uplink_item/item/hardsuit_modules/maneuvering_jets,
+		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/mounted/egun,
-		/obj/item/rig_module/vision/thermal,
-		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/electrowarfare_suite,
-		/obj/item/rig_module/chem_dispenser/combat
+		/obj/item/rig_module/chem_dispenser/combat,
 		)
+
 
 /obj/item/rig/zero/xanu
 	name = "dNAXS-26 null hardsuit control module"
@@ -32,7 +43,7 @@
 	desc_extended = "The dNAXS-26 'null' hardsuit was designed by d.N.A Defense at the request of the All-Xanu Spacefleet, for its spaceborne mech and starfighter pilots. Designed with comfort and mobility in mind, this suit allows pilots their full range of motion, while protecting them from minor radiation hazards and the vacuum of space."
 	icon = 'icons/clothing/rig/xanu/xanu_zero_suit.dmi'
 	icon_state = "xanu_zero"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	//This suit has no slowdown. These armor values are intentionally terrible as a result.
 	armor = list(
 		bomb = ARMOR_BOMB_MINOR,
@@ -53,13 +64,13 @@
 
 /obj/item/clothing/head/helmet/space/rig/zero/xanu
 	camera = null
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	desc = "A specially designed helmet, allowing a full range of vision. A state of the art holographic display provides a stream of information."
 	light_overlay = "helmet_light_xanu_zero"
 
 //All in one suit
 /obj/item/clothing/suit/space/rig/zero/xanu
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	//Worse protection than most hardsuits, due to no slowdown
 	breach_threshold = 18
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS

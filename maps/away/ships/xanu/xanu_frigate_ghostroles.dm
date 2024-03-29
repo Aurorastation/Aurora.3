@@ -9,6 +9,7 @@
 
 	spawnpoints = list("xanufrigate_crewman")
 	max_count = 4
+	mob_name_prefix = "PO3. "
 
 	outfit = /obj/outfit/admin/xanufrigate_crewman
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G2, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
@@ -25,9 +26,10 @@
 	desc = "Serve as an officer aboard a naval frigate of the All-Xanu Spacefleet, the navy of Xanu Prime and one of the largest component navies of the Coalition of Colonies."
 	welcome_message = "You're an officer of an All-Xanu Spacefleet vessel, representing Xanu Prime and protecting the Coalition of Colonies. You are a military officer, and are trained extensively in combat, survival, and damage control, as well as \
 	leadership and tactical strategy."
-	max_count = 2
+	max_count = 1
 	outfit = /obj/outfit/admin/xanufrigate_crewman/officer
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_IPC, SPECIES_IPC_SHELL)
+	mob_name_prefix = "LT. "
 
 /datum/ghostspawner/human/xanufrigate_crewman/officer/captain
 	name = "All-Xanu Spacefleet Frigate Captain"
@@ -38,6 +40,7 @@
 	max_count = 1
 	outfit = /obj/outfit/admin/xanufrigate_crewman/officer/captain
 	spawnpoints = list("xanufrigate_captain")
+	mob_name_prefix = "CDR. "
 
 /obj/outfit/admin/xanufrigate_crewman
 	name = "All-Xanu Armed Forces Crewman"

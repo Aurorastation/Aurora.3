@@ -182,6 +182,3 @@
 
 /obj/structure/window_frame/shuttle/blue
 	color = "#6176a1"
-
-/obj/structure/window_frame/shuttle/coalition
-	color = COLOR_COALITION

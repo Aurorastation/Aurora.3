@@ -787,12 +787,6 @@
 /obj/structure/window_frame/update_icon()
 	SSicon_smooth.add_to_queue(src)
 
-/obj/structure/window/full/reinforced/ultra
-	name = "advanced borosilicate alloy window"
-	desc = "It looks extremely strong. Might take many good hits to crack it."
-	health = 500
-	maxhealth = 500
-
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
 	return
