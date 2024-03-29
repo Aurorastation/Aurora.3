@@ -206,7 +206,7 @@
 
 /obj/item/clothing/accessory/storage/goldendeep
 	name = "thesian webbing"
-	desc = " For the hard working Thesian of the Golden Deep. Able to carry tools and withstand the rigors of work within the collective."
+	desc = "For the hard working Thesian of the Golden Deep. Able to carry tools and withstand the rigors of work within the collective."
 	icon_state = "thesian_webbing"
 	item_state = "thesian_webbing"
 	icon = 'icons/clothing/accessories/thesian_webbing.dmi'
