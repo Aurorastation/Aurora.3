@@ -304,6 +304,9 @@
 	caliber = "rocket"
 	max_stack = 1
 
+/obj/item/ammo_casing/rocket/konyang
+	icon_state = "kgm_rocket"
+
 /obj/item/ammo_casing/chameleon
 	name = "chameleon bullets"
 	desc = "A set of bullets for the Chameleon Gun."
