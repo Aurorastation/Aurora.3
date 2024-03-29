@@ -149,7 +149,7 @@
 
 /obj/item/clothing/accessory/poncho/goldendeep/furwrap
 	name = "fur wrap"
-	desc = "The fur of an animal, soft and fluffy, now repurposed as a decorative neck wrap. "
+	desc = "The fur of an animal, soft and fluffy, now repurposed as a decorative neck wrap."
 	icon_state = "fur_wrap"
 	item_state = "fur_wrap"
 	icon = 'icons/clothing/suits/capes/fur_wrap.dmi'
