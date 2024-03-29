@@ -6535,7 +6535,8 @@
 "OV" = (
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "scc_scout_ship_co2"
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
 	},
 /obj/machinery/air_sensor,
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -7624,7 +7625,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "scc_scout_ship_co2"
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
@@ -7767,7 +7769,8 @@
 "WM" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "scc_scout_ship_co2"
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 1
@@ -8227,7 +8230,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "scc_scout_ship_co2"
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/scc_scout_ship/maint_propulsion_port)

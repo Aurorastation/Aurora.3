@@ -57,6 +57,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon
 	pump_direction = 0
+	frequency = 1441
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos
 	icon_state = "map_vent"

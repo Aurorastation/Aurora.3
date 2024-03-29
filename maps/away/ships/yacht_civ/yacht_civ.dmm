@@ -1121,7 +1121,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "yacht_civ_co2"
+	master_tag = "yacht_civ_co2";
+	name = "yacht_civ_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/yacht_civ/propulsion)
