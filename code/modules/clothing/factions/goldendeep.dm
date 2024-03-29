@@ -141,7 +141,7 @@
 
 /obj/item/clothing/accessory/poncho/goldendeep/elegantcloak
 	name = "elegant cloak"
-	desc = " Billowing fabric for all classes with a regal clasp that hints at its original merchant designers."
+	desc = "Billowing fabric for all classes with a regal clasp that hints at its original merchant designers."
 	icon_state = "elegant_cloak"
 	item_state = "elegant_cloak"
 	icon = 'icons/clothing/suits/capes/elegant_cloak.dmi'
