@@ -452,7 +452,7 @@
 			else
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
-		playsound(src, drop_sound, THROW_SOUND_VOLUME)
+		playsound(src, drop_sound, YEET_SOUND_VOLUME)
 	return ..()
 
 /**
@@ -535,9 +535,9 @@
 		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	else if(slot_flags && slot)
 		if(equip_sound)
-			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
+			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 		else
-			playsound(src, drop_sound, DROP_SOUND_VOLUME)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
@@ -1100,7 +1100,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/tool_use_check(mob/living/user, amount)
 	return TRUE
 
-// Plays item's usesound, if any.
+/// Plays item's usesound, if any
 /obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
 	if(target && volume)
 		var/played_sound
@@ -1114,7 +1114,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				played_sound = pick(hitsound)
 
 		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
-		playsound(target, played_sound, volume, TRUE)
+		playsound(target, played_sound, volume, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Generic use proc. Depending on the item, it uses up fuel, charges, sheets, etc.
 // Returns TRUE on success, FALSE on failure.

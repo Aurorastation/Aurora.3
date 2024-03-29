@@ -334,7 +334,7 @@
 			key = LK
 			user.drop_from_inventory(attacking_item, src)
 			icon_state = "safeguard_open"
-			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
+			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg', 50)
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
 	if(key && !stat && opened && !locked)
@@ -345,7 +345,7 @@
 			flick("safeguard_locking", src)
 			icon_state = "safeguard_locked"
 			locked = TRUE
-			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg')
+			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg', 50)
 			button.open()
 
 /obj/machinery/leviathan_button
@@ -401,7 +401,7 @@
 			if(length(possible_entry_points) && !(targeted_landmark == SHIP_HAZARD_TARGET))
 				landmark = possible_entry_points[targeted_landmark]
 			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
-				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')
+				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg', 50)
 				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
 				for(var/obj/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
 					if(istype(LT))

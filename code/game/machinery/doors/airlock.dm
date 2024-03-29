@@ -1116,18 +1116,18 @@ About the new airlock wires panel:
 			if(density && arePowerSystemsOn())
 				flick("denied", src)
 				if(secured_wires)
-					playsound(src.loc, open_failure_access_denied, 50, 0)
+					playsound(src.loc, open_failure_access_denied, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			update_icon(AIRLOCK_CLOSED)
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG, TRUE)
 			if(density && arePowerSystemsOn())
 				flick("denied", src)
-				playsound(src.loc, open_failure_access_denied, 50, 0)
+				playsound(src.loc, open_failure_access_denied, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		if ("braced")
 			set_airlock_overlays(AIRLOCK_DENY, TRUE)
 			if (arePowerSystemsOn())
 				flick("denied", src)
-				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
+				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		else
 			update_icon()
 
@@ -1350,7 +1350,7 @@ About the new airlock wires panel:
 
 		if(H.getBrainLoss() >= 50)
 			if(prob(40) && src.density)
-				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
+				playsound(src.loc, 'sound/effects/bang.ogg', 25, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 				if(!istype(H.head, /obj/item/clothing/head/helmet))
 					user.visible_message(SPAN_WARNING("[user] headbutts the airlock."))
 					var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
@@ -1384,7 +1384,7 @@ About the new airlock wires panel:
 			if(H.default_attack?.attack_door && !(stat & (BROKEN|NOPOWER)))
 				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
 				user.do_attack_animation(src, null)
-				playsound(loc, hitsound, 60, 1)
+				playsound(loc, hitsound, 60, TRUE)
 				take_damage(H.default_attack.attack_door)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				return
@@ -1435,7 +1435,7 @@ About the new airlock wires panel:
 			return FALSE
 		if(bolt_cut_state == BOLTS_FINE)
 			to_chat(user, SPAN_WARNING("You smash the bolt cover open!"))
-			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
+			playsound(src, 'sound/weapons/smash.ogg', 100, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 			bolt_cut_state = BOLTS_EXPOSED
 		else if(bolt_cut_state != BOLTS_FINE)
 			cut_verb = "smashing"
@@ -1445,7 +1445,7 @@ About the new airlock wires panel:
 	else if(istype(tool, /obj/item/crowbar/robotic/jawsoflife))
 		if(bolt_cut_state == BOLTS_FINE)
 			to_chat(user, SPAN_WARNING("You force the bolt cover open!"))
-			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
+			playsound(src, 'sound/weapons/smash.ogg', 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			bolt_cut_state = BOLTS_EXPOSED
 		else if(bolt_cut_state != BOLTS_FINE)
 			cut_verb = "smashing"
@@ -1468,18 +1468,18 @@ About the new airlock wires panel:
 
 	if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 		to_chat(user, SPAN_NOTICE("You're a quarter way through."))
-		playsound(src, cut_sound, 100, 1)
+		playsound(src, cut_sound, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 		if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 			to_chat(user, SPAN_NOTICE("You're halfway through."))
-			playsound(src, cut_sound, 100, 1)
+			playsound(src, cut_sound, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 			if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user, SPAN_NOTICE("You're three quarters through."))
-				playsound(src, cut_sound, 100, 1)
+				playsound(src, cut_sound, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 				if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
-					playsound(src, cut_sound, 100, 1)
+					playsound(src, cut_sound, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 					if(initial_state != bolt_cut_state)
 						return
@@ -1668,13 +1668,13 @@ About the new airlock wires panel:
 				SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
 				"You hear a welding torch on metal."
 			)
-			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src, 'sound/items/Welder.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
 				return TRUE
 			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return TRUE
-			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
+			playsound(src, 'sound/items/welder_pry.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			welded = !welded
 			update_icon()
 		return TRUE
@@ -1850,9 +1850,9 @@ About the new airlock wires panel:
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(!forced && arePowerSystemsOn())
-		playsound(src.loc, open_sound_powered, 50, FALSE)
+		playsound(src.loc, open_sound_powered, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	else
-		playsound(src.loc, open_sound_unpowered, 70, FALSE)
+		playsound(src.loc, open_sound_unpowered, 70, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	if(src.close_other != null && istype(src.close_other, /obj/machinery/door/airlock/) && !src.close_other.density)
 		src.close_other.close()
@@ -1956,7 +1956,7 @@ About the new airlock wires panel:
 			for(var/atom/movable/AM in turf)
 				if(AM.blocks_airlock())
 					if(world.time > next_beep_at)
-						playsound(src.loc, close_failure_blocked, 30, 0, -3)
+						playsound(src.loc, close_failure_blocked, 30, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 						next_beep_at = world.time + SecondsToTicks(20)
 					close_door_in(6)
 					return
@@ -1971,9 +1971,9 @@ About the new airlock wires panel:
 				take_damage(DOOR_CRUSH_DAMAGE)
 	use_power_oneoff(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())
-		playsound(src.loc, close_sound_powered, 100, 1)
+		playsound(src.loc, close_sound_powered, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	else
-		playsound(src.loc, close_sound_unpowered, 100, 1)
+		playsound(src.loc, close_sound_unpowered, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	..()
 
@@ -1986,7 +1986,7 @@ About the new airlock wires panel:
 	if (operating && !forced) return 0
 	if (bolt_cut_state == BOLTS_CUT) return 0 //what bolts?
 	src.locked = TRUE
-	playsound(src, bolts_dropping, 30, 0, -6)
+	playsound(src, bolts_dropping, 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 	update_icon()
 	return 1
 
@@ -1999,7 +1999,7 @@ About the new airlock wires panel:
 	if (!forced)
 		if(operating || !src.arePowerSystemsOn() || isWireCut(WIRE_BOLTS)) return
 	src.locked = FALSE
-	playsound(src, bolts_rising, 30, 0, -6)
+	playsound(src, bolts_rising, 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 	update_icon()
 	return 1
 

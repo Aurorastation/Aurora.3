@@ -23,32 +23,32 @@
 /area/ship/coc_scarab/cryogenics
 	name = "Scarab Salvage Vessel - Cryogenics Bay"
 	icon_state = "cryo"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/coc_scarab/washroom
 	name = "Scarab Salvage Vessel - Washroom"
 	icon_state = "washroom"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/coc_scarab/engihallway
 	name = "Scarab Salvage Vessel - Engineering Hallway"
 	icon_state = "maint_engineering"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 
 /area/ship/coc_scarab/forehallway
 	name = "Scarab Salvage Vessel - Fore Hallway"
 	icon_state = "maintcentral"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 
 /area/ship/coc_scarab/porthallway
 	name = "Scarab Salvage Vessel - Port Hallway"
 	icon_state = "maintenance"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 
 /area/ship/coc_scarab/starboardhallway
 	name = "Scarab Salvage Vessel - Starboard Hallway"
 	icon_state = "maintenance"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 
 /area/ship/coc_scarab/armory
 	name = "Scarab Salvage Vessel - Armory"
@@ -96,7 +96,7 @@
 	name = "Scarab Salvage Vessel - Telecommunications Closet"
 	icon_state = "tcomsatcham"
 	ambience = AMBIENCE_HIGHSEC
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/coc_scarab/atmospherics
 	name = "Scarab Salvage Vessel - Atmospherics"

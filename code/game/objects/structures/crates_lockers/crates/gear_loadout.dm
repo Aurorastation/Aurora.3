@@ -67,6 +67,7 @@
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss/emp(src)
 	new /obj/item/storage/box/species_modkit(src)
+	new /obj/item/storage/box/coalition(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/coalition_single/fill()
 	new /obj/item/clothing/head/helmet/space/void/coalition(src)
@@ -78,6 +79,7 @@
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss/emp(src)
 	new /obj/item/device/modkit/multi_species(src)
+	new /obj/item/voidsuit_modkit_multi/coalition(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani/fill()
 	new /obj/item/clothing/under/rank/security/pmc/epmc(src)

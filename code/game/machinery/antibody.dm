@@ -53,7 +53,7 @@
 				stage = 1
 				log_and_message_admins("has begun antibody extraction", usr, get_turf(src))
 				to_chat(occupant, SPAN_CULT(FONT_HUGE("You are locked by bindings into \the [src] and your arm is stabbed by a needle!")))
-				playsound(src, 'sound/effects/lingextends.ogg')
+				playsound(src, 'sound/effects/lingextends.ogg', 30)
 
 /obj/machinery/antibody_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -72,7 +72,7 @@
 		icon_state = "extractor-active"
 		if(stage < MAX_STAGES+1)
 			if(cure_progress > stage*stage_threshold)
-				playsound(src, 'sound/effects/lingextends.ogg')
+				playsound(src, 'sound/effects/lingextends.ogg', 30)
 				stage++
 			cure_progress += 5
 
@@ -101,7 +101,7 @@
 								a vial of shining white liquid...")))
 				unbuckle()
 				new /obj/item/reagent_containers/glass/beaker/vial/antidote(get_turf(src))
-				playsound(src, 'sound/machines/weapons_analyzer_finish.ogg')
+				playsound(src, 'sound/machines/weapons_analyzer_finish.ogg', 30)
 			working = FALSE
 			stage = 0
 			cure_progress = 0
@@ -113,7 +113,7 @@
 /obj/machinery/antibody_extractor/post_buckle(mob/living/carbon/human/H)
 	if(H.buckled_to == src)
 		occupant = H
-	playsound(src, 'sound/effects/buckle.ogg')
+	playsound(src, 'sound/effects/buckle.ogg', 30)
 
 /obj/machinery/antibody_extractor/user_unbuckle(mob/user)
 	if(working)

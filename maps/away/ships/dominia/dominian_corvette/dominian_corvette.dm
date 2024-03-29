@@ -21,7 +21,7 @@
 
 /area/ship/dominian_corvette/janitor
 	name = "Dominian Corvette Custodial Closet"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/dominian_corvette/hangar
 	name = "Dominian Corvette Hangar"
@@ -54,17 +54,17 @@
 
 /area/ship/dominian_corvette/franny
 	name = "Dominian Corvette Francisca Compartment"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/officer
 	name = "Dominian Corvette Officer Quarters"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/ship/dominian_corvette/armory
 	name = "Dominian Corvette Armory"
 	icon_state = "security"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/temple
@@ -98,7 +98,7 @@
 
 /area/ship/dominian_corvette/cannon
 	name = "Dominian Corvette Cannon Compartment"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/dominian_corvette/exterior

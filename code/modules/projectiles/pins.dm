@@ -325,22 +325,22 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 		return
 
 	else if(new_mode == WIRELESS_PIN_AUTOMATIC)
-		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		playsound(user, 'sound/weapons/laser_safetyon.ogg', 40)
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to automatic.</b>"))
 		lock_status = WIRELESS_PIN_AUTOMATIC
 
 	else if(new_mode == WIRELESS_PIN_DISABLED)
-		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
+		playsound(user, 'sound/weapons/laser_safetyoff.ogg', 40)
 		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun.name]'s trigger!</b>"))
 		lock_status = WIRELESS_PIN_DISABLED
 
 	else if(new_mode == WIRELESS_PIN_STUN)
-		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		playsound(user, 'sound/weapons/laser_safetyon.ogg', 40)
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to stun only.</b>"))
 		lock_status = WIRELESS_PIN_STUN
 
 	else if(new_mode == WIRELESS_PIN_LETHAL)
-		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		playsound(user, 'sound/weapons/laser_safetyon.ogg', 40)
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now unrestricted.</b>"))
 		lock_status = WIRELESS_PIN_LETHAL
 

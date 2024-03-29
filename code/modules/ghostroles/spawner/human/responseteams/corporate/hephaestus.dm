@@ -6,6 +6,7 @@
 	welcome_message = "You are a member of a Hephaestus heavy asset protection squad. You have recieved a distress call, and been dispatched to investigate. Obey your commander's orders."
 	outfit = /obj/outfit/admin/ert/hephaestus
 	possible_species = list(SPECIES_HUMAN, SPECIES_UNATHI)
+	assigned_role = "Asset Protection (Hepht)"
 
 /datum/ghostspawner/human/ert/hephaestus/medical
 	name = "Hephaestus Industries Medical Specialist"

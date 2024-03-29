@@ -253,7 +253,7 @@
 	if(has_jetpack)
 		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
-	playsound(get_turf(src), spawn_sound, 75, pitch_toggle)
+	playsound(get_turf(src), spawn_sound, 75, pitch_toggle, ignore_walls = FALSE)
 
 /mob/living/silicon/robot/SetName(pickedName as text)
 	custom_name = pickedName

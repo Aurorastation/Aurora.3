@@ -72,7 +72,7 @@
 		return
 
 	if(wielded)
-		playsound(terminator, 'sound/items/goggles_charge.ogg')
+		playsound(terminator, 'sound/items/goggles_charge.ogg', 40)
 		toggle_scope(2, terminator)
 	else
 		to_chat(terminator, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))

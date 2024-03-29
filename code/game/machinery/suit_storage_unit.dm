@@ -469,7 +469,7 @@
 		return TRUE
 	if(attacking_item.isscrewdriver())
 		src.panelopen = !src.panelopen
-		playsound(src.loc, attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, text("<span class='notice'>You [] the unit's maintenance panel.</span>",(src.panelopen ? "open up" : "close") ))
 		update_icon()
 		src.updateUsrDialog()
