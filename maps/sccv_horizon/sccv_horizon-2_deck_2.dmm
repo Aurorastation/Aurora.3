@@ -4812,6 +4812,17 @@
 	},
 /turf/simulated/floor/bluegrid/server,
 /area/server)
+"cav" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "shutters_deck2_grauwolf";
+	name = "Safety Blast Door"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/grauwolf)
 "caB" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -43944,7 +43955,7 @@
 /area/horizon/security/brig)
 "uBx" = (
 /obj/machinery/button/remote/blast_door{
-	id = "shutters_deck3_longbow";
+	id = "shutters_deck2_grauwolf";
 	name = "Safety Blast Doors Control";
 	pixel_y = -28;
 	dir = 6
@@ -48131,7 +48142,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/regular/open{
-	dir = 8;
 	id = "shutters_deck2_grauwolf";
 	name = "Safety Blast Door"
 	},
@@ -50070,16 +50080,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
-"xln" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/door/blast/regular/open{
-	id = "shutters_deck2_grauwolf";
-	name = "Safety Blast Door"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/grauwolf)
 "xlz" = (
 /obj/machinery/computer/security/engineering{
 	name = "Drone Monitoring Cameras"
@@ -61075,7 +61075,7 @@ jJU
 jJU
 gyH
 vjt
-wtq
+cav
 qgN
 qgN
 qgN
@@ -61479,7 +61479,7 @@ cpl
 gqr
 tLi
 qbP
-wtq
+cav
 qgN
 qgN
 qgN
@@ -61679,9 +61679,9 @@ ozs
 ukM
 cpl
 cRE
-xln
-xln
-xln
+wtq
+wtq
+wtq
 qgN
 qgN
 qgN
