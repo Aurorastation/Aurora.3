@@ -397,7 +397,7 @@
 
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
-	desc = "A loose-fitting, high visibility jacket to help the user be recognizable in high traffic areas with large industrial equipment."
+	desc = "A loose-fitting, high visibility jacket to help the wearer be recognizable in high traffic areas with large industrial equipment."
 	icon = 'icons/clothing/kit/highvis.dmi'
 	icon_state = "jacket_highvis"
 	item_state = "jacket_highvis"
