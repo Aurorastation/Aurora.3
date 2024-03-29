@@ -645,6 +645,31 @@
 	..()
 	icon_state = (ammo_magazine) ? "assassin_smg" : "assassin_smg-empty"
 
+/obj/item/gun/projectile/automatic/tommygun/konyang
+	name = "konyang police submachine gun"
+	desc = "A compact submachine gun made specifically for the Konyang National Police. Takes .45 ammo."
+	desc_extended = "Produced by one of Einstein Engines' local subsidiaries on Konyang, the K45 'Pogpung' submachine gun is Taepung Arms' entry into the submachine gun market. \
+	The National Police purchased a large number of K45s for their patrol units due to reports that service revolvers were inadequate at stopping rampant IPCs. The K45-P variant \
+	specially designed for the police forces is chambered in the organization's preferred .45 caliber and is limited to 3-round bursts due to the relatively limited firearms training of \
+	National Police officers."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k45carbine"
+	item_state = "k45carbine"
+	w_class = ITEMSIZE_NORMAL
+	max_shells = 30
+	load_method = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m, /obj/item/ammo_magazine/submachinemag)
+
+	firemodes = list(
+		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
+		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15))
+		)
+
+/obj/item/gun/projectile/automatic/tommygun/konyang/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "k45carbine" : "k45carbine-e"
+
 /obj/item/gun/projectile/automatic/rifle/dnac
 	name = "dNAC-6.5 assault rifle"
 	desc = "A durable, sleek-looking bullpup rifle manufactured by d.N.A Defense & Aerospace for the All-Xanu Armed Forces. This model has been adopted by a majority of the Coalition's military forces as well due to its simplicity and reliability."
@@ -740,7 +765,7 @@
 /obj/item/gun/projectile/automatic/rifle/konyang/k556
 	name = "konyang assault rifle"
 	desc = "The K556 is the standard assault rifle of the Konyang Armed Forces. Sturdy and reliable."
-	desc_extended = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
+	desc_extended = "The K556 assault rifle is a new design in use by elements of the Konyang Armed Forces, designed in-house by the military in partnership with Einstein Engines'local subsidiaries. It has yet to see widespread service as the government is reluctant to spend money on new small arms when they already possess large stockpiles from the colonial period. This has not stopped the Aerospace Forces from making the transition to the new weapon however, as its compact design, light weight, and accuracy make it ideal for use aboard a spacecraft."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k556rifle"
 	item_state = "k556rifle"
@@ -760,8 +785,7 @@
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47
 	name = "konyang assault carbine"
 	desc = "The Dering-K1 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
-	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
-	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
+	desc_extended = "The Dering K1 battle rifle is a standard Solarian M469 given a service extension package by Zavodskoi Interstellar. Many of the rifles bear Konyanger proof marks right next to old Solarian ones, indicating their heritage. Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k47"
 	item_state = "k47"
