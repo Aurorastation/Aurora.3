@@ -1,0 +1,10 @@
+
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds large tank markers."
+  - maptweak: "Updates SCC Scout Ship to use large tank markers."
+  - maptweak: "Updates Civilian Yacht to use large tank markers."
