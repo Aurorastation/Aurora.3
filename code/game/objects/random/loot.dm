@@ -337,6 +337,16 @@
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/reagent_containers/pill/cocaine = 3,
 		/obj/item/reagent_containers/pill/heroin = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/berserk = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/impedrezene = 0.4,
+		/obj/item/reagent_containers/hypospray/autoinjector/night_juice = 0.3,
+		/obj/item/storage/box/syndie_kit/syringe_gun = 0.5,
+		/obj/item/reagent_containers/syringe/drugs = 1,
+		/obj/item/reagent_containers/inhaler/space_drugs = 2,
+		/obj/item/grenade/spawnergrenade/manhacks = 0.2,
+		/obj/item/storage/box/smokes = 0.7,
+		/obj/item/grenade/napalm = 0.4,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/material/knife/butterfly = 2,
 		/obj/item/material/butterflyblade = 3,
@@ -344,6 +354,8 @@
 		/obj/item/material/wirerod = 3,
 		/obj/item/melee/baton/cattleprod = 1,
 		/obj/item/material/knife/tacknife = 1,
+		/obj/item/material/knife/bayonet = 2,
+		/obj/item/device/multitool/hacktool = 0.3,
 		/obj/item/material/kitchen/utensil/knife/boot = 2,
 		/obj/item/storage/secure/briefcase/money = 1,
 		/obj/item/gun/projectile/pistol = 0.2,
@@ -353,11 +365,10 @@
 		/obj/item/pen/reagent/paralysis = 1,
 		/obj/item/pen/reagent/poison = 1,
 		/obj/item/material/knife/butterfly/switchblade = 1,
-		/obj/item/reagent_containers/syringe/drugs = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/reagent_containers/inhaler/space_drugs = 2,
-		/obj/item/reagent_containers/inhaler/xuxigas = 1
+		/obj/item/reagent_containers/inhaler/xuxigas = 1,
+		/obj/item/toy/balloon/syndicate = 4
 	)
 
 /obj/random/coin
