@@ -76,25 +76,3 @@
 
 /obj/outfit/admin/xanufrigate_crewman/get_id_access()
 	return list(ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_EXTERNAL_AIRLOCKS)
-
-//ERT for spawning on frigate
-/datum/ghostspawner/human/ert/xanu
-	name = "All-Xanu Spacefleet VBSS Operator"
-	short_name = "xanufrigate_ert"
-	desc = "Serve as a heavily-armed VBSS (Visit, Board, Search & Seizure) boarding team operative on a naval frigate of the All-Xanu Spacefleet. Board, search, and destroy any hostile elements."
-
-	welcome_message = "You're an emergency response VBSS (Visit, Board, Search & Seizure) operator for the All-Xanu Spacefleet, sent in to board a spacecraft and eliminate any hostiles inside."
-
-	spawnpoints = list("xanufrigate_ert")
-	max_count = 3
-	mob_name_prefix = "PO2. "
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC, SPECIES_IPC_SHELL)
-	outfit = /obj/outfit/admin/xanufrigate_crewman/ert
-
-/obj/outfit/admin/xanufrigate_crewman/ert
-	name = "All-Xanu Spacefleet VBSS Operator"
-	uniform = /obj/item/clothing/under/xanu
-	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
-	back = /obj/item/rig/xanu/equipped/ert
-	id = /obj/item/card/id/coalition

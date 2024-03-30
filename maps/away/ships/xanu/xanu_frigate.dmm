@@ -1998,17 +1998,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/eva)
 "gS" = (
-/obj/machinery/suit_cycler{
-	req_access = list(222)
-	},
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/shoes/magboots,
+/obj/machinery/suit_cycler/offship/xanu,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/clothing/suit/space/void/coalition/xanu,
-/obj/item/clothing/head/helmet/space/void/coalition/xanu,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/xanu_boarder/cockpit)
 "gT" = (
@@ -3128,10 +3122,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/ghostspawpoint{
-	identifier = "xanufrigate_ert";
-	name = "igs - xanufrigate_ert"
-	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "kF" = (
@@ -3162,17 +3152,11 @@
 /turf/template_noop,
 /area/space)
 "kI" = (
-/obj/machinery/suit_cycler{
-	req_access = list(222)
-	},
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/shoes/magboots,
+/obj/machinery/suit_cycler/offship/xanu,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/clothing/suit/space/void/coalition/xanu,
-/obj/item/clothing/head/helmet/space/void/coalition/xanu,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/eva)
 "kJ" = (
@@ -3971,10 +3955,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/ghostspawpoint{
-	identifier = "xanufrigate_ert";
-	name = "igs - xanufrigate_ert"
-	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "nG" = (
@@ -6522,8 +6502,8 @@
 	shuttle_tag = "Xanu Fighter"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/airlock/external,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_fighter)
 "wG" = (
@@ -7477,14 +7457,8 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/mess_hall)
 "Af" = (
-/obj/machinery/suit_cycler{
-	req_access = list(222)
-	},
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/shoes/magboots,
+/obj/machinery/suit_cycler/offship/xanu,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/suit/space/void/coalition/xanu,
-/obj/item/clothing/head/helmet/space/void/coalition/xanu,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/eva)
 "Ak" = (
@@ -9093,10 +9067,6 @@
 "FQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "xanufrigate_ert";
-	name = "igs - xanufrigate_ert"
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
@@ -13877,10 +13847,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "xanufrigate_ert";
-	name = "igs - xanufrigate_ert"
-	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "VF" = (
@@ -14070,8 +14036,8 @@
 	shuttle_tag = "Xanu Fighter"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/airlock/external,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_fighter)
 "Wf" = (

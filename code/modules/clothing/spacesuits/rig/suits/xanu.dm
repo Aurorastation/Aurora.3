@@ -15,7 +15,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		rad = ARMOR_RAD_SMALL,
 	)
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
@@ -31,10 +31,11 @@
 	light_overlay = "helmet_light_xanu"
 
 /obj/item/rig/xanu/equipped
+	req_access = list(ACCESS_COALITION_NAVY)
 	initial_modules = list(
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/vision/thermal,
-		/datum/uplink_item/item/hardsuit_modules/maneuvering_jets,
+		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/mounted/egun,
 		)
@@ -45,7 +46,7 @@
 	initial_modules = list(
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/vision/thermal,
-		/datum/uplink_item/item/hardsuit_modules/maneuvering_jets,
+		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/mounted/egun,
