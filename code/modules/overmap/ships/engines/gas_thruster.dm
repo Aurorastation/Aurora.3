@@ -198,7 +198,7 @@
 	if(!removed)
 		return 0
 	. = calculate_thrust(removed)
-	playsound(loc, 'sound/machines/thruster.ogg', 100 * thrust_limit * power_modifier, 0, world.view * 4, 0.1, is_global = TRUE)
+	playsound(loc, 'sound/machines/thruster.ogg', 70 * thrust_limit * power_modifier, 0, world.view * 4, 0.1)
 	if(network)
 		network.update = 1
 

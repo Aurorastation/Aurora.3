@@ -64,7 +64,7 @@
 		icon_state = initial(icon_state)
 		updateUsrDialog()
 	else if(attacking_item.iswrench())
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 	else

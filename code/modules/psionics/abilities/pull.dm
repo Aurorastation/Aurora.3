@@ -34,5 +34,5 @@
 	if(ismob(hit_atom))
 		to_chat(hit_atom, SPAN_WARNING("A psychic force pulls you!"))
 	AM.throw_at(user, 10, 7)
-	playsound(user, 'sound/effects/psi/power_evoke.ogg')
+	playsound(user, 'sound/effects/psi/power_evoke.ogg', 40)
 

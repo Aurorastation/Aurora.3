@@ -171,7 +171,7 @@
 	name = "spring salad"
 	desc = "A simple salad of carrots, lettuce and peas drizzled in oil with a pinch of salt."
 	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
-	icon_state = "tabboulehsalad"
+	icon_state = "springsalad"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#5a9c62"
 	center_of_mass = list("x"=17, "y"=11)

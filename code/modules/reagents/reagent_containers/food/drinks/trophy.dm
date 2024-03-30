@@ -41,7 +41,7 @@
 	desc = "At least you ranked!"
 	icon_state = "bronze_cup"
 	w_class = ITEMSIZE_SMALL
-	force = 5
+	force = 11
 	throwforce = 4
 	amount_per_transfer_from_this = 10
 	matter = list(MATERIAL_IRON = 40)

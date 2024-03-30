@@ -209,6 +209,16 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 2))
 	bitesize = 3
 
+/obj/item/reagent_containers/food/snacks/chickenparm
+	name = "chicken parm hero"
+	desc = "Fried chicken with cheese and tomato sauce, served on a bread roll."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "parmsandwich"
+	filling_color = "#7e4118"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4, /singleton/reagent/nutriment/protein/cheese = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tomato sauce" = 2), /singleton/reagent/nutriment/protein = list("fried chicken" = 4))
+	bitesize = 3
+
 /obj/item/reagent_containers/food/snacks/sloppyjoe
 	name = "sloppy joe"
 	desc = "Yum yum! Hope you brought a napkin!... or ten."

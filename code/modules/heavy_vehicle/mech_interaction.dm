@@ -244,7 +244,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	walk(src, 0) // stop it from auto moving when the pilot gets in
+	SSmove_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
@@ -452,7 +452,7 @@
 
 				user.put_in_hands(body.cell)
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
-				playsound(user.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [attacking_item].</span>")
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
@@ -714,7 +714,7 @@
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()
-				walk(src, 0)
+				SSmove_manager.stop_looping(src)
 				say("Holding position.")
 				return
 

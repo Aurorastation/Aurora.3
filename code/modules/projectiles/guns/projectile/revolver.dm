@@ -71,7 +71,7 @@
 	accuracy_wielded = 1
 	fire_delay = ROF_UNWIELDY
 	fire_delay_wielded = ROF_SUPERHEAVY
-	force = 10
+	force = 15
 	recoil = 10
 	recoil_wielded = 5
 
@@ -288,7 +288,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38
-	force = 15
+	force = 22
 	sharp = TRUE
 	edge = TRUE
 	fire_delay = ROF_PISTOL

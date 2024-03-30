@@ -1,0 +1,114 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/power/emitter{
+	req_access = list(111)
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"y" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"B" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/head/helmet/tcaf,
+/obj/item/clothing/head/helmet/tcaf,
+/obj/item/clothing/head/helmet/tcaf,
+/obj/item/clothing/head/helmet/tcaf,
+/obj/item/clothing/head/helmet/tcaf,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/material/twohanded/pike/flag{
+	pixel_y = 6
+	},
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"D" = (
+/obj/structure/table/rack,
+/obj/item/gun/projectile/peac,
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac/he,
+/obj/item/ammo_casing/peac/he,
+/obj/item/ammo_casing/peac/shrapnel,
+/obj/item/ammo_casing/peac/shrapnel,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"O" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/crate/secure/legion{
+	name = "republican fleet supply crate"
+	},
+/obj/item/deployable_kit/legion_barrier,
+/obj/item/deployable_kit/legion_barrier,
+/obj/item/deployable_kit/legion_barrier,
+/obj/item/deployable_kit/legion_barrier,
+/obj/item/deployable_kit/legion_barrier,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/device/magnetic_lock/security/legion,
+/obj/item/deployable_kit/legion_turret{
+	name = "blaster turret assembly kit"
+	},
+/obj/item/deployable_kit/legion_turret{
+	name = "blaster turret assembly kit"
+	},
+/obj/item/deployable_kit/legion_turret{
+	name = "blaster turret assembly kit"
+	},
+/obj/item/deployable_kit/legion_turret{
+	name = "blaster turret assembly kit"
+	},
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"T" = (
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"V" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/combat/tcaf,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+
+(1,1,1) = {"
+a
+O
+y
+"}
+(2,1,1) = {"
+T
+T
+D
+"}
+(3,1,1) = {"
+T
+T
+B
+"}
+(4,1,1) = {"
+T
+T
+V
+"}

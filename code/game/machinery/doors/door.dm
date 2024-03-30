@@ -59,6 +59,8 @@
 
 	atmos_canpass = CANPASS_PROC
 
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
 		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
@@ -66,7 +68,7 @@
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
-		playsound(src.loc, hitsound_light, 8, 1, -1)
+		playsound(src.loc, hitsound_light, 8, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	user.do_attack_animation(src)
 
 /obj/machinery/door/Initialize()
@@ -105,7 +107,7 @@
 	if (!hatchstate)
 		hatchstate = 1
 		update_icon()
-		playsound(src.loc, hatch_open_sound, 40, 1, -1)
+		playsound(src.loc, hatch_open_sound, 40, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 
 	close_hatch_in(29)
@@ -118,7 +120,7 @@
 /obj/machinery/door/proc/close_hatch()
 	hatchstate = 0//hatch stays open for 3 seconds
 	update_icon()
-	playsound(src.loc, hatch_close_sound, 30, 1, -1)
+	playsound(src.loc, hatch_close_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/door/Destroy()
 	density = 0
@@ -220,6 +222,9 @@
 				return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
 	return !density
 
+/obj/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	return (check_access_list(pass_info.access) && can_open())
+
 
 /obj/machinery/door/proc/bumpopen(mob/user as mob)
 	if(operating)	return
@@ -266,7 +271,7 @@
 		var/volume = 100
 		if (tforce < 20)//No more stupidly loud banging sound from throwing a piece of paper at a door
 			volume *= (tforce / 20)
-		playsound(src.loc, hitsound, volume, 1)
+		playsound(src.loc, hitsound, volume, TRUE)
 		take_damage(tforce)
 		return
 
@@ -346,7 +351,7 @@
 
 	if(repairing && attacking_item.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return TRUE
@@ -361,7 +366,7 @@
 				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [W] with no visible effect.</span>")
 			else
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
-				playsound(src.loc, hitsound, W.get_clamped_volume(), 1)
+				playsound(src.loc, hitsound, W.get_clamped_volume(), TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 				take_damage(W.force)
 		return TRUE
 
@@ -484,7 +489,7 @@
 		if("deny")
 			if(density && !(stat & (NOPOWER|BROKEN)))
 				flick("door_deny", src)
-				playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
+				playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, FALSE, extrarange = SILENCED_SOUND_EXTRARANGE)
 	return
 
 /obj/machinery/door/proc/open(var/forced = 0)

@@ -692,7 +692,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
+		SSmove_manager.move_to(src, movement_target, 0, seek_move_delay)
 
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
@@ -707,7 +707,7 @@
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	walk_to(src,0)
+	SSmove_manager.stop_looping(src)
 	movement_target = null
 	density = FALSE
 	if (isopenturf(loc))
@@ -866,7 +866,7 @@
 		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
-		walk_to(src,0)
+		SSmove_manager.stop_looping(src)
 		movement_target = null
 		update_icon()
 

@@ -597,6 +597,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	return SETUP_OK
 
 /datum/controller/subsystem/ticker/proc/roundstart()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	mode.post_setup()
 	//Cleanup some stuff
 	for(var/obj/effect/landmark/start/S in GLOB.landmarks_list)

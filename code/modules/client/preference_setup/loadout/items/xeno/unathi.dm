@@ -459,7 +459,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 
 /datum/gear/uniform/unathi/skakh
-	display_name = "ska'kh robes selection"
+	display_name = "Skakh robes selection"
 	path = /obj/item/clothing/under/unathi/skakh
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)

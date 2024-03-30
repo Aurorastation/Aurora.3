@@ -5,7 +5,7 @@
 	icon_state = "pulse_carbine"
 	item_state = "pulse_carbine"
 	slot_flags = SLOT_BELT
-	force = 5
+	force = 11
 	fire_sound='sound/weapons/laser1.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2

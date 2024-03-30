@@ -289,7 +289,9 @@
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))
-		return 1
+		var/mob/living/silicon/S = other
+		if(S.can_hear_hivenet)
+			return TRUE
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))

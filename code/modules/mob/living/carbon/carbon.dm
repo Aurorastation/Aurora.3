@@ -392,7 +392,7 @@
 	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
 	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 	Stun(stun_duration)
-	Weaken(FLOOR(stun_duration/2))
+	Weaken(FLOOR(stun_duration/2, 1))
 	return 1
 
 /**

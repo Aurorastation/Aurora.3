@@ -60,7 +60,7 @@
 
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "" : "un"]secure \the [src].")
-		playsound(src, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(src, 50)
 		return TRUE
 
 	if(istype(attacking_item, /obj/item/cell))

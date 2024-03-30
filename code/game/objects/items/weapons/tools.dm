@@ -27,7 +27,7 @@
 	item_state = "wrench"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -56,7 +56,7 @@
 	item_state = "screwdriver"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
-	force = 8
+	force = 18
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
@@ -130,7 +130,7 @@
 	item_state = "wirecutters"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 6
+	force = 14
 	throw_speed = 2
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
@@ -434,7 +434,7 @@
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
-			playsound(target, usesound, 15)
+			playsound(target, usesound, 15, extrarange = SILENCED_SOUND_EXTRARANGE)
 			repair_organ(user, target, affecting)
 
 /obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
@@ -536,8 +536,8 @@
 				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
-			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
-			force = 15
+			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
+			force = 22
 			damtype = DAMAGE_BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
@@ -555,7 +555,7 @@
 			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
 		else if(T)
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
-		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, 1)
+		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE
 		w_class = initial(w_class)
@@ -690,7 +690,7 @@
 	item_state = "crowbar"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
@@ -715,7 +715,7 @@
 	icon_state = "rescue_axe"
 	item_state = "rescue_axe"
 	w_class = ITEMSIZE_NORMAL
-	force = 12
+	force = 18
 	throwforce = 12
 	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
@@ -757,7 +757,7 @@
 	item_state = "pipewrench"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
@@ -826,8 +826,24 @@
 		current_tool = 1
 	var/tool = RADIAL_INPUT(user, tools)
 	if(tool)
-		playsound(user, 'sound/items/penclick.ogg', 25)
+		playsound(user, 'sound/items/penclick.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		current_tool = tool
+		switch(tool)
+			if("wrench")
+				usesound = 'sound/items/wrench.ogg'
+				surgerysound = 'sound/items/surgery/bonesetter.ogg'
+			if("screwdriver")
+				usesound = 'sound/items/screwdriver.ogg'
+				surgerysound = 'sound/items/screwdriver.ogg'
+			if("wirecutters")
+				usesound = 'sound/items/wirecutter.ogg'
+				surgerysound = 'sound/items/surgery/hemostat.ogg'
+			if("crowbar")
+				usesound = /singleton/sound_category/crowbar_sound
+				surgerysound = 'sound/items/surgery/retractor.ogg'
+			if("multitool")
+				usesound = null
+				surgerysound = null
 		update_tool()
 	return 1
 
@@ -839,7 +855,7 @@
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
-	force = 8
+	force = 18
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
@@ -942,7 +958,7 @@
 		lit = TRUE
 		if(user)
 			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
-		playsound(get_turf(src), 'sound/items/flare.ogg', 50)
+		playsound(get_turf(src), 'sound/items/flare.ogg', 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
 		set_light(2, 2, LIGHT_COLOR_LAVA)
@@ -977,7 +993,7 @@
 	item_state = "hammer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 3

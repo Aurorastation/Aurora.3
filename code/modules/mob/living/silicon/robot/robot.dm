@@ -253,7 +253,7 @@
 	if(has_jetpack)
 		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
-	playsound(get_turf(src), spawn_sound, 75, pitch_toggle)
+	playsound(get_turf(src), spawn_sound, 75, pitch_toggle, ignore_walls = FALSE)
 
 /mob/living/silicon/robot/SetName(pickedName as text)
 	custom_name = pickedName
@@ -825,7 +825,7 @@
 
 //Robots take half damage from basic attacks.
 /mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
-	return ..(user,FLOOR(damage/2),attack_message)
+	return ..(user,FLOOR(damage/2, 1),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
 	// Check if the borg doesn't require any access at all

@@ -2108,6 +2108,10 @@
 	pixel_x = 0;
 	req_access = list(210)
 	},
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = 26
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "Ee" = (

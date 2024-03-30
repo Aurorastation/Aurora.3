@@ -669,9 +669,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"cd" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/mess)
 "ce" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -934,9 +931,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"cR" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/engine)
 "cS" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -978,7 +972,7 @@
 	},
 /area/nka_merchant/merchant)
 "dd" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/produce{
@@ -1123,25 +1117,11 @@
 	},
 /area/nka_merchant/captain_quarters)
 "dF" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/eastright{
-	dir = 2;
-	req_access = list(213);
-	name = "Voidsuit"
-	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/nka,
-/obj/item/clothing/head/helmet/space/void/nka,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/nka,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1835,26 +1815,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/eva)
-"gY" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/nka_merchant_shuttle)
 "hc" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/eastright{
-	dir = 2;
-	req_access = list(213);
-	name = "Voidsuit"
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/nka,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2004,27 +1967,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
-"ig" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/eastright{
-	dir = 2;
-	req_access = list(213);
-	name = "Voidsuit"
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/nka,
-/obj/item/clothing/head/helmet/space/void/nka,
-/obj/item/device/gps,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/eva)
 "ih" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -3295,17 +3237,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
-"rc" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
-"rk" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/barracks)
 "rp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -3324,9 +3255,12 @@
 	},
 /area/nka_merchant/mess)
 "rq" = (
-/obj/machinery/suit_cycler/security{
-	req_access = list(213)
-	},
+/obj/structure/table/rack,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3647,9 +3581,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"yk" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/captain_quarters)
 "yr" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -3808,15 +3739,9 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant)
-"CW" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/warehouse)
 "Df" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/nka_merchant_shuttle)
-"Dj" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/hangar)
 "Do" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4498,9 +4423,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge/secondary)
-"QW" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant)
 "RC" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -4694,9 +4616,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
-"Vy" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/engineering)
 "Wl" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15924,11 +15843,11 @@ iB
 iB
 iB
 iB
-cR
-cR
-cR
-cR
-cR
+AT
+AT
+AT
+AT
+AT
 iB
 iB
 iB
@@ -16090,23 +16009,23 @@ vo
 RS
 Zr
 AT
-cR
-cR
+AT
+AT
 vA
 vA
 Wx
 Wx
 iu
-Vy
-Vy
+pA
+pA
 UT
-Vy
-Vy
-rk
-rk
-rk
-rk
-rk
+pA
+pA
+fJ
+fJ
+fJ
+fJ
+fJ
 JO
 iB
 iB
@@ -16253,23 +16172,23 @@ dV
 Zr
 cr
 AT
-cR
+AT
 jA
 vA
 bg
 Wx
-Vy
+pA
 cS
 gN
 lO
 bA
 mK
-rk
+fJ
 yr
 Xf
 lh
-rk
-yk
+fJ
+JO
 DU
 DU
 DU
@@ -16284,7 +16203,7 @@ aO
 aO
 aO
 Vp
-QW
+Vp
 iB
 iB
 iB
@@ -16415,22 +16334,22 @@ Fy
 RS
 Zr
 Zr
-cR
+AT
 jA
 vA
 Wx
 Wx
-Vy
+pA
 lZ
 mv
 ik
 bA
 qt
-rk
-rk
+fJ
+fJ
 Hu
 lh
-rk
+fJ
 uy
 Dx
 cP
@@ -16445,8 +16364,8 @@ bS
 Fm
 Fm
 aE
-QW
-QW
+Vp
+Vp
 cf
 iB
 iB
@@ -16572,27 +16491,27 @@ iB
 iB
 iB
 iB
-cR
-cR
+AT
+AT
 aI
 Zr
 eD
-cR
+AT
 vA
 vA
 Wx
 Wx
-Vy
+pA
 dI
 Ew
 mO
 bA
 HR
-rk
+fJ
 yr
 Hu
 at
-rk
+fJ
 ak
 fm
 MA
@@ -16607,10 +16526,10 @@ dZ
 nA
 kZ
 cp
-QW
-QW
-QW
-QW
+Vp
+Vp
+Vp
+Vp
 kI
 kI
 kI
@@ -16735,26 +16654,26 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Zr
-cR
+AT
 hx
 dO
 Wx
 bI
-Vy
+pA
 kv
 iO
 gw
 bb
 qK
-rk
-rk
+fJ
+fJ
 cq
 em
-rk
+fJ
 co
 fm
 Qh
@@ -16769,7 +16688,7 @@ fZ
 TP
 nA
 cp
-QW
+Vp
 Vp
 Tu
 Vp
@@ -16897,26 +16816,26 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Zr
-cR
+AT
 xX
 IA
 IA
 jw
-Vy
+pA
 gg
 Pb
 yD
 bA
 aN
-rk
+fJ
 yr
 Hu
 jE
-rk
+fJ
 Oa
 Oz
 OJ
@@ -16931,7 +16850,7 @@ gi
 cN
 cN
 ho
-QW
+Vp
 AY
 ms
 gM
@@ -17059,23 +16978,23 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Zr
-cR
+AT
 vA
 vA
 fQ
 vA
-Vy
+pA
 cM
 Sg
 aP
 bA
 kV
-rk
-rk
+fJ
+fJ
 Hu
 ce
 fJ
@@ -17087,13 +17006,13 @@ JO
 Vj
 Vj
 Vj
-cd
+Vj
 qm
 lT
 eV
 eV
 EU
-QW
+Vp
 aJ
 xc
 ih
@@ -17221,31 +17140,31 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 ga
 fk
-cR
-ig
+AT
+hc
 bq
 bq
 cT
-Vy
+pA
 yK
 GV
 Ni
 bA
 br
-rk
+fJ
 og
 Hu
 PP
 kw
-rk
+fJ
 Ea
 ca
 df
-QW
+Vp
 PJ
 eB
 eB
@@ -17255,7 +17174,7 @@ io
 ie
 kg
 Kg
-QW
+Vp
 aJ
 xc
 HS
@@ -17264,7 +17183,7 @@ kI
 kI
 kI
 kI
-QW
+Vp
 iB
 iB
 iB
@@ -17383,23 +17302,23 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 et
 iT
-cR
-ig
+AT
+hc
 bq
 gU
 sn
-Vy
+pA
 NJ
 ax
 kW
 bA
 bs
-rk
-rk
+fJ
+fJ
 ny
 xP
 lW
@@ -17407,7 +17326,7 @@ JX
 eE
 bH
 ih
-QW
+Vp
 Si
 eB
 eB
@@ -17417,17 +17336,17 @@ rs
 aD
 EP
 qY
-QW
+Vp
 fv
 Fd
 lu
-QW
+Vp
 pL
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -17545,31 +17464,31 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 et
 iT
-cR
+AT
 dF
 bq
 GP
 bL
-Vy
+pA
 kD
 ls
 cx
 dj
 UB
-rk
+fJ
 kS
 bR
 jF
 Yo
-rk
+fJ
 aJ
 xc
 ih
-QW
+Vp
 eF
 eB
 iw
@@ -17579,18 +17498,18 @@ rp
 pf
 kL
 eV
-QW
+Vp
 aJ
 xc
-rc
-QW
+ih
+Vp
 pL
 pL
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -17706,27 +17625,27 @@ iB
 iB
 iB
 iB
-cR
+AT
 AT
 aI
 TU
 wQ
-cR
-ig
+AT
+hc
 bq
 fK
 Jv
-Vy
+pA
 ZX
 kC
 So
 ED
 bu
-rk
-rk
-rk
-rk
-rk
+fJ
+fJ
+fJ
+fJ
+fJ
 fJ
 fI
 xc
@@ -17741,19 +17660,19 @@ nE
 Vj
 Vj
 Vj
-QW
+Vp
 fI
 xc
 ih
 Vp
-QW
-QW
+Vp
+Vp
 Vp
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -17873,18 +17792,18 @@ RS
 aI
 gh
 iY
-cR
+AT
 hc
 bq
 Do
 gv
-Vy
+pA
 bE
 oT
 aT
 aS
 bv
-Vy
+pA
 ni
 yc
 yc
@@ -17903,20 +17822,20 @@ ca
 cK
 cK
 wP
-QW
+Vp
 nw
 xc
 ih
 RM
 aj
 bc
-QW
+Vp
 pL
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -18035,18 +17954,18 @@ kx
 kx
 am
 iY
-cR
+AT
 rq
 jl
 ia
 cH
-Vy
+pA
 bE
 YT
 ks
 ao
 IJ
-Vy
+pA
 uh
 yc
 ab
@@ -18072,13 +17991,13 @@ ih
 eH
 mR
 lJ
-QW
+Vp
 pL
 pL
 pL
 pL
 pL
-QW
+Vp
 Ck
 iB
 iB
@@ -18197,17 +18116,17 @@ fH
 aI
 Zr
 iY
-cR
+AT
 vA
 vA
 vV
 vA
-Vy
-Vy
-Vy
-Vy
+pA
+pA
+pA
+pA
 No
-Vy
+pA
 pA
 mE
 yc
@@ -18227,20 +18146,20 @@ cm
 Ka
 cm
 EC
-QW
+Vp
 nw
 xc
 ih
 hS
 yv
 je
-QW
+Vp
 pL
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -18354,12 +18273,12 @@ iB
 iB
 iB
 iB
-cR
+AT
 AT
 aI
 Zr
 Zr
-cR
+AT
 Bv
 tw
 nz
@@ -18374,34 +18293,34 @@ wt
 wt
 wt
 bY
-Dj
 TH
-CW
-CW
-CW
-CW
-CW
-CW
-CW
+TH
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
 JF
 wr
 wr
 kj
 wr
 wr
-QW
+Vp
 fI
 xc
 OT
 Vp
-QW
-QW
+Vp
+Vp
 Vp
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -18517,7 +18436,7 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 OL
@@ -18538,12 +18457,12 @@ yc
 iK
 dn
 dq
-CW
+WZ
 WZ
 cQ
-CW
+WZ
 ec
-CW
+WZ
 ci
 bM
 wr
@@ -18551,18 +18470,18 @@ lk
 Ci
 ma
 RC
-QW
+Vp
 iq
 xc
 lu
-QW
+Vp
 pL
 pL
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -18679,11 +18598,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 jn
-cR
+AT
 iU
 bF
 kA
@@ -18700,7 +18619,7 @@ kA
 lL
 gK
 al
-CW
+WZ
 fa
 bM
 Ja
@@ -18713,17 +18632,17 @@ dJ
 DK
 NZ
 aw
-QW
+Vp
 hV
 jm
-rc
-QW
+ih
+Vp
 pL
 pL
 pL
 pL
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -18841,14 +18760,14 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 Ll
-cR
+AT
 fq
 YM
-gY
+Df
 Df
 Df
 Df
@@ -18875,7 +18794,7 @@ dD
 db
 la
 jX
-QW
+Vp
 aJ
 xc
 HS
@@ -18884,7 +18803,7 @@ UL
 UL
 UL
 UL
-QW
+Vp
 iB
 iB
 iB
@@ -19003,15 +18922,15 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 jn
-cR
+AT
 hf
 ht
 Df
-gY
+Df
 bQ
 nh
 le
@@ -19024,7 +18943,7 @@ pi
 iZ
 yc
 it
-CW
+WZ
 jJ
 bM
 kH
@@ -19037,7 +18956,7 @@ ea
 bB
 lS
 ji
-QW
+Vp
 aJ
 xc
 ih
@@ -19165,11 +19084,11 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 jn
-cR
+AT
 En
 ht
 du
@@ -19199,7 +19118,7 @@ az
 FC
 lp
 eA
-QW
+Vp
 dX
 bV
 iz
@@ -19327,15 +19246,15 @@ iB
 iB
 iB
 iB
-cR
+AT
 aI
 Zr
 zi
-cR
+AT
 iU
 ht
 Df
-gY
+Df
 LV
 fd
 iF
@@ -19348,7 +19267,7 @@ pi
 iZ
 yc
 bj
-CW
+WZ
 kQ
 bM
 lR
@@ -19361,7 +19280,7 @@ hI
 cF
 gc
 fi
-QW
+Vp
 Vp
 Wr
 Vp
@@ -19488,15 +19407,15 @@ iB
 iB
 iB
 iB
-cR
-cR
+AT
+AT
 aI
 Zr
 Zr
-cR
+AT
 iU
 kU
-gY
+Df
 Df
 Df
 Df
@@ -19510,7 +19429,7 @@ Df
 iZ
 yc
 mj
-CW
+WZ
 cc
 bM
 aU
@@ -19523,10 +19442,10 @@ vQ
 hF
 TN
 ae
-QW
-QW
-QW
-QW
+Vp
+Vp
+Vp
+Vp
 UL
 UL
 UL
@@ -19654,8 +19573,8 @@ vo
 TF
 XG
 AT
-cR
-cR
+AT
+AT
 hf
 zm
 cl
@@ -19672,10 +19591,10 @@ cl
 jy
 yc
 mj
-CW
+WZ
 WZ
 gm
-CW
+WZ
 aq
 wT
 cB
@@ -19685,8 +19604,8 @@ lX
 tx
 dK
 GE
-QW
-QW
+Vp
+Vp
 gB
 iB
 iB
@@ -19817,7 +19736,7 @@ dV
 Zr
 aH
 mg
-cR
+AT
 aX
 yc
 yc
@@ -19833,22 +19752,22 @@ dA
 yc
 yc
 it
-Dj
-CW
-CW
-CW
-CW
-CW
-CW
-CW
+TH
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
 ll
 wr
 wr
 wr
 wr
 wr
-QW
-QW
+Vp
+Vp
 iB
 iB
 iB
@@ -19977,9 +19896,9 @@ iB
 vo
 fH
 Zr
-cR
-cR
-cR
+AT
+AT
+AT
 TH
 oh
 oh
@@ -19996,7 +19915,7 @@ oh
 oh
 TH
 TH
-CW
+WZ
 iB
 iB
 iB
@@ -20136,11 +20055,11 @@ iB
 iB
 iB
 iB
-cR
-cR
-cR
-cR
-cR
+AT
+AT
+AT
+AT
+AT
 iB
 iB
 iB

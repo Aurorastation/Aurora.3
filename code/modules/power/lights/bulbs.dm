@@ -94,7 +94,7 @@
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
 		status = LIGHT_BROKEN
-		force = 5
+		force = 11
 		sharp = TRUE
 		playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
 		new /obj/item/material/shard(get_turf(src))
@@ -192,3 +192,8 @@
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
+
+/obj/item/light/clean()
+	. = ..()
+	brightness_color = initial(brightness_color)
+	update()
