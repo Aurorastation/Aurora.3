@@ -63,7 +63,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/proc/check_interactivity(mob/user)
 	if(assembly)
 		return assembly.check_interactivity(user)
-	else if(!CanInteract(user, physical_state))
+	else if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
@@ -180,7 +180,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	B.set_content(HTML.Join())
 	B.open()
 
-/obj/item/integrated_circuit/Topic(href, href_list, state = always_state)
+/obj/item/integrated_circuit/Topic(href, href_list, state = GLOB.always_state)
 	if(!check_interactivity(usr))
 		return
 	if (assembly && !assembly.opened)

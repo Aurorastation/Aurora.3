@@ -36,7 +36,7 @@ if(Datum.isprocessing) {\
 SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
-	init_order = SS_INIT_MACHINERY
+	init_order = INIT_ORDER_MACHINES
 	flags = SS_POST_FIRE_TIMING
 	wait = 2 SECONDS
 

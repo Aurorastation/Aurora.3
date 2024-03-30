@@ -16,7 +16,7 @@
 
 SUBSYSTEM_DEF(discord)
 	name = "Discord"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_DISCORD
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
@@ -250,7 +250,6 @@ SUBSYSTEM_DEF(discord)
  * Returns text - The invite URL to the designated invite channel.
  */
 /datum/controller/subsystem/discord/proc/retreive_invite()
-	set background = 1
 	if (!active)
 		log_subsystem_discord("RetrieveInvite - Failed - Bot not Active")
 		return ""

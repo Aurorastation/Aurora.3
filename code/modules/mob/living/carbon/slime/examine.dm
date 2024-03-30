@@ -18,5 +18,3 @@
 				. += SPAN_WARNING("It is glowing brightly with high levels of electrical activity.\n")
 			if(10)
 				. += SPAN_DANGER("It is radiating with massive levels of electrical activity!\n")
-
-	. += "*---------*"

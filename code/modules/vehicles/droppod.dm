@@ -170,7 +170,7 @@
 		ui.open()
 
 /obj/vehicle/droppod/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /obj/vehicle/droppod/ui_data(mob/user)
 	var/list/data = list()

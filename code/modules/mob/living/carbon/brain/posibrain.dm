@@ -75,7 +75,7 @@
 /obj/item/device/mmi/digital/posibrain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
-	. += "<span class='info'>*---------*</span>\nThis is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
+	. += "This is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
 	. += "<span class='warning'>"
 
 	if(brainmob?.key)
@@ -89,7 +89,7 @@
 				. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	else
 		. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
-	. += "</span><span class='info'>*---------*</span>"
+	. += "</span>"
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)

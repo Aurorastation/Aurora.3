@@ -1,5 +1,6 @@
 /mob/living/carbon/slime
 	name = "baby slime"
+	desc = "A slime."
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey baby slime"
 	pass_flags = PASSTABLE

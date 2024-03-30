@@ -58,6 +58,8 @@
 
 	facing_dir = null
 
+	SSmove_manager.stop_looping(src)
+
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
 		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
 
@@ -103,6 +105,8 @@
 
 		if(hostile_in_sight.target_mob == src)
 			hostile_in_sight.target_mob = null
+
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_DEATH, src, gibbed)
 
 	return 1
 

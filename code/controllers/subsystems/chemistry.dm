@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(chemistry)
 	name = "Chemistry"
 	priority = SS_PRIORITY_CHEMISTRY
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	runlevels = RUNLEVELS_PLAYING
 	init_stage = INITSTAGE_EARLY
 

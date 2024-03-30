@@ -1,6 +1,5 @@
 /datum/species/bug/type_b
 	name = SPECIES_VAURCA_WARRIOR
-	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
 	species_height = HEIGHT_CLASS_TALL
@@ -62,7 +61,7 @@
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
 	floating_chat_x_offset = 8
-	floating_chat_y_offset = 16
+	floating_chat_y_offset = 24
 	typing_indicator_x_offset = 16
 	typing_indicator_y_offset = 12
 	healths_x = 22

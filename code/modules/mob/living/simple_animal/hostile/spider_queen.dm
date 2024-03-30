@@ -122,7 +122,7 @@
 		for(var/mob/living/M in target_turf)
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)
-				M.apply_effect(6, STUN, blocked)
+				M.apply_effect(6, STUN)
 	return TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()

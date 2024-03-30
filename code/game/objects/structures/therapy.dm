@@ -181,7 +181,7 @@
 
 /obj/structure/metronome/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
 			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
 			STOP_PROCESSING(SSfast_process, src)

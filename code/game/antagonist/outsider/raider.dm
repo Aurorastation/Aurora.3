@@ -130,8 +130,8 @@ var/datum/antagonist/raider/raiders
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/raider, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/raider, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

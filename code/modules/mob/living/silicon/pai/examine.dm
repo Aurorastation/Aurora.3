@@ -8,12 +8,11 @@
 			. += "\n<span class='warning'>It doesn't seem to be responding.</span>"
 		if(DEAD)
 			. += "\n<span class='deadsay'>It looks completely unsalvageable.</span>"
-	. += "\n*---------*"
 
 	if(print_flavor_text())
 		. += "\n[print_flavor_text()]\n"
 
-	if (pose)
-		if(findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
-			pose = addtext(pose,".") //Makes sure all emotes end with a period.
+	if(pose)
+		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0)
+			pose = addtext(pose, ".") // Makes sure all emotes end with punctuation.
 		. += "\nIt [pose]"

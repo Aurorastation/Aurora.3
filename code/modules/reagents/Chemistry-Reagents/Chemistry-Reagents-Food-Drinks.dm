@@ -1551,6 +1551,16 @@
 	glass_name = "cup of chocolate chai tea"
 	glass_desc = "A surprisingly pleasant mix of chocolate and spice."
 
+/singleton/reagent/drink/tea/neapolitan_chaitea
+	name = "Neapolitan Chai"
+	description = "A Xanan innovation; spiced tea with notes of vanilla, chocolate, and strawberry."
+	color = "#DBAD81"
+	taste_description = "neapolitan ice cream"
+
+	glass_icon_state = "chaitea"
+	glass_name = "cup of neapolitan chai tea"
+	glass_desc = "A Xanan innovation; spiced tea with notes of vanilla, chocolate, and strawberry."
+
 /singleton/reagent/drink/tea/chaitealatte
 	name = "Chai Latte"
 	description = "A frothy spiced tea."
@@ -2191,7 +2201,7 @@
 	description = "A simple syrup that tastes strongly of mint."
 	color = "#539830"
 	taste_description = "mint"
-
+	taste_mult = 5
 	glass_icon_state = "mint_syrupglass"
 	glass_name = "glass of mint syrup"
 	glass_desc = "Pure mint syrup. Prepare your tastebuds."
@@ -2465,7 +2475,64 @@
 	glass_name = "mug of apple cider juice"
 	glass_desc = "It's just spiced up apple juice. Sometimes the barista can't work miracles."
 
-/singleton/reagent/drink/NTellamilkshake
+/singleton/reagent/drink/mushroom_kvass
+	name = "Mushroom Kvass"
+	description = "A fermented drink derived from mushroom bread. Contains too little alcohol to get anyone drunk."
+	color = "#c7882a"
+	taste_description = "tangy, earthy fruitiness"
+
+	glass_icon_state = "mushroomkvass"
+	glass_name = "glass of mushroom kvass"
+	glass_desc = "Mushroom vodka's non-alcoholic cousin. For fellow workers of all ages."
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/singleton/reagent/drink/bochbrew
+	name = "Boch Brew"
+	description = "A soft drink derived from the digestive sacs of the boch-kivir."
+	color = "#b325b3"
+	adj_sleepy = -1
+	caffeine = 0.2
+	taste_description = "fizzy fruit"
+	carbonated = TRUE
+
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of berry boch brew"
+	glass_desc = "A soft drink derived from the digestive sacs of the boch-kivir."
+
+/singleton/reagent/drink/bochbrew/buckthorn
+	name = "Buckthorn Boch Brew"
+	description = "A soft drink derived from the digestive sacs of the boch-kivir. This one is buckthorn flavored."
+	color = "#cf7e14"
+	taste_description = "fizzy sweet-tart candy"
+
+	glass_icon_state = "orangejuice"
+	glass_name = "glass of buckthorn boch brew"
+	glass_desc = "A soft drink derived from the digestive sacs of the boch-kivir."
+
+/singleton/reagent/drink/sugarcane
+	name = "Mahendru's Best Blend"
+	description = "All-natural sugarcane juice mixed with apple flavorings."
+	color = "#dacfc6"
+	taste_description = "flowery honey and apples"
+
+/singleton/reagent/drink/galatea
+	name = "Gala-Tea energy drink"
+	description = "An extremely potent energy drink. The Ministry of Food Safety assures the public that drinking thirty standard units a week is perfectly safe."
+	color = "#1bda9a"
+	taste_description = "saccharine and formaldehyde"
+
+/singleton/reagent/drink/galatea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(alien != IS_DIONA)
+		if(prob(2))
+			to_chat(M, SPAN_GOOD(pick("You feel utterly focused.", "You have a sudden fit of creativity.", "You feel alert and focused.")))
+
+/singleton/reagent/drink/galatea/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	if(!(alien in list(IS_DIONA)))
+		M.make_jittery(5)
+		if(prob(2))
+			to_chat(M, SPAN_GOOD(pick("You find it difficult to tear yourself away from your current task.", "Your mind refuses to wander.")))
+
+/singleton/reagent/drink/ntella_milkshake
 	name = "NTella Milkshake"
 	description = "An intensely sweet chocolatey concoction with whipped cream on top."
 	color = "#6d4124"
@@ -2586,7 +2653,7 @@
 	glass_desc = "For everyone who liked to eat their toothpaste as a kid and never grew out of it."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
-/singleton/reagent/drink/NTellahotchocolate
+/singleton/reagent/drink/ntella_hot_chocolate
 	name = "NTella Hot Chocolate"
 	description = "It's like a cup of hot chocolate except... More everything."
 	color = "#63432e"
@@ -2727,6 +2794,17 @@
 	glass_icon_state = "applejack"
 	glass_name = "glass of applejack"
 	glass_desc = "Hard apple cider that has been distilled. The result is much more flavorful and alcoholic."
+
+/singleton/reagent/alcohol/snakebite
+	name = "Snakebite"
+	description = "An alcoholic beverage made of equal parts beer and alcoholic cider."
+	color = "#ceab4a"
+	strength = 9
+	taste_description = "sweet apple-flavoured beer"
+
+	glass_icon_state = "snakebite"
+	glass_name = "glass of snakebite"
+	glass_desc = "A glass of half-and-half beer and alcoholic cider."
 
 /singleton/reagent/alcohol/beer
 	name = "Beer"
@@ -3169,6 +3247,36 @@
 	glass_icon_state = "tarasunglass"
 	glass_name = "glass of tarasun"
 	glass_desc = "An incredibly potent alcoholic beverage, distilled and fermented from tenelote milk."
+
+/singleton/reagent/alcohol/twentytwo
+	name = "Twenty-Two Seventy Five"
+	description = "The king of brandy. Found in every bar on Xanu Prime, and every capital ship in the Coalition of Colonies."
+	taste_description = "subtly sweet wine, with notes of oak and fruit"
+	strength = 35
+
+	glass_icon_state = "brandyglass"
+	glass_name = "glass of 2275"
+	glass_desc = "A classy liquor from the All-Xanu Republic. A longtime favorite of the Xanan everyman."
+
+/singleton/reagent/alcohol/saintjacques
+	name = "Saint-Jacques Black Label"
+	description = "The gold standard of Xanan liquor, Saint-Jacques Black Label reigns supreme in the Coalition of Colonies. Expensive, but you'll understand why."
+	taste_description = "rich, smooth autumn nights"
+	strength = 45
+
+	glass_icon_state = "cognacglass"
+	glass_name = "glass of saint-jacques black label cognac"
+	glass_desc = "A glass of premium Xanan cognac."
+
+/singleton/reagent/alcohol/feni
+	name = "Gadpathurian Feni"
+	description = "The only liquor manufactured on Gadpathur, feni is a liquor originating in the Goa region of India and typically brewed from coconut sap, palm sap, or cashews. Typically issued as a morale supplement on celebratory occasions, the Planetary Defense Council has yet to disclose what this is precisely made from."
+	taste_description = "fruity biodiesel"
+	strength = 55
+
+	glass_icon_state = "ginvodkaglass"
+	glass_name = "glass of feni"
+	glass_desc = "A glass of strong-smelling feni."
 
 /singleton/reagent/alcohol/triplesec
 	name = "Triple Sec"
@@ -4227,6 +4335,17 @@
 	glass_desc = "A Himean cocktail, so named for its tendency to make the room spin.  You have nothing to lose but your sobriety."
 
 	glass_center_of_mass = list("x"=16, "y"=9)
+
+/singleton/reagent/alcohol/staghunt
+	name = "Stag Hunt"
+	description = "The beloved cocktail of the Coalition's capital world, the All-Xanu Republic. Typically enjoyed outdoors, after a hunt or hike."
+	color = "#ddb638"
+	strength = 35
+	taste_description = "brandy and lemonade"
+
+	glass_icon_state = "staghunt"
+	glass_name = "glass of Stag Hunt"
+	glass_desc = "The national drink of the All-Xanu Republic. Brandy, tea, and lemonade, over ice. A perfect pairing with wild game, the setting sun, and a warm breeze."
 
 /singleton/reagent/alcohol/internationale
 	name = "Solarian White"
@@ -5807,134 +5926,196 @@
 	condiment_icon_state = "pumpkinspice"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_chocolate
+/singleton/reagent/condiment/syrup_chocolate
 	name = "Chocolate Syrup"
 	description = "Thick chocolate syrup used to flavor drinks."
 	taste_description = "chocolate"
 	color = "#542a0c"
 	glass_name = "chocolate syrup"
 	glass_desc = "Thick chocolate syrup used to flavor drinks."
+	condiment_desc = "Must... resist... urge... to directly... pour... in mouth..."
+	condiment_icon_state = "syrup_chocolate"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_caramel
+/singleton/reagent/condiment/syrup_caramel
 	name = "Caramel Syrup"
 	description = "Thick caramel syrup used to flavor drinks."
 	taste_description = "caramel"
 	color = "#85461e"
 	glass_name = "caramel syrup"
 	glass_desc = "Thick caramel syrup used to flavor drinks."
+	condiment_desc = "There wasn't enough sugar in your sugar so we added sugar to it."
+	condiment_icon_state = "syrup_caramel"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_vanilla
+/singleton/reagent/condiment/syrup_vanilla
 	name = "Vanilla Syrup"
 	description = "Thick vanilla syrup used to flavor drinks."
 	taste_description = "vanilla"
 	color = "#f3e5ab"
 	glass_name = "vanilla syrup"
 	glass_desc = "Thick vanilla syrup used to flavor drinks."
+	condiment_desc = "A bottle of vanilla flavored syrup. For pancakes, drinks and... whatever else!"
+	condiment_icon_state = "syrup_vanilla"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drink/syrup_pumpkin
+/singleton/reagent/condiment/syrup_pumpkin
 	name = "Pumpkin Spice Syrup"
 	description = "Thick spiced pumpkin syrup used to flavor drinks."
 	taste_description = "spiced pumpkin"
 	color = "#d88b4c"
 	glass_name = "pumpkin spice syrup"
 	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+	condiment_desc = "A concentrated, emergency ration of pumpkin spice to apply in case of cold weather."
+	condiment_icon_state = "syrup_pumpkin"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //berry
-/singleton/reagent/drink/syrup_berry
+/singleton/reagent/condiment/syrup_berry
 	name = "Berry Syrup"
 	description = "Thick berry syrup used to flavor drinks."
 	taste_description = "berry"
 	color = "#c00726"
 	glass_name = "berry syrup"
 	glass_desc = "Thick berry syrup used to flavor drinks."
+	condiment_desc = "It's not just berry, it's VERY berry! Which berry? Don't worry about it!"
+	condiment_icon_state = "syrup_berry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //strawberry
-/singleton/reagent/drink/syrup_strawberry
+/singleton/reagent/condiment/syrup_strawberry
 	name = "Strawberry Syrup"
 	description = "Thick strawberry syrup used to flavor drinks."
 	taste_description = "strawberry"
 	color = "#b40000"
 	glass_name = "strawberry syrup"
 	glass_desc = "Thick strawberry syrup used to flavor drinks."
+	condiment_desc = "Made with real strawberries! Probably! Somewhere in there, I'm sure!"
+	condiment_icon_state = "syrup_strawberry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //blueberry
-/singleton/reagent/drink/syrup_blueberry
+/singleton/reagent/condiment/syrup_blueberry
 	name = "Blueberry Syrup"
 	description = "Thick blueberry syrup used to flavor drinks."
 	taste_description = "blueberry"
 	color = "#0a0094"
 	glass_name = "blueberry syrup"
 	glass_desc = "Thick blueberry syrup used to flavor drinks."
+	condiment_desc = "Da ba dee da be da."
+	condiment_icon_state = "syrup_blueberry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //rasp
-/singleton/reagent/drink/syrup_raspberry
+/singleton/reagent/condiment/syrup_raspberry
 	name = "Raspberry Syrup"
 	description = "Thick raspberry syrup used to flavor drinks."
 	taste_description = "raspberry"
 	color = "#ad0042"
 	glass_name = "raspberry syrup"
 	glass_desc = "Thick raspberry syrup used to flavor drinks."
+	condiment_desc = "Ra ra raspberry concentrated flavoring!"
+	condiment_icon_state = "syrup_raspberry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //black rasp
-/singleton/reagent/drink/syrup_blackraspberry
+/singleton/reagent/condiment/syrup_blackraspberry
 	name = "Black Raspberry Syrup"
 	description = "Thick black raspberry syrup used to flavor drinks."
 	taste_description = "black raspberry"
 	color = "#1b1618"
 	glass_name = "black raspberry syrup"
 	glass_desc = "Thick black raspberry syrup used to flavor drinks."
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //blue rasp
-/singleton/reagent/drink/syrup_blueraspberry
+/singleton/reagent/condiment/syrup_blueraspberry
 	name = "Blue Raspberry Syrup"
 	description = "Thick blue raspberry syrup used to flavor drinks."
 	taste_description = "blue raspberry"
 	color = "#21154d"
 	glass_name = "blue raspberry syrup"
 	glass_desc = "Thick blue raspberry syrup used to flavor drinks."
+	taste_mult = 5
+	condiment_desc = "Now with extra GMOs!"
+	condiment_icon_state = "syrup_blue_raspberry"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //glow
-/singleton/reagent/drink/syrup_glowberry
+/singleton/reagent/condiment/syrup_glowberry
 	name = "Glowberry Syrup"
 	description = "Thick glowberry syrup used to flavor drinks."
 	taste_description = "glowberry"
 	color = "#f3e5ab"
 	glass_name = "glowberry syrup"
 	glass_desc = "Thick glowberry syrup used to flavor drinks."
+	taste_mult = 5
+
 //poison
-/singleton/reagent/drink/syrup_poisonberry
+/singleton/reagent/condiment/syrup_poisonberry
 	name = "Poison Berry Syrup"
 	description = "Thick poison berry syrup used to flavor drinks."
 	taste_description = "something sweet"
 	color = "#f3e5ab"
 	glass_name = "poison berry syrup"
 	glass_desc = "Thick poison berry syrup used to flavor drinks."
+	taste_mult = 5
+
 //death
-/singleton/reagent/drink/syrup_deathberry
+/singleton/reagent/condiment/syrup_deathberry
 	name = "Death Berry Syrup"
 	description = "Thick death berry syrup used to flavor drinks."
 	taste_description = "something sweet"
 	color = "#f3e5ab"
 	glass_name = "death berry syrup"
 	glass_desc = "Thick death berry syrup used to flavor drinks."
+	taste_mult = 5
+
 //ylpha
-/singleton/reagent/drink/syrup_ylphaberry
+/singleton/reagent/condiment/syrup_ylphaberry
 	name = "Ylpha Berry Syrup"
 	description = "Thick ylpha berry syrup used to flavor drinks."
 	taste_description = "ylpha berry"
 	color = "#790042"
 	glass_name = "ylpha berry syrup"
 	glass_desc = "Thick ylpha berry syrup used to flavor drinks."
+	taste_mult = 5
+	condiment_desc = "There's a fun fact sticker on the back that says what Ylpha berries are and where they come from but the ink is all smudged and you can't read it."
+	condiment_icon_state = "syrup_ylpha"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 //dirt
-/singleton/reagent/drink/syrup_dirtberry
+/singleton/reagent/condiment/syrup_dirtberry
 	name = "Dirt Berry Syrup"
 	description = "Thick dirt berry syrup used to flavor drinks."
 	taste_description = "dirt berry"
 	color = "#85572c"
 	glass_name = "dirt berry syrup"
 	glass_desc = "Thick dirt berry syrup used to flavor drinks."
+	taste_mult = 5
+	condiment_desc = "Concentrrrated flavorrr forrr theirrr desserrrts."
+	condiment_icon_state = "syrup_dirtberry"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
-
-/singleton/reagent/drink/syrup_simple
+/singleton/reagent/condiment/syrup_simple
 	name = "Simple Syrup"
 	description = "Thick, unflavored syrup used as a base for drinks or flavorings."
 	taste_description = "molasses"
 	color = "#ccccbb"
 	glass_name = "simple syrup"
 	glass_desc = "Thick, unflavored syrup used as a base for drinks or flavorings."
+	condiment_desc = "Thick, flavorless, pointless, joyless syrup. Needs an extra something-something. Unless you're just trying to feed bees."
+	condiment_icon_state = "syrup_simple"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/caramel
 	name = "Caramel Sugar"
@@ -5947,6 +6128,7 @@
 	reagent_state = LIQUID
 	description = "A caramel-based sauce. Now you're caramel dancin'."
 	taste_description = "toasty sweet cream"
+	taste_mult = 2
 
 /singleton/reagent/diona_powder
 	name = "Dionae Powder"
@@ -6234,3 +6416,78 @@
 
 	glass_name = "glass of ylpha wine"
 	glass_desc = "A low-alcohol content beverage made from fermented ylpha berries. It's considered very sweet."
+
+/singleton/reagent/drink/boba
+	name = "Boba Pearls"
+	description = "Tiny balls made of Tapioca, waiting to be added to a drink or flavored."
+	reagent_state = SOLID
+	nutrition = 13
+	hydration = 0
+	color = "#1c1727"
+	taste_description = "tapioca"
+
+/singleton/reagent/drink/boba_tea
+	name = "Boba Tea"
+	description = "A tall glass of milky tea with tapioca pearls at the bottom."
+	nutrition = 3
+	color = "#caa55f"
+	taste_description = "tapioca tea"
+	glass_icon_state = "boba_tea"
+	glass_name = "boba tea"
+	glass_desc = "A basic drink for a basic you."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/lemon_lime_boba
+	name = "Lemon Lime Boba Tea"
+	description = "A fruit boba drink, this one is lemon-lime flavored"
+	nutrition = 3
+	color = "#95db45"
+	taste_description = "lemon lime tapioca tea"
+	glass_icon_state = "boba_lemonlime"
+	glass_name = "lemon lime boba tea"
+	glass_desc = "Fruit boba with a sour citrusy sweetness."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/boba_strawberry
+	name = "Strawberry Boba Tea"
+	description = "A tall glass of milky strawberry tea with tapioca pearls at the bottom."
+	nutrition = 3
+	color = "#da76b8"
+	taste_description = "strawberry tapioca tea"
+	glass_icon_state = "boba_strawberry"
+	glass_name = "strawberry boba"
+	glass_desc = "Let loose your inner glamazon."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/boba_banana
+	name = "Banana Boba Tea"
+	description = "A tall glass of milky tea-infused banana juice with tapioca pearls at the bottom."
+	nutrition = 3
+	color = "#ffd255"
+	taste_description = "banana tapioca tea"
+	glass_icon_state = "boba_banana"
+	glass_name = "banana boba"
+	glass_desc = "Banana boba bo boba, banana fanna fo foba..."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/summertime_boba
+	name = "Summertime Boba Tea"
+	description = "A fruit boba drink, this one is watermelon-lime flavored"
+	nutrition = 3
+	color = "#95db45"
+	taste_description = "watermelon lime tapioca tea"
+	glass_icon_state = "boba_melonlime"
+	glass_name = "summertime boba"
+	glass_desc = "Refreshing, sweet and citrusy fruit boba"
+	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/lovebug_boba
+	name = "Lovebug Boba Tea"
+	description = "A fruit boba drink, this one is cherry-strawberry flavored"
+	nutrition = 3
+	color = "#941450"
+	taste_description = "cherry and strawberry tapioca tea"
+	glass_icon_state = "boba_lovebug"
+	glass_name = "lovebug boba"
+	glass_desc = "Ancient boba-tea marketing teams believed this cherry-strawberry flavored drink holds magical powers of love! What does that mean? Nobody knows!"
+	glass_center_of_mass = list("x"=15, "y"=10)

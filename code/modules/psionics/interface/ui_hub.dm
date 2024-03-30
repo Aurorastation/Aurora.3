@@ -43,7 +43,7 @@
 		ui.open()
 
 /obj/screen/psi/hub/ui_state(mob/user)
-	return conscious_state
+	return GLOB.conscious_state
 
 /obj/screen/psi/hub/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE
@@ -69,6 +69,8 @@
 			if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_EVENT))
 				continue
 		if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_ANTAG))
+			continue
+		if(!(owner.mind in loners.current_antagonists) && (P.ability_flags & PSI_FLAG_LONER))
 			continue
 		data["available_psionics"] += list(
 			list(

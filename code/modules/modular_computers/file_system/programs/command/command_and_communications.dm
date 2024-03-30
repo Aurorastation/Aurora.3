@@ -49,8 +49,8 @@
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_authenticated(user)
 	data["boss_short"] = SSatlas.current_map.boss_short
-	data["current_security_level"] = security_level
-	data["current_security_level_title"] = num2seclevel(security_level)
+	data["current_security_level"] = GLOB.security_level
+	data["current_security_level_title"] = num2seclevel(GLOB.security_level)
 	data["current_maint_all_access"] = maint_all_access
 
 	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
@@ -190,7 +190,7 @@
 				var/current_level = text2num(params["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", filedesc, "No", "Yes")
 				if(confirm == "Yes" && !computer.use_check_and_message(usr, (isAI(usr) ? USE_ALLOW_NON_ADJACENT : FALSE)))
-					var/old_level = security_level
+					var/old_level = GLOB.security_level
 					if(!current_level)
 						current_level = SEC_LEVEL_GREEN
 					if(current_level < SEC_LEVEL_GREEN)
@@ -198,10 +198,10 @@
 					if(current_level > SEC_LEVEL_BLUE)
 						current_level = SEC_LEVEL_BLUE
 					set_security_level(current_level)
-					if(security_level != old_level)
+					if(GLOB.security_level != old_level)
 						log_game("[key_name(usr)] has changed the security level to [get_security_level()].", ckey = key_name(usr))
 						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
-						switch(security_level)
+						switch(GLOB.security_level)
 							if(SEC_LEVEL_GREEN)
 								feedback_inc("alert_comms_green",1)
 							if(SEC_LEVEL_BLUE)

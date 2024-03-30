@@ -639,7 +639,7 @@ pixel_x = 10;
 	ui_interact(user)
 	wires.interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = default_state)
+/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
 	var/data = list()
 	var/remote_connection = 0
 	var/remote_access = 0
@@ -998,7 +998,7 @@ pixel_x = 10;
 			else if(attacking_item.iswrench())
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src.loc, 50)
 				qdel(src)
 				return TRUE
 

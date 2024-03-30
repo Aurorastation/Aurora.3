@@ -141,7 +141,7 @@
 /obj/item/ship_ammunition/proc/unwield()
 	wielded = FALSE
 
-/obj/item/ship_ammunition/dropped(var/mob/living/user)
+/obj/item/ship_ammunition/dropped(mob/user)
 	..()
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()
@@ -224,7 +224,7 @@
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(AreConnectedZLevels(H.z, z))
 				to_chat(H, SPAN_WARNING("The flooring below you vibrates a little as shells fly by the hull of the ship!"))
-				H.playsound_simple(null, 'sound/effects/explosionfar.ogg', 25)
+				H.playsound_local(null, 'sound/effects/explosionfar.ogg', 25)
 				shake_camera(H, 2, 2)
 		..()
 	if(ammo.touch_map_edge(z))

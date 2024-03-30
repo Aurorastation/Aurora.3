@@ -557,6 +557,14 @@
 	)
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/vest/konyang
+	name = "konyang police vest"
+	desc = "A fairly dated armor vest in bright blue issued to the various police forces of Konyang. It comes with a prominent silver emblem on the front."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "police_vest"
+	item_state = "police_vest"
+	contained_sprite = TRUE
+
 /obj/item/clothing/suit/storage/vest/kala
 	name = "kala armor vest"
 	desc = "A simple armor vest issued to all of the Kala. It's made of an advanced lightweight alloy."

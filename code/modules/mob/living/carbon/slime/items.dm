@@ -3,7 +3,7 @@
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
-	force = 1.0
+	force = 1
 	w_class = ITEMSIZE_TINY
 	throwforce = 0
 	throw_speed = 3
@@ -326,8 +326,8 @@
 	G.accent = G.origin.possible_accents[1]
 	G.citizenship = G.origin.possible_citizenships[1]
 	G.religion = G.origin.possible_religions[1]
-	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
-	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
+	G.preEquipOutfit(/obj/outfit/admin/golem, FALSE)
+	G.equipOutfit(/obj/outfit/admin/golem, FALSE)
 	G.client.init_verbs()
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 

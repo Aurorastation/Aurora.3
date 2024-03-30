@@ -32,7 +32,9 @@
 		ORE_GOLD = /obj/item/ore/gold,
 		ORE_DIAMOND = /obj/item/ore/diamond,
 		ORE_PLATINUM = /obj/item/ore/osmium,
-		ORE_HYDROGEN = /obj/item/ore/hydrogen
+		ORE_HYDROGEN = /obj/item/ore/hydrogen,
+		ORE_BAUXITE = /obj/item/ore/aluminium,
+		ORE_GALENA = /obj/item/ore/lead
 	)
 
 	//Upgrades
@@ -540,7 +542,7 @@
 				connected.system_error("Unexpected user interface error.")
 				return
 
-		playsound(get_turf(src), attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
 
 		anchored = !anchored

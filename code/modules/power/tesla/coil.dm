@@ -37,7 +37,7 @@
 		return
 
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
 		anchored = !anchored
 		update_icon()
@@ -91,7 +91,7 @@
 		return
 
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
 		anchored = !anchored
 		update_icon()

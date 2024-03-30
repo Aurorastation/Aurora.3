@@ -77,6 +77,16 @@
 	icon_state = "ore_hydrogen"
 	material = ORE_HYDROGEN
 
+/obj/item/ore/aluminium
+	name = "bauxite"
+	icon_state = "ore_bauxite"
+	material = ORE_BAUXITE
+
+/obj/item/ore/lead
+	name = "galena"
+	icon_state = "ore_galena"
+	material = ORE_GALENA
+
 // maybe someone can think of a creative way to use slag
 // and make slagging shit not absolutely bomb mining - geeves
 /obj/item/ore/slag

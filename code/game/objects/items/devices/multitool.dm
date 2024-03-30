@@ -13,7 +13,7 @@
 	item_icons = null
 	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5.0
+	force = 11
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
 	throw_range = 15
@@ -21,7 +21,7 @@
 	drop_sound = 'sound/items/drop/multitool.ogg'
 	pickup_sound = 'sound/items/pickup/multitool.ogg'
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20, DEFAULT_WALL_MATERIAL = 5)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 

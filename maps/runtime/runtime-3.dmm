@@ -51,6 +51,10 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
+"ar" = (
+/obj/effect/floor_decal/industrial/outline_straight/grey,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "aJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -125,6 +129,26 @@
 	},
 /turf/simulated/floor,
 /area/construction/hallway)
+"bF" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/obj/effect/floor_decal/industrial/hatch_small/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"cb" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
+"cB" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "cC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -150,6 +174,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/birch,
+/area/construction/solars)
+"dF" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "dN" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -197,6 +231,9 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"eN" = (
+/turf/simulated/floor/tiled/gridded,
+/area/construction/solars)
 "eT" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -263,6 +300,12 @@
 	pixel_y = 18
 	},
 /turf/simulated/floor/wood/birch,
+/area/construction/solars)
+"fM" = (
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "fV" = (
 /obj/structure/cable{
@@ -379,6 +422,16 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/construction/hallway)
+"hF" = (
+/obj/effect/floor_decal/industrial/arrow/yellow,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"hG" = (
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "hQ" = (
 /turf/simulated/wall,
 /area/construction/solars)
@@ -398,6 +451,15 @@
 	dir = 6
 	},
 /turf/simulated/floor/wood/birch,
+/area/construction/solars)
+"if" = (
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"ii" = (
+/turf/simulated/floor/tiled/dark,
 /area/construction/solars)
 "ip" = (
 /obj/machinery/light{
@@ -434,17 +496,13 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
-"iO" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/airless,
-/area/construction/hallway)
+"iF" = (
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/construction/solars)
+"iG" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/construction/solars)
 "iV" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -511,6 +569,10 @@
 	},
 /turf/simulated/floor,
 /area/antag/mercenary)
+"ke" = (
+/obj/effect/floor_decal/industrial/outline_corner/yellow,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "ku" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -545,6 +607,18 @@
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"lm" = (
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "lB" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -671,6 +745,9 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/solarscontrol)
+"oy" = (
+/turf/simulated/floor/tiled/cargo,
+/area/construction/solars)
 "oD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -685,6 +762,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
+/area/construction/solars)
+"oG" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "oI" = (
 /obj/structure/lattice/catwalk,
@@ -730,15 +813,25 @@
 "pz" = (
 /turf/template_noop,
 /area/space)
+"pE" = (
+/turf/simulated/floor/tiled/full,
+/area/construction/solars)
 "pI" = (
 /obj/machinery/door/airlock/generic/maintenance{
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"pL" = (
+/turf/simulated/floor/reinforced/large,
+/area/construction/solars)
 "pM" = (
 /obj/structure/lattice,
 /turf/template_noop,
+/area/template_noop)
+"pT" = (
+/obj/structure/lattice,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "pX" = (
 /obj/machinery/light/small{
@@ -770,16 +863,34 @@
 "qp" = (
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)
+"qv" = (
+/turf/simulated/floor/marble,
+/area/construction/solars)
 "qx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"qB" = (
+/turf/simulated/floor/tiled/rust,
+/area/construction/solars)
+"qD" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "qG" = (
 /obj/structure/window{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
+/area/construction/solars)
+"qP" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "qV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
@@ -789,6 +900,9 @@
 /obj/structure/platform,
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"rj" = (
+/turf/simulated/floor/tiled/gunmetal,
+/area/construction/solars)
 "rw" = (
 /obj/machinery/door/airlock/generic/maintenance{
 	dir = 4
@@ -805,12 +919,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"rK" = (
+/turf/simulated/floor/tiled/light,
+/area/construction/solars)
+"rO" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"sb" = (
+/turf/simulated/floor/wood/bamboo,
+/area/construction/solars)
 "sm" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"sn" = (
+/turf/simulated/floor/tiled/ridged,
+/area/construction/solars)
 "sr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -851,6 +981,21 @@
 "sP" = (
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
+"sQ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"sS" = (
+/turf/simulated/floor/wood/mahogany,
+/area/construction/solars)
 "td" = (
 /turf/simulated/open,
 /area/construction/hallway)
@@ -863,6 +1008,18 @@
 "tl" = (
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"tz" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"tA" = (
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "tE" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -908,6 +1065,33 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"ut" = (
+/turf/simulated/floor/marble/dark,
+/area/construction/solars)
+"uu" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"uE" = (
+/turf/simulated/floor/plating,
+/area/construction/solars)
+"uT" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "uZ" = (
 /obj/structure/table/rack,
 /obj/machinery/light/small{
@@ -923,6 +1107,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"vG" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 1
+	},
+/area/construction/solars)
 "vY" = (
 /obj/machinery/door/airlock/external/merc{
 	dir = 1
@@ -988,11 +1177,20 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"wN" = (
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "wY" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"xf" = (
+/turf/simulated/floor/tiled/cargo/brass/full,
 /area/construction/solars)
 "xj" = (
 /obj/structure/cable{
@@ -1038,6 +1236,10 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor,
 /area/construction/qmaint)
+"xA" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "xH" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1045,6 +1247,15 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"xJ" = (
+/obj/structure/lattice/catwalk/indoor/grate/light,
+/turf/simulated/floor/plating,
+/area/construction/solars)
+"xM" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 4
+	},
+/area/construction/solars)
 "yd" = (
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
@@ -1139,6 +1350,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"Al" = (
+/turf/simulated/floor/tiled/steel,
+/area/construction/solars)
+"Ay" = (
+/turf/simulated/floor/tiled/slate/full,
+/area/construction/solars)
+"AA" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/construction/hallway)
 "AC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1214,6 +1442,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"BC" = (
+/turf/simulated/floor/wood/yew,
+/area/construction/solars)
+"BE" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "BI" = (
 /obj/item/modular_computer/console/preset/security/hos{
 	dir = 1
@@ -1340,6 +1577,15 @@
 "DN" = (
 /turf/simulated/floor/reinforced,
 /area/construction/solars)
+"DS" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "DT" = (
 /obj/machinery/atm{
 	dir = 1;
@@ -1361,6 +1607,16 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"EG" = (
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "EL" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1377,6 +1633,11 @@
 	},
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/solars)
+"Fc" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 2
+	},
+/area/construction/solars)
 "Fu" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
@@ -1386,6 +1647,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"FK" = (
+/turf/simulated/floor/tiled/slate,
+/area/construction/solars)
 "FV" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1397,10 +1661,23 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
+"Gn" = (
+/turf/simulated/floor/wood,
+/area/construction/solars)
 "Gt" = (
 /obj/structure/platform_stairs,
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"GK" = (
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"GM" = (
+/turf/simulated/floor/wood/ebony,
+/area/construction/solars)
 "GO" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -1462,6 +1739,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"Is" = (
+/turf/simulated/floor/tiled/cargo/full,
+/area/construction/solars)
 "Iw" = (
 /obj/machinery/light{
 	dir = 1
@@ -1484,6 +1764,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"IH" = (
+/turf/simulated/floor/tiled/bitile{
+	dir = 8
+	},
+/area/construction/solars)
 "IJ" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/grille/over/large,
@@ -1506,6 +1791,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"Jn" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Jx" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -1522,6 +1813,9 @@
 "JF" = (
 /obj/machinery/ringer_button,
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"JM" = (
+/turf/simulated/floor/wood/walnut,
 /area/construction/solars)
 "Kb" = (
 /obj/machinery/light,
@@ -1550,6 +1844,12 @@
 	},
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)
+"KC" = (
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "KL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -1599,6 +1899,19 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/construction/solarscontrol)
+"Lm" = (
+/turf/simulated/floor/tiled/freezer,
+/area/construction/solars)
+"Lp" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Lu" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
@@ -1617,6 +1930,20 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
+"Ma" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"Mh" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Mj" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1631,6 +1958,29 @@
 	},
 /turf/simulated/floor,
 /area/antag/mercenary)
+"Mz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = -6;
+	pixel_y = 6;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = 6;
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	pixel_x = 6;
+	pixel_y = -6;
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "MD" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1649,6 +1999,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/qmaint)
+"MO" = (
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "MP" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1674,9 +2036,15 @@
 "Na" = (
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"Ni" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/construction/solars)
 "Nk" = (
 /obj/machinery/requests_console,
 /turf/simulated/floor/tiled,
+/area/construction/solars)
+"Nv" = (
+/turf/simulated/floor/tiled/cargo/brass,
 /area/construction/solars)
 "Nw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1705,6 +2073,9 @@
 /obj/structure/window_frame/shuttle/blue,
 /turf/simulated/floor,
 /area/antag/mercenary)
+"NP" = (
+/turf/simulated/floor/tiled/light/full,
+/area/construction/solars)
 "NW" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1715,6 +2086,12 @@
 /area/construction/supplyshuttle)
 "Od" = (
 /turf/simulated/wall/wood,
+/area/construction/solars)
+"OS" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "Pg" = (
 /obj/machinery/ringer{
@@ -1738,12 +2115,19 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
+"Pk" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/construction/solars)
 "Pu" = (
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
 /turf/template_noop,
 /area/template_noop)
+"Pv" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/construction/solars)
 "Pz" = (
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
@@ -1934,12 +2318,35 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"Sg" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"Sy" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/construction/solars)
+"Sz" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "SB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
+"SD" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "SN" = (
 /obj/machinery/door/airlock/external/merc{
 	dir = 1
@@ -1961,12 +2368,30 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"Tg" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Th" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
+"To" = (
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Ts" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
@@ -1978,6 +2403,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/construction/qmaint)
+"Tz" = (
+/turf/simulated/floor/tiled/yellow,
+/area/construction/solars)
 "TM" = (
 /obj/machinery/newscaster{
 	dir = 4
@@ -2055,6 +2483,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor,
 /area/antag/mercenary)
+"Vw" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "VE" = (
 /obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
@@ -2073,6 +2510,12 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)
+"Wm" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Wo" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -2114,6 +2557,18 @@
 /obj/machinery/power/breakerbox,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
+"Xk" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
+"Xs" = (
+/turf/simulated/floor/tiled/white,
+/area/construction/solars)
+"XV" = (
+/turf/simulated/floor/tiled/red,
+/area/construction/solars)
 "Yi" = (
 /obj/machinery/atmospherics/binary/pump/on,
 /obj/machinery/light/small{
@@ -2121,6 +2576,16 @@
 	},
 /turf/simulated/floor,
 /area/construction/hallway)
+"Yq" = (
+/obj/structure/lattice/catwalk/indoor/grate/slate,
+/turf/simulated/floor/plating,
+/area/construction/solars)
+"Yr" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "YH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood/bamboo,
@@ -5251,7 +5716,7 @@ Bc
 Bc
 Pz
 Dg
-iO
+AA
 Pz
 Bc
 Bc
@@ -13217,13 +13682,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -13474,13 +13939,13 @@ pM
 pM
 pM
 pM
-pM
-pM
-pM
-pM
-pM
-pM
-pM
+pT
+pT
+pT
+pT
+pT
+pT
+pT
 pM
 pM
 pM
@@ -13731,13 +14196,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -13988,13 +14453,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -14245,13 +14710,13 @@ nA
 nA
 nA
 nA
-nA
-nA
-nA
-nA
-nA
-nA
-nA
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -14502,13 +14967,13 @@ nA
 nA
 nA
 nA
-nA
-Pu
-nA
-nA
-nA
-nA
-nA
+Bc
+cb
+Bc
+Bc
+Bc
+Bc
+Bc
 nA
 nA
 nA
@@ -35783,20 +36248,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 Uv
 Uv
@@ -36040,20 +36505,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+Uv
 pz
 Uv
 Na
@@ -36297,20 +36762,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+Pv
+rj
+iF
+DN
+eN
+eN
+eN
+DN
+DN
+To
+fM
+Uv
 pz
 Uv
 Na
@@ -36554,20 +37019,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+Yq
+FK
+Ay
+DN
+sn
+sn
+sn
+DN
+DN
+DS
+SD
+Uv
 pz
 Uv
 MP
@@ -36811,20 +37276,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+xJ
+rK
+NP
+DN
+Sy
+Pk
+uE
+DN
+DN
+Vw
+bF
+Uv
 pz
 Uv
 Na
@@ -37068,20 +37533,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+iG
+Na
+pE
+DN
+DN
+DN
+DN
+DN
+DN
+qP
+OS
+Uv
 pz
 Uv
 Na
@@ -37325,20 +37790,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+Pv
+ii
+Ni
+DN
+pL
+pL
+pL
+pL
+DN
+hF
+if
+Uv
 pz
 Uv
 Na
@@ -37582,20 +38047,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+XV
+Tz
+DN
+DN
+DN
+DN
+DN
+DN
+Mz
+Na
+Uv
 pz
 Uv
 wY
@@ -37839,20 +38304,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+Xs
+Lm
+DN
+IH
+IH
+vG
+Fc
+DN
+To
+To
+Uv
 pz
 Uv
 Na
@@ -38096,20 +38561,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+qv
+ut
+DN
+xM
+xM
+vG
+Fc
+DN
+tA
+ke
+Uv
 pz
 Uv
 Lu
@@ -38353,20 +38818,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+Al
+qB
+DN
+DN
+DN
+DN
+DN
+DN
+Wm
+tz
+Uv
 pz
 Uv
 Lu
@@ -38610,20 +39075,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+oy
+Is
+DN
+Gn
+sb
+um
+GM
+DN
+MO
+lm
+Uv
 pz
 Uv
 Lu
@@ -38867,20 +39332,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+Nv
+xf
+DN
+sS
+JM
+BC
+Gn
+DN
+wN
+KC
+Uv
 pz
 Uv
 Na
@@ -39124,20 +39589,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+DN
+Uv
 pz
 Uv
 Uv
@@ -39381,20 +39846,20 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz
@@ -39645,13 +40110,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+ar
+Uv
+oG
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -39902,13 +40367,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+xA
+Ma
+Yr
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -40159,13 +40624,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+ar
+Uv
+qP
+Jn
+Sz
+Uv
 pz
 pz
 pz
@@ -40416,13 +40881,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+ar
+Uv
+Uv
+EG
+Uv
+Uv
 pz
 pz
 pz
@@ -40673,13 +41138,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+rO
+Sg
+uu
+Mh
+BE
+Uv
 pz
 pz
 pz
@@ -40930,13 +41395,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+cB
+Sg
+uT
+sQ
+Na
+Uv
 pz
 pz
 pz
@@ -41187,13 +41652,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Xk
+Uv
+Uv
+GK
+Uv
+Uv
 pz
 pz
 pz
@@ -41444,13 +41909,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Xk
+Uv
+hG
+dF
+BE
+Uv
 pz
 pz
 pz
@@ -41701,13 +42166,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Lp
+Sg
+Tg
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -41958,13 +42423,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Xk
+Uv
+qD
+Na
+Na
+Uv
 pz
 pz
 pz
@@ -42215,13 +42680,13 @@ pz
 pz
 pz
 pz
-pz
-pz
-pz
-pz
-pz
-pz
-pz
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
+Uv
 pz
 pz
 pz

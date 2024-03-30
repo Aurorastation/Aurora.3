@@ -304,7 +304,7 @@
 		add_overlay(I)
 		return
 
-	var/offset = FLOOR(20/cards.len)
+	var/offset = FLOOR(20/cards.len, 1)
 
 	var/matrix/M = matrix()
 	if(direction)
@@ -336,7 +336,7 @@
 		add_overlay(I)
 		i++
 
-/obj/item/hand/dropped(mob/user as mob)
+/obj/item/hand/dropped(mob/user)
 	. = ..()
 	if(locate(/obj/structure/table, loc))
 		src.update_icon(user.dir)

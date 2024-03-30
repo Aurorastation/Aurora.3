@@ -119,7 +119,7 @@
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
-	soundloop = new(list(src), TRUE)
+	soundloop = new(src, TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)

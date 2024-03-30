@@ -200,7 +200,7 @@
 			SPAN_WARNING("You successfully break your [handcuffed.name].")
 			)
 
-		if((isunathi(src)) || (mutations & HULK))
+		if((isunathi(src)) || (mutations & HULK) && !(src.isSynthetic()) && !(isvaurca(src)))
 			say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))
 			stamina -= 100 //takes a bunch of stamina
 

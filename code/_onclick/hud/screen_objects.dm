@@ -15,10 +15,26 @@
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 	appearance_flags = NO_CLIENT_COLOR
 
+/obj/screen/Initialize(mapload, ...)
+	. = ..()
+	//This is done with signals because the screen code sucks, blame the ancient developers
+	if(hud)
+		RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(handle_hud_destruction))
+
 /obj/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	return ..()
+	hud = null
+	. = ..()
+
+/**
+ * Handles the deletion of the HUD this screen is associated to
+ */
+/obj/screen/proc/handle_hud_destruction()
+	SIGNAL_HANDLER
+
+	UnregisterSignal(hud, COMSIG_QDELETING)
+	qdel(src)
 
 /obj/screen/text
 	icon = null
@@ -189,7 +205,7 @@
 
 	if(hovering_choice == choice)
 		return
-	vis_contents -= hover_overlays_cache[hovering_choice]
+	remove_vis_contents(hover_overlays_cache[hovering_choice])
 	hovering_choice = choice
 
 	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache[choice]
@@ -197,7 +213,7 @@
 		overlay_object = new
 		overlay_object.icon_state = "[choice]"
 		hover_overlays_cache[choice] = overlay_object
-	vis_contents += overlay_object
+	add_vis_contents(overlay_object)
 
 
 /obj/effect/overlay/zone_sel
@@ -209,7 +225,7 @@
 
 /obj/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering_choice)
-		vis_contents -= hover_overlays_cache[hovering_choice]
+		remove_vis_contents(hover_overlays_cache[hovering_choice])
 		hovering_choice = null
 
 /obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)

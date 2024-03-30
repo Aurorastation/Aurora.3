@@ -3,7 +3,7 @@
 SUBSYSTEM_DEF(finalize)
 	name = "Map Finalization"
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
-	init_order = SS_INIT_MAPFINALIZE
+	init_order = INIT_ORDER_MAPFINALIZE
 
 	var/dmm_suite/maploader
 	var/datum/away_mission/selected_mission

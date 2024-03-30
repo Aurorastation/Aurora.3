@@ -231,7 +231,8 @@
 	///Used to determine whether something can pick a lock, and how well
 	var/lock_picking_level = 0
 
-	// Its vital that if you make new power tools or new recipies that you include this
+	///Used to determine what this item can be changed into with a modkit
+	var/list/convert_options
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -451,17 +452,30 @@
 			else
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
-		playsound(src, drop_sound, THROW_SOUND_VOLUME)
+		playsound(src, drop_sound, YEET_SOUND_VOLUME)
 	return ..()
 
-//Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
-//It is called after loc is set, so if placed in a container its loc will be that container.
-/obj/item/proc/dropped(var/mob/user)
+/**
+ * Called when an item is removed from a `/mob` inventory (including hands and whatnot),
+ * for whatever reason (dropped on the floor, thrown, put in a container, etc.)
+ *
+ * This is called after the _new_ location (`loc`) is set on the object, so if it's eg. put in a container,
+ * the loc inside here would point to the container, not the mob that had it in hand
+ *
+ * * user - The `/mob` that dropped the object
+ */
+/obj/item/proc/dropped(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
+
 	remove_item_verbs(user)
+
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
+		check_maptext()
+
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -521,9 +535,9 @@
 		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	else if(slot_flags && slot)
 		if(equip_sound)
-			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
+			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 		else
-			playsound(src, drop_sound, DROP_SOUND_VOLUME)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
@@ -1086,7 +1100,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/tool_use_check(mob/living/user, amount)
 	return TRUE
 
-// Plays item's usesound, if any.
+/// Plays item's usesound, if any
 /obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
 	if(target && volume)
 		var/played_sound
@@ -1100,7 +1114,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				played_sound = pick(hitsound)
 
 		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
-		playsound(target, played_sound, volume, TRUE)
+		playsound(target, played_sound, volume, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Generic use proc. Depending on the item, it uses up fuel, charges, sheets, etc.
 // Returns TRUE on success, FALSE on failure.
@@ -1146,11 +1160,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		maptext = ""
 
 /obj/item/throw_at()
-	..()
-	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
-		check_maptext()
-
-/obj/item/dropped(var/mob/user)
 	..()
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
@@ -1203,20 +1212,22 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/can_swap_hands(var/mob/user)
 	return TRUE
 
-/obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
-	if(!isturf(loc))
-		return
-	if(overlays.len)
-		pickup_animation.overlays = overlays
-	if(underlays.len)
-		pickup_animation.underlays = underlays
-	. = ..()
-
 /obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
 	return
 
+/**
+ * Determines if the item can be used to cut down wood (trees and the likes)
+ *
+ * Return `TRUE` if it can, `FALSE` otherwise
+ */
 /obj/item/proc/can_woodcut()
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	return FALSE
 
 /obj/item/proc/is_shovel()
+	return FALSE
+
+/obj/item/proc/gives_weather_protection()
 	return FALSE

@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(overlays)
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	wait = 1
 	priority = SS_PRIORITY_OVERLAY
-	init_order = SS_INIT_OVERLAY
+	init_order = INIT_ORDER_OVERLAY
 
 	var/list/processing = list()
 

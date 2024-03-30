@@ -1,39 +1,7 @@
-/atom
-	layer = 2
-	var/level = 2
-	var/atom_flags = 0
-	var/init_flags = 0
-	var/list/fingerprints
-	var/list/fingerprintshidden
-	var/fingerprintslast = null
-	var/list/blood_DNA
-	var/list/other_DNA
-	var/other_DNA_type = null
-	var/was_bloodied
-	var/blood_color
-	var/last_bumped = 0
-	var/pass_flags = 0
-	var/throwpass = 0
-	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
-	var/simulated = 1 // Filter for actions. Used by lighting overlays.
-	var/fluorescent // Shows up under a UV light.
-
-	/// Chemistry.
-	var/datum/reagents/reagents = null
-	var/list/reagents_to_add
-	var/list/reagent_data
-
-	var/list/atom_colours // Used to store the different colors on an atom, such as its inherent color, the colored paint applied on it, special color effect, and so on.
-
-	// Detective work, used for the duplicate data points kept in the scanners.
-	var/list/original_atom
-
-	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
-
-	// Extra descriptions.
-	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+/*############################################
+		THIS FILE IS DEPRECATED,
+	USE code\game\atom\_atom.dm INSTEAD
+############################################*/
 
 /atom/proc/reveal_blood()
 	return
@@ -595,7 +563,13 @@
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
-/mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+/mob/living/proc/handle_additional_vomit_reagents(obj/effect/decal/cleanable/vomit/vomit)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(!istype(vomit))
+		return
+
 	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
@@ -715,9 +689,15 @@
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
 
-// This proc is used by ghost spawners to assign a player to a specific atom.
-// It receives the current mob of the player's argument and MUST return the mob the player has been assigned.
-/atom/proc/assign_player(var/mob/user)
+/**
+ * This proc is used by ghost spawners to assign a player to a specific atom
+ *
+ * It receives the current mob of the player's argument and MUST return the mob the player has been assigned
+ *
+ * Returns the `/mob` the player was assigned to
+ */
+/atom/proc/assign_player(mob/user)
+	RETURN_TYPE(/mob)
 	return
 
 /atom/proc/get_contained_external_atoms()

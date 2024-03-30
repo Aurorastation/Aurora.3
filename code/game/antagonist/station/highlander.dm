@@ -41,8 +41,8 @@ var/datum/antagonist/highlander/highlanders
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/highlander, FALSE)
-	player.equipOutfit(/datum/outfit/admin/highlander, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/highlander, FALSE)
+	player.equipOutfit(/obj/outfit/admin/highlander, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

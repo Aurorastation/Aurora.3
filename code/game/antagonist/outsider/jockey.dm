@@ -45,8 +45,8 @@ var/datum/antagonist/jockey/jockeys
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/jockey, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/jockey, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/jockey, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/jockey, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

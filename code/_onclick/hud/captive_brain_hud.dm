@@ -1,4 +1,4 @@
-/mob/living/captive_brain/instantiate_hud(var/datum/hud/HUD)
+/mob/living/captive_brain/instantiate_hud(datum/hud/HUD)
 	HUD.captive_brain_hud()
 
 /datum/hud/proc/captive_brain_hud()

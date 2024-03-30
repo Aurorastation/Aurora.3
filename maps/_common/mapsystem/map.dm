@@ -57,6 +57,10 @@
 	var/bluespace_called_message
 	var/bluespace_recall_message
 
+	/// If this map has ports of call and refuels there. Crew are implied to be able to leave to these ports.
+	/// Ports of call are taken from the current map sector.
+	var/ports_of_call = FALSE
+
 	var/evac_controller_type = /datum/evacuation_controller
 
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
@@ -265,6 +269,11 @@
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
+		else if((site.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (site.spawns_in_current_sector()))
+			if(SSatlas.is_port_call_day()) //we check here as we only want sites with PORT_SPAWN flag to spawn if this is true, else we want it not considered.
+				guaranteed += site
+				if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
+					available[site] = site.spawn_weight
 		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site

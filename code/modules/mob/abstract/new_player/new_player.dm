@@ -19,9 +19,23 @@
 
 INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
-/mob/abstract/new_player/Initialize()
+/mob/abstract/new_player/Initialize(mapload)
 	. = ..()
 	GLOB.dead_mob_list -= src
+	attempt_moving_new_player_on_marker_turf()
+
+/mob/abstract/new_player/proc/attempt_moving_new_player_on_marker_turf()
+	//If it's set, move the new_player mob to it, otherwise reschedule to check in a bit
+	if(istype(GLOB.lobby_mobs_location))
+		src.forceMove(GLOB.lobby_mobs_location)
+
+	else
+		//Atoms loading have finished supposedly, there should be a marker down for this, if not found throw a stack trace
+		if(SSATOMS_IS_PROBABLY_DONE)
+			stack_trace("The map is supposedly loaded, but GLOB.lobby_mobs_location is not set, unable to move the lobby mob!")
+			return
+
+		addtimer(CALLBACK(src, PROC_REF(attempt_moving_new_player_on_marker_turf)), 5 SECONDS)
 
 /mob/abstract/new_player/Destroy()
 	QDEL_NULL(late_choices_ui)
@@ -379,7 +393,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	client.autohiss_mode = client.prefs.autohiss_setting
 
-	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
+	src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // MAD JAMS cant last forever yo)
 
 	if(mind)
 		mind.active = 0					//we wish to transfer the key manually

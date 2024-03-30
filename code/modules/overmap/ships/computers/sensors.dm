@@ -75,7 +75,7 @@
 	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
 		var/volume = 15
 		if(!sound_token)
-			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
 		sound_token.SetVolume(volume)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
@@ -256,14 +256,14 @@
 	if(sensors)
 		if (action == "range")
 			var/nrange = tgui_input_number("Set new sensors range", "Sensor range", sensors.range, sensors.max_range, 1)
-			if(!CanInteract(usr, default_state))
+			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if (nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if(action == "range_choice")
 			var/nrange = text2num(params["range_choice"])
-			if(!CanInteract(usr, default_state))
+			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if(nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
@@ -370,7 +370,7 @@
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()
 		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."))
-		playsound(src, 'sound/machines/compbeep5.ogg')
+		playsound(src, 'sound/machines/compbeep5.ogg', 50)
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TRUE
 

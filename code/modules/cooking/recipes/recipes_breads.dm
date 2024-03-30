@@ -141,14 +141,15 @@
 
 /singleton/recipe/poppypretzel
 	appliance = OVEN
-	fruit = list("poppy" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
+	fruit = list("poppy" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/poppypretzel
 	result_quantity = 2
 
 /singleton/recipe/bagel
 	appliance = OVEN
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	fruit = list("poppy" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
@@ -234,13 +235,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbtoast
 
-/singleton/recipe/NTellabread
+/singleton/recipe/ntella_bread
 	appliance = MIX
 	reagents = list(/singleton/reagent/nutriment/choconutspread = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
-	result = /obj/item/reagent_containers/food/snacks/NTellabread
+	result = /obj/item/reagent_containers/food/snacks/ntella_bread
 
 /singleton/recipe/slimetoast
 	appliance = SKILLET
@@ -411,6 +412,7 @@
 	)
 	fruit = list("eggplant" = 1)
 	result = /obj/item/reagent_containers/food/snacks/pita/sabich
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
 /singleton/recipe/tunapita
 	items = list(

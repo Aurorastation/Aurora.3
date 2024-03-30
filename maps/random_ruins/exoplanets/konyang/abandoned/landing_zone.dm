@@ -11,6 +11,7 @@
 /area/konyang_landing_zone/command_center_abandoned//Need to differentiate from the normal landing zone area, otherwise this messes stuff up
 	name = "SCC Expedition Command Center"
 	requires_power = TRUE
+	area_flags =  AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/konyang_landing_zone/command_center_abandoned/reactor
 	name = "SCC Expedition Command Center Reactor"

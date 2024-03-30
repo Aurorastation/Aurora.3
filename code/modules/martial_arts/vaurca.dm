@@ -95,6 +95,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	martial_art = /datum/martial_art/vkutet
+	species_restriction = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 
 #undef PIERCING_STRIKE
 #undef SWIFT_BITE

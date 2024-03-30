@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	GLOB.moved_event.register(user, src, PROC_REF(update_position))
 	update_icon()
 
-/obj/item/device/gps/dropped(var/mob/user)
+/obj/item/device/gps/dropped(mob/user)
 	..()
 	if(isturf(loc))
 		held_by = null

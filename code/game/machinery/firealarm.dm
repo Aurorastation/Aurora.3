@@ -112,7 +112,7 @@
 					return TRUE
 				else if(attacking_item.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
-					playsound(src.loc, attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					spawn(20)
 						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
 						circuit.forceMove(user.loc)
@@ -129,7 +129,7 @@
 				else if(attacking_item.iswrench())
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
-					playsound(src.loc, attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					qdel(src)
 					return TRUE
 		return TRUE
@@ -159,7 +159,7 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
+/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time
@@ -225,7 +225,7 @@
 	update_icon()
 
 	if(isContactLevel(z))
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (security_level ? get_security_level() : "green"))
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
 
 	soundloop = new(src, FALSE)
 
@@ -294,7 +294,7 @@ Just a object used in constructing fire alarms
 	A.partyreset()
 	return
 
-/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
+/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time

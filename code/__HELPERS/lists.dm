@@ -21,6 +21,9 @@
 
 ///Returns a list in plain english as a string
 /proc/english_list(list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "" )
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/total = length(input)
 	switch(total)
 		if (0)
@@ -33,10 +36,8 @@
 			var/output = ""
 			var/index = 1
 			while (index < total)
-				if (index == total - 1)
-					comma_text = final_comma_text
-
-				output += "[input[index]][comma_text]"
+				//Slightly reformatted from overriding `comma_text` from the TG version as flags it as breaking purity otherwise
+				output += "[input[index]][(index == total - 1) ? final_comma_text : comma_text]"
 				index++
 
 			return "[output][and_text][input[index]]"
@@ -252,11 +253,11 @@
 	var/item
 	for (item in L)
 		if (isnull(L[item]))
-		//Change by nanako, a default weight will no longer overwrite an explicitly set weight of 0
+		//A default weight will no longer overwrite an explicitly set weight of 0
 		//It will only use a default if no weight is defined
 			L[item] = 1
 		total += L[item]
-	total = rand() * total//Fix by nanako, allows it to handle noninteger weights
+	total = rand() * total//Allows it to handle noninteger weights
 	for (item in L)
 		total -= L[item]
 		if (total <= 0)

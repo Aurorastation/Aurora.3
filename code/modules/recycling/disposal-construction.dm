@@ -255,7 +255,7 @@
 			else if(ptype != 15)
 				density = 1 // We don't want disposal bins or outlets to go density 0
 			to_chat(user, "You attach the [nicetype] to the underfloor.")
-		playsound(src.loc, attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		update()
 
 	else if(attacking_item.iswelder())

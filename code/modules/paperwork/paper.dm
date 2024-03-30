@@ -341,6 +341,8 @@
 		t = replacetext(t, "\[logo_hp_small\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 		t = replacetext(t, "\[logo_golden\]", "")
+		t = replacetext(t, "\[logo_pvpolice\]", "")
+		t = replacetext(t, "\[logo_pvpolice_small\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
 	if(istypewriter)
@@ -638,7 +640,7 @@
 			return
 
 		var/obj/item/pen/robopen/RP = attacking_item
-		if ( istype(RP) && RP.mode == 2 )
+		if(istype(RP) && RP.mode == RENAME_PAPER)
 			RP.RenamePaper(user,src)
 		else
 			var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)

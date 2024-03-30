@@ -532,6 +532,8 @@ var/list/asset_datums = list()
 		"izweskiflag_small.png" = 'html/images/izweskiflag_small.png',
 		"goldenlogo.png" = 'html/images/factions/goldenlogo.png',
 		"goldenlogo_small.png" = 'html/images/factions/goldenlogo_small.png',
+		"pvpolicelogo.png" = 'html/images/pvpolicelogo.png',
+		"pvpolicelogo_small.png" = 'html/images/pvpolicelogo_small.png',
 		//scan images that appear on sensors
 		"no_data.png" = 'html/images/scans/no_data.png',
 		"horizon.png" = 'html/images/scans/horizon.png',

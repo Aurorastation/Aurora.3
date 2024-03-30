@@ -68,22 +68,54 @@
 	desc = "This sign indicates this crossing street is called [street_name]."
 
 /obj/structure/stairs/urban
+	abstract_type = /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
 	opacity = 1
+
+/obj/structure/stairs/urban/right
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+
+/obj/structure/stairs/urban/left
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/stairs/urban/road_ramp
 	name = "inclined asphalt ramp"
 	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
 	icon_state = "road-ramp-center"
 	layer = 2.02
+	abstract_type = /obj/structure/stairs/urban/road_ramp
 
 /obj/structure/stairs/urban/road_ramp/right
-	icon_state = "road-ramp-right"
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
 
 /obj/structure/stairs/urban/road_ramp/left
-	icon_state = "road-ramp-left"
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/road_ramp/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/road_ramp/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/closet/crate/bin/urban
 	name = "tall garbage can"
@@ -319,16 +351,21 @@
 	can_be_unanchored = FALSE
 	layer = ABOVE_ALL_MOB_LAYER
 
-/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+	if(air_group || (height==0))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover, /obj/item/projectile))
+		var/obj/item/projectile/P = mover
+		if(P.original == src)
+			return FALSE
+		if(P.firer && Adjacent(P.firer))
+			return TRUE
+		return prob(35)
+	if(isliving(mover))
+		return FALSE
+	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return TRUE
-	if(mover.throwing)
-		return TRUE
-	if(get_dir(loc, target) == dir)
-		return !density
-	return TRUE
+	return FALSE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
@@ -392,6 +429,11 @@
 	name = "buddha statue"
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
 	icon_state = "buddha"
+
+/obj/structure/statue/gusoku
+	name = "gusoku"
+	desc = "A set of armor modelled after historical designs. Pieces replicating ancient artifacts are common on Konyang and viewed as favored pieces of art."
+	icon_state = "gusoku"
 
 /obj/structure/sign/urban
 	name = "exit sign"

@@ -573,7 +573,7 @@
 	equip_sound = /singleton/sound_category/sword_equip_sound
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_BACK
-	force = 5
+	force = 11
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced")
@@ -822,8 +822,8 @@
 	icon_state = "geneticist"
 
 /obj/item/toy/figure/hop
-	name = "head of personel action figure"
-	desc = "A \"Space Life\" brand head of personel action figure."
+	name = "head of personnel action figure"
+	desc = "A \"Space Life\" brand head of personnel action figure."
 	icon_state = "hop"
 
 /obj/item/toy/figure/hos
@@ -956,8 +956,15 @@
 	drop_sound = 'sound/items/drop/plushie.ogg'
 	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
+	/// defines what sound is played when poking the plushie (using it inhand on disarm intent).
+	var/poke_sound = 'sound/items/drop/plushie.ogg'
+	///A cooldown to stop the poke sound being spammed.
+	var/poke_cooldown = 0
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
+	if(poke_cooldown > world.time)
+		return
+	poke_cooldown = world.time + 2 SECONDS
 	if(user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
 	else if (user.a_intent == I_HURT)
@@ -966,7 +973,7 @@
 		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
 	else
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
-		playsound(src, 'sound/items/drop/plushie.ogg', 25, 0)
+		playsound(src, poke_sound, 25, 0)
 		visible_message("[src] says, \"[phrase]\"")
 
 //Large plushies.
@@ -1058,12 +1065,18 @@
 	desc = "A schlorrgo plushie, ready to roll his way into your heart!"
 	icon_state = "schlorrgoplushie"
 	phrase = "Eough!"
+	drop_sound = 'sound/effects/creatures/ough.ogg'
+	pickup_sound = 'sound/effects/creatures/ough.ogg'
+	poke_sound = 'sound/effects/creatures/ough.ogg'
 
 /obj/item/toy/plushie/coolschlorrgo
 	name = "Cool Schlorrgo plush"
 	desc = "A plushie of the popular cartoon character, Cool Schlorrgo. Hadii's grace!"
 	icon_state = "coolerschlorrgoplushie"
 	phrase = "Eough!"
+	drop_sound = 'sound/effects/creatures/ough.ogg'
+	pickup_sound = 'sound/effects/creatures/ough.ogg'
+	poke_sound = 'sound/effects/creatures/ough.ogg'
 
 /obj/item/toy/plushie/slime
 	name = "slime plush"
@@ -1254,6 +1267,13 @@
 		)
 		icon_state = "herring_gull_lying"
 		item_state = "herring_gull_lying"
+
+//Jeweler cockatoo plushie
+/obj/item/toy/plushie/cockatoo
+	name = "jeweler cockatoo plushie"
+	desc = "A plushie of Konyang's national animal, much smaller than the real thing. This one won't get you arrested for touching it, either."
+	icon_state = "cockatoo"
+	phrase = "Chirp!"
 
 //Toy cult sword
 /obj/item/toy/cultsword
