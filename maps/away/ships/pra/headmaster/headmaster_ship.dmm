@@ -1161,6 +1161,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/headmaster_ship)
 "dc" = (
@@ -1933,6 +1934,7 @@
 	dir = 2;
 	id = "headmaster_robots"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2788,6 +2790,7 @@
 	dir = 4;
 	id = "headmaster_robots"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3224,6 +3227,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/headmaster_ship)
 "jB" = (
@@ -4243,7 +4247,7 @@
 "nd" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/space,
+/turf/template_noop,
 /area/space)
 "nf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4419,6 +4423,7 @@
 	dir = 2;
 	id = "headmaster_robots"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4443,10 +4448,10 @@
 /area/headmaster_ship)
 "oo" = (
 /obj/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -4527,6 +4532,7 @@
 /obj/machinery/door/blast/regular{
 	id = "headmaster_egg"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4605,6 +4611,7 @@
 	dir = 4;
 	id = "headmaster_robots"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5173,10 +5180,10 @@
 /area/headmaster_ship/engine)
 "vW" = (
 /obj/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -5908,6 +5915,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Midship Hallway"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6044,6 +6052,7 @@
 /obj/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6348,7 +6357,7 @@
 /area/headmaster_ship/engineering)
 "IB" = (
 /obj/machinery/door/blast/regular,
-/turf/space,
+/turf/simulated/floor/plating/cooled,
 /area/headmaster_ship/hangar)
 "IO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6471,6 +6480,7 @@
 	dir = 8;
 	id = "headmaster_cic"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6646,6 +6656,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Midship Hallway"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6979,6 +6990,7 @@
 /obj/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
