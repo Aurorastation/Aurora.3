@@ -1050,7 +1050,7 @@
 	icon_state = "konyang_helmet"
 	item_state = "konyang_helmet"
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
-	icon_supported_species_tags = "ipc"
+	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	refittable = TRUE
 
@@ -1061,7 +1061,7 @@
 	icon_state = "konyang_suit"
 	item_state = "konyang_suit"
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
-	icon_supported_species_tags = "ipc"
+	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	refittable = TRUE
 
