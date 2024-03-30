@@ -203,6 +203,17 @@
 	loc = null
 	qdel(src)
 
+/obj/item/nullrod/luceiansceptre
+	name = "\improper Luminous Sceptre"
+	desc = "The Luminous Sceptre is a ceremonial staff optionally carried by the ministerial clergy of Luceism. It is fashioned from cedar and 18-karat gold, wrapped in sacred luce vine, \
+	and topped with a miniature, specialized warding sphere. Such sceptres are traditionally employed in Luceian exorcisms or rituals to rid a corrupted soul of the darkness in their body - often, curiously, to great effect."
+	force = 25
+	w_class = ITEMSIZE_LARGE
+	slot_flags = SLOT_BACK
+	light_range = 2
+	light_power = 2
+	light_color = LIGHT_COLOR_BLUE
+
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"

@@ -370,6 +370,6 @@
 	name = "visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."
 
-/obj/item/clothing/suit/storage/hooded/assunzione_robe 
+/obj/item/clothing/suit/storage/hooded/assunzione_robe
 	name = "assunzione clerical robe"
-
+	desc = "A robe in usage by both chapters of the Luceian clergy of Assunzione, though more commonly in use by the Pyramidical chapter. Ornate, stylish, and made of decadent velvet and silk, no expense was spared in making these robes. "
