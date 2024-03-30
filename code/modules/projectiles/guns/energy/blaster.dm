@@ -140,7 +140,7 @@
 /obj/item/gun/energy/blaster/himeo
 	name = "himean assault blaster"
 	desc = "The standard infantry blaster of the Himean Planetary Guard. 'TO RESIST EVIL BY FORCE' is stamped on the side."
-	desc_extended = "Originally developed in 2351, the Type-11 \"Ablett\" is a descendant of the first Himean-made weapons; haphazardly overcharged mining equipment. If it ain't broke, don't fix it; variants \
+	desc_extended = "Originally developed in 2351, the Type-11 \"Guthrie\" is a descendant of the first Himean-made weapons; haphazardly overcharged mining equipment. If it ain't broke, don't fix it; variants \
 	of this rifle have served in the United Syndicates' arsenal for generations, although none have matched modern improvements 'borrowed' from Zavodskoi Interstellar. Waterproof, spaceproof, idiot-proof; it's here to stay, even as advanced Xanan ballistics \
 	creep their way into the market. Ironically, lend-lease aid to the now-defunct League of Independent Corporate-Free Systems have seen a great deal of these end up in the hands of pirates."
 	icon = 'icons/obj/guns/himeo_blaster.dmi'
@@ -219,7 +219,7 @@
 /obj/item/gun/energy/blaster/himeo/pistol
 	name = "himean heavy blaster pistol"
 	desc = "The standard sidearm of the Himean Planetary Guard. For those revolutions you cannot fight with fists."
-	desc_extended = "A plasma cutter gave its life for the first Type-45 \"Sabo-Tabby\" pistol. Powered by the same hydrogen cells as the Type-11 \"Ablett\" rifle, this robust model has earned the nickname of \
+	desc_extended = "A plasma cutter gave its life for the first Type-45 \"Sabo-Tabby\" pistol. Powered by the same hydrogen cells as the Type-11 \"Guthrie\" rifle, this robust model has earned the nickname of \
 	the 'One Big Handgun' in those foreign markets it has cropped up. What was initially seen as a flaw in the power converter led to its 'magnum'-sized blaster bolts."
 	icon = 'icons/obj/guns/himeo_pistol.dmi'
 	icon_state = "himeopistol"
