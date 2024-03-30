@@ -3748,6 +3748,7 @@
 #include "maps\away\ships\dominia\dominian_unathi_privateer\dominian_unathi_privateer_ghostroles.dm"
 #include "maps\away\ships\dpra\hailstorm\hailstorm_areas.dm"
 #include "maps\away\ships\dpra\hailstorm\hailstorm_ghostroles.dm"
+#include "maps\away\ships\dpra\hailstorm\hailstorm_landmarks.dm"
 #include "maps\away\ships\dpra\hailstorm\hailstorm_ship.dm"
 #include "maps\away\ships\einstein\ee_spy_ship.dm"
 #include "maps\away\ships\einstein\ee_spy_ship_ghostroles.dm"
