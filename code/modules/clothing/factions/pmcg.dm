@@ -98,6 +98,6 @@
 
 /obj/item/clothing/under/rank/pmc/vekatak_phalanx/reserve
 	name = "\improper Ve'katak Phalanx reserve uniform"
-	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has green shoulder stripes, identifying it as belonging to a Phalanx member that is not presently serving an active combat role."
+	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has green shoulder stripes, identifying it as belonging to a Phalanx member that is not presently serving in an active combat role."
 	icon_state = "phalanx-res_jumpsuit"
 	item_state = "phalanx-res_jumpsuit"
