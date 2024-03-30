@@ -76,7 +76,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aak" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -128,7 +128,7 @@
 /obj/random/dirt_75,
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aap" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -148,7 +148,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aar" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -203,6 +203,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "aax" = (
@@ -212,6 +215,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
@@ -232,10 +238,16 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aaE" = (
 /obj/effect/floor_decal/corner/grey,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "aaH" = (
@@ -245,15 +257,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
 "aaL" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
 /obj/random/loot{
 	pixel_y = -11
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
@@ -322,6 +340,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
 "abf" = (
@@ -334,9 +355,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/medbay)
 "abg" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/barricade/wooden,
 /obj/machinery/alarm/east{
 	req_one_access = null
@@ -365,7 +383,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid_inside)
 "abj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
@@ -373,6 +391,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
@@ -397,6 +418,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -427,6 +451,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "abv" = (
@@ -437,6 +464,9 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
 "abw" = (
@@ -447,6 +477,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
 "abx" = (
@@ -457,6 +490,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
 "aby" = (
@@ -468,6 +504,9 @@
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -502,7 +541,7 @@
 	pixel_y = -9
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "abJ" = (
 /obj/random/dirt_75,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -519,14 +558,10 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "abN" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/ghostspawpoint{
-	identifier = "cult_base_cultist";
-	name = "igs - cult_base_cultist";
-	single_use = 1
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/cult,
 /area/space)
 "abP" = (
 /obj/machinery/door/airlock/external,
@@ -608,6 +643,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "acf" = (
@@ -643,6 +681,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
@@ -695,6 +736,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "acn" = (
@@ -734,6 +778,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "acr" = (
@@ -751,6 +798,9 @@
 /obj/random/pottedplant_small{
 	pixel_x = -5;
 	pixel_y = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
@@ -834,7 +884,7 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "acC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -881,6 +931,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "acU" = (
@@ -888,6 +941,9 @@
 /obj/structure/closet/emcloset,
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
@@ -905,6 +961,12 @@
 	pixel_x = -9;
 	pixel_y = 16
 	},
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/cult_base/mess)
 "acY" = (
@@ -916,6 +978,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
@@ -966,7 +1031,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "adf" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -998,8 +1063,12 @@
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/suit/storage/toggle/konyang/blue,
 /obj/random/spacecash,
-/obj/random/loot,
+/obj/item/gun/projectile/revolver/konyang/pirate{
+	pixel_x = 2;
+	pixel_y = 5
+	},
 /obj/random/colored_jumpsuit,
+/obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "adj" = (
@@ -1088,6 +1157,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "adv" = (
@@ -1131,6 +1203,12 @@
 	pixel_x = 7;
 	pixel_y = 22
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "adA" = (
@@ -1143,6 +1221,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
@@ -1227,6 +1308,9 @@
 	req_access = null
 	},
 /obj/random/junk,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_east)
 "aeg" = (
@@ -1268,6 +1352,9 @@
 	dir = 4
 	},
 /obj/random/junk,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "aem" = (
@@ -1289,6 +1376,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "aep" = (
@@ -1304,6 +1394,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/junk,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/eva)
 "aeq" = (
@@ -1380,6 +1473,12 @@
 /obj/item/device/flashlight/flare{
 	pixel_x = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "aeU" = (
@@ -1429,9 +1528,6 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "afd" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/blocker,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -1502,7 +1598,7 @@
 	},
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "afy" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -1582,6 +1678,9 @@
 	pixel_x = -14;
 	pixel_y = 14
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "afY" = (
@@ -1589,7 +1688,7 @@
 /obj/random/dirt_75,
 /obj/random/medical,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "agh" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1606,6 +1705,7 @@
 /obj/structure/closet/crate/rad/gear,
 /obj/random/junk,
 /obj/random/loot,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "agl" = (
@@ -1660,6 +1760,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
 "agx" = (
@@ -1683,9 +1786,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "agG" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
-/area/space)
+/turf/simulated/wall/r_wall{
+	can_open = 1;
+	color = "#CCDDFF"
+	},
+/area/cult_base/asteroid_inside)
 "agJ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -1734,6 +1839,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "ahb" = (
@@ -1762,6 +1870,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "ahg" = (
@@ -1788,7 +1899,7 @@
 /obj/random/dirt_75,
 /obj/random/loot,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "ahq" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -1822,6 +1933,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
@@ -1864,6 +1978,9 @@
 /area/space)
 "ahL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
 "ahN" = (
@@ -1886,6 +2003,9 @@
 "ahU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
 "aic" = (
@@ -1922,14 +2042,19 @@
 /area/cult_base/hallways_north)
 "aiE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
-	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
@@ -1940,12 +2065,16 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "aiJ" = (
 /obj/machinery/light/broken{
 	dir = 4
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/chiefs_quarters)
 "aiK" = (
@@ -1978,10 +2107,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "ajc" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/chiefs_quarters)
 "ajd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1998,6 +2128,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
 "ajf" = (
@@ -2010,6 +2143,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/crew_quarters)
@@ -2048,7 +2184,9 @@
 /obj/random/loot,
 /obj/item/clothing/suit/storage/medical_chest_rig,
 /obj/item/clothing/under/pants/track,
+/obj/item/clothing/under/dress/sailordress,
 /obj/random/loot,
+/obj/random/spacecash,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "ajB" = (
@@ -2115,6 +2253,9 @@
 /obj/machinery/iv_drip,
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/cult_base/medbay)
@@ -2211,6 +2352,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_east)
@@ -2333,6 +2477,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "alu" = (
@@ -2357,7 +2504,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "alF" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -2373,7 +2520,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid_inside)
 "alI" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -2387,11 +2534,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
 "alK" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/turf/simulated/wall/r_wall,
+/area/cult_base/asteroid_inside)
 "alL" = (
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
@@ -2462,6 +2606,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "amz" = (
@@ -2471,11 +2618,9 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "amB" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/turf/simulated/mineral/surface,
-/area/space)
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
 "amD" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -2572,6 +2717,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/maint_north)
@@ -2691,6 +2839,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "aoi" = (
@@ -2747,6 +2898,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aoA" = (
@@ -2771,6 +2925,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
@@ -2819,6 +2976,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "apc" = (
@@ -2835,6 +2995,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "apv" = (
@@ -2847,6 +3010,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "apC" = (
@@ -2856,6 +3025,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
@@ -2958,6 +3130,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
 "aqe" = (
@@ -3011,6 +3186,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "aqv" = (
@@ -3054,6 +3232,9 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 10;
 	pixel_y = 0
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/cult_base/mess)
@@ -3107,6 +3288,9 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aqV" = (
@@ -3114,6 +3298,9 @@
 /obj/structure/closet/crate/loot,
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
@@ -3143,6 +3330,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "arh" = (
@@ -3169,6 +3359,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
@@ -3305,6 +3498,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
 "ass" = (
@@ -3350,6 +3546,12 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
 "asZ" = (
@@ -3362,6 +3564,7 @@
 /obj/random/gloves,
 /obj/random/loot,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
+/obj/item/clothing/suit/storage/toggle/highvis_alt,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "atc" = (
@@ -3383,6 +3586,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
@@ -3428,6 +3634,9 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/chiefs_quarters)
 "atr" = (
@@ -3457,7 +3666,7 @@
 /obj/random/dirt_75,
 /obj/random/plushie,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "atv" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/reagent_dispensers/watertank,
@@ -3479,17 +3688,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "atE" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "atH" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/steel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
 /obj/item/device/flashlight{
 	pixel_x = 2;
 	pixel_y = 4
@@ -3566,8 +3770,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
@@ -3608,6 +3815,9 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "auA" = (
@@ -3631,9 +3841,12 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid_inside)
 "auF" = (
 /obj/effect/rune/teleport,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/cult,
 /area/space)
 "auH" = (
@@ -3663,6 +3876,12 @@
 "auV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
+	},
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -3862,6 +4081,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "awg" = (
@@ -3931,8 +4153,9 @@
 	pixel_x = -8;
 	pixel_y = 13
 	},
+/obj/random/contraband,
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "awL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -4055,6 +4278,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "axz" = (
@@ -4075,6 +4301,9 @@
 /area/cult_base/chiefs_quarters)
 "axF" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/chiefs_quarters)
 "axG" = (
@@ -4120,6 +4349,9 @@
 "ayn" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/random/junk,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/cult_base/mess)
 "ayq" = (
@@ -4160,6 +4392,9 @@
 "ayI" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "ayJ" = (
@@ -4215,6 +4450,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
@@ -4287,6 +4525,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "azQ" = (
@@ -4308,6 +4549,9 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
@@ -4347,7 +4591,7 @@
 /obj/random/dirt_75,
 /obj/random/loot,
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "aAd" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/yellow{
 	dir = 4
@@ -4414,7 +4658,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aAC" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -4442,6 +4686,9 @@
 	dir = 2
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
 "aAO" = (
@@ -4457,6 +4704,9 @@
 	dir = 4
 	},
 /obj/random/junk,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "aAS" = (
@@ -4536,6 +4786,9 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "aBv" = (
@@ -4551,7 +4804,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aBx" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -4582,7 +4835,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aBD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -4630,6 +4883,9 @@
 	},
 /obj/random/loot,
 /obj/item/clothing/glasses/science,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/cult_base/chiefs_quarters)
 "aBN" = (
@@ -4637,7 +4893,7 @@
 /obj/random/dirt_75,
 /obj/random/contraband,
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "aBQ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -4674,7 +4930,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "aCx" = (
 /obj/effect/floor_decal/corner/mauve/diagonal{
 	dir = 4
@@ -4693,6 +4949,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
@@ -4748,6 +5007,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "aCS" = (
@@ -4783,11 +5045,16 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_east)
 "aDo" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/cult_base/asteroid_inside)
 "aDu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4895,12 +5162,15 @@
 /area/cult_base/atmos_waste)
 "aEo" = (
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/turf/simulated/floor/plating/asteroid,
+/area/cult_base/asteroid_inside)
 "aEy" = (
 /obj/structure/bed/stool/chair/folding,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
@@ -5028,6 +5298,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "aFD" = (
@@ -5042,6 +5315,9 @@
 	},
 /obj/machinery/alarm/east{
 	req_one_access = null
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
@@ -5108,6 +5384,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "aGC" = (
@@ -5124,6 +5403,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aGF" = (
@@ -5133,7 +5415,7 @@
 	pixel_y = -12
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aGG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -5171,6 +5453,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aGN" = (
@@ -5180,15 +5465,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
 "aGQ" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/ghostspawpoint{
-	identifier = "cult_base_cultist";
-	name = "igs - cult_base_cultist";
-	single_use = 1
-	},
-/turf/simulated/floor/plating/asteroid,
-/area/space)
+/turf/simulated/mineral/surface,
+/area/cult_base/asteroid_inside)
 "aGV" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5214,6 +5492,12 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
@@ -5248,6 +5532,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
@@ -5299,6 +5586,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aHD" = (
@@ -5332,12 +5622,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "aHS" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "aHW" = (
 /obj/structure/trash_pile,
@@ -5363,6 +5657,9 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light/broken{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
@@ -5399,6 +5696,9 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_south)
@@ -5464,14 +5764,17 @@
 "aIZ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid,
-/area/space)
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
 "aJa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
@@ -5499,11 +5802,20 @@
 "aJh" = (
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "aJl" = (
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
@@ -5558,6 +5870,9 @@
 	dir = 2
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
 "aJK" = (
@@ -5620,7 +5935,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aKk" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5638,7 +5953,7 @@
 /obj/random/dirt_75,
 /obj/random/contraband,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "aKp" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -5695,6 +6010,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "aKB" = (
@@ -5702,7 +6020,7 @@
 /obj/random/dirt_75,
 /obj/random/medical,
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "aKH" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -5812,7 +6130,7 @@
 /obj/random/dirt_75,
 /obj/random/toolbox,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "aLk" = (
 /obj/effect/floor_decal/corner/grey/full,
 /turf/simulated/floor/tiled/dark,
@@ -5867,11 +6185,17 @@
 	pixel_y = 21
 	},
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aLE" = (
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
@@ -6018,8 +6342,9 @@
 /obj/item/clothing/suit/storage/toggle/longcoat,
 /obj/item/clothing/suit/storage/toggle/varsity/brown,
 /obj/random/medical,
-/obj/random/loot,
 /obj/item/clothing/under/pants/striped,
+/obj/item/clothing/under/dress/dress_orange,
+/obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aMI" = (
@@ -6086,6 +6411,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/lounge)
 "aMX" = (
@@ -6124,7 +6452,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "aNf" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -6167,10 +6495,9 @@
 /turf/simulated/wall/r_wall,
 /area/cult_base/maint_north)
 "aNp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/overmap/visitable/sector/cult_base,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/bridge)
 "aNs" = (
 /obj/item/material/knife/trench/bloody{
@@ -6178,7 +6505,7 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/cult,
-/area/space)
+/area/cult_base/asteroid)
 "aNw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6203,6 +6530,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
@@ -6251,6 +6581,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "aOa" = (
@@ -6291,6 +6624,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/medbay)
 "aOr" = (
@@ -6305,6 +6641,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
@@ -6364,7 +6703,7 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "aOM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
@@ -6385,6 +6724,12 @@
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aOW" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "aPa" = (
@@ -6393,6 +6738,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
@@ -6439,6 +6787,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aPq" = (
@@ -6474,6 +6825,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -6546,6 +6903,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
 "aQA" = (
@@ -6558,6 +6918,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
@@ -6575,15 +6938,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aQI" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid,
-/area/space)
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "aQK" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
@@ -6666,7 +7038,7 @@
 /obj/random/junk,
 /obj/random/loot,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aRr" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -6748,7 +7120,7 @@
 	can_open = 1;
 	color = "#CCDDFF"
 	},
-/area/space)
+/area/cult_base/asteroid)
 "aRP" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -6767,6 +7139,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
@@ -6793,6 +7168,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
@@ -6840,6 +7218,9 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "aSl" = (
@@ -6883,9 +7264,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aSx" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
@@ -6949,7 +7327,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "aSV" = (
-/obj/effect/rune/convert,
+/obj/effect/rune/sacrifice,
 /turf/simulated/floor/cult,
 /area/cult_base/crew_quarters)
 "aSX" = (
@@ -6960,6 +7338,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
@@ -7033,7 +7414,7 @@
 /obj/random/dirt_75,
 /obj/random/tool,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "aTA" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -7050,7 +7431,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/space)
 "aTD" = (
@@ -7063,6 +7443,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -7131,12 +7514,10 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aUe" = (
-/obj/random/dirt_75,
-/obj/random/loot,
-/turf/simulated/floor/exoplanet/barren,
-/area/space)
+/turf/simulated/wall/r_wall,
+/area/cult_base/asteroid)
 "aUg" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
@@ -7158,6 +7539,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
@@ -7183,6 +7567,9 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/crew_quarters)
@@ -7279,6 +7666,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aVe" = (
@@ -7342,6 +7732,7 @@
 /obj/random/tech_supply{
 	pixel_y = 9
 	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/engineering)
 "aVE" = (
@@ -7352,7 +7743,10 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "aVI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "aVJ" = (
@@ -7395,6 +7789,9 @@
 	dir = 4
 	},
 /obj/random/junk,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "aVU" = (
@@ -7411,7 +7808,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid_inside)
 "aWq" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/glass{
@@ -7465,6 +7862,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/lounge)
 "aWD" = (
@@ -7491,6 +7891,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
@@ -7535,6 +7938,15 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "aXg" = (
@@ -7594,6 +8006,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
@@ -7657,12 +8072,9 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "aYc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/bridge)
+/obj/random/pottedplant,
+/turf/simulated/floor/plating,
+/area/cult_base/lounge)
 "aYe" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -7673,11 +8085,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
 "aYf" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/blocker,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aYj" = (
@@ -7727,6 +8139,9 @@
 	dir = 9
 	},
 /obj/structure/closet/crate/freezer/rations,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
 "aYy" = (
@@ -7752,6 +8167,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
@@ -7787,6 +8205,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "aYS" = (
@@ -7794,6 +8215,9 @@
 	dir = 2
 	},
 /obj/machinery/door/airlock/external,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "aYT" = (
@@ -7847,6 +8271,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "aZe" = (
@@ -7877,6 +8304,12 @@
 	dir = 2
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
 "aZv" = (
@@ -7973,7 +8406,7 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/space)
+/area/cult_base/asteroid)
 "aZQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -7999,12 +8432,23 @@
 /obj/structure/girder/displaced,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
+"bvw" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "bXL" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
 "cij" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 8;
@@ -8023,6 +8467,17 @@
 /obj/effect/shuttle_landmark/cult_base/space/south_far,
 /turf/template_noop,
 /area/space)
+"cKD" = (
+/obj/random/dirt_75,
+/obj/random/loot,
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
+"daZ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/eva)
 "diH" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -8099,7 +8554,7 @@
 	pixel_y = 17
 	},
 /turf/simulated/floor/cult,
-/area/space)
+/area/cult_base/asteroid)
 "fpV" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_3,
@@ -8110,6 +8565,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
+"fvj" = (
+/obj/structure/closet/crate/tool,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/plating,
+/area/space)
+"fAj" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "fFE" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -14;
@@ -8118,6 +8596,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "fIv" = (
@@ -8125,6 +8606,9 @@
 /obj/item/ammo_casing/c38/spent{
 	pixel_x = 6;
 	pixel_y = 2
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -8141,9 +8625,54 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"gkU" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
+"gnR" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
+"gvs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/docks_west)
 "gBX" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -8153,7 +8682,22 @@
 	pixel_y = 23
 	},
 /turf/simulated/floor/cult,
-/area/space)
+/area/cult_base/asteroid)
+"gFJ" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/bridge)
+"gHu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/loot,
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
 "gKG" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -8173,7 +8717,7 @@
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/cult_base/space/south_close,
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/area/cult_base/asteroid)
 "hkd" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
@@ -8197,6 +8741,33 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
+"hWb" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/chiefs_quarters)
+"iMs" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"iSC" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_north)
 "jsR" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_1,
@@ -8214,14 +8785,61 @@
 "jBg" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/cult,
-/area/space)
+/area/cult_base/asteroid)
 "kbT" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/cult_base/lounge)
+"khc" = (
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/cult_base/asteroid_inside)
+"kty" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
+"kxQ" = (
+/obj/structure/structural_support{
+	pixel_y = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/cult_base/asteroid_inside)
+"kSf" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "lai" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/crate,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/space)
 "lhI" = (
@@ -8236,10 +8854,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"lkD" = (
+/obj/random/prebuilt_ka{
+	pixel_x = -12
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "lmW" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/space)
+"lsx" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/storage_two)
 "lCA" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_2,
@@ -8284,6 +8920,9 @@
 	pixel_x = -14;
 	pixel_y = 14
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "mCN" = (
@@ -8311,7 +8950,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/cult,
-/area/space)
+/area/cult_base/asteroid)
 "nEx" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -8350,12 +8989,31 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
+"omM" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "ovq" = (
 /obj/structure/girder,
 /turf/simulated/floor/cult,
 /area/cult_base/maint_north)
+"oye" = (
+/obj/effect/floor_decal/corner/grey,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "ozy" = (
 /obj/machinery/light/broken{
 	dir = 1
@@ -8377,6 +9035,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
+"put" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "pxE" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey{
@@ -8426,12 +9090,15 @@
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/plating,
 /area/space)
+"qjx" = (
+/turf/simulated/floor/cult,
+/area/cult_base/asteroid)
 "qut" = (
 /obj/random/dirt_75,
 /obj/random/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
 "qYC" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 5;
@@ -8439,6 +9106,12 @@
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/maint_north)
+"rfo" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/lounge)
 "rfy" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8457,6 +9130,18 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
 /area/space)
+"rli" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/medbay)
 "rww" = (
 /obj/item/material/knife/trench/bloody{
 	pixel_x = 17;
@@ -8480,6 +9165,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "sku" = (
@@ -8500,10 +9188,15 @@
 	},
 /turf/simulated/floor/cult,
 /area/space)
+"sqe" = (
+/obj/effect/rune/convert,
+/turf/simulated/floor/cult,
+/area/cult_base/asteroid)
 "sEq" = (
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/structure/closet/crate/rad/gear,
 /turf/simulated/floor/plating,
 /area/space)
 "sQN" = (
@@ -8521,6 +9214,9 @@
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "thD" = (
@@ -8540,6 +9236,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"tvK" = (
+/obj/effect/rune/sacrifice,
+/turf/simulated/floor/cult,
+/area/cult_base/asteroid)
 "txV" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -8561,6 +9261,31 @@
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
+"tKc" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
+"unM" = (
+/obj/random/junk,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/bridge)
 "uxc" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -8573,11 +9298,6 @@
 /area/cult_base/hallways_south)
 "uIq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = -6
-	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
@@ -8590,7 +9310,7 @@
 /area/space)
 "uOY" = (
 /obj/effect/decal/cleanable/blood/drip{
-	pixel_x = -12;
+	pixel_x = -13;
 	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/blood/drip{
@@ -8598,17 +9318,51 @@
 	pixel_y = 17
 	},
 /obj/item/ammo_casing/c38/spent,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"uPW" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"vbX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "vxY" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	identifier = "cult_base_cultist";
+	name = "igs - cult_base_cultist";
+	single_use = 1
 	},
-/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
+"vAm" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/cult_base/asteroid_inside)
+"vEe" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/mineral/surface,
+/area/cult_base/asteroid)
 "vEl" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
@@ -8657,12 +9411,42 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid_inside)
+"wEn" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "wLq" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
+"wVn" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/cult_base/medbay)
+"wYe" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/chiefs_quarters)
 "xaW" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -8677,13 +9461,23 @@
 /obj/effect/landmark/corpse/cult_base_cultist,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/cult_base/asteroid)
+"xpL" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/cult_base/asteroid)
 "xHt" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
 	},
 /obj/effect/gibspawner/human,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"xMH" = (
+/obj/structure/closet/crate/elec,
+/turf/simulated/floor/plating,
 /area/space)
 "xOb" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -8702,7 +9496,7 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/cult,
-/area/space)
+/area/cult_base/asteroid)
 
 (1,1,1) = {"
 aZi
@@ -38326,9 +39120,9 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aDo
-aDo
+aWD
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -38582,11 +39376,11 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aDo
-aDo
-aDo
-aDo
+aWD
+aWD
+aWD
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -38839,13 +39633,13 @@ aZi
 aZi
 aZi
 aZi
-aDo
-ajc
-aDo
-aDo
-aDo
-aDo
-aDo
+aWD
+ajO
+aWD
+aWD
+aWD
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -39096,16 +39890,16 @@ aZi
 aZi
 aZi
 aZi
-aDo
-ajc
-ajc
-aDo
-aEo
-aDo
-aEo
-aEo
-aEo
-aEo
+aWD
+ajO
+ajO
+aWD
+abJ
+aWD
+abJ
+abJ
+abJ
+abJ
 aZi
 aZi
 aZi
@@ -39353,18 +40147,18 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aEo
-aEo
-aEo
-aDo
-aEo
-aEo
-aDo
-aDo
-aDo
-aEo
-aDo
+aWD
+abJ
+abJ
+abJ
+aWD
+abJ
+abJ
+aWD
+aWD
+aWD
+abJ
+aWD
 aZi
 aZi
 aZi
@@ -39611,19 +40405,19 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aEo
-ajc
-ajc
-aEo
-ajc
-aEo
-aDo
-aDo
-aDo
-aEo
-aDo
-aDo
+aWD
+abJ
+ajO
+ajO
+abJ
+ajO
+abJ
+aWD
+aWD
+aWD
+abJ
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -39869,19 +40663,19 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-alK
-aEo
-aDo
-aEo
-ajc
-aEo
-aDo
-aDo
-aDo
-aDo
-aDo
+abJ
+abJ
+xpL
+abJ
+aWD
+abJ
+ajO
+abJ
+aWD
+aWD
+aWD
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -40126,22 +40920,22 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aEo
-ajc
-ajc
-aEo
-aDo
-aEo
-ajc
-ajc
-aEo
-aEo
-aEo
-aDo
-aDo
-aDo
+abJ
+abJ
+abJ
+ajO
+ajO
+abJ
+aWD
+abJ
+ajO
+ajO
+abJ
+abJ
+abJ
+aWD
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -40384,23 +41178,23 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aEo
-ajc
-ajc
-aEo
-aEo
-aDo
-aDo
-aDo
-aEo
-aEo
-aEo
-aEo
-aEo
-aDo
-aDo
+abJ
+abJ
+abJ
+ajO
+ajO
+abJ
+abJ
+aWD
+aWD
+aWD
+abJ
+abJ
+abJ
+abJ
+abJ
+aWD
+aWD
 aZi
 aZi
 akI
@@ -40642,21 +41436,21 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aEo
-ajc
-aEo
-aDo
-aEo
-ajc
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+abJ
+abJ
+ajO
+abJ
+aWD
+abJ
+ajO
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
 aWD
 aWD
 aZi
@@ -40901,19 +41695,19 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aEo
-ajc
-aEo
-aEo
-aEo
-aDo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aWD
+abJ
+ajO
+abJ
+abJ
+abJ
+aWD
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -40951,7 +41745,7 @@ aak
 aab
 auo
 aZi
-aIA
+aCb
 aZi
 aZi
 aZi
@@ -41158,17 +41952,17 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aDo
-aDo
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aWD
+aWD
+aWD
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -41204,12 +41998,12 @@ aWD
 aWD
 aab
 azT
-aak
+gkU
 aab
 aab
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -41416,12 +42210,12 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aEo
-aEo
-aIA
-aIA
-aIA
+aWD
+abJ
+abJ
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -41464,12 +42258,12 @@ arT
 aaw
 aTn
 aab
-aIA
-aIA
-aIA
-aIA
-aDo
-aDo
+aCb
+aCb
+aCb
+aCb
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -41674,13 +42468,13 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -41718,16 +42512,16 @@ abJ
 aWD
 aOD
 aPW
-aQh
+gvs
 aQS
 aab
-aIA
-aIA
-aIA
-aEo
-aEo
-aEo
-aDo
+aCb
+aCb
+aCb
+abJ
+abJ
+abJ
+aWD
 aZi
 aZi
 aZi
@@ -41931,17 +42725,17 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -41978,13 +42772,13 @@ agr
 aax
 aoR
 aab
-aIA
-aIA
-aIA
-aIA
-aEo
-aEo
-aDo
+aCb
+aCb
+aCb
+aCb
+abJ
+abJ
+aWD
 aZi
 aZi
 aZi
@@ -42188,17 +42982,17 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -42232,17 +43026,17 @@ aCb
 abJ
 aab
 aLP
-aak
+kty
 aab
 aab
-aIA
-aIA
-aIA
-aIA
-aIA
-aEo
-aEo
-aEo
+aCb
+aCb
+aCb
+aCb
+aCb
+abJ
+abJ
+abJ
 aZi
 aZi
 aZi
@@ -42445,16 +43239,16 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -42491,17 +43285,17 @@ akP
 alu
 aHC
 akP
-agG
-abN
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aEo
-aEo
-aDo
+axk
+aLb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+abJ
+abJ
+aWD
 aZi
 aZi
 aZi
@@ -42702,16 +43496,16 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCb
 aCb
 aCb
@@ -42749,19 +43543,19 @@ aUM
 aGM
 akP
 att
-aQI
+aUg
 aAc
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aEo
-aEo
-aEo
-aDo
-aDo
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+abJ
+abJ
+abJ
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -42960,13 +43754,13 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 ahk
 axk
 aCb
@@ -43013,19 +43807,19 @@ aUw
 aUw
 aUw
 aUw
-aIA
-aIA
-aEo
-aEo
-aEo
-aEo
-aDo
-aDo
+aCb
+aCb
+abJ
+abJ
+abJ
+abJ
+aWD
+aWD
 aZi
 aZi
 aZi
-aDo
-aEo
+aWD
+abJ
 aZi
 aZi
 aZi
@@ -43217,14 +44011,14 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aCT
 aji
 aCb
@@ -43270,18 +44064,18 @@ aUw
 auH
 aRe
 aUw
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aDo
-aDo
-aDo
-aDo
-aEo
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aWD
+aWD
+aWD
+aWD
+abJ
 hfH
 aZi
 aZi
@@ -43475,16 +44269,16 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-abN
-agG
-aIZ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aLb
+axk
+abn
 aNz
 aNz
 aNz
@@ -43495,7 +44289,7 @@ aNz
 aEW
 aNz
 axk
-apX
+aXZ
 uIq
 aay
 ala
@@ -43527,18 +44321,18 @@ aUw
 adX
 alm
 aUw
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aDo
-aDo
-aDo
-aEo
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aWD
+aWD
+aWD
+abJ
 aZi
 aZi
 aZi
@@ -43733,14 +44527,14 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aHS
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCT
 awF
 aEW
 aHY
@@ -43769,7 +44563,7 @@ aOn
 aCb
 aQa
 aus
-alL
+daZ
 aIh
 aAX
 aQa
@@ -43786,15 +44580,15 @@ aPL
 aUw
 aUw
 aUw
-aIA
+aCb
 alx
 alx
 alx
 alx
 aIA
-aDo
-aDo
-aEo
+aWD
+aWD
+abJ
 aZi
 asg
 aZi
@@ -43990,15 +44784,15 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aol
 adr
 aLQ
@@ -44043,15 +44837,15 @@ ayL
 aMC
 ajg
 aUw
-aIA
+aCb
 alx
 ajZ
 aAv
 alx
-ajc
-aDo
-aDo
-aEo
+ajO
+aWD
+aWD
+abJ
 aZi
 aZi
 aZi
@@ -44247,15 +45041,15 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aNz
 aNl
 aCU
@@ -44300,14 +45094,14 @@ awp
 aMC
 aAT
 aUw
-aIA
+aCb
 alx
 abh
 aUC
 aLo
-ajc
-aEo
-aEo
+ajO
+abJ
+abJ
 aZi
 aZi
 aZi
@@ -44504,15 +45298,15 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aNz
 amd
 aNR
@@ -44534,7 +45328,7 @@ aPK
 aOn
 aqV
 ayI
-ada
+lsx
 azA
 aOn
 anj
@@ -44550,21 +45344,21 @@ akP
 aIA
 aUw
 ajN
-aMC
-abf
+wVn
+rli
 acx
 awV
 arw
 aXR
 aUw
-aIA
+aCb
 alx
 abh
 aUC
 alx
-aEo
-aEo
-aEo
+abJ
+abJ
+abJ
 aZi
 aZi
 asg
@@ -44761,15 +45555,15 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aol
 agx
 aEC
@@ -44814,13 +45608,13 @@ aUw
 aUw
 aUw
 aUw
-aIA
+aCb
 alx
 aCG
 alx
 alx
-aIA
-aEo
+aCb
+abJ
 aZi
 aZi
 aZi
@@ -45019,14 +45813,14 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aNz
 aIT
 aiX
@@ -45059,7 +45853,7 @@ aQF
 aYG
 aat
 aqT
-aGM
+tKc
 akP
 aIA
 akP
@@ -45069,15 +45863,15 @@ abs
 alb
 aDI
 akP
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZz
 abq
 aRm
 alx
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -45275,15 +46069,15 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aNz
 aNz
 aNz
@@ -45326,15 +46120,15 @@ apC
 aOs
 aAS
 akP
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 alx
 aHx
 aJK
 alx
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -45532,19 +46326,19 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aVU
 aMT
 aED
@@ -45584,15 +46378,15 @@ aJu
 aGn
 akP
 aLj
-agG
-aIA
+axk
+aCb
 alx
 avP
 avP
 alx
 alx
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -45788,20 +46582,20 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aQp
 aMT
 aPk
@@ -45840,16 +46634,16 @@ abs
 aLk
 akP
 akP
-agG
-aGQ
-aIZ
+axk
+ahD
+abn
 aHD
 aeL
 afp
 aeL
 alx
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -46045,20 +46839,20 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aVU
 aYT
 aPk
@@ -46096,17 +46890,17 @@ ahe
 aha
 aMD
 akP
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 alx
 aFx
 aeL
 aeL
 adR
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -46302,20 +47096,20 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 acA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
 aQp
 aMT
 avh
@@ -46362,9 +47156,9 @@ aeL
 aeL
 aHW
 alx
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -46559,20 +47353,20 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
-aIA
-agG
-aIA
+abJ
+aCb
+aCb
+aCb
+axk
+aCb
 aCv
-aIm
-aHS
+qjx
+aCT
 aCv
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 aVU
 agl
 aPk
@@ -46619,9 +47413,9 @@ avR
 anH
 alx
 alx
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -46816,17 +47610,17 @@ aZi
 aZi
 aZi
 aZi
-aEo
-aIA
-aIA
+abJ
+aCb
+aCb
+azZ
+aLb
+aCb
 aUe
-abN
-aIA
-ahJ
-aZk
+tvK
 ygX
 fow
-aIA
+aCb
 aVU
 aVU
 aVU
@@ -46875,10 +47669,10 @@ amP
 aqq
 ayM
 alx
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -47073,16 +47867,16 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 abE
-aIZ
+abn
 aRN
 nnM
 aNs
-aOB
+sqe
 gET
 ovq
 aSH
@@ -47132,10 +47926,10 @@ atp
 avP
 alx
 alx
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -47331,15 +48125,15 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-ahJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aUe
 xmz
 jBg
-aIA
+aCb
 fow
 vRw
 qYC
@@ -47388,11 +48182,11 @@ aAr
 aIo
 aSq
 alx
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -47589,15 +48383,15 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
 aCv
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 awb
 awb
 awb
@@ -47620,14 +48414,14 @@ aki
 aCy
 aAg
 afm
-aQI
+vAm
 aAz
 wEh
-agG
-aIA
-aIA
-aIA
-aIA
+amB
+aGQ
+aGQ
+aGQ
+aGQ
 anb
 acX
 ayn
@@ -47645,12 +48439,12 @@ aAr
 aRL
 aJK
 alx
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -47848,13 +48642,13 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aVU
 awb
 aOg
@@ -47876,15 +48670,15 @@ aPR
 acm
 aXf
 aaE
-afm
-aQI
-aHS
-aHS
-aHS
-agG
+iSC
+khc
+aIZ
+aIZ
+aIZ
+amB
 alH
-aIA
-aIA
+aGQ
+aGQ
 anb
 aKJ
 afl
@@ -48106,12 +48900,12 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aVU
 aVU
 aVU
@@ -48128,20 +48922,20 @@ aXP
 aEE
 aOW
 aAb
-aYc
+aja
 aIg
 aiI
 aVR
 aHZ
 aGp
-ahJ
-aIA
-aIA
 agG
-aHS
+aGQ
+aGQ
+amB
+aIZ
 aao
-aIA
-aIA
+aGQ
+aGQ
 anb
 anM
 aKT
@@ -48363,14 +49157,14 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aVU
 asF
 aNa
@@ -48391,14 +49185,14 @@ adK
 anP
 anu
 aGp
-aIZ
-aIA
-aIA
+aDo
+aGQ
+aGQ
 aBB
-agG
-aHS
-agG
-ahJ
+amB
+aIZ
+amB
+alK
 anb
 aOr
 aOr
@@ -48421,7 +49215,7 @@ aNU
 aru
 aHk
 ahy
-adb
+gnR
 aXE
 aTA
 aDE
@@ -48621,13 +49415,13 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aVU
 aVU
 arn
@@ -48635,12 +49429,12 @@ acv
 aVU
 aVU
 axC
-aEh
-axF
-aEh
+wYe
+hWb
+ajc
 atq
-aOW
-aja
+gFJ
+unM
 aTp
 aEI
 aIg
@@ -48650,21 +49444,21 @@ ayt
 aDD
 aGF
 aTZ
-aIA
-ahJ
-ahJ
-ahk
-aHS
-aHS
+aGQ
+alK
+alK
+gHu
+aIZ
+aIZ
 aAz
-aHS
-agG
-aUe
-aIA
-aIA
-ahJ
+aIZ
+amB
+cKD
+aGQ
+aGQ
+alK
 aQK
-ayq
+oye
 aCt
 aEM
 amu
@@ -48878,14 +49672,14 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aVU
 aos
 aOm
@@ -48905,23 +49699,23 @@ aGp
 abp
 aYY
 aGp
-abN
-agG
-aIA
-aIA
-ahJ
+vxY
+amB
+aGQ
+aGQ
+alK
 alD
-agG
-agG
-agG
-agG
-aHS
-agG
+amB
+amB
+amB
+amB
+aIZ
+amB
 alH
-aIA
-ahJ
+aGQ
+alK
 agt
-agt
+aQI
 aAe
 aAe
 aAe
@@ -49135,14 +49929,14 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
+aCb
+aCb
+aCb
+aUe
+aUe
+aUe
+aUe
+aUe
 aVU
 akL
 awt
@@ -49162,23 +49956,23 @@ aGp
 abl
 aqP
 aGp
-ahJ
-ahJ
-ahJ
-aIA
-aIA
-aIA
-aIA
+alK
+alK
+alK
+aGQ
+aGQ
+aGQ
+aGQ
 alH
 bXL
-agG
+amB
 aBw
 aaq
-aIA
-aIA
-ahJ
+aGQ
+aGQ
+alK
 aRP
-aNP
+omM
 aAe
 aqf
 acG
@@ -49187,12 +49981,12 @@ agh
 ahG
 ayy
 aAe
-aEo
-ajc
-ajc
-aEo
-aEo
-aDo
+abJ
+ajO
+ajO
+abJ
+abJ
+aWD
 aZi
 aZi
 aZi
@@ -49393,9 +50187,9 @@ aZi
 aZi
 akI
 aZi
-aIA
-amB
-ahJ
+aCb
+vEe
+aUe
 auo
 aNT
 auo
@@ -49421,19 +50215,19 @@ add
 aEJ
 aZi
 aZi
-ahJ
-aIA
-aIA
-aIA
-agG
-agG
-agG
-agG
+alK
+aGQ
+aGQ
+aGQ
+amB
+amB
+amB
+amB
 aaj
 aWj
-aIA
-ahJ
-ahJ
+aGQ
+alK
+alK
 aqB
 aJJ
 aWR
@@ -49444,12 +50238,12 @@ aAe
 aAe
 aAe
 aAe
-alK
-ajc
-aEo
-aDo
-aDo
-aDo
+xpL
+ajO
+abJ
+aWD
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -49650,9 +50444,9 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-ahJ
+aCb
+aCb
+aUe
 auo
 aZi
 aZi
@@ -49678,14 +50472,14 @@ abp
 aGp
 aZi
 aZi
-ahJ
-aIA
-aCv
-aHS
-agG
-agG
-aHS
-aHS
+alK
+aGQ
+kxQ
+aIZ
+amB
+amB
+aIZ
+aIZ
 aft
 ade
 ade
@@ -49701,11 +50495,11 @@ aAe
 aJs
 aLZ
 ahr
-ajc
-aEo
-aIA
-aDo
-aDo
+ajO
+abJ
+aCb
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -49908,8 +50702,8 @@ aZi
 aZi
 aZi
 aZi
-aIA
-ahJ
+aCb
+aUe
 auo
 auo
 auo
@@ -49935,18 +50729,18 @@ aZi
 aZi
 aZi
 asg
-ahJ
-aIA
-aIA
-aHS
+alK
+aGQ
+aGQ
+aIZ
 aRo
-aHS
-agG
+aIZ
+amB
 alH
 aKi
-aHS
-aHS
 aIZ
+aIZ
+aDo
 aCt
 aXc
 aNP
@@ -49958,11 +50752,11 @@ aAe
 afc
 aAe
 aAe
-aEo
-aIA
-aIA
-aDo
-aDo
+abJ
+aCb
+aCb
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -50192,17 +50986,17 @@ aZi
 aZi
 aZi
 aZi
-ahJ
-aIA
-aIA
+alK
+aGQ
+aGQ
 ane
 aTD
 aTD
 aTD
 ane
 ane
-aIA
-aIA
+aGQ
+aGQ
 ane
 ane
 aKH
@@ -50215,11 +51009,11 @@ adM
 adm
 agK
 aAe
-aIA
-aIA
-aIA
-aIA
-aDo
+aCb
+aCb
+aCb
+aCb
+aWD
 aZi
 aZi
 aZi
@@ -50449,9 +51243,9 @@ auo
 auo
 auo
 auo
-ahJ
-aIA
-aIA
+alK
+aGQ
+aGQ
 ane
 aAd
 aGN
@@ -50472,10 +51266,10 @@ aoI
 afH
 axz
 aAe
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -50706,9 +51500,9 @@ aZi
 aZi
 aZi
 ayG
-ahJ
-aIA
-agG
+alK
+aGQ
+amB
 ane
 aaY
 aXJ
@@ -50729,10 +51523,10 @@ acS
 arE
 aBW
 agS
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -50949,11 +51743,11 @@ ahJ
 rjO
 aIy
 aIy
-aIy
+lkD
 aDT
 ahJ
 aJh
-aIy
+aHS
 aTO
 ahJ
 anv
@@ -50963,14 +51757,14 @@ awx
 awx
 aZi
 auo
-ahJ
-abN
-aIZ
+alK
+vxY
+aDo
 ane
 ogB
-aXJ
-aXJ
-aXJ
+rfo
+rfo
+rfo
 aEy
 acr
 aMW
@@ -50986,9 +51780,9 @@ atX
 avj
 avV
 aAe
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -51200,7 +51994,7 @@ aTc
 awx
 ozy
 gKG
-vxY
+gKG
 sQN
 ahJ
 ahJ
@@ -51210,7 +52004,7 @@ ahJ
 ahJ
 ahJ
 ajC
-aIy
+vbX
 atv
 ahJ
 aYm
@@ -51220,14 +52014,14 @@ aUR
 auS
 aZi
 auo
-ahJ
-aQI
+alK
+aEo
 auD
 awr
 tzD
 ajY
 cij
-aXJ
+aYc
 akB
 aLm
 aXJ
@@ -51243,9 +52037,9 @@ ats
 aKw
 arz
 agS
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -51477,9 +52271,9 @@ aag
 auS
 aZi
 ayG
-ahJ
-ahJ
-ahJ
+alK
+alK
+alK
 ane
 acJ
 tyf
@@ -51500,8 +52294,8 @@ ayc
 aOO
 aVg
 aAe
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -51727,7 +52521,7 @@ shH
 adu
 ahJ
 ahJ
-aZl
+kSf
 ahJ
 awx
 aeg
@@ -51757,8 +52551,8 @@ aai
 agS
 aAe
 aAe
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -51973,13 +52767,13 @@ aoT
 fIv
 sWV
 fFE
-aQH
+uPW
 mnT
 gBX
 auF
-aIm
-aIm
-aIy
+abN
+abN
+aTC
 sjM
 apw
 aaA
@@ -51989,8 +52783,8 @@ aGE
 aYS
 aoa
 apd
-aHz
-avq
+aSl
+arJ
 aLx
 abP
 acc
@@ -52011,11 +52805,11 @@ aqe
 ang
 aai
 aZN
-aHS
-agG
-aIA
-aIA
-ahJ
+aCT
+axk
+aCb
+aCb
+aUe
 aZi
 aZi
 aZi
@@ -52227,7 +53021,7 @@ uOY
 geB
 aQH
 gMj
-sWV
+bvw
 shH
 aRf
 ahJ
@@ -52243,11 +53037,11 @@ abS
 aSg
 jvw
 abg
-aTC
+aHz
 aSx
 afd
-aSl
-arJ
+aHz
+avq
 aYf
 aHK
 aee
@@ -52267,12 +53061,12 @@ aAe
 amz
 adx
 agS
-aQI
-abN
-aIA
-aIA
-aIA
-ahJ
+aUg
+aLb
+aCb
+aCb
+aCb
+aUe
 auo
 auo
 auo
@@ -52483,8 +53277,8 @@ aTY
 aTY
 aNi
 ahJ
-akp
-akp
+fAj
+iMs
 shH
 aIu
 ahJ
@@ -52524,12 +53318,12 @@ aAe
 aIU
 apK
 aAe
-aHS
-aIA
-aIA
-aIA
-ahJ
-ahJ
+aCT
+aCb
+aCb
+aCb
+aUe
+aUe
 auo
 auo
 auo
@@ -52781,10 +53575,10 @@ ayy
 ayy
 adx
 agS
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -53014,7 +53808,7 @@ aIm
 ahJ
 ars
 aIy
-aIy
+fvj
 aen
 auS
 aZi
@@ -53028,7 +53822,7 @@ aOz
 aSV
 ajf
 aTF
-aaM
+wEn
 aeo
 aer
 adw
@@ -53038,9 +53832,9 @@ arC
 aOy
 ahG
 aAe
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -53269,7 +54063,7 @@ aIy
 nfG
 aIm
 ahJ
-aIy
+xMH
 aIy
 awx
 awx
@@ -53295,8 +54089,8 @@ aAe
 aAe
 aAe
 aAe
-aIA
-aIA
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -53539,20 +54333,20 @@ aKN
 aKN
 aKN
 aUA
-aic
+put
 abo
 azY
 azo
 aKN
 aql
 aMi
-aKN
+ake
 aBN
-abN
-agG
-aIA
-aIA
-aIA
+aLb
+axk
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -53779,8 +54573,8 @@ aoN
 aIm
 awx
 awx
-awx
-awx
+aVI
+aVI
 awx
 awx
 auo
@@ -53803,13 +54597,13 @@ aic
 aYX
 aic
 aWA
-ake
-aQI
+aKN
+aUg
 aKl
-aIA
-aIA
-aIA
-aDo
+aCb
+aCb
+aCb
+aWD
 aZi
 aZi
 aZi
@@ -54061,12 +54855,12 @@ aKN
 aMr
 aHH
 aKN
-aIA
-aIA
-aIA
-aIA
-aEo
-aDo
+aCb
+aCb
+aCb
+aCb
+abJ
+aWD
 aZi
 aZi
 aZi
@@ -54276,9 +55070,9 @@ asg
 aZi
 aZi
 aZi
-aIA
-aIA
-ahJ
+aCb
+aCb
+aUe
 auo
 auo
 auo
@@ -54316,13 +55110,13 @@ arQ
 aic
 aKN
 aKN
+ake
 aKN
-aKN
-aIA
-aIA
-aIA
-aEo
-aEo
+aCb
+aCb
+aCb
+abJ
+abJ
 aZi
 aZi
 aZi
@@ -54532,35 +55326,35 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
-ahJ
+aCb
+aCb
+aCb
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
+aUe
 aKN
 aKN
 aKN
@@ -54573,12 +55367,12 @@ aKN
 ajB
 aKN
 aKN
-aIZ
-aHS
-aIA
-aIA
-aIA
-aEo
+abn
+aCT
+aCb
+aCb
+aCb
+abJ
 aZi
 aZi
 aZi
@@ -54789,37 +55583,37 @@ aZi
 aZi
 aZi
 akI
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
-aIA
-amB
-aIA
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
+aCb
+vEe
+aCb
 aNe
 aTt
-aKN
+ake
 aDH
 aQO
 aic
@@ -54831,12 +55625,12 @@ aic
 amM
 ake
 aOJ
-abN
-aIA
-aIA
-aDo
-aEo
-aEo
+aLb
+aCb
+aCb
+aWD
+abJ
+abJ
 aZi
 aZi
 aZi
@@ -55045,37 +55839,37 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-abN
-agG
-aIZ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aLb
+axk
+abn
 aKN
 asZ
 aic
@@ -55087,13 +55881,13 @@ aKN
 aLg
 ajt
 aKN
-aHS
-aIA
-aIA
-aDo
-aEo
-ajc
-aDo
+aCT
+aCb
+aCb
+aWD
+abJ
+ajO
+aWD
 aZi
 aZi
 aZi
@@ -55302,37 +56096,37 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 qut
-aHS
-aIA
-aIZ
+aCT
+aCb
+abn
 ake
 aic
 aNS
@@ -55344,13 +56138,13 @@ aKN
 avs
 aTT
 aKN
-aIA
-aIA
-aIA
-aEo
-ajc
-aEo
-aDo
+aCb
+aCb
+aCb
+abJ
+ajO
+abJ
+aWD
 aZi
 aZi
 aZi
@@ -55560,36 +56354,36 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aKN
 aSv
 aBn
@@ -55601,12 +56395,12 @@ aKN
 aKN
 aKN
 aKN
-aIA
-aIA
-aEo
-aEo
-aEo
-aEo
+aCb
+aCb
+abJ
+abJ
+abJ
+abJ
 aZi
 aZi
 aZi
@@ -55817,52 +56611,52 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aKN
-aKN
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aKN
 aKN
 aKN
 ake
 aKN
+ake
 aKN
-aIA
-aEo
-aEo
-aIA
-aDo
-ajc
-aDo
-aDo
+aKN
+aCb
+abJ
+abJ
+aCb
+aWD
+ajO
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -56074,50 +56868,50 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aDo
-aEo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aHS
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aWD
+abJ
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCT
 aKB
-aIZ
-aIA
-aIA
-aIA
-aDo
-aDo
-aDo
-aEo
-aEo
+abn
+aCb
+aCb
+aCb
+aWD
+aWD
+aWD
+abJ
+abJ
 aZi
 aZi
 aZi
@@ -56332,46 +57126,46 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aDo
-aEo
-aEo
-aEo
-aEo
-aEo
-aDo
-aIA
-aIA
-aIA
-aIA
-aIA
-abN
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aWD
+abJ
+abJ
+abJ
+abJ
+abJ
+aWD
+aCb
+aCb
+aCb
+aCb
+aCb
+aLb
 afY
-aIA
-aIA
-aIA
-aDo
-aDo
+aCb
+aCb
+aCb
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -56591,43 +57385,43 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
 aZi
 aZi
 aZi
-aDo
-aEo
-aEo
-aEo
-aDo
-aEo
-aIA
-aIA
-aIA
-aIA
-aIA
-aHS
-aIA
-aIA
-aIA
-aDo
-aDo
+aWD
+abJ
+abJ
+abJ
+aWD
+abJ
+aCb
+aCb
+aCb
+aCb
+aCb
+aCT
+aCb
+aCb
+aCb
+aWD
+aWD
 aZi
 aZi
 aZi
@@ -56850,15 +57644,15 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -56870,18 +57664,18 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aEo
-aEo
-aEo
-aDo
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aWD
+abJ
+abJ
+abJ
+aWD
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -57108,12 +57902,12 @@ aZi
 aZi
 aZi
 aZi
-aIA
-aIA
-aIA
-aIA
-aIA
-aIA
+aCb
+aCb
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -57128,16 +57922,16 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aDo
-aEo
-ajc
-aDo
-aIA
-aIA
-aIA
-aIA
-aIA
+aWD
+aWD
+abJ
+ajO
+aWD
+aCb
+aCb
+aCb
+aCb
+aCb
 aZi
 aZi
 aZi
@@ -57387,12 +58181,12 @@ aZi
 aZi
 aZi
 aZi
-aDo
-aDo
-aDo
-aDo
-aIA
-aIA
+aWD
+aWD
+aWD
+aWD
+aCb
+aCb
 aZi
 aZi
 aZi

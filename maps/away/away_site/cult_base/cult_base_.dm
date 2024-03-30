@@ -9,7 +9,7 @@
 	unit_test_groups = list(1)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: REMOVE THIS
 
-/singleton/submap_archetype/cult_base//Arbitrary duplicates of the above name/desc
+/singleton/submap_archetype/cult_base
 	map = "Cult Base"
 	descriptor = "Cult Base."
 
@@ -18,7 +18,7 @@
 	desc = "\
 		Scans reveal a small station built into a asteroid, registered in the official and public databases as an independent research outpost. \
 		It appears to be pressurized, powered, and with a functioning transponder. There is a hangar for a small shuttle. \
-		Database query reveals that it was active and has seen traffic up until a few days ago, and no communications in or out since then. \
+		Database query reveals that it was active and has seen traffic up until a few days ago, but no communications in or out since then. \
 		Caution is advised.\
 		"
 	static_vessel = TRUE

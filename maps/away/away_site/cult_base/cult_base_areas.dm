@@ -103,6 +103,10 @@
 	name = "Asteroid"
 	icon_state = "exterior"
 
+/area/cult_base/asteroid_inside
+	name = "Asteroid"
+	icon_state = "exterior"
+
 // -------------------------
 
 
