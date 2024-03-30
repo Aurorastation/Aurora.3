@@ -11,7 +11,6 @@
 	id = "xanu_frigate"
 	unit_test_groups = list(3)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/xanu_fighter, /datum/shuttle/autodock/overmap/xanu_boarder)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/xanu_frigate
 	map = "Xanu Spacefleet Frigate"
@@ -42,7 +41,8 @@
 	vessel_mass = 6000
 	vessel_size = SHIP_SIZE_LARGE
 	fore_dir = SOUTH
-	invisible_until_ghostrole_spawn = FALSE
+
+	invisible_until_ghostrole_spawn = TRUE
 
 	initial_restricted_waypoints = list(
 		"Xanu Fighter" = list("xanufrigate_hangar"),
