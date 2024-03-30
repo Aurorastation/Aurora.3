@@ -35,7 +35,7 @@
 	if(!environment)
 		add_overlay("buttons_x")
 		add_overlay("pressure0")
-		return 0
+		return FALSE
 
 	var/button_overlay_name
 	var/atmos_overlay_name
