@@ -162,7 +162,7 @@
 			return
 
 		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
-		to_chat(user, SPAN_NOTICE("You place the grill in the window frame."))
+		to_chat(user, SPAN_NOTICE("You place the grille in the window frame."))
 		var/obj/structure/grille/over/new_grille = new /obj/structure/grille/over(get_turf(src))
 		new_grille.shock(user, 70) // You haven't forgotten your precautions, have you?
 		has_grille_installed = TRUE
