@@ -220,7 +220,7 @@
 	name = "himean heavy blaster pistol"
 	desc = "The standard sidearm of the Himean Planetary Guard. For those revolutions you cannot fight with fists."
 	desc_extended = "A plasma cutter gave its life for the first Type-45 \"Sabo-Tabby\" pistol. Powered by the same hydrogen cells as the Type-11 \"Ablett\" rifle, this robust model has earned the nickname of \
-	 the 'One Big Handgun' in those foreign markets it has cropped up. What was initially seen as a flaw in the power converter led to its 'magnum'-sized blaster bolts."
+	the 'One Big Handgun' in those foreign markets it has cropped up. What was initially seen as a flaw in the power converter led to its 'magnum'-sized blaster bolts."
 	icon = 'icons/obj/guns/himeo_pistol.dmi'
 	icon_state = "himeopistol"
 	item_state = "himeopistol"
