@@ -3807,6 +3807,7 @@
 #include "maps\away\ships\pra\database_freighter\database_freighter.dm"
 #include "maps\away\ships\pra\database_freighter\database_freighter_areas.dm"
 #include "maps\away\ships\pra\database_freighter\database_freighter_ghostroles.dm"
+#include "maps\away\ships\pra\database_freighter\database_landmarks.dm"
 #include "maps\away\ships\pra\headmaster\headmaster_areas.dm"
 #include "maps\away\ships\pra\headmaster\headmaster_ghostroles.dm"
 #include "maps\away\ships\pra\headmaster\headmaster_ship.dm"

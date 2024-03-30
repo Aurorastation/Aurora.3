@@ -2035,7 +2035,9 @@
 	},
 /area/nka_merchant/engineering)
 "in" = (
-/obj/effect/shuttle_landmark/nka_merchant/nav2,
+/obj/effect/shuttle_landmark/nka_merchant/nav2{
+	dir = 8
+	},
 /turf/template_noop,
 /area/space)
 "io" = (
@@ -2493,7 +2495,9 @@
 	},
 /area/nka_merchant/engine)
 "kz" = (
-/obj/effect/shuttle_landmark/nka_merchant/nav1,
+/obj/effect/shuttle_landmark/nka_merchant/nav1{
+	dir = 4
+	},
 /turf/template_noop,
 /area/space)
 "kA" = (
@@ -3812,10 +3816,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
-"Bq" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/engine)
 "Bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4161,7 +4161,9 @@
 	},
 /area/nka_merchant/merchant)
 "GG" = (
-/obj/effect/shuttle_landmark/nka_merchant/nav3,
+/obj/effect/shuttle_landmark/nka_merchant/nav3{
+	dir = 1
+	},
 /turf/template_noop,
 /area/space)
 "GP" = (
@@ -4389,8 +4391,7 @@
 	},
 /area/nka_merchant/mess)
 "Ki" = (
-/obj/machinery/computer/ship/helm{
-	req_access = null;
+/obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4612,11 +4613,11 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle_control/explore/terminal/yacht_civ_shuttle{
-	dir = 4
-	},
 /obj/structure/sign/flag/nka{
 	pixel_y = -32
+	},
+/obj/machinery/computer/shuttle_control/explore/nka_merchant_shuttle{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
@@ -4630,9 +4631,7 @@
 	},
 /area/nka_merchant)
 "OX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/engine)
 "OZ" = (
@@ -4866,6 +4865,12 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"UK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/nka_merchant/engine)
 "UL" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/bridge/secondary)
@@ -11999,7 +12004,7 @@ iB
 iB
 iB
 iB
-GG
+iB
 iB
 iB
 iB
@@ -16320,7 +16325,7 @@ iB
 iB
 iB
 vo
-OX
+UK
 Zr
 AT
 AT
@@ -17684,7 +17689,7 @@ iB
 iB
 iB
 iB
-iB
+GG
 iB
 iB
 iB
@@ -18102,7 +18107,7 @@ iB
 iB
 iB
 vo
-OX
+UK
 aI
 gh
 iY
@@ -18264,7 +18269,7 @@ iB
 iB
 iB
 hE
-Bq
+OX
 kx
 am
 iY
