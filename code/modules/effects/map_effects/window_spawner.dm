@@ -246,6 +246,7 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition
 	name = "coalition reinforced window spawner"
 	icon_state = "coalition_window"
+	frame_path = /obj/structure/window_frame/shuttle
 	frame_color = COLOR_COALITION
 
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille

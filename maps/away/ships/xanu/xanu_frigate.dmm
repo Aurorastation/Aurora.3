@@ -220,7 +220,6 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/shuttle/xanu_boarder/engineering)
 "bi" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
@@ -230,6 +229,7 @@
 	name = "fore, cockpit";
 	dir = 8
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/cockpit)
 "bj" = (
@@ -436,12 +436,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
 "bH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
 	id = "xanuboarder_ext"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/cockpit)
 "bI" = (
@@ -549,12 +549,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
 	id = "xanuboarder_ext"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/main)
 "cb" = (
@@ -686,10 +686,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/xanu_boarder/cockpit)
 "cC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/disposals)
 "cD" = (
@@ -812,7 +812,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "dd" = (
@@ -854,7 +854,6 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -870,6 +869,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/bridge)
 "do" = (
@@ -1364,7 +1364,6 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/hydroponics)
 "eP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -1373,6 +1372,7 @@
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/bridge)
 "eS" = (
@@ -1782,7 +1782,6 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "gq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -1797,6 +1796,7 @@
 	id = "xanufrigate_exterior_blast"
 	},
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/bridge)
 "gs" = (
@@ -2504,14 +2504,7 @@
 /turf/simulated/floor/wood,
 /area/ship/xanu_frigate/rec_room)
 "iA" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/rec_room)
 "iC" = (
@@ -2978,7 +2971,6 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/crew_quarters)
 "ki" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable,
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -2988,6 +2980,7 @@
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/bridge)
 "kk" = (
@@ -3135,6 +3128,10 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/ghostspawpoint{
+	identifier = "xanufrigate_ert";
+	name = "igs - xanufrigate_ert"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "kF" = (
@@ -3282,12 +3279,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/brig)
 "lm" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/medbay)
 "ln" = (
@@ -3439,12 +3436,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/hangar)
 "lQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/hydroponics)
 "lS" = (
@@ -3509,11 +3506,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "mg" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/brig)
 "mo" = (
@@ -3593,7 +3590,6 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "mD" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
@@ -3602,6 +3598,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_fighter)
 "mF" = (
@@ -3974,6 +3971,10 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/ghostspawpoint{
+	identifier = "xanufrigate_ert";
+	name = "igs - xanufrigate_ert"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "nG" = (
@@ -4655,7 +4656,6 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/starboard)
 "pK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
@@ -4664,6 +4664,7 @@
 	name = "Safety Shutters";
 	id = "xanuboarder_ext"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/main)
 "pM" = (
@@ -4781,12 +4782,12 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow/ammo)
 "qh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/cargo_bay)
 "qi" = (
@@ -4836,10 +4837,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_boarder/cockpit)
 "qp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/brig)
 "qs" = (
@@ -5691,9 +5692,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -6145,13 +6143,13 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "vb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/bridge)
 "vd" = (
@@ -6258,7 +6256,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/shuttle/xanu_boarder/engineering)
 "vx" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/mess_hall)
 "vy" = (
@@ -7117,7 +7115,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/grauwolf/ammo)
 "yT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/central)
 "yU" = (
@@ -7143,18 +7141,14 @@
 /area/shuttle/xanu_boarder/engineering)
 "zd" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/holster/thigh{
-	pixel_y = 10
-	},
-/obj/item/clothing/accessory/holster/thigh{
-	pixel_y = 6
-	},
-/obj/item/clothing/accessory/holster/thigh{
-	pixel_y = 1
-	},
-/obj/item/clothing/accessory/holster/thigh{
-	pixel_y = -3
-	},
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "ze" = (
@@ -7247,12 +7241,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "zq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanuboarder_ext"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/cockpit)
 "zt" = (
@@ -7317,12 +7311,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/crew_quarters)
 "zB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/eva)
 "zD" = (
@@ -7430,16 +7424,15 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/captain)
 "zZ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
@@ -7452,6 +7445,7 @@
 	name = "port, compartment";
 	dir = 2
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/main)
 "Ab" = (
@@ -7648,13 +7642,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/rec_room)
-"AQ" = (
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
-/turf/simulated/floor/tiled/gunmetal,
-/area/ship/xanu_frigate/rec_room)
 "AR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -7809,7 +7796,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/starboard)
 "Br" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/disposals)
 "Bs" = (
@@ -7933,12 +7920,12 @@
 /turf/simulated/floor,
 /area/ship/xanu_frigate/engineering/reactor)
 "BJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufighter_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_fighter)
 "BM" = (
@@ -8132,7 +8119,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "CG" = (
@@ -8171,9 +8158,6 @@
 	pixel_x = -4
 	},
 /obj/machinery/light,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/wood,
 /area/ship/xanu_frigate/rec_room)
 "CO" = (
@@ -8504,7 +8488,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/xanu_boarder/main)
 "DL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/hangar)
 "DO" = (
@@ -8698,7 +8682,6 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "Eu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
@@ -8710,6 +8693,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/main)
 "Ev" = (
@@ -8812,8 +8796,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/item/rig/combat/xanu/equipped,
 /obj/machinery/light,
+/obj/item/rig/xanu/equipped,
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "EO" = (
@@ -9005,7 +8989,6 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "Fr" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
@@ -9018,6 +9001,7 @@
 	dir = 1;
 	name = "starboard, engine"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/engineering)
 "Ft" = (
@@ -9110,6 +9094,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "xanufrigate_ert";
+	name = "igs - xanufrigate_ert"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "FS" = (
@@ -9196,12 +9184,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/eva)
 "Ge" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	name = "Privacy Shutters";
 	id = "xanufrigate_meetingprivacy"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/meeting)
 "Gf" = (
@@ -9332,12 +9320,12 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "GF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
 	id = "xanufighter_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_fighter)
 "GL" = (
@@ -9507,7 +9495,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "Hm" = (
@@ -9763,7 +9751,6 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "HS" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
@@ -9774,6 +9761,7 @@
 	name = "Privacy Shutters";
 	id = "xanufrigate_meetingprivacy"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/meeting)
 "HU" = (
@@ -9893,7 +9881,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
 "Iq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/eva)
 "Ir" = (
@@ -10028,7 +10016,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "IS" = (
@@ -10292,12 +10280,12 @@
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/weapon/longbow)
 "JH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	name = "Privacy Shutters";
 	id = "xanufrigate_medbayprivacy"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/medbay)
 "JJ" = (
@@ -10647,7 +10635,7 @@
 "Ky" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/rig/combat/xanu/equipped,
+/obj/item/rig/xanu/equipped,
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "Kz" = (
@@ -10798,7 +10786,6 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/corridor/starboard)
 "KW" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
@@ -10809,6 +10796,7 @@
 	name = "Privacy Shutters";
 	id = "xanufrigate_meetingprivacy"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/meeting)
 "KY" = (
@@ -11125,15 +11113,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/hangar)
-"Mf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
-/obj/structure/table/reinforced/steel,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/ship/xanu_frigate/brig)
 "Mg" = (
 /obj/machinery/door/airlock{
 	name = "Head";
@@ -11451,7 +11430,6 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/main)
 "Np" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -11465,6 +11443,7 @@
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/bridge)
 "Ns" = (
@@ -12340,6 +12319,12 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -20;
+	id = "xanuboarder_ext";
+	name = "Window Shutters";
+	req_access = list(222)
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_boarder/engineering)
 "QB" = (
@@ -12543,7 +12528,6 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/custodial)
 "Rf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
@@ -12555,6 +12539,7 @@
 	name = "Privacy Shutters";
 	id = "xanufrigate_meetingprivacy"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/meeting)
 "Rg" = (
@@ -12715,6 +12700,10 @@
 /obj/item/ammo_magazine/c46m,
 /obj/item/ammo_magazine/c46m,
 /obj/item/ammo_magazine/c46m,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "RH" = (
@@ -13100,12 +13089,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/hydroponics)
 "SR" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufrigate_exterior_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/galley)
 "SU" = (
@@ -13620,7 +13609,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "UL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/rec_room)
 "UM" = (
@@ -13888,6 +13877,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "xanufrigate_ert";
+	name = "igs - xanufrigate_ert"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "VF" = (
@@ -14108,7 +14101,7 @@
 /area/ship/xanu_frigate/corridor/central)
 "Wj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "Wk" = (
@@ -14493,7 +14486,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/longbow)
 "XK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/cic)
 "XL" = (
@@ -14820,7 +14813,6 @@
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "YF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/coalition/grille/firedoor,
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
@@ -14834,6 +14826,7 @@
 	name = "Privacy Shutters";
 	id = "xanufrigate_meetingprivacy"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/meeting)
 "YH" = (
@@ -44409,7 +44402,7 @@ aM
 aM
 aM
 lo
-AQ
+iA
 iA
 lo
 Zm
@@ -50029,7 +50022,7 @@ Wj
 jn
 Hf
 cG
-Mf
+mg
 Mo
 Lb
 mg
