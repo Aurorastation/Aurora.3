@@ -7578,6 +7578,9 @@
 /obj/item/ammo_magazine/c46m/extended,
 /obj/item/ammo_magazine/c46m/extended,
 /obj/item/ammo_magazine/c46m/extended,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
 "AJ" = (
@@ -8770,7 +8773,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/light,
 /obj/item/rig/xanu/equipped,
 /turf/simulated/floor/reinforced,
 /area/ship/xanu_frigate/cic)
@@ -11206,6 +11208,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
+"MF" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/rig/xanu/equipped,
+/obj/machinery/light,
+/turf/simulated/floor/reinforced,
+/area/ship/xanu_frigate/cic)
 "MG" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -12655,25 +12664,22 @@
 /obj/item/gun/projectile/xanupistol,
 /obj/item/gun/projectile/xanupistol,
 /obj/item/gun/projectile/xanupistol,
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
 /obj/structure/sign/flag/xanu{
 	pixel_y = 32;
 	stand_icon = "banner"
 	},
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/clothing/accessory/holster/hip,
-/obj/item/clothing/accessory/holster/hip,
-/obj/item/clothing/accessory/holster/hip,
-/obj/item/clothing/accessory/holster/hip,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "RH" = (
@@ -47947,7 +47953,7 @@ om
 By
 RF
 FQ
-Ky
+MF
 By
 zd
 Vy
