@@ -58,15 +58,27 @@
 	},
 /area/adhomian_circus/starboard)
 "akn" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
 	},
-/obj/machinery/light/small{
-	dir = 8
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/adhomian_circus_shuttle,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "alY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -96,7 +108,6 @@
 /area/adhomian_circus/bridge)
 "ara" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
 /area/adhomian_circus/engine)
 "atO" = (
@@ -263,14 +274,10 @@
 	},
 /area/adhomian_circus/maintenance)
 "bmD" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "bpn" = (
 /obj/item/device/flashlight/lamp/stage,
@@ -289,16 +296,16 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/maintenance)
 "bsf" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
-/area/shuttle/adhomian_circus_shuttle)
+/area/adhomian_circus/hangar)
 "bsl" = (
-/obj/effect/landmark/entry_point/east{
-	name = "port, crew compartment"
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
@@ -369,22 +376,14 @@
 /turf/simulated/floor/airless,
 /area/adhomian_circus/bridge)
 "bNj" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
 	},
-/obj/structure/fuel_port/hydrogen{
-	pixel_y = -32
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "bOm" = (
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "bSj" = (
 /obj/structure/railing/mapped,
@@ -524,10 +523,12 @@
 	},
 /area/adhomian_circus/fortune)
 "cBJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable,
+/obj/machinery/light{
+	dir = 4
 	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "cCN" = (
 /obj/structure/cable/green{
@@ -713,12 +714,40 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
 "dzv" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/adhomian_circus_shuttle,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/adhomian_circus_shuttle)
 "dAH" = (
 /obj/effect/floor_decal/corner/brown{
@@ -768,13 +797,13 @@
 	},
 /area/adhomian_circus/port)
 "dOG" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/adhomian_circus/hangar)
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
 "dOO" = (
 /obj/machinery/computer/ship/engines{
 	dir = 1
@@ -985,11 +1014,9 @@
 	},
 /area/adhomian_circus/starboard)
 "eQz" = (
-/obj/effect/overmap/visitable/ship/landable/adhomian_circus_shuttle,
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/machinery/atmospherics/binary/pump/fuel/on,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "eRx" = (
 /turf/simulated/floor/holofloor/tiled/ramp{
@@ -1019,15 +1046,19 @@
 	},
 /area/adhomian_circus/port)
 "fay" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
+	d1 = 4;
 	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
-/area/shuttle/adhomian_circus_shuttle)
+/area/adhomian_circus/hangar)
 "fcj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1078,9 +1109,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine)
 "fwf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1098,16 +1127,36 @@
 	},
 /area/adhomian_circus/starboard)
 "fzC" = (
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
-/area/adhomian_circus/hangar)
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/adhomian_circus_shuttle)
 "fDc" = (
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
+"fDP" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/turf/simulated/floor/plating,
+/area/adhomian_circus/hangar)
 "fFD" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1127,8 +1176,24 @@
 	},
 /area/adhomian_circus/port)
 "fHU" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/obj/effect/shuttle_landmark/adhomian_circus/dock/port{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/adhomian_circus/hangar)
 "fLF" = (
 /obj/effect/floor_decal/corner/brown{
@@ -1210,15 +1275,16 @@
 	},
 /area/adhomian_circus/port)
 "gkO" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/machinery/iff_beacon/name_change,
-/obj/structure/railing/mapped{
+/obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "gly" = (
 /obj/effect/floor_decal/corner{
@@ -1384,10 +1450,7 @@
 /area/adhomian_circus/port)
 "hdA" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
-/obj/machinery/meter,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine)
 "hke" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
@@ -1552,14 +1615,10 @@
 	},
 /area/adhomian_circus/clown)
 "iGV" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "iJi" = (
 /obj/machinery/light/small{
@@ -1650,10 +1709,13 @@
 	},
 /area/adhomian_circus/maintenance)
 "jcV" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "jeu" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -1672,20 +1734,14 @@
 	},
 /area/adhomian_circus/port)
 "jjh" = (
-/obj/effect/shuttle_landmark/adhomian_circus/nav1,
+/obj/effect/shuttle_landmark/adhomian_circus/nav1{
+	dir = 1
+	},
 /turf/template_noop,
 /area/space)
 "jjZ" = (
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc/west{
-	req_access = list(202)
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "jqO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1702,21 +1758,30 @@
 	},
 /area/adhomian_circus/starboard)
 "juq" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/adhomian_circus_shuttle)
-"jwF" = (
-/obj/machinery/light/small{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
 	},
-/area/adhomian_circus/hangar)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
+"jwF" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/green{
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/obj/item/hullbeacon/red{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/shuttle/adhomian_circus_shuttle)
 "jzx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -1780,6 +1845,16 @@
 "jQR" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine/port)
+"jRG" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon{
+	pixel_y = 4
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/adhomian_circus_shuttle)
 "jSm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1793,12 +1868,15 @@
 	},
 /area/adhomian_circus/maintenance)
 "jSL" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/power/apc/east{
+	req_access = null
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "jZG" = (
 /obj/structure/cable/green{
@@ -1820,22 +1898,22 @@
 	},
 /area/adhomian_circus/fortune)
 "kbv" = (
-/obj/machinery/power/terminal{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/adhomian_circus_shuttle)
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/turf/simulated/floor/plating,
+/area/adhomian_circus/hangar)
 "kls" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/south{
-	name = "fore, engine"
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/shipsensors/weak{
+	pixel_y = 4;
+	pixel_x = -1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/adhomian_circus_shuttle)
@@ -1887,7 +1965,6 @@
 /area/adhomian_circus/tamer)
 "kvN" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
@@ -1940,13 +2017,9 @@
 	},
 /area/adhomian_circus/starboard)
 "kKS" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
-/area/adhomian_circus/hangar)
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
 "kMJ" = (
 /obj/machinery/vending/boozeomat{
 	req_access = null
@@ -2009,15 +2082,21 @@
 	},
 /area/adhomian_circus/port)
 "kUb" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
-	dir = 4
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating{
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "adhomian_circus_shuttle_dock";
+	tag_door = "circus_hangar_door";
+	pixel_x = -28
+	},
+/turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
-/area/shuttle/adhomian_circus_shuttle)
+/area/adhomian_circus/hangar)
 "kUM" = (
 /turf/simulated/floor/holofloor/tiled/ramp{
 	dir = 1;
@@ -2051,11 +2130,12 @@
 	},
 /area/adhomian_circus/maintenance)
 "lia" = (
-/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/adhomian_circus/hangar)
+/area/adhomian_circus/engine)
 "lln" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2164,7 +2244,9 @@
 	},
 /area/adhomian_circus/clown)
 "lGK" = (
-/obj/effect/shuttle_landmark/adhomian_circus/nav3,
+/obj/effect/shuttle_landmark/adhomian_circus/nav3{
+	dir = 8
+	},
 /turf/template_noop,
 /area/space)
 "lHi" = (
@@ -2234,16 +2316,17 @@
 	},
 /area/adhomian_circus/tamer)
 "lYK" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
-/obj/structure/bed/stool/chair/shuttle{
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/adhomian_circus_shuttle)
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/turf/simulated/floor/plating,
+/area/adhomian_circus/hangar)
 "lYX" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
@@ -2364,15 +2447,16 @@
 	},
 /area/adhomian_circus/starboard)
 "mvI" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/obj/structure/bed/stool/chair/shuttle{
+/obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/light{
+	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "mIJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2389,6 +2473,18 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/maintenance)
+"mLH" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/turf/simulated/floor/tiled/dark,
+/area/adhomian_circus/hangar)
 "mNK" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -2464,13 +2560,15 @@
 	},
 /area/adhomian_circus/fortune)
 "nbY" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
 	},
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
 	},
-/area/adhomian_circus/hangar)
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
 "ndt" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
@@ -2515,6 +2613,13 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/hangar)
+"njB" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
 "npy" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, stage"
@@ -2599,6 +2704,22 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
+"nBx" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/adhomian_circus_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
 "nCk" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2627,27 +2748,36 @@
 	},
 /area/adhomian_circus/maintenance)
 "nDF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/turf/simulated/floor/plating,
 /area/adhomian_circus/hangar)
 "nNZ" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "adhomian_circus_shuttle_out";
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/adhomian_circus_shuttle)
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/turf/simulated/floor/tiled/dark,
+/area/adhomian_circus/hangar)
 "nTh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2664,7 +2794,9 @@
 	},
 /area/adhomian_circus/crew)
 "nTy" = (
-/obj/effect/shuttle_landmark/adhomian_circus/nav2,
+/obj/effect/shuttle_landmark/adhomian_circus/nav2{
+	dir = 4
+	},
 /turf/template_noop,
 /area/space)
 "nUu" = (
@@ -2673,8 +2805,22 @@
 	},
 /area/adhomian_circus/clown)
 "nVg" = (
-/obj/effect/map_effect/airlock/s_to_n/long,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/adhomian_circus/dock/port,
+/turf/simulated/floor/tiled/dark,
 /area/adhomian_circus/hangar)
 "nWC" = (
 /obj/effect/floor_decal/corner_wide/grey/full{
@@ -2712,10 +2858,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/maintenance)
-"oaV" = (
-/obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar,
-/turf/template_noop,
-/area/space)
 "ocw" = (
 /obj/item/dumbbell/barbell/hundredeighty,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2736,13 +2878,20 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/port)
 "onz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/north{
-	name = "aft, bridge"
+/obj/machinery/power/terminal{
+	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "oov" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -2794,18 +2943,22 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "oGi" = (
-/obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "adhomian_circus_shuttle";
-	tag_door = "adhomian_circus_shuttle_out";
-	pixel_x = -24
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "oHV" = (
 /turf/space,
@@ -2814,9 +2967,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine/port)
 "oTz" = (
 /obj/item/reagent_containers/food/snacks/egg/schlorrgo,
@@ -2889,12 +3040,12 @@
 	},
 /area/adhomian_circus/fortune)
 "pgu" = (
-/obj/machinery/computer/ship/engines{
-	dir = 8
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/adhomian_circus_shuttle,
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/adhomian_circus_shuttle)
 "piq" = (
 /turf/simulated/floor/tiled{
@@ -2929,15 +3080,13 @@
 	},
 /area/adhomian_circus/engine/port)
 "prU" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/adhomian_circus_shuttle)
 "psN" = (
 /obj/structure/cable/green{
@@ -2950,14 +3099,26 @@
 	},
 /area/adhomian_circus/hangar)
 "pLA" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "circus_hangar_door";
+	locked = 1;
+	req_access = list(202);
+	dir = 1
 	},
-/obj/structure/extinguisher_cabinet/west,
+/obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/shuttle/adhomian_circus_shuttle)
+/area/adhomian_circus/hangar)
 "pOw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3083,11 +3244,14 @@
 	},
 /area/adhomian_circus/engine)
 "qtp" = (
-/obj/structure/table/standard,
-/obj/item/storage/bag/inflatable,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "qvv" = (
 /obj/effect/floor_decal/corner/lime,
@@ -3138,23 +3302,9 @@
 	},
 /area/adhomian_circus/bridge)
 "qLr" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "circus_hangar_door";
-	locked = 1;
-	req_access = list(202);
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/adhomian_circus/hangar)
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/adhomian_circus_shuttle)
 "qOv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3206,11 +3356,10 @@
 	},
 /area/adhomian_circus/engine)
 "raB" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/adhomian_circus_shuttle)
 "rnu" = (
 /obj/machinery/light{
@@ -3398,10 +3547,13 @@
 	},
 /area/adhomian_circus/hangar)
 "skB" = (
-/obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "sth" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3435,17 +3587,8 @@
 	},
 /area/adhomian_circus/port)
 "sBE" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
 /area/shuttle/adhomian_circus_shuttle)
 "sMK" = (
 /obj/item/reagent_containers/food/snacks/pie,
@@ -3541,9 +3684,14 @@
 	},
 /area/adhomian_circus/hangar)
 "sTW" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/airless,
+/obj/machinery/atmospherics/portables_connector/fuel,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "sVk" = (
 /turf/simulated/floor/tiled{
@@ -3579,18 +3727,8 @@
 	},
 /area/adhomian_circus/starboard)
 "tmJ" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "adhomian_circus_shuttle_out";
-	dir = 4
-	},
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, crew compartment"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "tqA" = (
 /obj/machinery/door/airlock/hatch{
@@ -3617,50 +3755,16 @@
 	},
 /area/adhomian_circus/port)
 "tvi" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
 	},
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock{
-	start_pressure = 1000.97
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window{
-	req_access = list(202)
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/adhomian_circus/hangar)
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/adhomian_circus_shuttle)
 "txZ" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine/port)
-"tAG" = (
-/obj/machinery/alarm/cold/north{
-	req_one_access = null;
-	req_access = list(202)
-	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/adhomian_circus_shuttle)
 "tHa" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -3692,24 +3796,15 @@
 /area/adhomian_circus/hangar)
 "tJW" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
+/turf/simulated/wall/shuttle/space_ship,
+/area/adhomian_circus/engine/port)
+"tPC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine/port)
-"tPC" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "circus_hangar_door";
-	locked = 1;
-	req_access = list(202);
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/adhomian_circus/hangar)
 "tPX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
@@ -3727,16 +3822,23 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/starboard)
-"tZg" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
+"tWR" = (
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
+/obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
+"tZg" = (
+/obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/airless,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "ujs" = (
 /obj/machinery/light/small{
@@ -3795,7 +3897,6 @@
 /area/adhomian_circus/port)
 "uMY" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
@@ -3921,16 +4022,11 @@
 	},
 /area/adhomian_circus/port)
 "vuS" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "adhomian_circus_shuttle_dock";
-	tag_door = "circus_hangar_door";
-	pixel_x = -28
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/adhomian_circus/hangar)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
 "vyl" = (
 /obj/machinery/alarm/cold/north{
 	req_one_access = null;
@@ -3990,9 +4086,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine)
 "vFj" = (
 /obj/item/trap/animal/medium,
@@ -4167,7 +4261,6 @@
 /area/adhomian_circus/port)
 "wEA" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
 /area/adhomian_circus/engine/port)
 "wFh" = (
@@ -4195,9 +4288,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine/port)
 "wLA" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -4368,6 +4459,24 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/port)
+"xUF" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/closet/crate/internals,
+/obj/item/storage/bag/inflatable,
+/obj/item/device/oxycandle,
+/obj/item/tank/emergency_oxygen{
+	pixel_x = 5
+	},
+/obj/item/tank/emergency_oxygen/engi{
+	pixel_x = -3
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/adhomian_circus_shuttle)
 "xWm" = (
 /obj/structure/table/wood,
 /obj/item/razor,
@@ -41015,7 +41124,7 @@ xRX
 xRX
 kvN
 hdA
-hke
+lia
 hke
 hke
 vBV
@@ -43052,12 +43161,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+oFG
+oFG
+oFG
+prU
+tmJ
+oFG
 xRX
 xRX
 xRX
@@ -43308,15 +43417,15 @@ xRX
 xRX
 xRX
 xRX
-xRX
-oaV
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+sBE
+tvi
+sTW
+eQz
+njB
+xUF
+oFG
+prU
+oFG
 xRX
 xRX
 dPw
@@ -43560,21 +43669,21 @@ xRX
 xRX
 xRX
 xRX
-oFG
-oFG
-oFG
-oFG
-oFG
+xRX
+xRX
+gdx
+gdx
+gdx
 oFG
 bsl
-oFG
-oFG
-oFG
-oFG
+jjZ
+dOG
+nbY
+jcV
 gkO
-xRX
-xRX
-xRX
+tWR
+oFG
+oFG
 xRX
 ngK
 xWm
@@ -43817,21 +43926,21 @@ xRX
 xRX
 xRX
 xRX
-sTW
-lYK
-jjZ
+xRX
+xRX
+gdx
 kUb
 pLA
 akn
 dzv
-dzv
+nBx
 oGi
 raB
-cBJ
-xRX
-xRX
-xRX
-xRX
+pgu
+kKS
+kKS
+vuS
+fzC
 xRX
 ngK
 vzp
@@ -44074,21 +44183,21 @@ xRX
 xRX
 xRX
 xRX
-kls
-jcV
-prU
-sBE
+xRX
+xRX
+gdx
+jLO
+gdx
 bOm
-bOm
-bOm
-eQz
+bNj
+oFG
 skB
 juq
 onz
-xRX
-xRX
-xRX
-xRX
+mvI
+tZg
+oFG
+oFG
 xRX
 ngK
 wwC
@@ -44331,20 +44440,20 @@ xRX
 xRX
 xRX
 xRX
-sTW
-mvI
-pgu
+xRX
+xRX
+gdx
 fay
-kbv
-bmD
+gdx
+sBE
 bmD
 iGV
 qtp
 jSL
 cBJ
-xRX
-xRX
-xRX
+oFG
+prU
+oFG
 xRX
 xRX
 ngK
@@ -44588,21 +44697,21 @@ xRX
 xRX
 xRX
 xRX
-oFG
-oFG
-oFG
-oFG
-tAG
-bsf
-bOm
-bNj
-oFG
-oFG
-oFG
-tZg
 xRX
 xRX
+gdx
+jLO
+gdx
 xRX
+oFG
+oFG
+oFG
+oFG
+qLr
+oFG
+kls
+jRG
+jwF
 xRX
 ngK
 ngK
@@ -44847,13 +44956,13 @@ xRX
 xRX
 xRX
 xRX
+gdx
+jLO
+gdx
 xRX
-oFG
-oFG
-oFG
-tmJ
-nNZ
-oFG
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -45102,14 +45211,14 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
 gdx
 gdx
-tPC
-qLr
+gdx
+jLO
+gdx
+gdx
+gdx
+gdx
 gdx
 gdx
 gdx
@@ -45359,20 +45468,20 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
 gdx
-tvi
+eih
 sQN
 jLO
-vuS
-cUR
-njy
-njy
 njy
 cUR
+njy
+njy
+njy
+njy
+njy
+cUR
+irI
+irI
 irI
 njy
 njy
@@ -45616,12 +45725,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
 gdx
-nDF
-nDF
-nVg
-dOG
+njy
 sQN
 jLO
 njy
@@ -45630,6 +45735,10 @@ njy
 njy
 njy
 njy
+njy
+njy
+vLy
+vLy
 vLy
 njy
 njy
@@ -45873,12 +45982,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-fzC
-fzC
-jwF
-fzC
-kKS
+gdx
+njy
 sQN
 sSK
 psN
@@ -45887,6 +45992,10 @@ psN
 psN
 psN
 psN
+psN
+psN
+seg
+seg
 seg
 fdH
 fdH
@@ -46130,10 +46239,6 @@ xRX
 xRX
 xRX
 xRX
-xRX
-gdx
-nDF
-nDF
 gdx
 njy
 sQN
@@ -46144,6 +46249,10 @@ njy
 njy
 njy
 njy
+njy
+njy
+byG
+byG
 byG
 njy
 njy
@@ -46387,20 +46496,20 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
 gdx
 eih
 sQN
-nbY
+bsf
 wLD
 aaA
 njy
 njy
 njy
+njy
+njy
 aaA
+vHi
+vHi
 vHi
 njy
 njy
@@ -46644,15 +46753,15 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
 gdx
 gdx
-fzC
-fzC
-fHU
+mLH
+nVg
+gdx
+gdx
+gdx
+gdx
+gdx
 gdx
 gdx
 gdx
@@ -46902,14 +47011,14 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+gdx
 nDF
-fzC
-lia
-nDF
+kbv
+gdx
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -47159,14 +47268,14 @@ xRX
 xRX
 xRX
 xRX
+gdx
+fDP
+lYK
+gdx
 xRX
 xRX
 xRX
 xRX
-nDF
-fzC
-fzC
-nDF
 xRX
 xRX
 xRX
@@ -47416,14 +47525,14 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
 gdx
-fzC
-fzC
+fHU
+nNZ
 gdx
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -49733,7 +49842,7 @@ xRX
 xRX
 xRX
 xRX
-lGK
+xRX
 xRX
 xRX
 xRX
@@ -50781,7 +50890,7 @@ xRX
 xRX
 uMY
 tJW
-vNj
+tPC
 vNj
 vNj
 gVY
@@ -53081,7 +53190,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+lGK
 xRX
 xRX
 xRX

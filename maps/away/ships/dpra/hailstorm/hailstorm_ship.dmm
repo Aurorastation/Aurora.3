@@ -1457,6 +1457,12 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/crew)
+"jZ" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "ke" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -2403,6 +2409,10 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engine)
+"vY" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "wi" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -13010,13 +13020,13 @@ iB
 iB
 iB
 iB
+jZ
 iB
 iB
+jZ
 iB
 iB
-iB
-iB
-iB
+jZ
 iB
 iB
 iB
@@ -13342,7 +13352,7 @@ iB
 iB
 iB
 iB
-iB
+vY
 iB
 iB
 iB
@@ -13828,7 +13838,7 @@ iB
 iB
 iB
 iB
-iB
+vY
 Hs
 Ry
 AP
@@ -14314,7 +14324,7 @@ iB
 iB
 iB
 iB
-iB
+vY
 in
 in
 in
@@ -14476,10 +14486,10 @@ iB
 iB
 iB
 iB
-iB
 in
 in
 UW
+in
 in
 cr
 cr
@@ -14638,13 +14648,13 @@ iB
 iB
 iB
 iB
-iB
 mH
 dw
 Sw
 PC
 ne
 EV
+cr
 WG
 la
 Hm
@@ -14800,13 +14810,13 @@ iB
 iB
 iB
 iB
-iB
 WW
 JS
 wi
 Fe
 cr
 gD
+cr
 WG
 wm
 nj
@@ -14962,13 +14972,13 @@ iB
 iB
 iB
 iB
-iB
 in
 in
 in
 in
 nV
 Ml
+cr
 WG
 gq
 IG
@@ -15124,7 +15134,7 @@ iB
 iB
 iB
 iB
-iB
+vY
 iB
 iB
 iB
@@ -15610,7 +15620,7 @@ iB
 iB
 iB
 iB
-iB
+vY
 iB
 iB
 iB
@@ -16096,7 +16106,7 @@ iB
 iB
 iB
 iB
-iB
+vY
 in
 cr
 cr
@@ -16412,13 +16422,13 @@ iB
 iB
 iB
 iB
+jZ
 iB
 iB
+jZ
 iB
 iB
-iB
-iB
-iB
+jZ
 iB
 iB
 in
