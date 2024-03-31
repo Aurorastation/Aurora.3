@@ -165,17 +165,17 @@
 		var/atom/movable/M = trading_items[num]
 		return "[initial(M.name)]"
 
-/datum/trader/proc/get_item_value(var/trading_num, var/mob/user)
+/datum/trader/proc/get_item_value(var/trading_num)
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
 		// defaults at 1, adjusts based on bias
 		var/modifier = 1
-		var/bias = get_bias(user)
+		var/bias = get_bias(usr)
 		if(bias == TRADER_BIAS_UPCHARGE)
 			modifier = 1.2 // 20% upcharge
 		else if(bias == TRADER_BIAS_DISCOUNT)
-			modifier = 0.9 // 10% discount
+			modifier = 0.8 // 20% discount
 		value = round((rand(80,100)/100 * value) * modifier) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
 	return trading_items[trading_items[trading_num]]

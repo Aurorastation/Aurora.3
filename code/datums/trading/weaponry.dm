@@ -100,6 +100,9 @@
 		"insult_good"       = "Good one, comrrrade!",
 		"insult_bad"        = "Rrrracist!"
 	)
+	species_bias = list(
+		ALL_TAJARA_SPECIES = TRADER_BIAS_DISCOUNT
+	)
 
 	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
