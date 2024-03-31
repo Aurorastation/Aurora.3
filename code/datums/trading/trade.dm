@@ -95,6 +95,21 @@
 		pool[pool[i]] = null
 		pool -= pool[i]
 
+/// Gets bias from trader
+/datum/trader/proc/get_bias(var/mob/user)
+	var/species
+	if(ishuman(user))
+		var/mob/living/carbon/human/person = user
+		species = person.species.name
+	else if (issilicon(user))
+		species = "Silicon"
+
+	if(!species || !species_bias) // No species to be biased against
+		return FALSE
+
+	if(species in species_bias)
+		return species_bias[species]
+
 /datum/trader/proc/add_to_pool(var/list/pool, var/list/possible, var/base_chance = 100, var/force = 0)
 	var/divisor = 1
 	if(pool && pool.len)
@@ -141,12 +156,17 @@
 		var/atom/movable/M = trading_items[num]
 		return "[initial(M.name)]"
 
-/datum/trader/proc/get_item_value(var/trading_num)
+/datum/trader/proc/get_item_value(var/trading_num, var/mob/user)
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
 		// defaults at 1, adjusts based on bias
 		var/modifier = 1
+		var/bias = get_bias(user)
+		if(bias == TRADER_BIAS_UPCHARGE)
+			modifier = 1.2 // 20% upcharge
+		else if(bias == TRADER_BIAS_DISCOUNT)
+			modifier = 0.9 // 10% discount
 		value = round((rand(80,100)/100 * value) * modifier) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
 	return trading_items[trading_items[trading_num]]
@@ -235,21 +255,8 @@
 /datum/trader/proc/can_hail(var/mob/user)
 	if(!refuse_comms && prob(-disposition))
 		refuse_comms = TRUE
-
-	//check for blacklist bias
-	var/species
-	if(ishuman(user))
-		var/mob/living/carbon/human/person = user
-		species = person.species.name
-	else if (issilicon(user))
-		species = "Silicon"
-
-	var/test = species_bias
-
-	if(species in test)
-		var/status = species_bias[type]
-		if(status && TRADER_BIAS_DENY)
-			refuse_comms = TRUE
+	else if(!refuse_comms && get_bias(user) == TRADER_BIAS_DENY)
+		refuse_comms = TRUE
 
 	return !refuse_comms
 
