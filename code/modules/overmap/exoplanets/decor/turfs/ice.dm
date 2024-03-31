@@ -1,6 +1,6 @@
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"
-	icon = 'icons/turf/smooth/snow.dmi'
+	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "ice"
 	footprint_color = FALSE
 
