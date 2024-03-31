@@ -36,10 +36,20 @@
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/mineral/processing_unit_console/LateInitialize()
+	. = ..()
+	setup_machine()
+
 /obj/machinery/mineral/processing_unit_console/Destroy()
 	if(machine)
 		machine.console = null
 	return ..()
+
+/obj/machinery/mineral/processing_unit_console/proc/handle_machine_deletion()
+	SIGNAL_HANDLER
+	machine = null
 
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
@@ -49,11 +59,16 @@
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
-			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
+					break //We only link with one, no point continuing if it's ID based
+
+			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist(checked_machine, src) < best_distance)
 				machine = checked_machine
-				best_distance = get_dist_euclidian(checked_machine, src)
+				best_distance = get_dist(checked_machine, src)
+
 		if(machine)
-			machine.console = src
+			machine.link_console(src)
+			RegisterSignal(machine, COMSIG_QDELETING, PROC_REF(handle_machine_deletion))
+
 		else
 			to_chat(user, SPAN_WARNING("ERROR: Linked machine not found!"))
 
@@ -274,8 +289,13 @@
 	light_range = 3
 	var/turf/input
 	var/turf/output
+
+	///The ore redemption console that is linked to us
 	var/obj/machinery/mineral/processing_unit_console/console
-	var/sheets_per_tick = 20
+
+	///How many sheets in a second this smelter can make (more or less, rounded up depending on ticklag)
+	var/sheets_per_second = 50
+
 	var/list/ores_processing[0]
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
@@ -304,6 +324,12 @@
 		ores_processing[O] = 0
 		ores_stored[O] = 0
 
+	return INITIALIZE_HINT_LATELOAD
+
+
+/obj/machinery/mineral/processing_unit/LateInitialize()
+	. = ..()
+
 	//Locate our output and input machinery.
 	for(var/dir in GLOB.cardinal)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
@@ -326,6 +352,17 @@
 		console.machine = null
 	return ..()
 
+/obj/machinery/mineral/processing_unit/proc/link_console(obj/machinery/mineral/processing_unit_console/console_to_link)
+	if(console)
+		UnregisterSignal(console, COMSIG_QDELETING)
+		console = null
+
+	console = console_to_link
+	RegisterSignal(console, COMSIG_QDELETING, PROC_REF(handle_console_deletion))
+
+/obj/machinery/mineral/processing_unit/proc/handle_console_deletion()
+	console = null
+
 /obj/machinery/mineral/processing_unit/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
@@ -336,7 +373,7 @@
 	return ..()
 
 
-/obj/machinery/mineral/processing_unit/process()
+/obj/machinery/mineral/processing_unit/process(seconds_per_tick)
 	..()
 
 	if(!src.output || !src.input)
@@ -345,7 +382,7 @@
 	var/list/tick_alloys = list()
 
 	//Grab some more ore to process this tick.
-	for(var/i = 0, i < sheets_per_tick, i++)
+	for(var/_ in 1 to ROUND_UP(sheets_per_second*seconds_per_tick))
 		var/obj/item/ore/O = locate() in input
 		if(!O)
 			break
@@ -362,7 +399,13 @@
 	//Process our stored ores and spit out sheets.
 	var/sheets = 0
 	for(var/metal in ores_stored)
-		if(sheets >= sheets_per_tick)
+		if(src.stat & NOPOWER)
+			return
+
+		if(TICK_CHECK)
+			return
+
+		if(sheets >= ROUND_UP(sheets_per_second*seconds_per_tick))
 			break
 
 		if(ores_stored[metal] > 0 && ores_processing[metal] != 0)
@@ -396,19 +439,19 @@
 							if(console)
 								var/ore/Ore = GLOB.ore_data[needs_metal]
 								console.points += Ore.worth
-							use_power_oneoff(100)
+							use_power_oneoff(300)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
 							total = max(1, round(total * A.product_mod)) //Always get at least one sheet.
 							sheets += total - 1
 
-						for(var/i = 0, i < total, i++)
+						for(var/_ in 1 to total)
 							if(console)
 								console.alloy_mats[A] = console.alloy_mats[A] + 1
 							new A.product(output)
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
-				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
+				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 				if(can_make % 2 > 0)
 					can_make--
 
@@ -417,26 +460,26 @@
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
 
-				for(var/i = 0, i < can_make, i += 2)
+				for(var/_ in 1 to (can_make*2))
 					if(console)
 						console.points += O.worth * 2
-					use_power_oneoff(100)
+					use_power_oneoff(300)
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
 					new M.stack_type(output)
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
-				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
+				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 
 				var/material/M = SSmaterials.get_material_by_name(O.smelts_to)
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
 
-				for(var/i = 0, i < can_make, i++)
+				for(var/_ in 1 to can_make)
 					if(console)
 						console.points += O.worth
-					use_power_oneoff(100)
+					use_power_oneoff(300)
 					ores_stored[metal] -= 1
 					sheets++
 					if(console)
@@ -445,15 +488,13 @@
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
-				use_power_oneoff(500)
+				use_power_oneoff(800)
 				ores_stored[metal] -= 1
 				sheets++
 				if(console)
 					console.input_mats[O] += 1
 					console.waste++
 				new /obj/item/ore/slag(output)
-		else
-			continue
 
 	if(console)
 		console.updateUsrDialog()
@@ -472,4 +513,4 @@
 		else if(ismicrolaser(P))
 			laser_rating += P.rating
 
-	sheets_per_tick += scan_rating + cap_rating + laser_rating
+	sheets_per_second += scan_rating + cap_rating + laser_rating

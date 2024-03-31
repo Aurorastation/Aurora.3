@@ -202,7 +202,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 			return
 
 		var/turf/T = P.counterpart.get_focused_turf()
-		P.vis_contents += T
+		P.add_vis_contents(T)
 
 		var/list/things = list()
 		DVIEW(things, world.view, T, INVISIBILITY_LIGHTING)
@@ -211,7 +211,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 				if(turf in observed_turfs) // Avoid showing the same turf twice or more for improved performance.
 					continue
 
-				P.vis_contents += turf
+				P.add_vis_contents(turf)
 				observed_turfs += turf
 
 		P.calculate_dimensions()

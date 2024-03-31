@@ -13,7 +13,7 @@
 	origin_tech = list(TECH_DATA = 2)
 	w_class = ITEMSIZE_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5
+	force = 11
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 15

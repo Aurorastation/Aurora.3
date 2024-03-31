@@ -25,11 +25,6 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
-	var/list/ideal_character_age = list(  // Ideal character ages (for heads), assoc list of species define -> age, see above
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 100,
-		SPECIES_SKRELL_AXIORI = 100
-	)
 
 	var/latejoin_at_spawnpoints = FALSE   //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
 
@@ -184,16 +179,6 @@
 		return min_alt_age
 	else if(title in alt_ages)
 		return (species in alt_ages[title]) ? alt_ages[title][species] : alt_ages[title][SPECIES_HUMAN]
-
-/datum/job/proc/get_ideal_character_age(var/species)
-	if(!species)
-		species = SPECIES_HUMAN
-	else if(!(species in ideal_character_age))
-		// try to see if there's a min age set -- ideally this shouldn't happen, but better to take a min age than fall back to human just yet
-		if(species in minimum_character_age) // if there is one, just add 20 and send it
-			return minimum_character_age[species] + 20
-		species = SPECIES_HUMAN // no such luck
-	return ideal_character_age[species]
 
 /datum/job/proc/fetch_age_restriction()
 	if (!GLOB.config.age_restrictions_from_file)

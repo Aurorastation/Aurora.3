@@ -5,7 +5,7 @@
 	var/datum/gas_mixture/air_temporary // used when reconstructing a pipeline that broke
 	var/datum/pipeline/parent
 	var/volume = 0
-	force = 20
+	force = 25
 
 	layer = PIPE_LAYER
 	use_power = POWER_USE_OFF

@@ -178,9 +178,9 @@
 	desc = initial(desc)
 	desc += " Uses a dedicated internal power cell to deliver [charging_power]W when in use."
 	if(weld_rate)
-		desc += "<br>It is capable of repairing structural damage."
+		desc += "<br>It is capable of repairing stationbounds' structural damage."
 	if(wire_rate)
-		desc += "<br>It is capable of repairing burn damage."
+		desc += "<br>It is capable of repairing stationbounds' burn damage."
 
 /obj/machinery/recharge_station/proc/build_overlays()
 	cut_overlays()
