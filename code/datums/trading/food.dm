@@ -274,6 +274,9 @@
 		"bribe_refusal"      = "They do not need charrrity.",
 		"bribe_accept"       = "They can stay open for a little longerrr."
 	)
+	species_bias = list(
+		ALL_TAJARA_SPECIES = TRADER_BIAS_DISCOUNT
+	)
 
 /datum/trader/unathi_food
 	name = "Sinta Restaurant"
@@ -320,4 +323,7 @@
 		"insult_bad"         = "You think we're just random tradersss?! You have no ideas who you're messsing with!",
 		"bribe_refusal"      = "Thisss iss too little,",
 		"bribe_accept"       = "Thank you for your donation!"
+	)
+	species_bias = list(
+		SPECIES_UNATHI = TRADER_BIAS_DISCOUNT
 	)

@@ -227,7 +227,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species)
 			// grab generic
-			if(H.species.name in ALL_HUMANS_SPECIES)
+			if(H.species.name in ALL_HUMAN_SPECIES)
 				general = "Human"
 			if(H.species.name in ALL_DIONA_SPECIES)
 				general = "Diona"
