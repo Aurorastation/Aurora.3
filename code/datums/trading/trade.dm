@@ -107,8 +107,17 @@
 	if(!species || !species_bias) // No species to be biased against
 		return FALSE
 
-	if(species in species_bias)
-		return species_bias[species]
+	// Flatten list
+	for(var/item in species_bias)
+		var/result = species_bias[item]
+		if(islist(item))
+			for(var/flat_item in flatten_list(item))
+				if(species == flat_item)
+					return result
+		else if(species == item)
+			return result
+	// At this point, species is not on bias list
+	return FALSE
 
 /datum/trader/proc/add_to_pool(var/list/pool, var/list/possible, var/base_chance = 100, var/force = 0)
 	var/divisor = 1
@@ -237,7 +246,7 @@
 				general = "Tajara"
 			if(H.species.name in ALL_VAURCA_SPECIES)
 				general = "Vaurca"
-			if(H.species.name in ALL_IPCS_SPECIES)
+			if(H.species.name in ALL_IPC_SPECIES)
 				general = "IPC"
 			// grab subspecies
 			specific = H.species.name
