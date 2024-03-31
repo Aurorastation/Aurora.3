@@ -203,6 +203,7 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
+/obj/item/roller,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_y = 2;
 	pixel_x = -5
@@ -1802,10 +1803,12 @@
 "gs" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/glass/phoronrglass/full,
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/glass/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "gu" = (
@@ -3277,7 +3280,6 @@
 	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
@@ -3518,7 +3520,10 @@
 	dir = 9
 	},
 /obj/machinery/iv_drip,
-/obj/structure/curtain/open/medical,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "mr" = (
@@ -4126,9 +4131,6 @@
 "of" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /obj/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -6356,6 +6358,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "wb" = (
@@ -6388,6 +6394,7 @@
 /obj/effect/floor_decal/industrial/hatch_tiny{
 	color = "#6a97b0"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "wj" = (
@@ -7263,6 +7270,9 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -7657,8 +7667,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/crew_quarters)
@@ -10420,7 +10430,6 @@
 	id = "xanufrigate_medbayprivacy";
 	name = "Privacy Shutters"
 	},
-/obj/structure/curtain/open/medical,
 /obj/structure/table/steel,
 /obj/item/device/mass_spectrometer,
 /turf/simulated/floor/tiled/white,
@@ -11617,6 +11626,9 @@
 /obj/structure/disposalpipe/junction{
 	dir = 4;
 	icon_state = "pipe-j2"
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
@@ -13527,11 +13539,10 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/mess_hall)
 "Uz" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/curtain/open/medical,
-/turf/simulated/floor/tiled/white,
-/area/ship/xanu_frigate/medbay)
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/engineering/port)
 "UA" = (
 /obj/machinery/power/apc/west,
 /obj/effect/floor_decal/corner_wide/blue{
@@ -14073,8 +14084,7 @@
 /area/ship/xanu_frigate/corridor/central)
 "Wj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/ship/xanu_frigate/engineering/port)
 "Wk" = (
 /turf/simulated/floor/tiled/gunmetal,
@@ -14306,6 +14316,10 @@
 "Xf" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
@@ -46438,7 +46452,7 @@ pS
 WE
 oU
 Bs
-Uz
+lG
 lG
 Wc
 Po
@@ -49733,7 +49747,7 @@ cG
 cG
 VK
 ln
-Mz
+Uz
 RX
 qc
 cG
