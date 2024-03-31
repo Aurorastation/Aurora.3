@@ -2,8 +2,15 @@
 "a" = (
 /turf/template_noop,
 /area/space)
+"b" = (
+/obj/machinery/suit_cycler{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
 "d" = (
-/obj/machinery/computer/ship/helm,
+/obj/structure/table/rack/no_cargo,
+/obj/item/material/harpoon,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "e" = (
@@ -12,20 +19,19 @@
 /area/space)
 "f" = (
 /obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/space)
 "g" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/computer/ship/sensors{
+	dir = 8;
+	icon_rotation = 1
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled/steel,
 /area/space)
 "h" = (
-/turf/simulated/floor,
+/obj/item/trap/punji/deployed,
+/turf/simulated/floor/airless,
 /area/space)
 "i" = (
 /obj/structure/lattice/catwalk,
@@ -34,125 +40,119 @@
 "k" = (
 /turf/space/transit/north,
 /area/space)
-"m" = (
-/obj/machinery/computer/ship/engines{
+"n" = (
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
-/area/space)
-"n" = (
-/obj/effect/landmark{
-	name = "carpspawn"
-	},
-/turf/template_noop,
-/area/space)
-"o" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "p" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space)
 "q" = (
-/obj/structure/railing/mapped,
-/obj/machinery/iff_beacon,
-/turf/simulated/floor/airless,
-/area/space)
-"r" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/plating,
-/area/space)
-"t" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating,
-/area/space)
-"x" = (
-/obj/structure/railing/mapped,
-/obj/machinery/shipsensors/weak,
-/turf/simulated/floor/airless,
-/area/space)
-"y" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"z" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space)
-"A" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/material/harpoon,
-/turf/simulated/floor/tiled/steel,
-/area/space)
-"B" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
-"C" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"H" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/plating,
-/area/space)
-"I" = (
-/turf/simulated/floor/tiled/steel,
-/area/space)
-"J" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/space)
-"K" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"L" = (
-/obj/machinery/suit_cycler{
-	req_access = null
-	},
-/turf/simulated/floor/tiled/steel,
-/area/space)
-"P" = (
-/turf/simulated/floor/airless,
-/area/space)
-"S" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/steel,
 /area/space)
-"T" = (
-/obj/machinery/iff_beacon,
-/turf/simulated/floor/airless,
-/area/space)
-"X" = (
-/obj/machinery/shipsensors/weak,
-/turf/simulated/floor/airless,
-/area/space)
-"Y" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8;
-	icon_rotation = 1
+"r" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
-"Z" = (
-/obj/item/trap/punji/deployed,
+"t" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/space)
+"v" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/space)
+"y" = (
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"z" = (
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
+"B" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/space)
+"C" = (
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
+/area/space)
+"D" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"E" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"F" = (
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/space)
+"G" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/space)
+"I" = (
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"K" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"P" = (
+/turf/simulated/floor/airless,
+/area/space)
+"T" = (
+/obj/structure/railing/mapped,
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/space)
+"V" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/space)
+"W" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"X" = (
+/turf/simulated/floor,
+/area/space)
+"Y" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/space)
+"Z" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
 /area/space)
 
 (1,1,1) = {"
@@ -6254,7 +6254,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -6893,7 +6893,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -8335,7 +8335,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -8345,19 +8345,19 @@ a
 a
 P
 P
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
 P
 P
 a
@@ -9801,18 +9801,18 @@ a
 a
 P
 P
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
 P
 P
 a
@@ -9925,7 +9925,7 @@ a
 a
 a
 a
-r
+v
 B
 I
 I
@@ -10087,7 +10087,7 @@ a
 a
 a
 a
-r
+v
 B
 I
 I
@@ -10144,7 +10144,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -10249,7 +10249,7 @@ a
 a
 a
 a
-r
+v
 B
 I
 I
@@ -10411,7 +10411,7 @@ a
 a
 a
 a
-r
+v
 B
 I
 I
@@ -11258,16 +11258,16 @@ a
 a
 P
 P
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
 P
 P
 a
@@ -11405,8 +11405,8 @@ I
 I
 I
 K
-h
-h
+X
+X
 K
 i
 i
@@ -11567,8 +11567,8 @@ I
 I
 I
 K
-h
-h
+X
+X
 K
 i
 i
@@ -12029,12 +12029,12 @@ a
 a
 a
 a
-X
+F
 B
 t
 t
 B
-T
+C
 a
 B
 I
@@ -12062,7 +12062,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -12212,19 +12212,19 @@ B
 B
 B
 B
-L
+b
 I
 I
 I
-A
+d
 B
-o
+W
 a
 a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -12374,42 +12374,42 @@ I
 I
 I
 B
-S
-I
-I
-I
-A
-B
 q
+I
+I
+I
+d
+B
+f
 p
 p
 p
 p
 P
+h
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 Z
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-n
 a
 a
 a
@@ -12536,19 +12536,19 @@ I
 I
 I
 B
-S
+q
 I
 I
 I
-A
+d
 B
-f
+E
 a
 a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -12710,6 +12710,15 @@ a
 a
 a
 P
+h
+a
+a
+a
+a
+a
+a
+a
+a
 Z
 a
 a
@@ -12719,7 +12728,6 @@ a
 a
 a
 a
-n
 a
 a
 a
@@ -12737,15 +12745,7 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-n
+Z
 a
 a
 a
@@ -12860,7 +12860,7 @@ I
 I
 I
 B
-m
+r
 I
 I
 I
@@ -12872,7 +12872,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -13034,7 +13034,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -13196,7 +13196,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -13333,8 +13333,8 @@ I
 I
 I
 K
-h
-h
+X
+X
 K
 I
 I
@@ -13350,7 +13350,7 @@ I
 I
 I
 I
-d
+y
 t
 a
 a
@@ -13358,7 +13358,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -13495,8 +13495,8 @@ I
 I
 I
 K
-h
-h
+X
+X
 K
 I
 I
@@ -13520,7 +13520,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -13682,7 +13682,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -13835,7 +13835,7 @@ B
 I
 I
 I
-Y
+g
 I
 t
 a
@@ -13844,7 +13844,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -14006,7 +14006,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -14135,7 +14135,7 @@ a
 a
 a
 B
-B
+I
 I
 I
 I
@@ -14162,13 +14162,13 @@ I
 I
 I
 B
-J
+V
 a
 a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -14296,15 +14296,15 @@ a
 a
 a
 a
+B
+I
+I
+I
+I
+I
+B
 a
 B
-B
-B
-B
-B
-B
-a
-B
 I
 I
 I
@@ -14324,13 +14324,13 @@ I
 I
 I
 B
-x
+T
 p
 p
 p
 p
 P
-Z
+h
 a
 a
 a
@@ -14458,14 +14458,14 @@ a
 a
 a
 a
+B
+B
+I
+I
+I
+I
+B
 a
-a
-B
-C
-C
-B
-a
-a
 B
 I
 I
@@ -14486,28 +14486,28 @@ I
 I
 I
 B
-g
+G
 a
 a
 a
 a
 P
+h
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 Z
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-n
 a
 a
 a
@@ -14621,12 +14621,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+B
+B
+B
+B
+B
+B
 a
 B
 I
@@ -14654,7 +14654,7 @@ a
 a
 a
 P
-Z
+h
 a
 a
 a
@@ -14784,10 +14784,10 @@ a
 a
 a
 a
-a
-a
-a
-a
+B
+D
+D
+B
 a
 a
 B
@@ -15131,8 +15131,8 @@ I
 I
 I
 K
-h
-h
+X
+X
 K
 i
 i
@@ -15293,8 +15293,8 @@ I
 I
 I
 K
-h
-h
+X
+X
 K
 i
 i
@@ -15470,16 +15470,16 @@ a
 a
 P
 P
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
 P
 P
 a
@@ -15489,7 +15489,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -16243,7 +16243,7 @@ a
 a
 a
 a
-r
+v
 B
 I
 I
@@ -16405,7 +16405,7 @@ a
 a
 a
 a
-H
+Y
 B
 I
 I
@@ -16567,7 +16567,7 @@ a
 a
 a
 a
-r
+v
 B
 I
 I
@@ -16729,7 +16729,7 @@ a
 a
 a
 a
-r
+v
 B
 I
 I
@@ -16901,8 +16901,8 @@ I
 I
 I
 B
-y
-y
+n
+n
 B
 I
 I
@@ -16929,18 +16929,18 @@ a
 a
 P
 P
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
 P
 P
 a
@@ -17063,8 +17063,8 @@ I
 I
 I
 t
-h
-h
+X
+X
 B
 I
 B
@@ -17225,8 +17225,8 @@ I
 I
 I
 t
-h
-h
+X
+X
 B
 B
 B
@@ -17275,7 +17275,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -17289,7 +17289,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -17387,8 +17387,8 @@ B
 B
 B
 B
-y
-y
+n
+n
 B
 B
 a
@@ -18389,19 +18389,19 @@ a
 a
 P
 P
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
-Z
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
 P
 P
 a
@@ -19060,7 +19060,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -19207,7 +19207,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
@@ -21647,7 +21647,7 @@ a
 a
 a
 a
-n
+Z
 a
 a
 a
