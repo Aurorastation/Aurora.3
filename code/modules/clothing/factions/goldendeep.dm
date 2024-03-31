@@ -70,7 +70,7 @@
 
 /obj/item/clothing/accessory/goldendeep/pompous
 	name = "pompous shirt"
-	desc = "Poofy and ostentatious, this shirt of fine fabric screams wealth. "
+	desc = "Poofy and ostentatious, this shirt of fine fabric screams wealth."
 	icon_state = "pompous_shirt"
 	item_state = "pompous_shirt"
 	icon = 'icons/clothing/under/shirts/pompous_shirt.dmi'
