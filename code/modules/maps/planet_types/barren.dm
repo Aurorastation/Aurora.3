@@ -18,7 +18,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_atmosphere()
 	..()
-	atmosphere.remove_ratio(0.9)
+	atmosphere.remove_ratio(1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/get_surface_color()
 	return "#6C6251"
