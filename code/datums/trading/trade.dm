@@ -165,13 +165,13 @@
 		var/atom/movable/M = trading_items[num]
 		return "[initial(M.name)]"
 
-/datum/trader/proc/get_item_value(var/trading_num)
+/datum/trader/proc/get_item_value(var/trading_num, var/mob/user)
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
 		// defaults at 1, adjusts based on bias
 		var/modifier = 1
-		var/bias = get_bias(usr)
+		var/bias = get_bias(user)
 		if(bias == TRADER_BIAS_UPCHARGE)
 			modifier = 1.2 // 20% upcharge
 		else if(bias == TRADER_BIAS_DISCOUNT)
@@ -180,16 +180,16 @@
 		trading_items[type] = value
 	return trading_items[trading_items[trading_num]]
 
-/datum/trader/proc/offer_money_for_trade(var/trade_num, var/money_amount)
+/datum/trader/proc/offer_money_for_trade(var/trade_num, var/money_amount, var/mob/user)
 	if(!(trade_flags & TRADER_MONEY))
 		return TRADER_NO_MONEY
-	var/value = get_item_value(trade_num)
+	var/value = get_item_value(trade_num, user)
 	if(money_amount < value)
 		return TRADER_NOT_ENOUGH
 
 	return value
 
-/datum/trader/proc/offer_items_for_trade(var/list/offers, var/num, var/turf/location)
+/datum/trader/proc/offer_items_for_trade(var/list/offers, var/num, var/turf/location, var/mob/user)
 	if(!offers || !offers.len)
 		return TRADER_NOT_ENOUGH
 	num = Clamp(num, 1, trading_items.len)
@@ -219,7 +219,7 @@
 		offer_worth += get_value(offer) * (is_wanted ? want_multiplier : 1)
 	if(!offer_worth)
 		return TRADER_NOT_ENOUGH
-	var/trading_worth = get_item_value(num)
+	var/trading_worth = get_item_value(num, user)
 	if(!trading_worth)
 		return TRADER_NOT_ENOUGH
 	var/percent = offer_worth/trading_worth
@@ -302,10 +302,10 @@
 
 	return M
 
-/datum/trader/proc/how_much_do_you_want(var/num)
+/datum/trader/proc/how_much_do_you_want(var/num, var/mob/user)
 	var/atom/movable/M = trading_items[num]
 	. = get_response("how_much", "Hmm.... how about VALUE credits?")
-	. = replacetext(.,"VALUE",get_item_value(num))
+	. = replacetext(.,"VALUE",get_item_value(num, user))
 	. = replacetext(.,"ITEM", initial(M.name))
 
 /datum/trader/proc/what_do_you_want()
