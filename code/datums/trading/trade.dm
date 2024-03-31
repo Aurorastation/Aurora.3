@@ -175,15 +175,25 @@
 	return TRADER_NOT_ENOUGH
 
 /datum/trader/proc/hail(var/mob/user)
+	// specific subspecies
 	var/specific
+	// species, used if specific hail not found
+	var/general
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species)
+			//grab subspecies
+			if(H.species.name in ALL_IPCS)
+				general = "IPC"
 			specific = H.species.name
 	else if(istype(user, /mob/living/silicon))
 		specific = "silicon"
 	if(!speech["hail_[specific]"])
-		specific = "generic"
+		//check for generic
+		if(speech["hail_[general]"])
+			specific = general //we override specific with general to call it
+		else
+			specific = "generic"
 	. = get_response("hail_[specific]", "Greetings, MOB!")
 	. = replacetext(., "MOB", user.name)
 
