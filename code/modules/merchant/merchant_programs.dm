@@ -208,7 +208,7 @@
 			current_merchant = new_merchant
 	if(current_merchant)
 		var/datum/trader/T = get_merchant(current_merchant)
-		if(!T.can_hail())
+		if(!T.can_hail(user))
 			last_comms = T.get_response("hail_deny", "No, I'm not speaking with you.")
 			. = TRUE
 		else

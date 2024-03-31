@@ -14,7 +14,7 @@
 	/// The icon that shows up in the menu @TODO
 	var/icon/portrait
 	/// List of species that trader will have a bias against (type = variant)
-	var/list/species_bias = list()
+	var/list/species_bias = list() //for silicons (robots), use "Silicon"
 
 	/// What items they enjoy trading for. Structure is (type = known/unknown)
 	var/list/wanted_items = list()
@@ -50,12 +50,17 @@
 	what_want			What the person says when they are asked if they want something
 
 	*/
-	var/want_multiplier = 2                                     //How much wanted items are multiplied by when traded for
-	var/insult_drop = 5                                         //How far disposition drops on insult
-	var/compliment_increase = 5                                 //How far compliments increase disposition
-	var/refuse_comms = 0                                        //Whether they refuse further communication
+	/// How much wanted items are multiplied by when traded for
+	var/want_multiplier = 2
+	/// How far disposition drops on insult
+	var/insult_drop = 5
+	/// How far compliments increase disposition
+	var/compliment_increase = 5
+	/// Whether they refuse further communication
+	var/refuse_comms = FALSE
 
-	var/mob_transfer_message = "You are transported to ORIGIN." //What message gets sent to mobs that get sold.
+	/// What message gets sent to mobs that get sold.
+	var/mob_transfer_message = "You are transported to ORIGIN."
 
 /datum/trader/New()
 	..()
@@ -140,7 +145,9 @@
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
-		value = round(rand(80,100)/100 * value) //For some reason rand doesn't like decimals.
+		// defaults at 1, adjusts based on bias
+		var/modifier = 1
+		value = round((rand(80,100)/100 * value) * modifier) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
 	return trading_items[trading_items[trading_num]]
 
@@ -196,7 +203,7 @@
 	var/specific
 	// species, used if specific hail not found
 	var/general
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species)
 			// grab generic
@@ -225,9 +232,25 @@
 	. = get_response("hail_[specific]", "Greetings, MOB!")
 	. = replacetext(., "MOB", user.name)
 
-/datum/trader/proc/can_hail()
+/datum/trader/proc/can_hail(var/mob/user)
 	if(!refuse_comms && prob(-disposition))
-		refuse_comms = 1
+		refuse_comms = TRUE
+
+	//check for blacklist bias
+	var/species
+	if(ishuman(user))
+		var/mob/living/carbon/human/person = user
+		species = person.species.name
+	else if (issilicon(user))
+		species = "Silicon"
+
+	var/test = species_bias
+
+	if(species in test)
+		var/status = species_bias[type]
+		if(status && TRADER_BIAS_DENY)
+			refuse_comms = TRUE
+
 	return !refuse_comms
 
 /datum/trader/proc/insult()
