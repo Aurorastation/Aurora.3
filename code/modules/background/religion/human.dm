@@ -75,12 +75,13 @@
 /datum/religion/luceism
 	name = RELIGION_LUCEISM
 	description = "An unusual syncretic religion originating upon the planet of Assunzione, Luceism is a quasi-Abrahamic religion descended from a variety of faiths \
-					held by the original colonists that first emerged following the unexpected extinguishing of Assunzione's star in 2274. While arguably a branch of \
-					modern Abrahamic religions, Luceism is a hard-to-define religion dedicated to the worship of an abstract representation of light referred to as \
-					the Ennoia. Though it is, unsurprisingly, strongest on Assunzione, followers of the faith can be found throughout the Orion Spur alongside their \
-					houses of worship."
+	held by the original colonists that first emerged following the unexpected extinguishing of Assunzione's star in 2274. While arguably a branch of \
+	modern Abrahamic religions, Luceism is a hard-to-define religion dedicated to the worship of an abstract representation of light referred to as \
+	the Ennoia. Though it is, unsurprisingly, strongest on Assunzione, followers of the faith can be found throughout the Orion Spur alongside their \
+	houses of worship."
 	book_name = "luceian scripture"
-
+	book_sprite = "luce"
+	nulloptions = list("Luceian Sceptre" = /obj/item/nullrod/luceiansceptre)
 /datum/religion/sikhism
 	name = RELIGION_SIKHISM
 	description = "Originating in the northern Indian subcontinent, Sikhism is a religion and philosophy that developed from the teachings of Guru Nanak, and the nine Gurus who succeeded him. \

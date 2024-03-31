@@ -234,16 +234,26 @@
 	path = /obj/item/clothing/accessory/poncho/assunzione
 	slot = slot_wear_suit
 
+/datum/gear/religion/assunzione/cassock
+	display_name = "assunzione clerical cassock"
+	description = "A simple black-and-purple linen cassock worn by clergyfolk of Luceism, the dominant faith of Assunzione."
+	path = /obj/item/clothing/under/assunzione/priest
+	slot = slot_w_uniform
+
 /datum/gear/religion/assunzione/robe
 	display_name = "assunzione clerical robe"
 	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
-	path = /obj/item/clothing/suit/storage/hooded/assunzione_robe
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe
 	slot = slot_wear_suit
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = /obj/item/clothing/accessory/assunzione
 	slot = slot_tie
+
+/datum/gear/religion/dominia/codex
+	display_name = "luceian scripture"
+	path = /obj/item/device/versebook/assunzione
 
 /datum/gear/religion/assunzione/orb
 	display_name = "assunzione warding sphere"

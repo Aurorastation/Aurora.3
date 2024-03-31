@@ -272,7 +272,7 @@
 	access = list(ACCESS_CHAPEL_OFFICE, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CHAPEL_OFFICE)
 	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor", "Keeper")
-	outfit = /datum/outfit/job/chaplain
+	outfit = /obj/outfit/job/chaplain
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 

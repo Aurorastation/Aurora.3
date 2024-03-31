@@ -54,18 +54,6 @@
 	icon_state = "scapular"
 	item_state = "scapular"
 
-/obj/item/clothing/accessory/assunzione
-	name = "luceian amulet"
-	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
-	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
-	to ensure one's amulet is well-maintained."
-	icon = 'icons/obj/clothing/accessory/religious.dmi'
-	item_state = "assunzione_amulet"
-	icon_state = "assunzione_amulet"
-	contained_sprite = TRUE
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
 /obj/item/clothing/accessory/tallit
 	name = "tallit"
 	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
