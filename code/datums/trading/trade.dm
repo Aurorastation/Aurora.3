@@ -187,16 +187,16 @@
 	var/offer_worth = 0
 	for(var/item in offers)
 		var/atom/movable/offer = item
-		var/is_wanted = 0
+		var/is_wanted = FALSE
 		if(is_type_in_list(offer,wanted_items))
-			is_wanted = 1
+			is_wanted = TRUE
 		if(blacklisted_trade_items && blacklisted_trade_items.len)
 			if(ishuman(offer))
 				var/mob/living/carbon/human/A = offer
 				if(is_type_in_list(A.species, blacklisted_trade_items))
-					return 0
+					return FALSE
 			else if(is_type_in_list(offer,blacklisted_trade_items))
-				return 0
+				return FALSE
 
 		if(istype(offer,/obj/item/spacecash))
 			if(!(trade_flags & TRADER_MONEY))
