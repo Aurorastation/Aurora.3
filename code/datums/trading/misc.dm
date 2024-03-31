@@ -7,6 +7,8 @@
 	speech = list(
 		"hail_generic"         = "Welcome to my xeno-pet shop! Here you will find many wonderful companions. Some a bit more... aggressive than others. But companions none the less. I also buy pets, or trade them.",
 		"hail_Skrell"          = "Ah! A fellow Skrell. How wonderful, I may have a few pets imported from back home. Take a look.",
+		"hail_IPC"         	   = "Oh. A Canner... Do your business quickly.",
+		"hail_silicon"         = "Ugh, what is a simple Canner like you doing here? What do you want.",
 		"hail_deny"            = "I no longer wish to speak to you.",
 		"trade_complete"       = "Remember to give them attention and food. They are living beings, and you should treat them like so.",
 		"trade_blacklist"      = "Legally I can't do that. Morally, I refuse to do that.",
