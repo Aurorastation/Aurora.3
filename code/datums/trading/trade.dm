@@ -13,6 +13,8 @@
 	var/name_language
 	/// The icon that shows up in the menu @TODO
 	var/icon/portrait
+	/// List of species that trader will have a bias against (type = variant)
+	var/list/species_bias = list()
 
 	/// What items they enjoy trading for. Structure is (type = known/unknown)
 	var/list/wanted_items = list()

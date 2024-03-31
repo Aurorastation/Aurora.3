@@ -9,6 +9,13 @@
 #define TRADER_MONEY         2 //Do they only accept money in return for goods.
 #define TRADER_GOODS         4 //Do they accept goods in return for other goods.
 
+/// Refuse service, will not trade with this species
+#define TRADER_BIAS_DENY 1
+/// Serve, but price of all items increased (trades would also have less value)
+#define TRADER_BIAS_UPCHARGE 2
+/// Likes this species, small discount
+#define TRADER_BIAS_DISCOUNT 3
+
 //Possible response defines for when offering an item for something
 #define TRADER_NO_MONEY       "trade_no_money"
 #define TRADER_NO_GOODS       "trade_no_goods"
