@@ -10,6 +10,12 @@
 	starlight_power = 5
 	starlight_range = 2
 
+	lore_radio_stations = list(
+		"87.5 Mendell City Bugle Radio" = "config/example/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt",
+		"93.1 Phoenix FM" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
+		"103.1 Nightingale Radio" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
+	)
+
 /datum/space_sector/romanovich
 	name = SECTOR_ROMANOVICH
 	description = "The Romanovich Cloud is a shell of icy, rocky and metallic bodies that orbit very distant Tau Ceti, past even the Dust Belt. Rich in deposits of precious and \
