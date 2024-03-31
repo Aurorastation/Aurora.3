@@ -16,6 +16,7 @@
 	icon = 'icons/clothing/suits/assunzione_robes.dmi'
 	icon_state = "keeper"
 	hoodtype = /obj/item/clothing/head/winterhood/assunzione_robe
+	allowed = list(/obj/item/nullrod/luceiansceptre, /obj/item/storage/assunzionesheath, /obj/item/assunzioneorb)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/alt
 	name = "\improper Luceian Astructural keeper robe"
