@@ -11,7 +11,7 @@
 
 /// Refuse service, will not trade with this species
 #define TRADER_BIAS_DENY "Deny"
-/// Serve, but price of all items increased (trades would also have less value)
+/// Serve, but price of all items increased
 #define TRADER_BIAS_UPCHARGE "Upcharge"
 /// Likes this species, small discount
 #define TRADER_BIAS_DISCOUNT "Discount"
