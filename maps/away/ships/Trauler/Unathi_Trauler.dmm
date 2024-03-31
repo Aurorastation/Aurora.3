@@ -2,22 +2,30 @@
 "a" = (
 /turf/template_noop,
 /area/space)
+"b" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "c" = (
-/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
 /area/space)
 "e" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
-"g" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/plating,
+"f" = (
+/obj/machinery/suit_cycler{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/steel,
 /area/space)
 "h" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "i" = (
@@ -28,53 +36,45 @@
 /turf/space/transit/north,
 /area/space)
 "m" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 8
-	},
+/obj/machinery/atmospherics/unary/engine,
+/obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
-/area/space)
-"n" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/material/harpoon,
-/turf/simulated/floor/tiled/steel,
 /area/space)
 "o" = (
 /obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/space)
 "p" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space)
-"r" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8;
-	icon_rotation = 1
-	},
-/turf/simulated/floor/tiled/steel,
-/area/space)
 "t" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/space)
 "u" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/machinery/atmospherics/unary/engine,
+/obj/machinery/atmospherics/unary/engine{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "v" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /obj/structure/railing/mapped,
-/obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
 /area/space)
+"x" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/space)
 "y" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/clothing/shoes/magboots,
+/obj/machinery/computer/ship/sensors{
+	dir = 8;
+	icon_rotation = 1
+	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "z" = (
@@ -86,62 +86,68 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/space)
 "C" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"D" = (
-/obj/machinery/computer/ship/helm,
-/turf/simulated/floor/tiled/steel,
-/area/space)
-"E" = (
-/obj/structure/railing/mapped,
 /obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/space)
-"I" = (
-/turf/simulated/floor/tiled/steel,
-/area/space)
-"K" = (
-/turf/simulated/floor,
-/area/space)
-"M" = (
-/obj/machinery/suit_cycler{
-	req_access = null
-	},
-/turf/simulated/floor/tiled/steel,
-/area/space)
-"N" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/space)
-"O" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/space)
-"P" = (
-/turf/simulated/floor/airless,
-/area/space)
-"R" = (
+"E" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
-"V" = (
-/obj/machinery/shipsensors/weak,
-/turf/simulated/floor/airless,
-/area/space)
-"Y" = (
+"F" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/space)
+"H" = (
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"I" = (
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"J" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/shoes/magboots,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"K" = (
+/turf/simulated/floor,
+/area/space)
+"P" = (
+/turf/simulated/floor/airless,
+/area/space)
+"S" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"T" = (
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/space)
+"W" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
+"X" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/material/harpoon,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Y" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "Z" = (
@@ -6248,7 +6254,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -6887,7 +6893,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -8329,7 +8335,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -9919,7 +9925,7 @@ a
 a
 a
 a
-g
+x
 B
 I
 I
@@ -10081,7 +10087,7 @@ a
 a
 a
 a
-g
+x
 B
 I
 I
@@ -10138,7 +10144,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -10243,7 +10249,7 @@ a
 a
 a
 a
-g
+x
 B
 I
 I
@@ -10405,7 +10411,7 @@ a
 a
 a
 a
-g
+x
 B
 I
 I
@@ -11398,10 +11404,10 @@ I
 I
 I
 I
-C
+h
 K
 K
-C
+h
 i
 i
 i
@@ -11560,10 +11566,10 @@ I
 I
 I
 I
-C
+h
 K
 K
-C
+h
 i
 i
 i
@@ -12023,12 +12029,12 @@ a
 a
 a
 a
-V
+T
 B
 t
 t
 B
-c
+C
 a
 B
 I
@@ -12206,13 +12212,13 @@ B
 B
 B
 B
-M
+f
 I
 I
 I
-n
+X
 B
-O
+Y
 a
 a
 a
@@ -12368,13 +12374,13 @@ I
 I
 I
 B
-y
+J
 I
 I
 I
-n
+X
 B
-E
+o
 p
 p
 p
@@ -12403,7 +12409,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -12530,13 +12536,13 @@ I
 I
 I
 B
-y
+J
 I
 I
 I
-n
+X
 B
-o
+b
 a
 a
 a
@@ -12713,6 +12719,7 @@ a
 a
 a
 a
+W
 a
 a
 a
@@ -12738,8 +12745,7 @@ a
 a
 a
 a
-a
-a
+W
 a
 a
 a
@@ -12854,7 +12860,7 @@ I
 I
 I
 B
-R
+E
 I
 I
 I
@@ -13326,10 +13332,10 @@ I
 I
 I
 I
-C
+h
 K
 K
-C
+h
 I
 I
 I
@@ -13344,7 +13350,7 @@ I
 I
 I
 I
-D
+H
 t
 a
 a
@@ -13488,10 +13494,10 @@ I
 I
 I
 I
-C
+h
 K
 K
-C
+h
 I
 I
 I
@@ -13829,7 +13835,7 @@ B
 I
 I
 I
-r
+y
 I
 t
 a
@@ -14156,7 +14162,7 @@ I
 I
 I
 B
-N
+v
 a
 a
 a
@@ -14318,7 +14324,7 @@ I
 I
 I
 B
-v
+c
 p
 p
 p
@@ -14455,8 +14461,8 @@ a
 a
 a
 B
-m
-m
+u
+u
 B
 a
 a
@@ -14480,7 +14486,7 @@ I
 I
 I
 B
-Y
+F
 a
 a
 a
@@ -14501,7 +14507,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -15124,10 +15130,10 @@ I
 I
 I
 I
-C
+h
 K
 K
-C
+h
 i
 i
 i
@@ -15286,10 +15292,10 @@ I
 I
 I
 I
-C
+h
 K
 K
-C
+h
 i
 i
 i
@@ -15483,7 +15489,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -16237,7 +16243,7 @@ a
 a
 a
 a
-g
+x
 B
 I
 I
@@ -16399,7 +16405,7 @@ a
 a
 a
 a
-u
+m
 B
 I
 I
@@ -16561,7 +16567,7 @@ a
 a
 a
 a
-g
+x
 B
 I
 I
@@ -16723,7 +16729,7 @@ a
 a
 a
 a
-g
+x
 B
 I
 I
@@ -16895,8 +16901,8 @@ I
 I
 I
 B
-h
-h
+S
+S
 B
 I
 I
@@ -17269,6 +17275,7 @@ a
 a
 a
 a
+W
 a
 a
 a
@@ -17282,8 +17289,7 @@ a
 a
 a
 a
-a
-a
+W
 a
 a
 a
@@ -17381,8 +17387,8 @@ B
 B
 B
 B
-h
-h
+S
+S
 B
 B
 a
@@ -19054,7 +19060,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
@@ -19201,7 +19207,7 @@ a
 a
 a
 a
-a
+W
 a
 a
 a
