@@ -1,21 +1,36 @@
 /datum/trader
-	var/name = "unsuspicious trader"                            //The name of the trader in question
-	var/origin = "some place"                                   //The place that they are trading from
-	var/list/possible_origins                                   //Possible names of the trader origin
-	var/disposition = 0                                         //The current disposition of them to us.
-	var/trade_flags = TRADER_MONEY                              //Flags
-	var/name_language                                                //If this is set to a language name this will generate a name from the language
-	var/icon/portrait                                           //The icon that shows up in the menu @TODO
+	/// The name of the trader in question
+	var/name = "unsuspicious trader"
+	/// The place that they are trading from
+	var/origin = "some place"
+	/// Possible names of the trader origin
+	var/list/possible_origins
+	/// The current disposition of them to us.
+	var/disposition = 0
+	/// Flags
+	var/trade_flags = TRADER_MONEY
+	/// If this is set to a language name this will generate a name from the language
+	var/name_language
+	/// The icon that shows up in the menu @TODO
+	var/icon/portrait
 
-	var/list/wanted_items = list()                              //What items they enjoy trading for. Structure is (type = known/unknown)
-	var/list/possible_wanted_items                              //List of all possible wanted items. Structure is (type = mode)
-	var/list/possible_trading_items                             //List of all possible trading items. Structure is (type = mode)
-	var/list/trading_items = list()                             //What items they are currently trading away.
+	/// What items they enjoy trading for. Structure is (type = known/unknown)
+	var/list/wanted_items = list()
+	/// List of all possible wanted items. Structure is (type = mode)
+	var/list/possible_wanted_items
+	/// List of all possible trading items. Structure is (type = mode)
+	var/list/possible_trading_items
+	/// What items they are currently trading away.
+	var/list/trading_items = list()
+	/// Things they will automatically refuse
 	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
+	/// Which sector(s) this merchant can show up
 	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL,
-										SECTOR_GAKAL, SECTOR_UUEOAESA)	//which sector this merchant can show up                                                            //Things they will automatically refuse
+										SECTOR_GAKAL, SECTOR_UUEOAESA)
 
-	var/list/speech = list()                                    //The list of all their replies and messages. Structure is (id = talk)
+	/// The list of all their replies and messages. Structure is (id = talk)
+	var/list/speech = list()
+
 	/*SPEECH IDS:
 	hail_generic		When merchants hail a person
 	hail_[race]			Race specific hails
