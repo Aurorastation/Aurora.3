@@ -243,17 +243,30 @@
 /datum/gear/religion/assunzione/robe
 	display_name = "assunzione clerical robe"
 	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe
 	slot = slot_wear_suit
+
+/datum/gear/religion/assunzione/robe/New()
+	..()
+	var/list/robe = list()
+	robe["Pyramidical keeper robe"] = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe
+	robe["Astructural keeper robe"] = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/alt
+	gear_tweaks += new /datum/gear_tweak/path(robe)
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = /obj/item/clothing/accessory/assunzione
 	slot = slot_tie
 
-/datum/gear/religion/dominia/codex
+/datum/gear/religion/assunzione/scripture
 	display_name = "luceian scripture"
 	path = /obj/item/device/versebook/assunzione
+
+/datum/gear/religion/assunzione/scripture/New()
+	..()
+	var/list/book = list()
+	book["luceian book of scripture"] = /obj/item/device/versebook/assunzione
+	book["pocket luceian book of scripture"] = /obj/item/device/versebook/assunzione/pocket
+	gear_tweaks += new /datum/gear_tweak/path(book)
 
 /datum/gear/religion/assunzione/orb
 	display_name = "assunzione warding sphere"
