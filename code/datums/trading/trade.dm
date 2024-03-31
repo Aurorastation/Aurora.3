@@ -227,17 +227,17 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species)
 			// grab generic
-			if(H.species.name in ALL_HUMANS)
+			if(H.species.name in ALL_HUMANS_SPECIES)
 				general = "Human"
-			if(H.species.name in ALL_DIONAE)
+			if(H.species.name in ALL_DIONA_SPECIES)
 				general = "Diona"
-			if(H.species.name in ALL_SKRELL)
+			if(H.species.name in ALL_SKRELL_SPECIES)
 				general = "Skrell"
-			if(H.species.name in ALL_TAJARA)
+			if(H.species.name in ALL_TAJARA_SPECIES)
 				general = "Tajara"
-			if(H.species.name in ALL_VAURCA)
+			if(H.species.name in ALL_VAURCA_SPECIES)
 				general = "Vaurca"
-			if(H.species.name in ALL_IPCS)
+			if(H.species.name in ALL_IPCS_SPECIES)
 				general = "IPC"
 			// grab subspecies
 			specific = H.species.name
