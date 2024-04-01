@@ -2,7 +2,6 @@
 "b" = (
 /obj/structure/barricade/wooden{
 	dir = 4;
-	layer = 2.95
 	},
 /obj/machinery/door/urban{
 	dir = 8

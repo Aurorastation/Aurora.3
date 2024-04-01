@@ -112,7 +112,7 @@
 					return TRUE
 				else if(attacking_item.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
-					playsound(src.loc, attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					spawn(20)
 						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
 						circuit.forceMove(user.loc)
@@ -129,7 +129,7 @@
 				else if(attacking_item.iswrench())
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
-					playsound(src.loc, attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					qdel(src)
 					return TRUE
 		return TRUE

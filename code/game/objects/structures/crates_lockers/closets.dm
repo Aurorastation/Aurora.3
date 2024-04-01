@@ -410,33 +410,33 @@
 	else if(attacking_item.isscrewdriver() && canbemoved)
 		if(screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unscrew \the [src] from the floor..."))
-			playsound(loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if (do_after(user, 10/attacking_item.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You unscrew the locker!"))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				screwed = FALSE
 		else if(!screwed && wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to screw the \the [src] to the floor..."))
 			playsound(src, 'sound/items/Welder.ogg', 80, 1)
 			if (do_after(user, 15/attacking_item.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				screwed = TRUE
 	else if(attacking_item.iswrench() && canbemoved)
 		if(wrenched && !screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unfasten the bolts holding \the [src] in place..."))
-			playsound(loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if (do_after(user, 15/attacking_item.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You unfasten \the [src]'s bolts!"))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				wrenched = FALSE
 				anchored = FALSE
 		else if(!wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to fasten the bolts holding the locker in place..."))
-			playsound(loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if (do_after(user, 15/attacking_item.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You fasten the \the [src]'s bolts!"))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				wrenched = TRUE
 				anchored = TRUE
 	else if(istype(attacking_item, /obj/item/device/hand_labeler))
@@ -594,7 +594,7 @@
 		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
 		var/matrix/M = get_door_transform(angle)
 		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_MOB_LAYER
+		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
 
 		if(I == 0)
 			door_obj.transform = M
@@ -625,7 +625,7 @@
 		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
 		var/matrix/M = get_door_transform(angle, TRUE)
 		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back_alt" : "[icon_door || icon_state]_door_alt"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_MOB_LAYER
+		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
 
 		if(I == 0)
 			door_obj_alt.transform = M

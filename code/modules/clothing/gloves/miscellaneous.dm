@@ -85,6 +85,7 @@
 	icon_state = "nitrile"
 	item_state = "nitrile"
 	balloon = /obj/item/toy/balloon/latex/nitrile
+	anomaly_protection = 0.1
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"

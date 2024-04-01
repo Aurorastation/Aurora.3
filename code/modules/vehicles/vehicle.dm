@@ -7,7 +7,7 @@
 /obj/vehicle
 	name = "vehicle"
 	icon = 'icons/obj/vehicles.dmi'
-	layer = MOB_LAYER + 0.1 //so it sits above objects including mobs
+	layer = MECH_BASE_LAYER
 	density = 1
 	anchored = 1
 	animate_movement=1
@@ -315,7 +315,7 @@
 
 	load = C
 
-	C.layer = src.layer + 0.1
+	C.layer = VEHICLE_LOAD_LAYER
 	if(load_item_visible)
 		C.pixel_x += load_offset_x
 		if(ismob(C))

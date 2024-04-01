@@ -24,7 +24,7 @@ var/global/list/area_blurb_stated_to = list()
 	name = "Unknown"
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
-	layer = 10
+	layer = AREA_LAYER
 	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -58,7 +58,9 @@ var/global/list/area_blurb_stated_to = list()
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
-	var/sound_env = STANDARD_STATION
+
+	///Used to decide what kind of reverb the area makes sound have
+	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
 	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
 	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
@@ -87,7 +89,6 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/Initialize(mapload)
 	icon_state = "white"
-	layer = 10
 
 	blend_mode = BLEND_MULTIPLY
 
@@ -330,7 +331,7 @@ var/list/mob/living/forced_ambiance_list = new
 /area/proc/play_ambience(var/mob/living/L)
 	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
 		var/picked_ambience = pick(ambience)
-		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = 2)
+		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = CHANNEL_AMBIENCE)
 		L.client.ambience_last_played_time = world.time
 
 // Stop Ambience

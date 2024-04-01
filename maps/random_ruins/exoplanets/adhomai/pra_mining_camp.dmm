@@ -3,7 +3,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -26,7 +25,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/conveyor{
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
@@ -118,7 +116,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -200,7 +197,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -254,7 +250,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -310,7 +305,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -322,7 +316,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -386,7 +379,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
@@ -411,7 +403,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -487,7 +478,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "pra_mining_base";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -533,7 +523,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "pra_mining_base";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{

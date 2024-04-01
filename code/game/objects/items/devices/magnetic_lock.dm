@@ -201,7 +201,7 @@
 		if (2)
 			if (attacking_item.isscrewdriver())
 				to_chat(user, SPAN_NOTICE("You unscrew and remove the wiring cover from \the [src]."))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				setconstructionstate(3)
 				return TRUE
 
@@ -227,7 +227,7 @@
 
 			if (attacking_item.isscrewdriver())
 				to_chat(user, SPAN_NOTICE("You replace and screw tight the wiring cover from \the [src]."))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				setconstructionstate(2)
 				return TRUE
 

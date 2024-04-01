@@ -22,7 +22,7 @@
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
-	layer = TURF_LAYER + 0.2
+	layer = ABOVE_TILE_LAYER
 	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
 
 
@@ -286,7 +286,7 @@
 		START_PROCESSING(SSfast_process, src)
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), triggerer, "You feel your [pick("right", "left")] foot step down on a button with a click..., Uh..., Oh...", "Dread", list("Mom..."))
 
-		playsound_allinrange(src, sound('sound/weapons/empty/empty6.ogg'))
+		playsound(src, sound('sound/weapons/empty/empty6.ogg'), 50)
 
 	else
 		late_trigger(locate(engaged_by))

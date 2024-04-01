@@ -1,5 +1,5 @@
 /atom/movable
-	layer = 3
+	layer = OBJ_LAYER
 	glide_size = 6
 	animate_movement = SLIDE_STEPS
 
@@ -57,7 +57,11 @@
 /atom/movable/Destroy()
 	GLOB.moved_event.unregister_all_movement(loc, src)
 
-	. = ..()
+	//Recalculate opacity
+	var/turf/T = loc
+	if(opacity && istype(T))
+		T.recalc_atom_opacity()
+		T.reconsider_lights()
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -67,10 +71,12 @@
 	if(spatial_grid_key)
 		SSspatial_grid.force_remove_from_grid(src)
 
+	QDEL_LAZYLIST(contained_mobs)
+
+	. = ..()
+
 	for(var/movable_content in contents)
 		qdel(movable_content)
-
-	QDEL_LAZYLIST(contained_mobs)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
@@ -80,6 +86,13 @@
 	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
 	//If we clear this before the nullspace move, a ref to this object will be hung in any of its movable containers
 	LAZYNULL(important_recursive_contents)
+
+
+	vis_locs = null //clears this atom out of all viscontents
+
+	// Checking length(vis_contents) before cutting has significant speed benefits
+	if (length(vis_contents))
+		vis_contents.Cut()
 
 	screen_loc = null
 	if(ismob(pulledby))
@@ -280,6 +293,10 @@
 /atom/movable/overlay/New()
 	verbs.Cut()
 	..()
+
+/atom/movable/overlay/Destroy(force)
+	master = null
+	. = ..()
 
 /atom/movable/overlay/attackby(a, b)
 	if (src.master)

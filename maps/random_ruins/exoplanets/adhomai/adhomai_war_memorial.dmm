@@ -85,7 +85,6 @@
 /area/exoplanet/adhomai)
 "X" = (
 /obj/item/clothing/accessory/dogtags/adhomai{
-	layer = 2.9;
 	icon_state = "adhomai_dogtags_single";
 	item_state = "adhomai_dogtags_single";
 	separated = 1
