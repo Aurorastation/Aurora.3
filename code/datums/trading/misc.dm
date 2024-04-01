@@ -134,6 +134,9 @@
 		"bribe_refusal"     = "Well. I'd love to stay, but I've got an Unathi client somewhere else, and they are not known for patience.",
 		"bribe_accept"      = "Sure, I'll stay a bit longer. Just for you, though."
 	)
+	species_bias = list(
+		SPECIES_UNATHI = TRADER_BIAS_DISCOUNT
+	)
 
 	possible_trading_items = list(
 		/obj/item/clothing/head/wizard/magus            = TRADER_THIS_TYPE,
