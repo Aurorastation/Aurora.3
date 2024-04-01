@@ -14,16 +14,16 @@
 
 /singleton/origin_item/origin/hieroaetheria
 	name = "Hieroaetherian"
-	desc = "Though life on Hieroaetheria is dominated by the three nations, there remains a notable populace of dionae who live nomadic lives \
-	on either the surface or in the subterranean, or in settlements outside of the control of the nations, such as along the Ratheus River Basin. \
-	These dionae simply refer to themselves as Hieroaetherian, though will likely hold onto ideals from wherever their ancestors originated from."
+	desc = "Though life on Hieroaetheria is dominated by the three largest nations, there exist a significant number of small member states who \
+	hold a smaller portion of seats on the Grand Assembly, as well as a notable populace of dionae who live nomadic lives on either the surface  \
+	or in the subterranean, such as along the Ratheus River Basin. These dionae simply refer to themselves as Hieroaetherian."
 	possible_accents = list(ACCENT_ANCIENTSONG)
-	possible_citizenships = list(CITIZENSHIP_CONSORTIUM, CITIZENSHIP_GLAORR, CITIZENSHIP_EKANE)
+	possible_citizenships = list(CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/hieroaetheria/consortium
 	name = "The Consortium of Hieroaetheria"
-	desc = "The oldest nation of Hieroaetheria predating Nralakk discovery, the Consortium was a loose confederation of dozens of dionae groups \
+	desc = "A nation of Hieroaetheria predating Nralakk discovery, the Consortium was a loose confederation of dozens of dionae groups \
 	across the region of Mede that have since unified into one alliance. The Consortium prides itself on progressive stances, aiming to foster a \
 	multicultural society inclusive of non-Dionae."
 	possible_accents = list(ACCENT_CONSORTIUM)
@@ -33,6 +33,7 @@
 	desc = "An affront to the ideals of ther Consortium, the Union of Gla'orr is autocratic and xenophobic, opposed to the integration of non-Dionae \
 	into Hieroaetherian societies. Though opposed to the ideals of the Consortium and though wishing a more secular handling of issues compared to Ekane, \
 	they continue to engage in diplomatic relations with the other nations of the Commonwealth."
+	possible_citizenships = list(CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_GLAORR, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_accents = list(ACCENT_GLAORR)
 
 /singleton/origin_item/origin/hieroaetheria/ekane

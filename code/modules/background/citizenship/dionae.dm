@@ -1,6 +1,6 @@
 /datum/citizenship/consortium
 	name = CITIZENSHIP_CONSORTIUM
-	description =  "The oldest nation of Hieroaetheria predating Nralakk discovery, the Consortium was a loose confederation of dozens of \
+	description =  "A nation of Hieroaetheria predating Nralakk discovery, the Consortium was a loose confederation of dozens of \
 	dionae groups across the region of Mede that have since unified into one alliance. The Consortium prides itself on progressive stances, \
 	aiming to foster a multicultural society inclusive of non-Dionae."
 
@@ -8,7 +8,6 @@
 		"Consular Officer" = list(
 			SPECIES_HUMAN,
 			SPECIES_HUMAN_OFFWORLD,
-			SPECIES_SKRELL,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -28,7 +27,6 @@
 		"Diplomatic Aide" = list(
 			SPECIES_HUMAN,
 			SPECIES_HUMAN_OFFWORLD,
-			SPECIES_SKRELL,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -46,6 +44,12 @@
 			SPECIES_VAURCA_BULWARK
 		)
 	)
+
+/datum/citizenship/consortium/get_objectives(mission_level, var/mob/living/carbon/human/H)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_LOW)
+			var/picked_objective = pick("Hold a meeting to promote the relationship between the Consortium of Hieroaetheria and [SSatlas.current_map.boss_name].", "Secure [rand(2,4)] investments worth a total of [rand(5000,20000)] into the Hieroaetherian company [pick("Biomatik Inovations", "CosmoForge Technologies", "AstroTerra Enterprises")].", "Advertise positions that will be open at the [pick("Hieroaetherian College", "University of Western Mede")] next student intake, available to non-Hieroaetherian dionae and skrell. The university has set aside one scholarship you may award that will cover half of any tuition fees.")
+			return picked_objective
 
 /datum/citizenship/glaorr
 	name = CITIZENSHIP_GLAORR
@@ -96,6 +100,12 @@
 		)
 	)
 
+/datum/citizenship/glaorr/get_objectives(mission_level, var/mob/living/carbon/human/H)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_LOW)
+			var/picked_objective = pick("Make use of the Entertainment channel to hold a Union broadcast. Topics to consider: the rich heritage of the Union of Gla'orr, the elegance of Rootsong, withstanding alien influence to preserve a strong sense of dionae identity, the importance of unity and solidarity among Union citizens.", "Instill a sense of pride in any Union of Gla'orr dionae onboard; root out any signs of alien influence.", "Hold a seminar on Rootsong with any dionae onboard. Topics to consider: ease of communication, Rootsong as a symbol of dionae identity, the eloequence of Gla'orr Received Pronunciation, bastardisations of Rootsong such as Consortium Standard.")
+			return picked_objective
+
 /datum/citizenship/ekane
 	name = CITIZENSHIP_EKANE
 	description =  "Founded after first contact with the Nralakk Federation in communities gripped by Eternal thoughts, the Eternal Republic is an autocratic \
@@ -144,3 +154,9 @@
 			SPECIES_VAURCA_BULWARK
 		)
 	)
+
+/datum/citizenship/ekane/get_objectives(mission_level, var/mob/living/carbon/human/H)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_LOW)
+			var/picked_objective = pick("Setup a Rootsong Performance open to any devout Eternal dionae onboard - any Ekanian dionae are to take lead in the performance.", "Identify dionae onboard who do not believe in an Eternal school of thought. Ensure their conversion to the Eternal through thorough proselytisation.", "Ensure Ekanian dionae onboard have not strayed from their Eternal beliefs in their time away from the Eternal Republic.")
+			return picked_objective
