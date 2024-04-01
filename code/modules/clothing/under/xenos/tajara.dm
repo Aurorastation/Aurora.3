@@ -322,9 +322,9 @@
 	desc = "A military uniform used by the forces of the People's Volunteer Spacer Militia."
 	icon_state = "pvsm_crewman"
 	item_state = "pvsm_crewman"
-	desc_extended = "Having only recently claimed a space-positioned base alongside Gaka'zaal, the DPRA lacks any sort of trained force when it comes to orbital defense. Not wanting to \
+	desc_extended = "Having only recently claimed a space-positioned base alongside Gakal'zaal, the DPRA lacks any sort of trained force when it comes to orbital defense. Not wanting to \
 	rely purely on mercenaries due to the expenses and their scant loyalty, a militia was organized. Members of the Spacer Militia come from a variety of backgrounds: some coming back \
-	after being employed by mega-corporations; others from asteroid belts; some soldiers from Adhomai; and more from the Free Gakal'Zaal Station itself, having worked on it as maintenance."
+	after being employed by mega-corporations; others from asteroid belts; some soldiers from Adhomai; and more from the Free Gakal'zaal Station itself, having worked on it as maintenance."
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.5
 	armor = list(
