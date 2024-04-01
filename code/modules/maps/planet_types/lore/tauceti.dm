@@ -15,7 +15,7 @@
 // --------------------------------- Luthien
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien
-	name = "Caprice"
+	name = "Luthien"
 	desc = "A desert planet with a thin, unbreathable atmosphere of primarily nitrogen."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "globe1"
