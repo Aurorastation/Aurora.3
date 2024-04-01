@@ -398,7 +398,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 /datum/gear/accessory/skrell/dress
 	display_name = "skrellian formal wetshirts"
 	path = /obj/item/clothing/accessory/dressshirt/skrell
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
