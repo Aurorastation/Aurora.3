@@ -397,19 +397,19 @@
 
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
-	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/clothing/suits/highvis.dmi'
-	icon_state = "highvis"
-	item_state = "highvis"
+	desc = "A loose-fitting, high visibility jacket to help the wearer be recognizable in high traffic areas with large industrial equipment."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "jacket_highvis"
+	item_state = "jacket_highvis"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/highvis_alt
 	name = "high visibility jacket"
-	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement in cold and poor weather or when visibility is low."
-	icon = 'icons/clothing/suits/highvis.dmi'
-	icon_state = "highvis_alt"
-	item_state = "highvis_alt"
+	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "jacket_highvis_alt"
+	item_state = "jacket_highvis_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
