@@ -21,7 +21,12 @@
 	selectable_tails = list("No Tail", "Short Tail", "Short Fish Tail", "Short Fringed Tail")
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
-	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
+	unarmed_types = list(
+		/datum/unarmed_attack/punch/ipc,
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc,
+		/datum/unarmed_attack/bite
+	)
 
 	blurb = "Xiialt can be approximately translated to \"coastals\" or \"land-dwellers\". These Skrell are the \
 	biological cousins of the Axiori. They tend to be somewhat short, but the stout nature of the Xiialt \
@@ -38,7 +43,7 @@
 	rarity_value = 3
 
 	grab_mod = 0.6
-	resist_mod = 20 // LIKE BABBY
+	resist_mod = 20 // FOR THE GOD EMPEROR
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
