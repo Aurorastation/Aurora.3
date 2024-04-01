@@ -542,7 +542,7 @@
 				connected.system_error("Unexpected user interface error.")
 				return
 
-		playsound(get_turf(src), attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
 
 		anchored = !anchored

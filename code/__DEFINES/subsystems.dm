@@ -214,6 +214,7 @@
 #define INIT_ORDER_PERSISTENT_CONFIGURATION 101 //Aurora snowflake conflg handling
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
+#define INIT_ORDER_SOUNDS 83
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
 #define INIT_ORDER_TICKER 55
@@ -259,6 +260,7 @@
 #define FIRE_PRIORITY_CHAT 400
 #define FIRE_PRIORITY_RUNECHAT 410
 #define FIRE_PRIORITY_TIMER 700
+#define FIRE_PRIORITY_SOUND_LOOPS 800
 
 /**
 	Create a new timer and add it to the queue.

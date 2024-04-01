@@ -1,4 +1,5 @@
 /datum/antagonist/proc/add_antagonist(var/datum/mind/player, var/ignore_role, var/do_not_equip, var/move_to_spawn, var/do_not_announce, var/preserve_appearance)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!add_antagonist_mind(player, ignore_role))
 		return 0

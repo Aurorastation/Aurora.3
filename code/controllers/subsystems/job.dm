@@ -159,33 +159,7 @@ SUBSYSTEM_DEF(jobs)
 			if(!candidates.len)
 				continue
 
-			// Build a weighted list, weight by age.
-			var/list/weightedCandidates = list()
-			for(var/mob/V in candidates)
-				// Log-out during round-start? What a bad boy, no head position for you!
-				if(!V.client)
-					continue
-
-				var/age = V.client.prefs.age
-
-				var/min_job_age = job.get_minimum_character_age(V.get_species())
-				var/ideal_job_age = job.get_ideal_character_age(V.get_species())
-
-				if(age > (ideal_job_age + 20)) // Elderly for the position
-					weightedCandidates[V] = 3
-				else if(age > (ideal_job_age + 10)) // Good, but on the elderly side
-					weightedCandidates[V] = 6
-				else if(age > (ideal_job_age - 10)) // Perfect
-					weightedCandidates[V] = 10
-				else if(age > (min_job_age + 10)) // Good, but on the young side
-					weightedCandidates[V] = 6
-				else if(age >= min_job_age) // Too young
-					weightedCandidates[V] = 3
-				else
-					if(candidates.len == 1) // There's only one option
-						weightedCandidates[V] = 1
-
-			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
+			var/mob/abstract/new_player/candidate = pick(candidates)
 			if(AssignRole(candidate, command_position))
 				return TRUE
 	return FALSE

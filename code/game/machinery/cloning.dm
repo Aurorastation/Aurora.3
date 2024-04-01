@@ -248,7 +248,7 @@
 				connected = null
 			else
 				anchored = 1
-			playsound(loc, attacking_item.usesound, 100, 1)
+			attacking_item.play_tool_sound(get_turf(src), 100)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else

@@ -5,7 +5,7 @@
 	icon = 'icons/obj/hacktool.dmi'
 	icon_state = "hacktool-g"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5
+	force = 11
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5
 	throw_range = 15

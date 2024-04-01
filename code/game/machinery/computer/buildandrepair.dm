@@ -49,13 +49,13 @@
 					to_chat(user, "<span class='warning'>This frame does not accept circuit boards of this type!</span>")
 				return TRUE
 			if(attacking_item.isscrewdriver() && circuit)
-				playsound(src.loc,  attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You screw the circuit board into place and screw the drawer shut.</span>")
 				src.state = 2
 				src.icon_state = "2"
 				return TRUE
 			if(attacking_item.iscrowbar() && circuit)
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				src.state = 1
 				src.icon_state = "0"
@@ -64,7 +64,7 @@
 				return TRUE
 		if(2)
 			if(attacking_item.isscrewdriver() && circuit)
-				playsound(src.loc,  attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
 				src.state = 1
 				src.icon_state = "1"
@@ -107,14 +107,14 @@
 				return TRUE
 		if(4)
 			if(attacking_item.iscrowbar())
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You remove the glass keyboard.</span>")
 				src.state = 3
 				src.icon_state = "3"
 				new /obj/item/stack/material/glass( src.loc, 2 )
 				return TRUE
 			if(attacking_item.isscrewdriver())
-				playsound(src.loc,  attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "<span class='notice'>You connect the glass keyboard.</span>")
 				var/B = new src.circuit.build_path ( src.loc )
 				src.circuit.construct(B)

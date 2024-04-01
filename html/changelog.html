@@ -35,10 +35,114 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">29 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The machinist intern forgot to add the wires to the hardsuits, they&#x27;re back now, so you can hack them once more.</li>
+				<li class="bugfix">Fixed device assemblies disappearing on deconstruction.</li>
+				<li class="bugfix">Fixed UI not opening on device assemblies.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds the appropriate decals to the IAC ship doors.</li>
+				<li class="maptweak">Adds the hydroponic tools to the IAC hydroponics.</li>
+				<li class="bugfix">Adds the proper access to the rescue hardsuit on the IAC ship.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes species-restricted martial arts manuals not working.</li>
+			</ul>
+
+			<h2 class="date">28 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some mobs and mannequins harddels.</li>
+			</ul>
+
+			<h2 class="date">27 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed mech hearing sounds (and possibly other cases where the mob is placed inside something else).</li>
+				<li class="bugfix">Fixed some sounds that were without a volume set, thus weren&#x27;t played.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Restored the Xanan eagle voidsuit&#x27;s intended armor values.</li>
+				<li class="balance">Added a two-item limit to sanasomnum in the antagonist uplink.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Konyang voidsuits not being refittable.</li>
+				<li class="rscadd">Adds several new ERTs.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed &quot;Bangs&quot; and &quot;Bangs, Short&quot; hair lengths in the code.</li>
+			</ul>
+
+			<h2 class="date">26 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Removed some unused variables.</li>
+				<li class="refactor">Unified /organ Initialize() in a single proc.</li>
+				<li class="backend">Improved backend handling of smelters and control consoles for them.</li>
+				<li class="backend">Smelting is now consistent per second, instead of per tick.</li>
+				<li class="backend">Tickchecked the main loop.</li>
+				<li class="balance">Increased smelting power drain.</li>
+				<li class="balance">Smelters now produce 50 sheets per second.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes missing onmob sprites for certain voidsuits.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Cleaned up the gas tank dispenser code.</li>
+				<li class="maptweak">Removed some manually mapped variables on gas tank dispensers.</li>
+			</ul>
+
+			<h2 class="date">25 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Should fix the antag IPC selection from hanging roundstart.</li>
+				<li class="backend">The proc that called it had a lot of sleep, it is now invoked asyncronously, possibly speeds up roundstart spawn.</li>
+				<li class="backend">Updated the sound system with an adapted version of TG&#x27;s one.</li>
+				<li class="backend">Updated the looping sounds with TG&#x27;s version.</li>
+				<li class="backend">Updated tracy with our v24032024 version released in https://github.com/Aurorastation/byond-tracy/releases/tag/v24032024, now supports 515.1633.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes unsimulated turfs creating black and purple squares.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Alters stats on Qukala &amp; Techraider voidsuits to be in-line with standard combat suit values.</li>
+				<li class="rscadd">Adds an Assunzione voidsuit and a COC voidsuit modkit.</li>
+				<li class="bugfix">Fixes non-functional voidsuit modkits.</li>
+				<li class="rscadd">Adds several Moghresian animals.</li>
+				<li class="tweak">Changes plains tyrant fluff and adds new abilities for any future use of them.</li>
+				<li class="bugfix">Fixes animals having license plates and keys.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed small floor lights being offset.</li>
+				<li class="tweak">Removed age-weighted RNG when rolling for command roles.</li>
+			</ul>
+
 			<h2 class="date">24 March 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Point Verdant now only spawns when the day is a Port of Call day.</li>
+				<li class="backend">New template flag for ruins added, flag has ruin always spawn when today is a Port of Call, otherwise will not spawn.</li>
+				<li class="tweak">Haneunim port of call days now Saturday and Sunday</li>
+				<li class="backend">New atlas subsystem proc to check if today is a port of call day.</li>
+			</ul>
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Tweaks the sprite and palette of the stasis bed.</li>
+				<li class="maptweak">SCC Scout Ship mapping and name tweaks.</li>
+				<li class="maptweak">Civilian Yacht mapping tweaks.</li>
+				<li class="rscadd">Shuttle window spawners.</li>
 			</ul>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
@@ -54,6 +158,12 @@
 				<li class="rscdel">Removed the one second cooldown between shotgun pumps. The standard firing delay still applies.</li>
 				<li class="rscdel">Removed the forced wait when you pump a shotgun one-handed, similarly to how CM does it.</li>
 				<li class="rscadd">Added six ammo display units to the Warden&#x27;s office.</li>
+				<li class="tweak">Shotguns now more accurately reflect shells in the tube and whether there&#x27;s a shell in the chamber.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Completely remaps the Dominian corvette in line with current mapping standards.</li>
+				<li class="tweak">Trims the Dominian corvette ghostrole descriptions.</li>
 			</ul>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">
@@ -64,16 +174,36 @@
 				<li class="rscadd">Added barricade stacks.</li>
 				<li class="rscadd">Reworked how the infection works. It starts from an appendage and progresses to the brain. An infection can be stopped by cutting off the infected limb.</li>
 				<li class="rscadd">You cannot remove zombie parasites surgically anymore.</li>
+				<li class="experiment">Buffed the force of most melee items.</li>
+				<li class="tweak">The maglight has been nerfed to not do more damage than most melee items.</li>
 			</ul>
 			<h3 class="author">MattAtlas (Porting), Loaf (Original Code), Lancer (Umbrella Sprites) updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Ported a weather system from Nebula. Original code credit is to Loaf.</li>
 				<li class="rscadd">Added umbrellas to the game. Sprites by Lancer.</li>
 			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">All station voidsuits are now contained sprites.</li>
+				<li class="tweak">Suit cyclers now support contained sprites.</li>
+				<li class="bugfix">Fixes several reported issues with away ships.</li>
+				<li class="maptweak">Adds distress beacons to all ships that were missing them.</li>
+			</ul>
+			<h3 class="author">SidVeld updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Unicode support in browser windows.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removed infected IPCs from maps, as per the event&#x27;s resolution.</li>
+			</ul>
 			<h3 class="author">Sniblet updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Upgraded cyborg rechargers now specify that they only repair stationbounds.</li>
 				<li class="bugfix">pAIs no longer receive Hivenet.</li>
+				<li class="rscadd">More accents for the stationbound Mimic Accent verb.</li>
+				<li class="rscdel">Stationbounds cannot mimic the Plutonian accent.</li>
+				<li class="bugfix">Removed duplicate Eridani Suit in Mimic Accent.</li>
 			</ul>
 
 			<h2 class="date">23 March 2024</h2>
