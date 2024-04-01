@@ -12,13 +12,10 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/update_icon()
 	return
 
-/obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
-
 // --------------------------------- Luthien
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien
-	name = "Luthien"
+	name = "Caprice"
 	desc = "A desert planet with a thin, unbreathable atmosphere of primarily nitrogen."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "globe1"
@@ -29,9 +26,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/luthien/update_icon()
 	return
-
-/obj/effect/overmap/visitable/sector/exoplanet/lava/luthien/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_habitability()
 	return HABITABILITY_BAD
@@ -51,9 +45,6 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/update_icon()
 	return
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
-
 // --------------------------------- New Gibson
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson
@@ -66,9 +57,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/update_icon()
 	return
-
-/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_habitability()
 	return HABITABILITY_BAD
@@ -88,9 +76,6 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/update_icon()
 	return
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
-
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_habitability()
 	return HABITABILITY_BAD
 
@@ -108,5 +93,3 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/update_icon()
 	return
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
