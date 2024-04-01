@@ -110,7 +110,7 @@
 	layer = 3;
 	pixel_x = -40;
 	pixel_y = -64;
-	weapon_id = "Francisca Rotary Gun"
+	weapon_id = "Galatean Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
@@ -558,6 +558,15 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"dc" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#90C1DB";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#90C1DB"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "dd" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1195,8 +1204,8 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen/green,
 /obj/item/clothing/mask/breath/offworlder/jagmask,
-/obj/item/clothing/suit/space/void/galatea,
-/obj/item/clothing/head/helmet/space/void/galatea{
+/obj/item/clothing/suit/space/void/coalition/galatea,
+/obj/item/clothing/head/helmet/space/void/coalition/galatea{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2931,6 +2940,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/plating,
 /area/space)
 "qz" = (
@@ -3293,6 +3303,15 @@
 "sv" = (
 /obj/machinery/atmospherics/omni/filter,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/space)
+"sw" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#88A866";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#88A866"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "sA" = (
@@ -3935,7 +3954,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "Galatean Grauwolf Flak Battery"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -4117,7 +4136,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/alarm/east,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
 	},
@@ -4391,7 +4409,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "yo" = (
 /obj/machinery/iv_drip,
@@ -4875,7 +4893,7 @@
 /area/space)
 "AI" = (
 /obj/machinery/ammunition_loader/francisca{
-	weapon_id = "Francisca Rotary Gun";
+	weapon_id = "Galatean Francisca Rotary Gun";
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -6279,8 +6297,8 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen/green,
 /obj/item/clothing/mask/breath/offworlder/jagmask,
-/obj/item/clothing/suit/space/void/galatea,
-/obj/item/clothing/head/helmet/space/void/galatea{
+/obj/item/clothing/suit/space/void/coalition/galatea,
+/obj/item/clothing/head/helmet/space/void/coalition/galatea{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6517,7 +6535,7 @@
 "Ix" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
-	department = "SCC Scout Ship Captain's Quarters";
+	department = "Galatean Expedition Ship Bridge";
 	req_one_access = list(20);
 	pixel_y = 6
 	},
@@ -7262,7 +7280,6 @@
 /turf/simulated/floor/plating,
 /area/space)
 "MA" = (
-/obj/structure/closet/crate/freezer,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -8115,6 +8132,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Rl" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/space)
 "Rm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -8563,8 +8588,8 @@
 	pixel_y = -2
 	},
 /obj/item/tank/oxygen/green{
-	pixel_x = 1;
-	pixel_y = 1
+	pixel_x = -2;
+	pixel_y = 5
 	},
 /obj/item/clothing/mask/breath/offworlder/jagmask{
 	pixel_y = -4
@@ -9595,7 +9620,7 @@
 /area/space)
 "Zh" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "Galatean Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -36330,10 +36355,10 @@ Wk
 Wk
 Bi
 Bi
-Bi
-Bi
-Bi
-Bi
+sw
+sw
+sw
+sw
 Bi
 Bi
 Wk
@@ -36341,10 +36366,10 @@ Wk
 Wk
 lX
 lX
-lX
-lX
-lX
-lX
+dc
+dc
+dc
+dc
 lX
 lX
 Wk
@@ -37098,7 +37123,7 @@ Wk
 Wk
 Wk
 lO
-Bi
+sw
 hS
 dN
 yK
@@ -37107,9 +37132,9 @@ QY
 Vu
 Vu
 qI
-Bi
+sw
 lO
-lX
+dc
 mC
 xy
 xy
@@ -37118,7 +37143,7 @@ bM
 tp
 QH
 er
-lX
+dc
 lO
 Wk
 Wk
@@ -37355,7 +37380,7 @@ Wk
 Wk
 Wk
 lO
-Bi
+sw
 mi
 yK
 yK
@@ -37364,9 +37389,9 @@ pS
 pS
 rG
 Wh
-Bi
+sw
 Wk
-lX
+dc
 Iw
 xy
 dN
@@ -37375,7 +37400,7 @@ dN
 tp
 sQ
 aO
-lX
+dc
 lO
 Wk
 Wk
@@ -37612,7 +37637,7 @@ Wk
 lO
 lO
 lO
-Bi
+sw
 vJ
 PA
 HY
@@ -37621,9 +37646,9 @@ Lc
 qI
 xt
 RX
-Bi
+sw
 lO
-lX
+dc
 Xr
 aH
 FD
@@ -37632,7 +37657,7 @@ Yb
 sc
 wV
 aV
-lX
+dc
 lO
 lO
 lO
@@ -37869,7 +37894,7 @@ Ss
 UM
 Wk
 lO
-Bi
+sw
 hy
 xJ
 pS
@@ -37878,9 +37903,9 @@ rG
 rG
 xt
 ZQ
-Bi
+sw
 Wk
-lX
+dc
 zM
 bM
 bM
@@ -37889,7 +37914,7 @@ yK
 tp
 UP
 Ms
-lX
+dc
 lO
 Wk
 lO
@@ -39452,7 +39477,7 @@ lO
 Wk
 Wk
 Wk
-eQ
+kQ
 XY
 MC
 co
@@ -39461,7 +39486,7 @@ cS
 cS
 XF
 XF
-eQ
+kQ
 Bd
 Wk
 Wk
@@ -39975,7 +40000,7 @@ hY
 hY
 Vi
 Vi
-eQ
+kQ
 Wk
 Wk
 Wk
@@ -40179,7 +40204,7 @@ ri
 Tr
 eQ
 Lh
-ka
+Rl
 eQ
 Xp
 oi
@@ -40720,9 +40745,9 @@ in
 XO
 nD
 XO
-cS
+XF
 dV
-cS
+XF
 XO
 dd
 XO
@@ -45352,7 +45377,7 @@ pH
 kB
 eQ
 eQ
-eQ
+kQ
 eQ
 eQ
 eQ
@@ -45372,7 +45397,7 @@ XF
 XF
 Mu
 Mu
-eQ
+kQ
 Wk
 Wk
 Wk
@@ -45877,7 +45902,7 @@ lO
 Wk
 Wk
 Wk
-eQ
+kQ
 XY
 MC
 RJ
@@ -45886,7 +45911,7 @@ cS
 cS
 hY
 hY
-eQ
+kQ
 Bd
 Wk
 Wk
