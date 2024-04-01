@@ -16,7 +16,7 @@
 	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	slot_flags = SLOT_HEAD
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
@@ -610,13 +610,13 @@
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.l_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.r_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.r_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.head == src)

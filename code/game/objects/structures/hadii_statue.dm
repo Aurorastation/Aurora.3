@@ -5,7 +5,7 @@
 	icon_state = "bronze"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	var/toppled = FALSE
 	var/outside = FALSE
 	var/already_toppled = FALSE

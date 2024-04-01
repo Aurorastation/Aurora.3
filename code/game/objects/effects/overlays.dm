@@ -24,7 +24,7 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	density = 1
-	layer = 5
+	layer = ABOVE_HUMAN_LAYER
 	anchored = 1
 
 
@@ -33,7 +33,7 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm2"
 	density = 1
-	layer = 5
+	layer = ABOVE_HUMAN_LAYER
 	anchored = 1
 
 
@@ -47,15 +47,7 @@
 	name = "bluespace"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
-	layer = 10
-
-/obj/effect/overlay/snow
-	name = "snow"
-	icon = 'icons/turf/overlays.dmi'
-	icon_state = "snowfloor"
-	density = 0
-	anchored = 1
-	layer = 3
+	layer = SUPERMATTER_WALL_LAYER
 
 /obj/effect/overlay/temp
 	icon_state = "nothing"

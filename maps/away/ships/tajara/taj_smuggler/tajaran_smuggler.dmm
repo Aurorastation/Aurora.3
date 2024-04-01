@@ -134,7 +134,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -202,7 +201,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -351,7 +349,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "smuggler_cargo_hatch";
-	layer = 2.8;
 	name = "Cargo Hold";
 	open_layer = 2.8;
 	dir = 4
@@ -399,7 +396,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor{
@@ -450,7 +446,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
@@ -516,7 +511,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/tajaran_smuggler_cargo)
@@ -612,7 +606,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
@@ -894,7 +887,6 @@
 "ePD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -972,7 +964,6 @@
 "fjf" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor{
@@ -1302,7 +1293,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/tajaran_smuggler_cargo)
@@ -1345,7 +1335,6 @@
 "gXD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -2257,7 +2246,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2576,7 +2564,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
@@ -2669,7 +2656,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3139,7 +3125,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "tajara_smuggler";
-	layer = 2.9
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3153,7 +3138,6 @@
 /area/tajaran_smuggler)
 "rAo" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black{
@@ -3322,7 +3306,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -3801,7 +3784,6 @@
 /area/shuttle/tajaran_smuggler_cargo)
 "xeO" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor{
