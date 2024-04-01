@@ -3833,6 +3833,7 @@
 #include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler.dm"
 #include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler_areas.dm"
 #include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler_ghostroles.dm"
+#include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler_landmarks.dm"
 #include "maps\away\ships\tirakqi_smuggler\tirakqi_smuggler.dm"
 #include "maps\away\ships\tirakqi_smuggler\tirakqi_smuggler_areas.dm"
 #include "maps\away\ships\tirakqi_smuggler\tirakqi_smuggler_ghostroles.dm"
