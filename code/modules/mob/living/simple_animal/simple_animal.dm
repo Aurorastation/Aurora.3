@@ -762,9 +762,9 @@
 		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
-	var/sound_to_play = pick(emote_sounds)
+	var/sound_to_play = LAZYPICK(emote_sounds, FALSE)
 	if(sound_to_play)
-		playsound(src, pick(emote_sounds), 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, sound_to_play, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 	if(client)
 		sound_time = FALSE
