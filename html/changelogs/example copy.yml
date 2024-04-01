@@ -1,6 +1,0 @@
-author: SidVeld
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed an issue that caused the character examine message to disappear when the player controlling it is not in the body."
