@@ -112,13 +112,6 @@
 /obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Shuttle"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
-	icon_screen = "helm"
-	icon_keyboard = "security_key"
-	is_connected = TRUE
-	has_off_keyboards = TRUE
-	can_pass_under = FALSE
-	light_power_on = 1
 
 /datum/shuttle/autodock/overmap/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
