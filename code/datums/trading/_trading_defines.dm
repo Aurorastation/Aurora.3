@@ -9,7 +9,7 @@
 #define TRADER_MONEY         2 //Do they only accept money in return for goods.
 #define TRADER_GOODS         4 //Do they accept goods in return for other goods.
 
-/// Refuse service, will not trade with this species
+/// Refuse service, will not trade with this species. Note that in this case the hail message will use hail_[species], not hail_deny
 #define TRADER_BIAS_DENY "Deny"
 /// Dislikes this species, upcharged prices
 #define TRADER_BIAS_UPCHARGE "Upcharge"

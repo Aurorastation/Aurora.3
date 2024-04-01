@@ -209,7 +209,10 @@
 	if(current_merchant)
 		var/datum/trader/T = get_merchant(current_merchant)
 		if(!T.can_hail(user))
-			last_comms = T.get_response("hail_deny", "No, I'm not speaking with you.")
+			if(T.get_bias(user) == TRADER_BIAS_DENY)
+				last_comms = T.hail(user)
+			else
+				last_comms = T.get_response("hail_deny", "No, I'm not speaking with you.")
 			. = TRUE
 		else
 			if(action == "PRG_hail")
