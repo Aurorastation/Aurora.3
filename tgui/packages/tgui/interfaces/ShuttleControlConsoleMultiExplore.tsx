@@ -1,5 +1,6 @@
+import { randomInteger } from 'common/random';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
+import { Button, Section, Box, LabeledList, NoticeBox } from '../components';
 import { Window } from '../layouts';
 import { MinimapView } from './common/MinimapView';
 
@@ -20,11 +21,16 @@ export type ShuttleControlConsoleMultiExploreData = {
   fuel_usage: number;
   remaining_fuel: number;
   fuel_span: string;
+  jump_to_overmap_capable: boolean;
+  can_jump_to_overmap: boolean;
+  world_time: number;
 };
 
 export const ShuttleControlConsoleMultiExplore = (props, context) => {
   const { act, data } =
     useBackend<ShuttleControlConsoleMultiExploreData>(context);
+
+  const recharge_time = Math.floor((360000 - data.world_time) / 10 / 60);
 
   return (
     <Window resizable>
@@ -124,6 +130,42 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
             onClick={() => act('force')}
           />
         </Section>
+
+        {data.jump_to_overmap_capable ? (
+          <Section title="Warp Drive Control">
+            {data.can_jump_to_overmap ? (
+              <NoticeBox warning>
+                Warp drive ready
+                <br />
+                <Button
+                  content="Long-range jump to next sector"
+                  icon="rocket"
+                  color="blue"
+                  onClick={() => act('jump_to_overmap')}
+                />
+                <br />
+                Jump will be executed immediately
+              </NoticeBox>
+            ) : (
+              ''
+            )}
+            <NoticeBox info>
+              Jump drive: Suzuki-Zhang Hammer Drive (Modified)
+              <br />
+              Serial number: 0{randomInteger(1000000, 9999999)}.2137.EE
+              <br />
+              Status:{' '}
+              {data.can_jump_to_overmap ? 'Operational' : 'Recharging...'}
+              <br />
+              Recharge time:{' '}
+              {data.can_jump_to_overmap
+                ? 'Approx 9 hours'
+                : recharge_time + ' minutes remaining...'}
+            </NoticeBox>
+          </Section>
+        ) : (
+          ''
+        )}
       </Window.Content>
     </Window>
   );

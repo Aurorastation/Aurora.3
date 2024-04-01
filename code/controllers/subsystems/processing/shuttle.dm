@@ -15,6 +15,11 @@ SUBSYSTEM_DEF(shuttle)
 	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
 	var/list/shuttle_areas = list()              //All the areas of all shuttles.
 
+	/// Assoc list of shuttle area to shuttle.
+	/// Key is area object of type `/area/shuttle/...`, value is shuttle object of type `/datum/shuttle/...`.
+	/// To be filled when a shuttle is registered.
+	var/list/shuttle_area_to_shuttle = list()
+
 	var/list/lonely_shuttle_computers = list()   //shuttle computers that haven't been attached to their shuttles yet
 
 	var/list/landmarks_awaiting_sector = list()  //Stores automatic landmarks that are waiting for a sector to finish loading.
@@ -151,7 +156,16 @@ SUBSYSTEM_DEF(shuttle)
 	var/datum/shuttle/shuttle = shuttle_type
 	if(initial(shuttle.category) != shuttle_type)
 		shuttle = new shuttle()
+
 		shuttle_areas |= shuttle.shuttle_area
+
+		if(islist(shuttle.shuttle_area))
+			for(var/shuttle_area in shuttle.shuttle_area)
+				shuttle_area_to_shuttle[shuttle_area] = shuttle
+		else
+			shuttle_area_to_shuttle[shuttle.shuttle_area] = shuttle
+
+		// fin
 		return shuttle
 
 /datum/controller/subsystem/shuttle/proc/hook_up_motherships(shuttles_list)
@@ -179,5 +193,13 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/ship_by_type(type)
 	for (var/obj/effect/overmap/visitable/ship/ship in ships)
 		if (ship.type == type)
+			return ship
+	return null
+
+/// Returns obj of type `/obj/effect/overmap/visitable/ship/landable`,
+/// if its `shuttle` var equals arg `name`.
+/datum/controller/subsystem/shuttle/proc/shuttle_obj_by_name(name)
+	for (var/obj/effect/overmap/visitable/ship/landable/ship in ships)
+		if (ship.shuttle == name)
 			return ship
 	return null

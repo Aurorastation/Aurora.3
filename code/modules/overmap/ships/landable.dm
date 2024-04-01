@@ -3,7 +3,10 @@
 // Multiz shuttles currently not supported. Non-autodock shuttles currently not supported.
 
 /obj/effect/overmap/visitable/ship/landable
-	var/shuttle                                         // Name of associated shuttle. Must be autodock.
+	/// Name of associated shuttle. Must be autodock.
+	/// Should be same as `name` var of `/datum/shuttle/autodock/overmap`.
+	var/shuttle
+
 	var/obj/effect/shuttle_landmark/ship/landmark       // Record our open space landmark for easy reference.
 	var/multiz = 0										// Index of multi-z levels, starts at 0
 	var/status = SHIP_STATUS_LANDED
@@ -178,3 +181,18 @@
 			return "Maneuvering under secondary thrust."
 		if(SHIP_STATUS_OVERMAP)
 			return "In open space."
+
+/// Forcefully moves the shuttle to its open space zlevel, gracefully closing its airlock.
+/// This is to be used for shuttles that start on admin/CC zlevels, that are not connected to the overmap.
+/obj/effect/overmap/visitable/ship/landable/proc/force_move_to_open_space()
+	// get the shuttle
+	var/datum/shuttle/autodock/overmap/shuttle_datum = SSshuttle.shuttles[shuttle]
+	if(!istype(shuttle_datum))
+		return
+
+	// close its airlock
+	if(istype(shuttle_datum.active_docking_controller))
+		shuttle_datum.active_docking_controller.initiate_undocking()
+
+	// actually move the shuttle to its open space
+	shuttle_datum.attempt_move(landmark)
