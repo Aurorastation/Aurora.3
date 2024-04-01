@@ -103,7 +103,7 @@
 /datum/citizenship/glaorr/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
-			var/picked_objective = pick("Make use of the Entertainment channel to hold a Union broadcast. Topics to consider: the rich heritage of the Union of Gla'orr, the elegance of Rootsong, withstanding alien influence to preserve a strong sense of dionae identity, the importance of unity and solidarity among Union citizens.", "Instill a sense of pride in any Union of Gla'orr dionae onboard; root out any signs of alien influence.", "Hold a seminar on Rootsong with any dionae onboard. Topics to consider: ease of communication, Rootsong as a symbol of dionae identity, the eloequence of Gla'orr Received Pronunciation, bastardisations of Rootsong such as Consortium Standard.")
+			var/picked_objective = pick("Make use of the Entertainment channel to hold a Union broadcast. The suggested topic this broadcast is: [pick("the rich heritage of the Union of Gla'orr", "the elegance of Rootsong, withstanding alien influence to preserve a strong sense of dionae identity", "the importance of unity and solidarity among Union citizens")].", "Instill a sense of pride in any Union of Gla'orr dionae onboard; root out any signs of alien influence.", "Hold a seminar on Rootsong with any dionae onboard. The suggested topic this shift is: [pick("ease of communication in Rootsong", "Rootsong as a symbol of dionae identity", "the eloequence of Gla'orr Received Pronunciation", "bastardisations of Rootsong such as Consortium Standard")].")
 			return picked_objective
 
 /datum/citizenship/ekane
