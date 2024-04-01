@@ -10,12 +10,6 @@
 	tag_icon = "dionae_voidsong"
 	text_tag = "VDS"
 
-/datum/accent/ancientsong
-	name = ACCENT_ANCIENTSONG
-	description = "An accent unique to the Dionae hailing for EUM. It sounds similar to Rootsong, although with a higher pitch."
-	tag_icon = "dionae_ancientsong"
-	text_tag = "ATS"
-
 /datum/accent/crimsonsong
 	name = ACCENT_CRIMSONSONG
 	description = "Originating from the red sea that is the Badlands, Crimsonsong is a variation of Voidsong spoken by Dionae hailing from the region, with the main distinction between the two being a noticeably faster tempo as well as a slightly higher pitch."
@@ -87,3 +81,28 @@
 	description = "A unique combination of elements from both Nral'malic and Rootsong, Xrim's accent can generally be picked up due to its slow, dulcet sound. It has wide range, and can reach as high as a Soprano and as low as an Alto. Its fluctuations are generally an easy way to detect the accent, being one of the more novel accents within the Federation, and abroad."
 	tag_icon = "dionae_xrim"
 	text_tag = "XMS"
+
+// Hieroaetherian Accents
+/datum/accent/ancientsong
+	name = ACCENT_ANCIENTSONG
+	description = "An accent unique to dionae hailing from the Commonwealth of Hieroaetheria who live outside of the three nations, known as Ancient Song or Hieroaetherian Old. It sounds similar to Rootsong, although with a unique tonality that often begins and ends on high-pitched harmonies."
+	tag_icon = "dionae_ancientsong"
+	text_tag = "ATS"
+
+/datum/accent/consortium
+	name = ACCENT_CONSORTIUM
+	description = "An accent very similar to Ancient Song, though standardised to be the same across the Consortium of Hieroaetheria and more easy on the ears of non-dionae. It remains typically higher pitched than ordinary Rootsong, though lacks the unique tonality of true Ancientsong, and in recent times has begun to adopt some chirpy sounds of skrell."
+	tag_icon = "dionae_consortium"
+	text_tag = "CNS"
+
+/datum/accent/glaorr
+	name = ACCENT_GLAORR
+	description = "An eloquent accent heard in the territories controlled by the Union of Gla'orr, where each syllable is perfectly enunciated and each note harmonised when speaking with other dionae. It has a similar tonality to true Ancientsong, though with a bit of sing-songy lilt."
+	tag_icon = "dionae_glaorr"
+	text_tag = "UNN"
+
+/datum/accent/ekane
+	name = ACCENT_EKANE
+	description = "A accent with a lot of variation among different communities of Ekanians. It is very high-pitched, more so than any other form of Rootsong, and is often described as grating by non-Dionae."
+	tag_icon = "dionae_ekane"
+	text_tag = "ETR"
