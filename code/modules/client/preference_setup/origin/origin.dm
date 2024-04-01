@@ -9,6 +9,7 @@
 /datum/category_item/player_setup_item/origin/load_character(var/savefile/S)
 	S["culture"]    		>> pref.culture
 	S["origin"]     		>> pref.origin
+	S["education"]			>> pref.education
 	S["citizenship"]		>> pref.citizenship
 	S["religion"]			>> pref.religion
 	S["accent"]				>> pref.accent
@@ -17,6 +18,7 @@
 /datum/category_item/player_setup_item/origin/save_character(var/savefile/S)
 	S["culture"]			<< pref.culture
 	S["origin"]				<< pref.origin
+	S["education"]			<< pref.education
 	S["citizenship"]		<< pref.citizenship
 	S["religion"]			<< pref.religion
 	S["accent"]				<< pref.accent
@@ -28,6 +30,7 @@
 			"vars" = list(
 				"culture",
 				"origin",
+				"education",
 				"economic_status",
 				"citizenship",
 				"religion",
@@ -45,6 +48,7 @@
 		"ss13_characters" = list(
 			"culture",
 			"origin",
+			"education",
 			"economic_status",
 			"citizenship",
 			"religion",
@@ -58,6 +62,7 @@
 	return list(
 		"culture" = pref.culture,
 		"origin" = pref.origin,
+		"education" = pref.education,
 		"economic_status" = pref.economic_status,
 		"citizenship" = pref.citizenship,
 		"religion" = pref.religion,

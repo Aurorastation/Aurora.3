@@ -501,6 +501,7 @@
 #include "code\datums\skills\everyday\service.dm"
 #include "code\datums\skills\occupational\engineering.dm"
 #include "code\datums\skills\occupational\medical.dm"
+#include "code\datums\skills\occupational\science.dm"
 #include "code\datums\state_machine\state.dm"
 #include "code\datums\state_machine\transition.dm"
 #include "code\datums\tips\tips.dm"
