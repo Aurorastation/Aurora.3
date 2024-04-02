@@ -1145,7 +1145,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/mining_jack/engines)
 "sW" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "mining_jack_bridge"
@@ -2139,7 +2139,7 @@
 	},
 /area/shuttle/mining_jack/bridge)
 "Oc" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "mining_jack_bridge"
@@ -2433,7 +2433,7 @@
 	},
 /area/shuttle/mining_jack/engines)
 "XK" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

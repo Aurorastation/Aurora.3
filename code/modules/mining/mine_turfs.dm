@@ -529,8 +529,7 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	color = "#97A7AA"
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/high_chance
@@ -564,8 +563,6 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/high_chance/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
@@ -617,8 +614,6 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/crystal

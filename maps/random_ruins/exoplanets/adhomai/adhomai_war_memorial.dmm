@@ -38,9 +38,7 @@
 /turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "w" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "x" = (
 /obj/structure/railing/mapped{

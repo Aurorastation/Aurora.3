@@ -1,10 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
 "ab" = (
 /obj/structure/extinguisher_cabinet/west{
 	},
@@ -21,12 +15,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"ae" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "aF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -27752,7 +27740,7 @@ xQ
 xQ
 xQ
 xQ
-aa
+ac
 lH
 dR
 nk
@@ -30085,7 +30073,7 @@ lH
 lH
 lH
 lH
-ae
+ac
 sI
 lH
 lH
