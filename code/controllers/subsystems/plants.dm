@@ -41,11 +41,10 @@ SUBSYSTEM_DEF(plants)
 		if(!(plant_sprites[base]) || (plant_sprites[base]<ikey))
 			plant_sprites[base] = ikey
 
-	for (var/state in icon_states('icons/obj/hydroponics_products.dmi'))
-		var/split = findtext_char(state, "-")
-		if (!split)
-			continue
-		plant_product_sprites |= copytext_char(state, 1, split)
+	for(var/icostate in icon_states('icons/obj/hydroponics_products.dmi'))
+		var/split = findtext(icostate,"-")
+		if(split)
+			plant_product_sprites |= copytext(icostate,1,split)
 
 	// Populate the global seed datum list.
 	for(var/type in typesof(/datum/seed)-/datum/seed)
