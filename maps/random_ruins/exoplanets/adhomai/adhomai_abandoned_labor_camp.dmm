@@ -18,9 +18,7 @@
 /area/exoplanet/adhomai)
 "ds" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ef" = (
 /obj/item/reagent_containers/glass/bucket/wood{
@@ -42,9 +40,7 @@
 	pixel_x = -32;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ew" = (
 /obj/machinery/shower{
@@ -89,9 +85,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "gz" = (
 /obj/machinery/vending/cigarette,
@@ -139,9 +133,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "kI" = (
 /obj/effect/floor_decal/concrete{
@@ -187,9 +179,7 @@
 	},
 /area/exoplanet/adhomai)
 "mC" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "mF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -217,9 +207,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ov" = (
 /obj/structure/hadii_statue/stone{
@@ -252,15 +240,11 @@
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "qW" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "rf" = (
 /obj/structure/closet/crate/freezer,
@@ -313,9 +297,7 @@
 /area/exoplanet/adhomai)
 "vw" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "vB" = (
 /obj/effect/floor_decal/concrete,
@@ -378,9 +360,7 @@
 	pixel_y = -32;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "yA" = (
 /obj/effect/floor_decal/concrete/large/cee{
@@ -502,9 +482,7 @@
 /area/exoplanet/adhomai)
 "FM" = (
 /obj/structure/flora/grass/brown,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Gu" = (
 /turf/simulated/wall/wood,
@@ -577,9 +555,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Jb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -646,9 +622,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Qe" = (
 /obj/machinery/door/urban,
@@ -738,18 +712,14 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Xv" = (
 /obj/structure/sign/flag/pra{
 	pixel_y = 32;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "XT" = (
 /obj/machinery/door/blast/shutters{

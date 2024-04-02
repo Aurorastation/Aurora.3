@@ -3,9 +3,7 @@
 /obj/structure/barricade/metal/wired{
 	pixel_y = 16
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "ak" = (
 /obj/structure/railing/fence{
@@ -171,9 +169,7 @@
 /area/ala_base)
 "hT" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "iM" = (
 /obj/structure/closet/crate/bin,
@@ -184,9 +180,7 @@
 	pixel_x = -32;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "iY" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -196,9 +190,7 @@
 /area/ala_base)
 "jH" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "lr" = (
 /obj/structure/bed/stool/chair/wood{
@@ -252,9 +244,7 @@
 	dir = 4
 	},
 /obj/structure/railing/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "ne" = (
 /obj/structure/bed/padded,
@@ -266,9 +256,7 @@
 /obj/structure/curtain/black{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "nE" = (
 /obj/structure/simple_door/wood,
@@ -278,9 +266,7 @@
 /obj/structure/closet/crate/bin{
 	pixel_y = 24
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "om" = (
 /turf/simulated/floor/exoplanet/tiled/dark,
@@ -318,9 +304,7 @@
 	name = "water heater";
 	desc = "A rustic Adhomian heater typically filled with firewood This one is connected to a nearby water tank. Warm enough to gather around the winter."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "qm" = (
 /obj/structure/bed,
@@ -357,9 +341,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "sD" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -411,9 +393,7 @@
 /area/ala_base)
 "ut" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "uw" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -463,9 +443,7 @@
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "vi" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "vy" = (
 /obj/structure/railing/fence{
@@ -524,9 +502,7 @@
 	pixel_y = -33;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "wB" = (
 /obj/structure/bed/padded,
@@ -553,9 +529,7 @@
 /obj/structure/closet/crate/bin{
 	name = "fire wood bin"
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "xl" = (
 /obj/machinery/door/urban{
@@ -601,9 +575,7 @@
 /area/ala_base)
 "yB" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "yE" = (
 /obj/machinery/washing_machine,
@@ -688,9 +660,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Av" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -714,9 +684,7 @@
 	name = "heated water tank";
 	desc = "A tank of water filed by melting local snow."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Bg" = (
 /obj/machinery/light/small{
@@ -759,15 +727,11 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Cs" = (
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "CW" = (
 /obj/structure/railing/fence{
@@ -776,9 +740,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "DB" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "DG" = (
 /obj/machinery/light,
@@ -853,9 +815,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "ES" = (
 /obj/structure/bed/padded,
@@ -928,9 +888,7 @@
 /obj/item/pipe{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "KB" = (
 /obj/structure/bedsheetbin{
@@ -1048,18 +1006,14 @@
 	desc = "A green sign which showcases the location of a medical aid station.";
 	pixel_x = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Ol" = (
 /obj/structure/table/rack,
 /obj/item/shovel,
 /obj/item/shovel,
 /obj/item/shovel,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "OG" = (
 /obj/machinery/light,
@@ -1088,18 +1042,14 @@
 /area/ala_base)
 "Pi" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "PC" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "PY" = (
 /obj/structure/table/steel,
@@ -1122,18 +1072,14 @@
 	pixel_y = -32;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Sc" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = 11;
 	pixel_y = -11
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Sr" = (
 /obj/structure/railing/fence,
@@ -1163,25 +1109,19 @@
 /obj/machinery/floodlight{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "TB" = (
 /obj/structure/light_pole/r{
 	density = 0
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Vc" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "VN" = (
 /obj/structure/noticeboard{
@@ -1202,9 +1142,7 @@
 	name = "woodcutting axe";
 	desc = "A short lightweight tool meant to chop, pry and pierce wood."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "XN" = (
 /obj/structure/curtain/black{
@@ -1237,9 +1175,7 @@
 /area/ala_base)
 "ZQ" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"

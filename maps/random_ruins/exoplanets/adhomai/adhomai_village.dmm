@@ -83,9 +83,7 @@
 /area/adhomai_village)
 "fD" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_village)
 "fZ" = (
 /obj/structure/bed/stool/chair/wood{
@@ -225,9 +223,7 @@
 /area/adhomai_village)
 "oi" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_village)
 "ol" = (
 /obj/structure/table/wood,
@@ -372,9 +368,7 @@
 	},
 /area/adhomai_village)
 "xc" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_village)
 "xn" = (
 /obj/structure/bed/stool/chair/wood{
@@ -486,9 +480,7 @@
 /area/adhomai_village)
 "Fz" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_village)
 "FM" = (
 /obj/structure/bed/stool/wood,
@@ -609,9 +601,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_village)
 "Jb" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -892,9 +882,7 @@
 /area/adhomai_village)
 "YV" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_village)
 "Zi" = (
 /obj/structure/railing/fence{

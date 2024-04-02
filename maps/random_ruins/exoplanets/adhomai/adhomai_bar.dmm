@@ -56,9 +56,7 @@
 /obj/item/trash/can/adhomian_can,
 /obj/item/storage/bag/trash,
 /obj/item/storage/bag/trash,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ev" = (
 /obj/structure/bed/stool/chair/wood{
@@ -228,9 +226,7 @@
 	},
 /area/adhomai_bar)
 "nR" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "oq" = (
 /obj/structure/coatrack,
@@ -260,9 +256,7 @@
 	pixel_y = 32;
 	desc = "An ancient icon representing Adhomai's suns."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "pr" = (
 /obj/machinery/light/small{
@@ -543,9 +537,7 @@
 /area/adhomai_bar)
 "FM" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "FS" = (
 /obj/structure/bed/stool/chair/wood{
@@ -679,9 +671,7 @@
 /area/adhomai_bar)
 "NM" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Ow" = (
 /obj/structure/table/wood/gamblingtable,
@@ -958,9 +948,7 @@
 /area/adhomai_bar)
 "XG" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Yn" = (
 /obj/structure/bed/stool/chair/wood{
@@ -987,9 +975,7 @@
 /area/adhomai_bar)
 "YP" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "YY" = (
 /obj/structure/table/rack,

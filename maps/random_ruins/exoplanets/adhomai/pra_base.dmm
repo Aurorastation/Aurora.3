@@ -188,9 +188,7 @@
 /area/pra_base)
 "hT" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "jE" = (
 /obj/effect/floor_decal/concrete/large{
@@ -366,9 +364,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "oO" = (
 /obj/structure/closet/walllocker/medical{
@@ -522,14 +518,10 @@
 	pixel_y = -32;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "vi" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "vD" = (
 /obj/structure/table/steel,
@@ -543,9 +535,7 @@
 	pixel_y = -29
 	},
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "vQ" = (
 /obj/effect/floor_decal/concrete{
@@ -557,9 +547,7 @@
 	},
 /area/pra_base)
 "wB" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "wC" = (
 /obj/machinery/vending/cigarette,
@@ -706,9 +694,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "CG" = (
 /obj/structure/sign/flag/pra{
@@ -901,9 +887,7 @@
 /area/exoplanet/adhomai)
 "If" = (
 /obj/item/pipe,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Iq" = (
 /obj/structure/sign/flag/pra/large/north{
@@ -920,9 +904,7 @@
 /area/pra_base)
 "Jc" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Jw" = (
 /obj/structure/hadii_statue/stone,
@@ -969,9 +951,7 @@
 /obj/machinery/floodlight{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Lm" = (
 /obj/effect/floor_decal/concrete,
@@ -988,9 +968,7 @@
 	name = "heated water tank";
 	desc = "A tank of water filed by melting local snow."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Lu" = (
 /obj/effect/floor_decal/concrete{
@@ -1002,9 +980,7 @@
 /area/pra_base)
 "LI" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Md" = (
 /turf/simulated/floor/tiled/freezer{
@@ -1114,9 +1090,7 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Rd" = (
 /obj/machinery/light/small{
@@ -1150,9 +1124,7 @@
 	dir = 8;
 	pixel_x = 10
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Se" = (
 /turf/simulated/floor/tiled/white,
@@ -1202,9 +1174,7 @@
 	name = "water heater";
 	desc = "A rustic Adhomian heater typically filled with firewood This one is connected to a nearby water tank. Warm enough to gather around the winter."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Up" = (
 /obj/effect/floor_decal/industrial/outline/blue,
