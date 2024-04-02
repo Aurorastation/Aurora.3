@@ -755,6 +755,9 @@
 	dir = 4
 	},
 /obj/machinery/door/window/southleft,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /turf/simulated/floor,
 /area/shuttle/racers_blue)
 "dbs" = (
@@ -1580,6 +1583,9 @@
 	dir = 4
 	},
 /obj/machinery/door/window/southleft,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /turf/simulated/floor,
 /area/shuttle/racers_red)
 "hBd" = (
@@ -2781,6 +2787,13 @@
 "nup" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/racers)
+"nuH" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/racers_blue)
 "nxI" = (
 /obj/item/card/mining_point_card{
 	points = 12309
@@ -2998,6 +3011,12 @@
 /obj/machinery/newscaster/east,
 /turf/simulated/floor/wood,
 /area/racers)
+"oqv" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_red)
 "oqx" = (
 /obj/item/trash/liquidfood,
 /turf/simulated/floor/plating,
@@ -4226,6 +4245,13 @@
 "upu" = (
 /turf/simulated/floor/wood,
 /area/racers)
+"uqe" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/racers_red)
 "urT" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(204)
@@ -4389,6 +4415,12 @@
 /obj/item/storage/toolbox/drill,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
+"veF" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_red)
 "vgN" = (
 /obj/item/material/hatchet/unathiknife,
 /turf/simulated/floor/plating,
@@ -4407,6 +4439,12 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/rust,
 /area/racers)
+"vlm" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_blue)
 "vps" = (
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
@@ -5113,6 +5151,9 @@
 /area/racers)
 "ykN" = (
 /obj/item/trash/cigbutt,
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
+	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/racers_blue)
 "yle" = (
@@ -31411,7 +31452,7 @@ jDR
 mWo
 heO
 lMF
-lMF
+oqv
 lMF
 nLQ
 tOk
@@ -31923,7 +31964,7 @@ ctn
 ctn
 jDR
 mWo
-acY
+uqe
 urT
 vqD
 fVz
@@ -32439,7 +32480,7 @@ jDR
 mWo
 lye
 lMF
-lMF
+veF
 lMF
 eAn
 lux
@@ -35521,7 +35562,7 @@ ctn
 ctn
 jDR
 xjB
-eoH
+nuH
 iJa
 uOa
 jjQ
@@ -36037,7 +36078,7 @@ jDR
 mWo
 epG
 kHl
-kHl
+vlm
 kHl
 kHl
 kHl
