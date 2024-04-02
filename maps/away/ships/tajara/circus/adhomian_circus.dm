@@ -110,4 +110,3 @@
 	name = "Adhomian Circus Shuttle"
 	shuttle_tag = "Adhomian Circus Shuttle"
 	master_tag = "adhomian_circus_shuttle"
-	
