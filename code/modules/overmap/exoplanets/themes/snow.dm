@@ -1,7 +1,7 @@
 /datum/exoplanet_theme/snow
 	name = "Boreal Forest"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 		)
 	possible_biomes = list(
 		BIOME_POLAR = list(
@@ -34,6 +34,9 @@
 
 /datum/exoplanet_theme/snow/adhomai
 	name = "Adhomai"
+	surface_turfs = list(
+		/turf/simulated/mineral/adhomai
+	)
 	mountain_threshold = 0.6
 	mountain_biome = /singleton/biome/mountain/adhomai
 	possible_biomes = list(

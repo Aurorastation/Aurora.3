@@ -43,8 +43,21 @@ SUBSYSTEM_DEF(plants)
 
 	for(var/icostate in icon_states('icons/obj/hydroponics_products.dmi'))
 		var/split = findtext(icostate,"-")
-		if(split)
-			plant_product_sprites |= copytext(icostate,1,split)
+		if(!split)
+			continue
+		var/growth_level = copytext_char(state, split+1)
+		if(growth_level == "dead")
+			continue
+		growth_level = text2num
+		var/plant = copytext_char(state, 1, split)
+		if (!plant_sprites[plant] || plant_sprites[plant] < growth_level)
+			plant_sprites[plant] = growth_level
+
+	for (var/state in icon_states('icons/obj/flora/hydroponics_products.dmi'))
+		var/split = findtext_char(state, "-")
+		if (!split)
+			continue
+		plant_product_sprites |= copytext_char(state, 1, split)
 
 	// Populate the global seed datum list.
 	for(var/type in typesof(/datum/seed)-/datum/seed)
