@@ -12,6 +12,7 @@
 
 	lore_radio_stations = list(
 		"87.5 Mendell City Bugle Radio" = "config/example/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt",
+		"90.7 Hi-Fi Sports FM" = "config/example/lore_radio/tauceti/90.7_Hi_Fi_Sports.txt",
 		"93.1 Phoenix FM" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
 		"103.1 Nightingale Radio" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
 	)
