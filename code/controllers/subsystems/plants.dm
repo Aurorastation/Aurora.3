@@ -41,19 +41,7 @@ SUBSYSTEM_DEF(plants)
 		if(!(plant_sprites[base]) || (plant_sprites[base]<ikey))
 			plant_sprites[base] = ikey
 
-	for(var/icostate in icon_states('icons/obj/hydroponics_products.dmi'))
-		var/split = findtext(icostate,"-")
-		if(!split)
-			continue
-		var/growth_level = copytext_char(state, split+1)
-		if(growth_level == "dead")
-			continue
-		growth_level = text2num
-		var/plant = copytext_char(state, 1, split)
-		if (!plant_sprites[plant] || plant_sprites[plant] < growth_level)
-			plant_sprites[plant] = growth_level
-
-	for (var/state in icon_states('icons/obj/flora/hydroponics_products.dmi'))
+	for (var/state in icon_states('icons/obj/hydroponics_products.dmi'))
 		var/split = findtext_char(state, "-")
 		if (!split)
 			continue
