@@ -10,6 +10,7 @@
 	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM, SECTOR_TAU_CETI, SECTOR_SRANDMARR) //it's a whole ass planet, shouldn't have it in predefined sectors
 
 	unit_test_groups = list(1)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/blueriver_ship)
 
 /singleton/submap_archetype/blueriver
 	map = "bluespace river"
@@ -25,6 +26,9 @@
 		"nav_blueriv_2",
 		"nav_blueriv_3",
 		"nav_blueriv_4"
+	)
+	initial_restricted_waypoints = list(
+		"EERV Eureka" = list("nav_start_blueriver_ship")
 	)
 
 /obj/effect/overmap/visitable/sector/blueriver/New(nloc, max_x, max_y)
@@ -126,3 +130,50 @@
 /obj/item/paper/blueriver/expedition_log_5
 	name = "expedition log #5"
 	info = "One of the researchers and a guard disappeared last night. We've started looking for them, figuring maybe they got trapped somewhere in the ruins, maybe a booby trap or something that was still functioning, but we haven't seen any sign of them. Their equipment, both of their equipment, is still in the ship, and there's no signs of anything grabbing them in the night, they're just... Gone. The implication here is not lost on me. My colleagues seem to be reaching the same conclusion. If we don't find them, well... Tomorrow morning we have to head back into space to go resupply and submit what we've found so far, but when we come back we'll have more than enough manpower to secure the area and dig into this place, I hope."
+
+//Shuttle
+/obj/effect/overmap/visitable/ship/landable/blueriver_ship
+	name = "Einstein Shuttle"
+	desc = "The Observer-class shuttle is an Einstein Engines design used primarily for deep-space exploration and reconnaisance missions. It is designed to be landed on a planet for months at a time for extended surveying and research."
+	class = "EERV"
+	designation = "Eureka"
+	designer = "Einstein Engines"
+	sizeclass = "Observer-class research shuttle"
+	shiptype = "Exoplanetary survey and research vessel."
+	shuttle = "EERV Eureka"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#18e9b5", "#6aa9dd")
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 3000 //Hard to move
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/blueriver_ship
+	name = "shuttle control console"
+	shuttle_tag = "EERV Eureka"
+
+/datum/shuttle/autodock/overmap/blueriver_ship
+	name = "EERV Eureka"
+	move_time = 90
+	shuttle_area = list(/area/shuttle/blueriver_ship)
+	current_location = "nav_start_blueriver_ship"
+	landmark_transition = "nav_transit_blueriver_ship"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_start_blueriver_ship"
+	defer_initialisation = TRUE
+
+/obj/effect/shuttle_landmark/blueriver_ship/start
+	name = "Arctic Planetoid - EERV Eureka Landing Zone"
+	landmark_tag = "nav_start_blueriver_ship"
+	base_turf = /turf/simulated/floor/exoplanet/snow
+	base_area = /area/bluespaceriver/ground
+	docking_controller = "airlock_blueriver_ship"
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/blueriver_ship/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_blueriver_ship"
+	base_turf = /turf/space/transit/north
