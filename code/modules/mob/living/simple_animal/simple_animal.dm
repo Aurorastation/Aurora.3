@@ -642,7 +642,7 @@
 	if(ismob(P.firer))
 		handle_attack_by(P.firer)
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()
