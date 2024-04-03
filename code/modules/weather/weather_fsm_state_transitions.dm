@@ -34,7 +34,7 @@
 
 //snow planets
 
-singleton/state_transition/weather/calm/snow_planet
+/singleton/state_transition/weather/calm/snow_planet
 	target = /singleton/state/weather/calm/snow_planet
 
 /singleton/state_transition/weather/snow/snow_planet
