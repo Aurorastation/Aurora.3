@@ -200,7 +200,7 @@ SUBSYSTEM_DEF(zcopy)
 		// Handle space parallax & starlight.
 		if (T.below.z_eventually_space)
 			T.z_eventually_space = TRUE
-			t_target = PLANE_SPACE_BACKGROUND
+			t_target = SPACE_PLANE
 
 		if (T.z_flags & ZM_MIMIC_OVERWRITE)
 			// This openturf doesn't care about its icon, so we can just overwrite it.
@@ -272,7 +272,7 @@ SUBSYSTEM_DEF(zcopy)
 					// If we're a turf overlay (the mimic for a non-OVERWRITE turf), we need to make sure copies of us respect space parallax too
 					if (T.z_eventually_space)
 						// Yes, this is an awful hack; I don't want to add yet another override_* var.
-						override_depth = OPENTURF_MAX_PLANE - PLANE_SPACE_BACKGROUND
+						override_depth = OPENTURF_MAX_PLANE - SPACE_PLANE
 
 			var/atom/movable/openspace/mimic/OO = object.bound_overlay
 
@@ -437,10 +437,10 @@ SUBSYSTEM_DEF(zcopy)
 		// Flush the list so we can find orphans.
 		atoms_list_list -= "[pl]"
 
-	if (atoms_list_list["[PLANE_SPACE_BACKGROUND]"])	// Space parallax plane
-		out += "<strong>Space parallax plane</strong> ([PLANE_SPACE_BACKGROUND])"
-		SSzcopy.debug_fmt_planelist(atoms_list_list["[PLANE_SPACE_BACKGROUND]"], out, T)
-		atoms_list_list -= "[PLANE_SPACE_BACKGROUND]"
+	if (atoms_list_list["[SPACE_PLANE]"])	// Space parallax plane
+		out += "<strong>Space parallax plane</strong> ([SPACE_PLANE])"
+		SSzcopy.debug_fmt_planelist(atoms_list_list["[SPACE_PLANE]"], out, T)
+		atoms_list_list -= "[SPACE_PLANE]"
 
 	for (var/key in atoms_list_list)
 		out += "<strong style='color: red;'>Unknown plane: [key]</strong>"

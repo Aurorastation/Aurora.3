@@ -138,12 +138,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 /atom/movable/renderer/space
 	name = "Space"
 	group = RENDER_GROUP_SCENE
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 
 /atom/movable/renderer/skybox
 	name = "Skybox"
 	group = RENDER_GROUP_SCENE
-	plane = PLANE_SKYBOX
+	plane = SKYBOX_PLANE
 	relay_blend_mode = BLEND_MULTIPLY
 
 //Z Mimic planemasters -> Could apply scaling for parallax though that requires copying appearances from adjacent turfs
