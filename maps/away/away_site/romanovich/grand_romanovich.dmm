@@ -2769,7 +2769,7 @@
 "gD" = (
 /obj/structure/table/wood,
 /obj/item/clothing/accessory/badge/hadii_card,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
 	icon_state = "spline_fancy"

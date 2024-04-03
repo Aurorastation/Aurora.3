@@ -360,7 +360,7 @@
 /datum/gear/accessory/tajaranbooks
 	display_name = "tajaran political books"
 	description = "Tajaran books on the Adhomian ideologies."
-	path = /obj/item/book/manual/pra_manifesto
+	path = /obj/item/device/versebook/pra
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
@@ -368,7 +368,7 @@
 /datum/gear/accessory/tajaranbooks/New()
 	..()
 	var/list/card = list()
-	card["hadiist manifesto"] = /obj/item/book/manual/pra_manifesto
+	card["hadiist manifesto"] = /obj/item/device/versebook/pra
 	card["in defense of al'mari's legacy"] = /obj/item/book/manual/dpra_manifesto
 	card["the new kingdom"] = /obj/item/book/manual/nka_manifesto
 	gear_tweaks += new /datum/gear_tweak/path(card)

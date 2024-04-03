@@ -318,12 +318,12 @@
 /area/adhomai_fallout_bunker)
 "mV" = (
 /obj/structure/table/standard,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
