@@ -76,7 +76,7 @@
 	icon_state = "floortube_example"
 	base_state = "floortube"
 	desc = "A lighting fixture. This one is set into the floor."
-	layer = 2.5
+	layer = TURF_DETAIL_LAYER
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
@@ -100,7 +100,7 @@
 	icon_state = "floor_example"
 	base_state = "floor"
 	desc = "A small lighting fixture. This one is set into the floor."
-	layer = 2.5
+	layer = TURF_DETAIL_LAYER
 	fitting_is_on_floor = TRUE
 
 /obj/machinery/light/small/emergency
