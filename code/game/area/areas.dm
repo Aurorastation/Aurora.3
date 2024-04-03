@@ -24,7 +24,7 @@ var/global/list/area_blurb_stated_to = list()
 	name = "Unknown"
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
-	layer = 10
+	layer = AREA_LAYER
 	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -89,7 +89,6 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/Initialize(mapload)
 	icon_state = "white"
-	layer = 10
 
 	blend_mode = BLEND_MULTIPLY
 

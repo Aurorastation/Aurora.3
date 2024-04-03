@@ -417,7 +417,7 @@
 		return
 
 	for(var/mob/living/M in range(7, src))
-		playsound(M, 'sound/effects/EMPulse.ogg')
+		playsound(M, 'sound/effects/EMPulse.ogg', 100)
 		for(var/obj/item/material/shard/shrapnel/flechette/F in M.contents)
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)

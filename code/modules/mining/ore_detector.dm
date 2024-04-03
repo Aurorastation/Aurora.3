@@ -121,7 +121,7 @@
 					found_ores = TRUE
 
 		if(found_ores)
-			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
+			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = UNDER_HUD_LAYER)
 			ore_ping.pixel_x = rand(-6, 6)
 			ore_ping.pixel_y = rand(-6, 6)
 			ore_ping.alpha = rand(180, 255)

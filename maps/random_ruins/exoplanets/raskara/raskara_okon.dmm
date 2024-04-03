@@ -266,7 +266,8 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/energy/rifle/icelance,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -277,7 +278,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/conveyor{
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -513,7 +513,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "okon_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating{
@@ -1112,7 +1111,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1574,7 +1572,8 @@
 	},
 /obj/machinery/photocopier,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1625,7 +1624,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1792,7 +1790,6 @@
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "okon_base_belt";
-	layer = 2.9;
 	reversed = 0
 	},
 /turf/simulated/floor/plating{
@@ -1984,7 +1981,8 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/tiled/dark{
@@ -2245,7 +2243,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2576,7 +2575,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2648,8 +2646,8 @@
 	},
 /area/raskara_okon/engineer)
 "JD" = (
+/obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/stargazer,
-/obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2780,7 +2778,8 @@
 /area/raskara_okon/mining)
 "Lw" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2911,7 +2910,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3355,7 +3353,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt";
-	layer = 2.9
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -3913,7 +3910,8 @@
 	dir = 10
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4458,8 +4456,8 @@ Xv
 Oc
 hj
 ga
+Jb
 JD
-Gn
 kr
 JM
 zB

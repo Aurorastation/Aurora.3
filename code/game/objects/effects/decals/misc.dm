@@ -1,3 +1,6 @@
+/obj/effect/decal
+	layer = DECAL_LAYER
+
 /obj/effect/decal/tesla_act()
 	return
 
@@ -6,7 +9,7 @@
 	desc = "It's an arrow hanging in mid-air. There may be a wizard about."
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "arrow"
-	layer = 16.0
+	layer = POINTER_LAYER
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -14,7 +17,7 @@
 /obj/effect/decal/spraystill
 	density = 0
 	anchored = 1
-	layer = 50
+	layer = PROJECTILE_LAYER
 
 //Used for imitating an object's sprite for decorative purposes.
 /obj/effect/decal/fake_object
@@ -23,7 +26,7 @@
 	icon_state = "ladder11"
 	density = 0
 	anchored = 1
-	layer = 3
+	layer = OBJ_LAYER
 
 /obj/effect/decal/fake_object/Initialize(mapload)
 	.=..()

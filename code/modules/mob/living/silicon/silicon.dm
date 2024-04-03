@@ -77,6 +77,9 @@
 	QDEL_NULL(common_radio)
 	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 		AH.unregister_alarm(src)
+
+	QDEL_LIST_ASSOC_VAL(hud_list)
+
 	return ..()
 
 /mob/living/silicon/proc/init_id()

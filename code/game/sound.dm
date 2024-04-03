@@ -69,14 +69,19 @@
 		if(required_asfx_toggles && (player.client.prefs.sfx_toggles & required_asfx_toggles) != required_asfx_toggles)
 			continue
 
-		if(player.z == source_z)
+		//This is because your Z is 0 if you are inside eg. a mech
+		var/turf/player_turf = get_turf(player)
+		if(!player_turf)
+			continue
+
+		if(player_turf.z == source_z)
 			listeners += player
 
-		if(player.z)
-			players_by_zlevel[player.z] += player
+		if(player_turf.z)
+			players_by_zlevel[player_turf.z] += player
 
-		if(istype(player, /mob/abstract/observer) && player.z)
-			dead_players_by_zlevel[player.z] += player
+		if(istype(player, /mob/abstract/observer) && player_turf.z)
+			dead_players_by_zlevel[player_turf.z] += player
 
 	. = list()//output everything that successfully heard the sound
 

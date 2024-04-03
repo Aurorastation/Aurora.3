@@ -185,4 +185,3 @@
 /mob/living/carbon/human/Destroy()
 	ghost_spawner = null
 	. = ..()
-	GC_TEMPORARY_HARDDEL

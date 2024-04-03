@@ -174,7 +174,7 @@
 						'sound/effects/zombies/zombie_3.ogg',
 						'sound/effects/zombies/zombie_4.ogg'
 						)
-	playsound(owner, pick(wakeup_sounds))
+	playsound(owner, pick(wakeup_sounds), 70)
 	owner.change_skin_color(r, g, b)
 	owner.update_dna()
 

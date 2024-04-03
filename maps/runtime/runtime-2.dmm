@@ -1000,7 +1000,6 @@
 	must_start_working = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled{

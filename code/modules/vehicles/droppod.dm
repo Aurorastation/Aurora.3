@@ -8,7 +8,6 @@
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "droppod"
 	dir = SOUTH
-	layer = MOB_LAYER - 0.1
 	light_range = 0
 
 	load_item_visible = 0
