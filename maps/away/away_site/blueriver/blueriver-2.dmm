@@ -805,6 +805,9 @@
 	shuttle_tag = "EERV Eureka"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/north{
+	name = "aft, airlock"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/blueriver_ship)
 "cp" = (
@@ -947,6 +950,13 @@
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
+/area/shuttle/blueriver_ship)
+"gj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, engineering"
+	},
+/turf/simulated/wall/titanium,
 /area/shuttle/blueriver_ship)
 "gq" = (
 /obj/structure/cable{
@@ -1129,6 +1139,18 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
+"Gm" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "blueriver_cockpit";
+	name = "Exterior Blast Door"
+	},
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
+/area/shuttle/blueriver_ship)
 "HI" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/snow{
@@ -1145,6 +1167,12 @@
 "IP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
+	},
+/turf/simulated/wall/titanium,
+/area/shuttle/blueriver_ship)
+"IU" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, research lab"
 	},
 /turf/simulated/wall/titanium,
 /area/shuttle/blueriver_ship)
@@ -1187,6 +1215,12 @@
 "LI" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/blueriver_ship)
+"LT" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, director's quarters"
+	},
+/turf/simulated/wall/titanium,
 /area/shuttle/blueriver_ship)
 "LY" = (
 /obj/machinery/light{
@@ -2632,7 +2666,7 @@ ac
 ac
 ac
 ay
-ay
+IU
 ay
 ac
 ac
@@ -3644,7 +3678,7 @@ ac
 ac
 ac
 ac
-an
+Gm
 aq
 JT
 ay
@@ -4471,7 +4505,7 @@ an
 bA
 XN
 bV
-bV
+gj
 Jj
 bC
 ac
@@ -4570,7 +4604,7 @@ ac
 ac
 ac
 ay
-ay
+LT
 ao
 bC
 ac
