@@ -12,6 +12,17 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/update_icon()
 	return
 
+/obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/generate_ground_survey_result()
+	ground_survey_result = "<br>Natural caverns and artificial tunnels"
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+		atmosphere.temperature = T0C + 400
+		atmosphere.update_values()
+
 // --------------------------------- Luthien
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien
@@ -30,6 +41,16 @@
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_habitability()
 	return HABITABILITY_BAD
 
+/obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_ground_survey_result()
+	ground_survey_result = "<br>Sandy soil with organic fungal contamination"
+
+/obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+		atmosphere.update_values()
+
 // --------------------------------- Valkyrie
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie
@@ -42,8 +63,17 @@
 	generated_name = FALSE
 	ring_chance = 0
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/update_icon()
+/obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie/update_icon()
 	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie/generate_ground_survey_result()
+	ground_survey_result = "<br>Soil with presence of nitrogen deposits"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.update_values()
 
 // --------------------------------- New Gibson
 
@@ -60,6 +90,17 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_habitability()
 	return HABITABILITY_BAD
+
+/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_ground_survey_result()
+	ground_survey_result = "<br>Mineral-rich soil with presence of artificial structures"
+
+/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+		atmosphere.temperature = T0C - 200
+		atmosphere.update_values()
 
 // --------------------------------- Chandras
 
@@ -79,6 +120,9 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_habitability()
 	return HABITABILITY_BAD
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_ground_survey_result()
+	ground_survey_result = "<br>Soil with presence of nitrogen and ice deposits"
+
 // --------------------------------- Dumas
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas
@@ -93,3 +137,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/update_icon()
 	return
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/generate_ground_survey_result()
+	ground_survey_result = "<br>No notable deposits underground"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.update_values()
