@@ -200,7 +200,7 @@
 
 /singleton/state/weather/snow/snow_planet
 	transitions = list(
-		/singleton/state/weather/calm/snow_planet,
+		/singleton/state_transition/weather/calm/snow_planet,
 		/singleton/state_transition/weather/snow_medium/snow_planet
 	)
 
@@ -230,7 +230,7 @@
 //lava planets - only calm or ash
 
 /singleton/state/weather/calm/lava_planet
-	transitions = list(/singleton/state/weather/ash/lava_planet)
+	transitions = list(/singleton/state_transition/weather/ash)
 
 /singleton/state/weather/ash/lava_planet
-	transitions = list(/singleton/state/weather/calm/lava_planet)
+	transitions = list(/singleton/state_transition/weather/calm/lava_planet)

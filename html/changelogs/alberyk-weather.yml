@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "Added weather to jungle, lava, snow, and some lore planets."
