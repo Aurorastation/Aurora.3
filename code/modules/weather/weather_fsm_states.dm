@@ -230,7 +230,15 @@
 //lava planets - only calm or ash
 
 /singleton/state/weather/calm/lava_planet
-	transitions = list(/singleton/state_transition/weather/ash)
+	transitions = list(/singleton/state_transition/weather/ash/lava_planet)
 
 /singleton/state/weather/ash/lava_planet
 	transitions = list(/singleton/state_transition/weather/calm/lava_planet)
+
+//arctic planet - only calm or hail
+
+/singleton/state/weather/calm/arctic_planet
+	transitions = list(/singleton/state_transition/weather/hail/arctic_planet)
+
+/singleton/state/weather/rain/hail/arctic_planet
+	transitions = list(/singleton/state_transition/weather/calm/arctic_planet)
