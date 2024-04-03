@@ -736,11 +736,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
 "cg" = (
-/obj/effect/shuttle_landmark/blueriver_ship/start,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 250
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
 	},
-/area/bluespaceriver/ground)
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_blueriver_ship";
+	name = "airlock_blueriver_ship";
+	req_one_access = null;
+	shuttle_tag = "EERV Eureka"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/blueriver_ship)
 "ch" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
@@ -774,19 +791,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
 "co" = (
-/obj/machinery/button/remote/blast_door{
-	pixel_y = -18;
-	name = "External Shutters";
-	id = "blueriver_ship"
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
 	},
-/obj/machinery/button/remote/blast_door{
-	name = "External Shutters";
-	id = "blueriver_ship";
-	dir = 4;
-	pixel_x = 22
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
-/obj/machinery/shieldwallgen,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_blueriver_ship";
+	name = "airlock_blueriver_ship";
+	req_one_access = null;
+	shuttle_tag = "EERV Eureka"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
 /area/shuttle/blueriver_ship)
 "cp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
@@ -811,8 +830,23 @@
 /turf/simulated/floor/plating,
 /area/shuttle/blueriver_ship)
 "cq" = (
-/obj/machinery/computer/shuttle_control/explore/blueriver_ship,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 29;
+	pixel_y = -9
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_blueriver_ship";
+	name = "airlock_blueriver_ship";
+	req_one_access = null;
+	shuttle_tag = "EERV Eureka"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
 /area/shuttle/blueriver_ship)
 "cr" = (
 /obj/machinery/shieldwallgen,
@@ -884,22 +918,10 @@
 	},
 /area/bluespaceriver/ground)
 "cI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = -10;
-	pixel_x = -24
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_blueriver_ship";
-	name = "airlock_blueriver_ship";
-	req_one_access = null;
-	shuttle_tag = "EERV Eureka"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/shipsensors/strong,
 /turf/simulated/floor/plating{
 	temperature = 250
 	},
@@ -942,42 +964,6 @@
 /turf/simulated/wall/titanium,
 /area/shuttle/blueriver_ship)
 "hN" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_blueriver_ship";
-	name = "airlock_blueriver_ship";
-	req_one_access = null;
-	shuttle_tag = "EERV Eureka"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/blueriver_ship)
-"iI" = (
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "blueriver_ship"
-	},
-/obj/machinery/button/remote/blast_door{
-	pixel_y = -6;
-	name = "External Shutters";
-	id = "blueriver_ship";
-	dir = 1;
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/blueriver_ship)
-"jv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/blueriver_ship)
-"km" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -989,19 +975,52 @@
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/blueriver_ship)
+"iI" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = -10;
+	pixel_x = -24
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_blueriver_ship";
+	name = "airlock_blueriver_ship";
+	req_one_access = null;
+	shuttle_tag = "EERV Eureka"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/structure/bed/handrail,
+/turf/simulated/floor/plating{
+	temperature = 250
+	},
+/area/shuttle/blueriver_ship)
+"jv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/blueriver_ship)
+"km" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/plating{
+	temperature = 250
+	},
+/area/shuttle/blueriver_ship)
 "kZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 4;
-	pixel_y = 6;
-	pixel_x = -20
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4;
-	pixel_y = -6
+/obj/machinery/light{
+	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -1048,6 +1067,20 @@
 	temperature = 250
 	},
 /area/bluespaceriver/ground)
+"rK" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "blueriver_ship"
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -6;
+	name = "External Shutters";
+	id = "blueriver_ship";
+	dir = 1;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/blueriver_ship)
 "uq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -1109,6 +1142,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
+"IP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/titanium,
+/area/shuttle/blueriver_ship)
 "Jj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
@@ -1116,11 +1155,11 @@
 /turf/simulated/wall/titanium,
 /area/shuttle/blueriver_ship)
 "Jq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
+/obj/effect/shuttle_landmark/blueriver_ship/start,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 250
 	},
-/turf/simulated/wall/titanium,
-/area/shuttle/blueriver_ship)
+/area/bluespaceriver/ground)
 "JQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -1198,21 +1237,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
 "WR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -18;
+	name = "External Shutters";
+	id = "blueriver_ship"
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
+/obj/machinery/button/remote/blast_door{
+	name = "External Shutters";
+	id = "blueriver_ship";
+	dir = 4;
+	pixel_x = 22
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_blueriver_ship";
-	name = "airlock_blueriver_ship";
-	req_one_access = null;
-	shuttle_tag = "EERV Eureka"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/machinery/shieldwallgen,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
 "XN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
@@ -1221,23 +1258,8 @@
 /turf/simulated/wall/titanium,
 /area/shuttle/blueriver_ship)
 "Yr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/access_button{
-	pixel_x = 29;
-	pixel_y = -9
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_blueriver_ship";
-	name = "airlock_blueriver_ship";
-	req_one_access = null;
-	shuttle_tag = "EERV Eureka"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/machinery/computer/shuttle_control/explore/blueriver_ship,
+/turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 
 (1,1,1) = {"
@@ -3012,7 +3034,7 @@ ac
 ac
 ac
 ac
-ac
+cI
 ay
 ay
 aM
@@ -3232,7 +3254,7 @@ cc
 cs
 LY
 ct
-iI
+rK
 ac
 ac
 cv
@@ -3419,7 +3441,7 @@ ac
 ac
 ac
 an
-cq
+Yr
 AW
 ay
 aG
@@ -3435,7 +3457,7 @@ ay
 ce
 ch
 cr
-co
+WR
 cu
 ac
 ac
@@ -3639,10 +3661,10 @@ cb
 ch
 ck
 cp
-kZ
-km
-WR
 cg
+hN
+co
+Jq
 ac
 ac
 ac
@@ -3741,9 +3763,9 @@ ay
 Iz
 jv
 bW
+kZ
 hN
-km
-Yr
+cq
 ac
 ac
 ac
@@ -3845,7 +3867,7 @@ jv
 ay
 ay
 ay
-Jq
+IP
 ac
 ac
 ac
@@ -3947,7 +3969,7 @@ cn
 dD
 LC
 ay
-cI
+iI
 ac
 ac
 ac
@@ -4134,7 +4156,7 @@ ac
 ac
 ac
 ac
-ac
+km
 ay
 ay
 aS
