@@ -4,7 +4,7 @@
 	icon_state = "stargazer_off"
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = CAMERA_LAYER
 	pixel_x = -32
 	pixel_y = -24
 	var/image/star_system_image

@@ -11,7 +11,7 @@
 
 	//copied from tank.dm
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5.0
+	force = 11
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
@@ -20,7 +20,7 @@
 
 	var/celltype = /obj/item/cell/high
 
-	matter = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 3500)
+	matter = list(MATERIAL_ALUMINIUM = 25000, MATERIAL_GLASS = 3500)
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell

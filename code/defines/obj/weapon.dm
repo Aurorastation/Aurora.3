@@ -4,7 +4,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 3.0
+	force = 3
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
@@ -51,7 +51,7 @@
 	icon_state = "cane"
 	item_state = "stick"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	throwforce = 7.0
 	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
@@ -312,7 +312,7 @@
 		item_state = "telestick"
 		w_class = ITEMSIZE_LARGE
 		slot_flags = null
-		force = 6
+		force = 14
 		attack_verb = list("smacked", "struck", "slapped")
 		can_support = TRUE
 	else
@@ -375,7 +375,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_PLASTIC = 75)
 	origin_tech = list(TECH_MAGNET = 1)
 
 /obj/item/staff
@@ -383,7 +383,7 @@
 	desc = "A staff which only has the power to make you look like a nerd."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
@@ -409,7 +409,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "qstaff0"
 	item_state = "stick"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
@@ -509,7 +509,7 @@
 /obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)

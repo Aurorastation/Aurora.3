@@ -992,7 +992,13 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/galley)
 "iB" = (
-/obj/machinery/suit_cycler,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)
 "iG" = (
@@ -2091,7 +2097,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
 "qU" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/fancy/egg_box,
@@ -2241,28 +2247,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/cic)
-"rJ" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/coalition/gadpathur{
-	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
-	},
-/obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
-/obj/structure/sign/vacuum{
-	pixel_y = -32
-	},
-/obj/item/clothing/mask/breath/gadpathur,
-/turf/simulated/floor/tiled/dark,
-/area/ship/gadpathur_patrol/eva)
 "rL" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, engine compartment"
@@ -5475,22 +5459,8 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "QR" = (
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northleft,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/coalition/gadpathur{
-	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
-	},
-/obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
-/obj/item/clothing/mask/breath/gadpathur,
+/obj/machinery/suit_cycler/offship/gadpathur,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)
 "QU" = (
@@ -5620,25 +5590,6 @@
 "RR" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/medbay)
-"RT" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/coalition/gadpathur{
-	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
-	},
-/obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
-/obj/item/clothing/mask/breath/gadpathur,
-/turf/simulated/floor/tiled/dark,
-/area/ship/gadpathur_patrol/eva)
 "RU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -36916,7 +36867,7 @@ vx
 So
 PC
 So
-rJ
+QR
 Nm
 Nm
 Nm
@@ -37173,7 +37124,7 @@ qe
 XE
 el
 So
-RT
+QR
 XX
 RP
 IR

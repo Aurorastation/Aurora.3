@@ -7,7 +7,7 @@
 	item_state = "red"
 	center_of_mass = list("x" = 16,"y" = 11)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5
+	force = 11
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
@@ -109,7 +109,7 @@
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
-	force = 7.0
+	force = 16
 	starts_with = list(\
 		/obj/item/clothing/gloves/yellow = 1,\
 		/obj/item/screwdriver = 1,\

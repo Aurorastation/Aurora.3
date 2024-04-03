@@ -190,7 +190,7 @@
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_DECAL_LAYER
+	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -681,7 +681,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
-		playsound(loc, attacking_item.usesound, 50, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.put_in_hands(AC)
 		cut_overlay(anomaly_overlay)
 		qdel(anomaly_overlay)

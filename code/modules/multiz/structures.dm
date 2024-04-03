@@ -227,10 +227,12 @@
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs_3d"
-	layer = TURF_LAYER
+	layer = RUNE_LAYER
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE
+
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
 /obj/structure/stairs/Initialize()
 	. = ..()
@@ -285,6 +287,9 @@
 		return FALSE
 
 	return !density
+
+/obj/structure/stairs/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	return FALSE //I do not want to deal with stairs and the snowflake passcode, they can be unmovable walls for all I care here
 
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
 	if(isopenturf(L.loc) || get_turf(L) == get_turf(src) || !ishuman(L))

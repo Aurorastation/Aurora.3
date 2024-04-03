@@ -8,7 +8,7 @@
 	item_state = "ishotgun"
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
-	force = 5
+	force = 11
 	recoil = 2
 	accuracy = -1
 	slot_flags = SLOT_BACK
@@ -44,7 +44,7 @@
 			icon_state = "ishotgunsawn"
 			item_state = "ishotgunsawn"
 			w_class = ITEMSIZE_NORMAL
-			force = 5
+			force = 11
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 			name = "sawn-off improvised shotgun"
@@ -73,7 +73,7 @@
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 
 // shotgun construction
 
@@ -131,7 +131,7 @@
 		if(buildstate == 3)
 			if(C.use(10))
 				to_chat(user, "<span class='notice'>You tie the lengths of cable to the pipegun, making a sling.</span>")
-				new /obj/item/gun/projectile/shotgun/pump/rifle/pipegun(get_turf(src))
+				new /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun(get_turf(src))
 				qdel(src)
 			else
 				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")

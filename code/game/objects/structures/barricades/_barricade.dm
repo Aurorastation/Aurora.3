@@ -4,7 +4,6 @@
 	anchored = TRUE
 	density = TRUE
 	throwpass = TRUE //You can throw objects over this, despite its density.
-	layer = BELOW_OBJ_LAYER
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.
@@ -55,13 +54,13 @@
 			icon_state = "[barricade_type]"
 		switch(dir)
 			if(SOUTH)
-				layer = ABOVE_MOB_LAYER
+				layer = ABOVE_HUMAN_LAYER
 			if(NORTH)
 				layer = initial(layer) - 0.01
 			else
-				layer = initial(layer)
+				reset_plane_and_layer()
 		if(!anchored)
-			layer = initial(layer)
+			reset_plane_and_layer()
 	else
 		if(can_change_dmg_state)
 			icon_state = "[barricade_type]_closed_[damage_state]"

@@ -72,6 +72,7 @@
 		/obj/item/storage/box/hadii_manifesto = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/storage/field_ration = 1,
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 		/obj/item/storage/box/syndie_kit/spy/hidden = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
@@ -82,6 +83,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_card = 1,
 		/obj/item/storage/box/hadii_manifesto = 1,
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 		/obj/item/storage/field_ration = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin

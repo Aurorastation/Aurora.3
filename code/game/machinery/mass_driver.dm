@@ -58,13 +58,13 @@
 
 	if(attacking_item.iswrench())
 		if(!anchored)
-			playsound(src.loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("[user.name] secures [src] to the floor.", \
 				"You secure the external reinforcing bolts to the floor.", \
 				"You hear a ratchet")
 			src.anchored = 1
 		else
-			playsound(src.loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("[user.name] unsecures [src] from the floor.", \
 				"You unsecure the external reinforcing bolts from the floor.", \
 				"You hear a ratchet")

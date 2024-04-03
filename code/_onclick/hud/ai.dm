@@ -3,7 +3,7 @@
 
 	var/mob/living/silicon/ai/myai = mymob
 	myai.computer.screen_loc = ui_ai_crew_monitor
-	myai.computer.layer = SCREEN_LAYER
+	myai.computer.layer = HUD_BASE_LAYER
 
 	adding = list(
 		new /obj/screen/ai/core,

@@ -125,6 +125,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	reload_sound = /singleton/sound_category/shotgun_reload
 	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+	max_stack = 8
 
 /obj/item/ammo_casing/shotgun/used/Initialize()
 	. = ..()
@@ -222,6 +223,14 @@
 	icon_state = "trackingshell"
 	spent_icon = "trackingshell-spent"
 	projectile_type = /obj/item/projectile/bullet/tracking
+
+/obj/item/ammo_casing/shotgun/moghes
+	name = "wall shell"
+	desc = "The appropriately-named wall shell, made specifically for the Moghesian wall gun."
+	desc_extended = "This complicated and expensive shotgun shell fires both a solid slug and a hail of shots at the same time, making it a destructive and dangerous ammunition at all ranges, assuming the user can point in the target's general direction. Somehow it seems to somewhat fit in other shotgun type weaponry too."
+	icon_state = "moghes_shell"
+	spent_icon = "moghes_shell_spent"
+	projectile_type = /obj/item/projectile/bullet/shotgun/moghes
 
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
@@ -479,3 +488,19 @@
 	caliber = "6mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/assassin
 	max_stack = 15
+
+/obj/item/ammo_casing/moghes_pistol
+	desc = "A Moghesian pistol casing."
+	icon_state = "moghes_casing_p"
+	spent_icon = "moghes_casing_p_spent"
+	caliber = "11.6mm"
+	projectile_type = /obj/item/projectile/bullet/pistol/medium/ap
+	max_stack = 15
+
+/obj/item/ammo_casing/moghes_rifle
+	desc = "A Moghesian rifle casing."
+	icon_state = "moghes_casing"
+	spent_icon = "moghes_casing_spent"
+	caliber = "5.8mm"
+	projectile_type = /obj/item/projectile/bullet/rifle/a556
+	max_stack = 7

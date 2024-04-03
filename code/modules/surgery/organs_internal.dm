@@ -202,6 +202,9 @@
 	var/list/attached_organs = list()
 	for(var/organ in target.internal_organs_by_name)
 		var/obj/item/organ/I = target.internal_organs_by_name[organ]
+		/// Zombie organs can't be removed. Mainly to stop the zombie parasite from being removed.
+		if(I && (I.status & ORGAN_ZOMBIFIED))
+			continue
 		if(I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 			attached_organs |= organ
 

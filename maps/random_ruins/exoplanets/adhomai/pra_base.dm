@@ -17,6 +17,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A Hadiist Army outpost. The People's Republic of Adhomai's anthem is blared from the speakers."
 
 //ghost roles
 
@@ -85,6 +86,7 @@
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)

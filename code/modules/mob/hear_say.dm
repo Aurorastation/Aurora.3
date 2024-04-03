@@ -73,7 +73,7 @@
 				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
-			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
+			playsound(source, speech_sound, sound_vol, vary = TRUE)
 		return TRUE
 
 /mob/proc/cant_hear()

@@ -84,7 +84,7 @@
 			user.visible_message(SPAN_NOTICE("[user] removes \the [name] from the grenade casing."),
 									SPAN_NOTICE("You remove \the [name] from the grenade casing."))
 			new /obj/item/grenade/chem_grenade/large(get_turf(src))
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		update_icon()
 
 	if(istype(attacking_item, /obj/item/steelwool))

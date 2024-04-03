@@ -916,3 +916,51 @@
 	..()
 	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"
 
+/obj/item/gun/projectile/automatic/rifle/hook_mg
+	name = "unathi hook machine gun"
+	desc = "A ballistic machine gun of Unathi manufacture, often used by the forces of the Traditionalist Coalition during the Contact War."
+	desc_extended = "The Hook Machinegun is a heavy automatic machinegun of Moghesian manufacture. Though the name of the creators of this weapon was lost to the destruction of the nuclear exchange, the Hook was known to be found in the hands of some of the better-equipped forces of the Traditionalist Coalition during the Contact War. \
+	This machine gun is carried on one's shoulder and thus can be used with a single hand. Though it can fire heavy cartridges, it is quite lacking in accuracy."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "hookmg"
+	item_state = "hookmg"
+	caliber = "5.8mm"
+	magazine_type = /obj/item/ammo_magazine/hookmg
+	allowed_magazines = list(/obj/item/ammo_magazine/hookmg)
+	firemodes = list(
+		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+	)
+	slot_flags = null
+	w_class = ITEMSIZE_LARGE
+	accuracy = -2
+	accuracy_wielded = 0
+
+/obj/item/gun/projectile/automatic/rifle/hook_mg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "hookmg" : "hookmg-empty"
+
+/obj/item/gun/projectile/automatic/tempestsmg
+	name = "tempest submachine gun"
+	desc = "The tempest sub-machine gun is a Hegemonic design dating back to the 2350s, though still produced in ample numbers to this day. While rather large and heavy for a weapon of its class, its simplicity and reliability have made it a popular weapon among Unathi for over a century, and the aging weapon was even used as the basis for future designs."
+	magazine_type = /obj/item/ammo_magazine/tempestsmg
+	allowed_magazines = list(/obj/item/ammo_magazine/tempestsmg)
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "tempestsmg"
+	item_state = "tempestsmg"
+	caliber = "11.6mm"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	slot_flags = SLOT_BELT|SLOT_BACK|SLOT_S_STORE
+	suppressed = FALSE
+	is_wieldable = TRUE
+	accuracy_wielded = 2
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = 1
+
+/obj/item/gun/projectile/automatic/tempestsmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "tempestsmg" : "tempestsmg-empty"

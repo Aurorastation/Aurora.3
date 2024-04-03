@@ -120,3 +120,8 @@
 	fuel_consumption = 2
 	logging_home_tag = "nav_yacht_civ_shuttle_dock"
 	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/yacht_civ_shuttle
+	name = "Civilian Yacht Shuttle"
+	shuttle_tag = "Civilian Yacht Shuttle"
+	master_tag = "airlock_yacht_civ_shuttle"

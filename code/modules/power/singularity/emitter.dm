@@ -117,7 +117,7 @@
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/process()
+/obj/machinery/power/emitter/process(seconds_per_tick)
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))
@@ -152,7 +152,7 @@
 		var/burst_time = (min_burst_delay + max_burst_delay) / 2 + 2 * (burst_shots - 1)
 		var/power_per_shot = active_power_usage * (burst_time / 10) / burst_shots
 
-		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, 2, 0.5, TRUE)
+		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, extrarange = (MEDIUM_RANGE_SOUND_EXTRARANGE-1))
 		if(prob(35))
 			spark_system.queue()
 
@@ -169,14 +169,14 @@
 		switch(state)
 			if(EMITTER_LOOSE)
 				state = EMITTER_BOLTED
-				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(EMITTER_BOLTED)
 				state = EMITTER_LOOSE
-				playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))

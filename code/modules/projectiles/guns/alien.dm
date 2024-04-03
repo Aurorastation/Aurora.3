@@ -70,7 +70,7 @@
 	item_state = "noisecannon"
 	recoil = 1
 
-	force = 10
+	force = 15
 	projectile_type = /obj/item/projectile/energy/sonic
 	cell_type = /obj/item/cell/super
 	fire_delay = 40

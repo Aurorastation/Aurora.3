@@ -41,7 +41,7 @@
 /obj/effect/constructing_effect
 	icon = 'icons/effects/effects_rfd.dmi'
 	icon_state = ""
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = BASE_ABOVE_OBJ_LAYER
 	anchored = TRUE
 	var/delay = 0
 	var/status = 0

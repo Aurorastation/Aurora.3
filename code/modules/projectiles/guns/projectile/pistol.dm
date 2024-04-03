@@ -232,7 +232,7 @@
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
-	force = 10
+	force = 15
 	accuracy = 1
 	caliber = ".50"
 	load_method = MAGAZINE
@@ -553,3 +553,25 @@
 		icon_state = "dom_pistol"
 	else
 		icon_state = "dom_pistol-e"
+
+/obj/item/gun/projectile/pistol/spitter
+	name = "unathi spitter pistol"
+	desc = "The venerable 'spitter' pistol is an Unathi design nearly three centuries old. Though no longer in use by the Hegemony's forces, these guns are still commonplace in the hands of criminals, Wastelanders, and former Traditionalists."
+	desc_extended = "The Relzi-5 pistol, colloquially referred to as the 'spitter' was a common Unathi sidearm for centuries, though the design was already being phased out of Izweski use by the start of the Contact War due to superior-quality energy weapons becoming available.\
+	In the modern day, they are no longer produced, but the sheer volume of them in service means they can be found all over Moghes, and even in the wider Orion Spur."
+	magazine_type = /obj/item/ammo_magazine/spitterpistol
+	allowed_magazines = list(/obj/item/ammo_magazine/spitterpistol)
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "spitterpistol"
+	item_state = "spitterpistol"
+	caliber = "11.6mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/spitter/update_icon()
+	..()
+	if(length(ammo_magazine?.stored_ammo))
+		icon_state = "spitterpistol"
+	else
+		icon_state = "spitterpistol-empty"

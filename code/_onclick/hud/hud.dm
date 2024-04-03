@@ -27,7 +27,6 @@ var/list/global_huds
 	screen.screen_loc = "SOUTHWEST to NORTHEAST" // Will tile up to the whole screen, scaling beyond 15x15 if needed.
 	screen.icon = 'icons/obj/hud_tiled.dmi'
 	screen.icon_state = icon_state
-	screen.layer = SCREEN_LAYER
 	screen.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen.color = color
 
@@ -38,7 +37,7 @@ var/list/global_huds
 	druggy = new /obj/screen()
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
-	druggy.layer = 17
+	druggy.layer = IMPAIRED_LAYER
 	druggy.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	druggy.alpha = 127
 	druggy.blend_mode = BLEND_MULTIPLY
@@ -47,7 +46,7 @@ var/list/global_huds
 	blurry = new /obj/screen()
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "blurry"
-	blurry.layer = 17
+	blurry.layer = IMPAIRED_LAYER
 	blurry.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	blurry.alpha = 100
 
@@ -98,18 +97,18 @@ var/list/global_huds
 	for(i = 1, i <= 4, i++)
 		O = vimpaired[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 		O = darkMask[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	for(i = 5, i <= 8, i++)
 		O = darkMask[i]
 		O.icon_state = "black"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /*
@@ -137,9 +136,6 @@ var/list/global_huds
 	///Boolean, if the action buttons are hidden
 	var/action_buttons_hidden = FALSE
 
-	var/obj/screen/lingchemdisplay
-	var/obj/screen/instability_display //Technomancer.
-	var/obj/screen/energy_display //Technomancer.
 	var/obj/screen/blobpwrdisplay
 	var/obj/screen/blobhealthdisplay
 	var/obj/screen/r_hand_hud_object
@@ -163,7 +159,6 @@ var/list/global_huds
 	hurt_intent = null
 	disarm_intent = null
 	help_intent = null
-	lingchemdisplay = null
 	blobpwrdisplay = null
 	blobhealthdisplay = null
 	r_hand_hud_object = null
