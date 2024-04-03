@@ -74,7 +74,15 @@
 	///A list of Zlevels that belong to the visitable (generally a ship) we are in
 	var/list/our_zlevels = list()
 
-	///A list of currently known Zlevels translations below our ship/visitable
+	/**
+	 * A list of currently known Zlevels translations below our ship/visitable
+	 *
+	 * K -> String, the fake zlevel that can be aimed at, it's an absolute number (the console will show it as negative),
+	 * starts at the offset of the lowest zlevel of the visitable the console is in
+	 * (eg: console at the second zlevel of a ship, with one zlevel below it of the same ship, this will start with an index of 2, the console will show it as -2)
+	 *
+	 * V -> Number, the actual zlevel
+	 */
 	var/list/overmap_contacts_zlevels = list()
 
 	/**
@@ -308,7 +316,11 @@
 	teles_left -= 1
 
 	// use a lot of power
-	use_power_oneoff(power * 10)
+	var/power_to_use = (power KILOWATTS)
+	if(overmap_contacts_zlevels["[abs(zlevel_offset)]"])
+		power_to_use += (300 KILOWATTS * abs(zlevel_offset))
+
+	use_power_oneoff(power_to_use)
 
 	spark(telepad, 5, GLOB.alldirs)
 
@@ -329,8 +341,8 @@
 		source = dest
 		dest = target
 
-			flick("pad-beam", telepad)
-			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff_distance = 5)
+		flick("pad-beam", telepad)
+		playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff_distance = 5)
 
 	var/total_lifespawn = 25 * length(crystals)
 
@@ -447,8 +459,15 @@
 				min_zlevel_below_us++
 
 			for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
-				//If we have ownership of this, and the deep scan is toggled
-				if(linked.check_ownership(S) /*&& S.sensors?.deep_scan_toggled*/)
+				//If we have ownership of this
+				if(linked.check_ownership(S))
+
+					//If the deep scan is toggled, we do not allow it, as the range is too large
+					//print a message to the user and break the loop
+					if((S.sensors?.deep_scan_toggled))
+						to_chat(usr, SPAN_WARNING("The deep scan is currently enabled and interferes with the teleporter lock ability."))
+						break
+
 					for(var/obj/effect/overmap/visitable/known_visitable in S.objects_in_view)
 						//If not fully scanned and identified, skip
 						if(S.objects_in_view[known_visitable] < 100)
@@ -469,6 +488,10 @@
 
 						//Mark it as added
 						already_added_visitables += known_visitable
+
+					//One console gave us the zlevels, we can break the loop
+					if(length(overmap_contacts_zlevels))
+						break
 
 			if((src.z + new_z) < 0 && (num2text(abs(new_z)-1) in overmap_contacts_zlevels))
 				target_zlevel = overmap_contacts_zlevels["[abs(new_z)-1]"]
