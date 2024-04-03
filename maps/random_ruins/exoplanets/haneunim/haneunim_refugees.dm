@@ -31,10 +31,4 @@
 	name = "message"
 	desc = "A few words, scratched onto the back of a Go-Go-Gwok receipt."
 	info = "Remember us, who strived for freedom and failed. Remember us, upon Ascension."
-
-/obj/item/paper/fluff/haneunim_refugees/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=6]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
+	language = LANGUAGE_EAL
