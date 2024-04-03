@@ -664,7 +664,7 @@
 	firemodes = list(
 		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
 		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15))
-		)
+	)
 
 /obj/item/gun/projectile/automatic/tommygun/konyang/update_icon()
 	..()
