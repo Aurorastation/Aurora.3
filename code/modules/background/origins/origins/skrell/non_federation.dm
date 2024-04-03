@@ -22,7 +22,7 @@
 	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Republic of Biesel has a considerable population of Skrell as it was a former Sol Alliance colony, and the population has only increased with the acceptance of former Sol Alliance planets into the Republic. The Republic of Biesel is also a popular destination for those fleeing the Nralakk Federation as there is precedence for the Republic to refuse to deport Federation Skrell if they join the Tau Ceti Foreign Legion."
 	important_information = "Skrell living in the Republic of Biesel are protected from deportation to the Nralakk Federation if they renounce their Nralakk citizenship and join the Tau Ceti Foreign Legion."
 	possible_accents = list(ACCENT_SKRELLCETI, ACCENT_GIBSON_OVAN)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/skrell_coalition
@@ -30,7 +30,7 @@
 	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Coalition of Colonies does not have a large population of Skrell, although it is popular amongst those who wish to avoid Nralakk authorities or otherwise flee the Federation."
 	important_information = "The Nralakk Federation still monitors non-citizen Skrell living abroad, and is known to request deportation or otherwise detain reputable threats to its national security. The response to these requests depends on the planet in question due to the Coalition's decentralised nature."
 	possible_accents = list(ACCENT_SKRELLCOC)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/skrell_consortium
@@ -40,6 +40,8 @@
 	possible_accents = list(ACCENT_SKRELLCONSORTIUM, ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_TATTUQIG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")
 
 /singleton/origin_item/origin/skrell_ouerea
 	name = "Ouerea"
