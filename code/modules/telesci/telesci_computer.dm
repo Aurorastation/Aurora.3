@@ -6,18 +6,27 @@
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/telesci_console
 	var/sending = 1
+
+	/**
+	 * The telepad that this console controls
+	 */
 	var/obj/machinery/telepad/telepad = null
+
 	var/temp_msg = "Telescience control console initialized.<BR>Welcome."
 
 	// VARIABLES //
-	var/teles_left	// How many teleports left until it becomes uncalibrated
+
+	///How many teleports left until it becomes uncalibrated
+	var/teles_left
+
+	///Projectile data, info about the latest teleport/aim that was done
 	var/datum/projectile_data/last_tele_data = null
 
 	///The zlevel aim offset, that was inputted by the user as a target
 	var/zlevel_offset = 0
 
 	///The Zlevel that is being targeted, aka the real one
-	var/target_zlevel = 4
+	var/target_zlevel
 
 	///The rotation that was inputted by the user as a target
 	var/rotation = 0
@@ -35,16 +44,31 @@
 	var/rotation_off
 	//var/angle_off
 
-	///The target of the last teleportation, a turf
+	///The target of the last teleportation, a `/turf`
 	var/turf/last_target
 
 	// Based on the power used
 	var/teleport_cooldown = 0 // every index requires a bluespace crystal
+
+	/**
+	 * A `/list` of power options that this console provides, for the projectile portal calculation
+	 *
+	 * Each added telecrystal (in `crystals`) unlocks an additional option, up to `max_crystals`
+	 */
 	var/list/power_options = list(5, 10, 20, 25, 30, 40, 50, 80, 100)
-	var/teleporting = 0
+
+	///Boolean, if we're teleporting (aka opening a portal) right now
+	var/teleporting = FALSE
+
 	var/starting_crystals = 0	//Edit this on the map, seriously.
 	var/max_crystals = 5
-	var/list/crystals = list()
+
+	/**
+	 * A `/list` of `/obj/item/bluespace_crystal` that this console contains
+	 */
+	var/list/obj/item/bluespace_crystal/crystals = list()
+
+	///A GPS that this console contains
 	var/obj/item/device/gps/inserted_gps
 
 	///A list of Zlevels that belong to the visitable (generally a ship) we are in
@@ -53,9 +77,25 @@
 	///A list of currently known Zlevels translations below our ship/visitable
 	var/list/overmap_contacts_zlevels = list()
 
+	/**
+	 * The portal that is the origin, above the telepad
+	 *
+	 * Do *not* set this directly, use `set_origin_portal()`
+	 */
+	var/obj/effect/portal/origin_portal
+
+	/**
+	 * The portal that is the destination
+	 *
+	 * Do *not* set this directly, use `set_destination_portal()`
+	 */
+	var/obj/effect/portal/destination_portal
+
 /obj/machinery/computer/telescience/Initialize()
 	. = ..()
+
 	recalibrate()
+
 	for(var/i = 1; i <= starting_crystals; i++)
 		crystals += new /obj/item/bluespace_crystal/artificial(null) // starting crystals
 
@@ -63,6 +103,7 @@
 
 /obj/machinery/computer/telescience/LateInitialize()
 	. = ..()
+
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable))
@@ -74,40 +115,62 @@
 					if(GLOB.map_sectors["[zlevel]"] == linked)
 						our_zlevels += text2num(zlevel)
 
+
 /obj/machinery/computer/telescience/Destroy()
 	eject()
 	if(inserted_gps)
 		inserted_gps.forceMove(loc)
 		inserted_gps = null
+
+	if(!QDELETED(origin_portal))
+		QDEL_NULL(origin_portal)
+
+	if(!QDELETED(destination_portal))
+		QDEL_NULL(destination_portal)
+
+	QDEL_LIST(crystals)
+
+	telepad = null
+
 	return ..()
 
 /obj/machinery/computer/telescience/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots."
+	. += "There are [length(crystals) ? length(crystals) : "no"] bluespace crystal\s in the crystal slots."
 
 
 /obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
+
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
-		if(crystals.len >= max_crystals)
-			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
+
+		if(length(crystals) >= max_crystals)
+			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
+
 		user.drop_item(src)
 		crystals += attacking_item
 		attacking_item.forceMove(null)
-		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", "<span class='notice'>You insert [attacking_item] into \the [src]'s crystal slot.</span>")
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.",
+								SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
 		updateDialog()
+
 	else if(istype(attacking_item, /obj/item/device/gps))
+
 		if(!inserted_gps)
 			inserted_gps = attacking_item
 			user.unEquip(attacking_item)
 			attacking_item.forceMove(src)
-			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [attacking_item] into \the [src]'s GPS device slot.</span>")
+			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.",
+									SPAN_NOTICE("You insert [attacking_item] into \the [src]'s GPS device slot."))
+
 	else if(attacking_item.ismultitool())
+
 		var/obj/item/device/multitool/M = attacking_item
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
-			to_chat(user, "<span class='caution'>You upload the data from the [attacking_item.name]'s buffer.</span>")
+			to_chat(user, SPAN_CAUTION("You upload the data from the [attacking_item.name]'s buffer."))
+
 	else
 		..()
 
@@ -142,7 +205,7 @@
 		t += "<div class='statusDisplay'>"
 
 		for(var/i = 1; i <= power_options.len; i++)
-			if(crystals.len + telepad.efficiency < i)
+			if(length(crystals) + telepad.efficiency < i)
 				t += "<span class='linkOff'>[power_options[i]]</span>"
 				continue
 			if(power == power_options[i])
@@ -151,8 +214,8 @@
 			t += "<A href='?src=\ref[src];setpower=[i]'>[power_options[i]]</A>"
 		t += "</div>"
 
-		t += "<A href='?src=\ref[src];setz=1'>Set Sector</A>"
-		t += "<div class='statusDisplay'>[zlevel_offset]</div>"
+		t += "<A href='?src=\ref[src];setz=1'>Set Vertical Offset</A>"
+		t += "<div class='statusDisplay'>[!isnull(zlevel_offset) ? zlevel_offset : "No Data"]</div>"
 
 		t += "<BR><A href='?src=\ref[src];send=1'>Open Portal</A>"
 		t += "<BR><A href='?src=\ref[src];recal=1'>Recalibrate Crystals</A> <A href='?src=\ref[src];eject=1'>Eject Crystals</A>"
@@ -172,18 +235,29 @@
 	popup.open()
 	return
 
+/**
+ * Causes sparks to be emitted from the linked telepad
+ */
 /obj/machinery/computer/telescience/proc/sparks()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(telepad)
 		spark(telepad, 5, GLOB.alldirs)
 	else
 		return
 
+/**
+ * Called when the portal fails to be created
+ */
 /obj/machinery/computer/telescience/proc/telefail()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	sparks()
-	visible_message("<span class='warning'>The telepad weakly fizzles.</span>")
+	visible_message(SPAN_WARNING("The telepad weakly fizzles."))
 	return
 
 /obj/machinery/computer/telescience/proc/doteleport(mob/user)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(teleport_cooldown > world.time)
 		temp_msg = "Telepad is recharging power.<BR>Please wait [round((teleport_cooldown - world.time) / 10)] seconds."
@@ -204,73 +278,75 @@
 
 		var/trueX = Clamp(round(proj_data.dest_x, 1), 1, world.maxx)
 		var/trueY = Clamp(round(proj_data.dest_y, 1), 1, world.maxy)
-		var/spawn_time = round(proj_data.time) * 10
+		var/spawn_time = round(proj_data.time)
 
 		var/turf/target = locate(trueX, trueY, target_zlevel)
 		last_target = target
-		var/area/A = get_area(target)
 		flick("pad-beam", telepad)
 
-		if(spawn_time > 15 ) // 1.5 seconds
+		if(spawn_time > 1.5 SECONDS)
 			playsound(telepad.loc, 'sound/weapons/flash.ogg', 25, 1)
 			// Wait depending on the time the projectile took to get there
 			teleporting = 1
 			temp_msg = "Powering up bluespace crystals.<BR>Please wait."
 
+		addtimer(CALLBACK(src, PROC_REF(complete_doteleport), user, target), spawn_time SECONDS)
 
-		spawn(round(proj_data.time) * 10) // in seconds
-			if(!telepad)
-				return
-			if(telepad.stat & NOPOWER)
-				return
-			teleporting = 0
-			teleport_cooldown = world.time + (power * 2)
-			teles_left -= 1
+/**
+ * Completes the teleportation process, after the timer has expired, to be called only by
+ * the timer set by `doteleport()`
+ */
+/obj/machinery/computer/telescience/proc/complete_doteleport(mob/user, turf/target)
+	SHOULD_NOT_SLEEP(TRUE)
 
-			// use a lot of power
-			use_power_oneoff(power * 10)
+	if(!telepad)
+		return
+	if(telepad.stat & NOPOWER)
+		return
+	teleporting = 0
+	teleport_cooldown = world.time + (power * 2)
+	teles_left -= 1
 
-			spark(telepad, 5, GLOB.alldirs)
+	// use a lot of power
+	use_power_oneoff(power * 10)
 
-			temp_msg = "Bluespace portal creation successful.<BR>"
-			if(teles_left < 10)
-				temp_msg += "<BR>Calibration required soon."
-			else
-				temp_msg += "Data printed below."
+	spark(telepad, 5, GLOB.alldirs)
 
-			spark(telepad, 5, GLOB.alldirs)
+	temp_msg = "Bluespace portal creation successful.<BR>"
+	if(teles_left < 10)
+		temp_msg += "<BR>Calibration required soon."
+	else
+		temp_msg += "Data printed below."
 
-			var/turf/source = target
-			var/turf/dest = get_turf(telepad)
-			var/log_msg = ""
-			log_msg += ": [key_name(user)] has teleported "
+	spark(telepad, 5, GLOB.alldirs)
 
-			if(sending)
-				source = dest
-				dest = target
+	var/turf/source = target
+	var/turf/dest = get_turf(telepad)
+	var/log_msg = ""
+	log_msg += ": [key_name(user)] has teleported "
 
-			flick("pad-beam", telepad)
-			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
+	if(sending)
+		source = dest
+		dest = target
 
-			var/total_lifespawn = 25 * crystals.len
+	flick("pad-beam", telepad)
+	playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
 
-			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn, 0)
-			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn, 0)
+	var/total_lifespawn = 25 * length(crystals)
+
+	var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn, 0)
+	set_origin_portal(origin)
+
+	var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn, 0)
+	set_destination_portal(destination)
 
 
-			origin.target = destination
-			destination.target = origin
-			origin.has_failed = FALSE
-			destination.has_failed = FALSE
+	origin.set_target(destination)
+	destination.set_target(origin)
+	origin.has_failed = FALSE
+	destination.has_failed = FALSE
 
-
-			if (dd_hassuffix(log_msg, ", "))
-				log_msg = dd_limittext(log_msg, length(log_msg) - 2)
-			else
-				log_msg += "nothing"
-			log_msg += " [sending ? "to" : "from"] [trueX], [trueY], [target_zlevel] ([A ? A.name : "null area"])"
-			investigate_log(log_msg, "telesci")
-			updateDialog()
+	updateDialog()
 
 /obj/machinery/computer/telescience/proc/teleport(mob/user)
 	if(rotation == null || angle == null || target_zlevel == null)
@@ -295,7 +371,12 @@
 		temp_msg = "ERROR!<BR>Calibration required."
 		return
 
+/**
+ * Ejects the telecrystals from the console
+ */
 /obj/machinery/computer/telescience/proc/eject()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for(var/obj/item/I in crystals)
 		I.forceMove(src.loc)
 		crystals -= I
@@ -327,7 +408,7 @@
 		var/index = href_list["setpower"]
 		index = text2num(index)
 		if(index != null && power_options[index])
-			if(crystals.len + telepad.efficiency >= index)
+			if(length(crystals) + telepad.efficiency >= index)
 				power = power_options[index]
 
 	if(href_list["setz"])
@@ -347,6 +428,9 @@
 			to_chat(usr, SPAN_WARNING("Bluespace forces prevent this offset from being used."))
 			return
 
+		//If we are going into the negatives, those are "fake" zlevels that we use to refer
+		//to outside areas (like other ships, planets, sites, you name it)
+		//Same goes for not connected zlevels, in case we ever add them above us
 		if((src.z + new_z) < 0 || !AreConnectedZLevels(src.z, (src.z + new_z)))
 
 			overmap_contacts_zlevels = list()
@@ -363,9 +447,10 @@
 				min_zlevel_below_us++
 
 			for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
-				if(linked.check_ownership(S))
+				//If we have ownership of this, and the deep scan is toggled
+				if(linked.check_ownership(S) /*&& S.sensors?.deep_scan_toggled*/)
 					for(var/obj/effect/overmap/visitable/known_visitable in S.objects_in_view)
-						//If fully scanned and identified
+						//If not fully scanned and identified, skip
 						if(S.objects_in_view[known_visitable] < 100)
 							continue
 
@@ -427,8 +512,48 @@
 
 	updateDialog()
 
+/obj/machinery/computer/telescience/process(seconds_per_tick)
+	if((stat & NOPOWER) || (telepad?.stat & NOPOWER))
+		QDEL_NULL(origin_portal)
+
+/**
+ * Recomputes the parameters used for aiming
+ */
 /obj/machinery/computer/telescience/proc/recalibrate()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	teles_left = rand(30, 40)
 	//angle_off = rand(-25, 25)
 	power_off = rand(-4, 0)
 	rotation_off = rand(-10, 10)
+
+/**
+ * Sets the origin portal
+ *
+ * * orig_portal - An `/obj/effect/portal` that will act as the "origin"
+ */
+/obj/machinery/computer/telescience/proc/set_origin_portal(obj/effect/portal/orig_portal)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	origin_portal = orig_portal
+	RegisterSignal(origin_portal, COMSIG_QDELETING, PROC_REF(handle_portal_qdel))
+
+/**
+ * Sets the origin portal
+ *
+ * * dest_portal - An `/obj/effect/portal` that will act as the "destination"
+ */
+/obj/machinery/computer/telescience/proc/set_destination_portal(obj/effect/portal/dest_portal)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	destination_portal = dest_portal
+	RegisterSignal(destination_portal, COMSIG_QDELETING, PROC_REF(handle_portal_qdel))
+
+/**
+ * Handles a portal being deleted
+ */
+/obj/machinery/computer/telescience/proc/handle_portal_qdel()
+	SIGNAL_HANDLER
+
+	destination_portal = null
+	origin_portal = null

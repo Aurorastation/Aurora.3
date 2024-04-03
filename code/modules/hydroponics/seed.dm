@@ -277,7 +277,7 @@
 		if(turfs.len)
 			var/turf/picked = get_turf(pick(turfs))
 			var/obj/effect/portal/P = new /obj/effect/portal(get_turf(target))
-			P.target = picked
+			P.set_target(picked)
 			P.creator = null
 
 /datum/seed/proc/handle_environment(var/turf/current_turf, var/datum/gas_mixture/environment, var/light_supplied, var/check_only)
