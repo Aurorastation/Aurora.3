@@ -24373,9 +24373,6 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "qIS" = (
-/obj/item/stack/material/phoron{
-	amount = 30
-	},
 /obj/item/stack/material/uranium{
 	amount = 10
 	},
