@@ -2,7 +2,7 @@
 	name = "Adhomian Traveling Circus"
 	description = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
 	suffixes = list("ships/tajara/circus/adhomian_circus.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "adhomian_circus_ship"
@@ -106,15 +106,7 @@
 	logging_home_tag = "nav_hangar_adhomian_circus_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar
-	name = "Adhomian Circus Shuttle Hangar"
-	landmark_tag = "nav_hangar_adhomian_circus_shuttle"
-	docking_controller = "adhomian_circus_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/adhomian_circus_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_adhomian_circus_shuttle"
-	base_turf = /turf/space/transit/north
+/obj/effect/map_effect/marker/airlock/shuttle/adhomian_circus_shuttle
+	name = "Adhomian Circus Shuttle"
+	shuttle_tag = "Adhomian Circus Shuttle"
+	master_tag = "adhomian_circus_shuttle"

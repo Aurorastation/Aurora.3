@@ -26,7 +26,7 @@
 	var/turf/T = get_turf(M)
 	if(T)
 		var/obj/effect/energy_net/net = new net_type(T)
-		net.layer = M.layer + 1
+		net.layer = ABOVE_HUMAN_LAYER
 		M.captured = TRUE
 		M.update_canmove()
 		net.affecting = M
@@ -118,7 +118,7 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "canesword"
 	item_state = "canesword"
-	force = 20
+	force = 25
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
 	sharp = 1

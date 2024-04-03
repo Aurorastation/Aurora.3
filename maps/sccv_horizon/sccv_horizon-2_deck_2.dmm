@@ -2997,6 +2997,12 @@
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = -32
 	},
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "bnN" = (
@@ -15004,6 +15010,9 @@
 	departmentType = 2;
 	name = "Research and Development Requests Console"
 	},
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "gQD" = (
@@ -26836,7 +26845,7 @@
 	},
 /area/horizon/kitchen/freezer)
 "myE" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -35693,8 +35702,7 @@
 	pixel_y = 10
 	},
 /obj/random/pottedplant_small{
-	pixel_x = -9;
-	pixel_y = 0
+	pixel_x = -9
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
@@ -49499,6 +49507,9 @@
 	c_tag = "Operations -  Machinist Workshop Starboard";
 	dir = 1
 	},
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "wZG" = (
@@ -50872,8 +50883,7 @@
 	pixel_y = 13
 	},
 /obj/random/pottedplant_small{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)

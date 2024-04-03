@@ -112,7 +112,7 @@
 			var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
 			if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
 				visible_message(SPAN_WARNING("[usr] presses the fire button!"))
-				playsound(src, 'sound/machines/compbeep1.ogg')
+				playsound(src, 'sound/machines/compbeep1.ogg', 60)
 			switch(result)
 				if(SHIP_GUN_ERROR_NO_AMMO)
 					to_chat(usr, SPAN_WARNING("The console shows an error screen: the weapon isn't loaded!"))

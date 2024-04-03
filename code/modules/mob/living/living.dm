@@ -569,7 +569,7 @@ default behaviour is:
 /mob/living/proc/UpdateDamageIcon()
 	return
 
-/mob/living/Move(a, b, flag)
+/mob/living/Move(atom/newloc, direct)
 	if (buckled_to)
 		return
 
@@ -925,8 +925,6 @@ default behaviour is:
 	if(auras)
 		for(var/a in auras)
 			remove_aura(a)
-
-	QDEL_NULL(ability_master)
 
 	return ..()
 

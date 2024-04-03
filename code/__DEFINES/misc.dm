@@ -460,17 +460,20 @@ example:
 
 //Map template flags
 /// Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1
-/// Makes it ignore away site budget and just spawn (works only for away sites)
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES BITFLAG(1)
+/// If it should ignore away site budget and just spawn (works only for away sites)
 /// A site needs to be set to spawn in current sector to be considered still
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2
-/// if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_CLEAR_CONTENTS   4
-/// if it should forbid ruins from spawning on top of it
-#define TEMPLATE_FLAG_NO_RUINS         8
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED BITFLAG(2)
+/// If it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_CLEAR_CONTENTS   BITFLAG(3)
+/// If it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RUINS         BITFLAG(4)
+/// If it should always spawn if today is a port of call day
+#define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(5)
 
 //Ruin map template flags
-#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+/// Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
 
@@ -505,3 +508,18 @@ example:
 #define GEAR_TWEAK_ACCESSORY_SLOT_SUIT "Suit"
 /// Spawns standalone in the suit slot
 #define GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE "Standalone Suit"
+
+//Turf/area values for 'this space is outside' checks
+#define OUTSIDE_AREA null
+#define OUTSIDE_NO   FALSE
+#define OUTSIDE_YES  TRUE
+#define OUTSIDE_UNCERTAIN null
+
+// Weather exposure values for being rained on or hailed on.
+#define WEATHER_IGNORE   -1
+#define WEATHER_EXPOSED   0
+#define WEATHER_ROOFED    1
+#define WEATHER_PROTECTED 2
+
+// arbitrary low pressure bound for wind weather effects
+#define MIN_WIND_PRESSURE 10

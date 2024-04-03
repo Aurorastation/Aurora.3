@@ -370,7 +370,7 @@
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()
 		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."))
-		playsound(src, 'sound/machines/compbeep5.ogg')
+		playsound(src, 'sound/machines/compbeep5.ogg', 50)
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TRUE
 
@@ -576,6 +576,6 @@
 	icon = 'icons/obj/machinery/sensors_venator.dmi'
 	deep_scan_range = 12
 	deep_scan_sensor_name = "Venator-Class Ultra-High Depth Sensors"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
 	pixel_y = -32

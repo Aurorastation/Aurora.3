@@ -127,11 +127,20 @@
 	QDEL_NULL(l_store)
 	QDEL_NULL(s_store)
 	QDEL_NULL(wear_suit)
+	QDEL_NULL(wear_mask)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
+	//Yes this is shit, but since someone had the brillant mind to use images for this, we must suffer
+	if(length(hud_list))
+		for(var/image/hud_overlay/an_hud_overlay in hud_list)
+			if(an_hud_overlay.owner)
+				an_hud_overlay.owner.client?.images -= an_hud_overlay
+			an_hud_overlay.owner = null
+			qdel(an_hud_overlay)
+		hud_list = null
+
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
@@ -1464,10 +1473,9 @@
 	maxHealth = species.total_health
 	health = maxHealth
 
-	spawn(0)
-		regenerate_icons()
-		if (vessel)
-			restore_blood()
+	regenerate_icons()
+	if (vessel)
+		restore_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
@@ -1961,9 +1969,9 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(FLOOR(species.bp_base_systolic+rand(-5,5))*0.25, FLOOR(species.bp_base_disatolic+rand(-5,5))*0.25)
+		return list(FLOOR(species.bp_base_systolic+rand(-5,5), 1)*0.25, FLOOR(species.bp_base_disatolic+rand(-5,5), 1)*0.25)
 	var/blood_result = get_blood_circulation()
-	return list(FLOOR((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), FLOOR((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
+	return list(FLOOR((species.bp_base_systolic+rand(-5,5))*(blood_result/100), 1), FLOOR((species.bp_base_disatolic+rand(-5,5))*(blood_result/100), 1))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()

@@ -418,7 +418,7 @@
 			return
 		user.drop_from_inventory(attacking_item,src)
 	if(attacking_item.iswrench())
-		playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."),
 								SPAN_NOTICE("You unsecure \the [src] from the floor."),
@@ -506,7 +506,7 @@
 		qdel(attacking_item)
 		return
 	if(attacking_item.iswrench())
-		playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
 				SPAN_NOTICE("You unsecure \the [src] from the floor."), \

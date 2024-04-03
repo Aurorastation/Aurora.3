@@ -299,7 +299,7 @@
 		anchored = !anchored
 		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.",
 								"You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
-		playsound(get_turf(src), attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		power_change()
 		return
 

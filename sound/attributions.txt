@@ -89,3 +89,8 @@ sound/music/lobby/konyang/konyang-2.ogg - BGM gongbang
 sound/music/lobby/konyang/konyang-3.ogg - zolezzi
 sound/music/lobby/konyang/konyang-4.ogg - Karl Casey @ White Bat Audio
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/effects/zombies/zombie_1.ogg to zombie_4_ogg - Mazellmi @ Youtube
+sound/effects/rock_break.ogg - "Rock destroy". Obtained from https://freesound.org/people/Bertsz/sounds/524312/
+ATTRIBUTIONS SECTION END

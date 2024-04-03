@@ -18,6 +18,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
+	area_blurb = "You feel watched inside this ominous compound."
 
 //ghost roles
 
@@ -56,7 +57,9 @@
 						/obj/item/melee/telebaton = 1,
 						/obj/item/handcuffs = 2
 						)
-
+	backpack_contents = list(
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1
+	)
 	l_ear = null
 
 	id = /obj/item/card/id

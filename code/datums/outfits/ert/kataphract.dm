@@ -14,6 +14,7 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 	l_ear = /obj/item/device/radio/headset/distress
+	l_hand = /obj/item/martial_manual/swordsmanship
 
 	r_pocket = /obj/item/device/radio
 
@@ -21,7 +22,7 @@
 
 	backpack_contents = list(
 		/obj/item/handcuffs/ziptie = 2,
-		/obj/item/shield/energy/hegemony = 1,
+		/obj/item/shield/energy/hegemony/kataphract = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/box/donkpockets = 1
 	)
@@ -37,7 +38,7 @@
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
 /obj/outfit/admin/ert/kataphract/get_id_access()
-	return get_distress_access()
+	return get_distress_access_lesser()
 
 /obj/outfit/admin/ert/kataphract/klax
 	name = "Kataphract-Hopeful Klax"
@@ -51,10 +52,11 @@
 	gloves = null
 
 	l_hand = /obj/item/martial_manual/vaurca
+	l_pocket = /obj/item/melee/energy/sword/hegemony
 
 	backpack_contents = list(
 		/obj/item/handcuffs/ziptie = 2,
-		/obj/item/shield/energy/hegemony = 1,
+		/obj/item/shield/energy/hegemony/kataphract = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/box/smokebombs = 1,
 		/obj/item/storage/box/anti_photons = 1,

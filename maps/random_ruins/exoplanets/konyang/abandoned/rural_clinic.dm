@@ -11,7 +11,7 @@
 	name = "Konyang Rural Clinic"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
-	sound_env = ROOM
+	sound_environment = SOUND_ENVIRONMENT_ROOM
 
 /obj/effect/landmark/corpse/konyang_cop
 	name = "Konyang National Police Patrolman"

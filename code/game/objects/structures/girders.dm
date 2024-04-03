@@ -7,7 +7,7 @@
 	icon_state = "girder"
 	anchored = 1
 	density = 1
-	layer = ABOVE_CABLE_LAYER
+	layer = BELOW_OBJ_LAYER
 	w_class = ITEMSIZE_HUGE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/state = 0
@@ -149,7 +149,7 @@
 				to_chat(user, "<span class='notice'>You unsecured the support struts!</span>")
 				state = 1
 		else if(anchored && !reinf_material)
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			reinforcing = !reinforcing
 			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
 			return
