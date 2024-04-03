@@ -23,8 +23,8 @@
  */
 
 /obj/abstract/weather_system
-	plane             = PLANE_DEFAULT
-	layer             = ABOVE_ALL_MOB_LAYER
+	plane             = DEFAULT_PLANE
+	layer             = ABOVE_PROJECTILE_LAYER
 	icon              = 'icons/effects/weather.dmi'
 	icon_state        = "blank"
 	invisibility      = 0
@@ -91,8 +91,8 @@
 
 // Dummy object for lightning flash animation.
 /obj/abstract/lightning_overlay
-	plane             = PLANE_DEFAULT + 1
-	layer             = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane             = DEFAULT_PLANE + 1 //Future EMISSIVE_PLANE
+	layer             = ABOVE_LIGHTING_LAYER
 	icon              = 'icons/effects/weather.dmi'
 	icon_state        = "full"
 	alpha             = 0

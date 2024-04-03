@@ -15159,8 +15159,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood,
-/area/rnd/hallway)
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "gQD" = (
 /obj/machinery/smartfridge/drying_rack,
 /obj/machinery/door/firedoor,
@@ -49795,8 +49798,47 @@
 	id = "RnDShutters";
 	name = "RnD Shutters"
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/rnd/chemistry)
+/obj/item/stack/material/glass{
+	amount = 50;
+	pixel_x = -1;
+	pixel_y = 2;
+	randpixel = 0
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 1;
+	pixel_y = -2;
+	randpixel = 0
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 1;
+	pixel_y = -2;
+	randpixel = 0
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 1;
+	pixel_y = -2;
+	randpixel = 0
+	},
+/obj/item/device/paint_sprayer,
+/obj/item/reagent_containers/weldpack,
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/ringer/south{
+	department = "Machinist Workshop";
+	id = "robo_ringer";
+	req_access = list(29)
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations -  Machinist Workshop Starboard";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/lower/machinist)
 "wZG" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
