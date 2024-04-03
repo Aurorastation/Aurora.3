@@ -378,10 +378,6 @@
 /turf/template_noop,
 /area/template_noop)
 "aix" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals - Holding Cell";
-	dir = 4
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -1659,11 +1655,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNc" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Departures";
-	dir = 1;
-	pixel_x = -10
-	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNs" = (
@@ -4446,10 +4437,6 @@
 	},
 /area/centcom/specops)
 "dXz" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar East";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -4572,10 +4559,6 @@
 "egh" = (
 /obj/effect/landmark{
 	name = "tdome2"
-	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome - Red Team";
-	invisibility = 101
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -4845,10 +4828,6 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "exm" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -5202,10 +5181,6 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
 	},
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Visitor"
@@ -6350,10 +6325,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome Arena";
-	invisibility = 101
-	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/bluegrid,
 /area/tdome)
@@ -12342,10 +12313,6 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Green Team";
-	invisibility = 101
-	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -12437,10 +12404,6 @@
 /area/centcom/control)
 "oaC" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar Center";
-	pixel_x = 20
-	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "shutter1";

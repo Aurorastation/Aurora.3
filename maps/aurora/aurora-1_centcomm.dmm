@@ -5962,11 +5962,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNc" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Departures";
-	dir = 1;
-	pixel_x = -10
-	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNe" = (
@@ -11617,10 +11612,6 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "dKe" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar East";
-	dir = 8
-	},
 /obj/structure/bed/stool/chair/padded/beige,
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -12380,10 +12371,6 @@
 /obj/effect/landmark{
 	name = "tdome2"
 	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome - Red Team";
-	invisibility = 101
-	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -12807,10 +12794,6 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "exm" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -15827,10 +15810,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome Arena";
-	invisibility = 101
-	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/bluegrid,
 /area/tdome)
@@ -27854,10 +27833,6 @@
 	},
 /area/centcom/specops)
 "nUK" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals - Holding Cell";
-	dir = 4
-	},
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
@@ -27963,10 +27938,6 @@
 "nYH" = (
 /obj/effect/landmark{
 	name = "tdome1"
-	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Green Team";
-	invisibility = 101
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -28095,10 +28066,6 @@
 /area/centcom/control)
 "oaC" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar Center";
-	pixel_x = 20
-	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "shutter1";
@@ -38048,10 +38015,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "vhx" = (
@@ -42161,10 +42124,6 @@
 	},
 /area/antag/burglar)
 "xFq" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West";
-	dir = 4
-	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "xFN" = (
