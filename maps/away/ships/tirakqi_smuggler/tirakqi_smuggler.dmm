@@ -3893,7 +3893,7 @@
 	pixel_x = -9;
 	dir = 8
 	},
-/obj/item/paper/tirakqi_smuggler{
+/obj/item/paper/fluff/tirakqi_smuggler{
 	pixel_x = 4;
 	pixel_y = 10
 	},
