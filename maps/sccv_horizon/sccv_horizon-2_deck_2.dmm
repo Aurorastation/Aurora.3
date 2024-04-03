@@ -36505,7 +36505,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 5;
-	id = "MechBayShutter";
+	id = "mech_bay_shutter";
 	name = "Machinist Bay Shutters";
 	pixel_x = 3;
 	pixel_y = 3
