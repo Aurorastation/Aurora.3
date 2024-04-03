@@ -18,15 +18,15 @@
 	var/mob/living/carbon/human/H = user
 	if(H.has_stethoscope_active())
 		var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
-		if(organ)
+		if(organ && do_mob(user, src, 1.5 SECONDS))
 			user.visible_message("<b>[user]</b> checks [src] with a stethoscope.", "You check [src] with the stethoscope on your person.")
-			to_chat(user, SPAN_NOTICE("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
+			to_chat(user, EXAMINE_BLOCK("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
 		else
 			to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
 
 	else if(src.stat && !(src.species.flags & NO_BLOOD))
 		user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-		if(do_mob(user, src, 15))
+		if(do_mob(user, src, 2 SECONDS))
 			if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
 			else
@@ -390,7 +390,7 @@
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
-	if (GLOB.config.allow_Metadata && client.prefs.metadata)
+	if(GLOB.config.allow_Metadata && client?.prefs.metadata)
 		msg += "<span class='deadsay'>OOC Notes:</span> <a href='?src=\ref[src];metadata=1'>\[View\]</a>\n"
 
 	msg += "</span>"

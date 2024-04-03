@@ -94,6 +94,10 @@
 /turf/simulated/floor/levelupdate()
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && src.flooring)
+	if(flooring)
+		layer = TURF_LAYER
+	else
+		layer = PLATING_LAYER
 
 /turf/simulated/floor/is_floor()
 	return TRUE

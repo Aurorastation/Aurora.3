@@ -69,13 +69,13 @@
 /obj/machinery/computer/update_icon()
 	switch(dir)
 		if(NORTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(SOUTH)
-			layer = initial(layer)
+			reset_plane_and_layer()
 		if(EAST)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(WEST)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 	cut_overlays()
 	if(stat & NOPOWER)
 		set_light(0)
