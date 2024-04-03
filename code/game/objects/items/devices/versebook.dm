@@ -73,7 +73,7 @@
 
 /obj/item/device/versebook/pra
 	name = "\improper Hadiist Manifesto"
-	desc = "A compact red book that is commonly considerd required reading for PRA citizens. This book can be found anywhere the PRA is, with the party commonly providing free copies of the Manifesto to tourists."
+	desc = "A compact red book that is commonly considered required reading for PRA citizens. This book can be found anywhere the PRA is, with the party commonly providing free copies of the Manifesto to tourists."
 	desc_extended = "HE/SHE LOVES HADII."
 	icon_state = "prabook"
 	item_state = "pra"
