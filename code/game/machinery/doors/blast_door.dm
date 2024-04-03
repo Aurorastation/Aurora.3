@@ -15,9 +15,8 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = ABOVE_DOOR_LAYER
+	closed_layer = ABOVE_WINDOW_LAYER
 	explosion_resistance = 25
-	open_layer = BELOW_TABLE_LAYER
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
@@ -31,7 +30,6 @@
 	var/open_sound = 'sound/machines/blastdooropen.ogg'
 	var/close_sound = 'sound/machines/blastdoorclose.ogg'
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
-	closed_layer = ABOVE_DOOR_LAYER
 	var/id = 1.0
 
 	var/_wifi_id
