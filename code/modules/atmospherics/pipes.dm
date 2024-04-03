@@ -7,7 +7,6 @@
 	var/volume = 0
 	force = 25
 
-	layer = PIPE_LAYER
 	use_power = POWER_USE_OFF
 
 	var/alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
@@ -373,7 +372,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-fuel"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.40
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -384,7 +382,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-aux"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.41
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
@@ -441,7 +438,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-fuel"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.40
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -452,7 +448,6 @@
 	a Universal Adapter pipe."
 	icon_state = "intact-aux"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.41
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
@@ -698,7 +693,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-fuel"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.40
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -709,7 +703,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-aux"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.41
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
@@ -766,7 +759,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-fuel"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.40
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -777,7 +769,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map-aux"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.41
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
@@ -1025,7 +1016,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-fuel"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.38
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -1036,7 +1026,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-aux"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.39
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
@@ -1093,7 +1082,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-fuel"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.38
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -1104,7 +1092,6 @@
 	a Universal Adapter pipe."
 	icon_state = "map_4way-aux"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.39
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
@@ -1231,7 +1218,6 @@
 	name = "fuel pipe endcap"
 	desc = "An endcap for fuel pipes"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.40
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -1239,7 +1225,6 @@
 	name = "auxiliary pipe endcap"
 	desc = "An endcap for auxiliary pipes"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.41
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
@@ -1266,7 +1251,6 @@
 	name = "fuel pipe endcap"
 	desc = "An endcap for fuel pipes"
 	connect_types = CONNECT_TYPE_FUEL
-	layer = 2.40
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
@@ -1274,7 +1258,6 @@
 	name = "auxiliary pipe endcap"
 	desc = "An endcap for auxiliary pipes"
 	connect_types = CONNECT_TYPE_AUX
-	layer = 2.41
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
