@@ -13790,6 +13790,9 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "gnD" = (
@@ -15152,17 +15155,13 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "gQj" = (
-/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/item/stack/material/phoron{
-	amount = 15
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/wood,
 /area/rnd/research)
 "gQD" = (
 /obj/machinery/smartfridge/drying_rack,
