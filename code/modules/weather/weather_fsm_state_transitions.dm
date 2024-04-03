@@ -62,9 +62,8 @@ singleton/state_transition/weather/calm/snow_planet
 /singleton/state_transition/weather/calm/lava_planet
 	target = /singleton/state/weather/calm/lava_planet
 
-/singleton/state_transition/weather/ash
+/singleton/state_transition/weather/ash/lava_planet
 	target = /singleton/state/weather/ash/lava_planet
-	likelihood_weighting = 20
 
 //arctic planets
 
