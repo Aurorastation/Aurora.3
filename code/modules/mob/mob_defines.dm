@@ -119,6 +119,7 @@
 	var/timeofdeath = 0.0//Living
 	var/cpr = FALSE //Whether the mob is performing cpr or not
 
+	/// Body temperature in Kelvin
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
 	var/old_y = 0

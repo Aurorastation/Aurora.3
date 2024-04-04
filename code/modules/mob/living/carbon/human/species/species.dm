@@ -165,13 +165,17 @@
 	var/breathing_sound = 'sound/voice/monkey.ogg'    // If set, this mob will have a breathing sound.
 	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
 
-	var/heat_discomfort_level = 315                   // Aesthetic messages about feeling warm.
-	var/cold_discomfort_level = 285                   // Aesthetic messages about feeling chilly.
+	/// At what temperature (kelvin) species gets too cold
+	var/heat_discomfort_level = 315
+	/// At what temperature (kelvin) species gets too cold
+	var/cold_discomfort_level = 285
+	/// Aesthetic messages about feeling warm.
 	var/list/heat_discomfort_strings = list(
 		"You feel sweat drip down your neck.",
 		"You feel uncomfortably warm.",
 		"Your skin prickles in the heat."
 		)
+	/// Aesthetic messages about feeling chilly.
 	var/list/cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You shiver suddenly.",
