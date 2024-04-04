@@ -509,7 +509,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "mining_1";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -667,7 +666,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "1,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -1205,7 +1203,6 @@
 "aUC" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1524,7 +1521,6 @@
 "beF" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox,
@@ -1601,7 +1597,6 @@
 	},
 /obj/structure/window/shuttle/unique/scc/tall{
 	icon_state = "short1_top";
-	layer = 3
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/quarters)
@@ -2039,7 +2034,6 @@
 	alarm_id = 1501;
 	breach_detection = 0;
 	dir = 4;
-	layer = 4;
 	name = "Isolation A";
 	pixel_x = -24;
 	rcon_setting = 3;
@@ -2104,7 +2098,6 @@
 	},
 /obj/structure/sign/emergency/evacuation{
 	dir = 4;
-	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
@@ -2347,7 +2340,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2505,7 +2497,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_2";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
@@ -2519,7 +2510,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Phoron to Burn Mix"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2782,7 +2772,6 @@
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -2971,7 +2960,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -3454,17 +3442,14 @@
 /area/engineering/atmos/propulsion)
 "cvz" = (
 /obj/machinery/computer/ship/helm/cockpit{
-	layer = 3.1;
 	pixel_y = -18
 	},
 /obj/machinery/light/spot,
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/shuttle_control/explore/canary{
-	layer = 3;
 	pixel_x = 25
 	},
 /obj/machinery/computer/ship/sensors/cockpit{
-	layer = 3;
 	pixel_x = -25
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -3566,7 +3551,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	opacity = 1;
 	outside_part = 0
 	},
@@ -4614,7 +4598,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -4699,7 +4682,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -4965,7 +4947,6 @@
 "dsT" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner_wide/blue/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5613,7 +5594,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "4,11";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5799,7 +5779,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -5867,7 +5846,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -6350,7 +6328,6 @@
 	},
 /obj/structure/window/shuttle/unique/scc/tall{
 	icon_state = "short2_top";
-	layer = 3
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
@@ -6789,7 +6766,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -6904,7 +6880,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -7315,7 +7290,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/stock_parts/matter_bin{
 	pixel_y = 8
@@ -8481,7 +8455,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -8669,7 +8642,6 @@
 "fTm" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Oxidizer to Burn Mix"
 	},
 /obj/effect/floor_decal/corner_wide/black{
@@ -8953,11 +8925,9 @@
 /area/shuttle/mining)
 "fZQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	layer = 2.8
 	},
 /obj/machinery/access_button{
 	dir = 4;
-	layer = 3.1;
 	pixel_x = -22;
 	pixel_y = 2
 	},
@@ -9067,7 +9037,6 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/structure/stairs_lower/stairs_upper{
-	layer = 3
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
@@ -9075,7 +9044,6 @@
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -9177,7 +9145,6 @@
 	alarm_id = 1502;
 	breach_detection = 0;
 	dir = 4;
-	layer = 4;
 	name = "Isolation B";
 	pixel_x = -24;
 	rcon_setting = 3;
@@ -9295,7 +9262,6 @@
 /obj/structure/railing/mapped,
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
-	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -10781,7 +10747,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "7,11";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -10961,7 +10926,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -11034,7 +10998,6 @@
 "hwy" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
@@ -11097,7 +11060,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
@@ -11290,7 +11252,6 @@
 "hEh" = (
 /obj/machinery/conveyor{
 	id = "mining_1";
-	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/mining,
@@ -11535,7 +11496,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "1,11";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -12231,7 +12191,6 @@
 "itD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Oxidizer to Burn Mix"
 	},
 /obj/effect/floor_decal/corner_wide/black{
@@ -12727,7 +12686,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -13231,12 +13189,10 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/closet/secure_closet/security,
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 33
 	},
@@ -13331,7 +13287,6 @@
 /area/hangar/control)
 "jio" = (
 /obj/effect/decal/fake_object{
-	layer = 2.5;
 	name = "cockpit ladder";
 	pixel_x = 9;
 	pixel_y = -4
@@ -13610,7 +13565,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Hydrogen to Burn Mix"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13783,7 +13737,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -13969,7 +13922,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "warehousetomail";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -14388,7 +14340,6 @@
 	dir = 8
 	},
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -14404,7 +14355,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "mining_2";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/structure/railing/mapped{
@@ -14465,7 +14415,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "14,12";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/machinery/light/small{
@@ -14591,7 +14540,6 @@
 	alarm_id = 1501;
 	breach_detection = 0;
 	dir = 1;
-	layer = 4;
 	name = "Exotic Energy Harvesting";
 	pixel_x = -2;
 	pixel_y = -19;
@@ -14748,7 +14696,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14817,7 +14764,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -14900,7 +14846,6 @@
 	},
 /obj/machinery/mineral/processing_unit_console{
 	id = "processing_s";
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -14997,7 +14942,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/intrepid/quarters)
@@ -15093,7 +15037,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/francisca/compact{
-	layer = 3;
 	pixel_x = -40;
 	pixel_y = -64;
 	weapon_id = "Francisca Rotary Gun"
@@ -15221,7 +15164,6 @@
 /area/horizon/custodial/disposals)
 "kxk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/bed/handrail{
@@ -17160,7 +17102,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -17959,7 +17900,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -18261,7 +18201,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -18447,7 +18386,6 @@
 "mFO" = (
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
-	layer = 2.1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -18489,7 +18427,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "6,11";
-	layer = 9;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/unary/engine/scc_shuttle,
@@ -18797,7 +18734,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "4,12";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/structure/table/wood,
@@ -19191,7 +19127,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "2,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -19649,7 +19584,6 @@
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/n20,
@@ -19726,7 +19660,6 @@
 /area/hangar/control)
 "nvn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/blast/shutters/open{
@@ -20380,7 +20313,6 @@
 "nQT" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "12,4";
-	layer = 2.97;
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -20591,7 +20523,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "warehousetomail";
-	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -20898,7 +20829,6 @@
 	dir = 8
 	},
 /obj/machinery/computer/ship/sensors/cockpit{
-	layer = 3;
 	pixel_x = -22;
 	pixel_y = 7
 	},
@@ -20922,7 +20852,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "7,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -20932,7 +20861,6 @@
 	},
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
-	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -21395,7 +21323,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_2";
-	layer = 2.9
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -21945,7 +21872,6 @@
 "pbX" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "6,4";
-	layer = 2.97;
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -22114,7 +22040,6 @@
 "pfQ" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/flash,
 /obj/item/device/flash,
@@ -22734,7 +22659,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -22993,7 +22917,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -23289,7 +23212,6 @@
 	density = 0
 	},
 /obj/machinery/computer/ship/helm/cockpit{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -23309,7 +23231,6 @@
 "pTp" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -23415,7 +23336,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_1";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
@@ -23513,7 +23433,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -23942,7 +23861,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -24451,7 +24369,6 @@
 	dir = 8
 	},
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -7;
 	pixel_y = 23
 	},
@@ -24529,9 +24446,6 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "qIS" = (
-/obj/item/stack/material/phoron{
-	amount = 30
-	},
 /obj/item/stack/material/uranium{
 	amount = 10
 	},
@@ -24561,7 +24475,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -24769,7 +24682,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "6,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -25000,7 +24912,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -25068,7 +24979,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -25353,7 +25263,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -25980,7 +25889,6 @@
 "rKM" = (
 /obj/structure/sign/fire{
 	desc = "A warning sign which reads 'DANGER: SHUTTLE THRUSTERS IN USE' and 'MIND THE DISTANCE'.";
-	layer = 2.1;
 	name = "\improper DANGER: THRUSTERS sign";
 	pixel_x = 32
 	},
@@ -26629,7 +26537,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -27152,7 +27059,6 @@
 	},
 /obj/structure/platform_deco{
 	dir = 4;
-	layer = 2.7
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -27297,7 +27203,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -27908,7 +27813,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "mining_2";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/structure/railing/mapped{
@@ -28273,7 +28177,6 @@
 "tsv" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28782,7 +28685,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_1";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -28919,7 +28821,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
@@ -28994,7 +28895,6 @@
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -29006,7 +28906,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -29040,7 +28939,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -29220,7 +29118,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -29247,7 +29144,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_2";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -29280,7 +29176,6 @@
 "tZY" = (
 /obj/machinery/conveyor{
 	id = "mining_2";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -29607,7 +29502,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	opacity = 1;
 	outside_part = 0
 	},
@@ -29694,7 +29588,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -30125,7 +30018,6 @@
 /obj/structure/window/shuttle/unique/scc/scout/over{
 	density = 0;
 	icon_state = "4,3";
-	layer = 6.1;
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
@@ -30674,7 +30566,6 @@
 	alarm_id = 1503;
 	breach_detection = 0;
 	dir = 4;
-	layer = 4;
 	name = "Isolation C";
 	pixel_x = -24;
 	rcon_setting = 3;
@@ -31510,7 +31401,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -31620,7 +31510,6 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/engines/cockpit{
-	layer = 3;
 	pixel_x = 24;
 	pixel_y = 7
 	},
@@ -31633,7 +31522,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -31687,7 +31575,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "2,11";
-	layer = 9;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/unary/engine/scc_shuttle,
@@ -31842,7 +31729,6 @@
 "vKa" = (
 /obj/machinery/conveyor{
 	id = "mining_2";
-	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/mining,
@@ -32186,7 +32072,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -32320,7 +32205,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -32493,7 +32377,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "14,11";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -32817,7 +32700,6 @@
 "wsF" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 4;
-	layer = 2
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
@@ -32906,7 +32788,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Phoron to Burn Mix"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -33275,7 +33156,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/light/small,
@@ -33410,12 +33290,10 @@
 /area/hangar/intrepid)
 "wPX" = (
 /obj/machinery/computer/ship/targeting/cockpit{
-	layer = 3;
 	pixel_x = -25
 	},
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/ship/engines/cockpit{
-	layer = 3;
 	pixel_x = 26
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -33473,7 +33351,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -34014,7 +33891,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -34306,7 +34182,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Hydrogen to Burn Mix"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -34365,7 +34240,6 @@
 /area/turbolift/scc_ship/operations_lift)
 "xqo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/device/radio/intercom/expedition/east,
@@ -34381,7 +34255,6 @@
 "xqv" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "11,26";
-	layer = 2.91;
 	opacity = 1;
 	outside_part = 0
 	},
@@ -34493,7 +34366,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -34772,7 +34644,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "mining_1";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -34973,7 +34844,6 @@
 "xLq" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
@@ -35599,7 +35469,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/flash{
 	pixel_x = -4;
@@ -35710,7 +35579,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;

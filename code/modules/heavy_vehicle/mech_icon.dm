@@ -23,14 +23,14 @@ GLOBAL_LIST_EMPTY(mecha_icon_cache)
 	//As mech icons uses a caching system, any changes here, particularly to layers, must be reflected in /obj/structure/heavy_vehicle_frame/update_icon().
 	var/list/new_overlays = get_mech_icon(list(body), MECH_BASE_LAYER)
 	if(body && !hatch_closed)
-		new_overlays += get_mech_image("[body.icon_state]_cockpit", body.on_mech_icon, MECH_BASE_LAYER)
+		new_overlays += get_mech_image("[body.icon_state]_cockpit", body.on_mech_icon, MECH_INTERMEDIATE_LAYER)
 	if(LAZYLEN(pilot_overlays))
 		new_overlays += pilot_overlays
 	if(body)
-		new_overlays += get_mech_image("[body.icon_state]_overlay[hatch_closed ? "" : "_open"]", body.on_mech_icon, body.color, MECH_HATCH_LAYER)
+		new_overlays += get_mech_image("[body.icon_state]_overlay[hatch_closed ? "" : "_open"]", body.on_mech_icon, body.color, MECH_COCKPIT_LAYER)
 	if(head)
 		new_overlays += get_mech_image("[head.icon_state]", head.on_mech_icon, head.color, MECH_HEAD_LAYER)
-		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, MECH_EYES_LAYER)
+		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, EYEGLOW_LAYER)
 	if(arms)
 		new_overlays += get_mech_image(arms.icon_state, arms.on_mech_icon, arms.color, MECH_ARM_LAYER)
 	if(legs)
@@ -55,7 +55,7 @@ GLOBAL_LIST_EMPTY(mecha_icon_cache)
 				new_overlays += get_mech_image(use_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, hardpoint_object.mech_layer)
 				var/far_icon_state = "[use_icon_state]_far"
 				if(far_icon_state in mecha_weapon_overlays)
-					new_overlays += get_mech_image(far_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, MECH_UNDER_LAYER)
+					new_overlays += get_mech_image(far_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, MOB_LAYER)
 
 	overlays = new_overlays
 

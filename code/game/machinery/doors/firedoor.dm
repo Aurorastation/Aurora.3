@@ -14,9 +14,9 @@
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP, ACCESS_FIRST_RESPONDER)
 	opacity = 0
 	density = 0
-	layer = LAYER_UNDER_TABLE
-	open_layer = LAYER_UNDER_TABLE // Just below doors when open
-	closed_layer = DOOR_CLOSED_LAYER + 0.2 // Just above doors when closed
+	layer = OPEN_DOOR_LAYER
+	open_layer = OPEN_DOOR_LAYER // Just below doors when open
+	closed_layer = CLOSED_DOOR_LAYER + 0.2 // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.

@@ -3,21 +3,19 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "bP" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "bR" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
+"dy" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ey" = (
 /obj/structure/railing/mapped{
@@ -39,13 +37,6 @@
 /obj/item/trap,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
-"he" = (
-/obj/structure/window/basic{
-	dir = 4
-	},
-/obj/structure/curtain/black,
-/turf/simulated/floor/exoplanet/wood,
-/area/adhomai_hunting)
 "hD" = (
 /obj/structure/table/wood,
 /obj/item/toy/plushie/farwa,
@@ -53,15 +44,11 @@
 /area/adhomai_hunting)
 "jh" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "jk" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "jy" = (
 /obj/structure/railing/mapped,
@@ -79,9 +66,7 @@
 /mob/living/simple_animal/hostile/commanded/dog/harron{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "kO" = (
 /obj/structure/table/wood,
@@ -94,10 +79,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "le" = (
-/obj/structure/window/basic{
-	dir = 8
-	},
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "lh" = (
@@ -167,9 +150,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "sU" = (
 /obj/structure/table/wood/gamblingtable,
@@ -183,9 +164,7 @@
 /area/adhomai_hunting)
 "vq" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "wa" = (
 /obj/effect/decal/fake_object{
@@ -203,15 +182,11 @@
 /obj/item/seeds/nifberries,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/earthenroot,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "xH" = (
 /obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "zC" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -222,9 +197,7 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "BM" = (
 /obj/structure/table/wood,
@@ -238,25 +211,19 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "CX" = (
 /mob/living/simple_animal/hostile/commanded/dog/harron{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Dt" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_hunting)
 "DP" = (
 /obj/structure/cult/tome{
@@ -268,6 +235,7 @@
 	desc = "An expensive silver charm of tajaran origin. This one has the arrowhead of Ma'take";
 	name = "mata'ke charm"
 	},
+/obj/item/nullrod/matake,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "DY" = (
@@ -276,14 +244,10 @@
 /area/adhomai_hunting)
 "EB" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Hj" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "HC" = (
 /obj/machinery/appliance/cooker/oven/adhomai,
@@ -299,9 +263,7 @@
 /mob/living/simple_animal/hostile/commanded/dog/harron{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Lc" = (
 /turf/simulated/floor/carpet/art{
@@ -325,6 +287,16 @@
 	identifier = "matake_hunter";
 	name = "igs - matake_hunter"
 	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
+"Nu" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
+"PH" = (
+/obj/structure/sign/flag/matake,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Sm" = (
@@ -357,10 +329,10 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "VA" = (
-/turf/simulated/floor/exoplanet/ice,
+/turf/simulated/floor/exoplanet/ice/cold,
 /area/exoplanet/adhomai)
 "VL" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "VU" = (
@@ -402,9 +374,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"
@@ -832,7 +802,7 @@ qU
 Vo
 rg
 rg
-VL
+Nu
 rg
 wj
 Hj
@@ -857,7 +827,7 @@ Hj
 Hj
 rg
 rg
-qU
+PH
 Sm
 VU
 qU
@@ -971,7 +941,7 @@ qU
 DY
 rg
 rg
-he
+le
 rg
 rg
 Hj
@@ -993,7 +963,7 @@ Hj
 Hj
 rg
 rg
-qU
+PH
 IE
 ey
 qU
@@ -1070,7 +1040,7 @@ rg
 hD
 qU
 Lc
-lh
+Xy
 rg
 Hj
 Hj
@@ -1130,7 +1100,7 @@ Hj
 Hj
 Hj
 Hj
-Hj
+dy
 KI
 Hj
 jh
@@ -1138,7 +1108,7 @@ rg
 kO
 IE
 Lc
-Xy
+lh
 rg
 Hj
 Hj
@@ -1171,7 +1141,7 @@ CX
 rg
 rg
 rg
-he
+le
 rg
 rg
 Hj

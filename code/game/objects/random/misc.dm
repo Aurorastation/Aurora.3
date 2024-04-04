@@ -366,7 +366,7 @@
 	desc = "75% chance of spawning dirt, otherwise nothing."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "dirt"
-	layer = ABOVE_CABLE_LAYER // just so it appears under structures in map editor
+	layer = BELOW_OBJ_LAYER // just so it appears under structures in map editor
 	spawn_nothing_percentage = 25
 	spawnlist = list(
 		/obj/effect/decal/cleanable/dirt
