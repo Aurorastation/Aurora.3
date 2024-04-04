@@ -89,7 +89,7 @@
 	speech = list(
 		"hail_generic"      = "Grrreetings, comrrrade! Sergei hopes they can enjoy his selection of goods, nothing herrre was smuggled!",
 		"hail_Tajara"       = "Welcome, comrrrade. He has the best prrrices forr them!",
-		"hail_Zhan-Khazan Tajara" = "Welcome, comrrrade. He rrreminds them that these goods must be purrrchased first!",
+		"hail_Zhan-Khazan Tajara" = "Welcome, comrrrade. He rrreminds them that these goods must be purrrchased firrrst!",
 		"hail_deny"         = "The shop is closed, comrrrade!",
 		"trade_complete"    = "Many thanks, comrrrade, enjoy it!",
 		"trade_blacklist"   = "No, no, nothing of this in his shop!",
