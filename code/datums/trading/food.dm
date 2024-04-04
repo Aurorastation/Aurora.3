@@ -84,7 +84,7 @@
 	)
 
 	speech = list(
-		"hail_generic"       = "There are two things constant in life, death and Konyanger food. How may I help you?",
+		"hail_generic"       = "There are two things constant in life, death, and Konyanger food. How may I help you?",
 		"hail_deny"          = "We do not take orders from rude customers.",
 		"trade_complete"     = "Thank you, sir, for your patronage.",
 		"trade_blacklist"    = "No, that is very odd. Why would you trade that away?",

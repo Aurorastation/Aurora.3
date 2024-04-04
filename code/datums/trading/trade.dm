@@ -235,19 +235,18 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species)
-			// grab generic
-			if(H.species.name in ALL_HUMAN_SPECIES)
-				general = "Human"
-			if(H.species.name in ALL_DIONA_SPECIES)
-				general = "Diona"
-			if(H.species.name in ALL_SKRELL_SPECIES)
-				general = "Skrell"
-			if(H.species.name in ALL_TAJARA_SPECIES)
-				general = "Tajara"
-			if(H.species.name in ALL_VAURCA_SPECIES)
-				general = "Vaurca"
-			if(H.species.name in ALL_IPC_SPECIES)
-				general = "IPC"
+			var/list/all_lists = list(
+				ALL_HUMAN_SPECIES  = "Human",
+				ALL_DIONA_SPECIES  = "Diona",
+				ALL_SKRELL_SPECIES = "Skrell",
+				ALL_TAJARA_SPECIES = "Tajara",
+				ALL_VAURCA_SPECIES = "Vaurca",
+				ALL_IPC_SPECIES    = "IPC"
+			)
+			for(var/list/species_list in all_lists)
+				if(H.species.name in species_list)
+					general = all_lists[species_list]
+					break
 			// grab subspecies
 			specific = H.species.name
 	else if(istype(user, /mob/living/silicon))
