@@ -23,6 +23,10 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
+/obj/machinery/computer/ship/targeting/terminal/primitive
+	icon = 'icons/obj/primitive_computer.dmi'
+	icon_state = "computer"
+	icon_screen = "syndicate"
 
 /obj/machinery/computer/ship/targeting/Initialize()
 	..()

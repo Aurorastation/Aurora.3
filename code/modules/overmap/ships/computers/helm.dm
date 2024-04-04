@@ -34,6 +34,11 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
+/obj/machinery/computer/ship/helm/primitive
+	icon = 'icons/obj/primitive_computer.dmi'
+	icon_state = "computer"
+	icon_screen = "command"
+
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()
@@ -331,6 +336,11 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
+
+/obj/machinery/computer/ship/navigation/primitive
+	icon = 'icons/obj/primitive_computer.dmi'
+	icon_state = "computer"
+	icon_screen = "med"
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

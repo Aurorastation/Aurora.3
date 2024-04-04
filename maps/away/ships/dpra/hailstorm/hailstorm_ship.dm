@@ -7,7 +7,7 @@
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
-
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/hailstorm_ship
@@ -90,7 +90,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/hailstorm_shuttle
+/obj/machinery/computer/shuttle_control/explore/primitive/hailstorm_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Spacer Militia Shuttle"
 
