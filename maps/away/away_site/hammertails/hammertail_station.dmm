@@ -1,10 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"az" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "aA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -15,15 +9,85 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/plating,
 /area/space)
+"aU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"aW" = (
+/obj/structure/bed/stool/padded/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "bg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/space)
-"bD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
+"bl" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	icon_state = "map_vent_in";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/bluegrid/server,
+/area/space)
+"bo" = (
+/obj/machinery/conveyor{
+	dir = 6;
+	id = "hammertail_1"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bt" = (
+/obj/machinery/mineral/stacking_unit_console{
+	id = "hammertail_stacking_1";
+	pixel_x = -28;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bG" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bI" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/under/syndicate/hammertail,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/accessory/holster/hip/brown,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bJ" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/eastleft,
+/obj/item/clothing/ears/earmuffs,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bL" = (
+/obj/machinery/air_sensor,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hammertail_co2";
+	name = "hammertail_co2"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/space)
 "bN" = (
 /obj/structure/cable/yellow{
@@ -31,49 +95,83 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"cf" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+"bX" = (
+/obj/machinery/computer/cryopod{
+	pixel_x = 28;
+	pixel_y = -6
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"ca" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply,
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"cr" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
+"cf" = (
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 4;
+	pixel_y = 6
 	},
-/turf/simulated/floor/reinforced/carbon_dioxide,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/lino,
+/area/space)
+"co" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cS" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cY" = (
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/lino,
 /area/space)
 "da" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
 /area/space)
-"dz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/random/custom_ka,
+"dl" = (
+/obj/structure/closet/crate/rad{
+	name = "fuel crate"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"dE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/simulated/floor/carpet/rubber,
+"dp" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/space)
-"dI" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
+"dB" = (
+/obj/machinery/atmospherics/binary/pump/scrubber{
+	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/bed/handrail{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
@@ -81,50 +179,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"dL" = (
-/obj/machinery/weapons_analyzer,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"dP" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
+"dU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "ed" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/vials,
-/obj/item/reagent_containers/dropper/electronic_pipette,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"ef" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"eN" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"eZ" = (
-/obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ff" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/miner,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"fj" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/weapons_analyzer,
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"eW" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/smartfridge/secure/medbay{
+	density = 0;
+	pixel_y = 16;
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "fl" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
@@ -133,19 +205,38 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"fA" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"fT" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"gp" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "hammertail_2"
+"fp" = (
+/obj/machinery/mineral/stacking_machine{
+	id = "hammertail_stacking_1";
+	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
+/area/space)
+"fB" = (
+/obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fC" = (
+/obj/machinery/computer/rdservercontrol{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"fJ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fM" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "gw" = (
@@ -176,10 +267,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/space)
-"gK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
 "gU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -191,11 +278,34 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"hn" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
+"hq" = (
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hC" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hG" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/lino,
+/area/space)
+"hW" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "iv" = (
@@ -207,9 +317,24 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/space)
+"iG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "iS" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/plating/cooled,
+/area/space)
+"iY" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/turf/simulated/floor/reinforced/hydrogen,
+/area/space)
+"iZ" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/lino,
 /area/space)
 "jc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -223,59 +348,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"jp" = (
+"jj" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/random,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jF" = (
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"jq" = (
-/turf/simulated/floor/bluegrid/server,
+"jO" = (
+/obj/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/lino,
 /area/space)
-"jz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 8
+"jR" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"jC" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	external_pressure_bound = 0;
-	external_pressure_bound_default = 0;
-	icon_state = "map_vent_in";
-	initialize_directions = 1;
-	internal_pressure_bound = 4000;
-	internal_pressure_bound_default = 4000;
-	pressure_checks = 2;
-	pressure_checks_default = 2;
-	pump_direction = 0;
-	use_power = 1
-	},
-/turf/simulated/floor/bluegrid/server,
-/area/space)
-"jG" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/toolbox/mechanical,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled/dark,
-/area/space)
-"jN" = (
-/obj/structure/closet/secure_closet,
-/obj/item/clothing/suit/storage/toggle/labcoat,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/gloves/latex/unathi,
-/obj/item/clothing/glasses/safety/goggles,
-/obj/item/clothing/glasses/regular/scanners,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"jS" = (
-/obj/machinery/door/window/southleft,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jT" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/box/firingpins,
-/turf/simulated/floor/carpet/rubber,
 /area/space)
 "jV" = (
 /obj/structure/cable/yellow{
@@ -283,40 +377,32 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/space)
-"jW" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
-	name = "H2 Output"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jY" = (
-/obj/machinery/atmospherics/binary/pump/fuel{
-	name = "CO2 to Canisters";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "ke" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"kg" = (
-/obj/machinery/mineral/processing_unit{
-	id = "hammertail_processing_1"
+"kh" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "hammertail_1"
 	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/space)
-"ko" = (
-/obj/item/storage/box/monkeycubes,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/structure/closet/crate,
+"kr" = (
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hammertail_h2";
+	name = "hammertail_h2"
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"kv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "kP" = (
@@ -331,24 +417,15 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/space)
-"kU" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "hammertail_1"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+"kQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
-"kW" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
+"kX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/shuttle/space_ship,
 /area/space)
 "la" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -363,6 +440,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"ld" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "li" = (
 /turf/simulated/floor/plating,
 /area/space)
@@ -372,44 +456,79 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"lx" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"lC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor/bluegrid/server,
-/area/space)
-"lI" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"lS" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"mh" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"mS" = (
-/obj/machinery/mineral/unloading_machine{
-	dir = 8
+"lr" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "hammertail_2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/bombcloset,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lH" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lN" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lZ" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 4;
+	pixel_y = 3;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mj" = (
+/obj/machinery/shower{
+	pixel_y = 20
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"mo" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "hammertail_1"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mB" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -11;
+	pixel_y = -5
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mI" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "mV" = (
@@ -421,13 +540,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"mZ" = (
-/obj/machinery/mineral/processing_unit{
-	id = "hammertail_processing_2"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
-/area/space)
 "ng" = (
 /obj/machinery/atmospherics/portables_connector/scrubber{
 	dir = 4
@@ -437,65 +549,154 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"nO" = (
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "hammertail_co2";
-	name = "hammertail_co2"
+"nE" = (
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"nI" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "hammertail_2"
 	},
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"nK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"nN" = (
+/obj/machinery/computer/ship/engines/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"nV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
 "nY" = (
 /turf/simulated/wall/r_wall,
 /area/space)
-"pc" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/largecrate/animal/moghes,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"pE" = (
-/obj/machinery/power/terminal,
-/obj/structure/cable,
+"oc" = (
+/obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"pH" = (
+"ok" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"pS" = (
+"or" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"ov" = (
+/obj/structure/reagent_dispensers/acid{
+	pixel_y = 32
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"ox" = (
+/obj/machinery/atmospherics/unary/freezer{
+	icon_state = "freezer_1";
+	power_setting = 20;
+	set_temperature = 80;
+	use_power = 1;
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"oK" = (
+/obj/machinery/vending/boozeomat{
+	req_access = null
+	},
+/turf/simulated/floor/lino,
+/area/space)
+"oR" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"oY" = (
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"oZ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
 	name = "CO2 Output"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"qj" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/device/integrated_electronics/wirer{
-	pixel_x = -6
+"pj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/item/device/integrated_electronics/debugger{
-	pixel_x = 6
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/space)
-"qB" = (
-/obj/item/storage/box/syringes,
-/obj/item/storage/box/beakers{
-	pixel_x = 5;
-	pixel_y = 5
+"pk" = (
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/structure/closet/toolcloset/empty,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pl" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pH" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pR" = (
+/obj/structure/table/rack,
+/obj/item/device/paint_sprayer,
+/obj/item/reagent_containers/weldpack,
+/obj/item/storage/toolbox/mechanical,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pU" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"pV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"qd" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "qF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -509,36 +710,58 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"qQ" = (
-/obj/machinery/chemical_dispenser/full{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
+"qT" = (
+/turf/simulated/floor/lino,
 /area/space)
 "rd" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/space)
-"rp" = (
+"rf" = (
+/obj/structure/closet/secure_closet,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/glasses/regular/scanners,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rs" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "hammertail_robo"
+	},
+/obj/structure/plasticflaps,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"rt" = (
-/obj/machinery/conveyor{
-	dir = 6;
-	id = "hammertail_2"
+"rx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
 	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"rz" = (
+/obj/structure/table/steel,
+/obj/item/deck/cards,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"rF" = (
-/obj/structure/ore_box,
+"rJ" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/cell_charger{
+	pixel_y = 10
+	},
+/obj/machinery/cell_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "rM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"rQ" = (
+/turf/simulated/floor/tiled/freezer,
 /area/space)
 "rR" = (
 /turf/simulated/wall/shuttle/raider,
@@ -558,11 +781,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"sN" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"sU" = (
+/obj/machinery/door/window/southleft,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "tb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
+/area/space)
+"tg" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/largecrate/animal/moghes,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "tl" = (
 /obj/structure/cable/yellow{
@@ -576,9 +817,15 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/space)
-"tx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+"to" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"tv" = (
+/obj/machinery/computer/rdconsole/robotics{
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -590,72 +837,35 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/plating,
 /area/space)
-"ub" = (
-/obj/machinery/door/window/southleft{
-	name = "Server Room"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"uj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"uw" = (
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"uI" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "hammertail_h2";
-	name = "hammertail_h2"
-	},
-/turf/simulated/floor/reinforced/hydrogen,
-/area/space)
-"uN" = (
-/obj/machinery/shower{
-	pixel_y = 20
-	},
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"uU" = (
-/obj/machinery/chem_master,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"vb" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/desk/eastleft,
-/obj/item/device/healthanalyzer,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"vm" = (
+"tT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uo" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"uX" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 1;
+	name = "Canister to Thrusters"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "vP" = (
@@ -670,13 +880,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"wk" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
 "wF" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -686,37 +889,44 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/space)
-"wY" = (
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/structure/closet/toolcloset/empty,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/effect/floor_decal/industrial/outline/yellow,
+"wM" = (
+/obj/structure/bed/stool/padded/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wR" = (
+/obj/machinery/mineral/processing_unit_console{
+	id = "hammertail_processing_1";
+	pixel_y = 28
+	},
+/obj/machinery/mineral/processing_unit_console{
+	id = "hammertail_processing_2";
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wU" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "xb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/raider,
 /area/space)
-"xk" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
+"xs" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hammertail_h2";
+	name = "hammertail_h2"
+	},
+/turf/simulated/floor/reinforced/hydrogen,
 /area/space)
 "xx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
-"xy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "xH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
@@ -730,26 +940,52 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"xJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid/server,
+/area/space)
+"xU" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"yc" = (
+/obj/structure/closet/secure_closet,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/glasses/welding,
+/obj/item/device/robotanalyzer,
+/obj/item/storage/belt/utility/full,
+/obj/item/device/multitool,
+/obj/item/clothing/head/hardhat/red,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "yd" = (
 /obj/machinery/atmospherics/binary/pump/scrubber{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"yf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ym" = (
-/obj/machinery/computer/rdservercontrol{
+"yq" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/space)
-"yo" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
-/obj/structure/mech_wreckage/powerloader,
+"yu" = (
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/structure/closet/crate/secure/phoron,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yx" = (
+/obj/machinery/atmospherics/portables_connector/scrubber,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "yG" = (
@@ -762,37 +998,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"yM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"zd" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"zk" = (
-/obj/structure/reagent_dispensers/acid{
-	pixel_y = 32
-	},
-/obj/structure/table/steel,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/uranium{
-	amount = 10
-	},
-/obj/item/reagent_containers/glass/beaker/sulphuric{
-	pixel_y = 3
-	},
+"yJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"yK" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hammertail_co2";
+	name = "hammertail_co2"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/space)
 "zu" = (
 /obj/structure/cable/yellow{
@@ -814,54 +1031,130 @@
 "zL" = (
 /turf/template_noop,
 /area/space)
-"zY" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
-	},
+"zP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Ac" = (
-/obj/machinery/r_n_d/circuit_imprinter,
+"zT" = (
+/obj/item/storage/box/syringes,
+/obj/item/storage/box/beakers{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zV" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"zZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "Ao" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/desk/eastleft,
-/obj/item/clothing/ears/earmuffs,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/structure/closet/toolcloset/empty,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"AI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/simulated/floor/tiled/dark,
+"Ar" = (
+/obj/structure/kitchenspike,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
 /area/space)
-"AT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
+"Av" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"AY" = (
-/obj/machinery/computer/rdconsole/core,
+"AA" = (
+/obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"AH" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "hammertail_1"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"AQ" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "Bb" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/plating,
 /area/space)
-"Bu" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
+"Be" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "CO2 to Canisters";
+	dir = 8
 	},
-/obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"CA" = (
-/obj/machinery/mineral/stacking_machine{
-	id = "hammertail_stacking_1";
+"BD" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/lino,
+/area/space)
+"BF" = (
+/obj/structure/table/steel,
+/obj/item/device/multitool,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"BI" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/shaker_top,
+/turf/simulated/floor/lino,
+/area/space)
+"Cd" = (
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Cn" = (
+/obj/machinery/conveyor{
+	dir = 6;
+	id = "hammertail_2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Cy" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"CG" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/eastleft,
+/obj/item/device/healthanalyzer,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "CM" = (
 /obj/structure/cable/yellow{
@@ -870,12 +1163,12 @@
 /turf/simulated/floor/airless/ceiling,
 /area/space)
 "CU" = (
-/obj/machinery/light{
-	dir = 1
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_x = 1;
+	pixel_y = 7
 	},
-/obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Di" = (
 /obj/structure/cable/yellow{
@@ -889,37 +1182,14 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/space)
-"Dx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"DB" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"DS" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Ec" = (
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/structure/closet/toolcloset/empty,
-/obj/item/ore_detector,
-/obj/item/ore_detector,
-/obj/item/ore_detector,
+"Em" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"EA" = (
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/tiled/dark,
+"Et" = (
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "ED" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
@@ -927,26 +1197,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"EP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/storage/belt/mining,
-/obj/item/storage/belt/mining,
-/obj/item/storage/belt/mining,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ET" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 10
+"EW" = (
+/obj/machinery/mecha_part_fabricator{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"EZ" = (
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 1
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "Fb" = (
 /obj/structure/cable/yellow,
@@ -955,13 +1213,73 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Fk" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
+"Fg" = (
+/obj/structure/table/rack,
+/obj/item/device/flash/synthetic,
+/obj/item/device/flash/synthetic,
+/obj/item/device/flash/synthetic,
+/obj/item/device/assembly/prox_sensor{
+	pixel_x = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
+/obj/item/device/assembly/prox_sensor{
+	pixel_x = 8
 	},
+/obj/item/device/healthanalyzer{
+	pixel_x = 8
+	},
+/obj/item/device/healthanalyzer{
+	pixel_x = 8
+	},
+/obj/item/device/healthanalyzer{
+	pixel_x = 8
+	},
+/obj/item/storage/firstaid/empty{
+	pixel_x = 7
+	},
+/obj/item/storage/firstaid/empty{
+	pixel_x = 7
+	},
+/obj/item/device/flash/synthetic,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Fl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Fq" = (
+/obj/structure/table/rack,
+/obj/item/cell/high{
+	pixel_y = 10
+	},
+/obj/item/cell/high{
+	pixel_y = 5
+	},
+/obj/item/cell/high,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ft" = (
+/obj/machinery/mineral/stacking_unit_console{
+	id = "hammertail_stacking_2";
+	pixel_x = -28;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"FL" = (
+/obj/machinery/air_sensor,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hammertail_h2";
+	name = "hammertail_h2"
+	},
+/turf/simulated/floor/reinforced/hydrogen,
+/area/space)
+"FV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/obj/structure/mech_wreckage/powerloader,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Gb" = (
@@ -973,11 +1291,14 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
 /area/space)
-"Gj" = (
-/obj/machinery/conveyor{
-	dir = 6;
-	id = "hammertail_1"
+"Gk" = (
+/obj/structure/closet/walllocker/secure{
+	pixel_x = -32
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Gy" = (
@@ -987,57 +1308,43 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/space)
-"GC" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+"GK" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_y = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"GE" = (
-/obj/machinery/mineral/stacking_machine{
-	id = "hammertail_stacking_2";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
-/area/space)
-"GG" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/ore_box,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"GJ" = (
-/obj/structure/target_stake,
-/turf/simulated/floor/reinforced,
-/area/space)
-"GN" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+"GQ" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
 	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
+/area/space)
+"GU" = (
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
+/area/space)
+"GZ" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	name = "H2 Output"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
-"Hb" = (
-/obj/machinery/r_n_d/server,
-/turf/simulated/floor/bluegrid/server,
 /area/space)
 "Hf" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Hj" = (
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "hammertail_h2";
-	name = "hammertail_h2"
+/obj/structure/closet/secure_closet/refrigerator/standard,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/storage/box/fancy/egg_box,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
 	},
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "Hq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1048,49 +1355,32 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Hz" = (
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 12
+"Hv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"HV" = (
-/obj/machinery/atmospherics/binary/pump/fuel{
-	name = "CO2 to Shuttle"
+"HC" = (
+/obj/machinery/mineral/stacking_machine{
+	id = "hammertail_stacking_2";
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
 /area/space)
-"If" = (
-/obj/structure/table/steel,
-/obj/item/device/multitool,
+"HJ" = (
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"Ii" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/glasses/safety/goggles,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Ip" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
+"HS" = (
+/obj/structure/bed/stool/padded/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Iu" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/reinforced,
-/area/space)
-"Iv" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "Iz" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -1100,15 +1390,44 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"IN" = (
-/obj/machinery/r_n_d/destructive_analyzer,
+"IA" = (
+/obj/structure/table/standard,
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
+/area/space)
+"IO" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"IW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 8
+"Jc" = (
+/obj/structure/reagent_dispensers/acid{
+	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/steel,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/obj/item/reagent_containers/glass/beaker/sulphuric{
+	pixel_y = 3
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Jf" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "Jh" = (
 /obj/structure/cable/yellow{
@@ -1116,42 +1435,72 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/space)
-"JR" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "hammertail_2"
+"Jk" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Jt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"JC" = (
+/turf/simulated/floor/airless,
+/area/space)
+"JO" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "JV" = (
 /turf/simulated/floor/reinforced,
 /area/space)
-"Kp" = (
-/obj/machinery/atmospherics/unary/freezer{
-	icon_state = "freezer_1";
-	power_setting = 20;
-	set_temperature = 80;
-	use_power = 1;
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
+"Ke" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/vials,
+/obj/item/reagent_containers/dropper/electronic_pipette,
+/turf/simulated/floor/tiled/white,
 /area/space)
-"KX" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+"Kt" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	icon_state = "map_vent_out";
+	use_power = 1
 	},
-/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/bluegrid/server,
+/area/space)
+"Ku" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"KH" = (
+/obj/structure/cryofeed{
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"KO" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/template_noop,
 /area/space)
 "Lb" = (
 /turf/simulated/floor/reinforced/hydrogen,
-/area/space)
-"Ld" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "hammertail_1"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "Li" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
@@ -1159,25 +1508,40 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/space)
+"Lm" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Lq" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/firingpins,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "Lr" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
 	},
 /area/space)
-"Ls" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
+"LS" = (
+/obj/structure/closet/hazmat/general,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"LX" = (
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"LB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/reinforced/carbon_dioxide,
+"LY" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
-"LL" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+"Mb" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "hammertail_2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Me" = (
@@ -1187,90 +1551,52 @@
 /obj/structure/viewport/unathi,
 /turf/simulated/floor/plating,
 /area/space)
-"Mo" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"My" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"MK" = (
-/obj/machinery/mineral/stacking_unit_console{
-	id = "hammertail_stacking_2";
-	pixel_x = -28;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ML" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"MU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill,
-/obj/item/ore_detector,
-/obj/item/ore_detector,
-/obj/item/ore_detector,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"MV" = (
-/obj/structure/reagent_dispensers/coolanttank,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -11;
-	pixel_y = -5
-	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Nc" = (
-/obj/structure/closet/crate/rad{
-	name = "fuel crate"
-	},
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Ns" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "hammertail_1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"NF" = (
-/obj/machinery/chem_heater,
+"Mp" = (
 /turf/simulated/floor/tiled/white,
 /area/space)
-"NZ" = (
-/obj/machinery/mineral/stacking_unit_console{
-	id = "hammertail_stacking_1";
-	pixel_x = -28;
-	pixel_y = -3
+"Mx" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"No" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Ol" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "hammertail_co2";
-	name = "hammertail_co2"
+"NC" = (
+/obj/machinery/r_n_d/circuit_imprinter,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"NJ" = (
+/obj/machinery/r_n_d/protolathe,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Ok" = (
+/obj/structure/table/standard,
+/obj/item/material/hatchet/butch,
+/obj/item/material/hook,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
+/area/space)
+"Oy" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"OC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"ON" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/space)
@@ -1294,32 +1620,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"OU" = (
-/obj/structure/closet/hazmat/general,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/white,
+"Pf" = (
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
 /area/space)
-"OW" = (
-/obj/machinery/r_n_d/protolathe,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Pl" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
+"Pm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Pq" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+"Py" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "PD" = (
@@ -1345,20 +1662,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Qo" = (
-/obj/machinery/air_sensor,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "hammertail_co2";
-	name = "hammertail_co2"
-	},
-/turf/simulated/floor/reinforced/carbon_dioxide,
+"Qc" = (
+/obj/machinery/computer/rdconsole/core,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
-"Qs" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/bag/circuits/basic,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Qw" = (
+"Qh" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
 	pixel_x = -6;
@@ -1370,27 +1678,59 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"QQ" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	icon_state = "map_vent_out";
-	use_power = 1
+"Qi" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "CO2 to Shuttle"
 	},
-/turf/simulated/floor/bluegrid/server,
-/area/space)
-"Rd" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/desk/eastleft,
-/obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Ri" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/solar,
-/turf/simulated/floor/carpet/rubber,
+"Qk" = (
+/obj/machinery/mineral/processing_unit{
+	id = "hammertail_processing_1"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
+/area/space)
+"Ql" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Qt" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"QQ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"QW" = (
+/obj/structure/table/steel,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Rl" = (
+/obj/machinery/door/window/southleft{
+	name = "Server Room"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Rv" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Rz" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "RC" = (
 /obj/structure/cable{
@@ -1402,46 +1742,136 @@
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/space)
-"Sz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
+"RQ" = (
+/obj/machinery/r_n_d/server,
+/turf/simulated/floor/bluegrid/server,
+/area/space)
+"RU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"SV" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+"RX" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Sd" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/conveyor_switch/oneway{
+	desc = "A conveyor control switch. It appears to only go in one direction. Controls the components conveyor belt.";
+	id = "Robocompo";
+	pixel_x = -13;
+	pixel_y = -6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"So" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/drill,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Sy" = (
+/obj/machinery/r_n_d/destructive_analyzer,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"SG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/solar,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"SM" = (
+/turf/simulated/floor/bluegrid/server,
+/area/space)
+"SY" = (
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Tl" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"To" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Tu" = (
 /turf/simulated/mineral/random,
 /area/space)
-"Tv" = (
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/portgen/basic/fusion,
-/turf/simulated/floor/reinforced,
+"TD" = (
+/obj/machinery/atmospherics/portables_connector/supply,
+/turf/simulated/floor/tiled/dark,
 /area/space)
-"TI" = (
-/obj/structure/bed/stool/chair/office/light,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Uv" = (
-/obj/item/stack/material/phoron{
-	amount = 6
+"TF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 9
 	},
-/obj/structure/closet/crate/secure/phoron,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"Ub" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/bluegrid/server,
+/area/space)
+"Uc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/random/custom_ka,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Un" = (
+/obj/machinery/mineral/unloading_machine{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/space)
+"UJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "UL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"UN" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"UV" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "UZ" = (
 /obj/structure/cable/yellow{
@@ -1455,41 +1885,33 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"VA" = (
-/obj/machinery/air_sensor,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "hammertail_h2";
-	name = "hammertail_h2"
-	},
-/turf/simulated/floor/reinforced/hydrogen,
+"Vb" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
-"VG" = (
+"Ve" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Vj" = (
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Vy" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"VU" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"VW" = (
-/obj/machinery/atmospherics/binary/pump/scrubber{
-	dir = 8
+"VJ" = (
+/obj/machinery/mineral/processing_unit{
+	id = "hammertail_processing_2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Wb" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/space)
 "Wd" = (
@@ -1499,18 +1921,117 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"Wi" = (
-/obj/machinery/mineral/processing_unit_console{
-	id = "hammertail_processing_1";
-	pixel_y = 28
+"Wj" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
 	},
-/obj/machinery/mineral/processing_unit_console{
-	id = "hammertail_processing_2";
-	pixel_y = -28
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wn" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Wy" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/bag/circuits/basic,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"WN" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"WQ" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/reinforced,
+/area/space)
+"WY" = (
+/obj/machinery/power/smes/buildable/autosolars,
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"Wt" = (
+"Xi" = (
+/obj/machinery/autolathe{
+	hacked = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Xn" = (
+/obj/machinery/chem_heater,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Xx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/space)
+"Xy" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/eastleft,
+/obj/item/clothing/glasses/safety/goggles,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"XA" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/solar,
+/turf/simulated/floor/airless/ceiling,
+/area/space)
+"XC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"XO" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ye" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/integrated_electronics/wirer{
+	pixel_x = -6
+	},
+/obj/item/device/integrated_electronics/debugger{
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Yv" = (
+/obj/machinery/atmospherics/binary/pump/scrubber{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"YH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/space)
+"YJ" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/reinforced,
+/area/space)
+"YR" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"YY" = (
+/obj/structure/plasticflaps/airtight{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Zf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -1520,105 +2041,38 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"WQ" = (
-/obj/structure/ship_weapon_dummy/barrel,
+"Zp" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Zq" = (
+/obj/structure/target_stake,
 /turf/simulated/floor/reinforced,
-/area/space)
-"WR" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
-/turf/simulated/floor/reinforced/hydrogen,
-/area/space)
-"WY" = (
-/obj/machinery/power/smes/buildable/autosolars,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Xf" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "hammertail_2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Xm" = (
-/obj/structure/table/standard,
-/obj/machinery/reagentgrinder{
-	pixel_x = 1;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Xo" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/smartfridge/secure/medbay{
-	density = 0;
-	pixel_y = 16;
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Xs" = (
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Xx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/space)
-"XA" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/solar,
-/turf/simulated/floor/airless/ceiling,
-/area/space)
-"XG" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"YE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"YH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/space)
-"YY" = (
-/obj/structure/plasticflaps/airtight{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"Zd" = (
-/obj/machinery/suit_storage_unit/standard_unit,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Zi" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "ZA" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
 /area/space)
-"ZJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/bombcloset,
-/turf/simulated/floor/tiled/white,
+"ZK" = (
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hammertail_co2";
+	name = "hammertail_co2"
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ZZ" = (
+/obj/item/storage/box/monkeycubes,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 
 (1,1,1) = {"
@@ -9565,15 +10019,15 @@ zL
 zL
 zL
 zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
+KO
+kX
+zV
+zV
+zV
+zV
+zV
+zV
+JC
 zL
 zL
 zL
@@ -9822,15 +10276,15 @@ zL
 zL
 zL
 zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
+zV
+nK
+TD
+ca
+Gk
+pV
+Jk
+zV
+zV
 zL
 zL
 zL
@@ -10079,15 +10533,15 @@ zL
 zL
 zL
 zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
+li
+mI
+XC
+uX
+Jt
+PJ
+oR
+UV
+li
 zL
 zL
 zL
@@ -10336,15 +10790,15 @@ zL
 zL
 zL
 zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
+zV
+nK
+yx
+dB
+Oy
+QQ
+nN
+zV
+zV
 zL
 zL
 zL
@@ -10593,15 +11047,15 @@ zL
 zL
 zL
 zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
-zL
+KO
+rx
+zV
+zV
+zV
+zV
+zV
+zV
+JC
 zL
 zL
 zL
@@ -27457,7 +27911,7 @@ PP
 PP
 PP
 nY
-dI
+uo
 nY
 PP
 PP
@@ -27714,7 +28168,7 @@ PP
 nY
 nY
 nY
-Wb
+RX
 nY
 nY
 nY
@@ -28226,9 +28680,9 @@ PP
 PP
 PP
 nY
-GN
-pH
-Fk
+sN
+Lm
+Av
 PJ
 PJ
 nY
@@ -28483,9 +28937,9 @@ PP
 PP
 PP
 nY
-az
+YR
 PJ
-Ip
+Qt
 PJ
 PJ
 nY
@@ -28740,11 +29194,11 @@ PP
 PP
 PP
 nY
-EA
+pl
 PJ
-Ip
+Qt
 PJ
-Pq
+hC
 nY
 PP
 PP
@@ -28997,11 +29451,11 @@ PP
 PP
 PP
 nY
-Zd
+Rz
 PJ
-Zi
-xy
-EZ
+cS
+UJ
+Cd
 nY
 PP
 PP
@@ -29256,7 +29710,7 @@ nY
 nY
 nY
 nY
-lx
+Vy
 nY
 nY
 nY
@@ -29504,20 +29958,20 @@ PP
 PP
 PP
 nY
-Nc
+dl
 PJ
 RC
 PD
-zd
-pE
-Mo
+yq
+xU
+ok
 nY
 PJ
-lx
+Vy
 nY
-eN
-eN
-mh
+No
+No
+jR
 nY
 PP
 PP
@@ -29751,30 +30205,30 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+nY
+nY
+nY
+nY
+nY
 PP
 PP
 PP
 nY
-MV
+mB
 PJ
-XG
-VW
-DB
+qd
+Yv
+SY
 PJ
-lx
+Vy
 nY
-dP
-cf
+jF
+lN
 nY
-AT
-yf
-IW
+dU
+wU
+RU
 nY
 PP
 PP
@@ -30008,30 +30462,30 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+jj
+PJ
+PJ
+jj
+nY
 PP
 PP
 PP
 nY
 Iu
 Iu
-XG
-yM
-uj
+qd
+pj
+Ve
 PJ
-lx
+Vy
 nY
 PJ
-lx
+Vy
 nY
-jp
-jY
-jW
+hW
+Be
+GZ
 nY
 nY
 nY
@@ -30265,32 +30719,32 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+nY
+PJ
+PJ
+nY
+nY
 PP
 PP
 PP
 nY
-Tv
-SV
-Ls
-Iv
-My
-ef
-lS
-GC
-GC
-Pl
-vm
-hn
-yf
-IW
+YJ
+pU
+bG
+XO
+Py
+zP
+fM
+JO
+JO
+Ku
+tT
+pH
+wU
+RU
 so
-VA
+FL
 Lb
 nY
 PJ
@@ -30511,23 +30965,23 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+jj
+PJ
+PJ
+jj
+nY
 PP
 PP
 PP
@@ -30538,16 +30992,16 @@ PJ
 PJ
 PJ
 PJ
-az
+YR
 nY
 PJ
-VG
+Tl
 nY
 PJ
-uj
-ET
-WR
-uI
+Ve
+Pm
+iY
+xs
 Lb
 nY
 PJ
@@ -30768,28 +31222,28 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+Ar
+Ar
+Ok
+IA
+nY
+cf
+oK
+hG
+jO
+iZ
+nY
+nY
+PJ
+PJ
+nY
+nY
 PP
 PP
 PP
 nY
-eZ
+AA
 PJ
 PJ
 PJ
@@ -30798,11 +31252,11 @@ PJ
 PJ
 nY
 PJ
-VG
+Tl
 nY
-nO
-pS
-Hj
+ZK
+oZ
+kr
 nY
 nY
 nY
@@ -31025,40 +31479,40 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+Pf
+Pf
+Pf
+Pf
+cY
+qT
+qT
+qT
+qT
+qT
+nY
+bI
+PJ
+PJ
+bI
+nY
 PP
 PP
 PP
 nY
-CU
+hq
 PJ
 PJ
-VU
-LL
-LL
-LL
+fJ
+WN
+WN
+WN
 nY
 PJ
-VG
+Tl
 nY
 ss
-cr
+ON
 nY
 nY
 PP
@@ -31282,22 +31736,22 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+GQ
+GU
+Hf
+Pf
+nY
+qT
+BD
+BI
+BD
+lZ
+nY
+bI
+PJ
+PJ
+bI
 nY
 nY
 nY
@@ -31312,10 +31766,10 @@ nY
 nY
 nY
 PJ
-VG
+Tl
 nY
-Ol
-LB
+yK
+TF
 nY
 PP
 PP
@@ -31539,39 +31993,39 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
 nY
-EP
-MK
-NZ
-Bu
-Ld
-CA
-Ld
-kg
-Ld
-Ld
-Gj
+nY
+nY
+nY
+nY
 nY
 PJ
-VG
+PJ
+PJ
+PJ
+PJ
 nY
-Qo
+PJ
+PJ
+PJ
+PJ
+nY
+hF
+Ft
+bt
+ld
+mo
+fp
+mo
+Qk
+mo
+mo
+bo
+nY
+PJ
+Tl
+nY
+bL
 Me
 nY
 PP
@@ -31800,33 +32254,33 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-nY
-dz
-PJ
-PJ
-Bu
-gp
-GE
-gp
-mZ
-gp
-rt
-Ns
 nY
 PJ
-VG
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+nY
+Uc
+PJ
+PJ
+ld
+Mb
+HC
+Mb
+VJ
+Mb
+Cn
+kh
+nY
+PJ
+Tl
 nY
 nY
 nY
@@ -32057,33 +32511,33 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
 nY
-MU
 PJ
-PJ
+aW
+aW
 PJ
 PJ
 PJ
 nY
-Wi
 nY
-Xf
-Ns
+nY
+nY
+nY
+nY
+To
+PJ
+PJ
+PJ
+PJ
+PJ
+nY
+wR
+nY
+nI
+kh
 nY
 PJ
-VG
+Tl
 nY
 PJ
 PJ
@@ -32314,20 +32768,20 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
 nY
-uw
+nE
+LX
+LX
+wM
+PJ
+PJ
+rQ
+rQ
+rQ
+Cy
+KH
+nY
+oY
 PJ
 PJ
 PJ
@@ -32336,11 +32790,11 @@ PJ
 PJ
 PJ
 PJ
-mS
-mS
+Un
+Un
 nY
 PJ
-VG
+Tl
 nY
 PJ
 PJ
@@ -32571,20 +33025,20 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
 nY
-Sz
+nE
+LX
+QW
+wM
+PJ
+PJ
+nY
+rQ
+rQ
+Cy
+KH
+nY
+vx
 PJ
 PJ
 PJ
@@ -32593,11 +33047,11 @@ PJ
 PJ
 PJ
 PJ
-zY
-zY
+to
+to
 nY
 PJ
-VG
+Tl
 nY
 PJ
 PJ
@@ -32828,33 +33282,33 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
 nY
-wY
-PJ
-PJ
-PJ
-PJ
-PJ
-PJ
-PJ
-PJ
+nE
+rz
+LX
+wM
 PJ
 PJ
 nY
+rQ
+rQ
+Cy
+KH
+nY
+pk
 PJ
-VG
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+nY
+PJ
+Tl
 nY
 PJ
 PJ
@@ -33085,33 +33539,33 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
 nY
-Ec
-PJ
-yo
-jG
-ff
-PJ
-kU
-JR
+oc
+HS
+HS
 PJ
 PJ
 PJ
 nY
+bX
+rQ
+Cy
+KH
+nY
+Ao
 PJ
-VG
+FV
+Ql
+Em
+PJ
+AH
+lr
+PJ
+PJ
+PJ
+nY
+PJ
+Tl
 nY
 PJ
 PJ
@@ -33342,18 +33796,18 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+nY
+nY
+nY
+nY
+PJ
+PJ
+nY
+nY
+nY
+nY
+nY
 nY
 nY
 nY
@@ -33368,7 +33822,7 @@ PJ
 PJ
 nY
 PJ
-VG
+Tl
 nY
 nY
 nY
@@ -33602,15 +34056,15 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
 PJ
 PJ
 PJ
@@ -33859,15 +34313,6 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
 PJ
 PJ
 PJ
@@ -33882,18 +34327,27 @@ PJ
 PJ
 PJ
 PJ
-AT
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-AI
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+dU
+XC
+XC
+XC
+XC
+XC
+XC
+XC
+XC
+XC
+XC
+XC
 bg
 bg
 bg
@@ -33901,9 +34355,9 @@ bg
 bg
 bg
 bg
-AI
-HV
-Wt
+XC
+Qi
+Zf
 PJ
 PJ
 PJ
@@ -34116,15 +34570,15 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
+PJ
 PJ
 PJ
 PJ
@@ -34160,7 +34614,7 @@ li
 li
 PJ
 PJ
-kW
+co
 PS
 PS
 PS
@@ -34373,15 +34827,15 @@ PP
 PP
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+nY
+nY
 nY
 nY
 nY
@@ -34417,7 +34871,7 @@ rR
 rR
 PJ
 gU
-Dx
+kv
 PJ
 PJ
 PJ
@@ -34650,20 +35104,20 @@ nY
 PJ
 PJ
 nY
-YE
-YE
+aU
+aU
 li
-YE
-fT
+aU
+Vb
 li
-nV
-fT
+yJ
+Vb
 li
-fT
-YE
+Vb
+aU
 li
-fT
-wk
+Vb
+zZ
 nY
 li
 li
@@ -34907,20 +35361,20 @@ nY
 PJ
 PJ
 nY
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-ML
+Vb
+So
 nY
 li
 li
@@ -35164,20 +35618,20 @@ nY
 PJ
 PJ
 nY
-nV
-fT
+yJ
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-Ri
+Vb
+SG
 li
-fT
-jz
+Vb
+bc
 nY
 li
 li
@@ -35667,31 +36121,31 @@ PP
 PP
 PP
 nY
-Hb
-jC
-bD
-ub
-gK
-dE
-ym
+RQ
+bl
+xJ
+Rl
+OC
+iG
+fC
 nY
 PJ
 PJ
 nY
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-fT
-GG
+Vb
+Fl
 nY
 li
 li
@@ -35924,31 +36378,31 @@ PP
 PP
 PP
 nY
-jq
-QQ
-lC
-xk
-tx
-fA
-rp
-lI
+SM
+Kt
+Ub
+or
+Hv
+kQ
+HJ
+Et
 PJ
 PJ
 nY
-fT
-fT
+Vb
+Vb
 li
-fT
-fT
+Vb
+Vb
 li
-YE
-fT
+aU
+Vb
 li
-nV
-fT
+yJ
+Vb
 li
-fT
-rF
+Vb
+Wn
 nY
 li
 li
@@ -36185,27 +36639,27 @@ nY
 nY
 nY
 nY
-Kp
-KX
-If
+ox
+AQ
+BF
 nY
 PJ
 PJ
 nY
-YE
-fT
+aU
+Vb
 li
-fT
-pc
+Vb
+tg
 li
-fT
-YE
+Vb
+aU
 li
-fT
-nV
+Vb
+yJ
 li
-fT
-rF
+Vb
+Wn
 nY
 li
 li
@@ -36710,7 +37164,7 @@ PJ
 PJ
 PJ
 PJ
-PJ
+Fg
 nY
 PP
 PP
@@ -36967,7 +37421,7 @@ PJ
 PJ
 PJ
 PJ
-PJ
+Fq
 nY
 PP
 PP
@@ -37216,15 +37670,15 @@ nY
 nY
 nY
 nY
-Xs
-Xs
+Mp
+Mp
 nY
 nY
 nY
+yc
 PJ
 PJ
-PJ
-PJ
+rJ
 nY
 PP
 PP
@@ -37470,18 +37924,18 @@ PP
 PP
 PP
 nY
-zk
-rp
-fj
-Xs
-Xs
-TI
-Qs
+Jc
+HJ
+Xi
+Mp
+Mp
+fB
+Wy
 nY
+yc
 PJ
 PJ
-PJ
-PJ
+pR
 nY
 PP
 PP
@@ -37727,22 +38181,22 @@ PP
 PP
 PP
 nY
-Ac
-rp
-OW
-Xs
-Xs
-Xs
-qj
+NC
+HJ
+NJ
+Mp
+Mp
+Mp
+Ye
 nY
 PJ
 PJ
 PJ
 PJ
 nY
-PP
-PP
-PP
+nY
+nY
+nY
 PP
 PP
 PP
@@ -37984,22 +38438,22 @@ PP
 PP
 PP
 nY
-AY
-rp
-IN
-Xs
-Xs
-Xs
-jN
+Qc
+HJ
+Sy
+Mp
+Mp
+Mp
+rf
 nY
+NC
+Sy
 PJ
 PJ
-PJ
-PJ
+lH
+UN
+UN
 nY
-PP
-PP
-PP
 PP
 PP
 PP
@@ -38241,22 +38695,22 @@ nY
 nY
 nY
 nY
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-jN
+Wj
+Mp
+Mp
+Mp
+Mp
+Mp
+rf
 nY
+ov
+HJ
+PJ
 PJ
 PJ
 PJ
 PJ
 nY
-PP
-PP
-PP
 PP
 PP
 PP
@@ -38494,26 +38948,26 @@ PP
 PP
 PP
 nY
-uN
-Xs
-OU
-DS
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
+mj
+Mp
+LS
+Zp
+Mp
+Mp
+Mp
+Mp
+Mp
+Mp
+Mp
 nY
+GK
+tv
 PJ
 PJ
-PJ
-PJ
+LY
+EW
+EW
 nY
-PP
-PP
-PP
 PP
 PP
 PP
@@ -38751,26 +39205,26 @@ PP
 PP
 PP
 nY
-Xo
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Ii
-rp
-rp
+eW
+Mp
+Mp
+Mp
+Mp
+Mp
+Mp
+Mp
+IO
+HJ
+HJ
 nY
 nY
 nY
 nY
+PJ
+Sd
+rs
+rs
 nY
-nY
-PP
-PP
-PP
 PP
 PP
 PP
@@ -39008,26 +39462,26 @@ PP
 PP
 PP
 nY
-qB
-Xs
-qQ
-DS
-ZJ
-ZJ
-Uv
-Xs
-jT
-Hz
-dL
+zT
+Mp
+Vj
+Zp
+lz
+lz
+yu
+Mp
+Lq
+Jf
+ed
 nY
 PP
 PP
-PP
-PP
-PP
-PP
-PP
-PP
+nY
+nY
+nY
+nY
+nY
+nY
 PP
 PP
 PP
@@ -39265,14 +39719,14 @@ PP
 PP
 PP
 nY
-ed
-TI
-uU
+Ke
+fB
+Mx
 nY
 nY
 nY
 nY
-Xs
+Mp
 nY
 nY
 nY
@@ -39522,12 +39976,12 @@ PP
 PP
 PP
 nY
-NF
-Xs
-Xm
+Xn
+Mp
+CU
 nY
 nY
-Qw
+Qh
 PJ
 PJ
 PJ
@@ -39784,7 +40238,7 @@ nY
 nY
 nY
 nY
-ko
+ZZ
 PJ
 PJ
 PJ
@@ -40043,9 +40497,9 @@ PP
 nY
 nY
 PJ
-vb
-Ao
-Rd
+CG
+bJ
+Xy
 nY
 PP
 PP
@@ -40299,7 +40753,7 @@ PP
 PP
 PP
 nY
-Hf
+dp
 JV
 JV
 JV
@@ -40556,7 +41010,7 @@ PP
 PP
 PP
 nY
-Hf
+dp
 JV
 JV
 JV
@@ -40813,10 +41267,10 @@ PP
 PP
 PP
 nY
-Hf
-GJ
-GJ
-GJ
+dp
+Zq
+Zq
+Zq
 nY
 PP
 PP
@@ -41070,7 +41524,7 @@ PP
 PP
 PP
 nY
-Hf
+dp
 JV
 JV
 JV
@@ -41327,7 +41781,7 @@ PP
 PP
 PP
 nY
-jS
+sU
 JV
 JV
 JV
