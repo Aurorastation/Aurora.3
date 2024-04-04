@@ -15,7 +15,7 @@
 
 /obj/effect/overmap/visitable/sector/pirate
 	name = "asteroid lair"
-	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer."
+	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. Scans of the vessel indicate that it was reported as stolen several months ago."
 	icon_state = "object"
 	initial_generic_waypoints = list(
 		"nav_pirate_1",
