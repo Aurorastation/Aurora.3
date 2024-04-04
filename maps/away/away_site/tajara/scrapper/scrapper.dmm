@@ -181,11 +181,6 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "bO" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
@@ -196,6 +191,11 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "scrapper_ship_2"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1677,11 +1677,6 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "tz" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
@@ -1692,6 +1687,11 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "scrapper_2"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2217,11 +2217,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "zT" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
@@ -2233,6 +2228,11 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "scrapper_3"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3405,11 +3405,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Pa" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
@@ -3420,6 +3415,11 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "scrapper_1"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3446,6 +3446,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "scrapper_3"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3460,11 +3461,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Ps" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
@@ -3475,6 +3471,11 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "scrapper_ship_1"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
