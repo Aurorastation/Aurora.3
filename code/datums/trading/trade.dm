@@ -111,9 +111,8 @@
 	for(var/item in species_bias)
 		var/result = species_bias[item]
 		if(islist(item))
-			for(var/flat_item in flatten_list(item))
-				if(species == flat_item)
-					return result
+			if(species in flatten_list(item))
+				return result
 		else if(species == item)
 			return result
 	// At this point, species is not on bias list
