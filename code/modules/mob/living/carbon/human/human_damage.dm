@@ -421,7 +421,7 @@ This function restores all organs.
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
-/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/obj/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, "<span class='danger'>You are now visible.</span>")

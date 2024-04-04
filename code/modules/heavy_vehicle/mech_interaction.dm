@@ -318,9 +318,10 @@
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
-		if(legs && legs.mech_step_sound)
-			playsound(src.loc,legs.mech_step_sound,40,1)
-		use_cell_power(legs.power_use * CELLRATE)
+		if(legs)
+			if(legs.mech_step_sound)
+				playsound(src.loc, legs.mech_step_sound, 40, TRUE)
+			use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()

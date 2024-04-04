@@ -149,6 +149,8 @@ GLOBAL_LIST_EMPTY(ore_data)
 	smelts_to = MATERIAL_ALUMINIUM
 	ore = /obj/item/ore/aluminium
 	scan_icon = "mineral_common"
+	result_amount = 5
+	spread_chance = 25
 	worth = 5
 
 /ore/lead
@@ -157,4 +159,6 @@ GLOBAL_LIST_EMPTY(ore_data)
 	smelts_to = MATERIAL_LEAD
 	ore = /obj/item/ore/lead
 	scan_icon = "mineral_uncommon"
+	result_amount = 5
+	spread_chance = 15
 	worth = 10
