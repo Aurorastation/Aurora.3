@@ -103,7 +103,7 @@
 		M.speed = -1
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
-		M.layer = BELOW_MOB_LAYER
+		M.layer = LYING_MOB_LAYER
 		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else

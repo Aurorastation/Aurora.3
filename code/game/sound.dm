@@ -107,8 +107,42 @@
 
 	for(var/mob/listening_mob in listeners | dead_players_by_zlevel[source_z])//observers always hear through walls
 		if(get_dist(listening_mob, turf_source) <= maxdistance)
-			listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+			//Aurora snowflake, if we don't ignore the walls, account for wall-like obstacles to dampen the sound
+			if(ignore_walls)
+				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+			else
+				adjust_sound_based_on_path_obstacles(listening_mob, turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+
 			. += listening_mob
+
+/**
+ * This proc takes into account walls, windows and similar when deciding the received sound for a mob,
+ *
+ * this is *NOT* meant to be called directly, use `playsound()`
+ *
+ * Use this to tweak what happens with the sound along the path from the emitter to the receiver of said sound
+ */
+/proc/adjust_sound_based_on_path_obstacles(mob/listening_mob, turf/turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+	var/turf/inbetween_turf = get_turf(listening_mob)
+
+	for(var/step_counter in 1 to get_dist(listening_mob, turf_source))
+		inbetween_turf = get_step_towards(inbetween_turf, turf_source)
+
+		if(istype(inbetween_turf, /turf/simulated/wall))
+			vol *= 0.6
+
+		if(locate(/obj/machinery/door) in inbetween_turf)
+			vol *= 0.7
+
+		if(locate(/obj/structure/window) in inbetween_turf)
+			vol *= 0.75
+
+		//If we're at or below zero, no point continuing, no sound
+		if(vol <= 0)
+			return
+
+	listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+
 
 /mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/sound_to_use, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE)
 	if(!client || !can_hear())
@@ -211,7 +245,7 @@
 
 //Unlike TG, we use singletons here, so this is different, for now
 /proc/get_sfx(soundin)
-	if(isfile(soundin) || (istext(soundin) && !ispath(soundin)))
+	if(isfile(soundin) || (istext(soundin) && !ispath(soundin)) || istype(soundin, /sound))
 		return soundin
 
 	var/singleton/sound_category/SC = GET_SINGLETON(soundin)

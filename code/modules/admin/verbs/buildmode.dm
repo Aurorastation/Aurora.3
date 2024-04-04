@@ -42,7 +42,7 @@
 /obj/effect/bmode//Cleaning up the tree a bit
 	density = 1
 	anchored = 1
-	layer = SCREEN_LAYER + 1
+	layer = HUD_BASE_LAYER
 	dir = NORTH
 	icon = 'icons/misc/buildmode.dmi'
 	mouse_opacity = MOUSE_OPACITY_OPAQUE

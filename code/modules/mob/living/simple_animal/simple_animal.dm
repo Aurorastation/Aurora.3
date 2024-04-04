@@ -41,7 +41,9 @@
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
-	var/list/emote_sounds = list()
+
+	///A list of sounds that this animal will randomly play, lazy list
+	var/list/emote_sounds
 	var/sound_time = TRUE
 
 	var/turns_per_move = 1
@@ -475,7 +477,7 @@
 
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
-	if(emote_sounds.len)
+	if(LAZYLEN(emote_sounds))
 		make_noise(TRUE)
 	return
 
@@ -642,7 +644,7 @@
 	if(ismob(P.firer))
 		handle_attack_by(P.firer)
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()
@@ -760,7 +762,10 @@
 		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
-	playsound(src, pick(emote_sounds), 75, 1)
+	var/sound_to_play = LAZYPICK(emote_sounds, FALSE)
+	if(sound_to_play)
+		playsound(src, sound_to_play, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+
 	if(client)
 		sound_time = FALSE
 		addtimer(CALLBACK(src, PROC_REF(reset_sound_time)), 2 SECONDS)
@@ -800,7 +805,7 @@
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
-	if(emote_sounds.len)
+	if(LAZYLEN(emote_sounds))
 		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam
 			sound_chance = prob(50)

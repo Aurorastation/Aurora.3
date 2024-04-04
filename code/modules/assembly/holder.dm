@@ -164,13 +164,18 @@
 		var/turf/T = get_turf(src)
 		if(!T)
 			return FALSE
+
 		if(a_left)
 			a_left.holder = null
 			a_left.forceMove(T)
+			a_left = null
+
 		if(a_right)
 			a_right.holder = null
 			a_right.forceMove(T)
-		QDEL_IN(src, 1)
+			a_right = null
+
+		qdel(src)
 
 
 /obj/item/device/assembly_holder/proc/process_activation(var/obj/D, var/normal = 1, var/special = 1)

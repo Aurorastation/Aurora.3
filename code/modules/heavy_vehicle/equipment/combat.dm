@@ -325,9 +325,9 @@
 	aura.toggle()
 	aura.dir = owner.dir
 	if(aura.dir == NORTH)
-		aura.layer = MECH_UNDER_LAYER
+		aura.layer = MOB_LAYER
 	else
-		aura.layer = ABOVE_MOB_LAYER
+		aura.layer = ABOVE_HUMAN_LAYER
 	playsound(owner,'sound/weapons/flash.ogg', 35, TRUE)
 	update_icon()
 	if(aura.active)
@@ -372,7 +372,7 @@
 	name = "mechshield"
 	var/obj/item/mecha_equipment/shield/shields
 	var/active = FALSE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = 8
 	pixel_y = 4
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
