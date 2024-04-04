@@ -7,7 +7,6 @@
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/hailstorm_ship
@@ -72,7 +71,6 @@
 /obj/effect/shuttle_landmark/nav_hailstorm_ship/nav4
 	name = "Hailstorm Ship Navpoint #4"
 	landmark_tag = "nav_hailstorm_ship_4"
-
 
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/hailstorm_shuttle
