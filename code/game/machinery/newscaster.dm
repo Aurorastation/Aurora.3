@@ -29,6 +29,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 
 	///If the newscaster is broken, boolean
 	var/isbroken = FALSE

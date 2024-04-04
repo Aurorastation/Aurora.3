@@ -4,7 +4,6 @@
 	icon_state = "stargazer_off"
 	anchored = TRUE
 	density = TRUE
-	layer = CAMERA_LAYER
 	pixel_x = -32
 	pixel_y = -24
 	var/image/star_system_image
@@ -13,6 +12,7 @@
 	. = ..()
 	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]")
 	star_system_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	star_system_image.layer = SUPERMATTER_WALL_LAYER
 	power_change()
 
 /obj/machinery/stargazer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

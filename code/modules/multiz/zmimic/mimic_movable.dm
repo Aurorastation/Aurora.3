@@ -2,7 +2,7 @@
 	/// The mimic (if any) that's *directly* copying us.
 	var/tmp/atom/movable/openspace/mimic/bound_overlay
 	/// If TRUE, this atom is ignored by Z-Mimic.
-	var/no_z_overlay
+	var/z_flags
 
 /atom/movable/forceMove(atom/dest)
 	. = ..(dest)
@@ -139,6 +139,7 @@
 	var/mimiced_type
 	var/original_z
 	var/override_depth
+	var/have_performed_fixup = FALSE
 
 /atom/movable/openspace/mimic/Initialize(mapload, ...)
 	. = ..()
@@ -186,7 +187,7 @@
 /atom/movable/openspace/turf_proxy
 	plane = OPENTURF_MAX_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	no_z_overlay = TRUE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
+	z_flags = ZMM_IGNORE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
 /atom/movable/openspace/turf_proxy/attackby(obj/item/attacking_item, mob/user)
 	loc.attackby(attacking_item, user)
