@@ -163,9 +163,10 @@
 	var/hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
 	var/light_dam                                     // If set, mob will be damaged in light over this value and heal in light below its negative.
 	var/breathing_sound = 'sound/voice/monkey.ogg'    // If set, this mob will have a breathing sound.
-	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
 
-	/// At what temperature (kelvin) species gets too cold
+	/// Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing, Kevlin)
+	var/body_temperature = 310.15
+	/// At what temperature (kelvin) species gets too hot
 	var/heat_discomfort_level = 315
 	/// At what temperature (kelvin) species gets too cold
 	var/cold_discomfort_level = 285
@@ -182,7 +183,7 @@
 		"Your chilly flesh stands out in goosebumps."
 		)
 
-	// Order matters, higher pain level should be higher up
+	/// Order matters, higher pain level should be higher up
 	var/list/pain_emotes_with_pain_level = list(
 		list(/singleton/emote/audible/scream, /singleton/emote/audible/whimper, /singleton/emote/audible/moan, /singleton/emote/audible/cry) = 70,
 		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/moan) = 40,
@@ -190,6 +191,7 @@
 	)
 
 	// HUD data vars.
+
 	var/datum/hud_data/hud
 	var/hud_type
 	var/health_hud_intensity = 1
@@ -200,6 +202,7 @@
 	var/list/equip_adjust
 
 	// Body/form vars.
+
 	var/list/inherent_verbs 	  // Species-specific verbs.
 	var/list/inherent_spells 	  // Species-specific spells.
 	var/has_fine_manipulation = 1 // Can use small items.
@@ -223,6 +226,7 @@
 	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
 	// Pulse modifiers
+
 	var/low_pulse = 40
 	var/norm_pulse = 60
 	var/fast_pulse = 90
@@ -230,13 +234,15 @@
 	var/max_pulse = 160
 
 	// Blood pressure modifiers
+
 	var/bp_base_systolic = 120
 	var/bp_base_disatolic = 80
 
-	// Hearing sensitivity
+	/// Hearing sensitivity
 	var/hearing_sensitivity = HEARING_NORMAL
 
 	// Eating & nutrition related stuff
+
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/allowed_eat_types = TYPE_ORGANIC
@@ -246,8 +252,8 @@
 	var/max_hydration_factor = 1	//Multiplier on maximum thirst
 	var/hydration_loss_factor = 1	//Multiplier on passive thirst losses
 
-	///Determines the organs that the species spawns with and
-	var/list/has_organ = list(    // which required-organ checks are conducted.
+	/// Determines the organs that the species spawns with and which required-organ checks are conducted.
+	var/list/has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes,
 		BP_HEART =    /obj/item/organ/internal/heart,
@@ -256,7 +262,7 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_APPENDIX = /obj/item/organ/internal/appendix
-		)
+	)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to BP_EYES if the species has them.
 	var/breathing_organ           // If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
 
