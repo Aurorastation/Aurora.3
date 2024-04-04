@@ -16,17 +16,6 @@
 	var/is_liquid = TRUE
 	var/empty_icon_state
 
-/obj/item/reagent_containers/food/update_icon()
-	..()
-	if(!reagents.total_volume)
-		if(("[initial(icon_state)]_empty") in icon_states(icon)) // if there's an empty icon state, use it
-			icon_state = "[initial(icon_state)]_empty"
-		else if (empty_icon_state)
-			icon_state = empty_icon_state
-	else
-		icon = initial(icon)	//Necessary for refilling empty drinks
-		icon_state = initial(icon_state)
-
 /obj/item/reagent_containers/food/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You [is_liquid ? "drink from" : "eat"] \the [src].</span>")
 
