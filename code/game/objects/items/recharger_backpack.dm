@@ -17,6 +17,14 @@
 	//To update the icon based on the power cell charge we spawn with
 	update_icon()
 
+/obj/item/recharger_backpack/Destroy()
+	if(connected)
+		connected.disconnect()
+
+	QDEL_NULL(powersupply)
+
+	. = ..()
+
 /obj/item/recharger_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(powersupply)
@@ -38,25 +46,16 @@
 		update_icon()
 
 	else if(istype(attacking_item, /obj/item/gun/energy))
-		connect(attacking_item)
+		var/obj/item/gun/energy/gun_attempting_to_connect = attacking_item
+		gun_attempting_to_connect.connect(src)
 
 	else
 		. = ..()
 
-/obj/item/recharger_backpack/proc/connect(obj/item/gun/energy/newgun)
-	if(connected)
-		to_chat(usr, SPAN_WARNING("\The [src] already has an energy weapon connected!"))
-		return
-
-	connected = newgun
-
-/obj/item/recharger_backpack/verb/disconnect()
-	set name = "Disconnect Energy Weapon"
-	set category = "Object"
+/obj/item/recharger_backpack/AltClick(mob/user)
 	if(!connected)
 		to_chat(usr, SPAN_WARNING("\The [src] has no energy weapon connected!"))
 		return
-
 
 	connected.disconnect()
 
@@ -87,21 +86,47 @@
 				item_state = "recharger_backpack"
 				set_light(0)
 
-/obj/item/recharger_backpack/Destroy()
-	if(connected)
-		connected.disconnect()
-
+/obj/item/recharger_backpack/get_cell()
 	if(powersupply)
-		QDEL_NULL(powersupply)
+		return powersupply
+	return ..()
 
-	. = ..()
+/**
+ * Connects a gun to the backpack
+ *
+ * * newgun - An `/obj/item/gun/energy` to connect to the backpack
+ *
+ * Returns `TRUE` if the connection was successful, `FALSE` otherwise
+ */
+/obj/item/recharger_backpack/proc/connect(obj/item/gun/energy/newgun)
+	if(connected)
+		to_chat(usr, SPAN_WARNING("\The [src] already has an energy weapon connected!"))
+		return FALSE
+
+	connected = newgun
+	RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(handle_weapon_qdel))
+	return TRUE
+
+/**
+ * Disconnects a gun from the backpack
+ *
+ * * disconnecting_gun - An `/obj/item/gun/energy` to disconnect from the backpack
+ */
+/obj/item/recharger_backpack/proc/disconnect(obj/item/gun/energy/disconnecting_gun)
+	UnregisterSignal(connected, COMSIG_QDELETING)
+	connected = null
+
+///Handles the weapon connected to the backpack being deleted
+/obj/item/recharger_backpack/proc/handle_weapon_qdel()
+	SIGNAL_HANDLER
+	connected = null
+
+
+/*###############
+	SUBTYPES
+###############*/
 
 /obj/item/recharger_backpack/high/Initialize()
 	. = ..()
 	powersupply = new /obj/item/cell/high(src)
 	update_icon()
-
-/obj/item/recharger_backpack/get_cell()
-	if(powersupply)
-		return powersupply
-	return ..()
