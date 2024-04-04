@@ -3,7 +3,7 @@
 
 /obj/item/implant/export_lasgun
 	name = "bioelectrical conduit"
-	desc = "A Galatean bioaugmentation that channels the innate bioelectricity of the nervous system. Use of this augment against the terms of its packaging are a violation of Galatean law."
+	desc = "A Galatean bioaugmentation that channels the innate bioelectricity of the human nervous system. Use of this augment against the terms of its packaging are a violation of Galatean law."
 	icon_state = "implant_excel"
 	implant_icon = "excel"
 	implant_color = "#ffd079"
@@ -24,7 +24,7 @@
 
 /obj/item/implant/export_lasgun/implanted(mob/M)
 	to_chat(M, SPAN_GOOD("Static dances across your skin."))
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		return TRUE
 
 /obj/item/implantcase/export_lasgun

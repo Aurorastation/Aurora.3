@@ -510,7 +510,7 @@
 	accuracy = 40
 	muzzle_flash = 10
 
-/obj/item/galatealaserpack
+/obj/item/laserpack
 	name = "galatean bioelectrical reactor backpack"
 	desc = "An ominously-thrumming backpack-mounted machine, powering an O61 Infantry Laser Rifle."
 	icon = 'icons/obj/guns/galatea_laser.dmi'
@@ -525,7 +525,7 @@
 	var/obj/item/gun/energy/galatea/gun
 	var/armed = FALSE
 
-/obj/item/galatealaserpack/update_icon() // all credit to alb for minigun code, which this is
+/obj/item/laserpack/update_icon() // all credit to alb for minigun code, which this is
 	..()
 	if(armed)
 		icon_state = "laserpack"
@@ -534,24 +534,24 @@
 		icon_state = "laserpack_holstered"
 		item_state = "laserpack_holstered"
 
-/obj/item/galatealaserpack/Initialize() // add a gun to the pack
+/obj/item/laserpack/Initialize() // add a gun to the pack
 	. = ..()
 	gun = make_gun()
 	gun.source = src
 	gun.forceMove(src)
 
-/obj/item/galatealaserpack/proc/make_gun()
+/obj/item/laserpack/proc/make_gun()
 	return new /obj/item/gun/energy/galatea()
 
-/obj/item/galatealaserpack/ui_action_click()
+/obj/item/laserpack/ui_action_click()
 	if(src in usr)
 		toggle_lasergun()
 
-/obj/item/galatealaserpack/verb/toggle_lasergun() // ui button and a verb
+/obj/item/laserpack/verb/toggle_lasergun() // ui button and a verb
 	set name = "Deploy the Laser Rifle"
 	set category = "Object"
 	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
+	if(ishuman(user))
 		user = usr
 	else
 		return
@@ -560,34 +560,34 @@
 		return
 
 	if (user.back!= src)
-		to_chat(user, "<span class='warning'>\The [src] must be worn to deploy \the [gun]!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] must be worn to deploy \the [gun]!"))
 		return
 
 	if(use_check_and_message(user))
 		return
 
 	if(!gun)
-		to_chat(user, "<span class='warning'>There is no weapon attached to the \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("There is no weapon attached to the \the [src]!"))
 
 	if(armed)
-		to_chat(user, "<span class='warning'>\The [src] has been already deployed!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] has been already deployed!"))
 
 	else
 		if(!user.put_in_hands(gun))
-			to_chat(user, "<span class='warning'>You need a free hand to hold \the [gun]!</span>")
+			to_chat(user, SPAN_WARNING("You need a free hand to hold \the [gun]!"))
 			return
 
 		armed = TRUE
 		update_icon()
 		user.update_inv_back()
 
-/obj/item/galatealaserpack/equipped(mob/user, slot)
+/obj/item/laserpack/equipped(mob/user, slot)
 	..()
 	if(slot != slot_back) // if we're not wearing it, remove it
 		remove_gun()
 		user.update_inv_back()
 
-/obj/item/galatealaserpack/proc/remove_gun()
+/obj/item/laserpack/proc/remove_gun()
 	if(!gun)
 		return
 	if(ismob(gun.loc))
@@ -601,18 +601,17 @@
 	armed = FALSE
 	return
 
-/obj/item/galatealaserpack/Destroy()
+/obj/item/laserpack/Destroy()
 	if(gun)
-		qdel(gun)
-		gun = null
+		QDEL_NULL(gun)
 	return ..()
 
-/obj/item/galatealaserpack/attackby(obj/item/attacking_item, mob/user, params) // if you hit the pack with the gun, "stow" it
-	if(attacking_item == gun)
+/obj/item/laserpack/attackby(obj/item/attacking_item, mob/user, params) // if you hit the pack with the gun, "stow" it
+	if(use_check_and_message(user) && attacking_item == gun)
 		remove_gun()
 		update_icon()
 		user.update_inv_back()
-		return 1
+		return TRUE
 	else
 		return ..()
 
@@ -645,21 +644,21 @@
 	fire_delay_wielded = 10
 	accuracy_wielded = 0
 
-	var/obj/item/galatealaserpack/source
+	var/obj/item/laserpack/source
 
 
 /obj/item/gun/energy/galatea/dropped(mob/user) // the gun is part of the backpack; prevent weirdness
 	..()
 	if(source)
-		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
-		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/galatealaserpack, remove_gun))
+		to_chat(user, SPAN_NOTICE("\The [src] snaps back onto \the [source]"))
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/laserpack, remove_gun))
 		source.update_icon()
 		user.update_inv_back()
 
 /obj/item/gun/energy/galatea/Move()
 	..()
 	if(loc != source.loc)
-		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/galatealaserpack, remove_gun)) // prevent even weirder shit
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/laserpack, remove_gun)) // prevent even weirder shit
 
 /obj/item/gun/energy/galatea/special_check(var/mob/user) // if you don't have the implant, you get one shot before you get floored (thanks matt)
 	var/obj/item/implant/export_lasgun/E = locate() in user
@@ -670,6 +669,6 @@
 								"You collapse, like a puppet with its strings cut!",
 								"You're forced to your knees, vision swimming!")
 
-		to_chat(user, "<span class='warning'>[pain_message]</span>")
+		to_chat(user, SPAN_WARNING("[pain_message]"))
 		user.Weaken(10)
 		return TRUE
