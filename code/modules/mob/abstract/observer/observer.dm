@@ -3,7 +3,7 @@
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	layer = 4
+	layer = OBSERVER_LAYER
 	stat = DEAD
 	density = 0
 	canmove = 0
@@ -82,7 +82,7 @@
 	if(!T)
 		if(length(GLOB.latejoin))
 			T = pick(GLOB.latejoin)			//Safety in case we cannot find the body's position
-		else if(current_map.force_spawnpoint && length(GLOB.force_spawnpoints["Anyone"]))
+		else if(SSatlas.current_map.force_spawnpoint && length(GLOB.force_spawnpoints["Anyone"]))
 			T = pick(GLOB.force_spawnpoints["Anyone"])
 		else
 			T = locate(1, 1, 1)
@@ -132,8 +132,8 @@
 	if (!get_death_time(CREW))
 		set_death_time(CREW, world.time)
 
-/mob/abstract/observer/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/book/tome))
+/mob/abstract/observer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/book/tome))
 		var/mob/abstract/observer/M = src
 		M.manifest(user)
 
@@ -171,7 +171,7 @@ Works together with spawning an observer, noted above.
 		return FALSE
 
 	//Check if the z level is in the restricted list
-	if (!(check in current_map.restricted_levels))
+	if (!(check in SSatlas.current_map.restricted_levels))
 		return FALSE
 
 	return TRUE
@@ -509,108 +509,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "<span class='notice'>Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)</span>")
 		to_chat(src, "<span class='notice'>Heat Capacity: [round(environment.heat_capacity(),0.1)]</span>")
 
-/proc/find_mouse_spawnpoint(var/ZLevel)
-	//This function will attempt to find a good spawnpoint for rats, and prevent them from spawning in closed vent systems with no escape
-	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
-	//Continues either until a valid one is found (in which case we return it), or until we hit a limit on attempts..
-	//If we hit the limit without finding a valid one, then the best one we found is selected
-
-	var/list/found_vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachinery.processing)
-		if(!v.welded && v.z == ZLevel)
-			found_vents.Add(v)
-
-	if (found_vents.len == 0)
-		return null//Every vent on the map is welded? Sucks to be a mouse
-
-	var/attempts = 0
-	var/max_attempts = min(20, found_vents.len)
-	var/target_connections = 30//Any vent with at least this many connections is good enough
-
-	var/obj/machinery/atmospherics/unary/vent_pump/bestvent = null
-	var/best_connections = 0
-	while (attempts < max_attempts)
-		attempts++
-		var/obj/machinery/atmospherics/unary/vent_pump/testvent = pick(found_vents)
-
-		if (!testvent.network)//this prevents runtime errors
-			continue
-
-		var/turf/T = get_turf(testvent)
-		if(!istype(T)) continue
-
-		//Skip areas that contain turrets
-		var/area/A = T.loc
-		if (A && A.turrets.len)
-			continue
-
-
-		//We test the environment of the tile, to see if its habitable for a mouse
-		//-----------------------------------
-		var/atmos_suitable = TRUE
-
-		var/maxtemp = 390
-		var/mintemp = 210
-		var/min_oxy = 5
-		var/max_phoron = 1
-		var/max_co2 = 5
-		var/max_h2 = 5
-		var/min_pressure = 80
-
-		var/datum/gas_mixture/Environment = T.return_air()
-		if(Environment)
-
-			if(Environment.temperature > maxtemp)
-				atmos_suitable = FALSE
-			else if (Environment.temperature < mintemp)
-				atmos_suitable = FALSE
-			else if(Environment.gas[GAS_OXYGEN] < min_oxy)
-				atmos_suitable = FALSE
-			else if(Environment.gas[GAS_PHORON] > max_phoron)
-				atmos_suitable = FALSE
-			else if(Environment.gas[GAS_CO2] > max_co2)
-				atmos_suitable = FALSE
-			else if(Environment.gas[GAS_HYDROGEN] > max_h2)
-				atmos_suitable = FALSE
-			else if(Environment.return_pressure() < min_pressure)
-				atmos_suitable = FALSE
-		else
-			atmos_suitable = FALSE
-
-		if (!atmos_suitable)
-			continue
-		//----------------------
-
-
-
-
-		//Now we test the vent connections, and ensure the vent we spawn at is connected enough to give the mouse free movement
-		var/list/connections = list()
-		for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in testvent.network.normal_members)
-			if(temp_vent.welded)
-				continue
-			if(temp_vent == testvent)//Our testvent shouldn't count itself as a connection
-				continue
-
-			connections += temp_vent
-
-		if(connections.len > best_connections)
-			best_connections = connections.len
-			bestvent = testvent
-
-		if (connections.len >= target_connections)
-			return testvent
-			//If we've found one that's good enough, then we stop looking
-
-
-	//IF we get here, then we hit the limit without finding a valid one.
-	//This would probably only be likely to happen if the station is full of holes and pipes are broken everywhere
-	if (bestvent == null)
-		//If bestvent is null, then every vent we checked was either welded or unsafe to spawn at. The user will be given a message reflecting this.
-		return null
-	else
-		return bestvent
-
 /mob/abstract/observer/verb/view_manifest()
 	set name = "Show Crew Manifest"
 	set category = "Ghost"
@@ -714,7 +612,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/pointed(atom/A as mob|obj|turf in view())
 	if(!..())
 		return 0
-	usr.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
+	src.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
 	return 1
 
 /mob/abstract/observer/proc/manifest(mob/user)

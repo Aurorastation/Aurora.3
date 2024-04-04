@@ -20,3 +20,6 @@
 
 /singleton/biome/barren/raskara
 	turf_type = /turf/simulated/floor/exoplanet/barren/raskara
+
+/singleton/biome/barren/asteroid/ice
+	turf_type = /turf/simulated/floor/exoplanet/ice

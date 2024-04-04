@@ -124,14 +124,14 @@
 		M.update_inv_r_ear()
 		M.update_inv_head()
 
-/obj/item/device/flashlight/examine(mob/user, distance, is_adjacent)
+/obj/item/device/flashlight/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(power_use && brightness_level)
-		to_chat(user, SPAN_NOTICE("\The [src] is set to [brightness_level]."))
+		. += SPAN_NOTICE("\The [src] is set to [brightness_level].")
 		if(cell)
-			to_chat(user, SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."))
+			. += SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining.")
 	if(light_wedge && isturf(loc))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
+		. += FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)]."))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -169,14 +169,14 @@
 	else
 		return ..()
 
-/obj/item/device/flashlight/attackby(obj/item/W, mob/user)
+/obj/item/device/flashlight/attackby(obj/item/attacking_item, mob/user)
 	if(power_use)
-		if(istype(W, /obj/item/cell))
-			if(istype(W, /obj/item/cell/device) || accepts_large_cells)
+		if(istype(attacking_item, /obj/item/cell))
+			if(istype(attacking_item, /obj/item/cell/device) || accepts_large_cells)
 				if(!cell)
 					user.drop_item()
-					W.loc = src
-					cell = W
+					attacking_item.loc = src
+					cell = attacking_item
 					to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
 					playsound(src, 'sound/machines/click.ogg', 30, 1, 0)
 					update_icon()
@@ -224,7 +224,7 @@
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == BP_EYES)
 
-		if(((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(50))	//too dumb to use flashlight properly
+		if(((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
 		if(brightness_on < 2)
@@ -270,7 +270,7 @@
 		if(H.stat == DEAD || H.blinded || H.status_flags & FAKEDEATH)	//mob is dead or fully blind
 			to_chat(user, SPAN_WARNING("\The [H]'s pupils do not react to the light!"))
 			return
-		if(HAS_FLAG(H.mutations, XRAY))
+		if((H.mutations & XRAY))
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils give an eerie glow!"))
 		if(vision.damage)
 			to_chat(user, SPAN_WARNING("There's visible damage to [H]'s [vision.name]!"))
@@ -337,13 +337,13 @@
 	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
-	force = 10
+	force = 5
 	brightness_on = 5
 	efficiency_modifier = 0.8
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
+	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	light_wedge = LIGHT_NARROW
 

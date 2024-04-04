@@ -35,10 +35,15 @@
 
 	var/force_holder
 
-/obj/item/gripper/examine(var/mob/user)
+/obj/item/gripper/examine(mob/user)
 	. = ..()
 	if(wrapped)
-		to_chat(user, SPAN_NOTICE("It is holding \the [wrapped]"))
+		wrapped.examine(user)
+
+/obj/item/gripper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(wrapped)
+		. += SPAN_NOTICE("It is holding \the [wrapped].")
 
 /proc/grippersafety(var/obj/item/gripper/G)
 	if(!G || !G.wrapped)//The object must have been lost
@@ -102,7 +107,7 @@
 
 /obj/item/gripper/CtrlClick(mob/user)
 	if(wrapped)
-		drop(get_turf(src))
+		drop(get_turf(src), user)
 		return
 	to_chat(user, SPAN_WARNING("\The [src] isn't gripping anything!"))
 
@@ -113,7 +118,21 @@
 
 	drop(get_turf(src), usr)
 
-/obj/item/gripper/proc/drop(var/atom/target, mob/user, var/feedback = TRUE)
+/**
+ * Drop an item from the gripper onto the target
+ *
+ * * target - An `/atom` to drop (move) the item onto
+ * * user - The `/mob` that is dropping it
+ * * feedback - Boolean, if `TRUE` prints a message about the drop
+ */
+/obj/item/gripper/proc/drop(atom/target, mob/user, feedback = TRUE)
+	if(!istype(target))
+		crash_with("The target to drop the item onto is not specified or is incorrect!")
+
+	if(!istype(user))
+		crash_with("The user that is performing the drop is not specified or is incorrect!")
+
+
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
@@ -123,6 +142,7 @@
 			force_holder = null
 		if(feedback)
 			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
+
 	wrapped = null
 	update_icon()
 	return TRUE
@@ -147,15 +167,15 @@
 				//Slow,powerful attack for borgs. No spamclicking
 	return FALSE
 
-/obj/item/gripper/attackby(obj/item/O, mob/user)
+/obj/item/gripper/attackby(obj/item/attacking_item, mob/user)
 	var/resolved = FALSE
 	if(wrapped)
-		if(O == wrapped)
+		if(attacking_item == wrapped)
 			attack_self(user) //Allows gripper to be clicked to use item.
 			return TRUE
-		resolved = wrapped.attackby(O,user)
+		resolved = wrapped.attackby(attacking_item,user)
 		if(!resolved)
-			O.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+			attacking_item.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
 	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)

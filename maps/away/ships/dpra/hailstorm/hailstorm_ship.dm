@@ -94,7 +94,6 @@
 	name = "shuttle control console"
 	shuttle_tag = "Spacer Militia Shuttle"
 
-
 /datum/shuttle/autodock/overmap/hailstorm_shuttle
 	name = "Spacer Militia Shuttle"
 	move_time = 20
@@ -107,15 +106,7 @@
 	logging_home_tag = "nav_hailstorm_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/hailstorm_shuttle/hangar
-	name = "Spacer Militia Shuttle Hangar"
-	landmark_tag = "nav_hailstorm_shuttle"
-	docking_controller = "hailstorm_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/hailstorm_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_hailstorm_shuttle"
-	base_turf = /turf/space/transit/north
+/obj/effect/map_effect/marker/airlock/shuttle/hailstorm_shuttle
+	name = "Spacer Militia Shuttle"
+	shuttle_tag = "Spacer Militia Shuttle"
+	master_tag = "hailstorm_shuttle"

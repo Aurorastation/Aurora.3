@@ -246,6 +246,8 @@
 		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
 	else if(job_engsec_high)
 		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
+	else if(job_event_high)
+		chosenJob = SSjobs.bitflag_to_job["[EVENTDEPT]"]["[job_event_high]"]
 
 	if(istype(chosenJob) && title)
 		return chosenJob.title

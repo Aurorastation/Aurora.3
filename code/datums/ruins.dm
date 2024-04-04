@@ -69,7 +69,7 @@
 	// set up sectors
 	sectors = flatten_list(sectors)
 	sectors_blacklist = flatten_list(sectors_blacklist)
-	sectors -= sectors_blacklist
+	sectors.RemoveAll(sectors_blacklist)
 
 	// adjust weight from sector dependent override
 	var/datum/space_sector/current_sector = SSatlas.current_sector
@@ -79,6 +79,7 @@
 			var/list/sectors_flattened = flatten_list(list(sectors))
 			if(current_sector.name in sectors_flattened)
 				spawn_weight = weight_in_sector
+				break
 
 	// fin
 	..()

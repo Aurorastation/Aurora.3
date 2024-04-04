@@ -214,34 +214,34 @@
 		use_power_oneoff(power_draw)
 		update_connected_network()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if(I.iswrench())
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		if(on)
 			to_chat(user, "<span class='warning'>Turn \the [src] off first!</span>")
 			return TRUE
 
 		anchored = !anchored
-		playsound(src.loc, I.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 
 		return TRUE
 
 	//doesn't use power cells
-	if(istype(I, /obj/item/cell))
+	if(istype(attacking_item, /obj/item/cell))
 		return TRUE
-	if (I.isscrewdriver())
+	if (attacking_item.isscrewdriver())
 		return TRUE
 
 	//doesn't hold tanks
-	if(istype(I, /obj/item/tank))
+	if(istype(attacking_item, /obj/item/tank))
 		return TRUE
 
 	return ..()
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary
 	name = "Stationary Air Scrubber"
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if(I.iswrench())
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		to_chat(user, "<span class='warning'>The bolts are too tight for you to unscrew!</span>")
 		return TRUE
 

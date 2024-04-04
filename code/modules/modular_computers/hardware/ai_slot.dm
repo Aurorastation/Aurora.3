@@ -17,17 +17,17 @@
 		return
 	power_usage = power_usage_occupied
 
-/obj/item/computer_hardware/ai_slot/attackby(obj/item/W, mob/user)
+/obj/item/computer_hardware/ai_slot/attackby(obj/item/attacking_item, mob/user)
 	if(..())
 		return TRUE
-	if(istype(W, /obj/item/aicard))
+	if(istype(attacking_item, /obj/item/aicard))
 		if(stored_card)
 			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
-		user.drop_from_inventory(W, src)
-		stored_card = W
+		user.drop_from_inventory(attacking_item, src)
+		stored_card = attacking_item
 		update_power_usage()
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		to_chat(user, SPAN_NOTICE("You manually remove \the [stored_card] from \the [src]."))
 		stored_card.forceMove(get_turf(src))
 		stored_card = null

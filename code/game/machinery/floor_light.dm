@@ -5,7 +5,7 @@ var/list/floor_light_cache = list()
 	icon = 'icons/obj/machinery/floor_light.dmi'
 	icon_state = "base"
 	desc = "A backlit floor panel."
-	layer = TURF_LAYER+0.001
+	layer = ABOVE_TILE_LAYER
 	anchored = 0
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
@@ -24,18 +24,18 @@ var/list/floor_light_cache = list()
 /obj/machinery/floor_light/prebuilt
 	anchored = 1
 
-/obj/machinery/floor_light/attackby(var/obj/item/W, var/mob/user)
-	if(W.isscrewdriver())
+/obj/machinery/floor_light/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		return TRUE
-	else if(W.iswelder() && (damaged || (stat & BROKEN)))
-		var/obj/item/weldingtool/WT = W
+	else if(attacking_item.iswelder() && (damaged || (stat & BROKEN)))
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
 			return TRUE
-		if(!W.use_tool(src, user, 20, volume = 50))
+		if(!attacking_item.use_tool(src, user, 20, volume = 50))
 			return TRUE
 		if(!src || !WT.isOn())
 			return TRUE
@@ -45,9 +45,9 @@ var/list/floor_light_cache = list()
 		damaged = null
 		update_brightness()
 		return TRUE
-	else if(W.force && user.a_intent == "hurt")
+	else if(attacking_item.force && user.a_intent == "hurt")
 		return attack_hand(user)
-	else if(W.iscrowbar())
+	else if(attacking_item.iscrowbar())
 		if(anchored)
 			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
 			return TRUE

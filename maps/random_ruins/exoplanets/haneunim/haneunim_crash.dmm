@@ -1,0 +1,1623 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bL" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/overmap/visitable/ship/landable/haneunim_crash,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"ch" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"dV" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"ej" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"ge" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"gm" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/mech_recharger,
+/obj/structure/mech_wreckage/powerloader,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"hF" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/haneunim_crash)
+"hP" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/landmark/corpse/league_smuggler,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"ih" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"ik" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/machinery/iff_beacon,
+/turf/simulated/floor/airless,
+/area/shuttle/haneunim_crash)
+"jc" = (
+/obj/machinery/power/terminal{
+	dir = 8;
+	layer = 5
+	},
+/obj/machinery/alarm/south,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"jp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"jZ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"kA" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(203)
+	},
+/obj/item/tank/phoron/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"kC" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"kJ" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"kK" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/loot,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"lT" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"nr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"nD" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/computer/shuttle_control/explore/haneunim_crash,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"oL" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 2;
+	name = "pump to waste"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"pf" = (
+/obj/machinery/computer/ship/sensors,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"pm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"pn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"qu" = (
+/obj/item/storage/bag/inflatable/emergency,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"qL" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/structure/sign/flag/sol/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"rb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"rx" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"rD" = (
+/turf/template_noop,
+/area/template_noop)
+"rO" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"sl" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(203)
+	},
+/obj/item/stack/material/phoron,
+/obj/item/stack/material/phoron,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"ti" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"tj" = (
+/obj/random/toolbox,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"tF" = (
+/obj/machinery/computer/ship/helm,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"uu" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"uG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"vf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"vw" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"xj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"yc" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"yG" = (
+/obj/structure/bed/handrail,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/haneunim_crash)
+"zn" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"zK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"As" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"AM" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"AR" = (
+/obj/random/tool,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Bf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"Bl" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"BR" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/gloves/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Ce" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"CW" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Dz" = (
+/obj/effect/shuttle_landmark/haneunim_crash/start{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"DO" = (
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"DX" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Ep" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"FE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"FX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"GO" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/weapon/alt{
+	req_access = list(203)
+	},
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"GY" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Hs" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Ia" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"Ib" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Ic" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"Ir" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"It" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"IV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"JA" = (
+/obj/machinery/atmospherics/pipe/tank{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"JO" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/paper/fluff/haneunim_crash,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"Ki" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"Ko" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"KR" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/weapon{
+	req_access = list(203)
+	},
+/obj/random/contraband,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/suit/armor/carrier/military,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"NV" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/bag/inflatable/emergency,
+/obj/item/clothing/head/helmet/space/void/sol/league,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"Om" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"OM" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Pu" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"PI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Qn" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"Qw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/fuel_port,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"QJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"QL" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"RL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/haneunim_crash)
+"Sf" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"So" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/haneunim_crash)
+"Su" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"SI" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"Tw" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"Vv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
+"VH" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"VT" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"We" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 10;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_haneunim_crash";
+	name = "airlock_haneunim_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed League Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"WJ" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"XD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"Yv" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/shuttle/haneunim_crash)
+"Zv" = (
+/obj/structure/sign/flag/sol/large/north{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"ZA" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+
+(1,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(2,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(3,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(4,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(5,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+Dz
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(6,1,1) = {"
+rD
+rD
+rD
+rD
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+Bf
+SI
+As
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(7,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+RL
+IV
+DX
+Ko
+Ic
+yG
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(8,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+Ic
+DO
+kJ
+kC
+rO
+BR
+Ib
+dV
+Ic
+Ic
+Ic
+GY
+GY
+Ic
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(9,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+hF
+nr
+DO
+DO
+Su
+FX
+DO
+ti
+jc
+Ic
+gm
+Ic
+We
+OM
+Ic
+So
+Ic
+Ic
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(10,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+Vv
+DO
+DO
+uu
+DO
+DO
+ti
+DO
+Ic
+Zv
+VT
+VT
+rb
+pm
+XD
+rx
+rx
+rx
+Ic
+Ic
+ik
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(11,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+hF
+Qn
+FE
+FE
+It
+QJ
+pn
+ti
+DO
+Ic
+yc
+VT
+VT
+VT
+VT
+VT
+VT
+VT
+VT
+NV
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(12,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+Qw
+DO
+DO
+Hs
+uG
+zK
+zn
+xj
+Ic
+Ia
+VT
+VT
+VT
+ch
+VH
+VT
+VT
+VT
+ej
+pf
+vw
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(13,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+hF
+ge
+DO
+DO
+DO
+PI
+PI
+Ir
+Sf
+jZ
+Om
+AM
+ih
+AM
+WJ
+VT
+VT
+bL
+VT
+Ki
+tF
+vw
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(14,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+Ic
+DO
+AR
+DO
+tj
+jp
+oL
+JA
+Ic
+VT
+VT
+VT
+VT
+Pu
+VT
+VT
+VH
+VT
+hP
+nD
+vw
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(15,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+Ic
+Ep
+Ep
+DO
+CW
+qu
+QL
+Bl
+Ic
+vf
+Tw
+VT
+kA
+kK
+VT
+VT
+VT
+VT
+JO
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(16,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+Ep
+Ep
+Ep
+DO
+DO
+DO
+Ic
+qL
+lT
+VT
+sl
+lT
+VT
+Ce
+Ce
+Ce
+Ic
+Ic
+Yv
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(17,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+Ep
+DO
+AR
+DO
+Ic
+kK
+KR
+VT
+kK
+GO
+VT
+Ic
+Ic
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(18,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+Ep
+Ep
+ZA
+ZA
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(19,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+Ic
+Ic
+Ic
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(20,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(21,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(22,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(23,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(24,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}
+(25,1,1) = {"
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+rD
+"}

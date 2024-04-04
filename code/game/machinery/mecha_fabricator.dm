@@ -147,21 +147,21 @@
 
 	return 1
 
-/obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(busy)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
 		return TRUE
-	if(default_deconstruction_screwdriver(user, I))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-	if(!istype(I, /obj/item/stack/material))
+	if(!istype(attacking_item, /obj/item/stack/material))
 		return ..()
 
-	var/obj/item/stack/material/M = I
+	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
 	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
@@ -187,7 +187,8 @@
 		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
 	return TRUE
 
-/obj/machinery/mecha_part_fabricator/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
+/obj/machinery/mecha_part_fabricator/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/carbon/human/target = dropping
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
@@ -240,7 +241,7 @@
 			sleep(15)
 			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"")
 			sleep(30)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB truncated. Please contact your [current_map.company_name] system operator for future assistance.\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB truncated. Please contact your [SSatlas.current_map.company_name] system operator for future assistance.\"")
 			req_access = null
 			emagged = 1
 			return 1

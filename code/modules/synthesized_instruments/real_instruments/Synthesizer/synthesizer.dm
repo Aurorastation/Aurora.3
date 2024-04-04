@@ -12,8 +12,8 @@
 	path = /datum/instrument
 	sound_player = /datum/sound_player/synthesizer
 
-/obj/structure/synthesized_instrument/synthesizer/attackby(obj/item/O, mob/user, params)
-	if (istype(O, /obj/item/wrench))
+/obj/structure/synthesized_instrument/synthesizer/attackby(obj/item/attacking_item, mob/user, params)
+	if (istype(attacking_item, /obj/item/wrench))
 		if (!anchored && !isinspace())
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			to_chat(usr, SPAN_NOTICE(" You begin to tighten \the [src] to the floor..."))

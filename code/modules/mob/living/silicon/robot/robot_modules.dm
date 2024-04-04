@@ -567,7 +567,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/device/lightreplacer/advanced(src)
 	modules += new /obj/item/reagent_containers/glass/bucket(src) // a hydroponist's bucket
 	modules += new /obj/item/matter_decompiler(src) // free drone remains for all
-	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/taperoll/custodial(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
@@ -1270,3 +1270,73 @@ var/global/list/robot_modules = list(
 		S.mode = initial(S.mode)
 		S.desc = initial(S.desc)
 		S.update_icon()
+
+/obj/item/robot_module/purpose
+	name = "Purpose robot module"
+	languages = list(
+		LANGUAGE_PURPOSE = TRUE,
+		LANGUAGE_SOL_COMMON =  TRUE,
+		LANGUAGE_ELYRAN_STANDARD = TRUE,
+		LANGUAGE_TRADEBAND =   TRUE,
+		LANGUAGE_UNATHI =      TRUE,
+		LANGUAGE_SIIK_MAAS =   TRUE,
+		LANGUAGE_SKRELLIAN =   TRUE,
+		LANGUAGE_GUTTER =      TRUE,
+		LANGUAGE_ROOTSONG =    TRUE,
+		LANGUAGE_SIGN =        FALSE,
+		LANGUAGE_SIGN_TAJARA = FALSE,
+		LANGUAGE_SIIK_TAJR =   FALSE,
+		LANGUAGE_AZAZIBA =     FALSE,
+		LANGUAGE_DELVAHII =    FALSE,
+		LANGUAGE_YA_SSA =      FALSE
+	)
+	channels = list(
+		CHANNEL_SERVICE =       TRUE,
+		CHANNEL_SUPPLY =        TRUE,
+		CHANNEL_SCIENCE =       TRUE,
+		CHANNEL_SECURITY =      TRUE,
+		CHANNEL_ENGINEERING =   TRUE,
+		CHANNEL_MEDICAL =       TRUE,
+		CHANNEL_COMMAND =       TRUE,
+		CHANNEL_RESPONSE_TEAM = TRUE,
+		CHANNEL_AI_PRIVATE =    TRUE
+	)
+	no_slip = TRUE
+	all_access = TRUE
+	can_be_pushed = FALSE
+	sprites = list(
+		"Hunter-Seeker" = list(ROBOT_CHASSIS = "hunter_seeker", ROBOT_PANEL = "hunter_seeker", ROBOT_EYES = "hunter_seeker"),
+		"Keeper" = list(ROBOT_CHASSIS = "keeper", ROBOT_PANEL = "keeper", ROBOT_EYES = "keeper"),
+		"Strider" = list(ROBOT_CHASSIS = "strider", ROBOT_PANEL = "strider", ROBOT_EYES = "strider"),
+		"Sentinel" = list(ROBOT_CHASSIS = "sentinel", ROBOT_PANEL = "sentinel", ROBOT_EYES = "sentinel"),
+		"Crystalline" = list(ROBOT_CHASSIS = "crystalline", ROBOT_PANEL = "crystalline", ROBOT_EYES = "crystalline"),
+		"Cephalopod" = list(ROBOT_CHASSIS = "cephalopod", ROBOT_PANEL = "cephalopod", ROBOT_EYES = "cephalopod")
+		)
+
+/obj/item/robot_module/purpose/Initialize(mapload, mob/living/silicon/robot/R)
+	. = ..()
+	modules += new /obj/item/weldingtool/largetank(src)
+	modules += new /obj/item/screwdriver/robotic(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/crowbar/robotic(src)
+	modules += new /obj/item/wirecutters/robotic(src)
+	modules += new /obj/item/device/multitool/robotic(src)
+	modules += new /obj/item/device/analyzer(src)
+	modules += new /obj/item/device/healthanalyzer(src)
+	modules += new /obj/item/borg/sight/thermal(src)
+	modules += new /obj/item/gun/energy/pulse/mounted(src)
+	modules += new /obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked(src)
+	modules += new /obj/item/handcuffs/cyborg(src)
+	modules += new /obj/item/melee/baton/robot(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	modules += new /obj/item/melee/energy/sword(src)
+	modules += new /obj/item/plastique/cyborg(src)
+	modules += new /obj/item/robot_teleporter(src)
+	modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
+	modules += new /obj/item/gun/launcher/grenade/cyborg(src)
+
+/obj/item/robot_module/purpose/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+	..()
+	var/obj/item/melee/baton/robot/B = locate() in modules
+	if(B?.bcell)
+		B.bcell.give(amount)

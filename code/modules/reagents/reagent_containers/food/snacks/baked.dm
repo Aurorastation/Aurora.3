@@ -131,3 +131,69 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/drugs/psilocybin = 6)
 	reagent_data = list(/singleton/reagent/nutriment = list("mushroom" = 6))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/sliceable/meat_lasagna_tray
+	name = "meat lasagna tray"
+	desc = "Who doesn't love a hot, meaty, cheesy lasagna? Don't worry, there's enough in this tray for everyone! Assuming 'everyone' is 6 people and nobody wants seconds."
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "lasagnatray_meat"
+	slice_path = /obj/item/reagent_containers/food/snacks/lasagna_meat_slice
+	slices_num = 6
+	trash = /obj/item/trash/grease
+	drop_sound = /singleton/sound_category/tray_hit_sound
+	center_of_mass = list("x"=16, "y"=17)
+	filling_color = "#e08b2a"
+	reagents_to_add = list(/singleton/reagent/nutriment = 24, /singleton/reagent/nutriment/protein = 24, /singleton/reagent/nutriment/protein/cheese = 12)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 4, "tomato" = 2))
+	bitesize = 6
+
+/obj/item/reagent_containers/food/snacks/lasagna_meat_slice
+	name = "meat lasagna"
+	desc = "Not Adhomian food, yet... Very popular among Tajarans on Mondays for some reason."
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "lasagna_meat"
+	trash = /obj/item/trash/plate
+	filling_color = "#e08b2a"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/reagent_containers/food/snacks/lasagna_meat_slice/update_icon()
+	var/percent_lasagna_meat_slice = round((reagents.total_volume / 10) * 100)
+	switch(percent_lasagna_meat_slice)
+		if(0 to 50)
+			icon_state = "lasagna_meat_half"
+		if(51 to INFINITY)
+			icon_state = "lasagna_meat"
+
+/obj/item/reagent_containers/food/snacks/sliceable/veggie_lasagna_tray
+	name = "veggie lasagna tray"
+	desc = "Cheesy, delicious, and vegetarian! Don't worry, there's enough in this tray for everyone! Assuming 'everyone' is 6 people and nobody wants seconds."
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "lasagnatray_veg"
+	slice_path = /obj/item/reagent_containers/food/snacks/lasagna_veggie_slice
+	slices_num = 6
+	trash = /obj/item/trash/grease
+	drop_sound = /singleton/sound_category/tray_hit_sound
+	center_of_mass = list("x"=16, "y"=17)
+	filling_color = "#e08b2a"
+	reagents_to_add = list(/singleton/reagent/nutriment = 48, /singleton/reagent/nutriment/protein/cheese = 12)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 4, "tomato" = 2, "mushrooms" = 2))
+	bitesize = 6
+
+/obj/item/reagent_containers/food/snacks/lasagna_veggie_slice
+	name = "veggie lasagna"
+	desc = "Layers of pasta, sauce, veggies and mushrooms carefully stacked on each other into an apartment block of deliciousness."
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "lasagna_veg"
+	trash = /obj/item/trash/plate
+	filling_color = "#e08b2a"
+	bitesize = 3
+	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/reagent_containers/food/snacks/lasagna_veggie_slice/update_icon()
+	var/percent_lasagna_veggie_slice = round((reagents.total_volume / 10) * 100)
+	switch(percent_lasagna_veggie_slice)
+		if(0 to 50)
+			icon_state = "lasagna_veg_half"
+		if(51 to INFINITY)
+			icon_state = "lasagna_veg"

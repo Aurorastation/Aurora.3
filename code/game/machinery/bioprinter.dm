@@ -56,30 +56,30 @@
 	else
 		to_chat(user, "<span class='warning'>There is not enough matter in the printer.</span>")
 
-/obj/machinery/bioprinter/attackby(obj/item/W, mob/user)
+/obj/machinery/bioprinter/attackby(obj/item/attacking_item, mob/user)
 
 	// DNA sample from syringe.
-	if(!prints_prosthetics && istype(W,/obj/item/reagent_containers/syringe))
-		var/obj/item/reagent_containers/syringe/S = W
+	if(!prints_prosthetics && istype(attacking_item, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = attacking_item
 		if(REAGENT_DATA(S.reagents, /singleton/reagent/blood))
 			loaded_dna = REAGENT_DATA(S.reagents, /singleton/reagent/blood)
 			S.reagents.clear_reagents()
 			to_chat(user, "<span class='info'>You inject the blood sample into the bioprinter.</span>")
 		return TRUE
 	// Meat for biomass.
-	if(!prints_prosthetics && istype(W, /obj/item/reagent_containers/food/snacks/meat))
+	if(!prints_prosthetics && istype(attacking_item, /obj/item/reagent_containers/food/snacks/meat))
 		stored_matter += 50
-		user.drop_from_inventory(W,src)
-		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]</span>")
-		qdel(W)
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, "<span class='info'>\The [src] processes \the [attacking_item]. Levels of stored biomass now: [stored_matter]</span>")
+		qdel(attacking_item)
 		return TRUE
 	// Steel for matter.
-	if(prints_prosthetics && istype(W, /obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
-		var/obj/item/stack/S = W
+	if(prints_prosthetics && istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
+		var/obj/item/stack/S = attacking_item
 		stored_matter += S.amount * 10
-		user.drop_from_inventory(W,src)
-		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored matter now: [stored_matter]</span>")
-		qdel(W)
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, "<span class='info'>\The [src] processes \the [attacking_item]. Levels of stored matter now: [stored_matter]</span>")
+		qdel(attacking_item)
 		return TRUE
 
 	return..()

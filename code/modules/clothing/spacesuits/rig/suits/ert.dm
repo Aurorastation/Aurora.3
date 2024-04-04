@@ -177,6 +177,17 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
+/obj/item/rig/ert/einstein
+	name = "apotheosis suit control module"
+	desc = "A heavy suit with Einstein Engines branding coating it, not to mention the obvious colors."
+	suit_type = "apotheosis"
+	icon = 'icons/clothing/rig/apotheosis.dmi'
+	icon_state = "apotheosis"
+
+	req_access = list()
+	req_one_access = list()
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
+
 /obj/item/rig/ert/assetprotection
 	name = "\improper heavy asset protection suit control module"
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
@@ -218,12 +229,3 @@
 /obj/item/rig/ert/assetprotection/empty
 	initial_modules = list()
 
-/obj/item/rig/ert/assetprotection/einstein
-	name = "apotheosis suit control module"
-	desc = "A heavy suit with Einstein Engines branding coating it, not to mention the obvious colors."
-	suit_type = "apotheosis"
-	icon = 'icons/clothing/rig/apotheosis.dmi'
-	icon_state = "apotheosis"
-
-	req_access = list()
-	req_one_access = list()

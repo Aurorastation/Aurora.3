@@ -2,11 +2,14 @@
 	name = "Pirate Outpost"
 	id = "konyang_pirate"
 	description = "An outpost in the jungle home to a group of Konyang pirates."
+	spawn_weight = 1
+	spawn_cost = 2
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/pirate_outpost.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/konyang_pirate)
+
 
 /area/konyang_pirate_outpost
 	name = "Konyang Pirate Outpost"
@@ -15,7 +18,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/shuttle/konyang_pirate
 	name = "Repaired Shuttle"
@@ -77,7 +80,7 @@
 	spawnpoints = list("konyang_pirate")
 	max_count = 4
 
-	outfit = /datum/outfit/admin/konyang_pirate
+	outfit = /obj/outfit/admin/konyang/pirate
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -85,7 +88,7 @@
 	special_role = "Konyang Pirate"
 	respawn_flag = null
 
-/datum/outfit/admin/konyang_pirate
+/obj/outfit/admin/konyang/pirate
 	name = "Konyang Pirate"
 	uniform = list(
 		/obj/item/clothing/under/konyang/pirate,

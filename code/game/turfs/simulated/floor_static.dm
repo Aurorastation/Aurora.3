@@ -7,8 +7,8 @@
 	icon_state = "tiled_preview"
 	initial_flooring = null
 
-/turf/simulated/floor/fixed/attackby(var/obj/item/C, var/mob/user)
-	if(istype(C, /obj/item/stack) && !C.iscoil())
+/turf/simulated/floor/fixed/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack) && !attacking_item.iscoil())
 		return
 	return ..()
 

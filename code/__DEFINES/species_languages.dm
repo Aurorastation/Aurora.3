@@ -69,6 +69,7 @@
 #define LANGUAGE_LIIDRA "Lii'draic Hivemind" //Lii'dra
 #define LANGUAGE_GREIMORIAN "Greimorian Chattering" //Intelligent Greimorians
 #define LANGUAGE_GREIMORIAN_HIVEMIND "Greimorian Hivemind" //Intelligent Greimorian Hivemind
+#define LANGUAGE_PURPOSE "Encrypted Transmission" //Purpose
 
 // Lesser-form Languages
 #define LANGUAGE_GIBBERING "Gibbering"			// alberyk

@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(lighting)
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
-	init_order = SS_INIT_LIGHTING
+	init_order = INIT_ORDER_LIGHTING
 
 	var/total_lighting_overlays = 0
 	var/total_lighting_sources = 0
@@ -70,7 +70,7 @@ SUBSYSTEM_DEF(lighting)
 	var/turf/T
 	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (thing in Z_ALL_TURFS(zlevel))
+		for (thing in Z_TURFS(zlevel))
 			T = thing
 			if(GLOB.config.starlight)
 				var/turf/space/S = T

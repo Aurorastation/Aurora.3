@@ -7,12 +7,12 @@
 	anchored = 0
 	var/open = FALSE
 
-/obj/structure/sarcophagus/examine(mob/user)
+/obj/structure/sarcophagus/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!open)
-		to_chat(user, "\The [src]'s lid is closed shut.")
+		. += "\The [src]'s lid is closed shut."
 	else
-		to_chat(user, "\The [src]'s lid is open.")
+		. += "\The [src]'s lid is open."
 
 /obj/structure/sarcophagus/Initialize()
 	. = ..()
@@ -37,11 +37,11 @@
 				open()
 	return
 
-/obj/structure/sarcophagus/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/sarcophagus/attackby(obj/item/attacking_item, mob/user)
 	if(open)
 		return
-	if(istype(I, /obj/item/sarcophagus_key))
-		to_chat(usr, "<span class='notice'>You slide \the [I] inside an opening in \the [src].</span>")
+	if(istype(attacking_item, /obj/item/sarcophagus_key))
+		to_chat(usr, "<span class='notice'>You slide \the [attacking_item] inside an opening in \the [src].</span>")
 		open()
 
 /obj/structure/sarcophagus/proc/open()

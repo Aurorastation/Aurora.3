@@ -13,7 +13,7 @@
 	origin_tech = list(TECH_DATA = 2)
 	w_class = ITEMSIZE_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5
+	force = 11
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 15
@@ -22,19 +22,20 @@
 	var/list/req_components
 	var/contain_parts = 1
 
-/obj/item/circuitboard/examine(mob/user)
+/obj/item/circuitboard/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
+
 	if(build_path)
 		var/obj/machine = new build_path // instantiate to get the name and desc
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]")))
+		. +=  FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]"))
 	if(board_type == BOARD_COMPUTER) // does not have build components, only goes into a frame
-		to_chat(user, SPAN_NOTICE("This board is used inside a <b>computer frame</b>."))
+		. += SPAN_NOTICE("This board is used inside a <b>computer frame</b>.")
 	else if(req_components)
-		to_chat(user, SPAN_NOTICE("To build this machine, you will require:"))
+		. += SPAN_NOTICE("To build this machine, you will require:")
 		for(var/I in req_components)
 			if(req_components[I] > 0)
 				var/obj/component = new I // instantiate to get the name
-				to_chat(user, SPAN_NOTICE("- [num2text(req_components[I])] <b>[capitalize_first_letters(component.name)]</b>"))
+				. += SPAN_NOTICE("- [num2text(req_components[I])] <b>[capitalize_first_letters(component.name)]</b>")
 
 //Called when the circuitboard is used to contruct a new machine.
 /obj/item/circuitboard/proc/construct(var/obj/machinery/M)

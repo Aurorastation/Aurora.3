@@ -25,10 +25,10 @@
 	GLOB.listening_objects += src
 	. = ..()
 
-/obj/item/device/tvcamera/examine(mob/user)
+/obj/item/device/tvcamera/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]")
-	to_chat(user, "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]")
+	. += "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
+	. += "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
 
 /obj/item/device/tvcamera/attack_self(mob/user)
 	add_fingerprint(user)
@@ -42,7 +42,7 @@
 	popup.set_content(jointext(dat,null))
 	popup.open()
 
-/obj/item/device/tvcamera/Topic(bred, href_list, state = physical_state)
+/obj/item/device/tvcamera/Topic(bred, href_list, state = GLOB.physical_state)
 	if(..())
 		return 1
 	if(href_list["channel"])
@@ -85,7 +85,11 @@
 		H.update_inv_l_hand()
 
 /* Assembly by a roboticist */
-/obj/item/robot_parts/head/attackby(var/obj/item/device/assembly/S, mob/user as mob)
+/obj/item/robot_parts/head/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/device/assembly/S = attacking_item
+	if(!istype(S))
+		return
+
 	if(!istype(S, /obj/item/device/assembly/infra))
 		..()
 		return
@@ -106,24 +110,24 @@ Using robohead because of restricting to roboticist */
 	var/buildstep = 0
 	w_class = ITEMSIZE_LARGE
 
-/obj/item/tv_assembly/attackby(var/obj/item/W, var/mob/user)
+/obj/item/tv_assembly/attackby(obj/item/attacking_item, mob/user)
 	switch(buildstep)
 		if(0)
-			if(istype(W, /obj/item/robot_parts/robot_component/camera))
+			if(istype(attacking_item, /obj/item/robot_parts/robot_component/camera))
 				to_chat(user, SPAN_NOTICE("You add the camera module to [src]."))
-				qdel(W)
+				qdel(attacking_item)
 				desc = "This TV camera assembly has a camera module."
 				buildstep++
 		if(1)
-			if(istype(W, /obj/item/device/taperecorder))
-				qdel(W)
+			if(istype(attacking_item, /obj/item/device/taperecorder))
+				qdel(attacking_item)
 				buildstep++
 				to_chat(user, SPAN_NOTICE("You add the tape recorder to [src]."))
 				desc = "This TV camera assembly has a camera and audio module."
 				return
 		if(2)
-			if(W.iscoil())
-				var/obj/item/stack/cable_coil/C = W
+			if(attacking_item.iscoil())
+				var/obj/item/stack/cable_coil/C = attacking_item
 				if(!C.use(3))
 					to_chat(user, SPAN_NOTICE("You need three cable coils to wire the devices."))
 					..()
@@ -133,14 +137,14 @@ Using robohead because of restricting to roboticist */
 				desc = "This TV camera assembly has wires sticking out."
 				return
 		if(3)
-			if(W.iswirecutter())
+			if(attacking_item.iswirecutter())
 				to_chat(user, SPAN_NOTICE("You trim the wires."))
 				buildstep++
 				desc = "This TV camera assembly needs casing."
 				return
 		if(4)
-			if(istype(W, /obj/item/stack/material/steel))
-				var/obj/item/stack/material/steel/S = W
+			if(istype(attacking_item, /obj/item/stack/material/steel))
+				var/obj/item/stack/material/steel/S = attacking_item
 				if(S.use(1))
 					buildstep++
 					to_chat(user, SPAN_NOTICE("You encase the assembly."))

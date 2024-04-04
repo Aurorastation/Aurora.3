@@ -58,11 +58,10 @@
 		to_chat(user, SPAN_NOTICE("You rotate \the [src] to face [direction_text]."))
 		QDEL_NULL(first)
 
-/obj/item/device/assembly/infra/examine(mob/user)
+/obj/item/device/assembly/infra/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/direction_text = dir2text(dir)
-	to_chat(user, SPAN_NOTICE("It is facing [direction_text]."))
-
+	. += SPAN_NOTICE("It is facing [direction_text].")
 
 /obj/item/device/assembly/infra/process()
 

@@ -614,7 +614,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/heph_security_ship/francisca)
 "ez" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -1109,7 +1109,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/brig)
 "ir" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -1460,10 +1460,6 @@
 "kN" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/light,
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(216);
-	name = "ammunition"
-	},
 /obj/item/clothing/accessory/storage/bandolier,
 /obj/item/clothing/accessory/storage/bandolier,
 /obj/item/storage/box/shotgunammo,
@@ -1487,6 +1483,24 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(216);
+	name = "ballistics"
+	},
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/automatic/rifle/jingya{
+	magazine_type = /obj/item/ammo_magazine/a556/carbine
+	},
+/obj/item/gun/projectile/automatic/rifle/jingya{
+	magazine_type = /obj/item/ammo_magazine/a556/carbine
+	},
+/obj/item/gun/projectile/shotgun/pump/combat,
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/armory)
 "kO" = (
@@ -1508,24 +1522,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
-"kY" = (
-/obj/structure/table/rack,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/clothing/suit/armor/carrier/ballistic,
-/obj/item/clothing/suit/armor/carrier/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/machinery/door/window/brigdoor{
-	req_access = list(216);
-	dir = 4
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/turf/simulated/floor,
-/area/heph_security_ship/armory)
 "kZ" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1821,6 +1817,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/suit_cycler/offship/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
 "nt" = (
@@ -2352,38 +2349,10 @@
 /area/heph_security_ship/brig)
 "qG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/clothing/suit/space/void/hephaestus,
-/obj/item/clothing/suit/space/void/hephaestus,
-/obj/item/clothing/suit/space/void/hephaestus,
-/obj/item/clothing/suit/space/void/hephaestus,
-/obj/item/clothing/suit/space/void/hephaestus,
-/obj/item/clothing/head/helmet/space/void/hephaestus,
-/obj/item/clothing/head/helmet/space/void/hephaestus,
-/obj/item/clothing/head/helmet/space/void/hephaestus,
-/obj/item/clothing/head/helmet/space/void/hephaestus,
-/obj/item/clothing/head/helmet/space/void/hephaestus,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/machinery/door/window/brigdoor{
-	req_access = list(216);
-	dir = 4
-	},
+/obj/machinery/suit_cycler/offship/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship/armory)
 "qH" = (
@@ -3270,31 +3239,11 @@
 /turf/template_noop,
 /area/space)
 "xN" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(216);
-	name = "security equipment"
-	},
 /obj/machinery/light,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/melee/baton/loaded,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/shield/energy,
-/obj/item/shield/energy,
-/obj/item/shield/energy,
-/obj/item/shield/energy,
-/obj/item/shield/energy,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/handcuffs,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/suit_cycler/offship/hephaestus,
+/turf/simulated/floor,
 /area/heph_security_ship/armory)
 "xO" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
@@ -3602,7 +3551,7 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "Bm" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
@@ -3762,6 +3711,16 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor,
 /area/heph_security_ship/armory)
 "CQ" = (
@@ -3841,17 +3800,36 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/heph_security_ship)
 "DF" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = list(216);
+	name = "security equipment"
 	},
-/obj/item/gun/energy/disruptorpistol,
-/obj/item/gun/energy/disruptorpistol,
-/obj/item/gun/energy/disruptorpistol,
-/obj/item/gun/energy/disruptorpistol,
-/obj/item/gun/energy/disruptorpistol,
 /obj/machinery/light,
-/turf/simulated/floor/tiled,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/shield/energy,
+/obj/item/shield/energy,
+/obj/item/shield/energy,
+/obj/item/shield/energy,
+/obj/item/shield/energy,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/obj/item/gun/energy/disruptorpistol,
+/obj/item/gun/energy/disruptorpistol,
+/obj/item/gun/energy/disruptorpistol,
+/obj/item/gun/energy/disruptorpistol,
+/obj/item/gun/energy/disruptorpistol,
+/turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/brig)
 "DI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4445,10 +4423,6 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
 "Iz" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -24
 	},
@@ -4456,7 +4430,9 @@
 	pixel_x = -24;
 	pixel_y = -9
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/suit_cycler/offship/hephaestus,
+/turf/simulated/floor,
 /area/heph_security_ship/armory)
 "IA" = (
 /obj/machinery/iff_beacon/name_change,
@@ -4808,7 +4784,7 @@
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "KO" = (
-/obj/structure/closet/secure_closet/freezer/fridge{
+/obj/structure/closet/secure_closet/refrigerator/standard{
 	name = "k'ois freezer"
 	},
 /obj/item/reagent_containers/food/snacks/koiswaffles,
@@ -5082,26 +5058,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/francisca)
 "Nh" = (
-/obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/clothing/suit/armor/carrier/ablative,
-/obj/item/clothing/suit/armor/carrier/ablative,
-/obj/item/clothing/head/helmet/ablative,
-/obj/item/clothing/head/helmet/ablative,
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/brigdoor{
-	req_access = list(216);
-	dir = 4
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
+/obj/machinery/suit_cycler/offship/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship/armory)
 "Nj" = (
@@ -5146,6 +5104,9 @@
 /obj/machinery/button/alternate{
 	id = "heph_lockdown";
 	name = "Ship Lockdown"
+	},
+/obj/machinery/button/distress{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
@@ -5506,25 +5467,40 @@
 /turf/simulated/floor/airless,
 /area/space)
 "QJ" = (
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8;
+	layer = 2.71
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(216);
-	name = "ballistics"
+	name = "armor"
 	},
-/obj/item/gun/projectile/shotgun/pump/combat,
-/obj/item/gun/projectile/automatic/rifle/jingya{
-	magazine_type = /obj/item/ammo_magazine/a556/carbine
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
 	},
-/obj/item/gun/projectile/automatic/rifle/jingya{
-	magazine_type = /obj/item/ammo_magazine/a556/carbine
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
 	},
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/automatic/wt550/lethal,
-/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/armory)
 "QR" = (
@@ -6369,15 +6345,15 @@
 /area/heph_security_ship/crew)
 "Yl" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5;
 	pixel_y = 0
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
@@ -38064,7 +38040,7 @@ rp
 qv
 VE
 qG
-kY
+Nh
 Nh
 Iz
 xN

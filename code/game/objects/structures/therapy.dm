@@ -179,9 +179,9 @@
 	. = ..()
 	START_PROCESSING(SSfast_process, src)
 
-/obj/structure/metronome/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswrench())
-		playsound(src.loc, W.usesound, 50, 1)
+/obj/structure/metronome/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
 			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
 			STOP_PROCESSING(SSfast_process, src)

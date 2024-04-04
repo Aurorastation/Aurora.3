@@ -190,6 +190,7 @@
 	icon_state = "wall2"
 	health = 500
 	maxhealth = 500
+	alpha = 255
 	smoothing_flags = null
 	canSmoothWith = null
 	can_be_unanchored = FALSE
@@ -445,7 +446,7 @@
 	desc = "The strong glass face of a Jester-type shuttle cockpit."
 	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/cockpit_windows.dmi'
 	icon_state = "4,1"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 //Intrepid pieces
 /turf/simulated/wall/shuttle/unique/scc/research
@@ -475,7 +476,7 @@
 	desc = "The strong glass face of a Pathfinder class shuttle cockpit."
 	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/cockpit_windows.dmi'
 	icon_state = "2,1"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 //Spark pieces
 /turf/simulated/wall/shuttle/unique/scc/mining

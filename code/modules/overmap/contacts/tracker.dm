@@ -18,6 +18,6 @@
 /obj/item/ship_tracker/proc/on_update_icon()
 	icon_state = enabled ? "enabled" : "disabled"
 
-/obj/item/ship_tracker/examine(var/mob/user)
+/obj/item/ship_tracker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It appears to be [enabled ? "enabled" : "disabled"]")
+	. += "It appears to be [enabled ? "enabled" : "disabled"]"

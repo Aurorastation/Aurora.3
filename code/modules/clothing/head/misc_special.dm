@@ -134,16 +134,16 @@
 	throwforce = 1
 	throw_speed = 0.5
 
-/obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/flame/candle))
-		var/obj/item/flame/candle/c = O
+/obj/item/clothing/head/pumpkin/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/flame/candle))
+		var/obj/item/flame/candle/c = attacking_item
 		var/candle_wax = c.wax
 		if(c.lit)
-			to_chat(user, SPAN_NOTICE("You should extinguish \the [O] first!"))
+			to_chat(user, SPAN_NOTICE("You should extinguish \the [attacking_item] first!"))
 			return
-		to_chat(user, "You add \the [O] to \the [src].")
+		to_chat(user, "You add \the [attacking_item] to \the [src].")
 		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
-		qdel(O)
+		qdel(attacking_item)
 		var/obj/item/clothing/head/pumpkin/lantern/L = new /obj/item/clothing/head/pumpkin/lantern(user.loc)
 		L.wax = candle_wax
 		user.put_in_hands(L)
@@ -165,18 +165,18 @@
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
-			to_chat(user, SPAN_NOTICE("\The [user] casually lights \the [name] with [W]."))
-	else if(W.isFlameSource())
+			to_chat(user, SPAN_NOTICE("\The [user] casually lights \the [name] with [attacking_item]."))
+	else if(attacking_item.isFlameSource())
 		light()
 		to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
-	else if(istype(W, /obj/item/flame/candle))
-		var/obj/item/flame/candle/C = W
+	else if(istype(attacking_item, /obj/item/flame/candle))
+		var/obj/item/flame/candle/C = attacking_item
 		if(C.lit)
 			light()
 			to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))

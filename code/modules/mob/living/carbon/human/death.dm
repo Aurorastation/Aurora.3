@@ -58,8 +58,6 @@
 
 			remove_verb(src, /mob/living/carbon/proc/release_control)
 
-	callHook("death", list(src, gibbed))
-
 	if(!gibbed)
 		if(species.death_sound)
 			playsound(loc, species.death_sound, 80, 1, 1)
@@ -81,7 +79,7 @@
 	updatehealth()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HAS_FLAG(mutations, HUSK))
+	if((mutations & HUSK))
 		return
 
 	if(f_style)
@@ -106,7 +104,7 @@
 	return
 
 /mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
-	if(HAS_FLAG(mutations, SKELETON))
+	if((mutations & SKELETON))
 		return
 
 	if(f_style)

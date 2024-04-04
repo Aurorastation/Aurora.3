@@ -9,7 +9,7 @@
 	icon_state = "defibunit"
 	item_state = "defibunit"
 	contained_sprite = TRUE
-	force = 5
+	force = 11
 	throwforce = 6
 	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
@@ -62,12 +62,12 @@
 
 	overlays = new_overlays
 
-/obj/item/defibrillator/examine(mob/user)
+/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(bcell)
-		to_chat(user, "The charge meter is showing [bcell.percent()]% charge left.")
+		. += "The charge meter is showing [bcell.percent()]% charge left."
 	else
-		to_chat(user, "There is no cell inside.")
+		. += "There is no cell inside."
 
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()
@@ -115,21 +115,21 @@
 				if(!H.put_in_active_hand(paddles))
 					to_chat(H, SPAN_WARNING("You need a free hand to take out the paddles!"))
 
-/obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
-	if(W == paddles)
+/obj/item/defibrillator/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item == paddles)
 		reattach_paddles(user)
-	else if(istype(W, /obj/item/cell))
+	else if(istype(attacking_item, /obj/item/cell))
 		if(bcell)
 			to_chat(user, SPAN_NOTICE("\The [src] already has a cell."))
 		else
-			if(!user.unEquip(W))
+			if(!user.unEquip(attacking_item))
 				return
-			W.forceMove(src)
-			bcell = W
+			attacking_item.forceMove(src)
+			bcell = attacking_item
 			to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
 			update_icon()
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -276,7 +276,7 @@
 	name = initial(name)
 	update_icon()
 
-/obj/item/shockpaddles/dropped(var/mob/living/user)
+/obj/item/shockpaddles/dropped(mob/user)
 	..()
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()

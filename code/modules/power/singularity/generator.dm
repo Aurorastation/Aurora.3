@@ -24,18 +24,18 @@
 		new creation_type(T, 50)
 		if(src) qdel(src)
 
-/obj/machinery/the_singularitygen/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/the_singularitygen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		anchored = !anchored
-		playsound(src.loc, W.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
-			user.visible_message("[user.name] secures [src.name] to the floor.", \
-				"You secure the [src.name] to the floor.", \
-				"You hear a ratchet")
+			user.visible_message("[user.name] secures [src.name] to the floor.",
+									"You secure the [src.name] to the floor.",
+									"You hear a ratchet")
 		else
-			user.visible_message("[user.name] unsecures [src.name] from the floor.", \
-				"You unsecure the [src.name] from the floor.", \
-				"You hear a ratchet")
+			user.visible_message("[user.name] unsecures [src.name] from the floor.",
+									"You unsecure the [src.name] from the floor.",
+									"You hear a ratchet")
 		update_icon()
 		return
 	return ..()

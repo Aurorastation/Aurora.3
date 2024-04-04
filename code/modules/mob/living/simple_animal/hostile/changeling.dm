@@ -59,9 +59,6 @@
 		icon_living = "horror"
 		icon_dead = "horror_dead"
 
-/mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
-
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
@@ -71,7 +68,7 @@
 	if(prob(10))
 		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
 		var/sound = pick(loud_sounds)
-		playsound(src, sound, 90, 1, 15, usepressure = 0)
+		playsound(src, sound, 90, 1, 15, pressure_affected = 0)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)

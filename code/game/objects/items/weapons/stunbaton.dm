@@ -8,7 +8,7 @@
 	icon_state = "stunbaton"
 	item_state = "baton"
 	slot_flags = SLOT_BELT
-	force = 5
+	force = 11
 	sharp = 0
 	edge = FALSE
 	throwforce = 7
@@ -59,26 +59,26 @@
 	else
 		set_light(0)
 
-/obj/item/melee/baton/examine(mob/user, distance)
+/obj/item/melee/baton/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!distance <= 1)
 		return
 	if(bcell)
-		to_chat(user, "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>")
+		. += "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>"
 	else
-		to_chat(user, "<span class='warning'>The baton does not have a power source installed.</span>")
+		. += "<span class='warning'>The baton does not have a power source installed.</span>"
 
-/obj/item/melee/baton/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/cell))
+/obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(!bcell)
-			user.drop_from_inventory(W,src)
-			bcell = W
+			user.drop_from_inventory(attacking_item, src)
+			bcell = attacking_item
 			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.forceMove(get_turf(src))
@@ -215,7 +215,7 @@
 		bcell = R.cell
 	return ..()
 
-/obj/item/melee/baton/robot/attackby(obj/item/W, mob/user)
+/obj/item/melee/baton/robot/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/melee/baton/robot/arm
@@ -262,7 +262,7 @@
 	icon = 'icons/obj/stunrod.dmi'
 	icon_state = "stunrod"
 	item_state = "stunrod"
-	force = 7
+	force = 16
 	agonyforce = 80
 	hitcost = 1000
 	baton_color = "#75ACFF"

@@ -464,18 +464,18 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/suit_storage_unit/attackby(obj/item/attacking_item, mob/user)
 	if(!src.ispowered)
 		return TRUE
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		src.panelopen = !src.panelopen
-		playsound(src.loc, I.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, text("<span class='notice'>You [] the unit's maintenance panel.</span>",(src.panelopen ? "open up" : "close") ))
 		update_icon()
 		src.updateUsrDialog()
 		return TRUE
-	if ( istype(I, /obj/item/grab) )
-		var/obj/item/grab/G = I
+	if ( istype(attacking_item, /obj/item/grab) )
+		var/obj/item/grab/G = attacking_item
 		if( !(ismob(G.affecting)) )
 			return TRUE
 		if (!src.isopen)
@@ -503,10 +503,10 @@
 			src.update_icon()
 			return TRUE
 		return TRUE
-	if( istype(I,/obj/item/clothing/suit/space) )
+	if( istype(attacking_item,/obj/item/clothing/suit/space) )
 		if(!src.isopen)
 			return TRUE
-		var/obj/item/clothing/suit/space/S = I
+		var/obj/item/clothing/suit/space/S = attacking_item
 		if(src.SUIT)
 			to_chat(user, "<span class='notice'>The unit already contains a suit.</span>")
 			return TRUE
@@ -516,10 +516,10 @@
 		src.update_icon()
 		src.updateUsrDialog()
 		return TRUE
-	if( istype(I,/obj/item/clothing/head/helmet) )
+	if( istype(attacking_item,/obj/item/clothing/head/helmet) )
 		if(!src.isopen)
 			return TRUE
-		var/obj/item/clothing/head/helmet/H = I
+		var/obj/item/clothing/head/helmet/H = attacking_item
 		if(src.HELMET)
 			to_chat(user, "<span class='notice'>The unit already contains a helmet.</span>")
 			return TRUE
@@ -529,10 +529,10 @@
 		src.update_icon()
 		src.updateUsrDialog()
 		return TRUE
-	if( istype(I,/obj/item/clothing/mask) )
+	if( istype(attacking_item,/obj/item/clothing/mask) )
 		if(!src.isopen)
 			return TRUE
-		var/obj/item/clothing/mask/M = I
+		var/obj/item/clothing/mask/M = attacking_item
 		if(src.MASK)
 			to_chat(user, "<span class='notice'>The unit already contains a mask.</span>")
 			return TRUE

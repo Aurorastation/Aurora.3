@@ -69,10 +69,10 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 		sm.Blend(so, ICON_OVERLAY)
 		return sm
 
-/obj/item/seeds/examine(mob/user)
+/obj/item/seeds/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(seed && !seed.roundstart)
-		to_chat(user, "It's tagged as variety #[seed.uid].")
+		. += "It's tagged as variety #[seed.uid]."
 
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS

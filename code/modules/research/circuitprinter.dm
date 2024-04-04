@@ -104,18 +104,18 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
-/obj/machinery/r_n_d/circuit_imprinter/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/circuit_imprinter/attackby(obj/item/attacking_item, mob/user)
 	if(busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		if(linked_console)
 			linked_console.linked_imprinter = null
 			linked_console = null
 		return
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return
 	if(panel_open)
 		to_chat(user, "<span class='notice'>You can't load \the [src] while it's opened.</span>")
@@ -123,9 +123,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(!linked_console)
 		to_chat(user, "\The [src] must be linked to an R&D console first.")
 		return 1
-	if(O.is_open_container())
+	if(attacking_item.is_open_container())
 		return 0
-	if(!istype(O, /obj/item/stack/material))
+	if(!istype(attacking_item, /obj/item/stack/material))
 		to_chat(user, "<span class='notice'>You cannot insert this item into \the [src]!</span>")
 		return 1
 	if(stat)
@@ -135,12 +135,12 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		to_chat(user, "<span class='notice'>\The [src]'s material bin is full. Please remove material before adding more.</span>")
 		return 1
 
-	var/obj/item/stack/material/stack = O
+	var/obj/item/stack/material/stack = attacking_item
 	if(!stack.default_type)
 		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
 		return
 	var/amount = round(input("How many sheets do you want to add?") as num)
-	if(!O)
+	if(!attacking_item)
 		return
 	if(!Adjacent(user))
 		to_chat(user, "<span class='notice'>\The [src] is too far away for you to insert this.</span>")

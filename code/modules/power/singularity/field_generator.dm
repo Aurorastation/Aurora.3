@@ -93,33 +93,33 @@ field_generator power level display
 		return
 
 
-/obj/machinery/field_generator/attackby(obj/item/W, mob/user)
+/obj/machinery/field_generator/attackby(obj/item/attacking_item, mob/user)
 	if(active)
 		to_chat(user, "The [src] needs to be off.")
 		return
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		switch(state)
 			if(0)
 				state = 1
-				playsound(src.loc, W.usesound, 75, 1)
-				user.visible_message("[user.name] secures [src.name] to the floor.", \
-					"You secure the external reinforcing bolts to the floor.", \
-					"You hear ratchet")
+				attacking_item.play_tool_sound(get_turf(src), 75)
+				user.visible_message("[user.name] secures [src.name] to the floor.",
+										"You secure the external reinforcing bolts to the floor.",
+										"You hear ratchet")
 				src.anchored = 1
 				update_icon()
 			if(1)
 				state = 0
-				playsound(src.loc, W.usesound, 75, 1)
-				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.", \
-					"You undo the external reinforcing bolts.", \
-					"You hear ratchet")
+				attacking_item.play_tool_sound(get_turf(src), 75)
+				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.",
+										"You undo the external reinforcing bolts.",
+										"You hear ratchet")
 				src.anchored = 0
 				update_icon()
 			if(2)
 				to_chat(user, "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>")
 				return
-	else if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	else if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(0)
 				to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>")
@@ -127,10 +127,10 @@ field_generator power level display
 			if(1)
 				if (WT.use(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-					user.visible_message("[user.name] starts to weld the [src.name] to the floor.", \
-						"You start to weld the [src] to the floor.", \
-						"You hear welding")
-					if(W.use_tool(src, user, 20, volume = 50))
+					user.visible_message("[user.name] starts to weld the [src.name] to the floor.",
+											"You start to weld the [src] to the floor.",
+											"You hear welding")
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 2
 						to_chat(user, "You weld the field generator to the floor.")
@@ -140,10 +140,10 @@ field_generator power level display
 			if(2)
 				if (WT.use(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.", \
-						"You start to cut the [src] free from the floor.", \
-						"You hear welding")
-					if(W.use_tool(src, user, 20, volume = 50))
+					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.",
+											"You start to cut the [src] free from the floor.",
+											"You hear welding")
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 1
 						to_chat(user, "You cut the [src] free from the floor.")

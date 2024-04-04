@@ -5,7 +5,7 @@
 	icon_state = "grenadelauncher"
 	item_state = "grenadelauncher"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
 	fire_sound_text = "a metallic thunk"
@@ -43,12 +43,12 @@
 		to_chat(M, SPAN_WARNING("You pump [src], but the magazine is empty."))
 	update_icon()
 
-/obj/item/gun/launcher/grenade/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/launcher/grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("It has [get_ammo()] grenade\s remaining."))
+		. += SPAN_NOTICE("It has [get_ammo()] grenade\s remaining.")
 		if(chambered)
-			to_chat(user, SPAN_NOTICE("\A [chambered] is chambered."))
+			. += SPAN_NOTICE("\A [chambered] is chambered.")
 
 /obj/item/gun/launcher/grenade/proc/load(obj/item/grenade/G, mob/user)
 	if(!can_load_grenade_type(G, user))
@@ -81,9 +81,9 @@
 /obj/item/gun/launcher/grenade/unique_action(mob/user)
 	pump(user)
 
-/obj/item/gun/launcher/grenade/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		load(I, user)
+/obj/item/gun/launcher/grenade/attackby(obj/item/attacking_item, mob/user)
+	if((istype(attacking_item, /obj/item/grenade)))
+		load(attacking_item, user)
 	else
 		..()
 
@@ -113,7 +113,7 @@
 	name = "underslung grenade launcher"
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 	max_grenades = 0
 
 //load and unload directly into chambered

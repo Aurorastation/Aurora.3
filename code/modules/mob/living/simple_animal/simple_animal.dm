@@ -217,15 +217,14 @@
 		src.client.screen = null
 	..()
 
-/mob/living/simple_animal/examine(mob/user)
-	. =  ..()
-
+/mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (stat == DEAD)
-		to_chat(user, "<span class='danger'>It looks dead.</span>")
+		. += "<span class='danger'>It looks dead.</span>"
 	if (health < maxHealth * 0.5)
-		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
+		. += "<span class='danger'>It looks badly wounded.</span>"
 	else if (health < maxHealth)
-		to_chat(user, "<span class='warning'>It looks wounded.</span>")
+		. += "<span class='warning'>It looks wounded.</span>"
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)
@@ -556,48 +555,48 @@
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
 
-/mob/living/simple_animal/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/saddle) && vehicle_version && (stat != DEAD))
+/mob/living/simple_animal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/saddle) && vehicle_version && (stat != DEAD))
 		var/obj/vehicle/V = new vehicle_version (get_turf(src))
 		V.health = health
 		V.maxhealth = maxHealth
-		to_chat(user, SPAN_WARNING("You place \the [O] on the \the [src]."))
-		user.drop_from_inventory(O)
-		O.forceMove(get_turf(src))
-		qdel(O)
+		to_chat(user, SPAN_WARNING("You place \the [attacking_item] on the \the [src]."))
+		user.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(get_turf(src))
+		qdel(attacking_item)
 		qdel(src)
 
-	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
-		attacked_with_item(O, user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
+		attacked_with_item(attacking_item, user)
 		return
 	if(has_udder)
-		var/obj/item/reagent_containers/glass/G = O
+		var/obj/item/reagent_containers/glass/G = attacking_item
 		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 			if(udder.total_volume <= 0)
 				to_chat(user, SPAN_WARNING("The udder is dry."))
 				return
 			if(G.reagents.total_volume >= G.volume)
-				to_chat(user, SPAN_WARNING("The [O] is full."))
+				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
 				return
-			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [O].")
+			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [attacking_item].")
 			udder.trans_type_to(G, milk_type, rand(5, 10))
 			return
 
-	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
+	if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))
 		..()
 		poke()
 
-	else if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [O].")
+	else if(istype(attacking_item, brush) && canbrush) //Brushing animals
+		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [attacking_item].")
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
 			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/material/knife) || istype(O, /obj/item/material/kitchen/utensil/knife)|| istype(O, /obj/item/material/hatchet))
+		if(istype(attacking_item, /obj/item/material/knife) || istype(attacking_item, /obj/item/material/kitchen/utensil/knife)|| istype(attacking_item, /obj/item/material/hatchet))
 			harvest(user)
 	else
-		attacked_with_item(O, user)
+		attacked_with_item(attacking_item, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
@@ -643,7 +642,7 @@
 	if(ismob(P.firer))
 		handle_attack_by(P.firer)
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()
@@ -693,7 +692,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
+		SSmove_manager.move_to(src, movement_target, 0, seek_move_delay)
 
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
@@ -708,7 +707,7 @@
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	walk_to(src,0)
+	SSmove_manager.stop_looping(src)
 	movement_target = null
 	density = FALSE
 	if (isopenturf(loc))
@@ -867,7 +866,7 @@
 		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
-		walk_to(src,0)
+		SSmove_manager.stop_looping(src)
 		movement_target = null
 		update_icon()
 

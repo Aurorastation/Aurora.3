@@ -222,6 +222,33 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/obj/item/projectile/beam/disorient
+	name = "disorienting pulse"
+	icon_state = "stun"
+	damage = 1
+	sharp = FALSE
+	eyeblur = 1
+	agony = 30
+	damage_type = DAMAGE_BURN
+
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
+
+/obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
+	if(ishuman(target) && blocked < 100 && !issilicon(target) && !isipc(target)) //Make them trip
+		var/mob/living/carbon/human/H = target
+		H.druggy = min(H.druggy + 15, 75)
+
+		//do some maths to determine amount of dizzy to add
+		var/makeDizzy = 250 - H.dizziness
+		makeDizzy = min(makeDizzy, 50) //This should make it go back to 50
+		H.make_dizzy(makeDizzy)
+
+		H.confused = 5
+		H.slurring = min(H.slurring + 15, 75)
+	. = ..()
+
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"

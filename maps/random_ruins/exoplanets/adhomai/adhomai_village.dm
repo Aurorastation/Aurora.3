@@ -17,6 +17,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A cozy Tajaran village. The heat and smell of food emanating from the houses may be a relief from the cold wilderness."
 
 //ghost roles
 
@@ -30,7 +31,7 @@
 	max_count = 4
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/adhomai_village
+	outfit = /obj/outfit/admin/adhomai_village
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -40,7 +41,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_village
+/obj/outfit/admin/adhomai_village
 	name = "Adhomian Villager"
 
 	uniform = list(

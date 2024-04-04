@@ -3,7 +3,7 @@
 	desc = "Rack that holds coats, or hats, if you're so inclined."
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack"
-	layer = ABOVE_MOB_LAYER //Hide behind coat racks. Because funny.
+	layer = ABOVE_HUMAN_LAYER
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak) // Custom manual sprite override.
@@ -37,22 +37,22 @@
 	hat = null
 	update_icon()
 
-/obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/coatrack/attackby(obj/item/attacking_item, mob/user)
 	if(use_check_and_message(user))
 		return
-	if(!coat && (istype(W, /obj/item/clothing/suit/storage/toggle) || istype(W, /obj/item/clothing/accessory/poncho)))
-		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
-		coat = W
+	if(!coat && (istype(attacking_item, /obj/item/clothing/suit/storage/toggle) || istype(attacking_item, /obj/item/clothing/accessory/poncho)))
+		user.visible_message("[user] hangs [attacking_item] on \the [src].", SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
+		coat = attacking_item
 		user.drop_from_inventory(coat, src)
-		playsound(src, W.drop_sound, DROP_SOUND_VOLUME)
+		playsound(src, attacking_item.drop_sound, DROP_SOUND_VOLUME)
 		update_icon()
-	else if(!hat && istype(W, /obj/item/clothing/head) && !istype(W, /obj/item/clothing/head/helmet))
-		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
-		hat = W
+	else if(!hat && istype(attacking_item, /obj/item/clothing/head) && !istype(attacking_item, /obj/item/clothing/head/helmet))
+		user.visible_message("[user] hangs [attacking_item] on \the [src].", SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
+		hat = attacking_item
 		user.drop_from_inventory(hat, src)
-		playsound(src, W.drop_sound, DROP_SOUND_VOLUME)
+		playsound(src, attacking_item.drop_sound, DROP_SOUND_VOLUME)
 		update_icon()
-	else if(istype(W, /obj/item/clothing))
+	else if(istype(attacking_item, /obj/item/clothing))
 		to_chat(user, SPAN_WARNING("You can't hang that up."))
 	else
 		return ..()

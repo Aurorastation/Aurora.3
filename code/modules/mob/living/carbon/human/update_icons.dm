@@ -239,7 +239,7 @@ There are several things that need to be remembered:
 
 		LAZYADD(ovr, DI)
 
-	overlays_raw[DAMAGE_LAYER] = ovr
+	overlays_raw[MOB_DAMAGE_LAYER] = ovr
 	update_bandages(update_icons)
 	if(update_icons)
 		update_icon()
@@ -250,7 +250,7 @@ There are several things that need to be remembered:
 		return
 
 	var/list/ovr
-	if(overlays_raw[DAMAGE_LAYER])
+	if(overlays_raw[MOB_DAMAGE_LAYER])
 		for(var/obj/item/organ/external/O in organs)
 			if(O.is_stump())
 				continue
@@ -317,9 +317,9 @@ There are several things that need to be remembered:
 
 	var/husk_color_mod = rgb(96,88,80)
 
-	var/husk = HAS_FLAG(mutations, HUSK)
-	var/fat = HAS_FLAG(mutations, FAT)
-	var/skeleton = HAS_FLAG(mutations, SKELETON)
+	var/husk = (mutations & HUSK)
+	var/fat = (mutations & FAT)
+	var/skeleton = (mutations & SKELETON)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -516,7 +516,7 @@ There are several things that need to be remembered:
 		return
 
 	var/fat
-	if(HAS_FLAG(mutations, FAT))
+	if((mutations & FAT))
 		fat = "fat"
 
 	var/image/standing	= image("icon" = 'icons/effects/genetics.dmi')
@@ -532,7 +532,7 @@ There are several things that need to be remembered:
 			if(underlay)
 				standing.underlays += underlay
 				add_image = 1
-	if(HAS_FLAG(mutations, LASER_EYES))
+	if((mutations & LASER_EYES))
 		standing.overlays += "lasereyes_s"
 		add_image = 1
 	if(add_image)
@@ -1184,7 +1184,10 @@ There are several things that need to be remembered:
 			else
 				mob_icon = l_hand.icon
 			l_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
+			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
+				mob_state = "[l_hand.item_state_slots[slot_l_hand_str]][WORN_LHAND]"
+			else
+				mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				mob_state = l_hand.item_state_slots[slot_l_hand_str]
@@ -1220,7 +1223,10 @@ There are several things that need to be remembered:
 			else
 				mob_icon = r_hand.icon
 			r_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
+			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
+				mob_state = "[r_hand.item_state_slots[slot_r_hand_str]][WORN_RHAND]"
+			else
+				mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				mob_state = r_hand.item_state_slots[slot_r_hand_str]
@@ -1300,7 +1306,7 @@ There are several things that need to be remembered:
 
 	var/tail_layer = GET_TAIL_LAYER
 
-	if(species.tail && NOT_FLAG(mutations, HUSK) && NOT_FLAG(mutations, SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(species.tail && !(mutations & HUSK) && !(mutations & SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
 		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
 		animate_tail_reset()

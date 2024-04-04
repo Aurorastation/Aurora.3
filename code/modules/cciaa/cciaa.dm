@@ -39,7 +39,7 @@
 
 	// Create the reply message
 	var/obj/item/paper/P = new /obj/item/paper(null) //hopefully the null loc won't cause trouble for us
-	P.set_content("[current_map.boss_name] - [customname]", input)
+	P.set_content("[SSatlas.current_map.boss_name] - [customname]", input)
 
 	// Stamps
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')

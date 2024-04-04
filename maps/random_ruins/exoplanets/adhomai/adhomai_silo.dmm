@@ -12,9 +12,7 @@
 /turf/simulated/floor/concrete,
 /area/adhomai_silo)
 "c" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "d" = (
 /obj/effect/floor_decal/concrete{
@@ -100,9 +98,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_silo)
 "t" = (
 /obj/machinery/light{
@@ -277,9 +273,7 @@
 /area/adhomai_silo)
 "Y" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_silo)
 
 (1,1,1) = {"

@@ -18,21 +18,22 @@
 	var/mob/living/carbon/human/H = user
 	if(H.has_stethoscope_active())
 		var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
-		if(organ)
+		if(organ && do_mob(user, src, 1.5 SECONDS))
 			user.visible_message("<b>[user]</b> checks [src] with a stethoscope.", "You check [src] with the stethoscope on your person.")
-			to_chat(user, SPAN_NOTICE("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
+			to_chat(user, EXAMINE_BLOCK("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
 		else
 			to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
 
 	else if(src.stat && !(src.species.flags & NO_BLOOD))
 		user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-		if(do_mob(user, src, 15))
+		if(do_mob(user, src, 2 SECONDS))
 			if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
 			else
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
-/mob/living/carbon/human/examine(mob/user, distance, is_adjacent)
+/mob/living/carbon/human/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
 	var/skipitems = get_covered_clothes()
@@ -47,7 +48,7 @@
 	var/skipears = skipitems & HIDEEARS
 	var/skipwrists = skipitems & HIDEWRISTS
 
-	var/list/msg = list("<span class='info'>*---------*\nThis is ")
+	var/list/msg = list("<span class='info'>This is ")
 
 	if(icon)
 		msg += icon2html(icon, user)
@@ -219,7 +220,7 @@
 			if(o.applied_pressure == src)
 				msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] applying pressure to [get_pronoun("his")] [o.name]!</span>\n"
 
-	if(HAS_FLAG(mutations, mSmallsize))
+	if((mutations & mSmallsize))
 		msg += "[get_pronoun("He")] [get_pronoun("is")] small halfling!\n"
 	//height
 	if(height)
@@ -389,7 +390,10 @@
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
-	msg += "*---------*</span>"
+	if(GLOB.config.allow_Metadata && client?.prefs.metadata)
+		msg += "<span class='deadsay'>OOC Notes:</span> <a href='?src=\ref[src];metadata=1'>\[View\]</a>\n"
+
+	msg += "</span>"
 
 	if(src in GLOB.intent_listener)
 		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")
@@ -399,16 +403,15 @@
 		var/obj/item/grab/G = get_active_hand()
 		msg += SPAN_ALERT(FONT_LARGE("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!"))
 
-	if (pose)
-		if( findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
-			pose = addtext(pose,".") //Makes sure all emotes end with a period.
+	if(pose)
+		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0)
+			pose = addtext(pose, ".") // Makes sure all emotes end with punctuation.
 		msg += "\n[get_pronoun("He")] [pose]"
 
-	to_chat(user, msg.Join())
+	. += msg.Join()
+
 	if(Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
-
-	return TRUE
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)

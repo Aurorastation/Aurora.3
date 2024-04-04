@@ -198,7 +198,8 @@
 				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
 				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
 	if(GLOB.config.allow_Metadata)
-		dat += "<b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a><br>"
+		dat += "<b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a>" \
+			+ "<a href='?src=\ref[src];clear_metadata=1'>Clear</a>" + "<br>"
 
 	. = dat.Join()
 
@@ -302,10 +303,18 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["metadata"])
-		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata) as message|null)
+		var/new_metadata = sanitize(
+			input(
+				user,
+				"Enter any information you'd like others to see, such as roleplay preferences.",
+				"Game Preference",
+				html_decode(pref.metadata)
+			) as message|null,
+			MAX_MESSAGE_LEN
+		)
 		if(new_metadata && CanUseTopic(user))
-			pref.metadata = sanitize(new_metadata)
-			return TOPIC_REFRESH
+			pref.metadata = new_metadata
+		return TOPIC_REFRESH
 
 	else if(href_list["ipc_tag"])
 		if(!pref.can_edit_ipc_tag)
@@ -346,6 +355,22 @@
 		var/new_ownership_status = input(user, "Choose your IPC's ownership status.", "IPC Ownership Status") as null|anything in ownership_options
 		if(new_ownership_status && CanUseTopic(user))
 			pref.machine_ownership_status = new_ownership_status
+			return TOPIC_REFRESH
+
+	else if (href_list["clear_metadata"])
+		if (CanUseTopic(user))
+			var/user_choice = alert(
+				user,
+				"Are you sure you wish to clear this character's OOC notes?",
+				"Clear OOC Notes Confirmation",
+				"Yes",
+				"No"
+			)
+
+			if (user_choice == "No")
+				return TOPIC_NOACTION
+
+			pref.metadata = ""
 			return TOPIC_REFRESH
 
 	return ..()

@@ -77,7 +77,7 @@
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
-	var/high_edge = current_map.overmap_size - 1
+	var/high_edge = SSatlas.current_map.overmap_size - 1
 
 	var/heading = get_heading()
 
@@ -98,7 +98,7 @@
 
 /obj/effect/overmap/Initialize()
 	. = ..()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
 
 	if(known)
@@ -192,20 +192,20 @@
 		O.maptext_x = -10
 		O.maptext_width = 72
 		O.maptext_height = 32
-		playsound(C, 'sound/items/goggles_charge.ogg')
+		playsound(C, 'sound/items/goggles_charge.ogg', 70)
 		C.visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
 		if(istype(O, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = O
 			for(var/obj/machinery/computer/ship/SH in S.consoles)
 				if(istype(SH, /obj/machinery/computer/ship/sensors))
-					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg')
+					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg', 70)
 					SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, signaling an enemy lock-on!</font>"))
 	else
 		C.targeting = FALSE
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
 	if(C)
-		playsound(C, 'sound/items/rfd_interrupt.ogg')
+		playsound(C, 'sound/items/rfd_interrupt.ogg', 70)
 	if(O)
 		O.cut_overlay(O.targeted_overlay)
 		O.maptext = null

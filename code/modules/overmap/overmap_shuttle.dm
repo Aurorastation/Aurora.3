@@ -139,8 +139,8 @@
 	else
 		icon_state = icon_closed
 
-/obj/structure/fuel_port/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/fuel_port/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		if(opened)
 			to_chat(user, SPAN_NOTICE("You close \the [src]."))
 			playsound(src.loc, 'sound/effects/closet_close.ogg', 25, 0, -3)
@@ -149,12 +149,12 @@
 			to_chat(user, SPAN_NOTICE("You pry \the [src] open."))
 			playsound(src.loc, 'sound/effects/closet_open.ogg', 15, 1, -3)
 			opened = 1
-	else if(istype(W,/obj/item/tank))
+	else if(istype(attacking_item, /obj/item/tank))
 		if(!opened)
 			to_chat(user, SPAN_NOTICE("\The [src] isn't open!"))
 			return
 		if(contents.len == 0)
-			user.unEquip(W, TRUE, src)
+			user.unEquip(attacking_item, TRUE, src)
 	update_icon()
 
 // Walls hide stuff inside them, but we want to be visible.

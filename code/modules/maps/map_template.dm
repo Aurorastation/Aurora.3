@@ -67,10 +67,10 @@
 
 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
 		if (accessibility_weight)
-			current_map.accessible_z_levels[num2text(z_index)] = accessibility_weight
+			SSatlas.current_map.accessible_z_levels[num2text(z_index)] = accessibility_weight
 		if (base_turf_for_zs)
-			current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
-		current_map.player_levels |= z_index
+			SSatlas.current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
+		SSatlas.current_map.player_levels |= z_index
 
 	smooth_zlevel(world.maxz)
 	resort_all_areas()

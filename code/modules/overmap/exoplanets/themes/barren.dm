@@ -47,6 +47,19 @@
 			)
 	)
 
+/datum/exoplanet_theme/barren/asteroid/ice
+	name = "Ice Asteroid"
+	surface_turfs = list(
+		/turf/simulated/mineral,
+		/turf/simulated/floor/exoplanet/ice,
+		/turf/simulated/floor/exoplanet/ice/dark
+	)
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/barren/asteroid/ice
+			)
+	)
+
 /datum/exoplanet_theme/barren/asteroid/phoron
 	name = "Romanovich Asteroid"
 	wall_ore_levels = list(

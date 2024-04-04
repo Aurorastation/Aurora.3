@@ -43,7 +43,7 @@
 			warned_computerid = lookup_query.item[2]
 
 	var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_warnings (id, time, game_id, severity, reason, notes, ckey, computerid, ip, a_ckey, a_ip, a_computerid) VALUES (null, Now(), :game_id:, :warning_severity:, :warning_reason:, :warning_notes:, :warned_ckey:, :warned_computerid:, :warned_ip:, :a_ckey:, :a_ip:, :a_computerid:)")
-	insert_query.Execute(list("game_id" = game_id,"warning_severity" = warning_severity, "warning_reason" = warning_reason, "warning_notes" = warning_notes, "warned_ckey" = warned_ckey, "warned_computerid" = warned_computerid, "warned_ip" = warned_ip, "a_ckey" = ckey, "a_ip" = address, "a_computerid" = computer_id))
+	insert_query.Execute(list("game_id" = GLOB.round_id,"warning_severity" = warning_severity, "warning_reason" = warning_reason, "warning_notes" = warning_notes, "warned_ckey" = warned_ckey, "warned_computerid" = warned_computerid, "warned_ip" = warned_ip, "a_ckey" = ckey, "a_ip" = address, "a_computerid" = computer_id))
 
 	notes_add_sql(warned_ckey, "Warning added by [ckey], for: [warning_reason]. || Notes regarding the warning: [warning_notes].", src, warned_ip, warned_computerid)
 
@@ -201,7 +201,7 @@
 		dat += "</tr>"
 
 	dat += "</table>"
-	usr << browse(dat, "window=mywarnings;size=900x500")
+	show_browser(usr, dat, "window=mywarnings;size=900x500")
 
 /*
  * A proc for acknowledging a warning
@@ -272,10 +272,12 @@
 
 	return data
 
-/*
+/**
  * A proc used to gather if someone has Unacknowledged Warnings
  */
 /client/proc/fetch_unacked_warning_count()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if (!GLOB.dbcon)
 		return
 	if (!establish_db_connection(GLOB.dbcon))
@@ -408,7 +410,7 @@
 
 		dat +="</table>"
 
-	usr << browse(dat, "window=lookupwarns;size=900x500")
+	show_browser(usr, dat, "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
 
 //Admin Proc to add a new User Notification

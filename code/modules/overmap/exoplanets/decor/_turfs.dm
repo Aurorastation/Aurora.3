@@ -1,3 +1,7 @@
+
+/// Exoplanet turfs try to take the atmos and area of the exoplanet they were spawned on,
+/// so that exoplanets have consistent atmosphere everywhere on the surface.
+/// If not located on an exoplanet, default or mapped in atmos is kept.
 /turf/simulated/floor/exoplanet
 	name = "space land"
 	icon = 'icons/turf/desert.dmi'
@@ -5,7 +9,6 @@
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
-	turf_flags = null
 
 	does_footprint = TRUE
 
@@ -14,7 +17,8 @@
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
-	if(current_map.use_overmap)
+	// try to get the the atmos and area of the exoplanet
+	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
@@ -27,27 +31,26 @@
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
-		else
-			log_module_exoplanets("Simulated exoplanet turf NAME: [src.name] LOC [src.x]-[src.y]-[src.z] did not find any exoplanet to copy info from!")
+	// if not on an exoplanet, instead just keep the default or mapped in atmos
 	..()
 
-/turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)
-	if(diggable && istype(C,/obj/item/shovel))
+/turf/simulated/floor/exoplanet/attackby(obj/item/attacking_item, mob/user)
+	if(diggable && istype(attacking_item, /obj/item/shovel))
 		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
-		if(C.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user,"<span class='notice'>You dig a deep pit.</span>")
 			new /obj/structure/pit(src)
 			diggable = 0
 		else
 			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
-	else if(istype(C, /obj/item/stack/tile))
-		var/obj/item/stack/tile/T = C
+	else if(istype(attacking_item, /obj/item/stack/tile))
+		var/obj/item/stack/tile/T = attacking_item
 		if(T.use(1))
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			ChangeTurf(/turf/simulated/floor, FALSE, FALSE, FALSE, TRUE)
-	else if(diggable && istype(C,/obj/item/material/minihoe))
+	else if(diggable && istype(attacking_item,/obj/item/material/minihoe))
 		visible_message(SPAN_NOTICE("\The [user] starts clearing \the [src]"))
-		if(C.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You make a small clearing."))
 			new /obj/structure/clearing(src)
 			diggable = FALSE
@@ -101,8 +104,8 @@
 	icon_state = "seashallow"
 	footstep_sound = /singleton/sound_category/water_footstep
 
-/turf/simulated/floor/exoplanet/water/shallow/attackby(obj/item/O, var/mob/living/user)
-	var/obj/item/reagent_containers/RG = O
+/turf/simulated/floor/exoplanet/water/shallow/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/reagent_containers/RG = attacking_item
 	if (reagent_type && istype(RG) && RG.is_open_container() && RG.reagents)
 		RG.reagents.add_reagent(reagent_type, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from \the [src].</span>","<span class='notice'>You fill \the [RG] from \the [src].</span>")
@@ -111,18 +114,6 @@
 
 /turf/simulated/floor/exoplanet/water/update_dirt()
 	return	// Water doesn't become dirty
-
-//Ice
-/turf/simulated/floor/exoplanet/ice
-	name = "ice"
-	icon = 'icons/turf/flooring/snow.dmi'
-	icon_state = "ice"
-
-/turf/simulated/floor/exoplanet/ice/update_icon()
-	return
-
-/turf/simulated/floor/exoplanet/ice/dark
-	icon_state = "icedark"
 
 //Snow
 /turf/simulated/floor/exoplanet/snow
@@ -169,7 +160,7 @@
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E) && E.grass_color)
 			color = E.grass_color

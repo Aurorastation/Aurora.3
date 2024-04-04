@@ -39,7 +39,7 @@
 		for(var/flag in flags)
 
 
-			if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
+			if((modes[mode] & STB_MODE_FIXEDTTL))
 				src.stb = new(mode = modes[mode], flags = flags[flag], tokens_lifetime = tokens_lifetime)
 			else
 				src.stb = new(mode = modes[mode], flags = flags[flag])
@@ -52,7 +52,7 @@
 			var/expected_total_expired_amount = 0
 			src.is_inserting = TRUE
 			for(var/i=0, i<tears, i++)
-				if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
+				if((modes[mode] & STB_MODE_FIXEDTTL))
 					stb.Insert(token_content = i, callback = CALLBACK(src, PROC_REF(TokenExpired)))
 				else
 					stb.Insert(token_content = i, token_expire_time = (STB_REALTIMESOURCE + tokens_lifetime), callback = CALLBACK(src, PROC_REF(TokenExpired)))
@@ -74,7 +74,7 @@
 
 			//Wait and process until all the tokens are expired
 			while(src.stb.insertion_list_index || src.stb.content.len)
-				if(NOT_FLAG(flags[flag], STB_FLAG_LEAKYBUCKET))
+				if(!(flags[flag] & STB_FLAG_LEAKYBUCKET))
 					stb.OnDemandProcess()
 				sleep(1)
 
@@ -112,7 +112,7 @@
 		for(var/flag in flags)
 
 
-			if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
+			if((modes[mode] & STB_MODE_FIXEDTTL))
 				src.stb2 = new(mode = modes[mode], flags = flags[flag], tokens_lifetime = tokens_lifetime)
 			else
 				src.stb2 = new(mode = modes[mode], flags = flags[flag])
@@ -120,7 +120,7 @@
 
 			var/expected_total_expired_amount = 0
 			for(var/i=0, i<tears, i++)
-				if(HAS_FLAG(modes[mode], STB_MODE_FIXEDTTL))
+				if((modes[mode] & STB_MODE_FIXEDTTL))
 					src.stb2.Insert(token_content = i, callback = CALLBACK(src, PROC_REF(TokenExpired)))
 				else
 					src.stb2.Insert(token_content = i, token_expire_time = (STB_REALTIMESOURCE + tokens_lifetime), callback = CALLBACK(src, PROC_REF(TokenExpired)))
@@ -138,7 +138,7 @@
 			var/datum/bucket_token/high_peeked_token = src.stb2.PeekAt(src.stb2.content.len)
 			var/datum/bucket_token/high_popped_token = src.stb2.PopAt(src.stb2.content.len)
 
-			if(NOT_FLAG(flags[flag], STB_FLAG_LEAKYBUCKET))
+			if(!(flags[flag] & STB_FLAG_LEAKYBUCKET))
 				TEST_ASSERT((!isnull(src.stb2.next_expiration_callback) && (previous_timer_id != src.stb2.next_expiration_callback)), "The expiration callback was either\
 				not refreshed or was unset after popping the last expiring token") //Should still exist and be a different timer if popped high
 

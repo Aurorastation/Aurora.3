@@ -6,7 +6,7 @@
 /turf/simulated/floor/holofloor
 	thermal_conductivity = 0
 
-/turf/simulated/floor/holofloor/attackby(obj/item/W as obj, mob/user as mob)
+/turf/simulated/floor/holofloor/attackby(obj/item/attacking_item, mob/user)
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
@@ -161,25 +161,27 @@
 /obj/structure/window/reinforced/holowindow/Destroy()
 	return ..()
 
-/obj/structure/window/reinforced/holowindow/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
+/obj/structure/window/reinforced/holowindow/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item))
+		return//I really wish I did not need this
+
+	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = attacking_item
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, DAMAGE_PAIN)
 			return
 
-	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON) return
+	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
-	else if(W.iscrowbar() && reinf && state <= 1)
+	else if(attacking_item.iscrowbar() && reinf && state <= 1)
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't pry it!</span>"))
-	else if(W.iswrench() && !anchored && (!state || !reinf))
+	else if(attacking_item.iswrench() && !anchored && (!state || !reinf))
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>"))
 	else
-		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
-			hit(W.force)
+		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
+			hit(attacking_item.force)
 			if(health <= 7)
 				anchored = 0
 				update_nearby_icons()
@@ -202,16 +204,16 @@
 /obj/machinery/door/window/holowindoor/Destroy()
 	return ..()
 
-/obj/machinery/door/window/holowindoor/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/door/window/holowindoor/attackby(obj/item/attacking_item, mob/user)
 
 	if (src.operating == 1)
 		return
 
-	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
-		var/aforce = I.force
+	if(src.density && istype(attacking_item, /obj/item) && !istype(attacking_item, /obj/item/card))
+		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message("<span class='danger'>[src] was hit by [I].</span>")
-		if(I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_BURN)
+		visible_message("<span class='danger'>[src] was hit by [attacking_item].</span>")
+		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return
 
@@ -243,8 +245,8 @@
 /obj/structure/bed/stool/chair/holochair/Destroy()
 	return ..()
 
-/obj/structure/bed/stool/chair/holochair/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswrench())
+/obj/structure/bed/stool/chair/holochair/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		to_chat(user, ("<span class='notice'>It's a holochair, you can't dismantle it!</span>"))
 	return
 
@@ -257,7 +259,7 @@
 	desc = "May the force be within you. Sorta."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
-	force = 3.0
+	force = 3
 	throw_speed = 1
 	throw_range = 5
 	throwforce = 0
@@ -292,7 +294,7 @@
 /obj/item/holo/esword/attack_self(mob/living/user as mob)
 	active = !active
 	if (active)
-		force = 30
+		force = 33
 		icon_state = "sword[item_color]"
 		w_class = ITEMSIZE_LARGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
@@ -333,20 +335,20 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
+/obj/structure/holohoop/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = attacking_item
 		if(G.state<2)
 			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 			return
 		G.affecting.forceMove(src.loc)
 		G.affecting.Weaken(5)
 		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", range = 3)
-		qdel(W)
+		qdel(attacking_item)
 		return
-	else if (istype(W, /obj/item) && get_dist(src,user)<2)
-		user.drop_from_inventory(W,get_turf(src))
-		visible_message("<span class='notice'>[user] dunks [W] into the [src]!</span>", range = 3)
+	else if (istype(attacking_item, /obj/item) && get_dist(src,user)<2)
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		visible_message("<span class='notice'>[user] dunks [attacking_item] into the [src]!</span>", range = 3)
 		return
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -380,7 +382,7 @@
 	to_chat(user, "The station AI is not to interact with these devices!")
 	return
 
-/obj/machinery/readybutton/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
 /obj/machinery/readybutton/attack_hand(mob/user as mob)

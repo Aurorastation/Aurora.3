@@ -144,6 +144,12 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/tunneler_souffle
 
+/singleton/recipe/adhomian_porridge
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/nutriment/flour/nfrihi = 10, /singleton/reagent/water = 10, /singleton/reagent/drink/milk/adhomai = 10)
+	result = /obj/item/reagent_containers/food/snacks/adhomian_porridge
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
 // Tajaran cakes
 /singleton/recipe/conecake
 	appliance = OVEN

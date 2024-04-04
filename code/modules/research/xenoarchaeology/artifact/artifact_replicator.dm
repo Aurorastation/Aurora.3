@@ -126,10 +126,10 @@
 
 	user << browse(dat, "window=alien_replicator")
 
-/obj/machinery/replicator/attackby(obj/item/W as obj, mob/living/user as mob)
-	user.drop_from_inventory(W,src)
-	stored_materials.Add(W)
-	src.visible_message("<span class='notice'>[user] inserts [W] into [src].</span>")
+/obj/machinery/replicator/attackby(obj/item/attacking_item, mob/user)
+	user.drop_from_inventory(attacking_item, src)
+	stored_materials.Add(attacking_item)
+	src.visible_message("<span class='notice'>[user] inserts [attacking_item] into [src].</span>")
 
 /obj/machinery/replicator/Topic(href, href_list)
 

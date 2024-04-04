@@ -13,15 +13,15 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
-/obj/item/stack/wrapping_paper/attackby(obj/item/W, mob/user)
+/obj/item/stack/wrapping_paper/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if (isrobot(user))
-		if(istype(W.loc, /obj/item/gripper))
-			var/obj/item/gripper/G = W.loc
+		if(istype(attacking_item.loc, /obj/item/gripper))
+			var/obj/item/gripper/G = attacking_item.loc
 			if(!is_type_in_list(G, list(/obj/item/gripper/service, /obj/item/gripper/paperwork)))
 				to_chat(user, SPAN_WARNING("\The [G] isn't deft enough to wrap up \the [G.wrapped]."))
 				return
-		else if(istype(W, /obj/item/gripper))
+		else if(istype(attacking_item, /obj/item/gripper))
 			return
 		else
 			to_chat(user, SPAN_WARNING("You can't wrap up a cyborg module!"))
@@ -30,27 +30,27 @@
 	if (!isturf(loc))
 		to_chat(user, SPAN_WARNING("The paper must be set down for you to wrap a gift!"))
 		return
-	if (W.w_class < ITEMSIZE_LARGE)
+	if (attacking_item.w_class < ITEMSIZE_LARGE)
 		var/a_used = 2 * (src.w_class - 1)
 		if(src.amount < a_used)
 			to_chat(user, SPAN_WARNING("You need more paper!"))
 			return
 		else
-			if(istype(W, /obj/item/smallDelivery) || istype(W, /obj/item/gift)) //No gift wrapping gifts!
+			if(istype(attacking_item, /obj/item/smallDelivery) || istype(attacking_item, /obj/item/gift)) //No gift wrapping gifts!
 				return
 
 			src.amount -= a_used
 			user.drop_item()
 			var/obj/item/gift/G = new /obj/item/gift(src.loc)
-			G.size = W.w_class
+			G.size = attacking_item.w_class
 			G.w_class = G.size + 1
 			G.icon_state = text("gift[]", G.size)
-			G.gift = W
-			W.forceMove(G)
+			G.gift = attacking_item
+			attacking_item.forceMove(G)
 			G.add_fingerprint(user)
-			W.add_fingerprint(user)
+			attacking_item.add_fingerprint(user)
 			src.add_fingerprint(user)
-			user.visible_message("\The [user] wraps \the [W] into \a [G].", SPAN_NOTICE("You wrap \the [W] into \a [G], leaving [amount] of \the [src] remaining."))
+			user.visible_message("\The [user] wraps \the [attacking_item] into \a [G].", SPAN_NOTICE("You wrap \the [attacking_item] into \a [G], leaving [amount] of \the [src] remaining."))
 			update_icon()
 		if(src.amount <= 0)
 			new /obj/item/c_tube(src.loc)
@@ -61,10 +61,10 @@
 		to_chat(user, SPAN_WARNING("This object is far too large to wrap!"))
 	return
 
-/obj/item/stack/wrapping_paper/examine(mob/user, distance, is_adjacent)
+/obj/item/stack/wrapping_paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!")
+		. += "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!"
 
 /obj/item/stack/wrapping_paper/attack(mob/target, mob/user)
 	if(!ishuman(target))

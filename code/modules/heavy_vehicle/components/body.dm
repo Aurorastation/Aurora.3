@@ -123,23 +123,25 @@
 	cell = new /obj/item/cell/mecha(src)
 	cell.charge = cell.maxcharge
 
-/obj/item/mech_component/chassis/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing,/obj/item/robot_parts/robot_component/diagnosis_unit))
+/obj/item/mech_component/chassis/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/robot_parts/robot_component/diagnosis_unit))
 		if(diagnostics)
 			to_chat(user, SPAN_WARNING("\The [src] already has a diagnostic system installed."))
 			return
-		if(install_component(thing, user)) diagnostics = thing
-	else if(istype(thing, /obj/item/cell))
+		if(install_component(attacking_item, user))
+			diagnostics = attacking_item
+	else if(istype(attacking_item, /obj/item/cell))
 		if(cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
 			return
-		if(install_component(thing,user)) cell = thing
-	else if(istype(thing, /obj/item/robot_parts/robot_component/armor/mech))
+		if(install_component(attacking_item,user))
+			cell = attacking_item
+	else if(istype(attacking_item, /obj/item/robot_parts/robot_component/armor/mech))
 		if(mech_armor)
 			to_chat(user, SPAN_WARNING("\The [src] already has mech armor installed."))
 			return
-		if(install_component(thing, user))
-			mech_armor = thing
+		if(install_component(attacking_item, user))
+			mech_armor = attacking_item
 	else
 		return ..()
 

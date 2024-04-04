@@ -22,7 +22,7 @@
 	icon_state = "pod_preview"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	interact_offline = TRUE
 
 	var/on = 0
@@ -69,11 +69,11 @@
 			node = target
 			break
 
-/obj/machinery/atmospherics/unary/cryo_cell/examine(mob/user, distance, is_adjacent)
+/obj/machinery/atmospherics/unary/cryo_cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(beaker)
-			to_chat(user, SPAN_NOTICE("It is loaded with a beaker."))
+			. += SPAN_NOTICE("It is loaded with a beaker.")
 		if(occupant)
 			occupant.examine(arglist(args))
 
@@ -136,7 +136,7 @@
 		occupantData["name"] = occupant.name
 		var/displayed_stat = occupant.stat
 		var/blood_oxygenation = occupant.get_blood_oxygenation()
-		if(HAS_FLAG(occupant.status_flags, FAKEDEATH))
+		if((occupant.status_flags & FAKEDEATH))
 			displayed_stat = DEAD
 			blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
 		var/pulse_result
@@ -235,17 +235,17 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/item/G as obj, var/mob/user as mob)
-	if(istype(G, /obj/item/reagent_containers/glass))
+/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			FEEDBACK_FAILURE(user, "A beaker is already loaded into the machine!")
 			return TRUE
 
-		beaker =  G
-		user.drop_from_inventory(G,src)
-		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
-	else if(istype(G, /obj/item/grab))
-		var/obj/item/grab/grab = G
+		beaker =  attacking_item
+		user.drop_from_inventory(attacking_item,src)
+		user.visible_message("[user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
+	else if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/grab = attacking_item
 		var/mob/living/L = grab.affecting
 
 		if (!istype(L))
@@ -263,15 +263,15 @@
 					return TRUE
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
-				qdel(G)
+				qdel(attacking_item)
 	return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/dropping, mob/user)
 	if(!istype(user))
 		return
-	if(!ismob(O))
+	if(!ismob(dropping))
 		return
-	var/mob/living/L = O
+	var/mob/living/L = dropping
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.victim == L)
 			to_chat(usr, SPAN_WARNING("[L.name] will not fit into the cryo because they have a slime latched onto their head."))

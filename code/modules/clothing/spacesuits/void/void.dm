@@ -27,14 +27,12 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
-		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/helmet.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi'
 	)
 	sprite_sheets_obj = list(
 		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
 		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
-		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/hats.dmi',
 		BODYTYPE_IPC = 'icons/obj/clothing/species/machine/hats.dmi'
 	)
 
@@ -67,14 +65,12 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/suit.dmi',
-		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi'
 	)
 	sprite_sheets_obj = list(
 		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
 		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/suits.dmi',
 		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
-		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/suits.dmi',
 		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
 	)
 
@@ -93,16 +89,16 @@
 	var/obj/item/tank/tank = null              // Deployable tank, if any.
 	var/obj/item/device/suit_cooling_unit/cooler = null // Deployable suit cooler, if any
 
-/obj/item/clothing/suit/space/void/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/suit/space/void/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/list/part_list = new
 	for(var/obj/item/I in list(helmet,boots,tank,cooler))
 		part_list += "\a [I]"
-	to_chat(user, "\The [src] has [english_list(part_list)] installed.")
+	. +=  "\The [src] has [english_list(part_list)] installed."
 	if(tank && distance <= 1)
-		to_chat(user, SPAN_NOTICE("The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank]."))
+		. += SPAN_NOTICE("The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank].")
 	if (cooler && distance <= 1)
-		to_chat(user, SPAN_NOTICE("The mounted cooler's battery charge reads [round(cooler.cell.percent())]%"))
+		. += SPAN_NOTICE("The mounted cooler's battery charge reads [round(cooler.cell.percent())]%")
 
 /obj/item/clothing/suit/space/void/refit_for_species(var/target_species)
 	..()
@@ -261,18 +257,18 @@
 /obj/item/clothing/suit/space/void/attack_self()
 	toggle_helmet()
 
-/obj/item/clothing/suit/space/void/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/space/void/attackby(obj/item/attacking_item, mob/user)
 
 	if(!istype(user,/mob/living)) return
 
-	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/device/hand_labeler))
+	if(istype(attacking_item, /obj/item/clothing/accessory) || istype(attacking_item, /obj/item/device/hand_labeler))
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)
 		to_chat(user, SPAN_WARNING("You cannot modify \the [src] while it is being worn."))
 		return
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(helmet || boots || tank || cooler)
 			var/choice = tgui_input_list(usr, "What component would you like to remove?", "Component Removal", list(helmet,boots,tank,cooler))
 			if(!choice) return
@@ -297,42 +293,42 @@
 		else
 			to_chat(user, "\The [src] does not have anything installed.")
 		return
-	else if(istype(W,/obj/item/clothing/head/helmet/space))
+	else if(istype(attacking_item,/obj/item/clothing/head/helmet/space))
 		if(helmet)
 			to_chat(user, "\The [src] already has a helmet installed.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
-			to_chat(user, "You attach \the [W] to \the [src]'s helmet mount.")
-			user.drop_from_inventory(W,src)
-			src.helmet = W
+			to_chat(user, "You attach \the [attacking_item] to \the [src]'s helmet mount.")
+			user.drop_from_inventory(attacking_item, src)
+			src.helmet = attacking_item
 		return
-	else if(istype(W,/obj/item/clothing/shoes/magboots))
+	else if(istype(attacking_item,/obj/item/clothing/shoes/magboots))
 		if(boots)
 			to_chat(user, "\The [src] already has magboots installed.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
-			to_chat(user, "You attach \the [W] to \the [src]'s boot mounts.")
-			user.drop_from_inventory(W,src)
-			boots = W
+			to_chat(user, "You attach \the [attacking_item] to \the [src]'s boot mounts.")
+			user.drop_from_inventory(attacking_item, src)
+			boots = attacking_item
 		return
-	else if(istype(W,/obj/item/tank))
+	else if(istype(attacking_item,/obj/item/tank))
 		if(tank)
 			to_chat(user, "\The [src] already has an airtank installed.")
-		else if(istype(W,/obj/item/tank/phoron))
-			to_chat(user, "\The [W] cannot be inserted into \the [src]'s storage compartment.")
+		else if(istype(attacking_item,/obj/item/tank/phoron))
+			to_chat(user, "\The [attacking_item] cannot be inserted into \the [src]'s storage compartment.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
-			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")
-			user.drop_from_inventory(W,src)
-			tank = W
+			to_chat(user, "You insert \the [attacking_item] into \the [src]'s storage compartment.")
+			user.drop_from_inventory(attacking_item, src)
+			tank = attacking_item
 		return
-	else if (istype(W, /obj/item/device/suit_cooling_unit))
+	else if (istype(attacking_item, /obj/item/device/suit_cooling_unit))
 		if(cooler)
 			to_chat(user, "\The [src] already has a suit cooler installed.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
-			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")
-			user.drop_from_inventory(W,src)
-			cooler = W
+			to_chat(user, "You insert \the [attacking_item] into \the [src]'s storage compartment.")
+			user.drop_from_inventory(attacking_item, src)
+			cooler = attacking_item
 		return
 	..()

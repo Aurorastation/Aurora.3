@@ -2,11 +2,14 @@
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	always_unpowered = 1
+	area_flags = AREA_FLAG_INDESTRUCTIBLE_TURFS
+	is_outside = OUTSIDE_YES
 
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"
 	ambience = list('sound/effects/wind/tundra0.ogg', 'sound/effects/wind/tundra1.ogg', 'sound/effects/wind/tundra2.ogg', 'sound/effects/wind/spooky0.ogg', 'sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+	area_blurb = "The freezing wind blows through the unforgiving Adhomian wilderness."
 
 /area/exoplanet/barren
 	name = "\improper Planetary surface"
@@ -21,6 +24,7 @@
 	name = "Raskara Surface"
 	ambience = AMBIENCE_OTHERWORLDLY
 	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
+	area_blurb = "The dark surface of the moon is quiet. The ambience is eerie."
 
 /area/exoplanet/barren/burzsia
 	name = "Burzsia Surface"
@@ -41,7 +45,7 @@
 /area/exoplanet/grass/play_ambience(var/mob/living/L)
 	..()
 	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
-		L.playsound_to(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = 1))
+		L.playsound_local(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
 
 /area/exoplanet/grass/grove
 	base_turf = /turf/simulated/floor/exoplanet/grass/grove

@@ -34,17 +34,17 @@
 		welding_tool.forceMove(src)
 	update_icon()
 
-/obj/item/flamethrower/examine(mob/user, distance, is_adjacent)
+/obj/item/flamethrower/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(gas_tank)
-			to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(gas_tank.air_contents.return_pressure(), 10)] kPa left in it."))
+			. += SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(gas_tank.air_contents.return_pressure(), 10)] kPa left in it.")
 		else
-			to_chat(user, SPAN_WARNING("It has no gas tank installed."))
+			. += SPAN_WARNING("It has no gas tank installed.")
 		if(igniter)
-			to_chat(user, SPAN_NOTICE("It has \an [igniter] installed."))
+			. += SPAN_NOTICE("It has \an [igniter] installed.")
 		else
-			to_chat(user, SPAN_WARNING("It has no igniter installed."))
+			. += SPAN_WARNING("It has no igniter installed.")
 
 /obj/item/flamethrower/Destroy()
 	QDEL_NULL(welding_tool)
@@ -102,11 +102,11 @@
 			var/turflist = get_turfs_in_cone(user, Get_Angle(user, target_turf), get_dist(user, target_turf), 30)
 			flame_turf(turflist)
 
-/obj/item/flamethrower/attackby(obj/item/W, mob/user)
+/obj/item/flamethrower/attackby(obj/item/attacking_item, mob/user)
 	if(use_check_and_message(user))
 		return TRUE
 
-	if(W.iswrench() && !secured)//Taking this apart
+	if(attacking_item.iswrench() && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(welding_tool)
 			welding_tool.forceMove(T)
@@ -121,14 +121,14 @@
 		qdel(src)
 		return TRUE
 
-	else if(W.isscrewdriver() && igniter && !lit)
+	else if(attacking_item.isscrewdriver() && igniter && !lit)
 		secured = !secured
 		to_chat(user, SPAN_NOTICE("[igniter] is now [secured ? "secured" : "unsecured"]!"))
 		update_icon()
 		return TRUE
 
-	else if(isigniter(W))
-		var/obj/item/device/assembly/igniter/I = W
+	else if(isigniter(attacking_item))
+		var/obj/item/device/assembly/igniter/I = attacking_item
 		if(I.secured)
 			to_chat(user, SPAN_WARNING("\The [I] is not ready to attach yet! Use a screwdriver on it first."))
 			return TRUE
@@ -140,21 +140,21 @@
 		update_icon()
 		return TRUE
 
-	else if(istype(W, /obj/item/tank/phoron) || istype(W, /obj/item/tank/hydrogen))
+	else if(istype(attacking_item, /obj/item/tank/phoron) || istype(attacking_item, /obj/item/tank/hydrogen))
 		if(gas_tank)
 			to_chat(user, SPAN_WARNING("There appears to already be a tank loaded in \the [src]!"))
 			return
-		user.drop_from_inventory(W, src)
-		gas_tank = W
+		user.drop_from_inventory(attacking_item, src)
+		gas_tank = attacking_item
 		update_icon()
 		return TRUE
 
-	else if(istype(W, /obj/item/device/analyzer))
-		var/obj/item/device/analyzer/A = W
+	else if(istype(attacking_item, /obj/item/device/analyzer))
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 
-	else if(W.isFlameSource()) // you can light it with external input, even without an igniter
+	else if(attacking_item.isFlameSource()) // you can light it with external input, even without an igniter
 		attempt_lighting(user, TRUE)
 		update_icon()
 		return TRUE

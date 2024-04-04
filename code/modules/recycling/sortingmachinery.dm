@@ -29,9 +29,9 @@
 			O.welded = 0
 	qdel(src)
 
-/obj/structure/bigDelivery/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = W
+/obj/structure/bigDelivery/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/destTagger))
+		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
@@ -46,14 +46,14 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(W.ispen())
+	else if(attacking_item.ispen())
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
 					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
-				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
+				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -73,7 +73,7 @@
 					update_icon()
 				else
 					examtext = str
-				user.visible_message("\The [user] labels \the [src] with \a [W], scribbling down: \"[examtext]\"",\
+				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -108,13 +108,13 @@
 			I.pixel_y = -3
 		add_overlay(I)
 
-/obj/structure/bigDelivery/examine(mob/user, distance, is_adjacent)
+/obj/structure/bigDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
+			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
 		if(examtext)
-			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
+			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
 
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
@@ -138,7 +138,7 @@
 		else if(isrobot(user))
 			var/obj/item/gripper/G = user.get_active_hand()
 			if(istype(G))
-				G.drop(src, FALSE)
+				G.drop(src, user, FALSE)
 				if(is_type_in_list(wrapped, G.can_hold))
 					G.grip_item(wrapped, user, FALSE)
 				else
@@ -152,9 +152,9 @@
 	qdel(src)
 	return
 
-/obj/item/smallDelivery/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = W
+/obj/item/smallDelivery/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/destTagger))
+		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
@@ -169,14 +169,14 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(W.ispen())
-		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
+	else if(attacking_item.ispen())
+		switch(tgui_input_list(user, "What would you like to alter?", null, list("Title", "Description"), "Cancel"))
 			if("Title")
-				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
+				var/str = sanitizeSafe( tgui_input_text(usr, "Label text?", "Set label", "", MAX_NAME_LEN), MAX_NAME_LEN )
 				if(!str || !length(str))
 					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
-				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
+				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -188,7 +188,7 @@
 					nameset = 1
 
 			if("Description")
-				var/str = sanitize(input(usr,"Label text?","Set label",""))
+				var/str = sanitize(tgui_input_text(usr, "Label text?", "Set label", ""))
 				if(!str || !length(str))
 					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
@@ -197,7 +197,7 @@
 					update_icon()
 				else
 					examtext = str
-				user.visible_message("\The [user] labels \the [src] with \a [W], scribbling down: \"[examtext]\"",\
+				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -228,13 +228,13 @@
 				I.pixel_y = -3
 		add_overlay(I)
 
-/obj/item/smallDelivery/examine(mob/user, distance, is_adjacent)
+/obj/item/smallDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
+			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
 		if(examtext)
-			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
+			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
@@ -351,27 +351,27 @@
 	update()
 	return
 
-/obj/machinery/disposal/deliveryChute/attackby(var/obj/item/I, var/mob/user)
-	if(!I || !user)
+/obj/machinery/disposal/deliveryChute/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item || !user)
 		return
 
-	if(istype(I, /obj/item/holder))
-		user.drop_item(I)
-		CollidedWith(I)
+	if(istype(attacking_item, /obj/item/holder))
+		user.drop_item(attacking_item)
+		CollidedWith(attacking_item)
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(c_mode==0)
 			c_mode=1
-			playsound(src.loc, I.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You remove the screws around the power connection.")
 			return
 		else if(c_mode==1)
 			c_mode=0
-			playsound(src.loc, I.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(I.iswelder() && c_mode==1)
-		var/obj/item/weldingtool/W = I
+	else if(attacking_item.iswelder() && c_mode==1)
+		var/obj/item/weldingtool/W = attacking_item
 		if(W.use(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
 			if(W.use_tool(src, user, 20, volume = 50))

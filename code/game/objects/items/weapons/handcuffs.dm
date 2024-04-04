@@ -209,17 +209,17 @@
 	color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
 	. = ..()
 
-/obj/item/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/handcuffs/cable/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			var/obj/item/material/wirerod/W = new(get_turf(user), MATERIAL_STEEL, color)
 			user.put_in_hands(W)
 			to_chat(user, SPAN_NOTICE("You wrap \the [src] around the top of the rod."))
 			qdel(src)
 			update_icon(user)
-	else if(can_be_cut && I.iswirecutter())
+	else if(can_be_cut && attacking_item.iswirecutter())
 		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)

@@ -151,12 +151,13 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/bangs
 	name = "Bangs"
 	icon_state = "hair_bangs"
-	length = 2
+	length = 3
 	chatname = "fringe"
 
 /datum/sprite_accessory/hair/bangs_short
 	name = "Bangs, Short"
 	icon_state = "hair_bangs_short"
+	length = 2
 	chatname = "fringe"
 
 /datum/sprite_accessory/hair/bangs_veryshort
@@ -4317,6 +4318,10 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_tp
 	name = "trinary perfection IPC screen"
 	icon_state = "ipc_tp"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_gd
+	name = "golden deep IPC screen"
+	icon_state = "ipc_gd"
 
 /datum/sprite_accessory/facial_hair/diona_eye
 	icon = 'icons/mob/human_face/dionae_hair.dmi'

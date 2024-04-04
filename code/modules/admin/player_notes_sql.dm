@@ -5,7 +5,7 @@
 	if(!player_ckey || !note)
 		return
 
-	var/list/query_details = list("game_id" = game_id, "ckey" = player_ckey, "address" = player_address ? player_address : null, "computer_id" = player_computerid ? player_computerid : null, "a_ckey" = null, "note" = note)
+	var/list/query_details = list("game_id" = GLOB.round_id, "ckey" = player_ckey, "address" = player_address ? player_address : null, "computer_id" = player_computerid ? player_computerid : null, "a_ckey" = null, "note" = note)
 
 	if (!user)
 		query_details["a_ckey"] = "Adminbot"
@@ -176,7 +176,7 @@
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
-	usr << browse(dat,"window=lookupnotes;size=900x500")
+	show_browser(usr, dat, "window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
 	if (!ckey)

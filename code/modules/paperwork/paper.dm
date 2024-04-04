@@ -16,7 +16,7 @@
 	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	slot_flags = SLOT_HEAD
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
@@ -100,17 +100,17 @@
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
-/obj/item/paper/examine(mob/user, distance, is_adjacent)
+/obj/item/paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
-		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
+		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
 		return
 	if(name != initial(name))
-		to_chat(user,"It's titled '[name]'.")
+		. += "It's titled '[name]'."
 	if(distance <= 1)
 		show_content(user)
 	else
-		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
+		. += SPAN_NOTICE("You have to go closer if you want to read it.")
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
@@ -341,6 +341,8 @@
 		t = replacetext(t, "\[logo_hp_small\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 		t = replacetext(t, "\[logo_golden\]", "")
+		t = replacetext(t, "\[logo_pvpolice\]", "")
+		t = replacetext(t, "\[logo_pvpolice_small\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
 	if(istypewriter)
@@ -575,17 +577,17 @@
 		if(T.loc == user || T.Adjacent(user))
 			. = TRUE
 
-/obj/item/paper/attackby(var/obj/item/P, mob/user)
+/obj/item/paper/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if(istype(P, /obj/item/tape_roll) && !istype(src, /obj/item/paper/business_card))
-		var/obj/item/tape_roll/tape = P
+	if(istype(attacking_item, /obj/item/tape_roll) && !istype(src, /obj/item/paper/business_card))
+		var/obj/item/tape_roll/tape = attacking_item
 		tape.stick(src, user)
 		return
 
-	if(istype(P, /obj/item/paper) || istype(P, /obj/item/photo))
-		if (istype(P, /obj/item/paper/carbon))
-			var/obj/item/paper/carbon/C = P
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo))
+		if (istype(attacking_item, /obj/item/paper/carbon))
+			var/obj/item/paper/carbon/C = attacking_item
 			if (!C.iscopy && !C.copied)
 				to_chat(user, SPAN_NOTICE("Take off the carbon copy first."))
 				add_fingerprint(user)
@@ -593,9 +595,9 @@
 		var/obj/item/paper_bundle/B = new(src.loc)
 		if (name != initial(name))
 			B.name = name
-		else if (P.name != initial(P.name))
-			B.name = P.name
-		user.drop_from_inventory(P,B)
+		else if (attacking_item.name != initial(attacking_item.name))
+			B.name = attacking_item.name
+		user.drop_from_inventory(attacking_item,B)
 		//TODO: Look into this stuff
 		if (istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/h_user = user
@@ -608,13 +610,13 @@
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.l_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.r_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.r_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.head == src)
@@ -624,21 +626,21 @@
 				src.forceMove(get_turf(h_user))
 				if(h_user.client)	h_user.client.screen -= src
 				h_user.put_in_hands(B)
-		to_chat(user, SPAN_NOTICE("You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name]."))
+		to_chat(user, SPAN_NOTICE("You clip the [attacking_item.name] to [(src.name == "paper") ? "the paper" : src.name]."))
 		src.forceMove(B)
 
 		B.pages.Add(src)
-		B.pages.Add(P)
+		B.pages.Add(attacking_item)
 		B.amount = 2
 		B.update_icon()
 
-	else if(P.ispen())
+	else if(attacking_item.ispen())
 		if(icon_state == "scrap")
 			to_chat(user, SPAN_WARNING("The [src] is too crumpled to write on."))
 			return
 
-		var/obj/item/pen/robopen/RP = P
-		if ( istype(RP) && RP.mode == 2 )
+		var/obj/item/pen/robopen/RP = attacking_item
+		if(istype(RP) && RP.mode == RENAME_PAPER)
 			RP.RenamePaper(user,src)
 		else
 			var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -647,16 +649,16 @@
 			paper_win.open()
 		return
 
-	else if(istype(P, /obj/item/stamp) || istype(P, /obj/item/clothing/ring/seal))
-		if((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/clipboard) ) && loc.loc != user && user.get_active_hand() != P))
+	else if(istype(attacking_item, /obj/item/stamp) || istype(attacking_item, /obj/item/clothing/ring/seal))
+		if((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/clipboard) ) && loc.loc != user && user.get_active_hand() != attacking_item))
 			return
 
-		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>This paper has been stamped with the [P.name].</i>"
+		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>This paper has been stamped with the [attacking_item.name].</i>"
 
 		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
 		var/x
 		var/y
-		if(istype(P, /obj/item/stamp/captain) || istype(P, /obj/item/stamp/centcomm))
+		if(istype(attacking_item, /obj/item/stamp/captain) || istype(attacking_item, /obj/item/stamp/centcomm))
 			x = rand(-2, 0)
 			y = rand(-1, 2)
 		else
@@ -669,19 +671,19 @@
 
 		if(!ico)
 			ico = new
-		ico += "paper_[P.icon_state]"
-		stampoverlay.icon_state = "paper_[P.icon_state]"
+		ico += "paper_[attacking_item.icon_state]"
+		stampoverlay.icon_state = "paper_[attacking_item.icon_state]"
 
 		if(!stamped)
 			stamped = new
-		stamped += P.type
+		stamped += attacking_item.type
 		add_overlay(stampoverlay)
 
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
-		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [P]."))
+		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [attacking_item]."))
 
-	else if(P.isFlameSource())
-		burnpaper(P, user)
+	else if(attacking_item.isFlameSource())
+		burnpaper(attacking_item, user)
 
 	update_icon()
 	add_fingerprint(user)

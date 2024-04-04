@@ -54,14 +54,14 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		onclose(user, "computer")
 		return
 
-	if(!current_map.holodeck_supported_programs.len)
+	if(!SSatlas.current_map.holodeck_supported_programs.len)
 		dat += "<span class='danger'>Warning: No supported holo-programs loaded.<br></span>"
 		user << browse(dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
-	for(var/prog in current_map.holodeck_supported_programs)
-		dat += "<A href='?src=\ref[src];program=[current_map.holodeck_supported_programs[prog]]'>([prog])</A><BR>"
+	for(var/prog in SSatlas.current_map.holodeck_supported_programs)
+		dat += "<A href='?src=\ref[src];program=[SSatlas.current_map.holodeck_supported_programs[prog]]'>([prog])</A><BR>"
 
 	dat += "<BR>"
 	dat += "<A href='?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
@@ -82,8 +82,8 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 	dat += "<BR>"
 
 	if(safety_disabled)
-		for(var/prog in current_map.holodeck_restricted_programs)
-			dat += "<A href='?src=\ref[src];program=[current_map.holodeck_restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
+		for(var/prog in SSatlas.current_map.holodeck_restricted_programs)
+			dat += "<A href='?src=\ref[src];program=[SSatlas.current_map.holodeck_restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
 			dat += "<BR>"
 		dat += "Safety Protocols are <font color=red> DISABLED </font><BR>"
@@ -114,8 +114,8 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 	if(href_list["program"])
 		var/prog = href_list["program"]
-		if(prog in current_map.holodeck_programs)
-			loadProgram(current_map.holodeck_programs[prog])
+		if(prog in SSatlas.current_map.holodeck_programs)
+			loadProgram(SSatlas.current_map.holodeck_programs[prog])
 
 	else if(href_list["AIoverride"])
 		if(!issilicon(usr))
@@ -152,7 +152,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		req_one_access = list()
 		update_projections()
 		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
-		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator.")
+		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [SSatlas.current_map.company_name] maintenance and do not use the simulator.")
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		src.updateUsrDialog()
 		return 1
@@ -211,7 +211,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 		if(!checkInteg(linkedholodeck))
 			damaged = 1
-			loadProgram(current_map.holodeck_programs["turnoff"], 0)
+			loadProgram(SSatlas.current_map.holodeck_programs["turnoff"], 0)
 			active = 0
 			update_use_power(POWER_USE_IDLE)
 			for(var/mob/M in range(10,src))
@@ -251,9 +251,9 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 //Why is it called toggle if it doesn't toggle?
 /obj/machinery/computer/holodeck_control/proc/togglePower(var/toggleOn = 0)
 	if(toggleOn)
-		loadProgram(current_map.holodeck_programs["emptycourt"], 0)
+		loadProgram(SSatlas.current_map.holodeck_programs["emptycourt"], 0)
 	else
-		loadProgram(current_map.holodeck_programs["turnoff"], 0)
+		loadProgram(SSatlas.current_map.holodeck_programs["turnoff"], 0)
 
 		if(!linkedholodeck.has_gravity)
 			linkedholodeck.gravitychange(TRUE)
@@ -309,7 +309,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		if(M.mind)
 			linkedholodeck.play_ambience(M)
 
-	linkedholodeck.sound_env = A.sound_env
+	linkedholodeck.sound_environment = A.sound_environment
 
 	spawn(30)
 		for(var/obj/effect/landmark/L in linkedholodeck)
@@ -359,7 +359,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 /obj/machinery/computer/holodeck_control/proc/emergencyShutdown()
 	//Turn it back to the regular non-holographic room
-	loadProgram(current_map.holodeck_programs["turnoff"], 0)
+	loadProgram(SSatlas.current_map.holodeck_programs["turnoff"], 0)
 
 	if(!linkedholodeck.has_gravity)
 		linkedholodeck.gravitychange(TRUE)
@@ -377,8 +377,8 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		return TRUE
 
 /obj/machinery/computer/holodeck_control/proc/load_random_program()
-	var/datum/holodeck_program/prog_to_load = pick(current_map.holodeck_programs)
-	loadProgram(current_map.holodeck_programs[prog_to_load])
+	var/datum/holodeck_program/prog_to_load = pick(SSatlas.current_map.holodeck_programs)
+	loadProgram(SSatlas.current_map.holodeck_programs[prog_to_load])
 
 /obj/machinery/computer/holodeck_control/Aurora
 	density = 0

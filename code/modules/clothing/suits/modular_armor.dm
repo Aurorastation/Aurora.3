@@ -120,6 +120,7 @@
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light,
 		/obj/item/clothing/accessory/leg_guard/tcaf,
+		/obj/item/clothing/accessory/storage/chest_gear
 	)
 
 /obj/item/clothing/accessory/armor_plate
@@ -276,6 +277,16 @@
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_POCKETS
 	slots = 4
+
+/obj/item/clothing/accessory/storage/chest_gear
+	name = "standard vest equipment"
+	desc = "the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_chest_gear"
+	item_state = "tcaf_chest_gear"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	slots = 2
 
 /obj/item/clothing/accessory/storage/modular_pouch
 	name = "plate carrier pouches"
@@ -523,8 +534,7 @@
 
 /obj/item/clothing/accessory/flagpatch/europa
 	name = "europa flagpatch"
-	desc = "A flagpatch representing Europa. It is a common tradition that no one can place the origin of to make these patches out of waterproof fabric then carry \
-	them on a dive before displaying them on one's clothes in order to gain good luck."
+	desc = "A flagpatch representing Europa. It is a common tradition, which nobody really knows the origin of, to make these patches out of waterproof fabric then carry them on a dive, before displaying them on one's own clothes in order to gain good luck."
 	icon_state = "flagpatch_europa"
 	item_state = "flagpatch_europa"
 
@@ -685,6 +695,35 @@
 	Antillian Provincial Naval Fleets, these patches are a mark of resilience through hard times on the planet."
 	icon_state = "flagpatch_portantillia"
 	item_state = "flagpatch_portantillia"
+
+/obj/item/clothing/accessory/flagpatch/zora
+	name = "zo'ra hive flagpatch"
+	desc = "A flagpatch representing the Zo'ra Hive. This flag depicts the Zo'rane capital world of Caprice, \
+	bearing a torch representing their position within the Republic of Biesel."
+	icon_state = "flagpatch_zora"
+	item_state = "flagpatch_zora"
+
+/obj/item/clothing/accessory/flagpatch/klax
+	name = "k'lax hive flagpatch"
+	desc = "A flagpatch representing the K'lax Hive. This flag depicts the K'laxian capital world of Tret, \
+	bearing the quartered colours of the Izweski Hegemony to represent the Hive's vassalage."
+	icon_state = "flagpatch_klax"
+	item_state = "flagpatch_klax"
+
+/obj/item/clothing/accessory/flagpatch/cthur
+	name = "c'thur hive flagpatch"
+	desc = "A flagpatch representing the C'thur Hive. This flag depicts the star borne by the Nralakk Federation's \
+	own flag, representing the Hive's independence and gracious allegiance toward the Federation."
+	icon_state = "flagpatch_cthur"
+	item_state = "flagpatch_cthur"
+
+/obj/item/clothing/accessory/flagpatch/sedantis
+	name = "sedantis flagpatch"
+	desc = "A flagpatch representing the gas giant Sedantis and it's orbiting bodies. Sedantis I, also known as \
+	Vaur'avek'uyit, was the homeworld of the Vaurca. Symbolism involving it is often employed to represent greater \
+	pan-Vaurcaesian interests over the interests of the individual Hives."
+	icon_state = "flagpatch_sedantis"
+	item_state = "flagpatch_sedantis"
 
 // Wildlands
 

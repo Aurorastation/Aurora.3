@@ -70,7 +70,6 @@
 	var/disable = 0
 	var/last_spark = 0
 	var/base_state = "migniter"
-	layer = 3.3
 	anchored = 1
 	idle_power_usage = 2
 	active_power_usage = 4
@@ -102,8 +101,8 @@
 	..()
 	update_icon()
 
-/obj/machinery/sparker/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+/obj/machinery/sparker/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.isscrewdriver())
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)

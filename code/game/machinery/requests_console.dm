@@ -441,15 +441,15 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return
 
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
-/obj/machinery/requests_console/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if (istype(O, /obj/item/card/id))
+/obj/machinery/requests_console/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/card/id))
 		if(inoperable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/card/id/T = O
+			var/obj/item/card/id/T = attacking_item
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>")
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
-			var/obj/item/card/id/ID = O
+			var/obj/item/card/id/ID = attacking_item
 			if (ACCESS_RC_ANNOUNCE in ID.GetAccess())
 				announceAuth = 1
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
@@ -458,17 +458,17 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
 			updateUsrDialog()
 		return TRUE
-	else if (istype(O, /obj/item/stamp))
+	else if (istype(attacking_item, /obj/item/stamp))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/stamp/T = O
+			var/obj/item/stamp/T = attacking_item
 			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
 			updateUsrDialog()
 		return TRUE
-	else if (istype(O, /obj/item/paper_bundle))
-		var/obj/item/paper_bundle/C = O
+	else if (istype(attacking_item, /obj/item/paper_bundle))
+		var/obj/item/paper_bundle/C = attacking_item
 		if(lid)
-			if(alert(user, "Do you want to restock \the [src] with \the [O]?", "Paper Restocking", "Yes", "No") == "No")
+			if(alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", "Yes", "No") == "No")
 				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
 				return
 			paperstock += C.amount
@@ -476,20 +476,20 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			qdel(C)
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
-			fax_send(O, user)
+			fax_send(attacking_item, user)
 		return TRUE
-	else if (istype(O, /obj/item/paper))
+	else if (istype(attacking_item, /obj/item/paper))
 		if(lid)
-			if(alert(user, "Do you want to restock \the [src] with \the [O]?", "Paper Restocking", "Yes", "No") == "No")
+			if(alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", "Yes", "No") == "No")
 				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
 				return
-			var/obj/item/paper/C = O
+			var/obj/item/paper/C = attacking_item
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			paperstock++
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
-			fax_send(O, user)
+			fax_send(attacking_item, user)
 		return TRUE
 
 /obj/machinery/requests_console/proc/can_send()
@@ -520,8 +520,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(Console.paperstock < paperstock_usage)
 				audible_message("<b>The Requests Console</b> beeps, \"Error! Receiving console out of paper! Aborting!\"")
 				return
-			playsound(Console.loc, 'sound/machines/twobeep.ogg')
-			playsound(Console.loc, 'sound/items/polaroid1.ogg')
+			playsound(Console.loc, 'sound/machines/twobeep.ogg', 40)
+			playsound(Console.loc, 'sound/items/polaroid1.ogg', 40)
 			if(!is_paper_bundle)
 				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15, user)
 				P.forceMove(Console.loc)

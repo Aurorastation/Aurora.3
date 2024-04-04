@@ -810,6 +810,9 @@
 		growth_stages = 0
 
 /datum/seed/proc/get_growth_type()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	if(get_trait(TRAIT_SPREAD) == 2)
 		switch(seed_noun)
 			if(SEED_NOUN_CUTTINGS)
@@ -822,28 +825,95 @@
 				return GROWTH_VINES
 	return 0
 
+/**
+ * A list of seed icons, to avoid regenerating images like there's no tomorrow
+ *
+ * Only access this by using the `SEED_ICON_CACHE_KEY` macro
+ *
+ * The structure is an associative list with the result of `SEED_ICON_CACHE_KEY` as the key
+ * and an `/image` as the value
+ */
+GLOBAL_LIST_INIT(seed_icon_cache, list())
+
+///Generates a text hash that works as the key for the `seed_icon_cache` GLOB list
+#define SEED_ICON_CACHE_KEY(file, state, color, leaves_overlay) "[file]|||[state]|||[color]|||[leaves_overlay]"
+
 /datum/seed/proc/get_icon(growth_stage)
-	var/image/res = image('icons/obj/hydroponics_growing.dmi', "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]")
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/image)
+
+	if(isnull(growth_stage))
+		crash_with("No growth stage was supplied when getting the icon!")
+
+	/* Setup a bunch of shit that should have been done in a very different way but alas */
+
+	//The icon of the plant
+	var/icon_trait = get_trait(TRAIT_PLANT_ICON)
+	//The type of growth
 	var/growth_type = get_growth_type()
-	if(growth_type)
-		res.icon_state = "[growth_type]-[growth_stage]"
+	//If it's a vine
+	var/is_vine = (get_trait(TRAIT_SPREAD) == 2)
+	//If the icon is a large one
+	var/is_large_icon = get_trait(TRAIT_LARGE)
+	//The color of the leaves, if any
+	var/leaves_color = get_trait(TRAIT_LEAVES_COLOUR)
+
+	/* The part where we select what to request */
+
+	//Pick what file we want
+	var/icon_file_to_request
+	if(is_vine)
+		icon_file_to_request = 'icons/obj/hydroponics_vines.dmi'
+	else if(is_large_icon)
+		icon_file_to_request = 'icons/obj/hydroponics_large.dmi'
 	else
-		res.icon_state = "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]"
+		icon_file_to_request = 'icons/obj/hydroponics_growing.dmi'
 
-	if(growth_type == GROWTH_VINES)
-		res.icon = 'icons/obj/hydroponics_vines.dmi'
+	//Pick what icon state to request
+	var/icon_state_to_request = (is_vine) ? "[growth_type]-[growth_stage]" : "[icon_trait]-[growth_stage]"
 
-	res.color = get_trait(TRAIT_PLANT_COLOUR)
+	//Pick the color to assign to the image
+	var/color_to_request = get_trait(TRAIT_PLANT_COLOUR)
 
-	if(get_trait(TRAIT_LARGE))
-		res.icon = 'icons/obj/hydroponics_large.dmi'
-		res.pixel_x = -8
-		res.pixel_y = -16
+	//The leaves color overlay to request
+	var/leaves_overlay_to_request = (leaves_color) ? "[icon_trait]-[growth_stage]-leaves" : null
 
-	if(get_trait(TRAIT_LEAVES_COLOUR))
-		var/image/I = image(res.icon, "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]-leaves")
-		I.color = get_trait(TRAIT_LEAVES_COLOUR)
-		I.appearance_flags = RESET_COLOR
-		res.add_overlay(I)
+	/* Find or generate the image and return it */
 
-	return res
+	//See if we have this in our cache
+	if(SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request) in GLOB.seed_icon_cache)
+		return GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)]
+
+	//No luck, it's not in the cache, time to generate it
+	else
+
+		//Check that there's a valid icon state we can use, abort otherwise
+		var/valid_icon_states = icon_states(icon_file_to_request, 2)
+		if(!(icon_state_to_request in valid_icon_states))
+			crash_with("A seed icon was requested with an invalid icon state! Icon file: [icon_file_to_request] ---- Icon state: [icon_state_to_request]")
+
+		var/image/generated_image = image(icon_file_to_request, icon_state_to_request)
+
+		//Assign the requested
+		generated_image.color = color_to_request
+
+		//If it's a large icon, offset it
+		if(is_large_icon)
+			generated_image.pixel_x = -8
+			generated_image.pixel_y = -16
+
+		//If leaves are requested, add them as overlays
+		if(leaves_overlay_to_request)
+			var/image/leaves_image = image(icon_file_to_request, leaves_overlay_to_request)
+			leaves_image.color = leaves_color
+			leaves_image.appearance_flags = RESET_COLOR
+			//Add ourself as overlays to the generated image
+			generated_image.add_overlay(leaves_image)
+
+		//Store the image in the cache, so we won't have to keep generating it
+		GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)] = generated_image
+
+		//Return the image
+		return generated_image
+
+#undef SEED_ICON_CACHE_KEY

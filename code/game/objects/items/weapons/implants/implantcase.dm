@@ -36,10 +36,10 @@
 		var/mutable_appearance/overlay_implant_icon = mutable_appearance(icon, overlay_icon_state)
 		add_overlay(overlay_implant_icon)
 
-/obj/item/implantcase/attackby(obj/item/I, mob/user)
-	if (I.ispen())
+/obj/item/implantcase/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.ispen())
 		var/t = tgui_input_text(user, "What would you like the label to be?", name, name, MAX_NAME_LEN)
-		if (user.get_active_hand() != I)
+		if (user.get_active_hand() != attacking_item)
 			return
 		if((!in_range(src, usr) && loc != user))
 			return
@@ -49,10 +49,10 @@
 		else
 			src.name = "implant case"
 			desc = "An aluminium case, which can safely contain an implant."
-	else if(istype(I, /obj/item/reagent_containers/syringe))
-		imp.attackby(I, user)
-	else if (istype(I, /obj/item/implanter))
-		var/obj/item/implanter/M = I
+	else if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+		imp.attackby(attacking_item, user)
+	else if (istype(attacking_item, /obj/item/implanter))
+		var/obj/item/implanter/M = attacking_item
 		if (M.imp && !imp && !M.imp.implanted)
 			M.imp.forceMove(src)
 			imp = M.imp
@@ -64,17 +64,17 @@
 		update_description()
 		update_icon()
 		M.update_icon()
-	else if (istype(I, /obj/item/implant))
+	else if (istype(attacking_item, /obj/item/implant))
 		if(imp == null)
-			to_chat(user, SPAN_NOTICE("You slide \the [I] into \the [src]."))
-			user.drop_from_inventory(I,src)
-			imp = I
+			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."))
+			user.drop_from_inventory(attacking_item,src)
+			imp = attacking_item
 		else
 			to_chat(user, SPAN_WARNING("\The [src] already has an implant inside of it!"))
 		update_description()
 		update_icon()
-	else if(istype(I, /obj/item/implantpad))
-		var/obj/item/implantpad/pad = I
+	else if(istype(attacking_item, /obj/item/implantpad))
+		var/obj/item/implantpad/pad = attacking_item
 		if(!pad.case)
 			user.drop_from_inventory(src,pad)
 			pad.case = src

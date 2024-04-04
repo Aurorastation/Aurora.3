@@ -157,9 +157,9 @@ var/const/NO_EMAG_ACT = -50
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, SOUTH, ignore_parent_dir = TRUE)
+	front = getFlatIcon(M, SOUTH)
 	front.Scale(128, 128)
-	side = getFlatIcon(M, WEST, ignore_parent_dir = TRUE)
+	side = getFlatIcon(M, WEST)
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
@@ -282,9 +282,9 @@ var/const/NO_EMAG_ACT = -50
 				return 1
 	return ..()
 
-/obj/item/card/id/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/card/id))
-		var/obj/item/card/id/ID = W
+/obj/item/card/id/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		var/obj/item/card/id/ID = attacking_item
 		if(ID.can_copy_access)
 			ID.access |= src.access
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -525,6 +525,10 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/distress/legion/New()
 	access = list(ACCESS_LEGION, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
 	..()
+
+/obj/item/card/id/distress/legion/tcaf
+	name = "\improper Tau Ceti Armed Forces identification card"
+	assignment = "Republican Fleet Legionary"
 
 /obj/item/card/id/distress/ap_eridani
 	name = "\improper Eridani Private Military Contractor identification card"

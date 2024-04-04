@@ -4,7 +4,6 @@
 	anchored = TRUE
 	density = TRUE
 	throwpass = TRUE //You can throw objects over this, despite its density.
-	layer = BELOW_OBJ_LAYER
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.
@@ -31,20 +30,20 @@
 	update_icon()
 	starting_maxhealth = maxhealth
 
-/obj/structure/barricade/examine(mob/user)
+/obj/structure/barricade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency."))
+	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
 	if(is_wired)
-		to_chat(user, SPAN_INFO("There is a length of wire strewn across the top of this barricade."))
+		. += SPAN_INFO("There is a length of wire strewn across the top of this barricade.")
 	switch(damage_state)
 		if(BARRICADE_DMG_NONE)
-			to_chat(user, SPAN_INFO("It appears to be in good shape."))
+			. += SPAN_INFO("It appears to be in good shape.")
 		if(BARRICADE_DMG_SLIGHT)
-			to_chat(user, SPAN_WARNING("It's slightly damaged, but still very functional."))
+			. += SPAN_WARNING("It's slightly damaged, but still very functional.")
 		if(BARRICADE_DMG_MODERATE)
-			to_chat(user, SPAN_WARNING("It's quite beat up, but it's holding together."))
+			. += SPAN_WARNING("It's quite beat up, but it's holding together.")
 		if(BARRICADE_DMG_HEAVY)
-			to_chat(user, SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!"))
+			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
 
 /obj/structure/barricade/update_icon()
 	overlays.Cut()
@@ -55,13 +54,13 @@
 			icon_state = "[barricade_type]"
 		switch(dir)
 			if(SOUTH)
-				layer = ABOVE_MOB_LAYER
+				layer = ABOVE_HUMAN_LAYER
 			if(NORTH)
 				layer = initial(layer) - 0.01
 			else
-				layer = initial(layer)
+				reset_plane_and_layer()
 		if(!anchored)
-			layer = initial(layer)
+			reset_plane_and_layer()
 	else
 		if(can_change_dmg_state)
 			icon_state = "[barricade_type]_closed_[damage_state]"
@@ -142,20 +141,20 @@
 	L.do_attack_animation(src)
 	take_damage(damage)
 
-/obj/structure/barricade/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/barbed_wire))
-		var/obj/item/stack/barbed_wire/B = W
+/obj/structure/barricade/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/barbed_wire))
+		var/obj/item/stack/barbed_wire/B = attacking_item
 		if(can_wire)
-			user.visible_message(SPAN_NOTICE("[user] starts setting up [W.name] on [src]."),
-			SPAN_NOTICE("You start setting up [W.name] on [src]."))
+			user.visible_message(SPAN_NOTICE("[user] starts setting up [attacking_item.name] on [src]."),
+			SPAN_NOTICE("You start setting up [attacking_item.name] on [src]."))
 			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT) && can_wire)
 				// Make sure there's still enough wire in the stack
 				if(!B.use(1))
 					return
 
 				playsound(src.loc, 'sound/effects/barbed_wire_movement.ogg', 25, 1)
-				user.visible_message(SPAN_NOTICE("[user] sets up [W.name] on [src]."),
-				SPAN_NOTICE("You set up [W.name] on [src]."))
+				user.visible_message(SPAN_NOTICE("[user] sets up [attacking_item.name] on [src]."),
+				SPAN_NOTICE("You set up [attacking_item.name] on [src]."))
 
 				maxhealth += 50
 				update_health(-50)
@@ -165,7 +164,7 @@
 				update_icon()
 		return
 
-	if(W.iswirecutter())
+	if(attacking_item.iswirecutter())
 		if(is_wired)
 			user.visible_message(SPAN_NOTICE("[user] begin removing the barbed wire on [src]."),
 			SPAN_NOTICE("You begin removing the barbed wire on [src]."))
@@ -185,11 +184,11 @@
 				new /obj/item/stack/barbed_wire(loc)
 		return
 
-	if((W.force + W.armor_penetration) > force_level_absorption)
+	if((attacking_item.force + attacking_item.armor_penetration) > force_level_absorption)
 		..()
 		if(barricade_hitsound)
 			playsound(src, barricade_hitsound, 25, 1)
-		hit_barricade(W, user)
+		hit_barricade(attacking_item, user)
 
 /obj/structure/barricade/bullet_act(obj/item/projectile/P)
 	bullet_ping(P)

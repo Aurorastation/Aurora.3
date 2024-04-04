@@ -59,7 +59,7 @@
 			D = tgui_input_list(usr, "Choose shuttle destination.", "Shuttle Destination", possible_d)
 		else
 			to_chat(usr, SPAN_WARNING("No valid landing sites in range."))
-		if(CanInteract(user, physical_state) && (D in possible_d))
+		if(CanInteract(user, GLOB.physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TRUE
 
