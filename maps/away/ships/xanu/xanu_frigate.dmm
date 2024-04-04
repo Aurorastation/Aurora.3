@@ -2110,6 +2110,16 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/cargo_bay)
+"hm" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/multi_tile/glass{
+	door_color = "#949ea3";
+	name = "bulkhead door";
+	req_access = list(222)
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/ship/xanu_frigate/corridor/aft_starboard)
 "hn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2173,6 +2183,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass{
+	door_color = "#949ea3";
+	name = "bulkhead door";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/corridor/aft_port)
 "hy" = (
@@ -4104,6 +4119,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/multi_tile/glass{
+	door_color = "#949ea3";
+	name = "bulkhead door";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "nY" = (
@@ -6282,6 +6302,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_boarder/cockpit)
+"vF" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/multi_tile/glass{
+	door_color = "#949ea3";
+	name = "bulkhead door";
+	req_access = list(222)
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/ship/xanu_frigate/corridor/aft_port)
 "vJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6709,6 +6745,11 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/multi_tile/glass{
+	door_color = "#949ea3";
+	name = "bulkhead door";
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "xp" = (
@@ -9781,6 +9822,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
+"HZ" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/multi_tile/glass{
+	door_color = "#949ea3";
+	name = "bulkhead door";
+	req_access = list(222)
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/ship/xanu_frigate/corridor/fore)
 "Ia" = (
 /obj/structure/extinguisher_cabinet/west,
 /obj/machinery/button/remote/blast_door{
@@ -44886,7 +44943,7 @@ iF
 hh
 hh
 HN
-hN
+hm
 VN
 IO
 Wk
@@ -47209,7 +47266,7 @@ Hq
 Gx
 Gx
 jl
-XM
+HZ
 Gl
 Ra
 vl
@@ -48719,7 +48776,7 @@ Af
 Ta
 mG
 Bg
-gJ
+vF
 FZ
 Bw
 zK
