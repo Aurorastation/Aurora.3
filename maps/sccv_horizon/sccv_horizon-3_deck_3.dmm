@@ -8253,6 +8253,18 @@
 "fXr" = (
 /turf/simulated/wall,
 /area/maintenance/security_starboard)
+"fYi" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	id = "shutters_deck3_longbow";
+	name = "Safety Blast Doors Control";
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/longbow)
 "fZe" = (
 /obj/structure/platform/ledge{
 	dir = 8
@@ -27452,13 +27464,6 @@
 /obj/machinery/computer/ship/navigation,
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "shutters_deck3_longbow";
-	name = "Safety Blast Doors Control";
-	pixel_x = 22;
-	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
@@ -61815,7 +61820,7 @@ nsP
 ogE
 ecI
 eUF
-ecI
+fYi
 mXh
 kHa
 oty
