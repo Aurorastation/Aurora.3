@@ -3,11 +3,10 @@
 	sort_order = 1
 
 /datum/category_item/player_setup_item/skills/load_character(var/savefile/S)
-	S["culture"]    		>> pref.education
-	//todomatt
+	S["skills"]    		>> pref.skills
 
 /datum/category_item/player_setup_item/skills/save_character(var/savefile/S)
-	S["culture"]    		<< pref.skills
+	S["skills"]    		<< pref.skills
 
 /datum/category_item/player_setup_item/skills/gather_load_query()
 	return list(

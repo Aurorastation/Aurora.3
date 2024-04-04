@@ -93,15 +93,24 @@ var/list/preferences_datums = list()
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
 
-		//Some faction information.
-	var/home_system = "Unset"           //System of birth.
-	var/citizenship = "None"            //Current home system.
-	var/faction = "None"                //Antag faction/general associated faction.
-	var/religion = "None"               //Religious association.
-	var/accent = "None"               //Character accent.
+	/// Character citizenship.
+	var/citizenship = "None"
+	/// Antag faction/general associated faction.
+	var/faction = "None"
+	/// Religious association.
+	var/religion = "None"
+	/// Character accent.
+	var/accent = "None"
 
+	/// The character's culture singleton.
 	var/culture
+	/// The character's origin singleton.
 	var/origin
+	/// The character's education singleton.
+	var/education
+
+	/// The character's skills list.
+	var/list/skills = list()
 
 	var/list/psionics = list()
 
@@ -638,7 +647,6 @@ var/list/preferences_datums = list()
 		b_eyes = 0
 
 		species = SPECIES_HUMAN
-		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"

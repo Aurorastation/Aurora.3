@@ -75,27 +75,50 @@
 	var/datum/species/S = GLOB.all_species[pref.species]
 	if(!istext(pref.culture) || !ispath(text2path(pref.culture), /singleton/origin_item/culture))
 		var/singleton/origin_item/culture/CI = S.possible_cultures[1]
-		pref.culture = "[CI]"
+		pref.culture = "[CI.type]"
+
 	var/singleton/origin_item/culture/our_culture = GET_SINGLETON(text2path(pref.culture))
 	if(!istext(pref.origin) || !ispath(text2path(pref.origin), /singleton/origin_item/origin))
 		var/singleton/origin_item/origin/OI = pick(our_culture.possible_origins)
-		pref.origin = "[OI]"
+		pref.origin = "[OI.type]"
 	else
 		var/singleton/origin_item/origin/origin_check = text2path(pref.origin)
 		if(!(origin_check in our_culture.possible_origins))
 			to_client_chat(SPAN_WARNING("Your origin has been reset due to it being incompatible with your culture!"))
 			var/singleton/origin_item/origin/OI = pick(our_culture.possible_origins)
-			pref.origin = "[OI]"
+			pref.origin = "[OI.type]"
+
+	if(!istext(pref.education) || !ispath(text2path(pref.education), /singleton/education))
+		var/singleton/education/ED = find_suitable_education()
+		if(ED)
+			pref.education = "[ED.type]"
+	else
+		var/singleton/education/our_education = GET_SINGLETON(text2path(pref.education))
+		if(length(our_education.species_restriction))
+			if(pref.species in our_education.species_restriction)
+				var/singleton/education/ED = find_suitable_education()
+				if(ED)
+					pref.education = "[ED.type]"
+		if(length(our_education.minimum_character_age))
+			if(pref.species in our_education.minimum_character_age)
+				if(pref.age < our_education.minimum_character_age[pref.species])
+					var/singleton/education/ED = find_suitable_education()
+					if(ED)
+						pref.education = "[ED.type]"
+
 	var/singleton/origin_item/origin/our_origin = GET_SINGLETON(text2path(pref.origin))
 	if(!(pref.citizenship in our_origin.possible_citizenships))
 		to_client_chat(SPAN_WARNING("Your previous citizenship is invalid for this origin! Resetting."))
 		pref.citizenship = our_origin.possible_citizenships[1]
+
 	if(!(pref.religion in our_origin.possible_religions))
 		to_client_chat(SPAN_WARNING("Your previous religion is invalid for this origin! Resetting."))
 		pref.religion = our_origin.possible_religions[1]
+
 	if(!(pref.accent in our_origin.possible_accents))
 		to_client_chat(SPAN_WARNING("Your previous accent is invalid for this origin! Resetting."))
 		pref.accent	= our_origin.possible_accents[1]
+
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/origin/content(var/mob/user)
@@ -119,6 +142,8 @@
 	if(OR.important_information)
 		dat += "<br><i>- <font color=red>[OR.important_information]</font></i>"
 	dat += "<hr>"
+	var/singleton/education/ED = GET_SINGLETON(text2path(pref.education))
+	dat += "<b>Education:</b> <a href='?src=\ref[src];open_education_menu=1'>[ED.name]</a><br/>"
 	dat += "<b>Economic Status:</b> <a href='?src=\ref[src];economic_status=1'>[pref.economic_status]</a><br/>"
 	dat += "<b>Citizenship:</b> <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>"
 	dat += "<b>Religion:</b> <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>"
@@ -136,7 +161,7 @@
 		var/result = tgui_input_list(user, "Choose your character's culture.", "Culture", options)
 		var/singleton/origin_item/culture/chosen_culture = options[result]
 		if(chosen_culture)
-			show_window(chosen_culture, "set_culture_data", user)
+			show_origin_window(chosen_culture, "set_culture_data", user)
 		return TOPIC_HANDLED
 
 	if(href_list["open_origin_menu"])
@@ -149,8 +174,27 @@
 		var/result = tgui_input_list(user, "Choose your character's origin.", "Origins", options)
 		var/singleton/origin_item/origin/chosen_origin = options[result]
 		if(chosen_origin)
-			show_window(chosen_origin, "set_origin_data", user)
+			show_origin_window(chosen_origin, "set_origin_data", user)
 		return TOPIC_HANDLED
+
+	if(href_list["open_education_menu"])
+		var/list/options = list()
+		var/singleton/education/our_education = GET_SINGLETON(text2path(pref.education))
+		var/list/singleton/education/education_list = GET_SINGLETON_SUBTYPE_MAP(/singleton/education)
+		for(var/singleton_type in education_list)
+			var/singleton/education/ED = education_list[singleton_type]
+			if(length(ED.species_restriction))
+				if(pref.species in ED.species_restriction)
+					continue
+			if(length(ED.minimum_character_age))
+				if(pref.species in ED.minimum_character_age)
+					if(pref.age < ED.minimum_character_age[pref.species])
+						continue
+			options[ED.name] = ED
+		var/result = tgui_input_list(user, "Choose your character's education.", "Education", options)
+		var/singleton/education/chosen_education = options[result]
+		if(chosen_education)
+			show_education_window(chosen_education, "set_education_data", user)
 
 	if(href_list["set_culture_data"])
 		user << browse(null, "window=set_culture_data")
@@ -161,6 +205,12 @@
 	if(href_list["set_origin_data"])
 		user << browse(null, "window=set_origin_data")
 		pref.origin = html_decode(href_list["set_origin_data"])
+		sanitize_character()
+		return TOPIC_REFRESH
+
+	if(href_list["set_education_data"])
+		user << browse(null, "window=set_education_data")
+		pref.education = html_decode(href_list["set_education_data"])
 		sanitize_character()
 		return TOPIC_REFRESH
 
@@ -212,7 +262,7 @@
 		sanitize_character()
 		return TOPIC_REFRESH
 
-/datum/category_item/player_setup_item/origin/proc/show_window(var/singleton/origin_item/OI, var/topic_data, var/mob/user)
+/datum/category_item/player_setup_item/origin/proc/show_origin_window(var/singleton/origin_item/OI, var/topic_data, var/mob/user)
 	var/datum/browser/origin_win = new(user, topic_data, "Origins Selection")
 	var/dat = "<html><center><b>[OI.name]</center></b>"
 	dat += "<hr>[OI.desc]<br>"
@@ -222,6 +272,15 @@
 	dat += "</html>"
 	origin_win.set_content(dat)
 	origin_win.open()
+
+/datum/category_item/player_setup_item/origin/proc/show_education_window(var/singleton/education/ED, var/topic_data, var/mob/user)
+	var/datum/browser/education_win = new(user, topic_data, "Education Selection")
+	var/dat = "<html><center><b>[ED.name]</center></b>"
+	dat += "<hr>[ED.description]<br>"
+	dat += "<br><center>\[<a href='?src=\ref[src];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
+	dat += "</html>"
+	education_win.set_content(dat)
+	education_win.open()
 
 /datum/category_item/player_setup_item/origin/proc/show_citizenship_menu(mob/user, selected_citizenship)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[selected_citizenship]
@@ -256,3 +315,17 @@
 		dat += "</html>"
 		acc_win.set_content(dat)
 		acc_win.open()
+
+/// This proc finds and returns the first suitable education for the pref datum.
+/datum/category_item/player_setup_item/origin/proc/find_suitable_education()
+	var/list/singleton/education/education_list = GET_SINGLETON_SUBTYPE_MAP(/singleton/education)
+	for(var/singleton_type in education_list)
+		var/singleton/education/ED = education_list[singleton_type]
+		if(length(ED.species_restriction))
+			if(pref.species in ED.species_restriction)
+				continue
+		if(length(ED.minimum_character_age))
+			if(pref.species in ED.minimum_character_age)
+				if(pref.age < ED.minimum_character_age[pref.species])
+					continue
+		return ED

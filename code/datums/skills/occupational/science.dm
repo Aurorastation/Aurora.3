@@ -1,23 +1,27 @@
 /singleton/skill/research
 	name = "Research"
-	desc = "it's generic research shit, using the protolathe, destructive analyzers, etc"
+	description = "it's generic research shit, using the protolathe, destructive analyzers, etc"
+	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category = SKILL_CATEGORY_OCCUPATIONAL
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 
 /singleton/skill/robotics
 	name = "Robotics"
-	desc = "fixing cyborgs and IPCs"
+	description = "fixing cyborgs and IPCs"
+	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category = SKILL_CATEGORY_OCCUPATIONAL
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 
 /singleton/skill/xenobotany
 	name = "Xenobotany"
-	desc = "gene editing plants"
+	description = "gene editing plants"
+	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category = SKILL_CATEGORY_OCCUPATIONAL
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 
 /singleton/skill/archaeology
 	name = "Archaeology"
-	desc = "finding archaeological stuff"
+	description = "finding archaeological stuff"
+	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category = SKILL_CATEGORY_OCCUPATIONAL
 	subcategory = SKILL_SUBCATEGORY_SCIENCE

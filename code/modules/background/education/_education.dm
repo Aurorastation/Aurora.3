@@ -9,3 +9,10 @@
 	var/list/jobs
 	/// The given skills for this education type. Linked list of skill type to level.
 	var/list/skills
+	/// Species that CANNOT take this education, if necessary. This is a list of names, must match what's in the species pref variable.
+	/// Empty list means no restrictions.
+	var/list/species_restriction
+
+/singleton/education/high_school
+	name = "High School Diploma"
+	description = "Your character has a high school diploma."
