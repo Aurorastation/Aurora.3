@@ -1,6 +1,0 @@
-author: atteria
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed seams in the smoothing of mineral turfs."
