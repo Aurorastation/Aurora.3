@@ -926,8 +926,6 @@ default behaviour is:
 		for(var/a in auras)
 			remove_aura(a)
 
-	QDEL_NULL(ability_master)
-
 	return ..()
 
 /mob/living/proc/nervous_system_failure()

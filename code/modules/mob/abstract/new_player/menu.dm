@@ -54,7 +54,7 @@
 
 /obj/screen/new_player
 	icon = 'icons/misc/hudmenu/hudmenu.dmi'
-	layer = HUD_LAYER
+	layer = HUD_BASE_LAYER
 
 /obj/screen/new_player/Initialize()
 	set_sector_things()
@@ -317,7 +317,7 @@
 
 	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
 	spawning = 1
-	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
+	src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // stop the jams for observers
 
 	observer.started_as_observer = 1
 	close_spawn_windows()

@@ -101,7 +101,7 @@ field_generator power level display
 		switch(state)
 			if(0)
 				state = 1
-				playsound(src.loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message("[user.name] secures [src.name] to the floor.",
 										"You secure the external reinforcing bolts to the floor.",
 										"You hear ratchet")
@@ -109,7 +109,7 @@ field_generator power level display
 				update_icon()
 			if(1)
 				state = 0
-				playsound(src.loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.",
 										"You undo the external reinforcing bolts.",
 										"You hear ratchet")

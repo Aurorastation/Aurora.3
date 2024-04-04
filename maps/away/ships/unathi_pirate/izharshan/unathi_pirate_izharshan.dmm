@@ -333,7 +333,6 @@
 "lE" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,
@@ -556,7 +555,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,
@@ -1507,22 +1505,22 @@
 	dir = 4
 	},
 /obj/item/storage/box/shotgunshells,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/item/clothing/gloves/ballistic,
-/obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/pistol/super_heavy,
 /obj/item/ammo_magazine/super_heavy,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/random/civgun/rifle,
 /obj/random/civgun,
-/obj/random/civgun,
-/obj/random/civgun,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/crackrifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "XV" = (

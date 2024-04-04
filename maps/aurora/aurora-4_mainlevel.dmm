@@ -829,7 +829,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/disposalpipe/segment{
@@ -2522,7 +2521,6 @@
 /area/security/brig)
 "aeZ" = (
 /obj/machinery/computer/security/telescreen{
-	layer = 4;
 	name = "Observation Screen";
 	network = list("Interrogation");
 	pixel_y = -32
@@ -6086,7 +6084,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Engine Waste Handling Access"
 	},
 /turf/simulated/floor/plating,
@@ -6095,7 +6092,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Engine Waste Handling Access"
 	},
 /turf/simulated/floor/plating,
@@ -6728,9 +6724,7 @@
 /turf/simulated/open,
 /area/turbolift/engineering_station)
 "anK" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
+/obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmopsherics Storage";
@@ -8874,9 +8868,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "ary" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
+/obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -9213,7 +9205,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/stack/material/glass{
 	amount = 50
@@ -12165,7 +12156,6 @@
 	id = "enginecore"
 	},
 /obj/machinery/power/supermatter{
-	layer = 4
 	},
 /obj/effect/landmark/engine_setup/core,
 /turf/simulated/floor/greengrid/nitrogen,
@@ -13999,25 +13989,20 @@
 /area/crew_quarters/sleep/research)
 "azT" = (
 /obj/item/storage/box/drinkingglasses{
-	layer = 3.3;
 	pixel_x = 15;
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.3;
 	pixel_y = 17
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.3;
 	pixel_x = -7;
 	pixel_y = 17
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.3;
 	pixel_y = 13
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.3;
 	pixel_x = -7;
 	pixel_y = 13
 	},
@@ -14332,7 +14317,6 @@
 /area/engineering/engine_monitoring)
 "aAs" = (
 /obj/item/device/radio/intercom/south{
-	layer = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -14345,7 +14329,6 @@
 /area/engineering/engine_monitoring)
 "aAt" = (
 /obj/machinery/newscaster/south{
-	layer = 3.3
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -18383,7 +18366,6 @@
 "aGG" = (
 /obj/structure/table/steel,
 /obj/structure/closet/crate/autakh{
-	layer = 2.79;
 	pixel_y = -4;
 	tablestatus = -1
 	},
@@ -18834,7 +18816,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom/south{
-	layer = 4
 	},
 /obj/machinery/light{
 	icon_state = "tube_empty"
@@ -19040,7 +19021,6 @@
 "aHR" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/medical,
@@ -19052,7 +19032,6 @@
 "aHS" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/medical,
@@ -20463,7 +20442,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	id_tag = "";
-	layer = 2.8;
 	name = "Security Starboard Entrance";
 	req_access = list(63);
 	dir = 4
@@ -21024,7 +21002,6 @@
 "aLi" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
@@ -21038,7 +21015,6 @@
 "aLj" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/atmos,
@@ -21245,7 +21221,6 @@
 	dir = 8
 	},
 /obj/structure/noticeboard{
-	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -21591,7 +21566,6 @@
 	dir = 8
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -22228,7 +22202,6 @@
 "aNc" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/shoes/magboots,
@@ -22238,7 +22211,6 @@
 "aNd" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/shoes/magboots,
@@ -25257,7 +25229,6 @@
 "aSm" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -25665,7 +25636,6 @@
 /area/bridge)
 "aTc" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/full,
@@ -25751,7 +25721,6 @@
 "aTk" = (
 /obj/item/modular_computer/console/preset/engineering,
 /obj/machinery/newscaster/south{
-	layer = 3.3
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -26033,7 +26002,6 @@
 "aTH" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -27154,7 +27122,6 @@
 	},
 /obj/machinery/door/airlock/glass_security{
 	id_tag = "";
-	layer = 2.8;
 	name = "Security Aft Entrance";
 	req_access = list(63);
 	dir = 1
@@ -27381,7 +27348,6 @@
 	dir = 8
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -29697,7 +29663,6 @@
 "baa" = (
 /obj/machinery/photocopier,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /turf/simulated/floor/wood,
@@ -29853,7 +29818,6 @@
 /area/janitor)
 "bav" = (
 /obj/machinery/newscaster/south{
-	layer = 3.3
 	},
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
@@ -31038,7 +31002,6 @@
 "bcW" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/analyzer/plant_analyzer,
 /obj/item/device/healthanalyzer,
@@ -31834,7 +31797,6 @@
 "beu" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/borgupload{
 	pixel_x = -1;
@@ -31873,7 +31835,6 @@
 "bez" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/rdconsole,
 /obj/item/circuitboard/rdserver{
@@ -31888,7 +31849,6 @@
 "beA" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/security{
 	pixel_x = 1;
@@ -31899,7 +31859,6 @@
 "beB" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
@@ -32551,7 +32510,6 @@
 "bfN" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/security/mining,
 /obj/item/circuitboard/autolathe{
@@ -32563,7 +32521,6 @@
 "bfO" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/security/engineering,
 /obj/item/circuitboard/atmos_alert{
@@ -32575,7 +32532,6 @@
 "bfP" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
@@ -33406,7 +33362,6 @@
 "bhg" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/robotics{
 	pixel_x = -2;
@@ -33422,7 +33377,6 @@
 "bhi" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/message_monitor{
 	pixel_x = 3;
@@ -33441,7 +33395,6 @@
 "bhk" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/rdtechprocessor{
 	pixel_x = -2;
@@ -33675,7 +33628,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/structure/noticeboard{
-	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -34127,7 +34079,6 @@
 "biv" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/matter_bin,
@@ -34417,7 +34368,6 @@
 /obj/item/device/assembly/timer,
 /obj/structure/closet/crate/drop/grey{
 	desc = "A large, sturdy crate, that stores grenade components.";
-	layer = 2.79;
 	name = "grenade crate";
 	pixel_y = -4;
 	tablestatus = -1
@@ -35282,7 +35232,6 @@
 "bkp" = (
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_alc/full{
-	layer = 3.1;
 	pixel_x = -1;
 	pixel_y = 7
 	},
@@ -39225,7 +39174,6 @@
 	},
 /obj/machinery/door/window{
 	dir = 1;
-	layer = 2.85;
 	name = "MediExpress - Storage";
 	req_access = list(66)
 	},
@@ -41383,7 +41331,6 @@
 /area/rnd/rdoffice)
 "bwW" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -45618,7 +45565,6 @@
 "bGt" = (
 /obj/structure/table/standard,
 /obj/machinery/door/window{
-	layer = 2.85;
 	name = "hydroponics desk";
 	req_access = list(35)
 	},
@@ -48845,7 +48791,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	layer = 3.3;
 	master_tag = "civilian_eva_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -48992,7 +48937,6 @@
 	pixel_y = 24
 	},
 /obj/structure/sink/kitchen{
-	layer = 3.3;
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white,
@@ -49350,7 +49294,6 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/westleft{
 	closed_layer = 2.9;
-	layer = 2.9;
 	name = "Display Window";
 	open_layer = 2.9;
 	req_access = list(28)
@@ -49945,7 +49888,6 @@
 "bRU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sink/kitchen{
-	layer = 3.3;
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white,
@@ -57661,7 +57603,6 @@
 "cqu" = (
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5
 	},
 /obj/machinery/door/airlock/security{
 	name = "Autopsy Lab";
@@ -58014,7 +57955,6 @@
 "cUQ" = (
 /obj/machinery/ringer_button{
 	id = "Consular";
-	layer = 3.3;
 	name = "Consular ringer button";
 	pixel_x = 24;
 	pixel_y = -23
@@ -58404,7 +58344,6 @@
 /area/maintenance/research_port)
 "dBV" = (
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/closet/crate/freezer,
@@ -58760,7 +58699,6 @@
 	},
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled{
@@ -59231,7 +59169,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -59396,7 +59333,6 @@
 /obj/random/plushie,
 /obj/item/stack/material/wood{
 	amount = 10;
-	layer = 3.01
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
@@ -60441,7 +60377,6 @@
 "hji" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
-	layer = 4.1;
 	on = 0;
 	pixel_y = 4
 	},
@@ -60735,7 +60670,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/railing/mapped{
-	layer = 4.01;
 	name = "polished railing"
 	},
 /obj/effect/floor_decal/spline/plain,
@@ -60941,7 +60875,6 @@
 /area/maintenance/atmos_control)
 "hVm" = (
 /obj/structure/railing/mapped{
-	layer = 4.01;
 	name = "polished railing"
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -60986,7 +60919,6 @@
 /area/maintenance/engineering)
 "iap" = (
 /obj/structure/railing/mapped{
-	layer = 4.01;
 	name = "polished railing"
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -61091,12 +61023,10 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9;
 	pixel_y = -14
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -62287,7 +62217,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -63141,7 +63070,6 @@
 	},
 /obj/machinery/ringer_button{
 	id = "Representative";
-	layer = 3.3;
 	name = "Representative ringer button";
 	pixel_x = -24;
 	pixel_y = 32
@@ -63507,7 +63435,6 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
-	layer = 3.3;
 	master_tag = "civilian_eva_airlock";
 	name = "exterior access button";
 	pixel_x = 25;
@@ -63898,7 +63825,6 @@
 "ohL" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/circuitboard/protolathe,
 /obj/item/circuitboard/destructive_analyzer{
@@ -64431,7 +64357,6 @@
 "pfO" = (
 /obj/structure/noticeboard{
 	dir = 8;
-	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -64603,7 +64528,6 @@
 	pixel_y = -2
 	},
 /obj/item/pen/multi{
-	layer = 3.01
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
@@ -64988,7 +64912,6 @@
 /obj/item/storage/box/sharps,
 /obj/structure/noticeboard{
 	dir = 8;
-	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -65524,7 +65447,6 @@
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
 	dir = 8;
-	layer = 2.45
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -66580,7 +66502,6 @@
 	},
 /obj/machinery/door/window/westright{
 	closed_layer = 2.9;
-	layer = 2.9;
 	name = "Display Window";
 	open_layer = 2.9;
 	req_access = list(28)
@@ -67605,7 +67526,6 @@
 /area/maintenance/medbay)
 "ulg" = (
 /obj/machinery/chemical_dispenser/coffee/full{
-	layer = 3.3;
 	pixel_x = 1;
 	pixel_y = 8;
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
@@ -68023,10 +67943,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/grille{
-	layer = 2.7
 	},
 /obj/structure/blocker{
-	layer = 2.8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -68322,12 +68240,10 @@
 	pixel_y = 9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9;
 	pixel_y = -14
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -69145,7 +69061,6 @@
 	pixel_y = 1
 	},
 /obj/item/stamp{
-	layer = 3.1;
 	name = "representative stamp";
 	pixel_x = -8;
 	pixel_y = 4

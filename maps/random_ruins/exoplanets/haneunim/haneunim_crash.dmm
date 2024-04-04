@@ -35,7 +35,7 @@
 /area/shuttle/haneunim_crash)
 "hF" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/shuttle/haneunim_crash)
 "hP" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,

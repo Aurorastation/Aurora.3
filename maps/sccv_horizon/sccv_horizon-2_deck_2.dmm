@@ -15010,6 +15010,9 @@
 	departmentType = 2;
 	name = "Research and Development Requests Console"
 	},
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "gQD" = (
@@ -49504,6 +49507,9 @@
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Machinist Workshop Starboard";
 	dir = 1
+	},
+/obj/item/stack/material/phoron{
+	amount = 15
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)

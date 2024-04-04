@@ -257,7 +257,7 @@
 		qdel(src)
 		return
 
-	if(!(W.type in suit_options) && !(W.type in helmet_options))
+	if(!(W.type in list_values(suit_options)) && !(W.type in list_values(helmet_options)) && !(W.type in list_values(rig_options)))
 		return
 
 	var/voidsuit_product
@@ -266,7 +266,7 @@
 		voidsuit_product = suit_options[suit_choice]
 	else if(istype(W, /obj/item/clothing/head/helmet/space/void))
 		var/helmet_choice = tgui_input_list(user, "Select a helmet modification:", "Voidsuit Modkit", helmet_options)
-		voidsuit_product = suit_options[helmet_choice]
+		voidsuit_product = helmet_options[helmet_choice]
 	else if(istype(W, /obj/item/rig))
 		var/rig_choice = tgui_input_list(user, "Select a hardsuit modification:", "Voidsuit Modkit", rig_options)
 		voidsuit_product = rig_options[rig_choice]
@@ -366,6 +366,25 @@
 		"Nexus Security Hardsuit" = /obj/item/rig/nanotrasen/nexus
 	)
 
+/obj/item/voidsuit_modkit_multi/coalition
+	name = "coalition of colonies voidsuit modkit"
+	suit_options = list(
+		"Coalition Vulture" = /obj/item/clothing/suit/space/void/coalition,
+		"Xanan Eagle" = /obj/item/clothing/suit/space/void/coalition/xanu,
+		"Gadpathurian Vulture-GP" = /obj/item/clothing/suit/space/void/coalition/gadpathur,
+		"Himean Buzzard" = /obj/item/clothing/suit/space/void/coalition/himeo,
+		"Galatean Jackdaw" = /obj/item/clothing/suit/space/void/coalition/galatea,
+		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/coalition/assunzione
+	)
+	helmet_options = list(
+		"Coalition Vulture" = /obj/item/clothing/head/helmet/space/void/coalition,
+		"Xanan Eagle" = /obj/item/clothing/head/helmet/space/void/coalition/xanu,
+		"Gadpathurian Vulture-GP" = /obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
+		"Himean Buzzard" = /obj/item/clothing/head/helmet/space/void/coalition/himeo,
+		"Galatean Jackdaw" = /obj/item/clothing/head/helmet/space/void/coalition/galatea,
+		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/coalition/assunzione
+	)
+
 /obj/item/storage/box/unathi_pirate
 	name = "unathi pirate modkit box"
 	desc = "Contains modkits to convert Unathi pirate voidsuits into fleet variants."
@@ -380,6 +399,11 @@
 	name = "nanotrasen modkit box"
 	desc = "Contains modkits to convert NanoTrasen hardsuits into alternate variants."
 	starts_with = list(/obj/item/voidsuit_modkit_multi/nanotrasen = 4)
+
+/obj/item/storage/box/coalition
+	name = "coalition of colonies modkit box"
+	desc = "Contains modkits to convert Coalition voidsuits into member-state variants."
+	starts_with = list(/obj/item/voidsuit_modkit_multi/coalition = 4)
 
 #undef MODKIT_HELMET
 #undef MODKIT_SUIT
