@@ -211,7 +211,7 @@
 
 //Unlike TG, we use singletons here, so this is different, for now
 /proc/get_sfx(soundin)
-	if(isfile(soundin) || (istext(soundin) && !ispath(soundin)))
+	if(isfile(soundin) || (istext(soundin) && !ispath(soundin)) || istype(soundin, /sound))
 		return soundin
 
 	var/singleton/sound_category/SC = GET_SINGLETON(soundin)
