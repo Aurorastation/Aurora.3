@@ -74,7 +74,7 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/hammertail_shuttle/New()
-	designation = "[pick("FUCKIN MONEY")]"
+	designation = "[pick("Entrepreneur", "Fellow Traveler", "Safe & Legal", "Who Wants To Live Forever", "Cash On Delivery", "No Refunds", "Fat Tails Fat Wallets", "Not Taking Commissions", "Ask Me About My HI-M96", "Not'zar's Backup Limousine", "Grenade Enthusiast", "Stop Fucking With The IFF", "Honor Fire Burn Someone Else", "Phoron Sticks To Hatchlings", "Sensor Malfunction, Please Restart System", "I Think The Lands Are OK, Actually", "Dedicated To The Brave Yizarus Brigade of Gakal'zaal", "Open For Business", "Please Insert Credits")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/hammertail_shuttle
@@ -156,4 +156,9 @@
 /obj/item/paper/fluff/hammertail_escape
 	name = "escape pod notes"
 	info = "The wall next to the vent leads to the escape pod. Fuelled it myself the other day. Remember, thing has worthless fuel efficiency, so it's not going to get you far. Best bet is to try latch onto a bigger ship and hitch a ride out of the system, or just hide until whoever's after you gets bored and goes home. Should fit the station's full crew, but it'll be a tight squeeze. Hope no one's molting."
+	//language = LANGUAGE_UNATHI
+
+/obj/item/paper/fluff/hammertail_range
+	name = "FIRE SAFETY AND YOU"
+	info = "Yet again, another warning is needed, because certain people who shall remain nameless keep lighing themselves on fire with napalm, flamethrowers, incendiary rounds, et cetera. WEAR A FIRESUIT WHEN YOU ARE TESTING INCENDIARIES ON THE RANGE. No one wants to buy merchandise that smells of slow-roasted Sinta, and I'm getting tired of wasting all our dermaline on you half-wits."
 	//language = LANGUAGE_UNATHI
