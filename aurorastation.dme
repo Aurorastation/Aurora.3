@@ -110,6 +110,7 @@
 #include "code\__DEFINES\rust_g_overrides.dm"
 #include "code\__DEFINES\ship_weapons.dm"
 #include "code\__DEFINES\shuttle.dm"
+#include "code\__DEFINES\si.dm"
 #include "code\__DEFINES\singletons.dm"
 #include "code\__DEFINES\smart_token_bucket.dm"
 #include "code\__DEFINES\solar.dm"
