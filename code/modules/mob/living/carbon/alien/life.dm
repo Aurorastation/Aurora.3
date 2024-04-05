@@ -1,7 +1,5 @@
 // Alien larva are quite simple.
 /mob/living/carbon/alien/Life()
-	set background = BACKGROUND_ENABLED
-
 	if (transforming)	return
 	if(!loc)			return
 
