@@ -805,7 +805,7 @@
 	if(prob(5))
 		M.emote(pick("twitch_v", "grunt"))
 
-	if((M.bodytemperature < 151) && M.chem_effects[CE_CRYO]) //red nightshade in extracool cryogenic conditions will restore bonebreaks, at the cost of blood depletion
+	if((M.bodytemperature < 151)) //red nightshade in extracool cryogenic conditions will restore bonebreaks, at the cost of blood depletion
 		var/mob/living/carbon/human/H = M
 		H.vessel.remove_reagent(/singleton/reagent/blood, 15)
 		for(var/obj/item/organ/external/E in H.organs)
