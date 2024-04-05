@@ -468,7 +468,7 @@ SUBSYSTEM_DEF(zcopy)
 	if (depth > 0)
 		switch (appearance:plane)
 			if (DEFAULT_PLANE, FLOAT_PLANE)
-			// fine
+				plane_needs_fix = FALSE //For lint
 			else
 				plane_needs_fix = TRUE
 
