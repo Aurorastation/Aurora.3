@@ -30,7 +30,8 @@
 		"hammertail_starboard"
 	)
 	initial_restricted_waypoints = list(
-		"Hammertail Shuttle" = list("nav_hangar_hammertail")
+		"Hammertail Shuttle" = list("nav_hangar_hammertail"),
+		"Hammertail Escape Pod" = list("nav_home_hammertail_pod")
 	)
 	invisible_until_ghostrole_spawn = TRUE
 
