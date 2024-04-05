@@ -178,7 +178,7 @@
 	logging_home_tag = "nav_hangar_ssmd"
 	defer_initialisation = TRUE
 
-/obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
+/obj/effect/map_effect/marker/airlock/shuttle/ssmd_shuttle
 	name = "SSMD Shuttle"
 	shuttle_tag = "SSMD Shuttle"
 	master_tag = "airlock_ssmd_shuttle"
