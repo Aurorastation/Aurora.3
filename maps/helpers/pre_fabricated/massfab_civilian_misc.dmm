@@ -263,16 +263,15 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/structure/toilet{
-	pixel_y = 16;
-	color = blue
-	},
 /obj/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
 	name = "adjusted light fixture";
 	pixel_y = 19
+	},
+/obj/structure/toilet{
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -293,7 +292,7 @@
 "gC" = (
 /obj/structure/toilet{
 	dir = 8;
-	color = #736071
+	color = "#736071"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal{
 	dir = 4
@@ -600,6 +599,23 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/wood,
+/area/space)
+"mh" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	pixel_y = 16
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "mo" = (
 /obj/structure/bed/padded,
@@ -1166,7 +1182,7 @@
 /obj/structure/toilet{
 	dir = 1;
 	pixel_y = -1;
-	color = #4974a5
+	color = "#4974a5"
 	},
 /obj/machinery/light/small{
 	pixel_y = -22
@@ -1288,7 +1304,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/toilet{
 	dir = 8;
-	color = #4974a5
+	color = "#4974a5"
 	},
 /obj/machinery/light/small{
 	dir = 4;
@@ -1300,7 +1316,7 @@
 "Cd" = (
 /obj/structure/toilet{
 	pixel_y = 16;
-	color = #736071
+	color = "#736071"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/corner/mauve/diagonal{
@@ -1363,7 +1379,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/toilet{
 	pixel_y = 16;
-	color = #4974a5
+	color = "#4974a5"
 	},
 /obj/machinery/light/small{
 	dir = 1;
@@ -1422,8 +1438,7 @@
 	pixel_y = 17
 	},
 /obj/structure/toilet{
-	pixel_y = 16;
-	color = blue
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1451,7 +1466,7 @@
 "DT" = (
 /obj/structure/toilet{
 	dir = 4;
-	color = #736071
+	color = "#736071"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal{
 	dir = 4
@@ -1942,7 +1957,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/toilet{
 	dir = 4;
-	color = #4974a5
+	color = "#4974a5"
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -2364,8 +2379,7 @@
 	},
 /obj/effect/floor_decal/corner/black,
 /obj/structure/toilet{
-	pixel_y = 16;
-	color = blue
+	pixel_y = 16
 	},
 /obj/machinery/light/small{
 	dir = 1;
@@ -2409,8 +2423,7 @@
 	},
 /obj/effect/floor_decal/corner/black,
 /obj/structure/toilet{
-	pixel_y = 16;
-	color = blue
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2458,7 +2471,7 @@
 /obj/structure/toilet{
 	dir = 1;
 	pixel_y = -1;
-	color = #736071
+	color = "#736071"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal{
 	dir = 4
@@ -3135,7 +3148,7 @@ Gh
 Gh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -3239,7 +3252,7 @@ Gh
 Gh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -3249,7 +3262,7 @@ gp
 Kh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -3343,7 +3356,7 @@ Gh
 Gh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -3353,7 +3366,7 @@ gp
 Kh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -4071,7 +4084,7 @@ Gh
 Gh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -4175,7 +4188,7 @@ Gh
 Gh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -4185,7 +4198,7 @@ fN
 Kh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -4279,7 +4292,7 @@ Gh
 Gh
 Gh
 Kh
-WB
+DM
 hQ
 Lo
 Lo
@@ -5022,7 +5035,7 @@ is
 Xy
 Gh
 Kh
-gj
+mh
 Lo
 aI
 Kh
@@ -5703,7 +5716,7 @@ GS
 GS
 Us
 Kh
-gj
+mh
 Lo
 aI
 Kh
