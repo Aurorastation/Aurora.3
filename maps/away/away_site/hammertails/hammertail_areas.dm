@@ -103,3 +103,7 @@
 /area/shuttle/hammertail
 	name = "Modified Skipjack"
 	requires_power = TRUE
+
+/area/shuttle/hammertail_pod
+	name = "Escape Pod"
+	requires_power = TRUE

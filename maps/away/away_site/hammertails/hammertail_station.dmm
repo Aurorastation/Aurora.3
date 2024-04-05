@@ -57,12 +57,8 @@
 /turf/simulated/floor/lino,
 /area/hammertail_station/crew_quarters)
 "aaf" = (
-/obj/machinery/alarm/east{
-	req_one_access = null;
-	req_access = list(227)
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/hammertail)
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mining)
 "aag" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -72,6 +68,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
@@ -131,6 +130,9 @@
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "aam" = (
@@ -150,6 +152,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aao" = (
@@ -223,6 +226,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "aau" = (
@@ -269,6 +273,9 @@
 	name = "Overseer's Office";
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "aax" = (
@@ -299,8 +306,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
@@ -311,7 +321,7 @@
 /area/hammertail_station/overseer)
 "aaI" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "aaO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -400,6 +410,9 @@
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
 "abf" = (
@@ -413,6 +426,11 @@
 /area/hammertail_station/range)
 "abg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "abh" = (
@@ -422,6 +440,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "abi" = (
@@ -444,10 +463,10 @@
 /turf/simulated/floor/plating,
 /area/hammertail_station/hangar)
 "abj" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "abk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -481,19 +500,22 @@
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "abn" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = 28
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
-	name = "airlock_hammertail_main"
+	name = "airlock_hammertail_main";
+	req_one_access = list(227)
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/hammertail_station/airlock)
 "abo" = (
@@ -501,6 +523,7 @@
 	dir = 6;
 	id = "hammertail_1"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "abp" = (
@@ -560,6 +583,7 @@
 	pixel_x = -28;
 	pixel_y = -3
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "abu" = (
@@ -575,15 +599,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "abv" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1882;
-	master_tag = "airlock_hammertail_main";
-	name = "airlock_hammertail_main"
+/obj/structure/closet/secure_closet{
+	req_access = list(227)
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
-/area/hammertail_station/airlock)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/glasses/welding,
+/obj/item/device/robotanalyzer,
+/obj/item/storage/belt/utility/full,
+/obj/item/device/multitool,
+/obj/item/clothing/head/hardhat/red,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/workshop)
 "abw" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -603,7 +633,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "aby" = (
 /obj/effect/floor_decal/spline/plain/white{
@@ -629,6 +662,7 @@
 /obj/item/clothing/under/syndicate/hammertail,
 /obj/item/storage/belt/utility/full,
 /obj/item/clothing/accessory/holster/hip/brown,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "abJ" = (
@@ -657,7 +691,8 @@
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1996;
 	master_tag = "airlock_hammertail_solars";
-	name = "airlock_hammertail_solars"
+	name = "airlock_hammertail_solars";
+	req_one_access = list(227)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -729,6 +764,8 @@
 /obj/machinery/power/apc/high/west{
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "acf" = (
@@ -762,13 +799,12 @@
 /turf/simulated/floor/plating,
 /area/hammertail_station/mainhall)
 "aci" = (
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1882;
-	master_tag = "airlock_hammertail_main";
-	name = "airlock_hammertail_main"
+/obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/turf/simulated/floor/plating,
-/area/hammertail_station/airlock)
+/turf/simulated/floor/reinforced,
+/area/shuttle/hammertail)
 "acj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -780,6 +816,9 @@
 	req_access = list(227);
 	dir = 2;
 	name = "Infirmary"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/mainhall)
@@ -796,13 +835,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "acm" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "acn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -826,9 +865,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
@@ -859,6 +895,9 @@
 	req_access = list(227);
 	dir = 2;
 	name = "Manufactory"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
@@ -980,6 +1019,9 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "adg" = (
@@ -1051,16 +1093,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
 "adm" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1882;
-	master_tag = "airlock_hammertail_main";
-	name = "airlock_hammertail_main"
-	},
-/turf/simulated/floor/plating,
-/area/hammertail_station/airlock)
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
 "adn" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -1138,6 +1176,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "adu" = (
@@ -1171,8 +1212,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1998;
-	master_tag = 2;
-	name = "airlock_hammertail_main"
+	master_tag = "airlock_hammertail_escape";
+	name = "airlock_hammertail_escape";
+	req_one_access = list(227)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/hammertail_station/overseer)
@@ -1213,19 +1258,30 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "adE" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - hammertail_boss";
+	identifier = "hammertail_boss"
+	},
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "adJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/east{
+	req_access = list(227)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "adO" = (
 /obj/structure/closet/secure_closet/medical2{
@@ -1255,6 +1311,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aeb" = (
@@ -1264,6 +1321,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aec" = (
@@ -1359,6 +1417,7 @@
 /obj/machinery/power/apc/high/south{
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "ael" = (
@@ -1388,6 +1447,19 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
+/obj/structure/closet/walllocker{
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/reagent_containers/food/snacks/candy/koko,
 /turf/simulated/floor/lino,
 /area/hammertail_station/crew_quarters)
 "aeo" = (
@@ -1447,6 +1519,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "aes" = (
@@ -1486,10 +1559,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
 "aew" = (
-/obj/structure/cable{
-	icon_state = "1-8"
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Hammertail Francisca Rotary Gun"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "aex" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1517,13 +1590,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
 "aeW" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/smartfridge/secure/medbay{
 	density = 0;
 	pixel_y = 16;
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "afa" = (
@@ -1536,6 +1610,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "afb" = (
@@ -1558,6 +1633,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "afd" = (
@@ -1570,6 +1646,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "afe" = (
@@ -1585,6 +1662,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "aff" = (
@@ -1613,7 +1691,12 @@
 	dir = 1;
 	name = "Canister to Thrusters"
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(227)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "afm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1632,6 +1715,8 @@
 /area/hammertail_station/mining)
 "afB" = (
 /obj/structure/bed/stool/chair/office/light,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "afC" = (
@@ -1664,6 +1749,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "agy" = (
@@ -1682,7 +1770,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "agJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1700,10 +1788,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "agU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
 "agX" = (
@@ -1711,6 +1805,7 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "agZ" = (
@@ -1724,6 +1819,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
@@ -1739,6 +1837,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "ahC" = (
@@ -1748,6 +1847,7 @@
 /obj/machinery/power/apc/high/east{
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "ahF" = (
@@ -1756,6 +1856,9 @@
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "ahG" = (
@@ -1815,8 +1918,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/serverroom)
 "aiS" = (
-/obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor/plating/cooled,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "aiY" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -1852,6 +1956,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "ajg" = (
@@ -1864,12 +1971,21 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock{
+	req_access = list(227);
+	name = "Testing Range";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/range)
 "ajj" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - hammertail";
+	identifier = "hammertail"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "ajk" = (
@@ -1890,6 +2006,9 @@
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = list(227)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/airlock)
@@ -1936,8 +2055,8 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
@@ -2006,6 +2125,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin{
 	pixel_y = -4
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "ala" = (
@@ -2019,25 +2139,31 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "ald" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "ali" = (
-/turf/simulated/floor/plating,
+/obj/effect/shuttle_landmark/hammertail_station/port,
+/turf/template_noop,
 /area/space)
 "all" = (
 /obj/machinery/vending/cigarette/hacked,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "alp" = (
 /obj/machinery/ammunition_loader/blaster{
 	weapon_id = "Hammertail Mining Blaster"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
@@ -2045,6 +2171,7 @@
 /obj/machinery/conveyor_switch/oneway{
 	id = "hammertail_2"
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
@@ -2055,8 +2182,9 @@
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "alz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/bombcloset,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "alH" = (
@@ -2100,6 +2228,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "alZ" = (
@@ -2122,6 +2253,7 @@
 	dir = 8;
 	pixel_x = -12
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
@@ -2130,8 +2262,17 @@
 	dir = 1;
 	id = "hammertail_1"
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
+"amp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "amA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -2168,7 +2309,10 @@
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "ang" = (
 /obj/machinery/atmospherics/portables_connector/scrubber{
@@ -2177,11 +2321,20 @@
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "ann" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/airlock)
@@ -2203,11 +2356,15 @@
 /area/hammertail_station/scihall)
 "anE" = (
 /obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
 "anF" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/telecomms/allinone/ship,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/plating/cooled,
 /area/shuttle/hammertail)
 "anI" = (
 /obj/machinery/conveyor{
@@ -2256,6 +2413,12 @@
 /area/hammertail_station/eva)
 "aoc" = (
 /obj/machinery/vending/dinnerware,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
 "aoh" = (
@@ -2272,6 +2435,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
 "aon" = (
@@ -2298,6 +2462,9 @@
 	use_power = 1;
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/serverroom)
 "aoG" = (
@@ -2322,8 +2489,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1998;
-	master_tag = 2;
-	name = "airlock_hammertail_main"
+	master_tag = "airlock_hammertail_escape";
+	name = "airlock_hammertail_escape";
+	req_one_access = list(227)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/hammertail_station/overseer)
@@ -2356,6 +2527,8 @@
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "apk" = (
@@ -2398,6 +2571,9 @@
 	dir = 1;
 	pixel_x = -28;
 	pixel_y = 12
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
@@ -2471,9 +2647,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
 "aqf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "aqF" = (
@@ -2483,10 +2656,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "aqM" = (
 /obj/machinery/recharger/wallcharger{
@@ -2506,14 +2680,23 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aqT" = (
+/obj/machinery/light,
 /turf/simulated/floor/lino,
 /area/hammertail_station/crew_quarters)
 "ard" = (
 /obj/structure/table/rack,
-/turf/simulated/floor/plating,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "arf" = (
 /obj/structure/closet/secure_closet{
@@ -2524,6 +2707,7 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/glasses/safety/goggles,
 /obj/item/clothing/glasses/regular/scanners,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "ars" = (
@@ -2541,6 +2725,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "arx" = (
@@ -2586,6 +2771,10 @@
 	pixel_x = 4
 	},
 /obj/item/storage/belt/medical/first_responder/combat,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "arz" = (
@@ -2604,6 +2793,9 @@
 /obj/machinery/power/apc/high/east{
 	req_access = list(227)
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "arJ" = (
@@ -2619,13 +2811,17 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "arQ" = (
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/cryo)
 "arR" = (
-/turf/simulated/wall/shuttle/raider,
+/obj/effect/shuttle_landmark/hammertail_station/starboard,
+/turf/template_noop,
 /area/space)
 "aso" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -2641,6 +2837,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "asz" = (
@@ -2654,7 +2853,8 @@
 	dir = 4;
 	target_pressure = 250
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "asN" = (
 /obj/structure/cable/green{
@@ -2699,6 +2899,7 @@
 /turf/simulated/floor/airless/ceiling,
 /area/space)
 "ato" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
@@ -2729,12 +2930,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/hammertail)
 "atA" = (
-/obj/machinery/mech_recharger,
 /obj/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(227)
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "atT" = (
 /obj/structure/cable/green{
@@ -2754,6 +2956,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
 "aua" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/wall/r_wall{
 	can_open = 1
 	},
@@ -2778,12 +2983,20 @@
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1996;
 	master_tag = "airlock_hammertail_solars";
-	name = "airlock_hammertail_solars"
+	name = "airlock_hammertail_solars";
+	req_one_access = list(227)
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hammertail_station/solars)
+"auL" = (
+/obj/effect/landmark/entry_point/east,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
 "auX" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2791,6 +3004,9 @@
 "auZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/scihall)
@@ -2801,6 +3017,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "avx" = (
@@ -2815,10 +3032,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "awf" = (
 /obj/structure/cable/yellow{
@@ -2856,6 +3072,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "awF" = (
@@ -2881,32 +3100,27 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1998;
-	master_tag = 2;
-	name = "airlock_hammertail_main"
+	master_tag = "airlock_hammertail_escape";
+	name = "airlock_hammertail_escape";
+	req_one_access = list(227)
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/hammertail_station/overseer)
 "awL" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 4;
-	pixel_x = -20;
-	pixel_y = -7
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
-/obj/machinery/airlock_sensor{
-	dir = 4;
-	pixel_x = -20;
-	pixel_y = 7
-	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1882;
-	master_tag = "airlock_hammertail_main";
-	name = "airlock_hammertail_main"
-	},
-/turf/simulated/floor/plating,
-/area/hammertail_station/airlock)
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
 "awM" = (
 /obj/structure/bed/stool/padded/red{
 	dir = 1
@@ -2922,6 +3136,7 @@
 	id = "hammertail_processing_2";
 	pixel_y = -28
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "awU" = (
@@ -2944,6 +3159,10 @@
 /area/hammertail_station/fuelbay)
 "axx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hammertail_cockpit"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "axH" = (
@@ -2956,7 +3175,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "axJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -2986,7 +3208,11 @@
 /obj/machinery/atmospherics/binary/pump/scrubber{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "ayq" = (
 /obj/structure/cable{
@@ -3006,6 +3232,7 @@
 	amount = 6
 	},
 /obj/structure/closet/crate/secure/phoron,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "ayx" = (
@@ -3016,6 +3243,7 @@
 /obj/machinery/power/apc/high/south{
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "ayG" = (
@@ -3026,7 +3254,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "ayJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3055,6 +3286,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "azy" = (
@@ -3089,6 +3321,10 @@
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "azV" = (
@@ -3102,12 +3338,16 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "azZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/warehouse)
@@ -3120,6 +3360,9 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "aAr" = (
@@ -3147,6 +3390,7 @@
 /obj/machinery/conveyor_switch/oneway{
 	id = "hammertail_1"
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
@@ -3219,6 +3463,10 @@
 /area/hammertail_station/crew_quarters)
 "aBP" = (
 /obj/structure/bed/roller,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aCd" = (
@@ -3226,6 +3474,7 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
 "aCn" = (
@@ -3251,6 +3500,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aCy" = (
@@ -3279,6 +3529,7 @@
 	pixel_x = 1;
 	pixel_y = 7
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "aDi" = (
@@ -3301,6 +3552,8 @@
 	req_access = list(227)
 	},
 /obj/item/melee/energy/sword/red,
+/obj/item/gun/projectile/pistol/super_heavy,
+/obj/item/ammo_magazine/super_heavy,
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "aDI" = (
@@ -3314,10 +3567,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/workshop)
 "aEk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1882;
+	master_tag = "airlock_hammertail_main";
+	name = "airlock_hammertail_main";
+	req_one_access = list(227)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/hammertail_station/airlock)
 "aEm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3326,7 +3582,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "aEt" = (
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/shuttle_landmark/hammertail_station/aft,
+/turf/template_noop,
 /area/space)
 "aEy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3348,13 +3605,20 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "aED" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "aEV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3380,6 +3644,7 @@
 /obj/machinery/power/solar_control/autostart{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
 "aFg" = (
@@ -3427,6 +3692,7 @@
 	},
 /obj/item/cell/high,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/workshop)
 "aFt" = (
@@ -3435,6 +3701,7 @@
 	pixel_x = -28;
 	pixel_y = -3
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "aFv" = (
@@ -3447,11 +3714,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "aFH" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "aFL" = (
@@ -3475,9 +3748,15 @@
 	weapon_id = "Hammertail Mining Blaster"
 	},
 /obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/hammertail)
 "aGk" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/hammertail_station/overseer)
 "aGy" = (
@@ -3485,21 +3764,28 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "aGF" = (
-/obj/structure/cable{
-	icon_state = "0-2"
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
-/obj/machinery/power/apc/high/east{
-	req_access = list(227)
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "aGK" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_y = 8
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/workshop)
@@ -3563,26 +3849,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
 "aHq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/hammertail)
+/turf/simulated/wall/r_wall,
+/area/hammertail_station/mining)
 "aHr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "aHv" = (
@@ -3609,6 +3889,9 @@
 /obj/structure/bed/stool/padded/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
 "aIk" = (
@@ -3623,6 +3906,7 @@
 /obj/item/modular_computer/laptop/preset/civilian{
 	pixel_y = 14
 	},
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "aIu" = (
@@ -3633,6 +3917,7 @@
 /obj/machinery/sleeper{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aIz" = (
@@ -3770,6 +4055,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "aJH" = (
@@ -3778,8 +4066,9 @@
 	req_access = list(227);
 	name = "republican fleet supply crate"
 	},
-/obj/item/gun/energy/blaster/tcaf,
 /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
+/obj/item/gun/projectile/gauss,
+/obj/item/ammo_magazine/gauss,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/armory)
 "aJO" = (
@@ -3791,18 +4080,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
 "aJV" = (
-/turf/simulated/floor/reinforced,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
 /area/space)
 "aKe" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/vials,
 /obj/item/reagent_containers/dropper/electronic_pipette,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "aKt" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	icon_state = "map_vent_out";
 	use_power = 1
+	},
+/obj/machinery/light/colored/blue{
+	dir = 4
 	},
 /turf/simulated/floor/bluegrid/server,
 /area/hammertail_station/serverroom)
@@ -3842,26 +4136,25 @@
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/bathroom)
 "aKQ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	dir = 1;
-	pixel_x = 28;
-	pixel_y = 12
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
-	name = "airlock_hammertail_main"
+	name = "airlock_hammertail_main";
+	req_one_access = list(227)
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/hammertail_station/airlock)
 "aKR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/cryo)
@@ -3909,6 +4202,7 @@
 /area/hammertail_station/medical)
 "aLS" = (
 /obj/structure/closet/hazmat/general,
+/obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
@@ -3947,15 +4241,19 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/airlock)
 "aMx" = (
 /obj/machinery/chem_master,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "aMW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
@@ -3966,6 +4264,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
@@ -4003,6 +4304,9 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "aNS" = (
@@ -4028,6 +4332,8 @@
 /obj/machinery/bodyscanner{
 	dir = 8
 	},
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aOC" = (
@@ -4046,6 +4352,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "aON" = (
@@ -4069,6 +4376,7 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aOP" = (
@@ -4078,7 +4386,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "aOT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4089,7 +4397,7 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "aOU" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -4139,8 +4447,12 @@
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/overseer)
 "aPJ" = (
+/obj/effect/overmap/visitable/sector/hammertail_station,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/hammertail_station/mainhall)
 "aPP" = (
 /turf/unsimulated/mineral/asteroid,
 /area/space)
@@ -4161,6 +4473,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/bathroom)
 "aQc" = (
@@ -4207,6 +4520,7 @@
 "aQl" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical,
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "aQt" = (
@@ -4250,6 +4564,7 @@
 /obj/machinery/vending/engineering{
 	req_access = list(227)
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
 "aQQ" = (
@@ -4266,6 +4581,9 @@
 	dir = 4;
 	name = "Overseer's Quarters";
 	req_access = list(227)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
@@ -4289,6 +4607,9 @@
 "aRz" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
 "aRC" = (
@@ -4315,6 +4636,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "aRQ" = (
@@ -4330,14 +4652,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/fuelbay)
 "aRV" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
@@ -4354,7 +4677,8 @@
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1996;
 	master_tag = "airlock_hammertail_solars";
-	name = "airlock_hammertail_solars"
+	name = "airlock_hammertail_solars";
+	req_one_access = list(227)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -4449,6 +4773,9 @@
 /area/space)
 "aTD" = (
 /obj/machinery/iv_drip,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
 "aTF" = (
@@ -4497,14 +4824,13 @@
 /turf/simulated/floor/plating,
 /area/hammertail_station/mining)
 "aUJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/hammertail)
 "aUL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "aUN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4543,6 +4869,7 @@
 /obj/machinery/chemical_dispenser/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "aVr" = (
@@ -4552,6 +4879,9 @@
 /obj/machinery/alarm/east{
 	req_one_access = null;
 	req_access = list(227)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
@@ -4570,10 +4900,11 @@
 /area/hammertail_station/mining)
 "aWd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "aWj" = (
 /obj/machinery/recharger/wallcharger{
@@ -4582,6 +4913,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "aWk" = (
@@ -4596,16 +4928,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/warehouse)
 "aWs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
-	name = "airlock_hammertail_main"
+	name = "airlock_hammertail_main";
+	req_one_access = list(227)
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/hammertail_station/airlock)
 "aWx" = (
@@ -4618,11 +4948,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "aWy" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/bag/circuits/basic,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "aWC" = (
@@ -4643,6 +4978,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
+"aWM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/airlock)
 "aWN" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/vending/tool,
@@ -4650,6 +4994,9 @@
 /area/hammertail_station/engineering)
 "aWQ" = (
 /obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/hammertail)
 "aWY" = (
@@ -4657,11 +5004,18 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
 "aXf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(227)
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
@@ -4680,12 +5034,14 @@
 /area/hammertail_station/research)
 "aXn" = (
 /obj/machinery/chem_heater,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "aXu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
 "aXx" = (
@@ -4711,9 +5067,6 @@
 /area/space)
 "aXC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -4726,6 +5079,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
 "aXO" = (
@@ -4742,10 +5096,12 @@
 /obj/item/device/integrated_electronics/debugger{
 	pixel_x = 6
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "aYr" = (
-/turf/simulated/floor/plating/cooled,
+/obj/effect/shuttle_landmark/hammertail_station/fore,
+/turf/template_noop,
 /area/space)
 "aYv" = (
 /obj/machinery/atmospherics/binary/pump/scrubber{
@@ -4761,6 +5117,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "aYB" = (
@@ -4768,13 +5127,14 @@
 /obj/structure/closet/crate/secure/weapon{
 	req_access = list(227)
 	},
-/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/melee/energy/sword/red,
+/obj/item/melee/energy/sword/red,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/armory)
 "aYH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
 "aYJ" = (
 /obj/structure/cable{
@@ -4794,11 +5154,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
 "aYY" = (
-/obj/structure/plasticflaps/airtight{
-	dir = 8
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "hammertail_1"
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/hammertail)
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mining)
 "aZf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -4808,7 +5169,7 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
@@ -4828,6 +5189,9 @@
 /area/hammertail_station/cryo)
 "aZA" = (
 /obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/hammertail)
 "aZK" = (
@@ -4837,6 +5201,9 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/fuelbay)
@@ -4866,17 +5233,77 @@
 /obj/item/target,
 /obj/item/target,
 /obj/structure/closet/crate,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/range)
+"baK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1882;
+	master_tag = "airlock_hammertail_main";
+	name = "airlock_hammertail_main";
+	req_one_access = list(227)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/hammertail_station/airlock)
+"bby" = (
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"bcL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"bel" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hammertail_station/warehouse)
+"bfg" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/hammertail_station/research)
+"bfK" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"bhd" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hammertail_station/hangar)
 "bnr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
-"bxJ" = (
-/turf/simulated/floor/tiled/dark,
-/area/hammertail_station/mining)
+"bpy" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "bzU" = (
 /obj/structure/target_stake,
 /obj/effect/floor_decal/industrial/warning,
@@ -4894,22 +5321,50 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/workshop)
+"bFi" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, cargo bay"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/hammertail)
 "bGA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/hammertail_station/range)
+"bGT" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "bIt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/scihall)
+"bPr" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 1;
+	name = "Canister to Thrusters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "bSq" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
 	req_access = list(227)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/scihall)
@@ -4932,9 +5387,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/workshop)
+"bWk" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
 "bYc" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
+"cax" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
 "cbD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4952,23 +5428,33 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "cqy" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_y = -32
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/range)
 "cxx" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/armory)
 "cxG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
+/obj/structure/closet,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/under/syndicate/hammertail,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/accessory/holster/hip/brown,
+/obj/machinery/light{
+	dir = 1
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/hammertail_station/airlock)
+/area/hammertail_station/beds)
 "cFl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4985,6 +5471,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "cSo" = (
@@ -4999,11 +5487,35 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
+"dav" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engineering"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/hammertail)
+"dhP" = (
+/obj/machinery/computer/ship/engines/terminal,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
+"dng" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/fuelbay)
 "duW" = (
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
 "duZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "dED" = (
@@ -5018,6 +5530,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/scihall)
+"dLx" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
+"dNf" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "dPC" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5028,22 +5551,126 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hammertail_station/hangar)
+"dRa" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/hammertail_pod)
+"dUm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/hammertail_pod)
+"dWK" = (
+/obj/machinery/atmospherics/portables_connector/supply,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(227)
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/power/apc/high/east{
+	req_access = list(227)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
+"dZJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/door/airlock{
+	req_access = list(227);
+	name = "Chemistry"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hammertail_station/research)
+"ecU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Blaster";
+	req_access = list(227)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "eeB" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/medical)
+"eig" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hammertail_station/warehouse)
 "euf" = (
-/obj/effect/floor_decal/industrial/warning/cee,
+/obj/machinery/shipsensors,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
+"eEZ" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
+"eFj" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/beds)
+"eMO" = (
+/obj/effect/landmark/entry_point/south,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
 "eOo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
+"ePk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/hammertail_pod)
 "eYd" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/scihall)
+"fcA" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "fdo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -5053,22 +5680,84 @@
 "fry" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/scihall)
+"fuh" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
+"fuD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "fuF" = (
-/obj/structure/cable/green,
-/obj/machinery/power/terminal,
 /obj/machinery/alarm/west{
 	req_one_access = null;
 	req_access = list(227)
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hammertail)
+"fwz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/inflatable/door,
+/obj/effect/shuttle_landmark/hammertail_pod{
+	dir = 4
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/space)
+"fBc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hammertail_station/warehouse)
+"fHe" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 278.15
+	},
+/area/hammertail_station/crew_quarters)
+"fQE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/effect/overmap/visitable/ship/landable/hammertail_pod,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "ggb" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
 "gmX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
+"gDb" = (
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "gEt" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/hangar)
@@ -5077,18 +5766,66 @@
 /obj/structure/platform{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
+"gHv" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/scihall)
+"gJW" = (
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/simulated/floor/carpet/rubber,
+/area/hammertail_station/research)
+"gLr" = (
+/obj/effect/shuttle_landmark/hammertail_transit{
+	dir = 1
+	},
+/turf/space/transit/north,
+/area/space)
 "gMp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hammertail_station/hangar)
+"gRc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"hcp" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/scihall)
 "hft" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
+"hkz" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/hammertail_pod)
 "hlV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5096,16 +5833,89 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
-"hNL" = (
-/turf/simulated/wall/r_wall,
+"hnn" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_x = -20;
+	pixel_y = -7
+	},
+/obj/machinery/airlock_sensor{
+	dir = 4;
+	pixel_x = -20;
+	pixel_y = 7
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1882;
+	master_tag = "airlock_hammertail_main";
+	name = "airlock_hammertail_main";
+	req_one_access = list(227)
+	},
+/turf/simulated/floor/plating,
+/area/hammertail_station/airlock)
+"hnv" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
-"hUP" = (
+"hqk" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
+"hyD" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, propulsion"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/hammertail)
+"hzr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"hGn" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hammertail_station/hangar)
+"hNL" = (
+/turf/simulated/wall/r_wall,
+/area/hammertail_station/mainhall)
+"hPa" = (
+/obj/effect/landmark/entry_point/north,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
+"hQK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"hUP" = (
+/obj/machinery/hologram/holopad/long_range{
+	pixel_x = 16
+	},
+/obj/effect/overmap/visitable/ship/landable/hammertail_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "hVt" = (
@@ -5115,15 +5925,46 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hammertail_station/hangar)
+"hXR" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/airlock)
+"hXT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/hatch{
+	name = "Propulsion";
+	req_access = list(227);
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "igF" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/range)
+"ill" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hammertail_station/hangar)
+"isk" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail_pod)
 "itt" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/east{
 	req_access = list(227)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
@@ -5132,8 +5973,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/armory)
 "iDk" = (
-/turf/simulated/wall/shuttle/raider,
+/obj/structure/plasticflaps/airtight{
+	dir = 8
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Telecomms";
+	req_access = list(227)
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/hammertail)
+"iHN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
 "iIO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5150,19 +6005,73 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
+"iQT" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/hammertail)
 "iVi" = (
 /obj/machinery/r_n_d/circuit_imprinter,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/research)
+"iXy" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"iZc" = (
+/obj/machinery/door/airlock{
+	req_access = list(227);
+	name = "Custodial Closet";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"iZA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/door/airlock/mining{
+	dir = 4;
+	name = "Cargo Bay";
+	req_access = list(227)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "jhA" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(227)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"jnD" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
@@ -5170,6 +6079,24 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
+"juU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
 "jyZ" = (
 /obj/machinery/iv_drip,
 /obj/structure/cable/green{
@@ -5179,19 +6106,65 @@
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
+"jzx" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/space)
+"jCy" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	target_pressure = 250
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "jCV" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/crew_quarters)
+"jIV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "jKs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/armory)
+"jLz" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/space)
+"jOs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"jPN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "jUq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
 "jUs" = (
@@ -5200,6 +6173,34 @@
 	},
 /turf/simulated/floor/plating,
 /area/hammertail_station/hangar)
+"jXt" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
+"kah" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
 "kgM" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -24;
@@ -5215,23 +6216,69 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
+"knS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hammertail_station/warehouse)
 "kxt" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/fuelbay)
 "kxY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
+"kCj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
+"kDp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"kIj" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "kUi" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/platform,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "kYK" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/engihall)
+"lme" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/workshop)
+"lol" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
 "lrn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/closet/walllocker/secure{
@@ -5243,8 +6290,31 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/clothing/suit/space/emergency,
 /obj/item/clothing/head/helmet/space/emergency,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/hammertail_station/overseer)
+"ltb" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thrusters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"lxc" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"lCq" = (
+/obj/structure/closet/secure_closet/custodial/offship,
+/obj/effect/floor_decal/industrial/outline/custodial,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
 "lCD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -5255,11 +6325,24 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
+"lOm" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/workshop)
 "lTg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/airlock)
@@ -5273,40 +6356,172 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
+"mgU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 4;
+	id = "hammertail_bolt";
+	name = "Door Bolt Control";
+	pixel_x = 22;
+	pixel_y = 1;
+	req_access = list(227);
+	specialfunctions = 4
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "mpL" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/workshop)
+"msj" = (
+/obj/machinery/computer/shuttle_control/explore/terminal/hammertail_shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "myt" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/beds)
+"mId" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/hammertail_pod)
+"mUe" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/hammertail_pod)
 "nbe" = (
 /obj/machinery/door/airlock/multi_tile{
 	req_access = list(227);
 	dir = 2;
 	name = "Living Quarters"
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"nlq" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/hammertail)
+"nnP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
 "nse" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/airlock)
+"nwW" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
+"nAr" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/hammertail_station/overseer)
 "nGO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
 "nHf" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/research)
+"nSE" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail_pod)
+"ocI" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"oed" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/airless/ceiling,
+/area/space)
+"ohe" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "hammertail_cockpit"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cockpit"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"ohF" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4;
+	id_tag = "hammertail_bolt"
+	},
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "olE" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/machinery/alarm/west{
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
+"onX" = (
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/airlock)
+"ozC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"oAa" = (
+/obj/effect/shuttle_landmark/hammertail_pod_transit{
+	dir = 4
+	},
+/turf/space/transit/north,
+/area/space)
 "oCm" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/armory)
@@ -5315,6 +6530,22 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
+"oNL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hammertail_station/warehouse)
+"oWd" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hammertail_station/warehouse)
 "pas" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -5325,22 +6556,108 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/chem)
 "pcW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/hammertail)
-"pfu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/tiled/dark/full,
+"phQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"prL" = (
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(227)
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_x = 5;
+	pixel_y = 2;
+	id = "hammertail_cockpit";
+	name = "Cockpit Shutters"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"psn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"pvz" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "pBs" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/airlock)
+"pBA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/command{
+	name = "Cockpit";
+	req_access = list(227)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"pCx" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
+"pCB" = (
+/obj/structure/janitorialcart/full,
+/obj/effect/floor_decal/industrial/outline/custodial,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"pJJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "pON" = (
 /obj/machinery/alarm/west{
 	req_one_access = null;
@@ -5352,12 +6669,71 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
+"pUC" = (
+/obj/structure/closet/bombcloset,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/white,
+/area/hammertail_station/research)
+"qaT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
+"qfc" = (
+/obj/machinery/shipsensors/weak,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/airless,
+/area/shuttle/hammertail_pod)
+"qhq" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = 28;
+	pixel_y = 12
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1882;
+	master_tag = "airlock_hammertail_main";
+	name = "airlock_hammertail_main";
+	req_one_access = list(227)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/hammertail_station/airlock)
 "qnl" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
+"qGN" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/head/helmet/pilot,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"qKG" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"qKR" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "qLh" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
@@ -5371,14 +6747,31 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
+"qXE" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "qYG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/hammertail_station/range)
+"reN" = (
+/obj/machinery/ship_weapon/francisca/compact{
+	layer = 3;
+	pixel_x = -40;
+	pixel_y = -64;
+	weapon_id = "Hammertail Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "reS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -5388,16 +6781,49 @@
 "rog" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/warehouse)
+"rso" = (
+/obj/machinery/computer/shuttle_control/explore/terminal/hammertail_pod{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "rwG" = (
-/obj/machinery/alarm/north{
-	req_one_access = null;
-	req_access = list(227)
+/obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"rxo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	req_access = list(227);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "rHk" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/solars)
+"rRJ" = (
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
 "rVi" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -5408,9 +6834,48 @@
 "snK" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
+"sxR" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/hammertail_pod)
 "sDt" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/crew_quarters)
+"sFJ" = (
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/crew_quarters)
+"sHy" = (
+/obj/structure/window/reinforced,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/range)
+"sLm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
+"sOP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hatch{
+	name = "Propulsion";
+	req_access = list(227);
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "sQT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5424,9 +6889,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hammertail_station/crew_quarters)
-"sUj" = (
-/turf/simulated/floor/plating,
-/area/shuttle/hammertail)
 "sVx" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/chem)
@@ -5436,6 +6898,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
+"tfs" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/hammertail_pod)
+"thE" = (
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/bed/handrail,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "tlP" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/engineering)
@@ -5444,11 +6919,22 @@
 /area/hammertail_station/range)
 "tEO" = (
 /obj/structure/platform,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "tGA" = (
 /turf/simulated/floor/plating,
 /area/hammertail_station/hangar)
+"tNc" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"tPj" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, blaster"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/hammertail)
 "tWP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5459,8 +6945,17 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/mainhall)
+"tYg" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, francisca"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/hammertail)
 "ubC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5473,6 +6968,20 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/hammertail_station/range)
+"uhX" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thrusters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"uiC" = (
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"ukj" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "ulP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5483,8 +6992,24 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mining)
+"upR" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/space)
+"uqD" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mining)
+"uuF" = (
+/obj/effect/landmark/entry_point/west,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
 "uDd" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -5492,14 +7017,44 @@
 /obj/machinery/power/apc/high/north{
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
+"uFR" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/floor/airless,
+/area/shuttle/hammertail_pod)
+"uJI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"uKs" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mining)
+"uUd" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "uXN" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
-"vcw" = (
-/turf/simulated/wall/r_wall,
-/area/hammertail_station/mining)
 "vmV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -5509,16 +7064,60 @@
 "vAM" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/workshop)
+"vHZ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/space)
 "vIc" = (
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
+"vMS" = (
+/obj/structure/viewport,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
+"vXr" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/shuttle_landmark/hammertail_hangar{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hammertail_station/hangar)
 "vXF" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/eva)
 "wbs" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/hangar)
-"wni" = (
+"wfM" = (
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
+"wvd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"wFB" = (
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hammertail)
+"wJq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Francisca";
+	req_access = list(227)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
 "wRz" = (
@@ -5529,8 +7128,30 @@
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/research)
 "xcn" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/airlock)
+"xgu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"xhv" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/engihall)
+"xik" = (
+/obj/machinery/computer/ship/engines/terminal,
+/turf/simulated/floor/plating,
+/area/shuttle/hammertail)
 "xiD" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -5559,29 +7180,88 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hammertail_station/warehouse)
-"xEJ" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
-/obj/structure/cable{
-	icon_state = "0-4"
+"xEE" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
+"xEJ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mining)
 "xIf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/range)
+"xLe" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
 "xPn" = (
 /obj/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(227)
 	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/beds)
+"xRh" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, propulsion"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/hammertail)
+"xUt" = (
+/obj/machinery/atmospherics/binary/pump/scrubber{
+	dir = 8
+	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -27
+	},
+/obj/item/storage/bag/inflatable/emergency,
+/obj/item/storage/firstaid,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/gun/projectile/revolver,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/hammertail_pod)
 "xYA" = (
 /turf/simulated/wall/r_wall,
 /area/hammertail_station/overseer)
+"ybO" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hammertail)
+"ycf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/hammertail_pod)
+"ygL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hammertail_station/mainhall)
 
 (1,1,1) = {"
 azL
@@ -5803,7 +7483,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -6060,7 +7740,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -6317,7 +7997,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -6574,7 +8254,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -6831,7 +8511,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -7088,7 +8768,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -7345,7 +9025,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -7602,7 +9282,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -7859,7 +9539,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -8116,32 +9796,32 @@ azL
 azL
 azL
 azL
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-ali
 aJV
-aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -8373,32 +10053,32 @@ azL
 azL
 azL
 azL
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
-ali
-ali
 aJV
-aJV
-aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -8630,6 +10310,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -8640,22 +10321,21 @@ ada
 ada
 ada
 ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -8887,6 +10567,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -8897,22 +10578,21 @@ ada
 ada
 ada
 ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
-ali
-ali
-ali
-ali
-ali
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -9144,6 +10824,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -9154,22 +10835,21 @@ ada
 ada
 ada
 ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
-arR
-arR
-arR
-arR
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -9401,6 +11081,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -9411,22 +11092,21 @@ ada
 ada
 ada
 ada
-arR
-arR
-arR
-arR
-arR
-arR
-aPJ
-arR
-arR
-arR
-arR
-azL
-azL
-azL
-azL
-azL
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -9658,6 +11338,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -9668,22 +11349,21 @@ ada
 ada
 ada
 ada
-azL
-arR
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-arR
-arR
-arR
-arR
-arR
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -9915,6 +11595,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -9925,22 +11606,21 @@ ada
 ada
 ada
 ada
-arR
-arR
-arR
-arR
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-arR
-aPJ
-aPJ
-aPJ
-aPJ
-ali
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -10172,6 +11852,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -10182,22 +11863,21 @@ ada
 ada
 ada
 ada
-ali
-ali
-ali
-ali
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aEt
-aPJ
-aPJ
-aPJ
-aPJ
-ali
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -10429,6 +12109,16 @@ azL
 azL
 azL
 azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+gLr
 ada
 ada
 ada
@@ -10439,22 +12129,12 @@ ada
 ada
 ada
 ada
-ali
-ali
-ali
-ali
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-ali
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -10686,6 +12366,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -10696,22 +12377,21 @@ ada
 ada
 ada
 ada
-arR
-arR
-arR
-arR
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-arR
-aPJ
-aPJ
-aPJ
-aPJ
-ali
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -10943,6 +12623,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -10953,22 +12634,21 @@ ada
 ada
 ada
 ada
-azL
-arR
-aYr
-arR
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-aPJ
-arR
-arR
-arR
-arR
-arR
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -11200,6 +12880,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -11210,22 +12891,21 @@ ada
 ada
 ada
 ada
-arR
-arR
-ali
-arR
-arR
-arR
-aPJ
-arR
-arR
-arR
-arR
-azL
-azL
-azL
-azL
-azL
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -11457,6 +13137,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -11467,22 +13148,21 @@ ada
 ada
 ada
 ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
-arR
-arR
-arR
-arR
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -11714,6 +13394,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -11724,22 +13405,21 @@ ada
 ada
 ada
 ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
-ali
-ali
-ali
-ali
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -11971,6 +13651,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -11981,22 +13662,21 @@ ada
 ada
 ada
 ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -12228,6 +13908,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -12238,22 +13919,21 @@ ada
 ada
 ada
 ada
-ali
-arR
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-ali
-arR
-ali
-ali
-ali
-ali
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -12485,6 +14165,7 @@ azL
 azL
 azL
 azL
+aJV
 ada
 ada
 ada
@@ -12495,22 +14176,21 @@ ada
 ada
 ada
 ada
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
-arR
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 ada
 ada
 ada
@@ -12742,7 +14422,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -12900,6 +14580,7 @@ azL
 azL
 azL
 azL
+arR
 azL
 azL
 azL
@@ -12998,8 +14679,7 @@ azL
 azL
 azL
 azL
-azL
-ada
+aJV
 ada
 ada
 ada
@@ -13256,7 +14936,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -13513,7 +15193,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -13770,7 +15450,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -14027,7 +15707,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -14284,7 +15964,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -14541,7 +16221,7 @@ azL
 azL
 azL
 azL
-ada
+aJV
 ada
 ada
 ada
@@ -14798,42 +16478,42 @@ azL
 azL
 azL
 azL
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
-ada
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
 "}
 (37,1,1) = {"
 azL
@@ -15071,26 +16751,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (38,1,1) = {"
 azL
@@ -15328,26 +17008,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (39,1,1) = {"
 azL
@@ -15585,26 +17265,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (40,1,1) = {"
 azL
@@ -15842,26 +17522,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (41,1,1) = {"
 azL
@@ -16099,26 +17779,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (42,1,1) = {"
 azL
@@ -16356,26 +18036,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (43,1,1) = {"
 azL
@@ -16613,26 +18293,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (44,1,1) = {"
 azL
@@ -16870,26 +18550,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (45,1,1) = {"
 azL
@@ -17127,26 +18807,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (46,1,1) = {"
 azL
@@ -17384,26 +19064,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (47,1,1) = {"
 azL
@@ -17641,26 +19321,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+oAa
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (48,1,1) = {"
 azL
@@ -17898,26 +19578,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (49,1,1) = {"
 azL
@@ -18155,26 +19835,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (50,1,1) = {"
 azL
@@ -18412,26 +20092,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
+ada
 "}
 (51,1,1) = {"
 azL
@@ -18669,26 +20349,26 @@ azL
 azL
 azL
 azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
-azL
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
+aJV
 "}
 (52,1,1) = {"
 azL
@@ -23701,7 +25381,7 @@ ayG
 ayG
 ayG
 ayG
-ayG
+auL
 ayG
 ayG
 ayG
@@ -29131,7 +30811,7 @@ aPP
 aPP
 aPP
 aPP
-aPP
+ayG
 aPP
 aPP
 aPP
@@ -29303,13 +30983,13 @@ aPP
 aPP
 aPP
 aPP
+ayG
+ayG
+ayG
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -29388,8 +31068,8 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -29562,16 +31242,16 @@ aPP
 aPP
 aPP
 aPP
+ayG
+ayG
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -29646,8 +31326,8 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -29816,18 +31496,18 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+aIz
+aIz
+aIz
+aIz
+aIz
+aIz
+aIz
+aIz
+aIz
+aIz
+ayG
 aPP
 aPP
 aPP
@@ -29903,11 +31583,11 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -30072,18 +31752,18 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+aIz
+aIz
+aIz
+aIz
+sxR
+dRa
+hkz
+hkz
+aIz
+aIz
 aPP
 aPP
 aPP
@@ -30163,9 +31843,9 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -30331,16 +32011,16 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+aIz
+hkz
+hkz
+hkz
+mUe
+ycf
+hkz
+qfc
+aIz
+aIz
 aPP
 aPP
 aPP
@@ -30421,7 +32101,7 @@ aPP
 aPP
 aPP
 aPP
-aPP
+ayG
 aPP
 aPP
 aPP
@@ -30587,17 +32267,17 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+aIz
+tfs
+dUm
+dhP
+xUt
+dLx
+rso
+isk
+isk
+aIz
 aPP
 aPP
 aPP
@@ -30678,9 +32358,9 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -30843,18 +32523,18 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+aIz
+uFR
+mId
+thE
+bPr
+fQE
+jIV
+qKR
+nSE
+aIz
 aPP
 aPP
 aPP
@@ -30937,8 +32617,8 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -31100,18 +32780,18 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+aIz
+tfs
+ePk
+dWK
+jCy
+mgU
+fcA
+hkz
+isk
+aIz
 aPP
 aPP
 aPP
@@ -31195,8 +32875,8 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -31357,18 +33037,18 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+aIz
+hkz
+hkz
+hkz
+ohF
+hkz
+hkz
+hkz
+aIz
+aIz
 aPP
 aPP
 aPP
@@ -31453,11 +33133,11 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
+ayG
+ayG
 ayG
 ayG
 ayG
@@ -31615,17 +33295,17 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+aIz
+aIz
+aIz
+oed
+fwz
+oed
+aIz
+aIz
+aIz
+aIz
 aPP
 aPP
 aPP
@@ -31872,17 +33552,17 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+aIz
+aIz
+aIz
+aIz
+jzx
+aIz
+aIz
+aIz
+aIz
+aIz
 aPP
 aPP
 aPP
@@ -31969,9 +33649,9 @@ aPP
 aPP
 aPP
 aPP
-ayG
-ayG
-ayG
+aPP
+aPP
+aPP
 ayG
 aPP
 aPP
@@ -32130,14 +33810,14 @@ aPP
 aPP
 aPP
 aPP
+ayG
+ayG
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+upR
+vHZ
+vHZ
+jLz
 aPP
 aPP
 aPP
@@ -32393,13 +34073,13 @@ aPP
 aPP
 aPP
 aPP
-aPP
-aPP
-aPP
 aIz
-aIz
-aIz
-aIz
+upR
+vHZ
+vHZ
+vHZ
+vHZ
+jLz
 aPP
 aPP
 aPP
@@ -32656,9 +34336,9 @@ aPP
 aPP
 aPP
 aPP
-aIz
-aIz
-aIz
+upR
+vHZ
+jLz
 aPP
 aPP
 aPP
@@ -32915,10 +34595,10 @@ aPP
 aPP
 aPP
 aPP
-aIz
-aIz
-aIz
-aIz
+upR
+vHZ
+vHZ
+jLz
 aPP
 aPP
 aPP
@@ -33175,9 +34855,9 @@ aPP
 aPP
 aPP
 aPP
-aIz
-aIz
-aIz
+upR
+vHZ
+jLz
 aPP
 aPP
 aPP
@@ -33243,7 +34923,7 @@ aPP
 aPP
 aPP
 ayG
-ayG
+aPP
 ayG
 ayG
 ayG
@@ -33434,11 +35114,11 @@ aPP
 aPP
 aPP
 aPP
-aIz
-aIz
-aIz
-aIz
-aIz
+upR
+vHZ
+vHZ
+vHZ
+jLz
 xYA
 xYA
 xYA
@@ -33474,10 +35154,10 @@ ayq
 axU
 aok
 kYK
-ggb
+xhv
 aTn
 kYK
-aNo
+dng
 aNo
 ajR
 kxt
@@ -33491,12 +35171,12 @@ nse
 nse
 nse
 nse
-nse
-nse
-nse
+aPP
+aPP
+aPP
 aPP
 ayG
-ayG
+aPP
 ayG
 ayG
 ayG
@@ -33695,7 +35375,7 @@ aPP
 aPP
 aPP
 aIz
-aIz
+upR
 adv
 awH
 aoR
@@ -33741,19 +35421,19 @@ kxt
 aPP
 aPP
 nse
-xcn
-xcn
-xcn
-xcn
-xcn
-xcn
+aWM
+hXR
+onX
+baK
+hnn
+aEk
 aWs
-awL
-aci
-abv
 ayG
 ayG
 ayG
+ayG
+ayG
+aPP
 ayG
 ayG
 aPP
@@ -33956,7 +35636,7 @@ aPP
 xYA
 xYA
 xYA
-aGk
+nAr
 xYA
 xYA
 aPP
@@ -33972,7 +35652,7 @@ aPP
 aPP
 myt
 ajj
-duW
+eFj
 duW
 ajj
 myt
@@ -34001,16 +35681,16 @@ nse
 pBs
 aoG
 ann
-xcn
-xcn
+qhq
+abn
 aEk
 aKQ
-adm
-aci
-abn
+ayG
+aPP
 ayG
 ayG
 ayG
+aPP
 ayG
 ayG
 ayG
@@ -34258,13 +35938,13 @@ nse
 ajF
 apT
 lTg
-xcn
-xcn
-cxG
 nse
 nse
 nse
 nse
+ayG
+aPP
+aPP
 ayG
 ayG
 ayG
@@ -34514,11 +36194,11 @@ aLb
 nse
 xcn
 bTv
-xcn
-xcn
-xcn
 aMq
 nse
+aPP
+aPP
+aPP
 aPP
 aPP
 aPP
@@ -34769,7 +36449,7 @@ kxt
 kxt
 kxt
 hNL
-vIc
+iXy
 aac
 wbs
 wbs
@@ -34988,7 +36668,7 @@ alQ
 aWI
 aIr
 jCV
-aPf
+fHe
 aPf
 ajk
 aad
@@ -35016,7 +36696,7 @@ aWN
 aBz
 aQy
 kYK
-ggb
+xhv
 aTl
 kYK
 ass
@@ -35026,33 +36706,33 @@ kxt
 aPP
 aPP
 hNL
-vIc
+iXy
 adw
 wbs
+ill
 gMp
 gMp
 gMp
 gMp
 gMp
+hGn
 gMp
 gMp
 gMp
 gMp
 gMp
+hGn
 gMp
 gMp
 gMp
 gMp
 gMp
+hGn
 gMp
 gMp
 gMp
 gMp
-gMp
-gMp
-gMp
-gMp
-gMp
+hGn
 wbs
 aPP
 aPP
@@ -35256,14 +36936,14 @@ aBI
 aJj
 alZ
 myt
-abI
+cxG
 duW
 duW
 abI
 myt
-vcw
-vcw
-vcw
+aHq
+aHq
+aHq
 tlP
 tlP
 tlP
@@ -35283,7 +36963,7 @@ aPP
 aPP
 aPP
 hNL
-vIc
+jnD
 adw
 wbs
 gMp
@@ -35446,7 +37126,7 @@ azL
 azL
 azL
 azL
-ayG
+eMO
 ayG
 aPP
 aPP
@@ -35507,11 +37187,11 @@ jCV
 jCV
 jCV
 jCV
-sDt
-sDt
+fuh
+pCx
 nGO
 hlV
-sDt
+sFJ
 myt
 all
 iJi
@@ -35524,10 +37204,10 @@ abt
 ald
 amo
 afp
-amo
+aYY
 aQk
-amo
-amo
+aYY
+aYY
 abo
 kYK
 jUq
@@ -35558,10 +37238,10 @@ tGA
 tGA
 tGA
 tGA
-iDk
-iDk
-iDk
-iDk
+aUJ
+aUJ
+aUJ
+aUJ
 tGA
 tGA
 tGA
@@ -35763,12 +37443,12 @@ akH
 aeh
 amA
 aak
-aaq
-aaq
+juU
+kah
 aaq
 aao
 aap
-aaq
+kCj
 aar
 lCD
 aat
@@ -35776,8 +37456,8 @@ avl
 aek
 myt
 aUc
-bxJ
-bxJ
+uKs
+uKs
 ald
 aMb
 aHC
@@ -35803,19 +37483,19 @@ wbs
 gMp
 tGA
 adg
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
+aUJ
+aUJ
+aUJ
+xRh
+aUJ
+aUJ
+aUJ
+dav
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
 alp
 aZA
 aGb
@@ -36020,7 +37700,7 @@ aca
 ays
 aQb
 jCV
-sDt
+iHN
 aaW
 aaW
 vmV
@@ -36033,14 +37713,14 @@ scx
 scx
 scx
 aTo
-bxJ
-bxJ
-bxJ
-bxJ
-bxJ
-vcw
+uKs
+uKs
+aaf
+aaf
+aaf
+aHq
 awR
-vcw
+aHq
 anI
 akh
 kYK
@@ -36062,23 +37742,23 @@ tGA
 adg
 agy
 atb
-sUj
-sUj
-sUj
+xik
+uiC
+aUJ
 aGy
 ang
-sUj
-sUj
-sUj
-iDk
+qXE
+ybO
+ocI
+aUJ
 atA
 aUL
 pcW
-aZA
-aZA
-aZA
-aZA
-aWQ
+iQT
+iQT
+iQT
+iQT
+aci
 acq
 gMp
 aLr
@@ -36282,7 +37962,7 @@ aLX
 aLX
 awM
 aay
-aaq
+kCj
 abb
 abd
 awx
@@ -36290,14 +37970,14 @@ aCy
 aKH
 scx
 aoY
-bxJ
-bxJ
-bxJ
-bxJ
-bxJ
+uKs
+uKs
+uKs
+uKs
+uKs
 aRP
-bxJ
-bxJ
+uKs
+uKs
 aUn
 aUn
 kYK
@@ -36311,28 +37991,28 @@ qnl
 qLh
 aAI
 hNL
-vIc
+iXy
 adw
 wbs
 gMp
 tGA
 adg
-agy
+uhX
 axb
-sUj
-sUj
-sUj
+bpy
+jPN
+aUJ
 asF
 ayd
-aUL
+xEE
 aOT
 ayH
-aYH
+ecU
 aYH
 aOP
-sUj
+rRJ
 aBb
-iDk
+tPj
 tGA
 tGA
 tGA
@@ -36547,18 +38227,18 @@ aCy
 aKH
 scx
 avx
-bxJ
-bxJ
-bxJ
-bxJ
-bxJ
+uKs
+uKs
+uKs
+uKs
+uKs
 abh
 aer
 aer
 aRV
 ato
 kYK
-ggb
+xhv
 aTl
 kYK
 vXF
@@ -36568,23 +38248,23 @@ abk
 sYi
 alI
 hNL
-vIc
+jnD
 adw
 wbs
-gMp
+ill
 tGA
 adg
 agy
 atz
-abg
-abg
-abg
+jOs
+hzr
+hXT
 aWd
 aqF
 agD
 ala
 amV
-iDk
+aUJ
 ard
 arM
 aaI
@@ -36804,14 +38484,14 @@ aCy
 aKH
 scx
 apk
-bxJ
-bxJ
-bxJ
-bxJ
-bxJ
+uKs
+uKs
+uKs
+uKs
+uKs
 aXu
-bxJ
-bxJ
+uKs
+uKs
 art
 abm
 kYK
@@ -36825,7 +38505,7 @@ cSo
 qLh
 oMy
 hNL
-vIc
+iXy
 adw
 wbs
 gMp
@@ -36833,20 +38513,20 @@ tGA
 adg
 agy
 axb
-sUj
-sUj
-aaf
-sUj
+uiC
+kIj
+aUJ
+xLe
 axH
 afl
 adJ
 aED
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
 tGA
 tGA
 tGA
@@ -37053,7 +38733,7 @@ aHS
 aVr
 itt
 abq
-sDt
+adm
 scx
 abX
 arQ
@@ -37061,16 +38741,16 @@ aCy
 aKH
 scx
 aAo
-bxJ
+uKs
 aFV
 aQl
 aEm
-bxJ
+xEJ
 aAH
 alr
 ahC
 ulP
-bxJ
+uqD
 kYK
 ggb
 aTl
@@ -37082,25 +38762,25 @@ cSo
 qLh
 aeG
 hNL
-vIc
+iXy
 adw
 wbs
 acc
 tGA
 adg
+aUJ
+aUJ
 iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-ajc
-iDk
-iDk
-iDk
-iDk
+aUJ
+aUJ
+aUJ
+rxo
+aUJ
+aUJ
+aUJ
+aUJ
 euf
-tGA
+gDb
 tGA
 tGA
 tGA
@@ -37162,7 +38842,7 @@ azL
 azL
 azL
 azL
-azL
+aYr
 azL
 azL
 azL
@@ -37213,7 +38893,7 @@ azL
 azL
 azL
 azL
-azL
+aEt
 azL
 azL
 azL
@@ -37329,7 +39009,7 @@ hNL
 abu
 acv
 hNL
-vIc
+iXy
 adu
 hNL
 hNL
@@ -37339,28 +39019,28 @@ aep
 rVi
 hNL
 hNL
-vIc
+iXy
 aac
 wbs
 dPC
 tGA
 adg
 aNL
-iDk
+aUJ
 anF
 aUJ
 aXf
-wni
+aqf
 ajc
-wni
-wni
-wni
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
+aqf
+aqf
+bGT
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
 tGA
 tGA
 tGA
@@ -37380,7 +39060,7 @@ ayG
 ayG
 ayG
 ayG
-ayG
+hPa
 azL
 azL
 azL
@@ -37504,8 +39184,8 @@ azL
 azL
 ayG
 ayG
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -37554,68 +39234,68 @@ aPP
 aPP
 aPP
 hNL
-abu
-vIc
+phQ
+lol
 eOo
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
+lol
+lol
+lol
+lol
+lol
+lol
+lol
+lol
+lol
 adw
-vIc
-vIc
-vIc
+qKG
+lol
+lol
 eOo
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
+lol
+aPJ
+lol
+lol
+lol
+lol
+lol
+lol
+lol
+lol
+lol
+lol
 abx
-vIc
-vIc
-vIc
+lol
+lol
+ygL
 aEy
-vIc
+lol
 eOo
-vIc
-vIc
-abu
-vIc
-vIc
-vIc
-vIc
+lol
+lol
+abx
+lol
+lol
+lol
+ygL
 adw
 aRv
 hVt
 awh
 adg
 aIL
-iDk
-iDk
-iDk
+aUJ
+aUJ
+aUJ
 aqf
 kjN
 agw
-wni
-wni
-wni
-iDk
-wni
-wni
-wni
+aqf
+aqf
+aqf
+aUJ
+pvz
+qGN
+aqf
 auX
 axx
 tGA
@@ -37759,10 +39439,10 @@ azL
 azL
 azL
 azL
+azL
 ayG
 ayG
-aPP
-aPP
+ayG
 aPP
 aPP
 aPP
@@ -37866,15 +39546,15 @@ aHr
 aXC
 aQi
 aZf
-wni
-wni
-wni
-pfu
-wni
+aqf
+aqf
+aqf
+nlq
+abj
 hUP
-wni
+dNf
 aUV
-axx
+ohe
 tGA
 tGA
 tGA
@@ -38016,14 +39696,14 @@ azL
 azL
 azL
 azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -38068,69 +39748,69 @@ aPP
 aPP
 aPP
 hNL
-vIc
+awL
 aal
 cqo
-vIc
-abu
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-abu
-vIc
-vIc
-vIc
+hnv
+uJI
+bby
+hnv
+hnv
+awL
+hnv
+hnv
+nnP
+hnv
+awL
+hnv
 aal
 cqo
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
-vIc
+hnv
+hnv
+awL
+hnv
+hnv
+hnv
+hnv
+hnv
+awL
+hnv
 adw
-vIc
-vIc
-vIc
-vIc
-vIc
+bby
+hnv
+awL
+hnv
+hnv
 adt
 aal
-cqo
-vIc
-vIc
-abu
-vIc
-vIc
-vIc
-vIc
-vIc
+gRc
+hnv
+hnv
+nnP
+hnv
+hnv
+awL
+hnv
+hnv
 gEt
 gMp
 acg
-adg
+vXr
 aNB
 aEB
 aRM
 aMW
-wni
-wni
+amp
+aqf
 aco
 aPS
 aPS
 aPS
-aPS
-aPS
-aHq
-wni
-wni
+pBA
+fuD
+aqf
+dNf
+msj
 axx
 tGA
 tGA
@@ -38273,14 +39953,14 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -38342,7 +40022,7 @@ hNL
 hNL
 hNL
 hNL
-hNL
+iZc
 hNL
 hNL
 hNL
@@ -38373,20 +40053,20 @@ wbs
 gMp
 tGA
 adg
-iDk
-iDk
-iDk
-iDk
-wni
+aUJ
+aUJ
+aUJ
+aUJ
+ozC
 pTo
 akv
-wni
-wni
-wni
-iDk
+aqf
+aqf
+aqf
+aUJ
 rwG
-wni
-wni
+prL
+aqf
 adR
 axx
 tGA
@@ -38530,16 +40210,16 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
 aPP
 aPP
 aPP
@@ -38597,10 +40277,10 @@ adi
 pON
 aJH
 oCm
-aPP
-aPP
-aPP
-aPP
+lCq
+vIc
+vIc
+hNL
 aPP
 aPP
 aPP
@@ -38610,19 +40290,19 @@ aPP
 aPP
 eYd
 cbD
-fry
+gHv
 eYd
-aaU
+oNL
 aaU
 acs
 aaU
 aVb
 acs
-ayJ
+oWd
 aVb
 xpA
 aVb
-aaU
+oNL
 acs
 aVb
 azZ
@@ -38631,21 +40311,21 @@ gMp
 tGA
 adg
 adf
-iDk
+aUJ
 aiS
-iDk
-rwG
-wni
+kDp
+wvd
+aqf
 aaA
-wni
-wni
-wni
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
+aqf
+aqf
+xgu
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
 tGA
 tGA
 tGA
@@ -38787,16 +40467,16 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -38854,10 +40534,10 @@ aec
 jKs
 aOU
 oCm
-aPP
-aPP
-aPP
-aPP
+lxc
+wfM
+pCB
+hNL
 aPP
 aPP
 aPP
@@ -38887,20 +40567,20 @@ wbs
 gMp
 tGA
 adg
-iDk
-iDk
-aYY
-iDk
-iDk
-iDk
-aaA
-iDk
-iDk
-iDk
-iDk
-euf
-tGA
-tGA
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+iZA
+aUJ
+aUJ
+aUJ
+aUJ
+tNc
+reN
+ukj
 tGA
 tGA
 tGA
@@ -39044,19 +40724,19 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -39111,10 +40791,10 @@ aqM
 cxx
 aYB
 oCm
-aPP
-aPP
-aPP
-aPP
+hNL
+hNL
+hNL
+hNL
 aPP
 aPP
 aPP
@@ -39141,25 +40821,25 @@ acs
 aVb
 abc
 wbs
-gMp
+ill
 tGA
 adg
 agy
 aLi
+hQK
 abg
-abg
-abg
-abg
+sOP
+bcL
 avP
 acm
 fuF
-xEJ
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
+acm
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
 tGA
 tGA
 tGA
@@ -39301,24 +40981,24 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -39403,20 +41083,20 @@ tGA
 adg
 agy
 axb
-sUj
-sUj
-sUj
-sUj
-sUj
-sUj
-sUj
-abj
-iDk
-sUj
-sUj
-sUj
-sUj
-iDk
+kIj
+uUd
+aUJ
+acm
+psn
+acm
+hqk
+acm
+aUJ
+aew
+qaT
+rRJ
+jXt
+aUJ
 tGA
 tGA
 tGA
@@ -39558,30 +41238,30 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -39638,7 +41318,7 @@ aiG
 afC
 eYd
 cbD
-fry
+hcp
 eYd
 aVb
 aVb
@@ -39658,22 +41338,22 @@ wbs
 gMp
 tGA
 adg
-agy
+ltb
 axb
-sUj
-sUj
-sUj
-sUj
-sUj
-sUj
-sUj
-abj
-sUj
-sUj
-sUj
-sUj
-sUj
-iDk
+bpy
+uiC
+aUJ
+sLm
+pJJ
+aPS
+bfK
+aPS
+wJq
+cax
+bWk
+rRJ
+eEZ
+tYg
 tGA
 tGA
 tGA
@@ -39815,30 +41495,30 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
+ayG
 aPP
 aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -39895,7 +41575,7 @@ akQ
 ats
 anv
 ael
-fry
+hcp
 eYd
 aVb
 aVb
@@ -39917,20 +41597,20 @@ tGA
 adg
 agy
 aXx
-sUj
-sUj
-sUj
-sUj
-sUj
-sUj
+xik
+uiC
+aUJ
+acm
+acm
+acm
 aGF
-aew
-iDk
-sUj
-sUj
-sUj
-sUj
-iDk
+acm
+aUJ
+nwW
+arM
+aaI
+wFB
+vMS
 tGA
 tGA
 tGA
@@ -40072,31 +41752,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+ayG
+ayG
+aPP
+aPP
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -40152,42 +41832,42 @@ aAQ
 aBF
 eYd
 cbD
-fry
+hcp
 eYd
-aaU
+fBc
 aVb
 acs
 aVb
 atg
 acs
-aVb
+knS
 aaU
 afb
 acy
-ayJ
+bel
 acs
 aVb
-aWn
+eig
 wbs
 gMp
 tGA
 adg
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
-iDk
+aUJ
+aUJ
+aUJ
+hyD
+aUJ
+aUJ
+aUJ
+bFi
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
+aUJ
 tGA
 tGA
 tGA
@@ -40329,31 +42009,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+azL
+azL
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -40409,7 +42089,7 @@ xjH
 xjH
 eYd
 cbD
-fry
+gHv
 eYd
 rog
 rog
@@ -40586,31 +42266,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -40683,30 +42363,30 @@ aPP
 aPP
 aPP
 wbs
+ill
 gMp
 gMp
 gMp
 gMp
 gMp
+bhd
 gMp
 gMp
 gMp
 gMp
 gMp
+bhd
 gMp
 gMp
 gMp
 gMp
 gMp
+bhd
 gMp
 gMp
 gMp
 gMp
-gMp
-gMp
-gMp
-gMp
-gMp
+bhd
 wbs
 aPP
 aPP
@@ -40843,34 +42523,34 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -41100,34 +42780,34 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
 aPP
 aPP
 aPP
@@ -41183,7 +42863,7 @@ adk
 nHf
 nHf
 vAM
-ayc
+abv
 aon
 ubC
 arJ
@@ -41358,33 +43038,33 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -41615,33 +43295,33 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -41694,7 +43374,7 @@ aHJ
 aNJ
 tEO
 qSD
-aMp
+bfg
 aYe
 vAM
 mpL
@@ -41872,34 +43552,34 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -41951,7 +43631,7 @@ acp
 apl
 tEO
 qSD
-aMp
+bfg
 arf
 vAM
 aNC
@@ -42129,34 +43809,34 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -42206,9 +43886,9 @@ nHf
 aWj
 wRz
 gEO
-aMp
+bfg
 qSD
-aMp
+bfg
 arf
 vAM
 aov
@@ -42217,7 +43897,7 @@ mpL
 mpL
 mpL
 mpL
-mpL
+lme
 vAM
 aPP
 aPP
@@ -42386,34 +44066,34 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -42460,13 +44140,13 @@ amj
 ace
 aLS
 aZp
-aMp
+bfg
 aOJ
 azw
-aMp
+bfg
 qSD
-aMp
-aMp
+bfg
+bfg
 vAM
 aGK
 atv
@@ -42643,36 +44323,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -42716,19 +44396,19 @@ sVx
 aeW
 pas
 cFN
-afa
+dZJ
 afa
 afc
 afd
 afe
 aIO
 aby
-aby
+gJW
 vAM
 vAM
 vAM
 vAM
-mpL
+lOm
 aSd
 ars
 ars
@@ -42900,36 +44580,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -42975,7 +44655,7 @@ bnr
 aVj
 aZp
 alz
-alz
+pUC
 ayu
 qSD
 aLq
@@ -43157,36 +44837,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -43414,36 +45094,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -43671,36 +45351,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -43929,35 +45609,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -44186,35 +45866,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -44443,35 +46123,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -44700,35 +46380,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
 aPP
 aPP
 aPP
@@ -44775,7 +46455,7 @@ aPP
 aPP
 aPP
 igF
-adp
+sHy
 aem
 aZq
 bzU
@@ -44957,35 +46637,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -45215,35 +46895,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
+ayG
+ayG
 aPP
 aPP
 aPP
@@ -45472,35 +47152,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -45729,35 +47409,35 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -45986,36 +47666,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -46243,36 +47923,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -46500,36 +48180,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -46757,36 +48437,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -47014,36 +48694,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -47273,34 +48953,34 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -47530,34 +49210,34 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -47787,36 +49467,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -48044,36 +49724,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -48301,36 +49981,36 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -48561,33 +50241,33 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -48818,33 +50498,33 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -49075,33 +50755,33 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+aPP
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -49332,33 +51012,33 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+aPP
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -49591,31 +51271,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -49848,31 +51528,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -50105,31 +51785,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -50362,31 +52042,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -50619,31 +52299,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -50876,31 +52556,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -51133,32 +52813,32 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -51391,31 +53071,31 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -51649,30 +53329,30 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -51906,30 +53586,30 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -52164,30 +53844,30 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -52423,28 +54103,28 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -52680,28 +54360,28 @@ azL
 azL
 azL
 azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
-ayG
-aPP
-aPP
-aPP
-aPP
-aPP
-aPP
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-aPP
-aPP
-aPP
 aPP
 aPP
 aPP
@@ -52937,27 +54617,27 @@ azL
 azL
 azL
 azL
-ayG
-ayG
-aPP
-aPP
-aPP
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
@@ -53195,27 +54875,27 @@ azL
 azL
 azL
 azL
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
-ayG
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
+azL
 ayG
 ayG
 ayG
@@ -53470,9 +55150,9 @@ azL
 azL
 azL
 azL
-ayG
-ayG
-ayG
+azL
+azL
+azL
 ayG
 ayG
 ayG
@@ -55053,7 +56733,7 @@ azL
 ayG
 ayG
 ayG
-ayG
+uuF
 ayG
 ayG
 ayG
@@ -62493,7 +64173,7 @@ azL
 azL
 azL
 azL
-azL
+ali
 azL
 azL
 azL
