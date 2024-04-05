@@ -3967,9 +3967,7 @@
 	dir = 1;
 	name = "shuttle bay blast door"
 	},
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "atq" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "0,10";
@@ -24699,9 +24697,7 @@
 /area/antag/mercenary)
 "mbe" = (
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "mbj" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -26610,9 +26606,7 @@
 	name = "start"
 	},
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "nli" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -29378,9 +29372,7 @@
 /area/antag/mercenary)
 "pbO" = (
 /turf/unsimulated/wall/darkshuttlewall,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "pcu" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";

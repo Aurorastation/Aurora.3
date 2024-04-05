@@ -763,9 +763,7 @@
 /area/maintenance/security_starboard)
 "abJ" = (
 /turf/simulated/wall,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "abK" = (
 /turf/simulated/wall,
 /area/maintenance/substation/security)
@@ -2604,9 +2602,7 @@
 	icon_state = "conpipe-c"
 	},
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "afj" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -3963,9 +3959,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "ahP" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -35846,18 +35840,14 @@
 /area/medical/medbay2)
 "blx" = (
 /turf/simulated/wall,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bly" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "blz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -35874,9 +35864,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "blA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -35894,9 +35882,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "blB" = (
 /obj/random/pottedplant,
 /obj/machinery/camera/network/medbay{
@@ -35909,9 +35895,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "blC" = (
 /obj/structure/table/glass,
 /obj/item/clipboard,
@@ -36498,9 +36482,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bmY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -36511,24 +36493,18 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bmZ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bna" = (
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bnb" = (
 /obj/machinery/light_switch{
 	pixel_x = -24
@@ -37268,9 +37244,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "boz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -37284,9 +37258,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "boA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -37301,26 +37273,20 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "boB" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "boC" = (
 /obj/structure/stairs/east,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "boD" = (
 /obj/machinery/papershredder,
 /obj/structure/cable/green{
@@ -37976,20 +37942,14 @@
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bpQ" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bpR" = (
 /obj/structure/stairs/east,
 /turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bpS" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -38541,9 +38501,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bqX" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -38552,9 +38510,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bqY" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -38566,9 +38522,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Stairway"
-	})
+/area/medical/med_office)
 "bra" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Starboard 3";
@@ -57597,9 +57551,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "cqu" = (
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight{
@@ -57824,9 +57776,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "cGg" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -58152,9 +58102,7 @@
 	},
 /obj/item/device/taperecorder,
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "dmg" = (
 /obj/structure/table/reinforced/wood,
 /turf/simulated/floor/wood,
@@ -58269,9 +58217,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "dwP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -58947,9 +58893,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "eNv" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
@@ -59068,9 +59012,7 @@
 "fap" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "fbb" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -59158,9 +59100,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "feo" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12);
@@ -59417,9 +59357,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "fFe" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -59672,9 +59610,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "fYe" = (
 /obj/effect/landmark{
 	name = "borerstart"
@@ -60123,9 +60059,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "gOO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -60185,9 +60119,7 @@
 /obj/item/stack/packageWrap,
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "gXa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/iv_drip,
@@ -60947,9 +60879,7 @@
 	pixel_y = -26
 	},
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "icb" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -61197,9 +61127,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "iIv" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -61397,9 +61325,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "jjD" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -61423,9 +61349,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "jky" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -61911,9 +61835,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "kzA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -62076,9 +61998,7 @@
 "kUL" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "kVx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -62147,9 +62067,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "kZT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -63267,9 +63185,7 @@
 /area/maintenance/vault)
 "ndP" = (
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "ndR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/smartfridge/secure,
@@ -63283,9 +63199,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "nhV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -63428,9 +63342,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "nsd" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -63468,9 +63380,7 @@
 	},
 /obj/item/device/radio/intercom/north,
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "nug" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/white{
@@ -63496,9 +63406,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "nxq" = (
 /obj/item/robot_parts/robot_suit,
 /obj/effect/spider/stickyweb,
@@ -63591,9 +63499,7 @@
 /obj/item/paper_scanner,
 /obj/item/paper_scanner,
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "nKv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
@@ -64145,9 +64051,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "oMh" = (
 /obj/item/storage/box/fancy/crayons/chalkbox,
 /obj/structure/table/wood/gamblingtable,
@@ -64365,9 +64269,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "pgz" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -64597,9 +64499,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "prS" = (
 /obj/structure/table/wood,
 /obj/random/loot,
@@ -65000,9 +64900,7 @@
 	departmentType = 5
 	},
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "qlw" = (
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 8
@@ -65251,9 +65149,7 @@
 	pixel_x = -31
 	},
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "qJD" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
@@ -65685,9 +65581,7 @@
 	req_access = list(1)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "rsz" = (
 /obj/item/chess_piece/bishop/black,
 /turf/simulated/floor/marble,
@@ -66401,9 +66295,7 @@
 "sJu" = (
 /obj/machinery/alarm/west,
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "sJK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/recharge_station,
@@ -66957,9 +66849,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "tCT" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -67086,9 +66976,7 @@
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "tII" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet,
@@ -67307,9 +67195,7 @@
 	pixel_y = 22
 	},
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "uaI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -67555,9 +67441,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "uni" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/small/emergency{
@@ -67887,9 +67771,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "vak" = (
 /obj/structure/flora/ausbushes/leafybush{
 	pixel_x = -2;
@@ -67925,9 +67807,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "vdA" = (
 /obj/structure/door_assembly/multi_tile{
 	anchored = 1;
@@ -68147,9 +68027,7 @@
 "vsB" = (
 /obj/structure/closet/secure_closet/investigator,
 /turf/simulated/floor/lino,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "vtA" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -68517,9 +68395,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "vTE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/chess_piece/black,
@@ -69920,9 +69796,7 @@
 	},
 /obj/item/pen/red,
 /turf/simulated/floor/tiled/dark,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
+/area/security/forensics_office)
 "ykb" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/button/switch/windowtint{
