@@ -170,12 +170,18 @@
 	name = "SSMD Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/ssmd_shuttle)
+	dock_target = "airlock_ssmd_shuttle"
 	current_location = "nav_hangar_ssmd"
 	landmark_transition = "nav_transit_ssmd_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_ssmd"
 	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
+	name = "SSMD Shuttle"
+	shuttle_tag = "SSMD Shuttle"
+	master_tag = "airlock_ssmd_shuttle"
 
 /obj/effect/shuttle_landmark/ssmd_shuttle/hangar
 	name = "SSMD Shuttle Hangar"
