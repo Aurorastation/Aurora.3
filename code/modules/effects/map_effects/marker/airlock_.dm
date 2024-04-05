@@ -1,7 +1,3 @@
-/obj/effect/map_effect/marker
-	name = "map marker parent abstract object"
-	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "marker_base"
 
 /// Airlock marker that, when placed above airlock components, actually sets them up to make it functional.
 /// This is a simple exterior access airlock, not used for docking.
@@ -53,12 +49,12 @@
 		if(istype(controller))
 			// common controller vars
 			controller.set_frequency(frequency)
-			controller.id_tag = AIRLOCK_MARKER_TAG_MASTER
-			controller.tag_airpump = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
-			controller.tag_chamber_sensor = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
-			controller.tag_exterior_sensor = AIRLOCK_MARKER_TAG_SENSOR_EXTERIOR
-			controller.tag_exterior_door = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
-			controller.tag_interior_door = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
+			controller.id_tag = MARKER_AIRLOCK_TAG_MASTER
+			controller.tag_airpump = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
+			controller.tag_chamber_sensor = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
+			controller.tag_exterior_sensor = MARKER_AIRLOCK_TAG_SENSOR_EXTERIOR
+			controller.tag_exterior_door = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
+			controller.tag_interior_door = MARKER_AIRLOCK_TAG_DOOR_INTERIOR
 			controller.cycle_to_external_air = cycle_to_external_air
 			controller.req_access = req_access
 			controller.req_one_access = req_one_access
@@ -75,21 +71,21 @@
 			door.req_one_access = req_one_access
 			door.lock()
 			if(is_interior)
-				door.id_tag = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
+				door.id_tag = MARKER_AIRLOCK_TAG_DOOR_INTERIOR
 			else if(is_exterior)
-				door.id_tag = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
+				door.id_tag = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
 			continue
 
 		var/obj/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.set_frequency(frequency)
-			sensor.master_tag = AIRLOCK_MARKER_TAG_MASTER
+			sensor.master_tag = MARKER_AIRLOCK_TAG_MASTER
 			if(is_interior)
-				sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_INTERIOR
+				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_INTERIOR
 			else if(is_exterior)
-				sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_EXTERIOR
+				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_EXTERIOR
 			else
-				sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
+				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
 			continue
 
 		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
@@ -98,17 +94,17 @@
 			unregister_radio(pump, frequency)
 			pump.setup_radio()
 			if(is_exterior)
-				pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_OUT_EXTERNAL
+				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_OUT_EXTERNAL
 			else if(is_out)
-				pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_OUT_INTERNAL
+				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_OUT_INTERNAL
 			else
-				pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
+				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
 			continue
 
 		var/obj/machinery/access_button/button = thing
 		if(istype(button))
 			button.set_frequency(frequency)
-			button.master_tag = AIRLOCK_MARKER_TAG_MASTER
+			button.master_tag = MARKER_AIRLOCK_TAG_MASTER
 			button.req_access = req_access
 			button.req_one_access = req_one_access
 			if(is_interior)

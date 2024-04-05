@@ -211,19 +211,19 @@
 		return
 	if(!module_state_1)
 		module_state_1 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv1.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_2)
 		module_state_2 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv2.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_3)
 		module_state_3 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv3.screen_loc
 		contents += O
 		O.on_module_hotbar(src)

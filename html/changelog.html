@@ -35,6 +35,180 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">04 April 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Items set to be layered below tables will not have initial layer changed, fixing certain interactions.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Get_sfx() now also returns /sound types back, preventing some runtimes without having to rewrite 300 lines.</li>
+				<li class="bugfix">Food containers like frosted donuts and meat nuggets now maintain the proper icon.</li>
+				<li class="bugfix">Recharger backpacks now intuitively handle the connection with a simple item-on-backpack click.</li>
+				<li class="backend">Improved backend handling, cleanly handle ref dropping to gun, localized management of the backpack, DMdoc, you know the deal.</li>
+				<li class="tweak">Reduced simple animal emote sounds to short range.</li>
+				<li class="backend">Turned the var that hold those sounds into a lazylist, saving memory (as most simple animals don&#x27;t have emote sounds).</li>
+				<li class="bugfix">Fixed a runtime found on mechs.</li>
+				<li class="bugfix">Fixed machine processing for ores going in the negatives for alloying.</li>
+				<li class="backend">Some more optimizations, DMdocs, turned a var into a global one, some defines added and made into bitflags, yada yada you know the usual deal.</li>
+				<li class="backend">Optimized some procs, ported from Daedalus Dock.</li>
+			</ul>
+			<h3 class="author">FluffyGhost, ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Tweaked the sounds to dampen the volume depending on what is present between the source and the destination, accounts for walls/doors/windows.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added bauxite and galena to map generation.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Overhauls the PRA Headmaster ship. Updates airlocks and shuttle to mapping standards.</li>
+			</ul>
+			<h3 class="author">Noble Row, Stryker updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds 19 new assorted Golden Deep clothing items to the Xenowear - IPC tab. Spritework done by Noble Row.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Added blastdoors to the Grauwolf compartment and moved the longbow blastdoors button to be more visible.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the Konyang guns and armor used in the Silicon Nightmares events.</li>
+			</ul>
+			<h3 class="author">SidVeld updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added buttons that can be used to quickly change a character&#x27;s hairstyle or beard without using a list.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed seams in the smoothing of mineral turfs.</li>
+			</ul>
+
+			<h2 class="date">03 April 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fix the runtime seen in the CI, as well as standarize the apply_damage proc header that leaded to those runtimes (and possibly others/more).</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed platforms layering over vending machines.</li>
+				<li class="bugfix">Fixed chairs rendering over railings.</li>
+				<li class="bugfix">Fixed pipes rendering under plating.</li>
+				<li class="bugfix">Fixed closed blastdoors rendering under windows.</li>
+			</ul>
+
+			<h2 class="date">02 April 2024</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Updated and fixed some content from old space sectors.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Takes the 30 phoron sheets off of the Intrepid and splits it into 15 for Scientists and 15 for the Machinists.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the broken wood turfs on the Odin and in Antagonist bases.</li>
+			</ul>
+
+			<h2 class="date">01 April 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds large tank markers.</li>
+				<li class="maptweak">Updates SCC Scout Ship to use large tank markers.</li>
+				<li class="maptweak">Updates Civilian Yacht to use large tank markers.</li>
+				<li class="rscadd">Adds highvis pants to match the two highvis jackets.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaked reloading sounds, single-bullet fiddlings are way quieter than magazines, both have reduced range than before; unloading sound is less hearable over distance than the loading one.</li>
+				<li class="tweak">Reduced the volume of passing through a bush on Konyang.</li>
+				<li class="tweak">The stethoscope message, for the user, is now inside an examine block.</li>
+				<li class="tweak">Tuned the delay a little, so the display is not immediate, as you&#x27;d need a moment to determine the breathing and heart status.</li>
+				<li class="tweak">Reduced the emitter and sparks sound range.</li>
+				<li class="tweak">Tweaked walking sound ranges, now running is hearable more afar than walking, and they both have less range than they did before.</li>
+				<li class="tweak">Reduced the range and marked as wall unpassable some additional trivial sounds.</li>
+				<li class="backend">Updated mutable appearances to only set the floating plane if they&#x27;re not copying from an image, as per TG version.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Changed the layers of every object in the game, and added a long list of defines, for eventual movement into render planes.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Konyang voidsuits not using the correct refitted sprites.</li>
+				<li class="tweak">Removes Gakal&#x27;zaal from the corporate sectors list and refluffs the PVSM voidsuits to not be based on corporate models.</li>
+				<li class="rscadd">Adds several pre-contact Unathi ballistic guns.</li>
+				<li class="tweak">Resprites, restats, and refluffs the generic Unathi armor.</li>
+				<li class="rscadd">Adds IPC sprites for the Einstein &amp; Zeng-Hu voidsuits, and adds Skrell sprites for the Einstein suit.</li>
+				<li class="bugfix">Fixes Longbow warheads exploding when picked up by mechs.</li>
+				<li class="bugfix">Fixes ice exoplanet turfs being invisible.</li>
+				<li class="bugfix">Fixes the Haneunim shuttle crash from leaving its thrusters behind on launch.</li>
+			</ul>
+			<h3 class="author">SidVeld updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an issue that caused the character examine message to disappear when the player controlling it is not in the body.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds 2 new uniforms for the Ve&#x27;katak Phalanx.</li>
+				<li class="bugfix">Fixes minor spriting issues with the existing Ve&#x27;katak uniforms.</li>
+				<li class="rscadd">Adds four new flagpatches (Sedantis, Zo&#x27;ra, K&#x27;lax, C&#x27;thur).</li>
+				<li class="bugfix">Fixes minor issues with the Ve&#x27;katak faceplate.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Tweaked the safety goggles sprite so the strap isn&#x27;t so thick.</li>
+				<li class="tweak">Tweaked holomenus to be readable from a distance.</li>
+			</ul>
+
+			<h2 class="date">29 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The machinist intern forgot to add the wires to the hardsuits, they&#x27;re back now, so you can hack them once more.</li>
+				<li class="bugfix">Fixed device assemblies disappearing on deconstruction.</li>
+				<li class="bugfix">Fixed UI not opening on device assemblies.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds the appropriate decals to the IAC ship doors.</li>
+				<li class="maptweak">Adds the hydroponic tools to the IAC hydroponics.</li>
+				<li class="bugfix">Adds the proper access to the rescue hardsuit on the IAC ship.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes species-restricted martial arts manuals not working.</li>
+			</ul>
+
+			<h2 class="date">28 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some mobs and mannequins harddels.</li>
+			</ul>
+
+			<h2 class="date">27 March 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed mech hearing sounds (and possibly other cases where the mob is placed inside something else).</li>
+				<li class="bugfix">Fixed some sounds that were without a volume set, thus weren&#x27;t played.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Restored the Xanan eagle voidsuit&#x27;s intended armor values.</li>
+				<li class="balance">Added a two-item limit to sanasomnum in the antagonist uplink.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Konyang voidsuits not being refittable.</li>
+				<li class="rscadd">Adds several new ERTs.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed &quot;Bangs&quot; and &quot;Bangs, Short&quot; hair lengths in the code.</li>
+			</ul>
+
 			<h2 class="date">26 March 2024</h2>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">

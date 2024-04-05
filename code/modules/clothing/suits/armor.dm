@@ -456,7 +456,7 @@
 
 /obj/item/clothing/suit/armor/unathi
 	name = "unathi body armor"
-	desc = "An outdated armored chestplate designated to be worn by an Unathi, it was commonly used by the Hegemony Levies."
+	desc = "An outdated set of ceramic-metal body armor of Unathi design. Commonly seen on Moghes during the days of the Contact War, and now commonplace in the hands of raiders and pirates."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_armor"
 	item_state = "unathi_armor"
@@ -464,45 +464,46 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/armor/unathi/hegemony
 	name = "hegemony body armor"
-	desc = "A highly armored chestplate designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
+	desc = "A highly armored ceramic-metal composite chestplate fitted for an Unathi. Commonly used by the military forces of the Izweski Hegemony."
 	icon_state = "hegemony_armor"
 	item_state = "hegemony_armor"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		bomb = ARMOR_BOMB_PADDED,
+		rad = ARMOR_RAD_MINOR
 	)
 
 // Vaurca version of Unathi armor
 /obj/item/clothing/suit/armor/unathi/klax
 	name = "klaxan warrior body armor"
-	desc = "An armored chestplate designated to be worn by a K'lax warrior. The retrofit is only a bit shoddy."
+	desc = "A highly armored ceramic-metal composite chestplate fitted for a Vaurca Warrior. Commonly used by the military forces of the Izweski Hegemony."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful"
 	item_state = "klax_hopeful"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_VAURCA)
-	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
-	siemens_coefficient = 0.35
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_MINOR
 	)
+	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/storage/vest/legion
 	name = "foreign legion armored suit"

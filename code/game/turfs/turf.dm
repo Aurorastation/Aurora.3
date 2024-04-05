@@ -2,6 +2,8 @@
 	icon = 'icons/turf/floors.dmi'
 	level = 1
 
+	layer = TURF_LAYER
+
 	var/turf_flags
 	var/holy = 0
 

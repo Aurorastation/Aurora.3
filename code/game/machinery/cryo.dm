@@ -22,7 +22,7 @@
 	icon_state = "pod_preview"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	interact_offline = TRUE
 
 	var/on = 0

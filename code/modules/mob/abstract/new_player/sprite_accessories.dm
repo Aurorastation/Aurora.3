@@ -151,12 +151,13 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/bangs
 	name = "Bangs"
 	icon_state = "hair_bangs"
-	length = 2
+	length = 3
 	chatname = "fringe"
 
 /datum/sprite_accessory/hair/bangs_short
 	name = "Bangs, Short"
 	icon_state = "hair_bangs_short"
+	length = 2
 	chatname = "fringe"
 
 /datum/sprite_accessory/hair/bangs_veryshort

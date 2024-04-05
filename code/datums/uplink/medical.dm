@@ -17,6 +17,7 @@
 /datum/uplink_item/item/medical/sanasomnum
 	name = "Sanasomnum Injector"
 	bluecrystal_cost = 3
+	item_limit = 2
 	path = /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
 
 /datum/uplink_item/item/medical/combathypo
