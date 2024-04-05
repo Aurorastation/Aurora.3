@@ -63,6 +63,10 @@
 
 		return f_style
 
+/**
+ * This proc checks if a sprite_accessory appropriate for a given organ and robolimb. The second argument must be an ORGAN_PREF define.
+ * This can easily be made into a more general helper if needed by just turning organ_status into a boolean and feeding an instance into robolimb_manufacturer, maybe.
+*/
 /proc/check_robolimb_appropriate(datum/sprite_accessory/S, organ_status, robolimb_manufacturer)
 	if(S.robotize_type_required)
 		if(S.required_organ)
