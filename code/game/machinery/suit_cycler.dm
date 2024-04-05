@@ -78,7 +78,8 @@
 
 	wires = new(src)
 	target_department = departments[1]
-	target_species = species[1]
+	if(!target_species) //For presetting target species on non-human cyclers
+		target_species = species[1]
 	update_icon()
 	if(!target_department || !target_species)
 		qdel(src)

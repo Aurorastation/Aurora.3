@@ -249,9 +249,19 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/tech/stored
+	///Initial tech level for mapped-in disks
+	var/stored_level
+
+/obj/item/disk/tech_disk/illegal
+	stored = /datum/tech/syndicate
+	stored_level = 3
 
 /obj/item/disk/tech_disk/Initialize(mapload)
 	. = ..()
+	if(stored)
+		stored = new()
+		if(stored_level)
+			stored.level = stored_level
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 

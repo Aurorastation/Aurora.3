@@ -193,6 +193,15 @@
 	suit = /obj/item/clothing/suit/space/void/valkyrie
 	helmet = /obj/item/clothing/head/helmet/space/void/valkyrie
 
+/obj/machinery/suit_cycler/offship/hammertails
+	model_text = "Hammertail Smiths"
+	req_access = list(ACCESS_HAMMERTAILS)
+	departments = list("Hammertail")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
+	suit = /obj/item/clothing/suit/space/void/merc/unathi
+	helmet = /obj/item/clothing/head/helmet/space/void/merc/unathi
+	target_species = BODYTYPE_UNATHI
+
 /obj/machinery/suit_cycler/offship/hegemony
 	model_text = "Izweski Navy"
 	req_access = list(ACCESS_KATAPHRACT)
