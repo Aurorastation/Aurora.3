@@ -220,3 +220,20 @@
 	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 35)
 	bitesize = 10
+
+/obj/item/reagent_containers/food/snacks/koicomb
+	name = "koicomb"
+	desc = "vvvell aren't vvve vvvancy? this uncommon confection is often served in large gatherings and events, where it's served as a very large sheet, with guests tearing or slicing off as much as they'd like to have."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "koicomb"
+	filling_color = "#E6E600"
+	reagents_to_add = list(/singleton/reagent/kois = 25, /singleton/reagent/toxin/phoron = 20)
+	bitesize = 8
+
+/obj/item/reagent_containers/food/snacks/koicomb/update_icon()
+	var/percent_pazillo = round((reagents.total_volume / 45) * 100)
+	switch(percent_pazillo)
+		if(0 to 50)
+			icon_state = "koicomb_bitten"
+		if(51 to INFINITY)
+			icon_state = "koicomb"

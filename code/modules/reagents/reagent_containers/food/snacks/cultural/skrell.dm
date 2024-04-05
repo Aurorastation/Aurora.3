@@ -169,3 +169,19 @@
 	filling_color = "#97eaff7a"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/gelatin = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetened mint" = 5))
+
+/obj/item/reagent_containers/food/snacks/konaqu
+	name = "konaqu"
+	desc = "Literally translating to 'whirpool orb', konaqu are popular pastry-like confections beloved among Nralakk youth. They tend to be soft and gooey underwater, or soft and brittle when dry. When served on dry land, they are often served with a small bowl or glass of water/milk to give people the option of dunking them."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi'
+	icon_state = "qilvo"
+	filling_color = "#64e3faff"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fruity dough" = 5, "sweetness" = 5))
+
+/obj/item/reagent_containers/food/snacks/konaqu/Initialize()
+	. = ..()
+	var/shape = pick("konaqu1", "konaqu2")
+	icon = 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi'
+	src.icon_state = "[shape]"
+	src.name = "if you see this i forgot toe dit it out lol"

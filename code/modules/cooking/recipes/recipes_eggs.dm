@@ -70,7 +70,7 @@
 	fruit = list("tomato" = 2)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Get that water outta here
 	reagents = list(/singleton/reagent/spacespice = 2, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/protein/egg = 6)
-	result = /obj/item/reagent_containers/food/snacks/shakshouka
+	result = /obj/item/reagent_containers/food/snacks/dip/shakshouka
 
 /singleton/recipe/eggs_benedict
 	appliance = MIX

@@ -74,3 +74,13 @@
 		/obj/item/reagent_containers/food/snacks/phoroncandy
 	)
 	result = /obj/item/reagent_containers/food/snacks/phoron_river_loaf
+
+/singleton/recipe/koicomb
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/friedkois,
+		/obj/item/reagent_containers/food/snacks/friedkois
+	)
+	reagents = list(/singleton/reagent/condiment/syrup_simple = 5)
+	result = /obj/item/reagent_containers/food/snacks/koicomb
+	reagent_mix = RECIPE_REAGENT_REPLACE

@@ -92,6 +92,15 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=4)
 
+/obj/item/reagent_containers/food/snacks/shakshoukabread
+	name = "shakshouka bread slice"
+	desc = "A slice of bread that was used to scoop up a healthy helping of Shakshouka"
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "shakshoukabread"
+	filling_color = "#cf5728"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=4)
+
 /obj/item/reagent_containers/food/snacks/breadslice/filled
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 2))
@@ -612,4 +621,22 @@
 	filling_color = "#311909"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/choconutspread = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 8, "pita bread" = 5, "childhood" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pita/peanut_butter
+	name = "peanut butter pita"
+	desc = "It's basically a simple peanut butter sandwich, but in the form of a fluffy dough pocket."
+	icon_state = "pbpita"
+	filling_color = "#a06935"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("peanut butter" = 5, "pita bread" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pita/omelette
+	name = "omelette pita"
+	desc = "An omelette sitting comfortably in a fluffy pocket of pita bread."
+	icon_state = "omelettepita"
+	filling_color = "#dbb302"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pita bread" = 5), /singleton/reagent/nutriment/protein = list("omelette" = 5))
 	bitesize = 2
