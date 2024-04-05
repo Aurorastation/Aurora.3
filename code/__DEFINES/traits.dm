@@ -174,3 +174,6 @@
 
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
+
+/// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
+#define TRAIT_SHOE_GRIP "shoe_grip"

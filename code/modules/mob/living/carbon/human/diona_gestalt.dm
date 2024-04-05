@@ -354,6 +354,44 @@
 	visible_message("<span class='warning'>\The [src] quivers slightly, then splits apart with a wet slithering noise.</span>")
 	qdel(src)
 
+/mob/living/carbon/human/proc/root_to_ground()
+	set name = "Extend Roots"
+	set desc = "Extend your roots to keep yourself upright in case of pressure changes."
+
+	if(use_check_and_message(src))
+		return
+
+	if(nutrition <= 50)
+		to_chat(src, SPAN_WARNING("You lack nutrition to perform this action!"))
+		return
+
+	if(DS.stored_energy <= 20)
+		to_chat(src, SPAN_WARNING("You lack energy to perform this action!"))
+		return
+
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You've used an ability too recently! Wait a bit."))
+		return
+
+	if(!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))
+		to_chat(src, SPAN_WARNING("You have no supporting limbs to extend your roots from!"))
+		return
+
+	if(isspaceturf(get_turf(src)))
+		to_chat(src, SPAN_WARNING("You can't do that here!"))
+		return
+
+	last_special = world.time + 2 SECONDS
+
+	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
+		visible_message(SPAN_NOTICE("[src] retracts the roots at their feet into their body."), SPAN_NOTICE("You retract your roots."))
+		REMOVE_TRAIT(src, TRAIT_SHOE_GRIP)
+		playsound(src, 'sound/species/diona/gestalt_split.ogg', 20)
+	else
+		visible_message(SPAN_NOTICE("[src] extends some roots at their feet."), SPAN_NOTICE("You extend your roots to keep yourself upright."))
+		ADD_TRAIT(src, TRAIT_SHOE_GRIP)
+		playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30)
+
 #undef COLD_DAMAGE_LEVEL_1
 #undef COLD_DAMAGE_LEVEL_2
 #undef COLD_DAMAGE_LEVEL_3
