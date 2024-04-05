@@ -184,4 +184,4 @@
 	var/shape = pick("konaqu1", "konaqu2")
 	icon = 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi'
 	src.icon_state = "[shape]"
-	src.name = "if you see this i forgot toe dit it out lol"
+	src.name = "if you see this i forgot to edit it out lol"
