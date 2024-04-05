@@ -74,7 +74,7 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/hammertail_shuttle/New()
-	designation = "[pick("Entrepreneur", "Fellow Traveler", "Safe & Legal", "Who Wants To Live Forever", "Cash On Delivery", "No Refunds", "Fat Tails Fat Wallets", "Not Taking Commissions", "Ask Me About My HI-M96", "Not'zar's Backup Limousine", "Grenade Enthusiast", "Stop Fucking With The IFF", "Honor Fire Burn Someone Else", "Phoron Sticks To Hatchlings", "Sensor Malfunction, Please Restart System", "I Think The Lands Are OK, Actually", "Dedicated To The Brave Yizarus Brigade of Gakal'zaal", "Open For Business", "Please Insert Credits")]"
+	designation = "[pick("Entrepreneur", "Fellow Traveler", "Safe & Legal", "Who Wants To Live Forever", "Cash On Delivery", "No Refunds", "Fat Tails Fat Wallets", "Not Taking Commissions", "Ask Me About My HI-M96", "Not'zar's Backup Limousine", "Grenade Enthusiast", "Stop Fucking With The IFF", "Honor Fire Burn Someone Else", "Phoron Sticks To Hatchlings", "Sensor Malfunction, Please Restart System", "I Think The Lands Are OK, Actually", "Dedicated To The Brave Yizarus Brigade of Gakal'zaal", "Open For Business", "Please Insert Credits", "Honor Among Thieves")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/hammertail_shuttle
