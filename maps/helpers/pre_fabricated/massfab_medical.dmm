@@ -1393,7 +1393,7 @@
 /area/space)
 "xg" = (
 /turf/simulated/wall{
-	color = #E2E2E2
+	color = "E2E2E2"
 	},
 /area/space)
 "xi" = (
