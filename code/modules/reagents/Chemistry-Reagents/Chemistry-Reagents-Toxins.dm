@@ -807,11 +807,11 @@
 
 	if((M.bodytemperature < 151)) //red nightshade in extracool cryogenic conditions will restore bonebreaks, at the cost of blood depletion
 		var/mob/living/carbon/human/H = M
-		H.vessel.remove_reagent(/singleton/reagent/blood, 15)
+		H.vessel.remove_reagent(/singleton/reagent/blood, rand(15,30))
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_BROKEN)
 				if(prob(10))
-					H.vessel.remove_reagent(/singleton/reagent/blood, 30)
+					H.vessel.remove_reagent(/singleton/reagent/blood, rand(30, 60))
 					E.status &= ~ORGAN_BROKEN
 					M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
 
