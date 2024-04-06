@@ -2,7 +2,7 @@
 	name = "Hammertail Station"
 	description = "A station owned by the Hammertail smiths."
 	suffixes = list("away_site/hammertails/hammertail_station.dmm")
-	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_ROMANOVICH) //Sectors in the Hammertails' area of operation that aren't super well-patrolled
+	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE) //Sectors in the Hammertails' area of operation that aren't super well-patrolled
 	ship_cost = 1
 	spawn_weight = 1
 	id = "hammertail_station"
