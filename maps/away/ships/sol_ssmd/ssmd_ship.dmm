@@ -920,8 +920,8 @@
 /area/shuttle/ssmd_shuttle)
 "cGw" = (
 /obj/effect/map_effect/marker/large_tank{
-	name = "ssmd_co2_port";
-	master_tag = "ssmd_co2_port"
+	name = "ssmd_co2_star";
+	master_tag = "ssmd_co2_star"
 	},
 /obj/machinery/air_sensor{
 	pixel_y = 21
