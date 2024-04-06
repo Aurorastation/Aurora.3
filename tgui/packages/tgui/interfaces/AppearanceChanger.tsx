@@ -49,6 +49,8 @@ export type ChangerData = {
 
   change_hair_color: BooleanLike;
   change_facial_hair_color: BooleanLike;
+
+  change_prosthetics: BooleanLike;
 };
 
 export const AppearanceChanger = (props, context) => {
@@ -59,6 +61,7 @@ export const AppearanceChanger = (props, context) => {
       <Window.Content scrollable>
         {data.change_race ? <SpeciesWindow /> : ''}
         {data.change_gender ? <GenderWindow /> : ''}
+        {data.change_prosthetics ? <ProstheticsWindow /> : ''}
         {data.change_culture ? <CultureWindow /> : ''}
         {data.change_language ? <LanguagesWindow /> : ''}
         <ColorsWindow />
@@ -137,6 +140,24 @@ export const GenderWindow = (props, context) => {
           />
         ))}
       </Section>
+    </Section>
+  );
+};
+export const ProstheticsWindow = (props, context) => {
+  const { act, data } = useBackend<ChangerData>(context);
+
+  return (
+    <Section title="Body Modifications">
+      {data.change_prosthetics ? (
+        <Button content="Modify Limbs" onClick={() => act('prosthetics')} />
+      ) : (
+        ''
+      )}
+      {data.change_prosthetics ? (
+        <Button content="Modify Organs" onClick={() => act('organs')} />
+      ) : (
+        ''
+      )}
     </Section>
   );
 };
