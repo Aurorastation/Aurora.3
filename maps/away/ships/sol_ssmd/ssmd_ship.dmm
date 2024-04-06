@@ -1166,7 +1166,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/synthroom)
@@ -1265,7 +1265,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/ssmd_shuttle)
@@ -1316,7 +1316,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
@@ -1613,7 +1613,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1646,7 +1646,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1828,7 +1828,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
@@ -1997,7 +1997,9 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(24,11,203)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -2503,7 +2505,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
@@ -2551,7 +2553,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/nuke)
@@ -2562,7 +2564,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/light/colored/red{
 	dir = 4
@@ -3304,7 +3306,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/mechbay)
@@ -3607,7 +3609,7 @@
 	},
 /obj/machinery/light/colored/red,
 /obj/machinery/alarm/server/west{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/grauwolf)
@@ -4109,7 +4111,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
@@ -4198,7 +4200,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -4213,7 +4215,7 @@
 /area/ship/ssmd_corvette/canteen)
 "lCM" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portfoyer)
@@ -4329,7 +4331,7 @@
 /area/ship/ssmd_corvette/medbay)
 "mdc" = (
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4375,7 +4377,7 @@
 "moE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
@@ -4384,7 +4386,7 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/francisca)
@@ -4878,7 +4880,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
@@ -5010,7 +5012,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -5193,7 +5195,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(24,11,203)
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -5524,7 +5528,7 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/ship/ssmd_corvette/storage)
+/area/ship/ssmd_corvette/hangar)
 "pTw" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge"
@@ -5719,7 +5723,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
@@ -5759,7 +5763,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/light/colored/blue{
 	dir = 1
@@ -6479,7 +6483,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssmd_corvette/nuke)
+/area/ship/ssmd_corvette/portfoyer)
 "txv" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/glass{
@@ -6982,7 +6986,7 @@
 /area/ship/ssmd_corvette/bathroom)
 "uHZ" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ssmd_corvette/grauwolf)
@@ -7507,7 +7511,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/structure/table/steel,
 /obj/item/storage/box/sharps{
@@ -7605,7 +7609,7 @@
 /area/ship/ssmd_corvette/grauwolf)
 "wrc" = (
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -7870,7 +7874,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm/freezer/west{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -8233,7 +8237,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -40462,7 +40466,7 @@ ohj
 uKn
 ilj
 jrO
-xpP
+oCU
 oCU
 oCU
 oCU
@@ -43289,7 +43293,7 @@ sZP
 piu
 mFu
 wiQ
-gPn
+fRq
 fRq
 fRq
 fRq
@@ -44564,7 +44568,7 @@ xbs
 weP
 rsm
 aIS
-lTx
+eHP
 eHP
 qTh
 gPn
