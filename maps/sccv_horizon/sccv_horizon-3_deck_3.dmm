@@ -9179,8 +9179,7 @@
 	},
 /obj/structure/table/stone/marble,
 /obj/random/pottedplant_small{
-	pixel_x = -8;
-	pixel_y = 0
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/cafeteria)
@@ -12675,7 +12674,6 @@
 "iSb" = (
 /obj/structure/table/wood,
 /obj/random/pottedplant_small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /turf/simulated/floor/carpet/art,
@@ -14604,8 +14602,7 @@
 /obj/structure/table/wood,
 /obj/machinery/newscaster/east,
 /obj/random/pottedplant_small{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
@@ -18899,6 +18896,7 @@
 	pixel_y = 10;
 	pixel_x = -6
 	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "nga" = (
@@ -24047,8 +24045,7 @@
 	},
 /obj/structure/table/wood,
 /obj/random/pottedplant_small{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
@@ -34210,8 +34207,7 @@
 	dir = 4
 	},
 /obj/random/pottedplant_small{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative_two)
