@@ -3608,7 +3608,7 @@
 	dir = 4
 	},
 /obj/machinery/light/colored/red,
-/obj/machinery/alarm/server/west{
+/obj/machinery/alarm/west{
 	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6429,7 +6429,7 @@
 "tgM" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/canteen)
@@ -7270,9 +7270,7 @@
 /area/ship/ssmd_corvette/bathroom)
 "vGl" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window/northleft{
-	name = "Armory Window"
-	},
+/obj/machinery/door/window/desk,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssmd_corvette/brig)
 "vMq" = (
