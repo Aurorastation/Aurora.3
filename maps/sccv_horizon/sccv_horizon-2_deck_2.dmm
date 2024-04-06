@@ -7848,6 +7848,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/random/contraband,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
 "dFC" = (
@@ -18153,6 +18154,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
 "imA" = (
@@ -25070,8 +25072,8 @@
 /area/maintenance/wing/starboard)
 "lEe" = (
 /obj/structure/closet/crate,
-/obj/random/loot,
 /obj/effect/floor_decal/industrial/warning,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lEv" = (
@@ -32182,6 +32184,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
+"oRj" = (
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/port/far)
 "oRl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -34158,6 +34164,7 @@
 	pixel_x = -5;
 	pixel_y = 3
 	},
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "pRd" = (
@@ -36143,6 +36150,7 @@
 /obj/machinery/shower{
 	dir = 4
 	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
 "qKx" = (
@@ -50051,7 +50059,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/random/loot,
+/obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "xdI" = (
@@ -88601,7 +88609,7 @@ qgN
 tVu
 tVu
 cDU
-ueH
+oRj
 fuu
 upl
 afe

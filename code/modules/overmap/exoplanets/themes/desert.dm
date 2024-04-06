@@ -1,7 +1,7 @@
 /datum/exoplanet_theme/desert
 	name = "Desert"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 		)
 	possible_biomes = list(
 		BIOME_POLAR = list(
