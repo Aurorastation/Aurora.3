@@ -4797,6 +4797,7 @@
 	req_one_access = list(13,203)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/north,
 /turf/simulated/floor/plating,
 /area/shuttle/ssmd_shuttle)
 "nnH" = (
