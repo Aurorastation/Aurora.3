@@ -17,7 +17,7 @@
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_AZAZIBA)
 	away_site = TRUE
-	welcome_message = "The Tarwa Conglomerate is a pirate group, largely operating towards the southeastern edge of the Spur. Little is known of them to others, and your ship likely thrives on this mystique. The wiki page for Unathi Piracy contains more information on this group, and how they operate. NOTE - If you spawned with a Diona limb and are missing a hand or foot, use the 'Detach Nymph' verb and then reattach the nymph to fix this."
+	welcome_message = "The Tarwa Conglomerate is a pirate group, largely operating towards the southeastern edge of the Spur. Little is known of them to others, and your ship likely thrives on this mystique. The wiki page for Unathi Piracy contains more information on this group, and how they operate."
 
 /datum/ghostspawner/human/tarwa/diona
 	short_name = "tarwa_diona"
@@ -34,7 +34,7 @@
 /datum/ghostspawner/human/tarwa/captain
 	short_name = "tarwa_captain"
 	name = "Tarwa Conglomerate Captain"
-	desc = "You are the captain of a pirate crew of the Tarwa Conglomerate - also called the living-dead fleet. Lead your crew to profit and glory, for the sake of your fleet. NOT AN ANTAGONIST! Do not act as such. NOTE - If you spawned with a Diona limb and are missing a hand or foot, use the 'Detach Nymph' verb and then reattach the nymph to fix this."
+	desc = "You are the captain of a pirate crew of the Tarwa Conglomerate - also called the living-dead fleet. Lead your crew to profit and glory, for the sake of your fleet. NOT AN ANTAGONIST! Do not act as such."
 	max_count = 1
 	uses_species_whitelist = TRUE
 	assigned_role = "Tarwa Conglomerate Captain"
