@@ -219,6 +219,9 @@
 "aM" = (
 /obj/machinery/r_n_d/protolathe,
 /obj/item/paper/blueriver/expedition_log_4,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "aO" = (
@@ -256,6 +259,7 @@
 /obj/machinery/alarm/west{
 	rcon_setting = 3
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "aX" = (
@@ -311,6 +315,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "be" = (
@@ -342,7 +347,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
@@ -536,7 +541,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "bL" = (
@@ -583,14 +587,12 @@
 /area/shuttle/blueriver_ship)
 "bQ" = (
 /obj/machinery/artifact_scanpad,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/reinforced,
 /area/shuttle/blueriver_ship)
 "bR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
@@ -1045,12 +1047,16 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/reinforced,
 /area/shuttle/blueriver_ship)
 "lm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/sign/flag/sol{
 	pixel_y = 31
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
@@ -1104,6 +1110,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
+"yG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/blueriver_ship)
 "AW" = (
 /obj/machinery/alarm/south,
 /obj/machinery/hologram/holopad/long_range,
@@ -1121,15 +1133,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/blueriver_ship)
+"CG" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/blueriver_ship)
 "Dr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 8
-	},
-/turf/simulated/wall/titanium,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "Ed" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
@@ -1138,6 +1156,12 @@
 /obj/structure/cable,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/blueriver_ship)
+"FB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "Gm" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -1189,10 +1213,14 @@
 	},
 /area/bluespaceriver/ground)
 "JQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
+/obj/machinery/door/airlock/research{
+	dir = 4
 	},
-/turf/simulated/wall/titanium,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "JT" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -1231,6 +1259,9 @@
 /area/shuttle/blueriver_ship)
 "Sn" = (
 /obj/structure/bed/stool/chair/office/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/blueriver_ship)
 "Tn" = (
@@ -3072,13 +3103,13 @@ cI
 ay
 ay
 aM
-aF
+Dr
 bd
-bq
-uq
+CG
+Jj
 ll
 bQ
-XN
+Jj
 bV
 bV
 bC
@@ -3177,10 +3208,10 @@ Sn
 aF
 be
 br
-ao
-bV
-Dr
-JQ
+ay
+ay
+ay
+ay
 ay
 ay
 ay
@@ -3275,13 +3306,13 @@ an
 an
 ay
 aE
-aF
+FB
 aU
 bf
 ay
 ay
 vc
-uq
+ay
 aY
 ay
 cc
@@ -3377,13 +3408,13 @@ an
 at
 ay
 Ed
-aF
+yG
 aV
 bf
 bs
 ay
 bI
-uq
+ay
 bX
 ay
 cd
@@ -3478,14 +3509,14 @@ an
 Yr
 AW
 ay
-aG
+JQ
 aO
 ay
 bf
 bt
 ay
 ge
-uq
+ay
 bJ
 ay
 ce
@@ -3581,10 +3612,10 @@ ap
 Vh
 az
 lm
-aH
+ot
 aW
 bg
-ot
+aH
 bE
 bK
 bR
