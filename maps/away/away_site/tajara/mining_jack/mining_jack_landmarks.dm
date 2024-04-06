@@ -43,6 +43,6 @@
 	docking_controller = "airlock_mining_jack_dock_starboard"
 
 /obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard
-	name = "Dock, Sarboard"
+	name = "Dock, Starboard"
 	landmark_tag = "nav_mining_jack_dock_starboard"
 	master_tag = "airlock_mining_jack_dock_starboard"
