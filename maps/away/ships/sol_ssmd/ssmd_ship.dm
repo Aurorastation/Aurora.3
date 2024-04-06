@@ -89,7 +89,7 @@
 
 /obj/effect/overmap/visitable/ship/ssmd_corvette
 	name = "Solarian Navy Reconnaissance Corvette"
-	class = "SAV"
+	class = "SAMV"
 	desc = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
 	icon_state = "corvette"
@@ -148,7 +148,7 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/ssmd_shuttle
 	name = "Sol Recon Corvette Shuttle"
-	class = "SAV"
+	class = "SAMV"
 	designation = "Vizsla"
 	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat. Notably features a fast-deployment exosuit catapult."
 	shuttle = "SSMD Shuttle"
