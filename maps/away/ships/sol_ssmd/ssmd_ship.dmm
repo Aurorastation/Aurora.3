@@ -686,6 +686,9 @@
 	req_one_access = list(13,203);
 	master_tag = "airlock_ssmd_corvette_2"
 	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/hangar)
 "bPA" = (
@@ -4905,6 +4908,9 @@
 	name = "airlock_ssmd_corvette_1";
 	req_one_access = list(13,203);
 	master_tag = "airlock_ssmd_corvette_1"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/hangar)
