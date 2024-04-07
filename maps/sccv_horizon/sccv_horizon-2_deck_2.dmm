@@ -24356,6 +24356,9 @@
 /obj/item/device/mmi/digital/posibrain{
 	pixel_y = 8
 	},
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "ljv" = (
