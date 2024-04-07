@@ -202,7 +202,7 @@
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/storage,
 		/obj/item/rig_module/recharger
-		)
+	)
 
 /obj/item/rig/ert/assetprotection
 	name = "\improper heavy asset protection suit control module"
