@@ -23,6 +23,8 @@ env:
   RUST_G_VERSION: ""
   FLYWAY_BUILD: ""
   SPACEMAN_DMM_VERSION: ""
+  NODE_VERSION: ""
+  NODE_VERSION_LTS: ""
   PYTHON_VERSION: ""
 
   #If we want the runner to open an SSH shell for us to inspect it, fairly nieche, don't touch if you don't know what you're doing
