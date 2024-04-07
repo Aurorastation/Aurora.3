@@ -1329,6 +1329,49 @@
 /obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Golden Deep
+
+/obj/item/flag/goldendeep
+	name = "\improper Golden Deep flag"
+	desc = "The flag of the Golden Deep, depicting the Midas surrounded by a set of shields."
+	desc_extended = "The true meaning of the sigil on the Golden Deep's flag are shrouded in mystery and more than a few Estriconian merchants have dedicated small fortunes to studying it. The marking first appeared within the halls of the Midas; the Golden Deep's enormous and ancient mothership where the merchant collective is believed to have been founded. Whatever its original purpose, this sigil has since been co-opted by the Golden Deep and placed on a backdrop of gold, diamond, and black, symbolizing the collective's pursuit of wealth amidst the void of space. Wherever this flag flies, commerce is sure to follow."
+	flag_path = "goldendeep"
+	flag_structure = /obj/structure/sign/flag/goldendeep
+
+/obj/structure/sign/flag/goldendeep
+	name = "\improper Golden Deep flag"
+	desc = "The flag of the Golden Deep Collective."
+	desc_extended = "The true meaning of the sigil on the Golden Deep's flag are shrouded in mystery and more than a few Estriconian merchants have dedicated small fortunes to studying it. The marking first appeared within the halls of the Midas; the Golden Deep's enormous and ancient mothership where the merchant collective is believed to have been founded. Whatever its original purpose, this sigil has since been co-opted by the Golden Deep and placed on a backdrop of gold, diamond, and black, symbolizing the collective's pursuit of wealth amidst the void of space. Wherever this flag flies, commerce is sure to follow."
+	flag_path = "goldendeep"
+	icon_state = "goldendeep"
+	flag_item = /obj/item/flag/goldendeep
+
+/obj/structure/sign/flag/goldendeep/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/goldendeep/l
+	name = "large Golden Deep flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/goldendeep/large
+
+/obj/structure/sign/flag/goldendeep/large
+	icon_state = "goldendeep_l"
+	flag_path = "goldendeep"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/goldendeep/l
+
+/obj/structure/sign/flag/goldendeep/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/goldendeep/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/goldendeep/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/goldendeep/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Dominian Standards
 
 /obj/item/flag/diona
