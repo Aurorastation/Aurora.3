@@ -1105,7 +1105,7 @@
 /obj/machinery/power/apc/high/west{
 	req_access = list(214)
 	},
-/obj/machinery/computer/shuttle_control/explore/primitive/hailstorm_shuttle{
+/obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
