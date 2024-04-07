@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - maptweak: "Fixes the maintenance access requirements on two of the airlocks just north of ammunition storage."
   - maptweak: "Fixes an alert access marker on the right-side bridge doors."
+  - maptweak: "Fixes the missing Phoron from the Machinist Workshop."

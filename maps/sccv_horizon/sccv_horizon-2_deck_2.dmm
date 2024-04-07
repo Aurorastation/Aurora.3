@@ -10424,6 +10424,9 @@
 	},
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/phoron{
+	amount = 20
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "eTf" = (
