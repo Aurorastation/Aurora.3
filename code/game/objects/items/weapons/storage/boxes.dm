@@ -1068,6 +1068,16 @@
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
 
+/obj/item/storage/box/consciousness_exchanger
+	illustration = "scicircuit"
+	starts_with = list(/obj/item/clothing/head/consciousness_exchanger = 2)
+
+/obj/item/storage/box/consciousness_exchanger/fill()
+	var/obj/item/clothing/head/consciousness_exchanger/exchanger_1 = new /obj/item/clothing/head/consciousness_exchanger(src)
+	var/obj/item/clothing/head/consciousness_exchanger/exchanger_2 = new /obj/item/clothing/head/consciousness_exchanger(src)
+	exchanger_1.linked_exchanger = exchanger_2
+	exchanger_2.linked_exchanger = exchanger_1
+
 /obj/item/storage/box/googly
 	name = "googly eye box"
 	desc = "A box containing googly eyes."
