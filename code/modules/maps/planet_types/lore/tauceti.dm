@@ -69,12 +69,6 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie/generate_ground_survey_result()
 	ground_survey_result = "<br>Soil with presence of nitrogen deposits"
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.update_values()
-
 // --------------------------------- New Gibson
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson
@@ -139,9 +133,3 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/generate_ground_survey_result()
 	ground_survey_result = "<br>No notable deposits underground"
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.update_values()
