@@ -23,8 +23,6 @@ env:
   RUST_G_VERSION: ""
   FLYWAY_BUILD: ""
   SPACEMAN_DMM_VERSION: ""
-  NODE_VERSION: ""
-  NODE_VERSION_PRECISE: ""
   PYTHON_VERSION: ""
 
   #If we want the runner to open an SSH shell for us to inspect it, fairly nieche, don't touch if you don't know what you're doing
@@ -237,7 +235,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache-dependency-path: tgui/yarn.lock
-          node-version: ${{ env.NODE_VERSION_PRECISE }}
+          node-version: ${{ env.NODE_VERSION_LTS }}
           cache: 'yarn'
 
       #Lint TGUI
