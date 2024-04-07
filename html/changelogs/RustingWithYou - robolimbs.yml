@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Prosthetic/amputated limbs and organs can now be edited in the appearance changer."
   - tweak: "Tarwa Conglomerate ghostroles no longer have random diona limbs."
+  - tweak: "Height and speech bubbles can now be edited when unable to change species in appearance editor."
