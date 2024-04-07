@@ -49791,40 +49791,8 @@
 	id = "RnDShutters";
 	name = "RnD Shutters"
 	},
-/obj/item/stack/material/glass{
-	amount = 50;
-	pixel_x = -1;
-	pixel_y = 2;
-	randpixel = 0
-	},
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = 1;
-	pixel_y = -2;
-	randpixel = 0
-	},
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = 1;
-	pixel_y = -2;
-	randpixel = 0
-	},
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = 1;
-	pixel_y = -2;
-	randpixel = 0
-	},
-/obj/item/device/paint_sprayer,
-/obj/item/reagent_containers/weldpack,
 /obj/effect/floor_decal/corner/black{
 	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/ringer/south{
-	department = "Machinist Workshop";
-	id = "robo_ringer";
-	req_access = list(29)
 	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Machinist Workshop Starboard";
