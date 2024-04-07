@@ -183,7 +183,15 @@
 	suit_type = "apotheosis"
 	icon = 'icons/clothing/rig/apotheosis.dmi'
 	icon_state = "apotheosis"
-
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	req_access = list()
 	req_one_access = list()
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
