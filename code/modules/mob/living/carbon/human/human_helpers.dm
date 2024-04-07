@@ -104,7 +104,7 @@
 				O.status = 0
 				switch(status)
 
-					if ("amputated")
+					if (ORGAN_PREF_AMPUTATED)
 						organs_by_name[O.limb_name] = null
 						organs -= O
 						if(O.children) // This might need to become recursive.
@@ -112,14 +112,14 @@
 								organs_by_name[child.limb_name] = null
 								organs -= child
 
-					if ("nymph")
+					if (ORGAN_PREF_NYMPH)
 						if (organ_data[name])
 							O.AddComponent(/datum/component/nymph_limb)
 							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
 							if(D)
 								D.nymphize(src, O.limb_name, TRUE)
 
-					if ("cyborg")
+					if (ORGAN_PREF_CYBORG)
 						if (rlimb_data[name])
 							O.force_skintone = FALSE
 							for(var/thing in O.children)
@@ -132,14 +132,14 @@
 				var/obj/item/organ/I = internal_organs_by_name[name]
 				if(I)
 					switch (status)
-						if ("assisted")
+						if (ORGAN_PREF_ASSISTED)
 							I.mechassist()
-						if ("mechanical")
+						if (ORGAN_PREF_MECHANICAL)
 							if (rlimb_data[name])
 								I.robotize(rlimb_data[name])
 							else
 								I.robotize()
-						if ("removed")
+						if (ORGAN_PREF_REMOVED)
 							qdel(I)
 
 	if (apply_markings)
@@ -162,7 +162,7 @@
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
-					if(mark_datum.robotize_type_required && O.robotize_type != mark_datum.robotize_type_required)
+					if(length(mark_datum.robotize_type_required) && !(O.robotize_type in mark_datum.robotize_type_required))
 						continue
 					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
 					if (mark_datum.is_genetic)

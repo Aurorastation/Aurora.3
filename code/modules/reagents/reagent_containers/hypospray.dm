@@ -347,3 +347,17 @@
 	volume = 10
 	amount_per_transfer_from_this = 10
 	reagents_to_add = list(/singleton/reagent/peridaxon = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/impedrezene
+	name = "impedrezene autoinjector"
+	desc = "An autoinjector loaded with impedrezene, a narcotic that impairs one's ability to think by impeding the function of brain cells in the cerebral cortex."
+	volume = 5
+	amount_per_transfer_from_this = 5
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene)
+
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice
+	name = "night life autoinjector"
+	desc = "An auto injector loaded with night life, a liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/drugs/night_juice)
