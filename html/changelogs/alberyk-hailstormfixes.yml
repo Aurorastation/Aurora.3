@@ -4,4 +4,3 @@ delete-after: True
 
 changes:
   - rscadd: "Added primitive versions of ship computers for less advanced factions."
-  - bugfix: "Fixed hailstorm shuttle not docking with the ship."
