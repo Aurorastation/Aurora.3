@@ -101,7 +101,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/cargo_package{
+/obj/item/cargo_package/offship{
 	pixel_y = 3
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -109,7 +109,7 @@
 "te" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/item/cargo_package{
+/obj/item/cargo_package/offship{
 	pixel_y = 3
 	},
 /turf/simulated/floor/exoplanet/concrete,
