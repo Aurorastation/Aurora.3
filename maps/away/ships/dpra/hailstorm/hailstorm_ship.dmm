@@ -202,7 +202,7 @@
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/computer/ship/targeting/terminal/primitive{
+/obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -288,7 +288,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/obj/machinery/computer/ship/helm/primitive{
+/obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -1113,7 +1113,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "gU" = (
-/obj/machinery/computer/ship/helm/primitive{
+/obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -1623,7 +1623,7 @@
 /obj/structure/sign/flag/dpra{
 	pixel_x = -32
 	},
-/obj/machinery/computer/ship/sensors/primitive,
+/obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1978,7 +1978,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/computer/ship/navigation/primitive{
+/obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -2310,7 +2310,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "uD" = (
-/obj/machinery/computer/ship/sensors/primitive{
+/obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -2657,7 +2657,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
-/obj/machinery/computer/ship/engines/primitive{
+/obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -3480,7 +3480,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
-/obj/machinery/computer/ship/engines/primitive{
+/obj/machinery/computer/ship/engines/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -3681,7 +3681,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/computer/ship/engines/primitive,
+/obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

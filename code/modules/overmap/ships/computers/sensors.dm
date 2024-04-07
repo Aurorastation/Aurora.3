@@ -37,11 +37,6 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/sensors/primitive
-	icon = 'icons/obj/primitive_computer.dmi'
-	icon_state = "computer"
-	icon_screen = "sci"
-
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null
