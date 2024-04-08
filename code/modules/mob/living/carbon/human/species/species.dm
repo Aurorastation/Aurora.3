@@ -308,7 +308,7 @@
 	/// Is this species psionically deaf?
 	var/psi_deaf = FALSE
 	///Which species-unique robolimb types can this species take?
-	var/list/available_prosthetics
+	var/list/valid_prosthetics
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
