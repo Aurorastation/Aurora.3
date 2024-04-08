@@ -14,7 +14,7 @@
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsehelmet = /obj/item/clothing/head/helmet/konyang
 	corpsesuit = /obj/item/clothing/suit/armor/carrier/military
-	corpsebelt = /obj/item/gun/projectile/pistol/sol
+	corpsebelt = /obj/item/gun/projectile/pistol/sol/konyang
 	corpseback = /obj/item/storage/backpack/rucksack/green
 	corpseid = FALSE
 	corpsepocket1 = /obj/item/storage/wallet/random

@@ -267,8 +267,10 @@
 		auto_align(attacking_item, params)
 		return
 
-#define CELLS 8								//Amount of cells per row/column in grid
-#define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels
+/// Amount of cells per row/column in grid
+#define CELLS 8
+/// Size of a cell in pixels
+#define CELLSIZE (world.icon_size/CELLS)
 /*
 Automatic alignment of items to an invisible grid, defined by CELLS and CELLSIZE.
 Since the grid will be shifted to own a cell that is perfectly centered on the turf, we end up with two 'cell halves'
@@ -281,14 +283,19 @@ closest to where the cursor has clicked on.
 Note: This proc can be overwritten to allow for different types of auto-alignment.
 */
 /obj/item/var/list/center_of_mass = list("x" = 16,"y" = 16)
+
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters, var/animate = FALSE)
+	if(initial(W.layer) <= BELOW_TABLE_LAYER) // stuff below tables should not accidentally be adjusted to be above them
+		W.layer = initial(W.layer)
+		return TRUE
+
 	if(!W.center_of_mass)
 		W.randpixel_xy()
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
-		return
+		return TRUE
 
 	if(!click_parameters)
-		return
+		return FALSE
 
 	var/list/mouse_control = mouse_safe_xy(click_parameters)
 	var/mouse_x = mouse_control["icon-x"]
@@ -309,6 +316,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 			W.pixel_x = target_x
 			W.pixel_y = target_y
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
+		return TRUE
 
 #undef CELLS
 #undef CELLSIZE
