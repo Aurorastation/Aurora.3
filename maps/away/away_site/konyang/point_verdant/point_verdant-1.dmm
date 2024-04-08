@@ -2686,13 +2686,13 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/item/gun/projectile/pistol/sol,
 /obj/item/clothing/under/rank/konyang,
 /obj/item/clothing/under/rank/konyang,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
+/obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
 "ib" = (
@@ -2789,15 +2789,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
-"is" = (
-/obj/item/clothing/suit/space/void/sol/konyang,
-/obj/item/clothing/head/helmet/space/void/sol/konyang,
-/obj/structure/table/rack,
-/obj/item/tank/air,
-/obj/random/dirt_75,
-/obj/item/clothing/shoes/magboots,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/offices/kaf)
 "it" = (
 /obj/structure/ledge/quarter{
 	dir = 1
@@ -4140,11 +4131,7 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/police)
 "mm" = (
-/obj/item/clothing/suit/space/void/sol/konyang,
-/obj/item/clothing/head/helmet/space/void/sol/konyang,
-/obj/structure/table/rack,
-/obj/item/tank/air,
-/obj/item/clothing/shoes/magboots,
+/obj/machinery/suit_cycler/offship/konyang,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
 "mn" = (
@@ -6643,6 +6630,12 @@
 /obj/item/ammo_magazine/c45/revolver,
 /obj/item/ammo_magazine/c45/revolver,
 /obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/gun/projectile/revolver/konyang/police,
+/obj/item/gun/projectile/revolver/konyang/police,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "tV" = (
@@ -8782,10 +8775,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
-"AF" = (
-/obj/machinery/suit_storage_unit/standard_unit,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/offices/kaf)
 "AG" = (
 /obj/structure/ledge{
 	dir = 1
@@ -9416,15 +9405,15 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(218)
 	},
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
 "CJ" = (
@@ -10543,12 +10532,21 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "FU" = (
-/obj/machinery/suit_storage_unit/standard_unit,
-/obj/machinery/light{
-	dir = 4
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(218)
 	},
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/offices/kaf)
+/obj/random/dirt_75,
+/obj/item/gun/projectile/automatic/tommygun/konyang,
+/obj/item/gun/projectile/automatic/tommygun/konyang,
+/obj/item/gun/projectile/automatic/tommygun/konyang,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/turf/simulated/floor/tiled/dark,
+/area/point_verdant/interior/police)
 "FV" = (
 /obj/structure/closet/crate/bin/urban/compact{
 	pixel_y = 24
@@ -15393,7 +15391,6 @@
 /obj/item/clothing/under/rank/konyang/officer,
 /obj/item/clothing/under/rank/konyang/officer,
 /obj/item/melee/telebaton,
-/obj/item/gun/projectile/pistol/sol,
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/item/clothing/suit/armor/carrier/military,
 /obj/machinery/light{
@@ -15402,6 +15399,7 @@
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/storage/backpack/satchel/leather,
+/obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/offices/kaf)
 "Tp" = (
@@ -16806,13 +16804,13 @@
 /area/point_verdant/interior/tunnels)
 "Xn" = (
 /obj/structure/undies_wardrobe,
-/obj/item/gun/projectile/pistol/sol,
 /obj/item/clothing/under/rank/konyang,
 /obj/item/clothing/under/rank/konyang,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
+/obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
 "Xo" = (
@@ -21164,7 +21162,7 @@ Xi
 mm
 mm
 mm
-AF
+dl
 ho
 vt
 Zm
@@ -21933,9 +21931,9 @@ ho
 ho
 sR
 mm
-is
-is
-FU
+mm
+mm
+ts
 ho
 PD
 PD
@@ -27096,7 +27094,7 @@ rf
 rf
 rf
 Ir
-tS
+FU
 ch
 EQ
 eV

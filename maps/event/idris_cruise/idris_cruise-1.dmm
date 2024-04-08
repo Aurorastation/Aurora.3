@@ -2716,9 +2716,7 @@
 	pixel_y = -96
 	},
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "bWr" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/security)
@@ -5128,7 +5126,6 @@
 	},
 /area/cruise/beach)
 "eeg" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/template_noop)
@@ -10701,7 +10698,6 @@
 	},
 /area/cruise/arcade)
 "iuV" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/template_noop,
@@ -13873,9 +13869,7 @@
 /area/cruise/centerline)
 "lbY" = (
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "lcy" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
@@ -14089,9 +14083,7 @@
 /area/cruise/tcomms_sat)
 "lku" = (
 /turf/unsimulated/wall/darkshuttlewall,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "lky" = (
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
@@ -21965,9 +21957,7 @@
 	icon_state = "black";
 	name = "the white noise"
 	},
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "rJR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4

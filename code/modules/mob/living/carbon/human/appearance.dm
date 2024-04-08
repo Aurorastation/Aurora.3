@@ -231,6 +231,7 @@
 			continue
 		if(!(species.type in S.species_allowed))
 			continue
+
 		valid_hairstyles += hairstyle
 
 	return valid_hairstyles

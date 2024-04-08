@@ -3568,10 +3568,6 @@
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Engineering Sublevel"
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Engineering Substation";
-	dir = 8
-	},
 /turf/simulated/floor,
 /area/maintenance/substation/engineering_sublevel)
 "aix" = (
@@ -16779,7 +16775,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Xenobiology Cell Alpha";
+	c_tag = "Research Sublevel - Xenobiology Cell Alpha 2";
 	dir = 8;
 	network = list("Research Outpost","Xenobiology")
 	},
@@ -16862,10 +16858,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Morgue";
-	dir = 8
 	},
 /obj/machinery/alarm/cold/east,
 /turf/simulated/floor/tiled{
@@ -34108,9 +34100,6 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/tajara,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Secondary Storage"
-	},
 /obj/item/clothing/gloves/latex/vaurca,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
