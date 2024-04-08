@@ -2362,6 +2362,7 @@
 #include "code\modules\maps\planet_types\lore\burzsia.dm"
 #include "code\modules\maps\planet_types\lore\konyang.dm"
 #include "code\modules\maps\planet_types\lore\srandmarr.dm"
+#include "code\modules\maps\planet_types\lore\tauceti.dm"
 #include "code\modules\martial_arts\gunkata.dm"
 #include "code\modules\martial_arts\martial.dm"
 #include "code\modules\martial_arts\plasma_fist.dm"
