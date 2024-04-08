@@ -23,7 +23,6 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-
 /obj/machinery/computer/ship/targeting/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
