@@ -9975,8 +9975,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
-	name = "Operations Maintenance";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard)
@@ -10426,6 +10425,9 @@
 	},
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/phoron{
+	amount = 20
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "eTf" = (
@@ -35129,7 +35131,7 @@
 	},
 /obj/item/reagent_containers/weldpack,
 /obj/machinery/camera/network/supply{
-	c_tag = "Operations -  Machinist Workshop Starboard";
+	c_tag = "Operations -  Machinist Workshop Starboard 2";
 	dir = 1
 	},
 /obj/item/stack/material/glass{
@@ -44834,8 +44836,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	name = "Operations Maintenance";
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard)
@@ -49792,43 +49793,11 @@
 	id = "RnDShutters";
 	name = "RnD Shutters"
 	},
-/obj/item/stack/material/glass{
-	amount = 50;
-	pixel_x = -1;
-	pixel_y = 2;
-	randpixel = 0
-	},
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = 1;
-	pixel_y = -2;
-	randpixel = 0
-	},
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = 1;
-	pixel_y = -2;
-	randpixel = 0
-	},
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = 1;
-	pixel_y = -2;
-	randpixel = 0
-	},
-/obj/item/device/paint_sprayer,
-/obj/item/reagent_containers/weldpack,
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/ringer/south{
-	department = "Machinist Workshop";
-	id = "robo_ringer";
-	req_access = list(29)
-	},
 /obj/machinery/camera/network/supply{
-	c_tag = "Operations -  Machinist Workshop Starboard";
+	c_tag = "Operations -  Machinist Workshop Starboard 3";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
