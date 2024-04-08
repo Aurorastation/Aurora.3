@@ -3735,6 +3735,7 @@
 #include "maps\away\away_site\tajara\scrapper\scrapper.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper_areas.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper_ghostroles.dm"
+#include "maps\away\away_site\tajara\scrapper\scrapper_landmarks.dm"
 #include "maps\away\away_site\tajara\taj_safehouse\tajara_safehouse.dm"
 #include "maps\away\away_site\tajara\taj_safehouse\tajara_safehouse_ghostroles.dm"
 #include "maps\away\away_site\wrecked_nt_ship\wrecked_nt_ship.dm"
