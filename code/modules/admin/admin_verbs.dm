@@ -753,7 +753,8 @@ var/list/admin_verbs_cciaa = list(
 	if(handler.type == /datum/click_handler/build_mode)
 		usr.PopClickHandler()
 	else
-		usr.PushClickHandler()
+		usr.PushClickHandler(/datum/click_handler/build_mode)
+	feedback_add_details("admin_verb","TBMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/object_talk(var/msg as text) // -- TLE
 	set category = "Special Verbs"

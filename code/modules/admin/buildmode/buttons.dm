@@ -1,7 +1,9 @@
 /obj/effect/bmode
+	name = "Build Mode"
 	density = 1
 	anchored = 1
 	layer = HUD_BASE_LAYER
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	icon = 'icons/misc/buildmode.dmi'
 	var/datum/click_handler/build_mode/host
 
@@ -17,6 +19,7 @@
 	return
 
 /obj/effect/bmode/dir
+	name = "Modify Dir"
 	icon_state = "build"
 	screen_loc = "NORTH,WEST"
 
@@ -39,6 +42,7 @@
 	host.dir = dir
 
 /obj/effect/bmode/help
+	name = "Help"
 	icon_state = "buildhelp"
 	screen_loc = "NORTH,WEST+1"
 
@@ -46,6 +50,7 @@
 	host.current_build_mode.Help()
 
 /obj/effect/bmode/mode
+	name = "Select Mode"
 	screen_loc = "NORTH,WEST+2"
 
 /obj/effect/bmode/mode/New()
@@ -63,6 +68,7 @@
 		host.current_build_mode.Configurate()
 
 /obj/effect/bmode/quit
+	name = "Quit"
 	icon_state = "buildquit"
 	screen_loc = "NORTH,WEST+3"
 
