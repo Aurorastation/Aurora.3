@@ -49,7 +49,6 @@
 "aae" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Sector Administration Copula";
-	req_access = null;
 	req_one_access = list(109,108);
 	dir = 1
 	},
@@ -97,32 +96,6 @@
 	icon_state = "lino_diamond"
 	},
 /area/centcom/bar)
-"aaj" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_dock_airlock";
-	locked = 1;
-	name = "Arrivals Airlock";
-	req_access = list(13);
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor,
-/area/centcom/evac)
-"aak" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_dock_airlock";
-	locked = 1;
-	name = "Arrivals Airlock";
-	req_access = list(13);
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor,
-/area/centcom/evac)
 "aal" = (
 /obj/machinery/light/small{
 	brightness_power = 0.5;
@@ -147,18 +120,6 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "aan" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_arrivals_airlock";
-	locked = 1;
-	name = "Arrivals Airlock";
-	req_access = list(13);
-	dir = 1
-	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
-"aao" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
@@ -378,10 +339,6 @@
 /turf/template_noop,
 /area/template_noop)
 "aix" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals - Holding Cell";
-	dir = 4
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -551,9 +508,7 @@
 	dir = 1;
 	name = "shuttle bay blast door"
 	},
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "atq" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "0,10";
@@ -632,9 +587,7 @@
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/aft)
 "avr" = (
 /obj/structure/railing/mapped{
@@ -706,8 +659,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "tiled_preview"
+	dir = 4
 	},
 /area/centcom/holding)
 "awS" = (
@@ -715,8 +667,7 @@
 /area/centcom/bar)
 "axs" = (
 /turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "tiled_preview"
+	dir = 4
 	},
 /area/centcom/holding)
 "axQ" = (
@@ -779,8 +730,7 @@
 /area/centcom/bar)
 "aze" = (
 /turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "tiled_preview"
+	dir = 8
 	},
 /area/centcom/holding)
 "azf" = (
@@ -814,7 +764,6 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = null;
 	req_one_access = list(108,109);
 	dir = 4
 	},
@@ -1132,18 +1081,6 @@
 	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
-"aEW" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13);
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
 "aFa" = (
 /obj/machinery/light{
 	icon_state = "tube_empty"
@@ -1573,8 +1510,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 1;
-	name = "staircase";
-	icon_state = "tiled_preview"
+	name = "staircase"
 	},
 /area/centcom/spawning)
 "aMt" = (
@@ -1583,8 +1519,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 1;
-	name = "staircase";
-	icon_state = "tiled_preview"
+	name = "staircase"
 	},
 /area/centcom/spawning)
 "aMz" = (
@@ -1659,11 +1594,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNc" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Departures";
-	dir = 1;
-	pixel_x = -10
-	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNs" = (
@@ -1789,9 +1719,7 @@
 /area/shuttle/specops)
 "aOz" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "aOA" = (
 /obj/effect/floor_decal/corner/lime{
@@ -1902,9 +1830,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "aQI" = (
 /obj/structure/window/reinforced{
@@ -1918,9 +1844,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "aRa" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -2353,11 +2277,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"bbH" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/centcom/spawning)
 "bcf" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -2475,7 +2394,6 @@
 "bld" = (
 /obj/machinery/door/window/eastleft{
 	name = "cockpit";
-	req_access = null;
 	req_one_access = list(38,72)
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -3337,9 +3255,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "cww" = (
 /obj/effect/floor_decal/corner/red{
@@ -4446,10 +4362,6 @@
 	},
 /area/centcom/specops)
 "dXz" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar East";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -4513,9 +4425,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/sign/a,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/holding)
 "ebw" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -4572,10 +4482,6 @@
 "egh" = (
 /obj/effect/landmark{
 	name = "tdome2"
-	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome - Red Team";
-	invisibility = 101
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -4811,9 +4717,7 @@
 /area/shuttle/arrival)
 "etl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/fore)
 "evC" = (
 /obj/structure/table/stone/marble,
@@ -4845,10 +4749,6 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "exm" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -4887,7 +4787,6 @@
 "ezv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Monitoring";
-	req_access = null;
 	req_one_access = list(106,108,109)
 	},
 /turf/unsimulated/floor{
@@ -5057,9 +4956,7 @@
 	},
 /area/shuttle/administration)
 "eHY" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "eIe" = (
 /obj/machinery/light{
@@ -5203,10 +5100,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
-	},
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Visitor"
 	},
@@ -5223,9 +5116,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "eRF" = (
 /turf/simulated/wall/shuttle/unique/ert{
@@ -5560,9 +5451,7 @@
 /area/shuttle/escape)
 "fuy" = (
 /obj/effect/floor_decal/spline/plain/black,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "fuH" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -5582,9 +5471,7 @@
 /area/shuttle/administration)
 "fvK" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "fvS" = (
 /obj/structure/shuttle_part/hapt{
@@ -5950,8 +5837,7 @@
 /area/shuttle/administration)
 "fSp" = (
 /turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "tiled_preview"
+	dir = 8
 	},
 /area/centcom/ferry)
 "fSu" = (
@@ -6022,12 +5908,6 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
-"fWE" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "fWO" = (
 /obj/effect/ghostspawpoint{
@@ -6350,10 +6230,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome Arena";
-	invisibility = 101
-	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/bluegrid,
 /area/tdome)
@@ -6441,8 +6317,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	name = "staircase";
-	icon_state = "tiled_preview"
+	name = "staircase"
 	},
 /area/centcom/spawning)
 "gvA" = (
@@ -6625,11 +6500,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/tdome/tdome2)
-"gEL" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/centcom/holding)
 "gES" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -7146,8 +7016,7 @@
 /area/shuttle/administration)
 "hjw" = (
 /turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "tiled_preview"
+	dir = 4
 	},
 /area/centcom/bar)
 "hkb" = (
@@ -7404,9 +7273,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/aft)
 "hFS" = (
 /obj/structure/shuttle_part/arrivals{
@@ -8816,9 +8683,7 @@
 /area/tdome/tdomeadmin)
 "jrq" = (
 /obj/effect/floor_decal/spline/plain/black,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/ferry)
 "jrH" = (
 /obj/machinery/computer/message_monitor,
@@ -8888,9 +8753,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "jwX" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -8954,9 +8817,7 @@
 	layer = 3.02;
 	name = "surveillance camera"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "jCa" = (
 /obj/structure/shuttle_part/hapt{
@@ -9337,9 +9198,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "kdz" = (
 /obj/structure/shuttle_part/transfer{
@@ -9448,7 +9307,6 @@
 "kjR" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Entertainment Wing";
-	req_access = null;
 	dir = 1
 	},
 /turf/unsimulated/floor,
@@ -9480,9 +9338,7 @@
 	req_access = list(105);
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "kmE" = (
 /obj/structure/shuttle_part/ert{
@@ -9512,9 +9368,7 @@
 /area/centcom/holding)
 "kop" = (
 /obj/effect/floor_decal/spline/plain/black,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/fore)
 "kpR" = (
 /obj/item/gun/projectile/automatic/rifle/w556{
@@ -9798,8 +9652,7 @@
 "kCI" = (
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
-	icon_state = "door_locked";
-	name = "airlock"
+	icon_state = "door_locked"
 	},
 /area/centcom/specops)
 "kCR" = (
@@ -10095,9 +9948,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/holding)
 "kVA" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -10241,7 +10092,6 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Mendell City Shuttle Terminal";
-	req_access = null;
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -10331,8 +10181,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	name = "staircase";
-	icon_state = "tiled_preview"
+	name = "staircase"
 	},
 /area/centcom/spawning)
 "llc" = (
@@ -10569,9 +10418,7 @@
 	name = "blastdoor"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "lHt" = (
 /obj/structure/shuttle_part/arrivals{
@@ -10604,7 +10451,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/dropper,
@@ -10637,9 +10483,7 @@
 	layer = 3.02;
 	name = "surveillance camera"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "lLC" = (
 /obj/random/junk,
@@ -10688,9 +10532,7 @@
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "lNN" = (
 /obj/structure/sign/directions/cryo{
@@ -10795,9 +10637,7 @@
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "lUA" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -10888,9 +10728,7 @@
 /area/centcom/specops)
 "mbe" = (
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "mbk" = (
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/structure/table/reinforced/steel,
@@ -10951,7 +10789,6 @@
 "mfx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/odin{
-	_wifi_id = null;
 	dir = 2;
 	id = "arrivals_outer"
 	},
@@ -11069,9 +10906,7 @@
 /obj/item/device/flashlight/lamp{
 	pixel_y = 2
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "mrG" = (
 /obj/item/gun/projectile/automatic/rifle/z8{
@@ -11187,9 +11022,7 @@
 	layer = 2.6;
 	pixel_y = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "mxw" = (
 /obj/machinery/door/airlock/glass_centcom{
@@ -11197,9 +11030,7 @@
 	req_access = list(105);
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "myc" = (
 /obj/structure/shuttle_part/transfer{
@@ -11228,9 +11059,7 @@
 	name = "Advanced Interrogation";
 	req_access = list(105)
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "mCC" = (
 /obj/effect/floor_decal/corner/paleblue,
@@ -11744,16 +11573,12 @@
 	name = "start"
 	},
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "nli" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/fore)
 "nlK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -11854,9 +11679,7 @@
 /area/centcom/specops)
 "ntE" = (
 /obj/item/stack/material/cyborg/steel,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/bar)
 "nuc" = (
 /obj/item/modular_computer/console/preset/engineering/ce,
@@ -12077,9 +11900,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "nGO" = (
 /obj/machinery/vending/zora,
@@ -12242,8 +12063,7 @@
 /area/centcom/control)
 "nQD" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Hangar Access";
-	req_access = null
+	name = "Hangar Access"
 	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -12342,10 +12162,6 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Green Team";
-	invisibility = 101
-	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -12437,10 +12253,6 @@
 /area/centcom/control)
 "oaC" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar Center";
-	pixel_x = 20
-	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "shutter1";
@@ -12533,8 +12345,7 @@
 	req_access = list(108)
 	},
 /turf/unsimulated/floor{
-	dir = 1;
-	icon_state = "tiled_preview"
+	dir = 1
 	},
 /area/centcom/specops)
 "oiN" = (
@@ -12567,8 +12378,7 @@
 	id = "corvette_exterior";
 	name = "aft blast door";
 	pixel_x = 32;
-	pixel_y = 12;
-	req_access = null
+	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -12639,7 +12449,6 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = null;
 	req_one_access = list(108,109);
 	dir = 4
 	},
@@ -12739,8 +12548,7 @@
 /area/centcom/specops)
 "oCF" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Auxillary Cryogenics";
-	req_access = null
+	name = "Auxillary Cryogenics"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -13028,9 +12836,7 @@
 /area/centcom/suppy)
 "pbO" = (
 /turf/unsimulated/wall/darkshuttlewall,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "pcu" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -13094,9 +12900,7 @@
 	name = "Thunderdome Administration";
 	req_access = list(102)
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/tdome/tdome1)
 "pjh" = (
 /obj/machinery/door/airlock/centcom{
@@ -13866,9 +13670,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/sign/b,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/holding)
 "qiY" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -13930,9 +13732,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/holding)
 "qnL" = (
 /obj/structure/shuttle_part/arrivals{
@@ -14091,9 +13891,7 @@
 "qzr" = (
 /obj/machinery/cryopod/robot,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "qAm" = (
 /obj/structure/flora/pottedplant{
@@ -14287,7 +14085,6 @@
 "qOq" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Diplomatic Waiting Lounge";
-	req_access = null;
 	req_one_access = list(38,72);
 	dir = 4
 	},
@@ -14336,9 +14133,7 @@
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/spawning)
 "qVd" = (
 /obj/effect/floor_decal/corner/red{
@@ -14629,8 +14424,7 @@
 "rwk" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "tiled_preview"
+	dir = 4
 	},
 /area/centcom/holding)
 "ryr" = (
@@ -14664,9 +14458,7 @@
 /obj/machinery/door/window/brigdoor/southright{
 	name = "holding cell"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/holding)
 "rBY" = (
 /obj/machinery/shieldwallgen,
@@ -14850,15 +14642,6 @@
 	pixel_x = -4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/snacks/nt_muffin{
-	layer = 2.99;
-	pixel_x = 13;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/snacks/nt_muffin{
-	pixel_x = 11;
-	pixel_y = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "lino_diamond"
 	},
@@ -14947,7 +14730,6 @@
 "sbc" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "To: NTCC Odin Mass Transit";
-	req_access = null;
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -15057,7 +14839,6 @@
 /area/centcom/holding)
 "soj" = (
 /obj/machinery/computer/shuttle_control{
-	req_access = null;
 	req_one_access = list(38,72);
 	shuttle_tag = "SCC Shuttle"
 	},
@@ -15278,8 +15059,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "tiled_preview"
+	dir = 4
 	},
 /area/centcom/evac)
 "sGy" = (
@@ -15443,9 +15223,7 @@
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/aft)
 "sXE" = (
 /obj/structure/cryofeed{
@@ -16426,8 +16204,7 @@
 "uGz" = (
 /turf/unsimulated/floor{
 	dir = 1;
-	name = "staircase";
-	icon_state = "tiled_preview"
+	name = "staircase"
 	},
 /area/centcom/spawning)
 "uHw" = (
@@ -16516,7 +16293,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
@@ -16727,9 +16503,7 @@
 /area/centcom/control)
 "vbT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/aft)
 "vbU" = (
 /obj/effect/floor_decal/corner/red{
@@ -16810,11 +16584,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"vmF" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/centcom/bar)
 "vng" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -16962,7 +16731,6 @@
 "vFX" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -17131,9 +16899,7 @@
 	name = "railing"
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "wbd" = (
 /obj/structure/disposalpipe/segment,
@@ -17406,9 +17172,7 @@
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "holding cell"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/holding)
 "wrA" = (
 /obj/structure/table/standard,
@@ -17428,9 +17192,7 @@
 	name = "railing"
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/specops)
 "wtO" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -17509,7 +17271,6 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Upper Shuttle Terminal";
-	req_access = null;
 	req_one_access = list(108,109);
 	dir = 1
 	},
@@ -17714,7 +17475,6 @@
 	name = "VIP Shuttle Access";
 	pixel_x = -7;
 	pixel_y = -23;
-	req_access = null;
 	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
@@ -17974,9 +17734,7 @@
 	name = "adjusted railing"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/centcom/checkpoint/fore)
 "wZB" = (
 /obj/structure/sign/staff_only,
@@ -18424,11 +18182,6 @@
 	icon_state = "plating"
 	},
 /area/centcom/control)
-"xTG" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/centcom/bar)
 "xTK" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -18666,7 +18419,6 @@
 "ylt" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Sector Administration Copula";
-	req_access = null;
 	req_one_access = list(109,108);
 	dir = 4
 	},
@@ -45246,7 +44998,7 @@ amk
 dzL
 eHl
 fKq
-fWE
+pqX
 pCZ
 hyd
 iOb
@@ -51455,7 +51207,7 @@ fOM
 tmv
 wjH
 bQP
-gEL
+bLK
 rAP
 kYq
 aix
@@ -52483,7 +52235,7 @@ eDp
 bMp
 tDA
 bQP
-gEL
+bLK
 wqv
 kYq
 kYq
@@ -57897,7 +57649,7 @@ bZa
 tud
 nfY
 eRq
-bbH
+aBL
 aOz
 wlw
 iAO
@@ -58154,7 +57906,7 @@ bZa
 tud
 ker
 jvF
-bbH
+aBL
 aOz
 gyj
 iAO
@@ -58411,7 +58163,7 @@ bZa
 aNt
 nfY
 eRq
-bbH
+aBL
 aOz
 iLT
 iAO
@@ -59156,8 +58908,8 @@ wzE
 wzE
 mbM
 mbM
-aaj
-aak
+aam
+aam
 aam
 mbM
 mbM
@@ -59406,16 +59158,16 @@ wne
 qNZ
 cgd
 mBc
-aEW
+aad
 cYT
 rGt
 rGt
 gmv
 nHm
 sXN
-aEW
 aad
-aEW
+aad
+aad
 pdo
 jdB
 xrK
@@ -62006,7 +61758,7 @@ uVh
 htp
 aBl
 aBL
-aao
+aan
 weB
 aOa
 uPQ
@@ -62224,7 +61976,7 @@ kRu
 avR
 gqa
 bGR
-vmF
+aqu
 ntE
 eBz
 wne
@@ -62482,7 +62234,7 @@ pzN
 sRi
 rQi
 kNJ
-xTG
+aqu
 eBz
 wne
 wne

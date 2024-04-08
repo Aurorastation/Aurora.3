@@ -1667,7 +1667,6 @@
 /area/kataphract_chapter/main_ring)
 "dV" = (
 /obj/structure/table/rack,
-/obj/structure/table/rack,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
