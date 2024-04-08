@@ -86,6 +86,21 @@
 	sector_hud_menu_sound = 'sound/effects/menu_click_heavy.ogg'
 	sector_hud_arrow = "menu_arrow"
 
+	lore_radio_stations = list(
+		"34.2 The Voice of the Tajaran People" = "config/lore_radio/adhomai/34.2_The_Voice_of_the_Tajaran_People.txt",
+		"14.6 Northern Harr'masir Radio" = "config/lore_radio/adhomai//14.6_Northern_Harrmasir_Radio.txt",
+		"72.9 Crevus Radio Center 27" = "config/lore_radio/adhomai/72.9_Crevus_Radio_Center_27.txt",
+		"51.2 Radio Free Adhomai" = "config/lore_radio/adhomai/51.2_Radio_Free_Adhomai.txt"
+	)
+
+	lobby_tracks = list(
+		'sound/music/lobby/adhomai/adhomai-1.ogg',
+		'sound/music/lobby/adhomai/adhomai-2.ogg',
+		'sound/music/lobby/adhomai/adhomai-3.ogg',
+		'sound/music/lobby/adhomai/adhomai-4.ogg'
+	)
+
+
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
 	description = "Hro'zamal is the second planet in the Nrrahrahul system. Formerly named Nrrahrahul Two, it was given the name Hro'zamal after the establishment of a permanent civilian \
