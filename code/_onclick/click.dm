@@ -440,11 +440,11 @@ var/const/CLICK_HANDLER_ALL = (~0)
 	..()
 	src.user = user
 	if(handler_flags & CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT)
-		RegisterSignal(user, COMSIG_MOB_LOGOUT, /datum/click_handler/proc/OnMobLogout)
+		RegisterSignal(user, COMSIG_MOB_LOGOUT, /datum/click_handler/proc/OnMobLogout, TRUE)
 
 /datum/click_handler/Destroy()
 	if(handler_flags & CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT)
-		UnregisterSignal(user, COMSIG_MOB_LOGOUT, /datum/click_handler/proc/OnMobLogout)
+		UnregisterSignal(user, COMSIG_MOB_LOGOUT)
 	user = null
 	. = ..()
 
