@@ -3,5 +3,3 @@ help: "Do not pixel-shift vendors, change their layers, or density."
   banned_variables:
   - layer
   - density
-  - pixel_x
-  - pixel_y
