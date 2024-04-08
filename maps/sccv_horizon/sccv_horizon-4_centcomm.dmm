@@ -15404,9 +15404,7 @@
 /area/centcom/spawning)
 "aNQ" = (
 /turf/unsimulated/wall/steel,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "aNR" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/suppy)
@@ -15541,9 +15539,7 @@
 /area/centcom/spawning)
 "aOg" = (
 /turf/unsimulated/floor,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "aOi" = (
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
@@ -16677,9 +16673,7 @@
 	name = "start"
 	},
 /turf/unsimulated/floor,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "aQY" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
@@ -35298,9 +35292,7 @@
 "cst" = (
 /obj/effect/landmark/lobby_mobs_location,
 /turf/unsimulated/floor,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "cvH" = (
 /obj/effect/decal{
 	anchored = 1;

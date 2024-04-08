@@ -1087,7 +1087,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cF" = (
-/obj/structure/table,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
