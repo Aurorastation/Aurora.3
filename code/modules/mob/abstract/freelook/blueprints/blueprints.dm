@@ -112,6 +112,8 @@
 		return
 	if(params["left"])
 		update_selected_turfs(get_turf(A), params)
+	if(params["right"])
+		remove_selection()
 
 /mob/abstract/eye/blueprints/proc/update_selected_turfs(var/turf/next_selected_turf, var/list/params)
 	if(!next_selected_turf)
@@ -242,20 +244,14 @@
 	return SEE_TURFS|BLIND
 
 /mob/abstract/eye/blueprints/apply_visual(mob/living/M)
-	//sight = (SEE_TURFS|BLIND) //Should only be able to see turfs with the blueprint eye.
 	M.overlay_fullscreen("blueprints", /obj/screen/fullscreen/blueprints)
 	M.client.screen += area_name_effect
 	M.add_client_color(/datum/client_color/monochrome)
-	//M.stop_sight_update = TRUE
 
 /mob/abstract/eye/blueprints/remove_visual(mob/living/M)
-	//M.sight &= ~(SEE_TURFS|BLIND) //Give them vision
 	M.clear_fullscreen("blueprints", 0)
 	to_chat(M, "clearing fullscreen, why isn't it working")
 	M.client.screen -= area_name_effect
 	M.remove_client_color(/datum/client_color/monochrome)
-	to_chat(M, "Color removed too boss")
-	//M.stop_sight_update = FALSE
-	//M.update_sight()
 
 #undef MAX_AREA_SIZE
