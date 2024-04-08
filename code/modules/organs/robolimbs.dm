@@ -17,7 +17,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 			GLOB.internal_robolimbs[R.company] = R
 
 /datum/robolimb
-	var/company = "Unbranded"                            // Shown when selecting the limb.
+	var/company = PROSTHETIC_UNBRANDED                   // Shown when selecting the limb.
 	var/desc = "A generic unbranded robotic prosthesis." // Seen when examining a limb.
 	var/icon = 'icons/mob/human_races/ipc/robotic.dmi'   // Icon base to draw from.
 	var/unavailable_at_chargen                           // If set, not available at chargen.

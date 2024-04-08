@@ -421,6 +421,10 @@
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
+#define PROSTHETIC_UNBRANDED "Unbranded"
+
+//Prosthetics that aren't restricted by species
+#define PROSTHETICS_UNRESTRICTED list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, PROSTHETIC_UNBRANDED, PROSTHETIC_ZH)
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

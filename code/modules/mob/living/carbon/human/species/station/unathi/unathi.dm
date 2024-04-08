@@ -132,6 +132,7 @@
 	zombie_type = SPECIES_ZOMBIE_UNATHI
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
+	valid_prosthetics = list(PROSTHETIC_AUTAKH)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

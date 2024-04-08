@@ -187,16 +187,9 @@
 	return TRUE
 
 /mob/living/carbon/human/proc/generate_valid_prosthetics()
-	var/list/valid_prosthetics = list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, "Unbranded", PROSTHETIC_ZH) //available to all species
-	switch(species.name)
-		if(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
-			valid_prosthetics += PROSTHETIC_SYNTHSKIN
-		if(SPECIES_UNATHI)
-			valid_prosthetics += PROSTHETIC_AUTAKH
-		if(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
-			valid_prosthetics += PROSTHETIC_TESLA
-		if(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-			valid_prosthetics += PROSTHETIC_VAURCA
+	var/list/valid_prosthetics = PROSTHETICS_UNRESTRICTED
+	if(species.valid_prosthetics)
+		valid_prosthetics.Add(species.valid_prosthetics)
 	return valid_prosthetics
 
 /mob/living/carbon/human/proc/generate_valid_limbs()
