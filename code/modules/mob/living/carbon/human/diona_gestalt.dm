@@ -385,11 +385,11 @@
 
 	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
 		visible_message(SPAN_NOTICE("[src] retracts the roots at their feet into their body."), SPAN_NOTICE("You retract your roots."))
-		REMOVE_TRAIT(src, TRAIT_SHOE_GRIP)
+		REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
 		playsound(src, 'sound/species/diona/gestalt_split.ogg', 20)
 	else
 		visible_message(SPAN_NOTICE("[src] extends some roots at their feet."), SPAN_NOTICE("You extend your roots to keep yourself upright."))
-		ADD_TRAIT(src, TRAIT_SHOE_GRIP)
+		ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
 		playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30)
 
 #undef COLD_DAMAGE_LEVEL_1

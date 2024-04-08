@@ -175,5 +175,8 @@
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
 
+/// Trait is added from a species verb.
+#define TRAIT_SOURCE_SPECIES_VERB "species_verb"
+
 /// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
 #define TRAIT_SHOE_GRIP "shoe_grip"
