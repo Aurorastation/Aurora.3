@@ -143,6 +143,7 @@
 		else if(viewflags)
 			set_sight(viewflags)
 	else if(eyeobj)
+		eyeobj.apply_visual(src)
 		if(eyeobj.owner != src)
 			reset_view(null)
 	else if(!client.adminobs)

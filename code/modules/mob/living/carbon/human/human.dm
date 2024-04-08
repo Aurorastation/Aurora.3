@@ -1827,6 +1827,8 @@
 	..()
 	if(update_hud)
 		handle_regular_hud_updates()
+	if(eyeobj)
+		eyeobj.remove_visual(src)
 
 
 /mob/living/carbon/human/can_stand_overridden()
