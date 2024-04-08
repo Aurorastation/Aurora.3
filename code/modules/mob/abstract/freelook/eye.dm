@@ -83,6 +83,7 @@
 	name = "[owner.name] ([name_suffix])"
 	if(owner.client)
 		owner.client.eye = src
+	LAZYDISTINCTADD(owner.additional_vision_handlers, src)
 	setLoc(owner)
 	visualnet.update_eye_chunks(src, TRUE)
 
@@ -91,6 +92,9 @@
 		return
 	if(owner.eyeobj != src)
 		return
+	LAZYREMOVE(owner.additional_vision_handlers, src)
+	if(owner.client)
+		owner.client.eye = owner
 	visualnet.remove_eye(src)
 	owner.eyeobj = null
 	owner = null

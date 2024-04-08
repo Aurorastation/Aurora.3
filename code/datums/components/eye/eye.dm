@@ -63,6 +63,7 @@
 	GLOB.stat_set_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
 	GLOB.logged_out_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
 
+	component_eye.release(current_looker)
 	QDEL_NULL(component_eye)
 	if(current_looker)
 		for(var/datum/action/A in actions)
