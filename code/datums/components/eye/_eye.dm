@@ -42,26 +42,26 @@
 	unlook_action.Grant(current_looker)
 
 	//Checks for removing the user from the eye outside of unlook actions.
-	GLOB.moved_event.register(parent, src, /datum/component/eye/proc/unlook)
-	GLOB.moved_event.register(current_looker, src, /datum/component/eye/proc/unlook)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(unlook), TRUE)
+	RegisterSignal(current_looker, COMSIG_MOVABLE_MOVED, PROC_REF(unlook), TRUE)
 
 	GLOB.destroyed_event.register(current_looker, src, /datum/component/eye/proc/unlook)
 	GLOB.destroyed_event.register(component_eye, src, /datum/component/eye/proc/unlook)
 
+	RegisterSignal(current_looker, COMSIG_MOB_LOGOUT /datum/component/eye/proc/unlook)
 	GLOB.stat_set_event.register(current_looker, src, /datum/component/eye/proc/unlook)
-	GLOB.logged_out_event.register(current_looker, src, /datum/component/eye/proc/unlook)
 
 	return TRUE
 
 /datum/component/eye/proc/unlook()
-	GLOB.moved_event.unregister(parent, src, /datum/component/eye/proc/unlook)
-	GLOB.moved_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
+	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(current_looker, COMSIG_MOVABLE_MOVED)
 
 	GLOB.destroyed_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
 	GLOB.destroyed_event.unregister(component_eye, src, /datum/component/eye/proc/unlook)
 
 	GLOB.stat_set_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
-	GLOB.logged_out_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
+	UnregisterSignal(current_looker, COMSIG_MOB_LOGOUT)
 
 	component_eye.release(current_looker)
 	if(current_looker.client)
