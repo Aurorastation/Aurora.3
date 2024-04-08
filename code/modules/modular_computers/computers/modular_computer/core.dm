@@ -172,12 +172,15 @@
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
-			if (is_holographic)
-				holographic_overlay(src, src.icon, icon_state_screensaver)
-			else
-				AddOverlays(icon_state_screensaver)
+			var/image/I = image(src.icon, icon_state_screensaver)
+			var/image/E = emissive_appearance(src.icon, icon_state_screensaver)
+			AddOverlays(I)
+			AddOverlays(E)
 		if(icon_state_screensaver_key && working)
-			AddOverlays(icon_state_screensaver_key)
+			var/image/EK = emissive_appearance(src.icon, icon_state_screensaver_key)
+			var/image/IK = image(src.icon, icon_state_screensaver_key)
+			AddOverlays(EK)
+			AddOverlays(IK)
 
 		if (screensaver_light_range && working && !flashlight)
 			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -187,19 +190,21 @@
 	if(active_program)
 		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
 		var/state_key = active_program.program_key_icon_state ? active_program.program_key_icon_state : icon_state_menu_key // for corresponding keyboards.
-		if (is_holographic)
-			holographic_overlay(src, src.icon, state)
-		else
-			AddOverlays(state)
+		AddOverlays(state)
 		AddOverlays(state_key)
+		var/emissive_image = emissive_appearance(src.icon, state)
+		var/emissive_image_key = emissive_appearance(src.icon, state_key)
+		AddOverlays(emissive_image)
+		AddOverlays(emissive_image_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
 	else
-		if (is_holographic)
-			holographic_overlay(src, src.icon, icon_state_menu)
-		else
-			AddOverlays(icon_state_menu)
+		AddOverlays(icon_state_menu)
 		AddOverlays(icon_state_menu_key)
+		var/emissive_menu = emissive_appearance(src.icon, icon_state_menu)
+		var/emissive_menu_key = emissive_appearance(src.icon, icon_state_menu_key)
+		AddOverlays(emissive_menu)
+		AddOverlays(emissive_menu_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = menu_light_color)
 

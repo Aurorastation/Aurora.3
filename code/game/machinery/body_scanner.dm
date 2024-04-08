@@ -287,8 +287,10 @@
 		return
 	else
 		if(!console_overlay)
-			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
+			console_overlay = image(icon, "body_scannerconsole-screen")
+		var/emissive_overlay = emissive_appearance(icon, "body_scannerconsole-screen")
 		AddOverlays(console_overlay)
+		AddOverlays(emissive_overlay)
 		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/Initialize()

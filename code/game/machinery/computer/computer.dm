@@ -108,8 +108,6 @@
 		else
 			AddOverlays(icon_broken)
 	else if (icon_screen)
-		if (is_holographic)
-			holographic_overlay(src, src.icon, icon_screen)
 		if (icon_scanline)
 			AddOverlays(icon_scanline)
 		if (icon_keyboard)

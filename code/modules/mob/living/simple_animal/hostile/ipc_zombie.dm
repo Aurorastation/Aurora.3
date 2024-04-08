@@ -41,6 +41,9 @@
 	///Overlay of a screen to display on the zombie's monitor
 	var/image/screen_overlay
 
+	///Emissive overlay of above
+	var/image/emissive_overlay
+
 	///IPC corpse to spawn on the simplemob's death
 	var/corpse = /obj/effect/landmark/corpse/ipc_zombie
 
@@ -50,18 +53,20 @@
 	icon_dead = "[icon_state]_off"
 	screen = pick("screen_blue", "screen_red", "screen_orange", "screen_lumi_eyes", "screen_goggles", "screen_console", "screen_static2", "screen_static3")
 	screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
-	screen_overlay.plane = plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	screen_overlay.appearance_flags = KEEP_APART
 	AddOverlays(screen_overlay)
+	emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+	AddOverlays(emissive_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
 /mob/living/simple_animal/hostile/ipc_zombie/update_icon()
 	ClearOverlays()
 	if(screen && stat != DEAD)
 		screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
-		screen_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		screen_overlay.appearance_flags = KEEP_APART
 		AddOverlays(screen_overlay)
+		emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+		AddOverlays(emissive_overlay)
 
 /mob/living/simple_animal/hostile/ipc_zombie/death()
 	..()
