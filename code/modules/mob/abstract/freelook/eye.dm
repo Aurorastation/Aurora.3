@@ -24,6 +24,11 @@
 
 	var/ghostimage = null
 	var/datum/visualnet/visualnet
+	///Set if the eye uses special click handling. Distinct from parent mob click handling for AI eye.
+	var/click_handler_type = /datum/click_handler/eye
+
+	///Whether or not our eye uses normal living vision handling
+	var/living_eye = TRUE
 
 /mob/abstract/eye/New()
 	ghostimage = image(src.icon,src,src.icon_state)
@@ -79,6 +84,9 @@
 	if(owner.client)
 		owner.client.eye = src
 	LAZYDISTINCTADD(owner.additional_vision_handlers, src)
+	apply_visual(owner)
+	if(click_handler_type)
+		owner.PushClickHandler(click_handler_type)
 	setLoc(owner)
 	visualnet.update_eye_chunks(src, TRUE)
 
@@ -87,11 +95,14 @@
 		return
 	if(owner.eyeobj != src)
 		return
+	remove_visual(owner)
 	LAZYREMOVE(owner.additional_vision_handlers, src)
-	if(owner.client)
-		owner.client.eye = owner
 	visualnet.remove_eye(src)
 	owner.eyeobj = null
+	if(owner.client)
+		owner.client.eye = owner
+	if(click_handler_type)
+		owner.RemoveClickHandler(click_handler_type)
 	owner = null
 	name = initial(name)
 
@@ -155,7 +166,21 @@
 	return ..()
 
 /mob/abstract/eye/proc/apply_visual(mob/M)
-	return
+	if(M != owner || !M.client)
+		return FALSE
+	return TRUE
 
 /mob/abstract/eye/proc/remove_visual(mob/M)
-	return
+	if(M != owner || !M.client)
+		return FALSE
+	return TRUE
+
+/datum/click_handler/eye/OnClick(atom/A, params)
+	var/mob/abstract/eye = user.eyeobj
+	if(!eye) //Something has broken, ensure the click handler doesn't stick around
+		user.RemoveClickHandler(src)
+		return
+	eye.ClickOn(A, params)
+
+/datum/click_handler/eye/OnDblClick(atom/A, params)
+	OnClick(A, params)

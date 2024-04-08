@@ -59,6 +59,7 @@
 	return
 
 /atom/proc/additional_sight_flags()
+	SHOULD_BE_PURE(TRUE)
 	return 0
 
 /atom/proc/additional_see_invisible()
