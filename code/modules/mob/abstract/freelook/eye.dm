@@ -32,6 +32,11 @@
 	updateallghostimages()
 	..()
 
+/mob/abstract/eye/Initialize(var/datum/visualnet/net)
+	. = ..()
+	if(net)
+		visualnet = net
+
 /mob/abstract/eye/Destroy()
 	if (ghostimage)
 		SSmobs.ghost_darkness_images -= ghostimage
@@ -144,3 +149,8 @@
 	else
 		sprint = initial
 	return 1
+
+/mob/abstract/eye/ClickOn(atom/A, params)
+	if(owner)
+		return owner.ClickOn(A, params)
+	return ..()

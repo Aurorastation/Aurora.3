@@ -60,6 +60,8 @@
 #define LAZYREMOVE(L, I) if(L) { L -= I; if(!length(L)) { L = null; } }
 ///Add an item to the list, if the list is null it will initialize it
 #define LAZYADD(L, I) if(!L) { L = list(); } L += I;
+///Inserts an item into the list at position X, if the list is null it will initialize it
+#define LAZYINSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
 ///Add an item to the list if not already present, if the list is null it will initialize it
 #define LAZYOR(L, I) if(!L) { L = list(); } L |= I;
 ///Returns the key of the submitted item in the list
