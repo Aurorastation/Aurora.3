@@ -7,6 +7,7 @@
 	icon_state = "globe2"
 	color = "#68e968"
 	planetary_area = /area/exoplanet/grass/konyang
+	initial_weather_state = /singleton/state/weather/rain/storm/jungle_planet
 	scanimage = "konyang.png"
 	massvolume = "0.89/0.99"
 	surfacegravity = "0.93"
