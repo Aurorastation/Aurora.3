@@ -1,0 +1,6 @@
+author: SidVeld
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an augment translator that can translate human languages."
