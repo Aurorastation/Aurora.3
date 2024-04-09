@@ -45,23 +45,22 @@
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(unlook), TRUE)
 	RegisterSignal(current_looker, COMSIG_MOVABLE_MOVED, PROC_REF(unlook), TRUE)
 
-	GLOB.destroyed_event.register(current_looker, src, /datum/component/eye/proc/unlook)
-	GLOB.destroyed_event.register(component_eye, src, /datum/component/eye/proc/unlook)
+	RegisterSignal(current_looker, COMSIG_QDELETING, PROC_REF(unlook))
+	RegisterSignal(component_eye, COMSIG_QDELETING, PROC_REF(unlook))
 
-	RegisterSignal(current_looker, COMSIG_MOB_LOGOUT /datum/component/eye/proc/unlook)
-	GLOB.stat_set_event.register(current_looker, src, /datum/component/eye/proc/unlook)
+	RegisterSignal(current_looker, COMSIG_MOB_LOGOUT, PROC_REF(unlook))
+	RegisterSignal(current_looker, COMSIG_GLOB_MOB_DEATH, PROC_REF(unlook))
 
 	return TRUE
 
 /datum/component/eye/proc/unlook()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(current_looker, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(current_looker, COMSIG_QDELETING)
+	UnregisterSignal(component_eye, COMSIG_QDELETING)
 
-	GLOB.destroyed_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
-	GLOB.destroyed_event.unregister(component_eye, src, /datum/component/eye/proc/unlook)
-
-	GLOB.stat_set_event.unregister(current_looker, src, /datum/component/eye/proc/unlook)
 	UnregisterSignal(current_looker, COMSIG_MOB_LOGOUT)
+	UnregisterSignal(current_looker, COMSIG_GLOB_MOB_DEATH)
 
 	component_eye.release(current_looker)
 	if(current_looker.client)
