@@ -112,7 +112,7 @@
 		return
 	if(params["left"])
 		update_selected_turfs(get_turf(A), params)
-	if(params["right"])
+	if(params["shift"]) //Shift-click to clear the selection
 		remove_selection()
 
 /mob/abstract/eye/blueprints/proc/update_selected_turfs(var/turf/next_selected_turf, var/list/params)
@@ -126,7 +126,7 @@
 		return
 
 	var/list/new_selection = block(last_selected_turf, next_selected_turf)
-	if(params["shift"]) //Shift-click to remove areas from the selection
+	if(params["right"]) //Right-click to remove areas from the selection
 		selected_turfs -= new_selection
 	else
 		selected_turfs |= new_selection

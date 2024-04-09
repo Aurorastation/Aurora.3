@@ -28,3 +28,18 @@
 	procname = "remove_area"
 	button_icon_state = "remove_area"
 	target_type = EYE_TARGET
+
+/datum/action/eye/blueprints/help
+	name = "Help"
+	procname = "help"
+	button_icon_state = "help"
+	target_type = COMPONENT_TARGET
+
+/datum/component/eye/blueprints/proc/help()
+	if(!current_looker)
+		return
+	to_chat(current_looker, SPAN_NOTICE("***********************************************************"))
+	to_chat(current_looker, SPAN_NOTICE("Left Click		= Select Area"))
+	to_chat(current_looker, SPAN_NOTICE("Right Click    = Deselect Area"))
+	to_chat(current_looker, SPAN_NOTICE("Shift Click	= Clear Selection"))
+	to_chat(current_looker, SPAN_NOTICE("***********************************************************"))
