@@ -264,7 +264,6 @@ steam.start() -- spawns the effect
 			if(holder)
 				src.location = get_turf(holder)
 			var/obj/effect/effect/smoke/smoke = new smoke_type(src.location)
-			smoke.layer = ABOVE_MOB_LAYER
 			src.total_smoke++
 			var/direction = src.direction
 			if(!direction)

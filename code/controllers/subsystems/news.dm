@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(news)
 	alert_readers(FC.announcement)
 
 /datum/controller/subsystem/news/proc/alert_readers(var/annoncement)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 	for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
 		NEWSCASTER.newsAlert(annoncement)
 		NEWSCASTER.update_icon()

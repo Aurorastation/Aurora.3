@@ -137,9 +137,9 @@
 	var/markings = 0 // for marking kills with a knife
 
 	//wielding information
-	var/fire_delay_wielded = 0
-	var/recoil_wielded = 0
-	var/accuracy_wielded = 0
+	var/fire_delay_wielded
+	var/recoil_wielded
+	var/accuracy_wielded
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
@@ -643,18 +643,7 @@
 /obj/item/gun/zoom()
 	..()
 	if(!zoom)
-		if(is_wieldable && wielded)
-			if(accuracy_wielded)
-				accuracy = accuracy_wielded
-			else
-				accuracy = initial(accuracy)
-			if(recoil_wielded)
-				recoil = recoil_wielded
-			else
-				recoil = initial(recoil)
-		else
-			accuracy = initial(accuracy)
-			recoil = initial(recoil)
+		update_firing_delays()
 
 ///Handles removing the suppressor from the gun
 /obj/item/gun/proc/clear_suppressor()
@@ -801,18 +790,18 @@
 
 /obj/item/gun/proc/update_firing_delays()
 	if(wielded)
-		if(fire_delay_wielded)
+		if(!isnull(fire_delay_wielded))
 			fire_delay = usr.lying_is_intentional ? (fire_delay_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : fire_delay_wielded
-		if(recoil_wielded)
+		if(!isnull(recoil_wielded))
 			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
-		if(accuracy_wielded)
+		if(!isnull(accuracy_wielded))
 			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
 	else
-		if(fire_delay_wielded)
+		if(!isnull(fire_delay_wielded))
 			fire_delay = initial(fire_delay)
-		if(recoil_wielded)
+		if(!isnull(recoil_wielded))
 			recoil = initial(recoil)
-		if(accuracy_wielded)
+		if(!isnull(accuracy_wielded))
 			accuracy = initial(accuracy)
 
 #undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER

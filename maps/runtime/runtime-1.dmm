@@ -508,10 +508,6 @@
 /obj/item/screwdriver,
 /obj/item/wirecutters,
 /obj/structure/table/standard,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Technical Storage";
-	dir = 1
-	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -1087,7 +1083,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cF" = (
-/obj/structure/table,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
