@@ -126,14 +126,6 @@
 
 /singleton/biome/grass/biesel
 	turf_type = /turf/simulated/floor/exoplanet/grass/grove
-	generators = list(
-		GRASS_1 = list(BATCHED_NOISE, -0.3, 360, 4),
-		GRASS_2 = list(BATCHED_NOISE, -0.3, 360, 4),
-		GRASS_3 = list(BATCHED_NOISE, -0.3, 360, 4),
-		SMALL_FLORA = list(POISSON_SAMPLE, 6),
-		WILDLIFE = list(POISSON_SAMPLE, 15)
-	)
-	exclusive_generators = list(GRASS_1, GRASS_2, GRASS_3)
 	spawn_types = list(
 		GRASS_1 = list(
 			/obj/structure/flora/ausbushes/ywflowers = 1
