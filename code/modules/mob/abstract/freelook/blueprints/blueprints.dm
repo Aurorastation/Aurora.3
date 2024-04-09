@@ -48,7 +48,7 @@
 	. = ..()
 
 /mob/abstract/eye/blueprints/proc/create_area()
-	var/area_name = sanitizeSafe(input("New area name:","Area Creation", ""), MAX_NAME_LEN)
+	var/area_name = sanitizeSafe(tgui_input_text(owner, "New area name: ", "Area Creation", "", MAX_NAME_LEN))
 	if(!area_name || !length(area_name))
 		return
 	if(length(area_name) > 50)
@@ -59,15 +59,22 @@
 		to_chat(owner, SPAN_WARNING("Could not mark area: [english_list(errors)]!"))
 		return
 
-	var/area/A = new
+	var/area/A = finalize_area(area_name)
+	for(var/turf/T in selected_turfs)
+		ChangeArea(T, A)
+	remove_selection() // Reset the selection for clarity.
+
+/mob/abstract/eye/blueprints/proc/finalize_area(var/area_name)
+	var/area/A = new()
 	A.name = area_name
+	var/area/old_area = get_area(selected_turfs[1])
+	if(old_area.area_flags & AREA_FLAG_INDESTRUCTIBLE_TURFS) //to prevent new areas on exoplanets being ventable
+		A.area_flags |= AREA_FLAG_INDESTRUCTIBLE_TURFS
 	A.power_equip = FALSE
 	A.power_light = FALSE
 	A.power_environ = FALSE
 	A.always_unpowered = FALSE
-	for(var/turf/T in selected_turfs)
-		ChangeArea(T, A)
-	remove_selection() // Reset the selection for clarity.
+	return A
 
 /mob/abstract/eye/blueprints/proc/remove_area()
 	var/area/A = get_area(src)
@@ -78,7 +85,15 @@
 		return
 	to_chat(owner, SPAN_NOTICE("You scrub [A.name] off the blueprints."))
 	log_and_message_admins("deleted area [A.name] via station blueprints.")
-	qdel(A)
+	var/background_area = /area/space
+	var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[A.z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
+	if(istype(exoplanet))
+		background_area = exoplanet.planetary_area
+	for(var/turf/T in A.contents)
+		ChangeArea(T, background_area)
+	if(!locate(/turf in A))
+		qdel(A)
 
 /mob/abstract/eye/blueprints/proc/edit_area()
 	var/area/A = get_area(src)
@@ -250,7 +265,6 @@
 
 /mob/abstract/eye/blueprints/remove_visual(mob/living/M)
 	M.clear_fullscreen("blueprints", 0)
-	to_chat(M, "clearing fullscreen, why isn't it working")
 	M.client.screen -= area_name_effect
 	M.remove_client_color(/datum/client_color/monochrome)
 
