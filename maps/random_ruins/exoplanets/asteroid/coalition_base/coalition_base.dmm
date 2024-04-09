@@ -173,7 +173,6 @@
 /area/coalition_base/lounge)
 "do" = (
 /obj/structure/table/steel,
-/obj/structure/table/steel,
 /obj/item/circuitboard/ship/sensors{
 	pixel_y = 12
 	},

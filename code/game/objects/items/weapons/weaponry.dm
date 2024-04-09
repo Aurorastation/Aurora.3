@@ -26,7 +26,7 @@
 	var/turf/T = get_turf(M)
 	if(T)
 		var/obj/effect/energy_net/net = new net_type(T)
-		net.layer = M.layer + 1
+		net.layer = ABOVE_HUMAN_LAYER
 		M.captured = TRUE
 		M.update_canmove()
 		net.affecting = M

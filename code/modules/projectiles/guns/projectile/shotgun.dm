@@ -4,7 +4,8 @@
 	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
 	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
 	into the shotgun, then pump the shotgun to chamber a fresh round."
-	accuracy = 1
+	accuracy = -1
+	accuracy_wielded = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -115,7 +116,7 @@
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
-	accuracy = 2
+	accuracy_wielded = 2
 	max_shells = 13 // holds a max of 14 shells at once
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
@@ -216,6 +217,7 @@
 	icon = 'icons/obj/guns/overunder.dmi'
 	icon_state = "overunder"
 	item_state = "overunder"
+	accuracy = 0
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -278,3 +280,70 @@
 	. = ..()
 	if(distance <= 1)
 		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")
+
+/obj/item/gun/projectile/shotgun/wallgun
+	name = "wall gun"
+	desc = "A small yet powerful shotgun of Unathi make."
+	desc_extended = "The Moghesian wall gun, a classic Hegemonic weapon that saw plenty of service before and during the Contact War. This small-sized, break-action shotgun manages to pack a serious punch despite being barely larger than a pistol, however, it comes at the cost of extremely limited capacity. The wall gun is still produced and distributed nowadays, generally given to vehicle and ship crews and law enforcers."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "wallgun"
+	item_state = "wallgun"
+	accuracy = 0
+	is_wieldable = TRUE
+	slot_flags = SLOT_BELT
+	ammo_type = /obj/item/ammo_casing/shotgun/moghes
+	load_method = SINGLE_CASING|SPEEDLOADER
+	w_class = ITEMSIZE_NORMAL
+	fire_delay = ROF_INTERMEDIATE
+	force = 5
+	max_shells = 1
+	caliber = "shotgun"
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	handle_casings = HOLD_CASINGS
+	///Whether the shotgun's chamber is open
+	var/open = FALSE
+
+/obj/item/gun/projectile/shotgun/wallgun/update_icon()
+	if(open)
+		icon_state = "wallgun-open"
+	else
+		icon_state = "wallgun"
+	..()
+/obj/item/gun/projectile/shotgun/wallgun/unique_action(mob/user)
+	if(!open)
+		open = TRUE
+		update_icon()
+		unload_ammo(user, TRUE)
+	else
+		open = FALSE
+		update_icon()
+
+/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(user, allow_dump)
+	if(open)
+		..(user, allow_dump=1)
+
+/obj/item/gun/projectile/shotgun/wallgun/load_ammo(obj/item/A, mob/user)
+	if(!open)
+		to_chat(user, SPAN_WARNING("You need to open the cover to load \the[src]."))
+		return
+	..()
+
+/obj/item/gun/projectile/shotgun/wallgun/handle_post_fire(mob/user)
+	..()
+	if(wielded)
+		return
+	else
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.mob_size <10)
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.drop_item(src)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
+
+				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
+
+				if(H.hand)
+					LH.take_damage(30)
+				else
+					RH.take_damage(30)

@@ -111,15 +111,7 @@
 	logging_home_tag = "nav_database_freighter_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/database_freighter_shuttle/hangar
-	name = "Database Freighter Shuttle Hangar"
-	landmark_tag = "nav_database_freighter_shuttle"
-	docking_controller = "database_freighter_shuttle_dock"
-	base_area = /area/database_freighter/hangar
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/database_freighter_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_database_freighter_shuttle"
-	base_turf = /turf/space/transit/north
+/obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle
+	name = "Database Freighter Shuttle"
+	shuttle_tag = "Database Freighter Shuttle"
+	master_tag = "nav_database_freighter_shuttle"

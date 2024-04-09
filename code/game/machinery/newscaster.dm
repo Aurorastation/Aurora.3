@@ -1100,11 +1100,11 @@ var/list/obj/machinery/newscaster/allCasters = list()
 			update_icon()
 			addtimer(CALLBACK(src, PROC_REF(clearAlert)), 300, TIMER_UNIQUE)
 
-		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	else
 		for(var/mob/O in hearers(world.view-1, T))
 			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"Attention! Wanted issue distributed!\"</span>",2)
-		playsound(loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
+		playsound(loc, 'sound/machines/warning-buzzer.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return
 
 /obj/machinery/newscaster/proc/clearAlert()

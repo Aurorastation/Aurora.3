@@ -5,7 +5,7 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "tube-construct-stage1"
 	anchored = TRUE
-	layer = 5
+	layer = ABOVE_HUMAN_LAYER
 	var/stage = 1
 	var/fixture_type = "tube"
 	var/sheets_refunded = 2
@@ -196,7 +196,6 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "bulb-construct-stage1"
 	anchored = TRUE
-	layer = 5
 	stage = 1
 	fixture_type = "bulb"
 	sheets_refunded = 1
@@ -207,7 +206,6 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "slight-construct-stage1"
 	anchored = TRUE
-	layer = 5
 	stage = 1
 	fixture_type = "spotlight"
 	sheets_refunded = 3
@@ -218,7 +216,7 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floor-construct-stage1"
 	anchored = TRUE
-	layer = 2.5
+	layer = TURF_DETAIL_LAYER
 	stage = 1
 	fixture_type = "floorbulb"
 	sheets_refunded = 1
@@ -229,6 +227,6 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floortube-construct-stage1"
 	anchored = TRUE
-	layer = 2.5
+	layer = TURF_DETAIL_LAYER
 	stage = 1
 	fixture_type = "floorlight"

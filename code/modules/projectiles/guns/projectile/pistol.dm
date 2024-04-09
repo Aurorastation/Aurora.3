@@ -417,6 +417,21 @@
 	else
 		icon_state = "m8-empty"
 
+/obj/item/gun/projectile/pistol/sol/konyang
+	name = "konyang service pistol"
+	desc = "The compact M8, redesignated as the K8, is the standard service pistol of the Konyanger Armed Forces. Inherited from the Solarian military, Zavodskoi has since given these handguns \
+	a service extension package, including laser sights and replacement of worn-out parts."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k8"
+	item_state = "k8"
+
+/obj/item/gun/projectile/pistol/sol/konyang/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "k8"
+	else
+		icon_state = "k8-empty"
+
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
 	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
@@ -553,3 +568,25 @@
 		icon_state = "dom_pistol"
 	else
 		icon_state = "dom_pistol-e"
+
+/obj/item/gun/projectile/pistol/spitter
+	name = "unathi spitter pistol"
+	desc = "The venerable 'spitter' pistol is an Unathi design nearly three centuries old. Though no longer in use by the Hegemony's forces, these guns are still commonplace in the hands of criminals, Wastelanders, and former Traditionalists."
+	desc_extended = "The Relzi-5 pistol, colloquially referred to as the 'spitter' was a common Unathi sidearm for centuries, though the design was already being phased out of Izweski use by the start of the Contact War due to superior-quality energy weapons becoming available.\
+	In the modern day, they are no longer produced, but the sheer volume of them in service means they can be found all over Moghes, and even in the wider Orion Spur."
+	magazine_type = /obj/item/ammo_magazine/spitterpistol
+	allowed_magazines = list(/obj/item/ammo_magazine/spitterpistol)
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "spitterpistol"
+	item_state = "spitterpistol"
+	caliber = "11.6mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/spitter/update_icon()
+	..()
+	if(length(ammo_magazine?.stored_ammo))
+		icon_state = "spitterpistol"
+	else
+		icon_state = "spitterpistol-empty"

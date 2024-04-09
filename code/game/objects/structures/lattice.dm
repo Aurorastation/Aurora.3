@@ -8,7 +8,7 @@
 	density = FALSE
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = UNDER_PIPE_LAYER //under pipes
+	layer = LATTICE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -85,7 +85,7 @@
 /obj/structure/lattice/catwalk/indoor
 	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
 	can_be_unanchored = TRUE
-	layer = 2.7	// Above wires.
+	layer = CATWALK_LAYER
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswelder())

@@ -11,7 +11,7 @@
 /obj/effect/overlay/konyang_tree//shadow underlay
 	icon = 'icons/obj/flora/konyang/beet_tree.dmi'
 	icon_state = "shadow"
-	layer = ON_TURF_LAYER
+	layer = TURF_SHADOW_LAYER
 
 /obj/structure/flora/tree/konyang/spring/Initialize(mapload)
 	. = ..()
@@ -103,7 +103,7 @@
 	desc = "Thin and tall grass stalks, easy to sway to the wind and harsh to the touch."
 	icon = 'icons/obj/flora/konyang/grass.dmi'
 	icon_state = "stalks"
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	anchored = 1
 
 /obj/structure/flora/bush/konyang_reeds/Initialize(mapload)
@@ -114,7 +114,7 @@
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
 		to_chat(L, "<span class='notice'>You brush through \the [src] really quite loudly.</span>")
-		playsound(loc, 'sound/effects/plantshake.ogg', 100, 1)
+		playsound(loc, 'sound/effects/plantshake.ogg', 60, TRUE)
 		shake_animation()
 	..()
 

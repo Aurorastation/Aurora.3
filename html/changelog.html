@@ -35,6 +35,210 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">07 April 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Bump megalinter version to v7.10.0.</li>
+			</ul>
+			<h3 class="author">Greenjoe12345 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes PRA Diplomatic Aides being given the DPRA Diplomatic Aide outfit and bag contents.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Offship RND servers and consoles will no longer sync with the Horizon&#x27;s database.</li>
+				<li class="tweak">Einstein ERT rigs now use the correct ERT rig statss.</li>
+				<li class="bugfix">Fixes missing ID accesses on ERT outfits.</li>
+			</ul>
+
+			<h2 class="date">06 April 2024</h2>
+			<h3 class="author">AlaunusLux updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Ghosts will now see bolded messages even if the speaker is inside an exosuit or other location.</li>
+			</ul>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added weather to jungle, lava, snow, and some lore planets.</li>
+			</ul>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new flag and banner for the Golden Deep. Credit to Fyni for the sprite.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed buildmode help making a runtime due to empty to_chat() call.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Shotguns are no longer extremely accurate when shot one-handed, and must be wielded to be fired accurately.</li>
+				<li class="bugfix">Firearms that set their accuracy, firing delay, or recoil to 0 when wielded will now properly do that.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Vaurca can now equip more Skrell shoulder capes and wetshirts.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes Heroin, Cocaine and Raskara dust from the warehouse spawners.</li>
+				<li class="rscdel">Removes Ambrosia and other legal substances from the contraband list.</li>
+				<li class="rscadd">Added a variety of new contraband to the contraband spawner to be found around maintenance.</li>
+				<li class="maptweak">Added multiple new spawn locations for contraband on the Horizon across all decks.</li>
+				<li class="maptweak">Remapped the Machinist workshop to be swapped with RnD and Exploratory Chemistry</li>
+				<li class="maptweak">Added a mecha-gantry, along with a random spawning mismatched exosuit</li>
+				<li class="maptweak">Moved Telescience to the xenoarcheology section of the ship</li>
+				<li class="maptweak">Combined xeno-archeology equipment storage with artifact storage</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the Intrepid being unable to land on the racer station away site.</li>
+				<li class="tweak">The shuttles on the racer station away site are now functional.</li>
+			</ul>
+
+			<h2 class="date">05 April 2024</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new Baseline sprites made by Noble Row.</li>
+				<li class="rscadd">Added new Baseline head types, sprites made by Noble Row. To select them, change the head prosthesis type as you would with a normal limb.</li>
+				<li class="rscadd">Added a system to allow markings and hair to be restricted to certain prosthesis types.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Exoplanet minerals will no longer spawn unsimulated turfs when mined.</li>
+				<li class="bugfix">Plants will no longer cause runtimes by looking for the wrong number of growth stages.</li>
+				<li class="bugfix">Tempest SMG will now correctly display its wielded icon state.</li>
+				<li class="bugfix">Delivery point packages will now correctly generate a destination.</li>
+				<li class="tweak">Barren exoplanets and asteroids are now properly airless.</li>
+			</ul>
+
+			<h2 class="date">04 April 2024</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Items set to be layered below tables will not have initial layer changed, fixing certain interactions.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Get_sfx() now also returns /sound types back, preventing some runtimes without having to rewrite 300 lines.</li>
+				<li class="bugfix">Food containers like frosted donuts and meat nuggets now maintain the proper icon.</li>
+				<li class="bugfix">Recharger backpacks now intuitively handle the connection with a simple item-on-backpack click.</li>
+				<li class="backend">Improved backend handling, cleanly handle ref dropping to gun, localized management of the backpack, DMdoc, you know the deal.</li>
+				<li class="tweak">Reduced simple animal emote sounds to short range.</li>
+				<li class="backend">Turned the var that hold those sounds into a lazylist, saving memory (as most simple animals don&#x27;t have emote sounds).</li>
+				<li class="bugfix">Fixed a runtime found on mechs.</li>
+				<li class="bugfix">Fixed machine processing for ores going in the negatives for alloying.</li>
+				<li class="backend">Some more optimizations, DMdocs, turned a var into a global one, some defines added and made into bitflags, yada yada you know the usual deal.</li>
+				<li class="backend">Optimized some procs, ported from Daedalus Dock.</li>
+			</ul>
+			<h3 class="author">FluffyGhost, ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Tweaked the sounds to dampen the volume depending on what is present between the source and the destination, accounts for walls/doors/windows.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added bauxite and galena to map generation.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Overhauls the PRA Headmaster ship. Updates airlocks and shuttle to mapping standards.</li>
+			</ul>
+			<h3 class="author">Noble Row, Stryker updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds 19 new assorted Golden Deep clothing items to the Xenowear - IPC tab. Spritework done by Noble Row.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Added blastdoors to the Grauwolf compartment and moved the longbow blastdoors button to be more visible.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the Konyang guns and armor used in the Silicon Nightmares events.</li>
+			</ul>
+			<h3 class="author">SidVeld updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added buttons that can be used to quickly change a character&#x27;s hairstyle or beard without using a list.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed seams in the smoothing of mineral turfs.</li>
+			</ul>
+
+			<h2 class="date">03 April 2024</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fix the runtime seen in the CI, as well as standarize the apply_damage proc header that leaded to those runtimes (and possibly others/more).</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed platforms layering over vending machines.</li>
+				<li class="bugfix">Fixed chairs rendering over railings.</li>
+				<li class="bugfix">Fixed pipes rendering under plating.</li>
+				<li class="bugfix">Fixed closed blastdoors rendering under windows.</li>
+			</ul>
+
+			<h2 class="date">02 April 2024</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Updated and fixed some content from old space sectors.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Takes the 30 phoron sheets off of the Intrepid and splits it into 15 for Scientists and 15 for the Machinists.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the broken wood turfs on the Odin and in Antagonist bases.</li>
+			</ul>
+
+			<h2 class="date">01 April 2024</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds large tank markers.</li>
+				<li class="maptweak">Updates SCC Scout Ship to use large tank markers.</li>
+				<li class="maptweak">Updates Civilian Yacht to use large tank markers.</li>
+				<li class="rscadd">Adds highvis pants to match the two highvis jackets.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaked reloading sounds, single-bullet fiddlings are way quieter than magazines, both have reduced range than before; unloading sound is less hearable over distance than the loading one.</li>
+				<li class="tweak">Reduced the volume of passing through a bush on Konyang.</li>
+				<li class="tweak">The stethoscope message, for the user, is now inside an examine block.</li>
+				<li class="tweak">Tuned the delay a little, so the display is not immediate, as you&#x27;d need a moment to determine the breathing and heart status.</li>
+				<li class="tweak">Reduced the emitter and sparks sound range.</li>
+				<li class="tweak">Tweaked walking sound ranges, now running is hearable more afar than walking, and they both have less range than they did before.</li>
+				<li class="tweak">Reduced the range and marked as wall unpassable some additional trivial sounds.</li>
+				<li class="backend">Updated mutable appearances to only set the floating plane if they&#x27;re not copying from an image, as per TG version.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Changed the layers of every object in the game, and added a long list of defines, for eventual movement into render planes.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Konyang voidsuits not using the correct refitted sprites.</li>
+				<li class="tweak">Removes Gakal&#x27;zaal from the corporate sectors list and refluffs the PVSM voidsuits to not be based on corporate models.</li>
+				<li class="rscadd">Adds several pre-contact Unathi ballistic guns.</li>
+				<li class="tweak">Resprites, restats, and refluffs the generic Unathi armor.</li>
+				<li class="rscadd">Adds IPC sprites for the Einstein &amp; Zeng-Hu voidsuits, and adds Skrell sprites for the Einstein suit.</li>
+				<li class="bugfix">Fixes Longbow warheads exploding when picked up by mechs.</li>
+				<li class="bugfix">Fixes ice exoplanet turfs being invisible.</li>
+				<li class="bugfix">Fixes the Haneunim shuttle crash from leaving its thrusters behind on launch.</li>
+			</ul>
+			<h3 class="author">SidVeld updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an issue that caused the character examine message to disappear when the player controlling it is not in the body.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds 2 new uniforms for the Ve&#x27;katak Phalanx.</li>
+				<li class="bugfix">Fixes minor spriting issues with the existing Ve&#x27;katak uniforms.</li>
+				<li class="rscadd">Adds four new flagpatches (Sedantis, Zo&#x27;ra, K&#x27;lax, C&#x27;thur).</li>
+				<li class="bugfix">Fixes minor issues with the Ve&#x27;katak faceplate.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Tweaked the safety goggles sprite so the strap isn&#x27;t so thick.</li>
+				<li class="tweak">Tweaked holomenus to be readable from a distance.</li>
+			</ul>
+
 			<h2 class="date">29 March 2024</h2>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">

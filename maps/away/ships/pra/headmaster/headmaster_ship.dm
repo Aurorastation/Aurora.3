@@ -36,7 +36,9 @@
 		"nav_headmaster_ship_1",
 		"nav_headmaster_ship_2",
 		"nav_headmaster_ship_3",
-		"nav_headmaster_ship_4"
+		"nav_headmaster_ship_4",
+		"nav_headmaster_ship_dock_starboard",
+		"nav_headmaster_ship_dock_port"
 	)
 	initial_restricted_waypoints = list(
 		"Orbital Fleet Shuttle" = list("nav_headmaster_shuttle")
@@ -77,6 +79,20 @@
 	name = "Headmaster Ship Navpoint #4"
 	landmark_tag = "nav_headmaster_ship_4"
 
+/obj/effect/shuttle_landmark/nav_headmaster_ship/dock/starboard
+	name = "Starboard Dock"
+	landmark_tag = "nav_headmaster_ship_dock_starboard"
+	docking_controller = "nav_headmaster_ship_dock_starboard"
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/nav_headmaster_ship/dock/port
+	name = "Port Dock"
+	landmark_tag = "nav_headmaster_ship_dock_port"
+	docking_controller = "nav_headmaster_ship_dock_port"
+	base_turf = /turf/space
+	base_area = /area/space
+
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
@@ -93,10 +109,9 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/headmaster_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Shuttle"
-
 
 /datum/shuttle/autodock/overmap/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
