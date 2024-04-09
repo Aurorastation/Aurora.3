@@ -15,9 +15,8 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = DOOR_CLOSED_LAYER + 0.1
+	closed_layer = ABOVE_WINDOW_LAYER
 	explosion_resistance = 25
-	open_layer = 2.7
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.

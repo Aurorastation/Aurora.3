@@ -177,6 +177,8 @@
 	pants["red pants"] = /obj/item/clothing/under/pants/red
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
+	pants["high visibility pants"] = /obj/item/clothing/under/pants/highvis
+	pants["high visibility pants, alt"] = /obj/item/clothing/under/pants/highvis_alt
 	pants["track pants"] = /obj/item/clothing/under/pants/track
 	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
 	pants["green track pants"] = /obj/item/clothing/under/pants/track/green

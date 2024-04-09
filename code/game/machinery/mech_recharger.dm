@@ -4,7 +4,7 @@
 	icon = 'icons/mecha/mech_bay.dmi'
 	icon_state = "recharge_floor"
 	density = FALSE
-	layer = TURF_LAYER + 0.1
+	layer = ABOVE_TILE_LAYER
 	anchored = TRUE
 	idle_power_usage = 300	// Some electronics, passive drain.
 	active_power_usage = 90 KILOWATTS // When charging

@@ -3,8 +3,7 @@
 /obj/structure/plasticflaps,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/conveyor{
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -108,7 +107,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/shuttle_landmark/tajara_mining_jack/hangar,
+/obj/effect/shuttle_landmark/tajara_mining_jack/hangar{
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -120,7 +121,6 @@
 /area/mining_jack_outpost/smelter)
 "bw" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
@@ -177,6 +177,18 @@
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
+"cr" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/turf/simulated/floor/plating,
+/area/shuttle/mining_jack/engines)
 "cw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -235,11 +247,16 @@
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/engines)
+"dk" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, atmospheric"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/mining_jack_outpost/atmos)
 "dm" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -287,8 +304,7 @@
 "eg" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -317,6 +333,21 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/hangar)
+"eE" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/tiled/dark,
+/area/mining_jack_outpost/hangar)
 "eF" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -344,11 +375,10 @@
 	},
 /area/shuttle/mining_jack/bridge)
 "eZ" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -364,6 +394,24 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
+"fn" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/tiled/dark,
+/area/mining_jack_outpost/hangar)
 "fv" = (
 /obj/structure/table/steel,
 /obj/item/gun/energy/plasmacutter,
@@ -374,7 +422,6 @@
 /area/mining_jack_outpost/storage)
 "fG" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
@@ -471,6 +518,18 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
+"gv" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/tiled/dark,
+/area/mining_jack_outpost/hangar)
 "gI" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 4
@@ -506,8 +565,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -540,7 +598,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "mining_jack_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -563,8 +620,7 @@
 "hX" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -589,8 +645,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -628,7 +683,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "mining_jack_cargo";
 	name = "Cargo Shutter";
-	pixel_x = 26
+	pixel_x = 20;
+	dir = 4
 	},
 /obj/machinery/conveyor_switch{
 	id = "mining_jack_belt"
@@ -672,8 +728,13 @@
 	},
 /area/mining_jack_outpost/smelter)
 "jP" = (
-/obj/effect/map_effect/airlock/e_to_w/long/square/wide,
-/turf/simulated/wall/shuttle/raider,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/shuttle/mining_jack/engines)
 "jV" = (
 /obj/machinery/computer/shuttle_control/explore/tajara_mining_jack{
@@ -717,8 +778,7 @@
 "kP" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -773,8 +833,7 @@
 "lb" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -787,6 +846,12 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/hangar)
+"ld" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/mining_jack_outpost/hangar)
 "lk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/meter,
@@ -794,6 +859,12 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/atmos)
+"ln" = (
+/obj/effect/shuttle_landmark/tajara_mining_jack/nav1{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "lo" = (
 /obj/structure/table/steel,
 /obj/item/plastique/seismic,
@@ -845,8 +916,7 @@
 "lT" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "mining_jack_belt";
-	layer = 2.9
+	id = "mining_jack_belt"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -959,6 +1029,10 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/atmos)
+"ox" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/mining_jack/engines)
 "oN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/plating{
@@ -985,8 +1059,7 @@
 /obj/structure/plasticflaps/mining,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1113,6 +1186,13 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/hangar)
+"rW" = (
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/mining_jack/engines)
 "rX" = (
 /obj/structure/table/steel,
 /obj/item/pickaxe/drill,
@@ -1158,7 +1238,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/mining_jack/engines)
 "sW" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "mining_jack_bridge"
@@ -1266,7 +1346,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "mining_jack_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1429,7 +1508,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/mining_jack/bridge)
 "xL" = (
-/obj/effect/shuttle_landmark/tajara_mining_jack/nav1,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
 "xN" = (
@@ -1444,8 +1523,7 @@
 "yj" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1495,7 +1573,6 @@
 /area/mining_jack_outpost/smelter)
 "yr" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
@@ -1511,12 +1588,24 @@
 	},
 /area/shuttle/mining_jack/engines)
 "yQ" = (
-/obj/effect/landmark/entry_point/east{
-	name = "port, engine"
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/mining_jack/engines)
 "zh" = (
 /obj/structure/cable/green{
@@ -1612,9 +1701,11 @@
 /turf/simulated/wall/shuttle/raider,
 /area/mining_jack_outpost/quarters)
 "Be" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/shuttle/raider,
-/area/mining_jack_outpost/hangar)
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "Bu" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1674,8 +1765,7 @@
 	id = "mining_jack_bridge";
 	name = "Bridge Shutters";
 	req_access = list(202);
-	req_one_access = null;
-	dir = 1
+	req_one_access = null
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -1737,10 +1827,8 @@
 	},
 /area/shuttle/mining_jack/bridge)
 "DS" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
 /obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector/aux,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1791,7 +1879,6 @@
 /area/shuttle/mining_jack/engines)
 "EO" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1853,7 +1940,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "tajara_mining_jack_hatch";
-	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
 	dir = 4
@@ -1905,10 +1991,16 @@
 /turf/template_noop,
 /area/space)
 "Hd" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/plating,
 /area/mining_jack_outpost/hangar)
 "Hw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -1981,6 +2073,26 @@
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
+"Ke" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 10;
+	pixel_y = -32;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining_jack/engines)
 "Km" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable/green{
@@ -2044,6 +2156,22 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/hangar)
+"LK" = (
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/shuttle/mining_jack/engines)
 "LT" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -2097,8 +2225,7 @@
 "Nh" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "mining_jack_base_belt";
-	layer = 2.9
+	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2121,15 +2248,15 @@
 	},
 /area/shuttle/mining_jack/engines)
 "NC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/hangar)
 "NG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/plating{
@@ -2158,7 +2285,7 @@
 	},
 /area/shuttle/mining_jack/bridge)
 "Oc" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "mining_jack_bridge"
@@ -2197,9 +2324,14 @@
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/engines)
+"ON" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, storage"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/mining_jack_outpost/storage)
 "PK" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
 /area/shuttle/mining_jack/engines)
 "PL" = (
@@ -2275,8 +2407,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "mining_jack_belt";
-	layer = 2.9
+	id = "mining_jack_belt"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -2294,6 +2425,22 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/atmos)
+"SQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/plating,
+/area/mining_jack_outpost/hangar)
 "SX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
@@ -2308,7 +2455,8 @@
 	frequency = 1337;
 	id_tag = "tajara_mining_jack";
 	tag_door = "tajara_mining_jack_hatch";
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -2378,7 +2526,6 @@
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "mining_jack_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2390,6 +2537,14 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating{
 	temperature = 278.15
+	},
+/area/mining_jack_outpost/hangar)
+"VH" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, hangar"
+	},
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
 	},
 /area/mining_jack_outpost/hangar)
 "VX" = (
@@ -2419,10 +2574,24 @@
 	},
 /area/mining_jack_outpost/atmos)
 "Wy" = (
-/obj/effect/shuttle_landmark/tajara_mining_jack/nav2,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/mining_jack/dock/port{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/tiled/dark,
 /area/mining_jack_outpost/hangar)
 "WM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2445,8 +2614,23 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
+"Xq" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/plating,
+/area/mining_jack_outpost/hangar)
 "Xt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/plating{
@@ -2454,7 +2638,7 @@
 	},
 /area/shuttle/mining_jack/engines)
 "XK" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2468,10 +2652,15 @@
 	},
 /area/mining_jack_outpost/atmos)
 "Yj" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/mining_jack/engines)
 "Yt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2508,14 +2697,29 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
+"YK" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/starboard,
+/turf/simulated/floor/plating,
+/area/shuttle/mining_jack/engines)
 "YW" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/mining_jack/engines)
 "Zg" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "mining_jack_belt";
-	layer = 2.9
+	id = "mining_jack_belt"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -2544,7 +2748,9 @@
 	},
 /area/mining_jack_outpost/storage)
 "ZC" = (
-/obj/effect/shuttle_landmark/tajara_mining_jack/transit,
+/obj/effect/shuttle_landmark/tajara_mining_jack/transit{
+	dir = 4
+	},
 /turf/space/transit/north,
 /area/space)
 "ZL" = (
@@ -2579,6 +2785,15 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/atmos)
+"ZW" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/mining_jack/dock/port,
+/turf/simulated/floor/plating,
+/area/mining_jack_outpost/hangar)
 "ZZ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
@@ -29927,7 +30142,7 @@ vF
 vF
 vF
 vF
-vF
+dk
 vF
 vF
 Zp
@@ -31219,9 +31434,9 @@ vF
 vF
 vF
 vF
+vF
 ww
 ww
-Kn
 Kn
 Kn
 Kn
@@ -31474,11 +31689,11 @@ wc
 wc
 wc
 wc
+wc
 AS
 dB
 dB
 ww
-Kn
 Kn
 Kn
 Kn
@@ -31734,8 +31949,8 @@ wc
 wc
 wc
 wc
+wc
 ww
-Kn
 Kn
 Kn
 Kn
@@ -31986,9 +32201,10 @@ YW
 YW
 YW
 YW
+YW
 yQ
 YW
-jP
+YW
 wc
 wc
 ww
@@ -31998,7 +32214,6 @@ ww
 ww
 ww
 ww
-Kn
 Kn
 Kn
 Kn
@@ -32240,11 +32455,12 @@ yh
 wc
 wc
 PK
+ox
 vP
 YW
-Yz
-Yz
-Yz
+LK
+jP
+cr
 YW
 wc
 wc
@@ -32255,7 +32471,6 @@ AS
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -32488,7 +32703,7 @@ Kn
 Kn
 Kn
 Kn
-yh
+ON
 JL
 tJ
 kA
@@ -32497,10 +32712,11 @@ yh
 xN
 oP
 yr
+ox
 sI
 YW
-Yz
-Yz
+YK
+rW
 Yj
 YW
 wc
@@ -32512,7 +32728,6 @@ wc
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -32754,10 +32969,11 @@ yh
 eB
 NK
 YW
+YW
 WM
 YW
 YW
-Yz
+Ke
 YW
 YW
 YW
@@ -32769,7 +32985,6 @@ wc
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -33010,6 +33225,7 @@ yh
 yh
 wc
 NK
+wc
 YW
 ZZ
 fG
@@ -33026,7 +33242,6 @@ wc
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -33267,6 +33482,7 @@ kX
 AA
 Qp
 NK
+wc
 YW
 EE
 ZZ
@@ -33307,8 +33523,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+ln
 Kn
 Kn
 Kn
@@ -33524,6 +33739,7 @@ pw
 AA
 wc
 NK
+wc
 YW
 mk
 hb
@@ -33540,7 +33756,6 @@ jV
 sW
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -33781,6 +33996,7 @@ kX
 AA
 Lc
 GK
+wc
 YW
 YW
 KQ
@@ -33797,7 +34013,6 @@ sJ
 sW
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -34038,6 +34253,7 @@ Rw
 AA
 wc
 Ec
+wc
 YW
 yF
 hl
@@ -34053,8 +34269,7 @@ CN
 eX
 sW
 wc
-qA
-Kn
+VH
 Kn
 Kn
 Kn
@@ -34295,6 +34510,7 @@ gq
 AA
 eB
 Ec
+wc
 YW
 aQ
 mF
@@ -34311,7 +34527,6 @@ tc
 tc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -34552,6 +34767,7 @@ jp
 AA
 Md
 Ec
+wc
 YW
 Lw
 Tu
@@ -34568,7 +34784,6 @@ wc
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -34810,6 +35025,7 @@ AA
 uj
 Ec
 YW
+YW
 WM
 YW
 Ga
@@ -34825,7 +35041,6 @@ wc
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -35067,6 +35282,7 @@ AA
 wc
 Ec
 bw
+ox
 sI
 YW
 bl
@@ -35082,7 +35298,6 @@ wc
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -35324,6 +35539,7 @@ AA
 eB
 Ec
 PK
+ox
 fT
 YW
 ts
@@ -35339,7 +35555,6 @@ LG
 wc
 wc
 qA
-Kn
 Kn
 Kn
 Kn
@@ -35583,6 +35798,7 @@ cw
 YW
 YW
 YW
+YW
 ts
 wc
 wz
@@ -35596,7 +35812,6 @@ ww
 ww
 ww
 ww
-Kn
 Kn
 Kn
 Kn
@@ -35840,6 +36055,7 @@ rs
 et
 et
 et
+et
 zh
 Az
 lb
@@ -35848,7 +36064,6 @@ wc
 NG
 eZ
 ww
-Kn
 Kn
 Kn
 Kn
@@ -36099,13 +36314,13 @@ dm
 dm
 dm
 dm
+dm
 VB
 LG
 wc
 NC
 ww
 ww
-Kn
 Kn
 Kn
 Kn
@@ -36353,6 +36568,7 @@ ww
 ww
 ww
 ww
+ld
 ww
 ww
 ww
@@ -36361,7 +36577,6 @@ ww
 wc
 NC
 ww
-Kn
 Kn
 Kn
 Kn
@@ -36614,11 +36829,11 @@ Kn
 Kn
 Kn
 Kn
-ww
-wc
-wc
-Be
 Kn
+ww
+gv
+fn
+ww
 Kn
 Kn
 Kn
@@ -36871,11 +37086,11 @@ Kn
 Kn
 Kn
 Kn
-ww
-wc
-wc
-ww
 Kn
+ww
+SQ
+ZW
+ww
 Kn
 Kn
 Kn
@@ -37128,11 +37343,11 @@ Kn
 Kn
 Kn
 Kn
+Kn
 ww
-wc
+Xq
 Hd
 ww
-Kn
 Kn
 Kn
 Kn
@@ -37379,24 +37594,24 @@ Kn
 Kn
 Kn
 Kn
+Be
 Kn
 Kn
+Be
 Kn
 Kn
-Kn
-Kn
+Be
 ww
 Wy
-wc
+eE
 ww
+Be
 Kn
 Kn
+Be
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+Be
 Kn
 Kn
 Kn
@@ -37891,6 +38106,7 @@ Kn
 Kn
 Kn
 Kn
+xL
 Kn
 Kn
 Kn
@@ -37911,8 +38127,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+xL
 Kn
 Kn
 Kn
@@ -38662,6 +38877,7 @@ Kn
 Kn
 Kn
 Kn
+xL
 Kn
 Kn
 Kn
@@ -38682,8 +38898,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+xL
 Kn
 Kn
 Kn
@@ -39433,6 +39648,7 @@ Kn
 Kn
 Kn
 Kn
+xL
 Kn
 Kn
 Kn
@@ -39453,8 +39669,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+xL
 Kn
 Kn
 Kn
@@ -39698,7 +39913,7 @@ Kn
 Kn
 Kn
 Kn
-xL
+Kn
 Kn
 Kn
 Kn

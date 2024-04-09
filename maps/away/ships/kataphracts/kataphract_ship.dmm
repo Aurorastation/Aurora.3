@@ -1667,7 +1667,6 @@
 /area/kataphract_chapter/main_ring)
 "dV" = (
 /obj/structure/table/rack,
-/obj/structure/table/rack,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
@@ -3755,7 +3754,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
 	id_tag = "kataphract_shuttle";
-	layer = 3.3;
 	master_tag = "kataphract_transport";
 	pixel_x = 27;
 	pixel_y = -2;
@@ -4866,7 +4864,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = -32;
 	pixel_y = 0
@@ -8007,7 +8004,6 @@
 "Ci" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8850,7 +8846,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "kata_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "kata_ship_pump";
 	tag_chamber_sensor = "kata_ship_sensor";

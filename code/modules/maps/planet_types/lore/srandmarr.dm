@@ -5,6 +5,7 @@
 	desc = "A planet comprised mainly of solid common minerals and silicate."
 	color = "#bf7c39"
 	icon_state = "globe1"
+	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	rock_colors = list(COLOR_GRAY80)
 	features_budget = 1
 	surface_color = "#B1A69B"
@@ -37,7 +38,6 @@
 	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	color = "#8f4754"
 	icon_state = "globe2"
-	rock_colors = null
 	plant_colors = null
 	rock_colors = list("#4a3f41")
 	features_budget = 1
@@ -128,6 +128,7 @@
 	icon_state = "globe2"
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
+	initial_weather_state = /singleton/state/weather/calm/snow_planet
 	scanimage = "adhomai.png"
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"
@@ -135,7 +136,7 @@
 	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
-	rock_colors = null
+	rock_colors = list("#6fb1b5")
 	plant_colors = null
 	flora_diversity = 0
 	has_trees = FALSE
@@ -186,6 +187,7 @@
 			features_budget = 1
 			possible_themes = list(/datum/exoplanet_theme/snow/tundra/adhomai)
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
+			initial_weather_state = /singleton/state/weather/calm/arctic_planet
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 

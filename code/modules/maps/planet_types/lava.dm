@@ -7,6 +7,7 @@
 	weather = "Global sub-atmospheric volcanic ambient weather system. Exercise extreme caution with unpredictable volcanic eruption"
 	surfacewater = "Majority superheated methane, silicon and metallic substances, 7% liquid surface area."
 	planetary_area = /area/exoplanet/lava
+	initial_weather_state = /singleton/state/weather/calm/lava_planet
 	rock_colors = list(COLOR_DARK_GRAY)
 	possible_themes = list(/datum/exoplanet_theme/volcanic)
 	features_budget = 4

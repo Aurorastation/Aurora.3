@@ -15,3 +15,4 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
+	area_blurb = "The droning of machinery fills the bunker. These walls are made to survive the end of the world."

@@ -1,27 +1,19 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "c" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_raskara_ritual)
 "g" = (
 /obj/item/material/shard,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_raskara_ritual)
 "o" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_raskara_ritual)
 "s" = (
 /obj/item/trash/cigbutt,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_raskara_ritual)
 "u" = (
 /obj/structure/cult/tome{
@@ -31,23 +23,17 @@
 	},
 /obj/item/material/knife/raskariim,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_raskara_ritual)
 "J" = (
 /obj/item/reagent_containers/food/drinks/bottle/treebark_firewater{
 	pixel_y = -3;
 	pixel_x = 11
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_raskara_ritual)
 "T" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_raskara_ritual)
 
 (1,1,1) = {"

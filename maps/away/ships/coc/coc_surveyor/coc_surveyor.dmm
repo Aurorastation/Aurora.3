@@ -4029,7 +4029,7 @@
 /area/coc_survey_ship/grauwolf)
 "Hx" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Survey Ship Flak Cannon"ssssssssss
+	weapon_id = "Survey Ship Flak Cannon"
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/grauwolf)
