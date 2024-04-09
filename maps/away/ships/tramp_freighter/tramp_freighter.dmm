@@ -1109,6 +1109,14 @@
 /obj/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = -20
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freight_shuttle";
+	name = "airlock_freight_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Freight Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "mM" = (
