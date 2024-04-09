@@ -270,10 +270,5 @@
 
 /datum/gear/religion/assunzione/orb
 	display_name = "assunzione warding sphere"
-	description = "A religious artefact commonly associated with Luceism."
-	path = /obj/item/assunzioneorb
-
-/datum/gear/religion/assunzione/sheath
-	display_name = "assunzione warding sphere sheath"
-	description = "A small metal shell designed to hold a warding sphere."
-	path = /obj/item/storage/assunzionesheath
+	description = "A holy religious artifact and a core aspect of worship in Luceism. Comes in a protective case."
+	path = /obj/item/storage/assunzionesheath/filled

@@ -14,83 +14,29 @@
 	pass an examination and be granted a license to be able to make these robes, and once they do, the Church sends luxurious materials like silk and velvet, as well as inlays made of real gold. The result is a robe unlike any other, described by \
 	the Keepers who wear them as like being wrapped in a thick, padded blanket."
 	icon = 'icons/clothing/suits/assunzione_robes.dmi'
+	var/initial_icon_state = "keeper"
 	icon_state = "keeper"
 	hoodtype = /obj/item/clothing/head/winterhood/assunzione_robe
 	allowed = list(/obj/item/nullrod/luceiansceptre, /obj/item/storage/assunzionesheath, /obj/item/assunzioneorb)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/alt
 	name = "\improper Luceian Astructural keeper robe"
-	desc = "A simple linen robe used by ministers of the Astructural chapter of Assunzione. While still decorated with the Eye of Ennoia it is of far simpler make than its Pyramidical counterpart, owing to the chapter's relative \
+	desc = "A simple linen robe used by ministers of the Astructural chapter of Assunzione. While still decorated with the Eye of Ennoia, it is of far simpler make than its Pyramidical counterpart, owing to the chapter's relative \
 	asceticism and non-desire to decorating its clergy."
-	desc_extended = "Though simple in construction, this robe is far from cheap in design. Astructural robes are designed by tailors with impeccable eyes to detail. The end result is comfortable and flexible while remaining \
-	light and breezy. This lets Astructural Keepers wear their robes in everyday occasions rather than for simple ceremony."
+	desc_extended = "Though simple in design, this robe is far from cheap in construction. Astructural robes are designed by tailors with impeccable eyes to detail. The end result is comfortable and flexible while remaining \
+	light and breezy. This lets Astructural Keepers wear their robes in everyday occasions rather than just for ceremony."
+	initial_icon_state = "keeperalt"
 	icon_state = "keeperalt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/robe_backing = image(mob_icon, null, "[initial_icon_state]_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
+		I.add_overlay(robe_backing)
+	return I
 
 /obj/item/clothing/head/winterhood/assunzione_robe
 	name = "luceian clerical robe hood"
 	desc = "A hood for an Assunzioni clerical robe."
 	icon = 'icons/clothing/suits/assunzione_robes.dmi'
 
-/obj/item/clothing/accessory/assunzione
-	name = "luceian amulet"
-	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
-	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
-	to ensure one's amulet is well-maintained."
-	icon = 'icons/obj/clothing/accessory/religious.dmi'
-	item_state = "assunzione_amulet"
-	icon_state = "assunzione_amulet"
-	contained_sprite = TRUE
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/assunzioneorb
-	name = "warding sphere"
-	desc = "A religious artefact commonly associated with Luceism, this transparent globe gives off a faint ghostly white light at all times."
-	desc_extended = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
-	Constructed out of glass and a luce vine bulb these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
-	point towards Assunzione. It is considered extremely bad luck to have one's warding sphere break, to extinguish its flame, or to relinquish it (permanently) to an unbeliever."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "assunzioneorb"
-	item_state = "assunzioneorb"
-	throwforce = 5
-	force = 11
-	light_range = 1.4
-	light_power = 1.4
-	light_color = LIGHT_COLOR_BLUE
-	w_class = ITEMSIZE_SMALL
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
-
-/obj/item/assunzioneorb/proc/shatter()
-	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
-	playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
-	new /obj/item/material/shard(get_turf(src))
-	qdel(src)
-
-/obj/item/assunzioneorb/throw_impact(atom/hit_atom)
-	..()
-	shatter()
-
-/obj/item/assunzioneorb/afterattack(atom/target, mob/user, proximity)
-	if(!proximity)
-		return
-	if(user.a_intent != I_HURT)
-		return
-
-	shatter()
-
-/obj/item/storage/assunzionesheath
-	name = "warding sphere casing"
-	desc = "A small metal shell designed to protect the warding sphere inside. The all-seeing eye of Ennoia, a common symbol of Luceism, is engraved upon the front of the casing."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "assunzionesheath_empty"
-	can_hold = list(/obj/item/assunzioneorb)
-	storage_slots = 1
-	drop_sound = 'sound/items/drop/axe.ogg'
-	pickup_sound = 'sound/items/pickup/axe.ogg'
-
-/obj/item/storage/assunzionesheath/update_icon()
-	if(contents.len)
-		icon_state = "assunzionesheath"
-	else
-		icon_state = "assunzionesheath_empty"
