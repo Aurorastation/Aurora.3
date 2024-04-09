@@ -62,8 +62,8 @@
  */
 /atom/New(loc, ...)
 	// For the DMM Suite.
-	if(GLOB.use_preloader && (src.type == GLOB._preloader_path))//in case the instanciated atom is creating other atoms in New()
-		GLOB._preloader.load(src)
+	if(GLOB.use_preloader && src.type == GLOB._preloader_path)//in case the instanciated atom is creating other atoms in New()
+		world.preloader_load(src)
 
 	//. = ..() //uncomment if you are dumb enough to add a /datum/New() proc
 

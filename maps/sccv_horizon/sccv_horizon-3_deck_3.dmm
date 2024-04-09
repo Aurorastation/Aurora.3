@@ -9116,12 +9116,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
-"gAQ" = (
-/obj/effect/landmark/map_data{
-	height = 3
-	},
-/turf/template_noop,
-/area/template_noop)
 "gBe" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -29798,6 +29792,9 @@
 /obj/machinery/hologram/holopad/long_range{
 	pixel_y = -10
 	},
+/obj/effect/landmark/map_data{
+	height = 3
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "uNy" = (
@@ -34625,7 +34622,7 @@ dSF
 dSF
 dSF
 dSF
-gAQ
+dSF
 "}
 (2,1,1) = {"
 dSF

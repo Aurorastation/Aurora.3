@@ -34,14 +34,13 @@
 		potentialRandomZlevels.Add(name)
 
 
-	var/static/dmm_suite/loader = new
 	if(potentialRandomZlevels.len)
 		admin_notice("<span class='danger'>Loading away mission...</span>", R_DEBUG)
 
 		var/map = pick(potentialRandomZlevels)
 		var/file = file(map)
 		if(isfile(file))
-			loader.load_map(file)
+			load_map(file)
 			LOG_DEBUG("away mission loaded: [map]")
 
 		for(var/obj/effect/landmark/L in GLOB.landmarks_list)

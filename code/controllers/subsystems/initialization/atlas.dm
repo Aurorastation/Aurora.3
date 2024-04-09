@@ -146,8 +146,6 @@ SUBSYSTEM_DEF(atlas)
 		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
 		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
-	maploader = new
-
 	var/datum/map/M
 	for (var/type in subtypesof(/datum/map))
 		M = new type
@@ -185,8 +183,6 @@ SUBSYSTEM_DEF(atlas)
 
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
-
-	QDEL_NULL(maploader)
 
 	InitializeSectors()
 
@@ -241,7 +237,10 @@ SUBSYSTEM_DEF(atlas)
 			first_dmm = FALSE
 			log_subsystem_atlas("Overwriting first Z.")
 
-		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
+		if(!target_z)
+			world.incrementMaxZ()
+
+		if (!load_map(file(mfile), 0, 0, target_z ? target_z : world.maxz, no_changeturf = TRUE, new_z = TRUE))
 			log_subsystem_atlas("Failed to load '[mfile]'!")
 		else
 			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")

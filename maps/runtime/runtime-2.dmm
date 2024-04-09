@@ -19,10 +19,7 @@
 "aQ" = (
 /obj/machinery/power/apc/east,
 /obj/structure/cable/cyan,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "bl" = (
 /obj/random/pottedplant{
@@ -56,10 +53,7 @@
 /obj/machinery/computer/telecomms/monitor{
 	network = "tcommsat"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "dZ" = (
 /obj/structure/cable/cyan{
@@ -67,10 +61,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "eb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -86,17 +77,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "el" = (
 /obj/machinery/telecomms/message_server,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "ev" = (
 /turf/simulated/open,
@@ -125,10 +110,7 @@
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "fr" = (
 /obj/effect/landmark{
@@ -160,10 +142,7 @@
 /area/turret_protected/ai_upload_foyer)
 "gF" = (
 /obj/machinery/telecomms/server/presets/common,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "gG" = (
 /obj/structure/cable/cyan{
@@ -172,19 +151,13 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/computer/aiupload,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "gV" = (
 /obj/effect/landmark/start{
 	name = "Cyborg"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "hh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -195,10 +168,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "hp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -211,10 +181,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "hB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -249,10 +216,7 @@
 /area/template_noop)
 "jM" = (
 /obj/machinery/telecomms/hub/preset,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "ki" = (
 /turf/simulated/wall/r_wall,
@@ -265,10 +229,7 @@
 /area/construction/storage)
 "lK" = (
 /obj/machinery/telecomms/broadcaster/preset_right,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "ma" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -306,10 +267,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "nV" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -336,17 +294,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "oF" = (
 /obj/machinery/bluespacerelay,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "pA" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -362,18 +314,12 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "pY" = (
 /obj/structure/table/standard,
 /obj/item/book/manual/wiki/ntsl2,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "qn" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -381,10 +327,7 @@
 	set_temperature = 73;
 	use_power = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "qL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -393,10 +336,7 @@
 /turf/simulated/wall/r_wall,
 /area/construction/storage)
 "sF" = (
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "sK" = (
 /obj/machinery/light{
@@ -412,10 +352,7 @@
 /obj/machinery/ai_status_display{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "sL" = (
 /obj/effect/landmark/start{
@@ -450,10 +387,7 @@
 	departmentType = 5;
 	pixel_y = -32
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "sZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -468,24 +402,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "tD" = (
 /obj/machinery/recharge_station,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "tO" = (
 /obj/machinery/ntnet_relay,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "tS" = (
 /obj/machinery/power/sensor{
@@ -502,27 +427,18 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "uT" = (
 /obj/machinery/blackbox_recorder,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "vk" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "vP" = (
 /obj/item/modular_computer/console/preset/ai,
@@ -530,10 +446,7 @@
 	c_tag = "AI Core";
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "vY" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -560,10 +473,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "wx" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -576,10 +486,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "wJ" = (
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "xC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -599,10 +506,7 @@
 /area/construction/storage)
 "xN" = (
 /obj/machinery/telecomms/receiver/preset_right,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "xP" = (
 /obj/structure/cable/cyan{
@@ -616,10 +520,7 @@
 	req_access = list(61);
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "xU" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -644,27 +545,18 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Bq" = (
 /obj/item/modular_computer/console/preset/ai,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "BM" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Cv" = (
 /obj/structure/cable{
@@ -677,10 +569,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "CY" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -695,18 +584,12 @@
 	dir = 1;
 	must_start_working = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "Dv" = (
 /obj/machinery/power/apc/super/critical/west,
 /obj/structure/cable/cyan,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "Dx" = (
 /obj/machinery/camera/network/command{
@@ -718,10 +601,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "DO" = (
 /turf/simulated/wall/r_wall,
@@ -741,10 +621,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "Ei" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -756,10 +633,7 @@
 	pressure_checks_default = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "Ex" = (
 /turf/simulated/wall/r_wall,
@@ -770,10 +644,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Fq" = (
 /obj/machinery/telecomms/server/presets/engineering,
@@ -782,10 +653,7 @@
 	dir = 1;
 	must_start_working = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "Gf" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -794,18 +662,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
-"GG" = (
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/tcommsat/chamber)
 "GJ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "GR" = (
 /obj/machinery/door/airlock/hatch{
@@ -813,19 +672,13 @@
 	req_access = list(61);
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "HX" = (
 /obj/machinery/computer/telecomms/traffic{
 	network = "tcommsat"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "Jd" = (
 /obj/machinery/light{
@@ -847,49 +700,31 @@
 "Jr" = (
 /obj/structure/table/standard,
 /obj/item/paper/monitorkey,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "JH" = (
 /obj/machinery/computer/message_monitor,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "JR" = (
 /obj/machinery/alarm/cold/south,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "KT" = (
 /obj/machinery/computer/telecomms/server{
 	network = "tcommsat"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/computer)
 "La" = (
 /obj/machinery/atmospherics/unary/vent_pump,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "Ml" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "MD" = (
 /obj/structure/cable/cyan{
@@ -905,10 +740,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "MO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -935,10 +767,7 @@
 	output_level = 200000
 	},
 /obj/structure/cable/cyan,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Ot" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
@@ -949,10 +778,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "Ox" = (
 /obj/machinery/telecomms/bus/preset_four,
@@ -961,10 +787,7 @@
 	dir = 1;
 	must_start_working = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "OX" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -977,10 +800,7 @@
 	c_tag = "Telecomms";
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "Pl" = (
 /obj/machinery/light{
@@ -1002,10 +822,7 @@
 /obj/machinery/status_display{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Pw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1030,19 +847,13 @@
 /area/construction/storage)
 "QX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "RB" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "RK" = (
 /obj/structure/stairs/south,
@@ -1053,10 +864,7 @@
 	brightness_range = 16;
 	must_start_working = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "Sx" = (
 /obj/machinery/alarm/cold/west,
@@ -1064,10 +872,7 @@
 	name = "AI Upload turret control";
 	pixel_y = -28
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "SP" = (
 /obj/structure/cable/cyan{
@@ -1083,10 +888,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "SX" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1114,10 +916,7 @@
 	frequency = 1343;
 	name = "Private Channel"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "UT" = (
 /obj/effect/landmark{
@@ -1140,10 +939,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Ws" = (
 /obj/structure/cable/cyan{
@@ -1152,17 +948,11 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/computer/borgupload,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Wt" = (
 /obj/machinery/telecomms/processor/preset_four,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/tcommsat/chamber)
 "Xd" = (
 /obj/structure/cable{
@@ -1172,16 +962,10 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Xt" = (
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "XS" = (
 /obj/structure/cable/cyan{
@@ -1195,19 +979,13 @@
 	must_start_working = 1
 	},
 /obj/structure/closet/crate/secure/aimodules,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Zd" = (
 /obj/machinery/door/window{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 "Zg" = (
 /obj/structure/lattice,
@@ -1231,10 +1009,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/computer/robotics,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai_upload_foyer)
 
 (1,1,1) = {"
@@ -5828,7 +5603,7 @@ hD
 hD
 Vp
 jM
-GG
+sF
 xN
 Vp
 ZL
@@ -6085,7 +5860,7 @@ hD
 hD
 Vp
 Fq
-GG
+sF
 oF
 Vp
 Ws

@@ -1987,10 +1987,7 @@
 	pixel_x = -32
 	},
 /obj/structure/closet/secure_closet/freezer/kois/spores,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "aSj" = (
 /obj/structure/cable{
@@ -3128,10 +3125,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "bpN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5184,10 +5178,7 @@
 "cku" = (
 /obj/structure/kitchenspike,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "clb" = (
 /obj/structure/disposalpipe/segment{
@@ -5555,10 +5546,7 @@
 	pixel_x = -24;
 	pixel_y = -29
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "cwQ" = (
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -11495,10 +11483,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "fnP" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -14160,7 +14145,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "gun" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -17057,10 +17042,7 @@
 	dir = 6
 	},
 /obj/machinery/door/window,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "hIK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18124,10 +18106,7 @@
 	c_tag = "Dinner - Kitchen Freezer";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "ily" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
@@ -18320,10 +18299,7 @@
 	dir = 10
 	},
 /obj/machinery/door/window,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "ipL" = (
 /obj/structure/cable/green,
@@ -26038,10 +26014,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "maP" = (
 /obj/machinery/firealarm/north{
@@ -26454,10 +26427,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "mjx" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -26855,10 +26825,7 @@
 	name = "sink";
 	pixel_x = -21
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "mue" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -27084,10 +27051,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "myE" = (
 /obj/structure/closet/secure_closet/refrigerator/standard,
@@ -29932,7 +29896,7 @@
 	name = "Cold Storage";
 	req_access = list(66)
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/freezer,
 /area/medical/surgery)
 "nMu" = (
 /obj/structure/table/standard,
@@ -31881,7 +31845,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/freezer,
 /area/medical/surgery)
 "oJM" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -34746,10 +34710,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/item/storage/box/monkeycubes,
 /obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/medical/surgery)
 "qgr" = (
 /obj/item/device/t_scanner{
@@ -35404,10 +35365,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/west,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/medical/surgery)
 "qvb" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -39574,10 +39532,7 @@
 "ssh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/reagent_dispensers/cookingoil,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "ssK" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -40421,7 +40376,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "sTu" = (
 /obj/machinery/power/apc/north,
@@ -41590,10 +41545,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "tvM" = (
 /obj/structure/railing/mapped,
@@ -42667,10 +42619,7 @@
 	name = "O- Blood Locker";
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/medical/surgery)
 "tSJ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -42754,10 +42703,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "tWt" = (
 /obj/structure/cable/green{
@@ -44799,10 +44745,7 @@
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "uNL" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -46454,10 +46397,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "vGd" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -47115,10 +47055,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "vTn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -47553,10 +47490,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "waI" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "waU" = (
 /obj/structure/cable/green{
@@ -48117,10 +48051,7 @@
 "wmt" = (
 /obj/machinery/icecream_vat,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/horizon/kitchen/freezer)
 "wmz" = (
 /obj/effect/floor_decal/corner/brown/full,

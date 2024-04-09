@@ -2,6 +2,8 @@
 			DEFINES
 ################################*/
 
+#define CHANGETURF_DEFER_CHANGE (1<<0)
+
 #define TURF_REMOVE_CROWBAR     BITFLAG(1)
 #define TURF_REMOVE_SCREWDRIVER BITFLAG(2)
 #define TURF_REMOVE_SHOVEL      BITFLAG(3)

@@ -18182,10 +18182,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aUK" = (
-/turf/unsimulated/wall/riveted{
-	opacity = 0;
-	permit_ao = 0
-	},
+/turf/unsimulated/wall/riveted,
 /area/antag/wizard)
 "aUL" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
@@ -20979,16 +20976,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "baV" = (
-/turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/basic/single/external/door.dmi';
-	icon_state = "door_locked";
-	name = "external airlock";
-	opacity = 0;
-	permit_ao = 0;
-	dir = 2;
-	pixel_x = -16;
-	pixel_y = -16
-	},
+/turf/unsimulated/wall/fakeairlock,
 /area/antag/wizard)
 "baW" = (
 /turf/unsimulated/wall/steel,
@@ -26561,16 +26549,7 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "bnE" = (
-/turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/basic/single/external/door.dmi';
-	icon_state = "door_locked";
-	name = "external airlock";
-	opacity = 0;
-	permit_ao = 0;
-	dir = 4;
-	pixel_x = -16;
-	pixel_y = -16
-	},
+/turf/unsimulated/wall/fakeairlock,
 /area/antag/raider)
 "bnF" = (
 /obj/item/stack/rods,
@@ -27424,12 +27403,7 @@
 /area/antag/raider)
 "bpj" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/wall/fakepdoor{
-	icon_state = "shutter1";
-	name = "shutter";
-	opacity = 0;
-	permit_ao = 0
-	},
+/turf/unsimulated/wall/fakepdoor,
 /area/antag/raider)
 "bpk" = (
 /obj/effect/decal/fake_object{
@@ -38445,16 +38419,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "nCh" = (
-/turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/basic/single/external/door.dmi';
-	icon_state = "door_locked";
-	name = "external airlock";
-	opacity = 0;
-	permit_ao = 0;
-	dir = 2;
-	pixel_x = -16;
-	pixel_y = -16
-	},
+/turf/unsimulated/wall/fakeairlock,
 /area/antag/raider)
 "nCC" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -39617,12 +39582,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
 "rZP" = (
-/turf/space/dynamic{
-	blocks_air = 1;
-	density = 1;
-	name = "\proper srom space";
-	use_starlight = 0
-	},
+/turf/space/dynamic,
 /area/centcom/shared_dream)
 "seI" = (
 /obj/effect/floor_decal/spline/plain{

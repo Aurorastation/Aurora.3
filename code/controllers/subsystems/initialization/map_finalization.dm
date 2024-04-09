@@ -5,7 +5,6 @@ SUBSYSTEM_DEF(finalize)
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 	init_order = INIT_ORDER_MAPFINALIZE
 
-	var/dmm_suite/maploader
 	var/datum/away_mission/selected_mission
 
 /datum/controller/subsystem/finalize/Initialize(timeofday)
@@ -45,7 +44,6 @@ SUBSYSTEM_DEF(finalize)
 	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_name_asc))
 
 /datum/controller/subsystem/finalize/proc/load_space_ruin()
-	maploader = new
 
 	if(!selected_mission)
 		log_subsystem_mapfinalization("Not loading away mission, because no mission has been selected.")
@@ -56,7 +54,7 @@ SUBSYSTEM_DEF(finalize)
 		var/time = world.time
 		LOG_DEBUG("Attempting to load [mfile]")
 
-		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
+		if (!load_map(file(mfile), 0, 0, no_changeturf = TRUE))
 			log_subsystem_mapfinalization_error("Failed to load '[mfile]'!")
 			log_mapping("Failed to load '[mfile]'!")
 			admin_notice(SPAN_DANGER("Failed to load '[mfile]'!"), R_DEBUG)
@@ -64,14 +62,12 @@ SUBSYSTEM_DEF(finalize)
 			log_subsystem_mapfinalization("Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds.")
 			admin_notice(SPAN_DANGER("Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds."), R_DEBUG)
 			SSatlas.current_map.restricted_levels.Add(world.maxz)
-	QDEL_NULL(maploader)
 
 /datum/controller/subsystem/finalize/proc/place_dungeon_spawns()
 	var/map_directory = "maps/dungeon_spawns/"
 	var/list/files = flist(map_directory)
 	var/start_time = world.time
 	var/dungeons_placed = 0
-	var/dmm_suite/maploader = new
 
 	var/dungeon_chance = GLOB.config.dungeon_chance
 
@@ -96,7 +92,7 @@ SUBSYSTEM_DEF(finalize)
 
 			if(isfile(map_file)) //Sanity
 				log_subsystem_mapfinalization("Loading dungeon '[chosen_dungeon]' at coordinates [spawn_location.x], [spawn_location.y], [spawn_location.z].")
-				maploader.load_map(map_file,spawn_location.x,spawn_location.y,spawn_location.z)
+				load_map(map_file,spawn_location.x,spawn_location.y,spawn_location.z)
 				dungeons_placed += 1
 			else
 				log_subsystem_mapfinalization_error("ERROR: Something weird happened with the file: [chosen_dungeon].")
@@ -106,8 +102,6 @@ SUBSYSTEM_DEF(finalize)
 				files -= chosen_dungeon
 
 	log_subsystem_mapfinalization("Loaded [dungeons_placed] asteroid dungeons in [(world.time - start_time)/10] seconds.")
-
-	qdel(maploader)
 
 /datum/controller/subsystem/finalize/proc/generate_contact_report()
 	if(!selected_mission)

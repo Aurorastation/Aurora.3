@@ -1605,7 +1605,7 @@
 /obj/effect/landmark/map_data{
 	height = 3
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "EG" = (
 /obj/machinery/door/firedoor{
@@ -1634,9 +1634,7 @@
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/solars)
 "Fc" = (
-/turf/simulated/floor/tiled/bitile{
-	dir = 2
-	},
+/turf/simulated/floor/tiled/bitile,
 /area/construction/solars)
 "Fu" = (
 /obj/structure/table/steel,
@@ -2859,7 +2857,7 @@ pz
 pz
 pz
 pz
-EE
+nA
 nA
 nA
 nA
@@ -6216,7 +6214,7 @@ Bc
 Bc
 Bc
 Bc
-Bc
+EE
 Bc
 Bc
 Bc

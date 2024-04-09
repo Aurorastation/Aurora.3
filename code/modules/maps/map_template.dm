@@ -5,7 +5,19 @@
 	var/height = 0
 	var/list/mappaths = null
 	var/loaded = 0 // Times loaded this round
-	var/static/dmm_suite/maploader = new
+	var/datum/parsed_map/cached_map
+	var/keep_cached_map = FALSE
+
+	///if true, turfs loaded from this template are placed on top of the turfs already there, defaults to TRUE
+	var/should_place_on_top = TRUE
+
+	///if true, creates a list of all atoms created by this template loading, defaults to FALSE
+	var/returns_created_atoms = FALSE
+
+	///the list of atoms created by this template being loaded, only populated if returns_created_atoms is TRUE
+	var/list/created_atoms = list()
+	//make sure this list is accounted for/cleared if you request it from ssatoms!
+
 	var/list/shuttles_to_initialise = list()
 	var/list/subtemplates_to_spawn
 	var/base_turf_for_zs = null
@@ -16,75 +28,98 @@
 	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
 	var/list/unit_test_groups = list()
 
-/datum/map_template/New(var/list/paths = null, rename = null)
+/datum/map_template/New(var/list/paths = null, rename = null, cache = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	if(paths && !islist(paths))
 		crash_with("Non-list paths passed into map template constructor.")
 	if(paths)
 		mappaths = paths
-	if(mappaths)
-		preload_size(mappaths)
+	for(var/mappath in mappaths)
+		preload_size(mappath, cache)
 	if(rename)
 		name = rename
 
-/datum/map_template/proc/preload_size(paths)
-	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
-	var/z_offset = 1 // needed to calculate z-bounds correctly
-	for(var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), 1, 1, z_offset, cropMap=FALSE, measureOnly=TRUE)
-		if(M)
-			bounds = extend_bounds_if_needed(bounds, M.bounds)
-			z_offset++
-		else
-			return FALSE
-	width = bounds[MAP_MAXX] - bounds[MAP_MINX] + 1
-	height = bounds[MAP_MAXY] - bounds[MAP_MINX] + 1
+/datum/map_template/proc/preload_size(path, cache = FALSE)
+	var/datum/parsed_map/parsed = new(file(path))
+	var/bounds = parsed?.bounds
+	if(bounds)
+		width = bounds[MAP_MAXX] // Assumes all templates are rectangular, have a single Z level, and begin at 1,1,1
+		height = bounds[MAP_MAXY]
+		if(cache)
+			cached_map = parsed
 	return bounds
 
+/datum/map_template/proc/initTemplateBounds(list/bounds)
+	if (!bounds) //something went wrong
+		stack_trace("[name] template failed to initialize correctly!")
+		return
+
+	var/list/atom/movable/movables = list()
+	var/list/area/areas = list()
+
+	var/list/turfs = block(
+		locate(
+			bounds[MAP_MINX],
+			bounds[MAP_MINY],
+			bounds[MAP_MINZ]
+			),
+		locate(
+			bounds[MAP_MAXX],
+			bounds[MAP_MAXY],
+			bounds[MAP_MAXZ]
+			)
+		)
+	for(var/turf/current_turf as anything in turfs)
+		var/area/current_turfs_area = current_turf.loc
+		areas |= current_turfs_area
+		if(!SSatoms.initialized)
+			continue
+
+		for(var/movable_in_turf in current_turf)
+			movables += movable_in_turf
+
+	SSatoms.InitializeAtoms(areas + turfs + movables, returns_created_atoms ? created_atoms : null)
+
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
-	RETURN_TYPE(/turf)
-
-	var/x = round((world.maxx - width)/2)
-	var/y = round((world.maxy - height)/2)
-	var/initial_z = world.maxz + 1
-
-	if (x < 1) x = 1
-	if (y < 1) y = 1
-
-	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
-	var/list/atoms_to_initialise = list()
-	var/shuttle_state = pre_init_shuttles()
+	var/x = round((world.maxx - width) * 0.5) + 1
+	var/y = round((world.maxy - height) * 0.5) + 1
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.can_fire = FALSE
+	var/initial_z = world.maxz + 1
+
 	for (var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
-		if (M)
-			bounds = extend_bounds_if_needed(bounds, M.bounds)
-			atoms_to_initialise += M.atoms_to_initialise
-		else
-			SSicon_smooth.can_fire = TRUE
+		var/datum/parsed_map/parsed = load_map(
+			file(mappath),
+			x,
+			y,
+			world.maxz + 1,
+			no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
+			place_on_top = should_place_on_top,
+			new_z = TRUE,
+		)
+		var/list/bounds = parsed.bounds
+		if(!bounds)
 			return FALSE
 
-	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
-		if (accessibility_weight)
-			SSatlas.current_map.accessible_z_levels[num2text(z_index)] = accessibility_weight
-		if (base_turf_for_zs)
-			SSatlas.current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
-		SSatlas.current_map.player_levels |= z_index
+		//initialize things that are normally initialized after map load
+		initTemplateBounds(bounds)
+		smooth_zlevel(world.maxz)
+		after_load(world.maxz)
 
-	smooth_zlevel(world.maxz)
-	resort_all_areas()
+		log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
+		message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
+		loaded++
 
-	//initialize things that are normally initialized after map load
-	init_atoms(atoms_to_initialise)
-	init_shuttles(shuttle_state)
-	after_load(initial_z)
 	for(var/light_z = initial_z to world.maxz)
 		create_lighting_overlays_zlevel(light_z)
-	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
-	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
+
 	SSicon_smooth.can_fire = TRUE
-	loaded++
+
+////////////////////////////////
+	var/shuttle_state = pre_init_shuttles()
+	init_shuttles(shuttle_state)
 
 	return locate(world.maxx/2, world.maxy/2, world.maxz)
 
@@ -162,34 +197,50 @@
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)
-		T = locate(T.x - round(width / 2) , T.y - round(height / 2) , T.z)
+		T = locate(T.x - round(width/2) , T.y - round(height/2) , T.z)
 	if(!T)
 		return
-	if(T.x + width > world.maxx)
+	if((T.x+width) - 1 > world.maxx)
 		return
-	if(T.y + height > world.maxy)
+	if((T.y+height) - 1 > world.maxy)
 		return
 
-	var/list/atoms_to_initialise = list()
-	var/shuttle_state = pre_init_shuttles()
+	for(var/mappath in mappaths)
 
-	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
-	SSicon_smooth.can_fire = FALSE
-	for (var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
-		if (M)
-			atoms_to_initialise += M.atoms_to_initialise
-		else
-			SSicon_smooth.can_fire = TRUE
-			return FALSE
+		// Accept cached maps, but don't save them automatically - we don't want
+		// ruins clogging up memory for the whole round.
+		var/datum/parsed_map/parsed = cached_map || new(file(mappath))
+		cached_map = keep_cached_map ? parsed : null
 
-	//initialize things that are normally initialized after map load
-	init_atoms(atoms_to_initialise)
-	init_shuttles(shuttle_state)
+		var/shuttle_state = pre_init_shuttles()
 
-	SSicon_smooth.can_fire = TRUE
-	message_admins("[name] loaded at [T.x], [T.y], [T.z]")
-	log_game("[name] loaded at [T.x], [T.y], [T.z]")
+		//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
+		SSicon_smooth.can_fire = FALSE
+
+		if(!parsed.load(
+			T.x,
+			T.y,
+			T.z,
+			crop_map = TRUE,
+			no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
+			place_on_top = should_place_on_top,
+		))
+			continue
+
+		var/list/bounds = parsed.bounds
+		if(!bounds)
+			continue
+
+		//initialize things that are normally initialized after map load
+		initTemplateBounds(bounds)
+
+		//initialize things that are normally initialized after map load
+		init_shuttles(shuttle_state)
+
+		SSicon_smooth.can_fire = TRUE
+		message_admins("[name] loaded at [T.x], [T.y], [T.z]")
+		log_game("[name] loaded at [T.x], [T.y], [T.z]")
+
 	return TRUE
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
