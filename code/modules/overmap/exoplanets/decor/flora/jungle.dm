@@ -76,6 +76,7 @@
 	icon = 'icons/obj/flora/jungletrees.dmi'
 	pixel_x = -48
 	pixel_y = -20
+	stumptype = /obj/structure/flora/stump
 
 /obj/structure/flora/tree/jungle/random/Initialize(mapload)
 	. = ..()

@@ -127,10 +127,12 @@
 		"
 
 		// print the report
-		playsound(get_turf(src), 'sound/machines/dotprinter.ogg', 30, 1)
-		new/obj/item/paper/(get_turf(src), report_contents, report_name)
+		printout(report_contents, report_name)
 
 		// fin
 		timer_id = null
 		icon_state = "surveying_probe_deployed"
 
+/obj/structure/survey_probe/proc/printout(var/report_contents, var/report_name) //For variants printing in non-TCB languages
+	playsound(get_turf(src), 'sound/machines/dotprinter.ogg', 30, 1)
+	new/obj/item/paper/(get_turf(src), report_contents, report_name)

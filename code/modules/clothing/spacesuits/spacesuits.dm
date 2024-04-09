@@ -36,7 +36,7 @@
 
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	if(icon_auto_adapt)
+	if(!refittable) //If it doesn't need to be properly refitted, make it auto-adapt
 		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space
@@ -71,7 +71,7 @@
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
-	if(icon_auto_adapt)
+	if(!refittable) //If it doesn't need to be properly refitted, make it auto-adapt
 		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space/equipped(mob/M)

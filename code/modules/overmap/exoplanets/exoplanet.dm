@@ -12,6 +12,10 @@
 
 	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
 	var/night = TRUE
+	///For mutually exclusive exoplanet types
+	var/list/banned_exoplanets = list()
+	///For guaranteed exoplanet types
+	var/list/guaranteed_exoplanets = list()
 
 // Fluff, specifically for celestial objects.
 	var/massvolume = "0.95~/1.1"							//Should use biesels as measurement as opposed to earths
@@ -205,6 +209,7 @@
 	generate_flora()
 	generate_map()
 	generate_features()
+	theme.after_map_generation(src)
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
@@ -238,9 +243,10 @@
 	return engravings
 
 /obj/effect/overmap/visitable/sector/exoplanet/process(wait, tick)
-	if(animals.len < 0.5*max_animal_count && !repopulating)
-		repopulating = 1
-		max_animal_count = round(max_animal_count * 0.5)
+	if(animals)
+		if(animals.len < 0.5*max_animal_count && !repopulating)
+			repopulating = 1
+			max_animal_count = round(max_animal_count * 0.5)
 	for(var/zlevel in map_z)
 		if(repopulating)
 			for(var/i = 1 to round(max_animal_count - animals.len))

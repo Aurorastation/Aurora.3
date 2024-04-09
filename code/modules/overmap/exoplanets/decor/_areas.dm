@@ -29,6 +29,10 @@
 /area/exoplanet/barren/burzsia
 	name = "Burzsia Surface"
 
+/area/exoplanet/barren/pid
+	name = "Pid Surface"
+	area_blurb = "The surface of this moon is lifeless and rocky - almost. A faint yellow light suffuses the ground, the dim glow of spores in bloom."
+
 /area/exoplanet/crystal
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_SPACE
@@ -53,6 +57,16 @@
 /area/exoplanet/grass/konyang
 	name = "Konyang Wilderness"
 	base_turf = /turf/simulated/floor/exoplanet/konyang
+
+/area/exoplanet/moghes //ambience and area_blurb are set on init
+	name = "Moghes Wilderness"
+	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
+
+/area/exoplanet/ouerea
+	name = "Ouerea Wilderness"
+	ambience = AMBIENCE_JUNGLE
+	base_turf = /turf/simulated/floor/exoplanet/barren
+	area_blurb = "Strange grasses beneath your feet, and a warm breeze in the air. The shapes of strange flying reptiles dart between the trees, their bright and clear calls drifting on the wind."
 
 /area/exoplanet/lava
 	name = "\improper Planetary surface"

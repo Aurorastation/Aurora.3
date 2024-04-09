@@ -102,7 +102,7 @@
 
 	backpack_contents = list(
 		/obj/item/handcuffs/ziptie = 2,
-		/obj/item/shield/energy/hegemony = 1,
+		/obj/item/shield/energy/hegemony/kataphract = 1,
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/firstaid/adv = 1,

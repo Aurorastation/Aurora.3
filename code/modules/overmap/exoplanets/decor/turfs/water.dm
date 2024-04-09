@@ -189,3 +189,8 @@
 		var/turf/tile = loc
 		tile.clean_blood()
 		tile.remove_cleanables()
+
+/turf/simulated/floor/exoplanet/water/shallow/moghes
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon_state = "water"
+	temperature = 303.15

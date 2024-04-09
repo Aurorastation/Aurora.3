@@ -117,6 +117,8 @@
 	if(E.rock_colors)
 		surface_color = pick(E.rock_colors)
 
+/datum/exoplanet_theme/proc/after_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E) //after the map is generated and ruins exist
+
 /// This inverts our height value to get a heat value, and then maps that to a sine wave such that heat is preserved at the equator and reduced at the poles.
 #define GET_EQUATORIAL_HEAT(height, y_val) cos(TO_DEGREES(clamp(1 - height, 0, 1))) * sin(TO_DEGREES((y_val * M_PI) / 255))
 

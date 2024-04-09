@@ -9,3 +9,22 @@
 	slot_flags = SLOT_GLOVES|SLOT_WRISTS
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+
+/obj/item/clothing/gloves/unathi/ancient
+	name = "ancient bronze gauntlets"
+	desc = "A set of heavy bronze gauntlets, tarnished from centuries of age. They appear to be made to fit clawed hands."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_gauntlets"
+	item_state = "ancient_gauntlets"
+	species_restricted = list(BODYTYPE_UNATHI)
+	contained_sprite = TRUE
+	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL
+	)
+	force = 5
+	punch_force = 5
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	matter = list(MATERIAL_BRONZE = 1000)

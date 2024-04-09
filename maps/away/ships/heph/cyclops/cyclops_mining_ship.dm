@@ -7,6 +7,7 @@
 	ship_cost = 1
 	id = "Cyclops Mining Vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cyclops_shuttle)
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_heph_mining, /datum/map_template/ruin/exoplanet/moghes_heph_mining, /datum/map_template/ruin/exoplanet/heph_mining_station)
 
 	unit_test_groups = list(2)
 

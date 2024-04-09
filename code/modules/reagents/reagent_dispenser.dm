@@ -131,6 +131,13 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
+/obj/structure/reagent_dispensers/fertilizer
+	name = "fertilizer tank"
+	desc = "A tank filled with nutrients for plant growth"
+	icon_state = "lubetank"
+	amount_per_transfer_from_this = 30
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer = 1000)
+
 /obj/structure/reagent_dispensers/fueltank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)

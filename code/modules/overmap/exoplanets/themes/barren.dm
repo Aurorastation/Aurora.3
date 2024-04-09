@@ -32,6 +32,14 @@
 			)
 	)
 
+/datum/exoplanet_theme/barren/pid
+	name = "Pid"
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/barren/pid
+			)
+	)
+
 /datum/exoplanet_theme/barren/asteroid
 	name = "Asteroid"
 	mountain_threshold = 0.5
@@ -58,6 +66,49 @@
 		BIOME_POLAR = list(
 			BIOME_ARID = /singleton/biome/barren/asteroid/ice
 			)
+	)
+
+/datum/exoplanet_theme/barren/asteroid/chanterel
+	name = "Chanterel"
+	surface_turfs = list(
+		/turf/simulated/mineral/planet,
+		/turf/simulated/floor/exoplanet/barren
+	)
+
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/barren
+			)
+	)
+
+	wall_ore_levels = list(
+		ORE_PLATINUM 	= 0.6,
+		ORE_DIAMOND 	= 0.6,
+		ORE_URANIUM 	= 0.7,
+		ORE_GOLD 		= 0.68,
+		ORE_SILVER 		= 0.7,
+		ORE_COAL 		= 0.9,
+		ORE_IRON 		= 0.92,
+	)
+	ground_ore_levels = list(
+		SURFACE_ORES = list(
+			ORE_IRON = list(2, 4),
+			ORE_GOLD = list(0, 2),
+			ORE_SILVER = list(0, 2),
+			ORE_URANIUM = list(0, 2)
+		),
+		RARE_ORES = list(
+			ORE_GOLD = list(1, 3),
+			ORE_SILVER = list(1, 3),
+			ORE_URANIUM = list(1, 3),
+			ORE_PLATINUM = list(1, 3),
+		),
+		DEEP_ORES = list(
+			ORE_URANIUM = list(0, 2),
+			ORE_DIAMOND = list(0, 2),
+			ORE_PLATINUM = list(2, 4),
+			ORE_HYDROGEN = list(1, 3),
+		)
 	)
 
 /datum/exoplanet_theme/barren/asteroid/phoron

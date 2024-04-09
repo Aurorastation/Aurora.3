@@ -57,3 +57,18 @@
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
+
+/obj/item/clothing/suit/armor/unathi/ancient
+	name = "ancient bronze armor"
+	desc = "An ancient bronze breastplate, remarkably well-preserved given how old it must be. It is unmistakably designed to fit an Unathi."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_armor"
+	item_state = "ancient_armor"
+	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL
+	)
+	matter = list(MATERIAL_BRONZE = 1000)
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound

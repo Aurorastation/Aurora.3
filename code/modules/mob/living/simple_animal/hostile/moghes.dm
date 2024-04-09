@@ -133,6 +133,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 2
+	faction = "Moghes"
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

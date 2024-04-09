@@ -24,6 +24,9 @@
 
 	var/list/refittable_species //used with modkits, which species it can be refit to
 
+	///Species to refit the item for on initialize so that we can map in specific items for specific species easier. This should be set to the BODYTYPE of the species in question, not the species name or type itself.
+	var/refit_initialize = null
+
 	//material things
 	var/material/material = null
 	var/applies_material_color = TRUE
@@ -52,6 +55,10 @@
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
 	update_icon()
+	if(refit_initialize)
+		if(contained_sprite)
+			refit_contained(refit_initialize)
+		refit_for_species(refit_initialize)
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

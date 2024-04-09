@@ -9,6 +9,7 @@
 	height_max = 215
 	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
+	skeleton_icon = 'icons/mob/human_races/unathi/unathi_skeleton.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "Tail"

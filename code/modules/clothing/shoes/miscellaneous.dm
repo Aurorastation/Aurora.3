@@ -87,3 +87,20 @@
 	icon_supported_species_tags = null
 	var/list/clothing_choices = list()
 	siemens_coefficient = 0.75
+
+/obj/item/clothing/shoes/ancient_unathi
+	name = "ancient bronze greaves"
+	desc = "A set of bronze leg armor, corroded by age. It appears to be shaped for an Unathi."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_gauntlets"
+	item_state = "ancient_gauntlets"
+	species_restricted = list(BODYTYPE_UNATHI)
+	contained_sprite = TRUE
+	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL
+	)
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	matter = list(MATERIAL_BRONZE = 1000)

@@ -339,6 +339,16 @@
 	storage_type = /obj/item/storage/toolbox/bike_storage/speeder
 	bike_icon = "speeder"
 
+/obj/vehicle/bike/speeder/izweski
+	name = "hegemony speeder"
+	desc = "A Hephaestus-manufactured military speeder, used by the forces of the Izweski Hegemony."
+	icon_state = "heg_speeder_on"
+	bike_icon = "heg_speeder"
+	land_speed = 2
+	space_speed = 1
+	health = 250
+	maxhealth = 250
+
 /obj/vehicle/bike/monowheel
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
@@ -522,3 +532,9 @@
 /obj/vehicle/bike/motor/moped/blue
 	icon_state = "bluemoped_on"
 	bike_icon = "bluemoped"
+
+/obj/vehicle/bike/motor/sand
+	name = "sandbike"
+	desc = "A specialised bike, designed for travelling on sand. Often used by Unathi of the Wasteland."
+	icon_state = "sport_on" //replace when we have a unique sprite
+	bike_icon = "sport"
