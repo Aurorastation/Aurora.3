@@ -209,8 +209,8 @@
 	name = "Orion Express Shuttle Hangar"
 	landmark_tag = "nav_hangar_orion_express"
 	docking_controller = "orion_traveler_n_port"
-	base_area = /area/ship/orion
-	base_turf = /turf/simulated/floor/plating
+	base_area = /area/space
+	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
