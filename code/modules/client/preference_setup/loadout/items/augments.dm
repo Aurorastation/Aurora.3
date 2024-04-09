@@ -255,3 +255,10 @@
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member")
 	faction = "Private Military Contracting Group"
 	cost = 1
+
+/datum/gear/augment/translator
+	display_name = "universal translator"
+	description = "Augmentation that allows the user to understand other human languages, but not speak them."
+	path = /obj/item/organ/internal/augment/translator
+	cost = 1
+
