@@ -180,16 +180,17 @@
 /datum/gear/augment/auxiliary_processor
 	display_name = "secondary language processor"
 	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective groups, and act as an auxiliary to the hive's main language processor."
-	path = /obj/item/organ/internal/augment/language/zino
+	path = /obj/item/organ/internal/augment/language/mikuetz
 	cost = 1
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/klatxatl, /singleton/origin_item/origin/cthur, /singleton/origin_item/origin/mouv, /singleton/origin_item/origin/vytel, /singleton/origin_item/origin/xetl, /singleton/origin_item/origin/cthur_b, /singleton/origin_item/origin/mouv_b, /singleton/origin_item/origin/vytel_b)
+	origin_restriction = list(/singleton/origin_item/origin/klatxatl, /singleton/origin_item/origin/mikuetz, /singleton/origin_item/origin/cthur, /singleton/origin_item/origin/mouv, /singleton/origin_item/origin/vytel, /singleton/origin_item/origin/xetl, /singleton/origin_item/origin/cthur_b, /singleton/origin_item/origin/mouv_b, /singleton/origin_item/origin/vytel_b)
 
 /datum/gear/augment/auxiliary_processor/New()
 	..()
 	var/list/auxiliary_processors = list()
+	auxiliary_processors["Mi'kuetz [LANGUAGE_AZAZIBA] language processor"] = /obj/item/organ/internal/augment/language/mikuetz
 	auxiliary_processors["Zino [LANGUAGE_GUTTER] language processor"] = /obj/item/organ/internal/augment/language/zino
 	auxiliary_processors["Eridani [LANGUAGE_TRADEBAND] language processor"] = /obj/item/organ/internal/augment/language/eridani
 	gear_tweaks += new /datum/gear_tweak/path(auxiliary_processors)

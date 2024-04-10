@@ -66,20 +66,6 @@
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_PILOTDREAM, RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_OTHER, RELIGION_NONE)
-	origin_traits_descriptions = list("can speak Sinta'Azaziba")
-
-/singleton/origin_item/origin/mikuetz/on_apply(mob/living/carbon/human/H)
-	. = ..()
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/mikuetz(H)
-	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-	A.replaced(H, affected)
-
-/singleton/origin_item/origin/mikuetz/on_remove(mob/living/carbon/human/H)
-	. = ..()
-	var/obj/item/organ/internal/augment/language/mikuetz/A = locate() in H.internal_organs
-	if(istype(A))
-		A.removed(H)
-		qdel(A)
 
 /singleton/origin_item/origin/queenless_klax
 	name = "Queenless"
