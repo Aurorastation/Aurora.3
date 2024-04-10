@@ -55,7 +55,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/francisca)
 "ajS" = (
 /turf/simulated/wall/shuttle/raider,
@@ -206,7 +206,7 @@
 /area/ship/ssmd_corvette/grauwolf)
 "aHt" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "aHv" = (
 /obj/machinery/recharge_station,
@@ -581,7 +581,7 @@
 	color = "#6C7364";
 	frame_color = "#6C7364"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/ssmd_shuttle)
 "bva" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -981,7 +981,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "fore, cockpit"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/ssmd_shuttle)
 "cNn" = (
 /obj/machinery/iff_beacon/name_change,
@@ -1021,7 +1021,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssmd_corvette/portengine)
 "cTq" = (
-/obj/structure/table/steel,
+/obj/structure/table/standard,
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
@@ -1129,7 +1129,7 @@
 	id = "ssmd_grau_shroud";
 	name = "blast door"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "dhO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -1525,7 +1525,6 @@
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/glasses/safety/goggles/tactical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "dTL" = (
@@ -2059,7 +2058,7 @@
 	id = "ssmd_relax_windows";
 	name = "blast door"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardfoyer)
 "fnY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -2971,7 +2970,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssmd_corvette/medbay)
 "hNE" = (
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "hOP" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -3379,10 +3378,9 @@
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = 8
 	},
-/obj/item/device/radio{
-	icon_state = "radio";
-	pixel_x = 7;
-	pixel_y = 10
+/obj/item/lore_radio{
+	pixel_y = 8;
+	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
@@ -4346,7 +4344,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "mib" = (
 /obj/structure/ship_weapon_dummy{
@@ -5088,7 +5086,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "odO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5513,7 +5511,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/francisca)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -6298,7 +6296,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, lounge"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardfoyer)
 "sEY" = (
 /obj/machinery/optable,
@@ -6394,7 +6392,7 @@
 	id = "ssmd_grau_shroud";
 	name = "blast door"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "sZP" = (
 /obj/structure/table/steel,
@@ -7461,10 +7459,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/nuke)
-"wfy" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/airless,
-/area/ship/ssmd_corvette/grauwolf)
 "wfT" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
@@ -7610,7 +7604,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "wrc" = (
 /obj/machinery/alarm/east{
@@ -44083,8 +44077,8 @@ mKi
 foE
 mdD
 aHt
-wfy
-wfy
+aHt
+aHt
 hNE
 sYY
 xRX
@@ -44341,7 +44335,7 @@ liN
 aHt
 aHt
 odL
-wfy
+aHt
 sYY
 xRX
 xRX
@@ -44597,7 +44591,7 @@ sIJ
 wqS
 aHt
 aHt
-wfy
+aHt
 dhK
 xRX
 xRX
