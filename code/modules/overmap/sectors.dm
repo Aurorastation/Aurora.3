@@ -260,9 +260,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		return 1
 
 	log_module_sectors("Building overmap...")
-	world.maxz++
+
+	world.incrementMaxZ()
 	SSatlas.current_map.overmap_z = world.maxz
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
 	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
 	var/area/overmap/A = new

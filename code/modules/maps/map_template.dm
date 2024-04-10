@@ -90,11 +90,12 @@
 	var/initial_z = world.maxz + 1
 
 	for (var/mappath in mappaths)
+		world.incrementMaxZ()
 		var/datum/parsed_map/parsed = load_map(
 			file(mappath),
 			x,
 			y,
-			world.maxz + 1,
+			world.maxz,
 			no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
 			place_on_top = should_place_on_top,
 			new_z = TRUE,

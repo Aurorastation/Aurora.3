@@ -912,7 +912,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	//first instance the /area and remove it from the members list
 	index = members.len
-	var/area/old_area
+	// var/area/old_area
 	if(members[index] != /area/template_noop)
 		if(members_attributes[index] != default_list)
 			world.preloader_setup(members_attributes[index], members[index])//preloader for assigning  set variables on atom creation
@@ -928,8 +928,8 @@ GLOBAL_LIST_EMPTY(map_model_default)
 					CRASH("[area_type] failed to be new'd, what'd you do?")
 			loaded_areas[area_type] = area_instance
 
-		if(!new_z)
-			old_area = crds.loc
+		// if(!new_z)
+			// old_area = crds.loc
 			// LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, crds.z, list())
 			// LISTASSERTLEN(area_instance.turfs_by_zlevel, crds.z, list())
 			// old_area.turfs_to_uncontain_by_zlevel[crds.z] += crds
@@ -950,12 +950,13 @@ GLOBAL_LIST_EMPTY(map_model_default)
 			world.preloader_setup(members_attributes[index], members[index])
 
 		// Note: we make the assertion that the last path WILL be a turf. if it isn't, this will fail.
-		// if(placeOnTop)
-			// instance = crds.load_on_top(members[index], CHANGETURF_DEFER_CHANGE | (no_changeturf ? CHANGETURF_SKIP : NONE))
+		if(placeOnTop)
+			//instance = crds.load_on_top(members[index], CHANGETURF_DEFER_CHANGE | (no_changeturf ? CHANGETURF_SKIP : NONE))
+			instance = crds.ChangeTurf(members[index], FALSE, CHANGETURF_DEFER_CHANGE, mapload = TRUE)
 		else if(no_changeturf)
 			instance = create_atom(members[index], crds)//first preloader pass
 		else
-			instance = crds.ChangeTurf(members[index], null, CHANGETURF_DEFER_CHANGE)
+			instance = crds.ChangeTurf(members[index], null, CHANGETURF_DEFER_CHANGE, mapload = TRUE)
 
 		if(GLOB.use_preloader && instance)//second preloader pass, for those atoms that don't ..() in New()
 			world.preloader_load(instance)

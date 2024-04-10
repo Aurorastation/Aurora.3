@@ -515,9 +515,13 @@ var/list/world_api_rate_limit = list()
 		// global_area.turfs_by_zlevel[zlevel] += to_add
 
 /world/proc/incrementMaxZ()
-	maxz++
+	world.maxz++
 	// SSmobs.MaxZChanged()
 	// SSidlenpcpool.MaxZChanged()
+
+	//This doesn't belong here... But we do not have the Z-level manager TG does, so it will do, for now
+	//btw, the content of the signal is also different than what TG expects
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
 /world/proc/change_fps(new_value = 20)
 	if(new_value <= 0)

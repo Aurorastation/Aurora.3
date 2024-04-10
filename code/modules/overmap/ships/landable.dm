@@ -36,9 +36,8 @@
 // We autobuild our z levels.
 /obj/effect/overmap/visitable/ship/landable/find_z_levels()
 	for(var/i = 0 to multiz)
-		world.maxz++
+		world.incrementMaxZ()
 		map_z += world.maxz
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
 	var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
 	landmark = new (center_loc, shuttle)

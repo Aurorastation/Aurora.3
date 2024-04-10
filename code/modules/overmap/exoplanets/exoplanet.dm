@@ -139,9 +139,8 @@
 	if(generated_name)
 		name = "[generate_planet_name()], \a [name]"
 
-	world.maxz++
+	world.incrementMaxZ()
 	forceMove(locate(1,1,world.maxz))
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
 	pre_ruin_preparation()
 	if(LAZYLEN(possible_themes))
