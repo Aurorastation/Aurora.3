@@ -1,7 +1,7 @@
 /datum/exoplanet_theme/volcanic
 	name = "Volcanic"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/lava
 	)
 
 	perlin_zoom = 21

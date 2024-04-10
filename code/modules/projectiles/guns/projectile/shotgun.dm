@@ -4,7 +4,8 @@
 	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
 	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
 	into the shotgun, then pump the shotgun to chamber a fresh round."
-	accuracy = 1
+	accuracy = -1
+	accuracy_wielded = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -115,7 +116,7 @@
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
-	accuracy = 2
+	accuracy_wielded = 2
 	max_shells = 13 // holds a max of 14 shells at once
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
@@ -216,6 +217,7 @@
 	icon = 'icons/obj/guns/overunder.dmi'
 	icon_state = "overunder"
 	item_state = "overunder"
+	accuracy = 0
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet

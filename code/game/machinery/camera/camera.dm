@@ -47,7 +47,14 @@
 		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 			var/list/tempnetwork = C.network&src.network
 			if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
+
+				#if !defined(UNIT_TEST)
 				log_mapping_error("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
+
+				#else
+				SSunit_tests_config.UT.fail("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
+
+				#endif
 
 	if(!src.network || src.network.len < 1)
 		if(loc)
