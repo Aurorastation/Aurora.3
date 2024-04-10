@@ -66,8 +66,6 @@
 #define RELIGION_ETERNAL "Orthodox Eternal"
 #define RELIGION_ETERNAL_ICHOR "Ichor Eternal"
 #define RELIGION_ETERNAL_IRON "Iron Eternal"
-#define RELIGION_MADA "Maraka"
-#define RELIGION_GLEANERS "Lights Accord"
 
 //accent defines
 

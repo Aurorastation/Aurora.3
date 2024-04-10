@@ -17,7 +17,7 @@
 /singleton/origin_item/origin/nralakk_wildborn
 	name = "Wildborn"
 	desc = "Dionae who were originally considered wild Dionae before being uplifted and integrated somewhere in the Nralakk Federation. Dionae grown within the Federation have close to if not the best quality of life within the entire Spur, although may still face some difficulties with certain aspects of Skrellian society such as anything utilizing Nlom or the Wake due to Dionae's immunity to all things psionic."
-	important_information = "The Nralakk Federation actively attempts to uplift and integrate all Dionae they find within their borders, thus resulting in a fairly large population of formerly wild Dionae within the Federation. <b>It is important to note that this option does not include Dionae who originally were from EUM or Xrim before they were discovered.</b>"
+	important_information = "The Nralakk Federation actively attempts to uplift and integrate all Dionae they find within their borders, thus resulting in a fairly large population of formerly wild Dionae within the Federation. <b>It is important to note that this option does not include Dionae who originally were from Xrim before they were discovered.</b>"
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_SUNKENSONG, ACCENT_STARSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)

@@ -79,7 +79,7 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/capes/diona/New()
 	..()
@@ -109,7 +109,7 @@
 	path = /obj/item/skrell_projector
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/homeworld_deck/diona
 	display_name = "dionae qweipaqui homeworld deck"
@@ -117,14 +117,14 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/colonist_deck/diona // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "dionae qweipaqui colonist deck"
 	path = /obj/item/deck/tarot/nonnralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 /datum/gear/accessory/diona
 	abstract_type = /datum/gear/accessory/diona
 /datum/gear/accessory/diona/skrell_passport
@@ -134,7 +134,7 @@
 	sort_category = "Xenowear - Diona"
 	cost = 1
 	flags = GEAR_NO_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -156,7 +156,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/uniform/diona/work/New()
 	..()
@@ -189,7 +189,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/suit/diona/jacket/New()
 	..()
@@ -222,7 +222,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/diona/poncho/New()
 	..()
@@ -239,7 +239,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/hieroaetheria, /singleton/origin_item/culture/xrim)
+	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
 /datum/gear/accessory/diona/workcloak/New()
 	..()
