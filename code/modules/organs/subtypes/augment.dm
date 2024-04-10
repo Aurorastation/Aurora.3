@@ -477,22 +477,27 @@
 /obj/item/organ/internal/augment/language/klax
 	name = "K'laxan language processor"
 	augment_languages = list(LANGUAGE_UNATHI)
+	species_restricted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 
 /obj/item/organ/internal/augment/language/cthur
 	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
+	species_restricted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 
 /obj/item/organ/internal/augment/language/mikuetz
 	name = "Mi'kuetz language processor"
 	augment_languages = list(LANGUAGE_AZAZIBA)
+	species_restricted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 
 /obj/item/organ/internal/augment/language/zino
 	name = "Zino language processor"
 	augment_languages = list(LANGUAGE_GUTTER)
+	species_restricted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 
 /obj/item/organ/internal/augment/language/eridani
 	name = "Eridani language processor"
 	augment_languages = list(LANGUAGE_TRADEBAND)
+	species_restricted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 
 /obj/item/organ/internal/augment/language/zeng
 	name = "Zeng-Hu Nral'malic language processor"
