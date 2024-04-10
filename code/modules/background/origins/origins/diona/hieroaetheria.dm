@@ -36,7 +36,6 @@
 	desc = "A nation of Hieroaetheria predating Nralakk discovery, the Consortium was a loose confederation of dozens of dionae groups \
 	across the region of Mede that have since unified into one alliance. The Consortium prides itself on progressive stances, aiming to foster a \
 	multicultural society inclusive of non-Dionae."
-	important_information = ""
 	possible_accents = list(ACCENT_CONSORTIUM, ACCENT_ANU, ACCENT_GENTLEWINDS, ACCENT_HOPESTENDRILS)
 
 /singleton/origin_item/origin/hieroaetheria/glaorr

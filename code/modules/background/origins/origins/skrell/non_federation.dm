@@ -37,7 +37,7 @@
 	name = "The Consortium of Hieroaetheria"
 	desc = "The Federation and the Consortium of Hieroaetheria have had close ties since the two nations first came into contact. Most Skrell living within Hieroaetheria are immigrants, with the capital of the Consortium - Epigenia or Nral'daaq - being housing the largest population of skrell on Hieroaetheria, but there is a growing group of Skrell who were born and raised in the Consortium."
 	important_information = "The Nralakk Federation has close ties with the Consortium, and Skrell living here run the risk of being deported for anti-Federation actions. Skrell who were born within the Consortium must be born on or after 2390."
-	possible_accents = list(ACCENT_SKRELLCONSORTIUM, ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_TATTUQIG)
+	possible_accents = list(ACCENT_SKRELLCONSORTIUM)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
