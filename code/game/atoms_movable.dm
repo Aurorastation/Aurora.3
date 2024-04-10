@@ -319,7 +319,7 @@
 /atom/movable/update_icon()
 	..()
 	if (em_block)
-		cut_overlay(em_block)
+		CutOverlays(em_block)
 	update_emissive_blocker()
 	if (em_block)
 		AddOverlays(em_block)

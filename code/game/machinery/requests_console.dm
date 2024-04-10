@@ -119,7 +119,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	///List of PDAs we alert upon a request receipt
 	var/list/obj/item/modular_computer/alert_pdas = list()
-	var/global/list/screen_overlays
 
 /obj/machinery/requests_console/north
 	PRESET_NORTH
@@ -133,16 +132,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/east
 	PRESET_EAST
 
-/obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["req_comp-idle"] = make_screen_overlay(icon, "req_comp-idle")
-	screen_overlays["req_comp-alert"] = make_screen_overlay(icon, "req_comp-alert")
-	screen_overlays["req_comp-redalert"] = make_screen_overlay(icon, "req_comp-redalert")
-	screen_overlays["req_comp-yellowalert"] = make_screen_overlay(icon, "req_comp-yellowalert")
-	screen_overlays["req_comp-scanline"] = make_screen_overlay(icon, "req_comp-scanline")
-
 /obj/machinery/requests_console/power_change()
 	..()
 	update_icon()
@@ -155,19 +144,31 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	else
 		switch(newmessagepriority)
 			if(0)
-				AddOverlays(screen_overlays["req_comp-idle"])
+				AddOverlays(list(
+					overlay_image(icon, "req_comp-idle"),
+					emissive_appearance(icon, "req_comp-idle")
+				))
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(1)
-				AddOverlays(screen_overlays["req_comp-alert"])
+				AddOverlays(list(
+					overlay_image(icon, "req_comp-alert"),
+					emissive_appearance(icon, "req_comp-alert")
+				))
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(2)
-				AddOverlays(screen_overlays["req_comp-redalert"])
+				add_overlay(list(
+					overlay_image(icon, "req_comp-redalert"),
+					emissive_appearance(icon, "req_comp-redalert")
+				))
 				set_light(1.4, 1.3, COLOR_ORANGE)
 			if(3)
-				AddOverlays(screen_overlays["req_comp-yellowalert"])
+				AddOverlays(list(
+					overlay_image(icon, "req_comp-yellowalert"),
+					emissive_appearance(icon, "req_comp-yellowalert")
+				))
 				set_light(1.4, 1.3, COLOR_ORANGE)
 
-		AddOverlays(screen_overlays["req_comp-scanline"])
+		AddOverlays(overlay_image(icon, "req_comp-scanline"))
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
@@ -177,7 +178,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			src.set_dir(dir)
 		if(src.dir & NORTH)
 			alpha = 127
-		generate_overlays()
 		update_icon()
 
 		if(!mapload)
@@ -199,7 +199,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
-	generate_overlays()
 	update_icon()
 
 	if(!mapload)
