@@ -4,7 +4,7 @@ delete-after: True
 
 changes:
   - bugfix: "Hoplan Primary Color now uses the correct marking."
-	- bugfix: "Removed Hoplan Lights marking."
-	- bugfix: "Added the missing torso and arm markings to the list of available markings for baseline frames."
+  - bugfix: "Removed Hoplan Lights marking."
+  - bugfix: "Added the missing torso and arm markings to the list of available markings for baseline frames."
   - bugfix: "Fixed markings for baseline frames using a lighter color than the one selected."
-	- tweak: "Baseline - Primary Color no longer applies markings to the head to prevent issues where the default marking would be layered over the alternative ones."
+  - tweak: "Baseline - Primary Color no longer applies markings to the head to prevent issues where the default marking would be layered over the alternative ones."
