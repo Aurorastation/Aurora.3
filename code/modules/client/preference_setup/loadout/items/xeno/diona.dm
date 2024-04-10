@@ -47,22 +47,24 @@
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/narrows)
 
-/datum/gear/uniform/diona/dionatunic
-	display_name = "floral tunic"
-	description = "A tunic made up of several colorful fabrics and adorned with seemingly still-living vines and flowers, typically worn by those hailing from the Mada on EUM."
-	path = /obj/item/clothing/under/diona/dionatunic
+/datum/gear/uniform/diona/hieroaetherian_tunic
+	display_name = "traditional hieroaetherian tunic"
+	description = "A traditional tunic worn on Hieroaetheria, made up of several colorful fabrics and adorned with a seemingly still-living, bioluminescent Starvine."
+	path = /obj/item/clothing/under/diona/hieroaetherian_tunic
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
-/datum/gear/suit/eumponcho
-	display_name = "dionae poncho"
-	description = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it, sometimes worn by citizens of the CT-EUM, with the fabric around the poncho indicating which nation they belong to."
-	path = /obj/item/clothing/accessory/poncho/eumponcho
+/datum/gear/suit/hieroaetherian_poncho
+	display_name = "hieroaetherian poncho"
+	description = "A Hieroaetherian poncho made of some sort of mesh weave material, adorned by a piece of colored fabric wrapped around it that denotes their home nation."
+	path = /obj/item/clothing/accessory/poncho/hieroaetherian_poncho
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
 /datum/gear/suit/diona/carp
 	display_name = "carp hide poncho"
