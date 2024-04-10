@@ -1113,7 +1113,6 @@
 /area/ship/ssmd_corvette/portengine)
 "dgq" = (
 /obj/structure/table/steel,
-/obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/effect/floor_decal/corner_wide/green{
