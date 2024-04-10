@@ -30,7 +30,7 @@
 	if(!istype(OI))
 		crash_with("Invalid culture supplied: [OI]!")
 	culture = OI
-	if(culture != old_culture)
+	if(old_culture && culture != old_culture)
 		old_culture.on_remove(src)
 	OI.on_apply(src)
 
@@ -39,7 +39,7 @@
 	if(!istype(OI))
 		crash_with("Invalid origin supplied: [OI]!")
 	origin = OI
-	if(origin != old_origin)
+	if(old_origin && origin != old_origin)
 		old_origin.on_remove(src)
 	OI.on_apply(src)
 
