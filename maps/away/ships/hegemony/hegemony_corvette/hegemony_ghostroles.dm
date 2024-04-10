@@ -107,6 +107,7 @@
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
+		H.update_body()
 
 /obj/outfit/admin/izweski/captain
 	name = "Hegemony Navy Captain"
