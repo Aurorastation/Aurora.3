@@ -120,11 +120,6 @@
 	if(H?.shoes)
 		H.shoes.color = uniform_colour
 
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-	A.replaced(H, affected)
-	H.update_body()
-
 /obj/outfit/admin/kataphract/knight
 	name = "Kataphract Knight"
 
