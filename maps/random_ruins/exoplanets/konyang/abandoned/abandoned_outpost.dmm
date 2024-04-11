@@ -8,12 +8,6 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
-"ag" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/wood,
-/area/konyang_telecomms_outpost)
 "ar" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -98,7 +92,7 @@
 /obj/item/modular_computer/console/preset/civilian{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "eE" = (
 /obj/structure/sign/flag/konyang/large/south{
@@ -219,9 +213,6 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
-"kz" = (
-/turf/simulated/floor/exoplanet/tiled,
-/area/konyang_telecomms_outpost)
 "kA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -237,6 +228,9 @@
 /area/konyang_telecomms_outpost)
 "lp" = (
 /turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"lD" = (
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "lF" = (
 /obj/structure/table/steel,
@@ -269,7 +263,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "ni" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -321,7 +315,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "oJ" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -330,12 +324,15 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
+"pc" = (
+/turf/simulated/floor/exoplanet/wood,
+/area/konyang_telecomms_outpost)
 "pf" = (
 /obj/machinery/photocopier,
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "pG" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
@@ -360,7 +357,7 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "rm" = (
 /obj/effect/decal/road_marking/thin,
@@ -464,7 +461,7 @@
 	pixel_x = 10;
 	pixel_y = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "vq" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -483,7 +480,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "vI" = (
 /obj/structure/window/reinforced{
@@ -557,7 +554,7 @@
 /area/konyang_telecomms_outpost)
 "yU" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "zv" = (
 /turf/simulated/wall,
@@ -583,7 +580,7 @@
 /obj/machinery/light{
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "zO" = (
 /obj/item/ammo_casing/a556/spent,
@@ -610,9 +607,6 @@
 /area/konyang_telecomms_outpost)
 "BP" = (
 /turf/simulated/floor/wood,
-/area/konyang_telecomms_outpost)
-"BR" = (
-/turf/simulated/floor/exoplanet/wood,
 /area/konyang_telecomms_outpost)
 "BS" = (
 /obj/structure/table/rack,
@@ -795,7 +789,7 @@
 	pixel_y = 10;
 	pixel_x = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "Hv" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -930,6 +924,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_telecomms_outpost)
+"Op" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/konyang_telecomms_outpost)
 "OC" = (
 /obj/effect/landmark/corpse/ipc_zombie,
 /turf/simulated/floor/plating,
@@ -1051,7 +1051,7 @@
 	pixel_y = 10;
 	pixel_x = -10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "UC" = (
 /obj/structure/bed/stool/padded/brown{
@@ -1075,7 +1075,7 @@
 	pixel_x = -9;
 	pixel_y = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "Wq" = (
 /obj/effect/landmark/corpse/ipc_zombie,
@@ -1145,7 +1145,7 @@
 /area/konyang_telecomms_outpost)
 "ZV" = (
 /obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 
 (1,1,1) = {"
@@ -1975,8 +1975,8 @@ FA
 Qc
 zO
 un
-lp
-lp
+lD
+lD
 yU
 EH
 Rc
@@ -2017,8 +2017,8 @@ FA
 FA
 dd
 lp
-lp
-lp
+lD
+lD
 yU
 EH
 hi
@@ -2162,8 +2162,8 @@ sg
 bM
 bM
 Ns
-kz
-kz
+lD
+lD
 Ns
 bM
 sE
@@ -2204,8 +2204,8 @@ bM
 bM
 bM
 vC
-kz
-kz
+lD
+lD
 AH
 bM
 sg
@@ -2462,11 +2462,11 @@ Kw
 BP
 BP
 cB
-BR
-BR
-BR
-BR
-BR
+pc
+pc
+pc
+pc
+pc
 fW
 bM
 bM
@@ -2508,7 +2508,7 @@ Ks
 Dv
 Zj
 UC
-BR
+pc
 uU
 FA
 FA
@@ -2550,7 +2550,7 @@ Ks
 Jl
 mx
 UC
-BR
+pc
 cB
 FA
 FA
@@ -2588,10 +2588,10 @@ iQ
 hA
 zz
 fW
-ag
-BR
-BR
-BR
+Op
+pc
+pc
+pc
 gw
 fW
 bM
@@ -2630,9 +2630,9 @@ tu
 hA
 mh
 cB
-BR
-BR
-BR
+pc
+pc
+pc
 ja
 Jh
 fW
@@ -2674,7 +2674,7 @@ BS
 fW
 IP
 sA
-BR
+pc
 pG
 GJ
 fW
