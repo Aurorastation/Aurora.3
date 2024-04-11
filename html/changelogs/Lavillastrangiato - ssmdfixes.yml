@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Airlock updates and assorted fixes and retouches to the SSMD Corvette."
-  - tweak: "Renames the SSMD Corvette to the Sol Recon Corvette as per lore."
+  - qol: "Airlock updates and assorted fixes and retouches to the SSMD Corvette."
+  - qol: "Renames the SSMD Corvette to the Sol Recon Corvette as per lore."
