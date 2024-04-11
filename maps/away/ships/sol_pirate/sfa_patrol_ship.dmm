@@ -14,6 +14,12 @@
 	dir = 6;
 	pixel_y = 0
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "aac" = (
@@ -22,6 +28,9 @@
 	},
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/decal/cleanable/vomit,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "aaI" = (
@@ -41,14 +50,17 @@
 /obj/structure/lattice,
 /obj/structure/girder,
 /turf/space,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "afo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "agg" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -63,7 +75,7 @@
 "agN" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "ahU" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -81,6 +93,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engineering)
 "ang" = (
@@ -89,7 +104,7 @@
 "anS" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "aou" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -101,7 +116,7 @@
 	id = "elyran_shuttle_shutters"
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "aoS" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -124,6 +139,9 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(24,11,203)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "ard" = (
@@ -145,6 +163,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
+"auB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "auY" = (
 /obj/structure/table/steel,
 /obj/item/device/binoculars,
@@ -156,12 +185,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
+"avG" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/Engineering)
 "awe" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, medbay"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "awE" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -200,12 +235,25 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
 "ayx" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
+"aAN" = (
+/obj/structure/inflatable/door,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "aAY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -224,6 +272,9 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/stack/material/glass/full,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "aCY" = (
@@ -244,6 +295,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "aEm" = (
@@ -255,6 +309,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -280,6 +337,9 @@
 /obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
 "aHv" = (
@@ -290,11 +350,20 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
 "aHw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -313,6 +382,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"aLK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "aOU" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -321,7 +395,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "aSi" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken6,
 /obj/machinery/light_switch{
@@ -333,7 +407,7 @@
 "aSm" = (
 /obj/structure/girder,
 /turf/space,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "aSy" = (
 /obj/machinery/optable,
 /obj/machinery/light/small{
@@ -343,13 +417,13 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "aSJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "aSZ" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, workshop"
@@ -363,9 +437,12 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "aXK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "aYf" = (
@@ -392,16 +469,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "bce" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Engine1)
 "bck" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/punching_bag,
+/obj/effect/decal/cleanable/floor_damage/broken5,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "bfg" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -438,6 +518,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
+"bgV" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "bjO" = (
 /obj/item/ammo_magazine/c45m/empty,
 /turf/simulated/floor/tiled/dark/airless,
@@ -465,7 +551,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "bmW" = (
 /obj/structure/girder,
 /turf/simulated/floor/tiled/dark,
@@ -490,7 +576,12 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
+"bpo" = (
+/obj/structure/lattice,
+/obj/item/frame/air_alarm,
+/turf/space/dynamic,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "brj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -504,7 +595,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "buO" = (
 /obj/structure/sink{
 	dir = 4;
@@ -514,11 +605,17 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "bBo" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
+"bCJ" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "bFk" = (
 /obj/machinery/computer/ship/targeting{
 	dir = 1
@@ -534,24 +631,30 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/ammo_casing,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "bGW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/noose,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
+"bHq" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/SFA_Armory)
 "bJi" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/sleeper,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "bLU" = (
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "bMW" = (
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "bNj" = (
 /obj/effect/shuttle_landmark/sfa_patrol_ship/transit,
 /turf/space/transit/north,
@@ -560,7 +663,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/sleeper,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "bOH" = (
 /obj/machinery/media/jukebox/audioconsole,
 /turf/simulated/floor/tiled/dark,
@@ -571,10 +674,19 @@
 	},
 /turf/simulated/floor/holofloor/tiled/ramp,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"bSp" = (
+/turf/space,
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "cde" = (
 /obj/structure/sign/flag/sol/large/north,
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
+"cdw" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/art,
+/area/ship/sfa_patrol_ship/Officer)
 "cdD" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -599,7 +711,7 @@
 	},
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "chW" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -625,32 +737,38 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "civ" = (
 /obj/item/material/hook,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "ciE" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "ciL" = (
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Engineering)
 "cot" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "cwy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -672,7 +790,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "cBm" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
@@ -690,7 +808,7 @@
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "cId" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -700,7 +818,7 @@
 	name = "Scrubbers to Waste"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "cIy" = (
 /obj/item/deck/cards,
 /obj/item/spacecash/c1,
@@ -726,12 +844,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "cKa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "cME" = (
@@ -742,7 +866,7 @@
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "cUD" = (
 /obj/machinery/door/airlock/security{
 	name = "Engineering";
@@ -754,24 +878,22 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "cYP" = (
 /obj/structure/bed/stool,
 /obj/machinery/alarm/south{
 	req_one_access = list(24,11,203)
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "cZV" = (
-/obj/effect/shuttle_landmark/elyran_shuttle/hangar{
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -781,8 +903,17 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/effect/shuttle_landmark/sfa_shuttle/hangar{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "dcK" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -795,7 +926,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
+"dej" = (
+/turf/simulated/wall,
+/area/ship/sfa_patrol_ship/hangar)
 "dgj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -803,6 +937,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1;
 	icon_state = "map-supply"
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -848,6 +991,9 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "dnC" = (
@@ -861,19 +1007,32 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
+"dqT" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "dqZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "dxv" = (
 /obj/structure/girder,
 /obj/structure/lattice,
 /turf/space,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "dxy" = (
 /obj/structure/bed,
 /obj/item/bedsheet/red,
@@ -890,7 +1049,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "dyv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -900,8 +1059,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "dzB" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, weapons control"
@@ -909,6 +1071,21 @@
 /obj/structure/viewport,
 /turf/space,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"dzL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
+"dAT" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "dDt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -916,6 +1093,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
@@ -928,7 +1108,7 @@
 	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "dLj" = (
 /obj/item/material/shard,
 /obj/structure/closet/crate/trashcart/shark,
@@ -945,8 +1125,11 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "dMQ" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/TreasureRoom)
@@ -959,11 +1142,8 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "dSK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -977,8 +1157,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "dTw" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -1012,6 +1195,9 @@
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
 "dWf" = (
@@ -1039,6 +1225,15 @@
 	},
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
+"ebV" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "efm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1051,8 +1246,11 @@
 	dir = 8;
 	name = "Bridge Hallway"
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "ehS" = (
 /obj/item/material/shard,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1063,14 +1261,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "ejH" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/alarm/west{
 	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "ekC" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
@@ -1083,6 +1281,12 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "els" = (
@@ -1146,11 +1350,11 @@
 /obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "eoS" = (
 /obj/item/clothing/head/cone,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "etL" = (
 /turf/space/transit/north,
 /area/space)
@@ -1159,6 +1363,14 @@
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Brig)
+"ews" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "eyF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -1166,6 +1378,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1;
 	icon_state = "map-supply"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
@@ -1175,12 +1390,12 @@
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "eBj" = (
 /obj/structure/closet/crate/medical,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "eBn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/padded,
@@ -1214,6 +1429,9 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
@@ -1259,7 +1477,7 @@
 /area/ship/sfa_patrol_ship)
 "eOY" = (
 /turf/simulated/wall/rusty,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "eOZ" = (
 /obj/structure/closet/secure_closet/refrigerator,
 /obj/item/storage/box/freezer/organcooler,
@@ -1267,7 +1485,7 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "eSi" = (
 /obj/structure/toilet{
 	dir = 8
@@ -1279,7 +1497,7 @@
 	pixel_y = -18
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "eTl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -1296,6 +1514,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship)
+"eXO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/Engineering)
 "eYh" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, engines"
@@ -1309,14 +1535,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "faR" = (
 /obj/structure/table/rack,
 /obj/item/device/assembly/infra,
-/obj/effect/floor_decal/corner/red,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"fbf" = (
+/obj/structure/sign/poster,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship/head)
 "fbF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -1371,6 +1609,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "fiU" = (
@@ -1383,7 +1624,7 @@
 	name = "Bridge Hallway"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "fkH" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -1397,12 +1638,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
 "foE" = (
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "fpk" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -1421,7 +1665,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "ftq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/sensors{
@@ -1433,6 +1677,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "fus" = (
@@ -1444,6 +1694,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
+"fvA" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "fwp" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
@@ -1454,7 +1711,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/reagent_containers/blood/ripped,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "fze" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
@@ -1467,23 +1724,29 @@
 /obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "fzv" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/item/storage/firstaid/o2,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "fzB" = (
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engineering)
+/area/ship/sfa_patrol_ship/atmos)
 "fGs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
@@ -1496,7 +1759,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "fJh" = (
 /obj/structure/sign/flag/sol,
 /turf/simulated/wall/shuttle/raider,
@@ -1511,6 +1774,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "fJS" = (
@@ -1520,16 +1786,16 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "fLH" = (
 /turf/simulated/wall/rusty,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "fNs" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "fQq" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1546,17 +1812,20 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "fRF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "fRH" = (
 /obj/structure/girder,
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "fUi" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken7,
 /turf/simulated/floor/holofloor/wood,
@@ -1565,8 +1834,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/TreasureRoom)
+"gaO" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
 "gcQ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -1589,7 +1865,7 @@
 /obj/structure/lattice,
 /obj/structure/girder,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "gfP" = (
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/dark,
@@ -1606,6 +1882,9 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(24,11,203)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
 "gkM" = (
@@ -1615,7 +1894,7 @@
 	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "glW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -1631,7 +1910,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "gma" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -1640,7 +1919,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /mob/living/heavy_vehicle/premade/ripley/loader/sol/damaged,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "gqw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1648,6 +1927,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -1664,7 +1946,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "gsQ" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/spline/plain/black{
@@ -1678,7 +1960,7 @@
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "gtX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -1706,13 +1988,13 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "gvb" = (
 /obj/machinery/door/blast/regular{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "gvE" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Bridge)
@@ -1740,10 +2022,10 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "gyl" = (
 /turf/simulated/wall/rusty,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "gyr" = (
 /obj/effect/landmark/entry_point/port,
 /obj/machinery/door/airlock/external{
@@ -1762,14 +2044,30 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "gCs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
+"gDz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "gGs" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1786,9 +2084,14 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "gHg" = (
 /obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/security{
+	name = "Armory";
+	req_access = list(203);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1796,7 +2099,7 @@
 "gJf" = (
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "gLL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1804,8 +2107,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "gSs" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
@@ -1843,7 +2149,7 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "gXx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/light{
@@ -1852,7 +2158,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "hcA" = (
 /obj/machinery/door/airlock/security{
 	name = "EVA";
@@ -1862,6 +2168,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "hcW" = (
@@ -1883,11 +2192,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
+"heM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "heP" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/stool,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "hfk" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -1919,7 +2243,7 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "hko" = (
 /obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled/dark,
@@ -1944,7 +2268,7 @@
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "hnw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1961,7 +2285,7 @@
 /obj/structure/girder,
 /obj/structure/girder,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "hyd" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -1973,13 +2297,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "hBs" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "hCg" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark,
@@ -1996,12 +2323,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "hGP" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "hJh" = (
 /obj/structure/table/rack,
 /obj/item/grenade/chem_grenade,
@@ -2020,6 +2347,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "hLZ" = (
@@ -2027,7 +2357,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "hQp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/shuttle/raider,
@@ -2042,8 +2372,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "hWh" = (
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/structure/table/rack,
@@ -2074,8 +2410,20 @@
 /obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"idk" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "ihU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -2088,6 +2436,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "iif" = (
@@ -2099,11 +2450,14 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "ikb" = (
 /obj/structure/bed/stool,
 /obj/machinery/power/apc/west{
 	req_access = list(113)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
@@ -2111,7 +2465,7 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "ilb" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/lava/red,
@@ -2129,19 +2483,42 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "ino" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "inE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"ioo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,203)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "ios" = (
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship)
+"iqc" = (
+/obj/structure/lattice,
+/obj/structure/girder,
+/turf/space,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "irj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -2151,11 +2528,12 @@
 "iuv" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "ivQ" = (
 /obj/structure/table/standard,
 /obj/item/blueprints,
@@ -2164,6 +2542,9 @@
 /obj/item/tape_roll,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
+"izK" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "iCp" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge hall"
@@ -2226,7 +2607,7 @@
 "iLx" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Ammo_Closet)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "iMp" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -2241,8 +2622,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "iNb" = (
 /obj/structure/closet/crate/coffin,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2253,6 +2637,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -2286,6 +2676,15 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "iOD" = (
@@ -2293,6 +2692,10 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"iSw" = (
+/obj/structure/lattice,
+/turf/space,
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "iSy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2302,8 +2705,11 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "iSI" = (
 /obj/structure/closet/crate{
 	anchored = 1;
@@ -2315,6 +2721,9 @@
 /obj/item/clothing/mask/smokable/pipe/bonepipe,
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
+"iTz" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "iZb" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/floor_decal/industrial/warning{
@@ -2333,7 +2742,7 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "iZz" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/vending/wallmed1{
@@ -2342,7 +2751,16 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
+"jbh" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
+/turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "jff" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/blood/OMinus,
@@ -2355,12 +2773,15 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "jgs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/coffin,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -2376,6 +2797,11 @@
 	},
 /turf/template_noop,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"jkm" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light/broken,
+/turf/simulated/floor/tiled/dark/airless,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "jlF" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
@@ -2387,7 +2813,7 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "jqd" = (
 /obj/structure/table/steel,
 /obj/item/laser_components/modifier/stock,
@@ -2398,12 +2824,18 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(24,11,203)
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "jqA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "jqD" = (
@@ -2417,6 +2849,12 @@
 /obj/structure/inflatable,
 /turf/template_noop,
 /area/ship/sfa_patrol_ship)
+"jsy" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/art,
+/area/ship/sfa_patrol_ship/Officer)
 "jtR" = (
 /obj/structure/table/wood,
 /obj/item/storage/toolbox/lunchbox/scc{
@@ -2439,6 +2877,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
@@ -2470,6 +2911,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"jyY" = (
+/obj/structure/sign/flag/sol,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "jzm" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
@@ -2482,7 +2927,7 @@
 	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "jzt" = (
 /obj/structure/kitchenspike,
 /obj/effect/decal/cleanable/blood,
@@ -2493,7 +2938,7 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "jEV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2502,16 +2947,22 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "jFo" = (
 /obj/structure/sign/chemistry,
 /turf/simulated/wall,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "jGx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "jGV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2522,7 +2973,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken0,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "jIq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
@@ -2534,7 +2985,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "jIP" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, engines"
@@ -2544,8 +2995,14 @@
 "jJQ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/material/stool/chair,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "jMr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -2555,17 +3012,25 @@
 	req_access = list(203)
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/Bridge)
+"jMJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "jNn" = (
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
@@ -2584,7 +3049,7 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "jRX" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -2607,12 +3072,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "jWe" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/clothing/under/medical_gown,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "jWJ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -2621,30 +3086,57 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
+"jYF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "jYN" = (
 /obj/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "jYZ" = (
 /obj/machinery/power/apc/east{
 	req_access = list(113)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "kbh" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "kbA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "keE" = (
@@ -2671,13 +3163,32 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Bridge)
+"koL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
 "krh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "krq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2699,11 +3210,11 @@
 "kzm" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "kAt" = (
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "kCw" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/wall/shuttle/raider,
@@ -2731,7 +3242,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "kFw" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
@@ -2742,7 +3253,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engineering)
+/area/ship/sfa_patrol_ship/atmos)
+"kJe" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/item/trash/broken_electronics,
+/turf/simulated/floor/tiled/dark/airless,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "kJp" = (
 /obj/item/screwdriver,
 /obj/effect/decal/cleanable/dirt,
@@ -2760,8 +3276,11 @@
 /obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "kKN" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -2778,7 +3297,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "kMV" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -2791,7 +3310,7 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "kWk" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
@@ -2811,7 +3330,7 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "kYY" = (
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "kZP" = (
 /obj/machinery/door/airlock/command/gold{
 	name = "Lieutenant's Office";
@@ -2845,14 +3364,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "lfE" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "lit" = (
 /obj/machinery/ammunition_loader/grauwolf{
 	weapon_id = "SFA Grauwolf Flak Battery"
@@ -2874,8 +3394,11 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "liS" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,203)
@@ -2884,13 +3407,22 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "llg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
+"lmk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "lmp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2899,14 +3431,14 @@
 	req_access = list(207)
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "lmO" = (
 /obj/machinery/computer/ship/helm{
 	dir = 8;
 	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "lnd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -2921,6 +3453,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/item/grenade/chem_grenade,
+/obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "lrG" = (
@@ -2936,7 +3469,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "ltX" = (
 /obj/machinery/light/broken{
 	dir = 4
@@ -2944,8 +3477,8 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/sfa_shuttle)
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/sfa_patrol_ship/hangar)
 "lui" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2954,8 +3487,11 @@
 	dir = 10;
 	pixel_y = 0
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "lwj" = (
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship)
@@ -2973,14 +3509,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "lGc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "lGR" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -3001,10 +3537,13 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "lGY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -3017,7 +3556,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "lKy" = (
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Quarters)
@@ -3027,7 +3566,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engineering)
+/area/ship/sfa_patrol_ship/atmos)
 "lNz" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
@@ -3036,8 +3575,11 @@
 "lOC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/decal/cleanable/blood/drip,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "lQk" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -3057,11 +3599,14 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "lRa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "lXy" = (
@@ -3069,14 +3614,26 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(24,11,203)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "mfb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
+/obj/structure/inflatable,
+/turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/hangar)
+"mfq" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/hangar)
+"mfx" = (
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/head)
 "mfK" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,203)
@@ -3099,7 +3656,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "mhO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3108,6 +3665,9 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/north,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "mic" = (
@@ -3117,11 +3677,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "mjn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "mkb" = (
@@ -3138,6 +3707,9 @@
 /area/ship/sfa_patrol_ship/Engine1)
 "mni" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "mqR" = (
@@ -3160,7 +3732,11 @@
 /obj/structure/window,
 /obj/random/soap,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
+"muU" = (
+/obj/structure/girder,
+/turf/space/dynamic,
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "mwb" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -3172,7 +3748,7 @@
 	level = 2
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "mCp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -3183,8 +3759,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "mEJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
@@ -3214,7 +3796,17 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/hangar)
+"mIJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "mJs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3231,6 +3823,9 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "mJD" = (
@@ -3244,7 +3839,7 @@
 /area/ship/sfa_patrol_ship/Brig)
 "mLa" = (
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "mTZ" = (
 /obj/structure/closet,
 /obj/item/clothing/under/rank/sol/marine,
@@ -3267,6 +3862,12 @@
 /obj/item/clothing/accessory/storage/webbing,
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
+"mUT" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/weightlifter,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark/airless,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "mVQ" = (
 /obj/structure/girder,
 /turf/unsimulated/floor,
@@ -3277,23 +3878,23 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "mWO" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "mYQ" = (
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "mZv" = (
 /obj/machinery/light/small/emergency,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "mZY" = (
 /obj/machinery/shipsensors/weak{
 	pixel_y = 4;
@@ -3312,13 +3913,22 @@
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "nel" = (
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"ner" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "neP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3326,8 +3936,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "nfo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard,
@@ -3351,6 +3964,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -3408,11 +4024,17 @@
 	req_access = list(203)
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
 "nny" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "nrx" = (
@@ -3443,7 +4065,7 @@
 /obj/item/pipewrench,
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "nsV" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -3475,7 +4097,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "nvz" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge"
@@ -3485,13 +4107,25 @@
 "nBN" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "nCi" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/spline/plain/cee/grey,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "nGY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3501,6 +4135,9 @@
 	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine2)
 "nHg" = (
@@ -3515,7 +4152,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/surgery/surgicaldrill,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "nMC" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3528,7 +4165,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "nOC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/decal/cleanable/blood/oil,
@@ -3538,7 +4175,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "nQe" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -3549,7 +4186,7 @@
 /obj/structure/lattice,
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "nQD" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/flagpatch/europa,
@@ -3575,17 +4212,23 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "nSE" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
+"nSX" = (
+/turf/simulated/wall,
+/area/ship/sfa_patrol_ship/atmos)
+"nTk" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "oaR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "obG" = (
 /obj/machinery/alarm/south{
 	req_one_access = list(24,11,203)
@@ -3613,7 +4256,7 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "omG" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -3636,7 +4279,7 @@
 	opacity = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "ouh" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
@@ -3645,15 +4288,24 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "oxI" = (
 /obj/item/ammo_casing,
 /obj/item/stack/rods,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "oyS" = (
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
+"ozI" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
 "ozP" = (
 /obj/machinery/door/airlock/security{
 	name = "Cell";
@@ -3679,6 +4331,19 @@
 /obj/structure/lattice,
 /turf/space,
 /area/ship/sfa_patrol_ship)
+"oJc" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "oJN" = (
 /turf/simulated/wall/rusty,
 /area/ship/sfa_patrol_ship/TreasureRoom)
@@ -3699,7 +4364,7 @@
 	name = "Air Supply Meter"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "oLM" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/closet/body_bag,
@@ -3710,7 +4375,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "oNl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3724,7 +4389,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "oZk" = (
 /obj/structure/girder,
 /turf/space/dynamic,
@@ -3755,8 +4420,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "pdZ" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Engine2)
@@ -3787,6 +4455,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
+"phI" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "phQ" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/ship_weapon_dummy,
@@ -3794,6 +4466,7 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "pip" = (
 /obj/item/material/shard/shrapnel,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "pls" = (
@@ -3805,7 +4478,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "pna" = (
 /obj/structure/girder,
 /obj/item/stack/rods,
@@ -3816,7 +4489,7 @@
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/pot,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "puC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3829,8 +4502,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "pvg" = (
 /obj/machinery/power/apc/high/west{
 	req_access = list(207)
@@ -3842,12 +4518,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "pvE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engine2)
+/area/ship/sfa_patrol_ship/Telecomms)
 "pwZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -3862,6 +4538,9 @@
 	},
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,203)
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -3889,8 +4568,11 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship/Engineering)
+/area/ship/sfa_patrol_ship/atmos)
 "pGT" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
@@ -3917,14 +4599,14 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "pIj" = (
 /obj/structure/girder,
 /obj/effect/landmark/entry_point/port{
 	name = "port, bathroom"
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "pIo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/wirecutters,
@@ -3940,18 +4622,25 @@
 	req_access = list(113)
 	},
 /obj/effect/decal/cleanable/vomit,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "pJB" = (
 /obj/effect/landmark/entry_point/starboard,
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
+"pKk" = (
+/obj/effect/decal/cleanable/floor_damage/broken7,
+/turf/simulated/floor/tiled/dark/airless,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "pOn" = (
 /obj/structure/sign/directions/medical{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "pPT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
@@ -3960,6 +4649,28 @@
 "pPW" = (
 /obj/machinery/alarm/south{
 	req_one_access = list(24,11,203)
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
+"pQU" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -3987,6 +4698,9 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/Quarters)
 "pXd" = (
@@ -3998,6 +4712,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -4012,7 +4729,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "qeD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood{
@@ -4106,7 +4823,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "qiM" = (
 /obj/structure/noticeboard,
 /turf/simulated/wall,
@@ -4117,20 +4834,20 @@
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "qkW" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, crew compartment"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "qsM" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/storage/firstaid,
 /obj/item/material/shard,
 /obj/structure/lattice,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -4155,8 +4872,29 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
+"qyZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/ship/sfa_patrol_ship/Quarters)
 "qCZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4182,15 +4920,18 @@
 /obj/machinery/door/airlock/glass{
 	name = "Docking Hallway"
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "qGI" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(203)
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/sfa_shuttle)
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/sfa_patrol_ship/hangar)
 "qHm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -4225,17 +4966,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "qSk" = (
 /turf/simulated/wall,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "qTn" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "qWe" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Officer)
@@ -4261,12 +5002,42 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
+"rag" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
+"rbj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "rbn" = (
 /obj/structure/lattice,
 /obj/structure/inflatable,
 /turf/space,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
+"rcS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
 "rdq" = (
 /obj/structure/sign/vacuum{
 	pixel_y = 32
@@ -4276,6 +5047,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -4299,7 +5073,7 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "rip" = (
 /obj/machinery/power/apc/east{
 	req_access = list(113)
@@ -4310,11 +5084,26 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
 "rjl" = (
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"rrj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
 "rro" = (
 /obj/machinery/light{
 	dir = 8;
@@ -4325,7 +5114,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "rvt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4337,6 +5126,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
 "rwh" = (
@@ -4345,7 +5135,7 @@
 	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "rzY" = (
 /obj/structure/table/standard,
 /obj/item/broken_bottle,
@@ -4363,6 +5153,9 @@
 	pixel_x = -10
 	},
 /obj/item/storage/box/fancy/cigarettes,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "rCw" = (
@@ -4382,7 +5175,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
+"rDU" = (
+/turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/hangar)
 "rEx" = (
 /obj/machinery/shower{
 	dir = 4
@@ -4395,7 +5191,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "rEH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4406,13 +5202,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "rGn" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/weightlifter,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "rGo" = (
 /obj/structure/sign/poster,
 /turf/simulated/wall/shuttle/raider,
@@ -4441,8 +5243,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "rLc" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -4470,7 +5275,7 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "rMk" = (
 /obj/structure/lattice,
 /obj/structure/girder,
@@ -4491,8 +5296,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "rTq" = (
 /obj/structure/closet/crate/coffin,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4504,6 +5312,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
 	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -4522,6 +5339,9 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engineering)
 "rYR" = (
@@ -4534,11 +5354,20 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
+"sdF" = (
+/turf/simulated/wall,
+/area/ship/sfa_patrol_ship/head)
 "sey" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/Engineering)
+"seA" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "seO" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -4548,19 +5377,29 @@
 	icon_state = "soda_dispenser"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
+"sfE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/Ammo_Closet)
 "sfF" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "sfM" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "sfX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
@@ -4569,9 +5408,12 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "shH" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "siL" = (
@@ -4582,8 +5424,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "sjG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -4596,13 +5441,20 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/high/south,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engineering)
+/area/ship/sfa_patrol_ship/atmos)
 "slg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/machinery/power/apc/west{
 	req_access = list(113)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine2)
@@ -4610,21 +5462,27 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engineering)
+/area/ship/sfa_patrol_ship/atmos)
 "swy" = (
 /obj/item/tape/engineering,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "sxp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship/Ammo_Closet)
+/area/ship/sfa_patrol_ship/hangar)
 "syJ" = (
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Bridge)
 "szb" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "szP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -4641,10 +5499,23 @@
 "sBA" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
+"sDC" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/hangar)
 "sHg" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
+"sHn" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/carpet/art,
+/area/ship/sfa_patrol_ship/Officer)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -4667,7 +5538,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "sXe" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -4720,17 +5591,23 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "tpR" = (
 /obj/machinery/stasis_bed,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "ttY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
+"tuH" = (
+/turf/simulated/wall,
+/area/ship/sfa_patrol_ship/destroyedrec)
 "tuL" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
@@ -4761,7 +5638,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "tvy" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/longbow,
@@ -4772,7 +5649,7 @@
 /obj/structure/closet/body_bag/cryobag,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "tDi" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Grauwolf";
@@ -4793,8 +5670,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "tIq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_cycler/offship/sol/sfa,
@@ -4814,8 +5694,8 @@
 	id = "elyran_shuttle_shutters";
 	name = "Shuttle Safety Shutters"
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/sfa_shuttle)
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/sfa_patrol_ship/hangar)
 "tIC" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, weapons control"
@@ -4837,7 +5717,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "tMM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/glass/bucket,
@@ -4850,7 +5730,7 @@
 	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "tOc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -4872,14 +5752,24 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship)
 "tRB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/floor_damage/burned0,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
+"tTG" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "tVV" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
@@ -4901,8 +5791,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "uad" = (
 /obj/structure/closet/crate/loot,
 /obj/item/handcuffs/cable/random,
@@ -4950,6 +5846,12 @@
 "uiW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "umw" = (
@@ -4970,14 +5872,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "uus" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 6
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
@@ -4987,13 +5889,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
+"uAK" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship/atmos)
 "uAP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "uCL" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/map_effect/window_spawner/full/shuttle{
@@ -5043,7 +5951,7 @@
 /obj/structure/lattice,
 /obj/structure/closet/body_bag,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "uLq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5064,8 +5972,11 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "uNE" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5073,7 +5984,7 @@
 	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "uQa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -5082,24 +5993,36 @@
 	dir = 10;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "uVa" = (
 /turf/simulated/wall,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "uWQ" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/Quarters)
+/area/ship/sfa_patrol_ship/head)
 "vaQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "vbm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -5127,7 +6050,7 @@
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "vmq" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
@@ -5147,6 +6070,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -5176,6 +6102,9 @@
 "vus" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "vwg" = (
@@ -5185,17 +6114,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "vwF" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/outline,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "vzj" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "vBP" = (
 /obj/item/tape/engineering,
 /turf/simulated/floor/tiled/dark/airless,
@@ -5203,7 +6132,7 @@
 "vEW" = (
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "vGd" = (
 /obj/structure/inflatable/door,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5213,13 +6142,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "vJj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "vJQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -5229,7 +6158,7 @@
 	},
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "vKl" = (
 /obj/structure/girder,
 /turf/simulated/floor/tiled/dark,
@@ -5241,7 +6170,7 @@
 "vQR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "vSl" = (
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/TreasureRoom)
@@ -5261,6 +6190,10 @@
 /obj/item/modular_computer/laptop/preset/civilian,
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
+"wfl" = (
+/obj/structure/inflatable,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/hangar)
 "wfy" = (
 /obj/machinery/door/airlock/glass_service{
 	dir = 1;
@@ -5269,14 +6202,17 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "wfI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/west{
 	req_one_access = list(24,11,203)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/cooled,
-/area/ship/sfa_patrol_ship/Telecoms)
+/area/ship/sfa_patrol_ship/Telecomms)
 "wgm" = (
 /obj/structure/table/rack,
 /obj/item/ammo_casing,
@@ -5302,8 +6238,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "whn" = (
 /obj/structure/closet/crate/loot,
 /obj/item/clothing/ears/skrell/chain/bluejewels,
@@ -5324,13 +6263,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "wmr" = (
 /obj/structure/lattice,
 /obj/structure/table,
 /turf/space,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "wnd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
@@ -5355,7 +6297,7 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "woR" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -5367,7 +6309,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engineering)
+/area/ship/sfa_patrol_ship/atmos)
 "wrJ" = (
 /obj/effect/shuttle_landmark/sfa_shuttle/transit,
 /turf/space/transit/north,
@@ -5379,7 +6321,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "wzk" = (
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship)
@@ -5407,8 +6349,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "wDY" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(203)
@@ -5436,11 +6381,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "wJw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/west{
 	req_one_access = list(24,11,203)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine2)
@@ -5455,8 +6403,14 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/inflatable/door,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "wTZ" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
@@ -5469,7 +6423,7 @@
 	name = "starboard, crew compartment"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "xbK" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge_legion"
@@ -5484,11 +6438,11 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "xgf" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "xgJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5497,6 +6451,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1;
 	icon_state = "map-supply"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -5511,7 +6468,7 @@
 	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "xlB" = (
 /obj/machinery/iv_drip,
 /obj/effect/decal/cleanable/blood/drip,
@@ -5519,7 +6476,7 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "xlF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -5569,7 +6526,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/towel,
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "xDa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
@@ -5578,13 +6535,16 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "xEt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -5594,12 +6554,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "xGB" = (
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/item/auto_cpr,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "xGG" = (
 /obj/item/paper/crumpled/bloody,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5608,7 +6572,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "xHa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -5619,13 +6583,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/floor_damage/broken5,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "xHn" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "xHr" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -5635,7 +6603,26 @@
 /area/ship/sfa_patrol_ship/Officer)
 "xHS" = (
 /obj/item/material/shard,
+/obj/item/frame/apc,
 /turf/simulated/floor/tiled/dark/airless,
+/area/ship/sfa_patrol_ship/destroyedrec)
+"xIh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "xIz" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -5643,7 +6630,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/atmos)
 "xKh" = (
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/sfa_patrol_ship)
@@ -5654,12 +6641,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "xLn" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/closet/body_bag,
 /turf/simulated/floor/tiled/white/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "xOs" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -5695,13 +6682,19 @@
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "xRe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -5718,6 +6711,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "xUX" = (
@@ -5728,8 +6724,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/hangar)
 "xXC" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -5739,12 +6738,12 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/area/ship/sfa_patrol_ship/kitchenmedbay)
 "xYK" = (
 /obj/structure/lattice,
 /obj/item/storage/firstaid,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/destroyedrec)
 "xYT" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -5756,6 +6755,12 @@
 /obj/structure/sign/directions/security,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Brig)
+"yci" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "yjk" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
@@ -39284,8 +40289,8 @@ wFG
 rLc
 bgI
 yjk
-sBA
-sBA
+bCJ
+phI
 gvE
 auY
 uDm
@@ -39541,8 +40546,8 @@ tOc
 lnd
 eGG
 tPO
-gLL
-sBA
+heM
+dAT
 gvE
 phC
 nHg
@@ -40033,18 +41038,18 @@ xRX
 xRX
 xRX
 xRX
-yjk
+izK
 fLH
 gdW
 pJB
-yjk
-oZk
-dMQ
-dMQ
-dMQ
-dMQ
-dMQ
-dMQ
+nTk
+muU
+nTk
+nTk
+nTk
+nTk
+nTk
+nTk
 mJs
 dMQ
 ybc
@@ -40290,23 +41295,23 @@ xRX
 xRX
 xRX
 fLH
-yjk
+izK
 nQA
 tCy
 bck
-cME
+bSp
 lKf
 tNe
 pJx
-yjk
+nTk
 xLi
 hGP
-yjk
+nTk
 dgj
 mjn
 mjn
-mjn
-mjn
+oJc
+gDz
 tRB
 mjn
 ftC
@@ -40546,31 +41551,31 @@ xRX
 xRX
 iif
 xRX
-yjk
+izK
 rGn
-xgf
+kJe
 xHS
 hBs
-yjk
+nTk
 xGG
 oSU
 szb
-yjk
+nTk
 hwu
 hFs
-yjk
+nTk
 xRe
 sBA
-shH
-sBA
-sBA
-shH
-shH
-sBA
-shH
-sBA
-xRe
-sBA
+aLK
+ebV
+rag
+mIJ
+mIJ
+ner
+mIJ
+ner
+jYF
+dAT
 ang
 qfB
 oyS
@@ -40802,20 +41807,20 @@ jIP
 bce
 xRX
 xRX
-wzk
-yjk
-aej
+tuH
+izK
+iqc
 xxU
 bGz
-xgf
-yjk
+jkm
+nTk
 iZz
 lGc
 qTn
 qsM
 ltd
 eBj
-bjS
+jyY
 xRe
 rgA
 aAY
@@ -40827,7 +41832,7 @@ kJT
 gUT
 gUT
 xRe
-sBA
+dAT
 qWe
 pcY
 irj
@@ -41061,8 +42066,8 @@ xRX
 xRX
 xRX
 aSm
-xKh
-rGn
+pKk
+mUT
 jJQ
 xgf
 aej
@@ -41070,12 +42075,12 @@ bJi
 oLM
 uJE
 nKl
-xGB
-xGB
-yjk
-xRe
+tTG
+tTG
+nTk
+ioo
 sBA
-uAP
+ews
 gUT
 dnA
 tIq
@@ -41088,8 +42093,8 @@ cKa
 kZP
 dDt
 fRF
-oyS
-oyS
+jsy
+sHn
 xlF
 xRX
 xRX
@@ -41313,26 +42318,26 @@ qgP
 nsV
 xYT
 mqR
-bce
-yjk
-yjk
-yjk
-yjk
+uAK
+uAK
+uAK
+uAK
+uAK
 qRV
-sBA
+iTz
 oxI
 xYK
-oIr
+iSw
 xGB
 ehS
 fyn
 jWe
 xLn
 szb
-yjk
-dgj
-mjn
-mjn
+nTk
+pQU
+jMJ
+auB
 hcA
 lRa
 krq
@@ -41346,7 +42351,7 @@ qWe
 xHr
 wbH
 ilb
-oyS
+cdw
 aoS
 xRX
 xRX
@@ -41570,25 +42575,25 @@ lNz
 ekC
 lrG
 hdb
-bce
+uAK
 rDx
 fNs
 lFg
-yjk
+uAK
 wmr
 gdW
 wSm
-szb
-yjk
+bpo
+nTk
 kAt
 fIK
 vEW
 tpR
 vwg
-xGB
-bjS
-xRe
-sBA
+tTG
+jyY
+rbj
+ner
 taa
 eme
 wCp
@@ -41827,21 +42832,21 @@ mnb
 dVy
 gka
 fGs
-bce
+uAK
 ceI
 nsy
 dHE
-yjk
-yjk
+uAK
+izK
 agN
-agN
-fbF
-yjk
-yjk
+aAN
+jbh
+nTk
+nTk
 imx
 xhi
-yjk
-yjk
+nTk
+nTk
 vQR
 pOn
 efm
@@ -42084,27 +43089,27 @@ bce
 bce
 bce
 ayl
-bce
+uAK
 jIq
 vJQ
 xIz
-yjk
-sBA
+mLa
+ozI
 dZr
-aIR
+dzL
 rwh
 dqZ
-aIR
+wfl
 vGd
-aIR
+wfl
 uNE
 vJj
 goI
 qZc
-xRe
-sBA
-taa
-yjk
+rrj
+ozI
+rcS
+mLa
 yjk
 pGT
 xRX
@@ -42341,11 +43346,11 @@ bce
 bce
 bce
 xEt
-iMp
+uAK
 fzB
 lMr
 wpm
-yjk
+mLa
 tEe
 xEZ
 kbh
@@ -42359,7 +43364,7 @@ neP
 uwR
 gCb
 dSK
-pPT
+mfq
 uAP
 gvb
 xRX
@@ -42598,15 +43603,15 @@ xRX
 xRX
 iMp
 vns
-iMp
+uAK
 svF
 kHT
 sjG
-yjk
+mLa
 mET
-ios
+rDU
 eoS
-ios
+rDU
 nSb
 gCs
 gyl
@@ -42614,10 +43619,10 @@ wYN
 mLa
 mLa
 mZY
-sQX
-ios
-ios
-sBA
+sDC
+rDU
+rDU
+ozI
 gvb
 xRX
 xRX
@@ -42855,11 +43860,11 @@ xRX
 xRX
 uaE
 xEt
-iMp
-ciL
-iMp
+uAK
+nSX
+uAK
 pFv
-yjk
+mLa
 wha
 iZb
 mLa
@@ -42873,7 +43878,7 @@ mLa
 mLa
 mLa
 mLa
-ios
+rDU
 vzj
 gvb
 xRX
@@ -43116,7 +44121,7 @@ lEx
 bBo
 sey
 aEm
-yjk
+mLa
 wha
 aSJ
 eyV
@@ -43131,7 +44136,7 @@ qcH
 rro
 aou
 cIX
-sBA
+ozI
 gvb
 xRX
 xRX
@@ -43369,11 +44374,11 @@ pcb
 yjk
 iMp
 rdq
-hyd
+avG
 hyd
 hyd
 ajw
-yjk
+mLa
 cZV
 xPX
 jNn
@@ -43388,7 +44393,7 @@ dSA
 nCi
 qGI
 glW
-sBA
+ozI
 lfp
 xXC
 xRX
@@ -43626,11 +44631,11 @@ nfo
 eTl
 iMp
 hKh
-hyd
+seA
 mwb
 hyd
 uqX
-yjk
+mLa
 rOk
 gtO
 qjY
@@ -43645,7 +44650,7 @@ tIr
 ltX
 aou
 cIX
-shH
+gaO
 gvb
 xXC
 xRX
@@ -43884,8 +44889,8 @@ gjk
 pBY
 nhi
 uiW
-uiW
-uiW
+eXO
+eXO
 iOh
 cUD
 hRm
@@ -43893,7 +44898,7 @@ pIa
 mLa
 gyl
 mLa
-mfb
+sxp
 kMb
 jWJ
 cia
@@ -43901,8 +44906,8 @@ mLa
 mLa
 mLa
 mLa
-ios
-shH
+rDU
+gaO
 gvb
 xXC
 xRX
@@ -44146,7 +45151,7 @@ hyd
 ihU
 viZ
 puC
-ios
+rDU
 anS
 ikP
 fJS
@@ -44156,10 +45161,10 @@ qkW
 gyl
 mLa
 czm
-ios
-ios
+rDU
+rDU
 jYN
-sBA
+ozI
 gvb
 eOQ
 jrB
@@ -44401,7 +45406,7 @@ hyd
 ard
 awE
 xEt
-wzk
+dej
 pdy
 wDs
 rJr
@@ -44417,7 +45422,7 @@ rJr
 krh
 wDs
 gLL
-yjk
+mLa
 yjk
 ucv
 yjk
@@ -44658,7 +45663,7 @@ hyd
 wNH
 aZM
 fJu
-yjk
+mLa
 liS
 cot
 cot
@@ -44923,18 +45928,18 @@ pVO
 rGo
 dOc
 dOc
-yjk
+mLa
 xHn
-xRe
+rrj
 vug
 bmW
 vug
 dhk
 xmZ
 yjk
-sBA
+bgV
 xSs
-sBA
+dAT
 yjk
 wgm
 dLj
@@ -45180,9 +46185,9 @@ mic
 dxy
 bLU
 dYU
-yjk
+mLa
 sfM
-xRe
+rrj
 bmW
 hWh
 aHt
@@ -45437,12 +46442,12 @@ eyF
 kEp
 hWt
 wzs
-yjk
-sBA
-dgj
+mLa
+ozI
+koL
 nnv
 fnU
-fnU
+sfE
 peB
 nmF
 wzk
@@ -45682,7 +46687,7 @@ pdZ
 pdZ
 pdZ
 rYA
-iMp
+bMW
 bMW
 bMW
 dLJ
@@ -45694,18 +46699,18 @@ rzY
 qPf
 cCo
 bLU
-yjk
-sBA
-xRe
+mLa
+ozI
+rrj
 aYf
 hWh
 bkT
 hnw
 sAx
 wzk
-sBA
+yci
 xSs
-sBA
+dAT
 gma
 gma
 sPe
@@ -45951,18 +46956,18 @@ mic
 iSI
 bLU
 hcW
-yjk
-yjk
+mYQ
+mYQ
 liE
-vug
-vug
-sxp
+qSk
+qSk
+mYQ
 iLx
-sxp
-yjk
-yjk
-xSs
-sBA
+mYQ
+mYQ
+mYQ
+xIh
+dAT
 oEi
 kWk
 qfX
@@ -46196,7 +47201,7 @@ cBm
 fwp
 aaa
 oNl
-pdZ
+bMW
 vaQ
 fqb
 mZv
@@ -46204,22 +47209,22 @@ fJh
 eLQ
 aac
 apT
-mic
+qyZ
 dxy
 fUi
 xms
 mYQ
 fzv
-pls
-jGx
+dqT
+fvA
 lOC
 lfE
 jGx
 ejH
 mhc
-wzk
-xSs
-sBA
+qSk
+xIh
+dAT
 xOJ
 kKN
 imn
@@ -46453,18 +47458,18 @@ umw
 jhB
 ucn
 els
-pdZ
+bMW
 vwF
 lmO
 aOU
-lKy
-dOc
-dOc
-dOc
+sdF
+mfx
+mfx
+mfx
 uMx
-dOc
-rGo
-dOc
+mfx
+fbf
+mfx
 mYQ
 oqI
 pls
@@ -46475,8 +47480,8 @@ jGx
 jGx
 jGx
 wfy
-xSs
-sBA
+xIh
+dAT
 gma
 hkY
 imn
@@ -46710,11 +47715,11 @@ pdZ
 pdZ
 pdZ
 pdZ
-pdZ
+bMW
 uVa
 fRH
 uVa
-dOc
+mfx
 uWQ
 kJX
 lXy
@@ -46731,9 +47736,9 @@ brS
 cQL
 jGx
 pse
-wzk
+qSk
 rEH
-sBA
+dAT
 rjl
 iLq
 qCZ
@@ -46967,11 +47972,11 @@ pdZ
 pdZ
 pdZ
 eYh
-pdZ
+bMW
 bMW
 uVa
 bMW
-dOc
+mfx
 blv
 kzm
 gkM
@@ -46988,9 +47993,9 @@ jmr
 jGx
 jGx
 nOC
-yjk
+mYQ
 iNb
-sBA
+dAT
 gma
 gma
 gHg
@@ -47228,13 +48233,13 @@ xRX
 xRX
 xRX
 xRX
-dOc
-dOc
-dOc
+mfx
+mfx
+mfx
 rbn
-dOc
+mfx
 tvt
-dOc
+mfx
 nty
 mYQ
 hLZ
@@ -47245,9 +48250,9 @@ jzm
 jGx
 ino
 cDH
-wzk
+qSk
 rTq
-mjn
+auB
 aDq
 vbm
 aHw
@@ -47491,7 +48496,7 @@ xRX
 dxv
 gJf
 tLy
-lKy
+sdF
 eSi
 jFo
 seO
@@ -47502,13 +48507,13 @@ ouh
 eoo
 jGx
 ciE
-yjk
+mYQ
 jgs
 shH
 xOJ
 jyA
 imn
-imn
+bHq
 imn
 rjl
 aLo
@@ -47746,12 +48751,12 @@ xRX
 xRX
 iif
 xRX
-dOc
+mfx
 foE
-lKy
+sdF
 pIj
-yjk
-yjk
+mYQ
+mYQ
 mYQ
 mYQ
 mYQ
@@ -47759,13 +48764,13 @@ eOY
 eOY
 gsD
 eOY
-yjk
+mYQ
 pAw
 sQX
 gma
 veb
 nQe
-imn
+bHq
 imn
 tDi
 inE
@@ -48005,9 +49010,9 @@ xRX
 xRX
 xRX
 xRX
-lKy
+sdF
 xRX
-wzk
+qSk
 xRX
 xRX
 xRX
@@ -48016,8 +49021,8 @@ eOZ
 kUJ
 xlB
 civ
-wzk
-lGY
+qSk
+lmk
 shH
 kWW
 nny
@@ -48273,9 +49278,9 @@ jff
 iuv
 ijY
 xcR
-yjk
+mYQ
 lGY
-sBA
+idk
 gma
 gma
 gma
@@ -48530,7 +49535,7 @@ dnC
 aSy
 rgK
 jzt
-yjk
+mYQ
 keE
 omG
 gma
@@ -48782,12 +49787,12 @@ xRX
 xRX
 xRX
 xRX
-wzk
-yjk
+qSk
+mYQ
 awe
-wzk
-yjk
-yjk
+qSk
+mYQ
+mYQ
 mEJ
 eVI
 yjk

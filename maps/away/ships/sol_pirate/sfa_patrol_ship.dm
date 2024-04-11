@@ -160,6 +160,7 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/sfa_shuttle)
 	current_location = "nav_hangar_sfa"
+	dock_target = "airlock_sfa_shuttle"
 	landmark_transition = "nav_transit_sfa_shuttle"
 	range = 1
 	fuel_consumption = 2
