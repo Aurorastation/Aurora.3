@@ -18,6 +18,9 @@
 /area/ship/sfa_patrol_ship
 	name = "SFA Corvette"
 
+/area/ship/sfa_patrol_ship/docking
+	name = "SFA Docking Hall"
+
 /area/ship/sfa_patrol_ship/hangar
 	name = "SFA Hangar"
 
@@ -32,6 +35,9 @@
 
 /area/ship/sfa_patrol_ship/SFA_Armory
 	name = "SFA Armory"
+
+/area/ship/sfa_patrol_ship/destroyedammo
+	name = "SFA AMmunition Bay"
 
 /area/ship/sfa_patrol_ship/Engineering
 	name = "SFA Engineering"
@@ -48,8 +54,8 @@
 /area/ship/sfa_patrol_ship/Bridge
 	name = "SFA Corvette Bridge"
 
-/area/ship/sfa_patrol_ship/Ammo_Closet
-	name = "SFA Ammo Closet"
+/area/ship/sfa_patrol_ship/custodialammo
+	name = "SFA Custodial"
 
 /area/ship/sfa_patrol_ship/Quarters
 	name = "SFA Crew Quarters"
