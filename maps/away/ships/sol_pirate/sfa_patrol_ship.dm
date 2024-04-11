@@ -111,9 +111,9 @@
 
 	initial_generic_waypoints = list(
 		"nav_sfa_patrol_ship_1",
-		"nav_sfa_patrol_ship_2"
-		"nav_sfa_patrol_ship_3"
-		"nav_sfa_patrol_ship_4"
+		"nav_sfa_patrol_ship_2",
+		"nav_sfa_patrol_ship_3",
+		"nav_sfa_patrol_ship_4",
 		"nav_sfa_port_airlock"
 	)
 
