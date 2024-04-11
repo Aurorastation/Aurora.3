@@ -18,8 +18,17 @@
 /area/ship/sfa_patrol_ship
 	name = "SFA Corvette"
 
-/area/ship/sfa_patrol_ship/medbay
+/area/ship/sfa_patrol_ship/hangar
+	name = "SFA Hangar"
+
+/area/ship/sfa_patrol_ship/destroyedmedbay
 	name = "SFA Medbay"
+
+/area/ship/sfa_patrol_ship/kitchenmedbay
+	name = "SFA Kitchen"
+
+/area/ship/sfa_patrol_ship/destroyedrec
+	name = "SFA Rec Room"
 
 /area/ship/sfa_patrol_ship/SFA_Armory
 	name = "SFA Armory"
@@ -27,8 +36,11 @@
 /area/ship/sfa_patrol_ship/Engineering
 	name = "SFA Engineering"
 
-/area/ship/sfa_patrol_ship/Telecoms
-	name = "SFA Telecoms"
+/area/ship/sfa_patrol_ship/atmos
+	name = "SFA Atmospherics"
+
+/area/ship/sfa_patrol_ship/Telecomms
+	name = "SFA Telecomms"
 
 /area/ship/sfa_patrol_ship/TreasureRoom
 	name = "SFA Treasure Room"
@@ -41,6 +53,9 @@
 
 /area/ship/sfa_patrol_ship/Quarters
 	name = "SFA Crew Quarters"
+
+/area/ship/sfa_patrol_ship/head
+	name = "SFA Head"
 
 /area/ship/sfa_patrol_ship/Officer
 	name = "SFA Officer Quarters"
