@@ -27,6 +27,9 @@
 	)
 	id_iff = IFF_EE
 
+/obj/outfit/admin/ert/einstein/get_id_access()
+	return get_distress_access_lesser()
+
 /obj/outfit/admin/ert/einstein/medic
 	name = "Einstein Medic"
 	belt = /obj/item/storage/belt/medical/first_responder/combat

@@ -26,6 +26,9 @@
 	)
 	id_iff = IFF_ZENGHU
 
+/obj/outfit/admin/ert/zeng/get_id_access()
+	return get_distress_access()
+
 /obj/outfit/admin/ert/zeng/medic
 	name = "Zeng-Hu Medic"
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng

@@ -100,7 +100,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return
 
 /obj/machinery/computer/rdconsole/proc/SyncTechs()
+	var/turf/turf = get_turf(src)
 	for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+		var/turf/ST = get_turf(S)
+		if(ST && !AreConnectedZLevels(ST.z, turf.z))
+			continue
 		var/server_processed = 0
 		if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
 			for(var/tech_id in files.known_tech)

@@ -17,11 +17,17 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 			GLOB.internal_robolimbs[R.company] = R
 
 /datum/robolimb
-	var/company = "Unbranded"                            // Shown when selecting the limb.
-	var/desc = "A generic unbranded robotic prosthesis." // Seen when examining a limb.
-	var/icon = 'icons/mob/human_races/ipc/robotic.dmi'   // Icon base to draw from.
-	var/unavailable_at_chargen                           // If set, not available at chargen.
-	var/lifelike = FALSE                                 // If set, appears organic.
+	/// Shown when selecting the limb.
+	var/company = "Unbranded"
+	/// Seen when examining a limb.
+	var/desc = "A generic unbranded robotic prosthesis."
+	/// Icon base to draw from.
+	var/icon = 'icons/mob/human_races/ipc/robotic.dmi'
+	/// If set, not available in character setup.
+	var/unavailable_at_chargen
+	/// If set, it appears as organic on examine, like synthskin.
+	var/lifelike = FALSE
+	/// Which species can use this prosthetic type.
 	var/list/species_can_use = list(
 		SPECIES_HUMAN,
 		SPECIES_SKRELL,
@@ -37,14 +43,40 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 		SPECIES_IPC_BISHOP,
 		SPECIES_HUMAN_OFFWORLD
 	)
-	var/paintable = 0 //tired of istype exceptions. bullshit to find, and by god do i know it after this project.
-	var/linked_frame = SPECIES_IPC_UNBRANDED //which machine species this limb will create
-	var/brute_mod = 0.9 //how resistant is this mode to brute damage
-	var/burn_mod = 1.1 //how resistant is this mode to burn damage
-	var/fabricator_available = FALSE //if you can print this limb in the robotics fabricator
-	var/internal_organ_suffix = "prosthetic" //this is used to define the icon
-	var/list/allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)//what organs can be augmented by this brand
+	/// If this prosthetic type is paintable.
+	var/paintable = 0
+	/// Which IPC species this prosthetic type will create.
+	var/linked_frame = SPECIES_IPC_UNBRANDED
+	/// How resistant this prosthetic type is to brute damage.
+	var/brute_mod = 0.9
+	/// How resistant this prosthetic type is to burn damage.
+	var/burn_mod = 1.1
+	/// If you can print this prosthetic type in the robotics fabricator.
+	var/fabricator_available = FALSE
+	/// Suffix used for the icon.
+	var/internal_organ_suffix = "prosthetic"
+	/// If this prosthetic type can be used for internal organs.
 	var/allows_internal = TRUE
+	/// What internal organs you can pick this prosthetic type for.
+	var/list/allowed_internal_organs = list(
+		BP_HEART,
+		BP_EYES,
+		BP_LUNGS,
+		BP_LIVER,
+		BP_KIDNEYS,
+		BP_STOMACH
+	)
+	/// What external organs you can pick this prosthetic type for.
+	var/list/allowed_external_organs = list(
+		BP_L_ARM,
+		BP_R_ARM,
+		BP_L_HAND,
+		BP_R_HAND,
+		BP_L_LEG,
+		BP_R_LEG,
+		BP_L_FOOT,
+		BP_R_FOOT
+	)
 
 /datum/robolimb/proc/malfunctioning_check()
 	return FALSE
@@ -154,3 +186,30 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
 	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	allows_internal = FALSE
+
+/datum/robolimb/hoplan
+	company = PROSTHETIC_HOPLAN
+	desc = "A refined helmet with an industrial lean. Extra plating seems to be applied to the top surface while the rest of the head features \
+			small breaks in the armor and running lights. A polished screen hides four optic sensors behind a display."
+	species_can_use = list(SPECIES_IPC)
+	icon = 'icons/mob/human_races/ipc/hoplan.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/indricus
+	company = PROSTHETIC_INDRICUS
+	desc = "One lens-like eye dominates this style of head, with a camera like adjustable segment, this head is entirely encased with no seams or \
+			crevices bar service hatches."
+	species_can_use = list(SPECIES_IPC)
+	linked_frame = SPECIES_IPC
+	icon = 'icons/mob/human_races/ipc/indricus.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/raxus
+	company = PROSTHETIC_RAXUS
+	desc = "Imposing and bold, this angled helmet features a collection of small pin-prick optic sensors to make up for its lack of inherent eyes. \
+			The top of the head extends outward, where the thinner point meets halfway down the face before extending in to a similarly wide jaw, \
+			giving the head a shape almost like an cubic hourglass."
+	species_can_use = list(SPECIES_IPC)
+	linked_frame = SPECIES_IPC
+	icon = 'icons/mob/human_races/ipc/raxus.dmi'
+	allowed_external_organs = list(BP_HEAD)

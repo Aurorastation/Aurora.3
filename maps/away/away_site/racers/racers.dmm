@@ -50,12 +50,9 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "acY" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/bed/stool/chair/plastic{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/red,
-/area/racers)
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/turf/simulated/floor/plating,
+/area/shuttle/racers_red)
 "ade" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/remains/human,
@@ -173,6 +170,10 @@
 "arm" = (
 /turf/simulated/floor/tiled/rust/airless,
 /area/racers)
+"arT" = (
+/obj/effect/shuttle_landmark/red_racer_transit,
+/turf/space/transit,
+/area/space)
 "arY" = (
 /turf/simulated/floor/airless,
 /area/racers)
@@ -226,15 +227,12 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window{
-	dir = 8
-	},
 /obj/item/tank/jetpack/void,
-/obj/machinery/light/colored/blue{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/racers)
+/area/shuttle/racers_blue)
 "aDe" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -504,11 +502,9 @@
 /turf/simulated/floor/lino/diamond,
 /area/racers)
 "bzZ" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hangar A";
-	dir = 1
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
 /area/racers)
 "bBD" = (
 /obj/item/pipe{
@@ -524,9 +520,11 @@
 "bDs" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small/emergency,
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/white,
-/area/racers)
+/area/shuttle/racers_blue)
 "bEp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -744,20 +742,24 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "cZT" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southleft,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /turf/simulated/floor,
-/area/racers)
+/area/shuttle/racers_blue)
 "dbs" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/rust,
@@ -910,10 +912,16 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "eoH" = (
-/obj/structure/grille,
-/obj/structure/shuttle/window,
+/obj/effect/map_effect/window_spawner/full/shuttle,
 /turf/simulated/floor/plating,
-/area/racers)
+/area/shuttle/racers_blue)
+"epG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/racers_blue)
 "esD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/map_effect/airlock/w_to_e,
@@ -955,11 +963,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
-/obj/machinery/light/colored/red{
-	dir = 4
-	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/racers)
+/area/shuttle/racers_red)
 "eBa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/spider/cocoon,
@@ -1241,12 +1246,12 @@
 /turf/simulated/floor/lino/diamond,
 /area/racers)
 "fVz" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/white,
-/area/racers)
+/area/shuttle/racers_red)
 "fWy" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1272,18 +1277,11 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "gbn" = (
-/obj/machinery/computer/shuttle_control/explore/tcfl_shuttle{
+/obj/machinery/computer/shuttle_control/explore/blue_racer{
 	dir = 4
 	},
-/obj/machinery/door/window{
-	dir = 8
-	},
-/obj/item/tank/jetpack/rig,
-/obj/machinery/light/colored/blue{
-	dir = 8
-	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/racers)
+/area/shuttle/racers_blue)
 "gbX" = (
 /turf/unsimulated/wall/fakepdoor,
 /area/racers)
@@ -1456,6 +1454,13 @@
 /obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/airless,
 /area/racers)
+"heO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor,
+/area/shuttle/racers_red)
 "hgd" = (
 /obj/structure/bed/stool/chair/wood/wings{
 	dir = 4
@@ -1565,22 +1570,24 @@
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "hAS" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southleft,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /turf/simulated/floor,
-/area/racers)
+/area/shuttle/racers_red)
 "hBd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -1591,9 +1598,15 @@
 "hEY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/structure/fuel_port/phoron{
+	pixel_x = 27;
+	pixel_y = 4
+	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/racers_red)
 "hFr" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
@@ -1716,14 +1729,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
-/obj/machinery/door/window{
-	dir = 4
-	},
-/obj/machinery/light/colored/blue{
-	dir = 4
-	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/racers)
+/area/shuttle/racers_blue)
 "iwj" = (
 /obj/vehicle/train/cargo/engine/pussywagon,
 /turf/simulated/floor/tiled/rust,
@@ -1782,7 +1789,7 @@
 /obj/item/device/gps,
 /obj/machinery/camera/network/thunder,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/racers)
+/area/shuttle/racers_blue)
 "iKO" = (
 /obj/structure/blocker,
 /turf/simulated/floor/plating,
@@ -1928,10 +1935,11 @@
 /area/racers)
 "jjQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
 	},
 /turf/simulated/floor/shuttle/white,
-/area/racers)
+/area/shuttle/racers_blue)
 "jko" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2218,7 +2226,6 @@
 /area/racers)
 "kFu" = (
 /obj/item/device/suit_cooling_unit,
-/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "kFN" = (
@@ -2232,8 +2239,8 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "kHl" = (
-/turf/unsimulated/floor/plating,
-/area/racers)
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_blue)
 "kHp" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
@@ -2297,13 +2304,9 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/racers)
 "kWr" = (
-/obj/structure/grille,
-/obj/structure/shuttle/window,
-/obj/machinery/light/colored/blue{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/racers)
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit,
+/area/space)
 "lbT" = (
 /mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/holofloor/tiled,
@@ -2386,7 +2389,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/racers)
+/area/shuttle/racers_red)
 "lvc" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/rust,
@@ -2397,6 +2400,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/racers)
+"lye" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/racers_red)
 "lyI" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/porta_turret_construct,
@@ -2446,6 +2456,9 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/rust/airless,
 /area/racers)
+"lMF" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_red)
 "lNR" = (
 /obj/item/spacecash/c1{
 	pixel_x = 6;
@@ -2454,18 +2467,11 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "lNT" = (
-/obj/machinery/door/window{
-	dir = 8
-	},
-/obj/item/tank/jetpack/rig,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/light/colored/red{
-	dir = 8
+/obj/machinery/computer/shuttle_control/explore/red_racer{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/racers_red)
 "lQd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2495,6 +2501,10 @@
 /mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/carpet,
 /area/racers)
+"lUd" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/turf/simulated/floor,
+/area/shuttle/racers_red)
 "lVZ" = (
 /obj/structure/girder,
 /obj/machinery/computer/security/telescreen/entertainment,
@@ -2576,11 +2586,13 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "mxk" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1;
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/blue_racer_hangar,
 /turf/simulated/floor,
 /area/racers)
 "mxz" = (
@@ -2647,14 +2659,15 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window{
-	dir = 4
-	},
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/racers_red)
 "mNn" = (
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
@@ -2753,6 +2766,12 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/rust,
 /area/racers)
+"nsE" = (
+/obj/effect/shuttle_landmark/automatic{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/rust,
+/area/racers)
 "ntt" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -2768,6 +2787,13 @@
 "nup" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/racers)
+"nuH" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/racers_blue)
 "nxI" = (
 /obj/item/card/mining_point_card{
 	points = 12309
@@ -2802,15 +2828,12 @@
 /area/racers)
 "nEc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window{
-	dir = 4
-	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/colored/blue{
-	dir = 4
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/racers)
+/area/shuttle/racers_blue)
 "nEX" = (
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/tiled/rust/airless,
@@ -2830,11 +2853,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
-/obj/machinery/light/colored/red{
-	dir = 8
-	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/racers)
+/area/shuttle/racers_red)
 "nOM" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/rust,
@@ -2931,6 +2951,16 @@
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/racers)
+"ogu" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/obj/effect/shuttle_landmark/automatic{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/rust,
+/area/racers)
 "ohm" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -2981,6 +3011,12 @@
 /obj/machinery/newscaster/east,
 /turf/simulated/floor/wood,
 /area/racers)
+"oqv" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_red)
 "oqx" = (
 /obj/item/trash/liquidfood,
 /turf/simulated/floor/plating,
@@ -3328,19 +3364,19 @@
 /area/racers)
 "qjE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/fuel_port,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
-/obj/machinery/door/window{
-	dir = 8
-	},
-/obj/machinery/light/colored/blue{
-	dir = 8
-	},
 /obj/item/reagent_containers/hypospray/autoinjector/emergency,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/tank/jetpack/rig,
+/obj/item/clothing/head/helmet/pilot,
+/obj/structure/fuel_port/phoron{
+	pixel_x = -27;
+	pixel_y = 4
+	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/racers)
+/area/shuttle/racers_blue)
 "qjP" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cocktail,
@@ -3463,7 +3499,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/racers)
+/area/shuttle/racers_blue)
 "qMN" = (
 /obj/structure/curtain/open/medical{
 	pixel_y = 28
@@ -3484,6 +3520,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
+/area/racers)
+"qSb" = (
+/obj/effect/shuttle_landmark/automatic/intrepid{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/rust,
 /area/racers)
 "qST" = (
 /obj/structure/table,
@@ -3770,20 +3812,12 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/obj/machinery/door/window{
-	dir = 4
-	},
-/obj/machinery/light/colored/blue{
-	dir = 4
-	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/racers)
+/area/shuttle/racers_blue)
 "sjQ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/obj/structure/fuel_port,
+/obj/item/tank/jetpack/rig,
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/head/helmet/pilot,
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
@@ -3791,18 +3825,14 @@
 	req_access = null
 	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/racers_red)
 "skl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
-	},
-/obj/machinery/light/small/emergency,
 /turf/simulated/floor/shuttle/white,
-/area/racers)
+/area/shuttle/racers_red)
 "skw" = (
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/wood,
@@ -3907,6 +3937,10 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
+"sOQ" = (
+/obj/effect/shuttle_landmark/blue_racer_transit,
+/turf/space/transit,
+/area/space)
 "sRo" = (
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/white/airless,
@@ -4070,18 +4104,8 @@
 /turf/simulated/wall/r_wall,
 /area/racers)
 "tMd" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/racers)
+/turf/space/transit,
+/area/space)
 "tMk" = (
 /obj/effect/floor_decal/sign/d,
 /turf/simulated/wall/r_wall,
@@ -4097,6 +4121,15 @@
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/rust/airless,
 /area/racers)
+"tOk" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/racers_red)
 "tQj" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/rusty,
@@ -4122,13 +4155,9 @@
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "tYI" = (
-/obj/structure/grille,
-/obj/structure/shuttle/window,
-/obj/machinery/light/colored/blue{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/racers)
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/turf/simulated/floor,
+/area/shuttle/racers_blue)
 "tYW" = (
 /obj/item/material/shard,
 /turf/template_noop,
@@ -4191,6 +4220,13 @@
 /obj/item/tape_roll,
 /turf/simulated/floor/plating,
 /area/racers)
+"umD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor,
+/area/shuttle/racers_blue)
 "unj" = (
 /obj/structure/table/steel,
 /obj/item/spacecash/ewallet/lotto,
@@ -4209,29 +4245,21 @@
 "upu" = (
 /turf/simulated/floor/wood,
 /area/racers)
+"uqe" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/racers_red)
 "urT" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(204)
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/light/colored/red{
-	dir = 8
-	},
-/obj/machinery/light/colored/red{
-	dir = 4
-	},
 /obj/item/device/gps,
 /obj/machinery/camera/network/thunder,
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/racers_red)
 "uuC" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
@@ -4317,6 +4345,15 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/racers)
+"uOa" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/item/rig/eva,
+/obj/effect/overmap/visitable/ship/landable/racers_blue,
+/turf/simulated/floor/shuttle/white,
+/area/shuttle/racers_blue)
 "uOx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4378,6 +4415,12 @@
 /obj/item/storage/toolbox/drill,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
+"veF" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_red)
 "vgN" = (
 /obj/item/material/hatchet/unathiknife,
 /turf/simulated/floor/plating,
@@ -4396,6 +4439,12 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/rust,
 /area/racers)
+"vlm" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_blue)
 "vps" = (
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
@@ -4405,8 +4454,9 @@
 	dir = 4
 	},
 /obj/item/rig/eva,
+/obj/effect/overmap/visitable/ship/landable/racers_red,
 /turf/simulated/floor/shuttle/white,
-/area/racers)
+/area/shuttle/racers_red)
 "vrZ" = (
 /obj/structure/closet/lasertag,
 /obj/item/holo/esword/red,
@@ -4528,15 +4578,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window{
-	dir = 8
-	},
 /obj/item/tank/jetpack/void,
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/racers_red)
 "vJz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
@@ -4869,13 +4919,13 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "xAp" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/shuttle_landmark/red_racer_hangar,
 /turf/simulated/floor,
 /area/racers)
 "xEy" = (
@@ -4959,17 +5009,8 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/obj/machinery/door/window{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/light/colored/red{
-	dir = 4
-	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/racers_red)
 "xPN" = (
 /obj/structure/closet/lawcloset,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
@@ -5108,6 +5149,13 @@
 /mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/tiled/rust,
 /area/racers)
+"ykN" = (
+/obj/item/trash/cigbutt,
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/racers_blue)
 "yle" = (
 /obj/item/clothing/mask/gas/old,
 /turf/simulated/floor/tiled/rust/airless,
@@ -5352,23 +5400,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (2,1,1) = {"
 xRX
@@ -5609,23 +5657,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (3,1,1) = {"
 xRX
@@ -5866,23 +5914,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (4,1,1) = {"
 xRX
@@ -6123,23 +6171,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (5,1,1) = {"
 xRX
@@ -6380,23 +6428,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (6,1,1) = {"
 xRX
@@ -6637,23 +6685,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (7,1,1) = {"
 xRX
@@ -6894,23 +6942,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+arT
+tMd
+tMd
+tMd
+tMd
 "}
 (8,1,1) = {"
 xRX
@@ -7151,23 +7199,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (9,1,1) = {"
 xRX
@@ -7408,23 +7456,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (10,1,1) = {"
 xRX
@@ -7665,23 +7713,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (11,1,1) = {"
 xRX
@@ -7922,23 +7970,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (12,1,1) = {"
 xRX
@@ -8179,23 +8227,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
 "}
 (13,1,1) = {"
 xRX
@@ -8436,23 +8484,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (14,1,1) = {"
 xRX
@@ -8693,23 +8741,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (15,1,1) = {"
 xRX
@@ -8950,23 +8998,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (16,1,1) = {"
 xRX
@@ -9207,23 +9255,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (17,1,1) = {"
 xRX
@@ -9464,23 +9512,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+sOQ
+tMd
+tMd
+tMd
+tMd
 "}
 (18,1,1) = {"
 xRX
@@ -9721,23 +9769,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (19,1,1) = {"
 xRX
@@ -9978,23 +10026,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (20,1,1) = {"
 xRX
@@ -10235,23 +10283,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (21,1,1) = {"
 xRX
@@ -10492,23 +10540,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (22,1,1) = {"
 xRX
@@ -10749,23 +10797,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (23,1,1) = {"
 xRX
@@ -11006,23 +11054,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (24,1,1) = {"
 xRX
@@ -11263,23 +11311,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
+tMd
 "}
 (25,1,1) = {"
 xRX
@@ -11520,23 +11568,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
+kWr
 "}
 (26,1,1) = {"
 xRX
@@ -23441,7 +23489,7 @@ ctn
 ctn
 ctn
 lvc
-ctn
+rQw
 ctn
 lvc
 lvc
@@ -23452,7 +23500,7 @@ ctn
 ctn
 ctn
 ctn
-pJZ
+gki
 huE
 nfm
 tMk
@@ -23684,7 +23732,7 @@ xRX
 xRX
 xRX
 gbX
-jaL
+ogu
 cLC
 ctn
 ctn
@@ -25740,7 +25788,7 @@ xRX
 xRX
 xRX
 gbX
-rQw
+ctn
 cLC
 ctn
 ctn
@@ -25997,7 +26045,7 @@ xRX
 xRX
 xRX
 gbX
-ctn
+nsE
 cLC
 ctn
 ctn
@@ -28324,7 +28372,7 @@ lvc
 lvc
 lvc
 lvc
-ctn
+rQw
 ctn
 ctn
 ctn
@@ -29912,11 +29960,11 @@ huE
 huE
 huE
 huE
-xRX
-xRX
-xRX
-xRX
-xRX
+huE
+huE
+huE
+huE
+huE
 xRX
 xRX
 xRX
@@ -30167,13 +30215,13 @@ bVS
 vsA
 bVS
 bVS
+bVS
+bVS
+bVS
+bVS
+bVS
 gxE
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -30424,13 +30472,13 @@ ctn
 ctn
 rna
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -30681,13 +30729,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -30886,19 +30934,19 @@ cLC
 ctn
 ctn
 ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
+ryv
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+oQI
 ctn
 ctn
 ctn
@@ -30938,13 +30986,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 oDe
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -31143,19 +31191,19 @@ cLC
 ctn
 ctn
 ctn
-ryv
-seT
-seT
-seT
-seT
-seT
-seT
-seT
-seT
-seT
-seT
-seT
-oQI
+jDR
+mWo
+mWo
+mWo
+mWo
+mWo
+lMF
+lMF
+mWo
+mWo
+mWo
+mWo
+fsx
 ctn
 ctn
 ctn
@@ -31195,13 +31243,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -31402,12 +31450,12 @@ ctn
 ctn
 jDR
 mWo
-mWo
-mWo
-mWo
-mWo
+heO
+lMF
+oqv
+lMF
 nLQ
-qLt
+tOk
 mWo
 mWo
 mWo
@@ -31435,7 +31483,6 @@ ctn
 ctn
 ctn
 ctn
-lvc
 ctn
 ctn
 ctn
@@ -31444,21 +31491,22 @@ ctn
 ctn
 ctn
 ctn
-lvc
-lvc
 ctn
-lvc
-lvc
 ctn
-tpD
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -31659,12 +31707,12 @@ ctn
 ctn
 jDR
 mWo
-xjB
-xjB
+acY
+lUd
 lNT
 vJn
 sjQ
-qLt
+tOk
 mWo
 mWo
 mWo
@@ -31690,7 +31738,6 @@ cLC
 ctn
 ctn
 ctn
-lvc
 ctn
 ctn
 ctn
@@ -31704,18 +31751,19 @@ ctn
 ctn
 ctn
 ctn
-lvc
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -31915,8 +31963,8 @@ ctn
 ctn
 ctn
 jDR
-tMd
-acY
+mWo
+uqe
 urT
 vqD
 fVz
@@ -31942,21 +31990,11 @@ xjB
 nfm
 xRX
 huE
-rQw
+ctn
 cLC
 ctn
 ctn
 ctn
-lvc
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-rQw
 ctn
 ctn
 ctn
@@ -31966,13 +32004,23 @@ ctn
 ctn
 ctn
 ctn
-gki
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+pJZ
+bzZ
 xRX
 xRX
 xRX
@@ -32173,12 +32221,12 @@ ctn
 ctn
 jDR
 mWo
-xjB
-xjB
+acY
+lUd
 xOK
 mME
 hEY
-qLt
+tOk
 mWo
 dpu
 jAg
@@ -32209,9 +32257,14 @@ ctn
 ctn
 ctn
 ctn
-lvc
-lvc
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 ctn
@@ -32224,12 +32277,7 @@ ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -32430,10 +32478,10 @@ ctn
 ctn
 jDR
 mWo
-mWo
-mWo
-mWo
-mWo
+lye
+lMF
+veF
+lMF
 eAn
 lux
 mWo
@@ -32466,27 +32514,27 @@ ctn
 ctn
 ctn
 ctn
-lvc
-lvc
-lvc
 ctn
 ctn
 ctn
-lvc
-lvc
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -32685,19 +32733,19 @@ cLC
 ctn
 ctn
 ctn
-xpK
-fdk
-fdk
-fdk
-fdk
-fdk
-fdk
-fdk
-fdk
-fdk
-fdk
-fdk
-eEQ
+jDR
+mWo
+mWo
+mWo
+mWo
+mWo
+lMF
+lMF
+mWo
+mWo
+mWo
+mWo
+fsx
 lvc
 ctn
 ctn
@@ -32718,32 +32766,32 @@ cLC
 ctn
 ctn
 ctn
-lvc
-ctn
-lvc
-lvc
-ctn
-lvc
-lvc
-lvc
-ctn
-ctn
-ctn
-lvc
-lvc
-lvc
 ctn
 ctn
 ctn
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -32942,19 +32990,19 @@ cLC
 lvc
 lvc
 ctn
-ctn
-lvc
-vLp
-lvc
-ctn
-ctn
-qWv
-ctn
-ctn
-ctn
-ctn
-lvc
-jtP
+xpK
+fdk
+fdk
+fdk
+fdk
+fdk
+fdk
+fdk
+fdk
+fdk
+fdk
+fdk
+eEQ
 lvc
 tUL
 ctn
@@ -32973,12 +33021,6 @@ huE
 iGt
 cLC
 lvc
-lvc
-ctn
-ctn
-lvc
-vLp
-lvc
 ctn
 ctn
 ctn
@@ -32986,21 +33028,27 @@ ctn
 ctn
 ctn
 ctn
-lvc
-lvc
-lvc
 ctn
 ctn
 ctn
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -33205,13 +33253,13 @@ ctn
 ubW
 riz
 ctn
-ctn
+qWv
 ctn
 vrZ
 ctn
 ctn
 ctn
-ctn
+jtP
 ctn
 ctn
 ctn
@@ -33232,7 +33280,6 @@ cLC
 ctn
 ctn
 ctn
-lvc
 ctn
 ctn
 ctn
@@ -33251,13 +33298,14 @@ ctn
 ctn
 ctn
 ctn
-oDe
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+pJZ
+bzZ
 xRX
 xRX
 xRX
@@ -33486,11 +33534,7 @@ xRX
 huE
 qrY
 cLC
-ctn
-ctn
-ctn
-lvc
-ctn
+qSb
 ctn
 ctn
 ctn
@@ -33498,7 +33542,16 @@ ctn
 ctn
 ctn
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 ctn
@@ -33509,12 +33562,7 @@ ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -33764,14 +33812,14 @@ ctn
 ctn
 ctn
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -34005,7 +34053,6 @@ ctn
 ctn
 ctn
 ctn
-tpD
 ctn
 ctn
 ctn
@@ -34018,17 +34065,18 @@ ctn
 ctn
 ctn
 ctn
-lvc
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -34258,20 +34306,25 @@ huE
 soI
 cLC
 lvc
-lvc
-ctn
-lvc
-lvc
-lvc
-lvc
-ctn
-lvc
-lvc
-lvc
 ctn
 ctn
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 ctn
@@ -34280,12 +34333,7 @@ ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -34515,16 +34563,6 @@ huE
 iwj
 cLC
 lvc
-lvc
-ctn
-lvc
-ctn
-ctn
-ctn
-ctn
-lvc
-lvc
-lvc
 ctn
 ctn
 ctn
@@ -34533,16 +34571,26 @@ ctn
 ctn
 ctn
 ctn
-tpD
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -34772,16 +34820,6 @@ huE
 jaL
 cLC
 lvc
-lvc
-ctn
-ctn
-ctn
-ctn
-ctn
-ctn
-lvc
-lvc
-lvc
 ctn
 ctn
 ctn
@@ -34791,15 +34829,25 @@ ctn
 ctn
 ctn
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -35000,11 +35048,11 @@ ctn
 ctn
 jDR
 mWo
-mWo
-mWo
-dpu
-mWo
-mWo
+umD
+kHl
+ykN
+kHl
+kHl
 kHl
 mWo
 jAg
@@ -35040,7 +35088,6 @@ ctn
 ctn
 ctn
 ctn
-rQw
 ctn
 ctn
 ctn
@@ -35048,15 +35095,16 @@ ctn
 ctn
 ctn
 ctn
-lvc
 ctn
-gki
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+pJZ
+bzZ
 xRX
 xRX
 xRX
@@ -35257,8 +35305,8 @@ ctn
 ctn
 jDR
 mWo
-kWr
-kWr
+tYI
+tYI
 gbn
 aAE
 qjE
@@ -35303,17 +35351,17 @@ ctn
 ctn
 ctn
 ctn
-lvc
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -35513,10 +35561,10 @@ ctn
 ctn
 ctn
 jDR
-tMd
-eoH
+xjB
+nuH
 iJa
-vqD
+uOa
 jjQ
 bDs
 cZT
@@ -35534,7 +35582,7 @@ ctn
 ghl
 nfm
 mNn
-bzZ
+aaa
 rse
 xjB
 nfm
@@ -35546,8 +35594,6 @@ ctn
 ctn
 ctn
 ctn
-lvc
-lvc
 ctn
 ctn
 ctn
@@ -35561,16 +35607,18 @@ ctn
 ctn
 ctn
 ctn
-lvc
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 ctn
 ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -35771,7 +35819,7 @@ ctn
 ctn
 jDR
 mWo
-tYI
+eoH
 tYI
 sja
 nEc
@@ -35821,13 +35869,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -36028,12 +36076,12 @@ ctn
 ctn
 jDR
 mWo
-mWo
-mWo
-mWo
-mWo
-mWo
-mWo
+epG
+kHl
+vlm
+kHl
+kHl
+kHl
 mWo
 mWo
 mWo
@@ -36048,7 +36096,7 @@ ctn
 pJZ
 qBS
 xjB
-bzZ
+aaa
 xjB
 xjB
 qJq
@@ -36078,13 +36126,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -36335,13 +36383,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 oDe
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -36592,13 +36640,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -36849,13 +36897,13 @@ ctn
 ctn
 ctn
 ctn
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -37106,13 +37154,13 @@ ctn
 ctn
 ctn
 rna
+ctn
+ctn
+ctn
+ctn
+ctn
 pJZ
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -37363,13 +37411,13 @@ awG
 aow
 awG
 awG
+awG
+awG
+awG
+awG
+awG
 uaE
-gbX
-xRX
-xRX
-xRX
-xRX
-xRX
+bzZ
 xRX
 xRX
 xRX
@@ -37622,11 +37670,11 @@ huE
 huE
 huE
 huE
-xRX
-xRX
-xRX
-xRX
-xRX
+huE
+huE
+huE
+huE
+huE
 xRX
 xRX
 xRX

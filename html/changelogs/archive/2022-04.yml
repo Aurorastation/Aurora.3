@@ -1,0 +1,541 @@
+2022-04-04:
+  MattAtlas:
+  - rscadd: Autofire now continues spraying even if you hold your mouse down on one
+      tile.
+  - bugfix: Fixed a bug where unwielding and rewielding a gun may result in a slower
+      fire delay.
+  - rscadd: Added a current date field to the Stats menu.
+  TheGreyWolf, mikomyazaki:
+  - rscadd: Added shield diffusers. They prevent shielding on adjacent turfs, allowing
+      e.g. the supermatter to be ejected while shielding is online.
+  - rscadd: The bubble shield generator now has the option for multi-z shields.
+  - tweak: Changed what kind of turfs hull shields make shields on. They should no
+      longer make shields within the station/ship.
+2022-04-09:
+  MattAtlas:
+  - rscadd: Added casual t-shirts and dress shirts for Skrell under their loadout.
+      Includes reef shirts and hawaiian shirts in Silversun style.
+  SleepyGem:
+  - tweak: Zo&#x27;ra Soda effects are now similar to coffee, with a tiny bit more
+      caffeine.
+  - tweak: Standardizes the Zo&#x27;ra Soda energy drinks to 30 units.
+  - tweak: The descriptions of the cans were rewritten slightly to be more interesting
+      to read.
+  - rscadd: Adds the C&#x27;thur Rockin&#x27; Raspberry to the Zo&#x27;ra Soda vending
+      machine.
+  - rscdel: The V&#x27;krexi Amino Acid Mixture chemical has been removed.
+  - tweak: And instead the effects have been merged with the Zo&#x27;ra Soda energy
+      drink reagents.
+  - rscdel: Removed negative effects from Zo&#x27;ra Soda, except Drone Fuel, so it&#x27;s
+      actually drinkable in a casual manner.
+  - tweak: High Octane Zorane Might is now a &quot;contraband&quot; item.
+  - tweak: Vaurcae are immune to the overdose side effects of Zo&#x27;ra Soda energy
+      drinks.
+  kermit:
+  - bugfix: Fixed neurotoxic chemicals doing no damage. Neurotoxic chemicals will
+      prevent Alkysine from working unless Dylovene is also in the system.
+  - tweak: All neurotoxic chemicals have had their numbers tweaked to ensure they
+      don&#x27;t nuke the brain.
+  - tweak: Tweaked effects and added flavour messages for many, if not all, the recreational
+      drugs. Affected drugs include Psilocybin, Raskara Dust, Krok Juice, Nightlife,
+      Space Drugs (now Mercury Monolithium Sucrose &amp; Ambrosia Extract) Mortaphenyl,
+      Oxycomorphine, Hyperzine, Stimm, Mindbreaker Toxin, and Wulumunusha.
+  - rscadd: Split Space Drugs into Mercury Monolithium Sucrose and Ambrosia Extract.
+      MMS remains the chemical precursor for various mental reagents; Ambrosia Extract
+      is a lite version of MMS found in Ambrosia.
+  - rscadd: 'Added another recreational drug: Joy (1 part Neurapan, 2 parts Oxycomorphine).
+      Also available on the Traitor Uplink in the Random Toxin Vial.'
+  - tweak: Ammonia/fertilisers can be tossed onto people to deal minor burn damage.
+      A cheap tool for traitors or an accident waiting to happen in Hydroponics.
+  - tweak: Space Cleaner and Sterilisine now have toxic properties if ingested in
+      large doses. Another cheap tool for traitors. Accidentally spraying someone
+      (even multiple times) isn&#x27;t going to hurt them, don&#x27;t worry.
+  - rscadd: 'Added Xu&#x27;xi Gas, a recreational drug hailing from Qerr&#x27;Malic
+      that must be inhaled. It produces a mild high similar to Wulumunusha and is
+      known to make users susceptible to persuasion. Recipe: 2 parts Dexalin, 2 parts
+      Mercury Monolithium Sucrose, 1 part Truth Serum (reagents heated to 137&#x27;C).'
+  - rscadd: 'Added Co&#x27;qnixq Wuxi, a skrell nootropic/&#x27;smart drug&#x27; which
+      enhances cognitive function &amp; memory recollection/gain. It increases psionic
+      stamina by 25% while metabolising. Recipe: 1 part Wulumunusha, 1 part Synaptizine,
+      1 part Emoxanyl.'
+  - tweak: Tweaked glass bottle/beaker examine code to show whether the reagent is
+      a gas/liquid/solid (before it only showed solids).
+  - tweak: Wall Nano-Meds now also have dylovene autoinjectors alongside the inaprovaline
+      autoinjectors.
+  mikomyazaki:
+  - bugfix: Fixes a bug where toxins (e.g. from giant spiders) would never do damage
+      because they couldn&#x27;t beat your liver&#x27;s natural healing rate. Toxins
+      now suppress your liver&#x27;s natural healing and can become dangerous if you
+      don&#x27;t deal with the poison within several minutes.
+  - tweak: Blast door buttons will synchronise state of the blast doors they control
+      when pressed.
+2022-04-10:
+  Alberyk:
+  - bugfix: Fixed some blastdoor having no control buttons.
+  - bugfix: Emitters sound should no longer be heard at the AI core.
+  - bugfix: Fixes the dionae species having the incorrect species job species restriction.
+  - bugfix: Fixes the operations manager not being whitelisted.
+  mikomyazaki:
+  - tweak: Security Officers, Investigators and Security Cadets can now submit warrants
+      for approval using the warrant program. They cannot authorize warrants or edit
+      authorized warrants.
+  - rscadd: Investigators now have a &#x27;Case Closed&#x27; stamp in their lockers.
+  - rscadd: The Telecomms Server Monitor can now print channel logs.
+2022-04-11:
+  Alberyk:
+  - bugfix: Fixed the Tajaran title screen having a misplaced black bar.
+  MattAtlas:
+  - bugfix: Fixed a runtime to do with job selection. You can now only select a job
+      after both the job controller and the record controller have been initialized.
+  - bugfix: 'Fixed the Orion Shuttle being unable to depart the Orion Ship after it
+      has moved from its starting location. As a note for future mappers: if you have
+      a ship with a hangar for a small ship, the landmark of the hangar MUST have
+      the MOVABLE_FLAG_EFFECTMOVE movable_flag set.'
+  - bugfix: Colored light tubes don&#x27;t randomize their color anymore.
+  mikomyazaki:
+  - bugfix: AI can now use the sensors console fully.
+  - bugfix: Operations mailing room no longer launches the rubbish off of the conveyor
+      belt.
+  - bugfix: Port Propulsion now has an additional valve to toggle that will send cold
+      phoron to the starboard thruster if you wish to operate with cold propellant.
+      Note that this mode will result in less thrust and it is preferable to use the
+      burn chambers!
+  - tweak: D1 Operations areas now have some additional holopads.
+  - tweak: CE and Journalist Officers are now better lit.
+2022-04-12:
+  Alberyk:
+  - bugfix: Fixed the Orion Express having the wrong description in game.
+  JohnWildkins:
+  - bugfix: Fixed lobby ready names causing errors if no high-priority role was selected,
+      or if assistant was enabled.
+  RyverStyx:
+  - bugfix: Fixed broken sprites so they line up with the body in the intended ways.
+  mikomyazaki:
+  - bugfix: Shuttles should now always properly simulate their atmospheres when landing
+      on a space that has the same turf types as itself. (e.g. Intrepid airlock turfs
+      are the same as the hangar turfs resulting in air not moving properly into the
+      shuttle)
+2022-04-13:
+  JohnWildkins:
+  - bugfix: Fixed double-wide firedoors not rendering their hatches correctly.
+  - bugfix: Fixes performance issue related to an unintended world loop in NTNRC code.
+  MattAtlas:
+  - bugfix: You can now spawn in as a matriarch drone.
+  Omicega:
+  - tweak: The Amohdan blade is now unbreakable and uses its proper naming convention
+      and base sprite.
+  - tweak: Removes other Tajara languages giving partial understanding of Siik&#x27;Tajr,
+      allowing it to better fit its niche in the lore.
+  RyverStyx:
+  - bugfix: Fixed an accidental deletion of the cloak sprites.
+  mikomyazaki:
+  - rscadd: Orion Traveler Shuttle has a holopad now.
+  - tweak: Orion Traveler has CO2 fuel now.
+  - tweak: Orion Traveler holopad is in its cockpit now.
+  - bugfix: Orion Traveler cardinal navpoints for shuttles are in the right places
+      now.
+  - tweak: Orion crew get proper voidsuits that can hold full oxygen tanks.
+  - bugfix: Orion Traveler airlock now cycles.
+  - tweak: Orion Traveler now has a cryo-pod in the dormitory.
+2022-04-14:
+  Alberyk, Desven:
+  - rscadd: Added uniform icons for the vaurca bulwark.
+  Ben10083:
+  - maptweak: Added Cyborg Charging Station to Workshop
+  - imageadd: Added area icon for Workshop.
+  - bugfix: Barsign and Holo-menu should now work properly in the Space Bar.
+  FlamingLily:
+  - maptweak: Disconnected the service and security subgrids from each other.
+  - maptweak: Made the downwards cable to the freezer go through a catwalk, instead
+      of solid floor.
+  JohnWildkins:
+  - bugfix: Camera consoles can now be used while buckled in non-office chairs, and
+      should reset view properly when no longer in use.
+  - tweak: Computer UIs will now close for cyborgs if they move beyond visual range.
+      (They already disabled interaction in the past.)
+  ben10083:
+  - maptweak: Made it more obvious that Mech Bay is in operations department, not
+      research.
+  - bugfix: Research lift now states correct deck when arriving to destination.
+  - rscadd: Added Operation Manager&#x27;s stamp to their office.
+  - rscadd: Added brand new stamp for Warden.
+  mikomyazaki:
+  - tweak: Machinists can no longer cosplay as a HoP with the machinist&#x27;s uniform
+      in their vending machine.
+  - bugfix: Orbital drill droppers now work anywhere that isn&#x27;t on the Horizon...
+      unless emagged.
+2022-04-15:
+  Alberyk:
+  - rscadd: Ported baystation&#x27;s ship thruster sprites and effects.
+  JohnWildkins:
+  - bugfix: Carnivorous and weedy plants now properly check for nearby mobs to entangle
+      and stab.
+  - bugfix: Fixed an issue whereby away sites would fail to generate.
+  - tweak: Exiting vehicles (cargo trains, etc) will try to deposit you on solid ground
+      where possible.
+  Vrow:
+  - bugfix: Fixed Medical Grippers being able to duplicate organs.
+  - bugfix: Fixed Cable Synthesizers being unable to repair robotic limbs.
+  - bugfix: Fixed being unable to see whether a robotic limb has their screws/panel
+      off if it&#x27;s not damaged.
+  Yonnimer:
+  - tweak: Nerfs space eels by giving them less HP and damage, but giving them some
+      armor piercing.
+2022-04-16:
+  Alberyk:
+  - rscadd: Added the Grand Romanovich as an away site.
+  Ben10083:
+  - maptweak: Office chair in Investigator&#x27;s office and roller bed in Autopsy.
+  DanseMacabre:
+  - rscadd: Added a SFA third party ship, a TCFL ship, and an EE ship.
+  Doxxmedearly:
+  - bugfix: Ghosts can no longer rename monkeys or their equivalents.
+  Geeves:
+  - rscadd: Megaphones now work by turning them on and having them in either of your
+      hands when speaking normally. They increase the size of your speech and sets
+      the speaking verb to broadcasts.
+  - rscdel: Megaphones can no longer be emagged.
+  - rscadd: Exosuit megaspeakers now change your speech verb to broadcasts and gives
+      any Tajara listening intently ear pain.
+  - rscadd: Speaking using an exosuit megaspeaker or a megaphone will now increase
+      the overhead chat message size.
+  ImmortalRedshirt:
+  - maptweak: Adds a second spawnpoint in the machinist&#x27;s shop, next to the console.
+  KingOfThePing:
+  - spellcheck: Fixed the autocompressor&#x27;s spelling.
+  - tweak: Added a Saline Plus option to blood pack labeling.
+  - bugfix: Floating text is now actually overhead again.
+  - spellcheck: Fixed a newspaper spelling artifact and some wording on the bridge
+      crew cap.
+  - tweak: Remodeled the kitchen for better workflow and use of space.
+  - rscadd: Added the missing holosign switched in both ORs.
+  MattAtlas:
+  - bugfix: The stealth hardsuit and its subtypes no longer make walking sounds.
+  - bugfix: You can now actually put cigarette filters on rolled cigarettes.
+  - tweak: Cigarette filters are no longer paper.
+  - rscadd: You can now put a filter on a rolled cigarette by clicking it with the
+      cigarette, instead of having to put the box down, take out a filter and then
+      click the cigarette with the filter.
+  - tweak: Reflavoured the Gen. Eric cigarette paper to the Callistean Classic cigarette
+      paper.
+  - rscadd: Added some visible messages to cigarette rolling.
+  Omicega:
+  - rscadd: Allows suit coolers to be plugged into voidsuits just like oxygen tanks.
+      Adds an action button for them too, just like magboots.
+  Ramke:
+  - rscadd: Added the Aurora miniature that was handed out on the 9th of April 2464
+      into general loadout.
+  SleepyGemmy:
+  - bugfix: Lets investigators use the holobadge.
+  - rscadd: Adds a Republic of Biesel work visa.
+  Vrow:
+  - bugfix: Fixed Medical Stationbounds being unable to perform organ transplants.
+  - bugfix: Removed a debug message as liver regenerates
+  Wowzewow (Wezzy):
+  - rscadd: Adds new animation and effects to dusting.
+  mikomyazaki:
+  - admin: getserverlog verb now works for .json logs.
+2022-04-17:
+  JohnWildkins:
+  - backend: Optimized lighting updates, primarily in initialization.
+2022-04-18:
+  Alberyk:
+  - bugfix: It is no longer possible to late spawn in the casino.
+  Doxxmedearly:
+  - bugfix: Borgs and drones can now actually change their cable color.
+  - bugfix: Random event spawns (Such as rats and crates) should now only spawn on
+      the inside of the Horizon.
+  - rscadd: Added the ability to anchor and unanchor smartfridges, which includes
+      the SmartHeater, drink showcase, drying racks, seed storage, and chemistry fridges.
+      Find an engineer with a wrench to do it. You cannot use it while it isn&#x27;t
+      anchored!
+  - maptweak: In atmos, slightly remapped the area near the mix tank, to separate
+      the Engine to Mix from the other parts of the mix line, since only the former
+      should be going through the radiator loop.
+  - maptweak: Removed the digital valves in atmos near the canister ports. Also added
+      a manual valve to the Hydrogen tank pipeline.
+  - bugfix: Removed some duplicated pipes in atmos.
+  - bugfix: The pump that supplies air to the station now begins the round turned
+      on. Seems important.
+  - bugfix: Large gas tank monitors should no longer report the gas temperature as
+      a percentage.
+  - bugfix: Made the gas room of the starboard-side thrusters airless, to match the
+      port side.
+  - tweak: Updated the deep ore scanner&#x27;s name to... deep ore scanner, in order
+      to prevent confusion with other ore detectors.
+  JohnWildkins:
+  - rscadd: Added a new hideout exoplanet ruin, available to explore.
+  - bugfix: Fixed ruin site selection + budgeting.
+  - bugfix: Detached shuttles should now be able to return to their motherships.
+  KingOfThePing:
+  - tweak: Removed mentions of NanoTrasen and the Aurora from the holowarrant projector,
+      Security rejoices.
+  Llywelwyn:
+  - bugfix: Fixes date when using &#x27;save chat log&#x27;. Now gives the correct
+      month and date.
+  SleepyGemmy:
+  - maptweak: Adds disposals units and coat racks to security.
+  - maptweak: Adds O2 lockers around the ship on deck 2 and 3.
+  - maptweak: Added a cigarette machine outside the deck 3 lounge.
+  - maptweak: Made the deck 3 rafters more accessible and added a shortcut.
+  - maptweak: Added emergency shutters and glass airlocks to the deck 3 port and starboard
+      docks to lower chance of shipwide depressurization.
+  - maptweak: Added a ATM outside the XO&#x27;s office.
+  - maptweak: Added a new bathroom under the living quarters lift room. Added a cyborg
+      recharger to the medical bathroom and new bathroom.
+2022-04-19:
+  Doxxmedearly:
+  - bugfix: The windoor to the library desk now requires the correct access to open.
+  Geeves, Kyres1:
+  - rscadd: Added a new shorter tail type for Tajara.
+  - rscadd: Added a colorable tail cloth accessory for the standard Tajara tail.
+  JohnWildkins:
+  - refactor: Cut down on extraneous z-level generation for off-map shuttles.
+  - bugfix: Starlight module no longer attempts to generate lights on turfs that haven&#x27;t
+      initialized.
+  - refactor: Sounds and messages via sensitive hearing were optimized to no longer
+      rely on expensive recursive checks.
+  - refactor: Visualnets no longer attempt to update their visibility chunks prior
+      to game start.
+  KingOfThePing:
+  - rscadd: Re-added the cook alt title for chefs.
+  RyverStyx:
+  - rscadd: Added genner skrell accent.
+  SleepyGemmy:
+  - bugfix: Fixes bugged modular laser component sprites.
+  Vrow:
+  - rscadd: Added an option to clear the Blood Pack&#x27;s label.
+  - imageadd: Added various labels for the blood pack.
+  - tweak: Added a check to prevent the IVs from being knocked over if you&#x27;re
+      prone.
+  - tweak: Increases the package wrap paper stack from 25 to 30.
+  - bugfix: Fixed toggle actions not working for IVs.
+  mikomyazaki:
+  - bugfix: Zeng-hu and Zavodskoi Xenobiologists now have the proper access instead
+      of Scientist access.
+  xxxxyobdab:
+  - rscdel: 'Removed recipe: Espresso + Water = coffee. Reason: Americano already
+      uses this mix.'
+  - rscadd: Rich Coffee Plant to gather Rich Coffee Beans.
+  - rscadd: Grind Rich Coffee Beans for Dark Coffee Grounds.
+  - rscadd: Recipe:Dark Coffee Grounds + Water = Espresso
+  - tweak: '(Coffee Grounds + Water) From: makes Espresso. To: makes Coffee'
+  - rscadd: 'Plants: Strawberry, Raspberry, Black Raspberry, Blue Raspberry'
+  - rscadd: Strawberry, Raspberry, Black Raspberry, Blue Raspberry and Rich Coffee
+      Seeds added to vending machines.
+  - rscadd: 'Produce: Strawberries, Raspberries, Black Raspberries, Blue Raspberries'
+  - rscadd: 'Specific juices for: Glowberry, Deathberry, Dirtberry, Ylphaberry, Blueberry,
+      Strawberry, Raspberry, Blue raspberry, Black raspberry'
+  - rscadd: 'Syrup(3u simple syrup + 2u of listed juice) recipes for: Berry, Strawberry,
+      Blueberry, Poisonberry, Deathberry, Glowberry, Dirtberry, Ylphaberry, Raspberry,
+      Black Raspberry, Blue Raspberry'
+2022-04-20:
+  Ben10083:
+  - spellcheck: Fixed typos in some airlocks in Security
+  JohnWildkins:
+  - refactor: The list of readied players has been optimized, lowering pre-game server
+      load.
+  - tweak: The readied player list now sorts by department and name, displaying readied
+      players by department.
+  mikomyazaki:
+  - tweak: Reduced the dock/undock time of all small shuttles to 20s rather than 90s.
+  - bugfix: Ships will stop moving across the overmap when they launch to dock/move
+      to an away site.
+2022-04-21:
+  BLUNTFORCE420:
+  - rscadd: Added a new 10mm SMG for Sol and Sol-aligned off-ships, solarian submachine
+      gun.
+  - tweak: Fixed grammar issue on STS-35 Shorty fluff description.
+  - tweak: Changed description for battle rifle, renamed to solarian assault rifle.
+  - tweak: Organized the Solarian weapons in gun dmis with sol_- prefix.
+  Doxxmedearly:
+  - tweak: Scooping up and eating food with a utensil no longer displays that fact
+      to everyone in view.
+  JohnWildkins:
+  - bugfix: Fix away-ship shuttles taking parts of the Horizon with them back to space.
+  - bugfix: Players readied count in the lobby should now be accurate. Improper Argument
+      crash has also (potentially) been fixed.
+  SleepyGemmy:
+  - maptweak: Remade the disposals room and gave it a visual polish.
+  - maptweak: Remade the custodial closet and gave it a visual polish.
+  - maptweak: Changed some out-of-place airlocks for a better sprite, added some grates
+      in maintenance, and did some visual polish in the maintenance area behind custodial.
+  - maptweak: Adds a disposals loop to deck 1 and a sorter for custodial and the workshop.
+  mikomyazaki:
+  - bugfix: Can crack eggs into reagent containers again.
+2022-04-22:
+  Arrow768:
+  - bugfix: Marks the AI APCs as critical so the AI isnt killed off during the electrical
+      storms.
+  RyverStyx, JohnWildkins:
+  - rscadd: Adds a set of skrell ponchos usable by Skrell, Dionae, and Vaurcae.
+  SleepyGemmy:
+  - bugfix: Removes a human-to-monkey DNA injector from the NSS Aurora I map.
+2022-04-23:
+  Ben10083:
+  - maptweak: Readded missing power cable east of Workshop.
+  - spellcheck: Updated request console form prefixes to be in line with current lore.
+  DanseMacabre:
+  - rscadd: Added new inhand sprites for various guns.
+  - rscadd: Adds a small new away site.
+  Huntime:
+  - maptweak: Infirmary quality of life changes, equipment additions, layout modifications.
+  RyverStyx:
+  - rscadd: Added 3 skrell accents.
+  SleepyGemmy:
+  - bugfix: Maps in the missing blast doors to the xenoarch cells.
+  WickedCybs:
+  - bugfix: Adds in the missing emergency shutters and air alarms to all three decks
+      of the Horizon.
+  mikomyazaki:
+  - tweak: Shuttles now undock/land on things in 20s rather than 90s.
+2022-04-24:
+  Ben10083:
+  - maptweak: Added missing emergency shutter in kitchen.
+  DanseMacabre:
+  - rscadd: Changed the SFA patrol ship into a unique shuttle, and gives it an extra
+      marine. Restricted it to spawning in Tau Ceti, and adds a new FSF ship for the
+      CRZ.
+  - rscadd: Added detailed shiplore to the extant ships in the game.
+  Doxxmedearly:
+  - bugfix: Tobacco will no longer cause liver damage.
+  JohnWildkins:
+  - bugfix: Fixed away site and exoplanet ruin generation.
+  MattAtlas:
+  - rscadd: Added an Origins and Backgrounds system in the Origins tab in character
+      setup. These origins and backgrounds determine what accent, religion, citizenship
+      and loadout items you can pick.
+  - rscadd: Added the Shintoist religion.
+  - tweak: Most Dominian items are now culture restricted.
+  - tweak: Gadpathurian items are now origin restricted.
+  - bugfix: Fixed erroneous HTML code if you selected a culture with important information.
+  - bugfix: Fixed the Megacorporate IPC culture desc.
+  - bugfix: Fixed the absence of BSL and TTS accent on Biesel IPCs.
+  - bugfix: Origin and culture restrictions for loadout items now work properly.
+  SleepyGemmy:
+  - bugfix: Fixes thruster heaters lacking opacity.
+  mikomyazaki:
+  - bugfix: Evacuations should no longer stall at the ends of certain round-types.
+  - tweak: Removed continous rounds config option.
+2022-04-25:
+  JohnWildkins:
+  - tweak: Origin sub-menus should now remain in focus while selecting, and will close
+      when an option is selected.
+  KingOfThePing:
+  - tweak: Tweaked the forgotten search warrant to also be in line with the current
+      lore.
+  MattAtlas:
+  - bugfix: Scrapper IPCs can now select the correct accents.
+  - bugfix: IPCs can now select the Orepit Trinary culture.
+  SleepyGemmy:
+  - bugfix: Fixes PMCG capitalization on the crew manifest.
+  - bugfix: Fixes shuttles using fuel twice.
+2022-04-26:
+  DanseMacabre:
+  - bugfix: Fixed the third party ships losing their exterior access buttons. Also
+      gave the derelict and space bar more landing waypoints.
+  Huntime:
+  - maptweak: Deck 3 Command-map overhaul
+  Yonnimer:
+  - rscadd: Adds the Narrows culture and the CoC grown origin for Dionae
+2022-04-27:
+  Desven:
+  - bugfix: Fixed Vedhra&#x27;s Brood description not properly showing.
+  - bugfix: Fixed some words in the Vaurca origins section.
+  - bugfix: Fixed Leto Breeders not being able to select their citizenship.
+  - rscdel: Removed Hive citizenship for normal Vaurcae.
+  Huntime:
+  - bugfix: Bridge cameras are now properly defined.
+  ImmortalRedshirt:
+  - rscadd: Miner lockers now contain one basic ship bounced radio each.
+  MattAtlas:
+  - rscadd: Added a cautery to the Investigations surgery tray for them to close bodies
+      up with.
+  Omicega:
+  - tweak: Removed redundant faction berets from certain job spawns. They still exist
+      (and have always existed) in the faction section of the loadout as optional
+      extras.
+  SleepyGemmy:
+  - maptweak: Remaps the deck 1 security checkpoint.
+  - maptweak: Remaps the deck 1 pilot room.
+  Vrow:
+  - bugfix: Fixed some buckle checks not doing their thing properly in machines like
+      Recharger Stations, Sleepers, Cryo Cells, etc.
+  - bugfix: Fixed IV stand not crashing/ripping if the attached patient has a mask/IV,
+      but not a tank/beaker installed in the stand itself.
+  - bugfix: Fixed the MMI with visible brain states to correctly display the skrell
+      and vaurca ones.
+  - bugfix: Fixed Vaurcae brains being borg-able.
+  Vrow, KingOfThePing:
+  - imagedel: Removed old shaker sprite.
+  - imageadd: Added a new shaker that is more metallic, with additional detachable
+      top and cap, as well as in-hands for them.
+  - imageadd: Added a unique new cyborg drink sythesizer sprite, with visible filling
+      color so you can see what you have selected!
+  - soundadd: Added several shaking sounds for the shaker, removing the cap/top sounds,
+      a big pour sound, and a new generic pouring sound.
+  - rscadd: You can now remove the new shaker&#x27;s top, and also the cap that doubles
+      as a mini cup!
+  - tweak: The cyborg drink synthesizer now tells you what reagent you have just transferred
+      to stuff.
+  - bugfix: Fixed being able to pour stuff into a capped vacuum flask.
+  - bugfix: Fixed cyborg synthesizer&#x27;s inaccurate desc_info, and cleared the
+      desc_fluff from them as well.
+  mikomyazaki:
+  - bugfix: You can place tape on doors again.
+  - bugfix: Tape can now cross lattices/gratings.
+  - maptweak: Maintenance door by the Investigator&#x27;s Office no longer has a blast-door,
+      to allow access to security if the lockdown is triggered and no one is available
+      to lift it.
+  - rscdel: Removed telecomms logs printing feature until a better solution can be
+      found for the lag it can cause.
+  waffai:
+  - bugfix: Re-adds TTS as an accent option to all IPC origins.
+2022-04-28:
+  Alberyk:
+  - bugfix: Fixed phoron showing up in non-romanovich asteroids.
+  Ben10083:
+  - spellcheck: Fixed syntax errors in the Republic of Assunzione origin.
+  - rscadd: Chaplain can now be selected by those in the Independent Faction.
+  Doxxmedearly:
+  - tweak: Edited the wording of the phoron-related bounties to more accurately represent
+      current lore.
+  - rscdel: Removes the phoron canister bounty.
+  KingOfThePing:
+  - tweak: Added a smoking vendor to security and no smoking signs to the Medbay.
+  Llywelwyn:
+  - rscadd: Added notifications for Skrell/antags with psionics when someone enters
+      or exits the dream.
+  - bugfix: Now correctly displays a chat message and fading out animation for people
+      exiting the dream.
+2022-04-29:
+  SleepyGemmy:
+  - bugfix: Fixes ATM position in the bar.
+2022-04-30:
+  Ben10083:
+  - bugfix: Replaced the TCFL rigs with the equipped version it was meant to have.
+  - bugfix: Added access requirements for some doors in the TCFL vessel that didn&#x27;t
+      have any.
+  Llywelwyn:
+  - tweak: Nralakk projector description tweaked - it is no longer exclusive to Federation
+      Skrell.
+  - rscadd: Added all planets with a significant Skrell population to the projector
+      loadout item, and made it easier to add new holograms in the future.
+  SleepyGemmy:
+  - bugfix: Fixes bees buzzing emote.
+  - bugfix: Maps in missing anomaly containers.
+  Vrow:
+  - bugfix: Fixed the Dropper&#x27;s reagent filling overlay not clearing correctly.
+  Wowzewow (Wezzy), monster860:
+  - rscadd: Adds cool animations to opening and closing crates.
+  - soundadd: Adds new sounds for opening and closing some cabinets and crates.
+  - imageadd: Resprites crates to look more swanky.
+  - refactor: Loot crates (A.K.A. Unusual Containers) should now spawn with more unique
+      sprites.
+  - rscadd: Adds animation to opening and closing lockers and body bags.
+  - refactor: Refactors Crate and Locker code to be more internally consistent.
+  - rscdel: Removed Electropack Crate rigging mechanic for being unused and eating
+      cable coils.
+  mikomyazaki:
+  - maptweak: The doors to telecomms now have the appropriate telecomms access requirement
+      instead of just maintenance access.

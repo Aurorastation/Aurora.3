@@ -889,12 +889,12 @@
 	req_access = list(218);
 	name = "Sidearms Cabinet"
 	},
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "UK" = (
