@@ -15,8 +15,7 @@
 		/datum/map_template/ruin/exoplanet/elyra_probe,
 		/datum/map_template/ruin/exoplanet/coc_probe,
 		/datum/map_template/ruin/exoplanet/hegemony_probe,
-		/datum/map_template/ruin/exoplanet/dominia_probe,
-		/datum/map_template/ruin/exoplanet/skrell_probe
+		/datum/map_template/ruin/exoplanet/dominia_probe
 	)
 
 /datum/map_template/ruin/exoplanet/pra_probe
@@ -36,8 +35,7 @@
 		/datum/map_template/ruin/exoplanet/elyra_probe,
 		/datum/map_template/ruin/exoplanet/coc_probe,
 		/datum/map_template/ruin/exoplanet/hegemony_probe,
-		/datum/map_template/ruin/exoplanet/dominia_probe,
-		/datum/map_template/ruin/exoplanet/skrell_probe
+		/datum/map_template/ruin/exoplanet/dominia_probe
 	)
 
 /datum/map_template/ruin/exoplanet/elyra_probe
@@ -57,8 +55,7 @@
 		/datum/map_template/ruin/exoplanet/pra_probe,
 		/datum/map_template/ruin/exoplanet/coc_probe,
 		/datum/map_template/ruin/exoplanet/hegemony_probe,
-		/datum/map_template/ruin/exoplanet/dominia_probe,
-		/datum/map_template/ruin/exoplanet/skrell_probe
+		/datum/map_template/ruin/exoplanet/dominia_probe
 	)
 
 /datum/map_template/ruin/exoplanet/hegemony_probe
@@ -78,8 +75,7 @@
 		/datum/map_template/ruin/exoplanet/pra_probe,
 		/datum/map_template/ruin/exoplanet/elyra_probe,
 		/datum/map_template/ruin/exoplanet/coc_probe,
-		/datum/map_template/ruin/exoplanet/dominia_probe,
-		/datum/map_template/ruin/exoplanet/skrell_probe
+		/datum/map_template/ruin/exoplanet/dominia_probe
 	)
 
 /datum/map_template/ruin/exoplanet/coc_probe
@@ -100,8 +96,7 @@
 		/datum/map_template/ruin/exoplanet/pra_probe,
 		/datum/map_template/ruin/exoplanet/elyra_probe,
 		/datum/map_template/ruin/exoplanet/hegemony_probe,
-		/datum/map_template/ruin/exoplanet/dominia_probe,
-		/datum/map_template/ruin/exoplanet/skrell_probe
+		/datum/map_template/ruin/exoplanet/dominia_probe
 	)
 
 /datum/map_template/ruin/exoplanet/dominia_probe
@@ -121,27 +116,5 @@
 		/datum/map_template/ruin/exoplanet/pra_probe,
 		/datum/map_template/ruin/exoplanet/elyra_probe,
 		/datum/map_template/ruin/exoplanet/coc_probe,
-		/datum/map_template/ruin/exoplanet/hegemony_probe,
-		/datum/map_template/ruin/exoplanet/skrell_probe
-	)
-
-/datum/map_template/ruin/exoplanet/skrell_probe
-	name = "Nralakk Survey Probe"
-	id = "skrell_probe"
-	description = "A Nralakk Federation planetary survey probe."
-
-	spawn_weight = 1
-	spawn_cost = 0.5
-	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE, SECTOR_ARUSHA) //Sectors where the Federation might have sent out probes
-	suffixes = list("asteroid/probes/skrell_probe.dmm")
-
-	planet_types = ALL_PLANET_TYPES //Spawns on pretty much any planet except for specific lore ones
-	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
-	ban_ruins = list( //Only one probe per planet for the sake of variety
-		/datum/map_template/ruin/exoplanet/sol_probe,
-		/datum/map_template/ruin/exoplanet/pra_probe,
-		/datum/map_template/ruin/exoplanet/elyra_probe,
-		/datum/map_template/ruin/exoplanet/coc_probe,
-		/datum/map_template/ruin/exoplanet/hegemony_probe,
-		/datum/map_template/ruin/exoplanet/dominia_probe
+		/datum/map_template/ruin/exoplanet/hegemony_probe
 	)
