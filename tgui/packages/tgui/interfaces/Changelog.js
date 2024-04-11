@@ -177,10 +177,10 @@ export class Changelog extends Component {
 
     const header = (
       <Section>
-        <h1>Traditional Games Space Station 13</h1>
+        <h1>AuroraStation, a Space Station 13 game</h1>
         <p>
           <b>Thanks to: </b>
-          Baystation 12, /vg/station, NTstation, CDK Station devs,
+          Baystation 12, tgstation, /vg/station, NTstation, CDK Station devs,
           FacepunchStation, GoonStation devs, the original Space Station 13
           developers, Invisty for the title image and the countless others who
           have contributed to the game, issue tracker or wiki over the years.
@@ -205,56 +205,30 @@ export class Changelog extends Component {
     const footer = (
       <Section>
         {dateDropdown}
-        <h3>GoonStation 13 Development Team</h3>
+        <h3>AuroraStation Development Team</h3>
         <p>
           <b>Coders: </b>
-          Stuntwaffle, Showtime, Pantaloons, Nannek, Keelin, Exadv1, hobnob,
-          Justicefries, 0staf, sniperchance, AngriestIBM, BrianOBlivion
+          Arrow768, MattAtlas, Alberyk, FluffyGhost, Geeves, Dreamykass,
+          Wildkins, Gem
         </p>
         <p>
           <b>Spriters: </b>
-          Supernorn, Haruhi, Stuntwaffle, Pantaloons, Rho, SynthOrange, I Said
-          No
+          WowzewoW, nauticall
         </p>
         <p>
-          Traditional Games Space Station 13 is thankful to the GoonStation 13
-          Development Team for its work on the game up to the
-          {' r4407 release. The changelog for changes up to r4407 can be seen '}
-          <a href="https://wiki.ss13.co/Pre-2016_Changelog#April_2010">here</a>.
+          AuroraStation is thankful to all the contributors that contributed
+          over the years.
         </p>
         <p>
-          {'Except where otherwise noted, Goon Station 13 is licensed under a '}
+          {'Except where otherwise noted, AuroraStation art is licensed under '}
           <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">
             Creative Commons Attribution-Noncommercial-Share Alike 3.0 License
           </a>
-          {'. Rights are currently extended to '}
-          <a href="http://forums.somethingawful.com/">SomethingAwful Goons</a>
-          {' only.'}
         </p>
-        <h3>Traditional Games Space Station 13 License</h3>
+        <h3>AuroraStation License</h3>
         <p>
-          {'All code after '}
-          <a
-            href={
-              'https://github.com/tgstation/tgstation/commit/' +
-              '333c566b88108de218d882840e61928a9b759d8f'
-            }>
-            commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at
-            4:38 PM PST
-          </a>
-          {' is licensed under '}
+          {' Our code is licensed under '}
           <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU AGPL v3</a>
-          {'. All code before that commit is licensed under '}
-          <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>
-          {', including tools unless their readme specifies otherwise. See '}
-          <a href="https://github.com/tgstation/tgstation/blob/master/LICENSE">
-            LICENSE
-          </a>
-          {' and '}
-          <a href="https://github.com/tgstation/tgstation/blob/master/GPLv3.txt">
-            GPLv3.txt
-          </a>
-          {' for more details.'}
         </p>
         <p>
           The TGS DMAPI API is licensed as a subproject under the MIT license.
