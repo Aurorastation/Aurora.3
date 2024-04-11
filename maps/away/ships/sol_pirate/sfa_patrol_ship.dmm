@@ -99,6 +99,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engineering)
 "ang" = (
@@ -1750,10 +1751,6 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
-"fld" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4,
-/turf/template_noop,
-/area/space)
 "fnU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1791,6 +1788,7 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Bridge)
 "ftC" = (
@@ -2464,6 +2462,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/custodialammo)
 "hvS" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Bridge)
 "hwu" = (
@@ -2891,6 +2890,7 @@
 "iOD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "iSw" = (
@@ -3388,15 +3388,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
-"kjs" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
-/turf/template_noop,
-/area/space)
 "kmF" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(203)
 	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Bridge)
 "koL" = (
@@ -3498,6 +3495,7 @@
 "kJp" = (
 /obj/item/screwdriver,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "kJT" = (
@@ -3792,6 +3790,7 @@
 /area/ship/sfa_patrol_ship/docking)
 "lIM" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Bridge)
 "lKb" = (
@@ -4240,6 +4239,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
+"neT" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
+/turf/template_noop,
+/area/space)
 "nfo" = (
 /obj/item/material/shard,
 /obj/effect/decal/cleanable/blood/drip/oil,
@@ -5241,10 +5244,6 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
-"qzY" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3,
-/turf/template_noop,
-/area/space)
 "qCZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -6123,6 +6122,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
+"tOd" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3,
+/turf/template_noop,
+/area/space)
 "tPO" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
@@ -6431,6 +6434,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "vns" = (
@@ -6604,6 +6608,10 @@
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
+"wfp" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4,
+/turf/template_noop,
+/area/space)
 "wfy" = (
 /obj/machinery/door/airlock/glass_service{
 	dir = 1;
@@ -6708,6 +6716,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "wpm" = (
@@ -7218,6 +7227,7 @@
 /area/ship/sfa_patrol_ship)
 "yjW" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 
@@ -33022,7 +33032,7 @@ xRX
 xRX
 xRX
 xRX
-kjs
+neT
 xRX
 xRX
 xRX
@@ -44530,7 +44540,7 @@ xRX
 xRX
 xRX
 xRX
-qzY
+tOd
 xRX
 xRX
 xRX
@@ -44892,7 +44902,7 @@ xRX
 xRX
 xRX
 xRX
-fld
+wfp
 xRX
 xRX
 xRX
