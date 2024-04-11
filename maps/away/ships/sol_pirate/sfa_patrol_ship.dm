@@ -156,6 +156,7 @@
 /obj/effect/shuttle_landmark/sfa_patrol_ship/airlock
 	name = "SFA Corvette - Port Airlock"
 	landmark_tag = "nav_sfa_port_airlock"
+	docking_controller = "airlock_sfa_port_airlock"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
