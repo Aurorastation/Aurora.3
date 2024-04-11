@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "TTS accent synthetic vocal cords are now available in loadout."
-  - tweak: "IPCs can no longer take synthetic vocal cords."
+  - rscadd: "TTS accent synthetic vocal cords are now available in loadout."
+  - rscdel: "IPCs can no longer take synthetic vocal cords."
