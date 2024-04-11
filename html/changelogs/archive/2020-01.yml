@@ -1,0 +1,572 @@
+2020-01-01:
+  Alberyk:
+  - bugfix: Fixed the brown hip holster having no icon.
+  Ferner:
+  - maptweak: The station's christmas decor has been removed, did some misc map fixes
+      including adding some missing shutters, access and other things. Added a no-smoking
+      sign to the kitchen.
+  Geeves:
+  - rscadd: Added a hoverpod mech.
+  - bugfix: Jetpacking downwards while in a mech no longer teleports you through the
+      floor.
+  - rscadd: Mechs with hover thrusters can now float over open turfs, as well as move
+      up and down z-levels.
+  Goret:
+  - rscadd: Cyborgs can now open body trays.
+  - rscadd: Medical cyborgs can now pick up virus samples with their gripper.
+  - rscadd: Added the roller bed rack from the rescue module to the standard medical
+      module.
+  ParadoxSpace:
+  - rscadd: Robotic limbs now become nonfunctional at about the same health as human
+      limbs.
+  - rscadd: Fixing them now takes more cable/fuel.
+2020-01-02:
+  Code by Geeves, Sprites by Kyres:
+  - bugfix: Fixed the powered hammer's sprites being duplicated instead of mirrored
+      across hands, increased its chance to trigger by 5% (30%).
+  - rscadd: Added a Hegemony version of the powered hammer with orange lights and
+      a 50% chance to trigger.
+  - tweak: Made the powered hammer reset in 30 seconds instead of 45.
+  - rscadd: Kataphracts now have new voidsuits, no longer will they wear knight armour
+      with ponchos.
+  - rscadd: Added new Unathi non-spaceproof body armour, which is ICly a new update
+      to the old leather looking bodyarmour.
+  - rscadd: K'lax kataphracts share the abovementioned body armour, but now have special
+      modified helmets for all four their eyes.
+  - tweak: Buffed the K'lax helmet ever so slightly, to be on par with the new Unathi
+      body armour.
+  - bugfix: Fixed the Jixizi dress to be back to its former beautiful glory.
+  - bugfix: Fixed Sinta Jumpsuits allowing you to roll down people's jumpsuits and
+      sleeves from range.
+  Crosarius:
+  - rscadd: Adds checks to some machinery/airlocks/alarms/buttons to preclude forensics
+      items from applying fibers/fingterprints BEFORE you take a sample.
+  - rscadd: Stops fire alarms and remote airlock/blastdoor/etc buttons from being
+      triggered when you use a forensics item on them, in addition to the above changes.
+  - rscadd: Adds a check to the to preclude forensics items from applying fibers/fingterprints
+      BEFORE you take the sample when you put an item in a bag.
+  Geeves:
+  - rscadd: Stationbounds have been added to the Crew Manifest in a Station Equipment
+      catagory. They are not crew. It will also not appear on PDA's (yet).
+  - tweak: Made the hoverpod torso a bit cheaper to produce. Since it's shit. You
+      know.
+  - bugfix: Fixed the duplicate hoverpod torso entry in the mechfab.
+  - tweak: Tabling isn't instant anymore, it now needs to timer on the grab to be
+      full. (The action itself is still instant)
+  - rscadd: Clicking on a table with harm intent with a grab will now smash the person's
+      face into the table.
+  MattAtlas:
+  - rscadd: Dionae now have a stomach organ, which means they can devour. It has a
+      bigger capacity than usual.
+  - tweak: Dionae can now devour big objects as well. Just pick them up and click
+      on yourself while aiming mouth.
+  - bugfix: Unathi can now actually devour tiny items.
+  - bugfix: Unathi can now devour any mob smaller than them.
+2020-01-03:
+  Aboshehab:
+  - tweak: Adjusted heat tolerances of all IPC species to differentiate between types,
+      letting it be more forgiving.
+  - tweak: Brute, resist and grab modifier changes to species dependant on type.
+  - tweak: Moves IPC abilities to their own tab for visibility and ease of use.
+  - rscadd: Adds a crush verb that is usable by G2.
+  - rscadd: Implements a variety new attack options to IPC species.
+  - tweak: Makes heat discomfort levels universally to be 100 units under the first
+      heat level for all IPC species.
+  - bugfix: Sorts out issues with voidsuit/hardsuit for Bishops and Zeng-Hu.
+  - tweak: Adjusts Zeng-Hu Frame speed to be more inline with their lore.
+  - tweak: Adjusts Xion Frame speed to be slightly faster than the G1 and G2 to emphasize
+      it being lighter.
+  - tweak: Xions can now go EVA indefinitely.
+  - tweak: Adjustments to fluff blurbs of IPC subspecies to account for mechanical
+      changes.
+  Code by Geeves, Sprites by Kyres:
+  - bugfix: Fixed hoverthrusters having stepping sounds by giving them no sounds.
+  - tweak: Adjusted hoverpod sidesprites, not sure what it really does but I trust
+      Kyres.
+  Ferner:
+  - rscadd: Added a combat engineer role for the freelancer mercenary team.
+  - tweak: Removed most of the station access freelancer mercenaries got.
+  Goret:
+  - rscadd: Ported the t-ray from Baystation. It should now give back an interest
+      into using it, and now has a range of 7x7.
+  MattAtlas:
+  - bugfix: Low pressure screams shouldn't spam your chat anymore.
+2020-01-04:
+  Geeves:
+  - bugfix: Tableslams now properly have cooldowns.
+  Karolis2011:
+  - tweak: Suit sensor monitoring program ported to VueUI and ui compacted.
+  - rscadd: Added integrated computer device to borgs, AIs and pAIs.
+  - rscdel: Removed now reduandant subsystems.
+  - bugfix: Fixed integrated computing device hud icon not working.
+  Leudoberct1:
+  - rscadd: Adds a new away site in the form of a Kataphract chapter with 7 playable
+      ghost roles.
+  - tweak: Adds the kataphract chapter map to the away site rotation.
+  MattAtlas:
+  - bugfix: Fixed some more hard deletion bugs.
+  MattAtlas, Geeves:
+  - rscadd: 'Added three new gamemodes: Tower Defense, Bughunt, Spy vs. Spy.'
+  - rscadd: Bughunt, mercenary and borer, needs twenty required players and five required
+      enemies.
+  - tweak: Borers have received some miscellaneous fixes and tweaks across the board.
+      They should overall work better now.
+  - rscadd: Borers can now awaken psionics in their hosts. Maybe it's not a bad idea
+      to get a brain slug after all...
+  - rscadd: Spy vs. Spy, traitor and renegade, needs four required players.
+  - tweak: Changed how renegades work a bit. You're not traitors! You're paranoid
+      people who smuggled a gun to work and are working to keep themselves safe. You
+      can still murder given enough reasoning to.
+  - rscadd: Tower Defense, mercenary, heist and ninjas, needs thirty required players
+      and ten required enemies. Good luck!
+2020-01-05:
+  Alberyk:
+  - tweak: Vampire blood draining should remove less blood, reducing the chances of
+      brain damage due to low oxygen.
+  Geeves:
+  - rscadd: The AI can now hear and speak LOOC via its Eye as well as via its Core.
+  Kaedwuff:
+  - rscadd: The vampire Dominate ability now sends the command to the chat window
+      too, so you can't lose it by accidentally closing the popup anymore.
+  MattAtlas:
+  - bugfix: Exosuits can now be built again.
+  - bugfix: AOOC has been fixed.
+  MattAtlas, Geeves:
+  - bugfix: Fixed bughunt for real.
+  - tweak: Bughunt now tries to spawn four mercenaries and two borers.
+  - tweak: Added some more intro text to Renegade.
+  ParadoxSpace:
+  - bugfix: Bowman headsets now appear in the Cargo lockers.
+  PoZe:
+  - tweak: Carps and spiders no longer targe shields intentionally. They will attack
+      shields only if adjacent or have to get to their target through shields.
+  - tweak: All ranged hostile mobs will now shoot at shields, if their target is behind
+      a shield.
+  - bugfix: Hostile mobs now try and attack you 10 tiles away. But ranged mobs will
+      still have to get within 6 tiles to shoot.
+2020-01-06:
+  Alberyk:
+  - bugfix: Fixed age restrictions not working when jobs were restricted by species.
+  Aticius:
+  - rscdel: Removed DNAChange Effect from Artifacts.
+  Code by Geeves, Sprites by Kyres:
+  - rscadd: Added mech passenger compartments.
+  Geeves:
+  - rscadd: Examining yourself for injuries will now show you whether your limb is
+      bleeding or not.
+  Leudoberct:
+  - maptweak: Adds a first aid kit to Red Dock.
+  MattAtlas:
+  - rscadd: Human NPCs and monkeys now have some more interactions.
+  - rscadd: Monkeys can now take items and throw them. Or shoot guns. Or activate
+      things.
+  - bugfix: Borers no longer get teleported out of a host if they're manually removed
+      after leaving the host.
+  - tweak: Removed synaptizine from borer chems. Added dylovene, kelotane, norepinephrine
+      instead.
+  - bugfix: You can now call ERTs on Bughunt.
+  - bugfix: Borers no longer have nutrition loss.
+2020-01-07:
+  Aboshehab:
+  - bugfix: Fixes character set up issues for IPC's as a result of recent rework.
+  - tweak: Change Zeng-Hu capability to use voidsuits and hardsuits machine version
+      to human version until better implementation method is found.
+  Geeves:
+  - bugfix: Borers can no longer infest non-organics or dionae at roundstart.
+  Geeves and Kyres:
+  - rscadd: Gave the Kataphracts a new backpack, the Hegemony Satchel, which has slightly
+      more than normal storage space.
+  - tweak: Tweaked the Kataphract oxygen tank and magboots to fit the aesthetic some
+      more.
+  - tweak: Tweaked the colours of the underclothes the Kataphracts spawn with to be
+      more easy on the eye.
+  - rscadd: Gave the Kataphract Klax a set of magboots.
+  Karolis2011:
+  - bugfix: Made sure suit sensor monitor always auto updates.
+  MattAtlas:
+  - rscdel: Bedhead 5 has been removed.
+  - bugfix: Fixes Pun Pun causing runtimes by knocking on windows.
+2020-01-08:
+  Geeves:
+  - bugfix: The HoP laptop now spawns with an ID Card Slot.
+  - rscadd: Added a new category to the traitor uplink, which is only available to
+      revolutionaries.
+  - rscadd: Head Revolutionaries now spawn with an uplink that has 50 TC, they also
+      get an alert telling them to not abuse it.
+  - rscadd: Revamped the drill dropper into a generic orbital dropper, capable of
+      dropping ANY sort of item you wish it to.
+  - rscadd: Added a Mech orbital dropper. Added an Armory orbital dropper.
+  - bugfix: Made loyalty implants display their text correctly when they implant someone.
+  - rscadd: Added aggression implants, which makes whoever it is implanted into extremely
+      aggressive. Quite useful for starting a revolution.
+  - rscadd: Added some description_antag to mercenary cipherkeys, informing the reader
+      that the mercenary radio key is :t.
+  - rscadd: Added a gear crate (not for mercs) which is just six syndicate softsuits.
+      Useful in a pinch.
+  Kaedwuff:
+  - rscadd: Added multipurpose aprons to the loadout. They can come in any color you
+      desire, and can hold several kitchen and bar items, such as the drink shaker,
+      booze and condiment bottles, and knives.
+  - tweak: Blue aprons are now called 'botanist aprons', to fit with their intended
+      role as a botanist item.
+  Skull132:
+  - bugfix: Projectiles will no longer lag the server to death if they reach the end
+      of map.
+2020-01-09:
+  Arturlang:
+  - bugfix: Fixes the bluespace borgs phase out procs typos.
+  Aticius:
+  - rscadd: Unathi Sprites have been given a brand new coat of paint and love; with
+      gender based sprites.
+  Goret:
+  - rscadd: Replaced the bee smoker sprite by a new one, made by Happy_Fox.
+2020-01-10:
+  Arturlang:
+  - bugfix: Fixes being able to tie your hair while unconcious or immobile.
+  Ferner:
+  - bugfix: Offworlder goggles will now apply the chosen loadout color properly.
+  Geeves:
+  - bugfix: Gemstones larger than small now properly spawn.
+  - bugfix: You can now flip your welding mask up and down even when buckled.
+2020-01-11:
+  Alberyk, Kyres:
+  - bugfix: Fixed TCFL rig shoes not displaying the correct sprites.
+  Skull132:
+  - backend: Updated remote logging capabilities.
+  Wowzewow (Wezzy), Mwahahahaha:
+  - tweak: Makes the Set Pose box retain its previously inputted information and turns
+      it into a chunky message box instead of a skinny text box.
+2020-01-12:
+  Geeves:
+  - bugfix: Jetpacks now properly toggle flight capability when you press the action
+      button.
+  - rscadd: Added a remote controlled Unbranded Frame to the command bunker.
+  Goret:
+  - rscadd: Added a cyborg recharge station in medical. It is located in the custodial
+      closet.
+  Karolis2011:
+  - bugfix: Bluespace drives have been improved to prevent critical drive failure.
+  MattAtlas:
+  - bugfix: Renegades now spawn with the guns in their backpack.
+  - bugfix: Organs no longer pop out of the body when transplanted.
+  - bugfix: Redaction bone mend no longer mends the bones above the bone break threshold.
+  - bugfix: You can no longer put mobs in potted plants.
+  - bugfix: Monkeys no longer throw things while being held.
+  - tweak: The silicon computer now starts with an advanced network card, which means
+      much faster downloads.
+  - tweak: Nerfed pressure damage a bit.
+  - bugfix: Orbital drops now work properly.
+  - rscadd: IVs now ping when the attached person is at less than 90% blood volume.
+  - rscadd: Ported over Bay's liver code. This means that you should no longer get
+      demolished livers insanely fast.
+  - tweak: Reduced zombie brain HP to 70.
+  - tweak: The head is now easier to hit.
+  - tweak: Nerfed the effects from getting hit in the brain while you have brain damage.
+      They only occur at 66 brain damage now. The paralysis and stun inflicted are
+      also gone.
+  - experiment: Increased the blood loss that lasers deal and decreased the blood
+      loss from fire.
+  - tweak: Increased the toxin damage slimes give a tiny bit.
+  - tweak: Succumbing is possible at 66 brain damage instead of 100 now.
+  - tweak: Brain damage now gives you stuttering instead of slurring.
+  - bugfix: Fixed some pain messages.
+  - tweak: Shrapnel now does external damage. Be careful, or pack a knife.
+2020-01-13:
+  Furrycactus:
+  - tweak: Changed the Trauma Physician's uniform to be more in line with the fact
+      that they are doctors and not paramedics. Puke jacket GET GONE.
+  Geeves:
+  - rscadd: Added a Frontier Cowboy gear crate, it's cheaper because it isn't EVA
+      capable, nor has any armour.
+  - tweak: Gave the whip a two tile hit radius.
+  Goret:
+  - rscadd: Add the flowercrowns to the loadout.
+  Karolis2011:
+  - bugfix: Fixes 'Track' button on suit sensors for AI.
+  SierraKomodo:
+  - tweak: Renamed Emergency Physician to Trauma Physician, to better reflect their
+      role as a doctor and not an emergency responder.
+2020-01-14:
+  Furrycactus:
+  - tweak: Reishi mycelium and Ambrosia Vulgaris are now regularly available in the
+      MegaSeed Servitor vendors, rather than being contraband, due to their legality.
+      This means you can vend them in Hydroponics or purchase them in the surface
+      garden without hacking the vendors.
+  Geeves:
+  - bugfix: Fixed powered hammer sprites.
+  MattAtlas:
+  - rscadd: Borer has been added as its own gamemode, requiring 3 borer players and
+      20 people readied.
+  - tweak: To be eligible as a borer host you now need the borer antag pref on. If
+      a borer cannot find a suitable host, it will spawn in a randomly positioned
+      landmark.
+  - tweak: Zorch, the eye laser power, has been made into a lightning arc power instead.
+      It works like before, except it shoots teslabolts.
+  - tweak: Disable, the EMP ability, has been made into a localized EMP ability. It
+      activates the EMP effect on items. You now activate it by targeting right hand
+      and clicking on items.
+  - tweak: Increased borer psi awakening chemical cost to 150.
+  - tweak: Borer psi awakening is now a bit more painful.
+  mikomyazaki:
+  - imageadd: Adds an icon for the Internal Affairs stamp.
+2020-01-15:
+  Alberyk, Kyres1:
+  - rscadd: Added two new guns; harpoon gun and foldable shotgun.
+  - rscadd: Added a new sprite and firing sound to the silenced pistol.
+  Doxxmedearly:
+  - rscadd: Added more detailed examine text to the industrial drills. Also clarified
+      a warning message, and added more notifications regarding cell changing.
+  Geeves:
+  - rscadd: Added a bunch of descriptions to the traitor uplink so you can be more
+      sure of what you're buying.
+  - rscadd: Added various new weapons, tools, and kits to the traitor uplink.
+  - tweak: Various traitor items have had their cost tweaked to bring them into a
+      tighter balance.
+  - tweak: The Tommygun is now know as the Vintage Sub-Machine gun everywhere.
+  - tweak: Manhacks are now called Viscerators everywhere.
+  - rscadd: Exosuit droppers and their equipment have both been given their own uplink
+      catagories.
+  - bugfix: Remote IPCs are no longer selectable in the Character Creation menu.
+  Karolis2011:
+  - rscadd: Added verbs to ghost menu to submit pAI personality and revoke it.
+  - rscadd: Added new VueUI for pAI personality submission.
+  - bugfix: Fixed pAI preferences.
+  MattAtlas:
+  - tweak: Mech examine now actually has colour and bolding.
+  mikomyazaki:
+  - tweak: Secuity records program now has a dropdown-menu for the criminal status
+      options, instead of a text input field.
+  - bugfix: Cargo shuttle can now send NPC mobs if they are part of an active bounty.
+  - rscadd: Advanced pinpointer can now indicate z-direction toward its target with
+      an overlay on the sides of the screen.
+2020-01-16:
+  Geeves:
+  - bugfix: Fixes the Klaxan Kataphract not being selectable.
+  ParadoxSpace:
+  - rscadd: You can now cop the TCFL field beret in the loadout.
+  - rscdel: To ensure equivalent exchange, it doesn't have armor anymore.
+2020-01-17:
+  Doxxmedearly:
+  - tweak: Offworlder pioneer scarves no longer prevent you from eating or drinking
+      while worn, just like every other scarf.
+  Geeves:
+  - tweak: Suit coolers now start with high capacity cells.
+  - tweak: Suit coolers printed at autolathes have no cells.
+  Goret:
+  - maptweak: A phonograph and a cigar case have been added to the bar counter. The
+      cake hat has been moved to the kitchen.
+  - rscadd: Briefcases update! More briefcases have been added to the loadout, and
+      hand-sprites have been reworked. Thanks to Happy_Fox for the sprites and Mwahahahaha
+      for the original code.
+  Karolis2011:
+  - tweak: Now atmospheric control consoles (like tank and supermatter) numeric inputs
+      set value on enter key press.
+  MoondancerPony:
+  - bugfix: Nitroglycerin should no longer instantly explode. Oops.
+  mikomyazaki:
+  - bugfix: A vampire's blood drain will now work properly on Skrell who enter Srom
+      during.
+  - bugfix: Skrell who are in Srom will now properly receive the alert about memory
+      loss due to brain damage to their real body.
+  - bugfix: Fixed direction of a right-hand spoon icon.
+  - bugfix: Protolathe and Circuit Printer now properly check for adjacency when being
+      filled with sheets.
+  - bugfix: The 'toggle visibility' verb will now work properly for manifested ghosts.
+2020-01-18:
+  BoryaTheSlayer:
+  - rscadd: 'Added four pieces of clothing, ported from Polaris: blue dress, dark
+      red dress, crop top, crop dress.'
+  Furrycactus:
+  - maptweak: Re-added specialised medical kits to the medical storage room. Toxin,
+      Burn, and an extra Oxygen Deprivation one specifically.
+  - maptweak: Re-added more bloodpacks to medical. Two more O- ones in the ICU and
+      Surgery, and a fridge of assorted bags in storage. Match blood types to patients
+      or calculate compatible blood types, go nuts.
+  NewOriginalSchwann:
+  - rscadd: Fixed a minor typo in the Idris and Necropolis CSI loadout datum. They
+      should now spawn in with the proper ID and uniform.
+  mikomyazaki:
+  - tweak: Diona can be cured of viruses with radiation exposure or radium injections.
+2020-01-19:
+  ParadoxSpace:
+  - rscadd: Adds painted claw body markings for Unathi.
+  - bugfix: Fixes Tzirzi robe cutting off the hand a little. Fixes facial long bull
+      horns having no icon.
+2020-01-22:
+  Ferner:
+  - maptweak: Did a round of minor mapfixes, most noticeable the turf oddities that
+      were at the Odin departure lounge.
+  ParadoxSpace:
+  - bugfix: Fixes the claw markings being a little too long on the left hand side.
+  - bugfix: The Security department jacket now has an NT logo on the back.
+  - rscadd: Adds a department jacket for Service.
+  - tweak: Increases the wittiness in the department jacket descs by 75%
+  Yonnimer:
+  - rscadd: Allows Dionae to join younger than 17.
+  mikomyazaki:
+  - bugfix: Latespawn AI will spawn with their eye in the right location.
+  - bugfix: Limited guest pass max name length to 26 characters instead of 1024.
+  - bugfix: Dying now properly stops your heartbeat.
+  - bugfix: Fixes issue where diona regeneration triggering would depend upon the
+      presence of brain damage, which they never have.
+2020-01-23:
+  Furrycactus:
+  - tweak: Added Hot Chocolate to the bar coffee machine and to soft drink dispensers.
+  - imageadd: Replaced the sprite for a glass of hot chocolate with a proper mug sprite.
+  Goret:
+  - tweak: Bolted the phonograph in the bar.
+  mikomyazaki:
+  - bugfix: Dismantling mech-suits will no longer produce a spooky invisible second
+      mech-suit.
+  - tweak: Lack of shoes no longer causes a slowdown.
+2020-01-24:
+  Alberyk, Kyres1:
+  - rscadd: Added new space ruin.
+  - tweak: Space ruin ghost roles will now only open when the research shuttle is
+      launched from the station.
+  Geeves:
+  - tweak: Slimecode has been tweaked a bit to make it slightly better. Adult slimes
+      will no longer have their babyname next to their name when they talk.
+  - rscadd: Golems have been added to the ghostspawner menu. You will be able to spawn
+      as one when a golem rune is created.
+  - bugfix: Slime steroids now properly triple uses, like the message says it does.
+  - bugfix: Slimes have had their nutrition values fixed. They will now properly evolve
+      and reproduce.
+  - tweak: Stunbatonning a slime now has a reduced chance of making them go batshit.
+  MattAtlas:
+  - rscadd: You can now destroy girders and walls with powerful items. It might take
+      some time, though, and you'll probably be better off deconstructing it unless
+      your weapon is strong.
+  - rscdel: Two-handed weapons no longer have that awkward Wielded sticking in front
+      of the name when you wield them.
+  - tweak: Girders now report their damage status on examine.
+  ParadoxSpace:
+  - rscadd: Adds two kinds of recolorable pants, dress and striped, as well as a recolorable
+      beret and an alt version of the casual skirt.
+  - rscadd: Adds a non la conical hat.
+  - rscadd: You can now get an armorless version of the TCFL flight jacket in the
+      loadout.
+  mikomyazaki:
+  - bugfix: Changelog Changelog - Fixed changelog wiki link.
+  - bugfix: Can no longer move buckled mobs into cryopods.
+2020-01-25:
+  Geeves:
+  - tweak: Modular Computer .dat files are now more space efficient.
+  MattAtlas:
+  - experiment: The Medical Doctor role has been split up into two different roles.
+  - tweak: Medical Doctor is now renamed to Physician and has four slots.
+  - rscadd: Surgeon is now its own standalone role. Two slots.
+  - bugfix: AIs are no longer invincible.
+  - bugfix: Contractor surgeons are now a possibility.
+  ParadoxSpace:
+  - bugfix: Fixes the classic cowboy boots being invisible.
+  Wowzewow (Wezzy):
+  - imageadd: New sprites and inhands for glasses! You should see them when you're
+      holding them in your hands, and changing your glasses mode will change the sprite
+      too.
+  - imageadd: Adds new sprites and inhands for mesons. They should be more representative
+      of what they actually do. (Try turning on mesons on and off in your hand and
+      see the magic!)
+  - tweak: You will no longer clumsily drop your glasses everytime you combine HUDs
+      with them.
+  mikomyazaki:
+  - admin: Fixed a bug where banning someone from Malf AI, Renegade, Asset Protection
+      Specialist, Syndicate Commando, Highlander or Traitor would ban someone from
+      all of those roles.
+2020-01-27:
+  Alberyk:
+  - bugfix: Fixed certains mobs being unable to smash wall girders.
+  Geeves:
+  - rscadd: Added the IAC response team.
+  - rscadd: Added an internals and suit sensors indicator to the strip menu.
+  - tweak: Toggle internals in the strip menu now displays whether you're toggling
+      it on or off.
+  - rscadd: Added an adjust mask and tank pressure check to the strip menu.
+  Leudoberct:
+  - bugfix: Adds Si'akh to the Unathi religion options.
+  MattAtlas:
+  - rscdel: Monkeys no longer throw or interact with stuff.
+  - tweak: You can no longer trade easy to get items to Cyndie Kate for stupidly strong
+      weapons.
+  - rscdel: Unathi can no longer swallow mobs or items whole.
+  - rscadd: Instead, they now have their old devour, still tied to a grab. You need
+      a red grab now, however. It does not work on humans.
+  - tweak: Unathi devour is now overall faster.
+  ParadoxSpace:
+  - rscdel: Dionae are now a bit slower.
+  PoZe:
+  - rscadd: Added new admin verb inside of Special Verbs called Load Template. It
+      appears when you press Toggle Build Mode. This verb allows admins to load template
+      maps into their current coordinates.
+  - rscadd: Added button to Build Mode buttons UI for load template.
+2020-01-28:
+  BoryaTheSlayer:
+  - bugfix: Fixes nanopaste not using charge when used for internal robotic repairs.
+  Geeves:
+  - rscadd: Added a default NTNet Relay IRC channel, for everyone to access and congregate
+      at.
+  - rscdel: Removed the user has joined and user has left the channel messages, so
+      you can freely move in the IRC without spamming people.
+  - rscadd: Added the IRC client as a default program to the Private enrollment preset,
+      so you don't have to download it seperately.
+  - tweak: Renamed the Computer Configuration Tool to Hardware Configuration Tool.
+  - rscadd: Added a basic laptop to the loadout.
+  - tweak: Increased the DDOS program's DDOSing power a bit.
+  - rscadd: Added Sudoku to the CE's laptop.
+  - tweak: Ports Bay Modular Computer component sprites.
+  MattAtlas:
+  - tweak: Commune and Psiping no longer spam staff logs.
+  Pratepresidenten:
+  - rscadd: Added a portable organ cooler
+  mikomyazaki:
+  - rscadd: All guns (except mech guns) now have safeties. CTRL+Click to disable to
+      safety. Firing on harm intent will automatically disable the safety.
+  - rscdel: Removes old pref-based gun safety system.
+2020-01-29:
+  mikomyazaki:
+  - bugfix: Species that are gender neutral will now properly spawn with the neuter
+      gender, and be neuter gender in the character setup.
+2020-01-30:
+  Alberyk:
+  - tweak: Gun's extra examine information is now only displayed when you are next
+      to it.
+  - bugfix: Fixed powercell examining not returning any text when you were far enough.
+  Geeves:
+  - rscadd: IPCs now display their charge level in the status panel.
+  Geeves, sprites by Araskael:
+  - rscadd: Added some Unathi shaman wrappings to the Xenowear tab.
+  MattAtlas:
+  - rscadd: Added a system that allows the creation of armored accessories. Currently
+      unused.
+  ParadoxSpace:
+  - tweak: Unathi foot claws are now a pixel taller.
+  Pratepresidenten:
+  - tweak: Given the roundstart tips some love.
+  - tweak: De-memefies the Captain's laser gun.
+  Wowzewow (Wezzy):
+  - tweak: Tweaks headset sprites - should be less visible from the back now.
+  - bugfix: Fixes spoon inhands.
+  - tweak: Mops, rags, and soap should no longer spam logs as much anymore.
+  - tweak: Yellow buttons on the paper shredder have been removed on account of looking
+      too similar to a maintenance panel.
+  - imageadd: New animation for shredding different states of paper.
+  - bugfix: Justice hats have been fixed properly this time.
+  - tweak: Cigar case has been made measurably smaller.
+  - bugfix: You no longer can eat soup with a fork. Weep and/or rejoice.
+  - tweak: Drinking soup should display more correct messages and sounds.
+  - bugfix: Eating things with utensils will now properly spawns the trash item.
+  mikomyazaki:
+  - bugfix: Limb attachment surgery now checks for presence of a suitable organ to
+      attach it to.
+2020-01-31:
+  Geeves:
+  - backend: All the gun sprites have been moved into seperate files, this has no
+      user-facing change, but will likely result in some sprites being missing. Please
+      report missing sprites to Github.
+  - rscadd: The double barrel shotgun can now be wielded.
+  Goret:
+  - maptweak: The medical briefing room has been modified. Surgeons should now spawn
+      inside it.
+  NewOriginalSchwann:
+  - rscadd: Re-added the old aviator sprites, now with fancy off states!
+  - rscdel: Removed the updated aviator sprites.
