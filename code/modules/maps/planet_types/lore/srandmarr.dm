@@ -12,7 +12,7 @@
 	generated_name = FALSE
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone, /datum/map_template/ruin/exoplanet/pra_probe)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_atmosphere()
 	..()
@@ -45,7 +45,7 @@
 	generated_name = FALSE
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone, /datum/map_template/ruin/exoplanet/pra_probe)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
 	return "#4a3f41"
@@ -76,7 +76,7 @@
 	color = "#cf1020"
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone, /datum/map_template/ruin/exoplanet/pra_probe)
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
@@ -104,7 +104,7 @@
 	generated_name = FALSE
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone, /datum/map_template/ruin/exoplanet/pra_probe)
 	place_near_main = list(3, 3)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
