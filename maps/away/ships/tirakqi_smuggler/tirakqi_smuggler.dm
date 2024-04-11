@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/tirakqi_smuggler
 	name = "Ti'Rakqi Smuggler"
 	description = "Featuring a respectable cargo bay, light frame, and large thruster nacelles, the Xroquv-class is one of the fastest federation freighters of this size. This one in particular appears to be refitted with expanded thruster nacelles and minor structural modifications. This one's transponder identifies it as belonging to an independent freighter."
-	suffixes = list("ships/tirakqi_smuggler/tirakqi_smuggler.dmm")
+
+	prefix = "ships/tirakqi_smuggler/"
+	suffixes = list("tirakqi_smuggler.dmm")
+
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1

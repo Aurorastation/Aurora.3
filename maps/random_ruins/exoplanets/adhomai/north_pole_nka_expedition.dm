@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/north_pole_nka_expedition.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("north_pole_nka_expedition.dmm")
 
 //ghost roles
 

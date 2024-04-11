@@ -26,6 +26,8 @@
 	if(rename)
 		name = rename
 
+	..()
+
 /datum/map_template/proc/preload_size(paths)
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/z_offset = 1 // needed to calculate z-bounds correctly
