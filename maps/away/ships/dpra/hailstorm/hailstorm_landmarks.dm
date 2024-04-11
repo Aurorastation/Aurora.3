@@ -14,6 +14,11 @@
 	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
+/obj/effect/map_effect/marker/airlock/docking/hailstorm_shuttle/shuttle_hangar
+	name = "Spacer Militia Shuttle Hangar"
+	landmark_tag = "nav_hailstorm_shuttle"
+	master_tag = "hailstorm_shuttle_dock"
+
 // ----
 
 /obj/effect/shuttle_landmark/hailstorm_shuttle/transit
