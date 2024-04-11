@@ -223,7 +223,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/haneunim_crash)
 "uy" = (
-/obj/effect/landmark/entry_point/east,
+/obj/effect/landmark/entry_point/port,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/haneunim_crash)
 "uG" = (
@@ -253,7 +253,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/haneunim_crash)
 "xt" = (
-/obj/effect/landmark/entry_point/south,
+/obj/effect/landmark/entry_point/starboard,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/haneunim_crash)
 "yc" = (
@@ -524,7 +524,7 @@
 /area/shuttle/haneunim_crash)
 "Pt" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/north,
+/obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor/plating,
 /area/shuttle/haneunim_crash)
 "Pu" = (
@@ -636,7 +636,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/haneunim_crash)
 "TT" = (
-/obj/effect/landmark/entry_point/west,
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/haneunim_crash)
 "Vv" = (
@@ -917,7 +917,7 @@ rD
 Bf
 SI
 As
-uy
+Ic
 rD
 rD
 rD
@@ -993,7 +993,7 @@ GY
 GY
 Ic
 Ic
-Ic
+xt
 rD
 rD
 rD
@@ -1200,7 +1200,7 @@ rD
 rD
 rD
 rD
-Ic
+TT
 DO
 AR
 DO
@@ -1237,7 +1237,7 @@ rD
 rD
 rD
 rD
-xt
+Ic
 Ep
 Ep
 DO
@@ -1357,9 +1357,9 @@ Ep
 ZA
 ZA
 Ic
-TT
 Ic
 Ic
+uy
 Ic
 Ic
 Ic

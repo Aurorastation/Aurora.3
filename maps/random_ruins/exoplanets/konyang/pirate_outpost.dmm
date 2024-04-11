@@ -29,11 +29,11 @@
 /area/konyang_pirate_outpost)
 "cF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/north,
+/obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor/plating,
 /area/shuttle/konyang_pirate)
 "cG" = (
-/obj/effect/landmark/entry_point/east,
+/obj/effect/landmark/entry_point/starboard,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/konyang_pirate)
 "cN" = (
@@ -131,7 +131,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/effect/landmark/entry_point/south,
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/konyang_pirate)
 "gB" = (
@@ -474,7 +474,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
 "yq" = (
-/obj/effect/landmark/entry_point/west,
+/obj/effect/landmark/entry_point/port,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/konyang_pirate)
 "yQ" = (
@@ -1564,8 +1564,8 @@ FO
 TH
 Ex
 oL
-oL
 cG
+oL
 oL
 wK
 wK
