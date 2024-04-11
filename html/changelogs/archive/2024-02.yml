@@ -1,0 +1,571 @@
+2024-02-01:
+  DreamySkrell:
+  - rscadd: Adds Crystal Planet Outpost away site.
+  hazelmouse:
+  - tweak: Orion Express Courier shuttle fixed and redesigned for better QoL.
+2024-02-03:
+  RustingWithYou:
+  - rscadd: Adds infected IPCs, along with several ruins featuring them and other
+      content for Silicon Nightmares.
+  - rscadd: Adds the ECD to the Horizon&#x27;s cargo bay.
+2024-02-05:
+  Ben10083:
+  - imageadd: New sprites for most TCAF clothing, credit to Noble Row for the spritework!
+  - rscadd: New TCAF chest gear added for light armor variant of plate carrier.
+  - bugfix: Uplink TCAF group crate cost set to 50 telecrystals. (it was not set in
+      code)
+  - tweak: Xeno friendly TCAF visored helmets and toeless jackboots added to uplink
+      crates.
+  - tweak: Republic Fleet ghost roles now spawn with TCAF gloves.
+  DreamySkrell:
+  - rscadd: Adds Private Yacht third party ship.
+  Llywelwyn:
+  - bugfix: Integrated Health Scanner no longer broadcasts a visible message, and
+      can&#x27;t miss and hit the floor if dizzy, etc.
+  Mneme:
+  - maptweak: Made QoL changes to Xenobiology and swapped research and robotics consoles
+      in RD&#x27;s Office
+  RustingWithYou:
+  - bugfix: Fixes Tret passcard being unavailable in loadout.
+  - rscadd: Adds the other, less noteworthy planets of the Haneunim system.
+  - rscadd: Adds several ruins to spawn in the wider Haneunim system.
+  - tweak: Tweaks ghostrole ruin costs on Konyang for consistency.
+  - rscadd: Sectors can now have guaranteed exoplanet types.
+  Sniblet:
+  - imageadd: Golden Deep display for baselines.
+  hazelmouse:
+  - bugfix: Ghosts can no longer call the elevator with elevator buttons.
+2024-02-07:
+  DreamySkrell:
+  - rscadd: Adds the Abandoned Propellant Depot away site.
+  - rscadd: Adds map previews for lights.
+  - bugfix: Fixes invisible damaged grates.
+2024-02-08:
+  AlaunusLux:
+  - bugfix: Changeling emergency transform ability gives you the correct accent and
+      no longer causes organ failure.
+  - bugfix: Changeling transform now retains hair gradients and skin tone.
+  - bugfix: Transformation sting now works on ghosted corpses.
+  - tweak: After emergency transform, changelings will return to the form they had
+      last.
+  Ben10083:
+  - maptweak: Consular Office B given safe, and adjusts to consular lockers to remove
+      needless stamps
+  FluffyGhost:
+  - refactor: Moved (some) turf-specific defines into its own define file.
+  - backend: Updated and added some macros.
+  - backend: Added a consistent get_area macro.
+  - backend: Made some bitflags use the bitflag macro.
+  - backend: Implemented COMSIG_ATOM_ENTERED, COMSIG_ATOM_ENTERED, COMSIG_ATOM_EXITED
+      and COMSIG_ATOM_EXITING.
+  - backend: Unified atom&#x27;s Entered, Entering and Exited in a single proc.
+  - backend: Added remove_chemical_effect proc to remove chemical effect quantities
+      (currently unused).
+  - backend: DMDocs, some SDMM proc markings.
+  - refactor: Refactored optable beds.
+  - rscadd: Optable beds now use power to suppress the patient&#x27;s brain.
+  - bugfix: The camera getting stuck on optable beds should now be fixed.
+  - refactor: Refactored operating computer in how it connects and disconnects with
+      the surgery table.
+  - backend: Adjusted integrated bodyscanner to account for tables using weakrefs
+      on patients.
+  - rscadd: It should now be possible to reliably build operating tables and consoles
+      and have them hook with each other.
+  - backend: Operating tables and operating computers should now delete cleanly.
+  - backend: Updated statpanel.
+  - rscadd: Added client pings info with average and current ping.
+  - refactor: Refactored game_id to be called round_id and made it a GLOB variable.
+  - bugfix: Adjusted some statpanel javascript customizations to not error out with
+      the spell tabs used by the RIG suits (hardsuits).
+  - refactor: Refactored some variable names in the who verbs.
+  - rscadd: Added some verbs for the client to server ping calculation and relevant
+      vars to store the info.
+  - rscadd: Added ability admins and devs to see the client to server average pings.
+  - refactor: Refactored current map to be inside the atlas subsystem instead of a
+      global variable.
+  - refactor: Refactored away HAS_FLAG and NO_FLAG as they didn&#x27;t work well with
+      SDMM, set them as vscode snippets instead.
+  - backend: Added some bitflags operations as vscode snippets.
+  MattAtlas:
+  - bugfix: Fixed an exoplanet processing error.
+  RustingWithYou:
+  - bugfix: Fixes sector blacklist, as it was previously non-functional.
+  - tweak: K&#x27;lax and C&#x27;thur consulars now have Hegemony and Federation guns,
+      respectively.
+  SimpleMaroon:
+  - tweak: Corporate Reporters can now access certain doors in the Operations Bay.
+  - tweak: Adjusted the Vaurca expression mask sprites, and made them easier to color.
+  - tweak: Placed the Vaurca expression masks into a list in the loadout, rather than
+      as individual selections.
+  - rscadd: Added a Unathi expression mask to the set.
+  Snowy1237:
+  - maptweak: Added the Coalition Navy comms frequency to the KASF ship per the lore
+      team&#x27;s request.
+  Tomixcomics:
+  - rscadd: Added multiple new foods.
+  - bugfix: Corrected missing eggpop icon
+  - tweak: Nerfed how often praline boxes show up in maintenance because it was way
+      too often.
+2024-02-09:
+  DreamySkrell:
+  - tweak: Exoplanet turfs now do not spam logs if not located on a exoplanet.
+  Greenjoe12345:
+  - rscadd: Adds a commisary to the Horizon. It starts empty, but can be run by Operations
+      personnel, selling items from the warehouse and other locations.
+  - tweak: Moves some city sprite assets into the tables folder as they previously
+      didn&#x27;t show up in game.
+  RustingWithYou:
+  - tweak: Changes the ECD sprite layer to prevent weird-looking layering errors.
+  - rscadd: Adds event-only department jobs for ease of organization.
+2024-02-10:
+  Llywelwyn:
+  - tweak: Boxes of cigarette components are now tiny items, the same as boxes of
+      cigarettes, rather than small items.
+  - bugfix: Wallets can now hold the boxes for cigarette components as intended.
+  greenjoe12345:
+  - bugfix: Fixes some wiring issues with the commissary and tool storage.
+  kyres1, Nauticall:
+  - rscadd: Added a variety of billboards for Konyang, sprited by Nauticall and implemented
+      on Point Verdant.
+  - rscadd: Added a few new tile types for urban decor.
+  - rscadd: Polished the remainder of Point Verdant&#x27;s map, adding content where
+      areas were empty.
+  - rscadd: Added the basic biomes to Konyang&#x27;s spawn rotation, with a few new
+      ruins that spawn in the Abandoned biome/theme type.
+  - bugfix: Fixed the landing zones for the ocean and jungle landing sites that the
+      Horizon shuttles use.
+2024-02-11:
+  Ben10083:
+  - rscadd: Independent Assistants are now possible.
+  - maptweak: Trinary Holodeck template tweaked with additional items.
+  FluffyGhost:
+  - bugfix: Fixed the set ambition verb.
+  Furrycactus:
+  - rscadd: Added a crematorium to the Chapel and to the Medical Morgue, along with
+      a small selection of materials to make Urns from to store the ashes.
+  HanSolo1519:
+  - rscadd: Added dissolvable cleaner tablets, places cleaner tablets in maint loot
+      table and janitorial closets.
+  Llywelwyn:
+  - tweak: The Hegemony Consular Officer now starts with the Kataphract e-sword instead
+      of a pistol.
+  - rscadd: Added a visible message for when someone interacts with a universal recorder.
+  - tweak: Changed the local chat message for e-magged universal recorders to an audible
+      message.
+  - rscadd: Adds journals to the loadout under &#x27;utility&#x27;.
+  - tweak: Tweaked the journal to allow proper recolouring.
+  MattAtlas:
+  - rscadd: Examining things now puts the examine text in a fancy box.
+  - tweak: Some examines have been tweaked to look nicer.
+  RustingWithYou:
+  - tweak: Allows Unathi to be Zavodskoi &amp; PMCG representatives, and allows Tajara
+      to be PMCG representatives.
+  kermit:
+  - rscadd: AI shells now, in addition to having the universal borg equipment (tape,
+      GPS, a flash), have an inflatables dispenser, jetpack and paperwork essentials.
+  - tweak: Custodial borgs now have custodial tape instead of engineering tape.
+  kyres1:
+  - bugfix: Fixed incorrect transparency on shuttle cockpits.
+2024-02-12:
+  FluffyGhost:
+  - refactor: Refactored attackby function headers.
+  - refactor: Minor attackby&#x27;s internal refactors across the codebase.
+  - refactor: Refactored some attackby to not sleep.
+  - refactor: Turned various alerts and inputs to tgui inputs to accomplish the no
+      sleep listed above.
+  - refactor: Refactored large bags pickup to not lag the server to death as much.
+  - backend: Added spawn gear DMdoc.
+  - backend: Added some DMdoc to other procs.
+  - backend: Added spawn gear unit test.
+  - backend: Modified some spawn gears that were abstract, marking them as abstract.
+  - backend: Some reordering in general for the spawn gears.
+  - tweak: Attack message on atoms is only shown if you have harm intent.
+  - backend: DMDoced gear vars.
+  - backend: Reordered gears.
+  - backend: Implemented handling of abstract types for gears.
+  - backend: Created unit test to check gears.
+  - refactor: Refactored object attackby and handling of bags pickups.
+  - backend: DMDoced attackby proc.
+  - backend: DMDoced and minor refactor of some mob inventory procs.
+  - refactor: Refactored attackby proc args name.
+  - refactor: Refactored some attackby procs to not sleep.
+  - refactor: Refactored a bunch of procs to use tgui inputs instead of native alert/input.
+  - backend: Unit tests failures will throw an exception if compiled with MANUAL_UNIT_TEST
+      so it&#x27;s easier to catch them in VSC.
+  Llywelwyn:
+  - bugfix: Fixes Intern Investigators spawning with two pairs of gloves.
+  - backend: Slight refactor of how Security Cadet outfits are handled, so nobody
+      inherits anything they shouldn&#x27;t.
+  SimpleMaroon:
+  - rscdel: Removes Za&#x27;Akaix&#x27;Pleig C&#x27;thur&#x27;s Lyukal rig custom
+      item.
+  Sniblet:
+  - tweak: Nerfed and reflavoured the cocaine overdose&#x27;s effect on the heart.
+2024-02-13:
+  DreamySkrell:
+  - rscadd: Adds survey probe, and planetary survey mechanics.
+  Furrycactus:
+  - rscadd: Gives Bridge Crew access to the pumps in the Fuel Bay to fill canisters.
+  RustingWithYou:
+  - tweak: Makes Si&#x27;akh available to offworld Unathi.
+  hazelmouse:
+  - rscadd: Updates the hivebot hub offsite to fit modern mapping standards.
+  kyres1:
+  - rscadd: Added two new bike types; mopeds and sports bikes, and different color
+      varieties for them, as well as Konyanger police variants.
+  nauticall:
+  - maptweak: Moderately modified and fixed some things in the Captain&#x27;s office,
+      including a broken button, some lighting tweaks, furniture reshuffling, and
+      more equipment.
+  - maptweak: Added a light switch to the bridge, among some other furniture reshuffling
+      to prevent wall object overlap.
+  - maptweak: Changed the sec briefing room chairs. They now actually make sense.
+2024-02-14:
+  FluffyGhost:
+  - bugfix: Hopefully fixed the vines icons once and for all.
+  - refactor: Plant icons and icon generation now use a cache to store the images
+      of the plants, saving processing time when the image is requested as they&#x27;re
+      not regenerated each time.
+  - backend: Requesting a plant icon state that doesn&#x27;t exist now throws a runtime.
+  - backend: Some SDMM markings, DMDoc, minor adjustments around.
+  - backend: Atom update icons are now marked as not sleepable.
+  RustingWithYou:
+  - tweak: Hegemony consulars now have a gun again.
+2024-02-15:
+  Ben10083:
+  - rscadd: Adds a new gold-plated pistol for Golden Deep Representatives. Credit
+      to NobleRow for sprites
+  - tweak: Golden Deep Consular job outfit adjusted.
+  - bugfix: Law Manager software has been fixed.
+  DreamySkrell:
+  - rscadd: Ghost spawners show the location of the spawner.
+  - tweak: Ghost spawners are shown in the list even if full.
+  - tweak: Ghost spawners are grayed out if visible, but cannot use them for whatever
+      reason.
+  - bugfix: Fixes all ghost spawners being visible always.
+  - bugfix: Fixes cooking codex search.
+  FluffyGhost:
+  - backend: Ruins UT should not randomly allow broken ruins to pass the test anymore.
+  - maptweak: Added various exoplanet turfs equivalents.
+  - maptweak: Changed various turfs on ruins to be exoplanet equivalents and avoid
+      active edges.
+  - backend: Improved ZAS active edge test logging capability, for slightly easier
+      debugging.
+  SimpleMaroon:
+  - tweak: Reduces the cost of the Journalism Camera Monitoring program from 6 GQ
+      to 2 GQ.
+  nauticall:
+  - maptweak: Overhauled Horizon propulsion to use the new method of separate burn
+      and thrust mixtures. The burn mixture heats up the thrust mixture via heat exchangers
+      in the combustion chamber.
+  - maptweak: 'Added additional equalization and evacuation valves to propulsion for
+      both experimentation and emergency use. The thruster lines now have evacuation
+      valves to empty their thruster line in a matter of minutes. '
+2024-02-16:
+  DreamySkrell:
+  - bugfix: Fixes burglar shuttle airlock being closed at round start.
+  - bugfix: Fixes some broken icons on the antag bases.
+  - bugfix: Fixes some old style or destructible windows on the antag bases.
+  - rscadd: Adds k&#x27;ois MRE.
+  FluffyGhost:
+  - bugfix: Resolved a runtime on QDEL&#x27;d doors that tries to register a closing
+      timer.
+  - bugfix: Resolved a runtime on vomit decal ending on space atoms and having access
+      to the reagents attempted.
+  - backend: SDMM markings on handle_additional_vomit_reagents proc.
+  - bugfix: Fixed log grabbing procs for the relevant clients.
+  - rscdel: Removed runtime log access granting proc, noone uses it.
+  - rscdel: Removed signals log browser proc, noone used it ever.
+  Snowy1237:
+  - bugfix: Fixed the Golden Deep away ship being visible if no crew for it have spawned.
+  The Stryker, The Lancer:
+  - rscadd: Adds a Konyanger police vest.
+  - tweak: Changes the Konyang police lieutenant uniform.
+  Wowzewow (Wezzy):
+  - imageadd: Tidies up away site and old event sprites.
+  kyres1:
+  - bugfix: Fixed nonfunctioning animations on the Haneunim title screen.
+  - bugfix: Fixed missing sprites for buffet smartheaters on Konyang.
+  - tweak: Disabled Point Verdant&#x27;s rain due to missing functionality.
+  - tweak: Disabled Konyang&#x27;s cave biome due to missing functionality.
+2024-02-17:
+  Furrycactus:
+  - rscadd: Fixed the buttons in the Medical Morgue and Cremation rooms being a bit
+      funny with the shutters.
+  - rscadd: Renamed the Autopsy and Cremation door to just Cremation.
+  - rscadd: Gave Pharmacists access to the Morgue and Cremation prep room.
+  SimpleMaroon:
+  - rscadd: Added a handheld microphone to the Corporate Reporter&#x27;s locker. It
+      functions as a shortwave that only has Entertainment channel access.
+  Tomixcomics:
+  - rscadd: Added several new foods.
+  - rscdel: Deleted the old Lasagnas
+  - rscadd: Created new Lasagnas. Bigger, better than ever before! BWA HA HA HA
+  - tweak: Replaces the old, ancient pancakes with newer ones that have a modern sprite,
+      recipe, and multiple sub-types of pancakes based on what syrup you put on them.
+  - tweak: Gave flavored syrups a flavor enahncement so they show up more easily when
+      you put them on something.
+  - tweak: Added the new Unathi dishes to the Unathi food bounty
+  Wowzewow (Wezzy):
+  - rscadd: Fixes canned drink inhands.
+  kyres1:
+  - tweak: The chicken nugget recipe now creates four chicken nuggets.
+2024-02-18:
+  FluffyGhost:
+  - backend: Ported TG&#x27;s REF proc and relative datum_flags infrastructure.
+  - backend: Mobs now get assigned an unique tag to reference and track them.
+  - backend: Updated previous workarounds due to the lack of this, to use this - at
+      least, the ones I found.
+  Lavillastrangiato:
+  - bugfix: Fixes a bug where Vaurca, Unathi, and Tajara pharmacists couldn&#x27;t
+      select integrated medical scanners.
+  RustingWithYou:
+  - tweak: The Dominian science ship can now spawn in Haneunim, and the Dominian privateer
+      ship can now spawn in the Weeping Stars.
+  - bugfix: Fixes incorrect accesses on Point Verdant.
+  SleepyGemmy:
+  - bugfix: Fixed the hull beacons having the wrong sprite colours.
+  - bugfix: Restored the pump shotgun&#x27;s accuracy.
+  - bugfix: Fixed the spawn locations for investigators and wardens.
+  - bugfix: Fixed the holodeck alpha maintenance APC running out of power too easily.
+2024-02-19:
+  SleepyGemmy:
+  - spellcheck: Improved the Europa flagpatch description&#x27;s syntax.
+  kyres1:
+  - bugfix: Fixes Point Verdant&#x27;s stairs literally obliterating the server by
+      making their directions work in accordance to their bounding boxes.
+  - bugfix: Fixes duplicate stairs on Point Verdant.
+  - bugfix: Fixes some inconsistent railings on Point Verdant, forcing players to
+      walk through them to climb stairs.
+  - bugfix: Adds a light switch to the Point Verdant street vendor building.
+  - bugfix: Adjusts the location of deep water on Konyang to avoid structures, so
+      the overlays don&#x27;t conflict.
+2024-02-20:
+  DreamySkrell:
+  - rscadd: Adds bike keys and mechanics.
+  - rscadd: Adds kois freezer locker and crate.
+  - rscadd: Maps one kois rations crate to Point Verdant Corporate Offices.
+  FluffyGhost:
+  - backend: Added a test to verify stairs have the proper bounds set, are not abstract
+      objects.
+  - backend: Added a test to verify mapped stairs are not duplicated.
+  - backend: Unit tests can now be marked as abstract and they would be ignored from
+      running.
+  - maptweak: Fixed point verdant leftover stairs once more.
+  - experiment: Attempted fix for the blackscreen issues, to be TM&#x27;d.
+  Lavillastrangiato:
+  - maptweak: Added an oxygen tank dispenser and mining satchels to the Burszian mining
+      outpost.
+  MattAtlas:
+  - bugfix: You can now alt click the mounted autolathe on a mech to access it.
+  Wowzewow (Wezzy), Desven:
+  - rscadd: Adds new Pincenez and Panto glasses with accompanying security and medical
+      HUD versions. Adds a new rosary. Adds new phalanx HUD augment.
+2024-02-21:
+  DreamySkrell:
+  - rscadd: Adds small potted plants.
+  - maptweak: Genericizes the konyang tribute ruin.
+  FluffyGhost:
+  - bugfix: Resolved a runtime with reagents gear tweak on fill.
+  - bugfix: Resolved a runtime with baloon alerts that assumed every hearer was a
+      mob, while that could not be the case.
+  - bugfix: Resolved a runtime with a chat parsing proc.
+  - refactor: Refactored said parsing proc (parse_language) to be slightly less bad,
+      added DMDoc, added SDMM headers.
+  - bugfix: Resolved a runtime with implants on non-major organs.
+  - bugfix: Fixed a runtime on the OOC verb that could happen if the prefs are not
+      loaded/initialized yet.
+  - bugfix: Fixed NTOS crashing with empty ghost spawner list.
+  RustingWithYou:
+  - bugfix: Fixes the Air Konyang &amp; Einstein shuttles leaving areas behind on
+      transit.
+  - tweak: Removes the ECD from the cargo bay.
+  SleepyGemmy:
+  - bugfix: Fixed the round-end summary referring to station instead of ship.
+  - bugfix: Fixed the Intrepid not being connected to the main grid.
+  - rscdel: Removed the divider when examining some things, as it is no longer required.
+  - rscadd: Added a description to slimes.
+  - rscadd: Changed the chocolate hazelnut spread paths to be lowercase.
+  Snowy1237:
+  - rscadd: Added the ability for revived IPCs to choose their pronouns, accent and
+      languages.
+  shimmeristaken:
+  - rscadd: Added both a Callistean flag, and banner, to the loadout menu!
+2024-02-22:
+  Ben10083:
+  - refactor: Maintenance Drone console now uses tgui to select a area to call drones
+      to.
+  DreamySkrell:
+  - rscadd: Adds rental bike self-service vendor and rental bike mechanics.
+  - rscadd: Maps in bikes, keys, and rental bikes, onto Point Verdant.
+  - bugfix: Fixes hard drive stored files hard dell error.
+  Lavillastrangiato:
+  - bugfix: Gives the TIC cards an extended description from the wiki. Makes them
+      able to be placed in wallets.
+  shimmeristaken:
+  - bugfix: Corrects the sprites of the left handed konyang rifles to not longer point
+      backwards when facing west or east.
+2024-02-23:
+  DreamySkrell:
+  - maptweak: Point Verdant map tweaks and fixes.
+  Lavillastrangiato:
+  - tweak: Buffs jeweler cockatoo&#x27;s HP to 300.
+  RustingWithYou:
+  - tweak: Nerfs infected IPC damage and armor penetration.
+  Sniblet:
+  - imageadd: Added Einstein recolors for some departmental uniforms (secoff, sci,
+      eng, mch, cap, liaison). Unused. For now?
+  - rscadd: Added a special Einstein Engines Synthetic uniform. Also unused. For now...
+  Snowy1237:
+  - rscadd: Added the coalition navy frequency to the KASF ship properly now.
+2024-02-24:
+  Alberyk, Geeves:
+  - rscadd: Added an analog radio that can display lore related radio station to the
+      system the ship is currently in.
+  FluffyGhost:
+  - bugfix: Spider queens and servants now stop thinking as mobs when a player is
+      assigned to it.
+  - bugfix: Resolved a runtime of effect application when the spider lands.
+  - backend: Refactored apply_effect proc, DMdoc, check that the parameters are the
+      correct type.
+  - backend: DMDoc&#x27;d spawn_mob, set SDMM return type.
+  - backend: DMDoc&#x27;d assign_player, set SDMM return type.
+  - bugfix: Attempted fix to mannequins harddeling.
+  - bugfix: Attempted fix to some HUDs harddeling because screens were still referencing
+      them.
+  - bugfix: Fixed ability for VV to edit lists.
+  - backend: Updated how the movement delay for cliented mob is calculated, which
+      should help smooth out movement delays when the MC is loaded. Hopefully.
+  - backend: Living mob movements now emit a signal that can be intercepted and replied
+      to block said movement.
+  - backend: Added a lag generator for local tests to simulate the MC being loaded,
+      FOR LOCAL TEST IS THE KEYWORD HERE.
+  - backend: Consolidated atom/movable/Move in a single proc.
+  - backend: Added a signal for atom/movable/Move that can be intercepted and replied
+      to block said movement.
+  Lavillastrangiato:
+  - maptweak: Remaps the PACHROM water barge to add more facilities and make better
+      use of space.
+  MattAtlas (Code), TheLancer (Sound):
+  - rscadd: Added a system to allow space sectors to override lobby music.
+  - rscdel: Added Haneunim (Konyang) lobby music.
+  Pirouette:
+  - spellcheck: Fixed a roll to starboard being listed as a roll to the left on the
+      helm.
+  RustingWithYou:
+  - maptweak: Several QoL improvements to the Kazhkz ship.
+  - tweak: Adds correct ammo for rifles and replaces normal pistols with Dominian
+      ones on the Dominian corvette.
+  SleepyGemmy:
+  - rscadd: Added a colourable peaked beret to the loadout.
+  - maptweak: Fixed the Konyang Landing Zone structure being unsecure.
+2024-02-25:
+  Arrow768:
+  - bugfix: Fixes lag when cryopods mapped in a large area are missing the control
+      computer.
+  Ben10083:
+  - rscadd: Point Verdant Sakae Tower now takes cargo packages.
+  - bugfix: Cryo Computers added to Point Verdant at most areas with a cryopod
+  - bugfix: Konyang Police lockers now have proper access
+  DreamySkrell:
+  - rscadd: Adds kois MRE to the loadout.
+  - tweak: Adjusts KASF Corvette spawn weight.
+  FluffyGhost:
+  - rscdel: Rat ghost roles have been removed, they were using quite a bit of processing
+      power while being disabled, so essentially wasted processing.
+  RustingWithYou:
+  - bugfix: Fixes incorrect accesses on Point Verdant
+  - bugfix: Fixes motorbikes being unable to go upstairs.
+  - maptweak: Point Verdant exterior areas will now be automatically lit.
+  - rscadd: Adds an area flag to prevent explosions from destroying turfs.
+2024-02-26:
+  Lavillastrangiato:
+  - rscdel: Makes it so Skrell can only have they/them pronouns, mechanics-wise.
+  MattAtlas (Code), Noble Row (Sprites):
+  - rscadd: Added a new mob and a weapon for Purpose.
+  - rscadd: Gave flechette ammunition AP.
+  Peppermint96:
+  - bugfix: Fixes burger employees spawning without shoes.
+  RustingWithYou:
+  - bugfix: Replaces decal stairs on Point Verdant with real stairs.
+  - bugfix: Fixes missing bartender access on Point Verdant.
+  SleepyGemmy:
+  - spellcheck: Fixed a typo in the stargazer Haneuim blurb.
+  - bugfix: Fixed the Point Verdant death trap fall near the hotel.
+  - bugfix: Fixed a rock texture.
+  meep109:
+  - rscadd: Gives morphs a random naming scheme.
+  - rscadd: Gives morphs access to the Changeling Hivemind.
+  shimmeristaken:
+  - rscadd: Adds a Venusian banner and flag to the loadout!
+  - bugfix: Fixes a path in rusting traditionalist flag to be correct, instead of
+      leading to scarabs. It can now be mapped in!
+2024-02-27:
+  DreamySkrell:
+  - tweak: Speed on a bike depends on move intent. Walk intent to ride slowly, run
+      intent to ride faster.
+  - tweak: Crashing into someone while on a bike, happens only while riding with run
+      intent.
+  Furrycactus:
+  - maptweak: Reworked the IAC Rescue Ship to be more in-line with modern mapping
+      standards, and hopefully to be more enjoyable to play.
+  - tweak: Slightly tweaked the descriptions of the IAC Rescue Ship ghost roles to
+      diversify the character concepts a little more.
+  MattAtlas:
+  - bugfix: Fixes the body appearance changer not letting you change pronouns and
+      leaving you stuck as a certain gender.
+  RustingWithYou:
+  - tweak: Energy swords now work with the swordsmanship martial art.
+  - tweak: Raises the chance for energy swords to block or deflect projectiles.
+  - tweak: Increases the block chance on the various military-grade energy shields.
+  SleepyGemmy:
+  - bugfix: Fixed the analog lore radio missing a prefix.
+  Snowy1237:
+  - rscadd: Added a few new konyang ruins and ghostroles.
+2024-02-28:
+  SleepyGemmy:
+  - bugfix: Fixed the Point Verdant hotel basement stairs being the wrong direction
+      and thus unusable.
+  - bugfix: Fixed the Point Verdant hotel basement lights being off as people who
+      spawned in were unable to see anything.
+  - bugfix: Fixed the Point Verdant waterfront stairs using the wrong icon state.
+2024-02-29:
+  Ben10083:
+  - maptweak: Additional cargo delivery points added to Point Verdant, examples include
+      Up!Burger, Corporate Docks, and the Hotel.
+  - maptweak: Long range holopad added to Point Verdant near the holding cells.
+  - maptweak: Fax machine added to Point Verdant Superintendent Office.
+  - refactor: Added naming, spawn limits, and payment functionality to cargo receptacles,
+      to allow for specific adjustments for inbound cargo packages by receptacle.
+      Only utilized by Point Verdant at the moment.
+  - bugfix: Konyang Service Revolver speedloader now has properly set ammo count,
+      and sprite now updates.
+  FluffyGhost:
+  - bugfix: Fixed specie autoadapt to not runtime.
+  - backend: Some DMdoc and minor adjustments.
+  - bugfix: Fixed sound tokens still listening to destroy events for the sound source,
+      which was spamming the logs.
+  - backend: Turned the sound player var into a GLOB var.
+  - bugfix: Fixed yet another canspeak runtime.
+  - backend: Added some SDMM markings, DMDoced the proc, added a guard in case the
+      language is not supplied to the proc.
+  - backend: Updated the timer subsystem.
+  - backend: Added message-defining asserts.
+  - backend: Moved some defines in the maths define file, deprecated the old file.
+  - backend: Added STP_PROB defines to allow probability adjustment based on lag/tickrate.
+  - refactor: Refactored MouseDrop_T to not be inside a spawn async and respect the
+      function header.
+  Llywelwyn:
+  - rscadd: Added a drink, snakebite (equal parts beer and alcoholic cider).
+  - tweak: The recolourable glasses can now be renamed and can have their description
+      changed in the loadout.
+  RustingWithYou:
+  - tweak: Ghostspawners for psionic species will now give psi points on spawning.
+  - bugfix: Chainlink fences can no longer be leapt over.
+  SleepyGemmy:
+  - tweak: Renames the pirate base files and code to pirate base proper.
+  Wowzewow (Wezzy):
+  - rscadd: Makes augments compatible with spritesheets.
+  greenjoe12345:
+  - rscadd: Adds a Point Verdant Police logo for use in paperwork. Make it with [logo_pvpolice]
+      and the small one with [logo_pvpolice_small].

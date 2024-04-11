@@ -1,0 +1,440 @@
+2020-03-01:
+  Ferner:
+  - bugfix: Wearers of Eldritch armour no longer stroll around on their tippy toes.
+  - bugfix: Made some centcom areas use a more appropiate base turf.
+  Furrycactus:
+  - rscadd: Tablet computers can now run the Medical Suit Sensors Monitoring program.
+  - rscadd: All head of staff laptops possess a Command and Communications Program
+      now.
+  - bugfix: The Captain's laptop has an ID card reader now, so that the ID Card Modification
+      program can actually be used.
+  mikomyazaki:
+  - backend: Removes recently added icon state unit test due to BYOND issues.
+2020-03-03:
+  Chada-1:
+  - tweak: Removed all of the old humanoid legacy sprites from the available module
+      options.
+  - tweak: Replaced the Spiderborgs with the 'Unbranded Android' (The exoskeleton
+      with a visible posibrain and a v. intricate electricity animation)
+  - tweak: Removed *all* of the red crosses from the 'borg sprites, they're green
+      now.
+  - bugfix: Created eye overlays for all of my old treadmate/landmate sprite recolors
+      and streamlined their sprite names to be consistent among every variant including
+      the legacy ones.
+  - imageadd: Created a new Treadhead sprite and eye overlays and recolor it for every
+      department.
+  - imageadd: Created new toiletbot sprites and eye overlays recolored them for every
+      department.
+  - rscadd: Implemented a new 'borg eye overlay system that allows locking them to
+      intent, help or harm. I've decided to go with green for help and blue for harm.
+  - imageadd: Created the new SD-MAD hoverbot series.
+  - imageadd: Created the new off-brand MAD hoverbot series.
+  - imageadd: Added the new HD-MAD series.
+  - imageadd: Added the new Repo-Icarus-Drone series.
+  - imageadd: Recolored the Medical 'Droid sprite for every department, making it
+      less medical and more multipurpose looking.
+  - imagedel: Removed the heavy sprite series from available sprite options.
+  - imageadd: Added the new 'Tau-Ceti-Drone' (Old Drone sprite) by popular request.
+  - imageadd: Re-added the Heavy and Spiderborgs with recolors and updated them to
+      the new system by request of Wezzy..
+  Leudoberct:
+  - maptweak: Removes unnecessary blastdoors in the research sublevel.
+2020-03-04:
+  Doxxmedearly:
+  - bugfix: Soy lattes are no longer invisible.
+  Ferner:
+  - bugfix: Fixed cultify behaving oddly with the asteroid.
+  Goret:
+  - rscadd: Added a silversun flower pin, related to the Silversun lore. Thanks to
+      Happy_Fox and VT for the sprites.
+2020-03-06:
+  MattAtlas:
+  - backend: Fixed some backend voting problems.
+  mikomyazaki:
+  - imageadd: Changes spilled fuel sprite back to its original, plus a slight brown
+      tint so it is visible now.
+2020-03-07:
+  Aticius:
+  - rscadd: Adds a pair of Invade-Peoples-Personal-Space Long horns for Unathi. Hopefully
+      you don't sit behind them.
+  - rscadd: Adds Chameleon-styled horns to Unathi. Sadly, you still have to look at
+      them.
+  Geeves:
+  - rscadd: You can now stomp spiderlings to death.
+  Kyres1:
+  - rscadd: Added a set of rival corp voidsuits to random spawn lists and the traitor/merc/ninja
+      uplink.
+  Wowzewow (Wezzy):
+  - tweak: Tweaks gloves, watches, skrell armchain and bracer sprites.
+  - imageadd: Adds new glove inhand sprites.
+  - rscadd: Adds new types of watches! Choose from five awesome designs!
+2020-03-09:
+  PoZe:
+  - bugfix: Diona nymph is no longer immortal.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes mesmetron watch hypnosis.
+2020-03-10:
+  FearTheBlackout:
+  - tweak: Allows Aut'akh Unathi to spawn as the IAC ERT roles.
+  Ferner:
+  - tweak: Tweaked the equipment the IAC team gets supplied with.
+  Geeves:
+  - rscadd: Cyborgs' and robots' MMIs, Posibrains, or Robotic Circuits, will now receive
+      their name designation when a name is picked.
+2020-03-11:
+  Alberyk, Kyres1:
+  - imageadd: Added a new icelance rifle sprite.
+  AmoryBlaine:
+  - rscadd: Weapon resprites.
+  - rscadd: Medical crate/kit re-recolour.The green cross now matches all other uses
+      of green in medical.
+  Chada-1:
+  - imageadd: Added the new 'Arachnotronic' sprite line to replace the old spiderborg
+      sprites, the alpha and omega of the Spider Drone series of Synths, for now...
+  - tweak: Adjusted all of the old Drone sprites to have really neat new overlays.
+  - rscdel: Removed the old spiderborg sprite from the available options.
+  - rscdel: Removed the Repo-Icarus-Drone series by popular request, I guess it really
+      doesn't match the others in quality. :(
+  - imageadd: Animated *all* of the legacy treaded and spiked 'borg sprites to have
+      a walking animation, it's just like the drones'..
+  Wowzewow (Wezzy):
+  - rscadd: Adds the ability to shake the drinks shaker. (doesn't actually do anything,
+      just sounds cool.).
+2020-03-12:
+  Alberyk:
+  - tweak: Loyalty implants have been rebranded to be mind shield implants instead.
+  ParadoxSpace:
+  - balance: Nymphs have much less health (85 real health/510 effective health to
+      33.3 health/199.8 effective health).
+  - balance: Nymphs require a bit more nutrition to form a gestalt.
+  Wowzewow (Wezzy):
+  - imageadd: Adds new book inhands and even more book sprites for variety.
+  - imageadd: Tweaks the bookshelf sprites.
+2020-03-13:
+  Doxxmedearly:
+  - bugfix: Fixed some invisible bottle sprites.
+  - bugfix: T-borg tonic water cans no longer spawn empty.
+  - tweak: Carton dropsounds tweaked to be less like glass and more like cardboard.
+  - tweak: Large soda bottles vended from the booze-o-mat now behave like plastic
+      bottles instead of glass ones.
+  Geeves:
+  - backend: Tweaked a hell of a lot of silicon code to make synthetics better.
+  - rscadd: Synths with scrambled codes that prevent them from being on robotics computers
+      will now appear on Merc camera networks.
+  - rscadd: Both variants of the engineering borg can now deploy the malf borging
+      machine.
+  - tweak: Medical borgs no longer get polyacid sprays, instead getting Wulumunusha
+      CMO Hyposprays, which cause muteness.
+  - tweak: You must now be on help intent to use items like crowbars and screwdrivers
+      on borgs. Otherwise you hit them with it.
+  ParadoxSpace:
+  - rscadd: Dionae resist modifier has been nerfed from 3 to 2. It should be easier
+      to hold them in place now.
+2020-03-14:
+  AmoryBlaine:
+  - rscadd: Resprites grenades.
+  Doxxmedearly:
+  - bugfix: Animals eating food in their tile will no longer produce random trash
+      items, and will be deleted properly when finished.
+  Geeves:
+  - bugfix: Particle accelerator parts can now be altered with the powered drill.
+  - backend: Tweaked some particle accelerator backend stuff, no gameplay changes,
+      though text and descriptions might look prettier now.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes missing/invisible book inhand sprites.
+2020-03-15:
+  Chada-1:
+  - bugfix: Altered the misaligned TC-Drone overlays to where they're properly floating
+      with the 'borg sprite now.
+  - bugfix: Added Fren overlay changes and animations at the request of their player.
+  - bugfix: FIxed the Maint. Drone movestate, it was one pixel forward so didn't sync
+      up right with the overlay when it moved..
+  Geeves:
+  - rscadd: Roof solars start wired, SMES starts set. Interact with the solar control
+      computer to connect the devices.
+2020-03-16:
+  Alberyk:
+  - bugfix: Fixed round start delay caused by cyborgs choosing their names.
+  Doxxmedearly:
+  - bugfix: Being in a stasis bag will properly render you unconscious.
+  - bugfix: Plastic surgery should now properly update sprites when fixing a husked
+      individual. This should now work for shells, as well.
+  - bugfix: You can no longer set a fire alarm timer to longer than ten minutes.
+  - bugfix: Gun safeties should prevent suicides if the user is not on harm intent.
+  - bugfix: The mechfab can now produce right feet.
+  Geeves:
+  - bugfix: Fixed the name of some Ouerean dishes to properly display their real name.
+  - rscadd: Clicking an unlocked airlock electronic with another unlocked airlock
+      electronic will now copy the configuration from the one in your active hand
+      to the clicked one.
+  - rscadd: Clicking an airlock electronic with an ID or PDA with an ID in it will
+      now toggle its lock.
+  - tweak: Airlock eletronics are now one size smaller, meaning you can jam more of
+      them into a pack.
+  - rscdel: Having brain damage no longer prevents you from operating airlock electronics.
+  MattAtlas:
+  - bugfix: The ERT chances should now be a little less wonky.
+  - rscadd: After hacking an APC with an emag, you can now hack it again to infect
+      it and enslave IPCs that charge from it.
+  Wowzewow (Wezzy):
+  - tweak: Decreases volume of some looping sounds.
+  - bugfix: Updates and fixes some badge sprites.
+2020-03-17:
+  Geeves:
+  - rscadd: Engineering Apprentices now spawn with toolbelts. Atmos Techs now spawn
+      with a pipe wrench and analyzer.
+  - rscdel: Screwdrivers and wrenches no longer spawn in engineer belts, they spawn
+      with the impact wrench.
+  - tweak: The Chief Engineer now starts with an industrial tier welding tool.
+  - tweak: You can no longer rip up floor tiles and such when on harm intent. Beating
+      people with tools is now sadly less humorous.
+  - tweak: Pipe wrench colours are now random.
+  - rscadd: Debuggers can now fix software errors in vending machines, shooting their
+      inventory and advertising aggressively.
+  - tweak: The time it takes for the debugger to fix APCs have been reduced by half.
+  - imageadd: Various difficult to click sprites, metal rods, IV drips, syringes and
+      medical tape splints have been given one pixel invisible outlines to make them
+      easier to click.
+  MattAtlas:
+  - rscadd: You can now alt click rotatable objects to rotate them.
+  - rscadd: Objects that can be rotated will now tell you in their description.
+2020-03-18:
+  DanseMacabre:
+  - imageadd: Swapped out the icons for the soda machine, stool, and grilles for a
+      few nicer ones.
+  Geeves:
+  - rscadd: You can now convert ghetto PSU boards back into standard APC power control
+      modules by using a multi-tool.
+  - backend: Fixed up a lot of mining-related things in the backend. You might notice
+      some changes in-game.
+  - tweak: Locked abandoned crates found in the mine now has 15 attempts to hack instead
+      of 10.
+  - tweak: Destroying artifacts while mining now longer has long range effects on
+      many people.
+  - tweak: Increased the damage tools do so they aren't on the same level as punching.
+  - rscadd: Added extended descriptions to circuitboards which makes it easier to
+      understand what the hell they do.
+  - tweak: Structures and machinery got their layers altered so that objects appear
+      above them.
+  MattAtlas:
+  - rscadd: You can now altclick extinguisher cabinets to close them.
+  - rscadd: You can now altclick droppers to set the transfer rate.
+2020-03-19:
+  DanseMacabre:
+  - soundadd: Swaps out some gunshot noises for superior versions.
+  Doxxmedearly:
+  - tweak: Heads of staff can no longer start as on-station antags except as revolutinaries,
+      loyalists, renegades, or borer hosts. They can still be converted to antag (such
+      as through cult or vampire). They cannot be picked for traitor through autotraitor.
+  Geeves:
+  - tweak: Reduced long-range artifact effect max range from 200 tiles, to 20.
+2020-03-20:
+  Alberyk:
+  - bugfix: Fixed species temperature discomfort messages not working.
+  - bugfix: Fixed the spicy Ras'val clams spawning with a broken reagent, also changed
+      the recipe to match it now; it should use capsaicin instead of black pepper.
+  Doxxmedearly:
+  - rscadd: Hallucination handling has been totally overhauled by taking, modifying
+      and tremendously expanding on Bay's system. Goodbye, 2012 hallucination code.
+  - rscdel: 'Removed the following hallucination effects: Fake HUD updates, items
+      spawning in your hand, ''fake death'', and pun-pun attacking you.'
+  - rscadd: Added over a dozen new categories of potential hallucination effects.
+      Some are subtle, some are more overt. Increased the variety of previously-existing
+      hallucination effects.
+  - rscadd: Added several large lists of prompts that should keep hallucinations varied
+      and interesting for a long time. These can also easily be expanded upon!
+  - tweak: Sounds will have less reverb while hallucinating, so you probably won't
+      need to tear your headset off while resisting a cult conversion.
+  - backend: Created a subsystem for hallucinations. Larger prompt lists were added
+      as text files.
+  Geeves, Kyres:
+  - rscadd: Added the ability to defuse various bombs with wirecutter-like tools,
+      as well as implementing a specialized bomb-defusal tool that spawns in EOD closets,
+      which is not absolutely guaranteed to work.
+  Leudoberct:
+  - tweak: Allows CCIA agents to spawn as Skrell.
+  MattAtlas:
+  - rscadd: Projectiles now have impact sounds.
+  - rscadd: Shooting mobs now creates a small blood splatter.
+  - rscadd: Simple animals now bleed when they are shot.
+2020-03-21:
+  Geeves:
+  - tweak: Plasma cutters can now have their power cells removed with screwdrivers,
+      and replaced by using the power cells on them.
+  - tweak: Plasma cutters now do 20 damage, up from 15.
+  - rscadd: More things can now be disassembled with the plasma cutter. Non-reinforced
+      walls, non-reinforced tables, grills, machine frames.
+  Wowzewow (Wezzy):
+  - imageadd: Adds new inhands for janitorial, hydroponic, medical and tank items.
+  - imageadd: Adds missing icons for upgraded scalpels in the surgery tray.
+2020-03-22:
+  Doxxmedearly:
+  - tweak: Reorganized the booze-o-mat. It should be less of a hunt to find things
+      now.
+  - tweak: Hot coco now vends in a disposable cup instead of a ceramic mug.
+  - tweak: Shakers and teapots will no longer be melted by acid. Feel free to mix
+      Acid Spit all you want.
+  - bugfix: Fixes empty icons for vended coffee/ramen not showing up.
+  - rscadd: Organizes drink code a bit to make it easier to add empty/trash sprites
+      for drinks in the future.
+  Geeves:
+  - rscadd: Produce boxes now spawn 15 produce items instead of 12.
+  - tweak: Reduced the types of produce that spawns in produce boxes to produce that
+      actually have recipes.
+  Skull132:
+  - tweak: Reimplemented the drafting of antagonists from round voters if there are
+      not enough candidates otherwise.
+2020-03-23:
+  Doxxmedearly:
+  - tweak: Made adjustments to liver filtration and alcohol strength. You should be
+      able to get drunk again and will stay drunk slightly longer.
+  - tweak: Robotic/assisted livers are now very slightly better at filtering out booze.
+  - bugfix: Fixed a message from the fake injection hallucination effect showing up
+      improperly.
+  MattAtlas:
+  - bugfix: Silicons can no longer be renegades.
+  - bugfix: Fixes limbs not properly updating after being removed by damage.
+  Mwahahahaha, The Stryker:
+  - rscadd: Splits the underwear into top and bottom pieces.
+  - rscadd: Allows underwear to be removed.
+  - rscadd: Ports some many more underwear, undershirt, socks styles from BS12, Polaris,
+      tg, as well as some made by The Stryker, using this new system.
+  - bugfix: Backpack styles (job-specific or grey) no longer keep changing back to
+      job-specific.
+  Skull132:
+  - tweak: Antag drafting from voters is now limited to just the bare minimum required
+      to boot the round. Previous iteration could over-saturate the pool, making most
+      of the antags be voters and not those who had the round enabled.
+2020-03-24:
+  PoZe:
+  - tweak: Kinnetic accelerator AOE spread now uses iterative approach instead of
+      recursive, possibly reducing stupid bugs.
+  Wowzewow (Wezzy):
+  - imageadd: Adds a new operating table sprite.
+2020-03-25:
+  Geeves:
+  - rscdel: Removed Spatial as a possible Wizard Spellbook.
+  - tweak: Gave wizards and apprentices more spell points across the board in return
+      for losing all teleportation abilities.
+  - rscadd: Wizard apprentices gain mend, forcewall, shadow shroud, wizard voidsuit,
+      monster manual, raise dead. Wizards should try to get apprentices where possible.
+  - rscadd: You can now store debuggers in tool belts.
+  MattAtlas:
+  - tweak: Cryo no longer heals organ damage.
+2020-03-26:
+  Doxxmedearly:
+  - bugfix: Chaplain's holy water flask no longer disappears when empty. It's a miracle.
+  Geeves:
+  - backend: Tweaked how various bee related items work, subtle non-intended differences
+      might be noticeable, however all should be positive.
+  - rscadd: Examining a beehive now gives you more information. It's still better
+      to use a plant analyzer on it to get detailed information, however.
+  - tweak: Bees now only get angry AFTER you disassemble their hive, not when you
+      click it with a screwdriver. Gives you some time to cancel the move.
+  - rscadd: Bees in a beehive now affect the yield of plants in view, having a positive
+      effect the more bees there are. They also still positively benefit plant health.
+  - rscadd: Examining the honey extractor now shows whether it contains a frame, and
+      its centrifuge action now only takes 10 seconds, down from 20.
+  - tweak: Tweaked the bee smoker's examine a little. Nothing new, but it should look
+      better now.
+  - tweak: Tweaked some bee smoker messages to look better.
+  - rscadd: Added available unique ghost spawner roles to the late join menu.
+  - rscadd: Added station alert level to the late join menu.
+  - rscadd: Added selected character name to the default join menu.
+  - bugfix: It is now impossible to attack people with unarmed attacks while incapacitated.
+  - rscadd: Implements a Piping Rapid Fabrication Device, otherwise known as the RFD-P.
+  - rscadd: Alt-clicking changes what types of pipes you can select, clicking on it
+      in-hand or pressing Z while it's in your active hand will let you choose a specific
+      pipe.
+  - backend: Added a framework to easily attach signalers to any type of machinery,
+      codewise.
+  - rscadd: You can now place a signaler on an emitter to remotely activate it. It
+      follows the same activation rules as a standard user.
+  - rscadd: EMPing an emitter now causes it to toggle its state, if it's ready to
+      fire.
+  - rscadd: Emagging an emitter now doubles the amount of burst shots it takes and
+      halves the minimum and maximum times between bursts.
+  - tweak: Tweak the message signalers vocalize when they receive a message. Tweak
+      the look and feel of emitters, try examining them sometime.
+  MattAtlas:
+  - bugfix: Kois spores no longer infect Vaurca.
+  - tweak: Removed extra move delay on a lot of automatic guns.
+  - bugfix: Fixed recoil not working properly.
+  Wowzewow (Wezzy):
+  - bugfix: Removes a superfluous tank inhand.
+2020-03-27:
+  Doxxmedearly:
+  - tweak: Adjusted how explosive implants are set. You will no longer get the settings
+      prompts when injecting. Use them in-hand to change the settings, instead.
+  - tweak: When you put an explosive implant into an implanter, it tells you the setting
+      and trigger phrase. If you did not set a phrase, it will generate and give you
+      a fallback code word.
+  - tweak: Explosive implants now spawn out of the implanter when the box is ordered
+      from the uplink, to make it easier to use in-hand. Uplink description edited
+      to inform people how to use it.
+  - bugfix: Localized limb settings for explosive implants no longer gib the person.
+      They just explode the limb. They can now explode outside a person's body, but
+      it won't do much.
+  Ferner, Happy_Fox, Kyres1:
+  - imageadd: Replaced many commonly used station art assets with new ones, custom
+      made by Kyres1 and Happy_Fox.
+  - maptweak: Tweaked a lot of areas of the station to make best use of these new
+      assets.
+  Geeves:
+  - bugfix: RFD-P will no longer use up their resource if put into a storage container.
+  - bugfix: Invisible admin/CCIA only ghostroles no longer cause the Unique Ghost
+      Role is available prompt.
+2020-03-28:
+  Alberyk:
+  - tweak: Replaced two references to ISD with security department to match the rest
+      of the game.
+  Geeves:
+  - tweak: Everything in mechfab and RnD consoles has been re-ordered and tweaked
+      in some way, it should be organized better now.
+  - bugfix: Fixes the Circuit Imprinter not printing.
+  ParadoxSpace:
+  - rscadd: Adds some more underwear options, one courtesy of Aticius.
+  - rscadd: Makes tight tanktops and binders recolorable.
+  YourDaddy117:
+  - imageadd: Updated the Green Trenchcoat to make it less awful.
+2020-03-29:
+  Geeves:
+  - bugfix: You can now put flags on windows without bashing them.
+  - bugfix: Compartmental circuit kits no longer display pickup error messages when
+      you put it back in the big box.
+  - tweak: Apprentice scrolls no longer spawn wizard garb, instead giving them the
+      no clothes spell. Enjoy.
+  - rscadd: Apprentices now get a Return to Master spell.
+  - rscadd: Return to Master has been given more smokey flair.
+  - rscadd: Apprentices now get Disable Tech, Entangle, Knock.
+2020-03-30:
+  Geeves:
+  - bugfix: Mechfabs can now properly print prosthetics with manufacturers.
+  - bugfix: Borgs can now work with airlock electronics again.
+  - rscadd: Bluespace mining is now possible, to do so, attach a warp extraction pack
+      to a mining satchel, then a warp extraction beacon signaller to an ore box.
+      Link them by clicking on the ore box with the satchel.
+  - rscadd: You can attach a linked mining satchel to a mining drill to teleport mined
+      ores to the connected ore box.
+  - rscadd: Mining satchel beacons can be removed with a screwdriver, mining drill
+      satchels by wrench, and ore box beacons by hand.
+  ReadThisNamePlz:
+  - rscadd: Made all animals names lower case, like Lizard is now lizard, etc. Ian,
+      Chauncey, etc.. still have capital names.
+  - rscadd: Allows Military Belts to hold Tactical Knives and Tactical Riot Shields"
+2020-03-31:
+  Alberyk:
+  - tweak: Robotics R&D consoles can no longer interact with protolathe and destructive
+      analyzer.
+  - tweak: Robot parts and some basic mech stuff had their time and price reduced.
+  Doxxmedearly:
+  - rscdel: Removed soporific from Nanomed vending machines.
+  Ferner:
+  - bugfix: Fixed some corner floor decals being inconsistent at some angles.
+  Geeves:
+  - bugfix: Ghosts can now hear non-verbal speaking from afar without stars appearing.
+  MattAtlas:
+  - tweak: Flashbangs no longer stun people.
+  Wowzewow (Wezzy):
+  - imageadd: Adds inhand sprites for stackable items, namely material sheets, tiles,
+      medical kits, wrapping paper and nanopaste.
