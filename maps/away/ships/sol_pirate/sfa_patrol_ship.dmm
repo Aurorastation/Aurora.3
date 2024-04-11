@@ -1155,10 +1155,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
-"dyC" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3,
-/turf/template_noop,
-/area/space)
 "dzB" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, weapons control"
@@ -1572,6 +1568,10 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
+"eMp" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
+/turf/template_noop,
+/area/space)
 "eNv" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Brig)
@@ -1626,6 +1626,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
@@ -2204,6 +2210,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
 "gCb" = (
@@ -3379,6 +3392,13 @@
 	pixel_y = 32;
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
 "kmF" = (
@@ -3690,6 +3710,10 @@
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"lpS" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4,
+/turf/template_noop,
+/area/space)
 "lrG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -3918,6 +3942,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/kitchenmedbay)
+"mho" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3,
+/turf/template_noop,
+/area/space)
 "mhO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4072,6 +4100,12 @@
 	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
@@ -4559,6 +4593,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
 "oqI" = (
@@ -4976,6 +5017,12 @@
 "pPT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
 "pPW" = (
@@ -5584,6 +5631,13 @@
 /obj/effect/shuttle_landmark/sfa_patrol_ship/airlock{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
 "rJr" = (
@@ -5944,10 +5998,6 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
-"tly" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
-/turf/template_noop,
-/area/space)
 "tmT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
@@ -6569,6 +6619,12 @@
 "wbw" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,203);
+	landmark_tag = "nav_sfa_port_airlock";
+	master_tag = "airlock_sfa_port_airlock";
+	name = "airlock_sfa_port_airlock"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
 "wbH" = (
@@ -7085,10 +7141,6 @@
 /obj/structure/sign/flag/sol,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/SFA_Armory)
-"xPV" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4,
-/turf/template_noop,
-/area/space)
 "xPX" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
@@ -33006,7 +33058,7 @@ xRX
 xRX
 xRX
 xRX
-tly
+eMp
 xRX
 xRX
 xRX
@@ -44514,7 +44566,7 @@ xRX
 xRX
 xRX
 xRX
-dyC
+mho
 xRX
 xRX
 xRX
@@ -44876,7 +44928,7 @@ xRX
 xRX
 xRX
 xRX
-xPV
+lpS
 xRX
 xRX
 xRX
