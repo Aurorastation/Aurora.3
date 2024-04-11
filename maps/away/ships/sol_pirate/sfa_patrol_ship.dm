@@ -112,6 +112,9 @@
 	initial_generic_waypoints = list(
 		"nav_sfa_patrol_ship_1",
 		"nav_sfa_patrol_ship_2"
+		"nav_sfa_patrol_ship_3"
+		"nav_sfa_patrol_ship_4"
+		"nav_sfa_port_airlock"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -133,8 +136,26 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav2
-	name = "SFA Corvette - Port Airlock"
+	name = "SFA Corvette - Starboard Side"
 	landmark_tag = "nav_sfa_patrol_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3
+	name = "SFA Corvette - Aft"
+	landmark_tag = "nav_sfa_patrol_ship_3"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4
+	name = "SFA Corvette - Fore"
+	landmark_tag = "nav_sfa_patrol_ship_4"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/sfa_patrol_ship/airlock
+	name = "SFA Corvette - Port Airlock"
+	landmark_tag = "nav_sfa_port_airlock"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
