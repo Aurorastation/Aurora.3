@@ -1,0 +1,170 @@
+2016-06-01:
+  LordFowl:
+  - bugfix: K'ois spores will now properly spawn in hydroponics seed storages.
+  - bugfix: Vaurca will now spawn with appropriate footwear.
+  Skull132:
+  - bugfix: Skills are now properly loaded from SQL.
+  - bugfix: Skills are no longer nuked whenever importing characters onto SQL.
+2016-06-04:
+  Arrow768:
+  - bugfix: Fixed telescience
+  Skull132:
+  - bugfix: Saving characters that use species without hair is now fixed.
+  - rscdel: Cleanbots are temporarily disabled, due to infinite loops.
+2016-06-20:
+  Arrow768:
+  - bugfix: 'Mercenary Gamemode: Antag identities/ckeys not revealed at roundend'
+  LordFowl:
+  - bugfix: Fixed female Vaurca sprites.
+2016-06-22:
+  Alberyk:
+  - rscadd: Added tajaran and unathi gloves, a wallet and a new armband to the custom
+      loadout.
+  - rscadd: Added the Synthetic Intelligence Movement armband.
+  - bugfix: Fixed wet floor tiles not drying over time.
+  - rscadd: Added book bags, the librarian starts with one.
+  - rscadd: Added syndicate belts.
+  - rscadd: Added janibelt.
+  - tweak: Added skrell snacks to the Getmore Chocolate Corp vending machine.
+  Nanako:
+  - rscadd: Skrell are now immune to slipping on wet floors
+  - tweak: All sources of vomiting now work the same way
+  - rscadd: Vomiting now removes 30u of reagents from your stomach and splashes them
+      on the floor
+  - tweak: Vomiting now doesn't work if your stomach is empty
+  - rscadd: Added Ipecac, an emetic medicine to induce vomiting when given orally.
+      Made from dylovene, ethanol and hydrogen 1:1:1
+  - rscadd: Increased the biogenerator's capacity to be able to hold an entire plant
+      bag
+  - bugfix: Fixed icons getting stuck onscreen when emptying a plantbag into a biogenerator
+      or grinder
+  - rscadd: Watering hydroponics trays with a bucket of water will no longer waste
+      the excess water.
+  - rscadd: Fertilizer bottles now contain 60u. Amounts in vendors and biogenerator
+      cost adjusted appropriately
+  Skull132:
+  - bugfix: Fixes toggleable vampire powers. They can now be turned off properly,
+      even if you lack the blood required to activate them.
+  - bugfix: Fixed Presence not turning off when the vampire is knocked unconcious.
+2016-06-23:
+  Alberyk:
+  - rscadd: Added bolt action rifles, raiders have a chance to spawn with one.
+  - rscadd: Added 7.62mm ammo clips to the hacked autolathe.
+  - rscadd: Added a new abandoned crate to mining.
+  - rscadd: Added a tommygun, raiders also get it for now, and two different magazines.
+  - rscadd: Added a derringer.
+  - tweak: Fixed uzis and added a magazine to them.
+  - imageadd: A lot of old aurora sprites are back now, as well new sprites for guns.
+  - rscadd: Added more tajaran hairstyles from old code.
+  - tweak: Security officers, the warden and detectives can be changelings, traitors
+      and vampires now.
+  - bugfix: The round should end normally, when the gamemode is heist, after the emergency
+      shuttle docks on central command.
+  - rscadd: Force gloves are now available on the traitor uplink.
+  - tweak: Roboticists starts now with a toolbelt, full of tools, instead of a toolbox.
+  - rscadd: Added a buildable improvised shotgun.
+  - imageadd: Added more nine different barsigns.
+  Bedshaped:
+  - bugfix: Fixed Object->Remove cartridge not showing the correct message.
+  - bugfix: Fixed the name of the cartridge not showing when removed.
+  Nanako:
+  - rscadd: Added pockets to all armours. 2 slots for vests, 4 slots for coats and
+      fullbody suits
+  - tweak: Useability improvement for Tactical Armour internal holster, functions
+      like a uniform-attached holster now
+  - rscadd: Cyborg jetpack can now be used by security, combat, engineering, construction,
+      mining and crisis borgs
+  - bugfix: Fixed cyborg jetpack not being installable
+  - rscadd: Cyborg jetpacks can now be removed and reused
+  - rscadd: Cyborgs now use less power when moving in space
+  - bugfix: Fixed jetpacking cyborgs not drifting when stabilisers are disabled
+  - tweak: All jetpacks now use twice as much gas when stabilisers are enabled
+  - rscadd: Most small animals can now be scooped up, including mice, lizards, chickens,
+      chicks, kittens and walking mushrooms
+  - rscadd: All scoopable animals now have an individually appropriate size set, which
+      determines whether they can fit in pockets/boxes/backpacks/trashbags, etc
+  - rscadd: Small animals now have a density of zero, allowing them to move under
+      people, or be walked over, without blocking the tile
+  - rscadd: Scooped critters can now be petted or crushed while held in your hands,
+      using help/harm intent
+  - rscadd: Drones and nymphs can now be petted while alive. They are picked up by
+      dragging them onto yourself
+  - tweak: Dead cats can be picked up
+  - bugfix: Tabby cats now look correct when held in hand
+  - bugfix: Medical Records Laptops and Employment Records Consoles are no longer
+      solid. Creatures that can walk on tables, can walk on them
+  - rscadd: Fixed trays. Trays can now be unloaded by placing them down on a table,
+      then either alt+clicking themn, or rightclicking and selecting Unload Tray
+  - rscadd: Trays can now load individual items by using it on them, or using the
+      item on the tray, or alt+click to attempt to load everything on the tile
+  - rscadd: Trays will now spill their contents when dropped, thrown, or when you
+      try to place it into a container
+  - tweak: 'Trays now only hold specific things: Food/drinks, reagent containers,
+      utensils, and smoking supplies'
+  - tweak: Tray capacity increased
+  - bugfix: Laptop camera monitors will no longer reset the scrollbar position after
+      every click
+  - bugfix: Medical huds will now properly update as wounds heal passively, or when
+      bandaged
+  - rscadd: Added a new Medical HUD state between 70 and 100%, to better recognise
+      very small amounts of damage
+  - rscadd: Medical huds will no longer show the healthbar on crewmembers who are
+      at full health
+  - rscadd: Added a healthbar fadeout effect for when someone heals up to 100% while
+      you're watching
+  - tweak: Medical huds now update more frequently
+  Skull132:
+  - rscadd: 'Adds Skype/Discord style mark-up to OOC, LOOC, and say. The tags that
+      can be used are: *, /, and _. Bold is disabled by default over OOC channels.'
+  - tweak: Makes the code BYOND 510 compatible.
+  - tweak: Updates the processScheduler with the usage of the world.tick_usage variable.
+      This should effectively mean less noticeable lag, though tweaking will most
+      likely be required in order to make it work well. Credit to the GOON dev team
+      for this.
+  - rscadd: Client version control added. Joining with a lower version than required
+      is now impossible for non-staff.
+2016-06-24:
+  LordFowl:
+  - rscadd: Vaurca hivemind language added.
+  - rscadd: Vaurca appropriate name generator added.
+  - rscadd: Tied Vaurca language to their neural socket organ.
+  - rscadd: Added a method for non-Vaurca to intercept the Vaurca hivenet so long
+      as they construct the correct item.
+  - rscadd: Sprites for Vaurca organs.
+  - rscadd: Neutered all Vaurca.
+  - rscadd: Cutting open a Vaurca for surgery now requires heavier equipment.
+  - rscadd: Injecting a Vaurca with a syringe now will take time.
+  - rscadd: Adds various Vaurca cosmetic items available via loadout.
+  - rscadd: Adds a few new burst-fire weapons exploiting the burstfire fix - obtainable
+      via research or adminbus.
+  - rscadd: Ports the ability to stick heads on spears from Paradise-code.
+  - rscadd: Added an error message when trying to bite someone before the cooldown
+      expires.
+  - rscdel: Removed spoken Vaurca language.
+  - tweak: Heavily nerfed K'ois' properties.
+  - tweak: Halved the nutrition value of nutriment, returning it to old-code state.
+  - tweak: Nerfed the damage dealt by bite, while reducing the cooldown.
+  - bugfix: Fixed burstfire weapons spamming attack messages when fired, allowing
+      for more automatic weapons.
+  - bugfix: Fixed Vaurca player ability to select coloured eyes.
+  Skull132:
+  - rscadd: Fax machines and Request Consoles can now be linked with PDAs to alert
+      the PDA upon message arrival. These options are available in the machine's UI.
+  - rscadd: Unbanning staff will now be prompted for an unban reason. Any lifting
+      of bans will now also be logged in the player's notes.
+  - tweak: Tajarans now speak Siik'maas, as per their lore.
+2016-06-25:
+  LordFowl:
+  - bugfix: Fixed Vaurca hivenet broadcasting into OoC.
+2016-06-27:
+  Nanako:
+  - bugfix: Fixed being unable to remove tactical armour
+  - bugfix: Fixed being unable to place held animals into disposal units
+  - bugfix: Fixed missing held/onhead icons for cats
+  - bugfix: Fixed being unable to install robot cameras
+2016-06-29:
+  Skull132:
+  - bugfix: Vampires can no longer have negative amounts of blood or frenzy. This
+      also means that frenzy from low levels of blood is acheivable again.
+  - bugfix: Dominate and presence no longer affect loyalty implanted personnel, unless
+      the casting vampire has attained full power.
