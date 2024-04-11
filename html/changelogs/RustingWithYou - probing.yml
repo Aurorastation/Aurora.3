@@ -38,6 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Survey probes can now print their output in different languages."
-  - rscadd: "Adds several factional survey probe planet ruins."
-  - maptweak: "Adds survey probes to various scientific offships."
+  - rscadd: "Survey probes can now print their output in different languages."
