@@ -82,7 +82,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "ajw" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 4;
 	target_pressure = 250
@@ -974,7 +973,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/effect/shuttle_landmark/sfa_shuttle/hangar{
 	dir = 1
@@ -1148,7 +1146,6 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1244,7 +1241,6 @@
 /obj/effect/decal/cleanable/generic{
 	layer = 2.81
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -1568,10 +1564,6 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
-"eMp" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
-/turf/template_noop,
-/area/space)
 "eNv" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Brig)
@@ -1622,7 +1614,6 @@
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "eVI" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -1759,6 +1750,10 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
+"fld" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4,
+/turf/template_noop,
+/area/space)
 "fnU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1793,7 +1788,6 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/ship/sfa_patrol_ship/Telecomms)
 "ftq" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
@@ -2208,7 +2202,6 @@
 	id_tag = "freight_shuttle_out";
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/effect/map_effect/marker/airlock/docking{
 	req_one_access = list(13,203);
@@ -2223,7 +2216,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2472,7 +2464,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/custodialammo)
 "hvS" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Bridge)
 "hwu" = (
@@ -2581,7 +2572,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -2836,7 +2826,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3361,7 +3350,6 @@
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3382,7 +3370,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -3401,8 +3388,11 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
+"kjs" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
+/turf/template_noop,
+/area/space)
 "kmF" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(203)
@@ -3428,7 +3418,6 @@
 "krh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3710,10 +3699,6 @@
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
-"lpS" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4,
-/turf/template_noop,
-/area/space)
 "lrG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -3806,7 +3791,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/docking)
 "lIM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Bridge)
@@ -3913,7 +3897,6 @@
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
 "mfq" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
@@ -3942,10 +3925,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/kitchenmedbay)
-"mho" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3,
-/turf/template_noop,
-/area/space)
 "mhO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4075,7 +4054,6 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4086,7 +4064,6 @@
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
 "mEJ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -4118,7 +4095,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4258,7 +4234,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4468,7 +4443,6 @@
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine2)
 "nHg" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4588,7 +4562,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -4786,7 +4759,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -4868,7 +4840,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5015,7 +4986,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/destroyedmedbay)
 "pPT" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/effect/map_effect/marker/airlock/docking{
 	req_one_access = list(13,203);
@@ -5271,6 +5241,10 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
+"qzY" = (
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3,
+/turf/template_noop,
+/area/space)
 "qCZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -5621,7 +5595,6 @@
 	id_tag = "freight_shuttle_out";
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/access_button{
 	pixel_x = 12;
@@ -5643,7 +5616,6 @@
 "rJr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5696,7 +5668,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6082,7 +6053,6 @@
 	dir = 6;
 	pixel_y = 0
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -6204,7 +6174,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6304,7 +6273,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6678,7 +6646,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6797,7 +6764,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7029,7 +6995,6 @@
 /obj/item/trash/spitwad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7206,7 +7171,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -33058,7 +33022,7 @@ xRX
 xRX
 xRX
 xRX
-eMp
+kjs
 xRX
 xRX
 xRX
@@ -44566,7 +44530,7 @@ xRX
 xRX
 xRX
 xRX
-mho
+qzY
 xRX
 xRX
 xRX
@@ -44928,7 +44892,7 @@ xRX
 xRX
 xRX
 xRX
-lpS
+fld
 xRX
 xRX
 xRX
