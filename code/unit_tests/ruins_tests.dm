@@ -52,6 +52,7 @@
 
 /datum/unit_test/ruins_test/all_files_valid
 	name = "All Ruins Files Exist"
+	groups = list("generic") //This runs as a generic test as we only need to pass them once, not in every pod
 
 /datum/unit_test/ruins_test/all_files_valid/start_test()
 
