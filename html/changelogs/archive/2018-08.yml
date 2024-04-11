@@ -1,0 +1,161 @@
+2018-08-04:
+  Ron:
+  - bugfix: Corporate Reporters can now access security.
+  - bugfix: Removing a pAI from the potted plant no longer results in two being dropped.
+2018-08-05:
+  Alberyk:
+  - rscadd: Added checkers and chess game kits to the custom loadout.
+  - rscadd: Added some random asteroid dungeons.
+  - rscadd: You can now build floors using some materials, such as silver, gold and
+      diamond.
+  - rscadd: Added tajaran flags and banners to the custom loadout.
+  - rscadd: Added tobacco, peppercorn, onion and garlic seeds.
+  - rscadd: Added new cooking recipes.
+  - tweak: Using arm blade or shield does not create gibs anymore.
+  - rscdel: Removed shotgun speed loaders.
+  - imageadd: Added unique sprites for shotgun shells boxes.
+  - imageadd: Added some loaded and unloaded sprites for some guns.
+  - rscadd: Sterile masks can now be adjusted, to either cover the face or hang on
+      the neck.
+  - tweak: Cutting any gloves fingertips will now reduce the insulation of the gloves
+      in question.
+  - rscadd: Added a pair of tajaran and unathi insulated gloves to the chief engineer
+      and electrical supplies closets.
+  - rscadd: Added a new unathi clothing to the loadout.
+  Arrow768:
+  - rscadd: Centcom now pays for certain products shipped to them. Use the export
+      scanners to determine what they would like to have and how much they pay for
+      it.
+  - rscadd: Sometimes central requests special products to be shipped to them. Make
+      sure to pay attention to the cargo consoles.
+  - rscadd: Invoices for shipments and orders can now be printed using the cargo control
+      console.
+  BurgerBB:
+  - rscadd: Added Monoammonium Phosphate, a reagent that excels in extinguishing fires,
+      and acts as a fertilizer. They are now found in fire extinguishers instead of
+      water. Added Monoammonium Phosphate tanks around the station in place of some
+      water tanks.
+  - rscadd: Added a new weak chem sprayer, 'Xenoblaster', which can be found in xenobiology
+      for xenobiologists.
+  - tweak: Fire extinguishers can be filled with any reagent using an extinguisher
+      cartridge. Extinguisher cartridges can be ordered by cargo, or found in atmospherics.
+  - tweak: Reagent dispensers, such as watertanks and beer kegs, can now be filled
+      with any reagent. Fuel tanks are an exception.
+  - rscadd: Most mobile reagent dispensers can leak their contents if you use harm
+      intent wrench on them. Changed how leaking works.
+  - tweak: Reworked how reagent containers (glass beakers, drinks) behave on interaction.
+      You can splash anyone with any container on harm intent, and drink/use them
+      on other intents.
+  - maptweak: Added a fire storage area in atmospherics that contains firefighting
+      equipment and Monoammonium Phosphate containers.
+  - rscadd: Lube and water can be spread to other tiles if there is too much water
+      or lube on one tile.
+  - rscadd: Adds several new and unique kinetic accelerator parts that can only be
+      found in warehouse or in abandoned crates.
+  - tweak: Kinetic Accelerators can now be held with two hands for a recoil reduction,
+      accuracy increase, and slight firerate increase. Some high-end kinetic accelerators
+      require two hands to fire, and all kinetic accelerators require two hands to
+      pump.
+  - rscadd: Adds a kinetic analyzer, a device that can be purchased from cargo that
+      analyzes kinetic accelerators, displaying useful data about the assembly.
+  - maptweak: Remapped Xenobiology to be worthy of a research station.
+  - rscadd: Stunbatons have a 95% chance to pacify slimes. 5% chance to make them
+      rabid.
+  Fire and Glory:
+  - tweak: Vendor K'ois bar packaging has been changed to make it easier for new crew
+      to understand its toxicity
+  Flamingo:
+  - bugfix: Adjusted roof solar wiring to (hopefully) fix the roof solars power routing
+      bug.
+  Karolis2011:
+  - balance: Removes Topic() rate limiting. This should make HTML UIs more responsive.
+  - experiment: Added completely new Vueui HTML interface system. It should bring
+      more responsive UIs.
+  - rscadd: Added user prefrence for UI theme. At this moment this applies only to
+      Vueui interfaces.
+  - rscadd: Made photocopier and fax machines use Vueui.
+  - rscadd: Made Air control consoles use Vueui.
+  LordFowl:
+  - rscadd: Airlocks will now open when out of power and blast doors will close.
+  - tweak: Crowbars can no longer open unpowered blast doors.
+  ParadoxSpace:
+  - rscadd: Adds HUD aviators for each kind of HUD, also adding night/thermal versions
+      to the uplink.
+  - rscadd: Adds civilian sunglasses to the loadout, they do not protect against flashes.
+  PoZe:
+  - rscadd: Hyronalin now causes Diona to receive toxin damage. For reference 10 units
+      will get Diona into cirtical state within 3:30 minutes. 15 unit will kill.
+  - rscadd: Arithrazine now causes Diona to receive deadly toxin damage. Even 5u will
+      kill Diona within 1:03 minutes
+  - rscadd: Tea now causes Diona to receive toxin damage. Tiny bit more then how it
+      cures radiation for other species.
+  - rscadd: Radium now cures toxin damage for Diona. You would need at least 1/3 more
+      of it to cure same amount of Hyronalin effect.
+  - rscadd: Adds cyborg surge prevention upgrade module. It is an upgrade that makes
+      cyborg being immune to 1-3 EMP pulses. Can be constructed by robotics, but is
+      expensive and high tech. After being fried, module can be replaced with new
+      module
+  - rscadd: Adds IPC surge prevention module. Available only via traitor uplink, costs
+      14 telecrystals. Just like cyborg module it make user immune to 1-3 EMP pulses.
+      Comes in from uplink as modified nanopaste that is one time use(doesn't heal
+      user). Module can be repaired with another traitor nanopaste
+  TheDocOct:
+  - rscadd: Added a conference room to the public surface level, with a bridge-access
+      bolt button.
+  - maptweak: Moved the surface level atmospherics equipment into the surface engineering
+      storage room, and adjusted it accordingly.
+  - maptweak: Renovated the surface command 'Head of Staff Preparation' room into
+      'Command Dock Monitoring'.
+  ben10083:
+  - rscadd: Added a Medical Hud to the Medical Module
+2018-08-06:
+  BurgerBB:
+  - bugfix: Fixes condiments, including salt and pepper, not being able to be poured.
+  - bugfix: Fixes objects getting stuck in xenobiology disposals.
+  - bugfix: Fixes autoinhalers and autoinjectors refusing to change their icons after
+      use.
+  - bugfix: Fixes Slime Batons not spawning without a power source.
+  - bugfix: Fixes miscalculation in heat reduction for fire extinguishers.
+  Karolis2011:
+  - bugfix: Added a reliable way to manually force send resources to client if asset
+      manager fails.
+2018-08-07:
+  BurgerBB:
+  - bugfix: Fixes the kinetic uranium recharger from not functioning.
+  - bugfix: Fixes food/plants from being able to be poured into containers.
+  - bugfix: Removes water dispersion, as it would hang the server during scrubber
+      events.
+  flimango:
+  - maptweak: Remapped the surface solars cables to run internally.
+  - bugfix: Fixed the surface solars to properly transfer power to the main grid and
+      vice versa.
+2018-08-11:
+  BurgerBB:
+  - balance: People can no longer drink pizza. This balance fix is sponsored by Papa
+      'Facing Trump Tower while chanting white power' John.
+  PoZe:
+  - tweak: Arithrazine was tweaked to kill Dionea with 5 units within 2 minutes, instead
+      of original 1.
+  - tweak: Hyronalin was teaked to kill Dionea with 15 units within 6 minutes, instead
+      of original 3
+  flimango:
+  - bugfix: Fixed RCON tags.
+2018-08-14:
+  Arrow768:
+  - rscadd: Combat Hyposprays ignore the armor checks and can inject instantly.
+  BurgerBB:
+  - bugfix: Fixed a bug that allowed players to forcefeed sausage to others from a
+      distance.
+2018-08-25:
+  BurgerBB:
+  - bugfix: Fixed hypospray and inhalers being able to inject at a distance.
+  - bugfix: Fixed food unable to be placed specifically. Applied specific placing
+      code to most reagent containers.
+  - bugfix: Added missing kelotane reagent to borg hypospray.
+2018-08-26:
+  Skull132:
+  - bugfix: Fixed the vending machines. (Thank you BYOND.)
+2018-08-27:
+  BurgerBB:
+  - bugfix: Fixed food specifc placement for real now.
+  - rscdel: Pills can now also be placed specifically.
