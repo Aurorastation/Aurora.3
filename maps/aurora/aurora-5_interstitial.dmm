@@ -2527,10 +2527,6 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Classroom";
-	dir = 4
-	},
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
 "gq" = (

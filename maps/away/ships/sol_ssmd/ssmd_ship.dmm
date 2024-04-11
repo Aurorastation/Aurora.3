@@ -1072,7 +1072,6 @@
 /area/ship/ssmd_corvette/hangar)
 "dgq" = (
 /obj/structure/table/steel,
-/obj/structure/table/steel,
 /obj/structure/window/basic,
 /obj/item/paper_bin,
 /obj/item/pen,
