@@ -1,0 +1,217 @@
+2021-11-01:
+  Albery, Aticus, Mikomyazaki:
+  - rscadd: Added a diona nymph limbs to the limbs option in the character creation
+      setup. Skrell and unathi can pick them.
+  Desven:
+  - bugfix: Fixed Vaurca Breeder gender.
+  - bugfix: Fixed Vaurca Breeder missing some augments and loadout options.
+  - bugfix: Fixed Vaurca Breeder missing a blurb in selection.
+  - bugfix: Fixed the citizenship selections for Vaurca.
+  - tweak: Made Dionae not taste anything, so it&#x27;s more lore accurate.
+  - tweak: Changed how Vaurca autohiss works. It is now v and vh for basic, and zz
+      for full.
+  - tweak: Full Vaurca autohiss will also change vs and ce and ci to ze and zi.
+  Forester40:
+  - tweak: The *grumble and *mumble emotes now use a full stop instead of an exclamation
+      mark.
+  TheGreyWolf:
+  - bugfix: 'Fixes some species specific (primarily taj &amp; bulwark) issues with
+      the following sprites: Tunnel cloak, vaurca blinders and toeless jackboots &amp;
+      toeless workboots.'
+  - bugfix: The faction loadout items should now properly display in character setup
+      when selected.
+  WickedCybs:
+  - bugfix: Female Tajara won&#x27;t have a gap where their tail should be on the
+      front sprite now.
+  martinlyra:
+  - bugfix: Fixed improper offset for light on firefighter helmets
+2021-11-02:
+  Alberyk:
+  - bugfix: Dionae limbs can now be detached.
+  Geeves:
+  - bugfix: Dragging yourself onto a matriarch drone to possess it will now remove
+      it from the ghost spawner list.
+  - bugfix: Aghosting from a matriarch drone no longer reopens the slot.
+  - bugfix: Fixed some custom items being invisible because of sprite sheets.
+  TheGreyWolf:
+  - rscadd: EPMC labcoats and tajaran cloaks now have coatrack sprites.
+  TheGreyWolf & BunkyB:
+  - rscadd: Adds idris labcoats to the loadout under factions.
+  WickedCybs:
+  - bugfix: Added back a missing pixel on Tajara shoulderparted left.
+  - bugfix: The Tajara sideparted/shoulderlength hairs had some shading inconsistencies
+      on their front facing sprites. It&#x27;s been made more uniform now.
+2021-11-03:
+  Desven:
+  - maptweak: Made corkboards of certain areas face to correct direction.
+  Desven, RyverStyx, Myphicbowser:
+  - rscadd: Added unique robotic limbs for Vaurca Worker and Vaurca Warrior. They
+      are only selectable via the loadout.
+  Geeves:
+  - bugfix: Fixed some custom accessories not displaying correctly.
+  - bugfix: Fixed some bulwark items not grabbing the correct icon file.
+  TheGreyWolf:
+  - bugfix: Radios worn in other slots than the left ear will now properly show as
+      being talked into if others are nearby.
+  - bugfix: The message for the wrist radio being layered over/under the outerwear
+      is no longer reversed.
+  - bugfix: When telecomms are damaged, the spoken message will no longer be delayed
+      when speaking into the radio, only the radio message.
+2021-11-04:
+  Greenjoe12345:
+  - rscadd: Added some markings, a bunch of bandages to visually show on your character,
+      and a heterochomia marking, useable by humans, unathi, tajara and shells.
+2021-11-05:
+  Forester40:
+  - rscadd: IAC berets have been added to the loadout selection. You can choose between
+      them and IAC caps in the Hats and Headgear section of the loadout.
+  - spellcheck: The IAC cap is no longer mislabelled as a beret in the loadout.
+2021-11-06:
+  Arrow768:
+  - backend: Smaller Fixes to the Forum-Authentication-System.
+  nerocavalier:
+  - spellcheck: Fixed camera typo.
+2021-11-07:
+  Desven:
+  - bugfix: Fixed the examine text for Vaurca Bulwark horns.
+  Geeves:
+  - rscadd: Drones now belong to a Matrix, a collective of drones headed by a Matriarch.
+      A matriarch can select upgrades for the drones within its matrix. After being
+      selected, the upgrades can be acquired by charging to full at a recharge station.
+  - tweak: Drone Talk has been renamed to Matrix Weave. Only drones in the same Matrix
+      can hear eachother on the Weave. Local transmissions unaffected.
+  - rscadd: Matriarch drone names now appear nicer on the Matrix Weave.
+  TheGreyWolf:
+  - bugfix: Vaurca head &amp; chest no longer needs to be sawed through in surgery.
+  - bugfix: Vaurca are no longer permanently blind when flashed. It can be fixed through
+      surgery or by applying oculine.
+  arrow768:
+  - bugfix: The research shuttle console can be deconstructed again.
+2021-11-08:
+  Desven, Xev:
+  - rscadd: Added descriptions for some Vaurca organs.
+  - rscadd: Added a unique sprite for the Vaurca stomach.
+  - rscadd: Added a Vaurca appendix and the option to remove it in the character creation.
+  Desven, Xev, martinlyra:
+  - bugfix: Fixed some existing Bulwark clothing sprites not showing properly.
+  - bugfix: Fixed canvas sizes for 48x48 mobs.
+  - tweak: Tweaked most Bulwark clothing sprites.
+  - rscadd: Added Vaurca Bulwark hairstyles.
+  - rscadd: Added gradients for Vaurca Bulwark.
+  - rscdel: Vaurca Bulwark can no longer be bald.
+  Desven, martinlyra:
+  - bugfix: Fixed gradient issue affecting Vaurca Bulwarks
+  - bugfix: Fixed missing antennae styles for Vaurca subspecies other than Bulwarks
+  martinlyra:
+  - bugfix: Fixed the recipe for dyn pozole
+  - bugfix: Fixed the recipe for bluespace tomato soup
+  - backend: Cooking recipes and fruits&#x27; kitchen tags are now unit-tested to
+      prevent similar bugs with dyn pozole and bluespace tomato soup from happening
+      again.
+2021-11-09:
+  Geeves:
+  - rscadd: 'Mapped some additional items into the telecomms east area, notably: relay
+      and hub circuitboards, additional stock parts for them, some cable coil, as
+      well as four tubes of nanopaste to repair the machines.'
+  - tweak: Nanopaste has been tweaked to repair half of a telecomms machines health
+      per use. With 24 machines, a fully damaged telecomms will take 5 tubes of nanopaste
+      to repair the array.
+  TheGreyWolf:
+  - bugfix: Ghosts can no longer interact with the shield generator unless they&#x27;re
+      staff.
+2021-11-10:
+  Desven:
+  - rscadd: Examining headtail stuff now says they&#x27;re on the headtails.
+  - rscadd: Updated sprites for atmos canisters.
+  arrow768:
+  - rscadd: Enables searching/filtering in the ghost follow menu.
+2021-11-12:
+  Desven:
+  - rscadd: Added mandible styles for Vaurca Warriors.
+  RyverStyx:
+  - bugfix: Fixed Skrell chest sprite.
+  dekser:
+  - rscadd: Added unique sprites for Unathi organs.
+2021-11-13:
+  Desven:
+  - bugfix: Fixed more Bulwark sprites such as the Islero horns, wrist items and some
+      glasses.
+  - bugfix: Fixed the side sprite for the leather watch having the wrong watch face
+      color.
+  TheGreyWolf:
+  - tweak: Injecting dexalin and dexalin plus into vaurca is now always dangerous
+      instead of only when overdosing them.
+  - rscadd: Vaurca no longer suffocate when hanged. Bulwarks and Ta can no longer
+      be hanged.
+2021-11-14:
+  TheGreyWolf:
+  - rscadd: Added paperwork tools to the janitorial, engineering, construction and
+      rescue borg modules.
+2021-11-17:
+  RyverStyx:
+  - tweak: Fixing the Jargon blurb to be lore compliant.
+  - rscadd: Allowing Dionae to be Jargon Consulars.
+2021-11-18:
+  Alberyk:
+  - bugfix: You can detach nymph hands and feet.
+  - bugfix: You can now attach dionae nymph as limb by right clicking the nymph.
+  Desven:
+  - bugfix: Fixed some body marks not properly showing.
+  - bugfix: Fixed those marks not being selectable for Axiori Skrell.
+  Geeves:
+  - bugfix: Hammers can now properly repair airlocks.
+  martinlyra:
+  - rscadd: Successful cooking now informs the cook what has been synthesized
+  - rscadd: Examining plates / bowls now hint the player how to use them for cooking
+  - backend: Added `pluralize_word` for naive pluralization of nouns
+2021-11-20:
+  TheGreyWolf:
+  - bugfix: The sun sister veil now shows up properly on tajara.
+2021-11-21:
+  Desven:
+  - tweak: Lowered the amount of phoron sheets required for the bounty.
+  Geeve:
+  - tweak: Thermal drill shots now do 2 damage each, up from 1.
+  - bugfix: Thermal drills on autofire can no longer be fired one-handed.
+  Geeves:
+  - rscadd: You can now clearly unset whatever the teleporter station is locked on
+      to, turning off the telepad.
+  - rscadd: The teleportation station hub will now show you its station ID when you
+      examine it.
+  - bugfix: Teleportation stations will now go offline and prevent hand-teles from
+      locking on to them when they&#x27;re depowered.
+  - tweak: Teleportation stations now check whether the hand-tele and beacon is on
+      a Z-level connected to it before locking on.
+  - tweak: Hand-teles can now only support two active portals before having to recharge,
+      making it more difficult to hop around endlessly.
+  - rscadd: Toggling whether headgear blocks hair has been moved from helmets to root
+      level headgear, meaning any headwear can be made to toggle hair or not. Additionally,
+      loadout headgear can now be set to block hair or not, so you don&#x27;t have
+      to do it each round.
+  - rscadd: Toggling headgear&#x27;s hair coverage now instantly updates your hair
+      icon.
+  TheGreyWolf:
+  - bugfix: Urns can now contain ashes again.
+  - rscadd: Bodybags can now be placed adjacent to the user.
+  - bugfix: Rollerbeds now display a message when bodybags are buckled to them.
+  TheGreywolf:
+  - rscadd: Adds an extended description to the hoist, idris ordering terminal and
+      hardsuit module press to help explain how to use them.
+2021-11-24:
+  Geeves:
+  - rscadd: Added a Powered Crossbow bounty. Supporting this bounty will help our
+      friends on Mictlan achieve peace once more.
+2021-11-27:
+  Geeves:
+  - bugfix: Binary channels now work again.
+  TheGreyWolf:
+  - bugfix: The adhomian divination cards deck now contains the correct set of cards.
+  - bugfix: Fixes the misplaced harm intent lights on the service version of the &#x27;venus
+      drone&#x27; sprite.
+  - bugfix: Fixes the vaurca vending machine looking weird when the panel is opened.
+  - bugfix: Red Nightshade berserk state now works again.
+  - bugfix: Red Nightshade is no longer incredible lethal. It now induces heart damage
+      instead.
+2021-11-30:
+  Alberyk, Canon35:
+  - rscadd: 'Added two new Tajaran accents: Harr&#x27;nrri and Zarr&#x27;jiri Siik&#x27;maas.'

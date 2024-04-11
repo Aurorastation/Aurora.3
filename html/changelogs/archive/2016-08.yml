@@ -1,0 +1,251 @@
+2016-08-03:
+  LordFowl:
+  - bugfix: The demoleculariser is now constructable via RnD.
+  - bugfix: Fixed Gatling Lasers and Railguns fitting into bags.
+  - bugfix: Fixed railguns projectiles not exploding if they missed their target,
+      and generally improved their target criteria.
+  - tweak: Zo'ra blasters now fit on the belt-slot and into holsters.
+2016-08-08:
+  Alberyk:
+  - tweak: Only unathi are able to wear and deploy the breacher suit, both the NanoTrasen
+      and the original version.
+  - tweak: You can now carry some security related items in the breacher storage slot.
+  - rscadd: Replaced the detective colt with a .38 revolver.
+  - rscadd: Added a syndicate cyborg teleporting device, available to traitors and
+      mercenaries in their uplinks.
+  - rscadd: Added departamental related voidsuits crates to the supply console.
+  - rscadd: Added security and engineering maglock crates to the supply console.
+  - tweak: Costumes crates do not require theater access anymore.
+  - rscadd: Added a firefighting suit and helmet for atmos techs.
+  - imageadd: New, and better, firesuits sprites.
+  - rscadd: Cyborgs can now select the combat module when the security level is red
+      or higher.
+  - rscadd: Added some meat-based unathi snacks in the vending machines around the
+      station.
+  - rscadd: Added an improved wish granter.
+  - rscadd: Added skeletons.
+  - rscadd: Melee energy weapons, such as sword, glaives and axes, can now slice apart
+      regular walls and their girders.
+  - rscadd: Added more skrellian head garments, available in the custom loadout.
+  - rscadd: Added some neckerchief bandanna, available in the custom loadout.
+  - rscadd: Added a cigar case cigarettes to the custom loadout.
+  - tweak: Lowered the unathi resistance to alcohol and getting drunk as whole.
+  - rscadd: Added the first Moghes related animal.
+  - imageadd: Ported engineering and atmospheric jumpsuits from oldcode.
+  Bedshaped:
+  - tweak: Changing the commstation_name to NTCC Odin as per Jackboot
+  - tweak: Allowing command reports to have the CCIAAMS signature
+  - bugfix: Writing [date] on paper will now show the correct lore date
+  - bugfix: Cyborgs can now repair airlocks with their steel synthesizer
+  - bugfix: Ghosts and other creatures can no longer rotate shield capacitors
+  - rscadd: Kois has been added to the Xenobiology seed vendor
+  LordFowl:
+  - rscadd: Non-wizards using wizard items may experience fun stuff.
+  - tweak: Mental focus damage level's have returned to old-code, to better compete
+      with Mutate.
+  - bugfix: Mental focus staff has had its area of effect mode returned.
+  Nanako:
+  - bugfix: Fixed AI being unable to set network on telecomms traffic control console.
+  - rscadd: Added hunger and feeding system for simple animals, this includes cats,
+      dogs, mice, lizards, chickens, cows, etc
+  - rscadd: Animals can now actually consume food instead of nibbling them eternally.
+  - rscadd: Animals can now be hand-fed by using food on them.
+  - rscadd: Animals will move more slowly when starving. Examining an animal will
+      show if its hungry.
+  - bugfix: Fixed a bug where examining an APC at close range would show its description
+      twice
+  - rscadd: Roboticists now have master-access to all bots
+  - bugfix: Fixed an exploit where security cam consoles could give xray vision
+  - tweak: Added cancel buttons to several input dialogs, including say, me, and PDA
+      messaging
+  - imageadd: Forensics/crimescene kit now has a held sprite
+  - bugfix: Fixed a bug with forensics kit not holding as much as it should
+  - tweak: All event probabilities reworked for a more varied and interesting event
+      system.
+  - bugfix: Fixed many small instances where voidsuits were erroneously referred to
+      as hardsuits. Mainly in EVA airlocks
+  - bugfix: Animals climbing onto people will now show a different, correct message,
+      instead of the scooped one
+  - bugfix: Fixed an issue where a held animal could be duplicated
+  - bugfix: Fixed animals bugging out when placed in crates or unworn containers
+  - rscadd: Corgis, including Ian, will now automatically eat nearby food when they're
+      hungry, and beg for any food held by crewmembers
+  - tweak: Ian is now an insatiable eating machine.
+  - tweak: Ian now gets more energetic when food is around, but slows down if left
+      alone for a while to save performance
+  - rscadd: Animals can now heal slowly by eating food.
+  - rscadd: Increased number of janitor slots to two.
+  - rscadd: Janitorial carts can now be constructed with metal sheets, and deconstructed
+      with a wrench, welder or plasmacutter if empty.
+  - tweak: Janicarts now come without a bucket. Click and drag a mop bucket onto a
+      cart to mount it, and you can unmount it from the janicart interface.
+  - tweak: Placing a mop into a janicart, and pouring containers into the bucket,
+      is now done with alt-click. A leftclick will now always wet the mop, and throw
+      objects into the trashbag, respectively.
+  - rscadd: Janicarts can now be climbed over like tables - Click and drag your sprite
+      onto it.
+  - tweak: Custodial closet's Spraycleaner, cleaning grenades, and spare lights, are
+      now inside the janitorial locker instead of on table/floor.
+  - tweak: Added an extra janitorial locker in the custodial closet.
+  - bugfix: Fixed the Captain's deluxe soap being unuseable for cleaning
+  - tweak: Soap can now clean more tiles when wetted
+  - tweak: Soap and rags can now be wetted in buckets, mopbuckets, watertanks and
+      janicarts
+  - rscadd: Lighters can now fit into cigarette packets.
+  - bugfix: Lighters will now go out when placed into a container
+  - bugfix: Resisting out of lockers now works properly
+  - tweak: Breaking out of a locker which is welded AND locked takes longer than if
+      it's only one of those two.
+  - bugfix: Fixed pAI and vampire candidacy settings not working properly.
+  - bugfix: Fixed pAI Personality window not populating automatically
+  - rscadd: Added a greeting blurb for pAIs
+  - rscadd: Respawn timers are now tracked individually for playing as animals (mice),
+      small synthetics (drones and pAIs) and crew (everything else). This means you
+      can now play as a mouse or drone while waiting to respawn as a full crewmember.
+  - tweak: You can now spawn as a drone immediately upon joining as an observer, without
+      having to wait ten minutes. There is still a cooldown between respawning as
+      a drone if you just died as one.
+  - tweak: Slightly improved the error messages if you try to respawn when you've
+      not waited long enough.
+  - bugfix: Fixed a major issue where alien species with cybernetic limbs on spawn
+      would always be the species default colour.
+  - bugfix: Fixed preview images of nonhumans with cybernetic limbs being tinted the
+      body colour.
+  - bugfix: Spraying water will now wet all mobs in the tile, dividing reagents amongst
+      them. This fixes some issues where slimes would be unsprayable.
+  - rscadd: Bomb suit and hood are now far more robust, and resistant to all types
+      of damage
+  - rscadd: Bomb suits now protect all bodyparts except the hands
+  - tweak: Bomb suit slowdown significantly increased
+  - rscadd: Bomb suits now cause the wearer to gradually overheat and will eventually
+      cause heatstroke, their materials are very bad for dissipating bodyheat
+  - rscadd: Bomb hoods now restrict peripheral vision like welding goggles, but do
+      not protect your eyes from light
+  - tweak: Bomb suits and bomb hoods are now too large to fit in a backpack
+  - rscadd: Bulletproof, ablative and riot suits are no longer cripplingly overspecialised,
+      their resistance to the non-primary damage types has been increased
+  - rscadd: Mice now have a sprite for resting
+  - soundadd: Added a few squeak verbs for mice with new audio, based on samples recorded
+      from real mice!
+  - tweak: Mice will now occasionally squeak, and squeak chance increased. Player-controlled
+      mice will also automatically squeak but less often
+  - tweak: Mice will now squeal in pain when killed, and sometimes when stepped on
+  - bugfix: Fixed a bug where mice would permanantly stop squeaking after sleeping
+      once
+  - rscadd: The cover of broken APCs can now be opened with a welding tool
+  Skull132:
+  - rscadd: Implemented the antag contest base code. This is due for changes as the
+      contest progresses, but should be workable for the time being.
+  - bugfix: Objectives like brig should now work properly.
+  - tweak: HTML parsing is re-enabled in direct and global narrate, for admins.
+  - bugfix: Spam prevention is no longer activated by automated emotes.
+  alberyk:
+  - rscadd: Added a buildable improvised handgun.
+2016-08-10:
+  Alberyk:
+  - bugfix: Combat cyborgs should have access to security channel, and be able to
+      be tracked via cameras consoles.
+  - tweak: Replaced the thermal vision module with a sechud.
+  - rscadd: Added the thermal vision module to the syndicate borg.
+  - tweak: The improvised handgun has a bigger delay between shots and less accuracy.
+  Skull132:
+  - bugfix: Chat mark-up will work now. The closing tags in HTML are utilized properly
+      once more.
+2016-08-12:
+  Nanako:
+  - bugfix: Fixed Check Held Location verb for held mobs not being there.
+  - tweak: Mouse starting nutrition randomised a little.
+  - bugfix: Fixed hungry constructs.
+  - tweak: Nerfed mice.
+2016-08-13:
+  Nanako:
+  - bugfix: Fixed mice being paralysed and duplicating after being picked up.
+  - bugfix: -1 squeak
+2016-08-15:
+  Alberyk:
+  - rscadd: Added the tommygun to the traitor uplink, as well with their magazine
+      options.
+  - rscadd: Added more magazines, with different callibers, to the autolathe.
+  - rscadd: You can now print a portable suit cooling unit at the autolathe.
+  - bugfix: Fixed a secret crate at mining spawning a broken hardsuit module.
+  - imageadd: The telebaton has now a sprite in hand when extended.
+  - rscadd: Added combat hyposprays, available in the traitor uplink, that come loaded
+      with stimulants.
+  - rscadd: Ported the switch belt layer function from bay, now you can set if you
+      want your belt to appear under or above your suit.
+  - rscadd: Added new hair options, some from old code and other ported from Polaris.
+  - imageadd: Added unathi, tajaran and skrell sprites for the gem-encrusted voidsuit.
+  - rscadd: Added more horns and horns related facial options for Unathi.
+  - tweak: Cult swords, and claymores, won't get stuck into people anymore.
+  Bedshaped:
+  - rscadd: BloodPacks can now be labeled with their bloodtype using a pen.
+  - rscadd: BloodPacks can be slashed open using a sharp weapon spraying blood everywhere.
+  - tweak: Walking away from an IV you're connected to can now cause bleeding.
+  - tweak: Tweak to ripped needle notice.
+  - rscadd: The transfer rate of an IV can now be set by right clicking or in Object->Set
+      Transfer Rate.
+  - bugfix: 'Vampires: Drinking blood from a bloodpack correctly adds to Useable Blood
+      instead of Total Blood'
+  - tweak: 'Vampires: Drinking non-fresh blood will no longer raise your blood level
+      for upgrades.'
+  - rscadd: 'Vampires: Drinking from a bloodpack adds a desc and a saliva residue
+      that the Detective can swab for.'
+  Nanako:
+  - tweak: 'Tweaked surgeon cyborg modules: Added chemistry gripper, removed fire
+      extinguisher, and added soporific to their hypospray.'
+  - tweak: Removed chemistry gripper from crisis borg.
+  - maptweak: The chemistry and botany fridges are now see-through, so you can more
+      easily chat with people on the other side.
+  - tweak: Cost of cyborg renaming module vastly decreased
+  - tweak: Renamed medical's Chemical Closet, to Chemistry Equipment Closet. Nobody
+      ever stores chemicals in an unrefridgerated closet.
+  - rscadd: Added two boxes of empty spraybottles to the chemistry equipment closet.
+  - rscadd: Chainswords now have an improved animation.
+  - rscadd: Chainswords and energy blades can no longer get embedded in people.
+  - rscadd: Chainswords and energy blades can now be used as surgical tools to amputate
+      limbs. Chainswords are messy. Energy blades will cut clean and cauterize the
+      wound
+  - tweak: Surgery messages about amputating bodyparts are now very noticeable
+  - tweak: Cauterising wounds with a welding tool is much more reliable. Cauterising
+      with a cigarette is no longer effective.
+  - bugfix: Fixed chainsword held sprite not updating when toggled
+  Skull132:
+  - bugfix: Fixed a bug where A-OOC was removed from antagonists upon a disconnect.
+      It's now added back in during a reconnect.
+  - bugfix: AOOC mutes now work properly.
+  - bugfix: Autotraitor now sets the mind.special_role properly. This means that they
+      can now request objectives properly, autotraitor borgs work properly, etcetera.
+  - tweak: Tweaked contest mechanics to give a little bit more feedback to the player
+      as to what he's about to do.
+  - bugfix: Objectives will now report their success properly on the feedback screen.
+      If an objective was completed/failed but the report showcases another result,
+      then please report it on Github.
+  - bugfix: Spider bots no longer become hungry.
+  - bugfix: Simple animals (like mice) can no longer become antags.
+  - tweak: Vampire's Hypnotise ability now renders the victim unable to speak while
+      stunned, much like the changeling's silence sting.
+  - tweak: Vampire scaling boosted, we should now see the game spawn more than one
+      vampire.
+  - tweak: Vampires now lose frenzy faster while feeding. One victim, completely drained,
+      should be enough to get out of a mid-level frenzy.
+  - bugfix: Vampire thralls are no longer given vampiric abilities/powers.
+  - wip: Added debug logs relating to antag spawning. Will keep these active for a
+      bit to see what's going where.
+2016-08-25:
+  Bedshaped:
+  - bugfix: IV Drips not letting you set allowable rates.
+  - tweak: Min chemical volume lowered to avoid weird behaviour at low rates.
+  - rscadd: Examining an IV Drip will tell you the transfer rate.
+  - bugfix: Spiderbots are no longer invulnerable.
+  - tweak: Destroyed spiderbots will leave behind a brain.
+  - tweak: Spiderbot health increased from 10 to 25.
+  Skull132:
+  - bugfix: Potassium-water and nitroglycerin grenades now work again properly.
+2016-08-31:
+  Bedshaped:
+  - rscadd: Added species check helpers to the code.
+  - rscadd: ATMs will now announce their ID and location when put in lockdown.
+  - tweak: ATMs can no longer scan a person for an ID, must be inserted.
+  - wip: Various bits of code reorganizing.
+  - bugfix: 'HOTFIX: Printing paper from an ATM should no longer be able to be spammed.'
+  - bugfix: You can no longer use an ATM if not adjacent to it.
