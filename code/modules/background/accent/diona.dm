@@ -42,12 +42,6 @@
 	tag_icon = "dionae_meadow"
 	text_tag = "MWS"
 
-/datum/accent/lucesong
-	name = ACCENT_LUCESONG
-	description = "Influenced by the people of Assunzione, Lucesong is unique in that it sounds almost chorus-like compared to the other accents borne by Dionae. Those who sing this accent hail from Assunzione, seeking respite from the void that surrounds the world. Dionae of this accent have thrived in near-total artificial light, surviving thanks to Assunzione's liberal usage of it due to its religion that deems light as holy."
-	tag_icon = "dionae_assunzione"
-	text_tag = "LCS"
-
 //Vaurca Influenced Accents
 
 /datum/accent/hivesong

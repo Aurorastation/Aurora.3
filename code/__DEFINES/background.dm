@@ -186,7 +186,6 @@
 #define ACCENT_XRIMSONG "Xrimsong"
 #define ACCENT_HIVESONG "Hivesong"
 #define ACCENT_MEADOWSONG "Meadowsong"
-#define ACCENT_LUCESONG "Lucesong"
 #define ACCENT_LABOURSONG "Laboursong"
 
 #define ACCENT_TTS "Text-to-Speech"

@@ -22,16 +22,3 @@
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_CRIMSONSONG)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
-
-/singleton/origin_item/origin/assunzione_dionae
-	name = "Luceborn"
-	desc = "Dionae who immigrated to or were grown on the planet of Assunzione are unlike any other. They follow the native religion of Luceism, were grown in artificial light, and \
-	are very well-accepted by the locals unlike anywhere else in the Coalition. Assunzione, shrouded in utter darkness and orbiting a dead star, may seem like the last place a species that feeds off light can be found, but Assunzione's religion and obsession with \
-	light means its streets and homes are extraordinarily brightly lit, allowing Dionae to thrive."
-	important_information = "Like the Assunzionii natives, Luceborn Dionae are especially afraid of the dark, with it not only being physiologically harmful to them but also religiously. They are also looked upon suspiciously by the rest of the Dionae community \
-	due to their faith in a human-derived religion."
-	origin_traits = list(TRAIT_ORIGIN_DARK_AFRAID)
-	origin_traits_descriptions = list("tend to feel extremely nervous in the dark")
-	possible_accents = list(ACCENT_LUCESONG)
-	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_EUM)
-	possible_religions = list(RELIGION_LUCEISM)
