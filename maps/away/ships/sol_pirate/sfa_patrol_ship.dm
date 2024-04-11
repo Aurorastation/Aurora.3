@@ -17,12 +17,14 @@
 //Areas
 /area/ship/sfa_patrol_ship
 	name = "SFA Corvette"
+	requires_power = TRUE
 
 /area/ship/sfa_patrol_ship/docking
 	name = "SFA Docking Hall"
 
 /area/ship/sfa_patrol_ship/hangar
 	name = "SFA Hangar"
+	ambience = AMBIENCE_HANGAR
 
 /area/ship/sfa_patrol_ship/destroyedmedbay
 	name = "SFA Medbay"
@@ -35,9 +37,10 @@
 
 /area/ship/sfa_patrol_ship/SFA_Armory
 	name = "SFA Armory"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/ship/sfa_patrol_ship/destroyedammo
-	name = "SFA AMmunition Bay"
+	name = "SFA Ammunition Bay"
 
 /area/ship/sfa_patrol_ship/Engineering
 	name = "SFA Engineering"
