@@ -114,7 +114,7 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(1, 1)
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/sol_probe)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/haneunim_crash)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/get_surface_color()
 	return "#807f7f"
@@ -134,7 +134,7 @@
 	generated_name = FALSE
 	features_budget = 1
 	ring_chance = 0
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/sol_probe)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim/generate_ground_survey_result()
 	ground_survey_result = "" // so it does not get randomly generated survey results
@@ -152,7 +152,7 @@
 	generated_name = FALSE
 	features_budget = 1
 	ring_chance = 0
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/sol_probe)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_mystery)
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_atmosphere()
 	..()
@@ -178,7 +178,7 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	rock_colors = list(COLOR_GRAY80)
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/sol_probe)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung/generate_ground_survey_result()
 	ground_survey_result = "" // so it does not get randomly generated survey results
