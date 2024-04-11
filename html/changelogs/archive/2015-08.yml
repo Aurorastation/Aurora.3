@@ -1,0 +1,20 @@
+2015-08-11:
+  PsiOmegaDelta:
+  - experiment: 0.1.19 is live.
+  - tweak: Crew monitors now update every 5th second instead of every other. Reduces
+      lag and gives antags a larger window of opportunity to disable suit sensors
+      if they have to harm someone.
+2015-08-17:
+  PsiOmegaDelta:
+  - rscadd: Station time and duration now available in the Status tab.
+2015-08-24:
+  HarpyEagle:
+  - tweak: Girders are now reinforced by using a screwdriver on the girder before
+      applying the material sheets. Use a screwdriver again instead to cancel reinforcing.
+  - bugfix: Mechanical traps no longer spawn in the janitor's locker.
+  - rscadd: Mechanical traps can now be printed with a hacked autolathe.
+  Zuhayr:
+  - rscadd: Pariahs are now a subspecies of Vox with less atmos/cold protection, a
+      useless brain, and lower health.
+  - rscadd: Leap now only gives a passive grab and has a shorter range. It also stuns
+      Pariahs longer than it does their target.

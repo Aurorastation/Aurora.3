@@ -1,0 +1,47 @@
+2013-07-03:
+  Segrain:
+  - rscadd: Security and medical cyborgs can use their HUDs to access records.
+2013-07-05:
+  Spamcat:
+  - rscadd: Pulse! Humans now have hearbeat rate, which can be measured by right-clicking
+      someone - Check pulse or by health analyzer. Medical machinery also has heartbeat
+      monitors. Certain meds and conditions can influence it.
+2013-07-06:
+  Chinsky:
+  - rscadd: Humans now can be infected with more than one virus at once.
+  - rscadd: All analyzed viruses are put into virus DB. You can view it and edit their
+      name and description on medical record consoles.
+  - tweak: 'Only known viruses (ones in DB) will be detected by the machinery and
+      HUDs. '
+  - rscadd: Viruses cause fever, body temperature rising the more stage is.
+  - bugfix: Humans' body temperature does not drift towards room one unless there's
+      big difference in them.
+  - tweak: Virus incubators now can transmit viuses from dishes to blood sample.
+  - rscadd: New machine - centrifuge. It can isolate antibodies or viruses (spawning
+      virus dish) from a blood sample in vials. Accepts vials only.
+  - rscadd: Fancy vial boxes in virology, one of them is locked by ID with MD access.
+  - tweak: Engineered viruses are now ariborne too.
+2013-07-11:
+  Chinsky:
+  - rscadd: Gun delays. All guns now have delays between shots. Most have less than
+      second, lasercannons and pulse rifles have around 2 seconds delay. Automatics
+      have zero, click-speed.
+2013-07-26:
+  Kilakk:
+  - bugfix: Brig cell timers will no longer start counting down automatically.
+  - tweak: Separated the actual countdown timer from the timer controls. Pressing
+      "Set" while the timer is counting down will reset the countdown timer to the
+      time selected.
+2013-07-28:
+  Segrain:
+  - rscadd: Camera console circuits can be adjusted for different networks.
+  - rscadd: Nuclear operatives and ERT members have built-in cameras in their helmets.
+      Activate helmet to initialize it.
+2013-07-30:
+  Erthilo:
+  - bugfix: EFTPOS and ATM machines should now connect to databases.
+  - bugfix: Gravitational Catapults can now be removed from mechs.
+  - bugfix: Ghost manifest rune paper naming now works correctly.
+  - bugfix: Fix for newscaster special characters. Still not recommended.
+  Kilakk:
+  - rscadd: Added colored department radio channels.
