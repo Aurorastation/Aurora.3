@@ -1,0 +1,110 @@
+2018-03-10:
+  Alberyk:
+  - rscadd: Added some new gloves; brass knuckles, power fists and clawed gauntlets.
+      Each of them has different effects in unarmed combat when worn.
+  - rscadd: You can now select what kind of unarmed attack you want to use via a verb
+      in the ic tab.
+  - tweak: Opening or closing a cyborg's cover should take time now.
+  - rscadd: Overclocked cyborgs can't be stunned with a flash anymore.
+  - tweak: Cyborg's stun batons should drain less power from their cells.
+  - tweak: Exosuits weapons should be more effective now.
+  - tweak: Increased exosuit equipment capacity to 4.
+  - rscadd: Added new exosuit weapons.
+  - rscadd: Added more ancient melee weapons.
+  - rscadd: You can strap grenades to spears now.
+  Arrow768:
+  - rscadd: Due to budget constraints the safeties have been removed from shutters
+      and blast doors. Personnel is advised to stand clear when they are being closed.
+  - tweak: The deadman switch function from the signaler will now send a signal when
+      the signaler is dropped or moved into a different slot.
+  BurgerBB:
+  - rscadd: Added chainsaws, a powerful two-handed weapon that requires welder fuel
+      to operate. Chainsaws can open airlocks and lockers when powered.
+  - balance: Diona nymphs can perform partial merges at half biomass, with the consequence
+      of missing limbs. The more biomass, the less missing limbs.
+  - rscadd: Added a mask and eyewear slot for dionaea.
+  - tweak: Made Dionaea immune to the effects of blindfolds and muzzles.
+  - balance: Dionaea receive only 25% arousal per second from blindfolds and muzzles.
+  - rscadd: Added several new preservatives and flavorings in vending machine junkfood.
+      As a result, junkfood is now more filling.
+  - tweak: Tweaked pain messages.
+  - tweak: Penalties for Organ damage now start at >=1 instead of >0.
+  - rscadd: Added Adipemcina, a fictional heart medication that specially reduces
+      heart damage.
+  - rscadd: Added filtered kois, a significantly less dangerous kois which can be
+      made by combining Cardox and normal kois. Added Cardox, an anti-phoron reagent
+      which can eliminate phoron and remove the harmful spores from kois.
+  - balance: Replaced kois bars with less dangerous kois bars containing filtered
+      kois which do not spore. Dangerous ones are moved to the contraband section,
+      which can be hacked and vended for free. Phoron punch also now has filtered
+      kois, but no alternative.
+  - balance: Decreased the Kois spore chance when eating unfiltered Kois.
+  - balance: Rebalanced lottery tickets so you don't win as much. Lottery tickets
+      can now be purchased at cigarette machines as well.
+  Buterrobber202:
+  - tweak: The Wizard Federation is pleased to announce that they have started to
+      actually train Wizards outside of the Spatial School, meaning they should have
+      more useable spells during their missions.
+  Ezuo:
+  - rscadd: You can now make Ned Kelly style armor by using an ordinary trenchcoat
+      on makeshift armor. Be protected and stylish at the same time!
+  - tweak: You now must detach helmets from suits to refit them.
+  - rscadd: Skrellian spacesuits are now voidsuits, allowing you to attach helmets
+      and magboots to them.
+  Juani2400:
+  - maptweak: Complete remap of the Medical main level. Expect bugs and missing equipment.
+  - maptweak: New nuke chamber, added an alternative exit for the bunker, new location
+      for CSI's and Detective's offices, new Security Training Wing, remapped Kitchen,
+      new shop, remapped Vault's entrance.
+  - experiment: New transfer/escape shuttle. Not the final version, probably. Consider
+      it an experiment to test your acceptance to the new design type.
+  - rscadd: New Research-coloured folders (Sprite recolouring by Fire and Glory).
+  - bugfix: 'A lot of bugfixes, missing stuff, and minor suggestions requested by
+      you in this: https://forums.aurorastation.org/viewtopic.php?f=18&t=9863. You
+      should visit and leave your suggestions there.'
+  Kaedwuff:
+  - rscadd: The AI's Common Channel intercom will no longer betray Traitor or Malf
+      AIs. Unless they want it to.
+  - rscadd: Straightjackets can now be escaped from, if you have sufficient time alone,
+      and new sprites have been given to make them more jackety.
+  - rscadd: Druid and Cleric wizards can now take their victims for granite.
+  - rscadd: Added a number of new cocktails made with unathi booze. Many have custom
+      sprites, and one of them is slightly dangerous to non-unathi.
+  Lohikar:
+  - bugfix: ZAS Knockdown now has a distance cap. (Fixes 'space wind')
+  LordFowl:
+  - tweak: Batons will now deal both brute and shock damage.
+  - tweak: Electricity system modified to be more realistic in its arcing and damage,
+  - tweak: Electricity can now cause electronic damage.
+  - rscadd: IPCs will now be paralysed by cattleprods, stunrods, and harmbatons targeted
+      at the chest.
+  PoZe, AndurilFlame:
+  - rscadd: Trench coat, detective's coat, coloured detective's coats, and gentlecoat
+      are now able to be buttoned up and unbottoned.
+  Skull132:
+  - rscadd: 'Added the flag of the best nation: the Eridani Corporate Federation.'
+  kevinz000:
+  - rscadd: Projectiles have received a major overhaul into pixel projectiles processed
+      by subsystem a la TG.
+2018-03-13:
+  BurgerBB:
+  - bugfix: Fixed various chainsaw bugs.
+  - rscadd: Added Chainsaws to traitor uplink.
+2018-03-18:
+  Alberyk:
+  - bugfix: The Automatic Robotic Factory 5000 should now work properly.
+  Skull132:
+  - bugfix: Magboots and hardsuit gloves now give you your stuff back properly.
+2018-03-21:
+  BurgerBB:
+  - balance: Made junkfood bread and rasins healthier. Made light junkfood snacks
+      slightly healthier.
+  - balance: Lottery cards now generally give less, have 3 scratches per card, and
+      take longer to scratch.
+2018-03-31:
+  TheGreatNacho:
+  - bugfix: Set the sentencing machine and brig timer to read the convicts name from
+      their ID, instead of their mob.
+  - bugfix: Fixed lighter being deleted when pulling a cigarette out of it's packet
+      with your mouth.
+  - bugfix: Fixed spears losing their material after mounting head to them.
