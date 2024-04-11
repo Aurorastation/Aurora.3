@@ -4274,7 +4274,6 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/mess_hall)
 "nh" = (
@@ -6721,7 +6720,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/mess_hall)
 "MZ" = (

@@ -1,0 +1,23 @@
+2017-09-05:
+  Lohikar:
+  - experiment: Storage code has been tweaked so ore bags should no longer take multiple
+      seconds to fill/empty.
+  - tweak: The ore summoner should actually transport useful amounts of ore now.
+2017-09-06:
+  Skull132:
+  - bugfix: Cameras will no longer lag the server to death whenever you click to jump
+      to a turf that's outside the station.
+2017-09-09:
+  Ezuo:
+  - bugfix: Fixed the long broken Lawgiver code. It will now function as intended,
+      with different firemodes using different charge values.
+2017-09-14:
+  Lohikar:
+  - bugfix: Orange security consoles have had their red lights swapped out for orange
+      ones. No longer will your orange holoconsole mysteriously glow red.
+  - bugfix: Space vines should no longer create comical amounts of lag.
+  MoondancerPony:
+  - bugfix: Made eye color selection work in character setup.
+2017-09-17:
+  Skull132:
+  - tweak: CCIAA now have full access to AOOC, as per the decree of the Head Admins.

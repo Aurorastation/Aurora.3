@@ -5486,9 +5486,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
@@ -7151,7 +7148,6 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "wb" = (
-/turf/template_noop,
 /turf/template_noop,
 /area/template_noop)
 "wd" = (
