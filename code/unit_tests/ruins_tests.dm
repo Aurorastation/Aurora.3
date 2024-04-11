@@ -68,7 +68,7 @@
 			LOG_GITHUB_DEBUG("Now testing [path] for ruin [ruin]")
 
 			//Path format must be respected, start without a slash, and end with a slash
-			if(!initial(tested_ruin.prefix) || tested_ruin.prefix[1] != '/' || tested_ruin.prefix[length_char(tested_ruin.prefix)] == '/')
+			if(!initial(tested_ruin.prefix) || tested_ruin.prefix[1] != "/" || tested_ruin.prefix[length_char(tested_ruin.prefix)] == "/")
 				TEST_FAIL("Ruin [tested_ruin.name] has an invalid prefix path: [tested_ruin.prefix]")
 				. = UNIT_TEST_FAILED
 
