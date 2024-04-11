@@ -3,7 +3,7 @@
 	id = "konyang_wreck"
 	description = "Orion Express cargo ship, home to an unfortunate outbreak of infected IPCs."
 
-	prefix = "ships/konyang_wreck/"
+	prefix = "ships/konyang/konyang_wreck/"
 	suffixes = list("konyang_wreck.dmm")
 
 	spawn_cost = 1

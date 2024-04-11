@@ -17,7 +17,9 @@
 	description = "A nest of deadly space carps."
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/carp_nest/carp_nest.dmm")
+
+	prefix = "asteroid/carp_nest/"
+	suffixes = list("carp_nest.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_HOSTILE|RUIN_NATURAL
@@ -30,7 +32,9 @@
 	spawn_weight = 0.5
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/hideout/hideout.dmm")
+
+	prefix = "asteroid/hideout/"
+	suffixes = list("hideout.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_HOSTILE|RUIN_WRECK
@@ -103,7 +107,7 @@
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
 
-	prefix = "asteroid/crashed_satellite/"
+	prefix = "asteroid/satellite_crash/"
 	suffixes = list("satelite_crash_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
