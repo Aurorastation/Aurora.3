@@ -1,0 +1,18 @@
+2017-02-03:
+  Alberyk:
+  - bugfix: Fixed the fake central command announcement, in the traitor uplinks, not
+      working.
+2017-02-07:
+  Lohikar:
+  - rscadd: Added plastic flaps to medical OR storage to prevent air leakage.
+  - bugfix: Re-added missing cyborg storage units in Drone Fabrication.
+  - bugfix: The engineering outpost's SMES should spawn enabled now.
+  - bugfix: The library's deck of cards should spawn properly now.
+2017-02-10:
+  Alberyk:
+  - bugfix: Fixed chairs, beds and stools animated by the staff of animation having
+      no sprites.
+2017-02-17:
+  LordFowl:
+  - bugfix: Shells now spawn with fully robotic legs.
+  - bugfix: Green IPC screen has been fixed.
