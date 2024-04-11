@@ -8,7 +8,7 @@
 	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS) //Pretty old probe, so found anywhere that Sol would have been exploring back in the day.
 	suffixes = list("asteroid/probes/sol_probe.dmm")
 
-	planet_types = ALL_PLANET_TYPES //Spawns on pretty much any planet except for specific lore ones
+	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 	ban_ruins = list( //Only one probe per planet for the sake of variety
 		/datum/map_template/ruin/exoplanet/pra_probe,
@@ -28,7 +28,7 @@
 	sectors = list(SECTOR_SRANDMARR, SECTOR_BADLANDS, SECTOR_NRRAHRAHUL) //Sectors within the PRA's reach
 	suffixes = list("asteroid/probes/pra_probe.dmm")
 
-	planet_types = ALL_PLANET_TYPES //Spawns on pretty much any planet except for specific lore ones
+	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 	ban_ruins = list( //Only one probe per planet for the sake of variety
 		/datum/map_template/ruin/exoplanet/sol_probe,
@@ -48,7 +48,7 @@
 	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ) //Sectors within Elyra's general area of operation.
 	suffixes = list("asteroid/probes/elyra_probe.dmm")
 
-	planet_types = ALL_PLANET_TYPES //Spawns on pretty much any planet except for specific lore ones
+	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 	ban_ruins = list( //Only one probe per planet for the sake of variety
 		/datum/map_template/ruin/exoplanet/sol_probe,
@@ -68,7 +68,7 @@
 	sectors = list(SECTOR_UUEOAESA, SECTOR_BADLANDS, SECTOR_GAKAL) //Sectors within the Hegemony's general area of operation.
 	suffixes = list("asteroid/probes/hegemony_probe.dmm")
 
-	planet_types = ALL_PLANET_TYPES //Spawns on pretty much any planet except for specific lore ones
+	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 	ban_ruins = list( //Only one probe per planet for the sake of variety
 		/datum/map_template/ruin/exoplanet/sol_probe,
@@ -89,7 +89,7 @@
 	sectors_blacklist = list(SECTOR_HANEUNIM) //Recently Solarian, so probably no COC probes there.
 	suffixes = list("asteroid/probes/coc_probe.dmm")
 
-	planet_types = ALL_PLANET_TYPES //Spawns on pretty much any planet except for specific lore ones
+	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 	ban_ruins = list( //Only one probe per planet for the sake of variety
 		/datum/map_template/ruin/exoplanet/sol_probe,
@@ -109,7 +109,7 @@
 	sectors = list(SECTOR_BADLANDS) //Sectors within Dominia's general area of operation.
 	suffixes = list("asteroid/probes/dominia_probe.dmm")
 
-	planet_types = ALL_PLANET_TYPES //Spawns on pretty much any planet except for specific lore ones
+	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 	ban_ruins = list( //Only one probe per planet for the sake of variety
 		/datum/map_template/ruin/exoplanet/sol_probe,
