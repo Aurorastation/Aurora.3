@@ -1,0 +1,33 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"n" = (
+/obj/effect/landmark/clear,
+/obj/structure/survey_probe/hegemony{
+	start_deployed = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"V" = (
+/obj/effect/landmark/clear,
+/obj/structure/sign/flag/hegemony,
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+a
+a
+a
+"}
+(2,1,1) = {"
+V
+n
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+"}
