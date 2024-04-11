@@ -55,7 +55,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "ajS" = (
 /turf/simulated/wall/shuttle/raider,
@@ -2968,7 +2968,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssmd_corvette/medbay)
 "hNE" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "hOP" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -5509,7 +5509,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -6390,7 +6390,7 @@
 	id = "ssmd_grau_shroud";
 	name = "blast door"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "sZP" = (
 /obj/structure/table/steel,
