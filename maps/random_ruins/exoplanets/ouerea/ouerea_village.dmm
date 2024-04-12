@@ -142,6 +142,14 @@
 	temperature = 303.15
 	},
 /area/ouerea_village)
+"kA" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
 "lJ" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -332,6 +340,14 @@
 	temperature = 303.15
 	},
 /area/ouerea_village)
+"xk" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
 "xn" = (
 /obj/structure/flora/log_bench{
 	dir = 8
@@ -373,9 +389,6 @@
 	},
 /area/ouerea_village)
 "AY" = (
-/obj/structure/railing/fence{
-	dir = 4
-	},
 /obj/structure/railing/fence{
 	dir = 8
 	},
@@ -442,7 +455,7 @@
 	},
 /area/ouerea_village)
 "Eq" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/wood/birch{
 	temperature = 303.15
 	},
@@ -756,7 +769,7 @@
 	},
 /area/ouerea_village)
 "VR" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 298.15
 	},
@@ -1176,11 +1189,11 @@ yv
 (10,1,1) = {"
 yv
 Uk
-VR
 AY
 AY
 AY
-VR
+Uk
+xk
 Uk
 gf
 yv
@@ -1210,10 +1223,10 @@ yv
 (11,1,1) = {"
 yv
 Uk
-wE
-wE
-wE
-wE
+AY
+AY
+AY
+AY
 wE
 VR
 sh
@@ -1226,7 +1239,7 @@ yv
 Uk
 Uk
 Uk
-Eq
+kA
 Uk
 Uk
 Uk
@@ -1348,7 +1361,7 @@ yv
 Uk
 Uk
 Uk
-Eq
+kA
 Uk
 Uk
 Uk
@@ -1475,7 +1488,7 @@ mH
 Uk
 Uk
 Uk
-Eq
+kA
 Uk
 yv
 "}
@@ -1676,7 +1689,7 @@ yv
 Uk
 Uk
 Uk
-Eq
+kA
 Uk
 Uk
 Uk
@@ -1736,7 +1749,7 @@ yv
 Uk
 Uk
 Uk
-Eq
+kA
 Uk
 Uk
 Uk

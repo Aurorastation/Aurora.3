@@ -121,7 +121,9 @@
 	},
 /area/moghes_village)
 "hQ" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban{
+	dir = 8
+	},
 /turf/simulated/floor/wood/birch{
 	temperature = 303.15
 	},
@@ -449,7 +451,9 @@
 	},
 /area/moghes_village)
 "Ac" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/moghes_village)
 "AE" = (
@@ -511,7 +515,10 @@
 /turf/simulated/floor/exoplanet/water/shallow/moghes,
 /area/moghes_village)
 "Gp" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood/birch{
+	temperature = 303.15
+	},
 /area/moghes_village)
 "GP" = (
 /obj/structure/table/rack,
@@ -556,10 +563,7 @@
 /turf/simulated/floor/marble,
 /area/moghes_village)
 "IU" = (
-/obj/structure/railing/fence{
-	dir = 4
-	},
-/obj/structure/railing/fence{
+/obj/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
@@ -704,7 +708,7 @@
 	},
 /area/moghes_village)
 "RQ" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_village)
 "RV" = (
@@ -961,7 +965,7 @@ MP
 MP
 MP
 EL
-hQ
+Gp
 wt
 wt
 UG
@@ -1078,11 +1082,11 @@ lF
 (9,1,1) = {"
 XM
 UG
-KH
-KH
-KH
-KH
-KH
+Hv
+Hv
+Hv
+UG
+IU
 UG
 XM
 XM
@@ -1112,11 +1116,11 @@ lF
 (10,1,1) = {"
 XM
 UG
-RQ
-IU
-IU
-IU
-RQ
+Hv
+Hv
+Hv
+Hv
+KH
 UG
 kl
 XM

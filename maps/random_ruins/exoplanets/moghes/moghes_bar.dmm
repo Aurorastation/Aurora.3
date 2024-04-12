@@ -233,6 +233,12 @@
 /area/moghes_bar)
 "iJ" = (
 /obj/structure/simple_door/wood,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
+	},
+/turf/simulated/floor/lino{
+	temperature = 303.15
+	},
 /area/moghes_bar)
 "iL" = (
 /obj/structure/bed/stool/chair/sofa/red{
@@ -322,12 +328,6 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light,
 /turf/simulated/floor/wood{
-	temperature = 303.15
-	},
-/area/moghes_bar)
-"kM" = (
-/obj/structure/simple_door/wood,
-/turf/simulated/floor/exoplanet/grass/stalk{
 	temperature = 303.15
 	},
 /area/moghes_bar)
@@ -763,11 +763,14 @@
 	},
 /area/moghes_bar)
 "Gr" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
 /obj/structure/weapon_rack/pump{
 	pixel_y = 25
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
 	},
 /turf/simulated/floor/lino{
 	temperature = 303.15
@@ -1680,7 +1683,7 @@ gL
 gL
 gL
 gL
-kM
+Ek
 gL
 gL
 gL
