@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/ssmd_navy_crewman
 	short_name = "ssmd_navy_crewman"
-	name = "Sol Recon Navy Crewman"
-	desc = "Crew the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	name = "Sol Navy Recon Crewman"
+	desc = "Crew a Solarian naval recon corvette, under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSRM. (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	tags = list("External")
 	mob_name_prefix = "PO3. "
 
@@ -12,8 +12,8 @@
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Sol Recon Navy Crewman"
-	special_role = "Sol Recon Navy Crewman"
+	assigned_role = "Sol Navy Recon Crewman"
+	special_role = "Sol Navy Recon Crewman"
 	respawn_flag = null
 
 
@@ -38,8 +38,8 @@
 
 /datum/ghostspawner/human/ssmd_navy_officer
 	short_name = "ssmd_navy_officer"
-	name = "Sol Recon Navy Officer"
-	desc = "Command the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	name = "Sol Navy Recon Officer"
+	desc = "Command a Solarian naval recon corvette, under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSRM. (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	tags = list("External")
 	mob_name_prefix = "LCDR. "
 
@@ -50,13 +50,13 @@
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Sol Recon Navy Officer"
-	special_role = "Sol Recon Navy Officer"
+	assigned_role = "Sol Navy Recon Officer"
+	special_role = "Sol Navy Recon Officer"
 	respawn_flag = null
 
 
 /obj/outfit/admin/ssmd_navy_officer
-	name = "Sol Recon Navy Officer"
+	name = "Sol Navy Recon Officer"
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/officer
 	shoes = /obj/item/clothing/shoes/laceup
@@ -75,20 +75,20 @@
 
 /datum/ghostspawner/human/ssmd_navy_crewman/senior
 	short_name = "ssmd_navy_senior_crewman"
-	name = "Sol Recon Navy Senior Crewman"
-	desc = "Serve as the second-in-command of the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	name = "Sol Navy Recon Chief"
+	desc = "Serve as the second-in-command of a Solarian naval recon corvette, under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSRM. (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	mob_name_prefix = "CPO. "
 
 	spawnpoints = list("ssmd_navy_crewman")
 	max_count = 1
 
-	assigned_role = "SSMD Navy Senior Crewman"
-	special_role = "SSMD Navy Senior Crewman"
+	assigned_role = "Sol Navy Recon Chief"
+	special_role = "Sol Navy Recon Chief"
 
 /datum/ghostspawner/human/ssmd_marine_pilot
 	short_name = "ssmd_marine_pilot"
-	name = "Sol Recon Marine Exosuit Pilot"
-	desc = "Protect the Southern Solarian Military District reconnaissance corvette, and pilot the gremlin recon exosuit. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	name = "Sol Marine Recon Exosuit Pilot"
+	desc = "Protect a Solarian naval recon corvette under the commander of the Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate, and pilot the gremlin recon exosuit. Closely monitor and investigate pirate (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	tags = list("External")
 	mob_name_prefix = "SGT. "
 
@@ -99,13 +99,13 @@
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Sol Recon Marine Exosuit Pilot"
-	special_role = "Sol Recon Marine Exosuit Pilot"
+	assigned_role = "Sol Marine Recon Exosuit Pilot"
+	special_role = "Sol Marine Recon Exosuit Pilot"
 	respawn_flag = null
 
 
 /obj/outfit/admin/ssmd_marine_pilot
-	name = "Sol Recon Marine Exosuit Pilot"
+	name = "Sol Marine Recon Exosuit Pilot"
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -125,8 +125,8 @@
 
 /datum/ghostspawner/human/ssmd_ipc
 	short_name = "ssmd_ipc"
-	name = "Sol Recon Military Synthetic"
-	desc = "Assist the crew of the Southern Solarian Military District reconnaissance corvette in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and man its targeting systems. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government and the SSMD above all else."
+	name = "Sol Military Recon Synthetic"
+	desc = "Assist the crew of a Solarian naval recon corvette under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and assist in reconnaissance operations. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government and the SSRM above all else."
 	tags = list("External")
 
 	spawnpoints = list("ssmd_ipc")
@@ -137,13 +137,13 @@
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Sol Recon Military Synthetic"
-	special_role = "Sol Recon Military Synthetic"
+	assigned_role = "Sol Military Recon Synthetic"
+	special_role = "Sol Military Recon Synthetic"
 	respawn_flag = null
 
 
 /obj/outfit/admin/ssmd_ipc
-	name = "Sol Recon Military Synthetic"
+	name = "Sol Military Recon Synthetic"
 
 	uniform = /obj/item/clothing/under/rank/sol/ipc
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -169,5 +169,5 @@
 //items
 
 /obj/item/card/id/ssmd_ship
-	name = "\improper SSMD patrol ship identification card"
+	name = "\improper Sol Navy Recon identification card"
 	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)

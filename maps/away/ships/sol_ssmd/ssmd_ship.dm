@@ -4,7 +4,7 @@
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
 	suffixes = list("ships/sol_ssmd/ssmd_ship.dmm")
 	sectors = list(SECTOR_BADLANDS)
-	spawn_weight = 9
+	spawn_weight = 1
 	ship_cost = 1
 	id = "ssmd_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssmd_shuttle)
