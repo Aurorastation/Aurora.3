@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY_TYPED(/datum/antagonist/storyteller, storytellers)
+GLOBAL_LIST_EMPTY_TYPED(storytellers, /datum/antagonist/storyteller)
 
 /datum/antagonist/storyteller
 	id = MODE_STORYTELLER
@@ -10,10 +10,11 @@ GLOBAL_LIST_EMPTY_TYPED(/datum/antagonist/storyteller, storytellers)
 
 	bantype = "storyteller"
 
-	mob_path = /mob/abstract/observer
+	mob_path = /mob/living/storyteller
 	id_type = null
 	valid_species = list()
+	allow_no_mob = TRUE
 
-/datum/antagonist/actor/New()
+/datum/antagonist/storyteller/New()
 	..(1)
-	commandos = src
+	GLOB.storytellers = src

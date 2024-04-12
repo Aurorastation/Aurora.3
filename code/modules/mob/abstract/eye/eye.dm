@@ -9,21 +9,18 @@
 	icon = 'icons/mob/eye.dmi'
 	icon_state = "default-eye"
 	alpha = 127
-	density = 0
+	density = FALSE
+
+	status_flags = GODMODE
+	invisibility = INVISIBILITY_EYE
 
 	var/sprint = 10
 	var/cooldown = 0
 	var/acceleration = 1
 	var/owner_follows_eye = 0
 
-	status_flags = GODMODE
-	invisibility = INVISIBILITY_EYE
-
 	var/mob/owner = null
-	var/list/visibleChunks = list()
-
 	var/ghostimage = null
-	var/datum/visualnet/visualnet
 
 /mob/abstract/eye/New()
 	ghostimage = image(src.icon,src,src.icon_state)
@@ -42,7 +39,6 @@
 
 	release(owner)
 	owner = null
-	visualnet = null
 	return ..()
 
 /mob/abstract/eye/Move(n, direct)
@@ -72,27 +68,24 @@
 		return
 	if(owner && owner.eyeobj != src)
 		return
-
 	owner = user
 	owner.eyeobj = src
-	name = "[owner.name] ([name_suffix])"
+	name = "[owner.name] ([name_suffix])" // Update its name
 	if(owner.client)
 		owner.client.eye = src
 	setLoc(owner)
-	visualnet.update_eye_chunks(src, TRUE)
 
 /mob/abstract/eye/proc/release(var/mob/user)
 	if(owner != user || !user)
 		return
 	if(owner.eyeobj != src)
 		return
-	visualnet.remove_eye(src)
 	owner.eyeobj = null
+	owner.reset_view()
 	owner = null
 	name = initial(name)
 
 // Use this when setting the eye's location.
-// It will also stream the chunk that the new loc is in.
 /mob/abstract/eye/proc/setLoc(var/T)
 	if(!owner)
 		return FALSE
@@ -108,7 +101,6 @@
 	if(owner_follows_eye)
 		owner.forceMove(loc)
 
-	visualnet.update_eye_chunks(src)
 	return TRUE
 
 /mob/abstract/eye/proc/getLoc()

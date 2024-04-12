@@ -32,8 +32,8 @@
 		return 0
 	current_antagonists |= player
 
-	if(faction_verb && player.current)
-		add_verb(player.current.client, faction_verb)
+	if(length(faction_verbs) && player.current)
+		add_verb(player.current.client, faction_verbs)
 
 	if(player.current.client)
 		add_verb(player.current.client, /client/proc/aooc)
@@ -58,8 +58,8 @@
 	if(!istype(player))
 		return 0
 
-	if(player.current && faction_verb)
-		remove_verb(player.current.client, faction_verb)
+	if(player.current && length(faction_verbs))
+		remove_verb(player.current.client, faction_verbs)
 
 	if(player in current_antagonists)
 		log_antagonist_remove()

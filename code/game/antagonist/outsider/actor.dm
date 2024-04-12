@@ -1,4 +1,4 @@
-GLOBAL_EMPTY_TYPED(/datum/antagonist/actor, actors)
+GLOBAL_LIST_EMPTY_TYPED(actors, /datum/antagonist/actor)
 
 /datum/antagonist/actor
 	id = MODE_ACTOR

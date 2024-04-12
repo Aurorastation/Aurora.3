@@ -109,11 +109,6 @@ var/list/admin_verbs_ban = list(
 	/client/proc/warning_panel,
 	/client/proc/stickybanpanel
 	)
-var/list/admin_verbs_sounds = list(
-	/client/proc/play_local_sound,
-	/client/proc/play_sound,
-	/client/proc/play_server_sound
-	)
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_dress,
@@ -136,7 +131,10 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/datum/admins/proc/ccannoucment
+	/datum/admins/proc/ccannoucment,
+	/client/proc/play_local_sound,
+	/client/proc/play_sound,
+	/client/proc/play_server_sound
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -516,7 +514,6 @@ var/list/admin_verbs_cciaa = list(
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
 		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
-		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
 		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
 		if(holder.rights & R_MOD)			add_verb(src, admin_verbs_mod)
 		if(holder.rights & R_DEV)			add_verb(src, admin_verbs_dev)
@@ -534,7 +531,6 @@ var/list/admin_verbs_cciaa = list(
 	remove_verb(src, admin_verbs_permissions)
 	remove_verb(src, /client/proc/stealth)
 	remove_verb(src, admin_verbs_rejuv)
-	remove_verb(src, admin_verbs_sounds)
 	remove_verb(src, admin_verbs_spawn)
 	remove_verb(src, debug_verbs)
 	add_aooc_if_necessary()

@@ -71,10 +71,12 @@
 	var/modmsg = ""
 	var/cciaamsg = ""
 	var/devmsg = ""
+	var/storytellermsg = ""
 	var/num_mods_online = 0
 	var/num_admins_online = 0
 	var/num_cciaa_online = 0
 	var/num_devs_online = 0
+	var/num_storytellers_online = 0
 	if(holder)
 		for(var/s in GLOB.staff)
 			var/client/client = s
@@ -142,6 +144,14 @@
 					devmsg += " (AFK)"
 				devmsg += "<br>"
 				num_devs_online++
+			else if(client.holder.rights & R_STORYTELLER)
+				storytellermsg += "\t[client.key] is a [client.holder.rank]"
+				if(isobserver(client.mob))
+					storytellermsg += " - Storytelling"
+				if(client.is_afk())
+					storytellermsg += " (AFK)"
+				storytellermsg += "<br>"
+				num_storytellers_online++
 
 	else
 		for(var/s in GLOB.staff)
@@ -184,6 +194,9 @@
 			msg += "<br><b>Current CCIA Agents ([num_cciaa_online]):</b><br>" + cciaamsg
 		if(num_devs_online)
 			msg += "<br><b>Current Developers ([num_devs_online]):</b><br>" + devmsg
+		if(num_storytellers_online)
+			msg += "<br><b>Current Storytellers ([num_storytellers_online]):</b><br>" + storytellermsg
+
 
 	var/datum/browser/staff_win = new(usr, "staffwho", "Staff Who", 450, 500)
 	staff_win.set_content(msg)
