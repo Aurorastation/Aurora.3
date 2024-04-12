@@ -472,8 +472,7 @@
 /area/saniorios_outpost)
 "ij" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -625,7 +624,7 @@
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
 /obj/effect/ghostspawpoint{
-	identifier = "hailstorm_crew";
+	identifier = "saniorios_outpost_crew";
 	name = "igs - saniorios_outpost_crew"
 	},
 /obj/effect/floor_decal/corner/white{
@@ -994,8 +993,7 @@
 /area/saniorios_outpost/armory)
 "ty" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1256,7 +1254,7 @@
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
 /obj/effect/ghostspawpoint{
-	identifier = "hailstorm_crew";
+	identifier = "saniorios_outpost_crew";
 	name = "igs - saniorios_outpost_crew"
 	},
 /obj/effect/floor_decal/corner/white{
@@ -1827,14 +1825,11 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/shipsensors/weak{
-	pixel_y = 4;
-	pixel_x = -1
-	},
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/saniorios_outpost/gun)
 "Mp" = (
@@ -2238,7 +2233,7 @@
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
 /obj/effect/ghostspawpoint{
-	identifier = "hailstorm_crew";
+	identifier = "saniorios_outpost_crew";
 	name = "igs - saniorios_outpost_crew"
 	},
 /turf/simulated/floor/tiled{
