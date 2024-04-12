@@ -5656,6 +5656,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/investigators_office)
+"egY" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "eho" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/computer/guestpass{
@@ -7166,6 +7171,16 @@
 "eZu" = (
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"faB" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "faK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -15225,6 +15240,18 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/turret_protected/ai_upload)
+"keo" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "AI SMES";
+	req_access = list(16)
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "AICore";
+	name = "AI Maintenance Blast Door"
+	},
+/turf/simulated/floor/tiled/dark/cooled,
+/area/turret_protected/ai)
 "kew" = (
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -16209,12 +16236,8 @@
 /area/template_noop)
 "kKk" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/item/hullbeacon/red,
-/turf/simulated/open/airless,
+/turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "kKp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -20508,6 +20531,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/horizon/hallway/deck_three/primary/starboard)
+"nua" = (
+/turf/template_noop,
+/area/horizon/exterior)
 "nud" = (
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -31359,6 +31385,10 @@
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"uDS" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "uER" = (
 /obj/structure/platform{
 	dir = 4
@@ -31619,6 +31649,14 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
+"uMf" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "uMn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -31924,9 +31962,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "uVR" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "uVX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -33676,10 +33719,15 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/bridge_crew)
 "wcm" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced/cooled,
-/area/turret_protected/ai_upload)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "wct" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -49570,7 +49618,7 @@ slH
 slH
 slH
 slH
-slH
+pjD
 pjD
 pjD
 pjD
@@ -49773,7 +49821,7 @@ slH
 pjD
 pjD
 pjD
-pjD
+rRe
 rRe
 rRe
 rRe
@@ -52394,7 +52442,7 @@ azv
 qRE
 mmB
 akU
-akU
+keo
 akU
 akU
 akU
@@ -52603,7 +52651,7 @@ ubu
 cLF
 cLF
 fVL
-ubu
+cLF
 ihi
 uJh
 wGH
@@ -53007,7 +53055,7 @@ ubu
 cLF
 cLF
 fVL
-wcm
+cLF
 ihi
 uJh
 iUA
@@ -63721,8 +63769,8 @@ fJy
 fJy
 fJy
 fJy
-fJy
-pmx
+cPq
+cPq
 cPq
 cPq
 cPq
@@ -63920,11 +63968,11 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
+uMf
+wGH
 kKk
-feY
-hBq
+cPq
+cPq
 cPq
 cPq
 cPq
@@ -64122,12 +64170,12 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
-xrc
-feY
-hAW
-pmx
+uMf
+wGH
+uDS
+cPq
+cPq
+cPq
 cPq
 cPq
 cPq
@@ -64324,12 +64372,12 @@ dSF
 dSF
 dSF
 dSF
+uMf
 dSF
-dSF
-xrc
-feY
-feY
-hBq
+nua
+cPq
+cPq
+cPq
 cPq
 cPq
 cPq
@@ -64526,12 +64574,12 @@ dSF
 dSF
 dSF
 dSF
+uMf
 dSF
-dSF
-xrc
-feY
-feY
-hBq
+nua
+cPq
+cPq
+cPq
 cPq
 cPq
 cPq
@@ -64728,12 +64776,12 @@ dSF
 dSF
 dSF
 dSF
+uMf
 dSF
-dSF
-xrc
-feY
-feY
-hBq
+nua
+cPq
+cPq
+cPq
 cPq
 cPq
 cPq
@@ -64930,10 +64978,10 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
+egY
+wcm
 uVR
-wvI
+faB
 fPI
 hAW
 fJy
