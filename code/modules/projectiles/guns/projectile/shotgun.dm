@@ -211,73 +211,6 @@
 	w_class = ITEMSIZE_NORMAL
 	force = 11
 
-/obj/item/gun/projectile/shotgun/wallgun
-	name = "wall gun"
-	desc = "A small yet powerful shotgun of Unathi make."
-	desc_extended = "The Moghesian wall gun, a classic Hegemonic weapon that saw plenty of service before and during the Contact War. This small-sized, break-action shotgun manages to pack a serious punch despite being barely larger than a pistol, however, it comes at the cost of extremely limited capacity. The wall gun is still produced and distributed nowadays, generally given to vehicle and ship crews and law enforcers."
-	icon = 'icons/obj/guns/unathi_ballistics.dmi'
-	icon_state = "wallgun"
-	item_state = "wallgun"
-	accuracy = 0
-	is_wieldable = TRUE
-	slot_flags = SLOT_BELT
-	ammo_type = /obj/item/ammo_casing/shotgun/moghes
-	load_method = SINGLE_CASING|SPEEDLOADER
-	w_class = ITEMSIZE_NORMAL
-	fire_delay = ROF_INTERMEDIATE
-	force = 5
-	max_shells = 1
-	caliber = "shotgun"
-	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
-	handle_casings = HOLD_CASINGS
-	var/open = FALSE
-
-/obj/item/gun/projectile/shotgun/wallgun/update_icon()
-	if(open)
-		icon_state = "wallgun-open"
-	else
-		icon_state = "wallgun"
-	..()
-/obj/item/gun/projectile/shotgun/wallgun/unique_action(mob/user)
-	if(!open)
-		open = TRUE
-		update_icon()
-		unload_ammo(user, TRUE)
-	else
-		open = FALSE
-		update_icon()
-
-/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(user, allow_dump)
-	if(open)
-		..(user, allow_dump=1)
-
-/obj/item/gun/projectile/shotgun/wallgun/load_ammo(obj/item/A, mob/user)
-	if(!open)
-		to_chat(user, "<span class='warning'>You need to open the cover to load [src].</span>")
-		return
-	..()
-
-/obj/item/gun/projectile/shotgun/wallgun/handle_post_fire(mob/user)
-	..()
-	if(wielded)
-		return
-	else
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			if(H.mob_size <10)
-				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
-				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
-
-				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
-				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
-				var/active_hand = H.hand
-
-				if(active_hand)
-					LH.take_damage(30)
-				else
-					RH.take_damage(30)
-
 /obj/item/gun/projectile/shotgun/foldable
 	name = "foldable shotgun"
 	desc = "A single-shot shotgun that can be folded for easy concealment."
@@ -347,3 +280,70 @@
 	. = ..()
 	if(distance <= 1)
 		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")
+
+/obj/item/gun/projectile/shotgun/wallgun
+	name = "wall gun"
+	desc = "A small yet powerful shotgun of Unathi make."
+	desc_extended = "The Moghesian wall gun, a classic Hegemonic weapon that saw plenty of service before and during the Contact War. This small-sized, break-action shotgun manages to pack a serious punch despite being barely larger than a pistol, however, it comes at the cost of extremely limited capacity. The wall gun is still produced and distributed nowadays, generally given to vehicle and ship crews and law enforcers."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "wallgun"
+	item_state = "wallgun"
+	accuracy = 0
+	is_wieldable = TRUE
+	slot_flags = SLOT_BELT
+	ammo_type = /obj/item/ammo_casing/shotgun/moghes
+	load_method = SINGLE_CASING|SPEEDLOADER
+	w_class = ITEMSIZE_NORMAL
+	fire_delay = ROF_INTERMEDIATE
+	force = 5
+	max_shells = 1
+	caliber = "shotgun"
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	handle_casings = HOLD_CASINGS
+	var/open = FALSE
+
+/obj/item/gun/projectile/shotgun/wallgun/update_icon()
+	if(open)
+		icon_state = "wallgun-open"
+	else
+		icon_state = "wallgun"
+	..()
+/obj/item/gun/projectile/shotgun/wallgun/unique_action(mob/user)
+	if(!open)
+		open = TRUE
+		update_icon()
+		unload_ammo(user, TRUE)
+	else
+		open = FALSE
+		update_icon()
+
+/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(user, allow_dump)
+	if(open)
+		..(user, allow_dump=1)
+
+/obj/item/gun/projectile/shotgun/wallgun/load_ammo(obj/item/A, mob/user)
+	if(!open)
+		to_chat(user, "<span class='warning'>You need to open the cover to load [src].</span>")
+		return
+	..()
+
+/obj/item/gun/projectile/shotgun/wallgun/handle_post_fire(mob/user)
+	..()
+	if(wielded)
+		return
+	else
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.mob_size <10)
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.drop_item(src)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
+
+				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
+				var/active_hand = H.hand
+
+				if(active_hand)
+					LH.take_damage(30)
+				else
+					RH.take_damage(30)
