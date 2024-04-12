@@ -15,9 +15,9 @@
 	. = ..()
 	pick_constellation()
 
-/obj/item/stellascope/examine(mob/user)
+/obj/item/stellascope/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "\The [src] displays the \"[selected_constellation]\".")
+	. += "\The [src] displays the \"[selected_constellation]\"."
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
@@ -62,7 +62,7 @@
 		glow_state = make_screen_overlay(icon, icon_state)
 	add_overlay(glow_state)
 
-/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/temp_visual/constellation/attackby(obj/item/attacking_item, mob/user)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
 	qdel(src)
 	return TRUE
@@ -92,10 +92,10 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/skrell_projector/examine(mob/user)
+/obj/item/skrell_projector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(selected_world && working)
-		to_chat(user, "\The [src] displays a hologram of [selected_world].")
+		. += "\The [src] displays a hologram of [selected_world]."
 
 /obj/item/skrell_projector/attack_self(mob/user as mob)
 	working = !working

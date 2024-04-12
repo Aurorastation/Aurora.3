@@ -149,7 +149,7 @@
 	if(is_open_container())
 		to_chat(user, SPAN_WARNING("\The [src] hasn't been secured yet!"))
 		return
-	if(do_after(user, 1 SECOND, TRUE))
+	if(do_after(user, 1 SECOND))
 		inject(user, user, TRUE)
 
 /obj/item/reagent_containers/hypospray/autoinjector/AltClick(mob/user)
@@ -164,9 +164,9 @@
 		return
 	return ..()
 
-/obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
+/obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() && !is_open_container())
+		to_chat(user, SPAN_NOTICE("Using \the [attacking_item], you unsecure the autoinjector's lid.")) // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 		return TRUE
@@ -187,12 +187,12 @@
 		add_overlay(reagent_overlay)
 	update_held_icon()
 
-/obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
+/obj/item/reagent_containers/hypospray/autoinjector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, SPAN_NOTICE("It is currently loaded."))
+		. += SPAN_NOTICE("It is currently loaded.")
 	else
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
@@ -347,3 +347,17 @@
 	volume = 10
 	amount_per_transfer_from_this = 10
 	reagents_to_add = list(/singleton/reagent/peridaxon = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/impedrezene
+	name = "impedrezene autoinjector"
+	desc = "An autoinjector loaded with impedrezene, a narcotic that impairs one's ability to think by impeding the function of brain cells in the cerebral cortex."
+	volume = 5
+	amount_per_transfer_from_this = 5
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene)
+
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice
+	name = "night life autoinjector"
+	desc = "An auto injector loaded with night life, a liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/drugs/night_juice)

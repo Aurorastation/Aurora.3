@@ -19,7 +19,6 @@
 		melee = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/security/zavod
@@ -84,7 +83,6 @@
 		melee = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/cadet/zavod
@@ -108,8 +106,20 @@
 	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
 	icon_state = "heph_security"
 	item_state = "heph_security"
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/security/einstein
+	name = "einstein security officer's uniform"
+	desc_extended = "Even the Chainlink's hated enemy puts their security officers in drab officewear. Rumors that these are woven \
+	from Skrellian supermaterials are likely false."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_officer"
+	item_state = "ee_officer"
+
+/obj/item/clothing/under/rank/security/zeng
+	name = "zeng-hu pharmaceuticals security officer uniform"
+	icon_state = "zeng_officer"
+	item_state = "zeng_officer"
 
 /obj/item/clothing/under/rank/warden
 	name = "warden's uniform"
@@ -121,7 +131,6 @@
 		melee = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/warden/remote
@@ -162,7 +171,6 @@
 		melee = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/det/zavod
@@ -205,7 +213,6 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "head_of_security"
 	item_state = "head_of_security"
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_SMALL

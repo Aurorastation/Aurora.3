@@ -236,6 +236,29 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/crew)
+"cZ" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/miners_guild/dock3{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
+"dd" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock1";
+	master_tag = "airlock_minersguild_dock1";
+	name = "airlock_minersguild_dock1"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "di" = (
 /turf/template_noop,
 /area/space)
@@ -263,6 +286,18 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"dD" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "dG" = (
 /obj/structure/table/steel,
 /obj/item/plastique/seismic,
@@ -299,10 +334,16 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1379;
-	id_tag = "miners_guild_out_internal"
+	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "er" = (
@@ -359,15 +400,33 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
+"fm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "fz" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
+"fE" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "fF" = (
-/obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/bed/handrail,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "fH" = (
@@ -445,8 +504,12 @@
 /turf/simulated/floor/plating,
 /area/miners_guild/hangar)
 "gy" = (
-/obj/structure/fuel_port/hydrogen{
-	pixel_x = -25
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
@@ -838,6 +901,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
+"jN" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "jO" = (
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild)
@@ -929,6 +1000,13 @@
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/canteen)
+"ln" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "lq" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -950,13 +1028,26 @@
 /turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "lB" = (
-/obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/bed/handrail,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "miners_guild_out_external";
-	frequency = 1413
+	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 6
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 1;
+	pixel_y = 24
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "lC" = (
@@ -1127,6 +1218,21 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/crew)
+"nq" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/miners_guild)
 "nr" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -1164,6 +1270,16 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/crew)
+"nO" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock1";
+	master_tag = "airlock_minersguild_dock1";
+	name = "airlock_minersguild_dock1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "nQ" = (
 /obj/machinery/light{
 	dir = 8
@@ -1205,6 +1321,17 @@
 "ou" = (
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild/engineering1)
+"oL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "oO" = (
 /obj/machinery/light{
 	dir = 8
@@ -1308,6 +1435,20 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
+"pU" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock1";
+	master_tag = "airlock_minersguild_dock1";
+	name = "airlock_minersguild_dock1"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "pW" = (
 /obj/structure/table/steel,
 /obj/item/gun/energy/plasmacutter,
@@ -1333,6 +1474,17 @@
 /obj/effect/floor_decal/corner/orange,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering2)
+"qf" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "qh" = (
 /obj/machinery/power/solar,
 /obj/structure/cable/yellow{
@@ -1341,8 +1493,25 @@
 	},
 /turf/simulated/floor/airless,
 /area/miners_guild/solars_starboard)
+"qv" = (
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "qC" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -1451,6 +1620,11 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/crew)
+"rp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "rv" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -1541,6 +1715,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/miners_guild/solars_port)
+"sA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "sH" = (
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild/fuel_bay)
@@ -1629,6 +1811,26 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
+"tA" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "tD" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/table/steel,
@@ -1693,6 +1895,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
+"uI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/bed/handrail,
+/turf/simulated/floor/plating,
+/area/shuttle/miners_guild)
 "uP" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew quarters"
@@ -1823,6 +2032,14 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"wy" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 6
+	},
+/obj/structure/bed/handrail,
+/turf/simulated/floor/plating,
+/area/shuttle/miners_guild)
 "wA" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -1868,6 +2085,27 @@
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /turf/simulated/floor/tiled/steel,
+/area/miners_guild)
+"wY" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock1";
+	master_tag = "airlock_minersguild_dock1";
+	name = "airlock_minersguild_dock1"
+	},
+/turf/simulated/floor/plating,
 /area/miners_guild)
 "xd" = (
 /obj/structure/cable/green{
@@ -1926,6 +2164,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering2)
+"xw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "xx" = (
 /obj/item/pickaxe,
 /obj/item/pickaxe,
@@ -1950,6 +2201,26 @@
 	temperature = 278.15
 	},
 /area/miners_guild/processing)
+"xy" = (
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "xB" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2208,6 +2479,23 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = 26;
+	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "Ae" = (
@@ -2247,8 +2535,32 @@
 /turf/simulated/floor/tiled/white,
 /area/miners_guild/cryo)
 "Ar" = (
-/obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/raider,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "Av" = (
 /obj/structure/cable/green{
@@ -2471,6 +2783,26 @@
 	},
 /turf/simulated/floor/airless,
 /area/miners_guild/solars_starboard)
+"CW" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/miners_guild/dock2{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "CY" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -2536,6 +2868,20 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering2)
+"DO" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "DR" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /turf/simulated/floor/tiled/steel,
@@ -2611,6 +2957,23 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
+"EG" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "guild_shuttle_dock";
+	pixel_y = -24;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild/hangar)
 "EK" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2677,6 +3040,22 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
+"Gz" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
+"GE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "GG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/steel,
@@ -2732,6 +3111,27 @@
 	},
 /turf/simulated/floor/airless,
 /area/miners_guild/solars_port)
+"HR" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/miners_guild)
 "HT" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -2753,6 +3153,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
+/area/miners_guild)
+"Il" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/turf/simulated/floor/plating,
 /area/miners_guild)
 "Ir" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
@@ -2856,6 +3267,11 @@
 "Kg" = (
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild/processing)
+"Ko" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "Kp" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2971,6 +3387,14 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"La" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "Lc" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/steel,
@@ -3109,6 +3533,15 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "aft"
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "MJ" = (
@@ -3255,6 +3688,12 @@
 /obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
+"OJ" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "OL" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/table/steel,
@@ -3336,6 +3775,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"PB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "PC" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -3368,6 +3814,19 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"Qe" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock1";
+	master_tag = "airlock_minersguild_dock1";
+	name = "airlock_minersguild_dock1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "Qm" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3406,6 +3865,19 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	dir = 1;
+	pixel_y = -18;
+	pixel_x = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
 "QA" = (
@@ -3487,7 +3959,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
 "RK" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -3689,6 +4161,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/miners_guild/hangar)
+"UZ" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock1";
+	master_tag = "airlock_minersguild_dock1";
+	name = "airlock_minersguild_dock1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/miners_guild/dock1{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "Vc" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -3723,6 +4211,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"Vv" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/machinery/door/airlock/multi_tile{
+	name = "Docking Bay"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "Vx" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3805,6 +4300,24 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"Wq" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = 40;
+	pixel_y = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock1";
+	master_tag = "airlock_minersguild_dock1";
+	name = "airlock_minersguild_dock1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "Wv" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3822,12 +4335,35 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/crew)
+"WE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/shuttle/miners_guild)
 "WR" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
+"WZ" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock3";
+	master_tag = "airlock_minersguild_dock3";
+	name = "airlock_minersguild_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "Xe" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -3987,8 +4523,40 @@
 /turf/simulated/floor/plating,
 /area/miners_guild/hangar)
 "Yd" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_guild_shuttle";
+	name = "airlock_guild_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Miners' Guild Shuttle"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
+"Yh" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "Yi" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -4079,6 +4647,21 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
+"ZP" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "miners_guild_dock2";
+	master_tag = "airlock_minersguild_dock2";
+	name = "airlock_minersguild_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/miners_guild)
 "ZS" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -12297,10 +12880,10 @@ di
 di
 di
 di
-di
-di
-di
-di
+jO
+qv
+cZ
+jO
 di
 di
 di
@@ -12459,10 +13042,10 @@ di
 di
 di
 di
-di
-di
-di
-di
+jO
+WZ
+fE
+jO
 di
 di
 di
@@ -12621,10 +13204,10 @@ di
 di
 di
 di
-di
-di
-di
-di
+jO
+DO
+qf
+jO
 di
 di
 di
@@ -12782,11 +13365,11 @@ di
 di
 di
 di
-di
-di
-di
-di
-di
+jO
+jO
+xy
+xw
+jO
 di
 di
 di
@@ -12944,11 +13527,11 @@ di
 di
 di
 di
-di
-di
-di
-di
-di
+jO
+On
+On
+ln
+jO
 di
 di
 di
@@ -13106,11 +13689,11 @@ di
 di
 di
 di
-di
-di
-di
-di
-di
+jO
+On
+On
+GE
+jO
 di
 di
 di
@@ -13268,11 +13851,11 @@ di
 di
 di
 di
-di
-di
-di
-di
-di
+jO
+On
+On
+ln
+jO
 di
 di
 di
@@ -13424,17 +14007,17 @@ ke
 bj
 bj
 jO
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
+jO
+jO
+jO
+jO
+jO
+jO
+jO
+On
+On
+ln
+jO
 di
 di
 di
@@ -13586,17 +14169,17 @@ ke
 bj
 bj
 jO
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
+zn
+On
+On
+On
+On
+On
+zn
+Ko
+Ko
+sA
+jO
 di
 di
 di
@@ -13745,20 +14328,20 @@ jO
 xW
 XY
 jO
-bj
-bj
 jO
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
+jO
+jO
+On
+On
+On
+On
+On
+On
+On
+On
+On
+Gz
+jO
 di
 di
 di
@@ -13906,21 +14489,21 @@ gs
 Sy
 jh
 On
+Vv
+On
+On
+On
+On
+On
 jO
-bj
-bj
 jO
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
+jO
+jO
+jO
+jO
+jO
+jO
+jO
 di
 di
 di
@@ -14068,13 +14651,13 @@ ZS
 On
 RO
 On
+On
+On
+jI
+On
+On
+On
 jO
-bj
-bj
-jO
-di
-di
-di
 di
 di
 di
@@ -14231,12 +14814,12 @@ jO
 RO
 On
 jO
-bj
-bj
 jO
-di
-di
-di
+jO
+jO
+jO
+jO
+jO
 di
 di
 di
@@ -15203,10 +15786,10 @@ iR
 On
 On
 jO
-bj
-bj
 jO
-di
+jO
+jO
+jO
 di
 di
 di
@@ -15365,13 +15948,13 @@ iR
 On
 On
 jO
-bj
-bj
+On
+On
+La
 jO
-di
-di
-di
-di
+jO
+jO
+jO
 di
 di
 di
@@ -15526,14 +16109,14 @@ hZ
 jO
 On
 On
-jO
-bj
-bj
-jO
-di
-di
-di
-di
+Vv
+Ko
+Ko
+fm
+Qe
+pU
+dd
+nO
 di
 di
 di
@@ -15688,14 +16271,14 @@ hZ
 jO
 On
 On
-jO
-bj
-bj
-jO
-di
-di
-di
-di
+On
+Ko
+Ko
+Ko
+Wq
+wY
+dd
+UZ
 di
 di
 di
@@ -15851,13 +16434,13 @@ jO
 On
 On
 jO
-bj
-bj
+On
+jI
+On
 jO
-di
-di
-di
-di
+jO
+jO
+jO
 di
 di
 di
@@ -16013,10 +16596,10 @@ jO
 On
 Be
 jO
-bj
-bj
 jO
-di
+jO
+jO
+jO
 di
 di
 di
@@ -16462,7 +17045,7 @@ sV
 oR
 gS
 Mz
-Mz
+WE
 Sm
 nS
 fF
@@ -16626,10 +17209,10 @@ Uu
 nS
 nS
 nS
-Ar
-rI
+nS
+wy
 VT
-UD
+EG
 jO
 yA
 LE
@@ -16785,7 +17368,7 @@ sV
 dn
 Bq
 eB
-Yd
+nq
 Yd
 gy
 MB
@@ -16948,9 +17531,9 @@ EU
 ic
 fH
 zS
-zS
+Ar
 eh
-zS
+HR
 ys
 Yc
 nw
@@ -17113,7 +17696,7 @@ nS
 nS
 th
 Cq
-rI
+uI
 kt
 Vx
 iR
@@ -18443,14 +19026,14 @@ iR
 iA
 On
 jO
-bj
-bj
 jO
-di
-di
-di
-di
-di
+jO
+jO
+jO
+jO
+jO
+jO
+jO
 di
 di
 di
@@ -18604,15 +19187,15 @@ hZ
 iR
 wX
 On
+Vv
+On
+zn
+On
+On
+On
+On
+zn
 jO
-bj
-bj
-jO
-di
-di
-di
-di
-di
 di
 di
 di
@@ -18766,15 +19349,15 @@ jO
 jO
 RO
 On
+On
+On
+On
+On
+On
+On
+On
+On
 jO
-bj
-jO
-jO
-di
-di
-di
-di
-di
 di
 di
 di
@@ -18930,13 +19513,13 @@ RO
 Be
 jO
 jO
+OJ
+rp
+rp
+rp
+PB
+On
 jO
-di
-di
-di
-di
-di
-di
 di
 di
 di
@@ -19092,13 +19675,13 @@ je
 On
 jO
 jO
-di
-di
-di
-di
-di
-di
-di
+jO
+jO
+jO
+jO
+tA
+ZP
+jO
 di
 di
 di
@@ -19257,10 +19840,10 @@ di
 di
 di
 di
-di
-di
-di
-di
+jO
+Yh
+oL
+jO
 di
 di
 di
@@ -19419,10 +20002,10 @@ di
 di
 di
 di
-di
-di
-di
-di
+jO
+Il
+jN
+jO
 di
 di
 di
@@ -19581,10 +20164,10 @@ di
 di
 di
 di
-di
-di
-di
-di
+jO
+CW
+dD
+jO
 di
 di
 di

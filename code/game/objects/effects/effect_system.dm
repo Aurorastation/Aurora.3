@@ -78,9 +78,9 @@ steam.start() -- spawns the effect
 			var/obj/effect/effect/steam/steam = new /obj/effect/effect/steam(src.location)
 			var/direction
 			if(src.cardinals)
-				direction = pick(cardinal)
+				direction = pick(GLOB.cardinal)
 			else
-				direction = pick(alldirs)
+				direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(1,2,3), i++)
 				sleep(5)
 				step(steam,direction)
@@ -264,14 +264,13 @@ steam.start() -- spawns the effect
 			if(holder)
 				src.location = get_turf(holder)
 			var/obj/effect/effect/smoke/smoke = new smoke_type(src.location)
-			smoke.layer = ABOVE_MOB_LAYER
 			src.total_smoke++
 			var/direction = src.direction
 			if(!direction)
 				if(src.cardinals)
-					direction = pick(cardinal)
+					direction = pick(GLOB.cardinal)
 				else
-					direction = pick(alldirs)
+					direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(0,1,1,1,2,2,2,3), i++)
 				sleep(10)
 				step(smoke,direction)

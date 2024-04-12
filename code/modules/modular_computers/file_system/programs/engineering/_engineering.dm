@@ -22,8 +22,9 @@
 /datum/computer_file/program/alarm_monitor/all
 	filename = "alarmmonitorall"
 	filedesc = "Alarm Monitoring (All)"
-	required_access_download = access_heads
-	required_access_run = access_heads
+	required_access_download = ACCESS_HEADS
+	required_access_run = list(ACCESS_HEADS, ACCESS_EQUIPMENT)
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 
 /datum/computer_file/program/alarm_monitor/all/New()
 	..()
@@ -32,8 +33,8 @@
 /datum/computer_file/program/alarm_monitor/engineering
 	filename = "alarmmonitoreng"
 	filedesc = "Alarm Monitoring (Engineering)"
-	required_access_download = access_engine
-	required_access_run = access_engine
+	required_access_download = ACCESS_ENGINE
+	required_access_run = ACCESS_ENGINE
 
 /datum/computer_file/program/alarm_monitor/engineering/New()
 	..()
@@ -42,8 +43,8 @@
 /datum/computer_file/program/alarm_monitor/security
 	filename = "alarmmonitorsec"
 	filedesc = "Alarm Monitoring (Security)"
-	required_access_download = access_security
-	required_access_run = access_security
+	required_access_download = ACCESS_SECURITY
+	required_access_run = ACCESS_SECURITY
 
 /datum/computer_file/program/alarm_monitor/security/New()
 	..()
@@ -91,7 +92,7 @@
 	if(.)
 		return
 	if(action == "switchTo")
-		var/obj/machinery/camera/C = locate(params["switchTo"]) in cameranet.cameras
+		var/obj/machinery/camera/C = locate(params["switchTo"]) in GLOB.cameranet.cameras
 		if(!C)
 			return
 

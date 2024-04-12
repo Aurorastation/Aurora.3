@@ -190,7 +190,7 @@
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_DECAL_LAYER
+	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -304,7 +304,7 @@
 /obj/item/material/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
 
-/obj/item/material/drill_head/examine(mob/user, distance)
+/obj/item/material/drill_head/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/percentage = get_durability_percentage()
 	var/descriptor = "looks close to breaking"
@@ -317,7 +317,7 @@
 	if(percentage > 95)
 		descriptor = "shows no wear"
 
-	to_chat(user, SPAN_NOTICE("It [descriptor]."))
+	. += SPAN_NOTICE("It [descriptor].")
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -521,8 +521,8 @@
 	var/obj/machinery/autolathe/mounted/lathe
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
-	if(lathe?.build_item)
-		return lathe.build_item.name
+	if(lathe?.currently_printing)
+		return lathe.currently_printing.recipe.name
 	. = ..()
 
 /obj/item/mecha_equipment/autolathe/Initialize()
@@ -552,9 +552,9 @@
 		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 
-/obj/item/mecha_equipment/autolathe/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
-		lathe.attackby(W, user)
+/obj/item/mecha_equipment/autolathe/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() || attacking_item.ismultitool() || attacking_item.iswirecutter() || istype(attacking_item, /obj/item/storage/part_replacer))
+		lathe.attackby(attacking_item, user)
 		update_icon()
 		return TRUE
 	return ..()
@@ -663,25 +663,25 @@
 	var/obj/item/anomaly_core/AC
 	var/image/anomaly_overlay
 
-/obj/item/mecha_equipment/phazon/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/anomaly_core))
+/obj/item/mecha_equipment/phazon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/anomaly_core))
 		if(AC)
 			to_chat(user, SPAN_WARNING("\The [src] already has an anomaly core installed!"))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		AC = I
+		user.drop_from_inventory(attacking_item, src)
+		AC = attacking_item
 		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
 		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
 		add_overlay(anomaly_overlay)
 		return TRUE
-	if(I.iswrench())
+	if(attacking_item.iswrench())
 		if(!AC)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
-		playsound(loc, I.usesound, 50, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.put_in_hands(AC)
 		cut_overlay(anomaly_overlay)
 		qdel(anomaly_overlay)

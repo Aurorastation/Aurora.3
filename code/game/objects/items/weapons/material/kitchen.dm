@@ -42,19 +42,12 @@
 			return eyestab(M,user)
 		else
 			return ..()
-	var/fullness = M.get_fullness()
 	if(reagents.total_volume > 0)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return
-			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				to_chat(M, "You cannot force anymore food down!")
-				return
 			to_chat(M, SPAN_NOTICE("You [is_liquid ? "drink" : "eat"] some [loaded] from \the [src]."))
 		else
-			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				to_chat(M, "You cannot force anymore food down their throat!")
-				return
 			user.visible_message(SPAN_WARNING("\The [user] begins to feed \the [M]!"), SPAN_WARNING("You begin to feed \the [M]!"))
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
 				return

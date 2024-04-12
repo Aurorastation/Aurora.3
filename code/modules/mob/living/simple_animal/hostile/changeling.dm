@@ -37,7 +37,6 @@
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0
@@ -60,9 +59,6 @@
 		icon_living = "horror"
 		icon_dead = "horror_dead"
 
-/mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
-
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
@@ -72,7 +68,7 @@
 	if(prob(10))
 		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
 		var/sound = pick(loud_sounds)
-		playsound(src, sound, 90, 1, 15, usepressure = 0)
+		playsound(src, sound, 90, 1, 15, pressure_affected = 0)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
@@ -167,7 +163,6 @@
 	attacktext = "mangled"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	pass_flags = PASSTABLE

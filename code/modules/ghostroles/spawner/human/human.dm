@@ -3,14 +3,15 @@
 	name = null
 	desc = null
 
-	respawn_flag = CREW //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
+	respawn_flag = CREW
+	disable_and_hide_if_full = FALSE
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/carbon/human //The mob that should be spawned
 	variables = list() //Variables of that mob
 
 	//Vars related to human mobs
-	var/datum/outfit/outfit = null //Outfit to equip
+	var/obj/outfit/outfit = null //Outfit to equip
 	var/list/species_outfits = list() //Outfit overwrite for the species
 	var/uses_species_whitelist = TRUE //Do you need the whitelist to play the species?
 	var/possible_species = list(SPECIES_HUMAN)
@@ -89,7 +90,7 @@
 	if(!picked_species)
 		picked_species = possible_species[1]
 
-	var/datum/species/S = all_species[picked_species]
+	var/datum/species/S = GLOB.all_species[picked_species]
 	var/assigned_gender = pick(S.default_genders)
 
 	//Get the name / age from them first
@@ -97,7 +98,7 @@
 	var/age = tgui_input_number(user, "Enter your character's age.", "Age", 25, 1000, 0)
 
 	//Spawn in the mob
-	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
+	var/mob/living/carbon/human/M = new spawn_mob(GLOB.newplayer_start)
 
 	M.change_gender(assigned_gender)
 
@@ -139,7 +140,7 @@
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
-		var/datum/outfit/species_outfit = species_outfits[picked_species]
+		var/obj/outfit/species_outfit = species_outfits[picked_species]
 		M.preEquipOutfit(species_outfit, FALSE)
 		M.equipOutfit(species_outfit, FALSE)
 	else if(outfit)
@@ -156,14 +157,14 @@
 		for(var/culture in culture_restriction)
 			var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
 			if(CL.type in M.species.possible_cultures)
-				M.culture = CL
+				M.set_culture(CL)
 				break
 		for(var/origin in M.culture.possible_origins)
 			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 			if(length(origin_restriction))
 				if(!(OI.type in origin_restriction))
 					continue
-			M.origin = OI
+			M.set_origin(OI)
 			M.accent = pick(OI.possible_accents)
 			break
 
@@ -183,4 +184,4 @@
 
 /mob/living/carbon/human/Destroy()
 	ghost_spawner = null
-	return ..()
+	. = ..()

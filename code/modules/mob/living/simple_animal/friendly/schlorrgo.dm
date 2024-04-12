@@ -81,7 +81,7 @@
 
 /mob/living/simple_animal/schlorrgo/fall_impact()
 	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
-	step(src, pick(alldirs), 1)
+	step(src, pick(GLOB.alldirs), 1)
 	return FALSE
 
 /mob/living/simple_animal/schlorrgo/process_food()

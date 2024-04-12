@@ -16,9 +16,9 @@
 	if(material.opacity < 0.5)
 		alpha = 125
 
-/obj/effect/overlay/burnt_wall/attackby(obj/item/I, mob/user)
-	if(I.iswelder())
-		var/obj/item/weldingtool/WT = I
+/obj/effect/overlay/burnt_wall/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			return TRUE
 		if(WT.use(0,user))
@@ -40,7 +40,6 @@
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "2"
 	anchored = TRUE
-	layer = 5
 
 /obj/effect/overlay/burnt_wall/steel/Initialize(mapload)
 	. = ..(mapload, "wall", MATERIAL_STEEL)

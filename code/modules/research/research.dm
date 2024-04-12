@@ -45,8 +45,8 @@ research holder datum.
 
 // Global design lists
 var/global/list/designs = null
-var/global/list/designs_protolathe_categories = list()
-var/global/list/designs_imprinter_categories = list()
+GLOBAL_LIST_EMPTY(designs_protolathe_categories)
+GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 
 /datum/research								//Holder for all the existing, archived, and known tech. Individual to console.
 	var/list/known_tech = list()			//List of locally known tech. Datum/tech go here.
@@ -84,9 +84,9 @@ var/global/list/designs_imprinter_categories = list()
 		var/datum/design/D = new T
 		designs[D.type] = D
 		if(D.build_type & PROTOLATHE)
-			designs_protolathe_categories |= D.p_category
+			GLOB.designs_protolathe_categories |= D.p_category
 		if(D.build_type & IMPRINTER)
-			designs_imprinter_categories |= D.p_category
+			GLOB.designs_imprinter_categories |= D.p_category
 
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
@@ -255,14 +255,14 @@ var/global/list/designs_imprinter_categories = list()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-/obj/item/disk/tech_disk/examine(mob/user, distance)
+/obj/item/disk/tech_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		if(stored)
-			to_chat(user, FONT_SMALL("It is storing the following tech:"))
-			to_chat(user, FONT_SMALL(" - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]"))
+			. += FONT_SMALL("It is storing the following tech:")
+			. += FONT_SMALL(" - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]")
 		else
-			to_chat(user, FONT_SMALL("It doesn't have any tech stored."))
+			. += FONT_SMALL("It doesn't have any tech stored.")
 
 /obj/item/disk/design_disk
 	name = "component design disk"
@@ -279,11 +279,11 @@ var/global/list/designs_imprinter_categories = list()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-/obj/item/disk/design_disk/examine(mob/user, distance)
+/obj/item/disk/design_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		if(blueprint)
-			to_chat(user, FONT_SMALL("It is storing the following design:"))
-			to_chat(user, FONT_SMALL(" - [blueprint.name]"))
+			. += FONT_SMALL("It is storing the following design:")
+			. += FONT_SMALL(" - [blueprint.name]")
 		else
-			to_chat(user, FONT_SMALL("It doesn't have any blueprint stored."))
+			. += FONT_SMALL("It doesn't have any blueprint stored.")

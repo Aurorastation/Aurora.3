@@ -1,4 +1,4 @@
-/client/proc/cmd_admin_drop_everything(mob/M as mob in mob_list)
+/client/proc/cmd_admin_drop_everything(mob/M as mob in GLOB.mob_list)
 	set category = null
 	set name = "Drop Everything"
 	if(!holder)
@@ -17,7 +17,7 @@
 	feedback_add_details("admin_verb","DEVR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/client/proc/cmd_admin_subtle_message(mob/M as mob in mob_list)
+/client/proc/cmd_admin_subtle_message(mob/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Subtle Message"
 
@@ -59,7 +59,7 @@
 	if(!check_rights(R_MOD|R_ADMIN, 0))
 		highlight_special_characters = 0
 
-	for(var/client/C in clients)
+	for(var/client/C in GLOB.clients)
 		if(C.player_age == "Requires database")
 			missing_ages = 1
 			continue
@@ -143,7 +143,7 @@
 	message_admins("<span class='notice'>\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_godmode(mob/M as mob in mob_list)
+/client/proc/cmd_admin_godmode(mob/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Godmode"
 	if(!holder)
@@ -159,7 +159,7 @@
 
 /proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(automute)
-		if(!config.automute_on)	return
+		if(!GLOB.config.automute_on)	return
 	else
 		if(!usr || !usr.client)
 			return
@@ -237,7 +237,7 @@ Ccomp's first proc.
 
 	var/list/mobs = list()
 	var/list/ghosts = list()
-	var/list/sortmob = sortAtom(mob_list)                           // get the mob list.
+	var/list/sortmob = sortAtom(GLOB.mob_list)                           // get the mob list.
 	var/any=0
 	for(var/mob/abstract/observer/M in sortmob)
 		mobs.Add(M)                                             //filter it where it's only ghosts
@@ -270,7 +270,7 @@ Ccomp's first proc.
 		return
 
 	var/mob/abstract/observer/G = ghosts[target]
-	if(G.has_enabled_antagHUD && config.antag_hud_restricted)
+	if(G.has_enabled_antagHUD && GLOB.config.antag_hud_restricted)
 		var/response = alert(src, "Are you sure you wish to allow this individual to play?","Ghost has used AntagHUD","Yes","No")
 		if(response == "No") return
 
@@ -294,8 +294,8 @@ Ccomp's first proc.
 	G.can_reenter_corpse = 1
 
 	G:show_message(text("<span class='notice'><B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
-	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the [config.respawn_delay] minute respawn limit", admin_key=key_name(usr), ckey=key_name(G))
-	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the [config.respawn_delay] minute respawn limit", 1)
+	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the [GLOB.config.respawn_delay] minute respawn limit", admin_key=key_name(usr), ckey=key_name(G))
+	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the [GLOB.config.respawn_delay] minute respawn limit", 1)
 
 /client/proc/allow_stationbound_reset(mob/living/silicon/robot/R in range(world.view))
 	set category = "Special Verbs"
@@ -329,7 +329,7 @@ Ccomp's first proc.
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 	var/action=""
-	if(config.antag_hud_allowed)
+	if(GLOB.config.antag_hud_allowed)
 		for(var/mob/abstract/observer/g in get_ghosts())
 			if(!g.client.holder)						//Remove the verb from non-admin ghosts
 				remove_verb(g, /mob/abstract/observer/verb/toggle_antagHUD)
@@ -337,7 +337,7 @@ Ccomp's first proc.
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
 				to_chat(g, "<span class='warning'>The Administrator has disabled AntagHUD.</span> ")
-		config.antag_hud_allowed = 0
+		GLOB.config.antag_hud_allowed = 0
 		to_chat(src, "<span class='danger'>AntagHUD usage has been disabled.</span>")
 		action = "disabled"
 	else
@@ -345,7 +345,7 @@ Ccomp's first proc.
 			if(!g.client.holder)						// Add the verb back for all non-admin ghosts
 				add_verb(g,  /mob/abstract/observer/verb/toggle_antagHUD)
 			to_chat(g, "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>")	// Notify all observers they can now use AntagHUD)
-		config.antag_hud_allowed = 1
+		GLOB.config.antag_hud_allowed = 1
 		action = "enabled"
 		to_chat(src, "<span class='notice'><B>AntagHUD usage has been enabled.</B></span>")
 
@@ -362,11 +362,11 @@ Ccomp's first proc.
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 	var/action=""
-	if(config.antag_hud_restricted)
+	if(GLOB.config.antag_hud_restricted)
 		for(var/mob/abstract/observer/g in get_ghosts())
 			to_chat(g, "<span class='notice'><B>The administrator has lifted restrictions on joining the round if you use AntagHUD</B></span>")
 		action = "lifted restrictions"
-		config.antag_hud_restricted = 0
+		GLOB.config.antag_hud_restricted = 0
 		to_chat(src, "<span class='notice'><B>AntagHUD restrictions have been lifted</B></span>")
 	else
 		for(var/mob/abstract/observer/g in get_ghosts())
@@ -375,7 +375,7 @@ Ccomp's first proc.
 			g.antagHUD = 0
 			g.has_enabled_antagHUD = 0
 		action = "placed restrictions"
-		config.antag_hud_restricted = 1
+		GLOB.config.antag_hud_restricted = 1
 		to_chat(src, "<span class='danger'>AntagHUD restrictions have been enabled</span>")
 
 	log_admin("[key_name(usr)] has [action] on joining the round if they use AntagHUD",admin_key=key_name(usr))
@@ -399,7 +399,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	var/mob/abstract/observer/G_found
-	for(var/mob/abstract/observer/G in player_list)
+	for(var/mob/abstract/observer/G in GLOB.player_list)
 		if(G.ckey == input)
 			G_found = G
 			break
@@ -408,7 +408,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		to_chat(usr, "<span class='warning'>There is no active key like that in the game or the person is not currently a ghost.</span>")
 		return
 
-	var/mob/living/carbon/human/new_character = new(pick(latejoin))//The mob being spawned.
+	var/mob/living/carbon/human/new_character = new(pick(GLOB.latejoin))//The mob being spawned.
 
 	var/datum/record/general/locked/record_found			//Referenced to later to either randomize or not randomize the character.
 	if(G_found.mind && !G_found.mind.active)	//mind isn't currently in use by someone/something
@@ -505,14 +505,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/input = sanitize(input(usr, "Please enter anything you want the AI to do. Anything. Serious.", "What?", "") as text|null)
 	if(!input)
 		return
-	for(var/mob/living/silicon/ai/M in mob_list)
+	for(var/mob/living/silicon/ai/M in GLOB.mob_list)
 		if (M.stat == 2)
 			to_chat(usr, "Upload failed. No signal is being detected from the AI.")
-		else if (M.see_in_dark == 0)
-			to_chat(usr, "Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power.")
 		else
 			M.add_ion_law(input)
-			for(var/mob/living/silicon/ai/O in mob_list)
+			for(var/mob/living/silicon/ai/O in GLOB.mob_list)
 				to_chat(O, "<span class='danger'>" + input + "...LAWS UPDATED</span>")
 				O.show_laws()
 
@@ -524,7 +522,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		command_announcement.Announce("Incoming ion storm detected near the ship. Please check all AI-controlled equipment for errors.", "Anomaly Alert", new_sound = 'sound/AI/ionstorm.ogg')
 	feedback_add_details("admin_verb","IONC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_rejuvenate(mob/living/M as mob in mob_list)
+/client/proc/cmd_admin_rejuvenate(mob/living/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Rejuvenate"
 	if(!holder)
@@ -535,7 +533,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!istype(M))
 		alert("Cannot revive a ghost")
 		return
-	if(config.allow_admin_rev)
+	if(GLOB.config.allow_admin_rev)
 		M.revive()
 
 		log_admin("[key_name(usr)] healed / revived [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
@@ -560,10 +558,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 	switch(reporttype)
 		if("Template")
-			if (!establish_db_connection(dbcon))
+			if (!establish_db_connection(GLOB.dbcon))
 				to_chat(src, "<span class='notice'>Unable to connect to the database.</span>")
 				return
-			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
 			query.Execute()
 
 			var/list/template_names = list()
@@ -603,7 +601,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
-			to_world("<span class='warning'>New [current_map.company_name] Update available at all communication consoles.</span>")
+			to_world("<span class='warning'>New [SSatlas.current_map.company_name] Update available at all communication consoles.</span>")
 			sound_to(world, ('sound/AI/commandreport.ogg'))
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))
@@ -708,7 +706,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	else
 		return
 
-/client/proc/cmd_admin_gib(mob/M as mob in mob_list)
+/client/proc/cmd_admin_gib(mob/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Gib"
 
@@ -744,7 +742,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		message_admins("<span class='notice'>[key_name_admin(usr)] used gibself.</span>", 1)
 		feedback_add_details("admin_verb","GIBS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_dust(mob/M as mob in mob_list)
+/client/proc/cmd_admin_dust(mob/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Turn to dust"
 
@@ -799,7 +797,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			to_chat(M, "\red To try to resolve this matter head to http://ss13.donglabs.com/forum/")
 			log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.")
 			message_admins("\blue[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.")
-			world.Export("http://216.38.134.132/adminlog.php?type=ban&key=[usr.client.key]&key2=[M.key]&msg=[html_decode(reason)]&time=[mins]&server=[replacetext(config.server_name, "#", "")]")
+			world.Export("http://216.38.134.132/adminlog.php?type=ban&key=[usr.client.key]&key2=[M.key]&msg=[html_decode(reason)]&time=[mins]&server=[replacetext(GLOB.config.server_name, "#", "")]")
 			del(M.client)
 			qdel(M)
 		else
@@ -814,7 +812,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		to_chat(M, "\red To try to resolve this matter head to http://ss13.donglabs.com/forum/")
 		log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 		message_admins("\blue[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
-		world.Export("http://216.38.134.132/adminlog.php?type=ban&key=[usr.client.key]&key2=[M.key]&msg=[html_decode(reason)]&time=perma&server=[replacetext(config.server_name, "#", "")]")
+		world.Export("http://216.38.134.132/adminlog.php?type=ban&key=[usr.client.key]&key2=[M.key]&msg=[html_decode(reason)]&time=perma&server=[replacetext(GLOB.config.server_name, "#", "")]")
 		del(M.client)
 		qdel(M)
 */
@@ -824,7 +822,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	// I will both remove their SVN access and permanently ban them from my servers.
 	return
 
-/client/proc/cmd_admin_check_contents(mob/living/M as mob in mob_list)
+/client/proc/cmd_admin_check_contents(mob/living/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Check Contents"
 
@@ -893,15 +891,15 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(alert(src, "Are you sure?", "Confirm", "Yes", "No") != "Yes")
 		return
 
-	if(current_map.shuttle_call_restarts)
-		if(current_map.shuttle_call_restart_timer)
+	if(SSatlas.current_map.shuttle_call_restarts)
+		if(SSatlas.current_map.shuttle_call_restart_timer)
 			to_chat(usr, SPAN_WARNING("The shuttle round restart timer is already active!"))
 			return
 		feedback_add_details("admin_verb","CSHUT")
-		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		SSatlas.current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
 		log_game("[key_name(usr)] has admin-called the 'shuttle' round restart.")
 		message_admins("[key_name_admin(usr)] has admin-called the 'shuttle' round restart.", 1)
-		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
+		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_called_message)))
 		return
 
 	if(SSticker.mode.auto_recall_shuttle)
@@ -928,16 +926,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!ROUND_IS_STARTED || !evacuation_controller)
 		return
 
-	if(current_map.shuttle_call_restarts)
-		if(!current_map.shuttle_call_restart_timer)
+	if(SSatlas.current_map.shuttle_call_restarts)
+		if(!SSatlas.current_map.shuttle_call_restart_timer)
 			to_chat(usr, SPAN_WARNING("The restart timer for this map isn't active!"))
 			return
 		feedback_add_details("admin_verb","CCSHUT")
-		deltimer(current_map.shuttle_call_restart_timer)
-		current_map.shuttle_call_restart_timer = null
+		deltimer(SSatlas.current_map.shuttle_call_restart_timer)
+		SSatlas.current_map.shuttle_call_restart_timer = null
 		log_game("[key_name(usr)] has admin-stopped the 'shuttle' round restart.", key_name(usr))
 		message_admins("[key_name_admin(usr)] has admin-stopped the 'shuttle' round restart.", 1)
-		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_recall_message)))
+		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_recall_message)))
 		return
 
 
@@ -963,7 +961,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	log_admin("[key_name(src)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.",admin_key=key_name(usr))
 	message_admins("[key_name_admin(usr)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
 
-/client/proc/cmd_admin_attack_log(mob/M as mob in mob_list)
+/client/proc/cmd_admin_attack_log(mob/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
 	set name = "Attack Log"
 
@@ -1014,12 +1012,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set desc = "Toggles random events such as meteors, black holes, blob (but not space dust) on/off"
 	if(!check_rights(R_SERVER))	return
 
-	if(!config.allow_random_events)
-		config.allow_random_events = 1
+	if(!GLOB.config.allow_random_events)
+		GLOB.config.allow_random_events = 1
 		to_chat(usr, "Random events enabled")
 		message_admins("Admin [key_name_admin(usr)] has enabled random events.", 1)
 	else
-		config.allow_random_events = 0
+		GLOB.config.allow_random_events = 0
 		to_chat(usr, "Random events disabled")
 		message_admins("Admin [key_name_admin(usr)] has disabled random events.", 1)
 	feedback_add_details("admin_verb","TRE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -1052,17 +1050,17 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!holder)
 		return
 
-	var/list/possible_categories = list("Random") + tips_by_category.Copy()
+	var/list/possible_categories = list("Random") + GLOB.tips_by_category.Copy()
 	var/input = input(usr, "Please specify the tip category that you want to send to the players.", "Tip", "Random") as null|anything in possible_categories
 	if(!input)
 		return
 
 	var/datum/tip/tip_datum
 	if(input == "Random")
-		var/chosen_tip_category = pick(tips_by_category)
-		tip_datum = tips_by_category[chosen_tip_category]
+		var/chosen_tip_category = pick(GLOB.tips_by_category)
+		tip_datum = GLOB.tips_by_category[chosen_tip_category]
 	else
-		tip_datum = tips_by_category[input]
+		tip_datum = GLOB.tips_by_category[input]
 
 	SSticker.send_tip_of_the_round(pick(tip_datum.messages))
 

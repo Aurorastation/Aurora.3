@@ -31,14 +31,24 @@
 		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
 	)
 
+/datum/computer_file/program/records/New()
+	. = ..()
+	listener = new(src)
+
+/datum/computer_file/program/records/Destroy()
+	active = null
+	QDEL_NULL(listener)
+	active_virus = null
+	. = ..()
+
 /datum/computer_file/program/records/medical
 	filename = "medrec"
 	filedesc = "Medical Records"
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(access_medical_equip, access_forensics_lockers, access_robotics, access_hop)
-	required_access_download = list(access_heads, access_medical_equip, access_forensics_lockers, access_robotics)
+	required_access_run = list(ACCESS_MEDICAL_EQUIP, ACCESS_FORENSICS_LOCKERS, ACCESS_ROBOTICS, ACCESS_HOP)
+	required_access_download = list(ACCESS_HEADS, ACCESS_MEDICAL_EQUIP, ACCESS_FORENSICS_LOCKERS, ACCESS_ROBOTICS)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
@@ -54,8 +64,8 @@
 	extended_desc = "Used to view, edit and maintain security records"
 	record_prefix = "Security "
 
-	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
-	required_access_download = list(access_heads, access_security)
+	required_access_run = list(ACCESS_SECURITY, ACCESS_FORENSICS_LOCKERS, ACCESS_LAWYER, ACCESS_HOP)
+	required_access_download = list(ACCESS_HEADS, ACCESS_SECURITY)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_SECURITY
@@ -71,9 +81,9 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(access_heads, access_lawyer, access_consular)
+	required_access_run = list(ACCESS_HEADS, ACCESS_LAWYER, ACCESS_CONSULAR)
 	requires_access_to_download = PROGRAM_ACCESS_ONE
-	required_access_download = access_heads
+	required_access_download = ACCESS_HEADS
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
@@ -82,21 +92,15 @@
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 
+/datum/computer_file/program/records/employment/Destroy()
+	. = ..()
+
+
 /datum/computer_file/program/records/pai
 	available_on_ntnet = 1
 	extended_desc = "This program is used to view crew records."
 	usage_flags = PROGRAM_SILICON_PAI
 	edit_type = 0
-
-/datum/computer_file/program/records/New()
-	. = ..()
-	listener = new(src)
-
-/datum/computer_file/program/records/Destroy()
-	active = null
-	QDEL_NULL(listener)
-	active_virus = null
-	. = ..()
 
 /datum/computer_file/program/records/ui_data(mob/user)
 	var/list/data = list(

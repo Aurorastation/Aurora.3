@@ -40,7 +40,7 @@
 /mob/living/carbon/human/proc/blood_squirt(var/amt, var/turf/sprayloc)
 	if(amt <= 0 || !istype(sprayloc))
 		return
-	var/spraydir = pick(alldirs)
+	var/spraydir = pick(GLOB.alldirs)
 	amt = Ceiling(amt/BLOOD_SPRAY_DISTANCE)
 	var/bled = 0
 	spawn(0)

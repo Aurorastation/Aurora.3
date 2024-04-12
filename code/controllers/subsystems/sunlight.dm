@@ -11,7 +11,7 @@ SUBSYSTEM_DEF(sunlight)
 	var/list/presets
 
 /datum/controller/subsystem/sunlight/stat_entry(msg)
-	msg = "A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]"
+	msg = "A:[GLOB.config.sun_accuracy] LP:[light_points.len] Z:[GLOB.config.sun_target_z]"
 	return ..()
 
 /datum/controller/subsystem/sunlight/Initialize()
@@ -20,22 +20,23 @@ SUBSYSTEM_DEF(sunlight)
 	for (var/thing in subtypesof(/datum/sun_state))
 		presets += new thing
 
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		LOG_DEBUG("sunlight: fastboot detected, skipping setup.")
 		..()
 		return
 
 	var/thing
 	var/turf/T
-	for (thing in Z_ALL_TURFS(config.sun_target_z))
+	for (thing in Z_TURFS(GLOB.config.sun_target_z))
 		T = thing
-		if (!(T.x % config.sun_accuracy) && !(T.y % config.sun_accuracy))
+		if (!(T.x % GLOB.config.sun_accuracy) && !(T.y % GLOB.config.sun_accuracy))
 			light_points += new /atom/movable/sunobj(thing)
 
 		CHECK_TICK
 
 	LOG_DEBUG("sunlight: [light_points.len] sun emitters.")
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/sunlight/proc/set_overall_light(...)
 	. = 0
@@ -47,7 +48,7 @@ SUBSYSTEM_DEF(sunlight)
 
 /datum/controller/subsystem/sunlight/proc/apply_sun_state(datum/sun_state/S)
 	LOG_DEBUG("sunlight: Applying preset [S].")
-	set_overall_light(config.sun_accuracy * 1.2, 1, S.color)
+	set_overall_light(GLOB.config.sun_accuracy * 1.2, 1, S.color)
 
 /atom/movable/sunobj
 	name = "sunlight emitter"
@@ -66,7 +67,7 @@ SUBSYSTEM_DEF(sunlight)
 	return ..()
 
 /atom/movable/sunobj/Initialize()
-	light_range = Ceiling(config.sun_accuracy * 1.2)
+	light_range = Ceiling(GLOB.config.sun_accuracy * 1.2)
 	return ..()
 
 /atom/movable/sunobj/can_fall()

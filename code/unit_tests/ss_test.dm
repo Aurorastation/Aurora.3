@@ -4,7 +4,7 @@
 
 /*
  * Wondering if you should change this to run the tests? NO!
- * Because the preproc checks for this in other areas too, set it in code\__defines\manual_unit_testing.dm instead!
+ * Because the preproc checks for this in other areas too, set it in code\__DEFINES\manual_unit_testing.dm instead!
  */
 #ifdef UNIT_TEST
 
@@ -12,13 +12,12 @@
 	The Unit Tests Configuration subsystem
 */
 
-var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
-/datum/controller/subsystem/unit_tests_config
+SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
-	init_order = SS_INIT_PERSISTENT_CONFIG
+	init_order = INIT_ORDER_PERSISTENT_CONFIGURATION
 	flags = SS_NO_FIRE
 
-	var/datum/unit_test/UT = new // Logging/output, use this to log things from outside where a specific unit_test is defined
+	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
 
 	///What is our identifier, what pod are we, and hence what are we supposed to run
 	var/identifier = null
@@ -32,10 +31,8 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 	///How many times can the pod retries before the unit test is considered failed
 	var/retries = 0
 
-/datum/controller/subsystem/unit_tests_config/New()
-	. = ..()
-
-	world.fps = 10
+/datum/controller/subsystem/unit_tests_config/Initialize()
+	UT = new
 
 	//Acquire our identifier, or enter Hopper mode if failing to do so
 	try
@@ -84,6 +81,8 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 	refresh_retries(FALSE)
 	refresh_fail_fast()
 
+	return SS_INIT_SUCCESS
+
 
 /**
  * Refresh the `retries` variable from the environment variables
@@ -109,7 +108,7 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 /*
 	The Unit Tests subsystem
 */
-/datum/controller/subsystem/unit_tests
+SUBSYSTEM_DEF(unit_tests)
 	name = "Unit Tests"
 	init_order = -1e6	// last.
 	var/list/queue = list()
@@ -127,10 +126,10 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 	//Start the Round.
 	//
 
-	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
+	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(SSatlas.current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
 
-		if(findtext(D.name, "template"))
+		if(findtext(D.name, "template") || is_abstract(D))
 			qdel(D)
 			continue
 
@@ -140,11 +139,13 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 		for(var/group in D.groups)
 			if((group in SSunit_tests_config.config["unit_test_groups"]) || (SSunit_tests_config.config["unit_test_groups"][1] == "*"))
-				queue += D
+				BINARY_INSERT_PROC_COMPARE(D, queue, /datum/unit_test, D, compare_priority, COMPARE_KEY)
 				break
 
 	SSunit_tests_config.UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
-	..()
+
+	return SS_INIT_SUCCESS
+
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)
@@ -162,7 +163,7 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		var/datum/unit_test/test = curr[curr.len]
 		curr.len--
 
-		if (test.map_path && current_map && current_map.path != test.map_path)
+		if (test.map_path && SSatlas.current_map && SSatlas.current_map.path != test.map_path)
 			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.", __FILE__, __LINE__)
 			if (MC_TICK_CHECK)
 				return

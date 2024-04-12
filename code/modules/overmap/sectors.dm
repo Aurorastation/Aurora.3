@@ -48,6 +48,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/comms_support = FALSE
 	/// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
 	var/comms_name = "shipboard"
+	/// Snowflake name to label frequency, if not set, frequency defaults to overmap name
+	var/freq_name = ""
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
 	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
@@ -70,17 +72,17 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	find_z_levels()     // This populates map_z and assigns z levels to the ship.
 	register_z_levels() // This makes external calls to update global z level information.
 
-	if(!current_map.overmap_z)
+	if(!SSatlas.current_map.overmap_z)
 		build_overmap()
 
 	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
 	tracked_dock_tags = flatten_list(tracked_dock_tags)
 
 	var/map_low = OVERMAP_EDGE
-	var/map_high = current_map.overmap_size - OVERMAP_EDGE
+	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
 	var/turf/home
 	if (place_near_main)
-		var/obj/effect/overmap/visitable/main = map_sectors["1"] ? map_sectors["1"] : map_sectors[map_sectors[1]]
+		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
 		if(islist(place_near_main))
 			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
 		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
@@ -90,7 +92,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	else
 		start_x = start_x || rand(map_low, map_high)
 		start_y = start_y || rand(map_low, map_high)
-		home = locate(start_x, start_y, current_map.overmap_z)
+		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
 
 	if(!invisible_until_ghostrole_spawn)
 		forceMove(home)
@@ -141,15 +143,15 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 /obj/effect/overmap/visitable/proc/register_z_levels()
 	for(var/zlevel in map_z)
-		map_sectors["[zlevel]"] = src
+		GLOB.map_sectors["[zlevel]"] = src
 
-	current_map.player_levels |= map_z
+	SSatlas.current_map.player_levels |= map_z
 	if(!in_space)
-		current_map.sealed_levels |= map_z
+		SSatlas.current_map.sealed_levels |= map_z
 	if(base)
-		current_map.station_levels |= map_z
-		current_map.contact_levels |= map_z
-		current_map.map_levels |= map_z
+		SSatlas.current_map.station_levels |= map_z
+		SSatlas.current_map.contact_levels |= map_z
+		SSatlas.current_map.map_levels |= map_z
 
 //Helper for init.
 /obj/effect/overmap/visitable/proc/check_ownership(obj/object)
@@ -228,6 +230,17 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	icon_state = "sector"
 	anchored = 1
 
+	/// Ground survey result for use by survey probes to generate survey reports after surveying.
+	/// A string. Child implementations should set and/or append to the string.
+	/// Stations or ships should keep it null, as they cannot be surveyed with a survey probe.
+	/// Lore planets and static away sites that are planets should keep it to static text trivia.
+	/// For random planets, should be filled with random trivia or blurbs or the like.
+	var/ground_survey_result = null
+
+/obj/effect/overmap/visitable/sector/Initialize()
+	. = ..()
+	generate_ground_survey_result()
+
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/effect/overmap/visitable/sector/hide()
@@ -235,27 +248,34 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/handle_sensor_state_change(var/on)
 	return
 
+/// Generate ground survey result text, by setting the `ground_survey_result` var.
+/// Called once at init of the sector.
+/// Randomly generated planets should call parent and append to `ground_survey_result`.
+/// Lore planets or away sites should just set it to one static string.
+/obj/effect/overmap/visitable/sector/proc/generate_ground_survey_result()
+	ground_survey_result = ""
+
 /proc/build_overmap()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return 1
 
 	log_module_sectors("Building overmap...")
 	world.maxz++
-	current_map.overmap_z = world.maxz
+	SSatlas.current_map.overmap_z = world.maxz
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
-	log_module_sectors("Putting overmap on [current_map.overmap_z]")
+	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
 	var/area/overmap/A = new
 	global.map_overmap = A
-	for (var/square in block(locate(1,1,current_map.overmap_z), locate(current_map.overmap_size,current_map.overmap_size,current_map.overmap_z)))
+	for (var/square in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
 		var/turf/T = square
-		if(T.x == current_map.overmap_size || T.y == current_map.overmap_size)
+		if(T.x == SSatlas.current_map.overmap_size || T.y == SSatlas.current_map.overmap_size)
 			T = T.ChangeTurf(/turf/unsimulated/map/edge)
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
 		ChangeArea(T, A)
 
-	current_map.sealed_levels |= current_map.overmap_z
+	SSatlas.current_map.sealed_levels |= SSatlas.current_map.overmap_z
 
 	log_module_sectors("Overmap build complete.")
 	return 1

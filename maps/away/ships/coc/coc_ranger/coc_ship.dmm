@@ -477,14 +477,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "bHV" = (
-/obj/structure/table/rack,
+/obj/machinery/suit_cycler/offship/coc,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/shoes/magboots,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/coalition,
-/obj/item/clothing/head/helmet/space/void/coalition,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "bIQ" = (
@@ -511,7 +505,7 @@
 /obj/structure/sign/flag/kazhkz{
 	pixel_y = 32
 	},
-/obj/item/clothing/head/helmet/space/void/dominia/unathi,
+/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/item/material/hatchet/unathiknife,
 /obj/machinery/light{
 	dir = 8;
@@ -756,10 +750,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "diy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "dmm" = (
@@ -795,8 +786,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "dul" = (
+/obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+	dir = 5
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
@@ -1095,17 +1087,26 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "eFo" = (
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/shoes/magboots,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/coalition,
-/obj/item/clothing/head/helmet/space/void/coalition,
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/obj/item/tank/emergency_oxygen/double,
+/obj/structure/table/rack,
 /obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -1395,11 +1396,12 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
-	req_access = null
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null;
+	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -1817,18 +1819,10 @@
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
 "hvo" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/shoes/magboots,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/coalition,
-/obj/item/clothing/head/helmet/space/void/coalition,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "hwT" = (
@@ -1865,7 +1859,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "hFA" = (
-/obj/structure/dispenser/oxygen,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
@@ -2045,11 +2038,12 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
-	req_access = null
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null;
+	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
@@ -2297,6 +2291,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "jyH" = (
@@ -2466,13 +2461,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
 "kku" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
-	},
-/obj/machinery/suit_cycler,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/coc,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/voidsuits)
 "kkN" = (
 /obj/structure/sign/directions/com{
 	pixel_x = -32;
@@ -2894,6 +2886,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/coc,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "mlG" = (
@@ -3316,10 +3310,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "ojz" = (
-/obj/machinery/power/smes,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "okk" = (
@@ -3422,7 +3416,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engineering)
 "oOX" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -3568,10 +3562,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "oXn" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "oZS" = (
@@ -38980,9 +38971,9 @@ gkw
 uhA
 qSB
 uOy
-bHV
+kku
 hvo
-bHV
+eFo
 uOy
 tEO
 wlA
@@ -39494,7 +39485,7 @@ xRX
 xRX
 xRX
 uOy
-eFo
+bHV
 xzg
 gMK
 oEN
@@ -40008,11 +39999,11 @@ xRX
 gJZ
 gJZ
 uOy
-uOy
+bHV
 hFA
 jyH
 uOy
-kku
+vzU
 wlA
 wUT
 wUT
@@ -40264,7 +40255,7 @@ xRX
 xRX
 xuX
 oXn
-diy
+gJZ
 gJZ
 gJZ
 uOy
@@ -40520,7 +40511,7 @@ xRX
 xRX
 xRX
 scs
-bex
+diy
 dul
 gJZ
 ibp

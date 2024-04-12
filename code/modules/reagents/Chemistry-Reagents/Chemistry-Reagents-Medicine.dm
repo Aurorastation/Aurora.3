@@ -223,12 +223,18 @@
 
 /singleton/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && !M.is_diona())
 		M.add_chemical_effect(CE_PULSE, -2)
+		M.add_chemical_effect(CE_OXYGENATED, 1)
 		M.adjustCloneLoss(-100 * removed)
-		M.adjustOxyLoss(-10 * removed)
-		M.heal_organ_damage(10 * removed, 10 * removed)
-		M.adjustToxLoss(-10 * removed)
+		M.heal_organ_damage(30 * removed, 30 * removed)
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			for(var/obj/item/organ/internal/I in H.internal_organs)
+				if(!BP_IS_ROBOTIC(I))
+					I.heal_damage(20*removed)
+	else if(M.is_diona() && M.bodytemperature < 170)
+		M.adjustFireLoss(5 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
 /singleton/reagent/clonexadone
 	name = "Clonexadone"
@@ -241,12 +247,18 @@
 
 /singleton/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && !M.is_diona())
 		M.add_chemical_effect(CE_PULSE, -2)
-		M.adjustCloneLoss(-100 * removed)
-		M.adjustOxyLoss(-30 * removed)
-		M.heal_organ_damage(30 * removed, 30 * removed)
-		M.adjustToxLoss(-30 * removed)
+		M.add_chemical_effect(CE_OXYGENATED, 2)
+		M.adjustCloneLoss(-300 * removed)
+		M.heal_organ_damage(50 * removed, 50 * removed)
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			for(var/obj/item/organ/internal/I in H.internal_organs)
+				if(!BP_IS_ROBOTIC(I))
+					I.heal_damage(30*removed)
+	else if(M.is_diona() && M.bodytemperature < 170)
+		M.adjustFireLoss(15 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
 /* Painkillers */
 
@@ -1819,3 +1831,22 @@
 			if(P)
 				if(P.drug_resistance == 0)
 					P.drug_resistance = 1
+
+/singleton/reagent/antibodies
+	name = "Hylemnomil-Zeta Antibodies"
+	description = "A pure antibody compound that is capable of fighting against Hylemnomil-Zeta."
+	color = "#FFFFFF"
+	overdose = 100
+	metabolism = REM*0.0001
+	scannable = TRUE
+	taste_description = "pure death"
+
+/singleton/reagent/antibodies/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	. = ..()
+	M.add_chemical_effect(CE_ANTIBODIES, 10)
+	var/obj/item/organ/internal/parasite/zombie/Z = M.internal_organs_by_name[BP_ZOMBIE_PARASITE]
+	if(Z && !Z.curing)
+		if(prob(5))
+			var/obj/item/organ/external/E = Z.parent_organ
+			Z.curing = TRUE
+			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))

@@ -25,17 +25,17 @@
 
 	var/fail_message = ""
 
-	if (!current_map)
+	if (!SSatlas.current_map)
 		return
 
 	// This is formatted strangely because it fails the indentation test if it's formatted properly.
 	// ¯\_(ツ)_/¯
-	var/list/exempt_areas = typecacheof(current_map.ut_environ_exempt_areas)
-	var/list/exempt_from_atmos = typecacheof(current_map.ut_atmos_exempt_areas)
-	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
-	var/list/exempt_from_fire = typecacheof(current_map.ut_fire_exempt_areas)
+	var/list/exempt_areas = typecacheof(SSatlas.current_map.ut_environ_exempt_areas)
+	var/list/exempt_from_atmos = typecacheof(SSatlas.current_map.ut_atmos_exempt_areas)
+	var/list/exempt_from_apc = typecacheof(SSatlas.current_map.ut_apc_exempt_areas)
+	var/list/exempt_from_fire = typecacheof(SSatlas.current_map.ut_fire_exempt_areas)
 
-	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(GLOB.all_areas, exempt_areas))
 		if(isStationLevel(A.z))
 			area_test_count++
 			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
@@ -118,7 +118,7 @@
 	var/turf/above
 	var/area/A
 	var/thing
-	for (thing in the_station_areas)
+	for (thing in GLOB.the_station_areas)
 		A = thing
 
 		for (var/turf/T in A)	// Areas don't just contain turfs, so typed loop it is.
@@ -231,7 +231,6 @@
 	name = "MAP: Check for bad piping"
 
 /datum/unit_test/map_test/bad_piping/start_test()
-	set background = 1
 	var/checks = 0
 	var/failed_checks = 0
 
@@ -264,7 +263,7 @@
 
 	next_turf:
 		for(var/turf/T in world)
-			for(var/dir in cardinal)
+			for(var/dir in GLOB.cardinal)
 				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)
 					checks++
@@ -321,7 +320,7 @@
 	for(var/excluded in exclude)
 		exclude_types += typesof(excluded)
 
-	for(var/area/A as anything in list_keys(the_station_areas))
+	for(var/area/A as anything in list_keys(GLOB.the_station_areas))
 		if(A.type in exclude_types)
 			continue
 		checks++
@@ -340,6 +339,37 @@
 		TEST_PASS("All \[[checks]\] station areas are correctly mapped only on station z-levels.")
 
 	return 1
+
+/datum/unit_test/map_test/stairs_mapped
+	name = "MAP: Stairs"
+
+/datum/unit_test/map_test/stairs_mapped/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	//Loop through all the stairs in the map
+	for(var/obj/structure/stairs/a_stair in world)
+
+		//See if there is any other stair in the same turf
+		for(var/obj/structure/stairs/possibly_another_stair in get_turf(a_stair))
+			if(a_stair != possibly_another_stair)
+				test_status = TEST_FAIL("Duplicate stairs located in [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z! \
+											Only one stair should exist inside a turf.")
+
+		if(is_abstract(a_stair))
+			test_status = TEST_FAIL("The stairs located in [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z are of an abstract type ([a_stair.type]) that should never be mapped!")
+
+		//Check that noone changed the bounds in the map editor
+		if(a_stair.bound_height != initial(a_stair.bound_height) || a_stair.bound_width != initial(a_stair.bound_width) || \
+			a_stair.bound_x != initial(a_stair.bound_x) || a_stair.bound_y != initial(a_stair.bound_y))
+
+			test_status = TEST_FAIL("The stairs at [a_stair.x]X - [a_stair.y]Y - [a_stair.z]Z have map-defined bounds!")
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All the mapped stairs are valid.")
+	else
+		TEST_FAIL("Some mapped stairs are invalid!")
+
+	return test_status
 
 #undef SUCCESS
 #undef FAILURE

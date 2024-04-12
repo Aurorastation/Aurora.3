@@ -4,7 +4,7 @@
 	icon_state = "stargazer_off"
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = CAMERA_LAYER
 	pixel_x = -32
 	pixel_y = -24
 	var/image/star_system_image
@@ -14,10 +14,10 @@
 	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]", EFFECTS_ABOVE_LIGHTING_LAYER)
 	power_change()
 
-/obj/machinery/stargazer/examine(mob/user)
+/obj/machinery/stargazer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!(stat & BROKEN) && !(stat & NOPOWER))
-		to_chat(user, SPAN_NOTICE("\The [src] shows the current sector to be <a href='?src=\ref[src];examine=1'>[SSatlas.current_sector.name]</a>."))
+		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='?src=\ref[src];examine=1'>[SSatlas.current_sector.name]</a>.")
 
 /obj/machinery/stargazer/power_change()
 	..()
@@ -40,7 +40,7 @@
 /obj/machinery/stargazer/Topic(href, href_list, datum/ui_state/state)
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return TRUE
-	if(!isInSight(usr, src))
+	if(!is_in_sight(usr, src))
 		return TRUE
 	if(usr.incapacitated(INCAPACITATION_KNOCKOUT))
 		return TRUE

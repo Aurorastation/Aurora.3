@@ -164,7 +164,7 @@
 /obj/machinery/computer/shuttle_control/explore/ssmd_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SSMD Shuttle"
-	req_access = list(access_sol_ships)
+	req_access = list(ACCESS_SOL_SHIPS)
 
 /datum/shuttle/autodock/overmap/ssmd_shuttle
 	name = "SSMD Shuttle"

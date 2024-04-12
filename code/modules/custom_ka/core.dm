@@ -79,23 +79,23 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/gun/custom_ka/examine(var/mob/user)
+/obj/item/gun/custom_ka/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(installed_upgrade_chip)
-		to_chat(user,"It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip].")
+		. += "It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip]."
 	else if(installed_barrel)
-		to_chat(user,"It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip.")
+		. += "It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip."
 	else if(installed_cell)
-		to_chat(user,"It is equipped with \the [installed_cell]. The assembly lacks a barrel installation.")
+		. += "It is equipped with \the [installed_cell]. The assembly lacks a barrel installation."
 
 	if(installed_barrel)
 		if(custom_name)
-			to_chat(user,"[custom_name] is written crudely in pen across the side, covering up the offical designation.")
+			. += "[custom_name] is written crudely in pen across the side, covering up the offical designation."
 		else
-			to_chat(user,"The official designation \"[official_name]\" is etched neatly on the side.")
+			. += "The official designation \"[official_name]\" is etched neatly on the side."
 
 	if(installed_cell)
-		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")
+		. += "It has <b>[get_ammo()]</b> shots remaining."
 
 /obj/item/gun/custom_ka/get_ammo()
 	if(!installed_cell || !installed_cell.stored_charge)
@@ -140,7 +140,7 @@
 		)
 		if(is_emped)
 			warning_message = pick(warning_messages)
-			spark(src.loc, 3, alldirs)
+			spark(src.loc, 3, GLOB.alldirs)
 	else if(!installed_cell || !installed_barrel)
 		if(!is_emagged || (is_emped && prob(5)) )
 			warning_message = "ERROR CODE: 0"
@@ -182,7 +182,7 @@
 		switch(disaster)
 			if("spark")
 				to_chat(user,"<span class='danger'>\The [src] sparks!</span>")
-				spark(src.loc, 3, alldirs)
+				spark(src.loc, 3, GLOB.alldirs)
 			if("overheat")
 				to_chat(user,"<span class='danger'>\The [src] turns red hot!</span>")
 				user.IgniteMob()
@@ -399,18 +399,18 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.attack_self(user)
 
-/obj/item/gun/custom_ka/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/gun/custom_ka/attackby(obj/item/attacking_item, mob/user)
 
 	. = ..()
 
-	if(istype(I,/obj/item/pen))
-		custom_name = sanitize(input("Enter a custom name for your [name]", "Set Name") as text|null)
+	if(istype(attacking_item, /obj/item/pen))
+		custom_name = sanitize( tgui_input_text(user, "Enter a custom name for your [name]", "Set Name") )
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
 		return TRUE
-	else if(I.iswrench())
+	else if(attacking_item.iswrench())
 		if(installed_upgrade_chip)
-			playsound(src,I.usesound, 50, 0)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_upgrade_chip].")
 			installed_upgrade_chip.forceMove(user.loc)
 			installed_upgrade_chip.update_icon()
@@ -418,7 +418,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_barrel && can_disassemble_barrel)
-			playsound(src,I.usesound, 50, 0)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_barrel].")
 			installed_barrel.forceMove(user.loc)
 			installed_barrel.update_icon()
@@ -426,7 +426,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_cell && can_disassemble_cell)
-			playsound(src,I.usesound, 50, 0)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_cell].")
 			installed_cell.forceMove(user.loc)
 			installed_cell.update_icon()
@@ -436,11 +436,11 @@
 		else
 			to_chat(user,"There is nothing to remove from \the [src].")
 		return TRUE
-	else if(istype(I,/obj/item/custom_ka_upgrade/cells))
+	else if(istype(attacking_item,/obj/item/custom_ka_upgrade/cells))
 		if(installed_cell)
 			to_chat(user,"There is already \an [installed_cell] installed.")
 		else
-			var/obj/item/custom_ka_upgrade/cells/tempvar = I
+			var/obj/item/custom_ka_upgrade/cells/tempvar = attacking_item
 			installed_cell = tempvar
 			user.remove_from_mob(installed_cell)
 			installed_cell.forceMove(src)
@@ -448,13 +448,13 @@
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
-	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
+	else if(istype(attacking_item,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
-			to_chat(user,"You must install a power cell before installing \the [I].")
+			to_chat(user,"You must install a power cell before installing \the [attacking_item].")
 		else if(installed_barrel)
 			to_chat(user,"There is already \an [installed_barrel] installed.")
 		else
-			var/obj/item/custom_ka_upgrade/barrels/tempvar = I
+			var/obj/item/custom_ka_upgrade/barrels/tempvar = attacking_item
 			installed_barrel = tempvar
 			user.remove_from_mob(installed_barrel)
 			installed_barrel.forceMove(src)
@@ -462,17 +462,17 @@
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
-	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
+	else if(istype(attacking_item,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
-			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
+			to_chat(user,"A barrel and a cell need to be installed before you install \the [attacking_item].")
 		else if(installed_upgrade_chip)
 			to_chat(user,"There is already \an [installed_upgrade_chip] installed.")
 		else if(installed_cell.disallow_chip == TRUE)
-			to_chat(user,"\The [installed_cell] prevents you from installing \the [I]!")
+			to_chat(user,"\The [installed_cell] prevents you from installing \the [attacking_item]!")
 		else if(installed_barrel.disallow_chip == TRUE)
-			to_chat(user,"\The [installed_barrel] prevents you from installing \the [I]!")
+			to_chat(user,"\The [installed_barrel] prevents you from installing \the [attacking_item]!")
 		else
-			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = I
+			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = attacking_item
 			installed_upgrade_chip = tempvar
 			user.remove_from_mob(installed_upgrade_chip)
 			installed_upgrade_chip.forceMove(src)
@@ -482,13 +482,13 @@
 		return TRUE
 
 	if(installed_cell)
-		installed_cell.attackby(I,user)
+		installed_cell.attackby(attacking_item,user)
 		return TRUE
 	if(installed_barrel)
-		installed_barrel.attackby(I,user)
+		installed_barrel.attackby(attacking_item,user)
 		return TRUE
 	if(installed_upgrade_chip)
-		installed_upgrade_chip.attackby(I,user)
+		installed_upgrade_chip.attackby(attacking_item,user)
 		return TRUE
 
 /obj/item/custom_ka_upgrade //base item

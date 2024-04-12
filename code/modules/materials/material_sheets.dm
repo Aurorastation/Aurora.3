@@ -1,7 +1,7 @@
 // Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
 	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
-	force = 5
+	force = 11
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 3
@@ -90,12 +90,12 @@
 	if(!material.build_windows(user, src))
 		..()
 
-/obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(iscoil(W))
-		material.build_wired_product(user, W, src)
+/obj/item/stack/material/attackby(obj/item/attacking_item, mob/user)
+	if(iscoil(attacking_item))
+		material.build_wired_product(user, attacking_item, src)
 		return
-	else if(istype(W, /obj/item/stack/rods))
-		material.build_rod_product(user, W, src)
+	else if(istype(attacking_item, /obj/item/stack/rods))
+		material.build_rod_product(user, attacking_item, src)
 		return
 	return ..()
 
@@ -106,6 +106,28 @@
 	apply_colour = TRUE
 
 /obj/item/stack/material/iron/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/aluminium
+	name = "aluminium"
+	icon_state = "sheet-metal"
+	default_type = MATERIAL_ALUMINIUM
+	apply_colour = TRUE
+
+/obj/item/stack/material/aluminium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/lead
+	name = "lead"
+	icon_state = "sheet-silver"
+	default_type = MATERIAL_LEAD
+	apply_colour = TRUE
+
+/obj/item/stack/material/lead/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
@@ -265,9 +287,9 @@
 	default_type = DEFAULT_WALL_MATERIAL
 	icon_has_variants = TRUE
 
-/obj/item/stack/material/steel/attackby(obj/item/W, mob/user)
+/obj/item/stack/material/steel/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(is_sharp(W))
+	if(is_sharp(attacking_item))
 		if(amount < 5)
 			to_chat(user, SPAN_WARNING("You need at least five sheets of steel to do this!"))
 			return
@@ -291,6 +313,10 @@
 	item_state = "sheet-metal"
 	default_type = MATERIAL_PLASTEEL
 	icon_has_variants = TRUE
+
+/obj/item/stack/material/plasteel/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()
@@ -392,8 +418,8 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/wood/log/attackby(obj/item/I, mob/user)
-	if(I.can_woodcut() && isturf(loc) && !chopping)
+/obj/item/stack/material/wood/log/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.can_woodcut() && isturf(loc) && !chopping)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		chopping = TRUE
 		visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into planks."),
@@ -434,10 +460,11 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
-	if(is_sharp(I))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
-		if(I.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
+/obj/item/stack/material/cloth/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item))
+		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [attacking_item].</span>",
+							"<span class='notice'>You begin cutting up [src] with [attacking_item].</span>")
+		if(attacking_item.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
 			for(var/i in 1 to rand(1,3)) // average of 2 per
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))

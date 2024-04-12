@@ -50,7 +50,7 @@
 
 /obj/item/device/quikpay/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(istype(I) && (access_heads in I.access))
+	if(istype(I) && (ACCESS_HEADS in I.access))
 		editmode = TRUE
 		to_chat(user, SPAN_NOTICE("Command access granted."))
 		SStgui.update_uis(src)
@@ -69,9 +69,9 @@
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
 
-/obj/item/device/quikpay/attackby(obj/O, mob/user)
-	if (istype(O, /obj/item/spacecash/ewallet))
-		var/obj/item/spacecash/ewallet/E = O
+/obj/item/device/quikpay/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/spacecash/ewallet))
+		var/obj/item/spacecash/ewallet/E = attacking_item
 		var/transaction_amount = sum
 		var/transaction_purpose = "[destinationact] Payment"
 		var/transaction_terminal = machine_id
@@ -90,8 +90,8 @@
 			to_chat(user, SPAN_WARNING("[icon2html(src, user)]\The [E] doesn't have that much money!"))
 		return
 
-	var/obj/item/card/id/I = O.GetID()
-	if (!istype(O))
+	var/obj/item/card/id/I = attacking_item.GetID()
+	if (!istype(attacking_item))
 		return
 
 	var/transaction_amount = sum

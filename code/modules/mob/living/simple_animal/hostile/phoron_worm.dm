@@ -31,7 +31,6 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0
@@ -119,7 +118,7 @@
 	speed = -1
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
-	layer = ON_TURF_LAYER
+	layer = TURF_DETAIL_LAYER
 	density = FALSE
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 

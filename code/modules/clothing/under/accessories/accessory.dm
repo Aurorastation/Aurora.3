@@ -71,9 +71,12 @@
 			auto_adapt_species(H)
 			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
-		if(build_from_parts)
+		if(build_from_parts || has_accents)
 			accessory_mob_overlay.cut_overlays()
+		if(build_from_parts)
 			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		if(has_accents)
+			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=RESET_COLOR))
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
@@ -114,7 +117,7 @@
 	return ..()
 
 //default attackby behaviour
-/obj/item/clothing/accessory/attackby(obj/item/I, mob/user)
+/obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
 	..()
 
 //default attack_hand behaviour
@@ -267,8 +270,8 @@
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
-				user.visible_message(SPAN_NOTICE("[user] places [src] against [M]'s [organ.name] and listens attentively."),
-										"You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
+				user.visible_message(SPAN_NOTICE("[user] places \the [src] against [M]'s [organ.name] and listens attentively."),
+										EXAMINE_BLOCK("You place \the [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
 				return
 	return ..(M,user)
 
@@ -303,71 +306,6 @@
 		return
 
 	stet.mode_switch(usr)
-
-//Religious items
-/obj/item/clothing/accessory/rosary
-	name = "rosary"
-	desc = "A form of prayer psalter used in the Catholic Church, with a string of beads attached to it."
-	icon = 'icons/obj/clothing/chaplain.dmi'
-	icon_state = "rosary"
-	overlay_state = "rosary"
-	flippable = 1
-
-	slot_flags = SLOT_BELT | SLOT_TIE
-
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/accessory/crucifix
-	name = "crucifix"
-	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon = 'icons/clothing/accessories/crucifix.dmi'
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/crucifix/gold
-	name = "gold crucifix"
-	desc = "A small, gold cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon_state = "golden_crucifix"
-	item_state = "golden_crucifix"
-
-/obj/item/clothing/accessory/crucifix/gold/saint_peter
-	name = "gold Saint Peter crucifix"
-	desc = "A small, gold cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
-	which has been re-purposed as a satanic symbol since the 21st century as well."
-	icon_state = "golden_crucifix_ud"
-	item_state = "golden_crucifix_ud"
-
-/obj/item/clothing/accessory/crucifix/silver
-	name = "silver crucifix"
-	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon_state = "silver_crucifix"
-	item_state = "silver_crucifix"
-
-/obj/item/clothing/accessory/crucifix/silver/saint_peter
-	name = "silver Saint Peter crucifix"
-	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
-	which has been re-purposed as a satanic symbol since the 21st century as well."
-	icon_state = "silver_crucifix_ud"
-	item_state = "silver_crucifix_ud"
-
-/obj/item/clothing/accessory/assunzione
-	name = "luceian amulet"
-	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
-	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
-	to ensure one's amulet is well-maintained."
-	icon = 'icons/clothing/accessories/assunzione_amulet.dmi'
-	item_state = "assunzione_amulet"
-	icon_state = "assunzione_amulet"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/tallit
-	name = "tallit"
-	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
-	The tallit has special twined and knotted fringes known as tzitzit attached to its four corners."
-	icon = 'icons/clothing/accessories/Tallit.dmi'
-	item_state = "tallit"
-	icon_state = "tallit"
-	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
@@ -849,7 +787,7 @@
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"
-	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in a Tau Ceti Foreign Legion."
+	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in the Tau Ceti Armed Forces."
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
 	overlay_state = "senior_ribbon"
@@ -858,7 +796,7 @@
 
 /obj/item/clothing/accessory/legion/specialist
 	name = "specialist medallion"
-	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
+	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in the Tau Ceti Armed Forces."
 	icon_state = "specialist_medallion"
 	item_state = "specialist_medallion"
 	overlay_state = "specialist_medallion"

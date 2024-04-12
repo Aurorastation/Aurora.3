@@ -53,22 +53,21 @@
 		log_and_message_admins("emagged [src]'s inner circuits")
 		return 1
 
-/obj/machinery/bot/examine(mob/user)
+/obj/machinery/bot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (src.health < maxhealth)
 		if (src.health > maxhealth/3)
-			to_chat(user, "<span class='warning'>[src]'s parts look loose.</span>")
+			. += "<span class='warning'>[src]'s parts look loose.</span>"
 		else
-			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
-	return
+			. += "<span class='danger'>[src]'s parts look very loose!</span>"
 
-/obj/machinery/bot/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!locked)
 			open = !open
 			to_chat(user, "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>")
 		return TRUE
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
@@ -80,12 +79,12 @@
 			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
 		return TRUE
 	else
-		if(hasvar(W,"force") && hasvar(W,"damtype"))
-			switch(W.damtype)
+		if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
+			switch(attacking_item.damtype)
 				if("fire")
-					src.health -= W.force * fire_dam_coeff
+					src.health -= attacking_item.force * fire_dam_coeff
 				if("brute")
-					src.health -= W.force * brute_dam_coeff
+					src.health -= attacking_item.force * brute_dam_coeff
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			. = ..()
 			healthcheck()
@@ -128,7 +127,7 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(cardinal))
+	pulse2.set_dir(pick(GLOB.cardinal))
 
 	QDEL_IN(pulse2, 10)
 
@@ -171,7 +170,7 @@
 
 	//	for(var/turf/simulated/t in oview(src,1))
 
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
 			if(!LinkBlockedWithAccess(src, T, ID))

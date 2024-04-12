@@ -4,14 +4,14 @@ SUBSYSTEM_DEF(overlays)
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	wait = 1
 	priority = SS_PRIORITY_OVERLAY
-	init_order = SS_INIT_OVERLAY
+	init_order = INIT_ORDER_OVERLAY
 
 	var/list/processing = list()
 
 	var/idex = 1
 	var/list/overlay_icon_state_caches = list()
 	var/list/overlay_icon_cache = list()
-	var/initialized = FALSE
+	initialized = FALSE
 
 /datum/controller/subsystem/overlays/stat_entry(msg)
 	msg = "Ov:[processing.len - (idex - 1)]"
@@ -20,7 +20,8 @@ SUBSYSTEM_DEF(overlays)
 /datum/controller/subsystem/overlays/Initialize()
 	initialized = TRUE
 	Flush()
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/overlays/Recover()
 	overlay_icon_state_caches = SSoverlays.overlay_icon_state_caches

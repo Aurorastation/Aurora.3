@@ -58,6 +58,9 @@
 "bF" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc,
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "cI" = (
@@ -245,6 +248,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
+"hs" = (
+/obj/machinery/computer/shuttle_control/explore/einstein_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/einstein_shuttle/helm)
 "hC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -439,21 +446,6 @@
 "mG" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1385;
-	master_tag = "einstein_shuttle";
-	name = "interior access button";
-	pixel_x = -5;
-	pixel_y = 25;
-	dir = 1
-	},
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_x = 7;
-	pixel_y = 25;
-	id_tag = "einstein_shuttle_interior_sensor";
-	frequency = 1385
 	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -714,15 +706,14 @@
 	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1385;
-	id_tag = "einstein_shuttle_pump_in"
+	dir = 4
 	},
-/obj/machinery/airlock_sensor{
-	frequency = 1385;
-	id_tag = "einstein_shuttle_chamber_sensor";
-	pixel_y = -23;
-	dir = 1
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
@@ -787,22 +778,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "uq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "einstein_shuttle_pump_out_external";
-	frequency = 1385;
-	layer = 2.8
-	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1385;
-	id_tag = "einstein_shuttle_exterior_sensor";
-	pixel_y = 10;
-	pixel_x = 55
-	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 32;
+	pixel_y = 10
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/shuttle/einstein_shuttle/dock)
 "uO" = (
@@ -1129,13 +1123,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "CF" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	id_tag = "einstein_shuttle_in";
-	name = "Internal Access";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -9
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
 "CG" = (
@@ -1447,26 +1448,25 @@
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
 "Kx" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	id_tag = "einstein_shuttle_out";
-	name = "External Access";
-	dir = 1
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1385;
-	master_tag = "einstein_shuttle";
-	name = "exterior access button";
-	pixel_x = -25;
-	pixel_y = 11
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
 "KA" = (
@@ -1608,6 +1608,13 @@
 /area/shuttle/einstein_shuttle/room)
 "Pw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
 "Py" = (
@@ -1636,9 +1643,14 @@
 /area/space)
 "QI" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1385;
-	id_tag = "einstein_shuttle_pump_in"
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
@@ -1664,6 +1676,13 @@
 "Ri" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
@@ -1918,21 +1937,46 @@
 /area/shuttle/einstein_shuttle/room/three)
 "XT" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "einstein_shuttle_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
 "Yb" = (
-/obj/machinery/power/apc/high/north{
-	req_access = list(205)
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/power/apc/high/east{
+	req_access = null
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 22;
+	pixel_x = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "Yd" = (
@@ -1977,23 +2021,16 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Zx" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "einstein_shuttle_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	id_tag = "einstein_shuttle";
-	master_tag = "einstein_shuttle";
-	pixel_y = 25;
-	tag_interior_door = "einstein_shuttle_in";
-	tag_exterior_door = "einstein_shuttle_out";
-	tag_interior_sensor = "einstein_shuttle_interior_sensor";
-	tag_exterior_sensor = "einstein_shuttle_exterior_sensor";
-	tag_chamber_sensor = "einstein_shuttle_chamber_sensor";
-	tag_airpump = "einstein_shuttle_pump_in";
-	frequency = 1385
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_einstein_shuttle";
+	name = "airlock_einstein_shuttle";
+	req_one_access = list(205);
+	shuttle_tag = "Einstein Shuttle";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
 "ZL" = (
@@ -6874,7 +6911,7 @@ AN
 fw
 Ux
 UR
-UR
+hs
 bm
 NW
 NW

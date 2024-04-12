@@ -18,9 +18,9 @@
 	else
 		icon_state = "syringe-cartridge"
 
-/obj/item/syringe_cartridge/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/syringe))
-		syringe = I
+/obj/item/syringe_cartridge/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+		syringe = attacking_item
 		to_chat(user, "<span class='notice'>You carefully insert [syringe] into [src].</span>")
 		user.remove_from_mob(syringe)
 		syringe.forceMove(src)
@@ -68,7 +68,7 @@
 	icon_state = "syringegun"
 	item_state = "syringegun"
 	w_class = ITEMSIZE_NORMAL
-	force = 7
+	force = 16
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	slot_flags = SLOT_BELT
 
@@ -121,9 +121,9 @@
 	else
 		..()
 
-/obj/item/gun/launcher/syringe/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/syringe_cartridge))
-		var/obj/item/syringe_cartridge/C = A
+/obj/item/gun/launcher/syringe/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/syringe_cartridge))
+		var/obj/item/syringe_cartridge/C = attacking_item
 		if(darts.len >= max_darts)
 			to_chat(user, "<span class='warning'>[src] is full!</span>")
 			return

@@ -1,17 +1,27 @@
-//
-// Window Spawner
-//
+
+// ----------------------------------- window spawner base
+
 /obj/effect/map_effect/window_spawner
 	name = "window spawner"
 	icon = 'icons/effects/map_effects.dmi'
+	atmos_canpass = CANPASS_NEVER
+
 	var/window_path = /obj/structure/window/basic
 	var/frame_path = /obj/structure/window_frame
 	var/grille_path = /obj/structure/grille/over
 	var/firedoor_path = /obj/machinery/door/firedoor
-	var/single_window = FALSE // For full window panes and full windows.
-	var/spawn_frame = FALSE // For full windows.
-	var/spawn_grille = FALSE // For electrified windows.
+
+	/// For full window panes and full windows
+	var/single_window = FALSE
+	/// For full windows
+	var/spawn_frame = FALSE
+	/// For electrified windows
+	var/spawn_grille = FALSE
 	var/spawn_firedoor = FALSE
+
+	/// If not null, sets frame to this color
+	var/frame_color = null
+
 	var/activated
 
 /obj/effect/map_effect/window_spawner/CanPass() // Stops ZAS expanding zones past us, the windows will block the zone anyway.
@@ -34,20 +44,22 @@
 
 	activate()
 
-	return INITIALIZE_HINT_LATEQDEL
+	return INITIALIZE_HINT_QDEL
 
 /obj/effect/map_effect/window_spawner/proc/activate()
 	if(activated)
 		return
 	if(spawn_frame)
-		new frame_path(loc)
+		var/obj/frame = new frame_path(loc)
+		if(istype(frame) && frame_color)
+			frame.color = frame_color
 	if(spawn_grille)
 		new grille_path(loc)
 	if(spawn_firedoor)
 		new firedoor_path(loc)
 	if(!single_window)
 		var/list/neighbours = list()
-		for (var/dir in cardinal)
+		for (var/dir in GLOB.cardinal)
 			var/turf/T = get_step(src, dir)
 			var/obj/effect/map_effect/window_spawner/other = locate(/obj/effect/map_effect/window_spawner) in T
 			if(!other)
@@ -77,7 +89,8 @@
 /obj/effect/map_effect/window_spawner/proc/handle_grille_spawn(var/obj/structure/grille/G)
 	return
 
-/********** Quarter Windows **********/
+// ----------------------------------- old quarter windows subtypes
+
 /obj/effect/map_effect/window_spawner/basic
 	name = "window grille spawner"
 	icon_state = "window-g"
@@ -127,7 +140,8 @@
 	if(id)
 		W.id = id
 
-/********** Full Windows **********/
+// ----------------------------------- windows subtypes
+
 // Window
 /obj/effect/map_effect/window_spawner/full // Unused.
 	name = "unused"
@@ -214,3 +228,16 @@
 	icon_state = "full_rwindow"
 	frame_path = /obj/structure/window_frame/wood
 	window_path = /obj/structure/window/full/reinforced
+
+/obj/effect/map_effect/window_spawner/full/shuttle
+	name = "full reinforced window spawner"
+	icon_state = "full_rwindow_shuttle"
+	window_path = /obj/structure/window/full/reinforced
+
+/obj/effect/map_effect/window_spawner/full/shuttle/scc
+	icon_state = "full_rwindow_shuttle_scc"
+	frame_color = "#AAAFC7"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary
+	icon_state = "full_rwindow_shuttle_merc"
+	frame_color = "#5B5B5B"

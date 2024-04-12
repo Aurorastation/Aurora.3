@@ -35,7 +35,7 @@
 			LAZYADD(vision_blockers, vision_blocker)
 
 /obj/machinery/door/airlock/multi_tile/Destroy()
-	QDEL_NULL_LIST(vision_blockers)
+	QDEL_LIST(vision_blockers)
 	return ..()
 
 /obj/machinery/door/airlock/multi_tile/set_opacity(var/new_opacity)
@@ -100,7 +100,7 @@
 			LAZYADD(vision_blockers, vision_blocker)
 
 /obj/machinery/door/firedoor/multi_tile/Destroy()
-	QDEL_NULL_LIST(vision_blockers)
+	QDEL_LIST(vision_blockers)
 	return ..()
 
 /obj/machinery/door/firedoor/multi_tile/set_opacity(var/new_opacity)

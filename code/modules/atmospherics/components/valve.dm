@@ -146,7 +146,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -301,8 +301,8 @@
 			else
 				open()
 
-/obj/machinery/atmospherics/valve/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+/obj/machinery/atmospherics/valve/attackby(obj/item/attacking_item, mob/user)
+	if (!attacking_item.iswrench())
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/valve/digital))
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
@@ -315,7 +315,7 @@
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
@@ -324,6 +324,6 @@
 		qdel(src)
 		return TRUE
 
-/obj/machinery/atmospherics/valve/examine(mob/user)
+/obj/machinery/atmospherics/valve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is [open ? "open" : "closed"].")
+	. += "It is [open ? "open" : "closed"]."

@@ -1,7 +1,7 @@
 //MENU SYSTEM BY BIGRAGE, some awful code, some awful design, all as you love //Code edits/additions by AshtonFox
 /mob/abstract/new_player/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
-	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
 	HUD.mymob = src
+	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
 
 /datum/hud/new_player
 	hud_shown = TRUE
@@ -9,6 +9,8 @@
 	hotkey_ui_hidden = FALSE
 
 /datum/hud/proc/new_player_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	adding = list()
 	var/obj/screen/using
 
@@ -52,7 +54,7 @@
 
 /obj/screen/new_player
 	icon = 'icons/misc/hudmenu/hudmenu.dmi'
-	layer = HUD_LAYER
+	layer = HUD_BASE_LAYER
 
 /obj/screen/new_player/Initialize()
 	set_sector_things()
@@ -77,27 +79,27 @@
 
 /obj/screen/new_player/title/Initialize()
 	if(SSatlas.current_sector.sector_lobby_art)
-		current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
-	else if(!current_map.lobby_icon)
-		current_map.lobby_icon = pick(current_map.lobby_icons)
+		SSatlas.current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
+	else if(!SSatlas.current_map.lobby_icon)
+		SSatlas.current_map.lobby_icon = pick(SSatlas.current_map.lobby_icons)
 
-	if(!length(current_map.lobby_screens))
-		var/list/known_icon_states = icon_states(current_map.lobby_icon)
+	if(!length(SSatlas.current_map.lobby_screens))
+		var/list/known_icon_states = icon_states(SSatlas.current_map.lobby_icon)
 		for(var/screen in known_icon_states)
-			if(!(screen in current_map.lobby_screens))
-				current_map.lobby_screens += screen
-	icon = current_map.lobby_icon
+			if(!(screen in SSatlas.current_map.lobby_screens))
+				SSatlas.current_map.lobby_screens += screen
+	icon = SSatlas.current_map.lobby_icon
 
-	if(length(current_map.lobby_screens))
-		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
-			icon_state = current_map.lobby_screens[lobby_index]
-			if(Master.initializing)
-				spawn(current_map.lobby_transitions)
+	if(length(SSatlas.current_map.lobby_screens))
+		if(SSatlas.current_map.lobby_transitions && isnum(SSatlas.current_map.lobby_transitions))
+			icon_state = SSatlas.current_map.lobby_screens[lobby_index]
+			if(!MC_RUNNING())
+				spawn(SSatlas.current_map.lobby_transitions)
 					Update()
 			else
-				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
+				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 		else
-			icon_state = pick(current_map.lobby_screens)
+			icon_state = pick(SSatlas.current_map.lobby_screens)
 	else //This should basically never happen.
 		crash_with("No lobby screens found!")
 
@@ -107,29 +109,27 @@
 	return
 
 /obj/screen/new_player/title/proc/Update()
-	if(QDELING(src))
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(QDELETED(src))
 		return
 
-	if(!current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
+	if(!SSatlas.current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
 		return
 	if(!istype(hud) || !isnewplayer(hud.mymob))
 		return
 	lobby_index += 1
-	if (lobby_index > length(current_map.lobby_screens))
+	if (lobby_index > length(SSatlas.current_map.lobby_screens))
 		lobby_index = 1
 	animate(src, alpha = 0, time = 1 SECOND)
-	animate(alpha = 255, icon_state = current_map.lobby_screens[lobby_index], time = 1 SECOND)
-	if(Master.initializing)
-		spawn(current_map.lobby_transitions)
-			Update()
-	else
-		refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
+	animate(alpha = 255, icon_state = SSatlas.current_map.lobby_screens[lobby_index], time = 1 SECOND)
+	refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /obj/screen/new_player/selection
 	var/click_sound = 'sound/effects/menu_click.ogg'
 	var/hud_arrow
 
-/obj/screen/new_player/selection/New(var/datum/hud/H)
+/obj/screen/new_player/selection/New(datum/hud/H)
 	color = null
 	hud = H
 	..()
@@ -137,6 +137,10 @@
 /obj/screen/new_player/selection/Initialize()
 	. = ..()
 	set_sector_things()
+
+/obj/screen/new_player/selection/Destroy(force)
+	hud = null
+	. = ..()
 
 /obj/screen/new_player/selection/set_sector_things()
 	. = ..()
@@ -249,10 +253,10 @@
 
 /obj/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	if(establish_db_connection(dbcon))
+	if(establish_db_connection(GLOB.dbcon))
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
-		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
 		query.Execute()
 		var/newpoll = query.NextRow()
 
@@ -276,7 +280,7 @@
 /mob/abstract/new_player/proc/ready(var/readying = TRUE)
 	if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 		// Cannot join without a saved character, if we're on SQL saves.
-		if (config.sql_saves && !client.prefs.current_character)
+		if (GLOB.config.sql_saves && !client.prefs.current_character)
 			alert(src, "You have not saved your character yet. Please do so before readying up.")
 			return
 		if(client.unacked_warning_count > 0)
@@ -308,16 +312,16 @@
 	// Only display the warning if it's a /new/ new player,
 	// if they've died and gone back to menu they probably already know their respawn time (and it won't be reset anymore)
 	if(!get_death_time(CREW))
-		if(alert(src, "Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
+		if(alert(src, "Are you sure you wish to observe? You will have to wait [GLOB.config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
 			return FALSE
 
 	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
 	spawning = 1
-	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
+	src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // stop the jams for observers
 
 	observer.started_as_observer = 1
 	close_spawn_windows()
-	var/obj/O = locate("landmark*Observer-Start") in landmarks_list
+	var/obj/O = locate("landmark*Observer-Start") in GLOB.landmarks_list
 	if(istype(O))
 		to_chat(src, "<span class='notice'>Now teleporting.</span>")
 		observer.forceMove(O.loc)
@@ -337,7 +341,7 @@
 
 	observer.real_name = client.prefs.real_name
 	observer.name = observer.real_name
-	if(!client.holder && !config.antag_hud_allowed)
+	if(!client.holder && !GLOB.config.antag_hud_allowed)
 		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()
@@ -345,7 +349,7 @@
 	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()
-	if(config.lore_summary)
+	if(GLOB.config.lore_summary)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
-		output += "<i>[config.lore_summary]</i><hr>"
+		output += "<i>[GLOB.config.lore_summary]</i><hr>"
 		to_chat(src, output)

@@ -40,23 +40,26 @@
 	)
 
 	titles_to_loadout = list(
-		"Physician" = /datum/outfit/job/doctor/zeng_hu,
-		"Surgeon" = /datum/outfit/job/doctor/surgeon/zeng_hu,
-		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"First Responder" = /datum/outfit/job/med_tech/zeng_hu,
-		"Medical Intern" = /datum/outfit/job/intern_med/zeng_hu,
-		"Scientist" = /datum/outfit/job/scientist/zeng_hu,
-		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Xenobotanist" = /datum/outfit/job/scientist/xenobotanist/zeng_hu,
-		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
-		"Xenoarchaeologist"= /datum/outfit/job/scientist/xenoarchaeologist/zeng_hu,
-		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zeng_hu
+		"Physician" = /obj/outfit/job/doctor/zeng_hu,
+		"Surgeon" = /obj/outfit/job/doctor/surgeon/zeng_hu,
+		"Pharmacist" = /obj/outfit/job/pharmacist/zeng_hu,
+		"Psychiatrist" = /obj/outfit/job/psychiatrist/zeng_hu,
+		"Psychologist" = /obj/outfit/job/psychiatrist/zeng_hu,
+		"First Responder" = /obj/outfit/job/med_tech/zeng_hu,
+		"Medical Intern" = /obj/outfit/job/intern_med/zeng_hu,
+		"Scientist" = /obj/outfit/job/scientist/zeng_hu,
+		"Xenobiologist" = /obj/outfit/job/scientist/xenobiologist/zeng_hu,
+		"Xenobotanist" = /obj/outfit/job/scientist/xenobotanist/zeng_hu,
+		"Lab Assistant" = /obj/outfit/job/intern_sci/zeng_hu,
+		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zeng_hu,
+		"Corporate Reporter" = /obj/outfit/job/journalist/zeng_hu,
+		"Corporate Liaison" = /obj/outfit/job/representative/zeng_hu,
+		"Off-Duty Crew Member" = /obj/outfit/job/visitor/zeng_hu,
+		"Science Personnel" = /obj/outfit/job/scientist/zeng_hu,
+		"Medical Personnel" = /obj/outfit/job/med_tech/zeng_hu
 	)
 
-/datum/outfit/job/doctor/zeng_hu
+/obj/outfit/job/doctor/zeng_hu
 	name = "Physician - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/zeng
@@ -69,7 +72,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/doctor/surgeon/zeng_hu
+/obj/outfit/job/doctor/surgeon/zeng_hu
 	name = "Surgeon - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
@@ -82,11 +85,11 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/doctor/surgeon/zeng_hu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/doctor/surgeon/zeng_hu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/zeng(H), slot_head)
 
-/datum/outfit/job/pharmacist/zeng_hu
+/obj/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist/zeng
@@ -99,7 +102,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/psychiatrist/zeng_hu
+/obj/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/psych/zeng
@@ -112,7 +115,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/med_tech/zeng_hu
+/obj/outfit/job/med_tech/zeng_hu
 	name = "First Responder - Zeng-Hu"
 
 	head = /obj/item/clothing/head/softcap/zeng
@@ -125,7 +128,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/intern_med/zeng_hu
+/obj/outfit/job/intern_med/zeng_hu
 	name = "Medical Intern - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/intern/zeng
@@ -137,7 +140,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/scientist/zeng_hu
+/obj/outfit/job/scientist/zeng_hu
 	name = "Scientist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/zeng
@@ -150,7 +153,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/scientist/xenobiologist/zeng_hu
+/obj/outfit/job/scientist/xenobiologist/zeng_hu
 	name = "Xenobiologist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zeng
@@ -163,7 +166,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/scientist/xenobotanist/zeng_hu
+/obj/outfit/job/scientist/xenobotanist/zeng_hu
 	name = "Xenobotanist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany/zeng
@@ -176,7 +179,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/scientist/xenoarchaeologist/zeng_hu
+/obj/outfit/job/scientist/xenoarchaeologist/zeng_hu
 	name = "Xenoarchaeologist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng
@@ -189,7 +192,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/intern_sci/zeng_hu
+/obj/outfit/job/intern_sci/zeng_hu
 	name = "Lab Assistant - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern/zeng
@@ -201,7 +204,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
-/datum/outfit/job/representative/zeng_hu
+/obj/outfit/job/representative/zeng_hu
 	name = "Zeng-Hu Corporate Liaison"
 
 	head = /obj/item/clothing/head/beret/corporate/zeng
@@ -221,8 +224,18 @@
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/zeng_hu = 1
 	)
+/obj/outfit/job/journalist/zeng_hu
+	name = "Corporate Reporter - Zeng-Hu"
 
-/datum/outfit/job/visitor/zeng_hu
+	uniform = /obj/item/clothing/under/librarian/zeng
+	id = /obj/item/card/id/zeng_hu
+
+	backpack_faction = /obj/item/storage/backpack/zeng
+	satchel_faction = /obj/item/storage/backpack/satchel/zeng
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
+
+/obj/outfit/job/visitor/zeng_hu
 	name = "Off-Duty Crew Member - Zeng-Hu"
 
 	id = /obj/item/card/id/zeng_hu

@@ -10,7 +10,7 @@
  * and view for robots.
  */
 
-var/global/datum/ui_state/default/default_state = new
+GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
 	return user.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
@@ -47,8 +47,15 @@ var/global/datum/ui_state/default/default_state = new
 	return UI_CLOSE
 
 /mob/living/silicon/pai/default_can_use_topic(src_object)
-	// pAIs can only use themselves and the owner's radio.
+	// pAIs can  use themselves, the owner's radio, and any computer they're inserted into. Limited by synced ID for certain programs.
 	if((src_object == src || src_object == radio) && !stat)
 		return UI_INTERACTIVE
-	else
-		return min(..(), UI_UPDATE)
+	else if(src_object == src.parent_computer)
+		if(istype(src_object, /obj/item/modular_computer))
+			var/obj/item/modular_computer/PDA = src_object
+			if(PDA.pAI_lock == FALSE)
+				return UI_INTERACTIVE
+			else
+				to_chat(src, SPAN_WARNING("Access denied."))
+
+	return min(..(), UI_UPDATE)

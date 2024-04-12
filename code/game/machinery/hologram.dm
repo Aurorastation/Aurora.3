@@ -36,7 +36,7 @@ Possible to do for anyone motivated enough:
 	icon_state = "holopad0"
 	var/icon_state_suffix = ""
 
-	layer = DECAL_LAYER + 0.1 //Preventing rats and drones from sneaking under them.
+	layer = ABOVE_TILE_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
@@ -67,7 +67,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		sync_linked()
 
 	get_holopad_id()
@@ -81,13 +81,13 @@ Possible to do for anyone motivated enough:
 	var/area/A = get_area(src)
 	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
 
-/obj/machinery/hologram/holopad/examine(mob/user)
+/obj/machinery/hologram/holopad/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(connected_pad)
 		if(established_connection)
-			to_chat(user, SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]")
 		else
-			to_chat(user, SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]")
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())
@@ -140,7 +140,7 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/hologram/holopad/proc/has_command_auth(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(I && (access_heads in I.access))
+	if(I && (ACCESS_HEADS in I.access))
 		return TRUE
 	return FALSE
 
@@ -154,7 +154,7 @@ Possible to do for anyone motivated enough:
 			last_request = world.time
 			to_chat(usr, SPAN_NOTICE("You request an AI's presence."))
 			var/area/area = get_area(src)
-			for(var/mob/living/silicon/ai/AI in silicon_mob_list)
+			for(var/mob/living/silicon/ai/AI in GLOB.silicon_mob_list)
 				if(!AI.client)
 					continue
 				if(!AreConnectedZLevels(AI.z, z))
@@ -273,9 +273,9 @@ Possible to do for anyone motivated enough:
 		return 0
 	return -1
 
-/obj/machinery/hologram/holopad/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/modular_computer))
-		var/obj/item/modular_computer/MC = W
+/obj/machinery/hologram/holopad/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/modular_computer))
+		var/obj/item/modular_computer/MC = attacking_item
 		if(!(MC in linked_pdas))
 			linked_pdas |= MC
 			to_chat(user, SPAN_NOTICE("You link \the [MC] to \the [src]."))
@@ -370,7 +370,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
 		set_can_hear_flags(CAN_HEAR_ACTIVE_HOLOCALLS)
-	if(!isInSight(H, src))
+	if(!is_in_sight(H, src))
 		qdel(H)
 		return
 	H.assume_form(M, long_range)
@@ -387,7 +387,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(connected_pad)
 			H.x = src.x - (connected_pad.x - M.x)
 			H.y = src.y - (connected_pad.y - M.y)
-		if(get_dist(H, src) > world.view || !isInSight(H, src))
+		if(get_dist(H, src) > world.view || !is_in_sight(H, src))
 			clear_holo(M)
 			return
 		H.assume_form(M, long_range)
@@ -457,7 +457,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			clear_holo(user)
 			return 0
 
-		if(get_dist(user.eyeobj, src) > holo_range || !isInSight(H, src))
+		if(get_dist(user.eyeobj, src) > holo_range || !is_in_sight(H, src))
 			user.holo = null
 			clear_holo(user)
 	return TRUE
@@ -472,7 +472,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/get_holopad_id()
 	holopad_id = ""
 
-	if(current_map.use_overmap && linked)
+	if(SSatlas.current_map.use_overmap && linked)
 		holopad_id = "[linked.name] | "
 
 	var/area/A = get_area(src)
@@ -481,7 +481,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)
 		return FALSE
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
 		if(get_dist(HP.linked, linked) > 1 && !(HP.linked in view(max_overmap_call_range, linked)))

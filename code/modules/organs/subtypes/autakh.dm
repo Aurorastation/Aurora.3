@@ -320,7 +320,7 @@
 	action_button_name = "Deploy Mounted Drill"
 	augment_type = /obj/item/pickaxe/drill/integrated
 
-/obj/item/organ/external/hand/right/autakh/mining/refresh_action_button()
+/obj/item/organ/external/hand/right/autakh/tool/mining/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "drill"
@@ -437,3 +437,15 @@
 
 			owner.visible_message("<span class='danger'>[H] has been prodded with [src] by [owner]!</span>")
 			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)
+
+/obj/item/organ/external/hand/right/autakh/tool/nullrod
+	name = "blessed prosthesis"
+	action_button_name = "Deploy Blessed Prosthesis"
+	augment_type = /obj/item/nullrod/autakh
+
+/obj/item/organ/external/hand/right/autakh/tool/nullrod/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "anchor"
+		if(action.button)
+			action.button.update_icon()

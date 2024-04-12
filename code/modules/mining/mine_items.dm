@@ -13,7 +13,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
-	force = 10.0
+	force = 15
 	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
@@ -213,7 +213,7 @@
 	excavation_amount = 100
 
 	can_wield = FALSE
-	force = 15.0
+	force = 22
 
 	action_button_name = null
 
@@ -225,7 +225,7 @@
 	digspeed = 5
 	digspeed_unwielded = 10
 	excavation_amount = 80
-	force = 10
+	force = 15
 
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
@@ -244,7 +244,7 @@
 	excavation_amount = 100
 
 	can_wield = FALSE
-	force = 25.0
+	force = 31
 
 	action_button_name = null
 
@@ -287,7 +287,7 @@
 	excavation_amount = 100
 
 	can_wield = 0
-	force = 20.0
+	force = 25
 	digspeed = 2
 	digspeed_unwielded = 3
 	force_unwielded = 20.0
@@ -308,7 +308,7 @@
 	autodrill = TRUE
 	drill_sound = 'sound/weapons/drill.ogg'
 	can_wield = FALSE
-	force = 15.0
+	force = 22
 	excavation_amount = 100
 
 	action_button_name = null
@@ -327,7 +327,7 @@
 	item_state = "shovel"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8.0
+	force = 18
 	throwforce = 4.0
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -351,7 +351,7 @@
 		)
 	icon_state = "spade"
 	item_state = "spade"
-	force = 5.0
+	force = 11
 	throwforce = 7.0
 	w_class = ITEMSIZE_SMALL
 
@@ -360,7 +360,7 @@
 	desc = "A standard-issue Gadpathurian entrenching tool. Sharpened edges make this tool/weapon equally adept at breaking earth and collarbones."
 	icon_state = "gadpathur_shovel"
 	item_state = "gadpathur_shovel"
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
@@ -425,8 +425,8 @@
 	icon_state = "purpflag"
 	light_color = LIGHT_COLOR_PURPLE
 
-/obj/item/stack/flag/attackby(obj/item/W, mob/user)
-	if(upright && istype(W, src.type))
+/obj/item/stack/flag/attackby(obj/item/attacking_item, mob/user)
+	if(upright && istype(attacking_item, src.type))
 		src.attack_hand(user)
 	else
 		..()
@@ -488,13 +488,13 @@
 		qdel(src)
 		return
 	updateOverlays()
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
 
 /obj/structure/track/Destroy()
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
@@ -508,13 +508,13 @@
 			qdel(src)
 	return
 
-/obj/structure/track/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/stack/tile/floor))
+/obj/structure/track/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
-		T.attackby(C, user)
+		T.attackby(attacking_item, user)
 		return
-	if(C.iswelder())
-		var/obj/item/weldingtool/WT = C
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
 			new /obj/item/stack/rods(get_turf(src))
@@ -527,7 +527,7 @@
 
 	var/dir_sum = 0
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(locate(/obj/structure/track, get_step(src, direction)))
 			dir_sum += direction
 
@@ -560,11 +560,11 @@
 	add_overlay(I)
 	turn_off()
 
-/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/key/minecarts))
+/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key/minecarts))
 		if(!key)
-			user.drop_from_inventory(W, src)
-			key = W
+			user.drop_from_inventory(attacking_item, src)
+			key = attacking_item
 		return
 	..()
 
@@ -708,7 +708,7 @@
 /obj/item/device/wormhole_jaunter/proc/get_destinations(mob/user)
 	var/list/destinations = list()
 
-	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
+	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
 		if(isStationLevel(T.z))
 			destinations += B
@@ -850,12 +850,12 @@
 		emagged = TRUE
 		update_icon()
 
-/obj/item/lazarus_injector/examine(mob/user)
+/obj/item/lazarus_injector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!loaded)
-		to_chat(user, SPAN_INFO("\The [src] is empty."))
+		. += SPAN_INFO("\The [src] is empty.")
 	if(malfunctioning || emagged)
-		to_chat(user, SPAN_INFO("The display on \the [src] seems to be flickering."))
+		. += SPAN_INFO("The display on \the [src] seems to be flickering.")
 
 /**********************Point Transfer Card**********************/
 
@@ -865,10 +865,10 @@
 	icon_state = "data"
 	var/points = 500
 
-/obj/item/card/mining_point_card/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/card/id))
+/obj/item/card/mining_point_card/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/card/id))
 		if(points)
-			var/obj/item/card/id/C = I
+			var/obj/item/card/id/C = attacking_item
 			C.mining_points += points
 			to_chat(user, SPAN_INFO("You transfer [points] points to \the [C]."))
 			points = 0
@@ -876,9 +876,9 @@
 			to_chat(user, SPAN_INFO("There's no points left on \the [src]."))
 	..()
 
-/obj/item/card/mining_point_card/examine(mob/user)
+/obj/item/card/mining_point_card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("There's [points] point\s on the card."))
+	. += SPAN_NOTICE("There's [points] point\s on the card.")
 
 /**********************"Fultons"**********************/
 
@@ -896,9 +896,9 @@ var/list/total_extraction_beacons = list()
 	var/uses_left = 3
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
-/obj/item/extraction_pack/examine(mob/user)
+/obj/item/extraction_pack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("It has [uses_left] uses remaining."))
+	. += SPAN_NOTICE("It has [uses_left] uses remaining.")
 
 /obj/item/extraction_pack/attack_self(mob/user)
 	var/list/possible_beacons = list()
@@ -1003,7 +1003,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "resonator"
 	desc = "A handheld device that creates small fields of energy that resonate until they detonate, crushing rock. It can also be activated without a target to create a field at the user's location, to act as a delayed time trap. It's more effective in a vacuum."
 	w_class = ITEMSIZE_NORMAL
-	force = 15
+	force = 22
 	throwforce = 10
 	var/burst_time = 30
 	var/fieldlimit = 4
@@ -1101,7 +1101,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "magneto"
 	desc = "A handheld device that creates a well of negative force that attracts minerals of a very specific type, size, and state to its user."
 	w_class = ITEMSIZE_NORMAL
-	force = 10
+	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
@@ -1139,7 +1139,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "jaunter"
 	desc = "A handheld device that creates a well of warp energy that teleports minerals of a very specific type, size, and state to its user."
 	w_class = ITEMSIZE_NORMAL
-	force = 15
+	force = 22
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
 	var/last_oresummon_time = 0
@@ -1184,13 +1184,13 @@ var/list/total_extraction_beacons = list()
 	var/times_carved = 0
 	var/busy_sculpting = FALSE
 
-/obj/structure/sculpting_block/attackby(obj/item/C, mob/user)
-	if(C.iswrench())
+/obj/structure/sculpting_block/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
-		if(C.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored
 
-	else if(istype(C, /obj/item/autochisel))
+	else if(istype(attacking_item, /obj/item/autochisel))
 		if(sculpted)
 			to_chat(user, SPAN_WARNING("\The [src] has already been sculpted!"))
 			return

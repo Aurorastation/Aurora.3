@@ -20,3 +20,16 @@
 /singleton/origin_item/proc/on_apply(var/mob/living/carbon/human/H)
 	for(var/trait in origin_traits)
 		ADD_TRAIT(H, trait, CULTURE_TRAIT)
+
+/mob/living/carbon/human/proc/set_culture(var/singleton/origin_item/OI)
+	if(!istype(OI))
+		crash_with("Invalid culture supplied: [OI]!")
+	culture = OI
+	OI.on_apply(src)
+
+/mob/living/carbon/human/proc/set_origin(var/singleton/origin_item/OI)
+	if(!istype(OI))
+		crash_with("Invalid origin supplied: [OI]!")
+	origin = OI
+	OI.on_apply(src)
+

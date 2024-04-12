@@ -39,7 +39,7 @@ var/list/technomancer_belongings = list()
 	if(check_for_scepter())
 		can_track_non_allies = 1
 	var/list/mob_choices = list()
-	for(var/mob/living/L in mob_list)
+	for(var/mob/living/L in GLOB.mob_list)
 		if(!is_ally(L) && !can_track_non_allies)
 			continue
 		if(L == user)

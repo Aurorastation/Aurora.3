@@ -85,6 +85,9 @@ SUBSYSTEM_DEF(falling)
 				if (falling[victim] <= 1)	// Just moving down a flight, skip damage.
 					victim.multiz_falling = 0
 					falling -= victim
+					for(var/obj/item/grab/grab in victim)
+						if(grab.affecting)
+							grab.affecting.forceMove(victim.loc)
 				else
 					// Falling more than a level, fuck 'em up.
 					victim.fall_impact(falling[victim], FALSE)

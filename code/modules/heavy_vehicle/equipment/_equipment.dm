@@ -6,7 +6,7 @@
 	icon_state = ""
 	var/on_mech_icon_state
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
-	force = 10
+	force = 15
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner
 	var/list/restricted_software
@@ -17,14 +17,14 @@
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
 
-/obj/item/mecha_equipment/examine(mob/user, distance)
+/obj/item/mecha_equipment/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(restricted_hardpoints))
 		var/hardpoints = english_list(restricted_hardpoints, and_text = ", ")
-		to_chat(user, SPAN_NOTICE("<b>Exosuit Mounts:</b> [hardpoints]"))
+		. += SPAN_NOTICE("<b>Exosuit Mounts:</b> [hardpoints]")
 	if(length(restricted_software))
 		var/software = english_list(restricted_software, and_text = ", ")
-		to_chat(user, SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]"))
+		. += SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]")
 
 /obj/item/mecha_equipment/attack() //Generally it's not desired to be able to attack with items
 	return 0
@@ -92,14 +92,14 @@
 
 /obj/item/mecha_equipment/mounted_system/proc/forget_holding()
 	if(holding) //It'd be strange for this to be called with this var unset
-		destroyed_event.unregister(holding, src, PROC_REF(forget_holding))
+		GLOB.destroyed_event.unregister(holding, src, PROC_REF(forget_holding))
 		holding = null
 
 /obj/item/mecha_equipment/mounted_system/Initialize()
 	. = ..()
 	if(holding_type)
 		holding = new holding_type(src)
-		destroyed_event.register(holding, src, PROC_REF(forget_holding))
+		GLOB.destroyed_event.register(holding, src, PROC_REF(forget_holding))
 	if(holding)
 		if(!icon_state)
 			icon = holding.icon

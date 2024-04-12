@@ -74,7 +74,7 @@
 
 	//short out the machine, shoot sparks, spew money!
 	emagged = 1
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	spawn_money(rand(2000,5000),src.loc)
 	//we don't want to grief people by locking their id in an emagged ATM
 	release_held_id(user)
@@ -85,17 +85,17 @@
 	intent_message(MACHINE_SOUND)
 	return 1
 
-/obj/machinery/atm/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/card))
+/obj/machinery/atm/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card))
 		if(emagged)
 			//prevent inserting id into an emagged ATM
 			to_chat(user, SPAN_WARNING("[icon2html(src, user)] CARD READER ERROR. This system has been compromised!"))
 			return
-		else if(istype(I,/obj/item/card/emag))
-			I.resolve_attackby(src, user)
+		else if(istype(attacking_item,/obj/item/card/emag))
+			attacking_item.resolve_attackby(src, user)
 			return
 
-		var/obj/item/card/id/idcard = I
+		var/obj/item/card/id/idcard = attacking_item
 		if(!held_card)
 			usr.drop_from_inventory(idcard,src)
 			held_card = idcard
@@ -103,25 +103,26 @@
 				authenticated_account = null
 			update_icon()
 	else if(authenticated_account)
-		if(istype(I,/obj/item/spacecash))
+		if(istype(attacking_item,/obj/item/spacecash))
+			var/obj/item/spacecash/cash = attacking_item
 			//consume the money
-			authenticated_account.money += I:worth
+			authenticated_account.money += cash.worth
 			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new()
 			T.target_name = authenticated_account.owner_name
 			T.purpose = "Credit deposit"
-			T.amount = I:worth
+			T.amount = cash.worth
 			T.source_terminal = machine_id
 			T.date = worlddate2text()
 			T.time = worldtime2text()
 			SSeconomy.add_transaction_log(authenticated_account,T)
 
 			intent_message(MACHINE_SOUND)
-			to_chat(user, SPAN_NOTICE("You insert [I] into [src]."))
+			to_chat(user, SPAN_NOTICE("You insert [attacking_item] into [src]."))
 			src.attack_hand(user)
-			qdel(I)
+			qdel(attacking_item)
 	else
 		..()
 
@@ -420,7 +421,7 @@
 		var/area/t = get_area(src)
 		ticks_left_locked_down = 60
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-		global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
+		GLOB.global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
 		if (tried_account_num)
 			SSeconomy.bank_log_unauthorized(SSeconomy.get_account(tried_account_num), machine_id)
 	else

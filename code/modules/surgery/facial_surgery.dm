@@ -68,7 +68,7 @@
 
 /singleton/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
+	if(head.disfigured || (target.mutations & HUSK))
 		head.disfigured = FALSE
 		target.mutations &= ~HUSK
 		target.update_body()
@@ -81,7 +81,7 @@
 		target.dna.real_name = getName
 		if(target.mind)
 			target.mind.name = target.name
-		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = default_state, state_object = target)
+		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = GLOB.default_state, state_object = target)
 		target.op_stage.face = FACE_ALTERED
 
 
@@ -215,7 +215,7 @@
 
 /singleton/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
+	if(head.disfigured || (target.mutations & HUSK))
 		head.disfigured = FALSE
 		target.mutations &= ~HUSK
 		target.update_body()
@@ -229,7 +229,7 @@
 		target.dna.real_name = getName
 		if(target.mind)
 			target.mind.name = target.name
-		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = default_state, state_object = target)
+		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = GLOB.default_state, state_object = target)
 		target.op_stage.face = FACE_ALTERED
 
 

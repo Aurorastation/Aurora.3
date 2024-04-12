@@ -49,9 +49,9 @@
 	update_icon()
 	to_chat(user, "You turn \the [src] [diffuser_enabled ? "on" : "off"].")
 
-/obj/machinery/shield_diffuser/examine(mob/user)
+/obj/machinery/shield_diffuser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is [diffuser_enabled ? "diffuser_enabled" : "disabled"].")
+	. += "It is [diffuser_enabled ? "diffuser_enabled" : "disabled"]."
 
 /obj/machinery/shield_diffuser/power_change()
 	..()

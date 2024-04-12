@@ -8,7 +8,7 @@
 	spawnpoints = list("ssmd_navy_crewman")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/ssmd_navy_crewman
+	outfit = /obj/outfit/admin/ssmd_navy_crewman
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -17,7 +17,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/ssmd_navy_crewman
+/obj/outfit/admin/ssmd_navy_crewman
 	name = "SSMD Navy Crewman"
 
 	uniform = /obj/item/clothing/under/rank/sol/
@@ -33,8 +33,8 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/ssmd_navy_crewman/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+/obj/outfit/admin/ssmd_navy_crewman/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssmd_navy_officer
 	short_name = "ssmd_navy_officer"
@@ -46,7 +46,7 @@
 	spawnpoints = list("ssmd_navy_officer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ssmd_navy_officer
+	outfit = /obj/outfit/admin/ssmd_navy_officer
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -55,7 +55,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/ssmd_navy_officer
+/obj/outfit/admin/ssmd_navy_officer
 	name = "SSMD Navy Officer"
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/officer
@@ -70,8 +70,8 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/ssmd_navy_officer/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+/obj/outfit/admin/ssmd_navy_officer/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssmd_navy_crewman/senior
 	short_name = "ssmd_navy_senior_crewman"
@@ -95,7 +95,7 @@
 	spawnpoints = list("ssmd_navy_crewman")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ssmd_marine_pilot
+	outfit = /obj/outfit/admin/ssmd_marine_pilot
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -104,7 +104,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/ssmd_marine_pilot
+/obj/outfit/admin/ssmd_marine_pilot
 	name = "SSMD Marine Exosuit Pilot"
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
@@ -120,8 +120,8 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/ssmd_marine_pilot/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+/obj/outfit/admin/ssmd_marine_pilot/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssmd_ipc
 	short_name = "ssmd_ipc"
@@ -132,7 +132,7 @@
 	spawnpoints = list("ssmd_ipc")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ssmd_ipc
+	outfit = /obj/outfit/admin/ssmd_ipc
 	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -142,7 +142,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/ssmd_ipc
+/obj/outfit/admin/ssmd_ipc
 	name = "SSMD Military Synthetic"
 
 	uniform = /obj/item/clothing/under/rank/sol/ipc
@@ -156,11 +156,18 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/ssmd_ipc/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+/obj/outfit/admin/ssmd_ipc/post_equip(mob/living/carbon/human/H, visualsOnly)
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
+		tag.citizenship_info = CITIZENSHIP_NONE
+
+/obj/outfit/admin/ssmd_ipc/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 
 /obj/item/card/id/ssmd_ship
 	name = "\improper SSMD patrol ship identification card"
-	access = list(access_sol_ships, access_external_airlocks)
+	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)

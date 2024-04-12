@@ -13,10 +13,11 @@
 	var/upkeep_cost = 2
 	var/obj/aura/personal_shield/device/shield
 
-/obj/item/device/personal_shield/examine(mob/user, distance, is_adjacent)
+/obj/item/device/personal_shield/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("\The [src] has [cell.charge] charge remaining. Shield upkeep costs [upkeep_cost] charge, and blocking a shot costs [charge_per_shot] charge."))
+		. += SPAN_NOTICE("\The [src] has [cell.charge] charge remaining.")
+		. += SPAN_NOTICE("Shield upkeep costs [upkeep_cost] charge, and blocking a shot costs [SPAN_NOTICE(charge_per_shot)] charge.")
 
 /obj/item/device/personal_shield/Initialize()
 	. = ..()

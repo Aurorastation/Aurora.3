@@ -52,6 +52,15 @@
 	does_footprint = FALSE
 	has_edge_icon = FALSE
 
+/turf/simulated/floor/exoplanet/dirt_konyang/cave
+	name = "dense compacted dirt"
+
+/turf/simulated/floor/exoplanet/dirt_konyang/cave/Initialize() // to make these tiles dark even on daytime exoplanets
+	. = ..()
+	set_light(0, 1, null)
+	footprint_color = null
+	update_icon(1)
+
 /turf/simulated/floor/exoplanet/dirt_konyang/sand//same as above
 	name = "fine coastal sand"
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'

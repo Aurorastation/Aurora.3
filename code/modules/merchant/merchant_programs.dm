@@ -9,8 +9,8 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(access_merchant)
-	required_access_download = list(access_merchant)
+	required_access_run = list(ACCESS_MERCHANT)
+	required_access_download = list(ACCESS_MERCHANT)
 	tgui_id = "Merchant"
 	var/obj/machinery/merchant_pad/pad
 	var/current_merchant = 0
@@ -249,13 +249,13 @@
 				bribe(T, text2num(params["PRG_bribe"]))
 
 /datum/computer_file/program/merchant/nka
-	required_access_run = list(access_nka)
-	required_access_download = list(access_nka)
+	required_access_run = list(ACCESS_NKA)
+	required_access_download = list(ACCESS_NKA)
 
 /datum/computer_file/program/merchant/guild
-	required_access_run = list(access_merchants_guild)
-	required_access_download = list(access_merchants_guild)
+	required_access_run = list(ACCESS_MERCHANTS_GUILD)
+	required_access_download = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/computer_file/program/merchant/golden_deep
-	required_access_run = list(access_golden_deep)
-	required_access_download = list(access_golden_deep)
+	required_access_run = list(ACCESS_GOLDEN_DEEP)
+	required_access_download = list(ACCESS_GOLDEN_DEEP)

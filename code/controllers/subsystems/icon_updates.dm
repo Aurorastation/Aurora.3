@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(icon_update)
 	wait = 1	// ticks
 	flags = SS_TICKER
 	priority = SS_PRIORITY_ICON_UPDATE
-	init_order = SS_INIT_ICON_UPDATE
+	init_order = INIT_ORDER_ICON_UPDATE
 
 	/**
 	 * Associative list of atoms -> callback params
@@ -23,7 +23,8 @@ SUBSYSTEM_DEF(icon_update)
 
 /datum/controller/subsystem/icon_update/Initialize()
 	fire(FALSE, TRUE)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/icon_update/fire(resumed = FALSE, no_mc_tick = FALSE)
 	var/list/icon_update_queue_cache = icon_update_queue
@@ -33,7 +34,7 @@ SUBSYSTEM_DEF(icon_update)
 		var/list/argv = icon_update_queue_cache[A]
 		icon_update_queue_cache.len--
 
-		if(A.initialized)
+		if(A.flags_1 & INITIALIZED_1)
 			A.icon_update_queued = FALSE
 
 			//Do not target qdeleted atoms
@@ -101,17 +102,9 @@ SUBSYSTEM_DEF(icon_update)
 		src.icon_update_queue -= item_cache
 		src.deferred -= item_cache
 
-/atom
-	///When was the last time (in `world.time`) that the icon of this atom was updated via `SSicon_update`
-	var/tmp/last_icon_update = null
-
-	///If the atom is currently queued to have it's icon updated in `SSicon_update`
-	var/tmp/icon_update_queued = FALSE
-
-	///Delay to apply before updating the icon in `SSicon_update`
-	var/icon_update_delay = null
-
 /atom/proc/update_icon()
+	SHOULD_NOT_SLEEP(TRUE)
+	return
 
 /**
  * DO NOT USE

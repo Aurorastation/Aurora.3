@@ -1,15 +1,16 @@
 #define NEXT_PAGE_ID "__next__"
 #define DEFAULT_CHECK_DELAY 20
 
-var/global/list/radial_menus = list()
+GLOBAL_LIST_EMPTY(radial_menus)
 
 /obj/screen/radial
 	icon = 'icons/mob/screen/radial.dmi'
-	layer = HUD_LAYER
+	layer = RADIAL_BASE_LAYER
 	var/datum/radial_menu/parent
 
 /obj/screen/radial/Destroy()
-	qdel(parent)
+	QDEL_NULL(parent)
+
 	return ..()
 
 /obj/screen/radial/slice
@@ -240,7 +241,7 @@ var/global/list/radial_menus = list()
 /datum/radial_menu/proc/extract_image(E)
 	var/mutable_appearance/MA = new /mutable_appearance(E)
 	if(MA)
-		MA.layer = HUD_LAYER
+		MA.layer = RADIAL_CONTENT_LAYER
 		MA.appearance_flags |= RESET_TRANSFORM
 	return MA
 
@@ -257,9 +258,9 @@ var/global/list/radial_menus = list()
 		return
 	current_user = M.client
 	//Blank
-	menu_holder = image(icon = 'icons/effects/effects.dmi', loc = anchor, icon_state = "nothing", layer = HUD_LAYER)
+	menu_holder = image(icon = 'icons/effects/effects.dmi', loc = anchor, icon_state = "nothing", layer = RADIAL_BACKGROUND_LAYER)
 	menu_holder.appearance_flags |= KEEP_APART|RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM
-	menu_holder.vis_contents += elements + close_button
+	menu_holder.add_vis_contents(elements + close_button)
 	current_user.images += menu_holder
 
 /datum/radial_menu/proc/hide()
@@ -312,14 +313,14 @@ var/global/list/radial_menus = list()
 	if(!uniqueid)
 		uniqueid = "defmenu_[SOFTREF(user)]_[SOFTREF(anchor)]"
 
-	if(radial_menus[uniqueid])
+	if(GLOB.radial_menus[uniqueid])
 		if(!no_repeat_close)
-			var/datum/radial_menu/menu = radial_menus[uniqueid]
+			var/datum/radial_menu/menu = GLOB.radial_menus[uniqueid]
 			menu.finished = TRUE
 		return
 
 	var/datum/radial_menu/menu = new
-	radial_menus[uniqueid] = menu
+	GLOB.radial_menus[uniqueid] = menu
 	if(radius)
 		menu.radius = radius
 	if(istype(custom_check))
@@ -331,7 +332,7 @@ var/global/list/radial_menus = list()
 	menu.wait(user, anchor, require_near)
 	var/answer = menu.selected_choice
 	qdel(menu)
-	radial_menus -= uniqueid
+	GLOB.radial_menus -= uniqueid
 	return answer
 
 #undef NEXT_PAGE_ID

@@ -66,3 +66,33 @@
 	appliance = OVEN
 	items = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki)
 	result = /obj/item/reagent_containers/food/snacks/donkpocket/takoyaki/warm
+
+/singleton/recipe/meat_lasagna_tray
+	appliance = OVEN
+	fruit = list("tomato" = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/meat_lasagna_tray
+	reagent_mix = RECIPE_REAGENT_REPLACE //Replacing the ingredients and filling in a bit extra for simplicity's sake
+
+/singleton/recipe/veggie_lasagna_tray
+	appliance = OVEN
+	fruit = list("tomato" = 3, "eggplant" = 1, "onion" = 1, "mushroom" = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/veggie_lasagna_tray
+	reagent_mix = RECIPE_REAGENT_REPLACE //Replacing the ingredients and filling in a bit extra for simplicity's sake

@@ -31,12 +31,12 @@
 	. = ..()
 	update_icon()
 
-/obj/machinery/stasis_bed/attackby(obj/item/I, mob/user)
-	if(default_part_replacement(user, I))
+/obj/machinery/stasis_bed/attackby(obj/item/attacking_item, mob/user)
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	else if(default_deconstruction_screwdriver(user, I))
+	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	else if(default_deconstruction_crowbar(user, I))
+	else if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
 	return ..()
 

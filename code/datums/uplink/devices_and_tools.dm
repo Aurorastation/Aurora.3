@@ -250,3 +250,10 @@
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
 	path = /obj/item/stack/liquidbags/half_full
+
+/datum/uplink_item/item/tools/recharger_backpack
+	name = "Weapon Recharger Backpack"
+	desc = "A backpack which can recharge a connected energy weapon. Runs off normal power cells."
+	telecrystal_cost = 4
+	bluecrystal_cost = 4
+	path = /obj/item/recharger_backpack/high

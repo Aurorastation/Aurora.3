@@ -54,7 +54,7 @@
 	log.parameters["name"] = signal.data["name"]
 	log.parameters["job"] = signal.data["job"]
 	log.parameters["message"] = signal.data["message"]
-	log.parameters["language"] = signal.language || all_languages[LANGUAGE_TCB]
+	log.parameters["language"] = signal.language || GLOB.all_languages[LANGUAGE_TCB]
 
 	var/race = "Unidentifiable"
 	if(ishuman(speaker) || isbrain(speaker))

@@ -10,7 +10,7 @@
 #define STORAGE_SPACE_CAP 200
 
 /obj/storage_bullshit
-	layer = SCREEN_LAYER
+	layer = HUD_BASE_LAYER
 
 /obj/item/storage
 	name = "storage"
@@ -90,14 +90,114 @@
 	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
 	QDEL_NULL(storage_end)
-	QDEL_NULL_LIST(storage_screens)
+	QDEL_LIST(storage_screens)
 	QDEL_NULL(closer)
 	return ..()
 
-/obj/item/storage/examine(mob/user)
+/obj/item/storage/resolve_attackby(atom/A, mob/user, click_parameters)
+	. = ..()
+
+	//Can't be used to pick up things by clicking them
+	if(!use_to_pickup)
+		return
+
+	//Pick up everything in a tile
+	if(collection_mode)
+		var/turf/location_to_pickup = null
+		if(isturf(A))
+			location_to_pickup = A
+		else
+			var/turf/possible_turf_location = get_turf(A)
+			if(isturf(possible_turf_location))
+				location_to_pickup = possible_turf_location
+
+		//If we found a turf, pick up things from there
+		if(location_to_pickup)
+			pickup_items_from_loc_and_feedback(user, location_to_pickup)
+
+	//Pick up one thing at a time
+	else
+		if(can_be_inserted(A))
+			handle_item_insertion(A, FALSE, user)
+
+/**
+ * Pick up item from a location, respecting the tick time, and feedback the user
+ *
+ * This process can sleep
+ *
+ * * user - The user trying to pick up things
+ * * location - A `/turf` to pick up things from
+ */
+/obj/item/storage/proc/pickup_items_from_loc_and_feedback(mob/user, turf/location)
+	set waitfor = FALSE
+
+	//pickup_result[1] is if there's any success, pickup_result[2] is if there's any failure
+	//both are booleans
+	var/list/pickup_result = pickup_items_from_loc(user, location)
+
+	//Choose the feedback message depending on what happened and send it to the user
+	var/pickup_feedback_message
+	if(pickup_result[1] && !pickup_result[2])
+		pickup_feedback_message = SPAN_NOTICE("You put everything in \the [src].")
+
+	else if(pickup_result[1] && pickup_result[2])
+		pickup_feedback_message = SPAN_NOTICE("You put some things in \the [src].")
+
+	else if(!pickup_result[1] && pickup_result[2])
+		pickup_feedback_message = SPAN_NOTICE("You fail to pick anything up with \the [src].")
+
+	//Check if we got a feedback message and, if so, send it to the user
+	if(pickup_feedback_message)
+		to_chat(user, pickup_feedback_message)
+
+/**
+ * Pick up item from a location, respecting the tick time
+ *
+ * Returns a `/list` in the format of `(SUCCESS, FAILURE)` (both booleans),
+ * the first indicates if there was any successful pickup, the later if there was any failed pickup
+ *
+ * * user - The user trying to pick up things
+ * * location - A `/turf` to pick up things from
+ */
+/obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location)
+
+	//In the format of list(SUCCESS, FAILURE)
+	var/list/return_status = list(FALSE, FALSE)
+	RETURN_TYPE(return_status)
+
+	var/list/rejections = list()
+
+	//So we know where the user is when the pickup starts
+	var/original_location = user ? get_turf(user) : null
+
+	for(var/obj/item/item in location)
+		if(rejections[item.type]) // To limit bag spamming: any given type only complains once
+			continue
+
+		if (user && get_turf(user) != original_location)
+			break
+
+		if(!can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
+			rejections[item.type] = TRUE	// therefore full bags are still a little spammy
+			return_status[2] = TRUE
+			CHECK_TICK
+			continue
+
+		return_status[1] = TRUE
+		handle_item_insertion_deferred(item, user)
+		CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
+
+	//Refresh the icon, add fingerprints and whatnot if we have picked up anything
+	if(return_status[1])
+		handle_storage_deferred(user)
+
+	return return_status
+
+
+/obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(isobserver(user))
-		to_chat(user, "It contains: [counting_english_list(contents)]")
+		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/MouseDrop(obj/over_object)
 	if(!canremove)
@@ -208,7 +308,7 @@
 	user.s_active = null
 	if(!length(can_see_contents()))
 		storage_start.vis_contents = list()
-		QDEL_NULL_LIST(storage_screens)
+		QDEL_LIST(storage_screens)
 		storage_screens = list()
 
 /obj/item/storage/proc/close_all()
@@ -240,7 +340,7 @@
 	src.boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
 	for(var/obj/O in src.contents)
 		O.screen_loc = "[cx],[cy]"
-		O.layer = SCREEN_LAYER+0.01
+		O.hud_layerise()
 		cx++
 		if (cx > mx)
 			cx = tx
@@ -258,7 +358,7 @@
 		for(var/datum/numbered_display/ND in display_contents)
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
-			ND.sample_object.layer = SCREEN_LAYER+0.01
+			ND.sample_object.hud_layerise()
 			if(display_contents_initials)
 				ND.sample_object.cut_overlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
 				var/object_initials = handle_name_initials(ND.sample_object.name)
@@ -274,7 +374,7 @@
 		for(var/obj/O in contents)
 			O.screen_loc = "[cx]:16,[cy]:16"
 			O.maptext = ""
-			O.layer = SCREEN_LAYER+0.01
+			O.hud_layerise()
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -309,7 +409,7 @@
 	var/endpoint = 1
 
 	storage_start.vis_contents = list()
-	QDEL_NULL_LIST(storage_screens)
+	QDEL_LIST(storage_screens)
 	storage_screens = list()
 
 	for(var/obj/item/O in contents)
@@ -332,11 +432,11 @@
 		stored_end.transform = M_end
 
 		storage_screens += list(stored_start, stored_continue, stored_end)
-		storage_start.vis_contents += list(stored_start, stored_continue, stored_end)
+		storage_start.add_vis_contents(list(stored_start, stored_continue, stored_end))
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
-		O.layer = SCREEN_LAYER+0.02
+		O.hud_layerise()
 
 	if (!defer_overlays)
 		storage_start.compile_overlays()
@@ -385,64 +485,81 @@
 		src.slot_orient_objs(row_num, col_count, numbered_contents)
 	return
 
-//This proc return 1 if the item can be picked up and 0 if it can't.
-//Set the stop_messages to stop it from printing messages
-/obj/item/storage/proc/can_be_inserted(obj/item/W as obj, stop_messages = 0)
-	if(!istype(W)) return //Not an item
+/**
+ * Checks if an item can be inserted in the storage
+ *
+ * Returns `TRUE` if it can be inserted, `FALSE` otherwise
+ *
+ * * item_to_check - The `/obj` to check if it can be inserted
+ * * stop_messages - Boolean, if `TRUE`, prevents this proc from giving feedback messages
+ */
+/obj/item/storage/proc/can_be_inserted(obj/item/item_to_check, stop_messages = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
 
-	if(usr && usr.isEquipped(W) && !usr.canUnEquip(W))
-		return 0
+	if(!istype(item_to_check))
+		return FALSE
 
-	if(!W.dropsafety())
-		return 0
+	if(usr && usr.isEquipped(item_to_check) && !usr.canUnEquip(item_to_check))
+		return FALSE
 
-	if(src.loc == W)
-		return 0 //Means the item is already in the storage item
+	if(!item_to_check.dropsafety())
+		return FALSE
+
+	//Check if the item is in the storage already
+	if(src.loc == item_to_check)
+		return FALSE
+
+	//Check if the storage is full, or in blacklist
 	if(storage_slots != null && contents.len >= storage_slots)
-		if(!stop_messages || is_type_in_list(W, pickup_blacklist)) // the is_type_in_list is a bit risky, but you tend to not want to pick up things in your blacklist anyway
-			to_chat(usr, "<span class='notice'>[src] is full, make some space.</span>")
-		return 0 //Storage item is full
+		if(!stop_messages || is_type_in_list(item_to_check, pickup_blacklist)) // the is_type_in_list is a bit risky, but you tend to not want to pick up things in your blacklist anyway
+			to_chat(usr, SPAN_NOTICE("\The [src] is full, make some space."))
+		return FALSE
 
-	if(W.anchored)
-		return 0
+	//Check if the item is anchored
+	if(item_to_check.anchored)
+		return FALSE
 
+	//Whitelist check for item holding
 	if(LAZYLEN(can_hold))
-		var/can_hold_item = can_hold_strict ? (W.type in can_hold) : is_type_in_list(W, can_hold)
+		var/can_hold_item = can_hold_strict ? (item_to_check.type in can_hold) : is_type_in_list(item_to_check, can_hold)
 		if(!can_hold_item)
-			if(!stop_messages && ! istype(W, /obj/item/device/hand_labeler))
-				to_chat(usr, "<span class='notice'>[src] cannot hold \the [W].</span>")
-			return 0
-		var/max_instances = can_hold[W.type]
-		if(max_instances && instances_of_type_in_list(W, contents, TRUE) >= max_instances)
-			if(!stop_messages && !istype(W, /obj/item/device/hand_labeler))
-				to_chat(usr, "<span class='notice'>[src] has no more space specifically for \the [W].</span>")
-			return 0
+			if(!stop_messages && ! istype(item_to_check, /obj/item/device/hand_labeler))
+				to_chat(usr, SPAN_NOTICE("\The [src] cannot hold \the [item_to_check]."))
+			return FALSE
+		var/max_instances = can_hold[item_to_check.type]
+		if(max_instances && instances_of_type_in_list(item_to_check, contents, TRUE) >= max_instances)
+			if(!stop_messages && !istype(item_to_check, /obj/item/device/hand_labeler))
+				to_chat(usr, SPAN_NOTICE("\The [src] has no more space specifically for \the [item_to_check]."))
+			return FALSE
 
-	if(LAZYLEN(cant_hold) && is_type_in_list(W, cant_hold))
+	//Blacklist check for item holding
+	if(LAZYLEN(cant_hold) && is_type_in_list(item_to_check, cant_hold))
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[src] cannot hold [W].</span>")
-		return 0
+			to_chat(usr, SPAN_NOTICE("\The [src] cannot hold [item_to_check]."))
+		return FALSE
 
-	if (max_w_class != null && W.w_class > max_w_class)
+	//Size (lenght) check for item holding
+	if (max_w_class != null && item_to_check.w_class > max_w_class)
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[W] is too long for this [src].</span>")
-		return 0
+			to_chat(usr, SPAN_NOTICE("\The [item_to_check] is too long for this [src]."))
+		return FALSE
 
-	var/total_storage_space = W.get_storage_cost()
+	var/total_storage_space = item_to_check.get_storage_cost()
 	for(var/obj/item/I in contents)
 		total_storage_space += I.get_storage_cost() //Adds up the combined w_classes which will be in the storage item if the item is added to it.
 
 	if(total_storage_space > max_storage_space)
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[src] is too full, make some space.</span>")
-		return 0
+			to_chat(usr, SPAN_NOTICE("\The [src] is too full, make some space."))
+		return FALSE
 
-	if(W.w_class >= src.w_class && (istype(W, /obj/item/storage)))
+	//To prevent the stacking of same sized storage items
+	if(item_to_check.w_class >= src.w_class && (istype(item_to_check, /obj/item/storage)))
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[src] cannot hold [W] as it's a storage item of the same size.</span>")
-		return 0 //To prevent the stacking of same sized storage items.
+			to_chat(usr, SPAN_NOTICE("\The [src] cannot hold [item_to_check] as it's a storage item of the same size."))
+		return FALSE
 
-	return 1
+	return TRUE
 
 //This proc handles items being inserted. It does not perform any checks of whether an item can or can't be inserted. That's done by can_be_inserted()
 //The stop_warning parameter will stop the insertion message from being displayed. It is intended for cases where you are inserting multiple items at once,
@@ -476,8 +593,13 @@
 	queue_icon_update()
 	return 1
 
-// This is for inserting more than one thing at a time, you should call handle_storage_deferred after all the items have been inserted.
+/**
+ * This is for inserting more than one thing at a time,
+ * you should call `handle_storage_deferred` after all the items have been inserted
+ */
 /obj/item/storage/proc/handle_item_insertion_deferred(obj/item/W, mob/user)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if (!istype(W))
 		return FALSE
 
@@ -518,9 +640,9 @@
 		if(ismob(loc))
 			W.dropped(usr)
 		if(ismob(new_location))
-			W.layer = SCREEN_LAYER + 0.01
+			W.hud_layerise()
 		else
-			W.layer = initial(W.layer)
+			W.reset_plane_and_layer()
 		W.forceMove(new_location)
 	else
 		W.forceMove(get_turf(src))
@@ -551,9 +673,9 @@
 		if(ismob(loc))
 			W.dropped(user)
 		if(ismob(new_location))
-			W.layer = SCREEN_LAYER + 0.01
+			W.hud_layerise()
 		else
-			W.layer = initial(W.layer)
+			W.reset_plane_and_layer()
 		W.forceMove(new_location)
 	else
 		W.forceMove(get_turf(src))
@@ -584,14 +706,14 @@
 
 	return handle_item_insertion(W, prevent_messages)
 
-/obj/item/storage/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if(!W.dropsafety())
+	if(!attacking_item.dropsafety())
 		return.
 
-	if(istype(W, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LP = W
+	if(istype(attacking_item, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LP = attacking_item
 		var/amt_inserted = 0
 		var/turf/T = get_turf(user)
 		for(var/obj/item/light/L in src.contents)
@@ -605,25 +727,25 @@
 			to_chat(user, "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining.")
 			return
 
-	if(!can_be_inserted(W))
+	if(!can_be_inserted(attacking_item))
 		return
 
-	if(istype(W, /obj/item/tray))
-		var/obj/item/tray/T = W
+	if(istype(attacking_item, /obj/item/tray))
+		var/obj/item/tray/T = attacking_item
 		if(T.current_weight > 0)
 			T.spill(user)
 			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
 			return
 
-	if(istype(W, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = W
+	if(istype(attacking_item, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 
-	W.add_fingerprint(user)
-	return handle_item_insertion(W, null, user)
+	attacking_item.add_fingerprint(user)
+	return handle_item_insertion(attacking_item, null, user)
 
-/obj/item/storage/dropped(mob/user as mob)
+/obj/item/storage/dropped(mob/user)
 	return ..()
 
 /obj/item/storage/attack_hand(mob/user)
@@ -722,18 +844,21 @@
 
 	storage_start = new /obj/screen/storage{icon_state = "storage_start"}
 	storage_start.master = src
+	storage_start.layer = HUD_BASE_LAYER
 
 	storage_continue = new /obj/screen/storage{icon_state = "storage_continue"}
 	storage_continue.master = src
+	storage_continue.layer = HUD_BASE_LAYER
 
 	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
+	storage_end.layer = HUD_BASE_LAYER
 
 	closer = new /obj/screen/close{
 		icon_state = "x";
-		layer = SCREEN_LAYER
 	}
 	closer.master = src
+	closer.layer = HUD_BASE_LAYER
 	orient2hud(null, mapload)
 
 	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.

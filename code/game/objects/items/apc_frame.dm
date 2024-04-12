@@ -7,8 +7,8 @@
 	icon_state = "apc_frame"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
-/obj/item/frame/apc/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.iswrench())
+/obj/item/frame/apc/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswrench())
 		new /obj/item/stack/material/steel( get_turf(src.loc), 2 )
 		qdel(src)
 		return TRUE
@@ -18,7 +18,7 @@
 	if (get_dist(on_wall,usr)>1)
 		return
 	var/ndir = get_dir(usr,on_wall)
-	if (!(ndir in cardinal))
+	if (!(ndir in GLOB.cardinal))
 		return
 	var/turf/loc = get_turf(usr)
 	var/area/A = loc.loc

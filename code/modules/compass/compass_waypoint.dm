@@ -17,7 +17,7 @@
 	compass_overlay.loc = src
 	compass_overlay.maptext = "<center><font color = '[color]' size = '2px'><b>|</b>\n[name]</font></center>"
 	compass_overlay.filters = filter(type="drop_shadow", color = "[color]" + "aa", size = 2, offset = 1,x = 0, y = 0)
-	compass_overlay.layer = HUD_LAYER
+	compass_overlay.layer = RADIAL_BASE_LAYER
 
 /datum/compass_waypoint/proc/recalculate_heading(var/cx, var/cy)
 	var/matrix/M = matrix()

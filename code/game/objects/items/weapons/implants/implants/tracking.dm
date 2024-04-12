@@ -14,7 +14,7 @@
 
 /obj/item/implant/tracking/Initialize()
 	var/list/tracking_list = list()
-	for(var/obj/item/implant/tracking/T in implants)
+	for(var/obj/item/implant/tracking/T in GLOB.implants)
 		tracking_list += T
 	id = length(tracking_list) + 1
 	. = ..()

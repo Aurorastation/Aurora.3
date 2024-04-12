@@ -83,7 +83,7 @@
 	if(!.)
 		return FALSE
 
-	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."))
+	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'. Have a lovely day."))
 	if (evacuation_controller.get_status_panel_eta())
 		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [evacuation_controller.get_status_panel_eta()]."))
 
@@ -120,7 +120,19 @@
 	M.item_flags |= ITEM_FLAG_NO_MOVE
 	owner.equip_to_slot(M, aug_slot)
 	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
-	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
+
+	//If we didn't found the organ, it might be a sub-organ, search for it
+	if(!O)
+		for(var/external_organ_key in owner.organs_by_name)
+			var/obj/item/organ/external/external_organ = owner.organs_by_name[external_organ_key]
+			for(var/obj/item/organ/internal/internal_organ in external_organ.internal_organs)
+				if(internal_organ.organ_tag == parent_organ)
+					O = internal_organ
+					break
+
+	//If we have found it, print the message, otherwise don't bother, it would just runtime
+	if(O)
+		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
@@ -212,7 +224,7 @@
 	if(!.)
 		return FALSE
 
-	health_scan_mob(owner, owner)
+	health_scan_mob(owner, owner, TRUE, TRUE)
 
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"
@@ -342,7 +354,7 @@
 	switch(selected_hud)
 
 		if(SEC_HUDTYPE)
-			req_access = list(access_security)
+			req_access = list(ACCESS_SECURITY)
 			if(allowed(owner))
 				active_hud = "security"
 				process_sec_hud(owner, 1)
@@ -370,7 +382,7 @@
 	switch(selected_hud)
 
 		if(MED_HUDTYPE)
-			req_access = list(access_medical)
+			req_access = list(ACCESS_MEDICAL)
 			if(allowed(owner))
 				active_hud = "medical"
 				process_med_hud(owner, 1)
@@ -478,6 +490,10 @@
 	name = "Zino language processor"
 	augment_languages = list(LANGUAGE_GUTTER)
 
+/obj/item/organ/internal/augment/language/eridani
+	name = "Eridani language processor"
+	augment_languages = list(LANGUAGE_TRADEBAND)
+
 /obj/item/organ/internal/augment/language/zeng
 	name = "Zeng-Hu Nral'malic language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
@@ -492,8 +508,8 @@
 	cooldown = 8
 
 	var/taste_sensitivity = TASTE_NORMAL
-	var/action_verb = "licks"
-	var/self_action_verb = "lick"
+	var/action_verb = "samples"
+	var/self_action_verb = "sample"
 
 /obj/item/organ/internal/augment/gustatorial/attack_self(var/mob/user)
 	. = ..()
@@ -770,3 +786,52 @@
 	action_button_name = "Deploy Glare Dampeners"
 	organ_tag = BP_AUG_GLARE_DAMPENER
 	augment_type = /obj/item/clothing/glasses/aug/welding
+
+/obj/item/organ/internal/augment/eye_sensors/phalanx
+	name = "phalanx facial plate"
+	desc = "This modular face plate accommodates a wide array of cybernetic augmentations, enabling seamless integration with Phalanx's transhumanist doctrine. \
+	Enhanced sensory overlays and HUDs offer Phalanx members superior situational awareness and promote a sense of hive-thinking."
+	icon_state = "vaurca_plate"
+	action_button_name = "Toggle HUD"
+	action_button_icon = "vaurca_plate"
+	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/augments_external.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/augments_external.dmi'
+	)
+/obj/item/organ/internal/augment/eye_sensors/phalanx/attack_self(var/mob/user)
+	. = ..()
+
+	if(selected_hud == "disabled")
+		selected_hud = SEC_HUDTYPE
+		to_chat(user, "You activate \the [src] security HUD.")
+		return
+	if(selected_hud == SEC_HUDTYPE)
+		selected_hud = MED_HUDTYPE
+		to_chat(user, "You activate \the [src] medical HUD.")
+		return
+	if(selected_hud == MED_HUDTYPE)
+		selected_hud = "disabled"
+		to_chat(user, "You deactivate \the [src].")
+		return
+
+/obj/item/organ/internal/augment/eye_sensors/phalanx/process()
+	..()
+
+	switch(selected_hud)
+		if(SEC_HUDTYPE)
+			req_access = list(ACCESS_SECURITY)
+			if(allowed(owner))
+				active_hud = "security"
+				process_sec_hud(owner, 1)
+			else
+				active_hud = "disabled"
+		if(MED_HUDTYPE)
+			req_access = list(ACCESS_MEDICAL)
+			if(allowed(owner))
+				active_hud = "medical"
+				process_med_hud(owner, 1)
+			else
+				active_hud = "disabled"
+		else
+			active_hud = "disabled"

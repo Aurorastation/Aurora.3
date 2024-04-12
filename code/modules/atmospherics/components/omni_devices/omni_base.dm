@@ -7,6 +7,7 @@
 	icon_state = "base"
 	initialize_directions = 0
 	level = 1
+	layer = ABOVE_CATWALK_LAYER
 
 	var/configuring = 0
 	//var/target_pressure = ONE_ATMOSPHERE	//a base type as abstract as this should NOT be making these kinds of assumptions
@@ -28,7 +29,7 @@
 /obj/machinery/atmospherics/omni/Initialize()
 	icon_state = "base"
 	ports = new()
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/datum/omni_port/new_port = new(src, d)
 		switch(d)
 			if(NORTH)
@@ -81,8 +82,8 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/omni/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench())
+/obj/machinery/atmospherics/omni/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.iswrench())
 		return ..()
 
 	var/int_pressure = 0
@@ -95,7 +96,7 @@
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, 40, volume = 50))
+	if(attacking_item.use_tool(src, user, 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
@@ -218,7 +219,8 @@
 			qdel(P.network)
 			P.node = null
 
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)

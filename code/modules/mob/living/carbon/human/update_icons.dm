@@ -106,7 +106,7 @@ There are several things that need to be remembered:
 
 // Updates overlays from overlays_raw.
 /mob/living/carbon/human/update_icon(var/forceDirUpdate = FALSE)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return	// No point.
 
 	update_hud()		//TODO: remove the need for this
@@ -205,7 +205,7 @@ There are several things that need to be remembered:
 	var/damage_appearance = ""
 
 	for(var/obj/item/organ/external/O in organs)
-		if(isnull(O) || O.is_stump())
+		if(QDELETED(O) || O.is_stump())
 			continue
 		//if(O.status & ORGAN_DESTROYED) damage_appearance += "d" //what is this?
 		//else
@@ -223,7 +223,7 @@ There are several things that need to be remembered:
 
 	// blend the individual damage states with our icons
 	for(var/obj/item/organ/external/O in organs)
-		if(isnull(O) || O.is_stump())
+		if(QDELETED(O) || O.is_stump())
 			continue
 
 		O.update_icon()
@@ -239,7 +239,7 @@ There are several things that need to be remembered:
 
 		LAZYADD(ovr, DI)
 
-	overlays_raw[DAMAGE_LAYER] = ovr
+	overlays_raw[MOB_DAMAGE_LAYER] = ovr
 	update_bandages(update_icons)
 	if(update_icons)
 		update_icon()
@@ -250,7 +250,7 @@ There are several things that need to be remembered:
 		return
 
 	var/list/ovr
-	if(overlays_raw[DAMAGE_LAYER])
+	if(overlays_raw[MOB_DAMAGE_LAYER])
 		for(var/obj/item/organ/external/O in organs)
 			if(O.is_stump())
 				continue
@@ -312,14 +312,14 @@ There are several things that need to be remembered:
 
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	var/husk_color_mod = rgb(96,88,80)
 
-	var/husk = HAS_FLAG(mutations, HUSK)
-	var/fat = HAS_FLAG(mutations, FAT)
-	var/skeleton = HAS_FLAG(mutations, SKELETON)
+	var/husk = (mutations & HUSK)
+	var/fat = (mutations & FAT)
+	var/skeleton = (mutations & SKELETON)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -438,7 +438,7 @@ There are several things that need to be remembered:
 
 		// Beard.
 		if(f_style)
-			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
+			var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
 			if(facial_hair_style && facial_hair_style.species_allowed && (species.type in facial_hair_style.species_allowed))
 				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = facial_hair_style.icon_state)
 				if(facial_hair_style.do_colouration)
@@ -449,12 +449,12 @@ There are several things that need to be remembered:
 		// Hair.
 		if(hair_is_visible)
 			var/icon/grad_s = null
-			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
 			if(hair_style && (species.type in hair_style.species_allowed))
 				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
 					if(g_style)
-						var/datum/sprite_accessory/gradient_style = hair_gradient_styles_list[g_style]
+						var/datum/sprite_accessory/gradient_style = GLOB.hair_gradient_styles_list[g_style]
 						if(gradient_style && gradient_style.species_allowed && (species.type in gradient_style.species_allowed))
 							grad_s = new/icon("icon" = gradient_style.icon, "icon_state" = gradient_style.icon_state)
 							grad_s.Blend(hair_s, ICON_AND)
@@ -474,7 +474,7 @@ There are several things that need to be remembered:
 
 //HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	//Reset our hair
@@ -498,7 +498,7 @@ There are several things that need to be remembered:
 	// Handle light emission.
 	if (species.light_range)
 		if (has_visible_hair)
-			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
 			if (hair_style)
 				var/col = species.get_light_color(src) || "#FFFFFF"
 				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
@@ -512,11 +512,11 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	var/fat
-	if(HAS_FLAG(mutations, FAT))
+	if((mutations & FAT))
 		fat = "fat"
 
 	var/image/standing	= image("icon" = 'icons/effects/genetics.dmi')
@@ -532,7 +532,7 @@ There are several things that need to be remembered:
 			if(underlay)
 				standing.underlays += underlay
 				add_image = 1
-	if(HAS_FLAG(mutations, LASER_EYES))
+	if((mutations & LASER_EYES))
 		standing.overlays += "lasereyes_s"
 		add_image = 1
 	if(add_image)
@@ -545,10 +545,11 @@ There are several things that need to be remembered:
 /* --------------------------------------- */
 //For legacy support.
 /mob/living/carbon/human/regenerate_icons()
-	if (QDELING(src))
+	..()
+
+	if(QDELETED(src))
 		return
 
-	..()
 
 	if(transforming)
 		return
@@ -587,7 +588,7 @@ There are several things that need to be remembered:
 //vvvvvv UPDATE_INV PROCS vvvvvv
 
 /mob/living/carbon/human/update_inv_w_uniform(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(check_draw_underclothing())
@@ -633,7 +634,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_wear_id(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	overlays_raw[ID_LAYER] = null
@@ -676,7 +677,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_gloves(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 
@@ -713,7 +714,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_glasses(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(check_draw_glasses())
@@ -755,7 +756,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_l_ear(var/update_icons=1)
-	if(QDELING(src))
+	if(QDELETED(src))
 		return
 
 	if(check_draw_left_ear())
@@ -787,7 +788,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_r_ear(var/update_icons=1)
-	if(QDELING(src))
+	if(QDELETED(src))
 		return
 
 	if(check_draw_right_ear())
@@ -819,7 +820,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_shoes(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(check_draw_shoes())
@@ -878,7 +879,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(s_store)
@@ -901,7 +902,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	overlays_raw[HEAD_LAYER] = null
@@ -938,7 +939,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_belt(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(belt)
@@ -979,7 +980,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(wear_suit)
@@ -1016,7 +1017,7 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(update_icons)
@@ -1024,7 +1025,7 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/update_inv_wear_mask(update_icons = TRUE, recurse = TRUE)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	overlays_raw[FACEMASK_LAYER] = null
@@ -1063,7 +1064,7 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/update_inv_back(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(back)
@@ -1116,7 +1117,7 @@ There are several things that need to be remembered:
 		hud_used.r_hand_hud_object.update_icon()
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(handcuffed)
@@ -1141,7 +1142,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_legcuffed(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(legcuffed)
@@ -1167,7 +1168,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 
@@ -1183,7 +1184,10 @@ There are several things that need to be remembered:
 			else
 				mob_icon = l_hand.icon
 			l_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
+			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
+				mob_state = "[l_hand.item_state_slots[slot_l_hand_str]][WORN_LHAND]"
+			else
+				mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				mob_state = l_hand.item_state_slots[slot_l_hand_str]
@@ -1204,7 +1208,7 @@ There are several things that need to be remembered:
 		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	if(r_hand)
@@ -1219,7 +1223,10 @@ There are several things that need to be remembered:
 			else
 				mob_icon = r_hand.icon
 			r_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
+			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
+				mob_state = "[r_hand.item_state_slots[slot_r_hand_str]][WORN_RHAND]"
+			else
+				mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				mob_state = r_hand.item_state_slots[slot_r_hand_str]
@@ -1240,7 +1247,7 @@ There are several things that need to be remembered:
 		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	overlays_raw[WRISTS_LAYER] = null
@@ -1291,7 +1298,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	overlays_raw[TAIL_NORTH_LAYER] = null
@@ -1299,7 +1306,7 @@ There are several things that need to be remembered:
 
 	var/tail_layer = GET_TAIL_LAYER
 
-	if(species.tail && NOT_FLAG(mutations, HUSK) && NOT_FLAG(mutations, SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(species.tail && !(mutations & HUSK) && !(mutations & SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
 		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
 		animate_tail_reset()
@@ -1309,7 +1316,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/proc/get_tail_icon()
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin][r_hair][g_hair][b_hair]"
@@ -1404,7 +1411,7 @@ There are several things that need to be remembered:
 //Adds a collar overlay above the helmet layer if the suit has one
 //	Suit needs an identically named sprite in icons/mob/collar.dmi
 /mob/living/carbon/human/proc/update_collar(var/update_icons=1)
-	if (QDELING(src))
+	if (QDELETED(src))
 		return
 
 	var/list/collar_mapping	= SSicon_cache.collar_states
@@ -1421,7 +1428,7 @@ There are several things that need to be remembered:
 
 // update_fire()
 /mob/living/carbon/human/update_fire(var/update_icons = TRUE)
-	if(QDELING(src))
+	if(QDELETED(src))
 		return
 
 	var/image/fire_image_lower = on_fire ? image(species.onfire_overlay, "lower", layer = FIRE_LAYER_LOWER) : null

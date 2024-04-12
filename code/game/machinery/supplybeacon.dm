@@ -28,7 +28,6 @@
 
 	anchored = 0
 	density = 1
-	layer = MOB_LAYER - 0.1
 	stat = 0
 
 	var/target_drop_time
@@ -44,14 +43,14 @@
 	name = "supermatter supply beacon"
 	drop_type = "supermatter"
 
-/obj/machinery/power/supply_beacon/attackby(var/obj/item/W, var/mob/user)
-	if(!use_power && W.iswrench())
+/obj/machinery/power/supply_beacon/attackby(obj/item/attacking_item, mob/user)
+	if(!use_power && attacking_item.iswrench())
 		if(!anchored && !connect_to_network())
 			to_chat(user, "<span class='warning'>This device must be placed over an exposed cable.</span>")
 			return TRUE
 		anchored = !anchored
 		user.visible_message("<span class='notice'>\The [user] [anchored ? "secures" : "unsecures"] \the [src].</span>")
-		playsound(src.loc, W.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 	return ..()
 

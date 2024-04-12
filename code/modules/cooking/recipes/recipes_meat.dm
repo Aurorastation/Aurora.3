@@ -100,24 +100,23 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nugget
-
-/singleton/recipe/lasagna
-	appliance = OVEN
-	fruit = list("tomato" = 2, "eggplant" = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat
-	)
-	result = /obj/item/reagent_containers/food/snacks/lasagna
-	reagent_mix = RECIPE_REAGENT_REPLACE
+	result_quantity = 4
 
 /singleton/recipe/donerkebab
 	fruit = list("tomato" = 1, "cabbage" = 1)
 	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/pita,
 		/obj/item/reagent_containers/food/snacks/cutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/donerkebab
+
+/singleton/recipe/meatballs_and_peas
+	appliance = SKILLET | SAUCEPAN
+	fruit = list("peas" = 1, "tomato" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meatball,
+		/obj/item/reagent_containers/food/snacks/meatball,
+	)
+	result = /obj/item/reagent_containers/food/snacks/meatballs_and_peas
+	reagent_mix = RECIPE_REAGENT_REPLACE

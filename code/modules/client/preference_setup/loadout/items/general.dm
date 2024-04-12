@@ -73,7 +73,9 @@
 /datum/gear/coffeecup/New()
 	..()
 	var/list/coffeecups = list()
+	// plain/base
 	coffeecups["plain coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
+	// nations
 	coffeecups["sol coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol
 	coffeecups["San Colette coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sancolette
 	coffeecups["Europa coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/europa
@@ -86,12 +88,23 @@
 	coffeecups["Eridani coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/eridani
 	coffeecups["Elyra coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra
 	coffeecups["Hegemony coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony
+	coffeecups["Port Antillia coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/portantillia
 	coffeecups["Nralakk coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk
+	coffeecups["All-Xanu Republic cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/xanu
+	coffeecups["Galatea cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/galatea
+	// orgs/corpos
+	coffeecups["SCC coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc
+	coffeecups["SCC coffee cup, alt"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc/alt
 	coffeecups["NT coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	coffeecups["Hephaestus coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht
 	coffeecups["Idris coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris
 	coffeecups["Zeng-Hu coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zeng
+	coffeecups["Zavod coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zavod
+	coffeecups["Orion coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion
 	coffeecups["TCFL coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
+	coffeecups["EE coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein
+	coffeecups["EE coffee cup, alt"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt
+	// symbols, markings
 	coffeecups["#1 coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
 	coffeecups["#1 monkey coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/puni
 	coffeecups["heart coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart
@@ -106,6 +119,7 @@
 	coffeecups["m'sai coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/msai
 	coffeecups["hharar coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hharar
 	coffeecups["zhan coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zhan
+	// pure colors & other
 	coffeecups["black coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
 	coffeecups["green coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green
 	coffeecups["dark green coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green/dark
@@ -124,6 +138,59 @@
 	var/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/spawned_cup = .
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
+
+/datum/gear/teacup
+	display_name = "tea cups"
+	description = "Tea cups in various designs."
+	cost = 1
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup
+
+/datum/gear/teacup/New()
+	..()
+	var/list/teacups = list()
+	teacups["plain tea cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup
+	teacups["clay yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang
+	teacups["grey yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/grey
+	teacups["glazed pattern yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/pattern
+	teacups["manila pattern yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/manila
+	teacups["nature pattern yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/nature
+
+	gear_tweaks += new /datum/gear_tweak/path(teacups)
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
+
+/datum/gear/teacup/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup/spawned_cup = .
+	if(istype(spawned_cup) && spawned_cup.reagents)
+		spawned_cup.reagents.set_temperature(T0C + 45)
+
+/datum/gear/chatins
+	display_name = "konyang-cha tins"
+	description = "Tins of tea leaves made by Konyang-cha."
+	cost = 1
+	path = /obj/item/storage/box/tea
+
+/datum/gear/chatins/New()
+	..()
+	var/list/chatins = list()
+	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
+	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
+	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
+	gear_tweaks += new /datum/gear_tweak/path(chatins)
+
+/datum/gear/teapots
+	display_name = "teapots"
+	description = "A selection of teapots."
+	cost = 1
+	path = /obj/item/reagent_containers/glass/beaker/teapot
+
+/datum/gear/teapots/New()
+	..()
+	var/list/teapots = list()
+	teapots["teapot"] = /obj/item/reagent_containers/glass/beaker/teapot
+	teapots["gaiwan"] = /obj/item/reagent_containers/glass/beaker/teapot/lidded
+	teapots["kyusu"] = /obj/item/reagent_containers/glass/beaker/teapot/lidded/kyusu
+	gear_tweaks += new /datum/gear_tweak/path(teapots)
 
 /datum/gear/banner
 	display_name = "banner selection"
@@ -153,6 +220,7 @@
 	banners["banner, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique
 	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
+	banners["banner, Golden Deep"] = /obj/item/flag/goldendeep
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
 	banners["banner, Idris Incorporated"] = /obj/item/flag/idris
 	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
@@ -186,11 +254,15 @@
 	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
 	banners["banner, Orion Express"] = /obj/item/flag/orion_express
 	banners["banner, Imperial Frontier"] = /obj/item/flag/imperial_frontier
+	banners["banner, Scarab Fleet"] = /obj/item/flag/scarab
 	banners["banner, Federal Technocracy of Galatea"] = /obj/item/flag/galatea_government
 	banners["banner, Galatea"] = /obj/item/flag/galatea
 	banners["banner, Tsukuyomi"] = /obj/item/flag/tsukuyomi
 	banners["banner, Svarog"] = /obj/item/flag/svarog
 	banners["banner, Empyrean"] = /obj/item/flag/empyrean
+	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
+	banners["banner, Callisto"] = /obj/item/flag/callisto
+	banners["banner, Venus"] = /obj/item/flag/venus
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -237,6 +309,7 @@
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
 	flags["flag, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
+	flags["flag, Golden Deep"] = /obj/item/flag/goldendeep/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
 	flags["flag, Idris Incorporated"] = /obj/item/flag/idris/l
 	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
@@ -268,11 +341,15 @@
 	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
 	flags["flag, Orion Express"] = /obj/item/flag/orion_express/l
 	flags["flag, Imperial Frontier"] = /obj/item/flag/imperial_frontier/l
+	flags["flag, Scarab Fleet"] = /obj/item/flag/scarab/l
 	flags["flag, Federal Technocracy of Galatea"] = /obj/item/flag/galatea_government/l
 	flags["flag, Galatea"] = /obj/item/flag/galatea/l
 	flags["flag, Tsukuyomi"] = /obj/item/flag/tsukuyomi/l
 	flags["flag, Svarog"] = /obj/item/flag/svarog/l
 	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
+	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
+	flags["flag, Callisto"] = /obj/item/flag/callisto/l
+	flags["flag, Venus"] = /obj/item/flag/venus/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -351,3 +428,22 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/lore_radio
+	display_name = "analog radio"
+	path = /obj/item/lore_radio
+
+/datum/gear/pottedplant_small
+	display_name = "potted plant"
+	description = "A small potted plant."
+	cost = 1
+	path = /obj/item/flora/pottedplant_small/dead
+
+/datum/gear/pottedplant_small/New()
+	..()
+	var/list/plants = list()
+	for(var/plant_type in typesof(/obj/item/flora/pottedplant_small))
+		var/obj/item/flora/pottedplant_small/plant = plant_type
+		plants[initial(plant.name)] = plant_type
+	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
+	gear_tweaks += new /datum/gear_tweak/path(plants)

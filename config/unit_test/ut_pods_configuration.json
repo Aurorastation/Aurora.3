@@ -1,31 +1,69 @@
 {
 	"generic":{
 		"unit_test_groups":["generic", "mob", "machinery"],
-		"map_template_unit_test_groups":[false]
+		"map_template_unit_test_groups":[false],
+		"exoplanet_types_unit_test_groups":[false],
+		"exoplanets_ruins":true
 	},
 
 	"create_and_destroy":{
 		"unit_test_groups":["create and destroy"],
-		"map_template_unit_test_groups":[false]
+		"map_template_unit_test_groups":[false],
+		"exoplanet_types_unit_test_groups":[false],
+		"exoplanets_ruins":true
 	},
 
 	"maptest":{
 		"unit_test_groups":["map"],
-		"map_template_unit_test_groups":["*"]
+		"map_template_unit_test_groups":["*"],
+		"exoplanet_types_unit_test_groups":[false],
+		"exoplanets_ruins":true
+	},
+
+	"exoplanet_testing-1":{
+		"unit_test_groups":["map"],
+		"map_template_unit_test_groups":["*"],
+		"exoplanet_types_unit_test_groups":[1],
+		"exoplanets_ruins":true
+	},
+	"exoplanet_testing-2":{
+		"unit_test_groups":["map"],
+		"map_template_unit_test_groups":["*"],
+		"exoplanet_types_unit_test_groups":[2],
+		"exoplanets_ruins":true
+	},
+	"exoplanet_testing-3":{
+		"unit_test_groups":["map"],
+		"map_template_unit_test_groups":["*"],
+		"exoplanet_types_unit_test_groups":[3],
+		"exoplanets_ruins":true
+	},
+
+	"ruins":{
+		"unit_test_groups":["ruins", "map"],
+		"map_template_unit_test_groups":[false],
+		"exoplanet_types_unit_test_groups":[false],
+		"exoplanets_ruins":false
 	},
 
 	"awaysites-1":{
 		"unit_test_groups":["map"],
-		"map_template_unit_test_groups":[1]
+		"map_template_unit_test_groups":[1],
+		"exoplanet_types_unit_test_groups":[false],
+		"exoplanets_ruins":true
 	},
 
 	"awaysites-2":{
 		"unit_test_groups":["map"],
-		"map_template_unit_test_groups":[2]
+		"map_template_unit_test_groups":[2],
+		"exoplanet_types_unit_test_groups":[false],
+		"exoplanets_ruins":true
 	},
 
 	"awaysites-3":{
 		"unit_test_groups":["map"],
-		"map_template_unit_test_groups":[3]
+		"map_template_unit_test_groups":[3],
+		"exoplanet_types_unit_test_groups":[false],
+		"exoplanets_ruins":true
 	}
 }

@@ -18,13 +18,22 @@ var/list/admin_datums = list()
 
 	var/list/watched_processes	// Processes marked to be shown in Status instead of just Processes.
 
+/datum/admins/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, rights))
+		return FALSE
+	if(var_name == NAMEOF(src, owner))
+		return FALSE
+	if(var_name == NAMEOF(src, original_mob))
+		return FALSE
+	return ..()
+
 /datum/admins/New(initial_rank = "Temporary Admin", initial_rights = 0, ckey)
 	if(!ckey)
 		log_world("ERROR: Admin datum created without a ckey argument. Datum has been deleted")
 		qdel(src)
 		return
 
-	if (!current_map)
+	if (!SSatlas.current_map)
 		SSatlas.OnMapload(CALLBACK(src, PROC_REF(update_newscaster_sig)))
 	else
 		update_newscaster_sig()
@@ -41,25 +50,25 @@ var/list/admin_datums = list()
 		owner = C
 		owner.holder = src
 		owner.add_admin_verbs()	//TODO
-		staff |= C
+		GLOB.staff |= C
 
 /datum/admins/proc/disassociate()
 	if(owner)
-		staff -= owner
+		GLOB.staff -= owner
 		owner.remove_admin_verbs()
 		owner.deadmin_holder = owner.holder
 		owner.holder = null
 
 /datum/admins/proc/reassociate()
 	if(owner)
-		staff += owner
+		GLOB.staff += owner
 		owner.holder = src
 		owner.deadmin_holder = null
 		owner.add_admin_verbs()
 
 /datum/admins/proc/update_newscaster_sig()
 	if (!admincaster_signature)
-		admincaster_signature = "[current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
+		admincaster_signature = "[SSatlas.current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
 
 /datum/admins/proc/toggle_aooc_mute_check()
 	aooc_mute = !aooc_mute

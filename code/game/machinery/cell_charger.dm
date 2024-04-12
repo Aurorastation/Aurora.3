@@ -39,31 +39,31 @@
 	add_overlay("cell-o2")
 	add_overlay("[icon_state]-o[charge_level]")
 
-/obj/machinery/cell_charger/examine(mob/user, distance, is_adjacent)
+/obj/machinery/cell_charger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 5)
-		return TRUE
+		return
 
 	if(charging)
-		to_chat(user, "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%.")
+		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
 	else
-		to_chat(user, SPAN_WARNING("The charger is empty."))
+		. += SPAN_WARNING("The charger is empty.")
 
-/obj/machinery/cell_charger/attackby(obj/item/W, mob/user)
+/obj/machinery/cell_charger/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)
 		return TRUE
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(charging)
 			to_chat(user, SPAN_WARNING("Remove the cell first!"))
 			return TRUE
 
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "" : "un"]secure \the [src].")
-		playsound(src, W.usesound, 50, 1)
+		attacking_item.play_tool_sound(src, 50)
 		return TRUE
 
-	if(istype(W, /obj/item/cell))
+	if(istype(attacking_item, /obj/item/cell))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("You need to secure \the [src] first."))
 			return TRUE
@@ -72,8 +72,8 @@
 			to_chat(user, SPAN_WARNING("There is already a cell in \the [src]."))
 			return TRUE
 
-		user.drop_from_inventory(W, src)
-		charging = W
+		user.drop_from_inventory(attacking_item, src)
+		charging = attacking_item
 		user.visible_message("[user] inserts \the [charging.name] into \the [src].", "You insert \the [charging.name] into \the [src].")
 
 		update_icon()

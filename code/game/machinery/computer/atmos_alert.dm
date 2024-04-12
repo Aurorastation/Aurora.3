@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-var/global/list/priority_air_alarms = list()
-var/global/list/minor_air_alarms = list()
+GLOBAL_LIST_EMPTY(priority_air_alarms)
+GLOBAL_LIST_EMPTY(minor_air_alarms)
 
 
 /obj/machinery/computer/atmos_alert

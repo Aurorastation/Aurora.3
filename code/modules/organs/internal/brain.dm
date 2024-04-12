@@ -5,7 +5,7 @@
 	parent_organ = BP_HEAD
 	vital = TRUE
 	icon_state = "brain"
-	force = 1.0
+	force = 1
 	w_class = ITEMSIZE_SMALL
 	throwforce = 1.0
 	throw_speed = 3
@@ -183,7 +183,7 @@
 	var/blood_volume = owner.get_blood_oxygenation()
 	if(blood_volume < BLOOD_VOLUME_BAD)
 		to_chat(user, "<span class='danger'>Parts of [src] didn't survive the procedure due to lack of air supply!</span>")
-		set_max_damage(Floor(max_damage - 0.25*damage))
+		set_max_damage(FLOOR(max_damage - 0.25*damage, 1))
 	heal_damage(damage)
 
 /obj/item/organ/internal/brain/get_scarring_level()
@@ -207,20 +207,20 @@
 	to_chat(brainmob, "<span class='notice'>You feel slightly disoriented. That's normal when you're just a [initial(src.name)].</span>")
 	callHook("debrain", list(brainmob))
 
-/obj/item/organ/internal/brain/examine(mob/user) // -- TLE
+/obj/item/organ/internal/brain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(brainmob && brainmob.client)//if thar be a brain inside... the brain.
-		to_chat(user, "You can feel the small spark of life still left in this one.")
+		. += "You can feel the small spark of life still left in this one."
 	else
-		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
+		. += "This one seems particularly lifeless. Perhaps it will regain some of its luster later.."
 
-/obj/item/organ/internal/brain/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/surgery/surgicaldrill))
+/obj/item/organ/internal/brain/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/surgery/surgicaldrill))
 		if(!can_prepare)
 			to_chat(user, SPAN_WARNING("\The [src] cannot be prepared!"))
 			return
 		if(!prepared)
-			user.visible_message(SPAN_DANGER("[user] deftly uses \the [I] to drill into \the [src]!"))
+			user.visible_message(SPAN_DANGER("[user] deftly uses \the [attacking_item] to drill into \the [src]!"))
 			prepared = TRUE
 		else
 			to_chat(user, SPAN_WARNING("The brain has already been prepared!"))

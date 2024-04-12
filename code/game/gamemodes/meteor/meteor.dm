@@ -38,8 +38,8 @@
 /datum/game_mode/meteor/post_setup()
 	..()
 	alert_title = "Automated Beacon AB-[rand(10, 99)]"
-	alert_text = "This is an automatic warning. The [current_map.full_name] is on a collision course with a nearby asteroid belt. Estimated time until impact is: [meteor_grace_period / 1200] MINUTES. Please perform necessary actions to secure your ship or station from the threat. Have a nice day."
-	start_text = "This is an automatic warning. The [current_map.full_name] has entered an asteroid belt. Estimated time until you leave the belt is: [rand(20,30)] HOURS and [rand(1, 59)] MINUTES. For your safety, please consider changing course or using protective equipment. Have a nice day."
+	alert_text = "This is an automatic warning. The [SSatlas.current_map.full_name] is on a collision course with a nearby asteroid belt. Estimated time until impact is: [meteor_grace_period / 1200] MINUTES. Please perform necessary actions to secure your ship or station from the threat. Have a nice day."
+	start_text = "This is an automatic warning. The [SSatlas.current_map.full_name] has entered an asteroid belt. Estimated time until you leave the belt is: [rand(20,30)] HOURS and [rand(1, 59)] MINUTES. For your safety, please consider changing course or using protective equipment. Have a nice day."
 	next_wave = round_duration_in_ticks + meteor_grace_period
 
 /datum/game_mode/meteor/proc/on_meteor_warn()
@@ -49,7 +49,7 @@
 /datum/game_mode/meteor/proc/on_enter_field()
 	alert_sent = 2
 	command_announcement.Announce(start_text, alert_title)
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		var/area/map = global.map_overmap
 		for(var/turf/T in map)
 			new/obj/effect/overmap/event/meteor(T)
@@ -71,7 +71,7 @@
 		next_wave = round_duration_in_ticks + meteor_wave_delay
 		// Starts as barely noticeable dust impact, ends as barrage of most severe meteor types the code has to offer. Have fun.
 		spawn()
-			spawn_meteors(meteor_severity, get_meteor_types(), pick(cardinal), pick(current_map.station_levels))
+			spawn_meteors(meteor_severity, get_meteor_types(), pick(GLOB.cardinal), pick(SSatlas.current_map.station_levels))
 		var/escalated = FALSE
 		if(prob(escalation_probability) && (meteor_severity < maximal_severity))
 			meteor_severity++

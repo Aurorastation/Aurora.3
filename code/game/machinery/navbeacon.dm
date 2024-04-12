@@ -1,9 +1,6 @@
 // Navigation beacon for AI robots
 // Functions as a transponder: looks for incoming signal matching
 
-
-var/global/list/navbeacons			// no I don't like putting this in, but it will do for now
-
 /obj/machinery/navbeacon
 
 	icon = 'icons/obj/objects.dmi'
@@ -11,29 +8,32 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."
 	level = 1		// underfloor
-	layer = 2.5
+	layer = ABOVE_WIRE_LAYER
 	anchored = 1
 
 	var/open = 0		// true if cover is open
 	var/locked = 1		// true if controls are locked
-	var/freq = 1445		// radio frequency
+	var/freq = BEACONS_FREQ		// radio frequency
 	var/location = ""	// location response text
 	var/list/codes		// assoc. list of transponder codes
 	var/codes_txt = ""	// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
 
-	req_access = list(access_engine)
+	req_one_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
 
-/obj/machinery/navbeacon/Initialize()
+/obj/machinery/navbeacon/Initialize(mapload)
 	. = ..()
 
-	set_codes()
+	//If mapped, set the codes and hide it accordingly, otherwise, you're being built, so don't do that
+	//and unanchor yourself, as you'll be transported around, most likely
+	if(mapload)
+		set_codes()
 
-	var/turf/T = loc
-	hide(!T.is_plating())
+		var/turf/T = get_turf(src)
+		hide(!T.is_plating())
 
-	// add beacon to MULE bot beacon list
-	if(freq == 1400)
-		LAZYADD(navbeacons, src)
+	else
+		hide(FALSE)
+		anchored = FALSE
 
 	if(SSradio)
 		SSradio.add_object(src, freq, RADIO_NAVBEACONS)
@@ -80,6 +80,10 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 	// or one of the set transponder keys
 	// if found, return a signal
 /obj/machinery/navbeacon/receive_signal(datum/signal/signal)
+	//Does not work if not anchored to the ground
+	if(!anchored)
+		return
+
 	var/request = signal.data["findbeacon"]
 	if(request && ((request in codes) || request == "any" || request == location))
 		addtimer(CALLBACK(src, PROC_REF(post_signal)), 1)
@@ -87,9 +91,21 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 	// return a signal giving location and transponder codes
 
 /obj/machinery/navbeacon/proc/post_signal()
+	//Does not work if not anchored to the ground
+	if(!anchored)
+		return
+
+	//No power, no work
+	if(stat & NOPOWER)
+		return FALSE
+
+	//Wikipedia says this is the upper limit for a medium non directional beacon, deal with it
+	use_power_oneoff(2 KILOWATTS)
+
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
-	if(!frequency) return
+	if(!frequency)
+		return
 
 	var/datum/signal/signal = new()
 	signal.source = src
@@ -101,12 +117,13 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 	frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 
-/obj/machinery/navbeacon/attackby(var/obj/item/I, var/mob/user)
-	var/turf/T = loc
+/obj/machinery/navbeacon/attackby(obj/item/attacking_item, mob/user)
+	var/turf/T = get_turf(src)
+
 	if(!T.is_plating())
 		return		// prevent intraction when T-scanner revealed
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		open = !open
 
 		user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", "You [open ? "open" : "close"] the beacon's cover.")
@@ -114,7 +131,25 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 		update_icon()
 		return TRUE
 
-	else if (I.GetID())
+	if(attacking_item.iswrench())
+		if(!open || locked)
+			to_chat(user, SPAN_NOTICE("You need to have the maintenance panel open and the controls unlocked to remove the bolts."))
+			return
+
+		if(do_after(user, 3 SECONDS, src))
+			if(anchored)
+				to_chat(user, SPAN_NOTICE("You unscrew the bolts, releasing \the [src] from \the [get_turf(src)]."))
+				anchored = FALSE
+
+				set_invisibility(FALSE)
+
+			else
+				to_chat(user, SPAN_NOTICE("You screw the bolts, firmly securing \the [src] onto \the [get_turf(src)]."))
+				anchored = TRUE
+
+				hide(!T.is_plating())
+
+	else if (attacking_item.GetID())
 		if(open)
 			if (src.allowed(user))
 				src.locked = !src.locked
@@ -194,7 +229,9 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 			usr.set_machine(src)
 
 			if (href_list["freq"])
+				SSradio.remove_object(src, freq)
 				freq = sanitize_frequency(freq + text2num(href_list["freq"]))
+				SSradio.add_object(src, freq, RADIO_NAVBEACONS)
 				updateDialog()
 
 			else if(href_list["locedit"])
@@ -245,7 +282,6 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 				updateDialog()
 
 /obj/machinery/navbeacon/Destroy()
-	navbeacons?.Remove(src)
 	if(SSradio)
 		SSradio.remove_object(src, freq)
 	return ..()

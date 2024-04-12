@@ -15,7 +15,7 @@
 		<head><style>body {overflow: hidden;}</style></head>
 
 		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl][sub_page]&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="[GLOB.config.wikiurl][sub_page]&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -660,7 +660,7 @@
 				<br>
 				<h1>The Oath</h1>
 
-				<i>The Medical Oath sworn by recognised medical practitioners in the employ of [current_map.company_name]</i><br>
+				<i>The Medical Oath sworn by recognised medical practitioners in the employ of [SSatlas.current_map.company_name]</i><br>
 
 				<ol>
 					<li>Now, as a new doctor, I solemnly promise that I will, to the best of my ability, serve humanity-caring for the sick, promoting good health, and alleviating pain and suffering.</li>
@@ -677,7 +677,7 @@
 
 				<HR COLOR="steelblue" WIDTH="60%" ALIGN="LEFT">
 
-				<iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Medicine&printable=yes&removelinks=1" frameborder="0" id="main_frame"></iframe>
+				<iframe width='100%' height='100%' src="[GLOB.config.wikiurl]Guide_to_Medicine&printable=yes&removelinks=1" frameborder="0" id="main_frame"></iframe>
 				</body>
 			</html>
 
@@ -1519,13 +1519,13 @@
 			</html>
 			"}
 
-/obj/item/book/manual/tcfl_pamphlet
-	name = "tau ceti foreign legion pamphlet"
-	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
+/obj/item/book/manual/tcaf_pamphlet
+	name = "tau ceti armed forces pamphlet"
+	desc = "A simple pamphlet containing information about the Tau Ceti Armed Forces."
 	icon_state = "tcfl_pamphlet"
 	item_state = "paper"
-	title = "Tau Ceti foreign legion pamphlet"
-	author = "Tau Ceti foreign legion recruitment center"
+	title = "Tau Ceti Armed Forces pamphlet"
+	author = "Tau Ceti Armed Forces recruitment center"
 	pickup_sound = 'sound/items/drop/paper.ogg'
 	drop_sound = 'sound/items/drop/paper.ogg'
 	w_class = ITEMSIZE_SMALL
@@ -1542,17 +1542,45 @@
 				</head>
 				<body>
 				<br>\
-				The Tau Ceti Foreign Legion is the primary armed force of the Republic of Biesel and is comprised of volunteer immigrants. External parties seeking citizenship \
-				often enlist, since the Republic offers citizenship in turn for service. Since 2464 the Legion was promoted to the official armed forces of the Republic, which \
-				resulted in a great boost in popularity, funding and manpower. This happened after President Dorn enacted the People's Protection Act megacorporations are also \
-				able to fund the legion, something the Stellar Corporate Conglomerate immediately did. The Legion's largest deployment currently is throughout the Corporate \
-				Reconstruction Zone, ensuring the SCC's growing influence over the region. To help with this task the Legion also seeks the assistance of the Private Military \
-				Contracting Group.
+				<h2>Introduction</h2><br>
+				The Tau Ceti Armed Forces are the military of the Republic of Biesel, founded in 2465 in order to defend the Republic's borders against the threats of piracy, \
+				terrorism and the devastation of the Solarian warlords. The Tau Ceti Armed Forces has four service branches - the Tau Ceti Minutemen, the Republican Fleets, \
+				the Tau Ceti Foreign Legion and the Auxiliary Corporate Forces. Each of these branches works in its own way to defend the Republic's safety and sovereignty, and to \
+				keep our light of liberty shining!<BR><BR>
+
+				<h2>Tau Ceti Minutemen</h2><br>
+				The Minutemen are the Republic's ground forces, ready to fight for freedom on any of the Republic's worlds. They recently have had great success in the anti-terrorism campaign \
+				on Mictlan, which finally came to an end shortly after the Minutemen were first deployed there. Some of the best and brightest of the Tau Ceti Foreign Legion were recruited into the \
+				Minutemen upon their founding, and already they've been proving themselves worthy of the name - ready at a minute's notice, to protect the Republic and her people. A career in the Minutemen \
+				may take you all across the Republic, offering a competitive salary and access to some of the best-quality training and equipment in the Spur!<BR><BR>
+
+				<h2>Republican Fleets</h2><br>
+				While the Minutemen watch the ground, the Republican Fleets watch the stars! The Republic's primary naval force, the Republican Fleets were founded to ensure that never again will the Republic face \
+				another assault such as the invasion of 2462. Flying top-of-the-line vessels from Zavodskoi Interstellar, and trained by seasoned veterans from across the Spur, the Fleets are rapidly becoming a fixture \
+				of our nation's defences. From the Zoleth Line to the borders of the Corporate Reconstruction Zone, the Republican Fleets ensure that the Republic's travel and trade lanes say safe and free of pirates and marauders. \
+				A career in the Fleets can teach valuable life-long skills for any kind of shipboard work, with positions that can teach you skills to fast-track nearly any career!<BR><BR>
+
+				<h2>Tau Ceti Foreign Legion</h2><br>
+				The oldest branch of the Armed Forces, the Tau Ceti Foreign Legion upholds the values of equity, freedom, and diversity our nation was founded upon. From Sol to Adhomai to Xanu Prime, recruits from anywhere can \
+				be found in the ranks of the TCFL, contributing to the nation they wish to make their home. A year's service with the Foreign Legion will earn full Republic citizenship, and can be the jumping-on point for a career with \
+				the Armed Forces. The branch has a prestigious history, having served with distinction in many of the conflicts of the Republic's history - from the successful repulsion of the Solarian invasion of 2462 to protecting the \
+				people of Mictlan from terrorism and disaster, the TCFL has always fought to protect the Republic and its people. If you are a resident or non-citizen and interested in Republic citizenship, talk to your nearest embassy or \
+				consulate to see if he Foreign Legion is a good fit for you!<BR><BR>
+
+				<h2>Auxiliary Corporate Forces</h2><br>
+				The Auxiliary Corporate Forces are the final branch of the Armed Forces, consisting of seasoned private contractors from the Spur's security corporations. The Auxiliary Corporate Forces are a core of well-disciplined and seasoned \
+				veterans, who act as flexible support units to the other branches in their operations. A position in the Auxiliary Corporate Forces can offer valuable experience in an existing security career, as well as providing a refreshing and \
+				challenging change of pace from the day-to-day work. If you're in the security industry and looking for a challenging new career path among the best of the best, or to put your skills to use for the cause of liberty, talk to your employers about transfer to the ACF today!<BR><BR>
+
+				<h2>Further Information</h2><br>
+				Service with the Tau Ceti Armed Forces renders one eligible for the Tau Ceti Corporate Scholarship, a program for subsidised higher education. In addition, choosing to join the reserve forces after your initial term of enlistment is up \
+				can earn you an income-supplementing stipend, paid for by the Republic of Biesel. If you think that the TCAF might be a good fit for you, contact your nearest recruitment office if in the Republic of Biesel, or your nearest embassy or consulate outside Republic space. \
+				You can also visit biesel.gov/tcaf/careers to learn more about the directions a career with the TCAF can take you, and hear from some of our soldiers and veterans about how their time in the TCAF has changed their lives!\
 				</body>
 			</html>
 			"}
 
-/obj/item/book/manual/tcfl_pamphlet/attack_self(var/mob/user as mob)
+/obj/item/book/manual/tcaf_pamphlet/attack_self(var/mob/user as mob)
 	if(src.dat)
 		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.")

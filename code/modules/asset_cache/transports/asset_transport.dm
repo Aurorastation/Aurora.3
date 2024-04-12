@@ -12,16 +12,16 @@
 
 /// Called when the transport is loaded by the config controller, not called on the default transport unless it gets loaded by a config change.
 /datum/asset_transport/proc/Load()
-	if (config.asset_simple_preload)
-		for(var/client/C in clients)
+	if (GLOB.config.asset_simple_preload)
+		for(var/client/C in GLOB.clients)
 			addtimer(CALLBACK(src, PROC_REF(send_assets_slow), C, preload), 1 SECONDS)
 
 /// Initialize - Called when SSassets initializes.
 /datum/asset_transport/proc/Initialize(list/assets)
 	preload = assets.Copy()
-	if (!config.asset_simple_preload)
+	if (!GLOB.config.asset_simple_preload)
 		return
-	for(var/client/C in clients)
+	for(var/client/C in GLOB.clients)
 		addtimer(CALLBACK(src, PROC_REF(send_assets_slow), C, preload), 1 SECONDS)
 
 
@@ -114,7 +114,7 @@
 		if (!keep_local_name)
 			new_asset_name = "asset.[ACI.hash][ACI.ext]"
 		if (client.sent_assets[new_asset_name] == asset_hash)
-			if (Debug2)
+			if (GLOB.Debug2)
 				log_asset("DEBUG: Skipping send of `[asset_name]` (as `[new_asset_name]`) for `[client]` because it already exists in the client's sent_assets list")
 			continue
 		unreceived[asset_name] = ACI

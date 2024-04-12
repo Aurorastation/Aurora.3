@@ -8,7 +8,7 @@
 	max_count = 4
 	uses_species_whitelist = FALSE
 
-	outfit = /datum/outfit/admin/headmaster_kosmostrelki
+	outfit = /obj/outfit/admin/headmaster_kosmostrelki
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	respawn_flag = null
@@ -17,7 +17,7 @@
 	special_role = "Headmaster Kosmostrelki"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/datum/outfit/admin/headmaster_kosmostrelki
+/obj/outfit/admin/headmaster_kosmostrelki
 	name = "Kosmostrelki"
 
 	id = /obj/item/card/id
@@ -31,8 +31,8 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/headmaster_kosmostrelki/get_id_access()
-	return list(access_pra, access_external_airlocks)
+/obj/outfit/admin/headmaster_kosmostrelki/get_id_access()
+	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/headmaster_kosmostrelki/captain
 	short_name = "headmaster_captain"
@@ -44,14 +44,14 @@
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /datum/outfit/admin/headmaster_kosmostrelki/captain
+	outfit = /obj/outfit/admin/headmaster_kosmostrelki/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kosmostrelki Captain"
 	special_role = "Kosmostrelki Captain"
 
-/datum/outfit/admin/headmaster_kosmostrelki/captain
+/obj/outfit/admin/headmaster_kosmostrelki/captain
 	name = "Kosmostrelki Captain"
 
 	head = /obj/item/clothing/head/tajaran/orbital_captain
@@ -75,10 +75,10 @@
 	special_role = "Party Commissar"
 	uses_species_whitelist = TRUE
 
-	outfit = /datum/outfit/admin/headmaster_kosmostrelki/commissar
+	outfit = /obj/outfit/admin/headmaster_kosmostrelki/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/datum/outfit/admin/headmaster_kosmostrelki/commissar
+/obj/outfit/admin/headmaster_kosmostrelki/commissar
 
 	name = "Party Commissar"
 
@@ -91,6 +91,7 @@
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)

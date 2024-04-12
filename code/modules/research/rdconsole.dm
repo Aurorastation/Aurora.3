@@ -54,7 +54,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/protolathe_category = "All"
 	var/imprinter_category = "All"
 
-	req_access = list(access_tox)	//Data and setting manipulation requires scientist access.
+	req_access = list(ACCESS_TOX)	//Data and setting manipulation requires scientist access.
 
 /obj/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	var/return_name = ID
@@ -100,7 +100,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return
 
 /obj/machinery/computer/rdconsole/proc/SyncTechs()
+	var/turf/turf = get_turf(src)
 	for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+		var/turf/ST = get_turf(S)
+		if(ST && !AreConnectedZLevels(ST.z, turf.z))
+			continue
 		var/server_processed = 0
 		if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
 			for(var/tech_id in files.known_tech)
@@ -144,22 +148,22 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_imprinter.linked_console = null
 	return ..()
 
-/obj/machinery/computer/rdconsole/attackby(var/obj/item/D as obj, var/mob/user as mob)
+/obj/machinery/computer/rdconsole/attackby(obj/item/attacking_item, mob/user)
 	//Loading a disk into it.
-	if(istype(D, /obj/item/disk))
+	if(istype(attacking_item, /obj/item/disk))
 		if(t_disk || d_disk)
 			to_chat(user, "A disk is already loaded into the machine.")
 			return
 
-		if(istype(D, /obj/item/disk/tech_disk))
-			t_disk = D
-		else if (istype(D, /obj/item/disk/design_disk))
-			d_disk = D
+		if(istype(attacking_item, /obj/item/disk/tech_disk))
+			t_disk = attacking_item
+		else if (istype(attacking_item, /obj/item/disk/design_disk))
+			d_disk = attacking_item
 		else
 			to_chat(user, "<span class='notice'>Machine cannot accept disks in that format.</span>")
 			return
-		user.drop_from_inventory(D,src)
-		to_chat(user, "<span class='notice'>You add \the [D] to the machine.</span>")
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, "<span class='notice'>You add \the [attacking_item] to the machine.</span>")
 	else
 		//The construction/deconstruction of the console code.
 		..()
@@ -314,14 +318,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		sync = !sync
 
 	else if(href_list["protolathe_category"])
-		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Protolathe Categories", designs_protolathe_categories+"All")
+		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Protolathe Categories", GLOB.designs_protolathe_categories+"All")
 		if(!choice)
 			return
 		protolathe_category = choice
 		updateUsrDialog()
 
 	else if(href_list["imprinter_category"])
-		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Printer Categories", designs_imprinter_categories+"All")
+		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Printer Categories", GLOB.designs_imprinter_categories+"All")
 		if(!choice)
 			return
 		imprinter_category = choice
@@ -867,7 +871,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"
 	id = 1
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	allow_analyzer = FALSE
 
 /obj/machinery/computer/rdconsole/core

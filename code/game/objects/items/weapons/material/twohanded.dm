@@ -83,7 +83,7 @@
 			O.unwield()
 	return ..()
 
-/obj/item/material/twohanded/dropped(mob/user as mob)
+/obj/item/material/twohanded/dropped(mob/user)
 	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
@@ -244,7 +244,7 @@
 	base_icon = "spearglass"
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_divisor = 0.35 // 21 damage for steel (hardness 60)
@@ -263,31 +263,31 @@
 		QDEL_NULL(explosive)
 	return ..()
 
-/obj/item/material/twohanded/spear/examine(mob/user)
+/obj/item/material/twohanded/spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(explosive)
-		to_chat(user, "It has \the [explosive] strapped to it.")
+		. += "It has \the [explosive] strapped to it."
 
-/obj/item/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
-	if(istype(I, /obj/item/organ/external/head))
+/obj/item/material/twohanded/spear/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/organ/external/head))
 		to_chat(user, "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>")
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
-		I.transform = M
-		usr.drop_from_inventory(I,HS)
-		var/mutable_appearance/MA = new(I)
+		attacking_item.transform = M
+		usr.drop_from_inventory(attacking_item, HS)
+		var/mutable_appearance/MA = new(attacking_item)
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)
-		HS.name = "[I.name] on a spear"
+		HS.name = "[attacking_item.name] on a spear"
 		HS.material = material.name
 		qdel(src)
 		return
 
-	if(istype(I, /obj/item/grenade))
-		to_chat(user, "<span class='notice'>You strap \the [I] to \the [src].</span>")
-		user.unEquip(I)
-		I.forceMove(src)
-		explosive = I
+	if(istype(attacking_item, /obj/item/grenade))
+		to_chat(user, "<span class='notice'>You strap \the [attacking_item] to \the [src].</span>")
+		user.unEquip(attacking_item)
+		attacking_item.forceMove(src)
+		explosive = attacking_item
 		update_icon()
 		return
 	return ..()
@@ -352,7 +352,7 @@
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	force_unwielded = 10
 	force_wielded = 20
 	throwforce = 5
@@ -405,7 +405,7 @@
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
-	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
+	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 25, 0, 30)
 	force_unwielded = 30
 	force = force_unwielded
 	force_wielded = 60
@@ -463,7 +463,7 @@
 		FuelToRemove = 1
 		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			if(prob(25) && isliving(loc))
 				if(loc.flash_act())
 					to_chat(loc, SPAN_DANGER("Some stray sparks fly into your eyes!"))
@@ -472,17 +472,17 @@
 
 	RemoveFuel(FuelToRemove)
 
-/obj/item/material/twohanded/chainsaw/examine(mob/user, distance, is_adjacent)
+/obj/item/material/twohanded/chainsaw/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel.")
+		. += "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel."
 		if(powered)
-			to_chat(user, SPAN_NOTICE("It is currently powered on."))
+			. += SPAN_NOTICE("It is currently powered on.")
 
 /obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
 	if(powered)
-		playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 		RemoveFuel(3)
 
 /obj/item/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
@@ -496,7 +496,7 @@
 		if(!istype(O))
 			user.visible_message(SPAN_DANGER("[user] revs the chainsaw!"), SPAN_WARNING("You rev the chainsaw!"), SPAN_WARNING("You hear a chainsaw rev!"))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+			playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 			RemoveFuel(3)
 	. = ..()
 
@@ -538,7 +538,7 @@
 	base_icon = "pike"
 	name = "pike"
 	desc = "A long spear used by the infantry in ancient times."
-	force = 5
+	force = 11
 	unwielded_force_divisor = 0.2
 	force_divisor = 0.3
 	edge = TRUE
@@ -558,7 +558,7 @@
 	base_icon = "halberd"
 	name = "halberd"
 	desc = "A sharp axe mounted on the top of a long spear."
-	force = 10
+	force = 15
 	unwielded_force_divisor = 0.4
 	force_divisor = 0.6
 	sharp = 1
@@ -639,7 +639,7 @@
 	base_icon = "zweihander"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
-	force = 20
+	force = 25
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30

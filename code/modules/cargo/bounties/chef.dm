@@ -234,7 +234,9 @@
 			/obj/item/reagent_containers/food/snacks/sliceable/grilled_carp,
 			/obj/item/reagent_containers/food/snacks/sliceable/sushi_roll,
 			/obj/item/reagent_containers/food/snacks/stuffed_meatball,
-			/obj/item/reagent_containers/food/snacks/chilied_eggs)
+			/obj/item/reagent_containers/food/snacks/chilied_eggs,
+			/obj/item/reagent_containers/food/snacks/sliceable/eyebowl,
+			/obj/item/reagent_containers/food/snacks/hatchbowl)
 
 /datum/bounty/item/chef/tajara
 	name = "Adhomai Delicacies"
@@ -328,7 +330,7 @@
 	)
 /datum/bounty/item/chef/roulades
 	name = "Roulades"
-	description = "%BOSSNAME is retiring after many beloved years in the company and we need some tasty treats for the retirement party we're throwing them."
+	description = "%PERSONNAME is retiring after many beloved years in the company and we need some tasty treats for the retirement party we're throwing them."
 	reward_low = 2600
 	reward_high = 3500
 	required_count = 2

@@ -18,13 +18,29 @@
 	var/list/attached_overlays = null
 	var/obj/item/device/assembly_holder/holder = null
 	var/cooldown = 0 //To prevent spam
-	var/wires = WIRE_RECEIVE | WIRE_PULSE
 
-	var/const/WIRE_RECEIVE = 1			//Allows Pulsed(0) to call Activate()
-	var/const/WIRE_PULSE = 2				//Allows Pulse(0) to act on the holder
-	var/const/WIRE_PULSE_SPECIAL = 4		//Allows Pulse(0) to act on the holders special assembly
-	var/const/WIRE_RADIO_RECEIVE = 8		//Allows Pulsed(1) to call Activate()
-	var/const/WIRE_RADIO_PULSE = 16		//Allows Pulse(1) to send a radio message
+	/**
+	 * Wires that the assembly has installed
+	 *
+	 * Refer to `code\__DEFINES\wires.dm` in the dedicated section for the supported wires, which _must_ be bitflags
+	 *
+	 * At the time of writing this, it supports:
+	 * * WIRE_RECEIVE_ASSEMBLY
+	 * * WIRE_PULSE_ASSEMBLY
+	 * * WIRE_PULSE_SPECIAL
+	 * * WIRE_RADIO_RECEIVE
+	 * * WIRE_RADIO_PULSE
+	 */
+	var/wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY
+
+/obj/item/device/assembly/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+
+	holder = null
+	cut_overlays()
+	attached_overlays = null
+
+	. = ..()
 
 /obj/item/device/assembly/proc/holder_movement()
 	return
@@ -39,7 +55,7 @@
 
 // Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
 /obj/item/device/assembly/proc/pulsed(var/radio = 0)
-	if(holder && (wires & WIRE_RECEIVE))
+	if(holder && (wires & WIRE_RECEIVE_ASSEMBLY))
 		activate()
 	if(radio && (wires & WIRE_RADIO_RECEIVE))
 		activate()
@@ -47,7 +63,7 @@
 
 // Called when this device attempts to act on another device, var/radio determines if it was sent via radio or direct
 /obj/item/device/assembly/proc/pulse(var/radio = 0)
-	if(holder && (wires & WIRE_PULSE))
+	if(holder && (wires & WIRE_PULSE_ASSEMBLY))
 		holder.process_activation(src, TRUE, FALSE)
 	if(holder && (wires & WIRE_PULSE_SPECIAL))
 		holder.process_activation(src, FALSE, TRUE)
@@ -73,13 +89,13 @@
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/attackby(obj/item/W, mob/user)
-	if(isassembly(W))
-		var/obj/item/device/assembly/A = W
+/obj/item/device/assembly/attackby(obj/item/attacking_item, mob/user)
+	if(isassembly(attacking_item))
+		var/obj/item/device/assembly/A = attacking_item
 		if(!A.secured && !secured)
 			attach_assembly(A, user)
 			return
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(toggle_secure())
 			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else
@@ -92,13 +108,13 @@
 	return
 
 
-/obj/item/device/assembly/examine(mob/user, distance, is_adjacent)
+/obj/item/device/assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 || loc == user)
 		if(secured)
-			to_chat(user, "\The [src] is ready!")
+			. += "\The [src] is ready!"
 		else
-			to_chat(user, "\The [src] can be attached!")
+			. += "\The [src] can be attached!"
 
 
 /obj/item/device/assembly/attack_self(mob/user)
@@ -116,3 +132,5 @@
 	// Sets the UI host to the transfer valve if its mounted on a transfer_valve
 	if(istype(loc,/obj/item/device/transfer_valve))
 		return loc
+
+	return holder || .

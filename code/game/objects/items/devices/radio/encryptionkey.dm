@@ -13,7 +13,7 @@
 	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
 	var/list/additional_channels = list()
 
-/obj/item/device/encryptionkey/attackby(obj/item/W, mob/user)
+/obj/item/device/encryptionkey/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/device/encryptionkey/ship
@@ -21,24 +21,31 @@
 	channels = list()
 
 /obj/item/device/encryptionkey/ship/Initialize()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
-		if(V.comms_name)
+		var/freq_name = V.name
+		if(V.freq_name)
+			freq_name = V.freq_name
+			name = "[V.freq_name] encryption key"
+		else if(V.comms_name)
 			name = "[V.comms_name] encryption key"
 
 		channels += list(
-			"[V.name]" = TRUE,
+			"[freq_name]" = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
 
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/encryptionkey/ship/common
@@ -133,6 +140,11 @@
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE)
 
+/obj/item/device/encryptionkey/headset_xenoarch
+	name = "xenoarchaeology radio encryption key"
+	icon_state = "sci_cypherkey"
+	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_HAILING = TRUE)
+
 /obj/item/device/encryptionkey/headset_medsci
 	name = "medical research radio encryption key"
 	icon_state = "medsci_cypherkey"
@@ -182,7 +194,7 @@
 /obj/item/device/encryptionkey/headset_cargo
 	name = "operations radio encryption key"
 	icon_state = "cargo_cypherkey"
-	channels = list(CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/headset_operations_manager
 	name = "operations managaer radio encryption key"
@@ -200,7 +212,7 @@
 
 /obj/item/device/encryptionkey/onlyert
 	name = "\improper ERT radio encryption key"
-	channels = list(CHANNEL_RESPONSE_TEAM = TRUE)
+	channels = list(CHANNEL_RESPONSE_TEAM = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/rev
 	name = "standard encryption key"

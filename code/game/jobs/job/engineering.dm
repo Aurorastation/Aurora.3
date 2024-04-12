@@ -17,29 +17,22 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	ideal_character_age = list(
-		SPECIES_HUMAN = 50,
-		SPECIES_SKRELL = 100,
-		SPECIES_SKRELL_AXIORI = 100
-	)
+	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
+					ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS,
+					ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING,
+					ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT, ACCESS_INTREPID, ACCESS_NETWORK)
 
-
-	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
-					access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
-					access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-					access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid, access_network)
-
-	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
-							access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
-							access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-							access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid, access_network)
+	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
+							ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS,
+							ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING,
+							ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_NETWORK)
 
 	minimal_player_age = 7
-	outfit = /datum/outfit/job/chief_engineer
+	outfit = /obj/outfit/job/chief_engineer
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/chief_engineer
+/obj/outfit/job/chief_engineer
 	name = "Chief Engineer"
 	jobtype = /datum/job/chief_engineer
 	box = /obj/item/storage/box/survival/engineer
@@ -65,7 +58,7 @@
 	dufflebag = /obj/item/storage/backpack/duffel/ce
 	messengerbag = /obj/item/storage/backpack/messenger/ce
 
-/datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
@@ -95,13 +88,13 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_ship_weapons, access_external_airlocks, access_construction, access_atmospherics, access_leviathan)
-	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_ship_weapons, access_external_airlocks, access_construction, access_leviathan)
-	outfit = /datum/outfit/job/engineer
+	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
+	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN)
+	outfit = /obj/outfit/job/engineer
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/engineer
+/obj/outfit/job/engineer
 	name = "Engineer"
 	jobtype = /datum/job/engineer
 	box = /obj/item/storage/box/survival/engineer
@@ -135,7 +128,7 @@
 		/obj/item/powerdrill = 1
 	)
 
-/datum/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
@@ -163,12 +156,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
-	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
-	outfit = /datum/outfit/job/atmos
+	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
+	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
+	outfit = /obj/outfit/job/atmos
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/atmos
+/obj/outfit/job/atmos
 	name = "Atmospheric Technician"
 	jobtype = /datum/job/atmos
 	box = /obj/item/storage/box/survival/engineer
@@ -202,7 +195,7 @@
 		/obj/item/powerdrill = 1
 	)
 
-/datum/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
@@ -218,15 +211,15 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	alt_titles = list("Atmospherics Apprentice")
-	alt_outfits = list("Atmospherics Apprentice" = /datum/outfit/job/intern_atmos)
+	alt_outfits = list("Atmospherics Apprentice" = /obj/outfit/job/intern_atmos)
 	total_positions = 3
 	spawn_positions = 3
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"
-	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
-	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
-	outfit = /datum/outfit/job/intern_eng
+	access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)
+	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)
+	outfit = /obj/outfit/job/intern_eng
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 	minimum_character_age = list(
@@ -235,7 +228,7 @@
 		SPECIES_SKRELL_AXIORI = 58
 	)
 
-/datum/outfit/job/intern_eng
+/obj/outfit/job/intern_eng
 	name = "Engineering Apprentice"
 	jobtype = /datum/job/intern_eng
 	box = /obj/item/storage/box/survival/engineer
@@ -267,7 +260,7 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
 
-/datum/outfit/job/intern_atmos
+/obj/outfit/job/intern_atmos
 	name = "Atmospherics Apprentice"
 	jobtype = /datum/job/intern_eng
 	box = /obj/item/storage/box/survival/engineer

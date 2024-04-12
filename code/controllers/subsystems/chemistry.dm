@@ -1,18 +1,14 @@
 SUBSYSTEM_DEF(chemistry)
 	name = "Chemistry"
 	priority = SS_PRIORITY_CHEMISTRY
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	runlevels = RUNLEVELS_PLAYING
 	init_stage = INITSTAGE_EARLY
 
 	var/list/active_holders = list()
 	var/list/chemical_reactions
 	var/list/chemical_reactions_clean = list()
-
 	var/tmp/list/processing_holders = list()
-	var/list/codex_data = list()
-	var/list/codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
-	var/list/codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
 
 /datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/_R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
 	var/singleton/reagent/R = GET_SINGLETON(_R)
@@ -82,12 +78,12 @@ SUBSYSTEM_DEF(chemistry)
 
 /datum/controller/subsystem/chemistry/Initialize()
 	initialize_chemical_reactions()
-	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
 	log_subsystem_chemistry("Found [pre_secret_len] reactions.")
 	log_subsystem_chemistry("Loaded [load_secret_chemicals()] secret reactions.")
 	initialize_specific_heats() // must be after reactions
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if (!resumed)
@@ -181,53 +177,3 @@ SUBSYSTEM_DEF(chemistry)
 			chemical_reactions[rtype] += D
 		if(D.type)
 			chemical_reactions_clean[D.type] = D
-
-// Creates data for chemical codex
-/datum/controller/subsystem/chemistry/proc/initialize_codex_data()
-	codex_data = list()
-	for(var/chem_path in chemical_reactions_clean)
-		if(codex_ignored_reaction_path && is_path_in_list(chem_path, codex_ignored_reaction_path))
-			continue
-		var/datum/chemical_reaction/CR = new chem_path
-		if(!CR.result)
-			continue
-		if(codex_ignored_result_path && is_path_in_list(CR.result, codex_ignored_result_path))
-			continue
-		var/singleton/reagent/R = GET_SINGLETON(CR.result)
-		var/reactionData = list(id = CR.id)
-		reactionData["result"] = list(
-			name = R.name,
-			description = R.description,
-			amount = CR.result_amount
-		)
-
-		reactionData["reagents"] = list()
-		for(var/reagent in CR.required_reagents)
-			var/singleton/reagent/required_reagent = reagent
-			reactionData["reagents"] += list(list(
-				name = initial(required_reagent.name),
-				amount = CR.required_reagents[reagent]
-			))
-
-		reactionData["catalysts"] = list()
-		for(var/reagent_path in CR.catalysts)
-			var/singleton/reagent/required_reagent = reagent_path
-			reactionData["catalysts"] += list(list(
-				name = initial(required_reagent.name),
-				amount = CR.catalysts[reagent_path]
-			))
-
-		reactionData["inhibitors"] = list()
-		for(var/reagent_path in CR.inhibitors)
-			var/singleton/reagent/required_reagent = reagent_path
-			var/inhibitor_amount = CR.inhibitors[reagent_path] ? CR.inhibitors[reagent_path] : "Any"
-			reactionData["inhibitors"] += list(list(
-				name = initial(required_reagent.name),
-				amount = inhibitor_amount
-			))
-
-		reactionData["temp_min"] = CR.required_temperature_min
-
-		reactionData["temp_max"] = CR.required_temperature_max
-
-		codex_data += list(reactionData)

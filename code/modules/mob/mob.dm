@@ -3,25 +3,32 @@
 #define FULLY_BUCKLED 2
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
-	mob_list -= src
-	dead_mob_list -= src
-	living_mob_list -= src
+	MOB_STOP_THINKING(src)
+
+	GLOB.mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 	lose_hearing_sensitivity()
+
+	QDEL_LIST(spell_masters)
+	remove_screen_obj_references()
+
 	if(client)
-		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
-			qdel(spell_master)
-		remove_screen_obj_references()
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
+
 	if (mind)
 		mind.handle_mob_deletion(src)
+
 	for(var/infection in viruses)
 		qdel(infection)
+
 	for(var/cc in client_colors)
 		qdel(cc)
+
 	client_colors = null
 	viruses.Cut()
 	item_verbs = null
@@ -41,10 +48,14 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
-	MOB_STOP_THINKING(src)
+	QDEL_NULL(ability_master)
 
 	return ..()
 
+/mob/New()
+	// This needs to happen IMMEDIATELY. I'm sorry :(
+	GenerateTag()
+	return ..()
 
 /mob/proc/remove_screen_obj_references()
 	flash = null
@@ -76,16 +87,25 @@
 /mob/Initialize()
 	. = ..()
 	if(should_add_to_mob_list)
-		mob_list += src
+		GLOB.mob_list += src
 		if(stat == DEAD)
-			dead_mob_list += src
+			GLOB.dead_mob_list += src
 		else
-			living_mob_list += src
+			GLOB.living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
 	become_hearing_sensitive()
+
+/**
+ * Generate the tag for this mob
+ *
+ * This is simply "mob_"+ a global incrementing counter that goes up for every mob
+ */
+/mob/GenerateTag()
+	. = ..()
+	tag = "mob_[next_mob_id++]"
 
 /mob/verb/say_wrapper()
 	set name = ".Say"
@@ -137,32 +157,26 @@
 		to_chat(src, msg)
 	return
 
-// Show a message to all mobs and objects in sight of this one
-// This would be for visible actions by the src mob
-// message is the message output to anyone who can see e.g. "[src] does something!"
-// self_message (optional) is what the src mob sees  e.g. "You do something!"
-// blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
-	for(var/A in player_list)
+	for(var/A in GLOB.player_list)
 		var/mob/M = A
 		if (QDELETED(M))
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
-			player_list -= M
+			GLOB.player_list -= M
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
-	for(var/o in listening_objects)
+	for(var/o in GLOB.listening_objects)
 		var/obj/O = o
 		var/turf/O_turf = get_turf(O)
 		if(O && (O_turf in messageturfs))
@@ -241,7 +255,7 @@
 		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.real_name == text("[]", msg))
 			return M
 	return 0
@@ -466,7 +480,7 @@
 		return//This shouldnt happen
 
 	var/failure = null
-	if (!( config.abandon_allowed ))
+	if (!( GLOB.config.abandon_allowed ))
 		failure = "Respawn is disabled."
 	else if (stat != DEAD)
 		failure = "You must be dead to use this!"
@@ -514,16 +528,14 @@
 /client/verb/changes()
 	set name = "Changelog"
 	set category = "OOC"
-	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
-	changelog.send(src)
+	if(!GLOB.changelog_tgui)
+		GLOB.changelog_tgui = new /datum/changelog()
 
-	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
-	changelog_win.set_content(file2text('html/changelog.html'))
-	changelog_win.open()
-	if(prefs.lastchangelog != changelog_hash)
-		prefs.lastchangelog = changelog_hash
+	GLOB.changelog_tgui.ui_interact(mob)
+	if(prefs.lastchangelog != GLOB.changelog_hash)
+		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
-		winset(src, "rpane.changelog", "background-color=none;font-style=;")
+		winset(src, "infowindow.changelog", "font-style=;")
 
 /mob/verb/observe()
 	set name = "Observe"
@@ -577,7 +589,7 @@
 			creatures[name] = O
 
 
-	for(var/mob/M in sortAtom(mob_list))
+	for(var/mob/M in sortAtom(GLOB.mob_list))
 		var/name = M.name
 		if (names.Find(name))
 			namecounts[name]++
@@ -731,6 +743,7 @@
 
 	src.pulling = AM
 	AM.pulledby = src
+	SSmove_manager.stop_looping(AM)
 
 	if(pullin)
 		pullin.icon_state = "pull1"
@@ -1318,7 +1331,7 @@
 
 
 /mob/proc/is_clumsy()
-	return HAS_FLAG(mutations, CLUMSY)
+	return (mutations & CLUMSY)
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()
@@ -1386,6 +1399,58 @@
 /mob/proc/get_actions_for_statpanel()
 	var/list/data = list()
 	return data
+
+/mob/proc/get_weather_protection()
+	for(var/obj/item/brolly in get_active_hand())
+		if(brolly.gives_weather_protection())
+			LAZYADD(., brolly)
+	if(!LAZYLEN(.))
+		for(var/turf/T as anything in RANGE_TURFS(1, loc))
+			for(var/obj/structure/flora/tree in T)
+				if(tree.protects_against_weather)
+					LAZYADD(., tree)
+
+/mob/living/carbon/human/get_weather_protection()
+	. = ..()
+	if(!LAZYLEN(.))
+		var/obj/item/clothing/head/check_head = get_equipped_item(slot_head_str)
+		if(!istype(check_head) || !check_head.protects_against_weather)
+			return
+		var/obj/item/clothing/suit/check_body = get_equipped_item(slot_wear_suit_str)
+		if(!istype(check_body) || !check_body.protects_against_weather)
+			return
+		LAZYADD(., check_head)
+		LAZYADD(., check_body)
+
+/mob/proc/get_weather_exposure()
+
+	// We're inside something else.
+	if(!isturf(loc))
+		return WEATHER_IGNORE
+
+	var/turf/T = loc
+	// We're under a roof or otherwise shouldn't be being rained on.
+	if(!T.is_outside())
+
+		// For non-multiz we'll give everyone some nice ambience.
+		if(!HasAbove(T.z))
+			return WEATHER_ROOFED
+
+		// For multi-z, check the actual weather on the turf above.
+		// TODO: maybe make this a property of the z-level marker.
+		var/turf/above = GetAbove(T)
+		if(above.weather)
+			return WEATHER_ROOFED
+
+		// Being more than one level down should exempt us from ambience.
+		return WEATHER_IGNORE
+
+	// Nothing's protecting us from the rain here
+	var/list/weather_protection = get_weather_protection()
+	if(LAZYLEN(weather_protection))
+		return WEATHER_PROTECTED
+
+	return WEATHER_EXPOSED
 
 #undef UNBUCKLED
 #undef PARTIALLY_BUCKLED

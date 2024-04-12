@@ -1,0 +1,227 @@
+2019-08-01:
+  Arrow768:
+  - backend: Overhauls response team stats collection.
+2019-08-02:
+  Geeves:
+  - rscadd: The liver now slowly heals toxin damage, and will take damage if the toxins
+      it filters is of a substantial amount.
+  Skull132:
+  - backend: Enabled the restriction of ghosts' ability to speak in LOOC via config.
+2019-08-03:
+  PoZe:
+  - bugfix: Detached nymph now switches back to gestalt automatically upon death.
+  Skull132:
+  - bugfix: Fixes the integrted circuits printer not being able to print specific
+      components. Sorry it took so long, gents.
+  VTCobaltblood:
+  - tweak: Tajara are now allowed to be Hephaestus contractors.
+  - tweak: Zeng-Hu contractors are now allowed to be Roboticists and Xenobiologists.
+      Idris and Hephaestus contractors are now allowed to be Quartermasters. Idris
+      contractors are allowed to be Detectives, and Necropolis ones can be Forensic
+      Technicians.
+  - bugfix: Contractor alt-titles now properly spawn in uniforms.
+2019-08-04:
+  Karolis2011:
+  - rscadd: Added new player panel to make player management easier.
+  Naelynn:
+  - balance: Adjusted merchant economy. Traders also start with larger inventory
+  - tweak: Less list bloat - multiple traders reclassified as stations - should make
+      getting high-demand stuff easier.
+  - tweak: Adjusted inventory of multiple traders (Food, robot, ai, electronics, vox,
+      mining, blob)
+  - rscadd: 'Added options to sell certain items to food and mining merchants. '
+  - rscdel: Deleted machine ai beacons selling plushies for no reason. Deleted Wizard
+      merchant.
+  - rscadd: Added bulk-buy [boxes] to ai traders
+  - spellcheck: Fixed a few grammatical errors and inconsistensies
+  - rscadd: Added a completely new trader - Cyndie Kate is willing to trade you highly
+      illegal and dangerous items
+  Skull132 by advice of Lohikar:
+  - bugfix: Shadows in open spaces were supposedly twice as dark as they should be.
+  VTCobaltblood:
+  - bugfix: Removed Idris Battle Chef Detectives.
+2019-08-05:
+  MoondancerPony:
+  - rscadd: Added more punctuation to autopunctuation.
+2019-08-06:
+  Arrow768:
+  - maptweak: Fixes a few oversights in the protection of admin-areas on the odin.
+2019-08-07:
+  Arrow768:
+  - bugfix: Head of Staff access has been removed from representatives. They can still
+      get to their office and access the records.
+  Lady Fowl:
+  - refactor: Added support for multiple synthetic sprites, aswell as custom pai's
+      and holograms.
+  PoZe:
+  - tweak: A.L.I.C.E. has been replaced by Bubble.
+2019-08-08:
+  MattAtlas:
+  - tweak: Lowered the volume of all arcade machine sounds.
+  - rscdel: Removed the PDA ID extraction sound.
+  VTCobaltblood:
+  - maptweak: Replaced one of the tables in Robotics manufacturing with a RIG module
+      press.
+2019-08-09:
+  Alberyk:
+  - bugfix: Fixed hungry and thirsty movement calculations not working correctly with
+      some species.
+2019-08-10:
+  Alberyk, Kyres1:
+  - rscadd: Replaces three space ruins with a single bigger one, the scrapheap.
+2019-08-11:
+  Arrow768:
+  - bugfix: Unlimited ghostspawners no longer disable themselfs after the first spawn.
+  - tweak: Removed the respawn delay from visitor/pod survivors.
+  - bugfix: Fixes the gear of various ghostroles.
+  - bugfix: Fixes the pause/resume message of the ccia recorder being inverted.
+  VTCobaltblood:
+  - rscdel: Removed positronic brains from the protolathe designs list.
+  - maptweak: Gave Robotics some more posibrains.
+2019-08-13:
+  Arrow768:
+  - tweak: Changes the gear of some ghost-spawners.
+  - tweak: Displays the species a player will be spawned in as, when they select a
+      name.
+  - tweak: Automatically removes the prefix/suffix from the name if someone accidently
+      enters it at a ghost-spawner prompt.
+  Furrycactus:
+  - maptweak: Added several more light switches around the station.
+  - maptweak: Removed security cameras from construction level again.
+  - maptweak: Added a radiation suit locker to the Research department in Telescience.
+  - maptweak: Solar arrays were made more compact so that they're faster to set up
+      and use less cable. Extra cable coil added to the roof solar array.
+  - tweak: Solar SMES units have a slightly higher input and output capacity at roundstart.
+  VTCobaltblood:
+  - bugfix: Central Commands actually tells you what gun values it wants, not what
+      it compares against.
+  - bugfix: Central Command no longer wants impossible guns.
+2019-08-15:
+  Sue:
+  - maptweak: Remapped the forensics office and autopsy lab.
+2019-08-16:
+  Geeves:
+  - tweak: Livers can withstand slightly more toxin before getting damaged. Vaurca
+      and Vox livers are much more robust, and will not perish when switching masks.
+  PoZe:
+  - tweak: Changes malf gravity malfunction ability to only work for a specific area
+      in which AI eye is looking at.
+  - bugfix: The gravity malfunction malf ability now counts for people who have magboots
+      on and will not affect them.
+  - bugfix: AI core no longer falls if it is anchored. Meaning it won't get damage
+      from its own malf gravity ability.
+  - tweak: Updated Malf manual to include new abilities and some old one too.
+  Skull132:
+  - bugfix: Random staff will no longer see Discord-PMs. Only R_MOD and R_ADMIN staff
+      will.
+  - backend: Remote TGS restart command implemented.
+  - tweak: Remote announce formatting changed to match the real announce.
+  VTCobaltblood:
+  - rscadd: Added a few pod survivor loadouts.
+  VTCobaltblood, Alberyk, Bygonehero:
+  - tweak: Adjusted Sol Alliance representative missions, and starting item, to better
+      suit new citizenship lore.
+  - tweak: Changed Tau Ceti visas, and objectives related to them, to TCFL recruitment
+      papers.
+  - rscadd: Added a system that expands upon citizenship and religion choices on the
+      character creation setup.
+2019-08-17:
+  Alberyk:
+  - bugfix: Vaurca can now select Jargon Federation citizenship.
+  Arrow768:
+  - tweak: The ghostspawner asks what species is wanted, if multiple species are possible
+      for a spawnpoint.
+  - tweak: Changes the RCD to only work on station levels.
+  ParadoxSpace:
+  - rscdel: The security cyborg module has been removed.
+  - rscadd: Combat and Syndicate modules now have handcuffs, for non-lethal capturing.
+  Skull132:
+  - bugfix: Fixes the breeder vaurca having to ask for hot pink colours from admins.
+2019-08-18:
+  CodePanter:
+  - spellcheck: Fixed typos and grammar in the NTSL2+ For Dummies book.
+  - bugfix: Fixed the four lethal turrets in telecoms not being controlled by their
+      turret controller.
+  Mwahahahaha:
+  - rscadd: 'Adds hair tying from BS12. Humans only for now :crying_cat_face:'
+  - rscadd: Adds the ability to toggle shoe icon layer so that it can go under your
+      interior clothing (jumpsuit).
+2019-08-19:
+  Alberyk:
+  - tweak: Black K'ois brain damage now has a limit.
+  - tweak: Black k'ois plants have their proper name now.
+  PoZe:
+  - refactor: Traps have been refectored code-wise to work like chairs/beds. Hence
+      eliminating craptons of bugs.
+  - spellcheck: Fixed spelling in messages from traps.
+  VTCobaltblood:
+  - tweak: Buttons now leave a visible message in chat when pressed.
+2019-08-20:
+  Ferner:
+  - bugfix: Fixed a wrongly placed turf on one of the derelicts that lead to travis
+      errors.
+2019-08-22:
+  Ferner:
+  - tweak: Barricades now have a noise and shake when you attack them.
+  - sounddel: Disabled drop sounds for pets.
+  ParadoxSpace:
+  - rscadd: Adds complete colorblindness to the disabilities menu.
+2019-08-24:
+  CodePanter:
+  - bugfix: Fixed Vaurca Consular Officers not getting their mission fax.
+  Ferner:
+  - maptweak: Remapped the representative office fully and the kitchen partially,
+      as well as some parts of maintenance.
+  - maptweak: Tweaked the elevator maintenance area, added a recharger to cargo, widened
+      the mining airlock, replaced a couple cigarette vendors on the main floor with
+      coffee vendors, removed some leftover cameras from the construction level, removed
+      some duplicate light switches and added a chest drawer to the bar backroom as
+      well as turning the bar back into steel.
+  Wowzewow:
+  - imageadd: Resprites bibles, some melee weapons and shields.
+2019-08-25:
+  MoondancerPony:
+  - rscadd: Ports a bunch of circuits from Polaris.
+  - tweak: Energy siphons can now restore nutrients/energy to the host at a reduced
+      efficiency.
+  Mwahahahaha:
+  - rscadd: Added 6 new IPC screens made by NiennaB (eye, heartrate, static2, static3,
+      cancel, testcard).
+  - rscadd: Ported 8 new IPC screens from Polaris (blank, scroll, console, RGB, GoL
+      glider, rainbow, smiley, database).
+  VTCobaltblood:
+  - maptweak: Research's biohazard shutter now properly shields Research from the
+      world, and the world from Research. Robotics not included.
+  - rscadd: Added apple juice.
+  - tweak: The solution no longer bubbles when you add milk to coffee.
+2019-08-26:
+  Geeves:
+  - tweak: Adjusts the size of the EFTPOS scanner to be more sensible. Fits in pockets
+      now.
+2019-08-27:
+  Alberyk:
+  - rscdel: Removed the synthetic intelligence movement armband.
+  Karolis2011:
+  - bugfix: Voting window will show things correctly.
+2019-08-28:
+  Alberyk:
+  - tweak: Using your adrenal management system as aut'akh should no longer deal toxin
+      damage.
+2019-08-30:
+  CodePanter:
+  - bugfix: Fixed inconsistent 'Request Console' names and changed them to 'Requests
+      Console'.
+  - bugfix: Renamed three improperly named Requests Consoles.
+  - bugfix: Set more appropriate Department Types for four Requests Consoles.
+  Naelynn:
+  - rscdel: Removed boxes from ai trader due to improper cost.
+  Skull132:
+  - tweak: Shrapnel no longer causes direct damage. Instead, it causes HALLOSS.
+2019-08-31:
+  Geeves:
+  - tweak: It is no longer possible to choke out a species that doesn't breathe, popping
+      their lung. Nor does sleeping carp knock their air out anymore.
+  - tweak: Fixed text error when you get hit in the teabag, in the crown jewels, in
+      the future bloodline.
+  MoondancerPony:
+  - bugfix: Fixes a myriad of circuit-related bugs.

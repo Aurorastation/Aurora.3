@@ -114,7 +114,7 @@
 	controller = new(src)
 	update_nearby_tiles(need_rebuild=1)
 
-	if(length(SSshuttle.shuttle_areas) && !length(SSshuttle.shuttles_to_initialize) && SSshuttle.init_state == SS_INITSTATE_DONE)
+	if(length(SSshuttle.shuttle_areas) && !length(SSshuttle.shuttles_to_initialize) && SSshuttle.initialized)
 		for(var/obj/effect/overmap/visitable/ship/S as anything in SSshuttle.ships)
 			if(S.check_ownership(src))
 				S.engines |= controller
@@ -198,7 +198,7 @@
 	if(!removed)
 		return 0
 	. = calculate_thrust(removed)
-	playsound(loc, 'sound/machines/thruster.ogg', 100 * thrust_limit * power_modifier, 0, world.view * 4, 0.1, is_global = TRUE)
+	playsound(loc, 'sound/machines/thruster.ogg', 70 * thrust_limit * power_modifier, 0, world.view * 4, 0.1)
 	if(network)
 		network.update = 1
 

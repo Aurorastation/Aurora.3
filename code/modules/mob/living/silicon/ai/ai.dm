@@ -126,7 +126,7 @@ var/list/ai_verbs_default = list(
 	var/pickedName
 	while(!pickedName)
 		pickedName = pick(ai_names)
-		for(var/mob/living/silicon/ai/A in mob_list)
+		for(var/mob/living/silicon/ai/A in GLOB.mob_list)
 			if(A.real_name == pickedName && length(possibleNames) > 1) //fixing the theoretically possible infinite loop
 				possibleNames -= pickedName
 				pickedName = null
@@ -157,7 +157,7 @@ var/list/ai_verbs_default = list(
 	//Languages
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_TCB, TRUE)
-	add_language(LANGUAGE_SOL_COMMON, FALSE)
+	add_language(LANGUAGE_SOL_COMMON, TRUE)
 	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)
 	add_language(LANGUAGE_UNATHI, FALSE)
 	add_language(LANGUAGE_SIIK_MAAS, FALSE)
@@ -173,7 +173,7 @@ var/list/ai_verbs_default = list(
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if(!B)//If there is no player/brain inside.
-			empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(get_turf(src))//New empty terminal.
+			GLOB.empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(get_turf(src))//New empty terminal.
 			qdel(src) //Delete AI.
 			return
 		else
@@ -295,7 +295,7 @@ var/list/ai_verbs_default = list(
 		id_card.registered_name = pickedName
 		id_card.assignment = "AI"
 		id_card.access = get_all_station_access()
-		id_card.access += access_equipment
+		id_card.access += ACCESS_EQUIPMENT
 		id_card.update_name()
 
 	if(client)
@@ -419,7 +419,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement")
+	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement", multiline = TRUE)
 	if(!input)
 		return
 
@@ -475,12 +475,12 @@ var/list/ai_verbs_default = list(
 	if(emergency_message_cooldown)
 		to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 		return
-	var/input = sanitize(input(usr, "Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
+	var/input = sanitize(input(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
 		return
 	Centcomm_announce(input, usr)
 	to_chat(usr, "<span class='notice'>Message transmitted.</span>")
-	log_say("[key_name(usr)] has made an AI [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
+	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0
@@ -516,7 +516,7 @@ var/list/ai_verbs_default = list(
 		unset_machine()
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
-		switchCamera(locate(href_list["switchcamera"])) in cameranet.cameras
+		switchCamera(locate(href_list["switchcamera"])) in GLOB.cameranet.cameras
 	//Carn: holopad requests
 	if (href_list["jumptoholopad"])
 		var/obj/machinery/hologram/holopad/H = locate(href_list["jumptoholopad"])
@@ -527,7 +527,7 @@ var/list/ai_verbs_default = list(
 				to_chat(src, "<span class='notice'>Unable to locate the holopad.</span>")
 
 	if (href_list["track"])
-		var/mob/target = locate(href_list["track"]) in mob_list
+		var/mob/target = locate(href_list["track"]) in GLOB.mob_list
 
 		if(target && (!istype(target, /mob/living/carbon/human) || html_decode(href_list["trackname"]) == target:get_face_name()))
 			ai_actual_track(target)
@@ -591,7 +591,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	var/list/cameralist = new()
-	for (var/obj/machinery/camera/C in cameranet.cameras)
+	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if(!C.can_use())
 			continue
 		var/list/tempnetwork = difflist(C.network,restricted_camera_networks,1)
@@ -615,7 +615,7 @@ var/list/ai_verbs_default = list(
 
 	src.network = network
 
-	for(var/obj/machinery/camera/C in cameranet.cameras)
+	for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if(!C.can_use())
 			continue
 		if(network in C.network)
@@ -726,16 +726,16 @@ var/list/ai_verbs_default = list(
 		camera_light_on = world.timeofday + 1 * 20 // Update the light every 2 seconds.
 
 
-/mob/living/silicon/ai/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/aicard))
+/mob/living/silicon/ai/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/aicard))
 
-		var/obj/item/aicard/card = W
+		var/obj/item/aicard/card = attacking_item
 		card.grab_ai(src, user)
 
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!W.use_tool(src, user, 40, volume = 50))
+			if(!attacking_item.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
@@ -744,7 +744,7 @@ var/list/ai_verbs_default = list(
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
-			if(!W.use_tool(src, user, 40, volume = 50))
+			if(!attacking_item.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")

@@ -1,3 +1,6 @@
+
+// ------------------------ base
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
 	name = "coffee cup"
 	desc = "A plain white coffee cup."
@@ -23,7 +26,8 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-// Nations
+// ------------------------ nations
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol
 	name = "\improper sol coffee cup"
 	desc = "A blue coffee cup emblazoned with the crest of the Sol Alliance."
@@ -89,7 +93,31 @@
 	desc = "A tricolor coffee cup bearing the flag of Europa."
 	icon_state = "coffeecup_europa"
 
-// Organisations
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/portantillia
+	name = "\improper Port Antillia coffee cup"
+	desc = "A tricolor coffee cup bearing the flag of Port Antillia."
+	icon_state = "coffeecup_portantillia"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/xanu
+	name = "\improper All-Xanu Republic coffee cup"
+	desc = "A coffee cup bearing the flag of the All-Xanu Republic."
+	icon_state = "coffeecup_xanu"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/galatea
+	name = "\improper Federal Technocracy of Galatea coffee cup"
+	desc = "A coffee cup bearing the flag of the Federal Technocracy of Galatea"
+	icon_state = "coffeecup_galatea"
+
+// ------------------------ orgs/corpos
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc
+	name = "\improper SCC coffee cup"
+	desc = "A coffee cup bearing the Stellar Corporate Conglomerate logo."
+	icon_state = "coffeecup_scc"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc/alt
+	icon_state = "coffeecup_scc_alt"
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	name = "\improper NT coffee cup"
 	desc = "A blue NanoTrasen coffee cup."
@@ -102,7 +130,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht
 	name = "\improper Hephaestus coffee cup"
-	desc = "A strong coffee cup with the hephaestus logo emblazoned on it."
+	desc = "A strong coffee cup with the Hephaestus Industries logo emblazoned on it."
 	icon_state = "coffeecup_hepht"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris
@@ -115,7 +143,26 @@
 	desc = "A coffee cup bearing the Zeng-Hu logo."
 	icon_state = "coffeecup_zeng"
 
-// Symbols, markings
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zavod
+	name = "\improper Zavodskoi coffee cup"
+	desc = "A coffee cup bearing the Zavodskoi Interstellar logo."
+	icon_state = "coffeecup_zavod"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion
+	name = "\improper Orion Express coffee cup"
+	desc = "A coffee cup bearing the Orion Express logo."
+	icon_state = "coffeecup_orion"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein
+	name = "\improper Einstein Engines coffee cup"
+	desc = "A coffee cup bearing the Einstein Engines logo."
+	icon_state = "coffeecup_einstein"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt
+	icon_state = "coffeecup_einstein_alt"
+
+// ------------------------ symbols, markings
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
 	name = "#1 coffee cup"
 	desc = "A white coffee cup, prominently featuring a #1."
@@ -186,7 +233,8 @@
 	desc = "A coffee cup featuring the image of a Zhan miner."
 	icon_state = "coffeecup_zhan"
 
-// Pure colors & other
+// ------------------------ pure colors & other
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
 	name = "black coffee cup"
 	desc = "A sleek black coffee cup."

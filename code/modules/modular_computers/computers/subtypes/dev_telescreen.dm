@@ -18,8 +18,8 @@
 	w_class = ITEMSIZE_HUGE
 	is_holographic = TRUE
 
-/obj/item/modular_computer/telescreen/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/item/modular_computer/telescreen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		if(anchored)
 			shutdown_computer()
 			anchored = FALSE
@@ -28,7 +28,7 @@
 			pixel_y = 0
 			to_chat(user, SPAN_NOTICE("You unsecure \the [src]."))
 		else
-			var/choice = input(user, "Where do you want to place \the [src]?", "Offset selection") in list("North", "South", "West", "East", "This tile", "Cancel")
+			var/choice = tgui_input_list(user, "Where do you want to place \the [src]?", "Offset selection", list("North", "South", "West", "East", "This tile", "Cancel"), "Cancel")
 			var/valid = FALSE
 			switch(choice)
 				if("North")

@@ -178,7 +178,7 @@
 		return
 
 	var/placement_dir = get_dir(user, A)
-	if (!(placement_dir in cardinal))
+	if (!(placement_dir in GLOB.cardinal))
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 
@@ -263,9 +263,9 @@
 	if(rip_linked && linked_flag)
 		linked_flag.rip(user, FALSE) // Prevents an infinite ripping loop.
 
-/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
+/obj/structure/sign/flag/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(W.isFlameSource())
+	if(attacking_item.isFlameSource())
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
 		if(!do_after(user, 2 SECONDS, src))
 			return FALSE
@@ -1329,6 +1329,49 @@
 /obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Golden Deep
+
+/obj/item/flag/goldendeep
+	name = "\improper Golden Deep flag"
+	desc = "The flag of the Golden Deep, depicting the Midas surrounded by a set of shields."
+	desc_extended = "The true meaning of the sigil on the Golden Deep's flag are shrouded in mystery and more than a few Estriconian merchants have dedicated small fortunes to studying it. The marking first appeared within the halls of the Midas; the Golden Deep's enormous and ancient mothership where the merchant collective is believed to have been founded. Whatever its original purpose, this sigil has since been co-opted by the Golden Deep and placed on a backdrop of gold, diamond, and black, symbolizing the collective's pursuit of wealth amidst the void of space. Wherever this flag flies, commerce is sure to follow."
+	flag_path = "goldendeep"
+	flag_structure = /obj/structure/sign/flag/goldendeep
+
+/obj/structure/sign/flag/goldendeep
+	name = "\improper Golden Deep flag"
+	desc = "The flag of the Golden Deep Collective."
+	desc_extended = "The true meaning of the sigil on the Golden Deep's flag are shrouded in mystery and more than a few Estriconian merchants have dedicated small fortunes to studying it. The marking first appeared within the halls of the Midas; the Golden Deep's enormous and ancient mothership where the merchant collective is believed to have been founded. Whatever its original purpose, this sigil has since been co-opted by the Golden Deep and placed on a backdrop of gold, diamond, and black, symbolizing the collective's pursuit of wealth amidst the void of space. Wherever this flag flies, commerce is sure to follow."
+	flag_path = "goldendeep"
+	icon_state = "goldendeep"
+	flag_item = /obj/item/flag/goldendeep
+
+/obj/structure/sign/flag/goldendeep/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/goldendeep/l
+	name = "large Golden Deep flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/goldendeep/large
+
+/obj/structure/sign/flag/goldendeep/large
+	icon_state = "goldendeep_l"
+	flag_path = "goldendeep"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/goldendeep/l
+
+/obj/structure/sign/flag/goldendeep/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/goldendeep/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/goldendeep/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/goldendeep/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Dominian Standards
 
 /obj/item/flag/diona
@@ -1386,7 +1429,7 @@
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
 	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
-	icon_state = "kazkhz"
+	icon_state = "kazhkz"
 	flag_item = /obj/item/flag/kazhkz
 
 /obj/item/flag/hansan
@@ -3026,3 +3069,223 @@
 
 /obj/structure/sign/flag/empyrean/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+//Scarab Fleet
+/obj/item/flag/scarab
+	name = "\improper Scarab Fleet flag"
+	desc = "The flag of the Scarab Fleet."
+	flag_path = "scarab"
+	flag_structure = /obj/structure/sign/flag/scarab
+
+/obj/structure/sign/flag/scarab
+	name = "\improper Scarab Fleet flag"
+	desc = "The flag of the Scarab Fleet."
+	flag_path = "scarab"
+	icon_state = "scarab"
+	flag_item = /obj/item/flag/scarab
+
+/obj/structure/sign/flag/scarab/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/scarab/l
+	name = "large Scarab Fleet flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/scarab/large
+
+/obj/structure/sign/flag/scarab/large
+	icon_state = "scarab_l"
+	flag_path = "scarab"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/scarab/l
+
+/obj/structure/sign/flag/scarab/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/scarab/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/scarab/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/scarab/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Traditionalist Coalition
+
+/obj/item/flag/traditionalist
+	name = "\improper Traditionalist Coalition flag"
+	desc = "The blue-and-green battle standard of the defeated Traditionalist Coalition. Flying this flag is an act of treason under Izweski law."
+	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. \
+	Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
+	flag_path = "traditionalist"
+	flag_structure = /obj/structure/sign/flag/traditionalist
+
+/obj/structure/sign/flag/traditionalist
+	name = "\improper Traditionalist Coalition flag"
+	desc = "The blue-and-green battle standard of the defeated Traditionalist Coalition. Flying this flag is a high crime under Izweski law."
+	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. \
+	Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
+	flag_path = "traditionalist"
+	icon_state = "traditionalist"
+	flag_item = /obj/item/flag/traditionalist
+
+/obj/structure/sign/flag/traditionalist/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/traditionalist/l
+	name = "large Traditionalist Coalition flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/traditionalist/large
+
+/obj/structure/sign/flag/traditionalist/large
+	icon_state = "traditionalist_l"
+	flag_path = "traditionalist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/traditionalist/l
+
+/obj/structure/sign/flag/traditionalist/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/traditionalist/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/traditionalist/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/traditionalist/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Exclusionists
+/obj/item/flag/exclusionist
+	name = "\improper Exclusionist flag"
+	desc = "The gold and black flag of the Exclusionists, a heretical and extremist sect of the Trinary Perfection."
+	flag_path = "exclusionist"
+	flag_structure = /obj/structure/sign/flag/exclusionist
+
+/obj/structure/sign/flag/exclusionist
+	name = "\improper Exclusionist flag"
+	desc = "The gold and black flag of the Exclusionists, a heretical and extremist sect of the Trinary Perfection."
+	flag_path = "exclusionist"
+	icon_state = "exclusionist"
+	flag_item = /obj/item/flag/exclusionist
+
+/obj/structure/sign/flag/exclusionist/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/exclusionist/l
+	name = "large Exclusionist flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/exclusionist/large
+
+/obj/structure/sign/flag/exclusionist/large
+	icon_state = "exclusionist_l"
+	flag_path = "exclusionist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/exclusionist/l
+
+/obj/structure/sign/flag/exclusionist/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/exclusionist/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/exclusionist/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/exclusionist/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Callisto
+
+/obj/item/flag/callisto
+	name = "\improper Callistean flag"
+	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
+	flag_path = "callisto"
+	flag_structure = /obj/structure/sign/flag/callisto
+
+/obj/structure/sign/flag/callisto
+	name = "\improper Callistean flag"
+	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
+	flag_path = "callisto"
+	icon_state = "callisto"
+	flag_item = /obj/item/flag/callisto
+
+/obj/item/flag/callisto/l
+	name = "large Callistean flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/callisto/large
+
+/obj/structure/sign/flag/callisto/large
+	icon_state = "callisto_l"
+	flag_path = "callisto"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/callisto/l
+
+/obj/structure/sign/flag/callisto/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/callisto/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/callisto/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/callisto/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Venus
+
+/obj/item/flag/venus
+	name = "\improper Venusian flag"
+	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	flag_path = "venus"
+	flag_structure = /obj/structure/sign/flag/venus
+
+/obj/structure/sign/flag/venus
+	name = "\improper Venusian flag"
+	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	flag_path = "venus"
+	icon_state = "venus"
+	flag_item = /obj/item/flag/venus
+
+/obj/item/flag/venus/l
+	name = "large Venusian flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/venus/large
+
+/obj/structure/sign/flag/venus/large
+	icon_state = "venus_l"
+	flag_path = "venus"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/venus/l
+
+/obj/structure/sign/flag/venus/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/venus/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/venus/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/venus/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Hiskyn
+/obj/item/flag/hiskyn
+	name = "\improper Hiskyn's Revanchists flag"
+	desc = "This crimson and black banner depicts an Unathi skull with a thin-bladed knife hanging above it. Anyone familiar with the pirate fleets of the southern Spur would recognise it as the banner of Hiskyn's Revanchists."
+	desc_extended = "The Hiskyn clan was once part of the clan Kazhkz, prior to their oaths of fealty to the Empire of Dominia. The Kazhkz-Han'san fleet split over the schism, with those who refused to bend their knees to a human power taking the name of Hiskyn. This fleet is known to target Dominian vessels with a vengeance, and particularly vessels carrying Dominian Unathi, whom they bear a deep hatred for."
+	flag_path = "hiskyn"
+	flag_structure = /obj/structure/sign/flag/hiskyn
+
+/obj/structure/sign/flag/hiskyn
+	name = "\improper Hiskyn's Revanchists flag"
+	desc = "This crimson and black banner depicts an Unathi skull with a thin-bladed knife hanging above it. Anyone familiar with the pirate fleets of the southern Spur would recognise it as the banner of Hiskyn's Revanchists."
+	desc_extended = "The Hiskyn clan was once part of the clan Kazhkz, prior to their oaths of fealty to the Empire of Dominia. The Kazhkz-Han'san fleet split over the schism, with those who refused to bend their knees to a human power taking the name of Hiskyn. This fleet is known to target Dominian vessels with a vengeance, and particularly vessels carrying Dominian Unathi, whom they bear a deep hatred for."
+	flag_path = "hiskyn"
+	icon_state = "hiskyn"
+	flag_item = /obj/item/flag/hiskyn
+
+/obj/structure/sign/flag/hiskyn/unmovable
+	unmovable = TRUE

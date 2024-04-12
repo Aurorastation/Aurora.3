@@ -8,8 +8,8 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_run = access_heads
-	required_access_download = access_heads
+	required_access_run = ACCESS_HEADS
+	required_access_download = ACCESS_HEADS
 	usage_flags = PROGRAM_CONSOLE
 	tgui_id = "Docks"
 

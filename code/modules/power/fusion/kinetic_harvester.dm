@@ -26,8 +26,8 @@
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/kinetic_harvester/attackby(obj/item/thing, mob/user)
-	if(thing.ismultitool())
+/obj/machinery/kinetic_harvester/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/datum/component/local_network_member/lanm = GetComponent(/datum/component/local_network_member)
 		if(lanm.get_new_tag(user))
 			find_core()
@@ -69,7 +69,7 @@
 	for(var/mat in stored)
 		var/material/material = SSmaterials.get_material_by_name(mat)
 		if(material)
-			var/sheets = Floor(stored[mat]/(SHEET_MATERIAL_AMOUNT * 1.5))
+			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 1.5), 1)
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
 	return data
 
@@ -112,7 +112,7 @@
 			var/material/material = SSmaterials.get_material_by_name(mat)
 			if(material)
 				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
-				var/sheets = Floor(stored[mat]/sheet_cost)
+				var/sheets = FLOOR(stored[mat]/sheet_cost, 1)
 				if(sheets > 0)
 					var/obj/item/stack/material/M = new material.stack_type(get_turf(src), sheets)
 					M.update_icon()

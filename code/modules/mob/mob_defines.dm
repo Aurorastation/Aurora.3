@@ -1,10 +1,15 @@
 /mob
 	density = 1
-	layer = 4.0
+	layer = MOB_LAYER
 	animate_movement = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	sight = DEFAULT_SIGHT
 	var/datum/mind/mind
+	var/static/next_mob_id = 0
+
+	// we never want to hide a turf because it's not lit
+	// We can rely on the lighting plane to handle that for us
+	see_in_dark = 1e6
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 	can_be_buckled = TRUE
@@ -245,6 +250,9 @@
 
 	var/authed = TRUE
 	var/player_age = "Requires database"
+
+	///Override for sound_environmentironments. If this is set the user will always hear a specific type of reverb (Instead of the area defined reverb)
+	var/sound_environment_override = SOUND_ENVIRONMENT_NONE
 
 	///the icon currently used for the typing indicator's bubble
 	var/atom/movable/typing_indicator/typing_indicator

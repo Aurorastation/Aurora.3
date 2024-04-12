@@ -4,13 +4,18 @@
 	It is one of the most populated systems in human space, a financial center, industrial powerhouse and one of the most prestigious systems in the galaxy. It is also very known for \
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
-	consular_outfit = /datum/outfit/job/representative/consular/ceti
+	consular_outfit = /obj/outfit/job/representative/consular/ceti
+	consular_outfit = /obj/outfit/job/representative/consular/ceti
+	assistant_outfit = /obj/outfit/job/consular_assistant/ceti
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -21,8 +26,8 @@
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
 				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
-								"Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations.",
-								"Convince the command of the [current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics.")
+								"Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations.",
+								"Convince the command of the [SSatlas.current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics.")
 			else
 				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
 								"Have [rand(2,6)] crewmembers sign a pledge of loyalty to the Republic.")
@@ -39,7 +44,7 @@
 			if(isvaurca(H))
 				rep_objectives = pick("Run a questionanaire on Tau Ceti citizens' views on Vaurca citizenship.",
 								"Question non-Vaurca employees about their Vaurca coworkers, looking for areas of improvement.",
-								"Protect and promote the public image of the Zo'ra Hive to all [current_map.boss_name] employees.")
+								"Protect and promote the public image of the Zo'ra Hive to all [SSatlas.current_map.boss_name] employees.")
 			else
 				rep_objectives = pick("Run a questionnaire on Tau Ceti citizens' views on synthetic citizenship.",
 								"Run a questionnaire on Tau Ceti citizens' views on vaurca citizenship.")
@@ -47,19 +52,23 @@
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/ceti
+/obj/outfit/job/representative/consular/ceti
 	name = "Tau Ceti Consular Officer"
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
-		/obj/item/storage/box/tcfl_pamphlet = 1,
+		/obj/item/storage/box/tcaf_pamphlet = 1,
 		/obj/item/device/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
 	)
 
-/datum/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/consular_assistant/ceti
+	name = "Tau Ceti Diplomatic Aide"
+	accessory = /obj/item/clothing/accessory/tc_pin
+
+/obj/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
@@ -82,12 +91,34 @@
 	However, it still controls the largest human military in the entire spur, and their cooperation with Einstein Engines and the Nralakk Federation has contributed to it gradually regaining some of its pre-collapse influence and power. \
 	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
-	consular_outfit = /datum/outfit/job/representative/consular/sol
-
+	consular_outfit = /obj/outfit/job/representative/consular/sol
+	assistant_outfit = /obj/outfit/job/consular_assistant/sol
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_HUMAN,
 			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Aide" = list(
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -116,19 +147,19 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
 							"Convince [rand(1,3)] solarian employees to apply for the Solarian armed forces.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to [current_map.station_short] command.",
+			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to [SSatlas.current_map.station_short] command.",
 							"Convince [rand(3,6)] qualified specialists among crew to enter Sol Alliance space, and issue them a visa recommendation.")
 		else
-			rep_objectives = pick("Collect [rand(3,7)] pictures of secure [current_map.station_short] areas.",
+			rep_objectives = pick("Collect [rand(3,7)] pictures of secure [SSatlas.current_map.station_short] areas.",
 							"Convince Horizon command to turn a Solarian crewmember's sentence into a fine.")
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/sol
+/obj/outfit/job/representative/consular/sol
 	name = "Sol Consular Officer"
 
 	accessory = /obj/item/clothing/accessory/sol_pin
@@ -139,6 +170,11 @@
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
+/obj/outfit/job/consular_assistant/sol
+	name = "Sol Consular Officer"
+
+	accessory = /obj/item/clothing/accessory/sol_pin
+
 /datum/citizenship/sol_alliance/eridani
 	name = CITIZENSHIP_ERIDANI
 	description = "Eridani, or the Eridani Corporate Federation, is a dystopian oligarchic republic in the Epsilon Eridani system, dominated entirely by a council of mega-corporations \
@@ -147,7 +183,8 @@
 	workplace of various contractors on-board."
 
 	job_species_blacklist = list(
-		"Consular Officer" = ALL_SPECIES
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES
 	)
 
 /datum/citizenship/coalition
@@ -156,7 +193,7 @@
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
-	consular_outfit = /datum/outfit/job/representative/consular/coalition
+	consular_outfit = /obj/outfit/job/representative/consular/coalition
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -168,10 +205,20 @@
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
-/datum/outfit/job/representative/consular/coalition
+/obj/outfit/job/representative/consular/coalition
 	name = "Coalition Consular Officer"
 
 	backpack_contents = list(
@@ -186,9 +233,9 @@
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyran"
-	consular_outfit = /datum/outfit/job/representative/consular/elyra
+	consular_outfit = /obj/outfit/job/representative/consular/elyra
 
-/datum/outfit/job/representative/consular/elyra
+/obj/outfit/job/representative/consular/elyra
 	name = "Elyra Consular Officer"
 
 	backpack_contents = list(
@@ -238,10 +285,29 @@
 	His Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2385 by then-Emperor Godwin Keeser, unifying a colony which had been isolated for hundreds of years. \
 	Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the Mor'iz'al."
 
-	consular_outfit = /datum/outfit/job/representative/consular/dominia
+	consular_outfit = /obj/outfit/job/representative/consular/dominia
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Aide" = list(
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -272,17 +338,17 @@
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Promote and distribute the copies of Dominian Code of Honor to [rand(3,6)] crewmembers.",
-							"Convince a Dominian citizen to return to the Empire with valuable information on the [current_map.boss_name] to present.")
+							"Convince a Dominian citizen to return to the Empire with valuable information on the [SSatlas.current_map.boss_name] to present.")
 		else
 			rep_objectives = pick("Collect [rand(3,7)] pictures of secure vessel areas.",
 							"Convince [rand(3,6)] crewmembers to apply for a Dominian tourist visa.")
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/dominia
+/obj/outfit/job/representative/consular/dominia
 	name = "Empire of Dominia Consular Officer"
 
 	backpack_contents = list(
 		/obj/item/storage/box/dominia_honor = 1,
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/projectile/pistol/dominia = 1
 	)

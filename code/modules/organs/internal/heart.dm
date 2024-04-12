@@ -146,7 +146,7 @@
 							blood_max += ((W.damage / 40) * species.bleed_mod)
 
 			if(temp.status & ORGAN_ARTERY_CUT)
-				var/bleed_amount = Floor((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity)
+				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity, 1)
 				if(bleed_amount)
 					if(CE_BLOODCLOT in owner.chem_effects)
 						bleed_amount *= 0.8 // won't do much, but it'll help

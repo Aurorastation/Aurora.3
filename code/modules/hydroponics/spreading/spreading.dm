@@ -1,13 +1,12 @@
 #define DEFAULT_SEED "glowshroom"
 #define VINE_GROWTH_STAGES 5
 
-/proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=5, var/maturation_max=15)
-	set waitfor = FALSE
-
+/proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=1, var/maturation_max=3)
 	var/turf/T = pick_subarea_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
-		var/datum/seed/seed = SSplants.create_random_seed(1)
+		var/datum/seed/seed = SSplants.create_random_seed(TRUE, SEED_NOUN_PITS)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
+		seed.growth_stages = VINE_GROWTH_STAGES
 		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 70-100 potency will help guarantee a wide spread and powerful effects.
 		seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
 
@@ -43,7 +42,7 @@
 	opacity = 0
 	density = 0
 	icon = 'icons/obj/hydroponics_growing.dmi'
-	icon_state = "bush4-1"
+	icon_state = ""
 	layer = 3
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	pass_flags = PASSTABLE
@@ -53,6 +52,8 @@
 	var/max_health = 100
 	var/growth_threshold = 0
 	var/growth_type = 0
+
+	///The maximum growth of this plant effect, aka the maximum stage
 	var/max_growth = 0
 	var/list/neighbors = list()
 	var/obj/effect/plant/parent
@@ -100,18 +101,11 @@
 
 	name = seed.display_name
 	max_health = round(seed.get_trait(TRAIT_ENDURANCE)/2)
-	if(seed.get_trait(TRAIT_SPREAD)==2)
+	if(seed.get_trait(TRAIT_SPREAD) == 2)
+		mouse_opacity = 2
 		max_growth = VINE_GROWTH_STAGES
 		growth_threshold = max_health/VINE_GROWTH_STAGES
-		icon = 'icons/obj/hydroponics_vines.dmi'
-		growth_type = 2 // Vines by default.
-		if(seed.get_trait(TRAIT_CARNIVOROUS) == 2)
-			growth_type = 1 // WOOOORMS.
-		else if(!(seed.seed_noun in list(SEED_NOUN_SEEDS,SEED_NOUN_PITS)))
-			if(seed.seed_noun == SEED_NOUN_NODES)
-				growth_type = 3 // Biomass
-			else
-				growth_type = 4 // Mold
+		growth_type = seed.get_growth_type()
 	else
 		max_growth = seed.growth_stages
 		growth_threshold = max_health/seed.growth_stages
@@ -123,12 +117,13 @@
 
 	mature_time = world.time + seed.get_trait(TRAIT_MATURATION) + 15 //prevent vines from maturing until at least a few seconds after they've been created.
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
-	spread_distance = ((growth_type > 0) ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
+	spread_distance = (growth_type ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
-	addtimer(CALLBACK(src, PROC_REF(post_initialize)), 1)
+	return INITIALIZE_HINT_LATELOAD
 
 // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
-/obj/effect/plant/proc/post_initialize()
+/obj/effect/plant/LateInitialize()
+	. = ..()
 	set_dir(calc_dir())
 	update_icon()
 	SSplants.add_plant(src)
@@ -140,7 +135,7 @@
 /obj/effect/plant/update_icon()
 	//TODO: should really be caching this.
 	refresh_icon()
-	if(growth_type == 0 && !floor)
+	if(!growth_type && !floor)
 		src.transform = null
 		var/matrix/M = matrix()
 		// should make the plant flush against the wall it's meant to be growing from.
@@ -172,34 +167,36 @@
 			last_biolum = null
 
 /obj/effect/plant/proc/refresh_icon()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	overlays.Cut()
 	var/growth = 0
 	if(growth_threshold)
-		growth = min(max_growth,round(health/growth_threshold))
+		growth = min(max_growth, round(health/growth_threshold))
 	var/at_fringe = get_dist(src,parent)
 	if(spread_distance > 5)
 		if(at_fringe >= (spread_distance-3))
 			max_growth--
 		if(at_fringe >= (spread_distance-2))
 			max_growth--
-	max_growth = max(1,max_growth)
-	if(growth_type > 0)
-		switch(growth_type)
-			if(1)
-				icon_state = "worms"
-			if(2)
-				icon_state = "vines-[growth]"
-			if(3)
-				icon_state = "mass-[growth]"
-			if(4)
-				icon_state = "mold-[growth]"
-	else
-		icon_state = "[seed.get_trait(TRAIT_PLANT_ICON)]-[growth]"
+
+	var/image/our_icon = seed.get_icon(growth)
+
+	if(!istype(our_icon))
+		crash_with("The plant didn't return an icon!")
+
+	add_overlay(our_icon)
 
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
-		opacity = 1
+		if(growth_type in list(GROWTH_VINES,GROWTH_BIOMASS))
+			opacity = 1
 		if(islist(seed.chems) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
+			opacity = 1
 			density = 1
+	if(seed.get_trait(TRAIT_LARGE))
+		density = 1
+		opacity = 1
 	else
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		density = 0
@@ -211,7 +208,7 @@
 
 	var/direction = 16
 
-	for(var/wallDir in cardinal)
+	for(var/wallDir in GLOB.cardinal)
 		var/turf/newTurf = get_step(T,wallDir)
 		if(newTurf.density)
 			direction |= wallDir
@@ -240,12 +237,12 @@
 	floor = 1
 	return 1
 
-/obj/effect/plant/attackby(var/obj/item/W, var/mob/user)
+/obj/effect/plant/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	SSplants.add_plant(src)
 
-	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
+	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 		if(sampled)
 			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
 			return
@@ -265,8 +262,8 @@
 		sampled = 1
 	else
 		playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
-		var/damage = W.force ? W.force : 1 //always do at least a little damage
-		if(W.edge || W.sharp)
+		var/damage = attacking_item.force ? attacking_item.force : 1 //always do at least a little damage
+		if(attacking_item.edge || attacking_item.sharp)
 			damage *= 2
 		health -= damage
 	check_health()

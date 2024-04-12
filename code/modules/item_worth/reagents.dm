@@ -135,6 +135,42 @@
 /singleton/reagent/drink/milkshake
 	value = 0.12
 
+/singleton/reagent/drink/ntella_milkshake
+	value = 0.14
+
+/singleton/reagent/drink/shake_caramel
+	value = 0.13
+
+/singleton/reagent/drink/shake_strawberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_dirtberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_blueberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_chocolate
+	value = 0.13
+
+/singleton/reagent/drink/shake_blue_raspberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_raspberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_berry
+	value = 0.13
+
+/singleton/reagent/drink/shake_ylpha
+	value = 0.13
+
+/singleton/reagent/drink/shake_choco_mint
+	value = 0.13
+
+/singleton/reagent/drink/ntella_hot_chocolate
+	value = 0.13
+
 /singleton/reagent/drink/rewriter
 	value = 0.11
 

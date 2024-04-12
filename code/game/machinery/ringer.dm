@@ -104,22 +104,22 @@ pixel_x = 8;
 		add_overlay(screen_overlays["bell-standby"])
 		set_light(1.4, 1, COLOR_CYAN)
 
-/obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
+/obj/machinery/ringer/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
 		return TRUE
 
-	if (istype(C, /obj/item/modular_computer))
-		if(!check_access(C))
+	if (istype(attacking_item, /obj/item/modular_computer))
+		if(!check_access(attacking_item))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return TRUE
-		else if (C in rings_pdas)
-			to_chat(user, "<span class='notice'>You unlink \the [C] from \the [src].</span>")
-			remove_pda(C)
+		else if (attacking_item in rings_pdas)
+			to_chat(user, "<span class='notice'>You unlink \the [attacking_item] from \the [src].</span>")
+			remove_pda(attacking_item)
 			return TRUE
-		to_chat(user, "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>")
-		rings_pdas += C
+		to_chat(user, "<span class='notice'>You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src].</span>")
+		rings_pdas += attacking_item
 		// WONT FIX: This requires callbacks fuck my dick.
-		destroyed_event.register(C, src, PROC_REF(remove_pda))
+		GLOB.destroyed_event.register(attacking_item, src, PROC_REF(remove_pda))
 		update_icon()
 		return TRUE
 	else

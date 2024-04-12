@@ -24,7 +24,7 @@
 			response = "Orders have been placed. Use force parameter to overwrite."
 	return TRUE
 
-// Update discord_bot's channels.
+// Update SSdiscord's channels.
 /datum/topic_command/update_bot_channels
 	name = "update_bot_channels"
 	description = "Tells the ingame instance of the Discord bot to update its cached channels list."
@@ -32,12 +32,12 @@
 /datum/topic_command/update_bot_channels/run_command()
 	data = null
 
-	if (!discord_bot)
+	if (!SSdiscord)
 		statuscode = 404
 		response = "Ingame Discord bot not initialized."
 		return 1
 
-	switch (discord_bot.update_channels())
+	switch (SSdiscord.update_channels())
 		if (1)
 			statuscode = 404
 			response = "Ingame Discord bot is not active."
@@ -129,7 +129,7 @@
 /datum/topic_command/broadcast_text/run_command(queryparams)
 	log_and_message_admins("AdminRanks: remote reload of the admins list initiated.")
 
-	if (config.use_forumuser_api)
+	if (GLOB.config.use_forumuser_api)
 		if (!update_admins_from_api(reload_once_done=FALSE))
 			statuscode = 500
 			response = "Updating admins from the forumuser API failed. Aborted."

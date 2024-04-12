@@ -5,9 +5,9 @@
 	suffixes = list("ships/kataphracts/kataphract_ship.dmm")
 	ship_cost = 1
 	spawn_weight = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA=3)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS)
-
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
 	unit_test_groups = list(3)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship
@@ -100,7 +100,7 @@
 /obj/machinery/computer/shuttle_control/explore/kataphract_transport
 	name = "shuttle control console"
 	shuttle_tag = "Kataphract Transport"
-	req_access = list(access_kataphract)
+	req_access = list(ACCESS_KATAPHRACT)
 
 /datum/shuttle/autodock/overmap/kataphract_transport
 	name = "Kataphract Transport"

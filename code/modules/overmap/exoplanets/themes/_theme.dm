@@ -70,7 +70,8 @@
 			ORE_IRON = list(2, 4),
 			ORE_GOLD = list(0, 2),
 			ORE_SILVER = list(0, 2),
-			ORE_URANIUM = list(0, 2)
+			ORE_URANIUM = list(0, 2),
+			ORE_BAUXITE = list(1, 3)
 		),
 		RARE_ORES = list(
 			ORE_GOLD = list(1, 3),
@@ -258,7 +259,7 @@
 			gen_turf.resources[ORE_SAND] = rand(3, 5)
 			gen_turf.resources[ORE_COAL] = rand(3, 5)
 			if(ground_resources_roll)
-				var/image/resource_indicator = image('icons/obj/mining.dmi', null, "indicator_" + ground_resources_roll, gen_turf.layer, pick(cardinal))
+				var/image/resource_indicator = image('icons/obj/mining.dmi', null, "indicator_" + ground_resources_roll, gen_turf.layer, pick(GLOB.cardinal))
 				resource_indicator.alpha = rand(30, 60)
 				gen_turf.resource_indicator = resource_indicator
 				if(!gen_turf.density)
@@ -351,7 +352,7 @@
 		var/coord_to_str = (world.maxx * M.y) + M.x
 		for(var/ore in ore_seeds)
 			if(text2num(ore_seeds[ore][coord_to_str]))
-				M.mineral = ore_data[ore]
+				M.mineral = GLOB.ore_data[ore]
 				M.UpdateMineral() // It's already a mineral turf, so we can avoid changeturf here
 
 /datum/exoplanet_theme/proc/get_planet_image_extra()

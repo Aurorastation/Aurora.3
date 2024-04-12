@@ -56,7 +56,7 @@
 	anchored = FALSE
 	light_range = 4
 	light_power = 1
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	var/gasefficency = 0.25
 
@@ -119,7 +119,7 @@
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
-	soundloop = new(list(src), TRUE)
+	soundloop = new(src, TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
@@ -132,7 +132,7 @@
 	anchored = TRUE
 	grav_pulling = TRUE
 	exploded = TRUE
-	for(var/mob/living/mob in living_mob_list)
+	for(var/mob/living/mob in GLOB.living_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(istype(mob, /mob/living/carbon/human))
@@ -182,7 +182,7 @@
 		if((damage > emergency_point) && !public_alert)
 			radio.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
 			public_alert = 1
-			for(var/mob/M in player_list)
+			for(var/mob/M in GLOB.player_list)
 				var/turf/T = get_turf(M)
 				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
 					sound_to(M, 'sound/effects/nuclearsiren.ogg')
@@ -194,8 +194,8 @@
 /obj/machinery/power/supermatter/get_transit_zlevel()
 	//don't send it back to the station -- most of the time
 	if(prob(99))
-		var/list/candidates = current_map.accessible_z_levels.Copy()
-		for(var/zlevel in current_map.station_levels)
+		var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
+		for(var/zlevel in SSatlas.current_map.station_levels)
 			candidates.Remove("[zlevel]")
 		candidates.Remove("[src.z]")
 
@@ -383,15 +383,19 @@
 		ui = new(user, src, "Supermatter", "Supermatter Crystal", 500, 300)
 		ui.open()
 
-/obj/machinery/power/supermatter/attackby(obj/item/W, mob/living/user)
-	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
-		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
+/obj/machinery/power/supermatter/attackby(obj/item/attacking_item, mob/user)
+	var/mob/living/living_user = user
+	if(!istype(living_user))
+		return
+
+	living_user.visible_message("<span class=\"warning\">\The [living_user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
+		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
 
-	user.drop_from_inventory(W)
-	Consume(W)
+	living_user.drop_from_inventory(attacking_item)
+	Consume(attacking_item)
 
-	user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	living_user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
 	if(!AM.simulated)

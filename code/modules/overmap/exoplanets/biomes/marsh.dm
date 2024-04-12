@@ -15,7 +15,8 @@
 			/obj/effect/floor_decal/fungus/random = 1
 		),
 		SMALL_FLORA = list(
-			/obj/structure/flora/bush/mushroom = 1
+			/obj/structure/flora/bush/mushroom = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 1,

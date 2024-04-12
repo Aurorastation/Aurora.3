@@ -35,19 +35,40 @@
 	var/list/actors = list() //things that appear in engravings on xenoarch finds.
 	var/list/species = list() //list of names to use for simple animals
 
+	var/flora_diversity = 0
+	var/has_trees = FALSE
+
+	/// For generating seeds to put in big_flora_seeds.
+	var/list/small_flora_types
+	/// For generating seeds to put in small_flora_seeds.
+	var/list/big_flora_types
+
+	/// This is a list of seed OBJECTS. Not types.
+	var/list/small_flora_seeds = list()
+	/// This is a list of seed OBJECTS. Not types.
+	var/list/big_flora_seeds = list()
+
 	var/repopulating = 0
 	var/repopulate_types = list() // animals which have died that may come back
 
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
+	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
 	var/features_budget = 4
 	var/list/possible_features = list()
 	var/list/spawned_features
+
 	/// List of ruin types that can be chosen from; supercedes ruin tags system, ignores TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	var/list/ruin_type_whitelist
-	// Ruin tags: used to dynamically select what ruins are valid for this exoplanet, if any
-	// See code/__defines/ruin_tags.dm
+
+	/**
+	 * Ruin tags: used to dynamically select what ruins are valid for this exoplanet, if any
+	 *
+	 * See `code/__DEFINES/ruin_tags.dm`
+	 */
 	var/ruin_planet_type = PLANET_BARREN
 	var/ruin_allowed_tags = RUIN_ALL_TAGS
 
@@ -56,6 +77,10 @@
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
+
+	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
+	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
+	var/list/unit_test_groups = list()
 
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
@@ -75,8 +100,36 @@
 /obj/effect/overmap/visitable/sector/exoplanet/update_icon()
 	icon_state = "globe[rand(1,3)]"
 
-/obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
-	if(!current_map.use_overmap)
+/obj/effect/overmap/visitable/sector/exoplanet/New(loc, max_x, max_y, being_generated_for_unit_test = FALSE)
+
+	#if defined(UNIT_TEST)
+
+	//If we are being generated for unit testing, determine if we actually want to be generated here or not
+	if(being_generated_for_unit_test)
+
+		//Check that noone forgot to set the test group on an exoplanet, except for the lore ones, we don't care about them
+		//as we do not test them currently
+		if(!length(src.unit_test_groups) && src.ruin_planet_type != PLANET_LORE)
+			SSunit_tests_config.UT.fail("**** The exoplanet --> [src.name] - [src.type] <-- does not have any unit test group set! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+		//Check that we are in this test group, otherwise skip this exoplanet type from generation
+		var/in_this_test_group = FALSE
+		for(var/unit_test_group in src.unit_test_groups)
+			if((unit_test_group in SSunit_tests_config.config["exoplanet_types_unit_test_groups"]) || SSunit_tests_config.config["exoplanet_types_unit_test_groups"] == "*")
+				in_this_test_group = TRUE
+				break
+
+		if(!in_this_test_group)
+			SSunit_tests_config.UT.debug("**** The exoplanet --> [src.name] - [src.type] <-- was not loaded as its group is not in the exoplanet_types_unit_test_groups! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+	#endif //UNIT_TEST
+
+
+	if(!SSatlas.current_map.use_overmap)
 		return
 
 	maxx = max_x ? max_x : world.maxx
@@ -94,12 +147,44 @@
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
 		theme = new T
+
+	#if defined(UNIT_TEST)
+	///If we have shown one warning for the exoplanets_ruins config preventing us from loading ruins
+	var/shown_warning_for_exoplanets_ruins_config = FALSE
+	#endif //UNIT_TEST
+
 	if(ruin_type_whitelist)
 		for(var/T in ruin_type_whitelist)
+
+			//If the exoplanet_ruins setting in the UT is FALSE, do not generate ruins
+			//yes we could skip the list traversing but it would be more shitcode to do that, since it's not that expensive, fuck it
+			#if defined(UNIT_TEST)
+			if((SSunit_tests_config.config["exoplanets_ruins"] == FALSE))
+				if(!shown_warning_for_exoplanets_ruins_config)
+					LOG_GITHUB_WARNING("Not spawning ruins in 'ruin_type_whitelist' for [src.name] because 'exoplanets_ruins' is FALSE in the UT config")
+					shown_warning_for_exoplanets_ruins_config = TRUE
+
+				LOG_GITHUB_DEBUG("Ruin [T] in 'ruin_type_whitelist' for [src.name] not spawned because 'exoplanets_ruins' is FALSE in the UT config")
+				continue
+			#endif //UNIT_TEST
+
 			var/datum/map_template/ruin/exoplanet/ruin = T
 			possible_features += new ruin
 	else
 		for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
+
+			//If the exoplanet_ruins setting in the UT is FALSE or the type is not listed, do not generate ruins
+			//If it's set to TRUE, we want the normal behavior, otherwise check if the subtype is present in the list
+			#if defined(UNIT_TEST)
+			if((SSunit_tests_config.config["exoplanets_ruins"] == FALSE) || ((SSunit_tests_config.config["exoplanets_ruins"] != TRUE) && !(T in SSunit_tests_config.config["exoplanets_ruins"])))
+				if(!shown_warning_for_exoplanets_ruins_config && (SSunit_tests_config.config["exoplanets_ruins"] == FALSE))
+					LOG_GITHUB_WARNING("Not spawning ruins for [src.name] because 'exoplanets_ruins' is FALSE in the UT config")
+					shown_warning_for_exoplanets_ruins_config = TRUE
+
+				LOG_GITHUB_DEBUG("Ruin [T] for [src.name] not spawned because either 'exoplanets_ruins' is FALSE or it does not contain it in the UT config")
+				continue
+			#endif //UNIT_TEST
+
 			var/datum/map_template/ruin/exoplanet/ruin = T
 			if((initial(ruin.template_flags) & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				continue
@@ -109,11 +194,15 @@
 			if(filtered_tags != initial(ruin.ruin_tags))
 				continue
 			possible_features += new ruin
+
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
 	generate_habitability()
 	generate_atmosphere()
+	if(ispath(initial_weather_state))
+		generate_weather()
+	generate_flora()
 	generate_map()
 	generate_features()
 	generate_landing(2)
@@ -160,8 +249,8 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					death_event.register(S, src, PROC_REF(remove_animal))
-					destroyed_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -174,7 +263,7 @@
 			if(istype(T) && T.zone && T.zone.contents.len > (maxx*maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
 				Z = T.zone
 				break
-		if(Z && !Z.fire_tiles.len && !atmosphere.compare(Z.air)) //let fire die out first if there is one
+		if(Z && !length(Z.fire_tiles) && !atmosphere.compare(Z.air)) //let fire die out first if there is one
 			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
 			daddy.copy_from(atmosphere)
 			daddy.group_multiplier = Z.air.group_multiplier
@@ -182,8 +271,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
 	animals -= M
-	death_event.unregister(M, src)
-	destroyed_event.unregister(M, src)
+	GLOB.death_event.unregister(M, src)
+	GLOB.destroyed_event.unregister(M, src)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
@@ -372,6 +461,10 @@
 			total_moles = max(total_moles - part, 0)
 			i++
 
+/obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
+	..()
+	ground_survey_result = ""
+
 /obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()
 	. += "<br><center><large><b>Scan Details</b></large>"
@@ -433,3 +526,27 @@
 			colors += gas_data.tile_overlay_color[g]
 	if(colors.len)
 		return MixColors(colors)
+
+/obj/effect/landmark/exoplanet_spawn/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/exoplanet_spawn/LateInitialize(mapload)
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
+	if (istype(E))
+		do_spawn(E)
+
+/obj/effect/landmark/exoplanet_spawn/proc/do_spawn(obj/effect/overmap/visitable/sector/exoplanet/planet)
+	return
+
+///Sets the given weather state to our planet replacing the old one, and trigger updates. Can be a type path or instance.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
+	initial_weather_state = W
+	//Tells all our levels exposed to the sky to force change the weather.
+	SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+
+///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()
+	if(ispath(initial_weather_state))
+		initial_weather_state = GET_SINGLETON(initial_weather_state)
+	set_weather(initial_weather_state)

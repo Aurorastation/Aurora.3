@@ -6,7 +6,7 @@
 	desc = "An enormous solenoid for generating extremely high power electromagnetic fields. It includes a kinetic energy harvester."
 	icon = 'icons/obj/machinery/fusion_core.dmi'
 	icon_state = "core0"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 50
@@ -68,23 +68,24 @@
 
 /obj/machinery/power/fusion_core/attack_hand(mob/user)
 	. = ..()
-	visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"))
-	if(owned_field)
-		Shutdown()
+	if(ishuman(user))
+		visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"))
+		if(owned_field)
+			Shutdown()
 	return TRUE
 
-/obj/machinery/power/fusion_core/attackby(obj/item/W, mob/user)
+/obj/machinery/power/fusion_core/attackby(obj/item/attacking_item, mob/user)
 
 	if(owned_field)
 		to_chat(user,SPAN_WARNING("Shut \the [src] off first!"))
 		return
 
-	if(W.ismultitool())
+	if(attacking_item.ismultitool())
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)

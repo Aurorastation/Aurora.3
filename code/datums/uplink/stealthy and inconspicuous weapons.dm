@@ -67,3 +67,9 @@
 	desc = "A box with 5 claymore miners, relative detonators (signalers), and a spare one for you to trigger them all."
 	telecrystal_cost = 8
 	path = /obj/item/storage/box/landmines/claymore
+
+/datum/uplink_item/item/stealthy_weapons/cameragun
+	name = "9mm Camera Gun"
+	desc = "A 9mm pistol concealed within the shell of a camera, which has to be deployed before it can be fired. Closer inspection will reveal its true nature, but when in its concealed form it will look totally harmless."
+	telecrystal_cost = 3
+	path = /obj/item/gun/projectile/shotgun/foldable/cameragun

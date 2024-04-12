@@ -1,6 +1,4 @@
 /mob/living/carbon/slime/Life()
-	set background = BACKGROUND_ENABLED
-
 	if(src.transforming)
 		return
 	..()
@@ -18,6 +16,7 @@
 	handle_speech_and_mood()
 
 /mob/living/carbon/slime/handle_environment(datum/gas_mixture/environment)
+	..()
 	if(!environment)
 		adjustToxLoss(rand(10,20))
 		return
@@ -268,13 +267,13 @@
 			if(holding_still)
 				holding_still = max(holding_still - 1 - hungry, 0)
 			else if(canmove && !pulledby && !length(grabbed_by) && isturf(loc) && prob(50))
-				step(src, pick(cardinal))
+				step(src, pick(GLOB.cardinal))
 
 		else
 			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
 			else if(canmove && !pulledby && !length(grabbed_by) && isturf(loc) && prob(33))
-				step(src, pick(cardinal))
+				step(src, pick(GLOB.cardinal))
 
 /mob/living/carbon/slime/proc/handle_AI() // the master AI process
 	if(victim?.stat & DEAD)

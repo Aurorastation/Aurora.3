@@ -27,7 +27,7 @@
 	/**
 	 * Determines which slots an item can fit, eg. `SLOT_BACK`
 	 *
-	 * See `code\__defines\items_clothing.dm` for the list of defined slots
+	 * See `code\__DEFINES\items_clothing.dm` for the list of defined slots
 	 */
 	var/slot_flags = 0
 
@@ -40,14 +40,14 @@
 	/**
 	 * Flags which determine which body parts are protected from heat, eg. `HEAD` and `UPPER_TORSO`
 	 *
-	 * See `code\__defines\items_clothing.dm` for the list of defined parts
+	 * See `code\__DEFINES\items_clothing.dm` for the list of defined parts
 	 */
 	var/heat_protection = 0
 
 	/**
 	 * Flags which determine which body parts are protected from cold, eg. `HEAD` and `UPPER_TORSO`
 	 *
-	 * See `code\__defines\items_clothing.dm` for the list of defined parts
+	 * See `code\__DEFINES\items_clothing.dm` for the list of defined parts
 	 */
 	var/cold_protection = 0
 
@@ -99,7 +99,7 @@
 	 */
 	var/flags_inv = 0
 
-	///See `code\__defines\items_clothing.dm` for appropriate bit flags
+	///See `code\__DEFINES\items_clothing.dm` for appropriate bit flags
 	var/body_parts_covered = 0
 
 	///Miscellaneous flags pertaining to equippable objects.
@@ -231,7 +231,8 @@
 	///Used to determine whether something can pick a lock, and how well
 	var/lock_picking_level = 0
 
-	// Its vital that if you make new power tools or new recipies that you include this
+	///Used to determine what this item can be changed into with a modkit
+	var/list/convert_options
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -323,31 +324,33 @@
 
 	I.forceMove(T)
 
-/obj/item/examine(mob/user, distance)
+/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	var/size
 	switch(src.w_class)
-		if (5.0 to INFINITY)
+		if (ITEMSIZE_HUGE to INFINITY)
 			size = "huge"
-		if (4.0 to 5.0)
+		if (ITEMSIZE_LARGE to ITEMSIZE_HUGE)
 			size = "bulky"
-		if (3.0 to 4.0)
+		if (ITEMSIZE_NORMAL to ITEMSIZE_LARGE)
 			size = "normal-sized"
-		if (2.0 to 3.0)
+		if (ITEMSIZE_SMALL to ITEMSIZE_NORMAL)
 			size = "small"
-		if (0 to 2.0)
+		if (0 to ITEMSIZE_SMALL)
 			size = "tiny"
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
 	. = ..(user, distance, "", "It is a [size] item.")
-	if(length(armor))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
+	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
+	if(armor_component)
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
+		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 		var/list/armor_details = list()
-		for(var/armor_type in armor)
-			armor_details[armor_type] = armor[armor_type]
+		for(var/armor_type in armor_component.armor_values)
+			armor_details[armor_type] = armor_component.armor_values[armor_type]
 		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
 		AV.ui_interact(usr)
 	return ..()
@@ -407,54 +410,16 @@
 		R.activate_module(src)
 		R.hud_used.update_robot_modules_display()
 
-// Due to storage type consolidation this should get used more now.
-// I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/storage))
-		var/obj/item/storage/S = I
-		if(S.use_to_pickup)
-			if(S.collection_mode && !is_type_in_list(src, S.pickup_blacklist)) //Mode is set to collect all items on a tile and we clicked on a valid one.
-				if(isturf(loc))
-					var/list/rejections = list()
-					var/success = FALSE
-					var/failure = FALSE
-					var/original_loc = user ? user.loc : null
-
-					for(var/obj/item/item in loc)
-						if (user && user.loc != original_loc)
-							break
-
-						if(rejections[item.type]) // To limit bag spamming: any given type only complains once
-							continue
-
-						if(!S.can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
-							rejections[item.type] = TRUE	// therefore full bags are still a little spammy
-							failure = TRUE
-							CHECK_TICK
-							continue
-
-						success = TRUE
-						S.handle_item_insertion_deferred(item, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
-						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
-
-					S.handle_storage_deferred(user)
-					if(success && !failure)
-						to_chat(user, "<span class='notice'>You put everything in [S].</span>")
-					else if(success)
-						to_chat(user, "<span class='notice'>You put some things in [S].</span>")
-					else
-						to_chat(user, "<span class='notice'>You fail to pick anything up with \the [S].</span>")
-
-			else if(S.can_be_inserted(src))
-				S.handle_item_insertion(src)
-			return TRUE
-
-//Called when the user alt-clicks on something with this item in their active hand
-//this function is designed to be overridden by individual weapons
+/**
+ * Called when the user alt-clicks on something with this item in their active hand
+ *
+ * This function is designed to be overridden by individual weapons
+ *
+ * A return value of `TRUE` continues on to do the normal alt-click action,
+ * a return value of `FALSE` does not continue, and will not do the alt-click
+ */
 /obj/item/proc/alt_attack(var/atom/target, var/mob/user)
-	return 1
-	//A return value of 1 continues on to do the normal alt-click action.
-	//A return value of 0 does not continue, and will not do the alt-click
+	return TRUE
 
 /obj/item/proc/talk_into(mob/M as mob, text)
 	return
@@ -487,22 +452,35 @@
 			else
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
-		playsound(src, drop_sound, THROW_SOUND_VOLUME)
+		playsound(src, drop_sound, YEET_SOUND_VOLUME)
 	return ..()
 
-//Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
-//It is called after loc is set, so if placed in a container its loc will be that container.
-/obj/item/proc/dropped(var/mob/user)
+/**
+ * Called when an item is removed from a `/mob` inventory (including hands and whatnot),
+ * for whatever reason (dropped on the floor, thrown, put in a container, etc.)
+ *
+ * This is called after the _new_ location (`loc`) is set on the object, so if it's eg. put in a container,
+ * the loc inside here would point to the container, not the mob that had it in hand
+ *
+ * * user - The `/mob` that dropped the object
+ */
+/obj/item/proc/dropped(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
+
 	remove_item_verbs(user)
+
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
+		check_maptext()
+
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
 		return
-	if(QDELING(user))
+	if(QDELETED(user))
 		return
 	var/list/verbs_to_remove = list()
 	for(var/v in verbs)
@@ -522,7 +500,7 @@
 		zoom(user)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
-// called just as an item is picked up (loc is not yet changed)
+///Called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
 	pixel_x = 0
 	pixel_y = 0
@@ -549,7 +527,7 @@
 // for items that can be placed in multiple slots
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	SHOULD_CALL_PARENT(TRUE)
-	layer = SCREEN_LAYER+0.01
+	hud_layerise()
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
@@ -557,9 +535,9 @@
 		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	else if(slot_flags && slot)
 		if(equip_sound)
-			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
+			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 		else
-			playsound(src, drop_sound, DROP_SOUND_VOLUME)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
@@ -568,7 +546,7 @@
 		remove_item_verbs(user)
 
 	//Ěent for observable
-	mob_equipped_event.raise_event(user, src, slot)
+	GLOB.mob_equipped_event.raise_event(user, src, slot)
 	item_equipped_event.raise_event(src, user, slot)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
@@ -1122,7 +1100,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/tool_use_check(mob/living/user, amount)
 	return TRUE
 
-// Plays item's usesound, if any.
+/// Plays item's usesound, if any
 /obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
 	if(target && volume)
 		var/played_sound
@@ -1136,7 +1114,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				played_sound = pick(hitsound)
 
 		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
-		playsound(target, played_sound, volume, TRUE)
+		playsound(target, played_sound, volume, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Generic use proc. Depending on the item, it uses up fuel, charges, sheets, etc.
 // Returns TRUE on success, FALSE on failure.
@@ -1182,11 +1160,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		maptext = ""
 
 /obj/item/throw_at()
-	..()
-	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
-		check_maptext()
-
-/obj/item/dropped(var/mob/user)
 	..()
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
@@ -1239,20 +1212,22 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/can_swap_hands(var/mob/user)
 	return TRUE
 
-/obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
-	if(!isturf(loc))
-		return
-	if(overlays.len)
-		pickup_animation.overlays = overlays
-	if(underlays.len)
-		pickup_animation.underlays = underlays
-	. = ..()
-
 /obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
 	return
 
+/**
+ * Determines if the item can be used to cut down wood (trees and the likes)
+ *
+ * Return `TRUE` if it can, `FALSE` otherwise
+ */
 /obj/item/proc/can_woodcut()
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	return FALSE
 
 /obj/item/proc/is_shovel()
+	return FALSE
+
+/obj/item/proc/gives_weather_protection()
 	return FALSE

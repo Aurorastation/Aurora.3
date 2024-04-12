@@ -5,7 +5,8 @@
 	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and human space.Zo'ra have cold relations with other Hives. In \
 	Tau Ceti, this has lead to confrontations between them and other Hives arriving in the system. The Zo'ra are the most politically developed Hive, recently helping in the funding of \
 	the Tau Ceti Foreign Legion, and making active progress to spread their influence."
-	consular_outfit = /datum/outfit/job/representative/consular/zora
+	consular_outfit = /obj/outfit/job/representative/consular/zora
+	linked_citizenship = CITIZENSHIP_BIESEL
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -30,7 +31,8 @@
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK
-		)
+		),
+		"Diplomatic Aide" = ALL_SPECIES
 	)
 
 /datum/citizenship/zora/get_objectives(mission_level, var/mob/living/carbon/human/H)
@@ -38,7 +40,7 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Begin the TCFL enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
@@ -51,7 +53,7 @@
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/zora
+/obj/outfit/job/representative/consular/zora
 	name = "Zo'ra Consular Officer"
 
 	uniform = /obj/item/clothing/under/gearharness
@@ -62,11 +64,11 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
-/datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/storage/box/tcfl_pamphlet(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/storage/box/tcaf_pamphlet(H), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_in_backpack)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
@@ -79,7 +81,8 @@
 	Now parting their own ways, both Hives have developed differently.  the K'lax became the newest vassal of the Izweski Nation, and have largely settled in Tret. \
 	They maintain subtly warm, if terse relations with the Hegemony as a whole, and have committed to its terraforming agenda, being instrumental in the implementation of such a monumental undertaking. \
 	The K'lax are the most technologically developed Hive, and are leading the way in reconstructing the species' superior technology."
-	consular_outfit = /datum/outfit/job/representative/consular/klax
+	consular_outfit = /obj/outfit/job/representative/consular/klax
+	linked_citizenship = CITIZENSHIP_IZWESKI
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -103,7 +106,8 @@
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK
-		)
+		),
+		"Diplomatic Aide" = ALL_SPECIES
 	)
 
 /datum/citizenship/klax/get_objectives(mission_level, var/mob/living/carbon/human/H)
@@ -111,18 +115,18 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the K'lax Hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the K'lax Hive to all [SSatlas.current_map.boss_name] employees")
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/klax
+/obj/outfit/job/representative/consular/klax
 	name = "K'lax Consular Officer"
 
 	uniform = /obj/item/clothing/under/gearharness
@@ -133,10 +137,11 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
-/datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(H), slot_in_backpack)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
@@ -148,7 +153,8 @@
 	Unlike all other Hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
 	In this effort, the Hive has begun dealing with the multitude of governments and corporations of the galaxy, all under the auspices of their Skrellian saviors. \
 	The C'thur are the most economically developed Hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."
-	consular_outfit = /datum/outfit/job/representative/consular/cthur
+	consular_outfit = /obj/outfit/job/representative/consular/cthur
+	linked_citizenship = CITIZENSHIP_NRALAKK
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -172,7 +178,8 @@
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK
-		)
+		),
+		"Diplomatic Aide" = ALL_SPECIES
 	)
 
 /datum/citizenship/cthur/get_objectives(mission_level, var/mob/living/carbon/human/H)
@@ -180,7 +187,7 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
@@ -188,11 +195,11 @@
 
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the C'thur Hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the C'thur Hive to all [SSatlas.current_map.boss_name] employees")
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/cthur
+/obj/outfit/job/representative/consular/cthur
 	name = "C'thur Consular Officer"
 
 	uniform = /obj/item/clothing/under/gearharness
@@ -203,10 +210,11 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
-/datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_in_backpack)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE

@@ -27,23 +27,23 @@
 			I.forceMove(src)
 	update_icon()
 
-/obj/structure/bookcase/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/book))
-		user.drop_from_inventory(O,src)
+/obj/structure/bookcase/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/book))
+		user.drop_from_inventory(attacking_item,src)
 		update_icon()
-	else if(O.ispen())
+	else if(attacking_item.ispen())
 		var/newname = sanitizeSafe(input("What would you like to title this bookshelf?"), MAX_NAME_LEN)
 		if(!newname)
 			return
 		else
 			name = ("bookcase ([newname])")
-	else if(O.iswrench())
-		playsound(src.loc, O.usesound, 100, 1)
+	else if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>"))
 		anchored = !anchored
-	else if(O.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
-		if(O.use_tool(src, user, 25, volume = 50))
+		if(attacking_item.use_tool(src, user, 25, volume = 50))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
 			for(var/obj/item/book/b in contents)
 				b.forceMove((get_turf(src)))
@@ -104,7 +104,7 @@
 	addtimer(CALLBACK(src, PROC_REF(populate_shelves)), 1)
 
 /obj/structure/bookcase/libraryspawn/proc/populate_shelves()
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return
 
 	var/query_str = "SELECT author, title, content FROM ss13_library ORDER BY RAND() LIMIT :amount:"
@@ -114,7 +114,7 @@
 		query_str = "SELECT author, title, content FROM ss13_library WHERE category = :cat: ORDER BY RAND() LIMIT :amount:"
 		query_data["cat"] = spawn_category
 
-	var/DBQuery/query_books = dbcon.NewQuery(query_str)
+	var/DBQuery/query_books = GLOB.dbcon.NewQuery(query_str)
 	query_books.Execute(query_data)
 
 	while (query_books.NextRow())
@@ -225,43 +225,43 @@
 	else
 		to_chat(user, "This book is completely blank!")
 
-/obj/item/book/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/book/attackby(obj/item/attacking_item, mob/user)
 	if(carved)
 		if(!store)
-			if(W.w_class < 3)
-				user.drop_from_inventory(W,src)
-				store = W
-				to_chat(user, "<span class='notice'>You put [W] in [title].</span>")
+			if(attacking_item.w_class < 3)
+				user.drop_from_inventory(attacking_item,src)
+				store = attacking_item
+				to_chat(user, "<span class='notice'>You put [attacking_item] in [title].</span>")
 				return
 			else
-				to_chat(user, "<span class='notice'>[W] won't fit in [title].</span>")
+				to_chat(user, "<span class='notice'>[attacking_item] won't fit in [title].</span>")
 				return
 		else
 			to_chat(user, "<span class='notice'>There's already something in [title]!</span>")
 			return
-	if(W.ispen())
+	if(attacking_item.ispen())
 		if(unique)
 			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
 			return
-		var/choice = tgui_alert(user, "What would you like to change?", "Book", list("Title", "Contents", "Author", "Cancel"))
+		var/choice = tgui_input_list(user, "What would you like to change?", "Book", list("Title", "Contents", "Author", "Cancel"), "Cancel")
 		switch(choice)
 			if("Title")
-				var/newtitle = reject_bad_text(sanitizeSafe(input("Write a new title:")))
+				var/newtitle = reject_bad_text(strip_html_full(tgui_input_text(user, "Write a new title:", "Title", encode = FALSE)))
 				if(!newtitle)
 					to_chat(usr, "The title is invalid.")
 					return
 				else
-					src.name = newtitle
+					src.name = html_decode(newtitle)
 					src.title = newtitle
 			if("Contents")
-				var/content = sanitize(input("Write your book's contents (HTML NOT allowed):") as message|null, MAX_BOOK_MESSAGE_LEN)
+				var/content = strip_html_readd_newlines(tgui_input_text(user, "Write your book's contents (HTML NOT allowed):", "Content", multiline = TRUE, encode = FALSE), MAX_BOOK_MESSAGE_LEN)
 				if(!content)
 					to_chat(usr, "The content is invalid.")
 					return
 				else
 					src.dat += content
 			if("Author")
-				var/newauthor = sanitize(input(usr, "Write the author's name:"))
+				var/newauthor = strip_html_full(tgui_input_text(user, "Write the author's name:", "Author", encode = FALSE))
 				if(!newauthor)
 					to_chat(usr, "The name is invalid.")
 					return
@@ -269,39 +269,39 @@
 					src.author = newauthor
 			else
 				return
-	else if(istype(W, /obj/item/barcodescanner))
-		var/obj/item/barcodescanner/scanner = W
+	else if(istype(attacking_item, /obj/item/barcodescanner))
+		var/obj/item/barcodescanner/scanner = attacking_item
 		if(!scanner.computer)
-			to_chat(user, "[W]'s screen flashes: 'No associated computer found!'")
+			to_chat(user, "[attacking_item]'s screen flashes: 'No associated computer found!'")
 		else
 			switch(scanner.mode)
 				if(0)
 					scanner.book = src
-					to_chat(user, "[W]'s screen flashes: 'Book stored in buffer.'")
+					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer.'")
 				if(1)
 					scanner.book = src
 					scanner.computer.buffer_book = src.name
-					to_chat(user, "[W]'s screen flashes: 'Book stored in buffer. Book title stored in associated computer buffer.'")
+					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Book title stored in associated computer buffer.'")
 				if(2)
 					scanner.book = src
 					for(var/datum/borrowbook/b in scanner.computer.checkouts)
 						if(b.bookname == src.name)
 							scanner.computer.checkouts.Remove(b)
-							to_chat(user, "[W]'s screen flashes: 'Book stored in buffer. Book has been checked in.'")
+							to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Book has been checked in.'")
 							return
-					to_chat(user, "[W]'s screen flashes: 'Book stored in buffer. No active check-out record found for current title.'")
+					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. No active check-out record found for current title.'")
 				if(3)
 					scanner.book = src
 					for(var/obj/item/book in scanner.computer.inventory)
 						if(book == src)
-							to_chat(user, "[W]'s screen flashes: 'Book stored in buffer. Title already present in inventory, aborting to avoid duplicate entry.'")
+							to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title already present in inventory, aborting to avoid duplicate entry.'")
 							return
 					scanner.computer.inventory.Add(src)
-					to_chat(user, "[W]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'")
-	else if(istype(W, /obj/item/material/knife) || W.iswirecutter())
+					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'")
+	else if(istype(attacking_item, /obj/item/material/knife) || attacking_item.iswirecutter())
 		if(carved)	return
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
-		if(W.use_tool(src, user, 30, volume = 50))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
 			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/shreddedp(get_turf(src))

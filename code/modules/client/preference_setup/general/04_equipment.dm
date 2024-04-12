@@ -134,14 +134,14 @@
 		if(!(underwear_metadata in pref.all_underwear))
 			pref.all_underwear_metadata -= underwear_metadata
 
-	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
-	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
-	pref.backbag_color = sanitize_integer(pref.backbag_color, 1, backbagcolors.len, initial(pref.backbag_color))
-	pref.backbag_strap = sanitize_integer(pref.backbag_strap, 1, backbagstrap.len, initial(pref.backbag_strap))
-	pref.pda_choice = sanitize_integer(pref.pda_choice, 1, pdalist.len, initial(pref.pda_choice))
-	pref.headset_choice	= sanitize_integer(pref.headset_choice, 1, headsetlist.len, initial(pref.headset_choice))
-	if(!(pref.primary_radio_slot in primary_radio_slot_choice))
-		pref.primary_radio_slot = primary_radio_slot_choice[1]
+	pref.backbag	= sanitize_integer(pref.backbag, 1, GLOB.backbaglist.len, initial(pref.backbag))
+	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, GLOB.backbagstyles.len, initial(pref.backbag_style))
+	pref.backbag_color = sanitize_integer(pref.backbag_color, 1, GLOB.backbagcolors.len, initial(pref.backbag_color))
+	pref.backbag_strap = sanitize_integer(pref.backbag_strap, 1, GLOB.backbagstrap.len, initial(pref.backbag_strap))
+	pref.pda_choice = sanitize_integer(pref.pda_choice, 1, GLOB.pdalist.len, initial(pref.pda_choice))
+	pref.headset_choice	= sanitize_integer(pref.headset_choice, 1, GLOB.headsetlist.len, initial(pref.headset_choice))
+	if(!(pref.primary_radio_slot in GLOB.primary_radio_slot_choice))
+		pref.primary_radio_slot = GLOB.primary_radio_slot_choice[1]
 	pref.sensor_setting = sanitize_inlist(pref.sensor_setting, SUIT_SENSOR_MODES, get_key_by_index(SUIT_SENSOR_MODES, 0))
 
 /datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
@@ -158,13 +158,13 @@
 
 		. += "<br>"
 
-	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
-	. += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
+	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[GLOB.backbaglist[pref.backbag]]</b></a><br>"
+	. += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[GLOB.backbagstyles[pref.backbag_style]]</b></a><br>"
 	if(pref.backbag == OUTFIT_SATCHEL_ALT || pref.backbag == OUTFIT_RUCKSACK || pref.backbag == OUTFIT_POCKETBOOK) // Hardcoded. Sucks, I know.
-		. += "Backpack Color: <a href='?src=\ref[src];change_backpack_color=1'><b>[backbagcolors[pref.backbag_color]]</b></a><br>"
-	. += "Backpack Strap: <a href='?src=\ref[src];change_backbag_strap=1'><b>[backbagstrap[pref.backbag_strap]]</b></a><br>"
-	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdalist[pref.pda_choice]]</b></a><br>"
-	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[headsetlist[pref.headset_choice]]</b></a><br>"
+		. += "Backpack Color: <a href='?src=\ref[src];change_backpack_color=1'><b>[GLOB.backbagcolors[pref.backbag_color]]</b></a><br>"
+	. += "Backpack Strap: <a href='?src=\ref[src];change_backbag_strap=1'><b>[GLOB.backbagstrap[pref.backbag_strap]]</b></a><br>"
+	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[GLOB.pdalist[pref.pda_choice]]</b></a><br>"
+	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[GLOB.headsetlist[pref.headset_choice]]</b></a><br>"
 	. += "Primary Radio Slot: <a href='?src=\ref[src];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
 	. += "Suit Sensor Setting: <a href='?src=\ref[src];change_sensor_setting=1'><b>[pref.sensor_setting]</b></a><br/>"
 
@@ -188,43 +188,43 @@
 
 /datum/category_item/player_setup_item/general/equipment/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["change_backpack"])
-		var/new_backbag = tgui_input_list(user, "Choose your character's bag type.", "Character Preference", backbaglist, backbaglist[pref.backbag])
+		var/new_backbag = tgui_input_list(user, "Choose your character's bag type.", "Character Preference", GLOB.backbaglist, GLOB.backbaglist[pref.backbag])
 		if(!isnull(new_backbag) && CanUseTopic(user))
-			pref.backbag = backbaglist.Find(new_backbag)
+			pref.backbag = GLOB.backbaglist.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backpack_style"])
-		var/new_backbag = tgui_input_list(user, "Choose your character's style of bag.", "Character Preference", backbagstyles, backbagstyles[pref.backbag_style])
+		var/new_backbag = tgui_input_list(user, "Choose your character's style of bag.", "Character Preference", GLOB.backbagstyles, GLOB.backbagstyles[pref.backbag_style])
 		if(!isnull(new_backbag) && CanUseTopic(user))
-			pref.backbag_style = backbagstyles.Find(new_backbag)
+			pref.backbag_style = GLOB.backbagstyles.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backpack_color"])
-		var/new_backbag = tgui_input_list(user, "Choose your character's color of bag.", "Character Preference", backbagcolors, backbagcolors[pref.backbag_color])
+		var/new_backbag = tgui_input_list(user, "Choose your character's color of bag.", "Character Preference", GLOB.backbagcolors, GLOB.backbagcolors[pref.backbag_color])
 		if(!isnull(new_backbag) && CanUseTopic(user))
-			pref.backbag_color = backbagcolors.Find(new_backbag)
+			pref.backbag_color = GLOB.backbagcolors.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backbag_strap"])
-		var/new_backbag = tgui_input_list(user, "Choose your character's style of bag strap.", "Character Preference", backbagstrap, backbagstrap[pref.backbag_strap])
+		var/new_backbag = tgui_input_list(user, "Choose your character's style of bag strap.", "Character Preference", GLOB.backbagstrap, GLOB.backbagstrap[pref.backbag_strap])
 		if(!isnull(new_backbag) && CanUseTopic(user))
-			pref.backbag_strap = backbagstrap.Find(new_backbag)
+			pref.backbag_strap = GLOB.backbagstrap.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_pda"])
-		var/new_pda = tgui_input_list(user, "Choose your character's PDA type.", "Character Preference", pdalist, pdalist[pref.pda_choice])
+		var/new_pda = tgui_input_list(user, "Choose your character's PDA type.", "Character Preference", GLOB.pdalist, GLOB.pdalist[pref.pda_choice])
 		if(!isnull(new_pda) && CanUseTopic(user))
-			pref.pda_choice = pdalist.Find(new_pda)
+			pref.pda_choice = GLOB.pdalist.Find(new_pda)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_headset"])
-		var/new_headset = tgui_input_list(user, "Choose your character's headset type.", "Character Preference", headsetlist, headsetlist[pref.headset_choice])
+		var/new_headset = tgui_input_list(user, "Choose your character's headset type.", "Character Preference", GLOB.headsetlist, GLOB.headsetlist[pref.headset_choice])
 		if(!isnull(new_headset) && CanUseTopic(user))
-			pref.headset_choice = headsetlist.Find(new_headset)
+			pref.headset_choice = GLOB.headsetlist.Find(new_headset)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_radio_slot"])
-		var/new_slot = tgui_input_list(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Character Preference", primary_radio_slot_choice, pref.primary_radio_slot)
+		var/new_slot = tgui_input_list(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Character Preference", GLOB.primary_radio_slot_choice, pref.primary_radio_slot)
 		if(!isnull(new_slot) && CanUseTopic(user))
 			pref.primary_radio_slot = new_slot
 			return TOPIC_REFRESH_UPDATE_PREVIEW

@@ -187,7 +187,7 @@
 				if(strength <= 0)
 					qdel(src)
 					return
-				var/turf/simulated/floor/T = get_step(src, pick(cardinal))
+				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinal))
 				if(istype(T))
 					Move(T)
 			break

@@ -9,10 +9,10 @@
 	. = ..()
 	icon_state = "snowbush[rand(1, 6)]"
 
-/obj/structure/flora/bush/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/material/scythe))
+/obj/structure/flora/bush/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/scythe))
 		shake_animation()
-		if(W.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			if(prob(50))
 				new /obj/item/stack/material/wood(get_turf(src), 2)
 			if(prob(40))
@@ -24,9 +24,9 @@
 				to_chat(user, SPAN_NOTICE("You find some seeds as you hack the bush away."))
 			to_chat(user, SPAN_NOTICE("You slice at the bush!"))
 			qdel(src)
-	else if(istype(W, /obj/item/material/hatchet))
+	else if(istype(attacking_item, /obj/item/material/hatchet))
 		shake_animation()
-		if(W.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You chop at the bush!"))
 			qdel(src)
 

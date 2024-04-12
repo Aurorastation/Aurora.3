@@ -2,7 +2,8 @@
 	name = "COC Survey Ship"
 	description = "Coalition science ship."
 	suffixes = list("ships/coc/coc_surveyor/coc_surveyor.dmm")
-	sectors = list(ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
+	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_surveyor"
@@ -52,20 +53,30 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/coc_survey_ship/nav1
-	name = "Coalition Survey Ship - Port"
+	name = "Port"
 	landmark_tag = "nav_surveyor_1"
 
 /obj/effect/shuttle_landmark/coc_survey_ship/nav2
-	name = "Coalition Survey Ship - Starboard"
+	name = "Starboard"
 	landmark_tag = "nav_surveyor_2"
 
 /obj/effect/shuttle_landmark/coc_survey_ship/nav3
-	name = "Coalition Survey Ship - Aft"
+	name = "Aft"
 	landmark_tag = "nav_surveyor_3"
 
 /obj/effect/shuttle_landmark/coc_survey_ship/nav4
-	name = "Coalition Survey Ship - Fore"
+	name = "Fore"
 	landmark_tag = "nav_surveyor_4"
+
+/obj/effect/shuttle_landmark/coc_survey_ship/port_dock
+	name = "Port Docking Bay"
+	landmark_tag = "nav_surveyor_portdock"
+	docking_controller = "airlock_coc_surveyor_port"
+
+/obj/effect/shuttle_landmark/coc_survey_ship/starboard_dock
+	name = "Starboard Docking Bay"
+	landmark_tag = "nav_surveyor_starboarddock"
+	docking_controller = "airlock_coc_surveyor_starboard"
 
 /obj/effect/overmap/visitable/ship/landable/coc_survey_shuttle
 	name = "COC Survey Shuttle"

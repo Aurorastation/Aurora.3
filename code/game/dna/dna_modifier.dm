@@ -107,19 +107,19 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/item as obj, var/mob/user as mob)
-	if(istype(item, /obj/item/reagent_containers/glass))
+/obj/machinery/dna_scannernew/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return TRUE
 
-		beaker = item
-		user.drop_from_inventory(item,src)
-		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
+		beaker = attacking_item
+		user.drop_from_inventory(attacking_item,src)
+		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
 		return TRUE
-	else if (!istype(item, /obj/item/grab))
+	else if (!istype(attacking_item, /obj/item/grab))
 		return
-	var/obj/item/grab/G = item
+	var/obj/item/grab/G = attacking_item
 	if (!ismob(G.affecting))
 		return TRUE
 	if (src.occupant)
@@ -148,7 +148,7 @@
 		|| locate(/obj/machinery/computer/cloning, get_step(src, WEST)))
 
 		if(!M.client && M.mind)
-			for(var/mob/abstract/observer/ghost in player_list)
+			for(var/mob/abstract/observer/ghost in GLOB.player_list)
 				if(ghost.mind == M.mind)
 					to_chat(ghost, "<b><font color = #330033><font size = 3>Your corpse has been placed into a cloning scanner. Return to your body if you want to be resurrected/cloned!</b> (Verbs -> Ghost -> Re-enter corpse)</font></font>")
 					break
@@ -222,43 +222,49 @@
 	active_power_usage = 400
 	var/waiting_for_user_input=0 // Fix for #274 (Mash create block injector without answering dialog to make unlimited injectors) - N3X
 
-/obj/machinery/computer/scan_consolenew/attackby(obj/item/I as obj, mob/user as mob)
-	if (istype(I, /obj/item/disk/data)) //INSERT SOME diskS
+/obj/machinery/computer/scan_consolenew/Initialize()
+	..()
+	for(var/i=0;i<3;i++)
+		buffers[i+1]=new /datum/dna2/record
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/scan_consolenew/LateInitialize()
+	. = ..()
+	for(dir in list(NORTH,EAST,SOUTH,WEST))
+		connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
+		if(!isnull(connected))
+			break
+
+	src.injector_ready = 1
+
+/obj/machinery/computer/scan_consolenew/Destroy()
+	connected = null
+	disk = null
+
+	QDEL_LIST_ASSOC(buffers)
+
+	. = ..()
+
+/obj/machinery/computer/scan_consolenew/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
-			user.drop_from_inventory(I,src)
-			src.disk = I
-			to_chat(user, "You insert [I].")
+			user.drop_from_inventory(attacking_item, src)
+			src.disk = attacking_item
+			to_chat(user, "You insert [attacking_item].")
 			SSnanoui.update_uis(src) // update all UIs attached to src
 			return TRUE
 	else
 		return ..()
 
 /obj/machinery/computer/scan_consolenew/ex_act(severity)
-
 	switch(severity)
 		if(1.0)
 			//SN src = null
 			qdel(src)
-			return
 		if(2.0)
 			if (prob(50))
 				//SN src = null
 				qdel(src)
-				return
-	return
-
-/obj/machinery/computer/scan_consolenew/New()
-	..()
-	for(var/i=0;i<3;i++)
-		buffers[i+1]=new /datum/dna2/record
-	spawn(5)
-		for(dir in list(NORTH,EAST,SOUTH,WEST))
-			connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-			if(!isnull(connected))
-				break
-		spawn(250)
-			src.injector_ready = 1
-		return
 	return
 
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)
@@ -367,7 +373,7 @@
 		occupantData["name"] = connected.occupant.real_name
 		occupantData["stat"] = connected.occupant.stat
 		occupantData["isViableSubject"] = 1
-		if (HAS_FLAG(connected.occupant.mutations, NOCLONE) || !src.connected.occupant.dna)
+		if ((connected.occupant.mutations & NOCLONE) || !src.connected.occupant.dna)
 			occupantData["isViableSubject"] = 0
 		occupantData["health"] = connected.occupant.health
 		occupantData["maxHealth"] = connected.occupant.maxHealth
@@ -704,7 +710,7 @@
 			return 1
 
 		if (bufferOption == "transfer")
-			if (!src.connected.occupant || HAS_FLAG(src.connected.occupant.mutations, NOCLONE) || !src.connected.occupant.dna)
+			if (!src.connected.occupant || (src.connected.occupant.mutations & NOCLONE) || !src.connected.occupant.dna)
 				return
 
 			irradiating = 2

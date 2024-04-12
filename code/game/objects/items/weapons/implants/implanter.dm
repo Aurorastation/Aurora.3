@@ -23,10 +23,10 @@
 		overlay_implant_icon.color = imp.implant_color
 		add_overlay(overlay_implant_icon)
 
-/obj/item/implanter/attackby(obj/item/I, mob/user)
-	if(!imp && istype(I, /obj/item/implant) && user.unEquip(I,src))
-		to_chat(usr, SPAN_NOTICE("You slide \the [I] into \the [src]."))
-		imp = I
+/obj/item/implanter/attackby(obj/item/attacking_item, mob/user)
+	if(!imp && istype(attacking_item, /obj/item/implant) && user.unEquip(attacking_item, src))
+		to_chat(usr, SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."))
+		imp = attacking_item
 		update_icon()
 	else
 		..()
@@ -111,8 +111,8 @@
 
 	update_icon()
 
-/obj/item/implanter/ipc_tag/attackby(obj/item/I, mob/user)
-	if(I.isscrewdriver())
+/obj/item/implanter/ipc_tag/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded."))
 			return
@@ -122,12 +122,12 @@
 		ipc_tag = null
 		update_icon()
 		return
-	if(istype(I, /obj/item/organ/internal/ipc_tag))
+	if(istype(attacking_item, /obj/item/organ/internal/ipc_tag))
 		if(ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] already has an IPC tag loaded."))
 			return
-		ipc_tag = I
-		user.drop_from_inventory(I, src)
+		ipc_tag = attacking_item
+		user.drop_from_inventory(attacking_item, src)
 		update_icon()
 		return
 	..()

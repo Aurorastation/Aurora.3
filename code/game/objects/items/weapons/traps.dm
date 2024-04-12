@@ -180,7 +180,8 @@
 	health = 100
 	var/datum/weakref/captured = null
 
-/obj/item/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
+/obj/item/trap/animal/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/M = dropping
 	if(!istype(M))
 		return
 
@@ -195,17 +196,17 @@
 /obj/item/trap/animal/update_icon()
 	icon_state = "[icon_base][deployed]"
 
-/obj/item/trap/animal/examine(mob/user)
+/obj/item/trap/animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(captured)
 		var/datum/L = captured.resolve()
 		if (L)
-			to_chat(user, "<span class='warning'>[L] is trapped inside!</span>")
+			. += SPAN_WARNING("[L] is trapped inside!")
 			return
 	else if(deployed)
-		to_chat(user, SPAN_WARNING("It's set up and ready to capture something."))
+		. += SPAN_WARNING("It's set up and ready to capture something.")
 	else
-		to_chat(user, "<span class='notice'>\The [src] is empty and un-deployed.</span>")
+		. += SPAN_NOTICE("\The [src] is empty and un-deployed.")
 
 /obj/item/trap/animal/Crossed(atom/movable/AM)
 	if(!deployed || !anchored)
@@ -247,7 +248,7 @@
 		return FALSE
 
 	if ((world.time - last_shake) > 5 SECONDS)
-		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 		shake_animation()
 		last_shake = world.time
 
@@ -273,7 +274,7 @@
 	breakout = FALSE
 	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\The [escapee] successfully breaks out of \the [src]!</span>")
-	playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 
 	release()
 
@@ -373,9 +374,9 @@
 	release_time = world.time
 	layer = initial(layer)
 
-/obj/item/trap/animal/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/grab))
-		var/obj/item/grab/G = W
+/obj/item/trap/animal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 		var/mob/living/M = G.affecting
 
 		if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
@@ -393,8 +394,8 @@
 				return
 			capture(M)
 
-	else if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	else if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
@@ -411,7 +412,7 @@
 				release(user)
 				qdel(src)
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
@@ -419,9 +420,10 @@
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
 								"<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
-		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
+		var/sound_to_play = pick(list('sound/items/Screwdriver.ogg', 'sound/items/Screwdriver2.ogg'))
+		playsound(src.loc, sound_to_play, 50, 1)
 
-		if(W.use_tool(src, user, 30, volume = 50))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
@@ -534,7 +536,7 @@
 	icon_base = "medium"
 	icon_state = "medium0"
 	throwforce = 4
-	force = 5
+	force = 11
 	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
@@ -587,8 +589,8 @@
 	else
 		..()
 
-/obj/item/trap/animal/large/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/item/trap/animal/large/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
@@ -601,12 +603,12 @@
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
 								"<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
 
-		if(W.use_tool(src, user, 30, volume = 50))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
 								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		// Unlike smaller traps, screwdriver shouldn't work on this.
 		return
 	else
@@ -643,12 +645,12 @@
 	icon = 'icons/obj/item/traps/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
-	force = 5
+	force = 11
 	w_class = ITEMSIZE_HUGE
 
-/obj/item/large_trap_foundation/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/rods))
-		var/obj/item/stack/rods/O = W
+/obj/item/large_trap_foundation/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/O = attacking_item
 		if(O.get_amount() >= 12)
 
 			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
@@ -663,7 +665,7 @@
 			return
 		else
 			to_chat(user, "<span class='warning'>You need at least 12 rods to complete \the [src].</span>")
-	else if(istype(W, /obj/item/screwdriver))
+	else if(istype(attacking_item, /obj/item/screwdriver))
 		return
 	else
 		..()
@@ -753,7 +755,7 @@
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
 	//Try to apply the damage
-	var/success = L.apply_damage(60, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	var/success = L.apply_damage(50, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 
 	//If successfully applied, give the message
 	if(success)
@@ -785,9 +787,6 @@
 
 			organ.germ_level += INFECTION_LEVEL_THREE
 
-			//Add some fertilizer to poison the target whole, not only the external organ (leg/foot)
-			L.reagents.add_reagent(/singleton/reagent/toxin/fertilizer, 10)
-
 /obj/item/trap/punji/proc/reveal_message(mob/living/victim)
 	if(!message)
 		return
@@ -798,10 +797,11 @@
 
 	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
 
-/obj/item/trap/punji/examine(mob/user, distance)
+/obj/item/trap/punji/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(src.message && distance < 3)
-		to_chat(user, SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+		. += SPAN_ALERT("You notice something written on a plate inside the trap:")
+		. += SPAN_BAD(message)
 
 /obj/item/trap/punji/verb/hide_under()
 	set src in oview(1)

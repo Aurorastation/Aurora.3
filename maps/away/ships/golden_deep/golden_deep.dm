@@ -7,7 +7,7 @@
 	spawn_weight = 1
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep)
-	sectors = list(SECTOR_HANEUNIM, ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
 
 	unit_test_groups = list(1)
 
@@ -27,6 +27,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	invisible_until_ghostrole_spawn = TRUE
 	designer = "Grand Camarilla Estriconian, Midaion Anchorage"
 	volume = "65 meters length, 35 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
@@ -72,14 +73,17 @@
 
 /obj/effect/shuttle_landmark/golden_deep/dock
 	name = "Golden Deep Mercantile Vessel, Main Docking Port"
+	docking_controller = "airlock_gd_dock"
 	landmark_tag = "gd_dock"
 
 /obj/effect/shuttle_landmark/golden_deep/dock2
 	name = "Golden Deep Mercantile Vessel, Auxiliary Docking Port"
+	docking_controller = "airlock_gd_dock2"
 	landmark_tag = "gd_dock2"
 
 /obj/effect/shuttle_landmark/golden_deep/dock3
 	name = "Golden Deep Mercantile Vessel, Docking Port"
+	docking_controller = "airlock_gd_dock3"
 	landmark_tag = "gd_dock3"
 
 //Shuttle
@@ -101,7 +105,7 @@
 /obj/machinery/computer/shuttle_control/explore/golden_deep
 	name = "shuttle control console"
 	shuttle_tag = "Golden Deep Shuttle"
-	req_access = list(access_golden_deep)
+	req_access = list(ACCESS_GOLDEN_DEEP)
 
 /datum/shuttle/autodock/overmap/golden_deep
 	name = "Golden Deep Shuttle"
@@ -109,7 +113,7 @@
 	shuttle_area = list(/area/shuttle/golden_deep)
 	current_location = "gd_nav_hangar"
 	landmark_transition = "gd_nav_transit"
-	dock_target = "golden_shuttle"
+	dock_target = "airlock_golden_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "gd_nav_hangar"
@@ -118,6 +122,7 @@
 /obj/effect/shuttle_landmark/golden_deep_shuttle/hangar
 	name = "Golden Deep Mercantile Vessel - Hangar"
 	landmark_tag = "gd_nav_hangar"
+	docking_controller = "golden_deep_hangar"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/golden_deep/hangar
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

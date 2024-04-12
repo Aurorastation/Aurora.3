@@ -1,4 +1,4 @@
-var/global/list/teleportbeacons = list()
+GLOBAL_LIST_EMPTY(teleportbeacons)
 
 /obj/item/device/radio/beacon
 	name = "tracking beacon"
@@ -11,16 +11,16 @@ var/global/list/teleportbeacons = list()
 
 /obj/item/device/radio/beacon/Initialize()
 	. = ..()
-	teleportbeacons += src
+	GLOB.teleportbeacons += src
 
 /obj/item/device/radio/beacon/Destroy()
-	teleportbeacons -= src
+	GLOB.teleportbeacons -= src
 	return ..()
 
-/obj/item/device/radio/beacon/examine(mob/user)
+/obj/item/device/radio/beacon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(anchored)
-		to_chat(user, SPAN_NOTICE("It's been secured to the ground with anchoring screws."))
+		. += SPAN_NOTICE("It's been secured to the ground with anchoring screws.")
 
 /obj/item/device/radio/beacon/attack_hand(mob/user)
 	if(anchored)
@@ -33,8 +33,8 @@ var/global/list/teleportbeacons = list()
 /obj/item/device/radio/beacon/send_hear()
 	return null
 
-/obj/item/device/radio/beacon/attackby(obj/item/W, mob/user)
-	if(isturf(loc) && W.isscrewdriver())
+/obj/item/device/radio/beacon/attackby(obj/item/attacking_item, mob/user)
+	if(isturf(loc) && attacking_item.isscrewdriver())
 		anchored = !anchored
 		user.visible_message("<b>[user]</b> [anchored ? "" : "un"]fastens \the [src] [anchored ? "to" : "from"] the floor.", "You [anchored ? "" : "un"]fasten \the [src] [anchored ? "to" : "from"] the floor.")
 		return

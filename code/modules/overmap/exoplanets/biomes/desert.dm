@@ -8,7 +8,8 @@
 	spawn_types = list(
 		SMALL_FLORA = list(
 			/obj/structure/flora/rock/desert = 3,
-			/obj/structure/flora/rock/desert/scrub = 2
+			/obj/structure/flora/rock/desert/scrub = 2,
+			/obj/effect/landmark/exoplanet_spawn/plant = 2
 		),
 		LARGE_FLORA = list(
 			/obj/effect/floor_decal/dune/random = 3,
@@ -35,6 +36,7 @@
 		SMALL_FLORA = list(
 			/obj/structure/flora/rock/desert = 1,
 			/obj/structure/flora/rock/desert/scrub = 3,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
 		),
 		LARGE_FLORA = list(
 			/obj/structure/flora/tree/desert/tiny = 1
@@ -61,6 +63,7 @@
 		SMALL_FLORA = list(
 			/obj/structure/flora/rock/desert = 1,
 			/obj/structure/flora/rock/desert/scrub = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
 		),
 		LARGE_FLORA = list(
 			/obj/structure/flora/tree/desert/tiny = 4,

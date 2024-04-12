@@ -6,7 +6,7 @@
 	item_state = "arm_blade"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
-	force = 30
+	force = 33
 	sharp = TRUE
 	edge = TRUE
 	anchored = TRUE
@@ -28,7 +28,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/melee/arm_blade/dropped(var/mob/living/user)
+/obj/item/melee/arm_blade/dropped(mob/user)
 	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
@@ -68,7 +68,7 @@
 	icon_state = "ling_shield"
 	item_state = "ling_shield"
 	contained_sprite = TRUE
-	force = 15 //Bash the crap out of people
+	force = 22 //Bash the crap out of people
 	slot_flags = null
 	anchored = TRUE
 	throwforce = 0 //Just to be on the safe side
@@ -86,7 +86,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/shield/riot/changeling/dropped(var/mob/living/user)
+/obj/item/shield/riot/changeling/dropped(mob/user)
 	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")

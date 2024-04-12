@@ -21,10 +21,10 @@
 /obj/item/tank/oxygen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
-/obj/item/tank/oxygen/examine(mob/user, distance, is_adjacent)
+/obj/item/tank/oxygen/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 10)
-		to_chat(user, text("<span class='warning'>The meter on \the [src] indicates you are almost out of oxygen!</span>"))
+		. += SPAN_WARNING("The meter on \the [src] indicates you are almost out of oxygen!")
 
 /obj/item/tank/oxygen/yellow
 	desc = "A tank of oxygen, this one is yellow."
@@ -76,10 +76,10 @@
 /obj/item/tank/air/adjust_initial_gas()
 	air_contents.adjust_multi(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, GAS_NITROGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
-/obj/item/tank/air/examine(mob/user, distance, is_adjacent)
+/obj/item/tank/air/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
-		to_chat(user, "<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>")
+		. += SPAN_WARNING("The meter on the [src.name] indicates you are almost out of air!")
 
 /*
  * Phoron
@@ -99,11 +99,11 @@
 /obj/item/tank/phoron/shuttle/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_PHORON, 4*(3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
-/obj/item/tank/phoron/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tank/phoron/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if (istype(W, /obj/item/flamethrower))
-		var/obj/item/flamethrower/F = W
+	if (istype(attacking_item, /obj/item/flamethrower))
+		var/obj/item/flamethrower/F = attacking_item
 		if ((!F.secured)||(F.gas_tank))	return
 		src.master = F
 		F.gas_tank = src
@@ -141,17 +141,17 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
-	force = 4.0
+	force = 4
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	volume = 2 //Tiny. Real life equivalents only have 21 breaths of oxygen in them. They're EMERGENCY tanks anyway -errorage (dangercon 2011)
 
 /obj/item/tank/emergency_oxygen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_OXYGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
-/obj/item/tank/emergency_oxygen/examine(mob/user, distance, is_adjacent)
+/obj/item/tank/emergency_oxygen/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
-		to_chat(user, text("<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>"))
+		. += SPAN_WARNING("The meter on the [src.name] indicates you are almost out of air!")
 
 /obj/item/tank/emergency_oxygen/engi
 	name = "extended-capacity emergency oxygen tank"

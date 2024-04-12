@@ -31,7 +31,6 @@
 	tameable = FALSE
 	flying = TRUE
 	smart_melee = FALSE
-	see_in_dark = 8
 	pass_flags = PASSTABLE|PASSRAILING
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
@@ -152,7 +151,7 @@
 	..(null,"blows apart!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, alldirs)
+	spark(T, 1, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()

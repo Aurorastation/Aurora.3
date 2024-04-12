@@ -12,7 +12,7 @@ var/list/whitelist_jobconfig = list()
 */
 
 /hook/startup/proc/loadWhitelist()
-	if (config.usewhitelist)
+	if (GLOB.config.usewhitelist)
 		load_whitelist_jobconfig()
 		load_whitelist()
 	return 1
@@ -26,11 +26,11 @@ var/list/whitelist_jobconfig = list()
 			LOG_DEBUG("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
 
 /proc/load_whitelist()
-	if (config.sql_whitelists)
-		if (!establish_db_connection(dbcon))
+	if (GLOB.config.sql_whitelists)
+		if (!establish_db_connection(GLOB.dbcon))
 			//Continue with the old code if we have no database.
 			log_world("ERROR: Database connection failed while loading whitelists. Reverting to legacy system.")
-			config.sql_whitelists = 0
+			GLOB.config.sql_whitelists = 0
 		else
 			return
 
@@ -48,10 +48,10 @@ var/list/whitelist_jobconfig = list()
 		return TRUE //If the whitelist_jobconfig isnt loaded, there are no whitelists
 
 /proc/check_whitelist(mob/M, var/whitelist_id = 1)
-	if(!config.usewhitelist)
+	if(!GLOB.config.usewhitelist)
 		return TRUE
 
-	if (config.sql_whitelists)
+	if (GLOB.config.sql_whitelists)
 		if (M.client && M.client.whitelist_status)
 			return (M.client.whitelist_status & whitelist_id)
 
@@ -64,23 +64,23 @@ var/list/whitelist_jobconfig = list()
 /var/list/alien_whitelist = list()
 
 /hook/startup/proc/loadAlienWhitelist()
-	if (config.usealienwhitelist)
+	if (GLOB.config.usealienwhitelist)
 		load_alienwhitelist()
 	return 1
 
 /proc/load_alienwhitelist()
-	if (config.sql_whitelists)
-		if (!establish_db_connection(dbcon))
+	if (GLOB.config.sql_whitelists)
+		if (!establish_db_connection(GLOB.dbcon))
 			//Continue with the old code if we have no database.
 			log_world("ERROR: Database connection failed while loading alien whitelists. Reverting to legacy system.")
-			config.sql_whitelists = 0
+			GLOB.config.sql_whitelists = 0
 		else
-			var/DBQuery/query = dbcon.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")
 			query.Execute()
 
 			while (query.NextRow())
-				if (query.item[1] in whitelisted_species)
-					whitelisted_species[query.item[1]] = text2num(query.item[2])
+				if (query.item[1] in GLOB.whitelisted_species)
+					GLOB.whitelisted_species[query.item[1]] = text2num(query.item[2])
 
 			return
 
@@ -93,7 +93,7 @@ var/list/whitelist_jobconfig = list()
 		return 1
 
 /proc/is_alien_whitelisted(mob/M, var/species)
-	if (!config.usealienwhitelist)
+	if (!GLOB.config.usealienwhitelist)
 		return 1
 
 	if (!M || !species)
@@ -106,16 +106,16 @@ var/list/whitelist_jobconfig = list()
 		species = S.name
 
 	else
-		var/datum/species/S = global.all_species[species]
+		var/datum/species/S = GLOB.all_species[species]
 		if(S && !(S.spawn_flags & IS_WHITELISTED))
 			return 1
 
-	if (!alien_whitelist && !config.sql_whitelists)
+	if (!alien_whitelist && !GLOB.config.sql_whitelists)
 		return 0
 
-	if (config.sql_whitelists)
+	if (GLOB.config.sql_whitelists)
 		if (M.client && M.client.whitelist_status)
-			return (M.client.whitelist_status & whitelisted_species[species])
+			return (M.client.whitelist_status & GLOB.whitelisted_species[species])
 	else
 		if (M && species)
 			for (var/s in alien_whitelist)
@@ -147,19 +147,19 @@ var/list/whitelist_jobconfig = list()
 	if (!istype(C) || C.holder)
 		return 0
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		return 0
 
 	var/age_to_beat = 0
 
 	// Assume it's an antag role.
-	if (bantype_to_antag_age[lowertext(job)] && config.use_age_restriction_for_antags)
-		age_to_beat = bantype_to_antag_age[lowertext(job)]
+	if (GLOB.bantype_to_antag_age[lowertext(job)] && GLOB.config.use_age_restriction_for_antags)
+		age_to_beat = GLOB.bantype_to_antag_age[lowertext(job)]
 
 	// Assume it's a job instead!
 	if (!age_to_beat)
 		var/datum/job/J = SSjobs.GetJob(job)
-		if (J && config.use_age_restriction_for_jobs)
+		if (J && GLOB.config.use_age_restriction_for_jobs)
 			age_to_beat = J.minimal_player_age
 
 	var/diff = age_to_beat - C.player_age

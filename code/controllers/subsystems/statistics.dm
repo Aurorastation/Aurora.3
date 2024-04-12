@@ -1,7 +1,9 @@
+#define PING_BUFFER_TIME 25
+
 SUBSYSTEM_DEF(statistics)
 	name = "Statistics & Inactivity"
 	wait = 1 MINUTE
-	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
+	flags = SS_BACKGROUND
 	priority = SS_PRIORITY_STATISTICS
 
 	var/kicked_clients = 0
@@ -32,7 +34,12 @@ SUBSYSTEM_DEF(statistics)
 
 	var/status_needs_update = FALSE
 
+GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
+
 /datum/controller/subsystem/statistics/Initialize(timeofday)
+
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(something_died))
+
 	for (var/type in subtypesof(/datum/statistic) - list(/datum/statistic/numeric, /datum/statistic/grouped))
 		var/datum/statistic/S = new type
 		if (!S.name)
@@ -43,30 +50,36 @@ SUBSYSTEM_DEF(statistics)
 
 	sortTim(simple_statistics, GLOBAL_PROC_REF(cmp_name_asc), TRUE)
 
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/statistics/fire()
-	// Handle AFK.
-	if(config.kick_inactive)
-		var/inactivity_threshold = config.kick_inactive MINUTES
-		for(var/client/C in clients)
+	// Handle AFK and pings
+	for(var/client/C in GLOB.clients)
+		if(GLOB.config.kick_inactive)
+			var/inactivity_threshold = GLOB.config.kick_inactive MINUTES
 			if(!isobserver(C.mob) && !C.holder)
 				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
-					to_chat_immediate(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
+					to_chat_immediate(C, SPAN_WARNING("You have been inactive for more than [GLOB.config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
 					kicked_clients++
 
+		//Ask the client to ping, this is done in TG by the server_maint subsystems, but I'm not gonna port it all just for this
+		if(!(!C || world.time - C.connection_time < PING_BUFFER_TIME || C.inactivity >= (wait-1)))
+			winset(C, null, "command=.update_ping+[num2text(world.time+world.tick_lag*TICK_USAGE_REAL/100, 32)]")
+
 	// Handle population polling.
-	if (config.sql_enabled && config.sql_stats)
-		var/admincount = staff.len
+	if (GLOB.config.sql_enabled && GLOB.config.sql_stats)
+		var/admincount = GLOB.staff.len
 		var/playercount = 0
-		for(var/mob/M in player_list)
+		for(var/mob/M in GLOB.player_list)
 			if(M.client)
 				playercount += 1
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			log_game("SQL ERROR during population polling. Failed to connect.")
 		else
 			var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
-			var/DBQuery/query = dbcon.NewQuery("INSERT INTO `ss13_population` (`playercount`, `admincount`, `time`) VALUES ([playercount], [admincount], '[sqltime]')")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_population` (`playercount`, `admincount`, `time`) VALUES ([playercount], [admincount], '[sqltime]')")
 			if(!query.Execute())
 				var/err = query.ErrorMsg()
 				log_game("SQL ERROR during population polling. Error : \[[err]\]\n")
@@ -155,17 +168,23 @@ SUBSYSTEM_DEF(statistics)
 	if(!feedback)
 		return
 
-	if (!config.sql_enabled || !config.sql_stats)
+	if (!GLOB.config.sql_enabled || !GLOB.config.sql_stats)
 		return
 
 	round_end_data_gathering() //round_end time logging and some other data processing
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		return
 
 	for(var/datum/feedback_variable/FV in feedback)
-		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[game_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
-		var/DBQuery/query_insert = dbcon.NewQuery(sql)
+		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[GLOB.round_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
+		var/DBQuery/query_insert = GLOB.dbcon.NewQuery(sql)
 		query_insert.Execute()
+
+/datum/controller/subsystem/statistics/proc/something_died(datum/source, mob/dead_mob, gibbed)
+	if(dead_mob.ckey)
+		IncrementGroupedStat("ckey_deaths", dead_mob.ckey)
+		if(gibbed)
+			IncrementSimpleStat("gibs")
 
 // Sanitize inputs to avoid SQL injection attacks
 /proc/sql_sanitize_text(var/text)
@@ -233,42 +252,47 @@ SUBSYSTEM_DEF(statistics)
 	FV.add_details(details)
 
 /proc/sql_report_death(var/mob/living/H)
-	if(!config.sql_enabled || !config.sql_stats)
+	if(!GLOB.config.sql_enabled || !GLOB.config.sql_stats)
 		return
 	if(!H)
 		return
 	if(!istype(H, /mob/living/carbon/human) && !istype(H, /mob/living/silicon/robot))
 		return
-	if(!H.key || !H.mind)
-		return
 
 	var/area/placeofdeath = get_area(H)
 	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		log_game("SQL ERROR during death reporting. Failed to connect.")
-	else
-		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES \
-		(:name:, :ckey:, :char_id:, :job:, :special:, :pod:, :tod:, :laname:, :lackey:, :gender:, :bruteloss:, :fireloss:, :brainloss:, :oxyloss:, :coord:')")
-		if(!query.Execute(list(
-			"name"=H.real_name,
-			"ckey"=H.ckey,
-			"char_id"=H.character_id,
-			"job"=H?.mind.assigned_role,
-			"special"=H?.mind.special_role,
-			"pod"=podname,
-			"tod"=time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"),
-			"laname"=H?.lastattacker?.real_name,
-			"lackey"=H?.lastattacker?.ckey,
-			"gender"=H.gender,
-			"bruteloss"=H.getBruteLoss(),
-			"fireloss"=H.getFireLoss(),
-			"brainloss"=H.getBrainLoss(),
-			"oxyloss"=H.getOxyLoss(),
-			"coord"="[H.x], [H.y], [H.z]")
-			))
-			var/err = query.ErrorMsg()
-			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
+		return
+
+	//Prepare location data
+	var/turf/T = get_turf(H)
+
+	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, lachar_id, gender, bruteloss, fireloss, brainloss, oxyloss, loc_x, loc_y, loc_z) VALUES \
+	(:name:, :ckey:, :char_id:, :job:, :special:, :pod:, :tod:, :laname:, :lackey:, :lachar_id:, :gender:, :bruteloss:, :fireloss:, :brainloss:, :oxyloss:, :loc_x:, :loc_y:, :loc_z:)")
+	if(!query.Execute(list(
+		"name"=H.real_name,
+		"ckey"=H.ckey,
+		"char_id"=H.character_id ? H.character_id : null, //make sure we set the char id to null and not 0 so we dont violate the constraint
+		"job"=H?.mind?.assigned_role,
+		"special"=H?.mind?.special_role,
+		"pod"=podname,
+		"tod"=time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"),
+		"laname"=H?.lastattacker?.real_name,
+		"lackey"=H?.lastattacker?.ckey,
+		"lachar_id"=H?.lastattacker?.character_id ? H?.lastattacker?.character_id : null, //make sure we set the char id to null and not 0 so we dont violate the constraint
+		"gender"=H.gender,
+		"bruteloss"=H.getBruteLoss(),
+		"fireloss"=H.getFireLoss(),
+		"brainloss"=H.getBrainLoss(),
+		"oxyloss"=H.getOxyLoss(),
+		"loc_x"=T?.x,
+		"loc_y"=T?.y,
+		"loc_z"=T?.z)
+		))
+		var/err = query.ErrorMsg()
+		log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
 
 /datum/controller/subsystem/statistics/proc/IncrementSimpleStat(stat)
 	. = TRUE
@@ -287,3 +311,5 @@ SUBSYSTEM_DEF(statistics)
 /datum/controller/subsystem/statistics/stat_entry(msg)
 	msg = "Kicked: [kicked_clients]"
 	return ..()
+
+#undef PING_BUFFER_TIME

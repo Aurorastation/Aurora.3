@@ -25,9 +25,9 @@
 	src.visible_message(SPAN_WARNING("\The [src] has been squashed!"), SPAN_WARNING("You hear a smack."))
 	qdel(src)
 
-/obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype( W, /obj/item/pen/crayon ))
-		var/obj/item/pen/crayon/C = W
+/obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pen/crayon ))
+		var/obj/item/pen/crayon/C = attacking_item
 		var/clr = C.colourName
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
@@ -202,3 +202,14 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("zesty tomatoes" = 4))
 	filling_color = "#BB2912"
+
+/obj/item/reagent_containers/food/snacks/eggs_benedict
+	name = "eggs benedict"
+	gender = PLURAL
+	desc = "A dish consisting of poached eggs and sliced ham on half a toasted english muffin, then covered with hollandaise sauce. Usually served in pairs."
+	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
+	icon_state = "benedict"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein/egg = list("rich, creamy eggs" = 10), /singleton/reagent/nutriment = list("toasted bread" = 5, "ham" = 3))
+	filling_color = "#ebcd49"
+	bitesize = 3

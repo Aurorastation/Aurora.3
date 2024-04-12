@@ -1,4 +1,4 @@
-/proc/togglebuildmode(mob/M as mob in player_list)
+/proc/togglebuildmode(mob/M as mob in GLOB.player_list)
 	set name = "Toggle Build Mode"
 	set category = "Special Verbs"
 	if(M.client)
@@ -42,7 +42,7 @@
 /obj/effect/bmode//Cleaning up the tree a bit
 	density = 1
 	anchored = 1
-	layer = SCREEN_LAYER + 1
+	layer = HUD_BASE_LAYER
 	dir = NORTH
 	icon = 'icons/misc/buildmode.dmi'
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
@@ -85,7 +85,7 @@
 			to_chat(usr, "<span class='notice'>Right Mouse Button       = Deconstruct / Delete / Downgrade</span>")
 			to_chat(usr, "<span class='notice'>Left Mouse Button + ctrl = R-Window</span>")
 			to_chat(usr, "<span class='notice'>Left Mouse Button + alt  = Airlock</span>")
-			to_chat(usr, "")
+			to_chat(usr, " ")
 			to_chat(usr, "<span class='notice'>Use the button in the upper left corner to</span>")
 			to_chat(usr, "<span class='notice'>change the direction of built objects.</span>")
 			to_chat(usr, "<span class='notice'>***********************************************************</span>")
@@ -96,7 +96,7 @@
 			to_chat(usr, "<span class='notice'>Middle Mouse Button on turf/obj        = Capture object type</span>")
 			to_chat(usr, "<span class='notice'>Left Mouse Button on turf/obj          = Place objects</span>")
 			to_chat(usr, "<span class='notice'>Right Mouse Button                     = Delete objects</span>")
-			to_chat(usr, "")
+			to_chat(usr, " ")
 			to_chat(usr, "<span class='notice'>Use the button in the upper left corner to</span>")
 			to_chat(usr, "<span class='notice'>change the direction of built objects.</span>")
 			to_chat(usr, "<span class='notice'>***********************************************************</span>")
@@ -211,7 +211,7 @@
 					if("number")
 						master.buildmode.valueholder = input(usr,"Enter variable value:" ,"Value", 123) as num
 					if("mob-reference")
-						master.buildmode.valueholder = input(usr,"Enter variable value:" ,"Value") as mob in mob_list
+						master.buildmode.valueholder = input(usr,"Enter variable value:" ,"Value") as mob in GLOB.mob_list
 					if("obj-reference")
 						master.buildmode.valueholder = input(usr,"Enter variable value:" ,"Value") as obj in world
 					if("turf-reference")

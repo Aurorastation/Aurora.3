@@ -9,7 +9,7 @@
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_ALUMINIUM = 50)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	action_button_name = "Toggle T-Ray scanner"
 
@@ -94,7 +94,7 @@
 	if(scanned in overlay_cache)
 		. = overlay_cache[scanned]
 	else
-		var/image/I = image(scanned.icon, scanned.loc, scanned.icon_state, HUD_LAYER, scanned.dir)
+		var/image/I = image(scanned.icon, scanned.loc, scanned.icon_state, UNDER_HUD_LAYER, scanned.dir)
 
 		//Pipes are special
 		if(istype(scanned, /obj/machinery/atmospherics/pipe))

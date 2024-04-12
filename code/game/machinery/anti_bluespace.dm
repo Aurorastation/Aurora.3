@@ -64,11 +64,11 @@ var/global/list/bluespace_inhibitors
 	anchored = 0
 	update_icon()
 
-/obj/machinery/anti_bluespace/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/anti_bluespace/attackby(obj/item/attacking_item, mob/user)
 	if(user.a_intent == I_HURT)
-		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"))
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"))
 	else
-		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [W]."))
+		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [attacking_item]."))
 		if(prob(66))
 			return TRUE
 

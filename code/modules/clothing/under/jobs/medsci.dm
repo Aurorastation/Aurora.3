@@ -7,7 +7,6 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "research_director"
 	item_state = "research_director"
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	armor = list(
 		bio = ARMOR_BIO_MINOR
@@ -24,7 +23,6 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/scientist/zeng
@@ -34,6 +32,14 @@
 /obj/item/clothing/under/rank/scientist/zavod
 	icon_state = "zav_scientist"
 	item_state = "zav_scientist"
+
+/obj/item/clothing/under/rank/scientist/einstein
+	name = "einstein scientist's jumpsuit"
+	desc_extended = "Doing away with the hideous purple of the SCC's science uniforms in favor of yet more dull greens, \
+	Einstein Engines' science uniforms push new frontiers of style just as their wearers push everything else."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_scientist"
+	item_state = "ee_scientist"
 
 // Xenobotanist
 
@@ -109,7 +115,6 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "chief_medical_officer"
 	item_state = "chief_medical_officer"
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
@@ -122,7 +127,6 @@
 	icon = 'icons/clothing/under/uniforms/iac_uniform.dmi'
 	icon_state = "iac"
 	item_state = "iac"
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
@@ -137,7 +141,6 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	icon_state = "nt_phys"
 	item_state = "nt_phys"
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
@@ -216,7 +219,6 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. Specially fitted to ensure surgical precision."
 	icon_state = "nt_surgeon"
 	item_state = "nt_surgeon"
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/surgeon/zeng
@@ -278,5 +280,5 @@
 	item_state = "pmc_chemist"
 
 /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
-	icon_state = "pmc_chemist"
-	item_state = "pmc_chemist"
+	icon_state = "pmc_alt_chemist"
+	item_state = "pmc_alt_chemist"

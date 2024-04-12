@@ -40,12 +40,12 @@
 /obj/machinery/power/breakerbox/activated/LateInitialize()
 	set_state(1)
 
-/obj/machinery/power/breakerbox/examine(mob/user)
+/obj/machinery/power/breakerbox/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(on)
-		to_chat(user, SPAN_GOOD("It seems to be online."))
+		. += SPAN_GOOD("It seems to be online.")
 	else
-		to_chat(user, SPAN_BAD("It seems to be offline."))
+		. += SPAN_BAD("It seems to be offline.")
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -92,8 +92,8 @@
 		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
-/obj/machinery/power/breakerbox/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(W.ismultitool())
+/obj/machinery/power/breakerbox/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 		if(newtag)
 			RCon_tag = newtag

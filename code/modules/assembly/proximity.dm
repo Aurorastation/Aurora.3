@@ -7,7 +7,7 @@
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
 	movable_flags = MOVABLE_FLAG_PROXMOVE
-	wires = WIRE_PULSE
+	wires = WIRE_PULSE_ASSEMBLY
 
 	secured = FALSE
 

@@ -50,19 +50,19 @@
 				set_dir(get_dir(src, over_object))
 				gun.Fire(get_turf(over_object), src, params, (get_dist(over_object, src) <= 1), FALSE)
 
-/*
-	Standard mob ClickOn()
-	Handles exceptions: Buildmode, middle click, modified clicks, mech actions
-
-	After that, mostly just check your state, check whether you're holding an item,
-	check whether you're adjacent to the target, then pass off the click to whoever
-	is recieving it.
-	The most common are:
-	* mob/UnarmedAttack(atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
-	* atom/attackby(item,user) - used only when adjacent, return TRUE to prevent further afterattack procs being called
-	* item/afterattack(atom,user,adjacent,params) - used both ranged and adjacent
-	* mob/RangedAttack(atom,params) - used only ranged, only used for tk and laser eyes but could be changed
-*/
+/**
+ * Standard mob ClickOn()
+ * Handles exceptions: Buildmode, middle click, modified clicks, mech actions
+ *
+ * After that, mostly just check your state, check whether you're holding an item,
+ * check whether you're adjacent to the target, then pass off the click to whoever
+ * is receiving it.
+ * The most common are:
+ * * [mob/proc/UnarmedAttack] (atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
+ * * [atom/proc/attackby] (item,user) - used only when adjacent
+ * * [obj/item/proc/afterattack] (atom,user,adjacent,params) - used both ranged and adjacent
+ * * [mob/proc/RangedAttack] (atom,modifiers) - used only ranged, only used for tk and laser eyes but could be changed
+ */
 /mob/proc/ClickOn(var/atom/A, var/params)
 
 	if(world.time <= next_click) // Hard check, before anything else, to avoid crashing
@@ -188,7 +188,7 @@
 	next_move = max(world.time + timeout, next_move)
 
 /mob/proc/canClick()
-	if(config.no_click_cooldown || next_move <= world.time)
+	if(GLOB.config.no_click_cooldown || next_move <= world.time)
 		return 1
 	return 0
 
@@ -228,7 +228,7 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(HAS_FLAG(mutations, LASER_EYES) && a_intent == I_HURT)
+	if((mutations & LASER_EYES) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
 		return
 	A.attack_ranged(src, params)

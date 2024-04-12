@@ -47,11 +47,38 @@
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
-/obj/item/organ/New(loc, ...)
-	..()
-	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
-		args[1] = TRUE
-		SSatoms.InitAtom(src, args)
+INITIALIZE_IMMEDIATE(/obj/item/organ)
+
+/obj/item/organ/Initialize(mapload, internal)
+	. = ..()
+	var/mob/living/carbon/holder = loc
+	create_reagents(5)
+	if(!max_damage)
+		max_damage = min_broken_damage * 2
+	if(istype(holder))
+		src.owner = holder
+		species = GLOB.all_species[SPECIES_HUMAN]
+		if(holder.dna)
+			dna = holder.dna.Clone()
+			species = GLOB.all_species[dna.species]
+		else
+			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
+		var/mob/living/carbon/human/H = holder
+		if(istype(H))
+			if(internal)
+				var/obj/item/organ/external/E = H.get_organ(parent_organ)
+				if(E)
+					if(E.internal_organs == null)
+						E.internal_organs = list()
+					E.internal_organs |= src
+			if(dna)
+				if(!blood_DNA)
+					blood_DNA = list()
+				blood_DNA[dna.unique_enzymes] = dna.b_type
+		if(internal)
+			holder.internal_organs |= src
+	START_PROCESSING(SSprocessing, src)
+
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -83,41 +110,12 @@
 /obj/item/organ/proc/update_health()
 	return
 
-/obj/item/organ/Initialize(mapload, internal)
-	. = ..()
-	var/mob/living/carbon/holder = loc
-	create_reagents(5)
-	if(!max_damage)
-		max_damage = min_broken_damage * 2
-	if(istype(holder))
-		src.owner = holder
-		species = all_species[SPECIES_HUMAN]
-		if(holder.dna)
-			dna = holder.dna.Clone()
-			species = all_species[dna.species]
-		else
-			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
-		var/mob/living/carbon/human/H = holder
-		if(istype(H))
-			if(internal)
-				var/obj/item/organ/external/E = H.get_organ(parent_organ)
-				if(E)
-					if(E.internal_organs == null)
-						E.internal_organs = list()
-					E.internal_organs |= src
-			if(dna)
-				if(!blood_DNA)
-					blood_DNA = list()
-				blood_DNA[dna.unique_enzymes] = dna.b_type
-		if(internal)
-			holder.internal_organs |= src
-	START_PROCESSING(SSprocessing, src)
-
 /obj/item/organ/proc/set_dna(var/datum/dna/new_dna)
 	if(new_dna)
 		dna = new_dna.Clone()
-		blood_DNA.Cut()
-		blood_DNA[dna.unique_enzymes] = dna.b_type
+		if(blood_DNA)
+			blood_DNA.Cut()
+			blood_DNA[dna.unique_enzymes] = dna.b_type
 
 /obj/item/organ/proc/die()
 	if(status & ORGAN_ROBOT)
@@ -173,7 +171,7 @@
 			reagents.remove_reagent(/singleton/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,src,TRUE)
-		if(config.organs_decay) damage += rand(1,3)
+		if(GLOB.config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
 		germ_level += rand(2,6)
@@ -210,10 +208,10 @@
 /obj/item/organ/proc/clear_surge_effects()
 	return
 
-/obj/item/organ/examine(mob/user)
+/obj/item/organ/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(status & ORGAN_DEAD)
-		to_chat(user, "<span class='notice'>The decay has set in.</span>")
+		. += "<span class='notice'>The decay has set in.</span>"
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections

@@ -5,7 +5,7 @@
 	icon_state = "window_frame"
 	color = COLOR_GRAY20
 	build_amt = 4
-	layer = LAYER_ABOVE_TABLE
+	layer = ABOVE_TABLE_LAYER
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
@@ -54,20 +54,20 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/window_frame/attackby(obj/item/W, mob/user)
-	if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
+/obj/structure/window_frame/attackby(obj/item/attacking_item, mob/user)
+	if((attacking_item.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't unfasten \the [src] if it has glass installed."))
 			return
 		if(anchored)
-			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				anchored = FALSE
 				to_chat(user, SPAN_NOTICE("You unfasten \the [src]."))
 				update_icon()
 				update_nearby_icons()
 				return
 		else
-			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				anchored = TRUE
 				to_chat(user, SPAN_NOTICE("You fasten \the [src]."))
 				dir = 2
@@ -75,14 +75,14 @@
 				update_nearby_icons()
 				return
 
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't disassemble \the [src] if it has glass installed."))
 			return
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("\The [src] needs to be unanchored to be able to be welded apart."))
 			return
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_NOTICE("\The [WT] isn't turned on."))
 			return
@@ -92,21 +92,21 @@
 			SPAN_NOTICE("You start welding \the [src] apart..."),
 			"You hear deconstruction."
 		)
-		if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+		if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 			if(!src || !WT.isOn())
 				return
 			if(WT.use(0, user))
 				to_chat(user, SPAN_NOTICE("You use \the [WT] to weld apart \the [src]."))
-				playsound(src, WT.usesound, 50, 1)
+				WT.play_tool_sound(get_turf(src), 50)
 				new /obj/item/stack/material/steel(get_turf(src), 4)
 				qdel(src)
 				return
 
-	else if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS_REINFORCED && anchored)
+	else if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED && anchored)
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
 			return
-		var/obj/item/stack/material/G = W
+		var/obj/item/stack/material/G = attacking_item
 		if(do_after(user, 2 SECONDS))
 			if(G.use(glass_needed))
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -118,11 +118,11 @@
 		else
 			to_chat(user, SPAN_NOTICE("You need at least [glass_needed] sheets of [MATERIAL_GLASS_REINFORCED] to install a window in \the [src]."))
 
-	else if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS_REINFORCED_PHORON && anchored)
+	else if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED_PHORON && anchored)
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
 			return
-		var/obj/item/stack/material/G = W
+		var/obj/item/stack/material/G = attacking_item
 		if(do_after(user, 2 SECONDS))
 			if(G.use(glass_needed))
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)

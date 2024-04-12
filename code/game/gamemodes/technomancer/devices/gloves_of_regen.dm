@@ -28,7 +28,7 @@
 			wearer.custom_pain("You feel a sharp pain in your hands!",1)
 	..()
 
-/obj/item/clothing/gloves/regen/dropped(var/mob/living/carbon/human/H)
+/obj/item/clothing/gloves/regen/dropped(mob/user)
 	..()
 	if(wearer)
 		if(wearer.can_feel_pain())

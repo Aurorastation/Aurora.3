@@ -36,13 +36,13 @@ var/global/universe_has_ended = 0
 
 // Apply changes when entering state
 /datum/universal_state/supermatter_cascade/OnEnter()
-	SSgarbage.disable()
+	SSgarbage.can_fire = FALSE
 
 	to_world("<span class='danger' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>")
 
 	sound_to(world, ('sound/effects/cascade.ogg'))
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		M.flash_act()
 
 	if(evacuation_controller.cancel_evacuation())
@@ -60,7 +60,7 @@ var/global/universe_has_ended = 0
 
 	PlayerSet()
 
-	new /obj/singularity/narsie/large/exit(pick(endgame_exits))
+	new /obj/singularity/narsie/large/exit(pick(GLOB.endgame_exits))
 	var/time = rand(30, 60)
 	LOG_DEBUG("universal_state/cascade: Announcing to world in [time] seconds.")
 	LOG_DEBUG("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
@@ -75,7 +75,7 @@ There's been a galaxy-wide electromagnetic pulse.  All of our systems are heavil
 
 You have five minutes before the universe collapses. Good l\[\[###!!!-
 
-AUTOMATED ALERT: Link to [current_map.boss_name] lost.
+AUTOMATED ALERT: Link to [SSatlas.current_map.boss_name] lost.
 
 The access requirements on the Asteroid Shuttles' consoles have now been revoked.
 	"}
@@ -87,11 +87,11 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 			C.req_one_access = list()
 
 /datum/universal_state/supermatter_cascade/proc/end_universe()
-	SSticker.station_explosion_cinematic(0, null, current_map.player_levels) // TODO: Custom cinematic
+	SSticker.station_explosion_cinematic(0, null, SSatlas.current_map.player_levels) // TODO: Custom cinematic
 	universe_has_ended = 1
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
@@ -133,7 +133,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/PlayerSet()
-	for(var/datum/mind/M in player_list)
+	for(var/datum/mind/M in GLOB.player_list)
 		if(!istype(M.current,/mob/living))
 			continue
 		if(M.current.stat!=2)

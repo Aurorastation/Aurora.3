@@ -205,6 +205,12 @@
 	contained_sprite = TRUE
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drugs/mindbreaker = 6)
 
+/obj/item/reagent_containers/food/snacks/meat/hakhma
+	name = "hakhma meat"
+	desc = "A slab of purple bug-meat. Still tastes like chicken."
+	icon_state = "hakhmeat"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 4) // pork of the stars! insects do, in fact, get fat.
+
 /obj/item/reagent_containers/food/snacks/meat/bat
 	name = "bat wings"
 	desc = "Like chicken wings, but with even less meat!"
@@ -359,27 +365,13 @@
 	icon_state = "squidmeat"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
 
-/obj/item/reagent_containers/food/snacks/squidmeat/attackby(var/obj/item/W, var/mob/user)
-	if(is_sharp(W) && (locate(/obj/structure/table) in loc))
-		var/transfer_amt = Floor(reagents.total_volume/3)
+/obj/item/reagent_containers/food/snacks/squidmeat/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item) && (locate(/obj/structure/table) in loc))
+		var/transfer_amt = FLOOR(reagents.total_volume/3, 1)
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
 			reagents.trans_to(sashimi, transfer_amt)
 		qdel(src)
-
-/obj/item/reagent_containers/food/snacks/lasagna
-	name = "lasagna"
-	desc = "Favorite of cats."
-	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
-	icon_state = "lasagna"
-	trash = /obj/item/trash/grease
-	drop_sound = /singleton/sound_category/tray_hit_sound
-	center_of_mass = list("x"=16, "y"=17)
-	filling_color = "#EDF291"
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 12, /singleton/reagent/nutriment/protein = 12)
-	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 4, "tomato" = 2))
-	bitesize = 6
 
 /obj/item/reagent_containers/food/snacks/donerkebab
 	name = "doner kebab"
@@ -391,3 +383,22 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 4, "cabbage" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/meatballs_and_peas
+	name = "meatballs and peas"
+	desc = "Meatballs, peas, tomato sauce, and sometimes some mashed potatoes on the side. Whether you think of this as 'home cooking' or 'a working man's meal', one thing is for sure - It's as comforting and delicioius as it is simple."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "meatballpeas"
+	filling_color = "#913b19"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 6)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("meat" = 5), /singleton/reagent/nutriment = list("tomato sauce" = 4, "peas" = 4))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/meatballs_and_peas/update_icon()
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 49)
+			icon_state = "meatballpeas_half"
+		if(50 to INFINITY)
+			icon_state = "meatballpeas"

@@ -1,3 +1,9 @@
+//Modes the smelter can work with, bitflags
+#define SMELTER_MODE_IDLE BITFLAG(0)
+#define SMELTER_MODE_ALLOYING BITFLAG(1)
+#define SMELTER_MODE_COMPRESSING BITFLAG(2)
+#define SMELTER_MODE_SMELTING BITFLAG(3)
+
 /obj/machinery/mineral
 	var/id //used for linking machines to consoles
 
@@ -36,10 +42,20 @@
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/mineral/processing_unit_console/LateInitialize()
+	. = ..()
+	setup_machine()
+
 /obj/machinery/mineral/processing_unit_console/Destroy()
 	if(machine)
 		machine.console = null
 	return ..()
+
+/obj/machinery/mineral/processing_unit_console/proc/handle_machine_deletion()
+	SIGNAL_HANDLER
+	machine = null
 
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
@@ -49,22 +65,27 @@
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
-			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
+					break //We only link with one, no point continuing if it's ID based
+
+			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist(checked_machine, src) < best_distance)
 				machine = checked_machine
-				best_distance = get_dist_euclidian(checked_machine, src)
+				best_distance = get_dist(checked_machine, src)
+
 		if(machine)
-			machine.console = src
+			machine.link_console(src)
+			RegisterSignal(machine, COMSIG_QDELETING, PROC_REF(handle_machine_deletion))
+
 		else
 			to_chat(user, SPAN_WARNING("ERROR: Linked machine not found!"))
 
 	return machine
 
-/obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/processing_unit_console/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
@@ -98,18 +119,18 @@
 	for(var/ore in machine.ores_processing)
 		if(!machine.ores_stored[ore] && !show_all_ores)
 			continue
-		var/ore/O = ore_data[ore]
+		var/ore/O = GLOB.ore_data[ore]
 		if(!O)
 			continue
 		var/processing_type = ""
-		switch(machine.ores_processing[ore])
-			if(0)
+		switch(machine.ores_processing[ore]) //Yes we could use bitflags, but I don't care enough about it here
+			if(SMELTER_MODE_IDLE)
 				processing_type = "Idle"
-			if(1)
+			if(SMELTER_MODE_SMELTING)
 				processing_type = "Smelt"
-			if(2)
+			if(SMELTER_MODE_COMPRESSING)
 				processing_type = "Compress"
-			if(3)
+			if(SMELTER_MODE_ALLOYING)
 				processing_type = "Alloy"
 		ore_list += list(list("name" = capitalize_first_letters(O.display_name), "processing" = processing_type, "stored" = machine.ores_stored[ore], "ore" = ore))
 	data["oreList"] = ore_list
@@ -143,13 +164,13 @@
 
 		switch(choice)
 			if("Nothing")
-				choice = 0
+				choice = SMELTER_MODE_IDLE
 			if("Smelting")
-				choice = 1
+				choice = SMELTER_MODE_SMELTING
 			if("Compressing")
-				choice = 2
+				choice = SMELTER_MODE_COMPRESSING
 			if("Alloying")
-				choice = 3
+				choice = SMELTER_MODE_ALLOYING
 
 		machine.ores_processing[ore_name] = choice
 		return TRUE
@@ -188,7 +209,7 @@
 	dat += "Operations Department</b><br><br>"
 
 	dat += "Form 0600<br> Mining Yield Declaration</center><hr>"
-	dat += "Facility: [current_map.station_name]<br>"
+	dat += "Facility: [SSatlas.current_map.station_name]<br>"
 	dat += "Date: [date_string]<br>"
 	dat += "Index: [idx]<br><br>"
 
@@ -248,7 +269,7 @@
 	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
-	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
+	playsound(get_turf(src), 'sound/bureaucracy/print_short.ogg', 50, 1)
 
 	// reset
 	output_mats = list()
@@ -263,6 +284,10 @@
 
 /**********************Mineral processing unit**************************/
 
+/**
+ * A list containing alloy data, initialized only once by the first `/obj/machinery/mineral/processing_unit` that initializes
+ */
+GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 
 /obj/machinery/mineral/processing_unit
 	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay // based and redpilled
@@ -274,11 +299,31 @@
 	light_range = 3
 	var/turf/input
 	var/turf/output
+
+	///The ore redemption console that is linked to us
 	var/obj/machinery/mineral/processing_unit_console/console
-	var/sheets_per_tick = 20
+
+	///How many sheets in a second this smelter can make (more or less, rounded up depending on ticklag)
+	var/sheets_per_second = 50
+
+	/**
+	 * An associative list
+	 *
+	 * Key is a string, representing the ore name (eg. uranium, diamond, gold)
+	 *
+	 * Value is a bitflag, representing the operation mode for said ore, see `SMELTER_MODE_*` defines
+	 */
 	var/list/ores_processing[0]
+
+	/**
+	 * An associative list
+	 *
+	 * Key is a string, representing the ore name (eg. uranium, diamond, gold)
+	 *
+	 * Value is a number, representing how many ores are stored in the device for said ore type
+	 */
 	var/list/ores_stored[0]
-	var/static/list/alloy_data
+
 	var/active = 0
 	idle_power_usage = 15
 	active_power_usage = 150
@@ -294,30 +339,35 @@
 /obj/machinery/mineral/processing_unit/Initialize()
 	. = ..()
 
-	// initialize static alloy_data list
-	if(!alloy_data)
-		alloy_data = list()
+	// initialize static alloy_data list, if it's not already initialized
+	if(!length(GLOB.alloy_data))
 		for(var/alloytype in subtypesof(/datum/alloy))
-			alloy_data += new alloytype()
+			GLOB.alloy_data += new alloytype()
 
-	for(var/O in ore_data)
-		ores_processing[O] = 0
+	for(var/O in GLOB.ore_data)
+		ores_processing[O] = SMELTER_MODE_IDLE
 		ores_stored[O] = 0
 
+	return INITIALIZE_HINT_LATELOAD
+
+
+/obj/machinery/mineral/processing_unit/LateInitialize()
+	. = ..()
+
 	//Locate our output and input machinery.
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)
 			break
 
 	if(!input)
-		input = get_step(src, reverse_dir[dir])
+		input = get_step(src, GLOB.reverse_dir[dir])
 	if(!output)
 		output = get_step(src, dir)
 
@@ -326,17 +376,30 @@
 		console.machine = null
 	return ..()
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/processing_unit/proc/link_console(obj/machinery/mineral/processing_unit_console/console_to_link)
+	if(console)
+		UnregisterSignal(console, COMSIG_QDELETING)
+		console = null
+
+	console = console_to_link
+	RegisterSignal(console, COMSIG_QDELETING, PROC_REF(handle_console_deletion))
+
+/obj/machinery/mineral/processing_unit/proc/handle_console_deletion()
+	SIGNAL_HANDLER
+
+	console = null
+
+/obj/machinery/mineral/processing_unit/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
 
-/obj/machinery/mineral/processing_unit/process()
+/obj/machinery/mineral/processing_unit/process(seconds_per_tick)
 	..()
 
 	if(!src.output || !src.input)
@@ -345,7 +408,7 @@
 	var/list/tick_alloys = list()
 
 	//Grab some more ore to process this tick.
-	for(var/i = 0, i < sheets_per_tick, i++)
+	for(var/_ in 1 to ROUND_UP(sheets_per_second*seconds_per_tick))
 		var/obj/item/ore/O = locate() in input
 		if(!O)
 			break
@@ -362,16 +425,23 @@
 	//Process our stored ores and spit out sheets.
 	var/sheets = 0
 	for(var/metal in ores_stored)
-		if(sheets >= sheets_per_tick)
+		if(src.stat & NOPOWER)
+			return
+
+		if(TICK_CHECK)
+			return
+
+		if(sheets >= ROUND_UP(sheets_per_second*seconds_per_tick))
 			break
 
-		if(ores_stored[metal] > 0 && ores_processing[metal] != 0)
-			var/ore/O = ore_data[metal]
+		if(ores_stored[metal] > 0 && ores_processing[metal] != SMELTER_MODE_IDLE)
+			var/ore/O = GLOB.ore_data[metal]
 			if(!O)
 				continue
 
-			if(ores_processing[metal] == 3 && O.alloy) //Alloying.
-				for(var/datum/alloy/A in alloy_data)
+			//Alloying materials
+			if(ores_processing[metal] & SMELTER_MODE_ALLOYING && O.alloy)
+				for(var/datum/alloy/A in GLOB.alloy_data)
 					if(A.metaltag in tick_alloys)
 						continue
 
@@ -384,7 +454,7 @@
 
 						for(var/needs_metal in A.requires)
 							//Check if we're alloying the needed metal and have it stored.
-							if(ores_processing[needs_metal] != 3 || ores_stored[needs_metal] < A.requires[needs_metal])
+							if(!(ores_processing[needs_metal] & SMELTER_MODE_ALLOYING) || ores_stored[needs_metal] < A.requires[needs_metal])
 								enough_metal = FALSE
 								break
 
@@ -394,21 +464,22 @@
 						var/total
 						for(var/needs_metal in A.requires)
 							if(console)
-								var/ore/Ore = ore_data[needs_metal]
+								var/ore/Ore = GLOB.ore_data[needs_metal]
 								console.points += Ore.worth
-							use_power_oneoff(100)
+							use_power_oneoff(300)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
 							total = max(1, round(total * A.product_mod)) //Always get at least one sheet.
 							sheets += total - 1
 
-						for(var/i = 0, i < total, i++)
+						for(var/_ in 1 to total)
 							if(console)
 								console.alloy_mats[A] = console.alloy_mats[A] + 1
 							new A.product(output)
 
-			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
-				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
+			//Compressing materials
+			else if(ores_processing[metal] & SMELTER_MODE_COMPRESSING && O.compresses_to)
+				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 				if(can_make % 2 > 0)
 					can_make--
 
@@ -417,26 +488,27 @@
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
 
-				for(var/i = 0, i < can_make, i += 2)
+				for(var/_ in 1 to (can_make/2))
 					if(console)
 						console.points += O.worth * 2
-					use_power_oneoff(100)
+					use_power_oneoff(300)
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
 					new M.stack_type(output)
 
-			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
-				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
+			//Smelting materials
+			else if(ores_processing[metal] & SMELTER_MODE_SMELTING && O.smelts_to)
+				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 
 				var/material/M = SSmaterials.get_material_by_name(O.smelts_to)
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
 
-				for(var/i = 0, i < can_make, i++)
+				for(var/_ in 1 to can_make)
 					if(console)
 						console.points += O.worth
-					use_power_oneoff(100)
+					use_power_oneoff(300)
 					ores_stored[metal] -= 1
 					sheets++
 					if(console)
@@ -445,15 +517,13 @@
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
-				use_power_oneoff(500)
+				use_power_oneoff(800)
 				ores_stored[metal] -= 1
 				sheets++
 				if(console)
 					console.input_mats[O] += 1
 					console.waste++
 				new /obj/item/ore/slag(output)
-		else
-			continue
 
 	if(console)
 		console.updateUsrDialog()
@@ -472,4 +542,9 @@
 		else if(ismicrolaser(P))
 			laser_rating += P.rating
 
-	sheets_per_tick += scan_rating + cap_rating + laser_rating
+	sheets_per_second += scan_rating + cap_rating + laser_rating
+
+#undef SMELTER_MODE_IDLE
+#undef SMELTER_MODE_ALLOYING
+#undef SMELTER_MODE_COMPRESSING
+#undef SMELTER_MODE_SMELTING

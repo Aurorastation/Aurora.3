@@ -657,6 +657,14 @@
 	icon_state = "konyang_police_lieutenant_hat"
 	item_state = "konyang_police_lieutenant_hat"
 
+/obj/item/clothing/head/konyang/burger
+	name = "\improper UP! Burger cap"
+	desc = "An astoundingly bright orange hat, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "upburger-cap"
+	item_state = "upburger-cap"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/helmet/konyang
 	name = "konyang army helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."

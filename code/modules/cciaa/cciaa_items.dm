@@ -56,10 +56,10 @@
 
 	//If nothing has been done with the device yet
 	if(!selected_report && !interviewee_id)
-		if(config.sql_ccia_logs)
+		if(GLOB.config.sql_ccia_logs)
 			//Get the active cases from the database and display them
 			var/list/reports = list()
-			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")
+			var/DBQuery/report_query = GLOB.dbcon.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")
 			report_query.Execute()
 			while(report_query.NextRow())
 				CHECK_TICK
@@ -149,23 +149,23 @@
 	P.forceMove(get_turf(src.loc))
 
 	//If we have sql ccia logs enabled, then persist it here
-	if(config.sql_ccia_logs && establish_db_connection(dbcon))
+	if(GLOB.config.sql_ccia_logs && establish_db_connection(GLOB.dbcon))
 		//This query is split up into multiple parts due to the length limitations of byond.
 		//To avoid this the text and the antag_involvement_text are saved separately
-		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :antag_involvement:, :text:)")
+		var/DBQuery/save_log = GLOB.dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :antag_involvement:, :text:)")
 		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement, "text" = P.info))
 
 		//Run the query to get the inserted id
 		var/transcript_id = null
-		var/DBQuery/tid = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+		var/DBQuery/tid = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 		tid.Execute()
 		if (tid.NextRow())
 			transcript_id = text2num(tid.item[1])
 
 		if(tid)
-			var/DBQuery/add_text = dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET text = :text: WHERE id = :id:")
+			var/DBQuery/add_text = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET text = :text: WHERE id = :id:")
 			add_text.Execute(list("id" = transcript_id, "text" = P.info))
-			var/DBQuery/add_antag_involvement_text = dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET antag_involvement_text = :antag_involvement_text: WHERE id = :id:")
+			var/DBQuery/add_antag_involvement_text = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET antag_involvement_text = :antag_involvement_text: WHERE id = :id:")
 			add_antag_involvement_text.Execute(list("id" = transcript_id, "antag_involvement_text" = antag_involvement_text))
 		else
 			message_cciaa("Transcript could not be saved correctly. TiD Missing")
@@ -173,7 +173,7 @@
 		//Check if we need to update the status to review required
 		if(antag_involvement && selected_report.status == "in progress")
 			to_chat(usr, "<span class='notice'>The device beeps and flashes \"Liaison Review Required. Interviewee claimed antag involvement.\".</span>")
-			var/DBQuery/update_db = dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
+			var/DBQuery/update_db = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
 			update_db.Execute(list("id" = selected_report.id))
 
 	sLogFile = null
@@ -354,9 +354,9 @@
 	name = "central command internal affairs jacket"
 
 /obj/item/storage/lockbox/cciaa
-	req_access = list(access_cent_ccia)
+	req_access = list(ACCESS_CENT_CCIA)
 	name = "CCIA agent briefcase"
-	desc = "A smart looking briefcase with an SCC logo on the side"
+	desc = "A smart looking briefcase with an SCC logo on the side."
 	storage_slots = 8
 	max_storage_space = 16
 

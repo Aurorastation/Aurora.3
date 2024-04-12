@@ -38,7 +38,7 @@
 	singular_name = "synthetic grass tile"
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
-	force = 1.0
+	force = 1
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
@@ -54,7 +54,7 @@
 	singular_name = "wood floor tile"
 	desc = "An easy to fit wooden floor tile."
 	icon_state = "tile_wood"
-	force = 1.0
+	force = 1
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
@@ -104,7 +104,7 @@
 	singular_name = "carpet"
 	desc = "A piece of carpet. It is the same size as a normal floor tile!"
 	icon_state = "tile_carpet"
-	force = 1.0
+	force = 1
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
@@ -172,7 +172,7 @@
 	singular_name = "linoleum"
 	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
 	icon_state = "tile_linoleum"
-	force = 1.0
+	force = 1
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
@@ -193,7 +193,7 @@
 	singular_name = "circuit tile"
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_bcircuit"
-	force = 6.0
+	force = 14
 	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
@@ -205,7 +205,19 @@
 	singular_name = "circuit tile"
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_gcircuit"
-	force = 6.0
+	force = 14
+	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
+	throwforce = 15.0
+	throw_speed = 5
+	throw_range = 20
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+
+/obj/item/stack/tile/circuit_red
+	name = "circuit tile"
+	singular_name = "circuit tile"
+	desc = "An advanced tile covered in various circuitry and wiring."
+	icon_state = "tile_rcircuit"
+	force = 14
 	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
@@ -221,7 +233,7 @@
 	singular_name = "steel tile"
 	desc = "A set of steel floor tiles."
 	icon_state = "tile"
-	force = 6
+	force = 14
 	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT)
 	throwforce = 6
 	throw_speed = 5
@@ -315,6 +327,12 @@
 	name = "marble floor tile"
 	singular_name = "marble floor tile"
 	icon_state = "tile_lightmarble"
+	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
+
+/obj/item/stack/tile/marble/dark
+	name = "dark marble floor tile"
+	singular_name = "dark marble floor tile"
+	icon_state = "tile_darkmarble"
 	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
 
 /*

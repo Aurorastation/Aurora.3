@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(ai_obfuscation)
 	name = "AI Obfuscation"
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_INIT
 
 	var/list/image/obfuscation_images = list()
 

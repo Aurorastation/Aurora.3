@@ -1,3 +1,30 @@
+// Commonly used code
+#define TRY_INSERT_SUIT_PIECE(slot, path)\
+	if(istype(attacking_item, /obj/item/##path)){\
+		if(active || locked) {\
+			FEEDBACK_FAILURE(user, "\The [src] is locked.");\
+			return\
+		};\
+		if(occupant) {\
+			FEEDBACK_FAILURE(user, "There is no space in \the [src] for \the [attacking_item]!");\
+			return\
+		};\
+		if(##slot){\
+			FEEDBACK_FAILURE(user, "\The [src] already contains \a [slot]!");\
+			return\
+		};\
+		if(attacking_item.icon_override == CUSTOM_ITEM_MOB){\
+			FEEDBACK_FAILURE(user, "You cannot insert a customized voidsuit.");\
+			return\
+		};\
+		to_chat(user, SPAN_NOTICE("You load \the [attacking_item] into the storage compartment."));\
+		user.drop_from_inventory(attacking_item, src);\
+		##slot = attacking_item;\
+		update_icon();\
+		updateUsrDialog();\
+		return\
+	}
+
 /obj/machinery/suit_cycler
 	name = "suit cycler"
 	desc = "An industrial machine for painting and refitting voidsuits."
@@ -7,7 +34,7 @@
 	icon = 'icons/obj/suit_cycler.dmi'
 	icon_state = "base"
 
-	req_access = list(access_captain, access_heads)
+	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
 
 	var/active = FALSE		// PLEASE HOLD.
 	var/safeties = TRUE		// The cycler won't start with a living thing inside it unless safeties are off.
@@ -18,6 +45,8 @@
 	var/can_repair			// If set, the cycler can repair voidsuits.
 	var/electrified = FALSE
 
+	//Will it change the suit name to "refitted [x]" on refit
+	var/rename_on_refit = TRUE
 	//Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
 	//Species that the suits can be configured to fit.
@@ -29,11 +58,23 @@
 	var/mob/living/carbon/human/occupant
 	var/obj/item/clothing/head/helmet/space/helmet
 	var/obj/item/clothing/suit/space/void/suit
+	var/obj/item/clothing/shoes/magboots/boots
+	var/obj/item/clothing/mask/breath/mask
 
 	var/datum/wires/suit_storage_unit/wires
 
-/obj/machinery/suit_cycler/Initialize()
+/obj/machinery/suit_cycler/Initialize(mapload, d = 0, populate_parts = TRUE)
 	. = ..()
+
+	if(populate_parts)
+		if(ispath(suit))
+			suit = new suit(src)
+		if(ispath(helmet))
+			helmet = new helmet(src)
+		if(ispath(boots))
+			boots = new boots(src)
+		if(ispath(mask))
+			mask = new mask(src)
 
 	wires = new(src)
 	target_department = departments[1]
@@ -43,6 +84,14 @@
 		qdel(src)
 
 /obj/machinery/suit_cycler/Destroy()
+	if(occupant)
+		occupant.dropInto(loc)
+		occupant.reset_view()
+		occupant = null
+	DROP_NULL(suit)
+	DROP_NULL(helmet)
+	DROP_NULL(boots)
+	DROP_NULL(mask)
 	QDEL_NULL(wires)
 	return ..()
 
@@ -62,95 +111,34 @@
 		var/image/occupant_image = image(occupant.icon, occupant.icon_state)
 		occupant_image.overlays = occupant.overlays
 		add_overlay(occupant_image)
-	add_overlay("closed")
-	add_overlay("overbase")
+	var/image/overbase = image(icon, "overbase", layer = ABOVE_HUMAN_LAYER)
+	add_overlay(overbase)
+	if(locked || active)
+		var/image/closed = image(icon, "closed", layer = ABOVE_HUMAN_LAYER)
+		add_overlay(closed)
+	else
+		var/image/open = image(icon, "open", layer = ABOVE_HUMAN_LAYER)
+		add_overlay(open)
 	if(panel_open)
-		add_overlay("panel")
+		var/image/panel = image(icon, "panel", layer = ABOVE_HUMAN_LAYER)
+		add_overlay(panel)
 
 	if(irradiating)
 		var/image/irradiating_lights = make_screen_overlay(icon, "light_radiation")
 		add_overlay(irradiating_lights)
+		set_light(3, 0.8, COLOR_RED_LIGHT)
 	else if(active)
 		var/image/active_lights = make_screen_overlay(icon, "light_active")
 		add_overlay(active_lights)
+		set_light(3, 0.8, COLOR_YELLOW)
+	else
+		set_light(0)
 
 /obj/machinery/suit_cycler/relaymove(var/mob/user)
 	eject_occupant(user)
 
-/obj/machinery/suit_cycler/engineering
-	name = "engineering suit cycler"
-	model_text = "Engineering"
-	req_access = list(access_construction)
-	departments = list("Engineering", "Atmos")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
-
-/obj/machinery/suit_cycler/mining
-	name = "mining suit cycler"
-	model_text = "Mining"
-	req_access = list(access_mining)
-	departments = list("Mining")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
-
-/obj/machinery/suit_cycler/security
-	name = "security suit cycler"
-	model_text = "Security"
-	req_access = list(access_security)
-	departments = list("Security")
-
-/obj/machinery/suit_cycler/medical
-	name = "medical suit cycler"
-	model_text = "Medical"
-	req_access = list(access_medical)
-	departments = list("Medical")
-
-/obj/machinery/suit_cycler/syndicate
-	name = "non-standard suit cycler"
-	model_text = "Non-Standard"
-	req_access = list(access_syndicate)
-	departments = list("Mercenary")
-	can_repair = TRUE
-
-/obj/machinery/suit_cycler/wizard
-	name = "magic suit cycler"
-	model_text = "Wizardry"
-	req_access = null
-	departments = list("Wizardry")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
-	can_repair = TRUE
-
-/obj/machinery/suit_cycler/hos
-	name = "head of security suit cycler"
-	model_text = "Head of Security"
-	req_access = list(access_hos)
-	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
-	can_repair = TRUE
-
-/obj/machinery/suit_cycler/captain
-	name = "captain suit cycler"
-	model_text = "Captain"
-	req_access = list(access_captain)
-	departments = list("Captain")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
-	can_repair = TRUE
-
-/obj/machinery/suit_cycler/science
-	name = "research suit cycler"
-	model_text = "Research"
-	req_access = list(access_research)
-	departments = list("Research")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
-	can_repair = TRUE
-
-/obj/machinery/suit_cycler/freelancer
-	name = "freelancers suit cycler"
-	model_text = "Freelancers"
-	req_access = list(access_distress)
-	departments = list("Freelancers")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
-	can_repair = TRUE
-
-/obj/machinery/suit_cycler/MouseDrop_T(mob/living/M, mob/living/user)
+/obj/machinery/suit_cycler/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/M = dropping
 	if(use_check_and_message(user))
 		return
 	if(!istype(M))
@@ -190,12 +178,12 @@
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/suit_cycler/attackby(obj/item/I, mob/user)
+/obj/machinery/suit_cycler/attackby(obj/item/attacking_item, mob/user)
 	if(electrified != 0)
 		if(src.shock(user, 100))
 			return
 
-	if(I.GetID())
+	if(attacking_item.GetID())
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock \the [src]."))
@@ -204,14 +192,14 @@
 		return
 
 	//Hacking init.
-	if(I.ismultitool() || I.iswirecutter())
+	if(attacking_item.ismultitool() || attacking_item.iswirecutter())
 		if(panel_open)
-			wires.Interact(user)
+			wires.interact(user)
 		return
 
 	//Other interface stuff.
-	if(istype(I, /obj/item/grab))
-		var/obj/item/grab/G = I
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 		if(G.state < GRAB_NECK)
 			to_chat(user, SPAN_WARNING("You need a stronger grip to do this!"))
 			return
@@ -250,61 +238,17 @@
 			updateUsrDialog()
 			update_icon()
 		return
-	else if(I.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 		updateUsrDialog()
 		update_icon()
 		return
 
-	else if(istype(I, /obj/item/clothing/head/helmet/space) && !istype(I, /obj/item/clothing/head/helmet/space/rig))
-		if(active || locked)
-			to_chat(user, SPAN_WARNING("\The [src] is locked."))
-			return
-
-		if(occupant)
-			to_chat(user, SPAN_WARNING("There is no space in \the [src] for \the [I]!"))
-			return
-
-		if(helmet)
-			to_chat(user, SPAN_WARNING("\The [src] already contains a helmet."))
-			return
-
-		if(I.icon_override == CUSTOM_ITEM_MOB)
-			to_chat(user, SPAN_WARNING("You cannot refit a customised voidsuit."))
-			return
-
-		to_chat(user, SPAN_NOTICE("You fit \the [I] into \the [src]."))
-		user.drop_from_inventory(I, src)
-		helmet = I
-		update_icon()
-		updateUsrDialog()
-		return
-
-	else if(istype(I, /obj/item/clothing/suit/space/void))
-		if(active || locked)
-			to_chat(user, SPAN_WARNING("\The [src] is locked."))
-			return
-
-		if(occupant)
-			to_chat(user, SPAN_WARNING("There is no space in \the [src] for \the [I]!"))
-			return
-
-		if(suit)
-			to_chat(user, SPAN_WARNING("\The [src] already contains a voidsuit."))
-			return
-
-		if(I.icon_override == CUSTOM_ITEM_MOB)
-			to_chat(user, SPAN_WARNING("You cannot refit a customised voidsuit."))
-			return
-
-		to_chat(user, SPAN_NOTICE("You fit \the [I] into \the [src]."))
-		user.drop_from_inventory(I, src)
-		suit = I
-
-		update_icon()
-		updateUsrDialog()
-		return
+	TRY_INSERT_SUIT_PIECE(suit, clothing/suit/space)
+	TRY_INSERT_SUIT_PIECE(helmet, clothing/head/helmet/space)
+	TRY_INSERT_SUIT_PIECE(boots, clothing/shoes/magboots)
+	TRY_INSERT_SUIT_PIECE(mask, clothing/mask)
 
 	..()
 
@@ -315,7 +259,7 @@
 
 	//Clear the access reqs, disable the safeties, and open up all paintjobs.
 	to_chat(user, SPAN_WARNING("You run the sequencer across the interface, corrupting the operating protocols."))
-	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "^%###^%$")
+	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "^%###^%$", "Unchanged")
 	emagged = TRUE
 	safeties = FALSE
 	req_access = list()
@@ -326,7 +270,7 @@
 	add_fingerprint(user)
 
 	if(panel_open)
-		wires.Interact(user)
+		wires.interact(user)
 		return
 
 	if(..() || stat & (BROKEN|NOPOWER))
@@ -354,9 +298,13 @@
 		"model_text" = model_text,
 		"radiation_level" = radiation_level,
 		"target_department" = target_department,
+		"department_change" = can_change_departments(),
 		"target_species" = target_species,
+		"species_change" = can_change_species(),
 		"helmet" = helmet ? list("name" = helmet.name, "damage" = 0) : null,
-		"suit" = suit ? list("name" = suit.name, "damage" = suit.damage) : null
+		"suit" = suit ? list("name" = suit.name, "damage" = suit.damage) : null,
+		"boots" = boots ? list("name" = boots.name, "damage" = 0) : null,
+		"mask" = mask ? list("name" = mask.name, "damage" = 0) : null
 	)
 
 /obj/machinery/suit_cycler/ui_act(action, params)
@@ -382,12 +330,34 @@
 		helmet = null
 		update_icon()
 
+	else if(action == "eject_boots")
+		if(!boots)
+			return
+		boots.forceMove(get_turf(src))
+		if(Adjacent(usr))
+			usr.put_in_hands(boots)
+		boots = null
+		update_icon()
+
+	else if(action == "eject_mask")
+		if(!mask)
+			return
+		mask.forceMove(get_turf(src))
+		if(Adjacent(usr))
+			usr.put_in_hands(mask)
+		mask = null
+		update_icon()
+
 	else if(action == "select_department")
+		if(!can_change_departments())
+			return
 		var/choice = tgui_input_list(usr, "Please select the target department paintjob.", "Cycler Target Department Selection", departments, target_department)
 		if(choice)
 			target_department = choice
 
 	else if(action == "select_species")
+		if(!can_change_species())
+			return
 		var/choice = tgui_input_list(usr, "Please select the target species configuration.", "Cycler Target Species Selection", species, target_species)
 		if(choice)
 			target_species = choice
@@ -403,6 +373,7 @@
 	else if(action == "repair_suit")
 		if(!suit || !can_repair)
 			return
+		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		update_icon()
 		spawn(100)
@@ -424,6 +395,7 @@
 			to_chat(usr, SPAN_WARNING("\The [english_list(no_refit)] in [src] [no_refit.len == 1 ? "is" : "are"] not refittable!"))
 			return
 
+		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		update_icon()
 		spawn(100)
@@ -433,7 +405,9 @@
 	else if(action == "toggle_lock")
 		if(src.allowed(usr))
 			locked = !locked
+			playsound(loc, 'sound/machines/suitstorage_cycledoor.ogg', 50, FALSE)
 			to_chat(usr, SPAN_WARNING("You [locked ? "" : "un"]lock \the [src]."))
+			update_icon()
 		else
 			to_chat(usr, SPAN_WARNING("Access denied."))
 
@@ -442,6 +416,7 @@
 			to_chat(usr, SPAN_WARNING("The cycler has detected an occupant. Please remove the occupant before commencing the decontamination cycle."))
 			return
 
+		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		irradiating = 10
 		update_icon()
@@ -459,6 +434,21 @@
 				suit.decontaminate()
 			if(radiation_level > 1)
 				suit.clean_blood()
+
+		if(boots)
+			if(radiation_level > 2)
+				boots.decontaminate()
+			if(radiation_level > 1)
+				boots.clean_blood()
+
+		if(mask)
+			if(radiation_level > 2)
+				mask.decontaminate()
+			if(radiation_level > 1)
+				mask.clean_blood()
+
+	src.updateUsrDialog()
+	return
 
 /obj/machinery/suit_cycler/process()
 	if(electrified > 0)
@@ -494,6 +484,7 @@
 /obj/machinery/suit_cycler/proc/finished_job()
 	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
+	playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 	active = FALSE
 	update_icon()
 	updateUsrDialog()
@@ -543,97 +534,133 @@
 		return
 
 	if(target_species)
-		if(helmet)
+		if(helmet && !helmet.contained_sprite)
 			helmet.refit_for_species(target_species)
-		if(suit)
+		if(suit && !suit.contained_sprite)
 			suit.refit_for_species(target_species)
 
 	switch(target_department)
 		if("Engineering")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "engineering voidsuit helmet"
-				helmet.icon_state = "rig0-engineering"
-				helmet.item_state = "eng_helm"
+				helmet.icon_state = "engineering_helm"
+				helmet.item_state = "engineering_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "engineering voidsuit"
-				suit.icon_state = "rig-engineering"
-				suit.item_state = "eng_voidsuit"
+				suit.icon_state = "engineering"
+				suit.item_state = "engineering"
 		if("Mining")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
 				helmet.name = "mining voidsuit helmet"
-				helmet.icon_state = "rig0-mining"
+				helmet.icon_state = "mining_helm"
 				helmet.item_state = "mining_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
 				suit.name = "mining voidsuit"
-				suit.icon_state = "rig-mining"
-				suit.item_state = "mining_voidsuit"
+				suit.icon_state = "mining"
+				suit.item_state = "mining"
 		if("Medical")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
 				helmet.name = "medical voidsuit helmet"
-				helmet.icon_state = "rig0-medical"
+				helmet.icon_state = "medical_helm"
 				helmet.item_state = "medical_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
 				suit.name = "medical voidsuit"
-				suit.icon_state = "rig-medical"
-				suit.item_state = "medical_voidsuit"
+				suit.icon_state = "medical"
+				suit.item_state = "medical"
 		if("Security")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
 				helmet.name = "security voidsuit helmet"
-				helmet.icon_state = "rig0-sec"
-				helmet.item_state = "sec_helm"
+				helmet.icon_state = "security_helm"
+				helmet.item_state = "security_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
 				suit.name = "security voidsuit"
-				suit.icon_state = "rig-sec"
-				suit.item_state = "sec_voidsuit"
+				suit.icon_state = "security"
+				suit.item_state = "security"
 		if("Atmos")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "atmospherics voidsuit helmet"
-				helmet.icon_state = "rig0-atmos"
+				helmet.icon_state = "atmos_helm"
 				helmet.item_state = "atmos_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "atmospherics voidsuit"
-				suit.icon_state = "rig-atmos"
-				suit.item_state = "atmos_voidsuit"
+				suit.icon_state = "atmos"
+				suit.item_state = "atmos"
 		if("Captain")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
 				helmet.name = "captain voidsuit helmet"
-				helmet.icon_state = "capspace"
-				helmet.item_state = "capspace"
+				helmet.icon_state = "captain_helm"
+				helmet.item_state = "captain_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
 				suit.name = "captain voidsuit"
-				suit.icon_state = "capspace"
-				suit.item_state = "capspace"
+				suit.icon_state = "captain"
+				suit.item_state = "captain"
 		if("^%###^%$", "Mercenary")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
 				helmet.name = "blood-red voidsuit helmet"
-				helmet.icon_state = "rig0-syndie"
+				helmet.icon_state = "syndie_helm"
 				helmet.item_state = "syndie_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
 				suit.name = "blood-red voidsuit"
-				suit.item_state = "syndie_voidsuit"
-				suit.icon_state = "rig-syndie"
+				suit.item_state = "syndie"
+				suit.icon_state = "syndie"
 		if("Research")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
 				helmet.name = "research voidsuit helmet"
-				helmet.icon_state = "rig0-sci"
-				helmet.item_state = "research_voidsuit_helmet"
+				helmet.icon_state = "research_helm"
+				helmet.item_state = "research_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
 				suit.name = "research voidsuit"
-				suit.item_state = "research_voidsuit"
-				suit.icon_state = "rig-sci"
+				suit.item_state = "research"
+				suit.icon_state = "research"
 
 		if("Freelancers")
 			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
 				helmet.name = "freelancer voidsuit helmet"
-				helmet.icon_state = "rig0-freelancer"
-				helmet.item_state = "rig0-freelancer"
+				helmet.icon_state = "freelancer_helm"
+				helmet.item_state = "freelancer_helm"
 			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
 				suit.name = "freelancer voidsuit"
 				suit.item_state = "freelancer"
 				suit.icon_state = "freelancer"
 
 	if(helmet)
-		helmet.name = "refitted [helmet.name]"
+		if(helmet.contained_sprite)
+			helmet.refit_contained(target_species)
+		if(rename_on_refit)
+			helmet.name = "refitted [helmet.name]"
 	if(suit)
-		suit.name = "refitted [suit.name]"
+		if(suit.contained_sprite)
+			suit.refit_contained(target_species)
+		if(rename_on_refit)
+			suit.name = "refitted [suit.name]"
 	update_icon()
+
+/obj/machinery/suit_cycler/proc/can_change_departments()
+	if(departments.len <= 1)
+		return FALSE
+	else return TRUE
+
+/obj/machinery/suit_cycler/proc/can_change_species()
+	if(species.len <= 1)
+		return FALSE
+	else return TRUE
+
+#undef TRY_INSERT_SUIT_PIECE

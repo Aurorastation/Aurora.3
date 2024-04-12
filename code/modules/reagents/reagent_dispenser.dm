@@ -21,11 +21,11 @@
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 		desc_info = ""
 
-/obj/structure/reagent_dispensers/examine(mob/user, distance, is_adjacent)
+/obj/structure/reagent_dispensers/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
-	to_chat(user,"<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>")
+	. += "<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>"
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -39,9 +39,9 @@
 	reagents.splash_turf(get_turf(src), reagents.total_volume)
 	qdel(src)
 
-/obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/attackby(obj/item/attacking_item, mob/user)
 
-	var/obj/item/reagent_containers/RG = O
+	var/obj/item/reagent_containers/RG = attacking_item
 	if (istype(RG) && RG.is_open_container())
 
 		var/atype
@@ -64,12 +64,13 @@
 					to_chat(user,"<span class='notice'>The inlet cap on \the [src] is wrenched on tight!</span>")
 		return
 
-	if (O.iswrench())
+	if (attacking_item.iswrench())
 		if(use_check(user, USE_DISALLOW_SPECIALS))
 			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
 			return
 		if(can_tamper && user.a_intent == I_HURT)
-			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>","<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
+			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>",
+									"<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
 			is_leaking = !is_leaking
 			if (is_leaking)
 				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
@@ -78,9 +79,11 @@
 
 		else if(accept_any_reagent)
 			if(atom_flags & ATOM_FLAG_OPEN_CONTAINER)
-				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."), SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
+				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."),
+										SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
 			else
-				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."), SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
+				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."),
+										SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
 			atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 			return
 
@@ -128,14 +131,14 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/examine(mob/user, distance, is_adjacent)
+/obj/structure/reagent_dispensers/fueltank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if (is_leaking)
-		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")
+		. += "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
 	if(rig)
-		to_chat(user, "<span class='notice'>There is some kind of device rigged to the tank.</span>")
+		. += "<span class='notice'>There is some kind of device rigged to the tank.</span>"
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
 	if (rig)
@@ -146,9 +149,9 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W, mob/user)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/attacking_item, mob/user)
 	src.add_fingerprint(user)
-	if(istype(W, /obj/item/wirecutters/bomb) && rig)
+	if(istype(attacking_item, /obj/item/wirecutters/bomb) && rig)
 		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
 							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
 		rig.forceMove(get_turf(user))
@@ -156,22 +159,22 @@
 		user.put_in_hands(rig)
 		rig = null
 		overlays = new/list()
-	if (istype(W,/obj/item/device/assembly_holder))
+	if (istype(attacking_item,/obj/item/device/assembly_holder))
 		if (rig)
 			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
 			return ..()
-		user.visible_message("[user] begins rigging [W] to \the [src].", "You begin rigging [W] to \the [src]")
+		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", "You begin rigging [attacking_item] to \the [src]")
 		if(do_after(user, 20))
-			user.visible_message("<span class='notice'>[user] rigs [W] to \the [src].</span>", "<span class='notice'>You rig [W] to \the [src]</span>")
+			user.visible_message("<span class='notice'>[user] rigs [attacking_item] to \the [src].</span>", "<span class='notice'>You rig [attacking_item] to \the [src]</span>")
 
-			var/obj/item/device/assembly_holder/H = W
+			var/obj/item/device/assembly_holder/H = attacking_item
 			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))
 				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.",ckey=key_name(user))
 
-			rig = W
-			user.drop_from_inventory(W,src)
-			var/mutable_appearance/MA = new(W)
+			rig = attacking_item
+			user.drop_from_inventory(attacking_item,src)
+			var/mutable_appearance/MA = new(attacking_item)
 			MA.pixel_x += 1
 			MA.pixel_y += 6
 			add_overlay(MA)
@@ -303,18 +306,20 @@
 /obj/structure/reagent_dispensers/water_cooler/proc/RejectionMessage(var/mob/user)
 	return "[src]'s cup dispenser is empty."
 
-/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.isscrewdriver())
 		src.add_fingerprint(user)
-		playsound(src.loc, W.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		if(do_after(user, 20))
 			if(!src) return
 			switch (anchored)
 				if (0)
 					anchored = 1
-					user.visible_message("\The [user] tightens the screws securing \the [src] to the floor.", "You tighten the screws securing \the [src] to the floor.")
+					user.visible_message("\The [user] tightens the screws securing \the [src] to the floor.",
+											"You tighten the screws securing \the [src] to the floor.")
 				if (1)
-					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.", "You unfasten the screws securing \the [src] to the floor.")
+					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.",
+											"You unfasten the screws securing \the [src] to the floor.")
 					anchored = 0
 		return
 	else
@@ -328,9 +333,9 @@
 	icon_state = "beertankTEMP"
 	amount_per_transfer_from_this = 10
 
-/obj/structure/reagent_dispensers/keg/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = W
+/obj/structure/reagent_dispensers/keg/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if(!R.can_use(3)) // like a tripod
 			to_chat(user, SPAN_NOTICE("You need three rods to make a still!"))
 			return

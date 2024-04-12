@@ -220,16 +220,40 @@
 /obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
+/obj/machinery/alarm/north,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "aDq" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
 	req_access = list(203);
-	dir = 1
-	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Ship Munitions Storage";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -281,7 +305,6 @@
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine2)
@@ -935,7 +958,6 @@
 /area/ship/sfa_patrol_ship/Engine2)
 "dTw" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -1045,7 +1067,7 @@
 /turf/simulated/wall/rusty,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "eoo" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1057,7 +1079,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1095,7 +1116,7 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/medbay)
@@ -1221,19 +1242,12 @@
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "eJN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/sol/sfa,
-/obj/item/clothing/head/helmet/space/void/sol/sfa,
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/item/device/radio/off,
-/obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
+/obj/machinery/suit_cycler/offship/sol/sfa,
+/obj/machinery/suit_cycler/offship/sol/sfa,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "eLQ" = (
@@ -1856,7 +1870,6 @@
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/dirt,
@@ -2028,7 +2041,6 @@
 /area/ship/sfa_patrol_ship/Quarters)
 "hYx" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/structure/window/reinforced{
@@ -2100,7 +2112,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "sfa_patrol_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "sfa_patrol_ship_pump";
 	tag_chamber_sensor = "sfa_patrol_ship_sensor";
@@ -2501,7 +2512,6 @@
 "jEV" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine1)
@@ -3025,8 +3035,13 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine2)
 "mgf" = (
-/obj/machinery/alarm/west,
-/turf/simulated/wall/shuttle/raider,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
+/obj/machinery/suit_cycler/offship/sol/sfa,
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "mhc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -3235,6 +3250,11 @@
 "ngh" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
+	},
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
@@ -3853,7 +3873,6 @@
 	name = "trashbin"
 	},
 /obj/item/clothing/gloves/black_leather{
-	layer = 2.98
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4344,7 +4363,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -4585,6 +4603,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
+"tIq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/sol/sfa,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/Suit_Storage)
 "tIr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6
@@ -4637,9 +4660,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
-"tUw" = (
-/turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship/medbay)
 "tVV" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -5161,6 +5181,11 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
+"wCp" = (
+/obj/machinery/suit_cycler/offship/sol/sfa,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/Suit_Storage)
 "wDs" = (
 /obj/structure/inflatable/door,
 /turf/unsimulated/floor,
@@ -23348,7 +23373,7 @@ sBA
 fkj
 gUT
 aCY
-eJN
+tIq
 wQt
 wQt
 eJN
@@ -23861,11 +23886,11 @@ xEZ
 xRe
 taa
 eme
-wQt
-eJN
+wCp
+mgf
 ahU
 kFw
-eJN
+mgf
 gUT
 vKl
 vKl
@@ -24118,7 +24143,7 @@ kbh
 rOk
 fkj
 eme
-mgf
+gUT
 gUT
 gUT
 gUT
@@ -29249,7 +29274,7 @@ kYY
 kYY
 kYY
 kYY
-tUw
+mYQ
 bNk
 jGx
 wGV

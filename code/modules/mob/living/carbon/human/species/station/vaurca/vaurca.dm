@@ -30,7 +30,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
-	darksight = 8 //USELESS
+	darksight = 8 //Allows you to see through black k'ois if the night vision is on
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_are_impermeable = TRUE
 
@@ -147,6 +147,7 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 	psi_deaf = TRUE
+	possible_speech_bubble_types = list("robot", "default")
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

@@ -8,7 +8,7 @@
 	item_state = "ishotgun"
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
-	force = 5
+	force = 11
 	recoil = 2
 	accuracy = -1
 	slot_flags = SLOT_BACK
@@ -32,19 +32,19 @@
 	return ..()
 
 
-/obj/item/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/surgery/circular_saw) || istype(A, /obj/item/melee/energy) || istype(A, /obj/item/gun/energy/plasmacutter) && w_class != 3)
+/obj/item/gun/projectile/shotgun/improvised/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/surgery/circular_saw) || istype(attacking_item, /obj/item/melee/energy) || istype(attacking_item, /obj/item/gun/energy/plasmacutter) && w_class != 3)
 		to_chat(user, "<span class='notice'>You begin to shorten the barrel of \the [src].</span>")
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message("<span class='danger'>The shotgun goes off!</span>", "<span class='danger'>The shotgun goes off in your face!</span>")
 			return
-		if(A.use_tool(src, user, 30, volume = 50))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			icon_state = "ishotgunsawn"
 			item_state = "ishotgunsawn"
 			w_class = ITEMSIZE_NORMAL
-			force = 5
+			force = 11
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 			name = "sawn-off improvised shotgun"
@@ -52,14 +52,19 @@
 	else
 		..()
 
-/obj/item/gun/projectile/shotgun/improvised/examine(mob/user)
+/obj/item/gun/projectile/shotgun/improvised/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(fail_chance)
-		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
-		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
-		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
-		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
-		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")
+		if(1)
+			. += "All craftsmanship is of the highest quality."
+		if(2 to 25)
+			. += "All craftsmanship is of high quality."
+		if(26 to 50)
+			. += "All craftsmanship is of average quality."
+		if(51 to 75)
+			. += "All craftsmanship is of low quality."
+		if(100)
+			. += "All craftsmanship is of the lowest quality."
 
 /obj/item/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
@@ -68,7 +73,7 @@
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEMSIZE_NORMAL
-	force = 5
+	force = 11
 
 // shotgun construction
 
@@ -89,41 +94,44 @@
 /obj/item/receivergun/update_icon()
 	icon_state = "ishotgun[buildstate]"
 
-/obj/item/receivergun/examine(mob/user)
+/obj/item/receivergun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(buildstate)
-		if(1) to_chat(user, "It has a pipe segment installed.")
-		if(2) to_chat(user, "It has a stock installed.")
-		if(3) to_chat(user, "Its pieces are held together by tape roll.")
+		if(1)
+			. += "It has a pipe segment installed."
+		if(2)
+			. += "It has a stock installed."
+		if(3)
+			. += "Its pieces are held together by tape roll."
 
-/obj/item/receivergun/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/pipe))
+/obj/item/receivergun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pipe))
 		if(buildstate == 0)
-			qdel(W)
+			qdel(attacking_item)
 			to_chat(user, "<span class='notice'>You place the pipe and the receiver together.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(istype(W,/obj/item/stock))
+	else if(istype(attacking_item, /obj/item/stock))
 		if(buildstate == 1)
-			qdel(W)
+			qdel(attacking_item)
 			to_chat(user, "<span class='notice'>You add the stock to the assembly.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(istype(W,/obj/item/tape_roll))
+	else if(istype(attacking_item, /obj/item/tape_roll))
 		if(buildstate == 2)
-			qdel(W)
+			qdel(attacking_item)
 			to_chat(user, "<span class='notice'>You strap the pieces together with tape.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(W.iscoil())
-		var/obj/item/stack/cable_coil/C = W
+	else if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 3)
 			if(C.use(10))
 				to_chat(user, "<span class='notice'>You tie the lengths of cable to the pipegun, making a sling.</span>")
-				new /obj/item/gun/projectile/shotgun/pump/rifle/pipegun(get_turf(src))
+				new /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun(get_turf(src))
 				qdel(src)
 			else
 				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")
@@ -155,49 +163,57 @@
 /obj/item/gun/projectile/improvised_handgun/loaded
 	magazine_type = /obj/item/ammo_magazine/c45m
 
-/obj/item/gun/projectile/improvised_handgun/examine(mob/user)
+/obj/item/gun/projectile/improvised_handgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(jam_chance)
-		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
-		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
-		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
-		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
-		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")
+		if(1)
+			. += "All craftsmanship is of the highest quality."
+		if(2 to 25)
+			. += "All craftsmanship is of high quality."
+		if(26 to 50)
+			. += "All craftsmanship is of average quality."
+		if(51 to 75)
+			. += "All craftsmanship is of low quality."
+		if(100)
+			. += "All craftsmanship is of the lowest quality."
 
 /obj/item/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
 
-/obj/item/stock/examine(mob/user)
+/obj/item/stock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(buildstate)
-		if(1) to_chat(user, "It is carved in the shape of a pistol handle.")
-		if(2) to_chat(user, "It has a receiver installed.")
-		if(3) to_chat(user, "It has a pipe installed.")
+		if(1)
+			. += "It is carved in the shape of a pistol handle."
+		if(2)
+			. += "It has a receiver installed."
+		if(3)
+			. += "It has a pipe installed."
 
-/obj/item/stock/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/material/hatchet))
+/obj/item/stock/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/hatchet))
 		if(buildstate == 0)
 			to_chat(user, "<span class='notice'>You carve the rifle stock.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(istype(W,/obj/item/receivergun))
+	else if(istype(attacking_item, /obj/item/receivergun))
 		if(buildstate == 1)
-			qdel(W)
+			qdel(attacking_item)
 			to_chat(user, "<span class='notice'>You add the receiver to the assembly.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(istype(W,/obj/item/pipe))
+	else if(istype(attacking_item, /obj/item/pipe))
 		if(buildstate == 2)
-			qdel(W)
+			qdel(attacking_item)
 			to_chat(user, "<span class='notice'>You strap the pipe to the assembly.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(buildstate == 3)
-			var/obj/item/weldingtool/T = W
+			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)

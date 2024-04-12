@@ -21,17 +21,22 @@
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 
-/datum/gear/mask/vaurca_expression
-	display_name = "human expression mask"
+/datum/gear/mask/expression
+	display_name = "expression mask selection"
 	path = /obj/item/clothing/head/expression
 	cost = 1
+	slot = slot_head
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/mask/vaurca_expression/skrell
-	display_name = "skrell expression mask"
-	path = /obj/item/clothing/head/expression/skrell
+/datum/gear/mask/expression/New()
+	..()
+	var/list/masks = list()
+	masks["expression mask, human"] = /obj/item/clothing/head/expression
+	masks["expression mask, skrell"] = /obj/item/clothing/head/expression/skrell
+	masks["expression mask, unathi"] = /obj/item/clothing/head/expression/unathi
+	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/head/shaper
 	display_name = "shaper helmet"
@@ -44,6 +49,7 @@
 	display_name = "tunnel cloak (recolourable)"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
+	slot = slot_back
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -52,6 +58,7 @@
 	display_name = "tunnel cloak selection"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
+	slot = slot_back
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -168,7 +175,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/augment/language_processor
 	display_name = "language processor"
@@ -194,13 +201,14 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/klatxatl, /singleton/origin_item/origin/mikuetz)
+	origin_restriction = list(/singleton/origin_item/origin/klatxatl, /singleton/origin_item/origin/mikuetz, /singleton/origin_item/origin/cthur, /singleton/origin_item/origin/mouv, /singleton/origin_item/origin/vytel, /singleton/origin_item/origin/xetl, /singleton/origin_item/origin/cthur_b, /singleton/origin_item/origin/mouv_b, /singleton/origin_item/origin/vytel_b)
 
 /datum/gear/augment/auxiliary_processor/New()
 	..()
 	var/list/auxiliary_processors = list()
 	auxiliary_processors["Mi'kuetz [LANGUAGE_AZAZIBA] language processor"] = /obj/item/organ/internal/augment/language/mikuetz
 	auxiliary_processors["Zino [LANGUAGE_GUTTER] language processor"] = /obj/item/organ/internal/augment/language/zino
+	auxiliary_processors["Eridani [LANGUAGE_TRADEBAND] language processor"] = /obj/item/organ/internal/augment/language/eridani
 	gear_tweaks += new /datum/gear_tweak/path(auxiliary_processors)
 
 /datum/gear/vaurca_lunchbox
@@ -221,6 +229,18 @@
 	sortTim(lunchboxes, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
+
+/datum/gear/kois_mre
+	display_name = "k'ois MRE"
+	description = "K'ois MRE."
+	cost = 1
+	path = /obj/item/storage/box/fancy/mre/menu12
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/ears/vaurca
+	abstract_type = /datum/gear/ears/vaurca
 
 /datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"
@@ -262,7 +282,7 @@
 	path = /obj/item/organ/external/hand/right/vaurca/security
 	whitelisted = list(SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Security Officer", "Warden")
+	allowed_roles = list("Security Officer", "Warden", "Security Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamed
@@ -272,7 +292,7 @@
 	path = /obj/item/organ/external/hand/right/vaurca/medical
 	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
+	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamag
@@ -282,7 +302,7 @@
 	path = /obj/item/organ/internal/augment/tool/vaurcamag
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist")
+	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
 
 /datum/gear/accessory/tret_passcard
 	display_name = "tret passcard"
@@ -290,6 +310,6 @@
 	path = /obj/item/clothing/accessory/badge/passcard/tret
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
-	culture_restriction = /singleton/origin_item/culture/klax
+	culture_restriction = list(/singleton/origin_item/culture/klax)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

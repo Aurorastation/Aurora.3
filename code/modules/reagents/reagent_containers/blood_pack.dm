@@ -155,15 +155,14 @@
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/blood/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (distance <= 2 && vampire_marks)
-		to_chat(user, SPAN_WARNING("There are teeth marks on it."))
-	return
+		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
 
-/obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (P.ispen())
+	if (attacking_item.ispen())
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
@@ -187,10 +186,10 @@
 		update_icon()
 		return
 
-	if (istype(P, /obj/item/) && P.sharp == 1)
+	if (istype(attacking_item, /obj/item/) && attacking_item.sharp == 1)
 		var/mob/living/carbon/human/H = usr
-		if(LAZYLEN(P.attack_verb))
-			user.visible_message(SPAN_DANGER("[src] has been [pick(P.attack_verb)] with \the [P] by [user]!"))
+		if(LAZYLEN(attacking_item.attack_verb))
+			user.visible_message(SPAN_DANGER("[src] has been [pick(attacking_item.attack_verb)] with \the [attacking_item] by [user]!"))
 		var/atkmsg_filled = null
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
 			atkmsg_filled = " and the contents spray everywhere"
@@ -203,7 +202,7 @@
 					if(51 to INFINITY)	strength = 4
 				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
 					spray_loop:
-						var/direction = pick(alldirs)
+						var/direction = pick(GLOB.alldirs)
 						var/target
 						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
 							switch (direction)
@@ -281,6 +280,6 @@
 	icon_state = "ripped"
 	volume = 0
 
-/obj/item/reagent_containers/blood/ripped/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/ripped/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("You can't do anything further with this."))
 	return

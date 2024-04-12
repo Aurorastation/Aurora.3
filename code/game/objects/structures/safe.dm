@@ -44,13 +44,13 @@ FLOOR SAFES
 			space += I.w_class
 			I.forceMove(src)
 
-/obj/structure/safe/examine(mob/user)
+/obj/structure/safe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(broken)
-		to_chat(user, SPAN_WARNING("\The [src]'s locking system has been drilled open!"))
+		. += SPAN_WARNING("\The [src]'s locking system has been drilled open!")
 	else if(time_to_drill < 300 SECONDS)
 		var/time_left = max(round(time_to_drill / 10), 0)
-		to_chat(user, SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!"))
+		. += SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!")
 
 /obj/structure/safe/Destroy()
 	if(drill)
@@ -215,29 +215,29 @@ FLOOR SAFES
 				updateUsrDialog()
 
 
-/obj/structure/safe/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/safe/attackby(obj/item/attacking_item, mob/user)
 	if(open)
-		if(I.w_class + space <= maxspace)
-			space += I.w_class
-			user.drop_from_inventory(I,src)
-			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
+		if(attacking_item.w_class + space <= maxspace)
+			space += attacking_item.w_class
+			user.drop_from_inventory(attacking_item, src)
+			to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 			updateUsrDialog()
 			return
 		else
-			to_chat(user, SPAN_NOTICE("[I] won't fit in [src]."))
+			to_chat(user, SPAN_NOTICE("[attacking_item] won't fit in [src]."))
 			return
 	else
-		if(istype(I, /obj/item/clothing/accessory/stethoscope))
+		if(istype(attacking_item, /obj/item/clothing/accessory/stethoscope))
 			attack_hand(user)
-		else if(istype(I, /obj/item/thermal_drill))
+		else if(istype(attacking_item, /obj/item/thermal_drill))
 			if(drill)
 				to_chat(user, SPAN_WARNING("There is already a drill attached!"))
 			else if(do_after(user, 2 SECONDS))
-				user.drop_from_inventory(I, src)
-				drill = I
+				user.drop_from_inventory(attacking_item, src)
+				drill = attacking_item
 				update_icon()
 		else
-			to_chat(user, SPAN_WARNING("You can't put [I] into the safe while it is closed!"))
+			to_chat(user, SPAN_WARNING("You can't put [attacking_item] into the safe while it is closed!"))
 
 /obj/structure/safe/process()
 	if(!drill)
@@ -245,7 +245,7 @@ FLOOR SAFES
 	time_to_drill -= (world.time - last_drill_time) * drill.time_multiplier
 	last_drill_time = world.time
 	if(prob(15))
-		spark(loc, 3, alldirs)
+		spark(loc, 3, GLOB.alldirs)
 	if(time_to_drill <= 0)
 		drill_open()
 
@@ -264,7 +264,7 @@ FLOOR SAFES
 	icon_state = "floorsafe"
 	density = 0
 	level = 1	//underfloor
-	layer = 2.5
+	layer = BELOW_OBJ_LAYER
 	drill_x_offset = -1
 	drill_y_offset = 20
 

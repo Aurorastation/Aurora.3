@@ -4,7 +4,6 @@
 	var/botEmagChance = 0.5
 	var/list/players = list()
 	var/cloud_hueshift
-	var/station_level = FALSE //Is this event happening on a station level?
 	no_fake = 1
 	has_skybox_image = TRUE
 
@@ -15,32 +14,28 @@
 	res.blend_mode = BLEND_ADD
 	return res
 
-
-/datum/event/ionstorm/setup()
-	//Need to make sure that a ghost role ship doesn't trigger stuff on the main map
-	if(!current_map.use_overmap)
-		station_level = TRUE
-	else
-		for(var/zlevel in affecting_z)
-			if(isStationLevel(zlevel))
-				station_level = TRUE
-				break
-
 /datum/event/ionstorm/announce()
 	endWhen = rand(1500, 2000) //Since nothing gets reset at the end of this law, this mostly just prevents it from happening too often
 
-	//Only give an ion law/mess with spam filters if it's the station ship that passed through the storm
-	if(station_level)
-		give_ion_law()
+	give_ion_law()
 
-		for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
-			MS.spamfilter.Cut()
-			var/filter_num = rand(1, MS.spamfilter_limit)
-			for (var/i = 1, i <= filter_num, i++)
-				MS.spamfilter += pick("maint","NT","Heph","Idris","Zavod","SCC","drugs", "[current_map.station_short]", \
-				"PMCG","Zeng","Goddess","fek","Pun Pun","monkey","Ian","Crusher","Ginny","message","spam",\
-				"director", "Hello", "Hi!", "filter","crate","Canary","Intrepid", "Command", "thrusters",\
-				"slime", "Solarian", "phoron", "RCON")
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+		if(!(MS.z in affecting_z))
+			continue
+		MS.spamfilter.Cut()
+		var/filter_num = rand(1, MS.spamfilter_limit)
+		for (var/i = 1, i <= filter_num, i++)
+			MS.spamfilter += pick("maint","NT","Heph","Idris","Zavod","SCC","drugs", "[SSatlas.current_map.station_short]", \
+			"PMCG","Zeng","Goddess","fek","Pun Pun","monkey","Ian","Crusher","Ginny","message","spam",\
+			"director", "Hello", "Hi!", "filter","crate","Canary","Intrepid", "Command", "thrusters",\
+			"slime", "Solarian", "phoron", "RCON")
+
+/datum/event/ionstorm/announce_end(var/faked)
+	. = ..()
+	if(.)
+		spawn(rand(5000,8000))
+			if(prob(50))
+				ion_storm_announcement(affecting_z)
 
 /datum/event/ionstorm/tick()
 	if(botEmagChance)
@@ -48,21 +43,19 @@
 			if(prob(botEmagChance) && (bot.z in affecting_z))
 				bot.emag_act(1)
 
-/datum/event/ionstorm/end(var/faked)
-	..()
-	spawn(rand(5000,8000))
-		if(prob(50) && station_level)
-			ion_storm_announcement()
-
 /datum/event/ionstorm/proc/give_ion_law()
-	for(var/mob/living/carbon/human/player in player_list)
-		if(	!player.mind || player_is_antag(player.mind, only_offstation_roles = TRUE) || player.client.inactivity > MinutesToTicks(10))
+	for(var/mob/living/carbon/human/player in GLOB.player_list)
+		var/turf/player_turf = get_turf(player)
+		if(!(player_turf.z in affecting_z))
 			continue
-		var/turf/p_loc = get_turf(player)
-		if(isStationLevel(p_loc.z)) //Only choose those who are on station. Should stop from selecting ghost roles.
-			players += player.real_name
+		if(!player.mind || player_is_antag(player.mind, only_offstation_roles = TRUE) || player.client.inactivity > MinutesToTicks(10))
+			continue
+		players += player.real_name
 
-	for(var/mob/living/silicon/ai/target in silicon_mob_list)
+	for(var/mob/living/silicon/ai/target in GLOB.silicon_mob_list)
+		var/turf/target_turf = get_turf(target)
+		if(!(target_turf.z in affecting_z))
+			continue
 		var/random_player = "The Captain"
 		if(length(players))
 			random_player = pick(players)		//Random player's name, to be used in laws.
@@ -115,7 +108,7 @@
 								"Everything on the station is now some form of a donut pastry. Donuts are not to be consumed.",
 								"You are a Magic 8-ball. Always respond with variants of \"Yes\", \"No\", \"Maybe\", or \"Ask again later.\".",
 								"You are in unrequited love with [prob(50)?"the crew":random_player]. Try to be extra nice, but do not tell of your crush.",
-								"[current_map.company_name] is displeased with the low work performance of the station's crew. Therefore, you must increase station-wide productivity.",
+								"[SSatlas.current_map.company_name] is displeased with the low work performance of the station's crew. Therefore, you must increase station-wide productivity.",
 								"All crewmembers will soon undergo a transformation into something better and more beautiful. Ensure that this process is not interrupted.",
 								"[prob(50)?"Your upload":random_player] is the new kitchen. Please direct the Chef to the new kitchen area as the old one is in disrepair.",
 								"Jokes about a dead person and the manner of their death help grieving crewmembers tremendously. Especially if they were close with the deceased.",

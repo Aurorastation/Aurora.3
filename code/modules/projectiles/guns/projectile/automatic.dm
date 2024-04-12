@@ -315,19 +315,24 @@
 /datum/firemode/z8
 	var/use_launcher = 0
 
-/obj/item/gun/projectile/automatic/rifle/dom
-	name = "dominian assault rifle"
-	desc = "The standard issue rifle of the Empire of Dominia’s Imperial Army. With its sleek lines and ruggedized faux wood furniture, the MPR-24/5 \
-	is as elegant as it is deadly, proving itself in service during Dominia's numerous colonial conflicts."
-	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. \
-	The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s."
-	icon = 'icons/obj/guns/dom_rifle.dmi'
+/obj/item/gun/projectile/automatic/rifle/dominia
+	name = "dominian rifle"
+	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army. Loads from 30 round 5.56 magazines."
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard-issue rifle of the Imperial Army for decades thanks to its durable construction and ease \
+	of use. The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: \
+	one that they hope will keep it competitive well into the 2470s."
+	icon = 'icons/obj/guns/dominia_rifle.dmi'
 	icon_state = "acr"
 	item_state = "acr"
+	caliber = "a556"
+	ammo_type = /obj/item/ammo_casing/a556
+	magazine_type = /obj/item/ammo_magazine/a556
+	allowed_magazines = list(/obj/item/ammo_magazine/a556)
 
-/obj/item/gun/projectile/automatic/rifle/dom/update_icon()
+/obj/item/gun/projectile/automatic/rifle/dominia/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
@@ -367,9 +372,14 @@
 	. = ..()
 	launcher = new(src)
 
-/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
+/obj/item/gun/projectile/automatic/rifle/z8/Destroy()
+	QDEL_NULL(launcher)
+
+	. = ..()
+
+/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/attacking_item, mob/user)
+	if((istype(attacking_item, /obj/item/grenade)))
+		launcher.load(attacking_item, user)
 	else
 		..()
 
@@ -394,12 +404,12 @@
 	else
 		icon_state = "carbine-empty"
 
-/obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
+/obj/item/gun/projectile/automatic/rifle/z8/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(launcher.chambered)
-		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
+		. += "\The [launcher] has \a [launcher.chambered] loaded."
 	else
-		to_chat(user, "\The [launcher] is empty.")
+		. += "\The [launcher] is empty."
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
@@ -603,7 +613,7 @@
 	desc = "A submachine gun featuring a novel top loading configuration, used by the Empire of Dominia's armed forces."
 	desc_extended = "The Moroz Pattern Machine Carbine, Model of 2430 is a lightweight, handy weapon intended for use by vehicle crews, airborne troops, and other units that do not require a full-length rifle. \
 	Simplistic in design and function, the MPMC-30 is highly reliable in nearly all environments, lending itself well to use by colonial forces. In particular, the Imperial Fisanduhian Gendarmerie are known to make heavy use of the weapon."
-	icon = 'icons/obj/guns/dom_smg.dmi'
+	icon = 'icons/obj/guns/dominia_smg.dmi'
 	icon_state = "owen"
 	item_state = "owen"
 	max_shells = 20
@@ -612,6 +622,53 @@
 /obj/item/gun/projectile/automatic/tommygun/dom/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "owen" : "owen-empty"
+
+/obj/item/gun/projectile/automatic/tommygun/assassin
+	name = "integrally suppressed machine pistol"
+	desc = "An Eridanian “rat hunting” gun manufactured by the Amon Pest Control Company. Commonly used by corporate assassins, uncommonly used by pest control workers. Chambered in 6mm."
+	desc_extended = "The APCC RatAway SMG is manufactured by a shell company of Ringspire for use in corporate assassination duties. Extremely quiet and firing caseless ammunition, it is an ideal weapon for putting down those who dare to threaten megacorporate interests."
+	icon = 'icons/obj/guns/assassin_smg.dmi'
+	icon_state = "assassin_smg"
+	item_state = "assassin_smg"
+	magazine_type = /obj/item/ammo_magazine/submachinemag/assassin
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
+	caliber = "6mm"
+	suppressed = TRUE
+	can_unsuppress = FALSE
+	suppressor_x_offset = null
+	suppressor_y_offset = null
+	handle_casings = DELETE_CASINGS
+	max_shells = 30
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
+
+/obj/item/gun/projectile/automatic/tommygun/assassin/update_icon()
+	..()
+	icon_state = (ammo_magazine) ? "assassin_smg" : "assassin_smg-empty"
+
+/obj/item/gun/projectile/automatic/tommygun/konyang
+	name = "konyang police submachine gun"
+	desc = "A compact submachine gun made specifically for the Konyang National Police. Takes .45 ammo."
+	desc_extended = "Produced by one of Einstein Engines' local subsidiaries on Konyang, the K45 \"Pogpung\" submachine gun is Taepung Arms' entry into the submachine gun market. \
+	The National Police purchased a large number of K45s for their patrol units due to reports that service revolvers were inadequate at stopping rampant IPCs. The K45-P variant \
+	specially designed for the police forces is chambered in the organization's preferred .45 caliber and is limited to 3-round bursts due to the relatively limited firearms training of \
+	National Police officers."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k45carbine"
+	item_state = "k45carbine"
+	w_class = ITEMSIZE_NORMAL
+	max_shells = 30
+	load_method = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m, /obj/item/ammo_magazine/submachinemag)
+
+	firemodes = list(
+		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
+		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15))
+	)
+
+/obj/item/gun/projectile/automatic/tommygun/konyang/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "k45carbine" : "k45carbine-e"
 
 /obj/item/gun/projectile/automatic/rifle/dnac
 	name = "dNAC-6.5 assault rifle"
@@ -708,7 +765,7 @@
 /obj/item/gun/projectile/automatic/rifle/konyang/k556
 	name = "konyang assault rifle"
 	desc = "The K556 is the standard assault rifle of the Konyang Armed Forces. Sturdy and reliable."
-	desc_extended = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
+	desc_extended = "The K556 assault rifle is a new design in use by elements of the Konyang Armed Forces, designed in-house by the military in partnership with Einstein Engines'local subsidiaries. It has yet to see widespread service as the government is reluctant to spend money on new small arms when they already possess large stockpiles from the colonial period. This has not stopped the Aerospace Forces from making the transition to the new weapon however, as its compact design, light weight, and accuracy make it ideal for use aboard a spacecraft."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k556rifle"
 	item_state = "k556rifle"
@@ -728,8 +785,7 @@
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47
 	name = "konyang assault carbine"
 	desc = "The Dering-K1 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
-	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
-	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
+	desc_extended = "The Dering K1 battle rifle is a standard Solarian M469 given a service extension package by Zavodskoi Interstellar. Many of the rifles bear Konyanger proof marks right next to old Solarian ones, indicating their heritage. Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k47"
 	item_state = "k47"
@@ -760,6 +816,50 @@
 	caliber = "30-06 govt"
 	is_wieldable = TRUE
 	max_shells = 8
+
+/obj/item/gun/projectile/automatic/rifle/dominia_carbine
+	name = "dominian carbine"
+	desc = "A carbine variant of the MPR-24/5 with a shorter barrel and folding stock. Loads from 20 round 7.62 magazines."
+	desc_extended = "The carbine variant of the MPR-24/5 is commonly seen in the hands of vehicle crews, airborne troops, and other units that do not require a \
+	full-length rifle. Paramilitary units, such as the Imperial Fisanduhian Gendarmerie, are armed with these rather than full-length rifles."
+	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon_state = "dom_carbine"
+	item_state = "dom_carbine"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = "/obj/item/ammo_casing/a762"
+	handle_casings = EJECT_CASINGS
+	caliber = "a762"
+	magazine_type = /obj/item/ammo_magazine/c762/dominia
+	allowed_magazines = list(/obj/item/ammo_magazine/c762/dominia)
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/automatic/rifle/dominia_carbine/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "dom_carbine" : "dom_carbine-empty"
+
+/obj/item/gun/projectile/automatic/rifle/dominia_lmg
+	name = "dominian light machine gun"
+	desc = "A machine gun based on the MPR-24/5 platform."
+	desc_extended = "Originally developed as a platoon-level weapon but later converted to squad-level use, the MPR-24/5 PMG (Platoon Machine Gun) is \
+	the most commonly-issued machine gun in the Imperial Army. The PMG is reliable and capable yet fairly heavy, and most non-geneboosted soldiers \
+	issued it receive a special load-bearing harness to make using it easier."
+	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon_state = "dom_lmg"
+	item_state = "dom_lmg"
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazine/a556/dlmg
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/dlmg)
+	firemodes = list(
+		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+	)
+
+/obj/item/gun/projectile/automatic/rifle/dominia_lmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
@@ -839,3 +939,52 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun/konyang/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"
+
+/obj/item/gun/projectile/automatic/rifle/hook_mg
+	name = "unathi hook machine gun"
+	desc = "A ballistic machine gun of Unathi manufacture, often used by the forces of the Traditionalist Coalition during the Contact War."
+	desc_extended = "The Hook Machinegun is a heavy automatic machinegun of Moghesian manufacture. Though the name of the creators of this weapon was lost to the destruction of the nuclear exchange, the Hook was known to be found in the hands of some of the better-equipped forces of the Traditionalist Coalition during the Contact War. \
+	This machine gun is carried on one's shoulder and thus can be used with a single hand. Though it can fire heavy cartridges, it is quite lacking in accuracy."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "hookmg"
+	item_state = "hookmg"
+	caliber = "5.8mm"
+	magazine_type = /obj/item/ammo_magazine/hookmg
+	allowed_magazines = list(/obj/item/ammo_magazine/hookmg)
+	firemodes = list(
+		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+	)
+	slot_flags = null
+	w_class = ITEMSIZE_LARGE
+	accuracy = -2
+	accuracy_wielded = 0
+
+/obj/item/gun/projectile/automatic/rifle/hook_mg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "hookmg" : "hookmg-empty"
+
+/obj/item/gun/projectile/automatic/tempestsmg
+	name = "tempest submachine gun"
+	desc = "The tempest sub-machine gun is a Hegemonic design dating back to the 2350s, though still produced in ample numbers to this day. While rather large and heavy for a weapon of its class, its simplicity and reliability have made it a popular weapon among Unathi for over a century, and the aging weapon was even used as the basis for future designs."
+	magazine_type = /obj/item/ammo_magazine/tempestsmg
+	allowed_magazines = list(/obj/item/ammo_magazine/tempestsmg)
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "tempestsmg"
+	item_state = "tempestsmg"
+	caliber = "11.6mm"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	slot_flags = SLOT_BELT|SLOT_BACK|SLOT_S_STORE
+	suppressed = FALSE
+	is_wieldable = TRUE
+	accuracy_wielded = 2
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = 1
+
+/obj/item/gun/projectile/automatic/tempestsmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "tempestsmg" : "tempestsmg-empty"

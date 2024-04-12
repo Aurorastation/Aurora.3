@@ -94,4 +94,4 @@
 		clothing_mode = 0
 		transform_holoclothing_appearance()
 		cooldown = world.time + 100 SECONDS
-		spark(src, 1, alldirs)
+		spark(src, 1, GLOB.alldirs)

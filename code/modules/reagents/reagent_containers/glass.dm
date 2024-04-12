@@ -24,27 +24,27 @@
 	. = ..()
 	AddComponent(/datum/component/base_name, name)
 
-/obj/item/reagent_containers/glass/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/glass/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))
+		. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent.")
 		for(var/_T in reagents.reagent_volumes)
 			var/singleton/reagent/T = GET_SINGLETON(_T)
 			if(T.reagent_state == LIQUID)
-				to_chat(user, SPAN_NOTICE("You see something liquid in the beaker."))
+				. += SPAN_NOTICE("You see something liquid in the beaker.")
 				break // to stop multiple messages of this
 			if(T.reagent_state == GAS)
-				to_chat(user, SPAN_NOTICE("You see something gaseous in the beaker."))
+				. += SPAN_NOTICE("You see something gaseous in the beaker.")
 				break
 			if(T.reagent_state == SOLID)
-				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
+				. += SPAN_NOTICE("You see something solid in the beaker.")
 				break
 	else
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 	if(!is_open_container())
-		to_chat(user, SPAN_NOTICE("An airtight lid seals it completely."))
+		. += SPAN_NOTICE("An airtight lid seals it completely.")
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
@@ -60,25 +60,25 @@
 
 	return additional_evidence
 
-/obj/item/reagent_containers/glass/attack_self()
+/obj/item/reagent_containers/glass/attack_self(mob/user)
 	..()
 	if(is_open_container())
-		to_chat(usr, "<span class = 'notice'>You put the lid on \the [src].</span>")
+		to_chat(user, "<span class = 'notice'>You put the lid on \the [src].</span>")
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	else
-		to_chat(usr, "<span class = 'notice'>You take the lid off \the [src].</span>")
+		to_chat(user, "<span class = 'notice'>You take the lid off \the [src].</span>")
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
 /obj/item/reagent_containers/glass/AltClick(var/mob/user)
 	set_APTFT()
 
-/obj/item/reagent_containers/glass/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/storage/part_replacer))
+/obj/item/reagent_containers/glass/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
-	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
-		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
+	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))
+		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > 15)
 			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
 		else
@@ -194,6 +194,13 @@
 	possible_transfer_amounts = list(5,10,15,25)
 	fragile = 1 // very fragile
 
+/obj/item/reagent_containers/glass/beaker/vial/antidote
+	name = "hylemnomil-zeta antidote vial"
+	desc = "<span class='cult'>Your lifeline. Defend it with your life.</span>"
+	volume = 60
+	amount_per_transfer_from_this = 5
+	reagents_to_add = list(/singleton/reagent/antibodies = 60)
+
 /obj/item/reagent_containers/glass/beaker/medcup
 	name = "medicine cup"
 	desc = "A glass medicine cup. Like a shot glass for medicine."
@@ -213,15 +220,6 @@
 
 /obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/singleton/reagent/acid = 60)
 
-/obj/item/reagent_containers/glass/beaker/teapot
-	name = "teapot"
-	desc = "An elegant teapot. It simply oozes class."
-	icon_state = "teapot"
-	item_state = "teapot"
-	unacidable = TRUE
-	amount_per_transfer_from_this = 10
-	volume = 120
-
 /obj/item/reagent_containers/glass/beaker/pitcher
 	name = "pitcher"
 	desc = "Everyone's best friend in the morning."
@@ -230,6 +228,10 @@
 	amount_per_transfer_from_this = 10
 	volume = 120
 	possible_transfer_amounts = list(5,10,15,30,60,120)
+
+/obj/item/reagent_containers/glass/beaker/pitcher/coffee
+	name = "coffee pitcher"
+	reagents_to_add = list(/singleton/reagent/drink/coffee = 120)
 
 // buckets
 
@@ -245,7 +247,7 @@
 	item_state = "bucket"
 	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
-	matter = list(DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_PLASTIC = 200)
 	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
@@ -257,24 +259,24 @@
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
 	fragile = 0
 
-/obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
-	if(isprox(D))
-		to_chat(user, "You add [D] to [src].")
-		qdel(D)
+/obj/item/reagent_containers/glass/bucket/attackby(obj/item/attacking_item, mob/user)
+	if(isprox(attacking_item))
+		to_chat(user, "You add [attacking_item] to [src].")
+		qdel(attacking_item)
 		user.put_in_hands(new /obj/item/bucket_sensor)
 		qdel(src)
 		return
-	else if(D.iswirecutter())
-		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
+	else if(attacking_item.iswirecutter())
+		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [attacking_item].</span>")
 		user.put_in_hands(new helmet_type)
 		qdel(src)
 		return
-	else if(istype(D, /obj/item/mop))
+	else if(istype(attacking_item, /obj/item/mop))
 		if(reagents.total_volume < 1)
 			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
 		else
-			reagents.trans_to_obj(D, 5)
-			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
+			reagents.trans_to_obj(attacking_item, 5)
+			to_chat(user, "<span class='notice'>You wet \the [attacking_item] in \the [src].</span>")
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 	else
@@ -294,8 +296,8 @@
 	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
 
 /obj/item/reagent_containers/glass/bucket/wood
-	desc = "An old wooden bucket."
 	name = "wooden bucket"
+	desc = "An old wooden bucket."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
@@ -305,9 +307,8 @@
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
-/obj/item/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
-	if(isprox(D))
+/obj/item/reagent_containers/glass/bucket/wood/attackby(obj/item/attacking_item, mob/user)
+	if(isprox(attacking_item))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return
-
 	..()

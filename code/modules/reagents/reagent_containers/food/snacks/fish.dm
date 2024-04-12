@@ -6,9 +6,9 @@
 	bitesize = 6
 	var/fish_type = "fish"
 
-/obj/item/reagent_containers/food/snacks/fish/attackby(var/obj/item/W, var/mob/user)
-	if(is_sharp(W) && (locate(/obj/structure/table) in loc))
-		var/transfer_amt = Floor(reagents.total_volume/3)
+/obj/item/reagent_containers/food/snacks/fish/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item) && (locate(/obj/structure/table) in loc))
+		var/transfer_amt = FLOOR(reagents.total_volume/3, 1)
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), fish_type)
 			reagents.trans_to(sashimi, transfer_amt)
@@ -110,9 +110,9 @@
 		return
 	return ..()
 
-/obj/item/mollusc/attackby(var/obj/item/thing, var/mob/user)
-	if(thing.sharp || thing.edge)
-		user.visible_message("<b>[user]</b> cracks open \the [src] with \the [thing].", SPAN_NOTICE("You crack open \the [src] with \the [thing]."))
+/obj/item/mollusc/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.sharp || attacking_item.edge)
+		user.visible_message("<b>[user]</b> cracks open \the [src] with \the [attacking_item].", SPAN_NOTICE("You crack open \the [src] with \the [attacking_item]."))
 		crack_shell(user)
 		return
 	return ..()

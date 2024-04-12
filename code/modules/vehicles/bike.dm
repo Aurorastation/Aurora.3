@@ -1,12 +1,16 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_info = "Click-drag yourself onto the bike to climb onto it.<br>\
+	desc_info = "\
+		- Click-drag yourself onto the bike to climb onto it.<br>\
 		- Click-drag it onto yourself to access its mounted storage.<br>\
 		- CTRL-click the bike to toggle the engine.<br>\
+		- Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key.<br>\
 		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
-		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
-	icon = 'icons/obj/bike.dmi'
+		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike.<br>\
+		- Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes.<br>\
+	"
+	icon = 'icons/obj/vehicle/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
 
@@ -19,16 +23,44 @@
 	brute_dam_coeff = 0.5
 	var/protection_percent = 60
 
-	var/land_speed = 5 //if 0 it can't go on turf
+	/// Speed on land. Higher is slower.
+	/// If 0 it can't go on land turfs at all.
+	var/land_speed = 5
+	/// Speed if walk intent is on.
+	/// Should be slower, but does not crash into other bikes or people at this speed.
+	/// If land speed is 0, still can't go on land turfs at all.
+	var/land_speed_careful = 6
+	/// Same as land speed, but for space turfs.
 	var/space_speed = 1
-	var/bike_icon = "bike"
+	/// Same as land speed if walk intent is on, but for space turfs.
+	var/space_speed_careful = 4
 
+	var/bike_icon = "bike"
 	var/storage_type = /obj/item/storage/toolbox/bike_storage
 	var/obj/item/storage/storage_compartment
 	var/datum/effect_system/ion_trail/ion
 	var/ion_type = /datum/effect_system/ion_trail
 	var/kickstand = TRUE
 	var/can_hover = TRUE
+
+	/// Registration plate string of the vehicle, visible on examine,
+	/// to distingush different vehicles of the same type from each other.
+	/// Also used to check if the key is for this vehicle.
+	/// If null, it is randomly generated on init.
+	var/registration_plate = null
+	/// Key type accepted in vehicle ignition.
+	var/key_type = /obj/item/key/bike
+	/// Actual key object in the vehicle ignition, or null if no key in ignition.
+	/// To actually start the vehicle, key data needs to match with the registration plate string.
+	var/obj/item/key/key = null
+	/// If TRUE, vehicle spawns with the key that matches its registration plate string.
+	/// If FALSE, the key needs to be mapped/spawned somewhere outside of the vehicle,
+	/// otherwise it will be an unusable prop.
+	var/spawns_with_key = TRUE
+
+/obj/vehicle/bike/Destroy()
+	QDEL_NULL(key)
+	return ..()
 
 /obj/vehicle/bike/setup_vehicle()
 	..()
@@ -38,6 +70,23 @@
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
+	if(!registration_plate)
+		generate_registration_plate()
+	if(spawns_with_key)
+		key = new key_type(src)
+		key.key_data = registration_plate
+
+/obj/vehicle/bike/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 4)
+		. += "\The [src] has a small registration plate on the back, '[registration_plate]'."
+		if(key)
+			. += "\The [src] has \a [key] in."
+		else
+			. += "\The [src] does not have a key in."
+
+/obj/vehicle/bike/proc/generate_registration_plate()
+	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
 	if(Adjacent(user) && anchored)
@@ -50,9 +99,17 @@
 		return
 
 	if(!on)
-		turn_on()
-		src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
+		if(!key)
+			to_chat(user, SPAN_WARNING("You cannot turn \the [src] on, without a key."))
+			return
+
+		if((key.key_data != registration_plate))
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], but it lets out a sharp buzz.")
+		else
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], and it beeps happily.")
+			turn_on()
+			src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
+			playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
 	else
 		turn_off()
 		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
@@ -83,7 +140,6 @@
 			var/mob/M = pulledby
 			M.stop_pulling()
 
-
 	kickstand = !kickstand
 	anchored = (kickstand || on)
 
@@ -99,15 +155,18 @@
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
-/obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
-	if(!load(C))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [C] onto \the [src]."))
+/obj/vehicle/bike/MouseDrop_T(atom/dropping, mob/user)
+	if(!load(dropping))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
-	if(user == load)
-		unload(load)
-		to_chat(user, "You unbuckle yourself from \the [src]")
+	if(key)
+		to_chat(user, "You take \the [key] out of \the [src]")
+		user.put_in_hands(key)
+		key = null
+		if(on)
+			toggle_engine(user)
 	else if(user != load && load)
 		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, src))
@@ -115,13 +174,27 @@
 			to_chat(user, "You unbuckle [load] from \the [src]")
 			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
+/obj/vehicle/bike/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key))
+		if(!key)
+			if(istype(attacking_item, key_type))
+				user.drop_from_inventory(attacking_item, src)
+				key = attacking_item
+				to_chat(user, SPAN_NOTICE("You put \the [attacking_item] in \the [src]."))
+				update_icon()
+			else
+				to_chat(user, SPAN_NOTICE("You try to put \the [attacking_item] in \the [src], but it does not fit."))
+		else
+			to_chat(user, SPAN_NOTICE("\The [src] already has a key in it."))
+	..()
+
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))
 
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
-	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/unsimulated/floor/asteroid))
+	var/static/list/types = typecacheof(list(/turf/space))
 	if(is_type_in_typecache(destination,types) || pulledby)
 		return TRUE
 	else
@@ -132,16 +205,22 @@
 		visible_message("The kickstand prevents the bike from moving!")
 		return
 
-	//these things like space, not turf. Dragging shouldn't weigh you down.
+	var/mob/living/rider = buckled
+	if(!istype(buckled))
+		return
+
+	var/is_careful = (rider.m_intent != M_RUN)
 	var/is_on_space = check_destination(destination)
+
 	if(is_on_space)
 		if(!space_speed)
 			return 0
-		move_delay = space_speed
+		move_delay = (is_careful ? space_speed_careful : space_speed)
 	else
 		if(!land_speed)
 			return 0
-		move_delay = land_speed
+		move_delay = (is_careful ? land_speed_careful : land_speed)
+
 	return ..()
 
 /obj/vehicle/bike/turn_on()
@@ -203,7 +282,7 @@
 		return
 	if(istype(buckled, /mob/living))
 		M = buckled
-	if(M.a_intent == I_HURT)
+	if(M.m_intent == M_RUN)
 		if (istype(AM, /obj/vehicle))
 			M.setMoveCooldown(10)
 			var/obj/vehicle/V = AM
@@ -279,7 +358,9 @@
 	dir = EAST
 
 	land_speed = 1
+	land_speed_careful = 4
 	space_speed = 0
+	space_speed_careful = 0
 
 	can_hover = FALSE
 
@@ -289,7 +370,7 @@
 		return
 	if(istype(buckled, /mob/living))
 		M = buckled
-	if(M.a_intent == I_HURT)
+	if(M.m_intent == M_RUN)
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 		M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
@@ -324,6 +405,7 @@
 
 	bike_icon = "snow"
 	land_speed = 2
+	land_speed = 4
 	protection_percent = 10
 	can_hover = FALSE
 	var/paid = FALSE
@@ -333,8 +415,8 @@
 		return
 	..()
 
-/obj/vehicle/bike/casino/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/coin/casino))
+/obj/vehicle/bike/casino/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/coin/casino))
 		if(!paid)
 			paid = TRUE
 			to_chat(user, SPAN_NOTICE("Payment confirmed, enjoy two minutes of unlimited snowmobile use."))
@@ -363,3 +445,80 @@
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE
+
+/obj/vehicle/bike/motor
+	name = "sports bike"
+	desc = "A two-wheeled vehicle meant for easy riding."
+	icon_state = "sport_on"
+	bike_icon = "sport"
+	land_speed = 1
+	land_speed_careful = 4
+	space_speed = 0
+	protection_percent = 10
+	can_hover = FALSE
+	key_type = /obj/item/key/bike/sport
+
+/obj/vehicle/bike/motor/check_destination(turf/destination)
+	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/floor/exoplanet/water))
+	if(is_type_in_typecache(destination,types) || pulledby)
+		return TRUE
+	else
+		return FALSE
+
+/obj/vehicle/bike/motor/generate_registration_plate()
+	registration_plate = "[rand(10,99)]S-[rand(1000,9999)]"
+
+/obj/vehicle/bike/motor/blue
+	icon_state = "bluesport_on"
+	bike_icon = "bluesport"
+
+/obj/vehicle/bike/motor/green
+	icon_state = "greensport_on"
+	bike_icon = "greensport"
+
+/obj/vehicle/bike/motor/brown
+	icon_state = "brownsport_on"
+	bike_icon = "brownsport"
+
+/obj/vehicle/bike/motor/police_konyang
+	name = "police bike"
+	desc = "A two-wheeled vehicle meant for easy riding. This comes in stark white colors with flashy lights, indicating it is the law. It has the insignias of Konyang's police force."
+	icon_state = "konyangpolice_on"
+	bike_icon = "konyangpolice"
+	key_type = /obj/item/key/bike/police
+
+/obj/vehicle/bike/motor/police_konyang/generate_registration_plate()
+	registration_plate = "[rand(10,99)]P-[rand(1000,9999)]"
+
+/obj/vehicle/bike/motor/moped
+	name = "moped"
+	desc = "A cheap, two-wheeled motorized bicycle."
+	icon_state = "greenmoped_on"
+	bike_icon = "greenmoped"
+	land_speed = 2 // slower than a sport bike but will still get you around big maps
+	key_type = /obj/item/key/bike/moped
+
+/obj/vehicle/bike/motor/moped/generate_registration_plate()
+	registration_plate = "[rand(10,99)]M-[rand(1000,9999)]"
+
+/obj/vehicle/bike/motor/moped/police_konyang
+	name = "police moped"
+	desc = "A cheap, two-wheeled motorized bicycle. This comes in stark white colors with flashy lights, indicating it is the law. It has the insignias of Konyang's police force."
+	icon_state = "konyangpolicemoped_on"
+	bike_icon = "konyangpolicemoped"
+	key_type = /obj/item/key/bike/police
+
+/obj/vehicle/bike/motor/moped/police_konyang/generate_registration_plate()
+	registration_plate = "[rand(10,99)]P-[rand(1000,9999)]"
+
+/obj/vehicle/bike/motor/moped/red
+	icon_state = "redmoped_on"
+	bike_icon = "redmoped"
+
+/obj/vehicle/bike/motor/moped/teal
+	icon_state = "tealmoped_on"
+	bike_icon = "tealmoped"
+
+/obj/vehicle/bike/motor/moped/blue
+	icon_state = "bluemoped_on"
+	bike_icon = "bluemoped"

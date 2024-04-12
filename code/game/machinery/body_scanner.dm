@@ -136,7 +136,8 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/G, mob/user)
+/obj/machinery/bodyscanner/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
 	if (occupant)
@@ -164,17 +165,18 @@
 	qdel(G)
 	return TRUE
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/machinery/bodyscanner/MouseDrop_T(atom/dropping, mob/user)
 	if(!istype(user))
 		return
-	if(!ismob(O))
+
+	if(!ismob(dropping))
 		return
-	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
+
 	if (occupant)
 		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 
-	var/mob/living/L = O
+	var/mob/living/L = dropping
 	var/bucklestatus = L.bucklecheck(user)
 	if (!bucklestatus)
 		return
@@ -188,11 +190,11 @@
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled_to
 			LB.user_unbuckle(user)
-		if (M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-		M.forceMove(src)
-		occupant = M
+		if (L.client)
+			L.client.perspective = EYE_PERSPECTIVE
+			L.client.eye = src
+		L.forceMove(src)
+		occupant = L
 		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 		playsound(loc, 'sound/machines/cryopod/cryopod_enter.ogg', 25)
@@ -326,7 +328,7 @@
 	for(var/obj/machinery/computer/operating/D in SSmachinery.machinery)
 		if (AreConnectedZLevels(D.z, z))
 			connected_displays += D
-			destroyed_event.register(D, src, PROC_REF(remove_display))
+			GLOB.destroyed_event.register(D, src, PROC_REF(remove_display))
 	return !!length(connected_displays)
 
 /obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
@@ -340,7 +342,7 @@
 
 /obj/machinery/body_scanconsole/proc/remove_display(obj/machinery/computer/operating/display)
 	connected_displays -= display
-	destroyed_event.unregister(display, src, PROC_REF(remove_display))
+	GLOB.destroyed_event.unregister(display, src, PROC_REF(remove_display))
 
 /obj/machinery/body_scanconsole/proc/get_connected()
 	if(connected)
@@ -564,7 +566,8 @@
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
-					unk += 1
+					if(!istype(I, /obj/item/implant/uplink))
+						unk += 1
 			if (unk)
 				wounds += "unknown objects present"
 			var/friends = length(organic)
@@ -877,7 +880,7 @@
 	return ..()
 
 /obj/machinery/body_scanconsole/embedded/ui_state(mob/user)
-	return human_adjacent_loc_state
+	return GLOB.human_adjacent_loc_state
 
 /obj/machinery/body_scanconsole/embedded/get_connected()
 	if(monitor_console)
@@ -886,7 +889,12 @@
 
 /obj/machinery/body_scanconsole/embedded/get_occupant()
 	if(monitor_console?.table)
-		return monitor_console.table.occupant
+
+		if(istype(monitor_console.table.occupant, /datum/weakref))
+			return monitor_console.table.occupant.resolve()
+		else
+			return monitor_console.table.occupant
+
 	return null
 
 // if our primer has a scan target, that means it was validated by a bodyscanner

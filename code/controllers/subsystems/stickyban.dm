@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(stickyban)
 	name = "PRISM"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	var/list/cache = list()
@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(stickyban)
 	//sanitize the sticky ban list
 
 	//delete db bans that no longer exist in the database and add new legacy bans to the database
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		for (var/oldban in (world.GetConfig("ban") - bannedkeys))
 			var/ckey = ckey(oldban)
 			if (ckey != oldban && (ckey in bannedkeys))
@@ -48,15 +48,15 @@ SUBSYSTEM_DEF(stickyban)
 		cache[ckey] = ban
 		world.SetConfig("ban", ckey, list2stickyban(ban))
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/stickyban/proc/Populatedbcache()
 	var/newdbcache = list() //so if we runtime or the db connection dies we don't kill the existing cache
 
-	var/DBQuery/query_stickybans = dbcon.NewQuery("SELECT ckey, reason, banning_admin, datetime FROM ss13_stickyban ORDER BY ckey")
-	var/DBQuery/query_ckey_matches = dbcon.NewQuery("SELECT stickyban, matched_ckey, first_matched, last_matched, exempt FROM ss13_stickyban_matched_ckey ORDER BY first_matched")
-	var/DBQuery/query_cid_matches = dbcon.NewQuery("SELECT stickyban, matched_cid, first_matched, last_matched FROM ss13_stickyban_matched_cid ORDER BY first_matched")
-	var/DBQuery/query_ip_matches = dbcon.NewQuery("SELECT stickyban, INET_NTOA(matched_ip), first_matched, last_matched FROM ss13_stickyban_matched_ip ORDER BY first_matched")
+	var/DBQuery/query_stickybans = GLOB.dbcon.NewQuery("SELECT ckey, reason, banning_admin, datetime FROM ss13_stickyban ORDER BY ckey")
+	var/DBQuery/query_ckey_matches = GLOB.dbcon.NewQuery("SELECT stickyban, matched_ckey, first_matched, last_matched, exempt FROM ss13_stickyban_matched_ckey ORDER BY first_matched")
+	var/DBQuery/query_cid_matches = GLOB.dbcon.NewQuery("SELECT stickyban, matched_cid, first_matched, last_matched FROM ss13_stickyban_matched_cid ORDER BY first_matched")
+	var/DBQuery/query_ip_matches = GLOB.dbcon.NewQuery("SELECT stickyban, INET_NTOA(matched_ip), first_matched, last_matched FROM ss13_stickyban_matched_ip ORDER BY first_matched")
 
 	if (!query_stickybans.Execute())
 		return
@@ -137,7 +137,7 @@ SUBSYSTEM_DEF(stickyban)
 	if (!ban["message"])
 		ban["message"] = "Evasion"
 
-	var/DBQuery/query_create_stickyban = dbcon.NewQuery("INSERT IGNORE INTO ss13_stickyban (ckey, reason, banning_admin) VALUES ('[sanitizeSQL(ckey)]', '[sanitizeSQL(ban["message"])]', '[sanitizeSQL(ban["admin"])]')")
+	var/DBQuery/query_create_stickyban = GLOB.dbcon.NewQuery("INSERT IGNORE INTO ss13_stickyban (ckey, reason, banning_admin) VALUES ('[sanitizeSQL(ckey)]', '[sanitizeSQL(ban["message"])]', '[sanitizeSQL(ban["admin"])]')")
 	if (!query_create_stickyban.Execute())
 		return
 
@@ -180,13 +180,13 @@ SUBSYSTEM_DEF(stickyban)
 			sqlips[++sqlips.len] = sqlip
 
 	if (length(sqlckeys))
-		dbcon.MassInsert("ss13_stickyban_matched_ckey", sqlckeys, FALSE, TRUE)
+		GLOB.dbcon.MassInsert("ss13_stickyban_matched_ckey", sqlckeys, FALSE, TRUE)
 
 	if (length(sqlcids))
-		dbcon.MassInsert("ss13_stickyban_matched_cid", sqlcids, FALSE, TRUE)
+		GLOB.dbcon.MassInsert("ss13_stickyban_matched_cid", sqlcids, FALSE, TRUE)
 
 	if (length(sqlips))
-		dbcon.MassInsert("ss13_stickyban_matched_ip", sqlips, FALSE, TRUE)
+		GLOB.dbcon.MassInsert("ss13_stickyban_matched_ip", sqlips, FALSE, TRUE)
 
 
 	return TRUE

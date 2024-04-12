@@ -115,7 +115,7 @@
 	else
 		var/image/I = image('icons/obj/ammo.dmi', "s-casing-spent", layer = OBJ_LAYER)
 		I.layer = TURF_LAYER
-		I.dir = pick(alldirs)
+		I.dir = pick(GLOB.alldirs)
 		I.pixel_x = rand(-10,10)
 		I.pixel_y = rand(-10,10)
 		return I

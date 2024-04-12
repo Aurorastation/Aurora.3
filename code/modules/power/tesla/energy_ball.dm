@@ -69,15 +69,15 @@
 	else
 		..()
 
-/obj/singularity/energy_ball/examine(mob/user)
+/obj/singularity/energy_ball/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(orbiting_balls.len)
-		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
+		. +=  "There are [orbiting_balls.len] energy balls orbiting \the [src]."
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
 
-	var/list/valid_directions = alldirs.Copy()
+	var/list/valid_directions = GLOB.alldirs.Copy()
 
 	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
 	if(can_zmove && prob(10))
@@ -127,10 +127,10 @@
 				zMove(DOWN)
 				visible_message(SPAN_DANGER("\The [src] gravitates from above!"))
 
-		if(dir in alldirs)
+		if(dir in GLOB.alldirs)
 			dir = move_dir
 		else
-			dir = pick(alldirs)
+			dir = pick(GLOB.alldirs)
 
 		for(var/mob/living/carbon/C in loc)
 			dust_mobs(C)

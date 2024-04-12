@@ -23,14 +23,14 @@
 /obj/item/device/multitool/hacktool/Destroy()
 	for(var/T in known_targets)
 		var/atom/target = T
-		destroyed_event.unregister(target, src)
+		GLOB.destroyed_event.unregister(target, src)
 	known_targets.Cut()
 	qdel(hack_state)
 	hack_state = null
 	return ..()
 
-/obj/item/device/multitool/hacktool/attackby(var/obj/item/W, var/mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/multitool/hacktool/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		in_hack_mode = !in_hack_mode
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, TRUE)
 		return TRUE
@@ -88,7 +88,7 @@
 		return FALSE
 
 	known_targets.Insert(1, target)	// Insert the newly hacked target first,
-	destroyed_event.register(target, src, PROC_REF(on_target_destroy))
+	GLOB.destroyed_event.register(target, src, PROC_REF(on_target_destroy))
 	return TRUE
 
 /obj/item/device/multitool/hacktool/proc/sanity_check()
@@ -98,7 +98,7 @@
 	if(known_targets.len > max_known_targets)
 		for(var/i = (max_known_targets + 1) to known_targets.len)
 			var/atom/A = known_targets[i]
-			destroyed_event.unregister(A, src)
+			GLOB.destroyed_event.unregister(A, src)
 		known_targets.Cut(max_known_targets + 1)
 
 /obj/item/device/multitool/hacktool/proc/on_target_destroy(var/target)

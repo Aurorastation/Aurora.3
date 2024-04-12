@@ -227,6 +227,17 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/hyronalin = 60)
 
+/obj/item/reagent_containers/glass/bottle/trioxin
+	name = "hylemnomil-zeta vial"
+	desc = "A small, unmarked lial with an ominous label. <span class='cult'>It contains a swirling, purple liquid.</span>"
+	icon_state = "bouteille"
+	reagents_to_add = list(/singleton/reagent/toxin/hylemnomil = 60)
+
+/obj/item/reagent_containers/glass/bottle/phoron
+	name = "phoron bottle"
+	desc = "A small bottle. Contains highly rare and flammable phoron."
+	icon_state = "bottle-1"
+	reagents_to_add = list(/singleton/reagent/toxin/phoron = 60)
 //syrups
 
 /obj/item/reagent_containers/glass/bottle/syrup
@@ -239,19 +250,19 @@
 
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate
 	name = "chocolate syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_chocolate = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/pumpkin
 	name = "pumpkin spice syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_pumpkin = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_pumpkin = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/vanilla
 	name = "vanilla syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_vanilla = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_vanilla = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/caramel
 	name = "caramel syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_caramel = 50)
 
 /obj/item/reagent_containers/glass/bottle/triglyceride
 	name = "triglyceride bottle"

@@ -41,8 +41,8 @@
 	desc = "They look like the remains of a small reptile."
 	icon_state = "lizard"
 
-/obj/effect/decal/remains/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/gun/energy/rifle/cult))
+/obj/effect/decal/remains/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/energy/rifle/cult))
 		return TRUE
 	return ..()
 

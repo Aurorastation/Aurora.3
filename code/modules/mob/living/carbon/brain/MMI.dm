@@ -12,7 +12,7 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 
@@ -74,16 +74,16 @@
 			extra_examine_info = "The braincase is sealed and ready for use. The only thing that will undo the seal is a circular saw, and that will destroy the brain inside."
 	update_icon()
 
-/obj/item/device/mmi/examine(mob/user, distance)
+/obj/item/device/mmi/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(extra_examine_info)
-		to_chat(user, SPAN_NOTICE(extra_examine_info))
+		. += SPAN_NOTICE(extra_examine_info)
 
-/obj/item/device/mmi/attackby(obj/item/I, mob/user)
+/obj/item/device/mmi/attackby(obj/item/attacking_item, mob/user)
 	switch(cradle_state)
 		if(STATE_EMPTY)
-			if(!brainmob && istype(I, /obj/item/organ/internal/brain)) //Time to stick a brain in it --NEO
-				var/obj/item/organ/internal/brain/B = I
+			if(!brainmob && istype(attacking_item, /obj/item/organ/internal/brain)) //Time to stick a brain in it --NEO
+				var/obj/item/organ/internal/brain/B = attacking_item
 				if(!B.can_prepare)
 					to_chat(user, SPAN_WARNING("\The [B] is incompatible with [src]!"))
 					return
@@ -101,8 +101,8 @@
 				brainmob.forceMove(src)
 				brainmob.container = src
 				brainmob.set_stat(CONSCIOUS)
-				dead_mob_list -= brainmob //Update dem lists
-				living_mob_list += brainmob
+				GLOB.dead_mob_list -= brainmob //Update dem lists
+				GLOB.living_mob_list += brainmob
 
 				brainobj = B
 				braintype_check()
@@ -111,28 +111,31 @@
 				set_cradle_state(STATE_BRAIN)
 				update_name()
 		if(STATE_NODIODES)
-			if(I.isscrewdriver())
-				user.visible_message("<b>[user]</b> tightens the screws on \the [src] with \the [I], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"].", SPAN_NOTICE("You tighten the screws on \the [src] with \the [I], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"]."))
+			if(attacking_item.isscrewdriver())
+				user.visible_message("<b>[user]</b> tightens the screws on \the [src] with \the [attacking_item], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"].",
+									SPAN_NOTICE("You tighten the screws on \the [src] with \the [attacking_item], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"]."))
 				brainobj.prepared = TRUE
 				set_cradle_state(STATE_DIODES)
 		if(STATE_DIODES)
-			if(I.isscrewdriver())
-				user.visible_message("<b>[user]</b> undoes the screws on \the [src] with \the [I], the diodes silently rising out of the brain within.", SPAN_NOTICE("You undo the screws on \the [src] with \the [I], the diodes silently rising out of the brain within."))
+			if(attacking_item.isscrewdriver())
+				user.visible_message("<b>[user]</b> undoes the screws on \the [src] with \the [attacking_item], the diodes silently rising out of the brain within.",
+									SPAN_NOTICE("You undo the screws on \the [src] with \the [attacking_item], the diodes silently rising out of the brain within."))
 				set_cradle_state(STATE_NODIODES)
-			else if(I.iswelder())
-				var/obj/item/weldingtool/WT = I
+			else if(attacking_item.iswelder())
+				var/obj/item/weldingtool/WT = attacking_item
 				if(WT.use(0, user))
-					user.visible_message("<b>[user]</b> welds the two parts of the braincase together, permanently sealing \the [brainobj] inside.", SPAN_NOTICE("You weld the two parts of the braincase together, permanently sealing \the [brainobj] inside."))
+					user.visible_message("<b>[user]</b> welds the two parts of the braincase together, permanently sealing \the [brainobj] inside.",
+										SPAN_NOTICE("You weld the two parts of the braincase together, permanently sealing \the [brainobj] inside."))
 					to_chat(brainmob, SPAN_NOTICE("As the braincase comes online, you feel your sense of self ebbing away, your memories suppressed by the onboard software."))
 					set_cradle_state(STATE_SEALED)
 					feedback_inc("cyborg_mmis_filled", 1)
 		if(STATE_SEALED)
-			if(I.iswelder())
+			if(attacking_item.iswelder())
 				to_chat(user, SPAN_WARNING("\The [src] is sealed tight, no welding will be able to undo it."))
 				return
-			else if(istype(I, /obj/item/surgery/circular_saw))
+			else if(istype(attacking_item, /obj/item/surgery/circular_saw))
 				user.visible_message("<b>[user]</b> starts sawing \the [src] open...", SPAN_NOTICE("You start sawing \the [src] open, [SPAN_WARNING("this WILL destroy the brain inside")]."))
-				if(I.use_tool(src, user, 30, volume = 50))
+				if(attacking_item.use_tool(src, user, 30, volume = 50))
 					user.visible_message("<b>[user]</b> saws \the [src] open, leaving \the [brainobj] a gory mess.", SPAN_NOTICE("You saw \the [src] open, leaving \the [brainobj] a gory mess."))
 					var/obj/item/organ/internal/brain/brain_holder = brainobj
 					transfer_mob_to_brain()
@@ -163,7 +166,7 @@
 /obj/item/device/mmi/proc/transfer_mob_to_brain()
 	brainmob.container = null //Reset brainmob mmi var.
 	brainmob.forceMove(brainobj) //Throw mob into brain.
-	living_mob_list -= brainmob //Get outta here
+	GLOB.living_mob_list -= brainmob //Get outta here
 	brainobj.brainmob = brainmob //Set the brain to use the brainmob
 	brainobj = null
 	brainmob = null

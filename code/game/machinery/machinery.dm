@@ -84,7 +84,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.1
+	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
@@ -115,7 +115,10 @@ Class Procs:
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
 	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
-	var/processing_flags // Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
+
+	/// Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
+	var/processing_flags
+
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
@@ -155,19 +158,22 @@ Class Procs:
 /obj/machinery/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	SSmachinery.machinery -= src
+
+	//Clear the component parts
+	//If the components are inside the machine, delete them, otherwise we assume they were dropped to the ground during deconstruction,
+	//and were not removed from the component_parts list by deconstruction code
 	if(component_parts)
 		for(var/atom/A in component_parts)
-			if(A.loc == src) // If the components are inside the machine, delete them.
+			if(A.loc == src)
 				qdel(A)
-			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
-				component_parts -= A
+	component_parts = null
 
 	return ..()
 
-/obj/machinery/examine(mob/user, distance, is_adjacent)
+/obj/machinery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(signaler && is_adjacent)
-		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -182,7 +188,7 @@ Class Procs:
 // 		if(. == PROCESS_KILL)
 // 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/process()
+/obj/machinery/process(seconds_per_tick)
 	return PROCESS_KILL
 
 /obj/machinery/emp_act(severity)
@@ -195,7 +201,7 @@ Class Procs:
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
-		pulse2.set_dir(pick(cardinal))
+		pulse2.set_dir(pick(GLOB.cardinal))
 
 		QDEL_IN(pulse2, 10)
 
@@ -291,20 +297,20 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/attackby(obj/item/W, mob/user)
+/obj/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)
-		if(issignaler(W))
+		if(issignaler(attacking_item))
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return TRUE
-			var/obj/item/device/assembly/signaler/S = W
-			user.drop_from_inventory(W, src)
+			var/obj/item/device/assembly/signaler/S = attacking_item
+			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
-		else if(W.iswirecutter() && signaler)
+		else if(attacking_item.iswirecutter() && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
@@ -365,7 +371,7 @@ Class Procs:
 		return 0
 	if(!prob(prb))
 		return 0
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	if (electrocute_mob(user, get_area(src), src, 0.7))
 		var/area/temp_area = get_area(src)
 		if(temp_area)
@@ -387,7 +393,7 @@ Class Procs:
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
 		return FALSE
-	playsound(src.loc, S.usesound, 50, 1)
+	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
@@ -451,16 +457,20 @@ Class Procs:
 	M.set_dir(src.dir)
 	M.state = 3
 	M.icon_state = "blueprint_1"
+
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
+		component_parts -= I
+
 	qdel(src)
-	return 1
+
+	return TRUE
 
 /obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
-		return 0
+		return FALSE
 
-	printing = 1
+	printing = TRUE
 
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
@@ -471,10 +481,10 @@ Class Procs:
 
 	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
-	return 1
+	return TRUE
 
 /obj/machinery/proc/print_move_paper(obj/paper, mob/user)
-	if(user)
+	if(user && ishuman(user) && user.Adjacent(src))
 		user.put_in_hands(paper)
 	else
 		paper.forceMove(loc)
@@ -498,7 +508,7 @@ Class Procs:
 	if(isskrell(H) || isunathi(H) || isvaurca(H))
 		return
 
-	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
+	var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[H.h_style]
 	for(var/obj/item/protection in list(H.head))
 		if(protection && (protection.flags_inv & BLOCKHAIR|BLOCKHEADHAIR))
 			return
@@ -526,7 +536,7 @@ Class Procs:
 	return FALSE
 
 /obj/machinery/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

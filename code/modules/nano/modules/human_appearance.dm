@@ -28,7 +28,7 @@
 	var/list/culture_restrictions = list()
 	var/list/origin_restrictions = list()
 
-/datum/tgui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/set_ui_state = always_state, var/datum/set_state_object = null, var/update_id)
+/datum/tgui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/set_ui_state = GLOB.always_state, var/datum/set_state_object = null, var/update_id)
 	..()
 	ui_state = set_ui_state
 	state_object = set_state_object
@@ -62,10 +62,10 @@
 					. = TRUE
 		if("gender")
 			if(can_change(APPEARANCE_GENDER))
-				if(owner.change_gender(params["gender"]))
+				if(owner.change_gender(params["gender"], TRUE))
 					clear_and_generate_data()
 					. = TRUE
-		if("pronouns")
+		if("pronoun")
 			if(can_change(APPEARANCE_GENDER))
 				owner.pronouns = params["pronouns"]
 				clear_and_generate_data()
@@ -142,10 +142,9 @@
 				var/new_culture_id = params["culture"]
 				if(new_culture_id in valid_cultures)
 					var/singleton/origin_item/culture/new_culture = culture_map[new_culture_id]
-					owner.culture = new_culture
-					owner.culture.on_apply(owner)
+					owner.set_culture(new_culture)
 					if(!(owner.origin in new_culture.possible_origins))
-						owner.origin = GET_SINGLETON(pick(new_culture.possible_origins))
+						owner.set_origin(GET_SINGLETON(pick(new_culture.possible_origins)))
 					clear_and_generate_data()
 				. = TRUE
 		if("origin")
@@ -153,8 +152,7 @@
 				var/new_origin_id = params["origin"]
 				if(new_origin_id in valid_origins)
 					var/singleton/origin_item/origin/new_origin = origin_map[new_origin_id]
-					owner.origin = new_origin
-					owner.origin.on_apply(owner)
+					owner.set_origin(new_origin)
 					if(!(owner.accent in new_origin.possible_accents))
 						owner.accent = new_origin.possible_accents[1]
 					if(!(owner.religion in new_origin.possible_religions))

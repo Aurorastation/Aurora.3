@@ -32,7 +32,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/d1 = 0
 	var/d2 = 1
-	layer = CABLE_LAYER //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
+	layer = EXPOSED_WIRE_LAYER
 	color = COLOR_RED
 	var/obj/machinery/power/breakerbox/breaker_box
 
@@ -82,7 +82,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(level == 1 && !T.is_hole)
 		hide(!T.is_plating())
 
-	cable_list += src
+	GLOB.cable_list += src
 
 	if(mapload)
 		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
@@ -94,7 +94,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
-	cable_list -= src							//remove it from global cable list
+	GLOB.cable_list -= src							//remove it from global cable list
 	return ..()										// then go ahead and delete the cable
 
 ///////////////////////////////////
@@ -123,19 +123,19 @@ By design, d1 is the smallest direction and d2 is the highest
 //   - Cable coil : merge cables
 //   - Multitool : get the power currently passing through the cable
 //
-/obj/structure/cable/attackby(obj/item/W, mob/user)
+/obj/structure/cable/attackby(obj/item/attacking_item, mob/user)
 
 	var/turf/T = src.loc
 	if(!T.can_have_cabling())
 		return
 
-	if(W.iswirecutter() || (W.sharp || W.edge))
+	if(attacking_item.iswirecutter() || (attacking_item.sharp || attacking_item.edge))
 
-		if(!W.iswirecutter())
+		if(!attacking_item.iswirecutter())
 			if(user.a_intent != I_HELP)
 				return
 
-			if(W.obj_flags & OBJ_FLAG_CONDUCTABLE)
+			if(attacking_item.obj_flags & OBJ_FLAG_CONDUCTABLE)
 				shock(user, 50, 0.7)
 
 		if(d1 == 12 || d2 == 12)
@@ -171,14 +171,14 @@ By design, d1 is the smallest direction and d2 is the highest
 		return
 
 
-	else if(W.iscoil())
-		var/obj/item/stack/cable_coil/coil = W
+	else if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable.")
 			return
 		coil.cable_join(src, user)
 
-	else if(W.ismultitool())
+	else if(attacking_item.ismultitool())
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, SPAN_WARNING("[powernet.avail]W in power network."))
@@ -195,7 +195,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(!prob(prb))
 		return FALSE
 	if (electrocute_mob(user, powernet, src, siemens_coeff))
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 		if(user.stunned)
 			return TRUE
 	return FALSE
@@ -374,7 +374,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	for(var/cable_dir in list(d1, d2))
 		if(cable_dir == 11 || cable_dir == 12 || cable_dir == 0)
 			continue
-		var/reverse = reverse_dir[cable_dir]
+		var/reverse = GLOB.reverse_dir[cable_dir]
 		T = get_step(src, cable_dir)
 		if(T)
 			for(var/obj/structure/cable/C in T)
@@ -572,7 +572,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == SPECIES_IPC_TERMINATOR))
+		if(M.isSynthetic() && M == user && !(M.get_species() == SPECIES_IPC_PURPOSE_HK))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
@@ -629,8 +629,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 	check_maptext(SMALL_FONTS(7, get_amount()))
 
-/obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
-	if(W.ismultitool())
+/obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		choose_cable_color(user)
 	return ..()
 
@@ -657,12 +657,12 @@ By design, d1 is the smallest direction and d2 is the highest
 		w_class = ITEMSIZE_SMALL
 		slot_flags = SLOT_BELT
 
-/obj/item/stack/cable_coil/examine(mob/user)
+/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!uses_charge)
-		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
+		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
 	else
-		to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
+		. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
@@ -1041,14 +1041,14 @@ By design, d1 is the smallest direction and d2 is the highest
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/structure/noose/attackby(obj/item/I, mob/user, params)
-	if(I.iswirecutter())
+/obj/structure/noose/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.iswirecutter())
 		user.visible_message("<b>[user]</b> cuts \the [src].", SPAN_NOTICE("You cut \the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(istype(buckled, /mob/living))
 			var/mob/living/M = buckled
-			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),\
-										SPAN_DANGER("You fall over and hit the ground!"))
+			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),
+								SPAN_DANGER("You fall over and hit the ground!"))
 			M.adjustBruteLoss(10)
 		new /obj/item/stack/cable_coil(get_turf(src), 25, color)
 		qdel(src)
@@ -1063,7 +1063,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		M.pixel_y = initial(M.pixel_y) + 8 //rise them up a bit
 		M.dir = SOUTH
 	else
-		layer = initial(layer)
+		reset_plane_and_layer()
 		cut_overlay(over)
 		STOP_PROCESSING(SSprocessing, src)
 		pixel_x = initial(pixel_x)
@@ -1124,35 +1124,42 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	add_fingerprint(user)
 
-	if(M == user && buckle(M))
+	if(M == user && buckle(M, user))
 		M.visible_message(\
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
 		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
+
 	else
-		M.visible_message(\
-			SPAN_DANGER("[user] attempts to tie \the [src] over [M]'s neck!"),\
-			SPAN_DANGER("[user] ties \the [src] over your neck!"))
+		M.visible_message(SPAN_DANGER("[user] attempts to tie \the [src] over [M]'s neck!"),
+							SPAN_DANGER("[user] ties \the [src] over your neck!"))
+
 		to_chat(user, SPAN_NOTICE("It will take 20 seconds and you have to stand still."))
+
 		if(do_after(user, 200))
-			if(buckle(M))
-				M.visible_message(\
-					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
-					SPAN_DANGER("[user] ties \the [src] over your neck!"))
+			if(buckle(M, user))
+				M.visible_message(SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),
+									SPAN_DANGER("[user] ties \the [src] over your neck!"))
+
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+
 				SSstatistics.IncrementSimpleStat("hangings")
+
 				return TRUE
+
 			else
-				user.visible_message(\
-					SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),\
-					SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+				user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
+										SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
 				return FALSE
+
 		else
-			user.visible_message(\
-				SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),\
-				SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
+			user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
+									SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
 			return FALSE
 
 /obj/structure/noose/process(mob/living/carbon/human/M, mob/user)

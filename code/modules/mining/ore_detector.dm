@@ -24,10 +24,10 @@
 
 	var/list/ore_names
 
-/obj/item/ore_detector/examine(mob/user, distance)
+/obj/item/ore_detector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("Alt-click to set the ore you wish to search for.")))
+		. += FONT_SMALL(SPAN_NOTICE("Alt-click to set the ore you wish to search for."))
 
 /obj/item/ore_detector/Destroy()
 	deactivate()
@@ -48,8 +48,8 @@
 /obj/item/ore_detector/ui_data(mob/user)
 	if(!length(ore_names))
 		ore_names = list()
-		for(var/ore_n in ore_data)
-			var/ore/O = ore_data[ore_n]
+		for(var/ore_n in GLOB.ore_data)
+			var/ore/O = GLOB.ore_data[ore_n]
 			var/ore_name = O.display_name
 			ore_names += ore_name
 		ore_names += SURFACE_MINERALS
@@ -121,7 +121,7 @@
 					found_ores = TRUE
 
 		if(found_ores)
-			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
+			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = UNDER_HUD_LAYER)
 			ore_ping.pixel_x = rand(-6, 6)
 			ore_ping.pixel_y = rand(-6, 6)
 			ore_ping.alpha = rand(180, 255)

@@ -232,7 +232,7 @@
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
-	force = 10
+	force = 15
 	accuracy = 1
 	caliber = ".50"
 	load_method = MAGAZINE
@@ -342,9 +342,10 @@
 
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
-	icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
 		icon_state = "[icon_state]-e"
+	else
+		icon_state = "pistol"
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
@@ -415,6 +416,21 @@
 		icon_state = "m8"
 	else
 		icon_state = "m8-empty"
+
+/obj/item/gun/projectile/pistol/sol/konyang
+	name = "konyang service pistol"
+	desc = "The compact M8, redesignated as the K8, is the standard service pistol of the Konyanger Armed Forces. Inherited from the Solarian military, Zavodskoi has since given these handguns \
+	a service extension package, including laser sights and replacement of worn-out parts."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k8"
+	item_state = "k8"
+
+/obj/item/gun/projectile/pistol/sol/konyang/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "k8"
+	else
+		icon_state = "k8-empty"
 
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
@@ -489,7 +505,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
 
 				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
@@ -530,3 +546,47 @@
 			icon_state = "xanu_pistol-em"
 	else
 		icon_state = "xanu_pistol-e"
+
+/obj/item/gun/projectile/pistol/dominia
+	name = "dominian service pistol"
+	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
+	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 7.62 \
+	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
+	magazine_type = /obj/item/ammo_magazine/c45m/dominia
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m/dominia)
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol"
+	item_state = "dom_pistol"
+	caliber = ".45"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/dominia/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "dom_pistol"
+	else
+		icon_state = "dom_pistol-e"
+
+/obj/item/gun/projectile/pistol/spitter
+	name = "unathi spitter pistol"
+	desc = "The venerable 'spitter' pistol is an Unathi design nearly three centuries old. Though no longer in use by the Hegemony's forces, these guns are still commonplace in the hands of criminals, Wastelanders, and former Traditionalists."
+	desc_extended = "The Relzi-5 pistol, colloquially referred to as the 'spitter' was a common Unathi sidearm for centuries, though the design was already being phased out of Izweski use by the start of the Contact War due to superior-quality energy weapons becoming available.\
+	In the modern day, they are no longer produced, but the sheer volume of them in service means they can be found all over Moghes, and even in the wider Orion Spur."
+	magazine_type = /obj/item/ammo_magazine/spitterpistol
+	allowed_magazines = list(/obj/item/ammo_magazine/spitterpistol)
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "spitterpistol"
+	item_state = "spitterpistol"
+	caliber = "11.6mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/spitter/update_icon()
+	..()
+	if(length(ammo_magazine?.stored_ammo))
+		icon_state = "spitterpistol"
+	else
+		icon_state = "spitterpistol-empty"

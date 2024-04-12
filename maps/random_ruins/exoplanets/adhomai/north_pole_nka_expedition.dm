@@ -19,7 +19,7 @@
 	spawnpoints = list("nka_polar_explorer")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/nka_polar_explorer
+	outfit = /obj/outfit/admin/nka_polar_explorer
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -29,7 +29,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/nka_polar_explorer
+/obj/outfit/admin/nka_polar_explorer
 	name = "New Kingdom Arctic Explorer"
 
 	uniform = /obj/item/clothing/under/tajaran/archeologist
@@ -46,8 +46,8 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/datum/outfit/admin/nka_polar_explorer/get_id_access()
-	return list(access_nka)
+/obj/outfit/admin/nka_polar_explorer/get_id_access()
+	return list(ACCESS_NKA)
 
 /datum/ghostspawner/human/nka_polar_sailor
 	short_name = "nka_polar_sailor"
@@ -59,7 +59,7 @@
 	spawnpoints = list("nka_polar_sailor")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/nka_polar_sailor
+	outfit = /obj/outfit/admin/nka_polar_sailor
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -69,7 +69,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/nka_polar_sailor
+/obj/outfit/admin/nka_polar_sailor
 	name = "New Kingdom Arctic Sailor"
 
 	uniform = /obj/item/clothing/under/tajaran/nka_uniform/sailor
@@ -83,5 +83,5 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/datum/outfit/admin/nka_polar_sailor/get_id_access()
-	return list(access_nka)
+/obj/outfit/admin/nka_polar_sailor/get_id_access()
+	return list(ACCESS_NKA)

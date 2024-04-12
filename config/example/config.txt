@@ -189,12 +189,6 @@ ALLOW_ANTAG_HUD
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 ANTAG_HUD_RESTRICTED
 
-## Prevents observers from joining as rats.
-#DISABLE_PLAYER_RATS
-
-## If enabled, observer-rats will only be able to understand other rats.
-#UNEDUCATED_RATS
-
 ## How much time a drone fabricator will take to produce a single drone. In deciseconds.
 #DRONE_BUILD_TIME 1200
 
@@ -428,12 +422,6 @@ API_RATE_LIMIT 50
 ## IPs that should not be throttled by the API RATE Limiter
 ## IPs are separated by ;
 API_RATE_LIMIT_WHITELIST 127.0.0.1
-
-# The maximum amount of a tick that the MC is permitted to use during server startup.
-# If not set will default to 98%.
-# You can set this high (~500) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
-# -- Should be below 99 (or undefined) on a server actually used for play. --
-MC_TICKLIMIT_INIT 500
 
 
 ## GELF Logging Configuration

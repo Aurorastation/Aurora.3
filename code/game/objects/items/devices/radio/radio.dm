@@ -3,24 +3,24 @@
 var/global/list/default_internal_channels = list(
 	num2text(PUB_FREQ) = list(),
 	num2text(ENT_FREQ) = list(),
-	num2text(AI_FREQ)  = list(access_equipment),
-	num2text(ERT_FREQ) = list(access_cent_specops),
-	num2text(COMM_FREQ)= list(access_heads),
-	num2text(ENG_FREQ) = list(access_engine_equip, access_atmospherics),
-	num2text(MED_FREQ) = list(access_medical_equip),
-	num2text(MED_I_FREQ)=list(access_medical_equip),
-	num2text(SEC_FREQ) = list(access_security),
-	num2text(SEC_I_FREQ)=list(access_security),
-	num2text(PEN_FREQ) = list(access_armory),
-	num2text(SCI_FREQ) = list(access_tox,access_robotics,access_xenobiology,access_xenobotany),
-	num2text(SUP_FREQ) = list(access_cargo),
-	num2text(SRV_FREQ) = list(access_janitor, access_hydroponics)
+	num2text(AI_FREQ)  = list(ACCESS_EQUIPMENT),
+	num2text(ERT_FREQ) = list(ACCESS_CENT_SPECOPS),
+	num2text(COMM_FREQ)= list(ACCESS_HEADS),
+	num2text(ENG_FREQ) = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS),
+	num2text(MED_FREQ) = list(ACCESS_MEDICAL_EQUIP),
+	num2text(MED_I_FREQ)=list(ACCESS_MEDICAL_EQUIP),
+	num2text(SEC_FREQ) = list(ACCESS_SECURITY),
+	num2text(SEC_I_FREQ)=list(ACCESS_SECURITY),
+	num2text(PEN_FREQ) = list(ACCESS_ARMORY),
+	num2text(SCI_FREQ) = list(ACCESS_TOX,ACCESS_ROBOTICS,ACCESS_XENOBIOLOGY,ACCESS_XENOBOTANY),
+	num2text(SUP_FREQ) = list(ACCESS_CARGO),
+	num2text(SRV_FREQ) = list(ACCESS_JANITOR, ACCESS_HYDROPONICS)
 )
 
 var/global/list/default_medbay_channels = list(
 	num2text(PUB_FREQ) = list(),
-	num2text(MED_FREQ) = list(access_medical_equip),
-	num2text(MED_I_FREQ) = list(access_medical_equip)
+	num2text(MED_FREQ) = list(ACCESS_MEDICAL_EQUIP),
+	num2text(MED_I_FREQ) = list(ACCESS_MEDICAL_EQUIP)
 )
 
 var/global/list/default_expedition_channels = list(
@@ -47,51 +47,61 @@ var/global/list/default_interrogation_channels = list(
 	throw_speed = 2
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
+	matter = list(MATERIAL_ALUMINIUM = 75, MATERIAL_GLASS = 25)
 	suffix = "\[3\]"
 	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
+	/// Automatically set on initialize, only update if bypass_default_internal is set to TRUE
 	var/list/internal_channels
-	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
-	var/clickvol = 10 //volume
+	/// played sound on usage
+	var/clicksound = /singleton/sound_category/button_sound
+	/// volume of clicksound
+	var/clickvol = 10
 
 	var/obj/item/cell/cell = /obj/item/cell/device
 	var/last_radio_sound = -INFINITY
 
-	// If FALSE, broadcasting and listening don't matter and this radio does nothing
+	/// If FALSE, broadcasting and listening don't matter and this radio does nothing
 	VAR_PRIVATE/on = TRUE
 
-	VAR_PRIVATE/frequency = PUB_FREQ // Current frequency the radio is set to
-	var/default_frequency = PUB_FREQ // frequency the radio defaults to on reset / startup
+	/// Current frequency the radio is set to
+	VAR_PRIVATE/frequency = PUB_FREQ
+	/// frequency the radio defaults to on reset / startup
+	var/default_frequency = PUB_FREQ
 
-	// Whether the radio transmits dialogue it hears nearby onto its radio channel
+	/// Whether the radio transmits dialogue it hears nearby onto its radio channel
 	VAR_PRIVATE/broadcasting = FALSE
-	// Whether the radio is currently receiving radio messages from its frequencies
+	/// Whether the radio is currently receiving radio messages from its frequencies
 	VAR_PRIVATE/listening = TRUE
 
 	//the below vars are used to track listening and broadcasting should they be forced off for whatever reason but "supposed" to be active
 	//eg player sets the radio to listening, but an emp or whatever turns it off, its still supposed to be activated but was forced off,
 	//when it wears off it sets listening to should_be_listening
 
-	///used for tracking what broadcasting should be in the absence of things forcing it off, eg its set to broadcast but gets emp'd temporarily
+	/// used for tracking what broadcasting should be in the absence of things forcing it off, eg its set to broadcast but gets emp'd temporarily
 	var/should_be_broadcasting = FALSE
-	///used for tracking what listening should be in the absence of things forcing it off, eg its set to listen but gets emp'd temporarily
+	/// used for tracking what listening should be in the absence of things forcing it off, eg its set to listen but gets emp'd temporarily
 	var/should_be_listening = TRUE
 
 	/// Both the range around the radio in which mobs can hear what it receives and the range the radio can hear
 	var/canhear_range = 3
 
 	var/last_transmission
-	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
-	var/mob/living/announcer/announcer = null // used in autosay, held by the radio for re-use
+	/// tune to frequency to unlock traitor supplies
+	var/traitor_frequency = 0
+	/// used in autosay, held by the radio for re-use
+	var/mob/living/announcer/announcer = null
 	var/datum/wires/radio/wires = null
 	var/show_modify_on_examine = TRUE
 	var/b_stat = 0
 
-	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
+	/// see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
+	var/list/channels = list()
 	var/subspace_transmission = FALSE
-	var/syndie = FALSE //Holder to see if it's a syndicate encrypted radio
-	var/independent = FALSE // if TRUE, can say/hear on the Special Channel!!! (TBD)
+	/// Holder to see if it's a syndicate encrypted radio
+	var/syndie = FALSE
+	/// if TRUE, can say/hear on the Special Channel!!! (TBD)
+	var/independent = FALSE
 
 	var/datum/radio_frequency/radio_connection
 	var/list/datum/radio_frequency/secure_radio_connections = list()
@@ -102,11 +112,15 @@ var/global/list/default_interrogation_channels = list(
 		frequency = new_frequency
 		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
+/// By default copies default_internal_channels. Override on child for radios that need snowflake.
+/obj/item/device/radio/proc/set_internal_channels()
+	return default_internal_channels.Copy()
+
 /obj/item/device/radio/Initialize()
 	. = ..()
 
 	wires = new(src)
-	internal_channels = default_internal_channels.Copy()
+	internal_channels = set_internal_channels()
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
@@ -197,7 +211,7 @@ var/global/list/default_interrogation_channels = list(
 		return 0
 
 	if(b_stat)
-		wires.Interact(user)
+		wires.interact(user)
 
 	return ui_interact(user)
 
@@ -210,8 +224,8 @@ var/global/list/default_interrogation_channels = list(
 	data["default_freq"] = format_frequency(default_frequency)
 	data["rawfreq"] = num2text(frequency)
 
-	data["mic_cut"] = (wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL))
-	data["spk_cut"] = (wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
+	data["mic_cut"] = (wires.is_cut(WIRE_TRANSMIT) || wires.is_cut(WIRE_SIGNAL))
+	data["spk_cut"] = (wires.is_cut(WIRE_RECEIVE) || wires.is_cut(WIRE_SIGNAL))
 
 	var/list/chanlist = list_channels(user)
 	if(islist(chanlist) && chanlist.len)
@@ -286,7 +300,7 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/proc/text_wires()
 	if (b_stat)
-		return wires.GetInteractWindow()
+		return wires.get_status()
 	return
 
 
@@ -413,7 +427,7 @@ var/global/list/default_interrogation_channels = list(
 		return FALSE
 	if(!M || !message)
 		return FALSE
-	if(wires.IsIndexCut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
+	if(wires.is_cut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
 		return FALSE
 
 	if (iscarbon(M))
@@ -515,18 +529,18 @@ var/global/list/default_interrogation_channels = list(
 	return get_hearers_in_view(canhear_range, src)
 
 
-/obj/item/device/radio/examine(mob/user, distance, is_adjacent)
+/obj/item/device/radio/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
-			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
+			. += SPAN_NOTICE("\The [src] can be attached and modified!")
 		else
-			user.show_message("<span class='notice'>\The [src] can not be modified or attached!</span>")
+			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
 
-/obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/attackby(obj/item/attacking_item, mob/user)
 	..()
 	user.set_machine(src)
-	if (!( W.isscrewdriver() ))
+	if (!( attacking_item.isscrewdriver() ))
 		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
@@ -565,7 +579,8 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/borg/Destroy()
 	myborg = null
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/device/radio/borg/list_channels(var/mob/user)
 	return list_secure_channels(user)
@@ -577,13 +592,13 @@ var/global/list/default_interrogation_channels = list(
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
 
-/obj/item/device/radio/borg/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/borg/attackby(obj/item/attacking_item, mob/user)
 //	..()
 	user.set_machine(src)
-	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( attacking_item.isscrewdriver() || (istype(attacking_item, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(keyslot)
 
 
@@ -604,14 +619,14 @@ var/global/list/default_interrogation_channels = list(
 		else
 			to_chat(user, "This radio doesn't have any encryption keys!")
 
-	if(istype(W, /obj/item/device/encryptionkey/))
+	if(istype(attacking_item, /obj/item/device/encryptionkey/))
 		if(keyslot)
 			to_chat(user, "The radio can't hold another key!")
 			return
 
 		if(!keyslot)
-			user.drop_from_inventory(W,src)
-			keyslot = W
+			user.drop_from_inventory(attacking_item,src)
+			keyslot = attacking_item
 
 		recalculateChannels()
 
@@ -736,20 +751,44 @@ var/global/list/default_interrogation_channels = list(
 	channels = list()
 
 /obj/item/device/radio/map_preset/Initialize()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
-		frequency = assign_away_freq(V.name)
+		var/freq_name = V.name
+		if(V.freq_name)
+			freq_name = V.freq_name
+		frequency = assign_away_freq(freq_name)
+		default_frequency = frequency
 		channels += list(
-			V.name = TRUE,
+			freq_name = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
 		if(V.comms_name)
 			name = "[V.comms_name] shortwave radio"
 
+	return ..()
+
+/obj/item/device/radio/map_preset/set_internal_channels()
+	return list(
+		num2text(default_frequency) = list(),
+		num2text(HAIL_FREQ) = list()
+	)
+
+/obj/item/device/radio/hailing
+	default_frequency = HAIL_FREQ
+
+/obj/item/device/radio/hailing/set_internal_channels()
+	return list(
+		num2text(HAIL_FREQ) = list()
+	)
+
+/obj/item/device/radio/hailing/Initialize()
+	channels = list(
+		CHANNEL_HAILING = TRUE
+	)
 	return ..()
 
 // Radio (Off)

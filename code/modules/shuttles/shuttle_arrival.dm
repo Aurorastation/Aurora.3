@@ -11,7 +11,7 @@
 
 	if(at_station() && forbidden_atoms_check())
 		//cancel the launch because of forbidden atoms
-		global_announcer.autosay("Unacceptable items or lifeforms detected aboard the arrivals shuttle. Launch attempt aborted. Reattempting launch in [SSarrivals.shuttle_launch_countdown / 10] seconds.", "Arrivals Shuttle Oversight")
+		GLOB.global_announcer.autosay("Unacceptable items or lifeforms detected aboard the arrivals shuttle. Launch attempt aborted. Reattempting launch in [SSarrivals.shuttle_launch_countdown / 10] seconds.", "Arrivals Shuttle Oversight")
 		SSarrivals.set_launch_countdown()
 		SSarrivals.failreturnnumber++
 		if(SSarrivals.failreturnnumber >= 1) // get off my shuttle fool
@@ -24,24 +24,24 @@
 				to_chat(A, "<span class='danger'>You feel as if you shouldn't be on the shuttle.</span>") // give them an angry text
 				if(!A.client && ishuman(A) && SSarrivals.failreturnnumber == 2) // well they are SSD and holding up the shuttle so might as well.
 					SSjobs.DespawnMob(A)
-					global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
+					GLOB.global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
 					mobstoyellat -= A // so they don't get told on
 					continue
 				if(A.client && SSarrivals.failreturnnumber == 2) // they aren't SSD and are holding up the shuttle so we are booting them.
 					if(A.buckled_to)
 						A.buckled_to.unbuckle()
-					A.forceMove(pick(kickoffsloc))
+					A.forceMove(pick(GLOB.kickoffsloc))
 					mobstoyellat -= A
 					continue
 				if(SSarrivals.failreturnnumber >= 3) // Boot anything else that somehow made it to here
 					if(A.buckled_to)
 						A.buckled_to.unbuckle()
-					A.forceMove(pick(kickoffsloc))
+					A.forceMove(pick(GLOB.kickoffsloc))
 					mobstoyellat -= A
 					continue
 
 			if (length(mobstoyellat))
-				global_announcer.autosay("Current life-forms on shuttle: [english_list(mobstoyellat)].", "Arrivals Shuttle Oversight") // tell on them
+				GLOB.global_announcer.autosay("Current life-forms on shuttle: [english_list(mobstoyellat)].", "Arrivals Shuttle Oversight") // tell on them
 		return FALSE
 
 	if (!forbidden_atoms_check() && !at_station())
@@ -49,7 +49,7 @@
 		return FALSE
 
 	if(!at_station())
-		global_announcer.autosay("Central Command Arrivals shuttle inbound to [station_name()]. ETA: one minute.", "Arrivals Shuttle Oversight")
+		GLOB.global_announcer.autosay("Central Command Arrivals shuttle inbound to [station_name()]. ETA: one minute.", "Arrivals Shuttle Oversight")
 	SSarrivals.failreturnnumber = 0
 	launch(SSarrivals)
 

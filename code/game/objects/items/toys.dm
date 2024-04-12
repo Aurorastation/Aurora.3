@@ -62,20 +62,20 @@
 		src.update_icon()
 	return
 
-/obj/item/toy/waterballoon/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/glass))
-		if(O.reagents)
-			if(O.reagents.total_volume < 1)
-				to_chat(user, "The [O] is empty.")
-			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1))
+/obj/item/toy/waterballoon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(attacking_item.reagents)
+			if(attacking_item.reagents.total_volume < 1)
+				to_chat(user, "The [attacking_item] is empty.")
+			else if(attacking_item.reagents.total_volume >= 1)
+				if(attacking_item.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
-					O.reagents.splash(user, reagents.total_volume)
+					attacking_item.reagents.splash(user, reagents.total_volume)
 					qdel(src)
 				else
 					src.desc = "A translucent balloon with some form of liquid sloshing around in it."
-					to_chat(user, "<span class='notice'>You fill the balloon with the contents of [O].</span>")
-					O.reagents.trans_to_obj(src, 10)
+					to_chat(user, "<span class='notice'>You fill the balloon with the contents of [attacking_item].</span>")
+					attacking_item.reagents.trans_to_obj(src, 10)
 		src.update_icon()
 		return TRUE
 
@@ -174,8 +174,8 @@
 		burst()
 	return
 
-/obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.can_puncture())
+/obj/item/toy/balloon/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.can_puncture())
 		burst()
 		return TRUE
 
@@ -409,16 +409,16 @@
 	attack_verb = list("attacked", "struck", "hit")
 	var/dart_count = 5
 
-/obj/item/toy/crossbow/examine(mob/user, distance, is_adjacent)
+/obj/item/toy/crossbow/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2 && dart_count)
-		to_chat(user, "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>")
+		. += "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>"
 
-/obj/item/toy/crossbow/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/toy/ammo/crossbow))
+/obj/item/toy/crossbow/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/toy/ammo/crossbow))
 		if(dart_count <= 4)
-			user.drop_from_inventory(I, src)
-			qdel(I)
+			user.drop_from_inventory(attacking_item, src)
+			qdel(attacking_item)
 			dart_count++
 			to_chat(user, "<span class='notice'>You load the foam dart into \the [src].</span>")
 		else
@@ -573,7 +573,7 @@
 	equip_sound = /singleton/sound_category/sword_equip_sound
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_BACK
-	force = 5
+	force = 11
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced")
@@ -609,7 +609,7 @@
 			do_pop()
 
 /obj/item/toy/snappop/proc/do_pop()
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	visible_message(SPAN_WARNING("\The [src] explodes!"), SPAN_WARNING("You hear a snap!"))
 	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)
@@ -822,8 +822,8 @@
 	icon_state = "geneticist"
 
 /obj/item/toy/figure/hop
-	name = "head of personel action figure"
-	desc = "A \"Space Life\" brand head of personel action figure."
+	name = "head of personnel action figure"
+	desc = "A \"Space Life\" brand head of personnel action figure."
 	icon_state = "hop"
 
 /obj/item/toy/figure/hos
@@ -956,8 +956,15 @@
 	drop_sound = 'sound/items/drop/plushie.ogg'
 	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
+	/// defines what sound is played when poking the plushie (using it inhand on disarm intent).
+	var/poke_sound = 'sound/items/drop/plushie.ogg'
+	///A cooldown to stop the poke sound being spammed.
+	var/poke_cooldown = 0
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
+	if(poke_cooldown > world.time)
+		return
+	poke_cooldown = world.time + 2 SECONDS
 	if(user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
 	else if (user.a_intent == I_HURT)
@@ -966,7 +973,7 @@
 		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
 	else
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
-		playsound(src, 'sound/items/drop/plushie.ogg', 25, 0)
+		playsound(src, poke_sound, 25, 0)
 		visible_message("[src] says, \"[phrase]\"")
 
 //Large plushies.
@@ -1058,12 +1065,18 @@
 	desc = "A schlorrgo plushie, ready to roll his way into your heart!"
 	icon_state = "schlorrgoplushie"
 	phrase = "Eough!"
+	drop_sound = 'sound/effects/creatures/ough.ogg'
+	pickup_sound = 'sound/effects/creatures/ough.ogg'
+	poke_sound = 'sound/effects/creatures/ough.ogg'
 
 /obj/item/toy/plushie/coolschlorrgo
 	name = "Cool Schlorrgo plush"
 	desc = "A plushie of the popular cartoon character, Cool Schlorrgo. Hadii's grace!"
 	icon_state = "coolerschlorrgoplushie"
 	phrase = "Eough!"
+	drop_sound = 'sound/effects/creatures/ough.ogg'
+	pickup_sound = 'sound/effects/creatures/ough.ogg'
+	poke_sound = 'sound/effects/creatures/ough.ogg'
 
 /obj/item/toy/plushie/slime
 	name = "slime plush"
@@ -1254,6 +1267,13 @@
 		)
 		icon_state = "herring_gull_lying"
 		item_state = "herring_gull_lying"
+
+//Jeweler cockatoo plushie
+/obj/item/toy/plushie/cockatoo
+	name = "jeweler cockatoo plushie"
+	desc = "A plushie of Konyang's national animal, much smaller than the real thing. This one won't get you arrested for touching it, either."
+	icon_state = "cockatoo"
+	phrase = "Chirp!"
 
 //Toy cult sword
 /obj/item/toy/cultsword

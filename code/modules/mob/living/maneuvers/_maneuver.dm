@@ -23,7 +23,7 @@
 		return FALSE
 	if(world.time < user.last_special)
 		if(!silent)
-			to_chat(user, SPAN_WARNING("You cannot maneuver again for another [Floor((user.last_special - world.time)*0.1)] second\s."))
+			to_chat(user, SPAN_WARNING("You cannot maneuver again for another [FLOOR((user.last_special - world.time)*0.1, 1)] second\s."))
 		return FALSE
 	if(!isipc(user))
 		if(user.stamina < stamina_cost)

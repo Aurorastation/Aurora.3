@@ -34,8 +34,8 @@
 		if(isitem(hit_atom))
 			var/obj/item/I = hit_atom
 
-			spark(I, 5, cardinal)
-			spark(user, 5, cardinal)
+			spark(I, 5, GLOB.cardinal)
+			spark(user, 5, GLOB.cardinal)
 			I.visible_message("<span class='danger'>\The [I] vanishes into thin air!</span>")
 			I.forceMove(get_turf(user))
 			user.drop_item(src)
@@ -48,8 +48,8 @@
 		else if(isliving(hit_atom))
 			var/mob/living/L = hit_atom
 			to_chat(L, "<span class='danger'>You are teleported towards \the [user]!</span>")
-			spark(L, 5, cardinal)
-			spark(user, 5, cardinal)
+			spark(L, 5, GLOB.cardinal)
+			spark(user, 5, GLOB.cardinal)
 			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 1, src)
 			addtimer(CALLBACK(src, PROC_REF(seize_mob), L, user), 1 SECOND)
 			user.drop_item(src)

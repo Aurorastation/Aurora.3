@@ -325,9 +325,9 @@
 	aura.toggle()
 	aura.dir = owner.dir
 	if(aura.dir == NORTH)
-		aura.layer = MECH_UNDER_LAYER
+		aura.layer = MOB_LAYER
 	else
-		aura.layer = ABOVE_MOB_LAYER
+		aura.layer = ABOVE_HUMAN_LAYER
 	playsound(owner,'sound/weapons/flash.ogg', 35, TRUE)
 	update_icon()
 	if(aura.active)
@@ -372,14 +372,14 @@
 	name = "mechshield"
 	var/obj/item/mecha_equipment/shield/shields
 	var/active = FALSE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = 8
 	pixel_y = 4
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/aura/mechshield/added_to(mob/living/target)
 	..()
-	target.vis_contents += src
+	target.add_vis_contents(src)
 	dir = target.dir
 
 /obj/aura/mechshield/proc/set_holder(var/obj/item/mecha_equipment/shield/holder)
@@ -387,7 +387,7 @@
 
 /obj/aura/mechshield/Destroy()
 	if(user)
-		user.vis_contents -= src
+		user.remove_vis_contents(src)
 	shields = null
 	. = ..()
 
@@ -422,7 +422,7 @@
 		if(P.damage <= 0)
 			return AURA_FALSE|AURA_CANCEL
 
-		spark(get_turf(src), 5, global.alldirs)
+		spark(get_turf(src), 5, GLOB.alldirs)
 		playsound(get_turf(src), /singleton/sound_category/spark_sound, 25, TRUE)
 
 /obj/aura/mechshield/hitby(atom/movable/M, var/speed)

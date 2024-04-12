@@ -12,24 +12,24 @@
 /obj/structure/mopbucket/Initialize()
 	. = ..()
 	create_reagents(bucketsize)
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 /obj/structure/mopbucket/Destroy()
-	janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	return ..()
 
-/obj/structure/mopbucket/examine(mob/user, distance, is_adjacent)
+/obj/structure/mopbucket/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "Contains [reagents.total_volume] unit\s of water.")
+		. += "It contains [reagents.total_volume] unit\s of water."
 
-/obj/structure/mopbucket/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/mop))
+/obj/structure/mopbucket/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mop))
 		if(reagents.total_volume < 1)
 			to_chat(user, "<span class='warning'>\The [src] is out of water!</span>")
 		else
-			reagents.trans_to_obj(I, 5)
-			to_chat(user, "<span class='notice'>You wet \the [I] in \the [src].</span>")
+			reagents.trans_to_obj(attacking_item, 5)
+			to_chat(user, "<span class='notice'>You wet \the [attacking_item] in \the [src].</span>")
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return ..()
 	update_icon()

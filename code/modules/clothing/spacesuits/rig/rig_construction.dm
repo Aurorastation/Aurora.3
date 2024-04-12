@@ -4,19 +4,41 @@
 	icon = 'icons/obj/rig_modules.dmi'
 	var/icon_base = null
 	w_class = ITEMSIZE_LARGE
-	var/obj/item/circuitboard/board_type = null
-	var/obj/item/circuitboard/target_board_type = null
-	var/obj/item/rig/rig_type = /obj/item/rig
+
+	///The type of board, a path of `/obj/item/circuitboard`
+	var/board_type = null
+
+	///The type of target board, a path of `/obj/item/circuitboard`
+	var/target_board_type = null
+
+	///The type of rig, a path of `/obj/item/rig`
+	var/rig_type = /obj/item/rig
 
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 4, TECH_POWER = 4)
+
 	var/datum/construction/reversible/rig_assembly/construct
+
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
-/obj/item/rig_assembly/examine(mob/user, distance)
+/obj/item/rig_assembly/Initialize(mapload, ...)
+	. = ..()
+
+	construct = new /datum/construction/reversible/rig_assembly/civilian(src)
+	construct.board_type = board_type
+	construct.steps[5]["key"] = board_type // defining board in construction step
+	construct.result = "[rig_type]"
+
+/obj/item/rig_assembly/Destroy()
+	QDEL_NULL(construct)
+
+	. = ..()
+
+
+/obj/item/rig_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(construct)
-		to_chat(user, construct.get_desc())
+		. += construct.get_desc()
 
 /obj/item/rig_assembly/MouseEntered(location, control, params)
 	. = ..()
@@ -30,20 +52,15 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/rig_assembly/attackby(obj/item/W as obj, mob/user as mob)
-	if(!construct || !construct.action(W, user))
+/obj/item/rig_assembly/attackby(obj/item/attacking_item, mob/user)
+	if(!construct || !construct.action(attacking_item, user))
 		..()
 	return
 
-/obj/item/rig_assembly/New()
-	..()
-	construct = new /datum/construction/reversible/rig_assembly/civilian(src)
-	construct.board_type = board_type
-	construct.steps[5]["key"] = board_type // defining board in construction step
-	construct.result = "[rig_type]"
 
-/obj/item/rig_assembly/combat/New()
-	..()
+/obj/item/rig_assembly/combat/Initialize(mapload, ...)
+	. = ..()
+
 	construct = new /datum/construction/reversible/rig_assembly/combat(src)
 	construct.board_type = board_type
 	construct.target_board_type = target_board_type
@@ -87,6 +104,7 @@
 	icon_state = "industrial1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial
+	convert_options = list(/obj/item/rig_assembly/industrial/himeo)
 
 /obj/item/rig_assembly/industrial/himeo
 	name = "himean industrial suit control module assembly"
@@ -95,6 +113,7 @@
 	icon_state = "himeo1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial/himeo
+	convert_options = list(/obj/item/rig_assembly/industrial)
 
 /obj/item/rig_assembly/hazmat
 	name = "AMI control module assembly"
@@ -166,8 +185,12 @@
 
 /datum/construction/reversible/rig_assembly
 	result = null
-	var/obj/item/circuitboard/rig_assembly/board_type = null
-	var/obj/item/circuitboard/rig_assembly/target_board_type = null
+
+	///The type of board, a path of `/obj/item/circuitboard`
+	var/board_type = null
+
+	///The type of target board, a path of `/obj/item/circuitboard`
+	var/target_board_type = null
 
 /datum/construction/reversible/rig_assembly/custom_action(index as num, diff as num, atom/used_atom, mob/user as mob)
 	var/obj/item/I = used_atom
@@ -178,13 +201,13 @@
 		else
 			return 0
 	else if(I.iswrench())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(src), 50)
 
 	else if(I.isscrewdriver())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(src), 50)
 
 	else if(I.iswirecutter())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(src), 50)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom

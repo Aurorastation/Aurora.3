@@ -116,6 +116,18 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("noodles" = 5 , "rich vegetable broth" = 3, "egg" =3))
 	bitesize = 3
 
+/obj/item/reagent_containers/food/snacks/aoyama_ramen
+	name = "aoyama ramen"
+	desc = "A bowl of Konyang-style spicy ramen composed of ramen noodles, fish, moss, ginger, chili peppers, and a slice of Narutomaki. The urban legend is that it was created by 5-Cheung gang members as a test to see if their new recruits can handle how spicy it is, but given that it's a popular dish that's not much spicier than many other foods out in the universe, that's probably nonsense. Most likely it was made by Konyang settlers looking to make Ramen out of local ingredients."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "aoyama_ramen"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#91682b"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/moss = 2, /singleton/reagent/nutriment/protein = 5, /singleton/reagent/water = 2, /singleton/reagent/capsaicin = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("noodles" = 5 , "chili" = 4, "rich vegetable broth" = 3), /singleton/reagent/nutriment/protein = list("fish" = 5))
+	bitesize = 3
+
 /obj/item/reagent_containers/food/snacks/spaghettibolognese
 	name = "spaghetti bolognese"
 	desc = "If it's not from the bologna region of italy it's really just sparkling noodles."
@@ -129,28 +141,32 @@
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/ravioli
+	abstract_type = /obj/item/reagent_containers/food/snacks/ravioli
 	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
 	icon_state = "ravioli"
 	trash = /obj/item/trash/plate
 	filling_color = "#e9c880"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/ravioli/cheese
 	name = "cheese ravioli"
 	desc = "Ravioli with ricotta filling and creamy tomato sauce."
-	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "ricotta cheese" = 5, "tomato sauce" = 5))
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein/cheese = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "tomato sauce" = 5), /singleton/reagent/nutriment/protein/cheese = list("ricotta cheese" = 10))
 
 /obj/item/reagent_containers/food/snacks/ravioli/meat
 	name = "meat ravioli"
 	icon_state = "raviolimeat"
 	desc = "Ravioli with ground meat filling and creamy tomato sauce."
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 6)
 	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "tomato sauce" = 5), /singleton/reagent/nutriment/protein = list ("ground meat" = 5))
 
 /obj/item/reagent_containers/food/snacks/ravioli/earthenroot
 	name = "earthenroot ravioli"
 	icon_state = "veganravioli"
 	desc = "This bizzarely colored dish is not actually Tajaran in origin, but the Earthenroot pasta, together with the creamy tomato sauce makes for a pink-and blue dish that's vegan, delicious, and truly bizzare to look at."
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "pumpkin squash" = 5, "creamy sauce" = 5))
 	filling_color = "#80d1e9"

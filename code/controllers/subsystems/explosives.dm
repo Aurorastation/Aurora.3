@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(explosives)
 	priority = SS_PRIORITY_EXPLOSIVES
 	runlevels = RUNLEVELS_PLAYING
 
-	suspended = TRUE	// Start disabled, explosions will wake us if need be.
+	can_fire = FALSE	// Start disabled, explosions will wake us if need be.
 
 	var/list/work_queue = list()
 	var/ticks_without_work = 0
@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(explosives)
 		ticks_without_work++
 		if (ticks_without_work > 5)
 			// All explosions handled, we can sleep now.
-			suspend()
+			can_fire = FALSE
 
 			mc_notified = FALSE
 			Master.ExplosionEnd()
@@ -110,7 +110,7 @@ SUBSYSTEM_DEF(explosives)
 				vibration = 1
 
 	if (vibration)
-		for(var/thing in player_list)
+		for(var/thing in GLOB.player_list)
 			var/mob/M = thing
 			CHECK_TICK
 			// Double check for client
@@ -160,12 +160,12 @@ SUBSYSTEM_DEF(explosives)
 						// If inside the blast radius + world.view - 2
 						if (dist <= closedist)
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [explosion_dir].")))
-							M.playsound_simple(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
+							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
 						else if (dist > closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a semi-close explosion coming from \the [explosion_dir].")))
-							M.playsound_simple(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
+							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
 						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
-							volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = TRUE)
+							volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, vary = TRUE, falloff_distance = 1000, pressure_affected = TRUE)
 							if(volume)
 								to_chat(M, FONT_LARGE(SPAN_NOTICE("You hear the sound of a distant explosion coming from \the [explosion_dir].")))
 
@@ -221,7 +221,7 @@ SUBSYSTEM_DEF(explosives)
 
 	var/took = (world.timeofday-start)/10
 	//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
-	if(Debug2)	world.log <<  "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
+	if(GLOB.Debug2)	world.log <<  "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
 
 // All the vars used on the turf should be on unsimulated turfs too, we just don't care about those generally.
 #define SEARCH_DIR(dir) \
@@ -257,11 +257,11 @@ SUBSYSTEM_DEF(explosives)
 		if (O.explosion_resistance)
 			power -= O.explosion_resistance
 
-	if (power >= config.iterative_explosives_z_threshold)
+	if (power >= GLOB.config.iterative_explosives_z_threshold)
 		if ((z_transfer & UP) && HasAbove(epicenter.z))
 			var/datum/explosiondata/data = new
 			data.epicenter = GetAbove(epicenter)
-			data.rec_pow = (power * config.iterative_explosives_z_multiplier) - config.iterative_explosives_z_subtraction
+			data.rec_pow = (power * GLOB.config.iterative_explosives_z_multiplier) - GLOB.config.iterative_explosives_z_subtraction
 			data.z_transfer = UP
 			data.spreading = TRUE
 			queue(data)
@@ -269,7 +269,7 @@ SUBSYSTEM_DEF(explosives)
 		if ((z_transfer & DOWN) && HasBelow(epicenter.z))
 			var/datum/explosiondata/data = new
 			data.epicenter = GetBelow(epicenter)
-			data.rec_pow = (power * config.iterative_explosives_z_multiplier) - config.iterative_explosives_z_subtraction
+			data.rec_pow = (power * GLOB.config.iterative_explosives_z_multiplier) - GLOB.config.iterative_explosives_z_subtraction
 			data.z_transfer = DOWN
 			data.spreading = TRUE
 			queue(data)
@@ -329,7 +329,7 @@ SUBSYSTEM_DEF(explosives)
 
 	var/sound/explosion_sound = sound(get_sfx(/singleton/sound_category/explosion_sound))
 
-	for (var/thing in player_list)
+	for (var/thing in GLOB.player_list)
 		var/mob/M = thing
 		var/reception = EXPLFX_BOTH
 
@@ -357,10 +357,10 @@ SUBSYSTEM_DEF(explosives)
 		var/dist = get_dist(M, epicenter) || 1
 		if ((reception & EXPLFX_SOUND) && !isdeaf(M))
 			if (dist <= close_dist)
-				M.playsound_simple(epicenter, explosion_sound, min(100, volume), use_random_freq = TRUE, falloff = 5)
+				M.playsound_local(epicenter, explosion_sound, min(100, volume), vary = TRUE, falloff_distance = 5)
 				//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 			else
-				volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = FALSE)
+				volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, vary = TRUE, falloff_distance = 1000, pressure_affected = FALSE)
 
 		if ((reception & EXPLFX_SHAKE) && volume > 0)
 			shake_camera(M, min(30, max(2,(power*2) / dist)), min(3.5, ((power/3) / dist)),0.05)
@@ -417,8 +417,8 @@ SUBSYSTEM_DEF(explosives)
 	work_queue += data
 
 	// Wake it up from sleeping if necessary.
-	if (suspended)
-		wake()
+	if (!can_fire)
+		can_fire = TRUE
 
 /datum/controller/subsystem/explosives/stat_entry(msg)
 	msg ="P:[work_queue.len]"

@@ -12,7 +12,7 @@
 	mob_name_prefix = "Zosaa "
 	mob_name_pick_message = "Pick an Unathi last name."
 
-	outfit = /datum/outfit/admin/kataphract
+	outfit = /obj/outfit/admin/kataphract
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -31,7 +31,7 @@
 
 	spawnpoints = list("kataphract_klax")
 
-	outfit = /datum/outfit/admin/kataphract/klax
+	outfit = /obj/outfit/admin/kataphract/klax
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
 
@@ -46,7 +46,7 @@
 
 	spawnpoints = list("kataphract_knight")
 
-	outfit = /datum/outfit/admin/kataphract/knight
+	outfit = /obj/outfit/admin/kataphract/knight
 
 
 	assigned_role = "Kataphract Knight Captain"
@@ -62,13 +62,13 @@
 
 	spawnpoints = list("kataphract_specialist")
 
-	outfit = /datum/outfit/admin/kataphract/specialist
+	outfit = /obj/outfit/admin/kataphract/specialist
 
 	assigned_role = "Kataphract Specialist"
 	special_role = "Kataphract Specialist"
 
 // Kataphract who are not combat ready
-/datum/outfit/admin/kataphract
+/obj/outfit/admin/kataphract
 	name = "Kataphract-Hopeful"
 
 	uniform = /obj/item/clothing/under/unathi
@@ -84,14 +84,15 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
-/datum/outfit/admin/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
+		H.w_uniform.accent_color = H.w_uniform.color
 
-/datum/outfit/admin/kataphract/get_id_access()
-	return list(access_kataphract, access_external_airlocks)
+/obj/outfit/admin/kataphract/get_id_access()
+	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/outfit/admin/kataphract/klax
+/obj/outfit/admin/kataphract/klax
 
 	uniform = /obj/item/clothing/under/vaurca
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
@@ -107,7 +108,7 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 3
 	)
 
-/datum/outfit/admin/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
@@ -124,20 +125,20 @@
 	A.replaced(H, affected)
 	H.update_body()
 
-/datum/outfit/admin/kataphract/knight
+/obj/outfit/admin/kataphract/knight
 	name = "Kataphract Knight"
 
 	suit = /obj/item/clothing/accessory/poncho/red
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 
-/datum/outfit/admin/kataphract/knight/get_id_access()
-	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
+/obj/outfit/admin/kataphract/knight/get_id_access()
+	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/outfit/admin/kataphract/specialist
+/obj/outfit/admin/kataphract/specialist
 	name = "Kataphract Specialist"
 
 	back = /obj/item/storage/backpack/satchel/hegemony
 
-/datum/outfit/admin/kataphract/quartermaster/get_id_access()
-	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
+/obj/outfit/admin/kataphract/quartermaster/get_id_access()
+	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)

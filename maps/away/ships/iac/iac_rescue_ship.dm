@@ -32,6 +32,12 @@
 /area/ship/iac_rescue_ship/portengine
 	name = "IAC Rescue Ship Port Engine"
 
+/area/ship/iac_rescue_ship/engineering
+	name = "IAC Rescue Ship Engineering"
+
+/area/ship/iac_rescue_ship/atmospherics
+	name = "IAC Rescue Ship Atmospherics"
+
 /area/ship/iac_rescue_ship/bathroom
 	name = "IAC Rescue Ship Bathroom"
 
@@ -44,17 +50,44 @@
 /area/ship/iac_rescue_ship/surgery
 	name = "IAC Rescue Ship Surgery Room"
 
+/area/ship/iac_rescue_ship/machinist
+	name = "IAC Rescue Ship Machinist Bay"
+
 /area/ship/iac_rescue_ship/pharmacy
 	name = "IAC Rescue Ship Pharmacy"
 
 /area/ship/iac_rescue_ship/dorms
 	name = "IAC Rescue Ship Dorms"
 
+/area/ship/iac_rescue_ship/hydro
+	name = "IAC Rescue Ship Hydroponics"
+
+/area/ship/iac_rescue_ship/kitchen
+	name = "IAC Rescue Ship Kitchen"
+
+/area/ship/iac_rescue_ship/custodial
+	name = "IAC Rescue Ship Custodial Closet"
+
+/area/ship/iac_rescue_ship/evaprep
+	name = "IAC Rescue Ship EVA Prep"
+
+/area/ship/iac_rescue_ship/portdocking
+	name = "IAC Rescue Ship Port Docking Arm"
+
+/area/ship/iac_rescue_ship/starboarddocking
+	name = "IAC Rescue Ship Starboard Docking Arm"
+
 /area/ship/iac_rescue_ship/coord
 	name = "IAC Rescue Ship Coordinator's Office"
 
-/area/ship/iac_rescue_ship/hallway
-	name = "IAC Rescue Ship Hallway"
+/area/ship/iac_rescue_ship/forehallway
+	name = "IAC Rescue Ship Fore Hallway"
+
+/area/ship/iac_rescue_ship/centralhallway
+	name = "IAC Rescue Ship Central Hallway"
+
+/area/ship/iac_rescue_ship/afthallway
+	name = "IAC Rescue Ship Aft Hallway"
 
 /area/shuttle/iac_shuttle
 	name = "IAC Ambulance Shuttle"
@@ -88,7 +121,13 @@
 		"nav_iac_rescue_ship_2",
 		"nav_iac_rescue_ship_3",
 		"nav_iac_rescue_ship_4",
-		"nav_iac_rescue_ship_5"
+		"nav_iac_rescue_ship_5",
+		"nav_iac_rescue_stbd_aft",
+		"nav_iac_rescue_stbd_fore",
+		"nav_iac_rescue_stbd_berth",
+		"nav_iac_rescue_port_aft",
+		"nav_iac_rescue_port_fore",
+		"nav_iac_rescue_port_berth"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -138,6 +177,40 @@
 	landmark_tag = "nav_transit_iac_rescue_ship"
 	base_turf = /turf/space/transit/north
 
+//Starboard Docking Arm
+
+/obj/effect/shuttle_landmark/iac_rescue_ship/starboard_aft
+	name = "IAC Rescue Ship - Starboard Aft Dock"
+	landmark_tag = "nav_iac_rescue_stbd_aft"
+	docking_controller = "airlock_iac_rescue_dock_stbd_aft"
+
+/obj/effect/shuttle_landmark/iac_rescue_ship/starboard_fore
+	name = "IAC Rescue Ship - Starboard Fore Dock"
+	landmark_tag = "nav_iac_rescue_stbd_fore"
+	docking_controller = "airlock_iac_rescue_dock_stbd_fore"
+
+/obj/effect/shuttle_landmark/iac_rescue_ship/starboard_berth
+	name = "IAC Rescue Ship - Starboard Berthing Dock"
+	landmark_tag = "nav_iac_rescue_stbd_berth"
+	docking_controller = "airlock_iac_rescue_dock_stbd_berth"
+
+//Port Docking Arm
+
+/obj/effect/shuttle_landmark/iac_rescue_ship/port_aft
+	name = "IAC Rescue Ship - Port Aft Dock"
+	landmark_tag = "nav_iac_rescue_port_aft"
+	docking_controller = "airlock_iac_rescue_dock_port_aft"
+
+/obj/effect/shuttle_landmark/iac_rescue_ship/port_fore
+	name = "IAC Rescue Ship - Port Fore Dock"
+	landmark_tag = "nav_iac_rescue_port_fore"
+	docking_controller = "airlock_iac_rescue_dock_port_fore"
+
+/obj/effect/shuttle_landmark/iac_rescue_ship/port_berth
+	name = "IAC Rescue Ship - Port Berthing Dock"
+	landmark_tag = "nav_iac_rescue_port_berth"
+	docking_controller = "airlock_iac_rescue_dock_port_berth"
+
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/iac_shuttle
 	name = "IAC Ambulance Shuttle"
@@ -154,15 +227,16 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/iac_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/iac_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
-	req_access = list(access_iac_rescue_ship)
+	req_access = list(ACCESS_IAC_RESCUE_SHIP)
 
 /datum/shuttle/autodock/overmap/iac_shuttle
 	name = "IAC Ambulance Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/iac_shuttle)
+	dock_target = "airlock_iac_rescue_shuttle"
 	current_location = "nav_hangar_iac"
 
 	landmark_transition = "nav_transit_iac_shuttle"
@@ -184,7 +258,7 @@
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/iac_shuttle/transit
-	name = "In transit"
+	name = "In Transit"
 	landmark_tag = "nav_transit_iac_shuttle"
 
 	base_turf = /turf/space/transit/north

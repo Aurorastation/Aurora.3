@@ -10,7 +10,7 @@
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	explosion_resistance = 1
-	layer = 2.98
+	layer = BELOW_OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/health = 10
 	var/destroyed = 0
@@ -88,7 +88,7 @@
 	if(shock(user, 70))
 		return
 
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK))
 		damage_dealt += 5
 	else
 		damage_dealt += 1
@@ -139,30 +139,30 @@
 	src.health -= damage*0.2
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
 
-/obj/structure/grille/attackby(obj/item/W, mob/user)
-	if(W.iswirecutter())
+/obj/structure/grille/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswirecutter())
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
-	else if(istype(W, /obj/item/gun/energy/plasmacutter))
-		var/obj/item/gun/energy/plasmacutter/PC = W
+	else if(istype(attacking_item, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/PC = attacking_item
 		if(PC.check_power_and_message(user))
 			return
 		PC.use_resource(user, 1)
 		playsound(loc, PC.fire_sound, 100, TRUE)
 		new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 		qdel(src)
-	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
+	else if((attacking_item.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
 								"<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
 		return
-	else if(istype(W,/obj/item/stack/rods) && destroyed == 1)
+	else if(istype(attacking_item,/obj/item/stack/rods) && destroyed == 1)
 		if(!shock(user, 90))
-			var/obj/item/stack/rods/ROD = W
+			var/obj/item/stack/rods/ROD = attacking_item
 			health = 10
 			density = 1
 			destroyed = 0
@@ -173,8 +173,8 @@
 			return
 
 //window placing begin //TODO CONVERT PROPERLY TO MATERIAL DATUM
-	else if(istype(W,/obj/item/stack/material))
-		var/obj/item/stack/material/ST = W
+	else if(istype(attacking_item,/obj/item/stack/material))
+		var/obj/item/stack/material/ST = attacking_item
 		if(!ST.material.created_window)
 			return 0
 
@@ -215,15 +215,15 @@
 		return
 //window placing end
 
-	else if(!(W.obj_flags & OBJ_FLAG_CONDUCTABLE) || !shock(user, 70))
+	else if(!(attacking_item.obj_flags & OBJ_FLAG_CONDUCTABLE) || !shock(user, 70))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
 		playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if("fire")
-				health -= W.force
+				health -= attacking_item.force
 			if("brute")
-				health -= W.force * 0.1
+				health -= attacking_item.force * 0.1
 	healthcheck()
 	..()
 	return
@@ -261,7 +261,7 @@
 		if(electrocute_mob(user, C, src))
 			if(C.powernet)
 				C.powernet.trigger_warning()
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			if(user.stunned)
 				return 1
 		else

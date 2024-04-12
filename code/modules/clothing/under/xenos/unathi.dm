@@ -1,11 +1,14 @@
 /obj/item/clothing/under/unathi
 	name = "sinta tunic"
-	desc = "A tunic common on both Moghes and Ouerea. It's simple and easily-manufactured design makes it \
+	desc = "A tunic common on both Moghes and Ouerea. Its simple and easily-manufactured design makes it \
 	universally favorable."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "tunic"
 	item_state = "tunic"
 	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "belt"
+	has_accents = TRUE
 
 /obj/item/clothing/under/unathi/jizixi
 	name = "jizixi dress"
@@ -90,3 +93,45 @@
 	build_from_parts = TRUE
 	worn_overlay = "belt"
 	has_accents = TRUE
+
+/obj/item/clothing/under/unathi/izweski
+	name = "izweski navy uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its insignia indicates it as belonging to a soldier of the Izweski Hegemony's Navy."
+	icon = 'icons/clothing/under/uniforms/izweski.dmi'
+	icon_state = "izweski"
+	item_state = "izweski"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/unathi/izweski/officer
+	name = "izweski navy officer's uniform"
+	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its golden ornamentation indicates it as belonging to an officer of the Izweski Hegemony's Navy."
+	icon_state = "izweski_officer"
+	item_state = "izweski_officer"
+
+/obj/item/clothing/under/unathi/skakh
+	name = "\improper Sk'akh priest robes"
+	desc = "A simple brown robe with gilded ornamentation, the standard garment for the clergy of the Sk'akh Church. The ornamentation this one bears identifies its wearer as holding the rank of an ordained priest within the Church hierarchy."
+	icon_state = "skakh"
+	item_state = "skakh"
+
+/obj/item/clothing/under/unathi/skakh/fisher
+	name = "\improper Sk'akh fisher robes"
+	desc = "A simple brown and orange robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Fisher."
+	icon_state = "skakh-fisher"
+	item_state = "skakh-fisher"
+
+/obj/item/clothing/under/unathi/skakh/healer
+	name = "\improper Sk'akh healer robes"
+	desc = "A simple brown and green robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Healer."
+	icon_state = "skakh-healer"
+	item_state = "skakh-healer"
+
+/obj/item/clothing/under/unathi/skakh/warrior
+	name = "\improper Sk'akh warrior robes"
+	desc = "A simple brown and red robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Warrior."
+	icon_state = "skakh-warrior"
+	item_state = "skakh-warrior"

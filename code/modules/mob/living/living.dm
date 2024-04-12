@@ -121,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
-				if(prob(40) && NOT_FLAG(mutations, FAT))
+			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+				if(prob(40) && !(mutations & FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -248,9 +248,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(HAS_FLAG(mutations, mShock)) //shockproof
+	if((mutations & mShock)) //shockproof
 		return FALSE
-	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
+	if((mutations & COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()
@@ -516,8 +516,8 @@ default behaviour is:
 
 	// remove the character from the list of the dead
 	if(stat == DEAD)
-		dead_mob_list -= src
-		living_mob_list += src
+		GLOB.dead_mob_list -= src
+		GLOB.living_mob_list += src
 		tod = null
 		timeofdeath = 0
 
@@ -569,23 +569,7 @@ default behaviour is:
 /mob/living/proc/UpdateDamageIcon()
 	return
 
-
-/mob/living/proc/Examine_OOC()
-	set name = "Examine Meta-Info (OOC)"
-	set category = "OOC"
-	set src in view()
-
-	if(config.allow_Metadata)
-		if(client)
-			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
-		else
-			to_chat(usr, "[src] does not have any stored infomation!")
-	else
-		to_chat(usr, "OOC Metadata is not supported by this server!")
-
-	return
-
-/mob/living/Move(a, b, flag)
+/mob/living/Move(atom/newloc, direct)
 	if (buckled_to)
 		return
 
@@ -942,8 +926,6 @@ default behaviour is:
 		for(var/a in auras)
 			remove_aura(a)
 
-	QDEL_NULL(ability_master)
-
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
@@ -1022,6 +1004,26 @@ default behaviour is:
 	set name = "mov_intent"
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
+
+/**
+ * Used by a macro in skin.dmf to toggle the throw
+ */
+/mob/living/verb/throw_intent_keyDown()
+	set hidden = 1
+	set name = "throw_intent"
+	if(!(src.in_throw_mode))
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_keyUp()
+	set hidden = 1
+	set name = "throw_intent_up"
+	if(src.in_throw_mode)
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_toggle()
+	set hidden = 1
+	set name = "throw_intent_toggle"
+	toggle_throw_mode()
 
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount

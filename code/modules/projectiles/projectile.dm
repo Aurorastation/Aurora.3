@@ -102,6 +102,9 @@
 
 	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
 
+	///If the projectile launches a secondary projectile in addition to itself.
+	var/secondary_projectile
+
 /obj/item/projectile/CanPass()
 	return TRUE
 
@@ -166,6 +169,10 @@
 	var/direct_target
 	if(get_turf(target) == get_turf(src))
 		direct_target = target
+
+	if(ispath(secondary_projectile))
+		var/obj/item/projectile/BB = new secondary_projectile(src)
+		BB.launch_projectile(target, target_zone, user, params, angle_override, forced_spread)
 
 	preparePixelProjectile(target, user? user : get_turf(src), params, forced_spread)
 	return fire(angle_override, direct_target)
@@ -577,12 +584,12 @@
 	time_offset = 0
 	var/required_moves = 0
 	if(speed > 0)
-		required_moves = Floor(elapsed_time_deciseconds / speed, 1)
+		required_moves = FLOOR_FLOAT(elapsed_time_deciseconds / speed, 1)
 		if(required_moves > SSprojectiles.global_max_tick_moves)
 			var/overrun = required_moves - SSprojectiles.global_max_tick_moves
 			required_moves = SSprojectiles.global_max_tick_moves
 			time_offset += overrun * speed
-		time_offset += Modulus(elapsed_time_deciseconds, speed)
+		time_offset += MODULUS(elapsed_time_deciseconds, speed)
 	else
 		required_moves = SSprojectiles.global_max_tick_moves
 	if(!required_moves)

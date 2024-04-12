@@ -6,7 +6,7 @@
 	suffixes = list("away_site/konyang/point_verdant/point_verdant-1.dmm","away_site/konyang/point_verdant/point_verdant-2.dmm","away_site/konyang/point_verdant/point_verdant-3.dmm")
 	spawn_weight = 1
 	spawn_cost = 1
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	template_flags = TEMPLATE_FLAG_PORT_SPAWN
 
 	unit_test_groups = list(2)
 
@@ -24,6 +24,10 @@
 	alignment = "Coalition of Colonies"
 	requires_contact = FALSE
 	instant_contact = TRUE
+
+	comms_support = TRUE
+	comms_name = "National Police" //these comms should only be used by Konyang Police ghostroles
+	freq_name = "Corporate District Patrol"
 
 	initial_generic_waypoints = list(
 		"nav_point_verdant_waterdock_01",

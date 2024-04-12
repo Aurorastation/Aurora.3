@@ -125,6 +125,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	reload_sound = /singleton/sound_category/shotgun_reload
 	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+	max_stack = 8
 
 /obj/item/ammo_casing/shotgun/used/Initialize()
 	. = ..()
@@ -223,6 +224,14 @@
 	spent_icon = "trackingshell-spent"
 	projectile_type = /obj/item/projectile/bullet/tracking
 
+/obj/item/ammo_casing/shotgun/moghes
+	name = "wall shell"
+	desc = "The appropriately-named wall shell, made specifically for the Moghesian wall gun."
+	desc_extended = "This complicated and expensive shotgun shell fires both a solid slug and a hail of shots at the same time, making it a destructive and dangerous ammunition at all ranges, assuming the user can point in the target's general direction. Somehow it seems to somewhat fit in other shotgun type weaponry too."
+	icon_state = "moghes_shell"
+	spent_icon = "moghes_shell_spent"
+	projectile_type = /obj/item/projectile/bullet/shotgun/moghes
+
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
 	desc = "A .50 cal PPS bullet casing."
@@ -282,6 +291,10 @@
 	desc = "A 5.56mm blank casing."
 	projectile_type = /obj/item/projectile/bullet/blank
 
+/obj/item/ammo_casing/a556/spent/Initialize()
+	. = ..()
+	expend()
+
 /obj/item/ammo_casing/a65
 	desc = "A 6.5mm bullet casing."
 	desc_extended = "Designed by de Namur not long after the interstellar war, the 6.5mmx40mm cartridge, designed to fit the needs of Xanu's military while going away from the legacy rounds used by the Sol Alliance. This cartridge has been wildly successful, and has been adopted by the majority of the Coalition of Colonies and beyond."
@@ -298,6 +311,9 @@
 	projectile_type = /obj/item/missile
 	caliber = "rocket"
 	max_stack = 1
+
+/obj/item/ammo_casing/rocket/konyang
+	icon_state = "kgm_rocket"
 
 /obj/item/ammo_casing/chameleon
 	name = "chameleon bullets"
@@ -331,6 +347,10 @@
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	max_stack = 6
+
+/obj/item/ammo_casing/vintage/spent/Initialize()
+	. = ..()
+	expend()
 
 /obj/item/ammo_casing/govt
 	projectile_type = /obj/item/projectile/bullet/rifle/govt
@@ -465,3 +485,25 @@
 	caliber = ".599 Kumar Super"
 	projectile_type = /obj/item/projectile/bullet
 	max_stack = 5
+
+/obj/item/ammo_casing/c6mm
+	desc = "A 6mm bullet casing."
+	caliber = "6mm"
+	projectile_type = /obj/item/projectile/bullet/pistol/assassin
+	max_stack = 15
+
+/obj/item/ammo_casing/moghes_pistol
+	desc = "A Moghesian pistol casing."
+	icon_state = "moghes_casing_p"
+	spent_icon = "moghes_casing_p_spent"
+	caliber = "11.6mm"
+	projectile_type = /obj/item/projectile/bullet/pistol/medium/ap
+	max_stack = 15
+
+/obj/item/ammo_casing/moghes_rifle
+	desc = "A Moghesian rifle casing."
+	icon_state = "moghes_casing"
+	spent_icon = "moghes_casing_spent"
+	caliber = "5.8mm"
+	projectile_type = /obj/item/projectile/bullet/rifle/a556
+	max_stack = 7

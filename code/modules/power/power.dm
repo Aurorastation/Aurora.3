@@ -82,11 +82,11 @@
 
 // attach a wire to a power machine - leads from the turf you are standing on
 //almost never called, overwritten by all power machines but terminal and generator
-/obj/machinery/power/attackby(obj/item/W, mob/user)
+/obj/machinery/power/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.iscoil())
+	if(attacking_item.iscoil())
 
-		var/obj/item/stack/cable_coil/coil = W
+		var/obj/item/stack/cable_coil/coil = attacking_item
 
 		var/turf/T = user.loc
 
@@ -115,7 +115,7 @@
 	var/cdir
 	var/turf/T
 
-	for(var/card in cardinal)
+	for(var/card in GLOB.cardinal)
 		T = get_step(loc,card)
 		cdir = get_dir(T,loc)
 
@@ -134,7 +134,7 @@
 	var/cdir
 	var/turf/T
 
-	for(var/card in cardinal)
+	for(var/card in GLOB.cardinal)
 		T = get_step(loc,card)
 		cdir = get_dir(T,loc)
 

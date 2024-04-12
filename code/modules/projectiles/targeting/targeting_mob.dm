@@ -28,6 +28,9 @@
 
 /mob/living/death(gibbed,deathmessage="seizes up and falls limp...")
 	. = ..()
+
+	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)
+
 	if(.)
 		stop_aiming(no_message=1)
 
@@ -45,7 +48,7 @@
 		qdel(aiming)
 		aiming = null
 
-	QDEL_NULL_LIST(aimed_at_by)
+	QDEL_LIST(aimed_at_by)
 
 	if(vr_mob)
 		vr_mob = null

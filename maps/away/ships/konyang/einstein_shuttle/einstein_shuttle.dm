@@ -89,12 +89,12 @@
 /obj/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Shuttle"
-	req_access = list(access_ee_spy_ship)
+	req_access = list(ACCESS_EE_SPY_SHIP)
 
 /datum/shuttle/autodock/overmap/einstein_shuttle
 	name = "Einstein Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/einstein_shuttle, /area/shuttle/einstein_shuttle/helm, /area/shuttle/einstein_shuttle/main, /area/shuttle/einstein_shuttle/room, /area/shuttle/einstein_shuttle/room/two, /area/shuttle/einstein_shuttle/room/three, /area/shuttle/einstein_shuttle/room/four, /area/shuttle/einstein_shuttle/conference, /area/shuttle/einstein_shuttle/bathroom, /area/shuttle/einstein_shuttle/porteng, /area/shuttle/einstein_shuttle/starbeng, /area/shuttle/einstein_shuttle/dock)
+	shuttle_area = list(/area/shuttle/einstein_shuttle/helm, /area/shuttle/einstein_shuttle/main, /area/shuttle/einstein_shuttle/room, /area/shuttle/einstein_shuttle/room/two, /area/shuttle/einstein_shuttle/room/three, /area/shuttle/einstein_shuttle/room/four, /area/shuttle/einstein_shuttle/conference, /area/shuttle/einstein_shuttle/bathroom, /area/shuttle/einstein_shuttle/porteng, /area/shuttle/einstein_shuttle/starbeng, /area/shuttle/einstein_shuttle/dock)
 	current_location = "nav_start_einstein"
 	landmark_transition = "nav_transit_einstein"
 	range = 1
@@ -124,7 +124,7 @@
 	spawnpoints = list("einstein_pilot")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/einstein_crew
+	outfit = /obj/outfit/admin/einstein_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_SHELL, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -133,7 +133,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/einstein_crew
+/obj/outfit/admin/einstein_crew
 	name = "Einstein Shuttle Pilot"
 
 	uniform = /obj/item/clothing/under/rank/einstein
@@ -149,8 +149,15 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/einstein_crew/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+/obj/outfit/admin/einstein_crew/get_id_access()
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+
+/obj/outfit/admin/einstein_crew/post_equip(mob/living/carbon/human/H, visualsOnly)
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_SELF
+		tag.citizenship_info = CITIZENSHIP_COALITION
 
 /datum/ghostspawner/human/einstein_crew/suit
 	short_name = "einstein_suit"
@@ -161,7 +168,7 @@
 	spawnpoints = list("einstein_suit")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/einstein_crew/suit
+	outfit = /obj/outfit/admin/einstein_crew/suit
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -169,8 +176,9 @@
 	special_role = "Einstein Engines Corporate Representative"
 	respawn_flag = null
 
-/datum/outfit/admin/einstein_crew/suit
-	uniform = /obj/item/clothing/under/suit_jacket/navy
+/obj/outfit/admin/einstein_crew/suit
+	uniform = /obj/item/clothing/under/rank/liaison/einstein
+	accessory = /obj/item/clothing/accessory/tie/black
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel/leather
 	accessory = null

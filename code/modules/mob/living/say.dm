@@ -100,9 +100,9 @@ var/list/channel_to_radio_key = new
 	if(!message_range)
 		message_range = world.view
 
-	if(HAS_FLAG(mutations, HULK))
+	if((mutations & HULK) && !src.isSynthetic() && !isvaurca(src))
 		var/ending = copytext(message, length(message), length(message) + 1)
-		if(ending && correct_punctuation[ending])
+		if(ending && GLOB.correct_punctuation[ending])
 			message = copytext(message, 1, length(message))
 		message = "[uppertext(message)]!!!"
 		say_verb = pick("yells", "roars", "hollers")
@@ -322,7 +322,7 @@ var/list/channel_to_radio_key = new
 		listening = get_hearers_in_view(message_range, src)
 
 	if(client)
-		for (var/mob/player_mob in player_list)
+		for (var/mob/player_mob in GLOB.player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
 				continue
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTRADIO && length(used_radios)) //If they are talking into a radio and we hear all radio messages, don't duplicate for observers
@@ -352,7 +352,7 @@ var/list/channel_to_radio_key = new
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, hear_clients, 30)
 
-	do_animate_chat(message, speaking, italics, hear_clients, 30)
+	animate_chat(message, speaking, italics, hear_clients, 30)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)
@@ -369,9 +369,6 @@ var/list/channel_to_radio_key = new
 		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 
 	return 1
-
-/mob/living/proc/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration)
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, language, small, show_to, duration)
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()

@@ -15,13 +15,6 @@
 		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
 			qdel(bound_overlay)
 
-/atom/movable/Move()
-	. = ..()
-	if (. && bound_overlay)
-		bound_overlay.forceMove(get_step(src, UP))
-		if (bound_overlay.dir != dir)
-			bound_overlay.set_dir(dir)
-
 /atom/movable/set_dir(ndir)
 	. = ..()
 	if (. && bound_overlay)
@@ -151,8 +144,8 @@
 	var/original_z
 	var/override_depth
 
-/atom/movable/openspace/mimic/New()
-	initialized = TRUE
+/atom/movable/openspace/mimic/Initialize(mapload, ...)
+	. = ..()
 	SSzcopy.openspace_overlays += 1
 
 /atom/movable/openspace/mimic/Destroy()
@@ -167,7 +160,7 @@
 
 	return ..()
 
-/atom/movable/openspace/mimic/attackby(obj/item/W, mob/user)
+/atom/movable/openspace/mimic/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_NOTICE("\The [src] is too far away."))
 
 /atom/movable/openspace/mimic/attack_hand(mob/user)
@@ -199,8 +192,8 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	no_z_overlay = TRUE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
-/atom/movable/openspace/turf_proxy/attackby(obj/item/W, mob/user)
-	loc.attackby(W, user)
+/atom/movable/openspace/turf_proxy/attackby(obj/item/attacking_item, mob/user)
+	loc.attackby(attacking_item, user)
 
 /atom/movable/openspace/turf_proxy/attack_hand(mob/user as mob)
 	loc.attack_hand(user)
@@ -226,8 +219,8 @@
 	ASSERT(isturf(loc))
 	delegate = loc:below
 
-/atom/movable/openspace/turf_mimic/attackby(obj/item/W, mob/user)
-	loc.attackby(W, user)
+/atom/movable/openspace/turf_mimic/attackby(obj/item/attacking_item, mob/user)
+	loc.attackby(attacking_item, user)
 
 /atom/movable/openspace/turf_mimic/attack_hand(mob/user as mob)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))

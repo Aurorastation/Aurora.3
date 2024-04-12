@@ -84,7 +84,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"alien")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#E8F1Fa")
 	set_trait(TRAIT_PLANT_COLOUR,"#4790DA")
-	set_trait(TRAIT_PLANT_ICON,"alien")
+	set_trait(TRAIT_PLANT_ICON,"alien1")
 	set_trait(TRAIT_WATER_CONSUMPTION, 10)
 
 /obj/item/seeds/guamiseed

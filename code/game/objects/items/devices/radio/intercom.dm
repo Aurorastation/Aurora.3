@@ -22,7 +22,7 @@ pixel_x = 8;
 		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "intercom"
-	layer = 2.99
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = ITEMSIZE_LARGE
@@ -64,11 +64,11 @@ pixel_x = 8;
 	PRESET_EAST
 
 /obj/item/device/radio/intercom/ship/Initialize()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
 		if(V.comms_name)
 			name = "intercom ([V.comms_name])"
@@ -310,7 +310,7 @@ pixel_x = 8;
 	set_frequency(SEC_I_FREQ)
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
-		num2text(SEC_I_FREQ) = list(access_security)
+		num2text(SEC_I_FREQ) = list(ACCESS_SECURITY)
 	)
 
 /obj/item/device/radio/intercom/entertainment
@@ -373,7 +373,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(SYND_FREQ)
-	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
+	internal_channels[num2text(SYND_FREQ)] = list(ACCESS_SYNDICATE)
 
 /obj/item/device/radio/intercom/raider
 	name = "illegally modified intercom"
@@ -396,7 +396,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(RAID_FREQ)
-	internal_channels[num2text(RAID_FREQ)] = list(access_syndicate)
+	internal_channels[num2text(RAID_FREQ)] = list(ACCESS_SYNDICATE)
 
 /obj/item/device/radio/intercom/Destroy()
 	QDEL_NULL(power_interface)
@@ -452,9 +452,12 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/broadcasting/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	set_broadcasting(TRUE)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/radio/intercom/locked

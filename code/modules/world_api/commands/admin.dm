@@ -21,7 +21,7 @@
 		data = null
 		return TRUE
 
-	if(G.has_enabled_antagHUD && config.antag_hud_restricted && allow_antaghud == 0)
+	if(G.has_enabled_antagHUD && GLOB.config.antag_hud_restricted && allow_antaghud == 0)
 		statuscode = 409
 		response = "Ghost has used Antag Hud - Respawn Aborted"
 		data = null
@@ -84,7 +84,7 @@
 	var/client/C
 	var/req_ckey = ckey(queryparams["ckey"])
 
-	for(var/client/K in clients)
+	for(var/client/K in GLOB.clients)
 		if(K.ckey == req_ckey)
 			C = K
 			break
@@ -107,7 +107,7 @@
 	sound_to(C, 'sound/effects/adminhelp.ogg')
 	to_chat(C, message)
 
-	for(var/client/A in staff)
+	for(var/client/A in GLOB.staff)
 		if(A != C && check_rights(R_MOD|R_ADMIN, show_msg = FALSE, user = A.mob))
 			to_chat(A, amessage)
 

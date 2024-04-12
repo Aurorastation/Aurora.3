@@ -24,20 +24,20 @@
 		E += C.rating
 	efficiency = E
 
-/obj/machinery/telepad/attackby(obj/item/I, mob/user, params)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/telepad/attackby(obj/item/attacking_item, mob/user, params)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 
 	if(panel_open)
-		if(I.ismultitool())
-			var/obj/item/device/multitool/M = I
+		if(attacking_item.ismultitool())
+			var/obj/item/device/multitool/M = attacking_item
 			M.buffer = src
-			to_chat(user, "<span class='caution'>You save the data in the [I.name]'s buffer.</span>")
+			to_chat(user, "<span class='caution'>You save the data in the [attacking_item.name]'s buffer.</span>")
 	else
-		if(I.ismultitool())
+		if(attacking_item.ismultitool())
 			to_chat(user, "<span class='caution'>You should open [src]'s maintenance panel first.</span>")
 
-	default_deconstruction_crowbar(user, I)
+	default_deconstruction_crowbar(user, attacking_item)
 
 /obj/machinery/telepad/update_icon()
 	switch (panel_open)
@@ -58,26 +58,26 @@
 	active_power_usage = 500
 	var/stage = 0
 
-/obj/machinery/telepad_cargo/attackby(obj/item/W, mob/user, params)
-	if(W.iswrench())
+/obj/machinery/telepad_cargo/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.iswrench())
 		anchored = 0
-		playsound(src, W.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
 			anchored = 0
 			to_chat(user, "<span class='caution'>\The [src] can now be moved.</span>")
 		else if(!anchored)
 			anchored = 1
 			to_chat(user, "<span class='caution'>\The [src] is now secured.</span>")
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(stage == 0)
-			playsound(src, W.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='caution'>You unscrew the telepad's tracking beacon.</span>")
 			stage = 1
 		else if(stage == 1)
-			playsound(src, W.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='caution'>You screw in the telepad's tracking beacon.</span>")
 			stage = 0
-	if(W.iswelder() && stage == 1)
+	if(attacking_item.iswelder() && stage == 1)
 		playsound(src, 'sound/items/Welder.ogg', 50, 1)
 		to_chat(user, "<span class='caution'>You disassemble the telepad.</span>")
 		new /obj/item/stack/material/steel(get_turf(src))
@@ -108,7 +108,7 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "rcs"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	throwforce = 10
 	throw_speed = 2
 	throw_range = 5
@@ -121,9 +121,9 @@
 	var/emagged = 0
 	var/teleporting = 0
 
-/obj/item/rcs/examine(mob/user)
+/obj/item/rcs/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "There are [rcharges] charge\s left.")
+	. += "There are [rcharges] charge\s left."
 
 /obj/item/rcs/process()
 	if(rcharges > 10)
@@ -145,8 +145,8 @@
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 			to_chat(user, "<span class='caution'>You calibrate the telepad locator.</span>")
 
-/obj/item/rcs/attackby(var/obj/item/O, var/mob/user)
-	if (istype(O, /obj/item/card/emag) && !emagged)
+/obj/item/rcs/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/card/emag) && !emagged)
 		emagged = 1
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 		to_chat(user, "<span class='caution'>You emag the RCS. Click on it to toggle between modes.</span>")

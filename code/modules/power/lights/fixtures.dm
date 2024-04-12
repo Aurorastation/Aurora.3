@@ -8,11 +8,11 @@
 	name = "light fixture"
 	icon = 'icons/obj/machinery/light.dmi'
 	var/base_state = "tube"		// base description and icon_state
-	icon_state = "tube_empty"
+	icon_state = "tube_preview"
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
-	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
+	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
@@ -76,14 +76,14 @@
 	icon_state = "floortube_example"
 	base_state = "floortube"
 	desc = "A lighting fixture. This one is set into the floor."
-	layer = 2.5
+	layer = TURF_DETAIL_LAYER
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
-	icon_state = "bulb_empty"
+	icon_state = "bulb_preview"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
@@ -100,10 +100,11 @@
 	icon_state = "floor_example"
 	base_state = "floor"
 	desc = "A small lighting fixture. This one is set into the floor."
-	layer = 2.5
+	layer = TURF_DETAIL_LAYER
 	fitting_is_on_floor = TRUE
 
 /obj/machinery/light/small/emergency
+	icon_state = "bulb_emergency_preview"
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
@@ -122,17 +123,21 @@
 /obj/machinery/light/colored/red
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
+	icon_state = "tube_red_preview"
 
 /obj/machinery/light/colored/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
 
 /obj/machinery/light/colored/dying
 	brightness_color = LIGHT_COLOR_DYING
 	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
 
 /obj/machinery/light/broken
 	status = LIGHT_BROKEN
+	icon_state = "tube_broken_preview"
 
 /obj/machinery/light/spot
 	name = "spotlight fixture"
@@ -206,9 +211,17 @@
 
 /obj/machinery/light/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
-	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -2) : 0
+
+/obj/machinery/light/small/set_pixel_offsets()
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -22) : 0
 
 /obj/machinery/light/floor/set_pixel_offsets()
+	pixel_x = pixel_x
+	pixel_y = pixel_y
+
+/obj/machinery/light/small/floor/set_pixel_offsets()
 	pixel_x = pixel_x
 	pixel_y = pixel_y
 
@@ -313,13 +326,13 @@
 
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/process()
+/obj/machinery/light/process(seconds_per_tick)
 	if (cell && has_power())
-		cell.give(0.2)
+		cell.give(0.2 * seconds_per_tick)
 		if(cell.fully_charged())
 			return PROCESS_KILL
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
@@ -374,39 +387,39 @@
 	return TRUE
 
 // examine verb
-/obj/machinery/light/examine(mob/user)
+/obj/machinery/light/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(status)
 		if(LIGHT_OK)
-			to_chat(user, "It is turned [!(stat & POWEROFF) ? "on" : "off"].")
+			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
 		if(LIGHT_EMPTY)
-			to_chat(user, "\The [fitting] has been removed.")
+			. += "\The [fitting] has been removed."
 		if(LIGHT_BURNED)
-			to_chat(user, "\The [fitting] is burnt out.")
+			. += "\The [fitting] is burnt out."
 		if(LIGHT_BROKEN)
-			to_chat(user, "\The [fitting] has been smashed.")
+			. += "\The [fitting] has been smashed."
 	if(cell)
-		to_chat(user, "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%.")
+		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
-/obj/machinery/light/attackby(obj/item/W, mob/user)
+/obj/machinery/light/attackby(obj/item/attacking_item, mob/user)
 	//Light replacer code
-	if(istype(W, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LR = W
+	if(istype(attacking_item, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LR = attacking_item
 		if(isliving(user))
 			var/mob/living/U = user
 			LR.ReplaceLight(src, U)
 			return
 
 	// attempt to insert light
-	if(istype(W, /obj/item/light))
+	if(istype(attacking_item, /obj/item/light))
 		if(status != LIGHT_EMPTY)
 			to_chat(user, SPAN_WARNING("There's already a [fitting] inserted."))
 			return
 		else
 			src.add_fingerprint(user)
-			var/obj/item/light/L = W
+			var/obj/item/light/L = attacking_item
 			if(istype(L, light_type))
 				status = L.status
 				to_chat(user, SPAN_NOTICE("You insert \the [L]."))
@@ -439,14 +452,14 @@
 		//If xenos decide they want to smash a light bulb with a toolbox, who am I to stop them? /N
 
 	else if(status != LIGHT_BROKEN && status != LIGHT_EMPTY)
-		smash_check(W, user, "smashes", "smashes", TRUE)
+		smash_check(attacking_item, user, "smashes", "smashes", TRUE)
 	else if(status == LIGHT_BROKEN)
-		smash_check(W, user, "completely shatters", "shatters completely", FALSE)
+		smash_check(attacking_item, user, "completely shatters", "shatters completely", FALSE)
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
-		if(W.isscrewdriver()) //If it's a screwdriver open it.
-			playsound(get_turf(src), W.usesound, 75, 1)
+		if(attacking_item.isscrewdriver()) //If it's a screwdriver open it.
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
 			var/obj/machinery/light_construct/newlight = null
 			switch(fitting)
@@ -473,8 +486,8 @@
 			qdel(src)
 			return
 
-		to_chat(user, SPAN_WARNING("You stick \the [W] into the light socket!"))
-		if(has_power() && (W.obj_flags & OBJ_FLAG_CONDUCTABLE))
+		to_chat(user, SPAN_WARNING("You stick \the [attacking_item] into the light socket!"))
+		if(has_power() && (attacking_item.obj_flags & OBJ_FLAG_CONDUCTABLE))
 			spark(src, 3)
 			if(prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -705,3 +718,8 @@
 		if(brightness_color != default_color)
 			brightness_color = default_color
 			update(0)
+
+/obj/machinery/light/clean()
+	. = ..()
+	brightness_color = initial(brightness_color)
+	update()

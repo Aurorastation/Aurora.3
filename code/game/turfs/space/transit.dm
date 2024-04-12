@@ -5,7 +5,7 @@
 	var/pushdirection
 
 //Overwrite because we dont want people building rods in space.
-/turf/space/transit/attackby(obj/O, mob/user)
+/turf/space/transit/attackby(obj/item/attacking_item, mob/user)
 	return FALSE
 
 //generates a list used to randomize transit animations so they aren't in lockstep

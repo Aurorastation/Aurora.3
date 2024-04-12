@@ -13,7 +13,7 @@ AI MODULES
 	item_state = "electronic"
 	desc = "An AI Module for transmitting encrypted instructions to the AI."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5.0
+	force = 11
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
 	throw_speed = 3
@@ -35,20 +35,18 @@ AI MODULES
 			return
 
 		if(SSticker.mode && SSticker.mode.name == "blob")
-			to_chat(usr, "Law uploads have been disabled by [current_map.company_name]!")
+			to_chat(usr, "Law uploads have been disabled by [SSatlas.current_map.company_name]!")
 			return
 
 		if (comp.current.stat == 2 || comp.current.control_disabled == 1)
 			to_chat(usr, "Upload failed. No signal is being detected from the AI.")
-		else if (comp.current.see_in_dark == 0)
-			to_chat(usr, "Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power.")
 		else
 			src.transmitInstructions(comp.current, usr)
 			to_chat(comp.current, "These are your laws now:")
 			if(comp.current.vr_mob)
 				to_chat(comp.current.vr_mob, "These are your laws now:")
 			comp.current.show_laws()
-			for(var/mob/living/silicon/robot/R in mob_list)
+			for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 				if(R.law_update && (R.connected_ai == comp.current))
 					to_chat(R, "These are your laws now:")
 					if(R.vr_mob)
@@ -92,7 +90,7 @@ AI MODULES
 
 /obj/item/aiModule/proc/log_law_changes(var/mob/living/silicon/ai/target, var/mob/sender)
 	var/time = time2text(world.realtime,"hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [sender.name]([sender.key]) used [src.name] on [target.name]([target.key])")
+	GLOB.lawchanges.Add("[time] <B>:</B> [sender.name]([sender.key]) used [src.name] on [target.name]([target.key])")
 	log_and_message_admins("used [src.name] on [target.name]([target.key])")
 
 /obj/item/aiModule/proc/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
@@ -123,7 +121,7 @@ AI MODULES
 /obj/item/aiModule/safeguard/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
 	var/law = text("Safeguard []. Anyone threatening or attempting to harm [] is no longer to be considered a crew member, and is a threat which must be neutralized.", targetName, targetName)
 	target.add_supplied_law(9, law)
-	lawchanges.Add("The law specified [targetName]")
+	GLOB.lawchanges.Add("The law specified [targetName]")
 
 
 /******************** OneMember ********************/
@@ -151,9 +149,9 @@ AI MODULES
 	if (!target.is_malf_or_traitor()) // Makes sure the AI isn't a traitor before changing their law 0. --NeoFite
 		to_chat(target, law)
 		target.set_zeroth_law(law)
-		lawchanges.Add("The law specified [targetName]")
+		GLOB.lawchanges.Add("The law specified [targetName]")
 	else
-		lawchanges.Add("The law specified [targetName], but the AI's existing law 0 cannot be overriden.")
+		GLOB.lawchanges.Add("The law specified [targetName], but the AI's existing law 0 cannot be overriden.")
 
 /******************** ProtectStation ********************/
 
@@ -234,7 +232,7 @@ AI MODULES
 	if(!lawpos || lawpos < MIN_SUPPLIED_LAW_NUMBER)
 		lawpos = MIN_SUPPLIED_LAW_NUMBER
 	target.add_supplied_law(lawpos, law)
-	lawchanges.Add("The law was '[newFreeFormLaw]'")
+	GLOB.lawchanges.Add("The law was '[newFreeFormLaw]'")
 
 /obj/item/aiModule/freeform/install(var/obj/machinery/computer/C)
 	if(!newFreeFormLaw)
@@ -345,7 +343,7 @@ AI MODULES
 /obj/item/aiModule/freeformcore/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
 	var/law = "[newFreeFormLaw]"
 	target.add_inherent_law(law)
-	lawchanges.Add("The law is '[newFreeFormLaw]'")
+	GLOB.lawchanges.Add("The law is '[newFreeFormLaw]'")
 
 /obj/item/aiModule/freeformcore/install(var/obj/machinery/computer/C)
 	if(!newFreeFormLaw)
@@ -370,7 +368,7 @@ AI MODULES
 	//	..()    //We don't want this module reporting to the AI who dun it. --NEO
 	log_law_changes(target, sender)
 
-	lawchanges.Add("The law is '[newFreeFormLaw]'")
+	GLOB.lawchanges.Add("The law is '[newFreeFormLaw]'")
 	to_chat(target, "<span class='danger'>BZZZZT</span>")
 	var/law = "[newFreeFormLaw]"
 	target.add_ion_law(law)

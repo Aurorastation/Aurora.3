@@ -2691,7 +2691,10 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "HY" = (
-/obj/effect/shuttle_landmark/automatic/intrepid,
+/obj/effect/decal/road_marking/no_pass,
+/obj/effect/shuttle_landmark/automatic/intrepid{
+	dir = 1
+	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ic" = (
@@ -3082,7 +3085,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "LX" = (
-/obj/structure/closet/secure_closet/freezer/meat/super_meat,
+/obj/structure/closet/secure_closet/freezer/meat/grill,
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
@@ -5872,20 +5875,20 @@ mR
 UH
 zh
 uc
-fq
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
 HY
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
 zh
 zh
 zh

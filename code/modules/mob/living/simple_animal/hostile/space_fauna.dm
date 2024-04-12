@@ -26,7 +26,7 @@
 	harm_intent_damage = 4
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	armor_penetration = 10
+	armor_penetration = 5
 	attack_flags = DAMAGE_FLAG_EDGE
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -48,8 +48,9 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	smart_melee = FALSE
 
 /mob/living/simple_animal/hostile/carp/update_icon()
 	..()
@@ -66,7 +67,7 @@
 	stop_automated_movement = 1
 	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (target_mob in targets))
 		change_stance(HOSTILE_STANCE_ATTACKING)
-		walk_to(src, target_mob, 1, move_to_delay)
+		SSmove_manager.move_to(src, target_mob, 1, move_to_delay)
 		return 1
 	..()
 
@@ -171,7 +172,7 @@
 
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	armor_penetration = 15
+	armor_penetration = 10
 	var/image/eye_overlay
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Initialize()
@@ -291,5 +292,4 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING

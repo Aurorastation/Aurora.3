@@ -1,3 +1,6 @@
+/datum/gear/ears/skrell
+	abstract_type = /datum/gear/ears/skrell
+
 /datum/gear/ears/skrell/chains	//Chains
 	display_name = "headtail chain selection"
 	path = /obj/item/clothing/ears/skrell/chain
@@ -56,7 +59,7 @@
 /datum/gear/accessory/capes
 	display_name = "shoulder capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/capes/New()
@@ -233,7 +236,7 @@
 	path = /obj/item/clothing/head/helmet/security/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
-	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain")
+	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain", "Security Personnel")
 
 /datum/gear/head/skrell_helmet/hos
 	display_name = "Head of Security Skrellmet"
@@ -254,7 +257,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	return 5
 
 /datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
-	var/credit_score = input(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score") as null|num
+	var/credit_score = tgui_input_number(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score", round_value = FALSE)
 	if(credit_score)
 		return round(credit_score, 0.01)
 	return metadata
@@ -295,6 +298,9 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	outfit["iqi medical"] = /obj/item/clothing/under/skrell/nralakk/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 
+/datum/gear/suit/skrell
+	abstract_type = /datum/gear/suit/skrell
+
 /datum/gear/suit/skrell/jacket
 	display_name = "work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
@@ -327,6 +333,8 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	jacket["iqi medical"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
+/datum/gear/accessory/skrell
+	abstract_type = /datum/gear/accessory/skrell
 /datum/gear/accessory/skrell/starcoat
 	display_name = "star coat"
 	path = /obj/item/clothing/suit/storage/toggle/skrell/starcoat
@@ -369,7 +377,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 /datum/gear/accessory/skrell/tees
 	display_name = "skrellian wetshirts"
 	path = /obj/item/clothing/accessory/tshirt/skrell
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -390,7 +398,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 /datum/gear/accessory/skrell/dress
 	display_name = "skrellian formal wetshirts"
 	path = /obj/item/clothing/accessory/dressshirt/skrell
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -429,7 +437,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 /datum/gear/accessory/skrell/nationcapes
 	display_name = "nation capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 

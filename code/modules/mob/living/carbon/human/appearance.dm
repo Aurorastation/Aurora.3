@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/mob/user = src, var/check_species_whitelist = TRUE, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/ui_state = always_state, var/datum/state_object = src, var/update_id = FALSE)
+/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/mob/user = src, var/check_species_whitelist = TRUE, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/ui_state = GLOB.always_state, var/datum/state_object = src, var/update_id = FALSE)
 	var/datum/tgui_module/appearance_changer/AC = new /datum/tgui_module/appearance_changer(src, check_species_whitelist, species_whitelist, species_blacklist, culture_restriction, origin_restriction, ui_state, state_object, update_id)
 	AC.flags = flags
 	AC.ui_interact(user)
@@ -10,15 +10,19 @@
 	if(species == new_species)
 		return
 
-	if(!(new_species in all_species))
+	if(!(new_species in GLOB.all_species))
 		return
 
 	set_species(new_species)
 	reset_hair()
+	if(isipc(src))
+		var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data(TRUE)
 	return 1
 
-/mob/living/carbon/human/proc/change_gender(var/set_gender)
-	if(gender == set_gender)
+/mob/living/carbon/human/proc/change_gender(var/set_gender, var/ignore_gender_check = FALSE)
+	if(gender == set_gender && !ignore_gender_check)
 		return
 
 	gender = set_gender
@@ -36,7 +40,7 @@
 	if(h_style == hair_style)
 		return
 
-	if(!(hair_style in hair_styles_list))
+	if(!(hair_style in GLOB.hair_styles_list))
 		return
 
 	h_style = hair_style
@@ -51,7 +55,7 @@
 	if(f_style == facial_hair_style)
 		return
 
-	if(!(facial_hair_style in facial_hair_styles_list))
+	if(!(facial_hair_style in GLOB.facial_hair_styles_list))
 		return
 
 	f_style = facial_hair_style
@@ -141,10 +145,10 @@
 
 /mob/living/carbon/human/proc/generate_valid_species(var/check_whitelist = 1, var/list/whitelist = list(), var/list/blacklist = list())
 	var/list/valid_species = new()
-	for(var/current_species_name in all_species)
-		var/datum/species/current_species = all_species[current_species_name]
+	for(var/current_species_name in GLOB.all_species)
+		var/datum/species/current_species = GLOB.all_species[current_species_name]
 
-		if(check_whitelist && config.usealienwhitelist && !check_rights(R_ADMIN, 0, src)) //If we're using the whitelist, make sure to check it!
+		if(check_whitelist && GLOB.config.usealienwhitelist && !check_rights(R_ADMIN, 0, src)) //If we're using the whitelist, make sure to check it!
 			if(!(current_species.spawn_flags & CAN_JOIN))
 				continue
 			if(whitelist.len && !(current_species_name in whitelist))
@@ -162,8 +166,8 @@
 	var/list/valid_hairstyles = new()
 	if(species.bald)
 		return valid_hairstyles
-	for(var/hairstyle in hair_styles_list)
-		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
+	for(var/hairstyle in GLOB.hair_styles_list)
+		var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
 
 		if(check_gender && gender == MALE && S.gender == FEMALE)
 			continue
@@ -171,6 +175,7 @@
 			continue
 		if(!(species.type in S.species_allowed))
 			continue
+
 		valid_hairstyles += hairstyle
 
 	return valid_hairstyles
@@ -179,8 +184,8 @@
 	var/list/valid_facial_hairstyles = new()
 	if(species.bald)
 		return valid_facial_hairstyles
-	for(var/facialhairstyle in facial_hair_styles_list)
-		var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
+	for(var/facialhairstyle in GLOB.facial_hair_styles_list)
+		var/datum/sprite_accessory/S = GLOB.facial_hair_styles_list[facialhairstyle]
 
 		if(gender == MALE && S.gender == FEMALE)
 			continue

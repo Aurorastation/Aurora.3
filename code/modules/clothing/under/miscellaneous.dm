@@ -694,12 +694,14 @@
 	icon = 'icons/clothing/under/uniforms/konyang_pirates.dmi'
 	icon_state = "pirate"
 	item_state = "pirate"
+	armor = null
 
 /obj/item/clothing/under/konyang/pirate/tanktop
 	name = "disheveled konyanger clothing"
 	desc = "A dark yellow outfit in a Konyang style, with the sleeves cut off. It is stained with dirt, grease and a splatter of what looks like blood."
 	icon_state = "pirate1"
 	item_state = "pirate1"
+	armor = null
 
 /obj/item/clothing/under/rank/konyang/krc
 	name = "konyang robotics company uniform"
@@ -714,3 +716,20 @@
 	icon_state = "pachrom"
 	item_state = "pachrom"
 	armor = null
+
+/obj/item/clothing/under/rank/konyang/burger
+	name = "\improper UP! Burger uniform"
+	desc = "An astoundingly bright orange uniform, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
+	icon_state = "upburger"
+	item_state = "upburger"
+	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS
+
+//Galatea
+/obj/item/clothing/under/galatea
+	name = "\improper Galatean uniform"
+	desc = "A pair of slacks and matching protected shirt in the traditional black and green colors of a Galatean worker, seeing use across their space for all matter of jobs. Has a small plate to protect against chemical spills and small stab wounds, though providing little actual protection. Traditionally, one's planet of origin is marked on the right side of its high collar while the Technocracy's flag is on the left side of the collar."
+	icon = 'icons/clothing/under/uniforms/galatea.dmi'
+	icon_state = "underglove"
+	item_state = "underglove"
+	contained_sprite = TRUE

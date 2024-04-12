@@ -141,15 +141,15 @@
 		to_chat(user, "<span class='danger'>You crack the holobadge security checks.</span>")
 		return 1
 
-/obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.GetID())
+/obj/item/clothing/accessory/badge/holo/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.GetID())
 
-		var/obj/item/card/id/id_card = O.GetID()
+		var/obj/item/card/id/id_card = attacking_item.GetID()
 
 		if(!istype(id_card))
 			return
 
-		if(access_security in id_card.access || emagged)
+		if(ACCESS_SECURITY in id_card.access || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else
@@ -205,34 +205,34 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/clothing/accessory/badge/tcfl_papers
-	name = "\improper TCFL enlistment"
-	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
+/obj/item/clothing/accessory/badge/tcaf_papers
+	name = "\improper TCAF enlistment"
+	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Armed Forces. Go Biesel!"
 	icon_state = "tc-visa"
 	overlay_state = "tc-visa"
 	slot_flags = SLOT_TIE
-	badge_string = "Tau Ceti Foreign Legion Recruit"
+	badge_string = "Tau Ceti Armed Forces Recruit"
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service
-	name = "\improper TCFL service card"
-	desc = "A small card identifying one as a current member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service
+	name = "\improper TCAF service card"
+	desc = "A small card identifying one as a current member of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Service Member"
+	badge_string = "Tau Ceti Armed Forces Service Member"
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
-	name = "\improper TCFL veteran's service card"
-	desc = "A small card identifying one as a former member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
+	name = "\improper TCAF veteran's service card"
+	desc = "A small card identifying one as a former member of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Veteran"
+	badge_string = "Tau Ceti Armed Forces Veteran"
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
-	name = "\improper TCFL reservist's service card"
-	desc = "A small card identifying one as a current reservist of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service/reservist
+	name = "\improper TCAF reservist's service card"
+	desc = "A small card identifying one as a current reservist of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Reservist"
+	badge_string = "Tau Ceti Armed Forces Reservist"
 
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
@@ -589,9 +589,9 @@
 	var/credit_score = 5
 	var/species_tag = ""
 
-/obj/item/clothing/accessory/badge/passport/nralakk/examine(mob/user)
+/obj/item/clothing/accessory/badge/passport/nralakk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
+	. +=  SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score].")
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"

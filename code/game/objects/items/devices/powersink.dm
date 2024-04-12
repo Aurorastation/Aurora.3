@@ -27,12 +27,12 @@
 
 /obj/item/device/powersink/Destroy()
 	STOP_PROCESSING_POWER_OBJECT(src)
-	processing_power_items -= src
+	GLOB.processing_power_items -= src
 
 	return ..()
 
-/obj/item/device/powersink/attackby(var/obj/item/I, var/mob/user)
-	if(I.isscrewdriver())
+/obj/item/device/powersink/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(mode == 0)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
@@ -49,7 +49,7 @@
 		else
 			if (mode == 2)
 				STOP_PROCESSING_POWER_OBJECT(src)
-				processing_power_items.Remove(src)
+				GLOB.processing_power_items.Remove(src)
 			anchored = 0
 			mode = 0
 			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
@@ -74,7 +74,7 @@
 			icon_state = "powersink1"
 			item_state = "powersink1"
 			START_PROCESSING_POWER_OBJECT(src)
-			processing_power_items += src
+			GLOB.processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
 			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
 			mode = 1
@@ -82,7 +82,7 @@
 			icon_state = "powersink0"
 			item_state = "powersink0"
 			STOP_PROCESSING_POWER_OBJECT(src)
-			processing_power_items -= src
+			GLOB.processing_power_items -= src
 
 /obj/item/device/powersink/pwr_drain()
 	if(!attached)

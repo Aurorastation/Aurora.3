@@ -217,11 +217,12 @@
 
 // Digital warrant
 /datum/record/warrant
-	var/authorization = "Unauthorized"
-	var/wtype = "Unknown"
 	name = "Unknown"
 	notes = "No charges present"
 	cmp_field = "name"
+
+	var/authorization = "Unauthorized"
+	var/wtype = "Unknown"
 
 var/warrant_uid = 0
 /datum/record/warrant/New()

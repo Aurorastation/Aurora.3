@@ -39,12 +39,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	. = ..()
 	src.uplink_owner = owner
 	purchase_log = list()
-	world_uplinks += src
+	GLOB.world_uplinks += src
 	telecrystals = new_telecrystals
 	bluecrystals = new_bluecrystals
 
 /obj/item/device/uplink/Destroy()
-	world_uplinks -= src
+	GLOB.world_uplinks -= src
 	src.uplink_owner = null
 	return ..()
 
@@ -219,7 +219,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	else if(tgui_menu == 3)
 		tgui_data["contracts_found"] = 0
 
-		if(establish_db_connection(dbcon))
+		if(establish_db_connection(GLOB.dbcon))
 			tgui_data["contracts"] = list()
 
 			if (!tgui_data["contracts_current_page"])
@@ -239,7 +239,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 					tgui_data["contracts_view"] = 1
 					query_details["status"] = "open"
 
-			var/DBQuery/index_query = dbcon.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status:")
+			var/DBQuery/index_query = GLOB.dbcon.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status:")
 			index_query.Execute(query_details)
 
 			var/pages = 0
@@ -268,7 +268,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 
 				query_details["offset"] = (tgui_data["contracts_current_page"] - 1) * 10
 
-				var/DBQuery/list_query = dbcon.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status: LIMIT 10 OFFSET :offset:")
+				var/DBQuery/list_query = GLOB.dbcon.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status: LIMIT 10 OFFSET :offset:")
 				list_query.Execute(query_details)
 
 				var/list/contracts = list()
@@ -284,7 +284,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	if(tgui_menu == 31)
 		tgui_data["contracts_found"] = 0
 
-		if (config.sql_enabled && establish_db_connection(dbcon))
+		if (GLOB.config.sql_enabled && establish_db_connection(GLOB.dbcon))
 			tgui_data["contracts"] = list()
 
 			if (!tgui_data["contracts_current_page"])
@@ -296,7 +296,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 			var/query_details[0]
 			query_details["contract_id"] = exploit_id
 
-			var/DBQuery/select_query = dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id:")
+			var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id:")
 			select_query.Execute(query_details)
 
 			if (select_query.NextRow())
@@ -409,7 +409,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		return
 
 	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
-	discord_bot.send_to_cciaa("Announcer - Fake announcement:`[title]` - `[message]`, sent by [user]!")
+	SSdiscord.send_to_cciaa("Announcer - Fake announcement:`[title]` - `[message]`, sent by [user]!")
 	qdel(src)
 
 /obj/item/device/special_uplink

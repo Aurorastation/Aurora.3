@@ -3,7 +3,7 @@
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
-	force = 1.0
+	force = 1
 	w_class = ITEMSIZE_TINY
 	throwforce = 0
 	throw_speed = 3
@@ -13,8 +13,8 @@
 	var/enhanced = FALSE //has it been enhanced before?
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/slime_extract/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/extract_enhancer))
+/obj/item/slime_extract/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/extract_enhancer))
 		if(enhanced)
 			to_chat(user, SPAN_WARNING("This extract has already been enhanced!"))
 			return ..()
@@ -24,7 +24,7 @@
 		to_chat(user, SPAN_NOTICE("You apply the enhancer. It now has triple the amount of uses."))
 		uses *= 3
 		enhanced = TRUE
-		qdel(O)
+		qdel(attacking_item)
 		return TRUE
 	. = ..()
 
@@ -137,9 +137,6 @@
 	filling.color = COLOR_PINK
 	add_overlay(filling)
 
-	initialized = TRUE
-	return INITIALIZE_HINT_NORMAL
-
 /obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
@@ -183,9 +180,6 @@
 	filling.color = COLOR_PALE_PINK
 	add_overlay(filling)
 
-	initialized = TRUE
-	return INITIALIZE_HINT_NORMAL
-
 /obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
@@ -226,11 +220,14 @@
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_GREEN
 	add_overlay(filling)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
@@ -262,11 +259,14 @@
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_BLUE
 	add_overlay(filling)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/effect/golemrune
@@ -301,7 +301,7 @@
 			continue
 		ghost = O
 		break
-	if(ghost && !(ghost.has_enabled_antagHUD && config.antag_hud_restricted))
+	if(ghost && !(ghost.has_enabled_antagHUD && GLOB.config.antag_hud_restricted))
 		icon_state = "golem2"
 	else
 		icon_state = "golem"
@@ -313,7 +313,7 @@
 			golem_type = O.material.golem
 			O.use(10)
 
-	spark(get_turf(src), 10, alldirs)
+	spark(get_turf(src), 10, GLOB.alldirs)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 
@@ -321,13 +321,13 @@
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
-	G.culture = GET_SINGLETON(/singleton/origin_item/culture/golem)
-	G.origin = GET_SINGLETON(/singleton/origin_item/origin/golem)
+	G.set_culture(GET_SINGLETON(/singleton/origin_item/culture/golem))
+	G.set_origin(GET_SINGLETON(/singleton/origin_item/origin/golem))
 	G.accent = G.origin.possible_accents[1]
 	G.citizenship = G.origin.possible_citizenships[1]
 	G.religion = G.origin.possible_religions[1]
-	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
-	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
+	G.preEquipOutfit(/obj/outfit/admin/golem, FALSE)
+	G.equipOutfit(/obj/outfit/admin/golem, FALSE)
 	G.client.init_verbs()
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 

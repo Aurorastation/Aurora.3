@@ -64,7 +64,7 @@
 	if(power > 20)
 		var/probmod = 5 + (power-20)
 		if(prob(probmod) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
-			step(M, pick(cardinal))
+			step(M, pick(GLOB.cardinal))
 
 	if(prob(7))
 		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
@@ -117,6 +117,33 @@
 	M.make_dizzy(4)
 	M.add_chemical_effect(CE_HALLUCINATE, power)
 	M.confused = max(M.confused, power)
+
+/singleton/reagent/drugs/snowflake
+	name = "Snowflake"
+	description = "A recreational stimulant refined from frost oil, found in certain plants."
+	taste_description = "metallic and bitter"
+	reagent_state = LIQUID
+	color = "#bbd7eb"
+	overdose = 15
+	fallback_specific_heat = 15
+	default_temperature = T0C - 40
+	initial_effect_message_list = list("You feel euphoric!", "You feel unstoppable.")
+	sober_message_list = list("You feel a bit more sluggish", "You feel terrible...", "You feel pretty dehydrated.")
+
+/singleton/reagent/drugs/snowflake/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	M.add_chemical_effect(CE_PAINKILLER, 3 * power)
+	M.bodytemperature = max(M.bodytemperature - 15 * TEMPERATURE_DAMAGE_COEFFICIENT * power, 0)
+	if(prob(12))
+		M.emote(pick("shiver", "sniff"))
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You just can't seem to stop sniffling...", "You feel impatient...", "Your eyes feel a bit dry.")))
+
+/singleton/reagent/drugs/snowflake/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(prob(35))
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
+		M.add_chemical_effect(CE_NEUROTOXIC, 1)
+	..()
 
 /singleton/reagent/drugs/impedrezene
 	name = "Impedrezene"
@@ -258,6 +285,29 @@
 			M.emote(pick("twitch", "shiver"))
 		else
 			M.seizure()
+
+/singleton/reagent/drugs/colorspace
+	name = "Colorspace"
+	description = "A psychedelic drug that alters thought and perception."
+	taste_description = "flavorless paste"
+	color = "#a7a6a4"
+	initial_effect_message_list = list("Your skin tickles.", "You seem to leave this world behind...")
+	sober_message_list = list("The world grows still again.", "Colors seem duller.")
+
+/singleton/reagent/drugs/colorspace/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+
+	var/drug_strength = 20 * power
+
+	if(alien == IS_SKRELL)
+		drug_strength *= 0.8
+
+	M.druggy = max(M.druggy, 15)
+	M.hallucination = max(M.hallucination, drug_strength)
+
+	if(prob(15))
+		to_chat(SPAN_GOOD(pick("The floor is melting...", "Everything is so much brighter! Wow!", "Everything is shifting around you.")))
+
 
 /singleton/reagent/drugs/night_juice
 	name = "Nightlife"
@@ -577,9 +627,13 @@
 	M.apply_effect(1, STUTTER)
 	M.make_jittery(power - 6)
 	M.add_chemical_effect(CE_NEUROTOXIC, removed / 3)
-	M.add_chemical_effect(CE_CARDIOTOXIC, removed * 2)
-	if(prob(10))
-		M.add_chemical_effect(CE_NOPULSE, power)
+	M.add_chemical_effect(CE_CARDIOTOXIC, removed / 2) //Tolerable damage, unless your heart can't regenerate...
+	if(prob(7))
+		var/obj/item/organ/internal/heart/H = M.internal_organs_by_name[BP_HEART]
+		if(istype(H) && !BP_IS_ROBOTIC(H)) //But at least a robot heart can keep working at all!
+			to_chat(M, SPAN_WARNING(pick("You feel a cramp in your chest!", "Something tingles inside your chest.", "You feel lightheaded.", "Your vision tunnels.", "You can't feel your fingers.", "Maybe you should slow down?")))
+			if(prob(20))
+				M.add_chemical_effect(CE_NOPULSE, power)
 
 /singleton/reagent/drugs/cocaine/contemplus
 	name = "Contemplus"
@@ -656,4 +710,43 @@
 	if(M.losebreath < 15)
 		M.losebreath++
 
+/singleton/reagent/drugs/dionae_stimulant
+	name = "Diesel"
+	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materialls and provides an invigorating kick to a dionae's workday."
+	color = "#465044"
+	taste_description = "gritty corium"
+	reagent_state = SOLID
+	metabolism = REM*0.04
+	overdose = 10
+	unaffected_species = IS_MACHINE
+
+	initial_effect_message_list = list("A heat builds within you.", )
+	sober_message_list = list("The heat within you begins to dull...")
+
+/singleton/reagent/drugs/dionae_stimulant/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	if(alien == IS_DIONA)
+		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		if(prob(5))
+			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
+			M.emote(pick("chirp", "twitch", "shiver"))
+
+/singleton/reagent/drugs/dionae_stimulant/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(alien == IS_DIONA)
+		if(prob(5))
+			to_chat(M, SPAN_DANGER(pick("Your nymphs keep interrupting one another - decisions can't be made!", "A nymph is too many steps ahead of the majority, we can't keep up!", "None of your nymphs have time to deliberate!", "What do we do? Where do we go? What do we say?")))
+		if(prob(5))
+			M.Weaken(10)
+			M.Stun(10)
+
+/singleton/reagent/drugs/dionae_stimulant/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(amount >= 2)
+		if(!istype(T, /turf/space))
+			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
+			if(!glow)
+				new /obj/effect/decal/cleanable/greenglow(T)
+			return
+
 #undef DRUG_MESSAGE_DELAY
+

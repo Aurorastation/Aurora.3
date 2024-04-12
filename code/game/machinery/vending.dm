@@ -45,7 +45,7 @@
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
-	layer = 2.99
+	layer = STRUCTURE_LAYER
 	anchored = 1
 	density = 1
 	clicksound = /singleton/sound_category/button_sound
@@ -145,6 +145,7 @@
 		src.ads_list += text2list(src.product_ads, ";")
 
 	add_screen_overlay()
+	build_products()
 	build_inventory()
 	power_change()
 
@@ -167,6 +168,15 @@
 			screen_overlays["[icon_state]-deny"] = make_screen_overlay(icon, "[icon_state]-deny")
 	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
 	reset_light()
+
+/**
+ *  Build src.products
+ *
+ *  To be overriden if building the products list is dynamic at runtime or needs any complex logic
+ */
+/obj/machinery/vending/proc/build_products()
+	SHOULD_NOT_SLEEP(TRUE)
+	return
 
 /**
  *  Build src.product_records from the products lists
@@ -227,26 +237,26 @@
 		to_chat(user, "You short out the product lock on \the [src]")
 		return 1
 
-/obj/machinery/vending/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/device/debugger))
+/obj/machinery/vending/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/debugger))
 		if(!shut_up)
-			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
-			if(W.use_tool(src, user, 100, volume = 50))
-				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Software error detected. Rectifying.\"."))
+			if(attacking_item.use_tool(src, user, 100, volume = 50))
+				to_chat(user, SPAN_NOTICE("\The [attacking_item] reads, \"Solution found. Fix applied.\"."))
 				shut_up = TRUE
 		if(shoot_inventory)
-			if(wires.IsIndexCut(VENDING_WIRE_THROW))
-				to_chat(user, SPAN_WARNING("\The [W] reads, \"Hardware error detected. Manual repair required.\"."))
+			if(wires.is_cut(WIRE_THROW))
+				to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Hardware error detected. Manual repair required.\"."))
 				return TRUE
-			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
-			if(W.use_tool(src, user, 100, volume = 50))
-				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Software error detected. Rectifying.\"."))
+			if(attacking_item.use_tool(src, user, 100, volume = 50))
+				to_chat(user, SPAN_NOTICE("\The [attacking_item] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
 				shoot_inventory = FALSE
 		else
-			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
+			to_chat(user, SPAN_NOTICE("\The [attacking_item] reads, \"All systems nominal.\"."))
 		return TRUE
 
-	var/obj/item/card/id/I = W.GetID()
+	var/obj/item/card/id/I = attacking_item.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 
 	if (currently_vending && vendor_account && !vendor_account.suspended)
@@ -261,14 +271,14 @@
 			return TRUE
 
 		if (I) //for IDs and PDAs and wallets with IDs
-			paid = pay_with_card(I,W)
+			paid = pay_with_card(I,attacking_item)
 			handled = 1
-		else if (istype(W, /obj/item/spacecash/ewallet))
-			var/obj/item/spacecash/ewallet/C = W
+		else if (istype(attacking_item, /obj/item/spacecash/ewallet))
+			var/obj/item/spacecash/ewallet/C = attacking_item
 			paid = pay_with_ewallet(C)
 			handled = 1
-		else if (istype(W, /obj/item/spacecash))
-			var/obj/item/spacecash/C = W
+		else if (istype(attacking_item, /obj/item/spacecash))
+			var/obj/item/spacecash/C = attacking_item
 			paid = pay_with_cash(C, user)
 			handled = 1
 
@@ -279,9 +289,9 @@
 			SStgui.update_uis(src)
 		return TRUE // don't smack that machine with your 2 credits
 
-	if (I || istype(W, /obj/item/spacecash))
+	if (I || istype(attacking_item, /obj/item/spacecash))
 		return attack_hand(user)
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
@@ -289,33 +299,33 @@
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
 		return TRUE
-	else if(W.ismultitool()||W.iswirecutter())
+	else if(attacking_item.ismultitool()||attacking_item.iswirecutter())
 		if(src.panel_open)
 			return attack_hand(user)
 		return TRUE
-	else if(istype(W, /obj/item/coin) && premium.len > 0)
-		user.drop_from_inventory(W,src)
-		coin = W
+	else if(istype(attacking_item, /obj/item/coin) && premium.len > 0)
+		user.drop_from_inventory(attacking_item,src)
+		coin = attacking_item
 		categories |= CAT_COIN
-		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
+		to_chat(user, "<span class='notice'>You insert \the [attacking_item] into \the [src].</span>")
 		SStgui.update_uis(src)
 		return TRUE
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(!can_move)
 			return TRUE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		playsound(src.loc, W.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.visible_message("<b>[user]</b> begins [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor.", SPAN_NOTICE("You start [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor."))
-		if(W.use_tool(src, user, 20, volume = 50))
+		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
 			power_change()
 		return TRUE
 
-	else if(istype(W,/obj/item/device/vending_refill))
+	else if(istype(attacking_item,/obj/item/device/vending_refill))
 		if(panel_open)
-			var/obj/item/device/vending_refill/VR = W
+			var/obj/item/device/vending_refill/VR = attacking_item
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
@@ -330,20 +340,20 @@
 			to_chat(user, "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>")
 		return TRUE
 
-	else if(!is_borg_item(W))
+	else if(!is_borg_item(attacking_item))
 		if(!restock_items)
 			to_chat(user, "<span class='warning'>\the [src] can not be restocked manually!</span>")
 			return TRUE
 		for(var/path in restock_blocked_items)
-			if(istype(W,path))
+			if(istype(attacking_item, path))
 				to_chat(user, "<span class='warning'>\the [src] does not accept this item!</span>")
 				return TRUE
 
 		for(var/datum/data/vending_product/R in product_records)
-			if(W.type == R.product_path)
+			if(attacking_item.type == R.product_path)
 				stock(R, user)
-				user.remove_from_mob(W) //Catches gripper duplication
-				qdel(W)
+				user.remove_from_mob(attacking_item) //Catches gripper duplication
+				qdel(attacking_item)
 				return TRUE
 	return ..()
 
@@ -508,7 +518,7 @@
 			return
 
 	if (panel_open)
-		wires.Interact(user)
+		wires.interact(user)
 	else
 		ui_interact(user)
 
@@ -719,6 +729,7 @@
 
 	var/vending_usr_dir = get_dir(src, user)
 	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
+	vended_product_post(vended)
 	if(Adjacent(user))
 		user.put_in_hands(vended)
 	src.status_message = ""
@@ -734,6 +745,12 @@
 					use_power_oneoff(RC.reagents.set_temperature(cooling_temperature))
 				if(1)
 					use_power_oneoff(RC.reagents.set_temperature(heating_temperature))
+
+/// To be overriden if vended out products need any post-processing, setting its vars.
+/// Called by `vend_product`.
+/// `vended` is the item that is being vended out.
+/obj/machinery/vending/proc/vended_product_post(var/obj/vended)
+	return
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 

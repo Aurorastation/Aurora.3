@@ -17,6 +17,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A Hadiist Army outpost. The People's Republic of Adhomai's anthem is blared from the speakers."
 
 //ghost roles
 
@@ -30,7 +31,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/pra_base
+	outfit = /obj/outfit/admin/pra_base
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -39,7 +40,7 @@
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/pra_base
+/obj/outfit/admin/pra_base
 	name = "People's Republic of Adhomai Soldier"
 
 	uniform = /obj/item/clothing/under/tajaran/pra_uniform
@@ -55,8 +56,8 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/datum/outfit/admin/pra_base/get_id_access()
-	return list(access_pra)
+/obj/outfit/admin/pra_base/get_id_access()
+	return list(ACCESS_PRA)
 
 /datum/ghostspawner/human/pra_base/commissar
 	short_name = "pra_base_commissar"
@@ -66,14 +67,14 @@
 	spawnpoints = list("pra_base_commissar")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/pra_base/commissar
+	outfit = /obj/outfit/admin/pra_base/commissar
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI)
 	uses_species_whitelist = TRUE
 
 	assigned_role = "Grand People's Army Commissar"
 	special_role = "Grand People's Army Commissar"
 
-/datum/outfit/admin/pra_base/commissar
+/obj/outfit/admin/pra_base/commissar
 	name = "Grand People's Army Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/army_commissar
@@ -85,6 +86,7 @@
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)

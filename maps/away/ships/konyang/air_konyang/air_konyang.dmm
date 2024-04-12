@@ -114,21 +114,25 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "dI" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "air_konyang_out"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, docking port"
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "dL" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 0663;
@@ -141,28 +145,29 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
+"ei" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/air_konyang/atmos)
 "ep" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1385;
-	master_tag = "air_konyang";
-	name = "interior access button";
-	pixel_x = 24;
-	pixel_y = 12;
-	dir = 4
-	},
 /obj/machinery/airlock_sensor/airlock_interior{
+	dir = 4;
 	pixel_x = 24;
-	pixel_y = -5;
-	id_tag = "air_konyang_interior_sensor";
-	frequency = 1385;
-	dir = 4
+	pixel_y = -5
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "eH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -263,7 +268,7 @@
 /area/shuttle/air_konyang/engineering)
 "hj" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "hk" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -316,13 +321,28 @@
 /area/shuttle/air_konyang/mainroom)
 "ie" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "air_konyang_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "iq" = (
 /obj/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/tiled/dark,
@@ -368,7 +388,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "kG" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "air_konyang_1";
@@ -404,7 +424,7 @@
 "kX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "lR" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/carpet/brown,
@@ -471,8 +491,15 @@
 /area/shuttle/air_konyang/atmos)
 "nv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "nG" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 8
@@ -607,6 +634,9 @@
 	dir = 8
 	},
 /obj/item/clothing/head/helmet/pilot,
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "qA" = (
@@ -616,6 +646,13 @@
 "qB" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/atmos)
+"qH" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/air_konyang/rear_hall)
 "rk" = (
 /obj/machinery/light{
 	dir = 8
@@ -634,6 +671,23 @@
 "sa" = (
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/air_konyang/mainroom)
+"sl" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 23;
+	pixel_y = -24
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/air_konyang/rear_hall)
 "sA" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
@@ -653,18 +707,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
 "tN" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "air_konyang_pump_out_external";
-	frequency = 1385;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = -32;
+	pixel_y = 10
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/airless,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "uc" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -675,7 +738,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "up" = (
 /obj/machinery/vending/snack/konyang{
 	prices = list()
@@ -718,13 +781,17 @@
 /area/shuttle/air_konyang/bridge)
 "vm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "air_konyang_in"
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "vs" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
@@ -803,6 +870,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
+"wu" = (
+/obj/structure/closet/crate,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/turf/simulated/floor/plating,
+/area/shuttle/air_konyang/atmos)
 "wy" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/engineering)
@@ -973,29 +1047,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "zL" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	id_tag = "air_konyang";
-	master_tag = "air_konyang";
-	tag_interior_door = "air_konyang_in";
-	tag_exterior_door = "air_konyang_out";
-	tag_interior_sensor = "air_konyang_interior_sensor";
-	tag_exterior_sensor = "air_konyang_exterior_sensor";
-	tag_chamber_sensor = "air_konyang_chamber_sensor";
-	tag_airpump = "air_konyang_pump_in";
-	frequency = 1385;
-	pixel_x = -26
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "air_konyang_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ah" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Aq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -1101,7 +1168,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "CU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -1186,18 +1253,12 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/mainroom)
 "FS" = (
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1385;
-	id_tag = "air_konyang_exterior_sensor";
-	pixel_y = 10;
-	pixel_x = 25
-	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/bed/handrail{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "FT" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
@@ -1226,7 +1287,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "GG" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, passenger compartment"
@@ -1269,13 +1330,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "Id" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "air_konyang_in"
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Iu" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -1345,7 +1410,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ka" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1421,23 +1486,24 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "MB" = (
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1385;
-	master_tag = "air_konyang";
-	name = "exterior access button";
-	pixel_x = -26;
-	pixel_y = 11
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "air_konyang_out"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ne" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -1456,12 +1522,17 @@
 /area/shuttle/air_konyang/mainroom)
 "Ni" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1385;
-	id_tag = "air_konyang_pump_in"
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Nw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -1489,7 +1560,7 @@
 	name = "Engineering"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "NT" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1518,7 +1589,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Oc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/effect/landmark/entry_point/aft{
@@ -1585,7 +1656,7 @@
 	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Ql" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
@@ -1617,7 +1688,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Rd" = (
 /obj/machinery/light{
 	dir = 1
@@ -1643,33 +1714,36 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "RQ" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1385;
-	id_tag = "air_konyang_chamber_sensor";
-	dir = 1;
-	pixel_x = 32
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1385;
-	id_tag = "air_konyang_pump_in"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "air_konyang_out"
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Sv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1790,8 +1864,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_air_konyang";
+	name = "airlock_air_konyang";
+	req_one_access = null;
+	shuttle_tag = "Air Konyang Transport";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "Xb" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1813,7 +1894,7 @@
 	name = "Atmospherics"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "XA" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1864,7 +1945,7 @@
 "YI" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/air_konyang)
+/area/shuttle/air_konyang/rear_hall)
 "YX" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light{
@@ -15407,7 +15488,7 @@ MB
 zL
 Ni
 Id
-hj
+qH
 Gm
 JX
 hj
@@ -15730,7 +15811,7 @@ VJ
 Sf
 ie
 RQ
-Id
+sl
 ep
 YI
 JX
@@ -16863,9 +16944,9 @@ VJ
 VJ
 ze
 KO
-kP
+wu
 PZ
-mY
+ei
 CU
 Pa
 oY

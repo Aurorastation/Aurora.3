@@ -26,7 +26,6 @@
 	pass_flags = PASSTABLE
 	speak_chance = 3
 	turns_per_move = 5
-	see_in_dark = 6
 	maxHealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/rat

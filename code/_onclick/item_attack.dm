@@ -29,12 +29,23 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return A.attackby(src, user, click_parameters)
 
 // attackby should return TRUE if all desired actions are resolved from that attack, within attackby. This prevents afterattack being called.
-/atom/proc/attackby(obj/item/W, mob/user, var/click_parameters)
-	return
+/**
+ * Called on an object being hit by an item
+ *
+ * Returns `TRUE` if all desired actions are resolved from that attack
+ *
+ * Returning `TRUE` prevents `afterattack()` from being called
+ *
+ * * attacking_item - The item hitting the atom
+ * * user - The wielder of this item
+ * * params - Click params such as alt/shift etc
+ */
+/atom/proc/attackby(obj/item/attacking_item, mob/user, params)
+	return FALSE
 
-/atom/movable/attackby(obj/item/W, mob/user)
-	if(!(W.item_flags & ITEM_FLAG_NO_BLUDGEON))
-		visible_message("<span class='danger'>[src] has been hit by [user] with [W].</span>")
+/atom/movable/attackby(obj/item/attacking_item, mob/user, params)
+	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
+		visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item]."))
 
 /mob/living/attackby(obj/item/I, mob/user)
 	if(!ismob(user))
@@ -130,7 +141,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 //Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK))
 		power *= 2
 	if(user.is_berserk())
 		power *= 1.5

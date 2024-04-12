@@ -31,7 +31,7 @@
 
 /obj/item/implant/Initialize()
 	. = ..()
-	implants += src
+	GLOB.implants += src
 
 /obj/item/implant/proc/trigger(emote, source)
 	return
@@ -132,7 +132,7 @@
 		part.implants.Remove(src)
 		part = null
 	STOP_PROCESSING(SSprocessing, src)
-	implants -= src
+	GLOB.implants -= src
 	return ..()
 
 #undef MALFUNCTION_TEMPORARY

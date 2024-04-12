@@ -1,7 +1,7 @@
 /datum/exoplanet_theme/barren
 	name = "Barren"
 	surface_turfs = list(
-		/turf/simulated/mineral,
+		/turf/simulated/mineral/planet,
 		/turf/simulated/floor/exoplanet/barren
 	)
 	possible_biomes = list(
@@ -23,7 +23,7 @@
 /datum/exoplanet_theme/barren/raskara
 	name = "Raskara"
 	surface_turfs = list(
-		/turf/simulated/mineral,
+		/turf/simulated/mineral/planet,
 		/turf/simulated/floor/exoplanet/barren/raskara
 	)
 	possible_biomes = list(
@@ -44,6 +44,19 @@
 	possible_biomes = list(
 		BIOME_POLAR = list(
 			BIOME_ARID = /singleton/biome/barren/asteroid
+			)
+	)
+
+/datum/exoplanet_theme/barren/asteroid/ice
+	name = "Ice Asteroid"
+	surface_turfs = list(
+		/turf/simulated/mineral/planet,
+		/turf/simulated/floor/exoplanet/ice,
+		/turf/simulated/floor/exoplanet/ice/dark
+	)
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/barren/asteroid/ice
 			)
 	)
 

@@ -50,8 +50,6 @@
 		coinvalues["[cointype]"] = get_value(cointype)
 
 /obj/machinery/computer/slot_machine/Destroy()
-	if(balance)
-		give_payout(balance)
 	return ..()
 
 /obj/machinery/computer/slot_machine/process(delta_time)
@@ -78,9 +76,9 @@
 	..()
 	update_icon()
 
-/obj/machinery/computer/slot_machine/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/coin))
-		var/obj/item/coin/C = I
+/obj/machinery/computer/slot_machine/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/coin))
+		var/obj/item/coin/C = attacking_item
 		if(paymode == COIN)
 			if(prob(2))
 				if(!user.drop_from_inventory(C, user.loc))
@@ -91,25 +89,25 @@
 				to_chat(user, SPAN_WARNING("[src] spits your coin back out!"))
 			else
 				to_chat(user, SPAN_NOTICE("You insert [C] into [src]'s slot!"))
-				playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+				playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 				balance += get_value(C)
 				updateUsrDialog()
 				qdel(C)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting credit chips!"))
 		return TRUE
-	else if(istype(I, /obj/item/spacecash))
+	else if(istype(attacking_item, /obj/item/spacecash))
 		if(paymode == CREDITCHIP)
-			var/obj/item/spacecash/H = I
+			var/obj/item/spacecash/H = attacking_item
 			to_chat(user, SPAN_NOTICE("You insert [H.worth] credits into [src]'s slot!"))
-			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			balance += H.worth
 			updateUsrDialog()
 			qdel(H)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
 		return TRUE
-	else if(I.ismultitool())
+	else if(attacking_item.ismultitool())
 		if(balance > 0)
 			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
 		else
@@ -202,7 +200,7 @@
 	if(user)
 		the_name = user.real_name
 		visible_message(SPAN_NOTICE("[user] pulls the lever and the slot machine starts spinning!"))
-		playsound(loc, 'sound/arcade/sloto_lever.ogg', 10, 0, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/sloto_lever.ogg', 10, 0, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		flick("slots_pull", src)
 	else
 		the_name = "Exaybachay"
@@ -270,7 +268,7 @@
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
 		visible_message("<b>[src]</b> says, 'JACKPOT! You win [money] credits!'")
-		global_announcer.autosay("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!", "Automated Announcement System")
+		GLOB.global_announcer.autosay("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!", "Automated Announcement System")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 20, 1, required_asfx_toggles = ASFX_ARCADE) // ham it up
 		jackpots += 1
 		balance += money - give_payout(JACKPOT)

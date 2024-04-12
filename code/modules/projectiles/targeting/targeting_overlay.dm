@@ -6,7 +6,7 @@
 	anchored = 1
 	density = 0
 	opacity = 0
-	layer = FLY_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	appearance_flags = NO_CLIENT_COLOR
 	simulated = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -29,7 +29,7 @@
 	///Boolean, if `TRUE` aiming is performed instead of shooting
 	var/active = FALSE
 
-	///A list of permissions granted to the target, see `code\__defines\targeting.dm`
+	///A list of permissions granted to the target, see `code\__DEFINES\targeting.dm`
 	var/target_permissions = TARGET_CAN_MOVE | TARGET_CAN_CLICK | TARGET_CAN_RADIO
 
 	///The time, relative to `world.time`, after which we can re-aim
@@ -214,9 +214,9 @@
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	moved_event.register(owner, src, PROC_REF(update_aiming))
-	moved_event.register(aiming_at, src, PROC_REF(target_moved))
-	destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
+	GLOB.moved_event.register(owner, src, PROC_REF(update_aiming))
+	GLOB.moved_event.register(aiming_at, src, PROC_REF(target_moved))
+	GLOB.destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
 
 /obj/aiming_overlay/proc/aim_cooldown(seconds)
 	aimcooldown = world.time + seconds SECONDS
@@ -259,10 +259,10 @@
 			SPAN_NOTICE("You lower \the [aiming_with].")
 		)
 
-	moved_event.unregister(owner, src)
+	GLOB.moved_event.unregister(owner, src)
 	if(aiming_at)
-		moved_event.unregister(aiming_at, src)
-		destroyed_event.unregister(aiming_at, src)
+		GLOB.moved_event.unregister(aiming_at, src)
+		GLOB.destroyed_event.unregister(aiming_at, src)
 		LAZYREMOVE(aiming_at.aimed_at_by, src)
 		aiming_at = null
 

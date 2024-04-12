@@ -344,8 +344,8 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (W.iswrench())
+/obj/machinery/atmospherics/unary/vent_scrubber/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswrench())
 		if (!(stat & NOPOWER) && use_power)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
 			return TRUE
@@ -361,7 +361,7 @@
 			add_fingerprint(user)
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-		if(W.use_tool(src, user, 40, volume = 50))
+		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 				SPAN_NOTICE("You have unfastened \the [src]."), \
@@ -370,8 +370,8 @@
 			qdel(src)
 		return TRUE
 
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 
 		if(!WT.isOn())
 			to_chat(user, SPAN_NOTICE("\The [WT] needs to be on to start this task."))
@@ -394,34 +394,34 @@
 								"You hear welding.")
 		return TRUE
 
-	if(istype(W, /obj/item/melee/arm_blade))
+	if(istype(attacking_item, /obj/item/melee/arm_blade))
 		if(!welded)
-			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded scrubbers!"))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded scrubbers!"))
 			return TRUE
-		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
-		user.do_attack_animation(src, W)
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
+		user.do_attack_animation(src, attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
-			if(!W || !do_after(user, 30, src))
+			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
-			user.do_attack_animation(src, W)
-			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
+			user.do_attack_animation(src, attacking_item)
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
 				welded = FALSE
-				spark(get_turf(src), 3, alldirs)
+				spark(get_turf(src), 3, GLOB.alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
 		return TRUE
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user, distance, is_adjacent)
+/obj/machinery/atmospherics/unary/vent_scrubber/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
+		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
 	else
-		to_chat(user, "You are too far away to read the gauge.")
+		. += "You are too far away to read the gauge."
 	if(welded)
-		to_chat(user, "It seems welded shut.")
+		. +=  "It seems welded shut."

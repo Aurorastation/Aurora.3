@@ -8,26 +8,26 @@
 /obj/item/grenade/dynamite/attack_self(mob/user)
 	return
 
-/obj/item/grenade/dynamite/attackby(obj/item/W, mob/user)
+/obj/item/grenade/dynamite/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(active)
 		return
 
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			activate(user)
 
-	else if(W.isFlameSource())
+	else if(attacking_item.isFlameSource())
 		activate(user)
 
-	else if(istype(W, /obj/item/flame/candle))
-		var/obj/item/flame/candle/C = W
+	else if(istype(attacking_item, /obj/item/flame/candle))
+		var/obj/item/flame/candle/C = attacking_item
 		if(C.lit)
 			activate(user)
 
-	else if(istype(W, /obj/item/grenade/dynamite))
-		var/obj/item/grenade/dynamite/C = W
+	else if(istype(attacking_item, /obj/item/grenade/dynamite))
+		var/obj/item/grenade/dynamite/C = attacking_item
 		if(C.active)
 			activate(user)
 

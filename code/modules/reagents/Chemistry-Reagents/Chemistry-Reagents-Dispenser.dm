@@ -2,7 +2,7 @@
 	name = "Acetone"
 	description = "A colorless liquid solvent used in chemical synthesis."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	metabolism = REM * 0.2
 	taste_description = "acid"
 	fallback_specific_heat = 0.567
@@ -272,7 +272,7 @@
 	name = "Hydrazine"
 	description = "A toxic, colorless, flammable liquid with a strong ammonia-like odor, in hydrate form."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	metabolism = REM * 0.2
 	touch_met = 5
 	taste_description = "sweet tasting metal"
@@ -317,14 +317,14 @@
 	name = "Lithium"
 	description = "A chemical element, used as an antidepressant."
 	reagent_state = SOLID
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "metal"
 
 	fallback_specific_heat = 0.633
 
 /singleton/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
-		step(M, pick(cardinal))
+		step(M, pick(GLOB.cardinal))
 	if(prob(5) && ishuman(M))
 		M.emote(pick("twitch", "drool", "moan"))
 
@@ -502,7 +502,7 @@
 	name = "Hydrochloric Acid"
 	description = "A very corrosive mineral acid with the molecular formula HCl."
 	reagent_state = LIQUID
-	color = "#808080"
+	color = COLOR_GRAY
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
@@ -535,7 +535,7 @@
 	name = "Sodium"
 	description = "A chemical element, readily reacts with water."
 	reagent_state = SOLID
-	color = "#808080"
+	color = COLOR_GRAY
 	taste_description = "salty metal"
 	fallback_specific_heat = 0.483
 

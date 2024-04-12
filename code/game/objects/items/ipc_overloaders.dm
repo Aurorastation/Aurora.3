@@ -31,13 +31,13 @@
 	else
 		icon_state = "[initial(icon_state)]-[initial(uses)-uses]"
 
-/obj/item/ipc_overloader/examine(mob/user, distance, is_adjacent)
+/obj/item/ipc_overloader/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(uses)
-			to_chat(user, SPAN_NOTICE("It has <b>[uses]</b> uses left."))
+			. += SPAN_NOTICE("It has <b>[uses]</b> uses left.")
 		else
-			to_chat(user, SPAN_WARNING("It's totally spent."))
+			. += SPAN_WARNING("It's totally spent.")
 
 /obj/item/ipc_overloader/attack_self(mob/user)
 	if(!uses)
@@ -271,11 +271,11 @@
 	icon_state = "box"
 	return ..()
 
-/obj/item/storage/overloader/examine(mob/user)
+/obj/item/storage/overloader/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)
-		to_chat(user, SPAN_NOTICE("This one has a <b>[overloader.name]</b> inside."))
+		. += SPAN_NOTICE("This one has a <b>[overloader.name]</b> inside.")
 
 /obj/item/storage/overloader/open(mob/user)
 	..()
