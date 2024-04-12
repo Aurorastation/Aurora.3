@@ -5,6 +5,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_WEEPING_STARS, SECTOR_UUEOAESA, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5, SECTOR_BURZSIA = 1.5)
 	id = "Cyclops Mining Vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cyclops_shuttle)
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_heph_mining, /datum/map_template/ruin/exoplanet/moghes_heph_mining, /datum/map_template/ruin/exoplanet/heph_mining_station)
