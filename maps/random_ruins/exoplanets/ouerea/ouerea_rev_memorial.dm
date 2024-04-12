@@ -19,7 +19,7 @@
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, SPAN_NOTICE("The inscription on the monolith reads as follows. \"Let this monument stand, to honor those of us who fought for a world free from the grasping claws of foreign masters. \
-    	To you who read these words, honor these dead and remember them, that their revolution may live on.\""))
+		To you who read these words, honor these dead and remember them, that their revolution may live on.\""))
 	if(GLOB.all_languages[LANGUAGE_SKRELLIAN] in user.languages)
 		to_chat(user, SPAN_NOTICE("There is a smaller inscription below the main one, in Nral'malic. It reads as follows. \"Mourn us not, we dead, for all that lives must surely die. Wherever our bodies rest, \
 		know that there shines a golden star to welcome us home.\""))
