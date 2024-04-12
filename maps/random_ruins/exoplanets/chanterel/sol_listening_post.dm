@@ -28,11 +28,9 @@
 	species = SPECIES_HUMAN
 
 /obj/effect/landmark/corpse/sol_marine_husk/do_extra_customization(mob/living/carbon/human/M)
-	M.ChangeToSkeleton()
-	if(prob(15))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/automatic/rifle/sol(M), slot_back)
-	if(prob(15))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/shotgun/pump/combat/sol(M), slot_back)
+	M.ChangeToHusk()
+	M.adjustBruteLoss(rand(200,400))
+	M.dir = pick(GLOB.cardinal)
 
 /obj/effect/landmark/corpse/sol_officer_husk
 	name = "Decayed Solarian Officer"
@@ -43,6 +41,8 @@
 
 /obj/effect/landmark/corpse/sol_officer_husk/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
+	M.adjustBruteLoss(rand(200,400))
+	M.dir = pick(GLOB.cardinal)
 
 /obj/effect/landmark/corpse/unathi_pirate
 	name = "Unathi Pirate"
@@ -54,6 +54,8 @@
 
 /obj/effect/landmark/corpse/unathi_pirate/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
+	M.adjustBruteLoss(rand(200,400))
+	M.dir = pick(GLOB.cardinal)
 	if(prob(10))
 		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/pirate(M), slot_belt)
 
