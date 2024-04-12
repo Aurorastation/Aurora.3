@@ -2081,7 +2081,6 @@
 "gsD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
