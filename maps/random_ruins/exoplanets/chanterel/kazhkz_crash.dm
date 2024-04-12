@@ -64,6 +64,7 @@
 	corpsesuit = /obj/item/clothing/suit/space/unathi_ruin
 	corpsehelmet = /obj/item/clothing/head/helmet/space/unathi_ruin
 	corpseback = /obj/item/tank/oxygen/brown
+	corpsebelt = /obj/item/gun/projectile/pistol/spitter
 	corpseid = FALSE
 	species = SPECIES_UNATHI
 
@@ -71,12 +72,6 @@
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinal)
-	var/obj/item/clothing/uniform = M.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holster = new(src)
-	var/obj/item/gun/projectile/pistol/spitter/gun = new(src)
-	holster.contents += gun
-	holster.holstered = gun
-	uniform.attach_accessory(null, holster)
 
 /obj/effect/landmark/corpse/kazhkz_crash/captain
 	corpsesuit = /obj/item/clothing/suit/space/void/mining
