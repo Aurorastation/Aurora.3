@@ -207,7 +207,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/freezer{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white{
@@ -418,7 +418,7 @@
 /area/moghes_vihnmes)
 "Cs" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/freezer{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -485,7 +485,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/freezer{
 	req_access = null
 	},
 /obj/item/storage/box/fancy/egg_box,

@@ -45,8 +45,8 @@
 
 /mob/living/Destroy()
 	if(aiming)
-		qdel(aiming)
-		aiming = null
+		aiming.owner = null
+		QDEL_NULL(aiming)
 
 	QDEL_LIST(aimed_at_by)
 
