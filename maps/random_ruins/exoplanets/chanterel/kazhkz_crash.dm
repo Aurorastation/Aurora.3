@@ -52,6 +52,11 @@
 	landmark_flags = SLANDMARK_FLAG_AUTOSET //Can spawn on multiple planet types
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
+/obj/effect/shuttle_landmark/kazhkz_crash/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_kazhkz_crash"
+	base_turf = /turf/space/transit/north
+
 /obj/effect/landmark/corpse/kazhkz_crash
 	name = "Dead Kazhkz Warrior"
 	corpseuniform = /obj/item/clothing/under/unathi/hiskyn
