@@ -663,6 +663,12 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
+"lj" = (
+/obj/effect/shuttle_landmark/saniorios_outpost/nav3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "lz" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/gun)
@@ -1594,7 +1600,9 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "GU" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/saniorios_outpost/nav2{
+	dir = 8
+	},
 /turf/template_noop,
 /area/space)
 "Hf" = (
@@ -1853,6 +1861,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
+"MK" = (
+/obj/effect/shuttle_landmark/saniorios_outpost/nav1{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "Nt" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
@@ -8872,7 +8886,7 @@ Kn
 Kn
 Kn
 Kn
-GU
+Kn
 Kn
 Kn
 Kn
@@ -9129,7 +9143,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+lj
 Kn
 Kn
 Kn
@@ -18005,7 +18019,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+MK
 Kn
 Kn
 Kn
@@ -18776,7 +18790,7 @@ Kn
 Kn
 Kn
 Kn
-GU
+Kn
 Kn
 Kn
 Kn
@@ -40972,7 +40986,7 @@ Kn
 Kn
 Kn
 Kn
-GU
+Kn
 Kn
 Kn
 Kn
@@ -43071,7 +43085,7 @@ Kn
 Kn
 Kn
 Kn
-GU
+Kn
 Kn
 Kn
 Kn
@@ -43836,7 +43850,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+GU
 Kn
 Kn
 Kn

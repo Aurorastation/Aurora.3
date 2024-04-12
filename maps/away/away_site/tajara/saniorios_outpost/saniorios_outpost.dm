@@ -1,7 +1,8 @@
 /datum/map_template/ruin/away_site/saniorios_outpost
 	name = "Sani'Orios"
 	description = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
-	suffixes = list("away_site/tajara/saniorios_outpost/saniorios_outpost.dmm")
+	prefix = "away_site/tajara/saniorios_outpos/"
+	suffixes = list("saniorios_outpost.dmm")
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 1
 	spawn_cost = 2
@@ -41,3 +42,19 @@
 	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	skybox_image.blend_mode = BLEND_OVERLAY
 	return skybox_image
+
+/obj/effect/shuttle_landmark/saniorios_outpost
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/saniorios_outpost/nav1
+	name = "Sani'Orios Navpoint #1"
+	landmark_tag = "nav_hsaniorios_outpost_1"
+
+/obj/effect/shuttle_landmark/saniorios_outpost/nav2
+	name = "Sani'OriosNavpoint #2"
+	landmark_tag = "nav_hsaniorios_outpost_2"
+
+/obj/effect/shuttle_landmark/saniorios_outpost/nav3
+	name = "Sani'Orios Navpoint #3"
+	landmark_tag = "nav_hsaniorios_outpost_3"
