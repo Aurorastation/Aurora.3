@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_schlorrgo_cage.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_schlorrgo_cage.dmm")
 
 /area/adhomai_schlorrgo_cage
 	name = "Adhomian Schlorrgo Testing Site"

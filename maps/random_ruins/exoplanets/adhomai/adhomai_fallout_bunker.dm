@@ -4,7 +4,9 @@
 	description = "A fallout bunker built by the People's Republic of Adhomai after the armistice."
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_fallout_bunker.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_fallout_bunker.dmm")
 
 /area/adhomai_fallout_bunker
 	name = "Fallout Bunker"
