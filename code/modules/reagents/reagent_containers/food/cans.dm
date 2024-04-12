@@ -384,7 +384,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi
 	name = "\improper K'lax Xuizi Xplosion"
-	desc = "A can of xuizi flavoured Zo'ra Soda energy drink, with V'krexi additives. A refreshing taste for more than just Unathi."
+	desc = "A can of xuizi flavoured Zo'ra Soda energy drink, with V'krexi additives. A refreshing taste for more than just unathi."
 	icon_state = "klaxxuizi"
 	item_state = "klaxxuizi"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/xuizi = 30)
