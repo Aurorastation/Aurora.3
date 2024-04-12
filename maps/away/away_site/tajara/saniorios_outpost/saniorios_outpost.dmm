@@ -770,9 +770,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/power/apc/high/south{
-	req_access = list(214)
-	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1500,7 +1497,7 @@
 /area/saniorios_outpost/gun)
 "Fa" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Sani'Orios Asteroid Outpost"
+	weapon_id = "Sani'Orios Asteroid Outpost Gun"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1745,6 +1742,13 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"Je" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/saniorios_outpost/gun)
 "Jq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -21650,7 +21654,7 @@ lz
 Fs
 UK
 at
-at
+Je
 ix
 Kn
 Kn
