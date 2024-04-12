@@ -3819,10 +3819,6 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/machinery/camera/network/research{
-	c_tag = "Research - XenoBotanical Lab";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
