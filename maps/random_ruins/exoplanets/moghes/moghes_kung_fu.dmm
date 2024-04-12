@@ -166,14 +166,14 @@
 /obj/item/flame/lighter,
 /obj/item/martial_manual/unathi,
 /obj/item/clothing/shoes/footwraps{
-	color = "2a2b2c"
+	color = "#2a2b2c"
 	},
 /obj/item/clothing/gloves/unathi{
-	color = "2a2b2c"
+	color = "#2a2b2c"
 	},
 /obj/item/clothing/suit/unathi/robe/beige,
 /obj/item/clothing/under/unathi/zazali{
-	color = ssssss
+	color = "#3a4b56"
 	},
 /obj/item/clothing/accessory/sinta_hood{
 	color = "#DBC684"
