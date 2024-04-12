@@ -190,7 +190,7 @@
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_DECAL_LAYER
+	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -209,7 +209,7 @@
 	update_icon()
 	owner.update_icon()
 	active = on
-	passive_power_use = on ? 0.1 KILOWATTS : 0
+	passive_power_use = on ? 0.1 KILO WATTS : 0
 
 /obj/item/mecha_equipment/light/deactivate()
 	if(on)
@@ -658,7 +658,7 @@
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = ITEMSIZE_HUGE
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 6, TECH_BLUESPACE = 6)
-	active_power_use = 88 KILOWATTS
+	active_power_use = 88 KILO WATTS
 
 	var/obj/item/anomaly_core/AC
 	var/image/anomaly_overlay

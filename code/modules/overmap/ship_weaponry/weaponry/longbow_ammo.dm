@@ -147,7 +147,9 @@
 
 /obj/item/warhead/longbow/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(attacking_item.force > 10)
+	if(istype(attacking_item, /obj/item/mecha_equipment/clamp)) //loading a warhead into a mech shouldn't explode it
+		return
+	if(attacking_item.force > 10 && user.a_intent == I_HURT) //presumably you need to hit it pretty hard to actually set the thing off
 		cookoff(FALSE)
 
 /obj/item/warhead/longbow/ex_act(severity)

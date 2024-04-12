@@ -1,5 +1,5 @@
 /obj/effect/temp_visual/incorporeal_mech
-	layer = BELOW_MOB_LAYER
+	layer = LYING_HUMAN_LAYER
 	randomdir = FALSE
 
 /obj/effect/temp_visual/incorporeal_mech/Initialize(mapload, new_dir, var/mob/living/heavy_vehicle/HV)

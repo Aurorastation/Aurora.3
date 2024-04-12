@@ -7,7 +7,9 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/pra_base.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("pra_base.dmm")
 
 /area/pra_base
 	name = "PRA Military Outpost"
@@ -17,6 +19,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A Hadiist Army outpost. The People's Republic of Adhomai's anthem is blared from the speakers."
 
 //ghost roles
 

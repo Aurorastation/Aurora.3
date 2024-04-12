@@ -33,7 +33,6 @@
 "aH" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -235,7 +234,9 @@
 	},
 /area/pra_satellite)
 "du" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -365,7 +366,7 @@
 	},
 /area/pra_satellite)
 "gb" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -525,14 +526,6 @@
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"iR" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -732,7 +725,6 @@
 "oR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1032,14 +1024,6 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"wU" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "yh" = (
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1061,7 +1045,9 @@
 	},
 /area/pra_satellite)
 "yE" = (
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
@@ -1382,7 +1368,9 @@
 	},
 /area/pra_satellite)
 "HQ" = (
-/obj/structure/sign/flag/pra/large/west,
+/obj/structure/sign/flag/pra/large/west{
+	pixel_x = -32
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -1528,7 +1516,9 @@
 	},
 /area/pra_satellite)
 "PQ" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -28151,7 +28141,7 @@ wc
 Kn
 Kn
 gb
-iR
+Jy
 wD
 wc
 bu
@@ -28396,7 +28386,7 @@ HQ
 hD
 mk
 aN
-wU
+AA
 wc
 Kn
 wg
@@ -28408,7 +28398,7 @@ wc
 wc
 wg
 gb
-iR
+Jy
 aK
 wc
 wc
@@ -28665,7 +28655,7 @@ cw
 gb
 Kn
 gb
-iR
+Jy
 fU
 yx
 wc
@@ -29179,7 +29169,7 @@ CM
 gb
 Kn
 gb
-iR
+Jy
 Wy
 Av
 wc
@@ -29436,7 +29426,7 @@ wc
 wc
 wg
 gb
-iR
+Jy
 aK
 wc
 wc
@@ -29693,7 +29683,7 @@ wc
 Kn
 Kn
 gb
-iR
+Jy
 AA
 wc
 bu
@@ -29938,7 +29928,7 @@ wc
 wc
 wc
 GK
-wU
+AA
 wc
 Kn
 wg

@@ -1,0 +1,320 @@
+2019-09-01:
+  Alberyk:
+  - rscadd: Added more tajaran related options to the loadout.
+  - rscdel: Removed siik'tau.
+  Mwahahahaha:
+  - rscadd: Added 108 hairstyles and 12 facial hairstyles for Humans/Shells, 3 hairstyles
+      for Vox, 3 variant hairstyles and 4 variant facial hairstyles for Unathi, 1
+      facial hairstyle for Tajara, 3 screens for Baseline IPCs; from Polaris, BS12,
+      Para, tg, and including a small few from yours truly.
+  - refactor: Renamed hairstyles so that they may hopefully be more convenient to
+      find on a hairstyle list -- be sure to check your character setup in case you're
+      bald!
+  - spellcheck: Rewrote the hair tugging messages so that they may show up in lower
+      case.
+  - bugfix: Fixed hair name values and lengths so that they may appear on the Character
+      Setup and Hair Tie lists, with 6 hairstyles being readded.
+  - tweak: 'For the next gen devs: rearranged the code and icon_states in the sprite_accessories
+      and appropriate hair.dmi files so that they are mostly in alphabetical order
+      and correspond to each other''s positions.'
+2019-09-03:
+  Alberyk:
+  - bugfix: Fixed hydro belts starting full when created by biogenerators.
+  - bugfix: Fixed drugs' emotes no working properly.
+2019-09-04:
+  MattAtlas:
+  - tweak: Intense pain messages should now be bigger.
+  - tweak: Re-worded some pain messages and added some others.
+2019-09-05:
+  Geeves:
+  - tweak: Removed the Plasma Cutter on e-magged drones.
+  Karolis2011:
+  - rscadd: Added keypad magnetic lock that is locked using passcode, instead of ID
+      access.
+2019-09-06:
+  Alberyk, Unclejo:
+  - rscadd: Added crutches to medical.
+  AmoryBlaine, Ferner:
+  - bugfix: Fixed some minor sprite issues with the riot helmet, black boots, leg
+      guards and tac-mask.
+  MattAtlas:
+  - rscadd: You can now alt click lockers to lock them.
+  Wowzewow:
+  - tweak: Increases the size of the mop bucket by 3x, and makes mop mop faster, like,
+      1.5x faster.
+  - tweak: Buffs the janibelt ( You can finally put gloves, rags and radios in them!
+      )
+  - imageadd: Cooler rag sprites, and some tweaks to other sprites.
+  - rscadd: New bluespace trashbag and advanced mop, available in the protolathe.
+  - rscadd: Adds special janitor rags to their lockers.
+2019-09-07:
+  Arrow768:
+  - tweak: Announcemnts (except alert level changes) are only visible on station levels.
+  MattAtlas:
+  - rscadd: Added a surgery tray to medical ORs and robotics. Sprite credit goes to
+      NewOriginalSchwann.
+  - rscadd: You can now extract shrapnel from someone or yourself with a material
+      knife. It's painful, though! Use the extract shrapnel verb in the Object tab,
+      or extract-shrapnel.
+  - rscadd: Clicking on humans with a cable coil will now stitch their bleeding wounds.
+      Only works if said wounds are bleeding and if they're cuts.
+  PoZe:
+  - bugfix: Detached nymphs now sync their languages with gestalt during detaching.
+2019-09-08:
+  Arrow768:
+  - rscdel: Removes the option to join as random job.
+  Ferner:
+  - tweak: Increased the storage capacity of medical's sharp disposal boxes and they're
+      also no longer foldable.
+  - rscadd: Added pixel precision when placing most items on tables/racks, like with
+      food/drinks. Ported from Bay.
+  - tweak: Adjusted the center of mass on some items to make them easier to place
+      down, thrown items now get a randomized pixel placement.
+  - maptweak: Fixed the tcomms on Exodus.
+  Geeves:
+  - tweak: Throwing items now decloak ninjas.
+  Goret:
+  - bugfix: Surgery holosigns aren't buggy anymore.
+  - maptweak: Added surgery holosigns on both OR doors. Buttons are available inside,
+      next to the sinks.
+  Karolis2011:
+  - bugfix: Fixed player panel breaking on cult.
+  Mwahahahaha:
+  - rscadd: Added hair tying for shells too.
+  - rscadd: Added the ability to swap the wrist you wear your watch on (you can now
+      wear it on your left wrist).
+2019-09-09:
+  Ferner:
+  - bugfix: Fixed trays spilling their contents even when being put down on a table
+      carefully.
+  MattAtlas:
+  - spellcheck: Fixed the rat spawner description, added a period to the pointing
+      action.
+  ben10083:
+  - rscadd: To reduce the number of fatalities and workplace incidents relating to
+      Heads of Security, the HoS shall now be given a helmet and magboots.
+2019-09-10:
+  Drago:
+  - rscadd: Makes a plethora of machines buildable.
+  - rscadd: Add's Pigs and animal breeding.
+  - rscadd: Ports life support system from old code.
+  - rscadd: Ports the impact wrench from TG.
+  - rscadd: Ports jaws of life from TG.
+  - rscadd: Adds the toolspeed and usesound vars.
+  Goret:
+  - rscdel: Death alarm kit removed from medical. People can now die again without
+      anyone hearing about it.
+  Naelynn:
+  - tweak: Reduced bloat in inventories of some merchants
+  - rscdel: Removed economy breaking tritium/osmium bars
+  - rscadd: Gave ability to buy things from merchant to more traders
+2019-09-12:
+  Alberyk, Jamchop23334:
+  - rscadd: Added tajaran, unathi and skrell zombies.
+  Ferner:
+  - maptweak: Changed the icon states of some mapped in machine blueprints.
+  - maptweak: Moved a light fixture and camera in hydroponics that were blocking the
+      status readouts on a couple of trays.
+2019-09-13:
+  Alberyk, Kyres1:
+  - rscadd: Added the ballistic gauntlet to the uplink.
+  Ferner:
+  - rscadd: Janitor carts can now be pushed like wheelchairs via Ctrl Click.
+  MattAtlas:
+  - tweak: Ballistic projectiles are now twice as fast.
+  - imageadd: Ballistic projectiles now have a new sprite.
+  - bugfix: You can no longer wirelessly close lockers.
+2019-09-14:
+  Alberyk:
+  - bugfix: Fixed the impact wrench having no sprite.
+  MattAtlas:
+  - rscadd: Eridani paramedics now have a special uniform.
+  - rscadd: Zeng-Hu consulars now have a special uniform.
+  - rscadd: Idris service contractors now have a new uniform.
+  - rscadd: Added contractor berets and other gear to the new Factions tab. You can't
+      take these if you don't have the appropriate faction selected.
+2019-09-15:
+  Geeves:
+  - tweak: Made pAI move a little slower. Should be easier to catch and destroy if
+      they're being annoying.
+  - tweak: Made pAI doorjacks open bolted airlocks, provided the bolt wire isn't cut.
+  - bugfix: pAI can no longer uncuff people.
+  ParadoxSpace & AmoryBlaine:
+  - bugfix: Adds the alt Necropolis research uniform to the loadout. My bad.
+  - tweak: Refactors the Necropolis security uniform just a little bit.
+  - bugfix: Fixes being unable to select the alt Zeng-Hu uniform and the Idris service
+      uniform having no sprite, as well as various other small fixes.
+  - bugfix: Fixes Bedhead 5 to properly come up all the way.
+2019-09-16:
+  Alberyk:
+  - bugfix: Fixed scientist shoes having no icon.
+  - bugfix: Fixed kinetic accelerators having firing pins.
+  ParadoxSpace:
+  - bugfix: Fixes a handful of Necropolis oriented bugs; the research uniform alt
+      and jobs spawning with outfits.
+2019-09-17:
+  Alberyk, BRAINOS:
+  - rscadd: Added new options to the skrell loadout.
+  - rscadd: Added new skrell body markings.
+  - rscadd: Added new skrell related drinks.
+  Alberyk, Kyres1:
+  - rscadd: Added an unique sidearm to the PRA consular officer.
+2019-09-18:
+  Alberyk:
+  - bugfix: Fixed the idris uniforms being invisible when worn.
+  Lady Fowl:
+  - bugfix: KA Blasts no longer blow up welder tanks.
+  - bugfix: Science shoe sprites are visible now.
+  - bugfix: IPC'S can no longer be silenced or gasp when choking.
+  - bugfix: Fixing concussions now removes slurring and confusion.
+  - bugfix: Burning paper no longer burns you're eyes with a welding tool.
+  - bugfix: Fix's machine deconstruction bug.
+2019-09-19:
+  Ferner:
+  - bugfix: Old machine frames are now properly deconstructable.
+  Geeves:
+  - rscadd: IPCs now have kicks and stomps.
+  - rscdel: Shells can now bite.
+  Geeves, with some code by BurgerBB:
+  - rscadd: Added a ninja frequency to radios which ninjas spawn with to collaborate.
+  - tweak: Two ninjas now spawn instead of just one.
+  - rscadd: Gave the ninja better spawning gear, a syndicate uniform, a belt with
+      some tools and a pAI card.
+  - tweak: The ninja suit now has new lights, and its shoes are now magboots.
+  - rscadd: Added a doorhack RIG module. Functions the same as the normal doorhack,
+      but the user can move around after initiating the hack, as well as hack multiple
+      airlocks at once.
+  - tweak: Gave the ninja teleporter a 5 second cooldown between uses.
+  - rscadd: Added new advanced combat belt, can hold various gear that a ninja would
+      usually come across.
+  - tweak: Buffed the ninja's RIG armour values slightly. Still requires feedback,
+      if ninjas die too quickly, it will be buffed more.
+  - rscadd: Added an additional toolbox, chair, suitcooling unit and ninja spawn point
+      to the ninja shuttle on the centcomm level.
+  - rscadd: Gave the ninja a new uniform + gloves.
+  - tweak: EMERGENCY power generator now generates 2500 units of power, with a cooldown
+      of five minutes.
+  - wip: Gnomes still evading capture. Report any occurences of gnomes and gnome activity
+      to Aurora authorities.
+  Lady Fowl:
+  - bugfix: Fixes scientist shoes for real this time.
+  MattAtlas:
+  - tweak: You will no longer see the station species' death message if you're more
+      than two tiles away from them. Check their pulse or make sure they stop gasping
+      if you're too far away.
+2019-09-20:
+  Alberyk, Kyres1:
+  - tweak: Some space ruins might have extra challenges now.
+  Ferner:
+  - maptweak: Fixed some spots on the rooftop solars that had the wrong area. Fixed
+      some oddly described buttons. Removed the captain's office coffee vendor. Removed
+      some unnecessary extra stamps from the representative's office.
+  - maptweak: Adds a merchant dock to exodus and a journalist office, plus a bunch
+      of misc fixes.
+  Furrycactus:
+  - maptweak: Reworked the Exodus map so that it's a little bit more in line with
+      recent developments. Way too many changes to list here.
+  Karolis2011:
+  - rscadd: Added custom announcement with custom sound tool for more immersive events.
+2019-09-21:
+  Ferner:
+  - bugfix: Fixed some energy melee weapons being unable to be picked up after they've
+      been dropped, e.g. e-axe, e-glaive and power swords.
+  - maptweak: Fixed engine blast doors opening during power failures, added a request
+      console to the rep office, added chem heaters to the chem labs, misc fixes.
+  Karolis2011:
+  - bugfix: Now APCs look decently on cameras.
+  MoondancerPony:
+  - bugfix: Fixes service module cyborgs dispensing drinks at the wrong temperature.
+  - tweak: Reagents that should be at room temperature will no longer be described
+      as lukewarm.
+  Mwahahahaha:
+  - rscadd: Added the ability for Baseline Frames to change screens on the go (Change
+      IC Screen verb in IC tab).
+  - bugfix: Re-added the ability for Shell Frames to run self-diagnostics! (my bad)
+  Skull132:
+  - bugfix: The gatling laser no longer gets stuck in a state of locked up when you
+      move while charging it.
+2019-09-22:
+  Alberyk:
+  - bugfix: Fixed ballistic gauntlets spawning at cargo.
+  Ferner:
+  - bugfix: Returns the surgery trays to Exodus.
+  - bugfix: Makes the Exodus engine vent stop opening on its own, for real this time.
+  - bugfix: Surgeons will no longer mistake their tools for donuts.
+  Geeves:
+  - bugfix: The ninja uplink now gives proper access to the infiltrator store.
+  - tweak: The powersink now drains more power.
+  - tweak: The cooldown for the emergency power generator has been reduced to 2 minutes
+      from 5.
+  - tweak: The power generator now generates 3500 units of power.
+  Wowzewow:
+  - imageadd: New and improved sprite for surgical tray.
+  - tweak: Tweaks the crutch, maps ham, and medical gown item sprites to look nicer.
+2019-09-23:
+  Ferner:
+  - tweak: The IAC Vest can now store things like other vests.
+  Geeves:
+  - tweak: Made cable coil easier to click.
+  - tweak: Changed the regular helmet in the Head of Security's locker into a proper
+      HoS Helmet.
+  - rscadd: Added oxygen tank to the HoS locker.
+  - experiment: The gnome is still on the run.
+  Karolis2011:
+  - rscadd: HTML themes now apply to changelog, rules, character setup and new player
+      screen.
+  - rscadd: Adds back ability to view virus records.
+  Lady fowl:
+  - rscdel: Removes the chameleon kit from the protolathe.
+  Mwahahahaha:
+  - rscadd: Re-adds the Roll the Dice verb to the OOC tab, originally added by Berkbuzcu.
+  Wowzewow:
+  - tweak: The RCD, the RSF, and the RRF have been rebranded into classes of a catch-all
+      Rapid Fabrication Device.
+  - imageadd: RFDs also have nicer sprites.
+  - rscadd: You can make crossbows with RFDs too.
+2019-09-24:
+  Ferner:
+  - bugfix: Fixed missing impact wrench sprites, fixed rfd-s not working for stationbounds,
+      fixed pixel-precision when placing material sheets on tables.
+  Geeves:
+  - rscdel: Removes the IE Shocker. Give 'em an inch and they take a mile.
+  Scheveningen:
+  - balance: Force gloves will no longer amplify their damage to melee weapons.
+  - balance: Force gloves have their TC cost reduced to compensate.
+2019-09-25:
+  Alberyk:
+  - tweak: The cloning computer now requires proper access before being accessed.
+2019-09-26:
+  Ferner:
+  - tweak: Made it so clicking a surgery tray opens its inventory, use click/drag
+      instead to pick the tray up.
+  Geeves:
+  - bugfix: Emergency Shield Generators now work again.
+2019-09-28:
+  Geeves:
+  - rscadd: 'Adds the following to Autolathes: Autoinjector (Medical), Autoinhaler
+      (Medical)'
+  Karolis2011:
+  - rscadd: Added main ui (skin) dark version that can be changed in global preferences.
+2019-09-29:
+  Alberky:
+  - tweak: Vaurca phoron tanks will now only leak when damaged.
+  - tweak: Ta consulars can no longer issue orders over hivenet in any way besides
+      actually saying them.
+  Furrycactus:
+  - maptweak: Put two crematoriums on the Research sublevel, just off the firing range.
+      Use to dispose of dead monkeys without having to toss them in the trash, or
+      to dispose of other hazardous resourse materials or waste.
+  - maptweak: Increased the capacity of the Mining Refinery's APC to try and combat
+      the airlock running out of power.
+  Geeves:
+  - rscadd: Examining a cryopod now tells you who the occupant is.
+  - tweak: Made it so that unbraced drills wouldn't explode if you activated them.
+  - bugfix: Tcomms scripts should no longer break emoting over radio.
+  Geeves, porting from Bay:
+  - tweak: Improved partial understanding of language a little. The ends of words
+      should no longer get cut off.
+2019-09-30:
+  Furrycactus:
+  - bugfix: Fixed the Mining APC's direction issue.
