@@ -4,7 +4,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "ah" = (
@@ -131,14 +131,12 @@
 "fj" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "fQ" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "fT" = (
 /obj/machinery/shower{
@@ -162,7 +160,7 @@
 	},
 /obj/item/device/radio/phone,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "gF" = (
@@ -173,13 +171,13 @@
 	pixel_y = 25
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "hh" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "hn" = (
@@ -212,7 +210,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "jD" = (
@@ -243,7 +241,7 @@
 	identifier = "ouerea_bar_server"
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "lD" = (
@@ -255,7 +253,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "mP" = (
@@ -317,7 +315,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "ps" = (
@@ -329,7 +327,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "pw" = (
@@ -380,9 +378,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "qJ" = (
 /turf/simulated/floor/exoplanet/grass{
@@ -434,7 +430,7 @@
 	},
 /obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "ut" = (
@@ -455,9 +451,7 @@
 /area/ouerea_bar)
 "wg" = (
 /obj/structure/kitchenspike,
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "wR" = (
 /obj/item/storage/box/produce{
@@ -514,7 +508,7 @@
 	},
 /obj/item/material/ashtray,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "xV" = (
@@ -594,7 +588,7 @@
 	},
 /obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "zV" = (
@@ -603,7 +597,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Ad" = (
@@ -655,9 +649,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/structure/closet/secure_closet/freezer,
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "Cx" = (
 /obj/machinery/light{
@@ -681,7 +673,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Dm" = (
@@ -724,9 +716,7 @@
 	},
 /area/ouerea_bar)
 "EV" = (
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "EY" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -744,7 +734,7 @@
 	},
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Fu" = (
@@ -759,7 +749,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "FA" = (
@@ -769,7 +759,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/shaker,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "FD" = (
@@ -789,7 +779,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Gh" = (
@@ -831,7 +821,7 @@
 /area/ouerea_bar)
 "IT" = (
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Jq" = (
@@ -908,7 +898,7 @@
 	},
 /obj/machinery/chem_heater,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "NR" = (
@@ -934,7 +924,7 @@
 	},
 /obj/item/material/ashtray/bronze,
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "PF" = (
@@ -947,9 +937,7 @@
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/structure/closet/secure_closet/freezer,
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "Qn" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -975,9 +963,7 @@
 /area/ouerea_bar)
 "SH" = (
 /obj/structure/reagent_dispensers/cookingoil,
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "SQ" = (
 /obj/structure/sink{
@@ -1021,7 +1007,7 @@
 	identifier = "ouerea_bar_innkeeper"
 	},
 /turf/simulated/floor/lino{
-	temperature = 303.15
+	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Vh" = (
@@ -1040,9 +1026,8 @@
 /area/ouerea_bar)
 "Wj" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "WV" = (
 /obj/machinery/washing_machine,
@@ -1052,9 +1037,7 @@
 /area/ouerea_bar)
 "Xw" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "Yd" = (
 /obj/structure/closet/cabinet,

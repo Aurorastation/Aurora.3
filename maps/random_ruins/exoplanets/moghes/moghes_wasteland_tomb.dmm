@@ -99,10 +99,6 @@
 "lj" = (
 /turf/simulated/wall/sandstonediamond,
 /area/moghes_wasteland_tomb)
-"pt" = (
-/obj/structure/simple_door/sandstone,
-/turf/simulated/floor/marble,
-/area/moghes_wasteland_tomb)
 "pu" = (
 /turf/simulated/floor/silver{
 	temperature = 315.15
@@ -1043,7 +1039,7 @@ pu
 pu
 pu
 pu
-pt
+ET
 Mq
 Mq
 EZ

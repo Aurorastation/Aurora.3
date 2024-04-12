@@ -33,7 +33,7 @@
 	identifier = "moghes_wasteland_priest"
 	},
 /turf/simulated/floor/carpet/rubber{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "l" = (
@@ -49,7 +49,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "n" = (
@@ -103,7 +103,7 @@
 "z" = (
 /obj/structure/bed/roller,
 /turf/simulated/floor/carpet/rubber{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "D" = (
@@ -123,7 +123,7 @@
 /area/moghes_wasteland_priests)
 "H" = (
 /turf/simulated/floor/carpet/rubber{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "I" = (
@@ -132,13 +132,13 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/mask/surgical/w,
 /turf/simulated/floor/carpet/rubber{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "J" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/carpet/rubber{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "L" = (
@@ -189,7 +189,7 @@
 "S" = (
 /obj/structure/curtain/medical,
 /turf/simulated/floor/carpet/rubber{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "T" = (

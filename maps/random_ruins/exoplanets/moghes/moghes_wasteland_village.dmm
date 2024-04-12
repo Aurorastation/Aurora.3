@@ -6,7 +6,7 @@
 /obj/item/material/minihoe,
 /obj/item/material/minihoe,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "bK" = (
@@ -31,7 +31,7 @@
 /obj/item/material/hatchet,
 /obj/machinery/light,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "cp" = (
@@ -53,7 +53,7 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "dc" = (
@@ -61,7 +61,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/black,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "dp" = (
@@ -75,14 +75,14 @@
 "dI" = (
 /obj/item/material/stool/chair/wood,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "dQ" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "fb" = (
@@ -106,23 +106,27 @@
 "go" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "gF" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "hm" = (
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 315.15
+	},
 /area/template_noop)
 "ig" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 315.15
+	},
 /area/template_noop)
 "iZ" = (
 /turf/simulated/wall/sandstone,
@@ -130,7 +134,9 @@
 "kz" = (
 /obj/structure/table/standard,
 /obj/item/material/hatchet/butch,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 315.15
+	},
 /area/template_noop)
 "lo" = (
 /obj/machinery/light,
@@ -150,7 +156,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "mE" = (
@@ -163,7 +169,7 @@
 /obj/structure/table/wood,
 /obj/item/material/twohanded/pike/pitchfork,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "nZ" = (
@@ -172,7 +178,7 @@
 	},
 /obj/structure/coatrack,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "oo" = (
@@ -206,7 +212,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "qi" = (
@@ -214,7 +220,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "qJ" = (
@@ -228,7 +234,7 @@
 "rq" = (
 /mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/concrete{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "rY" = (
@@ -238,7 +244,7 @@
 /obj/item/storage/box/shotgunshells,
 /obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "sH" = (
@@ -274,20 +280,20 @@
 	color = "#4a3407"
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "tY" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "uB" = (
 /obj/structure/coatrack,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "uF" = (
@@ -303,7 +309,7 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "uR" = (
@@ -318,14 +324,16 @@
 /obj/item/reagent_containers/glass/bucket/wood,
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "vb" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/orange,
+/turf/simulated/floor/carpet/orange{
+	temperature = 315.15
+	},
 /area/template_noop)
 "vB" = (
 /obj/item/material/stool/chair/wood,
@@ -358,7 +366,7 @@
 "Bg" = (
 /obj/machinery/light,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "BA" = (
@@ -372,7 +380,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "Ck" = (
@@ -384,14 +392,16 @@
 "Cu" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "DB" = (
 /obj/structure/bed/stool/chair/sofa/right/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/orange,
+/turf/simulated/floor/carpet/orange{
+	temperature = 315.15
+	},
 /area/template_noop)
 "DO" = (
 /obj/structure/table/stone/marble,
@@ -411,7 +421,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "ED" = (
@@ -420,7 +430,9 @@
 /obj/item/clothing/accessory/poncho/maxtlatl,
 /obj/item/clothing/head/unathi/maxtlatl,
 /obj/item/nullrod/shaman,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/dark{
+	temperature = 315.15
+	},
 /area/template_noop)
 "EM" = (
 /obj/structure/railing/fence{
@@ -438,7 +450,7 @@
 /obj/item/saddle,
 /obj/item/saddle,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "FP" = (
@@ -447,7 +459,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "GR" = (
@@ -470,22 +482,28 @@
 /turf/simulated/wall/birchwood,
 /area/template_noop)
 "Iy" = (
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/dark{
+	temperature = 315.15
+	},
 /area/template_noop)
 "IY" = (
-/turf/simulated/floor/carpet/orange,
+/turf/simulated/floor/carpet/orange{
+	temperature = 315.15
+	},
 /area/template_noop)
 "IZ" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "Jj" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/carpet/orange,
+/turf/simulated/floor/carpet/orange{
+	temperature = 315.15
+	},
 /area/template_noop)
 "JA" = (
 /obj/structure/railing/fence,
@@ -499,13 +517,13 @@
 	},
 /obj/structure/bed/stool/chair/sofa/right/brown,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "KY" = (
 /obj/structure/closet/crate/hydroponics,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "Lu" = (
@@ -522,7 +540,7 @@
 "MD" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "MO" = (
@@ -536,7 +554,7 @@
 "Nc" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "Nm" = (
@@ -578,25 +596,27 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "NV" = (
 /turf/simulated/floor/concrete{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "Pz" = (
 /obj/structure/table/stone,
 /obj/item/flame/candle,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/dark{
+	temperature = 315.15
+	},
 /area/template_noop)
 "UL" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "VM" = (
@@ -616,7 +636,7 @@
 /area/template_noop)
 "Yg" = (
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 "YA" = (
@@ -624,7 +644,7 @@
 /obj/item/material/hatchet/lumber,
 /obj/item/material/hatchet/lumber,
 /turf/simulated/floor/wood/birch{
-	temperature = 303.15
+	temperature = 315.15
 	},
 /area/template_noop)
 

@@ -1,7 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bi" = (
 /obj/machinery/light,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "bD" = (
 /obj/structure/simple_door/wood{
@@ -25,13 +27,17 @@
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "cL" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "dV" = (
 /turf/simulated/floor/wood{
@@ -133,13 +139,17 @@
 "mB" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "ns" = (
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "nP" = (
 /obj/structure/table/wood,
@@ -170,7 +180,9 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/white,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "pd" = (
 /obj/structure/table/wood,
@@ -178,7 +190,9 @@
 	pixel_y = 4
 	},
 /obj/item/paper/fluff/moghes_diona_ad,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "pG" = (
 /obj/structure/flora/grass/junglegrass/random,
@@ -196,7 +210,9 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/exoplanet/moghes)
 "qX" = (
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "sj" = (
 /obj/random/dirt_75,
@@ -236,7 +252,9 @@
 "tj" = (
 /obj/structure/table/wood,
 /obj/item/paper/fluff/moghes_diona_ad,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "tm" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
@@ -257,14 +275,18 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "xc" = (
 /turf/template_noop,
 /area/exoplanet/moghes)
 "xB" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "xD" = (
 /obj/structure/filingcabinet/filingcabinet{
@@ -276,7 +298,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "xZ" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -330,13 +354,17 @@
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
 /obj/item/toy/plushie/nymph,
 /obj/item/cane/concealed,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "Ey" = (
 /obj/structure/table/wood,
 /obj/item/paper/fluff/moghes_diona_ad,
 /obj/item/paper/fluff/moghes_diona_ad,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "EC" = (
 /obj/structure/railing/fence{
@@ -350,14 +378,18 @@
 "EL" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "Gn" = (
 /obj/effect/ghostspawpoint{
 	name = "igs - moghes_diona_assistant";
 	identifier = "moghes_diona_assistant"
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "GC" = (
 /obj/structure/flora/grass/junglegrass/random,
@@ -395,7 +427,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "Ll" = (
 /obj/structure/railing/fence{
@@ -408,12 +442,16 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "Mf" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "MV" = (
 /obj/random/dirt_75,
@@ -480,7 +518,9 @@
 	name = "igs - moghes_diona_trader";
 	identifier = "moghes_diona_trader"
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "SK" = (
 /obj/structure/table/wood,
@@ -522,7 +562,9 @@
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "TP" = (
 /obj/structure/railing/fence{
@@ -547,7 +589,9 @@
 	dir = 1;
 	pixel_y = 30
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "Xb" = (
 /obj/structure/railing/fence{
@@ -567,7 +611,9 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/carpet/red{
+	temperature = 303.15
+	},
 /area/moghes_diona_traders)
 "YK" = (
 /obj/structure/closet/crate/loot,
