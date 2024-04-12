@@ -1603,7 +1603,7 @@
 	specialfunctions = 4;
 	pixel_y = -18
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/ship/sfa_patrol_ship/head)
 "eTl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4174,10 +4174,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/sfa_patrol_ship/destroyedrec)
-"mVQ" = (
-/obj/structure/girder,
-/turf/unsimulated/floor,
-/area/ship/sfa_patrol_ship)
 "mWk" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_x = 32
@@ -4828,7 +4824,7 @@
 "pna" = (
 /obj/structure/girder,
 /obj/item/stack/rods,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "pse" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -4955,7 +4951,7 @@
 	pixel_y = 6;
 	pixel_x = 7
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship/head)
 "pIo" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5399,7 +5395,7 @@
 "rbn" = (
 /obj/structure/lattice,
 /obj/structure/inflatable,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/sfa_patrol_ship/head)
 "rcS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6562,7 +6558,7 @@
 /area/ship/sfa_patrol_ship/atmos)
 "vKl" = (
 /obj/structure/girder,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "vMF" = (
 /obj/structure/ship_weapon_dummy,
@@ -43309,8 +43305,8 @@ gUT
 gUT
 gUT
 gUT
-mVQ
-mVQ
+vKl
+vKl
 qWe
 ang
 ang
