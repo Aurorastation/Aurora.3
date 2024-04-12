@@ -4,7 +4,9 @@
 	description = "An abandoned Coalition base."
 
 	sectors = list(ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/coalition_base/coalition_base.dmm")
+
+	prefix = "asteroid/coalition_base/"
+	suffixes = list("coalition_base.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP

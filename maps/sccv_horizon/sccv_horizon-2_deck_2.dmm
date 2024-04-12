@@ -15641,6 +15641,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "hep" = (
