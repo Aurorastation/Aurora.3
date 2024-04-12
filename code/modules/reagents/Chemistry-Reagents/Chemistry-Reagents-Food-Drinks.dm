@@ -5826,7 +5826,7 @@
 	color = "#91de47"
 	taste_description = "sparkling cactus water"
 	species_taste_description = list(
-        SPECIES_UNATHI = "an electric kick of strawberry and watermelon"
+		SPECIES_UNATHI = "an electric kick of strawberry and watermelon"
 	)
 
 /singleton/reagent/drink/zorasoda/cthur
