@@ -1496,8 +1496,8 @@
 	},
 /area/saniorios_outpost/gun)
 "Fa" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Sani'Orios Asteroid Outpost Gun"
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Sani'Orios Asteroid Outpost"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1742,13 +1742,6 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
-"Je" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/saniorios_outpost/gun)
 "Jq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1951,7 +1944,7 @@
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
-	weapon_id = "Hailstorm Starboard Gun"
+	weapon_id = "Sani'Orios Asteroid Outpost"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
@@ -21654,7 +21647,7 @@ lz
 Fs
 UK
 at
-Je
+at
 ix
 Kn
 Kn
