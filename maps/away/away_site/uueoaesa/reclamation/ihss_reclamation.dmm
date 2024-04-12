@@ -84,7 +84,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "ap" = (
 /obj/machinery/light{
 	dir = 1
@@ -145,8 +145,8 @@
 	},
 /area/ihss_reclamation/southhall)
 "aB" = (
-/turf/simulated/wall/shuttle/raider,
-/area/space)
+/turf/simulated/floor/foamedmetal,
+/area/ihss_reclamation/envirosim)
 "aF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -258,7 +258,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "aT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating{
@@ -552,7 +552,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "cs" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -616,7 +616,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "cF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -821,7 +821,7 @@
 /area/ihss_reclamation/simulation)
 "dz" = (
 /turf/simulated/floor/reinforced/hydrogen,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "dA" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -955,7 +955,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "ei" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, captain's quarters"
@@ -1128,7 +1128,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "fd" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1
@@ -1315,7 +1315,7 @@
 	name = "aft, hydrogen tank"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "gn" = (
 /turf/template_noop,
 /area/space)
@@ -1506,7 +1506,7 @@
 "he" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
 /turf/simulated/floor/reinforced/hydrogen,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "hh" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi,
@@ -1542,7 +1542,7 @@
 /area/ihss_reclamation/envirosim)
 "hn" = (
 /turf/simulated/wall/shuttle/raider,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "ho" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1670,7 +1670,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "iq" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -2175,7 +2175,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "kF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2335,7 +2335,7 @@
 	name = "aft, carbon dioxide tank"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "ld" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
@@ -2609,7 +2609,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "mr" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -3581,6 +3581,9 @@
 /obj/effect/shuttle_landmark/ihss_reclamation_shuttle/transit,
 /turf/space/transit/north,
 /area/space)
+"qB" = (
+/turf/simulated/floor/foamedmetal,
+/area/ihss_reclamation/southhall)
 "qF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3882,7 +3885,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "sf" = (
 /obj/structure/closet/hazmat/custodial,
 /turf/simulated/floor/tiled/dark{
@@ -4304,7 +4307,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "tV" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark{
@@ -4634,7 +4637,7 @@
 	id_tag = "ihss_h2_sensor"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "vE" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4803,7 +4806,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "wn" = (
 /obj/machinery/light{
 	dir = 8
@@ -4897,7 +4900,7 @@
 /area/ihss_reclamation/bridge)
 "wK" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "wQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -5039,7 +5042,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "xG" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
@@ -5164,7 +5167,7 @@
 	id_tag = "ihss_co2_sensor"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "ya" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5249,7 +5252,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "yj" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
@@ -5264,7 +5267,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "ym" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5722,6 +5725,9 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/bridge)
+"Ay" = (
+/turf/simulated/floor/foamedmetal,
+/area/ihss_reclamation/plantroom)
 "AA" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5925,7 +5931,7 @@
 	id_tag = "ihss_co2_out"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "Bx" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5977,7 +5983,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "BR" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -6000,7 +6006,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "BV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -6129,7 +6135,7 @@
 "CC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "CJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -6543,7 +6549,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "Fq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/reinforced/airless,
@@ -6760,7 +6766,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "Gq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -7248,7 +7254,7 @@
 	id_tag = "ihss_h2_out"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "In" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -7361,7 +7367,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "IU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/red/diagonal{
@@ -7847,7 +7853,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "La" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8432,6 +8438,9 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/xenobot)
+"Nu" = (
+/turf/simulated/floor/foamedmetal,
+/area/ihss_reclamation/mess)
 "Nw" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113)
@@ -8856,7 +8865,7 @@
 /area/shuttle/ihss_reclamation)
 "Pu" = (
 /turf/simulated/floor/foamedmetal,
-/area/space)
+/area/ihss_reclamation/armoryfoyer)
 "Pv" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -8902,7 +8911,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "PL" = (
 /obj/machinery/light,
 /turf/simulated/floor/plating{
@@ -9927,7 +9936,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "Ue" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -10726,7 +10735,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "XH" = (
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
@@ -11087,7 +11096,7 @@
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/crew/four)
+/area/ihss_reclamation/fuel)
 "ZI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -33577,7 +33586,7 @@ gn
 gn
 gn
 gn
-aB
+UP
 UP
 Ce
 cO
@@ -33618,7 +33627,7 @@ dX
 dX
 dX
 yv
-aB
+yv
 gn
 gn
 gn
@@ -33833,8 +33842,8 @@ gn
 gn
 gn
 gn
-aB
-aB
+UP
+UP
 UP
 pe
 cO
@@ -33875,8 +33884,8 @@ dX
 dX
 dX
 yv
-aB
-aB
+yv
+yv
 gn
 gn
 gn
@@ -34089,9 +34098,9 @@ gn
 gn
 gn
 gn
-aB
-aB
-Pu
+UP
+UP
+Nu
 UP
 Cv
 cO
@@ -34133,8 +34142,8 @@ yv
 yv
 yv
 yv
-aB
-aB
+yv
+yv
 gn
 gn
 gn
@@ -34345,10 +34354,10 @@ gn
 gn
 gn
 gn
-aB
-aB
-Pu
-Pu
+UP
+UP
+Nu
+Nu
 UP
 mp
 cO
@@ -34390,9 +34399,9 @@ DK
 nW
 MC
 yv
-Pu
-aB
-aB
+dX
+yv
+yv
 gn
 gn
 gn
@@ -34601,11 +34610,11 @@ gn
 gn
 gn
 gn
-aB
-aB
-Pu
-Pu
-Pu
+UP
+UP
+Nu
+Nu
+Nu
 UP
 xX
 cO
@@ -34647,9 +34656,9 @@ ar
 RI
 Yu
 yv
-Pu
-Pu
-aB
+dX
+dX
+yv
 gn
 gn
 gn
@@ -34857,12 +34866,12 @@ gn
 gn
 gn
 gn
-aB
-aB
-Pu
-Pu
-Pu
-Pu
+UP
+UP
+Nu
+Nu
+Nu
+Nu
 UP
 ML
 cO
@@ -34904,9 +34913,9 @@ ar
 vN
 Fg
 yv
-Pu
-Pu
-aB
+dX
+dX
+yv
 gn
 gn
 gn
@@ -35113,13 +35122,13 @@ gn
 gn
 gn
 gn
-aB
-aB
-Pu
-Pu
-Pu
-Pu
-Pu
+UP
+UP
+Nu
+Nu
+Nu
+Nu
+Nu
 UP
 Pc
 cO
@@ -35161,9 +35170,9 @@ zQ
 QK
 RN
 yv
-Pu
-Pu
-aB
+dX
+dX
+yv
 gn
 gn
 gn
@@ -35369,14 +35378,14 @@ gn
 gn
 gn
 gn
-aB
-aB
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
+UP
+UP
+Nu
+Nu
+Nu
+Nu
+Nu
+Nu
 UP
 bR
 cO
@@ -35418,9 +35427,9 @@ AX
 RQ
 Pj
 yv
-Pu
-Pu
-aB
+dX
+dX
+yv
 gn
 gn
 gn
@@ -35625,8 +35634,8 @@ gn
 gn
 gn
 gn
-aB
-aB
+oD
+oD
 Pu
 Pu
 Pu
@@ -35675,9 +35684,9 @@ AX
 RQ
 XO
 yv
-Pu
-Pu
-aB
+dX
+dX
+yv
 gn
 gn
 gn
@@ -35881,8 +35890,8 @@ gn
 gn
 gn
 gn
-aB
-aB
+oD
+oD
 Pu
 Pu
 Pu
@@ -35932,9 +35941,9 @@ Vj
 RQ
 UC
 yv
-Pu
-Pu
-aB
+dX
+dX
+yv
 gn
 gn
 gn
@@ -36137,8 +36146,8 @@ gn
 gn
 gn
 gn
-aB
-aB
+oD
+oD
 Pu
 Pu
 Pu
@@ -36189,9 +36198,9 @@ yv
 yv
 yv
 yv
-Pu
-Pu
-aB
+dX
+dX
+yv
 gn
 gn
 gn
@@ -36393,8 +36402,8 @@ gn
 gn
 gn
 gn
-aB
-aB
+oD
+oD
 Pu
 Pu
 Pu
@@ -36445,10 +36454,10 @@ WM
 Ms
 xH
 hu
-Pu
-Pu
-Pu
-aB
+qB
+qB
+qB
+hu
 gn
 gn
 gn
@@ -36649,8 +36658,8 @@ gn
 gn
 gn
 gn
-aB
-aB
+oD
+oD
 Pu
 Pu
 Pu
@@ -36702,10 +36711,10 @@ Ph
 Tu
 sf
 hu
-Pu
-Pu
-Pu
-aB
+qB
+qB
+qB
+hu
 gn
 gn
 gn
@@ -36961,8 +36970,8 @@ hu
 hu
 hu
 hu
-aB
-aB
+hu
+hu
 gn
 gn
 gn
@@ -51353,8 +51362,8 @@ hu
 hu
 hu
 hu
-aB
-aB
+dY
+dY
 gn
 gn
 gn
@@ -51555,20 +51564,20 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
 sg
 NJ
 uW
@@ -51607,11 +51616,11 @@ TQ
 gI
 Ar
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -51813,19 +51822,19 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
 sg
 Os
 NC
@@ -51864,11 +51873,11 @@ mV
 VZ
 ok
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -52071,14 +52080,14 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
+aB
+aB
+aB
+aB
 sg
 sg
 sg
@@ -52121,11 +52130,11 @@ mV
 VZ
 ny
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -52329,13 +52338,13 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
-Pu
-Pu
+aB
+aB
+aB
 sg
 wE
 XJ
@@ -52378,11 +52387,11 @@ BV
 VZ
 ny
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -52587,12 +52596,12 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
-Pu
+aB
+aB
 sg
 kh
 UU
@@ -52635,11 +52644,11 @@ oU
 VZ
 ny
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -52845,11 +52854,11 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
+aB
 sg
 SA
 vh
@@ -52892,11 +52901,11 @@ Xl
 VZ
 ok
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -53103,10 +53112,10 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
 sg
 sg
 sg
@@ -53149,11 +53158,11 @@ fh
 VZ
 av
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -53361,13 +53370,13 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
-Pu
-Pu
+aB
+aB
+aB
 sg
 Os
 NC
@@ -53406,11 +53415,11 @@ fh
 tX
 VB
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -53619,12 +53628,12 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
-Pu
+aB
+aB
 sg
 Os
 NC
@@ -53663,11 +53672,11 @@ HL
 VX
 Xo
 dY
-Pu
-Pu
-Pu
-Pu
-aB
+Ay
+Ay
+Ay
+Ay
+dY
 gn
 gn
 gn
@@ -53877,11 +53886,11 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
-Pu
+aB
 sg
 Os
 NC
@@ -53920,11 +53929,11 @@ Rs
 fO
 fO
 fO
-Pu
-Pu
-Pu
-aB
-aB
+Ay
+Ay
+Ay
+dY
+dY
 gn
 gn
 gn
@@ -54135,10 +54144,10 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
 aB
-Pu
-Pu
 sg
 vj
 NC
@@ -54177,10 +54186,10 @@ Ls
 yD
 nu
 fO
-Pu
-Pu
-aB
-aB
+Ay
+Ay
+dY
+dY
 gn
 gn
 gn
@@ -54393,9 +54402,9 @@ gn
 gn
 gn
 gn
+sg
+sg
 aB
-aB
-Pu
 sg
 Os
 NC
@@ -54434,9 +54443,9 @@ Qf
 gQ
 JS
 fO
-Pu
-aB
-aB
+Ay
+dY
+dY
 gn
 gn
 gn
@@ -54651,8 +54660,8 @@ gn
 gn
 gn
 gn
-aB
-aB
+sg
+sg
 sg
 nJ
 oF
@@ -54691,8 +54700,8 @@ Nz
 Nz
 Nz
 fO
-aB
-aB
+dY
+dY
 gn
 gn
 gn
@@ -54909,7 +54918,7 @@ gn
 gn
 gn
 gn
-aB
+sg
 sg
 sg
 sg
@@ -54948,7 +54957,7 @@ fO
 fO
 fO
 fO
-aB
+dY
 gn
 gn
 gn
