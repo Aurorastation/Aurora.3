@@ -202,7 +202,7 @@
  * A landmine that will explode when the door it is attached to opens
  */
 /obj/item/landmine/frag/door_rigging
-	name = "Door Rigging Landmine"
+	name = "door rigging landmine"
 	fragment_damage = 20
 
 	///The airlock that we are observing for when it opens, to explode
