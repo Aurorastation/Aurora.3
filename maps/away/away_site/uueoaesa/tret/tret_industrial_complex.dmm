@@ -615,7 +615,7 @@
 /turf/simulated/floor/tiled,
 /area/tret_industrial/storage)
 "hk" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial)
 "hL" = (
@@ -945,6 +945,9 @@
 	shuttle_tag = "Tret Mining Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/north{
+	name = "aft"
+	},
 /turf/simulated/floor/plating/tret,
 /area/shuttle/tret_industrial)
 "lz" = (
@@ -2503,6 +2506,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/tret_industrial)
+"Fd" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/tret_industrial)
 "FD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -2933,6 +2942,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/shuttle/tret_industrial)
+"LL" = (
+/obj/effect/landmark/entry_point/south{
+	name = "fore"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
 /area/shuttle/tret_industrial)
 "LU" = (
 /turf/simulated/floor/tiled,
@@ -3628,6 +3644,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/engineering)
+"UE" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/tret_industrial)
 "UH" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4711,7 +4733,7 @@ ee
 ee
 ee
 ee
-ee
+UE
 ee
 ee
 ee
@@ -4993,7 +5015,7 @@ VD
 VD
 VD
 kf
-hk
+LL
 Pj
 WC
 ot
@@ -5359,7 +5381,7 @@ ee
 ee
 ee
 ee
-ee
+Fd
 ee
 ee
 ee
