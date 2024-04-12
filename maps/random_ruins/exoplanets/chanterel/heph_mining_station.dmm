@@ -1205,9 +1205,6 @@
 	},
 /area/heph_mining_station/engineer)
 "sy" = (
-/obj/structure/closet/secure_closet/freezer/fridge{
-	name = "Vaurca Supplies - NOT FOR SINTA CONSUMPTION"
-	},
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
@@ -1224,6 +1221,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},

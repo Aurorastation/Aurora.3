@@ -1411,7 +1411,6 @@
 	},
 /area/miners_guild_outpost/mess)
 "Hy" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
@@ -1432,6 +1431,7 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/structure/closet/secure_closet/freezer,
 /turf/simulated/floor/lino{
 	temperature = 303.15
 	},
