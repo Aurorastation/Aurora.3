@@ -1,0 +1,4 @@
+author: Chevy
+delete-after: True
+changes:
+  - balance: "Raised jackboot armor values to meet those of workboots."
