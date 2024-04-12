@@ -450,7 +450,7 @@
 	},
 /obj/effect/landmark/corpse/kazhkz_crash,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/tiled/slate,
+/turf/simulated/floor/tiled/slate/airless,
 /area/shuttle/kazhkz_crash)
 "AV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
