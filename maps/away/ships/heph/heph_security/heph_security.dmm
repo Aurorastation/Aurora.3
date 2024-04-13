@@ -6507,6 +6507,9 @@
 	pixel_y = 5
 	},
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "ZI" = (
