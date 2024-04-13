@@ -324,6 +324,16 @@
 	new /obj/item/clothing/head/dominia/fleet/armsman(src)
 	new /obj/item/clothing/head/dominia/fleet/officer(src)
 	new /obj/item/clothing/suit/storage/dominia/fleet(src)
+	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/head/helmet/dominia
+	new /obj/item/clothing/head/helmet/dominia
+	new /obj/item/clothing/head/helmet/dominia
+	new /obj/item/clothing/head/helmet/dominia
+	new /obj/item/clothing/head/helmet/dominia/nco
 	new /obj/item/rig/jinxiang/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
@@ -371,6 +381,8 @@
 	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/head/helmet/dominia
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/voidsuit_modkit/dominianvoid(src)
