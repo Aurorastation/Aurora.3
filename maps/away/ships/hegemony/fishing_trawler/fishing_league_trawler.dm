@@ -2,11 +2,12 @@
 	name =  "Fishing League Trawler"
 	id = "fishing_trawler"
 	description = "A freighter sponsored by the Fishing league has been augmented with sharpened pylons designed to harvest carp shoals."
-	suffixes = list("ships/hegemony/fishing_trawler.dmm")
+	prefix = "ships/hegemony/fishing_trawler"
+	suffixes = list("fishing_trawler.dmm")
 	ship_cost = 1
 	spawn_weight = 1
 
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/trawler_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fishing_trawler)
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
 
 	unit_test_groups = list(2)
@@ -27,17 +28,17 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	initlal_restricted_waypoints = list(
+	initial_restricted_waypoints = list(
 		"Trawler Shuttle" = list("nav_fishing_trawler_shuttle")
 	)
 	initial_generic_waypoints = list(
-		"nav_fishing_trawler1"
-		"nav_fishing_trawler2"
-		"nav_fishing_trawler3"
+		"nav_fishing_trawler1",
+		"nav_fishing_trawler2",
+		"nav_fishing_trawler3",
 		"nav_fishing_trawler4"
 	)
 
-/obj/effect/overmap/visitable/ship/fishing_trawler/get_sky_box_representation()
+/obj/effect/overmap/visitable/ship/fishing_trawler/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "fishing_trawler")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
@@ -109,7 +110,7 @@
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/fishing_trawler/dock
 	docking_controller = "fishing_trawler_shuttle_dock"
-	moveable_flags = MOVEABLE_FLAG_EFFECTMOVE
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/fishing_trawler_shuttle/transit
 	name = "In transit"
