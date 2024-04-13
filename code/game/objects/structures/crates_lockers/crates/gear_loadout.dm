@@ -329,6 +329,11 @@
 	new /obj/item/clothing/suit/armor/carrier/dominia
 	new /obj/item/clothing/suit/armor/carrier/dominia
 	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/accessory/armor_plate/heavy/dominia
+	new /obj/item/clothing/accessory/armor_plate/heavy/dominia
+	new /obj/item/clothing/accessory/armor_plate/heavy/dominia
+	new /obj/item/clothing/accessory/armor_plate/heavy/dominia
+	new /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	new /obj/item/clothing/head/helmet/dominia
 	new /obj/item/clothing/head/helmet/dominia
 	new /obj/item/clothing/head/helmet/dominia
@@ -382,6 +387,7 @@
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/clothing/suit/armor/carrier/dominia
+	new /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	new /obj/item/clothing/head/helmet/dominia
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
